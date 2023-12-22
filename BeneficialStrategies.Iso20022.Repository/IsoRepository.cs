@@ -1,0 +1,36 @@
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Xml.Linq;
+
+namespace BeneficialStrategies.Iso20022.Repository;
+
+public class IsoRepository : IsoRepoElement
+{
+    public IsoRepository([NotNull] XElement xElement) : base(xElement)
+    {
+        Version = xElement.Attribute(IsoXmlAttributes.Xmi.Version)?.Value ?? string.Empty;
+        var childElements = xElement.Elements().ToArray();
+        DataDictionary = new DataDictionary(childElements[0]);
+    }
+    public string Version { get; }
+
+    public DataDictionary DataDictionary { get; }
+
+    public static IsoRepository Load(string fileName = CurrentlySupportedRepoFile)
+    {
+        var stopWatch = new Stopwatch();
+        stopWatch.Start();
+        XDocument xDocument = XDocument.Load(fileName);
+
+        Console.WriteLine($"Loaded {fileName} after {stopWatch.Elapsed.TotalSeconds} seconds. ");
+
+        var repoElement = xDocument.Elements().First();
+        var repo = new IsoRepository(repoElement);
+        stopWatch.Stop();
+        Console.WriteLine($"Finished iterations after {stopWatch.Elapsed.TotalSeconds} seconds.");
+        return repo;
+    }
+    public const string CurrentlySupportedRepoFile = "20230719_ISO20022_2013_eRepository.iso20022";
+
+
+}

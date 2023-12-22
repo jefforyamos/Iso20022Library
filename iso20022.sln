@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseCli", "ParseCli\ParseCli.csproj", "{A54604FE-FE42-4A2F-BC11-C51C53A4ACA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsoCodeGen", "IsoCodeGen\IsoCodeGen.csproj", "{54426D72-2F98-4861-9F7C-9CCB51848D65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8DA71BFE-DF85-42AD-81AA-2E9D02D1A291}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+		BeneficialStrategies.Iso20022.Common\.gitignore = BeneficialStrategies.Iso20022.Common\.gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Repository", "BeneficialStrategies.Iso20022.Repository\BeneficialStrategies.Iso20022.Repository.csproj", "{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Gen.CSharp", "BeneficialStrategies.Iso20022.Gen.CSharp\BeneficialStrategies.Iso20022.Gen.CSharp.csproj", "{3A377558-8DEF-4BB5-835C-CD468B5F70D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Common", "BeneficialStrategies.Iso20022.Common\BeneficialStrategies.Iso20022.Common.csproj", "{3EBE3276-7B7E-4C0C-91CA-84D94FEF3721}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A54604FE-FE42-4A2F-BC11-C51C53A4ACA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54604FE-FE42-4A2F-BC11-C51C53A4ACA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54604FE-FE42-4A2F-BC11-C51C53A4ACA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54604FE-FE42-4A2F-BC11-C51C53A4ACA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54426D72-2F98-4861-9F7C-9CCB51848D65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54426D72-2F98-4861-9F7C-9CCB51848D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54426D72-2F98-4861-9F7C-9CCB51848D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54426D72-2F98-4861-9F7C-9CCB51848D65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A377558-8DEF-4BB5-835C-CD468B5F70D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A377558-8DEF-4BB5-835C-CD468B5F70D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A377558-8DEF-4BB5-835C-CD468B5F70D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A377558-8DEF-4BB5-835C-CD468B5F70D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EBE3276-7B7E-4C0C-91CA-84D94FEF3721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EBE3276-7B7E-4C0C-91CA-84D94FEF3721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EBE3276-7B7E-4C0C-91CA-84D94FEF3721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EBE3276-7B7E-4C0C-91CA-84D94FEF3721}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3EBE3276-7B7E-4C0C-91CA-84D94FEF3721} = {8DA71BFE-DF85-42AD-81AA-2E9D02D1A291}
+	EndGlobalSection
+EndGlobal
