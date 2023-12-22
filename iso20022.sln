@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8DA71BFE-DF85-42AD-81AA-2E9D02D1A291}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
-		BeneficialStrategies.Iso20022.Common\.gitignore = BeneficialStrategies.Iso20022.Common\.gitignore
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Repository", "BeneficialStrategies.Iso20022.Repository\BeneficialStrategies.Iso20022.Repository.csproj", "{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}"

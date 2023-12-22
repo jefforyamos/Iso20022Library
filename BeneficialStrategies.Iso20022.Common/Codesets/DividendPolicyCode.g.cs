@@ -1,4 +1,6 @@
 ﻿
+using System.Reflection;
+
 namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
@@ -55,21 +57,25 @@ public static class DividendPolicyCodeMetadataExtensions
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>
-    public static EnumMetadataItem GetMetadata(this DividendPolicyCode code)
+    public static IDividendPolicyCodeDropdownRow GetMetadata(this DividendPolicyCode code)
     {
         return _dropdownSource.Lookup(code) ;
     }
 }
 
-
-
 /// <summary>
 /// The values that should be expected from a single row of dropdown data.
 /// </summary>
-public partial interface IDividendPolicyCodeDropdownRow : IEnumMetadataDropdownRow
+public partial interface IDividendPolicyCodeDropdownRow : IEnumMetadataDropdownRow<DividendPolicyCode>
 {
 }
 
+public partial class DividendPolicyCodeDropdownRow : EnumMetadataItem<DividendPolicyCode>, IDividendPolicyCodeDropdownRow
+{
+    public DividendPolicyCodeDropdownRow(DividendPolicyCode value, MemberInfo memberInfo) : base( value, memberInfo)
+    {
+    }
+}
 
 /// <summary>
 /// Used to inject dependencies that require dropdown choice values.
@@ -84,8 +90,13 @@ public partial interface IDividendPolicyCodeDropdownSource : IDropdownDataSource
 /// Provides values to be used in dropdown select lists and validation logic.
 /// Implements <seealso cref="IDividendPolicyCodeDropdownSource"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>
-public partial class DividendPolicyCodeDropdownSource : EnumMetadataManager<DividendPolicyCode>, IDividendPolicyCodeDropdownSource
+public partial class DividendPolicyCodeDropdownSource : EnumMetadataManager<DividendPolicyCode,IDividendPolicyCodeDropdownRow,DividendPolicyCodeDropdownRow>, IDividendPolicyCodeDropdownSource
 {
-    IEnumerable<IDividendPolicyCodeDropdownRow> IDropdownDataSource<IDividendPolicyCodeDropdownRow>.DropdownValues => throw new NotImplementedException();
+    public DividendPolicyCodeDropdownSource()
+        : base( (enumValue, memberInfo) => new DividendPolicyCodeDropdownRow(enumValue, memberInfo))
+    {
+    }
+
+    // public IEnumerable<IDividendPolicyCodeDropdownRow> DropdownValues => _listAsLoaded;
 }
 

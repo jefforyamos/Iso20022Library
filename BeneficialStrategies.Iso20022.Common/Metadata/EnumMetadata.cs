@@ -1,30 +1,48 @@
 ﻿
+using System.Reflection;
+
 namespace BeneficialStrategies.Iso20022.Common.Metadata;
 
-public class EnumMetadataManager<TEnum> : IDropdownDataSource<IDropdownRow>
+/// <summary>
+/// Provides implementation of <seealso cref="IDropdownDataSource{T}"/> by gathering information from metadata that adorns the code generated from the ISO20022 specification.
+/// </summary>
+/// <typeparam name="TEnum">The data type of the enumeration for this set of possible values.</typeparam>
+/// <typeparam name="TRowInterface">The data type of the interface implemented by this </typeparam>
+/// <typeparam name="TRowImpl">The data type that extends <seealso cref="EnumMetadataItem"/> providing the required properties appropriate for this type of information.</typeparam>
+public abstract class EnumMetadataManager<TEnum,TRowInterface,TRowImpl> : IDropdownDataSource<TRowInterface>
     where TEnum : struct
+    where TRowInterface : IEnumMetadataDropdownRow<TEnum>
+    where TRowImpl : EnumMetadataItem<TEnum>, TRowInterface
 {
-    private readonly Dictionary<TEnum, EnumMetadataItem> _lookup;
-    private readonly EnumMetadataItem[] _listAsLoaded;
+    protected readonly Dictionary<TEnum, TRowImpl> _lookup;
+    protected readonly TRowInterface[] _listAsLoaded;
 
-    public EnumMetadataManager()
+    /// <summary>
+    /// Called by the implementation class in its constructor.
+    /// </summary>
+    /// <param name="rowConversionFunction">Function that constructs and returns a <see cref="TRowImpl"/> instance.</param>
+    protected EnumMetadataManager(Func<TEnum,MemberInfo,TRowImpl> rowConversionFunction)
     {
         var enumType = typeof(TEnum);
-        var ordinalCounter = 0;
         var query = from enumValue in enumType.GetEnumValues().Cast<TEnum>()
                     let memberName = enumValue.ToString()
                     let memberInfo = enumType.GetMember(memberName).First()
-                    let specifiedOrder = ordinalCounter++
-                    select new { Key = enumValue, Info = memberInfo, Info2 = new EnumMetadataItem(memberInfo) };
+                    let converted = rowConversionFunction.Invoke(enumValue, memberInfo)
+                    select new { Key = enumValue, Info = memberInfo, RowData = converted };
         var preProcessed = query.ToArray();
-        _lookup = preProcessed.ToDictionary(item => item.Key, item => item.Info2);
-        _listAsLoaded = preProcessed.Select(i => i.Info2).ToArray();
+        _lookup = preProcessed.ToDictionary(item => item.Key, item => item.RowData);
+        _listAsLoaded = preProcessed.Select(i => i.RowData).ToArray();
     }
 
-    public IEnumerable<IDropdownRow> DropdownValues => _listAsLoaded;
+    /// <summary>
+    /// Provides data to use in a dropdown list or in validation logic.
+    /// </summary>
+    IEnumerable<TRowInterface> IDropdownDataSource<TRowInterface>.DropdownValues => _listAsLoaded;
 
-    public EnumMetadataItem Lookup(TEnum itemValue)
-    {
-        return _lookup[itemValue];
-    }
+    /// <summary>
+    /// Given a specific enum value, looks up the corresponding row data.
+    /// </summary>
+    /// <param name="itemValue"></param>
+    /// <returns></returns>
+    public TRowInterface Lookup(TEnum itemValue) => _lookup[itemValue];
 }
