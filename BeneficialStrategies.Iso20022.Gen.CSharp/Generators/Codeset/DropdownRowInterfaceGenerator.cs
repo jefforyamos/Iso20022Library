@@ -1,0 +1,46 @@
+﻿using BeneficialStrategies.Iso20022.Repository;
+
+namespace BeneficialStrategies.Iso20022.Gen.CSharp;
+
+/// <summary>
+/// Generates interfaces to be used concerning codeset values maintained externally.
+/// </summary>
+public class DropdownRowInterfaceGenerator : Generator<CodeSet>
+{
+    public DropdownRowInterfaceGenerator()
+        : base(repo => repo.DataDictionary.CodeSets
+        .Where(cs => cs.IsExternal)
+        .Take(10) // Todo: Remove this
+        )
+    {
+
+    }
+
+    protected override DirectoryInfo DetermineTargetDirectory(DirectoryInfo projectDirectoryRoot)
+    {
+        var combinedPath = Path.Combine(projectDirectoryRoot.FullName, "Codesets");
+        return new DirectoryInfo(combinedPath);
+    }
+
+    protected override FileInfo DetermineOutputFile(CodeSet item, DirectoryInfo projectDirectoryRoot)
+    {
+        var targetFolder = DetermineTargetDirectory(projectDirectoryRoot);
+        if (!targetFolder.Exists) throw new DirectoryNotFoundException(targetFolder.FullName);
+        return new FileInfo(Path.Combine(targetFolder.FullName, $"{item.GenNames.IDropdownRow}.g.cs"));
+    }
+
+    protected override void WriteContents(CodeSet item, TextWriter textWriter)
+    {
+        WriteStandardHeader(item, textWriter);
+        textWriter.WriteLine("namespace BeneficialStrategies.Iso20222.Common;");
+        textWriter.WriteLine($@"
+/// <summary>
+/// The values that should be expected from a single row of dropdown data.
+/// </summary>
+public partial interface {item.GenNames.IDropdownRow} : IDropdownRow
+{{
+}}
+");
+    }
+}
+

@@ -5,10 +5,10 @@ namespace BeneficialStrategies.Iso20022.Gen.CSharp;
 /// <summary>
 /// Generates interfaces to be used concerning codeset values maintained externally.
 /// </summary>
-public class ExternalCodesetGenerator : Generator<CodeSet>
+public class DropdownSourceInterfaceGenerator : Generator<CodeSet>
 {
-    public ExternalCodesetGenerator()
-        : base( repo => repo.DataDictionary.CodeSets
+    public DropdownSourceInterfaceGenerator()
+        : base(repo => repo.DataDictionary.CodeSets
         .Where(cs => cs.IsExternal)
         .Take(10) // Todo: Remove this
         )
@@ -22,15 +22,17 @@ public class ExternalCodesetGenerator : Generator<CodeSet>
         return new DirectoryInfo(combinedPath);
     }
 
-    protected override void WriteContents(CodeSet item, TextWriter textWriter)
+    protected override FileInfo DetermineOutputFile(CodeSet item, DirectoryInfo projectDirectoryRoot)
     {
-        textWriter.WriteLine("namespace BeneficialStrategies.Iso20222.Common;");
-        WriteIDropdownRow(item, textWriter);
-        WriteIDropdownSource(item, textWriter);
+        var targetFolder = DetermineTargetDirectory(projectDirectoryRoot);
+        if (!targetFolder.Exists) throw new DirectoryNotFoundException(targetFolder.FullName);
+        return new FileInfo(Path.Combine(targetFolder.FullName, $"{item.GenNames.IDropdownSource}.g.cs"));
     }
 
-    internal static void WriteIDropdownSource(CodeSet item, TextWriter textWriter)
+    protected override void WriteContents(CodeSet item, TextWriter textWriter)
     {
+        WriteStandardHeader(item, textWriter);
+        textWriter.WriteLine("namespace BeneficialStrategies.Iso20222.Common;");
         textWriter.WriteLine($@"
 /// <summary>
 /// Used to inject dependencies that require dropdown choice values.
@@ -42,18 +44,7 @@ public partial interface {item.GenNames.IDropdownSource} : IDropdownDataSource<{
 }}
 ");
     }
-
-
-    internal static void WriteIDropdownRow(CodeSet item, TextWriter textWriter)
-    {
-        textWriter.WriteLine($@"
-/// <summary>
-/// The values that should be expected from a single row of dropdown data.
-/// </summary>
-public partial interface {item.GenNames.IDropdownRow} : IDropdownRow
-{{
-}}
-");
-    }
-
 }
+
+
+

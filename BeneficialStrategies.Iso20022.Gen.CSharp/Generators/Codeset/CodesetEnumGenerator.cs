@@ -27,6 +27,7 @@ public class CodesetEnumGenerator : Generator<CodeSet>
     /// <param name="textWriter"></param>
     protected override void WriteContents(CodeSet item, TextWriter textWriter)
     {
+        WriteStandardHeader(item, textWriter);
         textWriter.WriteLine(@$"
 
 using System.Reflection;

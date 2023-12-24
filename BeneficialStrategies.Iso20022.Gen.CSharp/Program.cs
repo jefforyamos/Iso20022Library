@@ -23,7 +23,9 @@ class Program
 
         var generatorList = new List<IGenerate>
         {
-            new ExternalCodesetGenerator(),
+            // new ExternalCodesetGenerator(),
+            new DropdownRowInterfaceGenerator(),
+            new DropdownSourceInterfaceGenerator(),
             new CodesetEnumGenerator(),
         };
 
