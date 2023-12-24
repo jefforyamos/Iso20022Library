@@ -41,4 +41,6 @@ public class CSharpDerivedNames
     public string IDropdownSource => $"I{_parent.Name}DropdownSource"; 
 
     public string IDropdownRow => $"I{_parent.Name}DropdownRow";
+
+    public string DropdownRow => $"{_parent.Name}DropdownRow";
 }

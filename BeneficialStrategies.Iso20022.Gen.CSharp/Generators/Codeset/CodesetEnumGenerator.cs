@@ -28,6 +28,9 @@ public class CodesetEnumGenerator : Generator<CodeSet>
     protected override void WriteContents(CodeSet item, TextWriter textWriter)
     {
         textWriter.WriteLine(@$"
+
+using System.Reflection;
+
 namespace BeneficialStrategies.Iso20222.Common;
 
 /// <summary>
@@ -54,6 +57,7 @@ public enum {item.GenNames.Enum}
 
         WriteMetadataExtensions(item, textWriter);
         WriteIDropdownRow(item, textWriter);
+        WriteDropdownRow(item, textWriter);
         WriteIDropdownSource(item, textWriter);
         WriteDropdownSource(item, textWriter);
     }
@@ -72,7 +76,7 @@ public static class {item.Name}MetadataExtensions
     /// <summary>
     /// Returns the metadata associated with this enum value.
     /// </summary>
-    public static EnumMetadataItem GetMetadata(this {item.Name} code)
+    public static {item.GenNames.IDropdownRow} GetMetadata(this {item.Name} code)
     {{
         return _dropdownSource.Lookup(code) ;
     }}
@@ -101,12 +105,31 @@ public partial interface {item.GenNames.IDropdownSource} : IDropdownDataSource<{
 /// <summary>
 /// The values that should be expected from a single row of dropdown data.
 /// </summary>
-public partial interface {item.GenNames.IDropdownRow} : IEnumMetadataDropdownRow
+public partial interface {item.GenNames.IDropdownRow} : IEnumMetadataDropdownRow<{item.GenNames.Enum}>
 {{
 }}
 ");
     }
 
+    internal static void WriteDropdownRow(CodeSet item, TextWriter textWriter)
+    {
+        textWriter.WriteLine($@"
+/// <summary>
+/// Default implementation of <seealso cref=""{item.GenNames.IDropdownRow}""/> that contains metadata embedded in the code.
+/// </summary>
+public partial class {item.GenNames.DropdownRow} : EnumMetadataItem<{item.GenNames.Enum}>, {item.GenNames.IDropdownRow}
+{{
+    /// <summary>
+    /// Constructs row state using the specified enum value and reflected values.
+    /// </summary>
+    /// <param name=""value"">Enum value for this row.</param>
+    /// <param name=""memberInfo"">Reflected values specific to this row.</param>
+    public {item.GenNames.DropdownRow}({item.GenNames.Enum} value, MemberInfo memberInfo) : base( value, memberInfo)
+    {{
+    }}
+}}
+");
+    }
 
     internal static void WriteDropdownSource(CodeSet item, TextWriter textWriter)
     {
@@ -115,8 +138,12 @@ public partial interface {item.GenNames.IDropdownRow} : IEnumMetadataDropdownRow
 /// Provides values to be used in dropdown select lists and validation logic.
 /// Implements <seealso cref=""{item.GenNames.IDropdownSource}""/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>
-public partial class {item.GenNames.DropdownSource} : EnumMetadataManager<{item.GenNames.Enum}> // , {item.GenNames.IDropdownSource}
+public partial class {item.GenNames.DropdownSource} : EnumMetadataManager<{item.GenNames.Enum},{item.GenNames.IDropdownRow},{item.GenNames.DropdownRow}>
 {{
+    public {item.GenNames.DropdownSource}()
+        : base( (enumValue, memberInfo) => new {item.GenNames.DropdownRow}(enumValue, memberInfo))
+    {{
+    }}
 }}
 ");
     }

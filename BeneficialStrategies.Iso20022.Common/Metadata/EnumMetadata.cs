@@ -37,7 +37,8 @@ public abstract class EnumMetadataManager<TEnum,TRowInterface,TRowImpl> : IDropd
     /// <summary>
     /// Provides data to use in a dropdown list or in validation logic.
     /// </summary>
-    IEnumerable<TRowInterface> IDropdownDataSource<TRowInterface>.DropdownValues => _listAsLoaded;
+    // IEnumerable<TRowInterface> IDropdownDataSource<TRowInterface>.DropdownValues => _listAsLoaded;
+    public IEnumerable<TRowInterface> DropdownValues => _listAsLoaded;
 
     /// <summary>
     /// Given a specific enum value, looks up the corresponding row data.

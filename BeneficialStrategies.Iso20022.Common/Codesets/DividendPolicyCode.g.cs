@@ -1,4 +1,5 @@
 ﻿
+
 using System.Reflection;
 
 namespace BeneficialStrategies.Iso20222.Common;
@@ -17,7 +18,7 @@ public enum DividendPolicyCode
     /// Dividend is paid daily and can be accrued.
     /// </summary>
     [IsoId("_axET4tp-Ed-ak6NoX_4Aeg_1318003656")]
-    [Description("Dividend is paid daily and can be accrued.")]
+    [Description(@"Dividend is paid daily and can be accrued.")]
     DACR,
 
 
@@ -25,7 +26,7 @@ public enum DividendPolicyCode
     /// Dividend is paid in cash.
     /// </summary>
     [IsoId("_axET49p-Ed-ak6NoX_4Aeg_2079909550")]
-    [Description("Dividend is paid in cash.")]
+    [Description(@"Dividend is paid in cash.")]
     CASH,
 
 
@@ -33,7 +34,7 @@ public enum DividendPolicyCode
     /// Dividend is paid in units.
     /// </summary>
     [IsoId("_axET5Np-Ed-ak6NoX_4Aeg_2145480783")]
-    [Description("Dividend is paid in units.")]
+    [Description(@"Dividend is paid in units.")]
     UNIT,
 
 
@@ -41,8 +42,9 @@ public enum DividendPolicyCode
     /// Dividend is paid in both Cash and Units.
     /// </summary>
     [IsoId("_axET5dp-Ed-ak6NoX_4Aeg_-385543747")]
-    [Description("Dividend is paid in both Cash and Units.")]
+    [Description(@"Dividend is paid in both Cash and Units.")]
     BOTH,
+
 }
 
 
@@ -62,6 +64,8 @@ public static class DividendPolicyCodeMetadataExtensions
     }
 }
 
+
+
 /// <summary>
 /// The values that should be expected from a single row of dropdown data.
 /// </summary>
@@ -69,12 +73,22 @@ public partial interface IDividendPolicyCodeDropdownRow : IEnumMetadataDropdownR
 {
 }
 
+
+/// <summary>
+/// Default implementation of <seealso cref="IDividendPolicyCodeDropdownRow"/> that contains metadata embedded in the code.
+/// </summary>
 public partial class DividendPolicyCodeDropdownRow : EnumMetadataItem<DividendPolicyCode>, IDividendPolicyCodeDropdownRow
 {
+    /// <summary>
+    /// Constructs row state using the specified enum value and reflected values.
+    /// </summary>
+    /// <param name="value">Enum value for this row.</param>
+    /// <param name="memberInfo">Reflected values specific to this row.</param>
     public DividendPolicyCodeDropdownRow(DividendPolicyCode value, MemberInfo memberInfo) : base( value, memberInfo)
     {
     }
 }
+
 
 /// <summary>
 /// Used to inject dependencies that require dropdown choice values.
@@ -89,7 +103,7 @@ public partial interface IDividendPolicyCodeDropdownSource : IDropdownDataSource
 /// Provides values to be used in dropdown select lists and validation logic.
 /// Implements <seealso cref="IDividendPolicyCodeDropdownSource"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>
-public partial class DividendPolicyCodeDropdownSource : EnumMetadataManager<DividendPolicyCode,IDividendPolicyCodeDropdownRow,DividendPolicyCodeDropdownRow>, IDividendPolicyCodeDropdownSource
+public partial class DividendPolicyCodeDropdownSource : EnumMetadataManager<DividendPolicyCode,IDividendPolicyCodeDropdownRow,DividendPolicyCodeDropdownRow>
 {
     public DividendPolicyCodeDropdownSource()
         : base( (enumValue, memberInfo) => new DividendPolicyCodeDropdownRow(enumValue, memberInfo))
