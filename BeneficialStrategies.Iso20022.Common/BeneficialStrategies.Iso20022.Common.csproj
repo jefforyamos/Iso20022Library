@@ -6,13 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
- 
-  <ItemGroup>
-    <None Remove="Metadata\" />
-    <None Remove="Codesets\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Metadata\" />
-    <Folder Include="Codesets\" />
-  </ItemGroup>
-</Project>
+ </Project>
