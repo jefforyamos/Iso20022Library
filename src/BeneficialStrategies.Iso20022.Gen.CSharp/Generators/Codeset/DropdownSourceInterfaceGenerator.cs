@@ -9,7 +9,7 @@ public class DropdownSourceInterfaceGenerator : Generator<CodeSet>
 {
     public DropdownSourceInterfaceGenerator()
         : base(repo => repo.DataDictionary.CodeSets
-        // .Where(cs => cs.Name == "ExternalOrganisationIdentificationCode") // Todo: Remove this after troubleshooting
+        .Where(GlobalCodesetFilter)
         )
     {
 
@@ -17,7 +17,7 @@ public class DropdownSourceInterfaceGenerator : Generator<CodeSet>
 
     protected override DirectoryInfo DetermineTargetDirectory(DirectoryInfo projectDirectoryRoot)
     {
-        var combinedPath = Path.Combine(projectDirectoryRoot.FullName, "Codesets");
+        var combinedPath = Path.Combine(projectDirectoryRoot.FullName, "Codesets/Interface");
         return new DirectoryInfo(combinedPath);
     }
 

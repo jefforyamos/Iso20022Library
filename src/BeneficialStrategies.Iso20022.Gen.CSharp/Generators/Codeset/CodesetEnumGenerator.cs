@@ -10,14 +10,14 @@ public class CodesetEnumGenerator : Generator<CodeSet>
     public CodesetEnumGenerator()
         : base(repo => repo.DataDictionary.CodeSets
         .Where(cs => !cs.IsExternal)
-        // .Where(cs => cs.Name == "ExternalOrganisationIdentificationCode") // Todo: Remove this after troubleshooting
+        .Where(GlobalCodesetFilter)
         )
     {
     }
 
     protected override DirectoryInfo DetermineTargetDirectory(DirectoryInfo projectDirectoryRoot)
     {
-        var combinedPath = Path.Combine(projectDirectoryRoot.FullName, "Codesets");
+        var combinedPath = Path.Combine(projectDirectoryRoot.FullName, "Codesets/Enum");
         return new DirectoryInfo(combinedPath);
     }
     /// <summary>
@@ -33,7 +33,7 @@ public class CodesetEnumGenerator : Generator<CodeSet>
             "System.Runtime.Serialization");
         WriteNamespace(item, textWriter);
         WriteClassComments(item, textWriter);
-        WriteLines(item, textWriter, 0,
+        WriteLines(textWriter, 0,
             "[DataContract]",
             "[Serializable]",
             $@"[IsoId(""{item.Id}"")]",
@@ -44,7 +44,7 @@ public class CodesetEnumGenerator : Generator<CodeSet>
         foreach(var codeItem in item.Codes)
         {
             WriteClassComments(codeItem, textWriter, 4);
-            WriteLines(codeItem, textWriter, 4,
+            WriteLines(textWriter, 4,
                 $@"[EnumMember(Value = ""{codeItem.CodeName}"")]",
                 $@"[IsoId(""{codeItem.Id}"")]",
                 $@"[Description(@""{codeItem.Definition.FixStringForEnclusionInQuotedAttribute()}"")]",
@@ -56,9 +56,9 @@ public class CodesetEnumGenerator : Generator<CodeSet>
 
         WriteMetadataExtensions(item, textWriter);
         // WriteIDropdownRow(item, textWriter);
-        WriteDropdownRow(item, textWriter);
+        // WriteDropdownRow(item, textWriter);
         // WriteIDropdownSource(item, textWriter);
-        WriteDropdownSource(item, textWriter);
+        // WriteDropdownSource(item, textWriter);
     }
 
     internal static void WriteMetadataExtensions(CodeSet item, TextWriter textWriter)
@@ -122,5 +122,4 @@ public partial class {item.GenNames.DropdownSource} : EnumMetadataManager<{item.
     }
 
 }
-
 

@@ -27,6 +27,8 @@ class Program
             new DropdownRowInterfaceGenerator(),
             new DropdownSourceInterfaceGenerator(),
             new CodesetEnumGenerator(),
+            new DropdownSourceGenerator(),
+            new DropdownRowGenerator(),
         };
 
         foreach( var generator in generatorList)
