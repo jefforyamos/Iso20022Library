@@ -9,8 +9,7 @@ public class DropdownSourceInterfaceGenerator : Generator<CodeSet>
 {
     public DropdownSourceInterfaceGenerator()
         : base(repo => repo.DataDictionary.CodeSets
-        .Where(cs => cs.IsExternal)
-        .Take(10) // Todo: Remove this
+        // .Where(cs => cs.Name == "ExternalOrganisationIdentificationCode") // Todo: Remove this after troubleshooting
         )
     {
 
@@ -33,12 +32,27 @@ public class DropdownSourceInterfaceGenerator : Generator<CodeSet>
     {
         WriteStandardHeader(item, textWriter);
         textWriter.WriteLine("namespace BeneficialStrategies.Iso20222.Common;");
-        textWriter.WriteLine($@"
+        if (item.IsExternal)
+        {
+            textWriter.WriteLine($@"
 /// <summary>
 /// Used to inject dependencies that require dropdown choice values.
 /// Understood to be uniquely a source of choices appropriate for a valid {item.Name} value.
 /// It is the responsibility of the implementers of this interface to conform to the required specifications.
 /// </summary>
+");
+        }
+        else
+        {
+            textWriter.WriteLine($@"
+/// <summary>
+/// Used to inject dependencies that require dropdown choice values.
+/// Understood to be uniquely a source of choices appropriate for a valid {item.Name} value.
+/// It is strongly urged that you use the provided <seealso cref=""{item.GenNames.DropdownSource}""/> that extracts the ISO20022 specified values from metadata in the codebase.
+/// </summary>
+");
+        }
+        textWriter.WriteLine($@"
 public partial interface {item.GenNames.IDropdownSource} : IDropdownDataSource<{item.GenNames.IDropdownRow}>
 {{
 }}

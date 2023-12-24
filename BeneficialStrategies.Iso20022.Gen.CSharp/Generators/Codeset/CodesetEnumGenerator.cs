@@ -10,7 +10,7 @@ public class CodesetEnumGenerator : Generator<CodeSet>
     public CodesetEnumGenerator()
         : base(repo => repo.DataDictionary.CodeSets
         .Where(cs => !cs.IsExternal)
-        .Take(10) // Todo: Remove this
+        // .Where(cs => cs.Name == "ExternalOrganisationIdentificationCode") // Todo: Remove this after troubleshooting
         )
     {
     }
@@ -28,38 +28,36 @@ public class CodesetEnumGenerator : Generator<CodeSet>
     protected override void WriteContents(CodeSet item, TextWriter textWriter)
     {
         WriteStandardHeader(item, textWriter);
-        textWriter.WriteLine(@$"
-
-using System.Reflection;
-
-namespace BeneficialStrategies.Iso20222.Common;
-
-/// <summary>
-/// {item.Definition}
-/// </summary>
-[Serializable]
-[IsoId(""{item.Id}"")]
-[Description(@""{item.Definition.FixStringForEnclusionInQuotedAttribute()}"")]
-public enum {item.GenNames.Enum}
-{{
-");
+        WriteUsings(item, textWriter,
+            "System.Reflection",
+            "System.Runtime.Serialization");
+        WriteNamespace(item, textWriter);
+        WriteClassComments(item, textWriter);
+        WriteLines(item, textWriter, 0,
+            "[DataContract]",
+            "[Serializable]",
+            $@"[IsoId(""{item.Id}"")]",
+            $@"[Description(@""{item.Definition.FixStringForEnclusionInQuotedAttribute()}"")]",
+            $@"public enum {item.GenNames.Enum}",
+            "{"
+            );
         foreach(var codeItem in item.Codes)
         {
-            textWriter.WriteLine($@"
-    /// <summary>
-    /// {codeItem.Definition}
-    /// </summary>
-    [IsoId(""{codeItem.Id}"")]
-    [Description(@""{codeItem.Definition.FixStringForEnclusionInQuotedAttribute()}"")]
-    {codeItem.CodeName ?? codeItem.Name},
-");
+            WriteClassComments(codeItem, textWriter, 4);
+            WriteLines(codeItem, textWriter, 4,
+                $@"[EnumMember(Value = ""{codeItem.CodeName}"")]",
+                $@"[IsoId(""{codeItem.Id}"")]",
+                $@"[Description(@""{codeItem.Definition.FixStringForEnclusionInQuotedAttribute()}"")]",
+                $@"{codeItem.LegalCodeName},",
+                ""
+                );
         }
         textWriter.WriteLine("}");
 
         WriteMetadataExtensions(item, textWriter);
-        WriteIDropdownRow(item, textWriter);
+        // WriteIDropdownRow(item, textWriter);
         WriteDropdownRow(item, textWriter);
-        WriteIDropdownSource(item, textWriter);
+        // WriteIDropdownSource(item, textWriter);
         WriteDropdownSource(item, textWriter);
     }
 
@@ -83,32 +81,6 @@ public static class {item.Name}MetadataExtensions
     }}
 }}
 
-");
-    }
-
-    internal static void WriteIDropdownSource(CodeSet item, TextWriter textWriter)
-    {
-        textWriter.WriteLine($@"
-/// <summary>
-/// Used to inject dependencies that require dropdown choice values.
-/// Understood to be uniquely a source of choices appropriate for a valid <seealso cref=""{item.Name}""/>.
-/// </summary>
-public partial interface {item.GenNames.IDropdownSource} : IDropdownDataSource<{item.GenNames.IDropdownRow}>
-{{
-}}
-");
-    }
-
-
-    internal static void WriteIDropdownRow(CodeSet item, TextWriter textWriter)
-    {
-        textWriter.WriteLine($@"
-/// <summary>
-/// The values that should be expected from a single row of dropdown data.
-/// </summary>
-public partial interface {item.GenNames.IDropdownRow} : IEnumMetadataDropdownRow<{item.GenNames.Enum}>
-{{
-}}
 ");
     }
 
@@ -150,3 +122,5 @@ public partial class {item.GenNames.DropdownSource} : EnumMetadataManager<{item.
     }
 
 }
+
+

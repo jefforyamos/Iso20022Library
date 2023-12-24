@@ -9,8 +9,7 @@ public class DropdownRowInterfaceGenerator : Generator<CodeSet>
 {
     public DropdownRowInterfaceGenerator()
         : base(repo => repo.DataDictionary.CodeSets
-        .Where(cs => cs.IsExternal)
-        .Take(10) // Todo: Remove this
+        // .Where(cs => cs.Name == "ExternalOrganisationIdentificationCode") // Todo: Remove this after troubleshooting
         )
     {
 
@@ -31,13 +30,16 @@ public class DropdownRowInterfaceGenerator : Generator<CodeSet>
 
     protected override void WriteContents(CodeSet item, TextWriter textWriter)
     {
+        var inheritance = item.IsExternal
+            ? "IDropdownRow"
+            : $"IEnumMetadataDropdownRow<{item.GenNames.Enum}>";
         WriteStandardHeader(item, textWriter);
         textWriter.WriteLine("namespace BeneficialStrategies.Iso20222.Common;");
         textWriter.WriteLine($@"
 /// <summary>
 /// The values that should be expected from a single row of dropdown data.
 /// </summary>
-public partial interface {item.GenNames.IDropdownRow} : IDropdownRow
+public partial interface {item.GenNames.IDropdownRow} : {inheritance}
 {{
 }}
 ");

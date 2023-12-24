@@ -11,12 +11,21 @@ public abstract class IsoRepoElement
         this.xElement = xElement ?? throw new ArgumentNullException(nameof(xElement));
         this.Id = xElement?.Attribute(IsoXmlAttributes.Xmi.Id)?.Value ?? "Unknown";
         Name = xElement?.Attribute(IsoXmlAttributes.Default.Name)?.Value ?? "??";
+        var definition = xElement?.Attribute(IsoXmlAttributes.Default.Definition)?.Value ?? "??";
+        Definition = definition.Split("\r\n");
         GenNames = new CSharpDerivedNames(this);
     }
 
     public string Id { get; }
 
     public string Name { get; }
+
+    public string[] Definition { get; }
+
+    /// <summary>
+    /// For the definition embedded inside a desc attribute.
+    /// </summary>
+    public string DefinitionWithQuotesDoubled => string.Join(" ", Definition).Replace("\"", "\"\"");
 
     public CSharpDerivedNames GenNames { get; } 
 
