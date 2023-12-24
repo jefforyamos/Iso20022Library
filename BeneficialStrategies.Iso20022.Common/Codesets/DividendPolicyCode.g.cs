@@ -43,7 +43,6 @@ public enum DividendPolicyCode
     [IsoId("_axET5dp-Ed-ak6NoX_4Aeg_-385543747")]
     [Description("Dividend is paid in both Cash and Units.")]
     BOTH,
-
 }
 
 
@@ -96,7 +95,5 @@ public partial class DividendPolicyCodeDropdownSource : EnumMetadataManager<Divi
         : base( (enumValue, memberInfo) => new DividendPolicyCodeDropdownRow(enumValue, memberInfo))
     {
     }
-
-    // public IEnumerable<IDividendPolicyCodeDropdownRow> DropdownValues => _listAsLoaded;
 }
 
