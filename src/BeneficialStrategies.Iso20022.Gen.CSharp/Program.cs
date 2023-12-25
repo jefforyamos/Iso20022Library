@@ -13,7 +13,6 @@ class Program
         var file = new FileInfo(Path.Combine(directoryInfo.FullName, IsoRepository.CurrentlySupportedRepoFile));
         if (!file.Exists) throw new FileNotFoundException($"Repo file {file.Name} not found in {directoryInfo.FullName}");
         
-
         Console.WriteLine("Initializing repository...");
         var repo = IsoRepository.Load(file.FullName);
         foreach (var codeSet in repo.DataDictionary.CodeSets)

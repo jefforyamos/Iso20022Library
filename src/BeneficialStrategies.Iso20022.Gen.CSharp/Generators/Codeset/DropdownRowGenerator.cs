@@ -1,4 +1,5 @@
-﻿using BeneficialStrategies.Iso20022.Repository;
+﻿using System.Reflection;
+using BeneficialStrategies.Iso20022.Repository;
 
 namespace BeneficialStrategies.Iso20022.Gen.CSharp;
 
@@ -39,10 +40,22 @@ public class DropdownRowGenerator : Generator<CodeSet>
         WriteLines(textWriter, 0,
             $@"[IsoId(""{item.Id}"")]",
             // $@"[Description(@""{item.Definition.FixStringForEnclusionInQuotedAttribute()}"")]",
-            $@"public partial class {item.GenNames.DropdownRow} : {item.GenNames.IDropdownRow}"
+            $@"public partial class {item.GenNames.DropdownRow} : EnumMetadataItem<{item.GenNames.Enum}>, {item.GenNames.IDropdownRow}",
+            "{"
             );
 
-        WriteOpenCloseBrackets(textWriter, 0);
+        WriteClassComments(item, textWriter, 4,
+            $@"Constructs row state using the specified enum value and reflected values."
+            );
+
+        WriteLines(textWriter, 4,
+            @"/// <param name=""value"">Enum value for this row.</param>",
+            @"/// <param name=""memberInfo"">Reflected values specific to this row.</param>",
+            $@"public {item.GenNames.DropdownRow}({item.GenNames.Enum} value, MemberInfo memberInfo) : base(value, memberInfo)");
+
+        WriteOpenCloseBrackets(textWriter, 4);
+
+        WriteClosingBracket(textWriter, 0);
     }
 }
 
