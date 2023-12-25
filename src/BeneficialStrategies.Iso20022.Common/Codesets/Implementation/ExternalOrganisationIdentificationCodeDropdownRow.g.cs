@@ -16,6 +16,17 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// Implements <seealso cref="IExternalOrganisationIdentificationCodeDropdownRow"/> by obtaining row data from the metadata contained within the codebase.
 /// </summary>
 [IsoId("__E7E8IKYEeeCI5iKR7LsYQ")]
-public partial class ExternalOrganisationIdentificationCodeDropdownRow : IExternalOrganisationIdentificationCodeDropdownRow
+public partial class ExternalOrganisationIdentificationCodeDropdownRow : EnumMetadataItem<ExternalOrganisationIdentificationCode>, IExternalOrganisationIdentificationCodeDropdownRow
 {
+    /// <summary>
+    /// Specifies the external organisation identification scheme name code in the format of character string with a maximum length of 4 characters.
+    /// The list of valid codes is an external code list published separately.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// Constructs row state using the specified enum value and reflected values.
+    /// </summary>
+    /// <param name="value">Enum value for this row.</param>
+    /// <param name="memberInfo">Reflected values specific to this row.</param>
+    public ExternalOrganisationIdentificationCodeDropdownRow(ExternalOrganisationIdentificationCode value, MemberInfo memberInfo) : base(value, memberInfo)
+    {
+    }
 }
