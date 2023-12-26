@@ -5,7 +5,7 @@ namespace BeneficialStrategies.Iso20022.Repository;
 
 public class Code : IsoRepoElement
 {
-    public Code(XElement xElement) : base(xElement)
+    public Code(XElement xElement, HashSet<string> duplicateDetection) : base(xElement)
     {
         // Definition = xElement?.Attribute(IsoXmlAttributes.Default.Definition)?.Value ?? string.Empty;
         RegistrationStatus = xElement?.Attribute(IsoXmlAttributes.Default.RegistrationStatus)?.Value ?? string.Empty;
@@ -15,7 +15,14 @@ public class Code : IsoRepoElement
             : CodeName;
         LegalCodeName = LegalCodeName.Replace('-', '_');
         if (char.IsDigit(LegalCodeName[0])) LegalCodeName = string.Concat("_", LegalCodeName);
-        // if (string.IsNullOrWhiteSpace(CodeName)) Debug.Fail(xElement.ToString());
+        OriginalLegalNameCode = LegalCodeName;
+        if (duplicateDetection.Contains(LegalCodeName))
+        {
+            LegalNameCodeWasChangedBecauseNameWasDuplicated = true;
+            var count = 2;
+            while (duplicateDetection.Contains(LegalCodeName)) LegalCodeName = $"{OriginalLegalNameCode}{count++}";
+        }
+        duplicateDetection.Add(LegalCodeName);
     }
 
     // public string Definition { get; }
@@ -24,6 +31,19 @@ public class Code : IsoRepoElement
 
     public string CodeName { get; }
 
+    /// <summary>
+    /// The C# friendly name for this code.  
+    /// </summary>
     public string LegalCodeName { get; }
+
+    /// <summary>
+    /// The legal name prior to duplication detection changes. (and thus, the name of the duplicated value)
+    /// </summary>
+    public string OriginalLegalNameCode { get; }
+
+    /// <summary>
+    /// True if the name had to be changed because two codes existed with the same names.
+    /// </summary>
+    public bool LegalNameCodeWasChangedBecauseNameWasDuplicated { get; }
 }
 

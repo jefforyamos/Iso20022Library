@@ -171,13 +171,15 @@ public enum ExternalPurposeAndMarketAreaCode
     [Description(@"Cash management activities")]
     TREA,
     
-    ///// <summary>
-    ///// Relates to Collateral Management
-    ///// </summary>
-    //[EnumMember(Value = "COLL")]
-    //[IsoId("_uU8YSfRYEeuLhpyIdtJzwg")]
-    //[Description(@"Relates to Collateral Management")]
-    //COLL,
+    /// <summary>
+    /// Relates to Collateral Management
+    /// ATTENTION: Name was changed from "COLL" to "COLL2" due to a name clash in the published ISO specification.
+    /// During deserialization, you may see some ambiguity between this and <seealso cref="COLL"/>
+    /// </summary>
+    [EnumMember(Value = "COLL")] // Beware deserialization issues here because of ambiguity
+    [IsoId("_uU8YSfRYEeuLhpyIdtJzwg")]
+    [Description(@"Relates to Collateral Management")]
+    COLL2,
     
     /// <summary>
     /// Relates to Securities Lending

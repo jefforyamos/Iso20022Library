@@ -860,13 +860,15 @@ public enum ExternalLocalInstrumentCode
     [Description(@"Transaction is related to telephone initiated entry.")]
     TEL,
     
-    ///// <summary>
-    ///// Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.
-    ///// </summary>
-    //[EnumMember(Value = "CTP")]
-    //[IsoId("_o0mT8FEEEey6cYDbEubNXg")]
-    //[Description(@"Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.")]
-    //CTP,
+    /// <summary>
+    /// Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.
+    /// ATTENTION: Name was changed from "CTP" to "CTP2" due to a name clash in the published ISO specification.
+    /// During deserialization, you may see some ambiguity between this and <seealso cref="CTP"/>
+    /// </summary>
+    [EnumMember(Value = "CTP")] // Beware deserialization issues here because of ambiguity
+    [IsoId("_o0mT8FEEEey6cYDbEubNXg")]
+    [Description(@"Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.")]
+    CTP2,
     
     /// <summary>
     /// Request-to-pay preferred payment via Instant Credit Transfer but Credit Transfer is also possible.

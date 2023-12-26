@@ -1,7 +1,9 @@
 ﻿using System.IO;
 using BeneficialStrategies.Iso20022.Repository;
+using System.Collections.Generic;
 
 namespace BeneficialStrategies.Iso20022.Gen.CSharp;
+
 
 class Program
 {
@@ -12,7 +14,17 @@ class Program
         if (!directoryInfo.Exists) throw new DirectoryNotFoundException($"Folder matching {args[0]} could not be found");
         var file = new FileInfo(Path.Combine(directoryInfo.FullName, IsoRepository.CurrentlySupportedRepoFile));
         if (!file.Exists) throw new FileNotFoundException($"Repo file {file.Name} not found in {directoryInfo.FullName}");
-        
+
+        var generatorSet = "doc"; // by default;
+        if (args.Length >= 2) generatorSet = args[1];
+        var generatorLookup = new GeneratorsGroupedByRequestedNameDictionary();
+        if (!generatorLookup.ContainsKey(generatorSet))
+        {
+            var validValues = String.Join(",", generatorLookup.Keys.ToArray());
+            throw new ArgumentException($"Generator set {generatorSet} is invalid. Valid values: [{validValues}]");
+        }
+        var generatorsToRun = generatorLookup[generatorSet];
+
         Console.WriteLine("Initializing repository...");
         var repo = IsoRepository.Load(file.FullName);
         foreach (var codeSet in repo.DataDictionary.CodeSets)
@@ -27,18 +39,12 @@ class Program
         if (targetProjectRoot is null || !targetProjectRoot.Exists)
             throw new DirectoryNotFoundException($"Project folder {targetProjectRoot?.FullName} not found.") ;
 
-        var generatorList = new List<IGenerate>
+        Console.WriteLine($@"Running generator set ""{generatorSet}"".");
+        foreach( var generator in generatorsToRun)
         {
-            new DropdownRowInterfaceGenerator(),
-            new DropdownSourceInterfaceGenerator(),
-            new CodesetEnumGenerator(),
-            new DropdownSourceGenerator(),
-            new DropdownRowGenerator(),
-        };
-
-        foreach( var generator in generatorList)
-        {
+            Console.Write($"    : {generator.GetType().Name.PadRight(40)}");
             generator.Generate(repo, targetProjectRoot);
+            Console.WriteLine("<<==== Done");
         }
     }
 }

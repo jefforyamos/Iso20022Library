@@ -43,9 +43,21 @@ public class CodesetEnumGenerator : Generator<CodeSet>
             );
         foreach(var codeItem in item.Codes)
         {
-            WriteClassComments(codeItem, textWriter, 4);
+            var additionalComments = codeItem.LegalNameCodeWasChangedBecauseNameWasDuplicated
+                ? new string[]
+                {
+                    $@"ATTENTION: Name was changed from ""{codeItem.OriginalLegalNameCode}"" to ""{codeItem.LegalCodeName}"" due to a name clash in the published ISO specification.",
+                    $@"During deserialization, you may see some ambiguity between this and <seealso cref=""{codeItem.OriginalLegalNameCode}""/>",
+                }
+                : Array.Empty<string>();
+
+            var serializationWarning = codeItem.LegalNameCodeWasChangedBecauseNameWasDuplicated
+                ? " // Beware deserialization issues here because of ambiguity"
+                : string.Empty;
+
+            WriteClassComments(codeItem, textWriter, 4, additionalComments);
             WriteLines(textWriter, 4,
-                $@"[EnumMember(Value = ""{codeItem.CodeName}"")]",
+                $@"[EnumMember(Value = ""{codeItem.CodeName}"")]{serializationWarning}", 
                 $@"[IsoId(""{codeItem.Id}"")]",
                 $@"[Description(@""{codeItem.Definition.FixStringForEnclusionInQuotedAttribute()}"")]",
                 $@"{codeItem.LegalCodeName},",
@@ -55,10 +67,6 @@ public class CodesetEnumGenerator : Generator<CodeSet>
         textWriter.WriteLine("}");
 
         WriteMetadataExtensions(item, textWriter);
-        // WriteIDropdownRow(item, textWriter);
-        // WriteDropdownRow(item, textWriter);
-        // WriteIDropdownSource(item, textWriter);
-        // WriteDropdownSource(item, textWriter);
     }
 
     internal static void WriteMetadataExtensions(CodeSet item, TextWriter textWriter)
@@ -81,43 +89,6 @@ public static class {item.Name}MetadataExtensions
     }}
 }}
 
-");
-    }
-
-    internal static void WriteDropdownRow(CodeSet item, TextWriter textWriter)
-    {
-        textWriter.WriteLine($@"
-/// <summary>
-/// Default implementation of <seealso cref=""{item.GenNames.IDropdownRow}""/> that contains metadata embedded in the code.
-/// </summary>
-public partial class {item.GenNames.DropdownRow} : EnumMetadataItem<{item.GenNames.Enum}>, {item.GenNames.IDropdownRow}
-{{
-    /// <summary>
-    /// Constructs row state using the specified enum value and reflected values.
-    /// </summary>
-    /// <param name=""value"">Enum value for this row.</param>
-    /// <param name=""memberInfo"">Reflected values specific to this row.</param>
-    public {item.GenNames.DropdownRow}({item.GenNames.Enum} value, MemberInfo memberInfo) : base( value, memberInfo)
-    {{
-    }}
-}}
-");
-    }
-
-    internal static void WriteDropdownSource(CodeSet item, TextWriter textWriter)
-    {
-        textWriter.WriteLine($@"
-/// <summary>
-/// Provides values to be used in dropdown select lists and validation logic.
-/// Implements <seealso cref=""{item.GenNames.IDropdownSource}""/> by obtaining row data from the metadata contained within the codebase.
-/// </summary>
-public partial class {item.GenNames.DropdownSource} : EnumMetadataManager<{item.GenNames.Enum},{item.GenNames.IDropdownRow},{item.GenNames.DropdownRow}>
-{{
-    public {item.GenNames.DropdownSource}()
-        : base( (enumValue, memberInfo) => new {item.GenNames.DropdownRow}(enumValue, memberInfo))
-    {{
-    }}
-}}
 ");
     }
 
