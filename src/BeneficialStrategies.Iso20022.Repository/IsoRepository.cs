@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
+
+[assembly: InternalsVisibleToAttribute("BeneficialStrategies.Iso20022.Repository.UnitTest")]
 
 namespace BeneficialStrategies.Iso20022.Repository;
 

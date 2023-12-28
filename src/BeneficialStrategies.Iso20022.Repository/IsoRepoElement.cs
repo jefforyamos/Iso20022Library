@@ -4,7 +4,7 @@ namespace BeneficialStrategies.Iso20022.Repository;
 
 public abstract class IsoRepoElement
 {
-    protected readonly XElement xElement;
+    protected internal readonly XElement xElement;
 
     public IsoRepoElement(XElement xElement)
     {

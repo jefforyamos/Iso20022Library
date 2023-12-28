@@ -14,7 +14,7 @@ public class GeneratorsGroupedByRequestedNameDictionary : Dictionary<string, IGe
         });
         this.Add("doc", new IGenerate[]
         {
-            new XmlBreakoutGenerator(),
+           //  new XmlBreakoutGenerator(), Needs work, enable after fixed.
         });
 
         this.Add("all", this.SelectMany(i => i.Value).ToArray());

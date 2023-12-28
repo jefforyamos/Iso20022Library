@@ -9,7 +9,7 @@ public class CodesetEnumGenerator : Generator<CodeSet>
 {
     public CodesetEnumGenerator()
         : base(repo => repo.DataDictionary.CodeSets
-        .Where(cs => !cs.IsExternal)
+        //.Where(cs => !cs.IsExternal)
         .Where(GlobalCodesetFilter)
         )
     {
@@ -50,7 +50,7 @@ public class CodesetEnumGenerator : Generator<CodeSet>
         {
             var attribParams = item.Derivations.Select(item => $@"typeof({item.GenNames.Enum})").ToArray();
             var withCommas = string.Join(",", attribParams);
-            // attributeLines.Add($@"[Derivations({withCommas})]");
+            attributeLines.Add($@"[Derivations({withCommas})]");
         }
 
         WriteLines(textWriter, 0, attributeLines.ToArray());

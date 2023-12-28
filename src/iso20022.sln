@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso200
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Common.UnitTest", "BeneficialStrategies.Iso20022.Common.UnitTest\BeneficialStrategies.Iso20022.Common.UnitTest.csproj", "{0262728B-563D-4150-B1AE-1FDE2618B997}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Repository.UnitTest", "BeneficialStrategies.Iso20022.Repository.UnitTest\BeneficialStrategies.Iso20022.Repository.UnitTest.csproj", "{929534ED-D776-4F3E-9AF8-5E8B316553E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{0262728B-563D-4150-B1AE-1FDE2618B997}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0262728B-563D-4150-B1AE-1FDE2618B997}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0262728B-563D-4150-B1AE-1FDE2618B997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{929534ED-D776-4F3E-9AF8-5E8B316553E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{929534ED-D776-4F3E-9AF8-5E8B316553E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{929534ED-D776-4F3E-9AF8-5E8B316553E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{929534ED-D776-4F3E-9AF8-5E8B316553E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

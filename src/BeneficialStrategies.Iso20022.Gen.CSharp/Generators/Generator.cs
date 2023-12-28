@@ -95,8 +95,8 @@ public abstract class Generator<T>: IGenerate
 
     protected void WriteOpenCloseBrackets(TextWriter textWriter, int indent) => WriteLines(textWriter, indent, "{", "}");
 
-    protected static Func<CodeSet, bool> GlobalCodesetFilter => row => true; //  row.Name == "someValue";
+    // protected static Func<CodeSet, bool> GlobalCodesetFilter => row => true; //  row.Name == "someValue";
 
-    // protected static Func<CodeSet, bool> GlobalCodesetFilter => row => row.Name == "ListStatusTypeCode";
+    protected static Func<CodeSet, bool> GlobalCodesetFilter => row => row.Name.Contains("InterestRateIndex");
 
 }

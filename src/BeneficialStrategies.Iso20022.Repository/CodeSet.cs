@@ -19,7 +19,6 @@ public class CodeSet : TopLevelDictionaryEntry
         var duplicateDetection = new HashSet<string>();
         Codes = xElement.Elements(IsoXmlElements.Default.Code)
             .Select(e => new Code(e, duplicateDetection))
-            .Where(item => !string.IsNullOrWhiteSpace( item.CodeName))
             .ToArray();
         if (this.Id == "_XWoxEI9EEeqMo4JxiuZGSw" || this.Id == "_mDriYI9GEeqMo4JxiuZGSw")
         {
