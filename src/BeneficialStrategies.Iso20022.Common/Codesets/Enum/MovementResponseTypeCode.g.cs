@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_jQ9Wgu5NEeCisYr99QEiWA_1302753990")]
 [Description(@"Specifies the type of movement response to be returned.")]
+[Derivations(typeof(MovementResponseType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MovementResponseTypeCode
 {
     /// <summary>

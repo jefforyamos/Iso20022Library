@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_0DaqkK4kEemG7MmivSuE5g")]
 [Description(@"Conditions for physical admittance to general meetings.")]
+[Derivations(typeof(AttendanceAdmissionConditions1Code),typeof(AttendanceAdmissionConditions2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AttendanceAdmissionConditionsCode
 {
     /// <summary>

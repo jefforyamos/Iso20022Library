@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aOfyVNp-Ed-ak6NoX_4Aeg_1937485685")]
 [Description(@"Indicates that the trade was executed off-market.")]
+[Derivations(typeof(OffMarket1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OffMarketCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aXbr6Np-Ed-ak6NoX_4Aeg_86377106")]
 [Description(@"Specifies further instructions concerning the processing of a payment instruction.")]
+[Derivations(typeof(Instruction1Code),typeof(Instruction3Code),typeof(Instruction4Code),typeof(Instruction5Code),typeof(PartialInstruction3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InstructionCode
 {
     /// <summary>

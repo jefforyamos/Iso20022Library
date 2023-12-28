@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bKGe89p-Ed-ak6NoX_4Aeg_1953823274")]
 [Description(@"Automatic Reinvestment of Cash distributed by accumulating funds.")]
+[Derivations(typeof(CorporateActionFrequencyType1Code),typeof(CorporateActionFrequencyType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionFrequencyTypeCode
 {
     /// <summary>

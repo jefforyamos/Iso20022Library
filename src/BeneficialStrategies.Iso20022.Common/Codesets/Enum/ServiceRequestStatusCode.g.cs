@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_eXhhcvF5EemQ7oqCO5NTQw")]
 [Description(@"Specifies the status of a service request.")]
+[Derivations(typeof(ServiceRequestStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ServiceRequestStatusCode
 {
     /// <summary>

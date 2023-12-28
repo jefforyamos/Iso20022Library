@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_awwx5dp-Ed-ak6NoX_4Aeg_-1525096597")]
 [Description(@"Specifies if income is to be paid out (distributed) or retained (accumulated).")]
+[Derivations(typeof(DistributionPolicy1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DistributionPolicyCode
 {
     /// <summary>

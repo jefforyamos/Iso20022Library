@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_9f_awHBYEeqTZuDtO9NgaQ")]
 [Description(@"Specifies the asset class of a non-equity financial instrument.")]
+[Derivations(typeof(NonEquityAssetClass1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NonEquityAssetClassCode
 {
     /// <summary>

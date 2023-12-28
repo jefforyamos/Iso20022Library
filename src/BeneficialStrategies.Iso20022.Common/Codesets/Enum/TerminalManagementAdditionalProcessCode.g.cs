@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KUh0kn1DEeCF8NjrBemJWQ_-888899515")]
 [Description(@"Additional process to perform before starting or after completing a terminal management action.")]
+[Derivations(typeof(TerminalManagementAdditionalProcess1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TerminalManagementAdditionalProcessCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bM7wg9p-Ed-ak6NoX_4Aeg_962956293")]
 [Description(@"Specifies the type of corporate action options offered to the account holder for a corporate action.")]
+[Derivations(typeof(CorporateActionOption4Code),typeof(CorporateActionOption9Code),typeof(CorporateActionOption6Code),typeof(CorporateActionOption10Code),typeof(CorporateActionOption2Code),typeof(CorporateActionOption7Code),typeof(CorporateActionOption3Code),typeof(CorporateActionOption8Code),typeof(CorporateActionOption5Code),typeof(CorporateActionOption13Code),typeof(CorporateActionOption12Code),typeof(CorporateActionOption14Code),typeof(CorporateActionOption11Code),typeof(CorporateActionOption15Code),typeof(CorporateActionOption17Code),typeof(CorporateActionOption16Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionOptionCode
 {
     /// <summary>

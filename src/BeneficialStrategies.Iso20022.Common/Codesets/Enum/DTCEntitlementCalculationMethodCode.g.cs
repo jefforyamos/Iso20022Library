@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1qKjcDL3EeKU9IrkkToqcw_-1097096548")]
 [Description(@"Specifies the type of the calculation of entitlements.")]
+[Derivations(typeof(DTCEntitlementCalculationMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCEntitlementCalculationMethodCode
 {
     /// <summary>

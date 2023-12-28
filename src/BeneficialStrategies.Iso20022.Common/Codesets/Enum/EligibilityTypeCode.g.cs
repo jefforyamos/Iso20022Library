@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_jBmr4e5NEeCisYr99QEiWA_-1187231304")]
 [Description(@"Defines the type of eligibility.")]
+[Derivations(typeof(EligibilityType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EligibilityTypeCode
 {
     /// <summary>

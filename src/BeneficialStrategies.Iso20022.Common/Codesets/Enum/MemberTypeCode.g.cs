@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aLzqtNp-Ed-ak6NoX_4Aeg_977880731")]
 [Description(@"Specifies the nature of the membership of a party in a system. A system may recognise different types of membership, with different related rights and obligations.")]
+[Derivations(typeof(MemberType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MemberTypeCode
 {
     /// <summary>

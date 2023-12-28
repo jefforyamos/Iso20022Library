@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_UpPVgRfkEeS1K9gYCN87fQ")]
 [Description(@"Unit of time.")]
+[Derivations(typeof(PeriodUnit3Code),typeof(PeriodUnit2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PeriodUnitCode
 {
     /// <summary>

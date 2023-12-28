@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YdGGJtp-Ed-ak6NoX_4Aeg_1195947295")]
 [Description(@"Specifies whether the proposal is an initial or a counter proposal.")]
+[Derivations(typeof(ProposalType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProposalTypeCode
 {
     /// <summary>

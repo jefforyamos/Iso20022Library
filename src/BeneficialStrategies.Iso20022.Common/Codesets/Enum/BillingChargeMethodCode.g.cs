@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6VBJ4JqlEeGSON8vddiWzQ_185173983")]
 [Description(@"Defines how the billing charge is calculated.")]
+[Derivations(typeof(BillingChargeMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BillingChargeMethodCode
 {
     /// <summary>

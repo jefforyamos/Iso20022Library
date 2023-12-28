@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bRQP1Np-Ed-ak6NoX_4Aeg_1657166115")]
 [Description(@"Specifies the type of CA options.")]
+[Derivations(typeof(CorporateActionOptionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionOptionTypeCode
 {
     /// <summary>

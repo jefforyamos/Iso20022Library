@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y9uuAdp-Ed-ak6NoX_4Aeg_-1758874043")]
 [Description(@"Specifies the form of the rebate when commission is waived.")]
+[Derivations(typeof(WaivingInstruction2Code),typeof(WaivingInstruction1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum WaivingInstructionCode
 {
     /// <summary>

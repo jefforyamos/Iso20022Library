@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bqlV09p-Ed-ak6NoX_4Aeg_176271984")]
 [Description(@"Specifies the status of an account management instruction.")]
+[Derivations(typeof(AccountManagementStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AccountManagementStatusCode
 {
     /// <summary>

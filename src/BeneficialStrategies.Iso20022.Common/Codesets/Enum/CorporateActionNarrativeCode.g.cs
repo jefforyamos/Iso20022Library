@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bK2F19p-Ed-ak6NoX_4Aeg_-1191141683")]
 [Description(@"Standard code to specify the narrative type of a corporate action.")]
+[Derivations(typeof(CorporateActionNarrative1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionNarrativeCode
 {
     /// <summary>

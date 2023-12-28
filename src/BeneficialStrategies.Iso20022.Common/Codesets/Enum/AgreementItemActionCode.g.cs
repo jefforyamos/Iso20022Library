@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_OTgzMjc4-AOSNFX-8224496")]
 [Description(@"Specifies the type of action concerning registration information. The default value is OPEN.")]
+[Derivations(typeof(AgreementItemAction1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AgreementItemActionCode
 {
     /// <summary>

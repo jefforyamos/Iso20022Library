@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_RQTCAQ2XEeStB9HSJRk0Qw")]
 [Description(@"Specifies the status of the switch either full or part for a given account.")]
+[Derivations(typeof(SwitchType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SwitchTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Emn04KH3EeuiuNcvKhXmNQ")]
 [Description(@"Identifies the security characteristic of the PIN entry device.")]
+[Derivations(typeof(PINEntrySecurityCharacteristic1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PINEntrySecurityCharacteristicCode
 {
     /// <summary>

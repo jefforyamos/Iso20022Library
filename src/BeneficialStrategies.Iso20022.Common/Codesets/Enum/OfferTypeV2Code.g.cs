@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_OzTbUS84EeKNZpaVtgp8Wg")]
 [Description(@"Specifies the conditions that apply to the offer.")]
+[Derivations(typeof(OfferType2Code),typeof(OfferType3Code),typeof(OfferType4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OfferTypeV2Code
 {
     /// <summary>

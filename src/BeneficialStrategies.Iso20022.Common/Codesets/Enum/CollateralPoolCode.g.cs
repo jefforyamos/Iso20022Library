@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_n7fkcd7FEeSaBeqd_btViQ")]
 [Description(@"Specifies whether the collateral is a pool collateral, delivery by value specific pool or not a pool.")]
+[Derivations(typeof(CollateralPool1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralPoolCode
 {
     /// <summary>

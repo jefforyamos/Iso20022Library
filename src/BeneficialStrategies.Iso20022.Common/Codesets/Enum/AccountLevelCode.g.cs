@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6Ukd8pqlEeGSON8vddiWzQ_1919731713")]
 [Description(@"Defines the level of an account within the account hierarchy.")]
+[Derivations(typeof(AccountLevel2Code),typeof(AccountLevel1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AccountLevelCode
 {
     /// <summary>

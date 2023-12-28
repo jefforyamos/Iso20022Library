@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aGcpkdp-Ed-ak6NoX_4Aeg_1893653072")]
 [Description(@"Specifies the type of Transfer, PEP or ISA.")]
+[Derivations(typeof(PEPISA1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PEPISACode
 {
     /// <summary>

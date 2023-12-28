@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TWrswwEcEeCQm6a_G2yO_w_-323244249")]
 [Description(@"Result of the printed CSC (Card Security Code) validation.")]
+[Derivations(typeof(CSCResult1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CSCResultCode
 {
     /// <summary>

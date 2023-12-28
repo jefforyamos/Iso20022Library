@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZV3hOdp-Ed-ak6NoX_4Aeg_1219289935")]
 [Description(@"Specifies the type of identifier of a product.")]
+[Derivations(typeof(ProductIdentifier2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProductIdentifierCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZF7Atdp-Ed-ak6NoX_4Aeg_-1780504534")]
 [Description(@"Specifies whether the statement is an accounting or a custody statement.")]
+[Derivations(typeof(SecuritiesStatementType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesStatementTypeCode
 {
     /// <summary>

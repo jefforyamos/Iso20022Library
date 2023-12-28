@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_GP3GkIMmEeeBDNMiErKunw")]
 [Description(@"Specifies the terms used to formally address a person.")]
+[Derivations(typeof(NamePrefix1Code),typeof(NamePrefix2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NamePrefixCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZX9L5Np-Ed-ak6NoX_4Aeg_336258243")]
 [Description(@"Indicates the type of quote request (e.g. manual vs. automatic) being generated.")]
+[Derivations(typeof(QuoteRequestType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QuoteRequestTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_zqg0kIr4EeSvuOJS0mmL0g")]
 [Description(@"Key exchange security scheme on an ATM for the host manager.")]
+[Derivations(typeof(ATMSecurityScheme2Code),typeof(ATMSecurityScheme1Code),typeof(ATMSecurityScheme3Code),typeof(ATMSecurityScheme4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ATMSecuritySchemeCode
 {
     /// <summary>

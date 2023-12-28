@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_yUpw0Bs_EeqrvK3udMUsNQ")]
 [Description(@"Identifies a class of messages with the same high level function.")]
+[Derivations(typeof(MessageClass1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MessageClassCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TUvzEAEcEeCQm6a_G2yO_w_-212887785")]
 [Description(@"Location category code of the place where the merchant actually performed the transaction.")]
+[Derivations(typeof(LocationCategory1Code),typeof(LocationCategory2Code),typeof(LocationCategory3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LocationCategoryCode
 {
     /// <summary>

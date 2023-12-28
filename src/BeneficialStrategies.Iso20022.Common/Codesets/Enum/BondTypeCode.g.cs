@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_5al_gc4lEeSc85GUbgBycw")]
 [Description(@"Specifies the type of bonds.")]
+[Derivations(typeof(BondType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BondTypeCode
 {
     /// <summary>

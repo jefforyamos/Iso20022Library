@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bD_P4Np-Ed-ak6NoX_4Aeg_-1886893264")]
 [Description(@"Specifies the stage of the CA event.")]
+[Derivations(typeof(CorporateActionEventStage1Code),typeof(CorporateActionEventStage2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionEventStageCode
 {
     /// <summary>

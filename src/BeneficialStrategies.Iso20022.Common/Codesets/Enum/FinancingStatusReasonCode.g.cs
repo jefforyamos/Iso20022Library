@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aqgY5Np-Ed-ak6NoX_4Aeg_1593858714")]
 [Description(@"Specifies the coded reason for the financing status.")]
+[Derivations(typeof(FinancingStatusReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FinancingStatusReasonCode
 {
     /// <summary>

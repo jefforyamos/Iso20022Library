@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_12FfkzL3EeKU9IrkkToqcw_-117083409")]
 [Description(@"Specifies the status of exchange's notice of change on a derivative.")]
+[Derivations(typeof(DerivativeWorkflowStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DerivativeWorkflowStatusCode
 {
     /// <summary>

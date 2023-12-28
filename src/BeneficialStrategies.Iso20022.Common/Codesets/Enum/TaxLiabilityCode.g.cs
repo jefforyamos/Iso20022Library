@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YiBCZNp-Ed-ak6NoX_4Aeg_14926888")]
 [Description(@"Specifies the tax role capacity of the instructing party.")]
+[Derivations(typeof(TaxLiability1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TaxLiabilityCode
 {
     /// <summary>

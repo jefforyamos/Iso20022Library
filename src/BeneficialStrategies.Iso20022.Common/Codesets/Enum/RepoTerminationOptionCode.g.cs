@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_tHaf4CyzEea35M2x2c9PXw")]
 [Description(@"Indicates the termination option for a repurchase agreement.")]
+[Derivations(typeof(RepoTerminationOption1Code),typeof(RepoTerminationOption2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RepoTerminationOptionCode
 {
     /// <summary>

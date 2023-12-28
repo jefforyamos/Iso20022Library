@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Oxs3y2-BEeKuY41pq1-dog")]
 [Description(@"Specifies whether a date is actual or estimated.")]
+[Derivations(typeof(TypeOfDate1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TypeOfDateCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_XvpRYHyVEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the type of demand for payment.")]
+[Derivations(typeof(DemandType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DemandTypeCode
 {
     /// <summary>

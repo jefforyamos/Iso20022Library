@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_EbRBA_sMEeCZF5_uug7xyA")]
 [Description(@"Identifies the business process in which the actors are involved. This is important to trigger the right business process, according to the market business model, which may require matching instructions in a CSD environment (double leg process) or not (single leg process).")]
+[Derivations(typeof(BusinessFlowType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BusinessFlowTypeCode
 {
     /// <summary>

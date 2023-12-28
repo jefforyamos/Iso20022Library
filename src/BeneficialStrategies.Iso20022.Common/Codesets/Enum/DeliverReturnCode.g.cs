@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YcMuRdp-Ed-ak6NoX_4Aeg_-662678761")]
 [Description(@"Specifies if the collateral is to be delivered or returned.")]
+[Derivations(typeof(DeliverReturn1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DeliverReturnCode
 {
     /// <summary>

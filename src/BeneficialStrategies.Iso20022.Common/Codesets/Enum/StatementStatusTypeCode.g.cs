@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_x8pjANBUEeiirviLm7P0IA")]
 [Description(@"Specifies whether the report includes pending or settled transactions.")]
+[Derivations(typeof(StatementStatusType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StatementStatusTypeCode
 {
     /// <summary>

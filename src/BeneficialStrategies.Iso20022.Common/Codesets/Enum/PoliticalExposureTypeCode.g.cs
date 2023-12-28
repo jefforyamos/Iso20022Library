@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_7TMJ8RRuEeOKWo1NF21OVw")]
 [Description(@"Specifies the political exposure type.")]
+[Derivations(typeof(PoliticalExposureType1Code),typeof(PoliticalExposureType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PoliticalExposureTypeCode
 {
     /// <summary>

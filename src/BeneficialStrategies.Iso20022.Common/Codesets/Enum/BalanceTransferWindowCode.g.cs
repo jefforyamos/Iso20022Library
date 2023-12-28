@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_vLUjgBE3EeafpqhYGpTDnw")]
 [Description(@"Specifies the processing window in which the balance transfer will be processed on the switch date.")]
+[Derivations(typeof(BalanceTransferWindow1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BalanceTransferWindowCode
 {
     /// <summary>

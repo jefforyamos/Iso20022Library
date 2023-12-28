@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_S9gOMDcdEeidBoT_PugKiA")]
 [Description(@"Specifies an investment need.")]
+[Derivations(typeof(InvestmentNeed1Code),typeof(InvestmentNeed2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestmentNeedCode
 {
     /// <summary>

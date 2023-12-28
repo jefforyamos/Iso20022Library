@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Bb8GsQjcEeS5F6qHcKOrew")]
 [Description(@"Specifies the status of a plan.")]
+[Derivations(typeof(PlanStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PlanStatusCode
 {
     /// <summary>

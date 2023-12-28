@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ha1js2liEeGaMcKyqKNRfQ_477387752")]
 [Description(@"Defines the type of execution of the put feature.")]
+[Derivations(typeof(PutType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PutTypeCode
 {
     /// <summary>

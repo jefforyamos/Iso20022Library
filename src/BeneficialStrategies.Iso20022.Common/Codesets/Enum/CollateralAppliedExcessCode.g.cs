@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_G4ohQAF5EeutW5-TpeYJhA")]
 [Description(@"Indicates if the collateral reported is applied or in excess. ")]
+[Derivations(typeof(CollateralAppliedExcess1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralAppliedExcessCode
 {
     /// <summary>

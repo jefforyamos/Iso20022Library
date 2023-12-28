@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZKsL9dp-Ed-ak6NoX_4Aeg_-13240435")]
 [Description(@"Specifies the reason for a partially settled status.")]
+[Derivations(typeof(SettledStatusReason1Code),typeof(SettledStatusReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettledStatusReasonCode
 {
     /// <summary>

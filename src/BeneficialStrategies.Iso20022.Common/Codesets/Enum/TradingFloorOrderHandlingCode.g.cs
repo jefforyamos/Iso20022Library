@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Yq878Np-Ed-ak6NoX_4Aeg_337179655")]
 [Description(@"Description of the parameters under which an order must be handled on the floor.")]
+[Derivations(typeof(TradingFloorOrderHandling1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradingFloorOrderHandlingCode
 {
     /// <summary>

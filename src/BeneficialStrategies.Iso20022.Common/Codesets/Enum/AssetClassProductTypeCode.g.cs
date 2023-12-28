@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bI7sQQnYEeWa7rBfPECYsw")]
 [Description(@"Commodity derivative base product code list.")]
+[Derivations(typeof(AssetClassProductType7Code),typeof(AssetClassProductType4Code),typeof(AssetClassProductType9Code),typeof(AssetClassProductType8Code),typeof(AssetClassProductType3Code),typeof(AssetClassProductType1Code),typeof(AssetClassProductType11Code),typeof(AssetClassProductType5Code),typeof(AssetClassProductType2Code),typeof(AssetClassProductType6Code),typeof(AssetClassProductType13Code),typeof(AssetClassProductType12Code),typeof(AssetClassProductType14Code),typeof(AssetClassProductType15Code),typeof(AssetClassProductType16Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AssetClassProductTypeCode
 {
     /// <summary>

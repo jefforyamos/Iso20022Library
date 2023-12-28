@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_CoXPEAxzEeKa_56Jbsi1RQ")]
 [Description(@"Unit of the memory size.")]
+[Derivations(typeof(MemoryUnit1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MemoryUnitCode
 {
     /// <summary>

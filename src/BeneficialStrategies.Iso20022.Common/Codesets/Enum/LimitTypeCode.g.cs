@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aevNwNp-Ed-ak6NoX_4Aeg_-1698330264")]
 [Description(@"Specifies the type of risk management limit.")]
+[Derivations(typeof(RiskLimitType1Code),typeof(LimitType1Code),typeof(LimitType2Code),typeof(LimitType3Code),typeof(LimitType4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LimitTypeCode
 {
     /// <summary>

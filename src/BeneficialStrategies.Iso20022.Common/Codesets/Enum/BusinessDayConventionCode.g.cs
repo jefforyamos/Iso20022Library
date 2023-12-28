@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bVIDONp-Ed-ak6NoX_4Aeg_627416389")]
 [Description(@"Indicates how a date is adjusted when it falls on a non-business day.")]
+[Derivations(typeof(BusinessDayConvention1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BusinessDayConventionCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Rar2EB0-EeiYoZGjIMHr2A")]
 [Description(@"Provides the reason as to why a payment cancellation request is pending.")]
+[Derivations(typeof(PendingPaymentCancellationReason1Code),typeof(PendingPaymentCancellationReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PendingPaymentCancellationReasonCode
 {
     /// <summary>

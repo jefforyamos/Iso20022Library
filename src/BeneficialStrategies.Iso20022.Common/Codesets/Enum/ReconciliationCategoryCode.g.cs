@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_tJKXo8yrEeiqqJhU2tqK8A")]
 [Description(@"Contains the reconciliation category")]
+[Derivations(typeof(ReconciliationCategory1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationCategoryCode
 {
     /// <summary>

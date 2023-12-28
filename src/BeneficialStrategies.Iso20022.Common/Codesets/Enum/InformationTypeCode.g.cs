@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aWsFAtp-Ed-ak6NoX_4Aeg_760507288")]
 [Description(@"Specifies the coded type of additional information provided.")]
+[Derivations(typeof(InformationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InformationTypeCode
 {
     /// <summary>

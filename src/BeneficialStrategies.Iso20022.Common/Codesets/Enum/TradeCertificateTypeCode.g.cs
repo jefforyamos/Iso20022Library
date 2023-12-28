@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YmVhstp-Ed-ak6NoX_4Aeg_706311619")]
 [Description(@"Specifies the type of trade certificate.")]
+[Derivations(typeof(TradeCertificateType1Code),typeof(TradeCertificateType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradeCertificateTypeCode
 {
     /// <summary>

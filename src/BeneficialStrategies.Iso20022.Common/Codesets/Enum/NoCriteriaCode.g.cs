@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aNcpdNp-Ed-ak6NoX_4Aeg_-452167930")]
 [Description(@"Specifies that there is no criteria.")]
+[Derivations(typeof(NoCriteria1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NoCriteriaCode
 {
     /// <summary>

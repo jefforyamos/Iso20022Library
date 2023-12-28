@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Nff_g_M9Eei4qfiLgRIZBA")]
 [Description(@"Contains Tax Reclaim options")]
+[Derivations(typeof(TaxReclaimMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TaxReclaimMethodCode
 {
     /// <summary>

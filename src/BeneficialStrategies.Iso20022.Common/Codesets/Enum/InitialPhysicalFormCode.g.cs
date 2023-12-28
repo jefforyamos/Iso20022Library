@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hblKmGliEeGaMcKyqKNRfQ_420935209")]
 [Description(@"Indicates the physical form of the securities.")]
+[Derivations(typeof(InitialPhysicalForm1Code),typeof(InitialPhysicalForm2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InitialPhysicalFormCode
 {
     /// <summary>

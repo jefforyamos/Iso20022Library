@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_xKIOEHs3EeSTS7uHCe8FPQ")]
 [Description(@"Reason to send an card acquirer to issuer message.")]
+[Derivations(typeof(MessageReason1Code),typeof(MessageReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MessageReasonCode
 {
     /// <summary>

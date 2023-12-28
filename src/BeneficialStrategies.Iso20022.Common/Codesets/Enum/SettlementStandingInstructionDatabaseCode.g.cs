@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZMVKstp-Ed-ak6NoX_4Aeg_-276633824")]
 [Description(@"Indicates what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.")]
+[Derivations(typeof(SettlementStandingInstructionDatabase1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementStandingInstructionDatabaseCode
 {
     /// <summary>

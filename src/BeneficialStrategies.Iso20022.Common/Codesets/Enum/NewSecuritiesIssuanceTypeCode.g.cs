@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_WghhgBHzEeKKuerhIbkpig")]
 [Description(@"Specifies the type of securities proceeds; whether they are newly issued or not, defeased or non-defeased.")]
+[Derivations(typeof(NewSecuritiesIssuanceType1Code),typeof(NewSecuritiesIssuanceType2Code),typeof(NewSecuritiesIssuanceType3Code),typeof(NewSecuritiesIssuanceType4Code),typeof(NewSecuritiesIssuanceType5Code),typeof(NewSecuritiesIssuanceType6Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NewSecuritiesIssuanceTypeCode
 {
     /// <summary>

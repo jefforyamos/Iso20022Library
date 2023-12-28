@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_g9bYnwOEEeWs3sTa9Sj6Lg")]
 [Description(@"Specifies the type of product or financial instrument.")]
+[Derivations(typeof(ProductType4Code),typeof(ProductType5Code),typeof(ProductType6Code),typeof(ProductType7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProductTypeV2Code
 {
     /// <summary>

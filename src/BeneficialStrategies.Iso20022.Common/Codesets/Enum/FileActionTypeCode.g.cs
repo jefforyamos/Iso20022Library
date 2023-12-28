@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_gSYcUFDpEee94_dUz-hvgw")]
 [Description(@"Determines the type of file action service. ISO 8583:87 bit 91; ISO 8583:93/2003 bit 24")]
+[Derivations(typeof(FileActionType1Code),typeof(FileActionType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FileActionTypeCode
 {
     /// <summary>

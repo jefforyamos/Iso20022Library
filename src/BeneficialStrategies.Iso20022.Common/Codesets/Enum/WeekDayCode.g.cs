@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_vVeyEA3eEeW9YKj3GUmIEw")]
 [Description(@"Specifies the day of the week of the delivery.")]
+[Derivations(typeof(WeekDay2Code),typeof(WeekDay3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum WeekDayCode
 {
     /// <summary>

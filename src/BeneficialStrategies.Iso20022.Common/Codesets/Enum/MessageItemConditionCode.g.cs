@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KS412H1DEeCF8NjrBemJWQ_-2004435660")]
 [Description(@"Rule to apply for the presence and the value of a message item.")]
+[Derivations(typeof(MessageItemCondition1Code),typeof(MessageItemCondition2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MessageItemConditionCode
 {
     /// <summary>

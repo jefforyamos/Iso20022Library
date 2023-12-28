@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_auYMRdp-Ed-ak6NoX_4Aeg_336256115")]
 [Description(@"States whether executions are booked out or accumulated on a partially filled good till order on the day of execution or to accumulate.")]
+[Derivations(typeof(GoodTillBookingInstruction1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GoodTillBookingInstructionCode
 {
     /// <summary>

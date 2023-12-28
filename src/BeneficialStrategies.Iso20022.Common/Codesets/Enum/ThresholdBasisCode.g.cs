@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_CvEvwBuNEeyhRdHRjakS2w")]
 [Description(@"Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.")]
+[Derivations(typeof(ThresholdBasis1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ThresholdBasisCode
 {
     /// <summary>

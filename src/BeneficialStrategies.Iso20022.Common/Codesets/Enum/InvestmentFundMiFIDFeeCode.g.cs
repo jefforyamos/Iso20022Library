@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_N_RgADclEeidBoT_PugKiA")]
 [Description(@"Specifies a type of cost or charge.")]
+[Derivations(typeof(InvestmentFundMiFIDFee1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestmentFundMiFIDFeeCode
 {
     /// <summary>

@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_906Z0J7MEee23OmtkkcE3A")]
 [Description(@"Specifies the reason the transaction/instruction is unmatched, as published in an external cancellation reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(UnmatchedStatusReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UnmatchedStatusReasonCode
 {
     /// <summary>

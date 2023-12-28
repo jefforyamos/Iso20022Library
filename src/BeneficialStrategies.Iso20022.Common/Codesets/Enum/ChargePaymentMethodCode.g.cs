@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_H8wEoRXyEeOBE-jZfcm4KQ")]
 [Description(@"Specifies how expenses are paid.")]
+[Derivations(typeof(ChargePaymentMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ChargePaymentMethodCode
 {
     /// <summary>

@@ -22,6 +22,375 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalBenchmarkCurveName1Code
 {
     /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "MuniAAA".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OUTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    MuniAAA,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "FutureSWAP".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OUzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    FutureSWAP,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "LIBID".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OVTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    LIBID,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "LIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OVzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    LIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "SWAP".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OWTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    SWAP,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "Treasury".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OWzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    Treasury,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "Euribor".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OXTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    Euribor,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "Pfandbriefe".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OXzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    Pfandbriefe,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "EONIA".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OYTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    EONIA,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "EONIASwaps".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OYzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    EONIASwaps,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "EURODOLLAR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OZTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    EURODOLLAR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "EuroSwiss".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OZzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    EuroSwiss,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "TIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OaTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    TIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "ISDAFIX".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OazNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    ISDAFIX,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "GCFRepo".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4ObTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    GCFRepo,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "STIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4ObzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    STIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "BBSW".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OcTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    BBSW,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "JIBAR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OczNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    JIBAR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "BUBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OdTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    BUBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "CDOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OdzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    CDOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "CIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OeTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    CIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "MOSPRIM".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OezNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    MOSPRIM,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "NIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OfTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    NIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "PRIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OfzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    PRIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "TELBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OgTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    TELBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "WIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OgzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    WIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "ESTER".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK4OhTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    ESTER,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "SOFR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41YTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    SOFR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "SONIA".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41YzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    SONIA,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "RBATCTR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41ZTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    RBATCTR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "CORRA".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41ZzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    CORRA,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "CABROVER".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41aTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    CABROVER,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "HIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41azNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    HIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "MUTSCALM".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41bTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    MUTSCALM,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "JBATIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41bzNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    JBATIBOR,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "FEDL01".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41cTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    FEDL01,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "OBFR01".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41czNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    OBFR01,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "Czeonia".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_ZK41dTNnEe2UWZuK9pqFtg")]
+    [Description(@"??")]
+    Czeonia,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "TONA".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_xwzO0TOhEe2AEsHTM-bt1w")]
+    [Description(@"??")]
+    TONA,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "TORF".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_8odU4jOhEe2AEsHTM-bt1w")]
+    [Description(@"??")]
+    TORF,
+    
+    /// <summary>
+    /// ??
+    /// Encoded/decoded by serializers as "SIBOR".
+    /// </summary>
+    [EnumMember(Value = "")]
+    [IsoId("_8hKqAnC-Ee2QDe42vpiOiA")]
+    [Description(@"??")]
+    SIBOR,
+    
+    /// <summary>
     /// Singapore Dollar Swap Offer Rate.
     /// Encoded/decoded by serializers as "SSOR".
     /// </summary>

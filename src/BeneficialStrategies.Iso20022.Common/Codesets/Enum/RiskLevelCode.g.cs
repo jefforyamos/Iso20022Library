@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_v_E8ExdwEeKYM7Bc71nDlA")]
 [Description(@"Specifies the risk level.")]
+[Derivations(typeof(RiskLevel1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RiskLevelCode
 {
     /// <summary>

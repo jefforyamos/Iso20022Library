@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aVM3RNp-Ed-ak6NoX_4Aeg_-1321527474")]
 [Description(@"Specifies the reason for cancelling a meeting.")]
+[Derivations(typeof(MeetingCancellationReason1Code),typeof(MeetingCancellationReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MeetingCancellationReasonCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__215c9ojEeC60axPepSq7g_-1926390567")]
 [Description(@"Indicates if the deal price is excluding or including the accrued interest.")]
+[Derivations(typeof(InterestType2Code),typeof(InterestType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InterestTypeCode
 {
     /// <summary>

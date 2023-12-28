@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVCuEAEcEeCQm6a_G2yO_w_-1692790704")]
 [Description(@"Generic component type belonging to a POI (Point of Interaction) Terminal.")]
+[Derivations(typeof(POIComponentType1Code),typeof(POIComponentType2Code),typeof(POIComponentType3Code),typeof(POIComponentType4Code),typeof(POIComponentType5Code),typeof(POIComponentType6Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum POIComponentTypeCode
 {
     /// <summary>

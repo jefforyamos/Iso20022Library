@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1CAzICDOEeWPMvNwVtiMsA")]
 [Description(@"Specifies the status of the investor profile.")]
+[Derivations(typeof(InvestorProfileStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestorProfileStatusCode
 {
     /// <summary>

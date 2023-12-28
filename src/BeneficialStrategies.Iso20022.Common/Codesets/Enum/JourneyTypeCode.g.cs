@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_LnTHAF1jEeeu75xdwwAXQw")]
 [Description(@"Journey type data in a car rental service.")]
+[Derivations(typeof(JourneyType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum JourneyTypeCode
 {
     /// <summary>

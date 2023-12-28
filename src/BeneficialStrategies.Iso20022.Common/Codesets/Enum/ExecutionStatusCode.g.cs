@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_kx_YcMX0EeiSF9q-coWegA")]
 [Description(@"Specifies if the status on a  transaction is pending initiation or has been initiated.")]
+[Derivations(typeof(ExecutionStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExecutionStatusCode
 {
     /// <summary>

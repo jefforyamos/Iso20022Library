@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_an-pVNp-Ed-ak6NoX_4Aeg_610878701")]
 [Description(@"Specifies if advice has been received from an independent financial advisor.")]
+[Derivations(typeof(FinancialAdvice1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FinancialAdviceCode
 {
     /// <summary>

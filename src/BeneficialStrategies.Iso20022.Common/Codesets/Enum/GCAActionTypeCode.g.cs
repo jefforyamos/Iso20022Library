@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_11ykoDL3EeKU9IrkkToqcw_-1739118980")]
 [Description(@"Specifies what action needs to be taken by the validation service for this particular record.")]
+[Derivations(typeof(GCAActionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GCAActionTypeCode
 {
     /// <summary>

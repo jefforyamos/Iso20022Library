@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_H2VH0BQYEeWSI-Fz8Zwg6g")]
 [Description(@"Specifies the sector of a party with non financial activities.")]
+[Derivations(typeof(NonFinancialPartySector1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NonFinancialPartySectorCode
 {
     /// <summary>

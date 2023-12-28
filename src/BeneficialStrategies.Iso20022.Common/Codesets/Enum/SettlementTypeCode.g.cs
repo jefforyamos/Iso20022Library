@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZOREYdp-Ed-ak6NoX_4Aeg_-218476844")]
 [Description(@"Indicates how an option trade is settled.")]
+[Derivations(typeof(SettlementType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementTypeCode
 {
     /// <summary>

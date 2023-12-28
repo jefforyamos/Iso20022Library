@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Yvk9Qdp-Ed-ak6NoX_4Aeg_-1137009397")]
 [Description(@"Specifies whether a financial instrument is transferred as an asset or as cash.")]
+[Derivations(typeof(TransferType1Code),typeof(TransferType3Code),typeof(TransferType4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransferTypeCode
 {
     /// <summary>

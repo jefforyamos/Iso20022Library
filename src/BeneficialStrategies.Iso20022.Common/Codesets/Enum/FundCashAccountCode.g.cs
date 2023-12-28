@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_asv0ktp-Ed-ak6NoX_4Aeg_1756152528")]
 [Description(@"Specifies the cash account type.")]
+[Derivations(typeof(FundCashAccount2Code),typeof(FundCashAccount3Code),typeof(FundCashAccount1Code),typeof(FundCashAccount4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FundCashAccountCode
 {
     /// <summary>

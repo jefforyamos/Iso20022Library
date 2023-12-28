@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_beD8xtp-Ed-ak6NoX_4Aeg_-2069893638")]
 [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
+[Derivations(typeof(BeneficiaryCertificationType3Code),typeof(BeneficiaryCertificationType5Code),typeof(BeneficiaryCertificationType2Code),typeof(BeneficiaryCertificationType4Code),typeof(BeneficiaryCertificationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BeneficiaryCertificationTypeCode
 {
     /// <summary>

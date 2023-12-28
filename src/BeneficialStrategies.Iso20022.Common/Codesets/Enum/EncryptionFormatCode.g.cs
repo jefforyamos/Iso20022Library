@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_jZW04Gi3EeS87LmvcA55sg")]
 [Description(@"Format of data before encryption, if the format is not plaintext or implicit.")]
+[Derivations(typeof(EncryptionFormat1Code),typeof(EncryptionFormat2Code),typeof(EncryptionFormat3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EncryptionFormatCode
 {
     /// <summary>

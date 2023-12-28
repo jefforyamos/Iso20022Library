@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_9YEBsCxJEeyg-aG5nXcnfg")]
 [Description(@"Specifies the initiator of the fee collection message.")]
+[Derivations(typeof(FeeCollectionInitiator1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FeeCollectionInitiatorCode
 {
     /// <summary>

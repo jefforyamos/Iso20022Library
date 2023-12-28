@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_12r8hTL3EeKU9IrkkToqcw_504869830")]
 [Description(@"DTC (The Depository Trust Company) system status code of instruction.")]
+[Derivations(typeof(DTCInstructionStatus1Code),typeof(DTCInstructionStatus2Code),typeof(DTCProtectInstructionStatus1Code),typeof(ProtectInstructionStatus3Code),typeof(ProtectInstructionStatus4Code),typeof(DTCProtectInstructionStatus3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCInstructionStatusCode
 {
     /// <summary>

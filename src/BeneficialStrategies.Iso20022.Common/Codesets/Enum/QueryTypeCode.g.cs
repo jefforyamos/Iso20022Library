@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZXza4dp-Ed-ak6NoX_4Aeg_1663250443")]
 [Description(@"Specifyies the nature of the query, i.e. whether the query requests that all matching items be returned or only new matching items since the last similar query be returned.")]
+[Derivations(typeof(QueryType2Code),typeof(QueryType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QueryTypeCode
 {
     /// <summary>

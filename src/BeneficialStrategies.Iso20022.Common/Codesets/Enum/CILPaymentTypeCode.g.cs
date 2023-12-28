@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1n7u0jL3EeKU9IrkkToqcw_2037230597")]
 [Description(@"Specifies cash in lieu payment type.")]
+[Derivations(typeof(CILPaymentType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CILPaymentTypeCode
 {
     /// <summary>

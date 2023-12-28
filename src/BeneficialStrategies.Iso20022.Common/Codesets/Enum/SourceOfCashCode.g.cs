@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_2DXCYDlEEealR6-8aQ15BA")]
 [Description(@"Specifies the origin of cash.")]
+[Derivations(typeof(SourceOfCash1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SourceOfCashCode
 {
     /// <summary>

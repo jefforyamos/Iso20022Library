@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_s_iqUNarEei60tlze8Pqbw")]
 [Description(@"Restriction References applied on a transaction.")]
+[Derivations(typeof(RestrictionReference1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RestrictionReferenceCode
 {
     /// <summary>

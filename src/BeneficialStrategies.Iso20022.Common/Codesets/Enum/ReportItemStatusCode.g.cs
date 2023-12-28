@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_sjRYp0irEeSlHoYg_EudVQ")]
 [Description(@"Specifies the status of an entry in a report.")]
+[Derivations(typeof(ReportItemStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReportItemStatusCode
 {
     /// <summary>

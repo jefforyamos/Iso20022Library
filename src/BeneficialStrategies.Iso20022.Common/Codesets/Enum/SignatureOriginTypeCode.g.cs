@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_l-8UwMnAEeWI4cSIO9foRA")]
 [Description(@"Specifies the origin of the signature.")]
+[Derivations(typeof(SignatureOriginType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SignatureOriginTypeCode
 {
     /// <summary>

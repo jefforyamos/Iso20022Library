@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YyKVAQqPEeWqX7rjSIiMuQ")]
 [Description(@"Specifies a payment schedule type.")]
+[Derivations(typeof(PaymentScheduleType1Code),typeof(PaymentScheduleType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentScheduleTypeCode
 {
     /// <summary>

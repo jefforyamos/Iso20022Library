@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZOa1Ytp-Ed-ak6NoX_4Aeg_1310457218")]
 [Description(@"Specifies when the option contract settles.")]
+[Derivations(typeof(SettleStyle1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettleStyleCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_sLXxUHaUEeaRItPFeGK_vQ")]
 [Description(@"In the case where the reporting counterparty is a UCIT or AIF, an indication whether it is an ETF or a MMF.")]
+[Derivations(typeof(FundType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FundTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_xxT_AL_kEeeb2ZBoAlSG1Q")]
 [Description(@"Specifies the subtype of the payment adjustment.")]
+[Derivations(typeof(DTCAdjustmentPaymentSubReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCAdjustmentPaymentSubReasonV2Code
 {
     /// <summary>

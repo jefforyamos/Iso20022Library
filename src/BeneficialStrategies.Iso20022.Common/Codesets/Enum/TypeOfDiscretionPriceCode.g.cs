@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YwduFtp-Ed-ak6NoX_4Aeg_337179698")]
 [Description(@"Contains the type of price to which the discretion offset is related to.")]
+[Derivations(typeof(TypeOfDiscretionPrice1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TypeOfDiscretionPriceCode
 {
     /// <summary>

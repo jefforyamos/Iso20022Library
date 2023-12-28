@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_HqDnMezYEeSBf_ghFpb9rQ")]
 [Description(@"Status of the price of a financial instrument.")]
+[Derivations(typeof(PriceStatus1Code),typeof(PriceStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PriceStatusCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_yHODoQjUEeS5F6qHcKOrew")]
 [Description(@"Specifies the source of Foreign Account Tax Compliance Act (FATCA) status.")]
+[Derivations(typeof(FATCASourceStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FATCASourceStatusCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZPw5Mdp-Ed-ak6NoX_4Aeg_1122595996")]
 [Description(@"Specifies the type of standing instruction.")]
+[Derivations(typeof(StandingInstructionGrossNet1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StandingInstructionGrossNetCode
 {
     /// <summary>

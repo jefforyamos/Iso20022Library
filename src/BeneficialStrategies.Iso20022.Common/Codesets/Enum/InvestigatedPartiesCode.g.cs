@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_2BtERU4-EeGFgOSp_IATnQ")]
 [Description(@"Specifies the investigated parties.")]
+[Derivations(typeof(InvestigatedParties1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestigatedPartiesCode
 {
     /// <summary>

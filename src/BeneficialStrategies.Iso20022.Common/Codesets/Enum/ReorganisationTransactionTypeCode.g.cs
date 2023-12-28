@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_QcVdoMU9EeeWeZMpNX1JUQ")]
 [Description(@"Specifies the type of reorganisation transaction.")]
+[Derivations(typeof(ReorganisationTransactionType1Code),typeof(ProtectTransactionType2Code),typeof(ProtectTransactionType3Code),typeof(ReorganisationTransactionType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReorganisationTransactionTypeCode
 {
     /// <summary>

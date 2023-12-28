@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YcDkUdp-Ed-ak6NoX_4Aeg_406031234")]
 [Description(@"Indicates whether the collateral substitution request is new or updated.")]
+[Derivations(typeof(CollateralSubstitutionSequence1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralSubstitutionSequenceCode
 {
     /// <summary>

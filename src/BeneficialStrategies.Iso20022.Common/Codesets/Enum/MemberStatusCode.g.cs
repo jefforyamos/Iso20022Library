@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aLqgwtp-Ed-ak6NoX_4Aeg_-1869032551")]
 [Description(@"Specifies the live status of a member of a system.")]
+[Derivations(typeof(MemberStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MemberStatusCode
 {
     /// <summary>

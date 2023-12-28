@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZVH6Vdp-Ed-ak6NoX_4Aeg_336259036")]
 [Description(@"Specifies the level of response requested from the receiver of the message.")]
+[Derivations(typeof(ResponseLevel1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResponseLevelCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aHfLYtp-Ed-ak6NoX_4Aeg_336257728")]
 [Description(@"Indicates whether the resulting position after a trade should be an opening position or closing position.")]
+[Derivations(typeof(PositionEffect1Code),typeof(PositionEffect3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PositionEffectCode
 {
     /// <summary>

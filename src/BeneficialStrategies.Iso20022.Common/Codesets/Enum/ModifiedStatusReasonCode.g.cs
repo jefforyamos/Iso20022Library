@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_0ldWoglIEeGATtfOBToyew_1371294277")]
 [Description(@"Specifies that the transaction has been modified.")]
+[Derivations(typeof(ModifiedStatusReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ModifiedStatusReasonCode
 {
     /// <summary>

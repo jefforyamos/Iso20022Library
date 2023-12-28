@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1vTlA5EkEeKcLcxonNWTXg")]
 [Description(@"Specifies the reason that an alleged trade is withdrawn.")]
+[Derivations(typeof(WithdrawalReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum WithdrawalReasonCode
 {
     /// <summary>

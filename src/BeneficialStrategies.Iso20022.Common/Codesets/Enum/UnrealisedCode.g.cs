@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_m50OY_NBEeCuA5Tr22BnwA_1824968417")]
 [Description(@"Specifies unrealised parameter.")]
+[Derivations(typeof(Unrealised1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UnrealisedCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_cP0N0CVNEeWI0orciOKunQ")]
 [Description(@"Specifies the function of the transfer in.")]
+[Derivations(typeof(TransferInFunction1Code),typeof(TransferInFunction2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransferInFunctionCode
 {
     /// <summary>

@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_F-c7MALdEeutW5-TpeYJhA")]
 [Description(@"Indicates if excess cash collateral in the currency is automatically returned as per the collateral provider’s Excess Cash Margin Instruction (colr.017). ")]
+[Derivations(typeof(ReturnExcessCash1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReturnExcessCashCode
 {
     /// <summary>

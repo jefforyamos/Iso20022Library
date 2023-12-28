@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aQk189p-Ed-ak6NoX_4Aeg_85357733")]
 [Description(@"Specifies the current status of the order cancellation request.")]
+[Derivations(typeof(OrderCancellationStatus1Code),typeof(OrderCancellationStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OrderCancellationStatusCode
 {
     /// <summary>

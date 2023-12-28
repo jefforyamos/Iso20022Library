@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YcWfQtp-Ed-ak6NoX_4Aeg_505422877")]
 [Description(@"Specifies whether the deposit is fixed term or call/notice.")]
+[Derivations(typeof(DepositType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DepositTypeCode
 {
     /// <summary>

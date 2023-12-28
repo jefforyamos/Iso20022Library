@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_X8tNUEqzEeenp6hmNprBHg")]
 [Description(@"Security characteristics of the communication link between a cardholder and a card acceptor.")]
+[Derivations(typeof(SecurityCharacteristics1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecurityCharacteristicsCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZPUNRtp-Ed-ak6NoX_4Aeg_1133516215")]
 [Description(@"Type of signature form.")]
+[Derivations(typeof(SignatureType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SignatureTypeCode
 {
     /// <summary>

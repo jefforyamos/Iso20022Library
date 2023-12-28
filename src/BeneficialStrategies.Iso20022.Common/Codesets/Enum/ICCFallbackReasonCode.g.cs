@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Hq2KwDHJEeyTT91yHXSlSQ")]
 [Description(@"A code that provides the reason of ICC fallback.")]
+[Derivations(typeof(ICCFallbackReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ICCFallbackReasonCode
 {
     /// <summary>

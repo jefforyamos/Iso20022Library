@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZXgf89p-Ed-ak6NoX_4Aeg_973159431")]
 [Description(@"Quantity is unknown by the sender or has not been established.")]
+[Derivations(typeof(Quantity1Code),typeof(Quantity2Code),typeof(Quantity3Code),typeof(Quantity4Code),typeof(Quantity5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QuantityCode
 {
     /// <summary>

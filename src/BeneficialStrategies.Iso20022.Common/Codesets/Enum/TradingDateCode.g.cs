@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__ztF4dojEeC60axPepSq7g_723432947")]
 [Description(@"Indicates if the Trading Date is various.")]
+[Derivations(typeof(TradingDate1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradingDateCode
 {
     /// <summary>

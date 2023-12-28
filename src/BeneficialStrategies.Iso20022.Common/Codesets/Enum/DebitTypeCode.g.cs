@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_JtKwwMmKEeWAGphE2LvqeA")]
 [Description(@"Specifies the type of debit to be applied to the payment.")]
+[Derivations(typeof(DebitType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DebitTypeCode
 {
     /// <summary>

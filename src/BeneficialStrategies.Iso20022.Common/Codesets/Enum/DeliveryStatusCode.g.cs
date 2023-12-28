@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_MKgsMQ2pEeWH49U6bkyMaA")]
 [Description(@"Provides an explicit indication whether the delivery attempt resulted in success or failure.")]
+[Derivations(typeof(DeliveryStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DeliveryStatusCode
 {
     /// <summary>

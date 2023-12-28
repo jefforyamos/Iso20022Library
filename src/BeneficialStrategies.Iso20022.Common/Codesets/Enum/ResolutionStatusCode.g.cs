@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZU0_aNp-Ed-ak6NoX_4Aeg_1388201869")]
 [Description(@"Specifies the status of a resolution in a meeting agenda.")]
+[Derivations(typeof(ResolutionStatus1Code),typeof(ResolutionStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResolutionStatusCode
 {
     /// <summary>

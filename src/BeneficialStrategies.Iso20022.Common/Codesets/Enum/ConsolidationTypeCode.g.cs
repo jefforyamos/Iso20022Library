@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Zjlq8CDVEeWCLu74WLgP4w")]
 [Description(@"Specifies the consolidation type.")]
+[Derivations(typeof(ConsolidationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ConsolidationTypeCode
 {
     /// <summary>

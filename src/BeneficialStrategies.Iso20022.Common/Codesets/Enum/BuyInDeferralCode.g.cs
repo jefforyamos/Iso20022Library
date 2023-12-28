@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_zwlJQJwVEeqtp-LOti013g")]
 [Description(@"Specifies that the buy-in transaction was deferred or not.")]
+[Derivations(typeof(BuyInDeferral1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BuyInDeferralCode
 {
     /// <summary>

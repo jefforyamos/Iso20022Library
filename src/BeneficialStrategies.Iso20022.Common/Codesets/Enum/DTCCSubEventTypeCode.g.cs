@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1mvcADL3EeKU9IrkkToqcw_-128626871")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) defined sub event types.")]
+[Derivations(typeof(DTCCSubEventType2Code),typeof(DTCCSubEventType1Code),typeof(DTCCSubEventType3Code),typeof(DTCCSubEventType4Code),typeof(DTCCSubEventType5Code),typeof(DTCCSubEventType6Code),typeof(DTCCSubEventType7Code),typeof(DTCCSubEventType8Code),typeof(DTCCSubEventType10Code),typeof(DTCCSubEventType9Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCCSubEventTypeCode
 {
     /// <summary>

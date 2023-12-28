@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__2sIc9ojEeC60axPepSq7g_-1368478268")]
 [Description(@"Future And Option Contract Type.")]
+[Derivations(typeof(FutureAndOptionContractType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FutureAndOptionContractTypeCode
 {
     /// <summary>

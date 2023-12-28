@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZPdXN9p-Ed-ak6NoX_4Aeg_930727871")]
 [Description(@"Specifies if the stamp duty is applicable.")]
+[Derivations(typeof(StampDutyType2Code),typeof(StampDutyType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StampDutyTypeCode
 {
     /// <summary>

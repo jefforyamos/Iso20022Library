@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YLv1ME2VEe2bQ-Ksk8mwQg")]
 [Description(@"Explanation or reason for the action being taken on the transaction reporting.")]
+[Derivations(typeof(DerivativeEventType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DerivativeEventTypeV2Code
 {
     /// <summary>

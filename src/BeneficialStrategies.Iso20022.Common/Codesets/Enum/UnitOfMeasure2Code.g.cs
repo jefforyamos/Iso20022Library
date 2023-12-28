@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y2SCNtp-Ed-ak6NoX_4Aeg_-339035809")]
 [Description(@"Identifies the unit of measure by means of a code. The code is taken from UN/ECE Recommendation 20.")]
+[Derivations(typeof(UnitOfMeasure4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UnitOfMeasure2Code
 {
     /// <summary>

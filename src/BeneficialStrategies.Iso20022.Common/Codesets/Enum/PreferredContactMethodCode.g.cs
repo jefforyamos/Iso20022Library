@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6UHyCJqlEeGSON8vddiWzQ_1695397384")]
 [Description(@"Preferred method used to reach the individual contact within an organisation.")]
+[Derivations(typeof(PreferredContactMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PreferredContactMethodCode
 {
     /// <summary>

@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_u_gjQVj1EeOnqqBHs8Gasw")]
 [Description(@"Specifies the reason for pending status. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalPendingProcessingReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalPendingProcessingReasonCode
 {
     /// <summary>

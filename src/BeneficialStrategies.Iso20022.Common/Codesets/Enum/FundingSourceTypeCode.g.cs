@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_LeQrPNwoEeeiWo5KG3eipw")]
 [Description(@"Type of funding source used for a financial service")]
+[Derivations(typeof(FundingSourceType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FundingSourceTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6Vm_wJqlEeGSON8vddiWzQ_-160980643")]
 [Description(@"Defines the tax calculation method to be used for the billing of the services.")]
+[Derivations(typeof(BillingTaxCalculationMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BillingTaxCalculationMethodCode
 {
     /// <summary>

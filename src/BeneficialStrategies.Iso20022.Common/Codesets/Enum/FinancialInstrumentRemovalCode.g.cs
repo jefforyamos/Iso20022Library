@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_J5tA0PkMEeicy5Zn42b9bg")]
 [Description(@"Specifies the removal process.")]
+[Derivations(typeof(FinancialInstrumentRemoval1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FinancialInstrumentRemovalCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_7bsNUM4EEeiAhd-njDxLnA")]
 [Description(@"Specifies if all assets are encashed and transferred as cash.")]
+[Derivations(typeof(CashAll1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CashAllCode
 {
     /// <summary>

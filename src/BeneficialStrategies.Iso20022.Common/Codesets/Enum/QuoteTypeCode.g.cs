@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZY2jx9p-Ed-ak6NoX_4Aeg_336258538")]
 [Description(@"Identifies the type of quote. Can be either an indicative, a tradeable or a restricted tradeable quote.")]
+[Derivations(typeof(QuoteType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QuoteTypeCode
 {
     /// <summary>

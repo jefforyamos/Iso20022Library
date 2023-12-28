@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_j4AIZO5NEeCisYr99QEiWA_1321527549")]
 [Description(@"Specifies the type of settlement instruction query to be executed.")]
+[Derivations(typeof(SettlementQueryType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementQueryTypeCode
 {
     /// <summary>

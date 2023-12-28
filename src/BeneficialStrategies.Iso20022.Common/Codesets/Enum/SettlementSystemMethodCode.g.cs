@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZMx2otp-Ed-ak6NoX_4Aeg_-1474296543")]
 [Description(@"Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.")]
+[Derivations(typeof(SettlementSystemMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementSystemMethodCode
 {
     /// <summary>

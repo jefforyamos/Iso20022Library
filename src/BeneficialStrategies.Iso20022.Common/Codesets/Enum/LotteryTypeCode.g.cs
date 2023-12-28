@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_afolpNp-Ed-ak6NoX_4Aeg_1755473361")]
 [Description(@"Specifies the type of lottery.")]
+[Derivations(typeof(LotteryType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LotteryTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_qt8lnWXOEem9Y55YJ70L8g")]
 [Description(@"Terminal category code of the place where the merchant actually performed the transaction.")]
+[Derivations(typeof(TerminalIntegrationCategory1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TerminalIntegrationCategoryCode
 {
     /// <summary>

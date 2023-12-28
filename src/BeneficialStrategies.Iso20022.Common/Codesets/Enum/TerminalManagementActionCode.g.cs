@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KTocs31DEeCF8NjrBemJWQ_1816233839")]
 [Description(@"Types of terminal management action to be performed by a point of interaction.")]
+[Derivations(typeof(TerminalManagementAction1Code),typeof(TerminalManagementAction3Code),typeof(TerminalManagementAction2Code),typeof(TerminalManagementAction4Code),typeof(TerminalManagementAction5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TerminalManagementActionCode
 {
     /// <summary>

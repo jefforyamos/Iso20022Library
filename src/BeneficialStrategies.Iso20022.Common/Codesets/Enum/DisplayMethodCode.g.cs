@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_awUtAtp-Ed-ak6NoX_4Aeg_711015828")]
 [Description(@"Instructions for the use of display quantity.")]
+[Derivations(typeof(DisplayMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DisplayMethodCode
 {
     /// <summary>

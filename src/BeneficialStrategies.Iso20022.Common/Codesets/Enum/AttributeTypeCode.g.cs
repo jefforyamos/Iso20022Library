@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVyU5gEcEeCQm6a_G2yO_w_-64929302")]
 [Description(@"Type of attribute of a distinguished name (DN).")]
+[Derivations(typeof(AttributeType1Code),typeof(AttributeType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AttributeTypeCode
 {
     /// <summary>

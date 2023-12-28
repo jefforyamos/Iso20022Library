@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6VUE1pqlEeGSON8vddiWzQ_861577519")]
 [Description(@"Defines the status of the billing statement.")]
+[Derivations(typeof(BillingStatementStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BillingStatementStatusCode
 {
     /// <summary>

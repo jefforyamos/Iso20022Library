@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YZ95pNp-Ed-ak6NoX_4Aeg_878628292")]
 [Description(@"Specifies the type of the obligation.")]
+[Derivations(typeof(ObligationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ObligationTypeCode
 {
     /// <summary>

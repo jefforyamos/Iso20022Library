@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YgYDpdp-Ed-ak6NoX_4Aeg_820677101")]
 [Description(@"Defines whether the threshold was applied on an unsecured or securited basis.")]
+[Derivations(typeof(ThresholdType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ThresholdTypeCode
 {
     /// <summary>

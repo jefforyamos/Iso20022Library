@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YbAbdtp-Ed-ak6NoX_4Aeg_-843141968")]
 [Description(@"Specifies whether the interest will be setlled in cash or rolled in.")]
+[Derivations(typeof(InterestMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InterestMethodCode
 {
     /// <summary>

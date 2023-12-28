@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_kOZ0kENsEeaS-NnwLNvMPg")]
 [Description(@"Specifies the source of Common Reporting Standard (CRS) status.")]
+[Derivations(typeof(CRSSourceStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CRSSourceStatusCode
 {
     /// <summary>

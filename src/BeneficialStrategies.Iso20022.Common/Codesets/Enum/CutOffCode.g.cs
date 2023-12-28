@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1oYawzL3EeKU9IrkkToqcw_1347831784")]
 [Description(@"Specifies the cut-off type.")]
+[Derivations(typeof(CutOff1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CutOffCode
 {
     /// <summary>

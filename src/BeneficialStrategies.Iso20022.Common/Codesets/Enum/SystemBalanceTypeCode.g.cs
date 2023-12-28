@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8KMm4qMgEeCJ6YNENx4h-w_-228547867")]
 [Description(@"Specifies the nature of the system balance.")]
+[Derivations(typeof(SystemBalanceType1Code),typeof(SystemBalanceType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SystemBalanceTypeCode
 {
     /// <summary>

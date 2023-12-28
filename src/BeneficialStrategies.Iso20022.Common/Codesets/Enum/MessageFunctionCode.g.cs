@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TUvzFgEcEeCQm6a_G2yO_w_-366537525")]
 [Description(@"Type of process related to a specific message.")]
+[Derivations(typeof(MessageFunction3Code),typeof(MessageFunction1Code),typeof(MessageFunction2Code),typeof(MessageFunction4Code),typeof(MessageFunction6Code),typeof(MessageFunction5Code),typeof(MessageFunction7Code),typeof(MessageFunction8Code),typeof(MessageFunction9Code),typeof(MessageFunction10Code),typeof(MessageFunction11Code),typeof(MessageFunction12Code),typeof(MessageFunction13Code),typeof(MessageFunction14Code),typeof(MessageFunction15Code),typeof(MessageFunction16Code),typeof(MessageFunction23Code),typeof(MessageFunction37Code),typeof(MessageFunction25Code),typeof(MessageFunction18Code),typeof(MessageFunction27Code),typeof(MessageFunction20Code),typeof(MessageFunction17Code),typeof(MessageFunction39Code),typeof(MessageFunction29Code),typeof(MessageFunction41Code),typeof(MessageFunction40Code),typeof(MessageFunction42Code),typeof(MessageFunction43Code),typeof(MessageFunction44Code),typeof(MessageFunction45Code),typeof(MessageFunction46Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MessageFunctionCode
 {
     /// <summary>

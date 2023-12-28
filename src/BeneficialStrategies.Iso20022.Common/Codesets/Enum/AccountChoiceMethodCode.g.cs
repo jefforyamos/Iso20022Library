@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_IwRRkHs7EeSTS7uHCe8FPQ")]
 [Description(@"Method used by the cardholder and the terminal for the choice of the account.")]
+[Derivations(typeof(AccountChoiceMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AccountChoiceMethodCode
 {
     /// <summary>

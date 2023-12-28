@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_92aNUNvdEeqxGfKJubfhIw")]
 [Description(@"Specifies a type of request.")]
+[Derivations(typeof(TypeOfRequest1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TypeOfRequestCode
 {
     /// <summary>

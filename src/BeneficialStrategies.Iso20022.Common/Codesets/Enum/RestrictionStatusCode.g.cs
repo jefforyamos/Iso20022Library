@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_h5LIgCFnEeW9XJWqfgXIIA")]
 [Description(@"Specifies the status of a restriction.")]
+[Derivations(typeof(RestrictionStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RestrictionStatusCode
 {
     /// <summary>

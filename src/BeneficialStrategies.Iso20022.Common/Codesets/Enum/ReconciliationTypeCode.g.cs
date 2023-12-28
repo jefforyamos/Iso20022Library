@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_F091QNxeEeioifFt1dhnJA")]
 [Description(@"Type of Reconciliation requested by the Sale to the POI.")]
+[Derivations(typeof(ReconciliationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationTypeCode
 {
     /// <summary>

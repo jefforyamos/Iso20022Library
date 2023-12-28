@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_gTbMYI8qEeeBmcwCTnMfBg")]
 [Description(@"Specifies the transaction authentication channel, as published in an external authentication channel code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalAuthenticationChannel1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalAuthenticationChannelCode
 {
     /// <summary>

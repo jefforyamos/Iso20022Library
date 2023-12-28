@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aM2zkdp-Ed-ak6NoX_4Aeg_1618903822")]
 [Description(@"Describes whether peg or discretion price is static/fixed or floats.")]
+[Derivations(typeof(MoveType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MoveTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ar5eoJyAEeuo7tDc4CDHXg")]
 [Description(@"Method used to protect the sensitive data.")]
+[Derivations(typeof(ProtectionMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProtectionMethodCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_arsrs9p-Ed-ak6NoX_4Aeg_1799265079")]
 [Description(@"Indicates that fractional value should be retained; no rounding.")]
+[Derivations(typeof(FractionDispositionType3Code),typeof(FractionDispositionType6Code),typeof(FractionDispositionType4Code),typeof(FractionDispositionType1Code),typeof(FractionDispositionType7Code),typeof(FractionDispositionType2Code),typeof(FractionDispositionType5Code),typeof(FractionDispositionType12Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FractionDispositionTypeCode
 {
     /// <summary>

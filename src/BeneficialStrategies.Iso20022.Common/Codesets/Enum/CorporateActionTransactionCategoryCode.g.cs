@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_10mR0TL3EeKU9IrkkToqcw_816572354")]
 [Description(@"Specifies the transaction category to which the corporate action event type belongs to for reporting purposes.")]
+[Derivations(typeof(CorporateActionTransactionCategory1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionTransactionCategoryCode
 {
     /// <summary>

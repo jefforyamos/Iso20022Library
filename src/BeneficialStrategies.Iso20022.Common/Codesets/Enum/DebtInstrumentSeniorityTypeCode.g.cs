@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Uq4csc4tEeSc85GUbgBycw")]
 [Description(@"Specifies the seniority type of a specific debt instrument.")]
+[Derivations(typeof(DebtInstrumentSeniorityType1Code),typeof(DebtInstrumentSeniorityType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DebtInstrumentSeniorityTypeCode
 {
     /// <summary>

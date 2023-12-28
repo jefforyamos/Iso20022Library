@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ahQ9WNp-Ed-ak6NoX_4Aeg_-1271465048")]
 [Description(@"Specifies the type of an entry in a report.")]
+[Derivations(typeof(Entry2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EntryCode
 {
     /// <summary>

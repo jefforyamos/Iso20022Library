@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZOtwVdp-Ed-ak6NoX_4Aeg_-300293738")]
 [Description(@"Specifies whether the securities position is short or long, that is, whether the balance is a negative or positive balance.")]
+[Derivations(typeof(ShortLong1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ShortLongCode
 {
     /// <summary>

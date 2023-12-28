@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_afCIsNp-Ed-ak6NoX_4Aeg_1075790667")]
 [Description(@"Type of linkage requested.")]
+[Derivations(typeof(LinkageType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LinkageTypeCode
 {
     /// <summary>

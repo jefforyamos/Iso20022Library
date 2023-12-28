@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YOwqMNtlEeipuvJHTHIw9A")]
 [Description(@"Unit of a amount (for loyalty or account).")]
+[Derivations(typeof(AmountUnit1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AmountUnitCode
 {
     /// <summary>

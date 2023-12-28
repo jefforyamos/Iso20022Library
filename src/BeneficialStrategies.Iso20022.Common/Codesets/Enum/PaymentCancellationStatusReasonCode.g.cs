@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_OnEtsB04EeiYoZGjIMHr2A")]
 [Description(@"Provides status reasons with regards to the cancellation of the payment.")]
+[Derivations(typeof(PaymentCancellationStatusReason3Code),typeof(PaymentCancellationStatusReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentCancellationStatusReasonCode
 {
     /// <summary>

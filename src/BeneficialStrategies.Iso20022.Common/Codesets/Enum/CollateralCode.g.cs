@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-IxzECC9EeWPMvNwVtiMsA")]
 [Description(@"Specifies whether the item is used as collateral.")]
+[Derivations(typeof(Collateral1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralCode
 {
     /// <summary>

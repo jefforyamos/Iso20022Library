@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_QVZ8gIoZEeSirOZJBRz_nA")]
 [Description(@"Describes the main way customer information was collected to build up the customer menu and the withdrawal request.")]
+[Derivations(typeof(ATMCustomerProfile1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ATMCustomerProfileCode
 {
     /// <summary>

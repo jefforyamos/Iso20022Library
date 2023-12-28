@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KSSY6H1DEeCF8NjrBemJWQ_-383369433")]
 [Description(@"Allowed usages of the key.")]
+[Derivations(typeof(KeyUsage1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum KeyUsageCode
 {
     /// <summary>

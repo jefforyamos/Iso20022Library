@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_qaX6IGMrEeexSYCBvAp_qA")]
 [Description(@"Type of lodging service.")]
+[Derivations(typeof(LodgingService1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LodgingServiceCode
 {
     /// <summary>

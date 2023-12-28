@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZQpqCNp-Ed-ak6NoX_4Aeg_336259528")]
 [Description(@"Type of subscription to market data.")]
+[Derivations(typeof(SubscriptionRequest1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SubscriptionRequestCode
 {
     /// <summary>

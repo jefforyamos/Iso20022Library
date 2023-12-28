@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_rmRbMJUiEemC09f0MxYkRg")]
 [Description(@"Status of a politically exposed person.")]
+[Derivations(typeof(PoliticallyExposedPersonStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PoliticallyExposedPersonStatusCode
 {
     /// <summary>

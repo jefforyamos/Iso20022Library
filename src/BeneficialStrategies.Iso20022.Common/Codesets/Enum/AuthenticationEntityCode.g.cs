@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVyU7AEcEeCQm6a_G2yO_w_1327141076")]
 [Description(@"Entity or object in charge of verifying the cardholder authenticity.")]
+[Derivations(typeof(AuthenticationEntity1Code),typeof(AuthenticationEntity2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AuthenticationEntityCode
 {
     /// <summary>

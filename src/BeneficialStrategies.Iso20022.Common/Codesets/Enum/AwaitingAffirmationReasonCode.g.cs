@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__0Jx1dojEeC60axPepSq7g_-795321397")]
 [Description(@"Specifies the reason why the instruction has an awaiting affirmation status.")]
+[Derivations(typeof(AwaitingAffirmationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AwaitingAffirmationReasonCode
 {
     /// <summary>

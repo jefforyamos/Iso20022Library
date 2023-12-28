@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_E_GcYErKEeenp6hmNprBHg")]
 [Description(@"Type of product codification to identify a product uniquely.")]
+[Derivations(typeof(ProductCodeType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProductCodeTypeCode
 {
     /// <summary>

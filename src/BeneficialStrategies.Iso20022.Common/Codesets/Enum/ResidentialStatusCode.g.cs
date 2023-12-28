@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZU0_Ydp-Ed-ak6NoX_4Aeg_-1411597800")]
 [Description(@"Specifies the residential status of an individual.")]
+[Derivations(typeof(ResidentialStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResidentialStatusCode
 {
     /// <summary>

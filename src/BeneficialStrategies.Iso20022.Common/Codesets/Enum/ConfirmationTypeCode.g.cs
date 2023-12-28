@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_VqbxQdp-Ed-ak6NoX_4Aeg_-1345554396")]
 [Description(@"Specifies whether a message is an intention to execute a transfer instruction or an actual confirmation of the execution of the transfer.")]
+[Derivations(typeof(ConfirmationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ConfirmationTypeCode
 {
     /// <summary>

@@ -19,6 +19,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_3_6sMI9LEeqMo4JxiuZGSw")]
 [Description(@"Frequencies for a floating rate transaction.  *** if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied.**** ")]
+[Derivations(typeof(FrequencyRateFixing1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FrequencyRateFixingCode
 {
     /// <summary>

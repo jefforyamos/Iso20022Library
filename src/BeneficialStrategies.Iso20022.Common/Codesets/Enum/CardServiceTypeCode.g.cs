@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_l0Ao8Hu8EeSLmfFG0DG7zQ")]
 [Description(@"Type of administrative service.")]
+[Derivations(typeof(CardServiceType2Code),typeof(CardServiceType1Code),typeof(CardServiceType3Code),typeof(CardServiceType4Code),typeof(CardServiceType5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardServiceTypeCode
 {
     /// <summary>

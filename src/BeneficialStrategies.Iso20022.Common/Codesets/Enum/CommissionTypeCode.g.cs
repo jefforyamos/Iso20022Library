@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_VqbxSNp-Ed-ak6NoX_4Aeg_384306495")]
 [Description(@"Type of service for which the commission is asked or paid.")]
+[Derivations(typeof(CommissionType5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CommissionTypeCode
 {
     /// <summary>

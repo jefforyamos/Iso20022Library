@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_FentwJwVEeqtp-LOti013g")]
 [Description(@"Specifies the state of the buy-in transaction.")]
+[Derivations(typeof(BuyInState1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BuyInStateCode
 {
     /// <summary>

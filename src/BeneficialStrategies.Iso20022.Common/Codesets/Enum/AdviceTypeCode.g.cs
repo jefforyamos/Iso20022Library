@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_AuwW8NomEembTrt_WixjyQ")]
 [Description(@"Specifies the type of advice to provide back in the report.")]
+[Derivations(typeof(AdviceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AdviceTypeCode
 {
     /// <summary>

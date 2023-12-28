@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_qoyqE_peEeCLMa5EIHtDrg")]
 [Description(@"Specifies whether there is cash in the account that is awaiting investment.")]
+[Derivations(typeof(ResidualCash1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResidualCashCode
 {
     /// <summary>

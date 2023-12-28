@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hlqYENt5EeiXqq0XHEoNUA")]
 [Description(@"List of services and functions available in ISO20022 Retail messages.")]
+[Derivations(typeof(RetailerService6Code),typeof(RetailerService2Code),typeof(RetailerService9Code),typeof(RetailerService4Code),typeof(RetailerService7Code),typeof(RetailerService3Code),typeof(RetailerService5Code),typeof(RetailerService1Code),typeof(RetailerService8Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RetailerServiceCode
 {
     /// <summary>

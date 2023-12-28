@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_WrnSAN6-Eeiwsev40qZGEQ")]
 [Description(@"Type of action to perform on the sound.")]
+[Derivations(typeof(SoundAction1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SoundActionCode
 {
     /// <summary>

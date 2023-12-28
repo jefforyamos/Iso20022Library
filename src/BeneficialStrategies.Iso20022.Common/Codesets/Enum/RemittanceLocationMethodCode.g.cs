@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZshGodp-Ed-ak6NoX_4Aeg_-702329779")]
 [Description(@"Specifies the method used to deliver the remittance advice information.")]
+[Derivations(typeof(RemittanceLocationMethod1Code),typeof(RemittanceLocationMethod2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RemittanceLocationMethodCode
 {
     /// <summary>

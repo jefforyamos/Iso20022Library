@@ -9,7 +9,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// <summary>
 /// The values that should be expected from a single row of dropdown data.
 /// </summary>
-public partial interface IPINFormat3CodeDropdownRow : IDropdownRow
+public partial interface IPINFormat3CodeDropdownRow : IEnumMetadataDropdownRow<PINFormat3Code>
 {
 }
 

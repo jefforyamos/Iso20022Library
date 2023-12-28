@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_o7g-JvJ7EeiJn9rM2Znz2w")]
 [Description(@"Specifies the specific type of tax(es) applicable to a transaction.")]
+[Derivations(typeof(AddendumTaxType1Code),typeof(AddendumTaxType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AddendumTaxTypeCode
 {
     /// <summary>

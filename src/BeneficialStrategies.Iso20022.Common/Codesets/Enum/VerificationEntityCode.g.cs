@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_lnn88BZNEeiXa46FI4OtcQ")]
 [Description(@"Entity to perform verification.")]
+[Derivations(typeof(VerificationEntity1Code),typeof(VerificationEntity2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum VerificationEntityCode
 {
     /// <summary>

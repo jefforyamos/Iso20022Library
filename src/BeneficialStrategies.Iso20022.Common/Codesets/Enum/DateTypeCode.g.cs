@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ayjhp9p-Ed-ak6NoX_4Aeg_-2092185589")]
 [Description(@"Ongoing basis, which indicates that the date is determined by ""ongoing basis"" process, for example ""au fil de l'eau"".")]
+[Derivations(typeof(DateType3Code),typeof(DateType6Code),typeof(DateType8Code),typeof(DateType7Code),typeof(DateType1Code),typeof(DateType5Code),typeof(DateType4Code),typeof(DateType2Code),typeof(DateType9Code),typeof(DateType10Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DateTypeCode
 {
     /// <summary>

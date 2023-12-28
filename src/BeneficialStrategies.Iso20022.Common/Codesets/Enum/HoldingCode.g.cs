@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_lwDTkxKfEeKj15WxqwlXPw")]
 [Description(@"Specifies how the holding is blocked.")]
+[Derivations(typeof(Holding1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum HoldingCode
 {
     /// <summary>

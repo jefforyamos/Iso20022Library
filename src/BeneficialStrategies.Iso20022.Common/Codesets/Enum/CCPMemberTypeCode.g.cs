@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_DohbkAGeEeutW5-TpeYJhA")]
 [Description(@"Specifies the type of membership the collateral provider holds with the CCP.")]
+[Derivations(typeof(CCPMemberType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CCPMemberTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_SvcYkU1pEeSvz4A_x0ui8g")]
 [Description(@"Specifies the level of the safekeeping holding account.")]
+[Derivations(typeof(HoldingAccountLevel1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum HoldingAccountLevelCode
 {
     /// <summary>

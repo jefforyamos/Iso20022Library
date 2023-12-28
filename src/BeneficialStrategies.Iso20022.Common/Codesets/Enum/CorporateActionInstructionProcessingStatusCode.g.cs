@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bKjK4dp-Ed-ak6NoX_4Aeg_-1308410939")]
 [Description(@"Specifies the status of a corporate action instruction.")]
+[Derivations(typeof(CorporateActionInstructionProcessingStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionInstructionProcessingStatusCode
 {
     /// <summary>

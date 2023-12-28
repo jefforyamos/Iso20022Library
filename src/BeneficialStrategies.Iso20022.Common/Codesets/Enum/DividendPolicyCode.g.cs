@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_axET4dp-Ed-ak6NoX_4Aeg_800833900")]
 [Description(@"Specifies the dividend policy of the financial instrument.")]
+[Derivations(typeof(DividendPolicy1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DividendPolicyCode
 {
     /// <summary>

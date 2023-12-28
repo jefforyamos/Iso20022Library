@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_LBcKoC7YEea1cMkrGwA6Gg")]
 [Description(@"Specifies the classification of the risk of the security used as collateral.")]
+[Derivations(typeof(CollateralQualityType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralQualityTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_cViSQN6aEeiwsev40qZGEQ")]
 [Description(@"Event the POI notifies to the sale system.")]
+[Derivations(typeof(EventToNotify1Code),typeof(EventToNotify2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EventToNotifyCode
 {
     /// <summary>

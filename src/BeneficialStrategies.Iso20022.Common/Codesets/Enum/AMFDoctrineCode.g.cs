@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ty7h0M3AEeuAE-cYsQdwHQ")]
 [Description(@"Specifies the approach of the Autorite des Marches Financiers (AMF) recommendation 2020-03 to which the fund complies.")]
+[Derivations(typeof(AMFDoctrine1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AMFDoctrineCode
 {
     /// <summary>

@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_eIg8sYjXEeeDW7_wB-eK_g")]
 [Description(@"Specifies the reason for the rejection of a claim non receipt, as published in an external claim non receipt rejection code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalClaimNonReceiptRejection1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalClaimNonReceiptRejectionCode
 {
     /// <summary>

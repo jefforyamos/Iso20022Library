@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_5z1UgLf7Eee9KIDjEHK7ZQ")]
 [Description(@"Specifies the status of a group of payment instructions, as published in an external payment group status code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalPaymentGroupStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalPaymentGroupStatusCode
 {
     /// <summary>

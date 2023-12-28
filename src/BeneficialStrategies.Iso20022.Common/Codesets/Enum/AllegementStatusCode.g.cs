@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bopcI9p-Ed-ak6NoX_4Aeg_241665691")]
 [Description(@"Specifies the status of an allegement.")]
+[Derivations(typeof(AllegementStatus1Code),typeof(AllegementStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AllegementStatusCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_cBwMgLwdEeivTd4NUfCi2g")]
 [Description(@"Collateral  transaction type expressed as an ISO 20022 code.")]
+[Derivations(typeof(CollateralTransactionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralTransactionTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_rJyl4DKlEeipv8GJ5uBgPw")]
 [Description(@"Describes the payment scenario used for a payment transaction.")]
+[Derivations(typeof(PaymentScenario2Code),typeof(PaymentScenario1Code),typeof(PaymentScenario3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentScenarioCode
 {
     /// <summary>

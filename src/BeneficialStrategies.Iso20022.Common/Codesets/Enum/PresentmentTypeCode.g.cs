@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YFIMkEWeEempSe_3C1a9EQ")]
 [Description(@"Specifies which elements types must be presented in an e-invoice.")]
+[Derivations(typeof(PresentmentType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PresentmentTypeCode
 {
     /// <summary>

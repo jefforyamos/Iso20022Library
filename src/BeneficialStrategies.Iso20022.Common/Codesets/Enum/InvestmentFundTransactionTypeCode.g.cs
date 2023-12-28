@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aczUGNp-Ed-ak6NoX_4Aeg_-1474043592")]
 [Description(@"Specifies the type of transaction.")]
+[Derivations(typeof(InvestmentFundTransactionInType3Code),typeof(InvestmentFundTransactionOutType4Code),typeof(InvestmentFundTransactionInType1Code),typeof(InvestmentFundTransactionOutType1Code),typeof(TransactionType2Code),typeof(TransactionType1Code),typeof(InvestmentFundTransactionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestmentFundTransactionTypeCode
 {
     /// <summary>

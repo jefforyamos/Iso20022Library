@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1GyxYHsKEeSR68OJvMfxJQ")]
 [Description(@"Reason to indicate a certain level of risk for the transaction.")]
+[Derivations(typeof(CardTransactionRiskReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardTransactionRiskReasonCode
 {
     /// <summary>

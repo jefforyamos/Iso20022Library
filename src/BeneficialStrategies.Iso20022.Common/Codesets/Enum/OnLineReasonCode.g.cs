@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TU5kIAEcEeCQm6a_G2yO_w_329831590")]
 [Description(@"Reason to process an online authorisation.")]
+[Derivations(typeof(OnLineReason1Code),typeof(OnLineReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OnLineReasonCode
 {
     /// <summary>

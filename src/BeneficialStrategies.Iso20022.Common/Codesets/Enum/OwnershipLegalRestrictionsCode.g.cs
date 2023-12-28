@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZxJH-Np-Ed-ak6NoX_4Aeg_-853156966")]
 [Description(@"Specifies the regulatory restrictions applicable to a financial instrument.")]
+[Derivations(typeof(OwnershipLegalRestrictions1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OwnershipLegalRestrictionsCode
 {
     /// <summary>

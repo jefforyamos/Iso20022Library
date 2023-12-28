@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YbwCUNp-Ed-ak6NoX_4Aeg_-1054391304")]
 [Description(@"Specifies the reason why the instruction/request has been cancelled.")]
+[Derivations(typeof(CollateralManagementCancellationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralManagementCancellationReasonCode
 {
     /// <summary>

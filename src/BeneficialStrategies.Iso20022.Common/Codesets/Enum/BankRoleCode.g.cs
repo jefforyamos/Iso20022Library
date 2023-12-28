@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_yh4FcNNsEeKdOs2hjJ_3WQ")]
 [Description(@"Specifies the role of the bank in the transaction.")]
+[Derivations(typeof(BankRole1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BankRoleCode
 {
     /// <summary>

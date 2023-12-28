@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ahQ9UNp-Ed-ak6NoX_4Aeg_2052483881")]
 [Description(@"Identifies the type of investor. The rules that apply to each type of client are different.")]
+[Derivations(typeof(Eligibility1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EligibilityCode
 {
     /// <summary>

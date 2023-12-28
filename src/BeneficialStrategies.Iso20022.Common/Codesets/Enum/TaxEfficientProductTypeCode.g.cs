@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_X-nhUE4LEeiQHa-q1Uephw")]
 [Description(@"Specifies a type of tax efficient product.")]
+[Derivations(typeof(TaxEfficientProductType1Code),typeof(TaxEfficientProductType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TaxEfficientProductTypeCode
 {
     /// <summary>

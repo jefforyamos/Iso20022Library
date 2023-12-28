@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6WDrtJqlEeGSON8vddiWzQ_387174603")]
 [Description(@"Defines the method for the payment of the tax applied on the services.")]
+[Derivations(typeof(ServicePaymentMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ServicePaymentMethodCode
 {
     /// <summary>

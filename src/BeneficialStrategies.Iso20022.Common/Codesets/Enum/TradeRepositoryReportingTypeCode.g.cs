@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_gIoLANIFEeiG-o-KpBT4-g")]
 [Description(@"Indication whether both counterparties to the transaction have reported to the same trade repository or each counteraprty to the transaction reported two different trade repository.")]
+[Derivations(typeof(TradeRepositoryReportingType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradeRepositoryReportingTypeCode
 {
     /// <summary>

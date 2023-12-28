@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_vCRBUBYfEeiXa46FI4OtcQ")]
 [Description(@"Attribute related to the transaction")]
+[Derivations(typeof(TransactionAttribute1Code),typeof(TransactionAttribute2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransactionAttributeCode
 {
     /// <summary>

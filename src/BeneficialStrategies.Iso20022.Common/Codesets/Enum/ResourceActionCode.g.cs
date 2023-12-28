@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_LI9QYC7_Eeu125Ip9zFcsQ")]
 [Description(@"Type of action to perform on a media resource.")]
+[Derivations(typeof(ResourceAction1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResourceActionCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bWBbENp-Ed-ak6NoX_4Aeg_-1231865775")]
 [Description(@"Specifies calculation types such as yield, duration, analytics etc.")]
+[Derivations(typeof(CalculationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CalculationTypeCode
 {
     /// <summary>

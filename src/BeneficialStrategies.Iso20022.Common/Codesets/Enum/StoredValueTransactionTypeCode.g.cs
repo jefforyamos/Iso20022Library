@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_OuAlgNuNEeiB5uLfkg9ZJA")]
 [Description(@"Identification of operation to proceed on the stored value account or the stored value card.")]
+[Derivations(typeof(StoredValueTransactionType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StoredValueTransactionTypeCode
 {
     /// <summary>

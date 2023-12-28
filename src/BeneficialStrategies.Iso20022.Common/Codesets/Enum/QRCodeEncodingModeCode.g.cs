@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Lg9HwNuaEeiB5uLfkg9ZJA")]
 [Description(@"Encoding Mode of Quick Response Code.")]
+[Derivations(typeof(QRCodeEncodingMode1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QRCodeEncodingModeCode
 {
     /// <summary>

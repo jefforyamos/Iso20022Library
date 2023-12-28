@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_tyUxkVf8EeOuDtoQo1qilA")]
 [Description(@"Indicates the specific reinvestment plan type.")]
+[Derivations(typeof(ReinvestmentPlan1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReinvestmentPlanCode
 {
     /// <summary>

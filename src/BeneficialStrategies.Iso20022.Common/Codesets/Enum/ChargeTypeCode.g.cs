@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a9lF6dp-Ed-ak6NoX_4Aeg_1571365550")]
 [Description(@"Type of service for which a charge is asked or paid.")]
+[Derivations(typeof(ChargeType7Code),typeof(ChargeType9Code),typeof(ChargeType4Code),typeof(ChargeType12Code),typeof(ChargeType1Code),typeof(ChargeType10Code),typeof(ChargeType6Code),typeof(ChargeType11Code),typeof(ChargeType14Code),typeof(ChargeType17Code),typeof(ChargeType8Code),typeof(ChargeType13Code),typeof(ChargeType16Code),typeof(ChargeType15Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ChargeTypeCode
 {
     /// <summary>

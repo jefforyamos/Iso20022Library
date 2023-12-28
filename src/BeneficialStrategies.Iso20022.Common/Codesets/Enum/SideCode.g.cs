@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZPArRNp-Ed-ak6NoX_4Aeg_336257608")]
 [Description(@"Side taken by a party on an order.")]
+[Derivations(typeof(Side1Code),typeof(Side3Code),typeof(OrderDriverCode),typeof(IOISideTypeCode),typeof(Side5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SideCode
 {
     /// <summary>

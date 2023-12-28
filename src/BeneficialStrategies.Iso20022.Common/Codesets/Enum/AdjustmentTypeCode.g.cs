@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bnTYU9p-Ed-ak6NoX_4Aeg_-949764455")]
 [Description(@"Specifies the type of adjustment.")]
+[Derivations(typeof(AdjustmentType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AdjustmentTypeCode
 {
     /// <summary>

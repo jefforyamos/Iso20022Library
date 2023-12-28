@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aJunEtp-Ed-ak6NoX_4Aeg_-1411699432")]
 [Description(@"Price will not be paid.")]
+[Derivations(typeof(PriceValueType1Code),typeof(PriceRateType3Code),typeof(PriceValueType4Code),typeof(PriceValueType9Code),typeof(PriceValueType5Code),typeof(PriceValueType10Code),typeof(PriceValueType8Code),typeof(PriceValueType2Code),typeof(PriceValueType3Code),typeof(CommissionValueType1Code),typeof(PriceValueType7Code),typeof(PriceValueType6Code),typeof(PriceValueType12Code),typeof(PriceValueType13Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PriceValueTypeCode
 {
     /// <summary>

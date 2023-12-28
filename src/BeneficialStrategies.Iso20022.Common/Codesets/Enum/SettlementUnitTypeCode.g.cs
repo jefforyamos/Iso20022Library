@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hblKkmliEeGaMcKyqKNRfQ_601711854")]
 [Description(@"Type of settlement foreseen for the security.")]
+[Derivations(typeof(SettlementUnitType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementUnitTypeCode
 {
     /// <summary>

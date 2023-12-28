@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aHWBc9p-Ed-ak6NoX_4Aeg_-1656476023")]
 [Description(@"Type of place.")]
+[Derivations(typeof(PlaceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PlaceTypeCode
 {
     /// <summary>

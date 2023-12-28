@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_jK9qADy5EeS4E7Ac8_OV3g")]
 [Description(@"Specifies the granularity of the frequency used for the reporting.")]
+[Derivations(typeof(FrequencyGranularityType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FrequencyGranularityTypeCode
 {
     /// <summary>

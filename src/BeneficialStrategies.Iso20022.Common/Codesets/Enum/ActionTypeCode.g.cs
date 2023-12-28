@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVpK8gEcEeCQm6a_G2yO_w_-1860538994")]
 [Description(@"Type of action to be performed by the POI system (Point Of Interaction).")]
+[Derivations(typeof(ActionType1Code),typeof(ActionType2Code),typeof(ActionType3Code),typeof(ActionType4Code),typeof(ActionType5Code),typeof(ActionType6Code),typeof(ActionType7Code),typeof(ActionType10Code),typeof(ActionType11Code),typeof(ActionType8Code),typeof(ActionType9Code),typeof(ActionType12Code),typeof(ActionType13Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ActionTypeCode
 {
     /// <summary>

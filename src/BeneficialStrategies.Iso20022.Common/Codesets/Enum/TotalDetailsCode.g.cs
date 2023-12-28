@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_uDmwIN6SEeiwsev40qZGEQ")]
 [Description(@"Indicates the hierarchical structure of the reconciliation result of the Sale to POI reconciliation.")]
+[Derivations(typeof(TotalDetails1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TotalDetailsCode
 {
     /// <summary>

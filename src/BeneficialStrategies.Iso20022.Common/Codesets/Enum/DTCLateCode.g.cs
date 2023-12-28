@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1puekzL3EeKU9IrkkToqcw_1613949680")]
 [Description(@"Specifies late announcements: wither the announcement was made before or after position capture.")]
+[Derivations(typeof(DTCLate1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCLateCode
 {
     /// <summary>

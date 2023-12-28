@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1F82kErCEeenp6hmNprBHg")]
 [Description(@"Type of goods and services purchased.")]
+[Derivations(typeof(GoodsAndServices1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GoodsAndServicesCode
 {
     /// <summary>

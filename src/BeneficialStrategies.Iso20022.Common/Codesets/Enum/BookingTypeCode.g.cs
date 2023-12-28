@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bU-SMtp-Ed-ak6NoX_4Aeg_-1785739759")]
 [Description(@"Method for booking out an order. Used when notifying a broker that an order to be settled by that broker is to be booked out as an OTC derivative (e.g. CFD or similar).")]
+[Derivations(typeof(BookingType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BookingTypeCode
 {
     /// <summary>

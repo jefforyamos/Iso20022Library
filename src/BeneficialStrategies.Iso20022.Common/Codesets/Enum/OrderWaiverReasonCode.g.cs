@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZwscBtp-Ed-ak6NoX_4Aeg_-2076610546")]
 [Description(@"Specifies investment fund processes.")]
+[Derivations(typeof(OrderWaiverReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OrderWaiverReasonCode
 {
     /// <summary>

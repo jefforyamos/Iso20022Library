@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1o-QojL3EeKU9IrkkToqcw_-806320900")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) defined payout types.")]
+[Derivations(typeof(DTCCPayoutType2Code),typeof(DTCCPayoutType1Code),typeof(DTCCPayoutType3Code),typeof(DTCCPayoutType4Code),typeof(DTCCPayoutType5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCCPayoutTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZPnIM9p-Ed-ak6NoX_4Aeg_953734386")]
 [Description(@"Specifies whether the terms of the security (underlying instruments, expiration date, contract size) are defined according to the exchange specifications or whether they can be user defined.")]
+[Derivations(typeof(Standardisation1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StandardisationCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1oFf0zL3EeKU9IrkkToqcw_648096752")]
 [Description(@"Specifies DTC (The Depository Trust Company) processing domain for the event.")]
+[Derivations(typeof(EventGroup1Code),typeof(EventGroup2Code),typeof(EventGroup3Code),typeof(EventGroup4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EventGroupCode
 {
     /// <summary>

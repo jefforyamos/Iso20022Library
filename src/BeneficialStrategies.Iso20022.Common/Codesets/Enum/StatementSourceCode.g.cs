@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_m5XidfNBEeCuA5Tr22BnwA_665404846")]
 [Description(@"Specifies the source of the report.")]
+[Derivations(typeof(StatementSource1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StatementSourceCode
 {
     /// <summary>

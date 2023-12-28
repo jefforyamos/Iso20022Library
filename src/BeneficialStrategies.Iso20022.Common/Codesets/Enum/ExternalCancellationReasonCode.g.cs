@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6EBKgJF4EeeMPMycDdDCGw")]
 [Description(@"Specifies the cancellation reason, as published in an external cancellation reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalCancellationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalCancellationReasonCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aOMQUNp-Ed-ak6NoX_4Aeg_479751558")]
 [Description(@"Specifies which type of action a user must take or is prevented to take.")]
+[Derivations(typeof(NotificationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NotificationTypeCode
 {
     /// <summary>

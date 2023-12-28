@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aMj4qNp-Ed-ak6NoX_4Aeg_-1506297478")]
 [Description(@"Specifies the status of money laundering identification procedures.")]
+[Derivations(typeof(MoneyLaunderingCheck1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MoneyLaunderingCheckCode
 {
     /// <summary>

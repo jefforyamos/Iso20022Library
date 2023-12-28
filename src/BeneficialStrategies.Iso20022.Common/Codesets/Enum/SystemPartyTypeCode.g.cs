@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_kpxjk-5NEeCisYr99QEiWA_-1377825526")]
 [Description(@"Specifies the type of the party within a system.")]
+[Derivations(typeof(SystemPartyType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SystemPartyTypeCode
 {
     /// <summary>

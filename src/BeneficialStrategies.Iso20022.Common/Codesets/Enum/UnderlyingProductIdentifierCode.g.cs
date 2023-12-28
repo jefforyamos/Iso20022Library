@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_QQZXoCjmEeK1Sbo8NpBROA")]
 [Description(@"Indicates the underlying product type for reporting to trade repositories. These product codes must be in line with the ISDA Product Taxonomy.")]
+[Derivations(typeof(UnderlyingProductIdentifier1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UnderlyingProductIdentifierCode
 {
     /// <summary>

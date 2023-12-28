@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hXsYANdcEeibyvRfU9vJ7w")]
 [Description(@"Specifies whether a financial product is in scope of a target market parameter.")]
+[Derivations(typeof(TargetMarket1Code),typeof(TargetMarket2Code),typeof(TargetMarket3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TargetMarketCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_abdQQtp-Ed-ak6NoX_4Aeg_-1445551000")]
 [Description(@"Indicates the result of an investigation.")]
+[Derivations(typeof(InvestigationExecutionConfirmation1Code),typeof(InvestigationExecutionConfirmation2Code),typeof(InvestigationExecutionConfirmation3Code),typeof(InvestigationExecutionConfirmation4Code),typeof(InvestigationExecutionConfirmation5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestigationExecutionConfirmationCode
 {
     /// <summary>

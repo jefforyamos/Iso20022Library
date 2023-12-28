@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_O4iB4ASsEeusZ4O-nsxv_w")]
 [Description(@"Specifies a type of amount inconsistencies, that the amount type provided matches the reference amount or not.")]
+[Derivations(typeof(AmountConsistencyType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AmountConsistencyTypeCode
 {
     /// <summary>

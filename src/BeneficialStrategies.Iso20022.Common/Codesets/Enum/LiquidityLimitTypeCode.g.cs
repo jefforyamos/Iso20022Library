@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_afVDoNp-Ed-ak6NoX_4Aeg_-1698330271")]
 [Description(@"Specifies the precise type of liquidity management limit.")]
+[Derivations(typeof(LiquidityLimitType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LiquidityLimitTypeCode
 {
     /// <summary>

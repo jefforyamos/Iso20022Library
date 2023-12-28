@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_MosJQK37EemG7MmivSuE5g")]
 [Description(@"Specifies the impact of a vote on a proposal.")]
+[Derivations(typeof(VoteType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum VoteTypeCode
 {
     /// <summary>

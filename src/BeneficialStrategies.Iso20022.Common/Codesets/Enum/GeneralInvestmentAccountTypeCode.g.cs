@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_pXBs0F2cEeiFXdiLi_Nf4A")]
 [Description(@"Specifies a type of investment account.")]
+[Derivations(typeof(GeneralInvestmentAccountType1Code),typeof(GeneralInvestmentAccountType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GeneralInvestmentAccountTypeCode
 {
     /// <summary>

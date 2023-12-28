@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_uQbcgCDMEeWPMvNwVtiMsA")]
 [Description(@"Specifies the party responsible for the liability.")]
+[Derivations(typeof(Liability1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LiabilityCode
 {
     /// <summary>

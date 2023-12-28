@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bfaAlNp-Ed-ak6NoX_4Aeg_-1937835864")]
 [Description(@"Method under which assignment was conducted.")]
+[Derivations(typeof(AssignmentMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AssignmentMethodCode
 {
     /// <summary>

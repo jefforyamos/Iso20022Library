@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z4u9sNp-Ed-ak6NoX_4Aeg_-2057540990")]
 [Description(@"Specifies the reason for the reject of a modification request.")]
+[Derivations(typeof(ModificationRejection2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentModificationRejectionV2Code
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YbKMdNp-Ed-ak6NoX_4Aeg_-1204468675")]
 [Description(@"Indicates whether the interest request is rejected due a value date or an interest amount difference.")]
+[Derivations(typeof(InterestRejectionReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InterestRejectionReasonCode
 {
     /// <summary>

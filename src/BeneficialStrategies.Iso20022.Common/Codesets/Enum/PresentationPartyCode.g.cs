@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_v7BzIHycEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the party to receive the presentation.")]
+[Derivations(typeof(PresentationParty1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PresentationPartyCode
 {
     /// <summary>

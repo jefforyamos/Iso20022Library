@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_S_0LwFyqEeeve7Je9cXtkQ")]
 [Description(@"Activity type assigned to a car rental company.")]
+[Derivations(typeof(CarRentalActivity1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CarRentalActivityCode
 {
     /// <summary>

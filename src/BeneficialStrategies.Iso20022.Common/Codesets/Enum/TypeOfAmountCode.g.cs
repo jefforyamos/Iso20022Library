@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVWQDwEcEeCQm6a_G2yO_w_-259543426")]
 [Description(@"Identification or qualification of the type of amount.")]
+[Derivations(typeof(TypeOfAmount3Code),typeof(TypeOfAmount1Code),typeof(TypeOfAmount2Code),typeof(TypeOfAmount4Code),typeof(TypeOfAmount7Code),typeof(TypeOfAmount6Code),typeof(TypeOfAmount5Code),typeof(TypeOfAmount8Code),typeof(TypeOfAmount9Code),typeof(TypeOfAmount18Code),typeof(TypeOfAmount17Code),typeof(TypeOfAmount19Code),typeof(TypeOfAmount11Code),typeof(TypeOfAmount10Code),typeof(TypeOfAmount12Code),typeof(TypeOfAmount22Code),typeof(TypeOfAmount21Code),typeof(TypeOfAmount20Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TypeOfAmountCode
 {
     /// <summary>

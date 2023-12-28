@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1oiLwzL3EeKU9IrkkToqcw_-1345943536")]
 [Description(@"Specifies the quantity sought type.")]
+[Derivations(typeof(DTCCQuantitySought1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCCQuantitySoughtCode
 {
     /// <summary>

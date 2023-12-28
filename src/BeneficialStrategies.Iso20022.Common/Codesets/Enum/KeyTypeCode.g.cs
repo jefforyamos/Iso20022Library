@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_uPcTB_8bEeic54G0fOJNMg")]
 [Description(@"Contains the list of key types that may be exchanged")]
+[Derivations(typeof(KeyType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum KeyTypeCode
 {
     /// <summary>

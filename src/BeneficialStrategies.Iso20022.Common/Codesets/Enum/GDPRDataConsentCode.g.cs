@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aN8PUJTTEemC09f0MxYkRg")]
 [Description(@"Consent type in the context of the General Protection Regulation (GDPR) 2016/679 regulation.")]
+[Derivations(typeof(GDPRDataConsent1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GDPRDataConsentCode
 {
     /// <summary>

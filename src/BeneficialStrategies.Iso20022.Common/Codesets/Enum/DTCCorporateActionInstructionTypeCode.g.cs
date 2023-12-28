@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_12ZBkjL3EeKU9IrkkToqcw_1778386754")]
 [Description(@"Specifies the type of the corporate action instruction.")]
+[Derivations(typeof(DTCCorporateActionInstructionType1Code),typeof(DTCCorporateActionInstructionType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCCorporateActionInstructionTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YrP25tp-Ed-ak6NoX_4Aeg_-41180042")]
 [Description(@"Specifies the type of activity to which this transaction relates.")]
+[Derivations(typeof(TransactionActivity1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransactionActivityCode
 {
     /// <summary>

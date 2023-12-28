@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_JpEXQHygEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the type of settlement advice.")]
+[Derivations(typeof(SettlementAdviceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementAdviceTypeCode
 {
     /// <summary>

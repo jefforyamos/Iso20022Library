@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ajNeFNp-Ed-ak6NoX_4Aeg_-582418410")]
 [Description(@"Indicates the status of the occurrence of an event.")]
+[Derivations(typeof(EventConfirmationStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EventConfirmationStatusCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_kKPfmIhAEeOxVLCZ_vEz5w")]
 [Description(@"Specifies the nature of the securities or investment fund balance.")]
+[Derivations(typeof(SecuritiesBalanceType14Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesBalanceTypeV3Code
 {
     /// <summary>

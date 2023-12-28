@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y-eU5dp-Ed-ak6NoX_4Aeg_1234577798")]
 [Description(@"Specifies the account identification via a code.")]
+[Derivations(typeof(SafekeepingAccountIdentification1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SafekeepingAccountIdentificationCode
 {
     /// <summary>

@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_XM07ICM8EeKqFfWb-hg03g_986653055")]
 [Description(@"Defines the type of billing compensation to be applied, as published in an external billing compensation type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalBillingCompensationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalBillingCompensationTypeCode
 {
     /// <summary>

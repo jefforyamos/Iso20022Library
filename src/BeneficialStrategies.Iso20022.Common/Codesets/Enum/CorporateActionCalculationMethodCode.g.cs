@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bCgCJ9p-Ed-ak6NoX_4Aeg_734426913")]
 [Description(@"Specifies the calculation method.")]
+[Derivations(typeof(CorporateActionCalculationMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionCalculationMethodCode
 {
     /// <summary>

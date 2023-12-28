@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Zg1qsLABEeah1_v59tW6Rg")]
 [Description(@"Specifies the result of authentication done.")]
+[Derivations(typeof(AuthenticationResult1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AuthenticationResultCode
 {
     /// <summary>

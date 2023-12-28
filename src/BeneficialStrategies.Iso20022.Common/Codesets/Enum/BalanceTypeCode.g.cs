@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bbFhQNp-Ed-ak6NoX_4Aeg_142948041")]
 [Description(@"Specifies the nature of the balance.")]
+[Derivations(typeof(BalanceType4Code),typeof(BalanceType6Code),typeof(BalanceType10Code),typeof(BalanceType5Code),typeof(BalanceType7Code),typeof(BalanceType11Code),typeof(BalanceType8Code),typeof(BalanceType12Code),typeof(BalanceType9Code),typeof(SecuritiesBalanceType10Code),typeof(SecuritiesBalanceType6Code),typeof(CashBalanceType1Code),typeof(SecuritiesBalanceType9Code),typeof(BalanceType13Code),typeof(BalanceType14Code),typeof(BalanceType15Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BalanceTypeCode
 {
     /// <summary>

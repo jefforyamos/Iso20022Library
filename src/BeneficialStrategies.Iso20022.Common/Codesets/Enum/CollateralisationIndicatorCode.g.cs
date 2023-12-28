@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_9l5ZMC48EeK7-OZOLIksSw")]
 [Description(@"Specifies whether the transaction is collateralised.")]
+[Derivations(typeof(CollateralisationIndicator1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralisationIndicatorCode
 {
     /// <summary>

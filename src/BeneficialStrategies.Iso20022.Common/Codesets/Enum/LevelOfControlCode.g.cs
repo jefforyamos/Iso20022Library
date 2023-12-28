@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y7LFQCDDEeWPMvNwVtiMsA")]
 [Description(@"Specifies the level of control.")]
+[Derivations(typeof(LevelOfControl1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LevelOfControlCode
 {
     /// <summary>

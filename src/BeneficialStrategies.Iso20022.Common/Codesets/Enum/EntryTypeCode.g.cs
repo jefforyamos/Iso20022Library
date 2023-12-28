@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_GwgOMHvEEemW9qhOy0scyg")]
 [Description(@"Specifies whether the quantity or amount is to be delivered or received.")]
+[Derivations(typeof(CollateralEntryType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EntryTypeCode
 {
     /// <summary>

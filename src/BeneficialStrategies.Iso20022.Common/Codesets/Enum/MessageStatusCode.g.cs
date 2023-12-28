@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-yEE8NHAEeaokquJJ-K6uA")]
 [Description(@"Specifies the status of a whole message processing.")]
+[Derivations(typeof(ReportingMessageStatus1Code),typeof(ReportingMessageStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MessageStatusCode
 {
     /// <summary>

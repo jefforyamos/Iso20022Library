@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_7XcKNQNyEe2-vqzwMUAewg")]
 [Description(@"Specifies the type of amount for foreign exchange commissions or fees.")]
+[Derivations(typeof(FXAmountType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FXAmountTypeCode
 {
     /// <summary>

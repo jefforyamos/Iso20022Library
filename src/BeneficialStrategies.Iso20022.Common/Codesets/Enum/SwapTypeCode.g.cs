@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_i7J28CSpEeWsI5Sp3-B3zg")]
 [Description(@"Specifies the type of an interest rate derivative when the contract type is a swap, a swaption, a future on a swap and / or a forward on a swap.")]
+[Derivations(typeof(SwapType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SwapTypeCode
 {
     /// <summary>

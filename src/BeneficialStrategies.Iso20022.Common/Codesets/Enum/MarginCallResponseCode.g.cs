@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YdGGINp-Ed-ak6NoX_4Aeg_420355985")]
 [Description(@"Specifies whether the margin call request was sent on a non valuation day or was received after notification time.")]
+[Derivations(typeof(MarginCallResponse1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MarginCallResponseCode
 {
     /// <summary>

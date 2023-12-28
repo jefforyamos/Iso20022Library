@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ltUEcNomEeCWg-hsBVGrDA_-989246574")]
 [Description(@"Describes the delivery or custody arrangement for the underlying securities.")]
+[Derivations(typeof(DeliveryType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DeliveryTypeV2Code
 {
     /// <summary>

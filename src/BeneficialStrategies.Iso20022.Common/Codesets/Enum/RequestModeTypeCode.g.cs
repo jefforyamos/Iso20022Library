@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_m8c_gMm4EeWAGphE2LvqeA")]
 [Description(@"Specifies the combination of mode and type of the query information.")]
+[Derivations(typeof(RequestModeType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RequestModeTypeCode
 {
     /// <summary>

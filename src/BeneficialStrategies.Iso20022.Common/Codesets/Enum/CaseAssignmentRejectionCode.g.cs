@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a2IaFtp-Ed-ak6NoX_4Aeg_-898092331")]
 [Description(@"Specifies the reason for not accepting a Case.")]
+[Derivations(typeof(CaseAssignmentRejection1Code),typeof(CaseAssignmentRejection2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CaseAssignmentRejectionCode
 {
     /// <summary>

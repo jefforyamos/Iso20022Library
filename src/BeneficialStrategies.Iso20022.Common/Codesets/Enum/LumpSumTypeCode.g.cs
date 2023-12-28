@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_SbbakLKdEeiXL6Ccd-oU8g")]
 [Description(@"Specifies a type of lump sum.")]
+[Derivations(typeof(LumpSumType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LumpSumTypeCode
 {
     /// <summary>

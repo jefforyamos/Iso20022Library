@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YbwCVtp-Ed-ak6NoX_4Aeg_493369117")]
 [Description(@"Specifies if the collateral proposal response is an initial or a counter proposal.")]
+[Derivations(typeof(CollateralProposalResponse1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralProposalResponseCode
 {
     /// <summary>

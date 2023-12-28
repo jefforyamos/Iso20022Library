@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1nx90jL3EeKU9IrkkToqcw_-1815438950")]
 [Description(@"Specifies the workflow status of the details of a specific level.")]
+[Derivations(typeof(WorkflowStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum WorkflowStatusCode
 {
     /// <summary>

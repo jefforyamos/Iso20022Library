@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_dOJOUE4YEeiQHa-q1Uephw")]
 [Description(@"Specifies the scope of a pension transfer.")]
+[Derivations(typeof(PensionTransferScope1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PensionTransferScopeCode
 {
     /// <summary>

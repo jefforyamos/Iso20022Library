@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YzcwpNp-Ed-ak6NoX_4Aeg_2015540550")]
 [Description(@"Specifies the UK tax group to which units belong. For UK tax, the first dividend that an investor receives from a funds investment is deemed to be part income and part return of capital. The capital element is 'equalisation', and is exempt from income tax.")]
+[Derivations(typeof(UKTaxGroupUnit1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UKTaxGroupUnitCode
 {
     /// <summary>

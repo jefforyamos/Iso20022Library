@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TWF24QEcEeCQm6a_G2yO_w_-992719908")]
 [Description(@"Type of reading of the card data.")]
+[Derivations(typeof(CardDataReading1Code),typeof(CardDataReading2Code),typeof(CardDataReading3Code),typeof(CardDataReading4Code),typeof(CardDataReading5Code),typeof(CardDataReading6Code),typeof(CardDataWriting1Code),typeof(CardDataReading7Code),typeof(CardDataReading8Code),typeof(CardDataReading10Code),typeof(CardDataReading9Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardDataReadingCode
 {
     /// <summary>

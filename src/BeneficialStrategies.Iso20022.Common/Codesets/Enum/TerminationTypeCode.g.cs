@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YlvEw9p-Ed-ak6NoX_4Aeg_2067283309")]
 [Description(@"Specifies the timing or method for terminating the agreement - for repos.")]
+[Derivations(typeof(ClosingType1Code),typeof(TerminationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TerminationTypeCode
 {
     /// <summary>

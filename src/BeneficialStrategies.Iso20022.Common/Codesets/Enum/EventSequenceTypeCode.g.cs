@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_vPbyYLXHEeiTob_PrFFUxA")]
 [Description(@"Specifies whether the event is an interim or a final event in a series of successive events. ")]
+[Derivations(typeof(EventSequenceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EventSequenceTypeCode
 {
     /// <summary>

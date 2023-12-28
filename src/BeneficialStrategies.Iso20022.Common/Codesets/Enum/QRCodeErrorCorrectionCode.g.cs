@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_55g6gNuaEeiB5uLfkg9ZJA")]
 [Description(@"Error Correction mode of Quick Response Code.")]
+[Derivations(typeof(QRCodeErrorCorrection1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QRCodeErrorCorrectionCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-oaa0ENHEeGHJ_bHJRPaIQ_1875185490")]
 [Description(@"Information about partial settlement.")]
+[Derivations(typeof(PartialSettlement2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PartialSettlementV2Code
 {
     /// <summary>

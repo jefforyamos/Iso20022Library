@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bTVTdNp-Ed-ak6NoX_4Aeg_1953385002")]
 [Description(@"Specifies whether the fund calculates the taxable income per dividend/taxable income per share (TID/TIS).")]
+[Derivations(typeof(CorporateActionTaxableIncomePerShareCalculated1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionTaxableIncomePerShareCalculatedCode
 {
     /// <summary>

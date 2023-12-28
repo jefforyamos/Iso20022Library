@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8JmxAKMgEeCJ6YNENx4h-w_1084364172")]
 [Description(@"Specifies the type of processing restrictions the central system must apply.")]
+[Derivations(typeof(ProcessingType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProcessingTypeCode
 {
     /// <summary>

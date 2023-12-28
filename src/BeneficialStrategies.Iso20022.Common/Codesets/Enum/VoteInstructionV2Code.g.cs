@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_QoCAzq4IEemG7MmivSuE5g")]
 [Description(@"Specifies the possible types of voting instructions.")]
+[Derivations(typeof(VoteInstruction5Code),typeof(VoteInstruction6Code),typeof(VoteInstruction7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum VoteInstructionV2Code
 {
     /// <summary>

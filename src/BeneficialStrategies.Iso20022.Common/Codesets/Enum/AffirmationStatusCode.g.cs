@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bndJUtp-Ed-ak6NoX_4Aeg_693549629")]
 [Description(@"Specifies the affirmation status of a trade.")]
+[Derivations(typeof(AffirmationStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AffirmationStatusCode
 {
     /// <summary>

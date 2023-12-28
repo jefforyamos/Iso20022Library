@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YuO5ddp-Ed-ak6NoX_4Aeg_-163376568")]
 [Description(@"Specifies the processing status of an investment fund transaction.")]
+[Derivations(typeof(TransactionStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransactionStatusCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZIwSQtp-Ed-ak6NoX_4Aeg_-1421887384")]
 [Description(@"Specifies underlying information regarding the type of settlement transaction.")]
+[Derivations(typeof(SecuritiesTransactionType11Code),typeof(SecuritiesTransactionType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesTransactionTypeCode
 {
     /// <summary>

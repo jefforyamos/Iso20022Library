@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ha1jt2liEeGaMcKyqKNRfQ_1405973074")]
 [Description(@"Defines the type of execution of the call feature.")]
+[Derivations(typeof(CallType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CallTypeCode
 {
     /// <summary>

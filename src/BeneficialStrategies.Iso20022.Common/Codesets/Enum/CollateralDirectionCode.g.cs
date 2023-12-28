@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_4om60AMxEeutW5-TpeYJhA")]
 [Description(@"Direction of the collateral being reported.")]
+[Derivations(typeof(CollateralDirection1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralDirectionCode
 {
     /// <summary>

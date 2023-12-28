@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_XR6bsM2vEeuAE-cYsQdwHQ")]
 [Description(@"Specifies the ESG label or standard of a product.")]
+[Derivations(typeof(ESGLabelOrStandard1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ESGLabelOrStandardCode
 {
     /// <summary>

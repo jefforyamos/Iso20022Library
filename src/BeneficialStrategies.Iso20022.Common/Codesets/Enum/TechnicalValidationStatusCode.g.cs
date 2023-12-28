@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Yll61Np-Ed-ak6NoX_4Aeg_771598790")]
 [Description(@"Specifies the result of the technical validation carried out by the receiver (forwarding or first agent).")]
+[Derivations(typeof(TechnicalValidationStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TechnicalValidationStatusCode
 {
     /// <summary>

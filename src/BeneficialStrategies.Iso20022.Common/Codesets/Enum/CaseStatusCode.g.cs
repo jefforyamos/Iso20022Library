@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a2uP9Np-Ed-ak6NoX_4Aeg_-1002966557")]
 [Description(@"Specifies the status of an investigation case.")]
+[Derivations(typeof(CaseStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CaseStatusCode
 {
     /// <summary>

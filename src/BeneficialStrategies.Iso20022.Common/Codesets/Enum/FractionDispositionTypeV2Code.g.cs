@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_XZUVsWR8EeKFfdK0gKYFLQ")]
 [Description(@"Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.")]
+[Derivations(typeof(FractionDispositionType10Code),typeof(FractionDispositionType11Code),typeof(FractionDispositionType8Code),typeof(FractionDispositionType9Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FractionDispositionTypeV2Code
 {
     /// <summary>

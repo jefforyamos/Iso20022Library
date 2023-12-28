@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_afe0o9p-Ed-ak6NoX_4Aeg_-430711327")]
 [Description(@"Identifies the type of status.")]
+[Derivations(typeof(ListStatusType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ListStatusTypeCode
 {
     /// <summary>

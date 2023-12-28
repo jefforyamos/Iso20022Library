@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aWsFB9p-Ed-ak6NoX_4Aeg_1106691227")]
 [Description(@"Specifies the reason for a In Repair status.")]
+[Derivations(typeof(InRepairStatusReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InRepairStatusReasonCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_QXH9UFNiEeijdq8ilaxyOA")]
 [Description(@"Specifies a type of drawdown event.")]
+[Derivations(typeof(DrawdownEventType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DrawdownEventTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_9dkccEeAEeSzluxs8tdrVw")]
 [Description(@"Specifies the type of data.")]
+[Derivations(typeof(DataType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DataTypeCode
 {
     /// <summary>

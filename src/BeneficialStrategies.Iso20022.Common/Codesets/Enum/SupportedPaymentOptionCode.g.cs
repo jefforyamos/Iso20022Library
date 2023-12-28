@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_UdiH4DANEeOqioR9srQH1g")]
 [Description(@"Specifies the options supported for a payment transaction.")]
+[Derivations(typeof(SupportedPaymentOption1Code),typeof(SupportedPaymentOption2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SupportedPaymentOptionCode
 {
     /// <summary>

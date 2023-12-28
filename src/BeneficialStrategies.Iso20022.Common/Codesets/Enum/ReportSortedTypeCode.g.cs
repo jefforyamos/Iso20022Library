@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_VqbxRNp-Ed-ak6NoX_4Aeg_-2144991898")]
 [Description(@"Type of criterion is a country.")]
+[Derivations(typeof(ReportSortedType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReportSortedTypeCode
 {
     /// <summary>

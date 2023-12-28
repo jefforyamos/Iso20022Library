@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Yb5zU9p-Ed-ak6NoX_4Aeg_33978882")]
 [Description(@"Provides the status of the collateral substitution, either returned or released.")]
+[Derivations(typeof(CollateralSubstitutionConfirmation1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralSubstitutionConfirmationCode
 {
     /// <summary>

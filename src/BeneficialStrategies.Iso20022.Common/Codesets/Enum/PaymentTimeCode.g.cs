@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z73xQ9p-Ed-ak6NoX_4Aeg_-2012418215")]
 [Description(@"Specifies the payment conditions.")]
+[Derivations(typeof(PaymentTime1Code),typeof(PaymentTime2Code),typeof(PaymentTime3Code),typeof(PaymentTime4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentTimeCode
 {
     /// <summary>

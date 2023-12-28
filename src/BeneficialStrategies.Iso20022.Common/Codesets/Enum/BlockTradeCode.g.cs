@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bU1IQtp-Ed-ak6NoX_4Aeg_-1631812740")]
 [Description(@"Specifies whether the instruction is the parent or a children of a block trade.")]
+[Derivations(typeof(BlockTrade1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BlockTradeCode
 {
     /// <summary>

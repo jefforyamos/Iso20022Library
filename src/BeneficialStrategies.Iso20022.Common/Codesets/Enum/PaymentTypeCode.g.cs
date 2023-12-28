@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z8T2KNp-Ed-ak6NoX_4Aeg_1153774680")]
 [Description(@"Specifies the type, or nature, of the payment.")]
+[Derivations(typeof(PaymentType3Code),typeof(PaymentType1Code),typeof(PaymentType4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aIyKoHyjEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the named type of the undertaking.")]
+[Derivations(typeof(UndertakingName1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UndertakingNameCode
 {
     /// <summary>

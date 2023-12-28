@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_lupawAHwEeiJObvChJn-OA")]
 [Description(@"Format used to encrypt the data.")]
+[Derivations(typeof(EncryptedDataFormat1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EncryptedDataFormatCode
 {
     /// <summary>

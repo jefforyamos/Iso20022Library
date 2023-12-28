@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aecS0tp-Ed-ak6NoX_4Aeg_231381284")]
 [Description(@"Specifies the current status of a limit.")]
+[Derivations(typeof(LimitStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LimitStatusCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_dZoAIC2mEeuVt5XRmyhHiA")]
 [Description(@"Specifies the type of market claim in the context of a corporate action distribution event.")]
+[Derivations(typeof(MarketClaimType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MarketClaimTypeCode
 {
     /// <summary>

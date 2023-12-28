@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Q2RBIFyxEeeve7Je9cXtkQ")]
 [Description(@"Party in charge of assigning the identification of the customer.")]
+[Derivations(typeof(CustomerAssigner1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CustomerAssignerCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aw6i49p-Ed-ak6NoX_4Aeg_1235409327")]
 [Description(@"Specifies whether the proceeds of the event will be distributed on a rolling basis rather than on a specific date.")]
+[Derivations(typeof(DistributionType1Code),typeof(DistributionType2Code),typeof(DistributionType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DistributionTypeCode
 {
     /// <summary>

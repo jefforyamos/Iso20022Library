@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__v_Dg9ojEeC60axPepSq7g_-2080569702")]
 [Description(@"Indicates the possibility to terminate the securities lending contract either by the borrower or lender before the expiration date.")]
+[Derivations(typeof(Reversible1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReversibleCode
 {
     /// <summary>

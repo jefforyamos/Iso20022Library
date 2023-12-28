@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Nl6j4IakEeeUws0ZryHQ2w")]
 [Description(@"Specifies the balance type, as published in an external balance type code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalBalanceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalBalanceTypeCode
 {
     /// <summary>

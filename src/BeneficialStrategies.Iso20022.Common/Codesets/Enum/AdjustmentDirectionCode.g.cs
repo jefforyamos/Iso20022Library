@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bnKOY9p-Ed-ak6NoX_4Aeg_-700576555")]
 [Description(@"Specifies whether the adjustment is added or substracted to the total amount.")]
+[Derivations(typeof(AdjustmentDirection1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AdjustmentDirectionCode
 {
     /// <summary>

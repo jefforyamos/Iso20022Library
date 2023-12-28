@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bLJAw9p-Ed-ak6NoX_4Aeg_-765647150")]
 [Description(@"Type of notification.")]
+[Derivations(typeof(CorporateActionNotificationType1Code),typeof(CorporateActionNotificationType2Code),typeof(NotificationType3Code),typeof(NotificationType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionNotificationTypeCode
 {
     /// <summary>

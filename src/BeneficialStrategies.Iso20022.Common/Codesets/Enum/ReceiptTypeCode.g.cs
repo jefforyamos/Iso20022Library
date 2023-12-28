@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_idBPwErGEeenp6hmNprBHg")]
 [Description(@"Channel to transmit receipt information to the recipient.")]
+[Derivations(typeof(ReceiptType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReceiptTypeCode
 {
     /// <summary>

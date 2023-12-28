@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_CPEMoDHLEeyTT91yHXSlSQ")]
 [Description(@"A code that identifies the type of MOTO transaction.")]
+[Derivations(typeof(MOTO1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MOTOCode
 {
     /// <summary>

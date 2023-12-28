@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aPPZMNp-Ed-ak6NoX_4Aeg_336257296")]
 [Description(@"Code containing the operator used to indicate the relationship between a variable and a fixed value.")]
+[Derivations(typeof(Operator1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OperatorCode
 {
     /// <summary>

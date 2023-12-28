@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bU-SNtp-Ed-ak6NoX_4Aeg_335335556")]
 [Description(@"Description of the method used to book single or grouped executions.")]
+[Derivations(typeof(BookingUnit1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BookingUnitCode
 {
     /// <summary>

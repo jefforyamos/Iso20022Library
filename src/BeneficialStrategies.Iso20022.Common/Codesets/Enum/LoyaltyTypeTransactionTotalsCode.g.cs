@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1pKiwNxiEeioifFt1dhnJA")]
 [Description(@"Type of Loyalty transaction.")]
+[Derivations(typeof(LoyaltyTypeTransactionTotals1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LoyaltyTypeTransactionTotalsCode
 {
     /// <summary>

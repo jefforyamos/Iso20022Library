@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZVkmQtp-Ed-ak6NoX_4Aeg_-499524855")]
 [Description(@"Specifies the charateristics of a product.")]
+[Derivations(typeof(ProductCharacteristics1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProductCharacteristicsCode
 {
     /// <summary>

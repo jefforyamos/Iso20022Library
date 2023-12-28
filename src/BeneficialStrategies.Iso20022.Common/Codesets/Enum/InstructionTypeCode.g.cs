@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aYxvstp-Ed-ak6NoX_4Aeg_-1770372143")]
 [Description(@"Specifies the action that the TSU must take on a baseline or a data set.")]
+[Derivations(typeof(InstructionType3Code),typeof(InstructionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InstructionTypeCode
 {
     /// <summary>

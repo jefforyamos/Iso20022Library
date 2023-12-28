@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZTCPpdp-Ed-ak6NoX_4Aeg_613407085")]
 [Description(@"Specifies the nature of the report, ie, standard or proprietary.")]
+[Derivations(typeof(ReportIndicator1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReportIndicatorCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_WVvGsAx1EeKa_56Jbsi1RQ")]
 [Description(@"Low level communication of the hardware or software component toward another component or an external entity.")]
+[Derivations(typeof(POICommunicationType1Code),typeof(POICommunicationType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum POICommunicationTypeCode
 {
     /// <summary>

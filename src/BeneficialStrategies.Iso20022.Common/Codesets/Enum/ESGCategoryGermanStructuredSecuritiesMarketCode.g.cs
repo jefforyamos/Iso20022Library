@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_qiEvsM2tEeuAE-cYsQdwHQ")]
 [Description(@"Specifies the category of structured securities product.")]
+[Derivations(typeof(ESGCategoryGermanStructuredSecuritiesMarket1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ESGCategoryGermanStructuredSecuritiesMarketCode
 {
     /// <summary>

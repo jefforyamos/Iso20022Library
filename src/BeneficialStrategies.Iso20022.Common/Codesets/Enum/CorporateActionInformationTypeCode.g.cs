@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_AqQfMCXcEeOFIcNWlDEvdQ")]
 [Description(@"Specifies the type of information event.")]
+[Derivations(typeof(CorporateActionInformationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionInformationTypeCode
 {
     /// <summary>

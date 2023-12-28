@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_SrUekJ05Eeet_4BCDEBLdQ")]
 [Description(@"Specifies the type an event generated within a system, as published in an system event type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalSystemEventType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalSystemEventTypeCode
 {
     /// <summary>

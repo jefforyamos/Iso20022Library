@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YZ0Ipdp-Ed-ak6NoX_4Aeg_-1067297210")]
 [Description(@"Specifies whether the trade is eligible for netting.")]
+[Derivations(typeof(NettingEligible1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NettingEligibleCode
 {
     /// <summary>

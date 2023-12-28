@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bTMJhdp-Ed-ak6NoX_4Aeg_-454336053")]
 [Description(@"Indicates whether the statement contains missing instructions only or all instructions.")]
+[Derivations(typeof(CorporateActionStatementType1Code),typeof(CorporateActionStatementType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionStatementTypeCode
 {
     /// <summary>

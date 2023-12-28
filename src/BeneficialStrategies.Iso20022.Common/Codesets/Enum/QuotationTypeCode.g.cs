@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_kgo8wNK4EeihtcVwfFPNlg")]
 [Description(@"Specifies the type of quotation.")]
+[Derivations(typeof(QuotationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QuotationTypeCode
 {
     /// <summary>

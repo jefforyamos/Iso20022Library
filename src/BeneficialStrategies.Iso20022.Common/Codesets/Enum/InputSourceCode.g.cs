@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_XuZk8MmMEeWAGphE2LvqeA")]
 [Description(@"Specifies the input source for the generation of the file.")]
+[Derivations(typeof(InputSource1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InputSourceCode
 {
     /// <summary>

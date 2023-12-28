@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8F7HcN6qEeiwsev40qZGEQ")]
 [Description(@"Message response awaited by the initiator of the Request.")]
+[Derivations(typeof(ResponseMode1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResponseModeCode
 {
     /// <summary>

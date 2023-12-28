@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6WNctpqlEeGSON8vddiWzQ_739430745")]
 [Description(@"Defines the taxable status of the service.")]
+[Derivations(typeof(ServiceTaxDesignation1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ServiceTaxDesignationCode
 {
     /// <summary>

@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_229eQLf8Eee9KIDjEHK7ZQ")]
 [Description(@"Specifies the reporting source, as published in an external reporting source code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalReportingSource1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalReportingSourceCode
 {
     /// <summary>

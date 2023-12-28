@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_BfWdUA2NEeSwB74WgTbh4Q")]
 [Description(@"Specifies the inquiry status of order.")]
+[Derivations(typeof(QueryOrderStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QueryOrderStatusCode
 {
     /// <summary>

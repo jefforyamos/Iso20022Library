@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_OLoUAK-uEemJ1NnLPsTFaw")]
 [Description(@"Modality through which the votes that have been recorded and counted.")]
+[Derivations(typeof(ModalityOfCounting1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ModalityOfCountingCode
 {
     /// <summary>

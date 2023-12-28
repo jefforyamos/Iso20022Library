@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_vrqp8F24EeiFXdiLi_Nf4A")]
 [Description(@"Specifies a type of amount.")]
+[Derivations(typeof(TaxWrapperAmountType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TaxWrapperAmountTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZU-JVtp-Ed-ak6NoX_4Aeg_861792439")]
 [Description(@"Specifies the type of resolution.")]
+[Derivations(typeof(ResolutionType1Code),typeof(ResolutionType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResolutionTypeCode
 {
     /// <summary>

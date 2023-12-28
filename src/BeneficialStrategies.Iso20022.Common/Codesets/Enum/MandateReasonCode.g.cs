@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_af7gkNp-Ed-ak6NoX_4Aeg_-586944687")]
 [Description(@"Specifies the reason for requesting the amendment or cancellation of a mandate.")]
+[Derivations(typeof(MandateAmendmentReason1Code),typeof(MandateCancellationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MandateReasonCode
 {
     /// <summary>

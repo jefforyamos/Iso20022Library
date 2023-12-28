@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_99WtQIl6EeavwKddCbm3hg")]
 [Description(@"Specifies the reason the transaction/instruction is pending or failing settlement. Settlement on the instructed settlement date is still possible, status is pending. Settlement on the instructed settlement date is no longer possible, status is failing.")]
+[Derivations(typeof(PendingReason14Code),typeof(PendingReason16Code),typeof(PendingReason18Code),typeof(PendingFailingReason1Code),typeof(PendingReason20Code),typeof(PendingReason22Code),typeof(PendingReason23Code),typeof(PendingReason24Code),typeof(FailingReason4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PendingFailingReasonV2Code
 {
     /// <summary>

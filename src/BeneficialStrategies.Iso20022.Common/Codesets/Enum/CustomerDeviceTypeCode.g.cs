@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Q1arsEesEee9r7QjOdsbFw")]
 [Description(@"Type of customer device used for a card payment transaction.")]
+[Derivations(typeof(CustomerDeviceType1Code),typeof(CustomerDeviceType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CustomerDeviceTypeCode
 {
     /// <summary>

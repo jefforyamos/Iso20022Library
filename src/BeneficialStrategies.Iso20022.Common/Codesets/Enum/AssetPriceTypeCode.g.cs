@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_EnANEBsTEeWhp-Wous5jzA")]
 [Description(@"Specifies the type of price for an asset.")]
+[Derivations(typeof(AssetPriceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AssetPriceTypeCode
 {
     /// <summary>

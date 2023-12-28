@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1oYawDL3EeKU9IrkkToqcw_1230885883")]
 [Description(@"Specifies whether the offeror for the event is the issuing company or a third party.")]
+[Derivations(typeof(OfferorType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OfferorTypeCode
 {
     /// <summary>

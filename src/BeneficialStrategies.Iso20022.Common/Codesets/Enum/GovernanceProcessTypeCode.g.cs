@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_EFRD0ID5Eeiw-daIkkmMqQ")]
 [Description(@"Specifies a type of governance process.")]
+[Derivations(typeof(GovernanceProcessType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GovernanceProcessTypeCode
 {
     /// <summary>

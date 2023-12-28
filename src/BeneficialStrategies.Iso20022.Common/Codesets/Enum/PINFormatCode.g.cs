@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVCuCwEcEeCQm6a_G2yO_w_1593903666")]
 [Description(@"PIN (Personal Identification Number) format used to encrypt the PIN block.")]
+[Derivations(typeof(PINFormat1Code),typeof(PINFormat2Code),typeof(PINFormat3Code),typeof(PINFormat4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PINFormatCode
 {
     /// <summary>

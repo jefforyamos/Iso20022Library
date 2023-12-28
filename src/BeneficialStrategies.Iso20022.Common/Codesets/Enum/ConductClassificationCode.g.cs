@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ecbaIBdvEeKYM7Bc71nDlA")]
 [Description(@"Specifies the classification of the conduct.")]
+[Derivations(typeof(ConductClassification1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ConductClassificationCode
 {
     /// <summary>

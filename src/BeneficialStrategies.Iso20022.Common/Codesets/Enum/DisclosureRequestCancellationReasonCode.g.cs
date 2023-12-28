@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_IZJRIEV4EemRx7jyevcLwg")]
 [Description(@"Specifies the reason for the cancellation of the disclosure request.")]
+[Derivations(typeof(DisclosureRequestCancellationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DisclosureRequestCancellationReasonCode
 {
     /// <summary>

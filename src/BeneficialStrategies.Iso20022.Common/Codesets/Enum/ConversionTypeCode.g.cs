@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bCWRINp-Ed-ak6NoX_4Aeg_1752905694")]
 [Description(@"Specifies the type of conversion.")]
+[Derivations(typeof(ConversionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ConversionTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_zpu8sHdjEeeKH6vrEwvLHA")]
 [Description(@"Type of action taken as a disposition of a reported card payment fraud.")]
+[Derivations(typeof(ActionTaken1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ActionTakenCode
 {
     /// <summary>

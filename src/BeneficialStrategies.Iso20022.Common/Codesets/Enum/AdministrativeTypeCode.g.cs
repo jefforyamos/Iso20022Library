@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_H-bSIDNKEeylu6lH-gut-A")]
 [Description(@"Code that identifies an administrative type.")]
+[Derivations(typeof(AdministrativeType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AdministrativeTypeCode
 {
     /// <summary>

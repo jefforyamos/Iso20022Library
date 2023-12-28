@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YqNVE9p-Ed-ak6NoX_4Aeg_1275192520")]
 [Description(@"Specifies the type of executed order.")]
+[Derivations(typeof(TradeType3Code),typeof(TradeType1Code),typeof(TradeType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradeTypeCode
 {
     /// <summary>

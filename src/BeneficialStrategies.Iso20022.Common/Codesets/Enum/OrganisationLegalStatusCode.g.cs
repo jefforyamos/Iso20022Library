@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_L3FkYBE4EeafpqhYGpTDnw")]
 [Description(@"Specifies the status of a legal entity.")]
+[Derivations(typeof(OrganisationLegalStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OrganisationLegalStatusCode
 {
     /// <summary>

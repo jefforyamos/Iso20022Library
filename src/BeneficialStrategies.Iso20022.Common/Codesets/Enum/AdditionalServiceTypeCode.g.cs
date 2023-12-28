@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_vnuScBZZEeiwvuY-sPnsNg")]
 [Description(@"Type of additional service")]
+[Derivations(typeof(AdditionalServiceType1Code),typeof(AdditionalServiceType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AdditionalServiceTypeCode
 {
     /// <summary>

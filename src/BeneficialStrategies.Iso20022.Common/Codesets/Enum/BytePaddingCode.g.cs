@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_NOnpUGi9EeS87LmvcA55sg")]
 [Description(@"Byte padding for a cypher block chaining mode encryption, if the padding is not implicit.")]
+[Derivations(typeof(BytePadding1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BytePaddingCode
 {
     /// <summary>

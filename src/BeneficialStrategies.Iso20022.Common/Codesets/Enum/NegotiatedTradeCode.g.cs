@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aNJuiNp-Ed-ak6NoX_4Aeg_1309549909")]
 [Description(@"Specifies whether the trade is negotiated.")]
+[Derivations(typeof(NegotiatedTrade1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NegotiatedTradeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ag-CY9p-Ed-ak6NoX_4Aeg_855319504")]
 [Description(@"Specifies the effect on the holdings of electing a Corporate Action option.")]
+[Derivations(typeof(ElectionMovementType2Code),typeof(ElectionMovementType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ElectionMovementTypeCode
 {
     /// <summary>

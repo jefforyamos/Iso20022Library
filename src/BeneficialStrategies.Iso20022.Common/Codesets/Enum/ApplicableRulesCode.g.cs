@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8kBGkFNeEeijdq8ilaxyOA")]
 [Description(@"Specifies applicable rules.")]
+[Derivations(typeof(ApplicableRules1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ApplicableRulesCode
 {
     /// <summary>

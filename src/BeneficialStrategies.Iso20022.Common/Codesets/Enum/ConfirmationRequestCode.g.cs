@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_0IqGIAJhEeS2H9l84F_isg")]
 [Description(@"Identifies the type of confirmation message being sent.")]
+[Derivations(typeof(ConfirmationRequest1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ConfirmationRequestCode
 {
     /// <summary>

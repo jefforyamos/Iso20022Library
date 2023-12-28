@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z9zq9dp-Ed-ak6NoX_4Aeg_-765699713")]
 [Description(@"Indicates a type of instruction to a broker/dealer to buy or sell a financial instrument which is pegged against a certain value.")]
+[Derivations(typeof(PegType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PegTypeCode
 {
     /// <summary>

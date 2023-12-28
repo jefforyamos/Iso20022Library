@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_VsEwAdp-Ed-ak6NoX_4Aeg_-1720487337")]
 [Description(@"Specifies whether a physical form is required.")]
+[Derivations(typeof(Form1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FormCode
 {
     /// <summary>

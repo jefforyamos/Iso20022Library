@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aPYjINp-Ed-ak6NoX_4Aeg_2038667803")]
 [Description(@"Specifies the status of the option availability.")]
+[Derivations(typeof(OptionAvailabilityStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OptionAvailabilityStatusCode
 {
     /// <summary>

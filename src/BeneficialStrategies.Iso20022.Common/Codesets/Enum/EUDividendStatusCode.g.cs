@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aiKVONp-Ed-ak6NoX_4Aeg_235937580")]
 [Description(@"Specifies whether the dividend is in the scope of the European directive on taxation of savings income in the form of interest payments.")]
+[Derivations(typeof(EUDividendStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EUDividendStatusCode
 {
     /// <summary>

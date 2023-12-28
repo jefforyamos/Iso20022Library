@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bj4Q59p-Ed-ak6NoX_4Aeg_686608073")]
 [Description(@"Indicates whether an automatic routing system is involved.")]
+[Derivations(typeof(AutoRouting1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AutoRoutingCode
 {
     /// <summary>

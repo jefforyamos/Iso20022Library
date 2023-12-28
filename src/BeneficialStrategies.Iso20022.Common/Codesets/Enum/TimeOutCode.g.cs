@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Vr6_Adp-Ed-ak6NoX_4Aeg_1010349399")]
 [Description(@"Specifies the reason for time-out.")]
+[Derivations(typeof(TimeOut1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TimeOutCode
 {
     /// <summary>

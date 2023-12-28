@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ETkWwN6JEeiwsev40qZGEQ")]
 [Description(@"Type of customer orders that must be sent in response message.")]
+[Derivations(typeof(CustomerOrderRequest1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CustomerOrderRequestCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_VuwQltp-Ed-ak6NoX_4Aeg_-946443320")]
 [Description(@"Indicates the redemption type of the interest bearing instrument.")]
+[Derivations(typeof(RedemptionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RedemptionTypeCode
 {
     /// <summary>

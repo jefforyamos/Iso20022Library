@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aODGYtp-Ed-ak6NoX_4Aeg_1172047099")]
 [Description(@"Specifies whether or not the event as mentioned in the notification occurred. Details of the event can be different from the details as per notification.")]
+[Derivations(typeof(NotificationStatus3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NotificationToReceiveStatusCode
 {
     /// <summary>

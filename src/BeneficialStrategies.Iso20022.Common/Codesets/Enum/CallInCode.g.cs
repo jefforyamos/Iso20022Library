@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bXW30tp-Ed-ak6NoX_4Aeg_-343201614")]
 [Description(@"Specifies the type of pay-in call report.")]
+[Derivations(typeof(CallIn1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CallInCode
 {
     /// <summary>

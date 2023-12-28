@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_adQAAtp-Ed-ak6NoX_4Aeg_935487797")]
 [Description(@"Specifies to whom or what the restriction applies.")]
+[Derivations(typeof(InvestorRestrictionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestorRestrictionTypeCode
 {
     /// <summary>

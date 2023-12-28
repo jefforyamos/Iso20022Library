@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_0hGmQLC1EeaSl6vJk5Bd8w")]
 [Description(@"Categorisation of margin models used by central counterparties.")]
+[Derivations(typeof(ModelType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ModelTypeCode
 {
     /// <summary>

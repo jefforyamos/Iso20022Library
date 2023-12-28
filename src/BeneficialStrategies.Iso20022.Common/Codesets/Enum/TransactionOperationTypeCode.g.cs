@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_0tTA3JfpEeSfnc-VXAEapg")]
 [Description(@"Specifies the type of process related to a specific transaction.")]
+[Derivations(typeof(TransactionOperationType1Code),typeof(TransactionOperationType3Code),typeof(TransactionOperationType4Code),typeof(TransactionOperationType5Code),typeof(TransactionOperationType6Code),typeof(TransactionOperationType7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransactionOperationTypeCode
 {
     /// <summary>

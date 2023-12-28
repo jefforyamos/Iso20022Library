@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_sK0tANuGEeiB5uLfkg9ZJA")]
 [Description(@"Reason of the payment or loyalty reversal.")]
+[Derivations(typeof(ReversalReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReversalReasonCode
 {
     /// <summary>

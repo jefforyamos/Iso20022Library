@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ar_mpNp-Ed-ak6NoX_4Aeg_-1147157283")]
 [Description(@"Indicates the arrangement as to the freight charges.")]
+[Derivations(typeof(FreightCharges1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FreightChargesCode
 {
     /// <summary>

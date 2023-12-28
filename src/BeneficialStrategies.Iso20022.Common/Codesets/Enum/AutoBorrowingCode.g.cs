@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bjuf5dp-Ed-ak6NoX_4Aeg_1205177778")]
 [Description(@"Specifies the condition under which automatic borrowing is allowed.")]
+[Derivations(typeof(AutoBorrowing1Code),typeof(AutoBorrowing2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AutoBorrowingCode
 {
     /// <summary>

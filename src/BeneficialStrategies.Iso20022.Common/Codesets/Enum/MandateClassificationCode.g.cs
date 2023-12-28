@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_zmsM1mVQEeacpJ-gG9kyUQ")]
 [Description(@"Specifies the type of direct debit amount, such as fixed or variable.")]
+[Derivations(typeof(MandateClassification1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MandateClassificationCode
 {
     /// <summary>

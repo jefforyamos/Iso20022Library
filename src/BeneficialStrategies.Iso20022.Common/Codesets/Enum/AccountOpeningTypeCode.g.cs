@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_keo2gLcYEeKuGrOch6U_ZQ_-1636830227")]
 [Description(@"Specifies the type of account to which an account opening request is related, for instance a new account.")]
+[Derivations(typeof(AccountOpeningType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AccountOpeningTypeCode
 {
     /// <summary>

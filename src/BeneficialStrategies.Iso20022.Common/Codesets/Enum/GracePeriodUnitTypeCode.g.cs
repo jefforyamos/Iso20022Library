@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_s_4u99uVEei2qvU6FBLZYA")]
 [Description(@"Contains the details of the grace period applicable to the instalment.")]
+[Derivations(typeof(GracePeriodUnitType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GracePeriodUnitTypeCode
 {
     /// <summary>

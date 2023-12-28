@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_QDfYd9uSEei2qvU6FBLZYA")]
 [Description(@"Contains the list of interest rates.")]
+[Derivations(typeof(InterestRate1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InterestRateCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__uywsNojEeC60axPepSq7g_-615097257")]
 [Description(@"Specifies the conditions under which the order/trade is to be settled.")]
+[Derivations(typeof(SettlementTransactionCondition7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementTransactionConditionV2Code
 {
     /// <summary>

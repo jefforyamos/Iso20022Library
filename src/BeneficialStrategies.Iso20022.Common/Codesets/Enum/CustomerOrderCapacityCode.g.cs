@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_axz6xNp-Ed-ak6NoX_4Aeg_335336023")]
 [Description(@"Designation of the capacity of the firm placing the order.")]
+[Derivations(typeof(CustomerOrderCapacity1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CustomerOrderCapacityCode
 {
     /// <summary>

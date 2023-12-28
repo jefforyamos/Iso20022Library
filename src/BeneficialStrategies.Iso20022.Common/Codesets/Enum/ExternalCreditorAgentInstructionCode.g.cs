@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_mn2q4MP9Eemsic1bQcEtLA")]
 [Description(@"Specifies further instructions concerning the processing of a payment instruction, as provided to the creditor agent.")]
+[Derivations(typeof(ExternalCreditorAgentInstruction1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalCreditorAgentInstructionCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_wZYWYESsEeSTS-T7FO4CUQ")]
 [Description(@"Identifies the status of the confirmation acknowledgement.")]
+[Derivations(typeof(AffirmStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AffirmStatusCode
 {
     /// <summary>

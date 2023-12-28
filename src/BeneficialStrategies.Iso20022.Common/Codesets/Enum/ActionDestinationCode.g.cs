@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_DsgNEE0wEeea0Mdu1TOzDQ")]
 [Description(@"Type of destination for a specific action.")]
+[Derivations(typeof(ActionDestination1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ActionDestinationCode
 {
     /// <summary>

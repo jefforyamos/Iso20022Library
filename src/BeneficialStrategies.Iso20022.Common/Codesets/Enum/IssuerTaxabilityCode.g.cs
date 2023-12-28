@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_iSnDE_ouEeCfbIXrKCjG0g")]
 [Description(@"Specifies whether the corporate action proceeds are taxable at issuer level.")]
+[Derivations(typeof(IssuerTaxability1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum IssuerTaxabilityCode
 {
     /// <summary>

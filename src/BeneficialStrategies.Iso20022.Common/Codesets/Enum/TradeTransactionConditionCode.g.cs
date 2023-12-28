@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YpT9Mtp-Ed-ak6NoX_4Aeg_-1512742367")]
 [Description(@"Indicates the conditions under which the order/trade is to be/was executed.")]
+[Derivations(typeof(TradeTransactionCondition4Code),typeof(TradeTransactionCondition2Code),typeof(TradeTransactionCondition1Code),typeof(TradeTransactionCondition3Code),typeof(TradeTransactionCondition5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradeTransactionConditionCode
 {
     /// <summary>

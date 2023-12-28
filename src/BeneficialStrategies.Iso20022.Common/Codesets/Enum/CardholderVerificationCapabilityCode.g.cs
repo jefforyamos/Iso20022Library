@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TWPA1AEcEeCQm6a_G2yO_w_1625416412")]
 [Description(@"Cardholder verification capabilities of the POI (Personal Identification Number) performing the transaction.")]
+[Derivations(typeof(CardholderVerificationCapability1Code),typeof(CardholderVerificationCapability2Code),typeof(CardholderVerificationCapability3Code),typeof(CardholderVerificationCapability4Code),typeof(CardholderVerificationCapability5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardholderVerificationCapabilityCode
 {
     /// <summary>

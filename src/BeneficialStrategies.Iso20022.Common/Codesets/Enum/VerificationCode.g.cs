@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Subc8GjpEeSDR-pyia6Xtg")]
 [Description(@"Result of a verification.")]
+[Derivations(typeof(Verification1Code),typeof(Verification2Code),typeof(Verification3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum VerificationCode
 {
     /// <summary>

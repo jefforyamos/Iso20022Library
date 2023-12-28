@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_sf5qh_QDEeihCvvpsmGI2w")]
 [Description(@"Contains the transportation type code list")]
+[Derivations(typeof(TransportType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransportTypeCode
 {
     /// <summary>

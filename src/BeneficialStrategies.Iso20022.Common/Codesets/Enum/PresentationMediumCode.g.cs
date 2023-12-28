@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_oH14wHyeEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the presentation medium.")]
+[Derivations(typeof(PresentationMedium1Code),typeof(PresentationMedium2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PresentationMediumCode
 {
     /// <summary>

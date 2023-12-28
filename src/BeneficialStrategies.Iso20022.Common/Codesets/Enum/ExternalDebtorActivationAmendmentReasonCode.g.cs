@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_90jEyPGAEemQ7oqCO5NTQw")]
 [Description(@"Specifies the debtor activation amendment reason code, as published in an external debtor activation amendment reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalDebtorActivationAmendmentReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalDebtorActivationAmendmentReasonCode
 {
     /// <summary>

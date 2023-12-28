@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_pQ8HgDDgEeO9waS4ina8CA")]
 [Description(@"Type of instalment plan.")]
+[Derivations(typeof(InstalmentPlan1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InstalmentPlanCode
 {
     /// <summary>

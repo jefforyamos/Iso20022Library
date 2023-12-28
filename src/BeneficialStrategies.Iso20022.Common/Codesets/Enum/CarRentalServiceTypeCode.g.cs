@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_q1VvAF1xEeeu75xdwwAXQw")]
 [Description(@"Car rental service in addition to main car rental.")]
+[Derivations(typeof(CarRentalServiceType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CarRentalServiceTypeCode
 {
     /// <summary>

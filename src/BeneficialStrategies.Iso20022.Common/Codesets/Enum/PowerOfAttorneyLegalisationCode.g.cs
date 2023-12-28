@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aHytYdp-Ed-ak6NoX_4Aeg_-1168571799")]
 [Description(@"Indicates the legal constraint on the power of attorney.")]
+[Derivations(typeof(PowerOfAttorneyLegalisation1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PowerOfAttorneyLegalisationCode
 {
     /// <summary>

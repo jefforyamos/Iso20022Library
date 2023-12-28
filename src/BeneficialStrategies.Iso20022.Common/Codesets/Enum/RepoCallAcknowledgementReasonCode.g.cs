@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZSvUuNp-Ed-ak6NoX_4Aeg_-2001170938")]
 [Description(@"Specifies additional information about the repurchase agreement call processed instruction.")]
+[Derivations(typeof(RepoCallAcknowledgementReason2Code),typeof(RepoCallAcknowledgementReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RepoCallAcknowledgementReasonCode
 {
     /// <summary>

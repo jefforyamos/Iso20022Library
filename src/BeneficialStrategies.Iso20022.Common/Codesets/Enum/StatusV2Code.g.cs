@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_k1I4cfNvEeqRfth943bvEA")]
 [Description(@"Specifies the status of an instruction.")]
+[Derivations(typeof(Status9Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StatusV2Code
 {
     /// <summary>

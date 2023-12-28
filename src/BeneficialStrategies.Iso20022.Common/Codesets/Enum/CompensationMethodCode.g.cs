@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6Vwww5qlEeGSON8vddiWzQ_197335871")]
 [Description(@"Defines if and how charges and taxes due are paid to the financial institution.")]
+[Derivations(typeof(CompensationMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CompensationMethodCode
 {
     /// <summary>

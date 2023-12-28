@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_t4qL0FKiEeiSDqv62fL07g")]
 [Description(@"Specifies a drawdown status.")]
+[Derivations(typeof(DrawdownStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DrawdownStatusCode
 {
     /// <summary>

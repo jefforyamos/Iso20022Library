@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bqvG1tp-Ed-ak6NoX_4Aeg_-941371103")]
 [Description(@"Refers to an account management instruction, that is, either an account opening instruction or an account modification instruction or a get account details message.")]
+[Derivations(typeof(AccountManagementType2Code),typeof(AccountManagementType1Code),typeof(AccountManagementType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AccountManagementTypeCode
 {
     /// <summary>

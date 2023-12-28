@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_iwO2kPGuEeiGNursv3uE_g")]
 [Description(@"Code list containing a code that identifies the error condition.")]
+[Derivations(typeof(MessageError1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MessageErrorCode
 {
     /// <summary>

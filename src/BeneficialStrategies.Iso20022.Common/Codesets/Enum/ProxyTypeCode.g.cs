@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZWnIEtp-Ed-ak6NoX_4Aeg_-395428002")]
 [Description(@"Specifies the type of proxy person.")]
+[Derivations(typeof(ProxyType2Code),typeof(ProxyType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProxyTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZbFYY9p-Ed-ak6NoX_4Aeg_-770609526")]
 [Description(@"Specifies the status of the registration processing.")]
+[Derivations(typeof(RegistrationProcessingStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RegistrationProcessingStatusCode
 {
     /// <summary>

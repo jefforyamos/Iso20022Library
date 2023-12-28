@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZQD0Itp-Ed-ak6NoX_4Aeg_836087748")]
 [Description(@"Specifies the type of balances on which the statement is prepared.")]
+[Derivations(typeof(StatementBasis1Code),typeof(StatementBasis2Code),typeof(StatementBasis3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StatementBasisCode
 {
     /// <summary>

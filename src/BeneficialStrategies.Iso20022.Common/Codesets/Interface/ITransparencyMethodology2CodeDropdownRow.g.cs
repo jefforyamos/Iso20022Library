@@ -9,7 +9,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// <summary>
 /// The values that should be expected from a single row of dropdown data.
 /// </summary>
-public partial interface ITransparencyMethodology2CodeDropdownRow : IDropdownRow
+public partial interface ITransparencyMethodology2CodeDropdownRow : IEnumMetadataDropdownRow<TransparencyMethodology2Code>
 {
 }
 

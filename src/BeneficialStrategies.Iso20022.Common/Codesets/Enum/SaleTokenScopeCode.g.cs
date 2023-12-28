@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_lucbANwsEeioifFt1dhnJA")]
 [Description(@"Scope of the token that identifies  the payment mean of the customer.")]
+[Derivations(typeof(SaleTokenScope1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SaleTokenScopeCode
 {
     /// <summary>

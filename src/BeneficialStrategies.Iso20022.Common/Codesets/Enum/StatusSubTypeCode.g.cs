@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_T_BfoB3cEeKXIbeXfdPzuw")]
 [Description(@"Indicates the sub status of the trade notification.")]
+[Derivations(typeof(StatusSubType1Code),typeof(StatusSubType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StatusSubTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aQR7BNp-Ed-ak6NoX_4Aeg_195526371")]
 [Description(@"Defines how an option can be exercised.")]
+[Derivations(typeof(OptionStyle2Code),typeof(OptionStyle1Code),typeof(OptionStyle4Code),typeof(OptionStyle3Code),typeof(OptionStyle5Code),typeof(OptionStyle6Code),typeof(OptionStyle7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OptionStyleCode
 {
     /// <summary>

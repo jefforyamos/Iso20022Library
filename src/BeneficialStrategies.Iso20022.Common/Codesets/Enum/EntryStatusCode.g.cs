@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ahtpQNp-Ed-ak6NoX_4Aeg_-102150816")]
 [Description(@"Specifies the status of an entry.")]
+[Derivations(typeof(EntryStatus2Code),typeof(EntryStatus4Code),typeof(EntryStatus3Code),typeof(EntryStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EntryStatusCode
 {
     /// <summary>

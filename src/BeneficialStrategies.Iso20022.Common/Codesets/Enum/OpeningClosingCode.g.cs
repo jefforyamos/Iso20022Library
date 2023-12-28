@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aO8eQNp-Ed-ak6NoX_4Aeg_492685359")]
 [Description(@"Specifies additional information relative to the processing of the trade.")]
+[Derivations(typeof(OpeningClosing1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OpeningClosingCode
 {
     /// <summary>

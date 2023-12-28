@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TV8F4AEcEeCQm6a_G2yO_w_-487459684")]
 [Description(@"Method used to authenticate a cardholder.")]
+[Derivations(typeof(AuthenticationMethod1Code),typeof(AuthenticationMethod2Code),typeof(AuthenticationMethod4Code),typeof(AuthenticationMethod3Code),typeof(AuthenticationMethod7Code),typeof(AuthenticationMethod5Code),typeof(AuthenticationMethod6Code),typeof(AuthenticationMethod8Code),typeof(AuthenticationMethod11Code),typeof(AuthenticationMethod12Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AuthenticationMethodCode
 {
     /// <summary>

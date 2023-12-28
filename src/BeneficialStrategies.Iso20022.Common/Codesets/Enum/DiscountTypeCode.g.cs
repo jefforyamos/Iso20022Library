@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TQ3_tgEcEeCQm6a_G2yO_w_1270296506")]
 [Description(@"Specifies the type of discount, that is, the reason why a discount is granted.")]
+[Derivations(typeof(DiscountType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DiscountTypeCode
 {
     /// <summary>

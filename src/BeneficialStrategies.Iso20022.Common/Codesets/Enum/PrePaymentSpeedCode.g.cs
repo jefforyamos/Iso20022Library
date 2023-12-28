@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aIYjQ9p-Ed-ak6NoX_4Aeg_336258028")]
 [Description(@"Speed of unscheduled partial of complete payment of the principal amount outstanding on a debt obligation before its due date.")]
+[Derivations(typeof(PrePaymentSpeed1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PrePaymentSpeedCode
 {
     /// <summary>

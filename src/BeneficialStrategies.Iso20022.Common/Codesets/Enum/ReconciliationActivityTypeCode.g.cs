@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ikZkgCX_Eeym0KcvJF9aDQ")]
 [Description(@"Code to indicate the activity type to be reconciled")]
+[Derivations(typeof(ReconciliationActivityType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationActivityTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y4XF0tp-Ed-ak6NoX_4Aeg_385163498")]
 [Description(@"Identifies the unit of measure by means of a code.")]
+[Derivations(typeof(UnitOfMeasure1Code),typeof(UnitOfMeasure6Code),typeof(UnitOfMeasure8Code),typeof(UnitOfMeasure9Code),typeof(UnitOfMeasure10Code),typeof(UnitOfMeasure11Code),typeof(UnitOfMeasure12Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UnitOfMeasureCode
 {
     /// <summary>

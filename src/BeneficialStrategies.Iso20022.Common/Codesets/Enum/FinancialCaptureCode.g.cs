@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KR_d9H1DEeCF8NjrBemJWQ_948346296")]
 [Description(@"Mode for the financial capture of the transaction by the acquirer.")]
+[Derivations(typeof(FinancialCapture1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FinancialCaptureCode
 {
     /// <summary>

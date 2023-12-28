@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_VNYCoOhAEeSbwP3G-MV9YA")]
 [Description(@"Type of logical or physical operation on an ATM.")]
+[Derivations(typeof(ATMOperation1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ATMOperationCode
 {
     /// <summary>

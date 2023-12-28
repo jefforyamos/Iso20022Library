@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_99IlkA8SEeSFHsNYty4C9Q")]
 [Description(@"Specifies whether the value is net (inclusive of tax) or gross.")]
+[Derivations(typeof(ClearingMethod1Code),typeof(ClearingMethod2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ClearingMethodCode
 {
     /// <summary>

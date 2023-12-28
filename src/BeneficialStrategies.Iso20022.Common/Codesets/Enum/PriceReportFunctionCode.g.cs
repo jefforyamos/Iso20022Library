@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bJkrQBl9EeKxsrht2duUcg")]
 [Description(@"Specifies the function of the price report.")]
+[Derivations(typeof(PriceReportFunction1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PriceReportFunctionCode
 {
     /// <summary>

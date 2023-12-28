@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_9MdW8QOAEeWs3sTa9Sj6Lg")]
 [Description(@"Specifies the contract type of a derivative financial instrument.")]
+[Derivations(typeof(FinancialInstrumentContractType1Code),typeof(FinancialInstrumentContractType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FinancialInstrumentContractTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_gQ8SUxQaEeKebsB9eKJSkA")]
 [Description(@"Specifies the type of insurance.")]
+[Derivations(typeof(Insurance1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InsuranceCode
 {
     /// <summary>

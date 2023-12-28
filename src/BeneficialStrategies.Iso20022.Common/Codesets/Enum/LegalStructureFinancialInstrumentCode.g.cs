@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-MDTkDQeEeifw8iDiyZLmQ")]
 [Description(@"Specifies the legal structure of a financial instrument as defined in the scope of European MiFID Template (EMT) reference 00060.")]
+[Derivations(typeof(LegalStructureFinancialInstrument1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LegalStructureFinancialInstrumentCode
 {
     /// <summary>

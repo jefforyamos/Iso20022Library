@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZNhdh9p-Ed-ak6NoX_4Aeg_885272360")]
 [Description(@"Collateral position is available for other purposes (for example, onwards delivery).")]
+[Derivations(typeof(SettlementTransactionCondition2Code),typeof(SettlementTransactionCondition6Code),typeof(SettlementTransactionCondition8Code),typeof(SettlementTransactionCondition5Code),typeof(SettlementTransactionCondition3Code),typeof(SettlementTransactionCondition4Code),typeof(SettlementTransactionCondition10Code),typeof(SettlementTransactionCondition11Code),typeof(SettlementTransactionCondition14Code),typeof(SettlementTransactionCondition12Code),typeof(SettlementTransactionCondition13Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementTransactionConditionCode
 {
     /// <summary>

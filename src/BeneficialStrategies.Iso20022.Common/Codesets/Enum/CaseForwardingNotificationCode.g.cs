@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a2bVCdp-Ed-ak6NoX_4Aeg_-1197135711")]
 [Description(@"Specifies the action requested when forwarding a case. Assignees taking the decision to cancel or modify to further case assignees must communicate this decision to their case assigners.")]
+[Derivations(typeof(CaseForwardingNotification1Code),typeof(CaseForwardingNotification2Code),typeof(CaseForwardingNotification3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CaseForwardingNotificationCode
 {
     /// <summary>

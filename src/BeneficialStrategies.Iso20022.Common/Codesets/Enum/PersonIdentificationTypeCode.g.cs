@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aG5VhNp-Ed-ak6NoX_4Aeg_1157186363")]
 [Description(@"Specifies an alternative identification of an individual person, for example, national registration identification number, passport number.")]
+[Derivations(typeof(PersonIdentificationType1Code),typeof(PersonIdentificationType5Code),typeof(PersonIdentificationType4Code),typeof(PersonIdentificationType2Code),typeof(PersonIdentificationType6Code),typeof(PartyIdentificationType7Code),typeof(PersonIdentificationType7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PersonIdentificationTypeCode
 {
     /// <summary>

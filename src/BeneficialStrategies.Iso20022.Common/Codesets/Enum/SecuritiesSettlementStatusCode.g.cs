@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZFx2yNp-Ed-ak6NoX_4Aeg_1133514272")]
 [Description(@"Provides the status of settlement of an instruction.")]
+[Derivations(typeof(SecuritiesSettlementStatus1Code),typeof(SecuritiesSettlementStatus2Code),typeof(SecuritiesSettlementStatus3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesSettlementStatusCode
 {
     /// <summary>

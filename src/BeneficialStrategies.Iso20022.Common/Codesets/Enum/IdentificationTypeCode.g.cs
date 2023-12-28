@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_2G4usEVPEeSGWeX3z5zSZQ")]
 [Description(@"Indicates the type of identification of the party.")]
+[Derivations(typeof(IdentificationType2Code),typeof(IdentificationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum IdentificationTypeCode
 {
     /// <summary>

@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_w3XE8a6IEeexrtTFgmVD3Q")]
 [Description(@"Specifies the status of an entry on the books of the account servicer, as published in an external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalEntryStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalEntryStatusCode
 {
     /// <summary>

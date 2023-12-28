@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_FFnMsCCaEeWJd9HF2tO7BA")]
 [Description(@"Specifies the type of links to a company.")]
+[Derivations(typeof(CompanyLink1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CompanyLinkCode
 {
     /// <summary>

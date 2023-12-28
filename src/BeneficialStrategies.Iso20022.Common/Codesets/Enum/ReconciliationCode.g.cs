@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_l44H4ISGEeW47-F5RGn37Q")]
 [Description(@"Specifies the process type used for the trade repository reconciliation.")]
+[Derivations(typeof(Reconciliation1Code),typeof(Reconciliation3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReconciliationCode
 {
     /// <summary>

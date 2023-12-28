@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1mSwEDL3EeKU9IrkkToqcw_1943389310")]
 [Description(@"Indicates whether the dividend as a whole or in part qualifies for lower/favourable tax rate.")]
+[Derivations(typeof(QualifiedDividendTax1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QualifiedDividendTaxCode
 {
     /// <summary>

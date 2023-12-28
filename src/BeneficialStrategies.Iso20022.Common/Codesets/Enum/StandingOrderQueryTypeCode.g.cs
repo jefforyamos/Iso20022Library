@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8NxfVaMgEeCJ6YNENx4h-w_73506953")]
 [Description(@"Defines the query type for standing orders queries, that identifies the predefined key attributes expected in the response to the query.")]
+[Derivations(typeof(StandingOrderQueryType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StandingOrderQueryTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_11fptTL3EeKU9IrkkToqcw_1241268024")]
 [Description(@"Specifies the state of details of the composite record on the system. Applicable to custodian service only.")]
+[Derivations(typeof(CustodianRecordCompletenessType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CustodianRecordCompletenessTypeCode
 {
     /// <summary>

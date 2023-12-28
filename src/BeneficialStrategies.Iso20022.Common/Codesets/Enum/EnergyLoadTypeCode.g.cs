@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_uODncBVnEeWXLoZC9OIRgg")]
 [Description(@"Specifies the energy delivery profile.")]
+[Derivations(typeof(EnergyLoadType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EnergyLoadTypeCode
 {
     /// <summary>

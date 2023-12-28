@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_gI-FsCeFEeOXAt_43VmZGw")]
 [Description(@"Specifies the type of withholding tax rate.")]
+[Derivations(typeof(WithholdingTaxRateType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum WithholdingTaxRateTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_B-g18MkeEeeiAIB1i4AlQw")]
 [Description(@"Details related to the master agreement.")]
+[Derivations(typeof(ExternalAgreementType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalAgreementTypeCode
 {
     /// <summary>

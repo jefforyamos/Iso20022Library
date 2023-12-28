@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_oOW02Y-QEeaVK-2bgpxeYw")]
 [Description(@"Relates to a principal adjustment.")]
+[Derivations(typeof(RepurchaseType8Code),typeof(RepurchaseType10Code),typeof(RepurchaseType9Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RepurchaseTypeV2Code
 {
     /// <summary>

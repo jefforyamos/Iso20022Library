@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_d4opsAxwEeKa_56Jbsi1RQ")]
 [Description(@"Status of a component belonging to a POI Terminal (Point of Interaction).")]
+[Derivations(typeof(POIComponentStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum POIComponentStatusCode
 {
     /// <summary>

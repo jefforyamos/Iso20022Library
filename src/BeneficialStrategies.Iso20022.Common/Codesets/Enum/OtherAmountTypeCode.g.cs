@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_mutCoK53Eee6Q7mFsDuJBA")]
 [Description(@"Type of other amount.")]
+[Derivations(typeof(OtherAmountType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OtherAmountTypeCode
 {
     /// <summary>

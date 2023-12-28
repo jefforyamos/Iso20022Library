@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_fBcYDm_bEem2FPn3x9pfnw")]
 [Description(@"Specifies the reason for requesting the cancellation of a payment instruction.")]
+[Derivations(typeof(CancellationReason7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TrackerCancellationReasonCode
 {
     /// <summary>

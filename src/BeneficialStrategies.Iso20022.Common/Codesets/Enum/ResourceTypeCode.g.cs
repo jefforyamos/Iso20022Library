@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_lu4ewC8CEeu125Ip9zFcsQ")]
 [Description(@"Type of resource.")]
+[Derivations(typeof(ResourceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResourceTypeCode
 {
     /// <summary>

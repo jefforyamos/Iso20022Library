@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YhkWcNp-Ed-ak6NoX_4Aeg_-1906851692")]
 [Description(@"Specifies the reason a specific tax has not been levied/deducted on a given transaction.")]
+[Derivations(typeof(TaxExemptReason1Code),typeof(TaxExemptReason2Code),typeof(TaxExemptReason3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TaxExemptReasonCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bXzjwNp-Ed-ak6NoX_4Aeg_664969424")]
 [Description(@"Specifies the status of a cancellation request.")]
+[Derivations(typeof(CancellationProcessingStatus1Code),typeof(CancellationProcessingStatus3Code),typeof(CancellationProcessingStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CancellationProcessingStatusCode
 {
     /// <summary>

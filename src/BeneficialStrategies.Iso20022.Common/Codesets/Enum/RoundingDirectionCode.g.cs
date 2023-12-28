@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y-LZ9Np-Ed-ak6NoX_4Aeg_404618713")]
 [Description(@"Specifies the rounding direction.")]
+[Derivations(typeof(RoundingDirection1Code),typeof(RoundingDirection2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RoundingDirectionCode
 {
     /// <summary>

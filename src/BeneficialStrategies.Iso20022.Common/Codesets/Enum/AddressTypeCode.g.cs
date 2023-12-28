@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bm2sZ9p-Ed-ak6NoX_4Aeg_-1036380604")]
 [Description(@"Specifies the type of address.")]
+[Derivations(typeof(AddressType2Code),typeof(AddressType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AddressTypeCode
 {
     /// <summary>

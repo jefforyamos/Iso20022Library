@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZMe7udp-Ed-ak6NoX_4Aeg_1523779610")]
 [Description(@"Specifies the status of the settlement of a trade in a central matching and settlement system.")]
+[Derivations(typeof(SettlementStatus1Code),typeof(SettlementStatus2Code),typeof(SettlementStatus3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlementStatusCode
 {
     /// <summary>

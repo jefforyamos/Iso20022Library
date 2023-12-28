@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ADcV0N6_Eeiwsev40qZGEQ")]
 [Description(@"Type of sound to play.")]
+[Derivations(typeof(SoundFormat1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SoundFormatCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ad115dp-Ed-ak6NoX_4Aeg_-859807356")]
 [Description(@"Identifies the legal framework of the transaction.")]
+[Derivations(typeof(LegalFramework1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LegalFrameworkCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-WZTUGjMEeiRg5NzP0jkQg")]
 [Description(@"Specifies the type of residence where the party has its permanent home or principal establishment.")]
+[Derivations(typeof(ResidenceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResidenceTypeCode
 {
     /// <summary>

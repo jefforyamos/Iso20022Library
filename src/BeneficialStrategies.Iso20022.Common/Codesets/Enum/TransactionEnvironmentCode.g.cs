@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVWQCwEcEeCQm6a_G2yO_w_1815843099")]
 [Description(@"Indicates the environment of the transaction.")]
+[Derivations(typeof(TransactionEnvironment1Code),typeof(TransactionEnvironment3Code),typeof(TransactionEnvironment2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransactionEnvironmentCode
 {
     /// <summary>

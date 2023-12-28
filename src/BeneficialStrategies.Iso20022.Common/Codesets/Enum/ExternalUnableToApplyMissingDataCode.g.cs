@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_p-vHdN4jEeqt1ZcLzWyWFw")]
 [Description(@"Specifies the reason of an unable to apply due to missing data, as published in an external unable to apply missing data code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalUnableToApplyMissingData1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalUnableToApplyMissingDataCode
 {
     /// <summary>

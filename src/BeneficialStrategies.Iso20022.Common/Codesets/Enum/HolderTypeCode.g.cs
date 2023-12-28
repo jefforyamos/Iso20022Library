@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KdDVkE4SEeiQHa-q1Uephw")]
 [Description(@"Specifies a type of holder.")]
+[Derivations(typeof(HolderType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum HolderTypeCode
 {
     /// <summary>

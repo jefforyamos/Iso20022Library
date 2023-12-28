@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_WyP5wYjXEeeDW7_wB-eK_g")]
 [Description(@"Specifies the reason for compensation for the processing of a payment, as published in an external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalPaymentCompensationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalPaymentCompensationReasonCode
 {
     /// <summary>

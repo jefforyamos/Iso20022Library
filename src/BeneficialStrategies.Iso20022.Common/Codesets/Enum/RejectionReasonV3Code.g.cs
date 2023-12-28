@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__9ywuol5EeavwKddCbm3hg")]
 [Description(@"Specifies the reason why the instruction/cancellation request has a rejected status.")]
+[Derivations(typeof(PendingCancellationReason5Code),typeof(RejectionReason46Code),typeof(RejectionReason49Code),typeof(RejectionReason48Code),typeof(RejectionReason50Code),typeof(RejectionReason51Code),typeof(PendingCancellationReason6Code),typeof(RejectionReason52Code),typeof(RejectionReason54Code),typeof(RejectionReason55Code),typeof(RejectionReason56Code),typeof(RejectionReason58Code),typeof(RejectionReason57Code),typeof(RejectionReason59Code),typeof(RejectionReason61Code),typeof(RejectionReason62Code),typeof(RejectionReason63Code),typeof(RejectionReason64Code),typeof(RejectionReason66Code),typeof(RejectionReason67Code),typeof(RejectionReason65Code),typeof(RejectionReason69Code),typeof(RejectionReason70Code),typeof(RejectionReason73Code),typeof(RejectionReason76Code),typeof(RejectionReason74Code),typeof(RejectionReason72Code),typeof(RejectionReason75Code),typeof(RejectionReason77Code),typeof(RejectionReason68Code),typeof(RejectionReason71Code),typeof(RejectionReason78Code),typeof(RejectionReason79Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RejectionReasonV3Code
 {
     /// <summary>

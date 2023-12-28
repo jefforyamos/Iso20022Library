@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bCpMFtp-Ed-ak6NoX_4Aeg_-484210840")]
 [Description(@"Specifies reasons for cancellation of a corporate action event.")]
+[Derivations(typeof(CorporateActionCancellationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionCancellationReasonCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6WqIoZqlEeGSON8vddiWzQ_-379883890")]
 [Description(@"Qualifies the content of the subservice code.")]
+[Derivations(typeof(BillingSubServiceQualifier1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BillingSubServiceQualifierCode
 {
     /// <summary>

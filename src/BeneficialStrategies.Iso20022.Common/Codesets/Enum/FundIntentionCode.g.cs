@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_xgI4wCDXEeWCLu74WLgP4w")]
 [Description(@"Specifies if the fund is intended for qualified investors.")]
+[Derivations(typeof(FundIntention1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FundIntentionCode
 {
     /// <summary>

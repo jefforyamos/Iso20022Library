@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1oFf1TL3EeKU9IrkkToqcw_-1695680614")]
 [Description(@"Specifies status of the instruction lock (for elections).")]
+[Derivations(typeof(InstructionLockout1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InstructionLockoutCode
 {
     /// <summary>

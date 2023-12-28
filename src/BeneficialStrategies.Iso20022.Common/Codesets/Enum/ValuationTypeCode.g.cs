@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YQhLUPP4EeS_qLctCs2aRQ")]
 [Description(@"Specifies the type used for the calculation of the valuation.")]
+[Derivations(typeof(ValuationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ValuationTypeCode
 {
     /// <summary>

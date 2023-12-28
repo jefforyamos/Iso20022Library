@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y-xP0Np-Ed-ak6NoX_4Aeg_-664604106")]
 [Description(@"Specifies the type of place of safekeeping.")]
+[Derivations(typeof(SafekeepingPlace3Code),typeof(SafekeepingPlace1Code),typeof(SafekeepingPlace2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SafekeepingPlaceCode
 {
     /// <summary>

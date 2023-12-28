@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_tZm3wESaEeS6cOLECtYLrA")]
 [Description(@"Identifies the type of trading method.")]
+[Derivations(typeof(TradingMethodType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradingMethodTypeCode
 {
     /// <summary>

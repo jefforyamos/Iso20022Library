@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_WxrMP9jEEeSdIOSPwTkydQ")]
 [Description(@"Specifies the status of a single statistical reporting transaction or of a group of statistical reporting transactions.")]
+[Derivations(typeof(StatisticalReportingStatus2Code),typeof(StatisticalReportingStatus1Code),typeof(TaxReportingStatus2Code),typeof(TaxReportingStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StatisticalReportingStatusCode
 {
     /// <summary>

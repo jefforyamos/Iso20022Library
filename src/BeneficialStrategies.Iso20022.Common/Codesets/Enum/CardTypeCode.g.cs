@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a1-pFdp-Ed-ak6NoX_4Aeg_309816465")]
 [Description(@"Specifies the type of payment card.")]
+[Derivations(typeof(CardType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardTypeCode
 {
     /// <summary>

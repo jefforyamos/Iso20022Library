@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_5cohQCR7Ee2VuKUpJ7HXPg")]
 [Description(@"Specifies the type of the trade counterparty.")]
+[Derivations(typeof(TradeCounterpartyType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradeCounterpartyTypeCode
 {
     /// <summary>

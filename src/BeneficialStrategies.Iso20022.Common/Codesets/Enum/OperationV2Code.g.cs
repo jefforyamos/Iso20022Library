@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_cS11gNGxEeaokquJJ-K6uA")]
 [Description(@"Indicates the relationship between two variables.")]
+[Derivations(typeof(Operation3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OperationV2Code
 {
     /// <summary>

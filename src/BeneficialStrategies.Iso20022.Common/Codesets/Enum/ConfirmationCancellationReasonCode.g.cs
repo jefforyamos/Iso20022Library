@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KSiJ8FM6EeaOrcVOcDJQkA")]
 [Description(@"Specifies the reason why a confirmation is cancelled.")]
+[Derivations(typeof(ConfirmationCancellationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ConfirmationCancellationReasonCode
 {
     /// <summary>

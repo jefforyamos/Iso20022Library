@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_3DrUQNnSEeS--7IJLPC9lw")]
 [Description(@"Specifies a type of supporting document.")]
+[Derivations(typeof(SupportDocumentType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SupportDocumentTypeCode
 {
     /// <summary>

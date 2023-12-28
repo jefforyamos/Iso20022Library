@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_dtx60Nj4EeiojJsa6FYyew")]
 [Description(@"Identifies the type of process related to the message.")]
+[Derivations(typeof(RetailerMessage1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RetailerMessageCode
 {
     /// <summary>

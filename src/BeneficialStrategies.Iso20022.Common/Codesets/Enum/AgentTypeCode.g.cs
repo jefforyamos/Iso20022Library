@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1mchEjL3EeKU9IrkkToqcw_-1193321661")]
 [Description(@"Specifies the function that the agent is performing (for example, event agent, information agent).")]
+[Derivations(typeof(AgentType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AgentTypeCode
 {
     /// <summary>

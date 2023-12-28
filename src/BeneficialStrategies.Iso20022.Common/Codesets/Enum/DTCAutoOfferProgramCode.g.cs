@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1oFf0DL3EeKU9IrkkToqcw_-1688796996")]
 [Description(@"Indicates what type of interface an agent has with DTC (The Depository Trust Corporation).")]
+[Derivations(typeof(DTCAutoOfferProgram1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCAutoOfferProgramCode
 {
     /// <summary>

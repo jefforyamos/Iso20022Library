@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_yEJFENtrEeiXqq0XHEoNUA")]
 [Description(@"Hardware capabilities of the Sale Terminal.")]
+[Derivations(typeof(SaleCapabilities2Code),typeof(SaleCapabilities1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SaleCapabilitiesCode
 {
     /// <summary>

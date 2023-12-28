@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZvpTINp-Ed-ak6NoX_4Aeg_663303244")]
 [Description(@"Specifies the reason why the instruction is in repair.")]
+[Derivations(typeof(RepairReason4Code),typeof(RepairReason7Code),typeof(RepairReason5Code),typeof(RepairReason6Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RepairReasonV2Code
 {
     /// <summary>

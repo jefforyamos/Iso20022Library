@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_FJ4ewPrxEemIKt9hrQ9pJw")]
 [Description(@"Indicates the status of the tracker alert notification.")]
+[Derivations(typeof(TrackerAlertStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TrackerAlertStatusCode
 {
     /// <summary>

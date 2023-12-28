@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bYs7odp-Ed-ak6NoX_4Aeg_1275993288")]
 [Description(@"Specifies if the investor has the right to cancel an instruction or, if not, the reason the investor cannot cancel.")]
+[Derivations(typeof(CancellationRight2Code),typeof(CancellationRight1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CancellationRightCode
 {
     /// <summary>

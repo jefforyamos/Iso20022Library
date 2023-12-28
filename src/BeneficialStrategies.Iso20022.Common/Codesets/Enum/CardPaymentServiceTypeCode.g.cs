@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TWPA4QEcEeCQm6a_G2yO_w_1358541194")]
 [Description(@"Service provided by a card payment transaction.")]
+[Derivations(typeof(CardPaymentServiceType2Code),typeof(CardPaymentServiceType1Code),typeof(CardPaymentServiceType3Code),typeof(CardPaymentServiceType4Code),typeof(CardPaymentServiceType5Code),typeof(CardPaymentServiceType6Code),typeof(CardPaymentServiceType7Code),typeof(CardPaymentServiceType8Code),typeof(CardPaymentServiceType9Code),typeof(CardPaymentServiceType10Code),typeof(CardPaymentServiceType12Code),typeof(CardPaymentServiceType13Code),typeof(CardPaymentServiceType14Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardPaymentServiceTypeCode
 {
     /// <summary>

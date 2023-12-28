@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bdLL-dp-Ed-ak6NoX_4Aeg_335335188")]
 [Description(@"Basis price type in a bid order. Used for list trading.")]
+[Derivations(typeof(BasisPriceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BasisPriceTypeCode
 {
     /// <summary>

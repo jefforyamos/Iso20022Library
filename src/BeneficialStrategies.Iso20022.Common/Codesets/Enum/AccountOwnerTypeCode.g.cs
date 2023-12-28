@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_r1Jf8I8mEeeBmcwCTnMfBg")]
 [Description(@"Specifies the type of account owner.")]
+[Derivations(typeof(AccountOwnerType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AccountOwnerTypeCode
 {
     /// <summary>

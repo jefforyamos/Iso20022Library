@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_4xqg8KstEeayv9XxdmMwKQ")]
 [Description(@"Scenario type based on the type of portfolio the scenario is designed to stress.")]
+[Derivations(typeof(StrategyStressType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StrategyStressTypeCode
 {
     /// <summary>

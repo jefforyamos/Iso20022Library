@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVfZ-gEcEeCQm6a_G2yO_w_-334806911")]
 [Description(@"Identification of the type of transactions which are included in the totals.")]
+[Derivations(typeof(TypeTransactionTotals1Code),typeof(TypeTransactionTotals2Code),typeof(TypeTransactionTotals3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TypeTransactionTotalsCode
 {
     /// <summary>

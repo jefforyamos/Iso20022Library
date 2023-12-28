@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_CjsMwIqgEeS4a4abTJTSSw")]
 [Description(@"Type of items the cash-in cassette.")]
+[Derivations(typeof(ATMNoteType1Code),typeof(ATMNoteType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ATMNoteTypeCode
 {
     /// <summary>

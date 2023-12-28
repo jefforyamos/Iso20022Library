@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Za7nZtp-Ed-ak6NoX_4Aeg_-740425248")]
 [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.")]
+[Derivations(typeof(Registration1Code),typeof(Registration2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RegistrationCode
 {
     /// <summary>

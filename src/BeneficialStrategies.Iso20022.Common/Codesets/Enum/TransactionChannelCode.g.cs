@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVWQBgEcEeCQm6a_G2yO_w_644173117")]
 [Description(@"Specifies the type of communication channel.")]
+[Derivations(typeof(TransactionChannel1Code),typeof(TransactionChannel2Code),typeof(TransactionChannel3Code),typeof(TransactionChannel5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransactionChannelCode
 {
     /// <summary>

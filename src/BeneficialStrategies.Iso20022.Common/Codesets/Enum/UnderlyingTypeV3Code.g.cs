@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_JuMQeH50EeasY4u9QTizPQ")]
 [Description(@"Specifies the underlying financial instrument.")]
+[Derivations(typeof(UnderlyingInterestRateType3Code),typeof(UnderlyingContractForDifferenceType3Code),typeof(UnderlyingEquityType6Code),typeof(UnderlyingEquityType5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UnderlyingTypeV3Code
 {
     /// <summary>

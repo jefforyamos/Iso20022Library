@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a_0hldp-Ed-ak6NoX_4Aeg_591395154")]
 [Description(@"Specifies the type of collateral.")]
+[Derivations(typeof(CollateralType3Code),typeof(CollateralType1Code),typeof(CollateralType2Code),typeof(CollateralType6Code),typeof(CollateralType8Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralTypeCode
 {
     /// <summary>

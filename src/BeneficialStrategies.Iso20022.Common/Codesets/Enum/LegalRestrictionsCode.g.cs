@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ad_m49p-Ed-ak6NoX_4Aeg_-636020179")]
 [Description(@"Specifies the regulatory restrictions applicable to a security.")]
+[Derivations(typeof(LegalRestrictions2Code),typeof(LegalRestrictions1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LegalRestrictionsCode
 {
     /// <summary>

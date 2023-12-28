@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Dog4YCChEeWJd9HF2tO7BA")]
 [Description(@"Specifies the civil status of a person.")]
+[Derivations(typeof(CivilStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CivilStatusCode
 {
     /// <summary>

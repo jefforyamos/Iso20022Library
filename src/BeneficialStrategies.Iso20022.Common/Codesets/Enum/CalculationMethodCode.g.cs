@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YbAbcNp-Ed-ak6NoX_4Aeg_181218670")]
 [Description(@"Specifies whether the interest calculation method is simple or compounding.")]
+[Derivations(typeof(CalculationMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CalculationMethodCode
 {
     /// <summary>

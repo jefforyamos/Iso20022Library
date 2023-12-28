@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_mUK7gJ9XEeqxTNfi5y7ywQ")]
 [Description(@"Specifies a basis for ex post calculations.")]
+[Derivations(typeof(ExPostCostCalculationBasis1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExPostCostCalculationBasisCode
 {
     /// <summary>

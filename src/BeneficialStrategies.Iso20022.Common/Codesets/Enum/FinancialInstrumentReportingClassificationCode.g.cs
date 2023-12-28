@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__esiMPPQEeS_qLctCs2aRQ")]
 [Description(@"Specifies the financial instrument reporting classification for both equity and non-equity.")]
+[Derivations(typeof(NonEquityInstrumentReportingClassification1Code),typeof(EquityInstrumentReportingClassification1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FinancialInstrumentReportingClassificationCode
 {
     /// <summary>

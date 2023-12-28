@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a8F4Itp-Ed-ak6NoX_4Aeg_-746027402")]
 [Description(@"Specifies which party(ies) will pay charges due for processing of the payment transaction.")]
+[Derivations(typeof(ChargeBearer1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ChargeBearerCode
 {
     /// <summary>

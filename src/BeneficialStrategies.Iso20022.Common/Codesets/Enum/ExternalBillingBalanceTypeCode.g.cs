@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_jo1CQLoUEeGUKJo4_mMY_Q_-1167411913")]
 [Description(@"Defines the balance of the billing service, as published in an external billing balance code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalBillingBalanceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalBillingBalanceTypeCode
 {
     /// <summary>

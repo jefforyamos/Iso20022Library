@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_glgtoCDCEeaned5xL18mUQ")]
 [Description(@"Identifies whether the reporting counterparty is a collateral provider or a collateral taker.")]
+[Derivations(typeof(CollateralRole1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralRoleCode
 {
     /// <summary>

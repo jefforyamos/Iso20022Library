@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aXSh99p-Ed-ak6NoX_4Aeg_-840499374")]
 [Description(@"Specifies the reason why the instruction is cancelled.")]
+[Derivations(typeof(InstructionCancellationReason1Code),typeof(InstructionCancellationReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InstructionCancellationReasonCode
 {
     /// <summary>

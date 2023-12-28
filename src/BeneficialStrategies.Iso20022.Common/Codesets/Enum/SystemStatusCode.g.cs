@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZSJe2Np-Ed-ak6NoX_4Aeg_-2111038385")]
 [Description(@"Specifies the status of a system.")]
+[Derivations(typeof(SystemStatus2Code),typeof(SystemStatus3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SystemStatusCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_VsEwBdp-Ed-ak6NoX_4Aeg_335333174")]
 [Description(@"Identifies the institution issuing a proprietary code.")]
+[Derivations(typeof(PartyIssuerCode))]
+// External derivations that should be provided by the proper interface are: 
 public enum IssuerCode
 {
     /// <summary>

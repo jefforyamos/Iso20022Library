@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_mLaJqODJEeuz7dQgWWfCfA")]
 [Description(@"Identifies a benchmark curve name.")]
+[Derivations(typeof(BenchmarkCurveName7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BenchmarkCurveNameV2Code
 {
     /// <summary>

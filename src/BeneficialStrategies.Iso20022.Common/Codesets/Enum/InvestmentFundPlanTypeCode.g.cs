@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_sH2IUF9BEeicg40_9gK9vQ")]
 [Description(@"Specifes a type of investment fund plan.")]
+[Derivations(typeof(InvestmentFundPlanType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestmentFundPlanTypeCode
 {
     /// <summary>

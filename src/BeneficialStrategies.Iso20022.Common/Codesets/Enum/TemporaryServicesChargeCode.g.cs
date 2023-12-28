@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_OwYzt_ffEei89sMSHxl1ew")]
 [Description(@"Charge types for temporary services")]
+[Derivations(typeof(TemporaryServicesCharge1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TemporaryServicesChargeCode
 {
     /// <summary>

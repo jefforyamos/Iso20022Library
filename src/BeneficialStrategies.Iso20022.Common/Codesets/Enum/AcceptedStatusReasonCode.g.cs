@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-51rIGBlEeaR1OOiVxm3Gg")]
 [Description(@"Specifies the reason for an accepted status.")]
+[Derivations(typeof(AcceptedStatusReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AcceptedStatusReasonCode
 {
     /// <summary>

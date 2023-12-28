@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KT7Xp31DEeCF8NjrBemJWQ_-1645762165")]
 [Description(@"Final result of the processed terminal management action.")]
+[Derivations(typeof(TerminalManagementActionResult1Code),typeof(TerminalManagementActionResult2Code),typeof(TerminalManagementActionResult3Code),typeof(TerminalManagementActionResult4Code),typeof(TerminalManagementActionResult5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TerminalManagementActionResultCode
 {
     /// <summary>

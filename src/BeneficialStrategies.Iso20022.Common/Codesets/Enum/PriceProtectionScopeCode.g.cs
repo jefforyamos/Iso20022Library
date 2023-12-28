@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aI1PNtp-Ed-ak6NoX_4Aeg_413321420")]
 [Description(@"Defines the type of price protection the customer requires on their order.")]
+[Derivations(typeof(PriceProtectionScope1Code),typeof(PriceProtectionScope2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PriceProtectionScopeCode
 {
     /// <summary>

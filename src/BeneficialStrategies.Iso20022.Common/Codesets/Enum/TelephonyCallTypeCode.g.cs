@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__R_VYPfFEei89sMSHxl1ew")]
 [Description(@"Indicates the call type")]
+[Derivations(typeof(TelephonyCallType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TelephonyCallTypeCode
 {
     /// <summary>

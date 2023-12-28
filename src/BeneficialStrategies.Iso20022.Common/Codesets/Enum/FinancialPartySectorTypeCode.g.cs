@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_G3EfsBQXEeWSI-Fz8Zwg6g")]
 [Description(@"Specifies the taxinomy type of a financial party.")]
+[Derivations(typeof(FinancialPartySectorType1Code),typeof(FinancialPartySectorType2Code),typeof(FinancialPartySectorType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FinancialPartySectorTypeCode
 {
     /// <summary>

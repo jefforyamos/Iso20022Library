@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVfZ_wEcEeCQm6a_G2yO_w_1617799141")]
 [Description(@"Type of user interface to display or print information.")]
+[Derivations(typeof(UserInterface2Code),typeof(UserInterface1Code),typeof(UserInterface4Code),typeof(UserInterface3Code),typeof(UserInterface5Code),typeof(UserInterface8Code),typeof(UserInterface6Code),typeof(UserInterface7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UserInterfaceCode
 {
     /// <summary>

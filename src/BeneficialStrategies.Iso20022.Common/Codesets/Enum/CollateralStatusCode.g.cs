@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_itEK0MUZEeiF-qqyf1JQhg")]
 [Description(@"Provides the status after comparing the total collateral required and the total collateral value of all transactions covered in the message.")]
+[Derivations(typeof(CollateralStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralStatusCode
 {
     /// <summary>

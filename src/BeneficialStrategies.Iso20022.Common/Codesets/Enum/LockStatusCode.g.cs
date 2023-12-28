@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_cetAIGjMEeiRg5NzP0jkQg")]
 [Description(@"Specifies the lock status of a party.")]
+[Derivations(typeof(LockStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LockStatusCode
 {
     /// <summary>

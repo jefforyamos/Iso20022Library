@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1TJzwwnwEeGRcv5_yGDZOA")]
 [Description(@"Specifies the holdings plan of the assets to transfer.")]
+[Derivations(typeof(HoldingsPlanType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum HoldingsPlanTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_axET5tp-Ed-ak6NoX_4Aeg_-411764395")]
 [Description(@"Specifies the type of dividend rate.")]
+[Derivations(typeof(GrossDividendRateType1Code),typeof(NetDividendRateType1Code),typeof(DividendRateType1Code),typeof(GrossDividendRateType3Code),typeof(NetDividendRateType3Code),typeof(GrossDividendRateType2Code),typeof(NetDividendRateType2Code),typeof(GrossDividendRateType5Code),typeof(GrossDividendRateType4Code),typeof(NetDividendRateType4Code),typeof(NetDividendRateType5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DividendRateTypeCode
 {
     /// <summary>

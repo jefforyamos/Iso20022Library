@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_yPkKwDwwEeaFzejt0Yw_3A")]
 [Description(@"Specifies the redemption status of the redemption order.")]
+[Derivations(typeof(RedemptionCompletion1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RedemptionCompletionCode
 {
     /// <summary>

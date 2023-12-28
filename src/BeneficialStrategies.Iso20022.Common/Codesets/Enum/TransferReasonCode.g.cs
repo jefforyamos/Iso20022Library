@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_le2Gw_r4EeCu2Z1WwxJVWA")]
 [Description(@"Specifies the reason for the assets transfer.")]
+[Derivations(typeof(TransferReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransferReasonCode
 {
     /// <summary>

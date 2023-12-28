@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_DTpLsCDmEeahCJeThTBhHA")]
 [Description(@"Specifies whether the collateral is subject to a title transfer collateral arrangement, a securities interest collateral arrangement, or a securities interest with the right of use.")]
+[Derivations(typeof(CollateralDeliveryMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralDeliveryMethodCode
 {
     /// <summary>

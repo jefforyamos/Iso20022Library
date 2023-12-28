@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aIOyQNp-Ed-ak6NoX_4Aeg_-2084548748")]
 [Description(@"Indicates the level of priority to claim on income and assets of |the company in case of the payment of dividends and in the event of a bankruptcy, eg, ordinary/common stocks, preferred stocks, subordinated debt, etc.")]
+[Derivations(typeof(PreferenceToIncome1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PreferenceToIncomeCode
 {
     /// <summary>

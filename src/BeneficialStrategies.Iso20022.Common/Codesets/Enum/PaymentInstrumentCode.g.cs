@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z0Hjd9p-Ed-ak6NoX_4Aeg_382466788")]
 [Description(@"Specifies the payment instrument used or the underlying financial transaction that resulted in a payment transaction.")]
+[Derivations(typeof(PaymentInstrument1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentInstrumentCode
 {
     /// <summary>

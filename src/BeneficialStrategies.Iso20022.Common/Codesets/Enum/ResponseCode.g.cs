@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVMfEAEcEeCQm6a_G2yO_w_2073012408")]
 [Description(@"Response code of a transaction.")]
+[Derivations(typeof(Response1Code),typeof(Response2Code),typeof(Response3Code),typeof(Response4Code),typeof(Response5Code),typeof(Response8Code),typeof(Response6Code),typeof(Response10Code),typeof(Response9Code),typeof(Response11Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResponseCode
 {
     /// <summary>

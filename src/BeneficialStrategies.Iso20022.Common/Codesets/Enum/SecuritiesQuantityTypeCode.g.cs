@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Bj5NMzFwEeGKkIZzgd38VA")]
 [Description(@"TSE/JASDEC codes for planned, maximum and minimum of shares to be purchased.")]
+[Derivations(typeof(SecuritiesQuantity1Code),typeof(SecuritiesQuantity2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesQuantityTypeCode
 {
     /// <summary>

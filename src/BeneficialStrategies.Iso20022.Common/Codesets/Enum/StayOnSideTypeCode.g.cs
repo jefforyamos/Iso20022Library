@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZQpqANp-Ed-ak6NoX_4Aeg_1097083970")]
 [Description(@"Indicates that an order is pegged against the offer/bid at the time of the order submission.")]
+[Derivations(typeof(StayOnSideType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StayOnSideTypeCode
 {
     /// <summary>

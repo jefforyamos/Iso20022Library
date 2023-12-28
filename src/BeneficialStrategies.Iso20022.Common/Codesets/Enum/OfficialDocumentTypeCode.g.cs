@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6Y3R0HhNEee6_vnrijrKgg")]
 [Description(@"Official document type used for identification or authentication")]
+[Derivations(typeof(OfficialDocumentType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OfficialDocumentTypeCode
 {
     /// <summary>

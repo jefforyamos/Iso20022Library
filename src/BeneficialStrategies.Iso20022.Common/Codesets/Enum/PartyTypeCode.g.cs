@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZyoVs9p-Ed-ak6NoX_4Aeg_-359397827")]
 [Description(@"Specifies the entitled party.")]
+[Derivations(typeof(PartyType1Code),typeof(PartyType3Code),typeof(PartyType4Code),typeof(PartyType5Code),typeof(PartyType6Code),typeof(PartyType7Code),typeof(PartyType2Code),typeof(PartyType9Code),typeof(PartyType10Code),typeof(PartyType11Code),typeof(PartyType12Code),typeof(PartyType13Code),typeof(PartyType15Code),typeof(PartyType14Code),typeof(PartyType16Code),typeof(PartyType18Code),typeof(PartyType23Code),typeof(PartyType28Code),typeof(PartyType26Code),typeof(PartyType25Code),typeof(PartyType17Code),typeof(PartyType32Code),typeof(PartyType20Code),typeof(PartyType21Code),typeof(PartyType22Code),typeof(PartyType19Code),typeof(PartyType33Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PartyTypeCode
 {
     /// <summary>

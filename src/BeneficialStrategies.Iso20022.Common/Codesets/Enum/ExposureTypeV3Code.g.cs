@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_7qsobiW3EeyT3chuyX0PgA")]
 [Description(@"Specifies the underlying business area/type of trade causing the collateral movement.")]
+[Derivations(typeof(ExposureType11Code),typeof(ExposureType13Code),typeof(ExposureType14Code),typeof(ExposureType12Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExposureTypeV3Code
 {
     /// <summary>

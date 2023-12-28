@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8UfE0F0fEeWErPfQ7BYx8A")]
 [Description(@"Specifies the type of a trading venue.")]
+[Derivations(typeof(TradingVenue2Code),typeof(TradingVenue1Code),typeof(MICEntityType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradingVenueCode
 {
     /// <summary>

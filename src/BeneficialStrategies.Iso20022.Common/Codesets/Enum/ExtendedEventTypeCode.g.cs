@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1mchFTL3EeKU9IrkkToqcw_1589826234")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) defined corporate action event type.")]
+[Derivations(typeof(ExtendedEventType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExtendedEventTypeCode
 {
     /// <summary>

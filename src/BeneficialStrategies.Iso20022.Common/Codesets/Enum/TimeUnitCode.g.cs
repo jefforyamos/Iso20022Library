@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YmCmwNp-Ed-ak6NoX_4Aeg_-22472882")]
 [Description(@"Specifies the time unit.")]
+[Derivations(typeof(TimeUnit1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TimeUnitCode
 {
     /// <summary>

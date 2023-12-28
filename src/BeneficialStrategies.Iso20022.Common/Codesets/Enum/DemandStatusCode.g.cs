@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_xyDjAHyYEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the status of the demand for payment.")]
+[Derivations(typeof(DemandStatus1Code),typeof(DemandStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DemandStatusCode
 {
     /// <summary>

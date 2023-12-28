@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YbT9cdp-Ed-ak6NoX_4Aeg_133291981")]
 [Description(@"Indicates whether the interest request is new or updated.")]
+[Derivations(typeof(InterestRequestSequence1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InterestRequestSequenceCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_JD_2QBrkEeyhRdHRjakS2w")]
 [Description(@"Specifies the different methods allowed for participating to the vote of agenda resolutions in a general meeting.")]
+[Derivations(typeof(VotingParticipationMethod3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum VotingParticipationMethodV2Code
 {
     /// <summary>

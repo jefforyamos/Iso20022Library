@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_0lBckKHFEeagRbKvRt3LnA")]
 [Description(@"CodeSet identifying parties involved in a payments transaction.")]
+[Derivations(typeof(PaymentsPartyType1Code),typeof(PaymentsPartyType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentsPartyTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TUmCFQEcEeCQm6a_G2yO_w_-1240682578")]
 [Description(@"List of incidents happening during the transaction.")]
+[Derivations(typeof(FailureReason1Code),typeof(FailureReason2Code),typeof(FailureReason3Code),typeof(FailureReason4Code),typeof(FailureReason6Code),typeof(FailureReason5Code),typeof(FailureReason8Code),typeof(FailureReason7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FailureReasonCode
 {
     /// <summary>

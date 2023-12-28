@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_EKEEgDccEeidBoT_PugKiA")]
 [Description(@"Specifies a time frame.")]
+[Derivations(typeof(TimeFrame1Code),typeof(TimeFrame2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TimeFrameCode
 {
     /// <summary>

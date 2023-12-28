@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_QyyooLTpEeiENt6AoDfPXg")]
 [Description(@"Specifies a type of order attached to a pension.")]
+[Derivations(typeof(PensionOrderType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PensionOrderTypeCode
 {
     /// <summary>

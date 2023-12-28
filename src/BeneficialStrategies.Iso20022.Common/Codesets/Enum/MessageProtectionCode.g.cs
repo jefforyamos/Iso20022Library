@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_5Id0YIrfEeSvuOJS0mmL0g")]
 [Description(@"Mechanism used to protect the message of the ATM protocol.")]
+[Derivations(typeof(MessageProtection1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MessageProtectionCode
 {
     /// <summary>

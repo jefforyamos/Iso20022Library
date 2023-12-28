@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_boymFdp-Ed-ak6NoX_4Aeg_-1616551496")]
 [Description(@"Specifies if an operation is an increase or a decrease or the result of a reversal operation.")]
+[Derivations(typeof(CreditDebitCode),typeof(ReversalCode),typeof(CreditDebit3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AmountDirectionCode
 {
     /// <summary>

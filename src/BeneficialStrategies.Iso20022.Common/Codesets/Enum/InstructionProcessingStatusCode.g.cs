@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aYLSwdp-Ed-ak6NoX_4Aeg_-433562560")]
 [Description(@"Specifies the status of an instruction.")]
+[Derivations(typeof(InstructionProcessingStatus1Code),typeof(TransactionProcessingStatus3Code),typeof(TransactionProcessingStatus4Code),typeof(TransactionProcessingStatus1Code),typeof(TransactionProcessingStatus2Code),typeof(SettlementConditionModificationProcessingStatus1Code),typeof(IntraPositionTransactionProcessingStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InstructionProcessingStatusCode
 {
     /// <summary>

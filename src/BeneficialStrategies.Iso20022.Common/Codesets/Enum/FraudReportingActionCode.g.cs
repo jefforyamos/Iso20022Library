@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ndM2AHbBEeef9c2nwgY9Xw")]
 [Description(@"Type of fraud reporting.")]
+[Derivations(typeof(FraudReportingAction1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FraudReportingActionCode
 {
     /// <summary>

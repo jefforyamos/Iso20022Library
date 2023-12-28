@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YcpaMdp-Ed-ak6NoX_4Aeg_-46223766")]
 [Description(@"Specifies the nature of the disputed collateral amount.")]
+[Derivations(typeof(DisputeResolutionType2Code),typeof(DisputeResolutionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DisputeResolutionTypeCode
 {
     /// <summary>

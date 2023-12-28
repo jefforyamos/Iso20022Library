@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_4fFI0JF_EeeBGrZP1w0opg")]
 [Description(@"Specifies the cash clearing system, as published in an external cash clearing system code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalCashClearingSystem1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalCashClearingSystemCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aeSh1tp-Ed-ak6NoX_4Aeg_336256659")]
 [Description(@"Indicates the type of leg structuring a swap.")]
+[Derivations(typeof(LegSwapType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LegSwapTypeCode
 {
     /// <summary>

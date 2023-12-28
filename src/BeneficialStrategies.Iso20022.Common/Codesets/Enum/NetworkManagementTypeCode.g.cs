@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_pkktIFWOEeeiG_nL4vgKnQ")]
 [Description(@"Type of network management service ISO 8583 bit 24.")]
+[Derivations(typeof(NetworkManagementType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NetworkManagementTypeCode
 {
     /// <summary>

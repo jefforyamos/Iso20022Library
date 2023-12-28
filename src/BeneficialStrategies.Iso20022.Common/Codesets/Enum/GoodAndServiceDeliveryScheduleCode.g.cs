@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_gRwkkD5KEeyHI64WSlzTlg")]
 [Description(@"Code that specifies the good or service delivery schedule.")]
+[Derivations(typeof(GoodAndServiceDeliverySchedule1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GoodAndServiceDeliveryScheduleCode
 {
     /// <summary>

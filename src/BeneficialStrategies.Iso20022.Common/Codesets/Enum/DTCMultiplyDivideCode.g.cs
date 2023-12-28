@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1pueljL3EeKU9IrkkToqcw_678847441")]
 [Description(@"Specifies DTC (The Depository Trust Company) entitlement calculation logic.")]
+[Derivations(typeof(DTCMultiplyDivide1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCMultiplyDivideCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aIFoUtp-Ed-ak6NoX_4Aeg_1034952016")]
 [Description(@"Specifies if there is a pre-confirmation of cash or securities.")]
+[Derivations(typeof(PreConfirmation1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PreConfirmationCode
 {
     /// <summary>

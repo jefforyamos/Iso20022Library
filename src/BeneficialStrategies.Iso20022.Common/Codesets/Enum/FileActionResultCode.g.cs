@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_K1GHcFEBEee94_dUz-hvgw")]
 [Description(@"File action processing result.")]
+[Derivations(typeof(FileActionResult1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FileActionResultCode
 {
     /// <summary>

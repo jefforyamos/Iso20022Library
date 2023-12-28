@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZlDPEAMkEeujMs2LsB3mMw")]
 [Description(@"Attestation status value.")]
+[Derivations(typeof(AttestationValue1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AttestationValueCode
 {
     /// <summary>

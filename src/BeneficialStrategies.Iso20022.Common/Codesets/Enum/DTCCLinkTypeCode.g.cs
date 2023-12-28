@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1rziMDL3EeKU9IrkkToqcw_1576727948")]
 [Description(@"Specifies types of linked events.")]
+[Derivations(typeof(DTCCLinkType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCCLinkTypeCode
 {
     /// <summary>

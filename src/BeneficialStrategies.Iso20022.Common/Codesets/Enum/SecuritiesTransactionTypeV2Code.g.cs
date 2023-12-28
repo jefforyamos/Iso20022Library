@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZJWvNdp-Ed-ak6NoX_4Aeg_-696908624")]
 [Description(@"Transaction is a pre-advice, that is, for matching purposes only.")]
+[Derivations(typeof(SecuritiesTransactionType1Code),typeof(SecuritiesTransactionType7Code),typeof(SecuritiesFinancingTransactionType1Code),typeof(SecuritiesTransactionType5Code),typeof(SecuritiesTransactionType4Code),typeof(SecuritiesTransactionType8Code),typeof(SecuritiesTransactionType3Code),typeof(SecuritiesTransactionType9Code),typeof(SecuritiesTransactionType6Code),typeof(SecuritiesTransactionType10Code),typeof(SecuritiesTransactionType16Code),typeof(SecuritiesTransactionType17Code),typeof(SecuritiesFinancingTransactionType2Code),typeof(SecuritiesTransactionType18Code),typeof(SecuritiesTransactionType19Code),typeof(SecuritiesTransactionType20Code),typeof(SecuritiesTransactionType21Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesTransactionTypeV2Code
 {
     /// <summary>

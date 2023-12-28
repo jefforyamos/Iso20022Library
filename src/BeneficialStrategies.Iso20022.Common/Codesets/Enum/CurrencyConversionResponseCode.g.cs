@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_sLedkEerEeODR7vDcYOqmg")]
 [Description(@"Result of a currency conversion request.")]
+[Derivations(typeof(CurrencyConversionResponse1Code),typeof(CurrencyConversionResponse2Code),typeof(CurrencyConversionResponse3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CurrencyConversionResponseCode
 {
     /// <summary>

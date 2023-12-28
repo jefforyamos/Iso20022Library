@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_zhg64Qd1EeSPHJIdUs1USg")]
 [Description(@"Specifies whether a currency is settled offshore or onshore.")]
+[Derivations(typeof(CurrencyDesignation1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CurrencyDesignationCode
 {
     /// <summary>

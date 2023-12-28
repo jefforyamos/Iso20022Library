@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_b6ylkJx-EeuwYeL1lHu9zw")]
 [Description(@"Code that specifies the storage location.")]
+[Derivations(typeof(StorageLocation1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StorageLocationCode
 {
     /// <summary>

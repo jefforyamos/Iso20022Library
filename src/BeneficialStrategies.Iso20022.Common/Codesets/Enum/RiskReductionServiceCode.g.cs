@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_LecYgCi6EeuKKc2MztSwPw")]
 [Description(@"RiskReductionServiceCode definition here")]
+[Derivations(typeof(RiskReductionService1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RiskReductionServiceCode
 {
     /// <summary>

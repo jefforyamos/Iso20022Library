@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_AEXIl_JXEeiJn9rM2Znz2w")]
 [Description(@"Contains the additoinal identification type, for example NAICS, etc...")]
+[Derivations(typeof(AdditionalIdentificationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AdditionalIdentificationTypeCode
 {
     /// <summary>

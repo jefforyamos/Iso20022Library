@@ -18,6 +18,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_pQycwB8_EeuaqdhZaJ3GHw")]
 [Description(@"Specifies all codes that are to be used in the formal validation rules.  Usage: those codes must not be used in message definitions, as the code set is used when the formal validation rules make reference of an external code sets.")]
+[Derivations(typeof(ValidationRuleStatus1Code),typeof(ValidationRuleInstruction1Code),typeof(ValidationRulePayCreditorByCheque1Code),typeof(ValidationRuleStatus3Code),typeof(ValidationRuleReceived1Code),typeof(ValidationRuleRejected1Code),typeof(ValidationRuleNarrative1Code),typeof(ValidationRuleStatus2Code),typeof(ValidationRulePending1Code),typeof(ValidationRuleConfirmation1Code),typeof(ValidationRuleAnyBank1Code),typeof(ValidationRuleSpecifiedAddress1Code),typeof(ValidationRuleIssuanceType1Code),typeof(ValidationRuleCreditSettlement1Code),typeof(ValidationRuleSettlementInProcess1Code),typeof(ValidationRulePendingAndRejected1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ValidationRuleCode
 {
     /// <summary>

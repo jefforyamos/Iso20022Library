@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_71JA8ECGEeeXpbqDpLawug")]
 [Description(@"Type of terminal under the control of the card acceptor used for the card transaction.")]
+[Derivations(typeof(TerminalType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TerminalTypeCode
 {
     /// <summary>

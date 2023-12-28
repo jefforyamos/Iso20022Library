@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Wps_YQ3fEeWc7_0KPiuk6w")]
 [Description(@"Specifies an energy quantity unit.")]
+[Derivations(typeof(EnergyQuantityUnit1Code),typeof(EnergyQuantityUnit2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EnergyQuantityUnitCode
 {
     /// <summary>

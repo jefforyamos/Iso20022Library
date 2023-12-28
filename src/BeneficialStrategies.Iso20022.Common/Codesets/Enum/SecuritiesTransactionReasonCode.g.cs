@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZGOisNp-Ed-ak6NoX_4Aeg_464976126")]
 [Description(@"Identifies the reason why the transaction has a specific status.")]
+[Derivations(typeof(SecuritiesTransactionReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesTransactionReasonCode
 {
     /// <summary>

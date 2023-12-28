@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_14xnMDL3EeKU9IrkkToqcw_393105217")]
 [Description(@"Indicates the type of DTC (The Depository Trust Company) service, for example Cash In Lieu/ Round Up, Foreign Tax Relief, etc.")]
+[Derivations(typeof(DTCServiceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCServiceType
 {
     /// <summary>

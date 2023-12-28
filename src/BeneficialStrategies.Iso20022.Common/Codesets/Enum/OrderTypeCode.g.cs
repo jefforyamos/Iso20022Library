@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aTj4hNp-Ed-ak6NoX_4Aeg_-82501079")]
 [Description(@"Indicates the type of instruction to a broker or dealer to buy or sell a financial instrument.")]
+[Derivations(typeof(OrderType1Code),typeof(OrderType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OrderTypeCode
 {
     /// <summary>

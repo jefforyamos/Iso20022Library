@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KUq-gH1DEeCF8NjrBemJWQ_-187828262")]
 [Description(@"Action to perform in case of error during the action in progress.")]
+[Derivations(typeof(TerminalManagementErrorAction1Code),typeof(TerminalManagementErrorAction2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TerminalManagementErrorActionCode
 {
     /// <summary>

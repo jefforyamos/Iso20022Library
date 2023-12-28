@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_jsRFAyjnEeK1Sbo8NpBROA")]
 [Description(@"Specifies whether the trade is a pre-allocation or a post-allocation trade, or whether the trade is unallocated.")]
+[Derivations(typeof(AllocationIndicator1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AllocationIndicatorCode
 {
     /// <summary>

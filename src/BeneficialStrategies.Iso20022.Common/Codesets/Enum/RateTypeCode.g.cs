@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZZvUldp-Ed-ak6NoX_4Aeg_233339087")]
 [Description(@"Any and all rate is sought.")]
+[Derivations(typeof(RateType3Code),typeof(RateValueType6Code),typeof(RateValueType7Code),typeof(RateType5Code),typeof(RateType12Code),typeof(RateType13Code),typeof(RateType9Code),typeof(RateType10Code),typeof(RateValueType2Code),typeof(RateType2Code),typeof(RateType8Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RateTypeCode
 {
     /// <summary>

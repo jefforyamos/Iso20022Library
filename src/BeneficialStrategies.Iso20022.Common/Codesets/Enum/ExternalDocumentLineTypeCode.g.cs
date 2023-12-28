@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_RxJesLf7EeeNBs0sDWdcSw")]
 [Description(@"Specifies the document line type as published in an external document type code list.")]
+[Derivations(typeof(ExternalDocumentLineType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalDocumentLineTypeCode
 {
     /// <summary>

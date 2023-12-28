@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_AFUk0e8hEemHC5W45DWzKA")]
 [Description(@"Specifies a shipment conditions code, as published in the external ISO 20022 external code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalShipmentCondition1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalShipmentConditionCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_RqsCgFNYEeijdq8ilaxyOA")]
 [Description(@"Specifies a type of transfer status or transfer event.")]
+[Derivations(typeof(TransferStatusType1Code),typeof(TransferStatusType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransferStatusTypeCode
 {
     /// <summary>

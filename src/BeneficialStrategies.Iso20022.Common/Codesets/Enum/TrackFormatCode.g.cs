@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Ug3jsNkWEeiojJsa6FYyew")]
 [Description(@"Card and check track format.")]
+[Derivations(typeof(TrackFormat1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TrackFormatCode
 {
     /// <summary>

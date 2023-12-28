@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__vYmkdojEeC60axPepSq7g_-720567481")]
 [Description(@"Specifies the option rights.")]
+[Derivations(typeof(OptionRight1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OptionRightCode
 {
     /// <summary>

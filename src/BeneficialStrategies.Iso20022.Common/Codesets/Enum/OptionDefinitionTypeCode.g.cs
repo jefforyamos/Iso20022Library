@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ADxVkLcQEeKuGrOch6U_ZQ_1001230530")]
 [Description(@"Indicates whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).")]
+[Derivations(typeof(OptionType1Code),typeof(OptionTypeCode),typeof(OptionType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OptionDefinitionTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_w783gIcPEeu4rpsqTt37Pg")]
 [Description(@"Specifies the list of codes applicable to embedded option types.")]
+[Derivations(typeof(EmbeddedType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EmbeddedTypeCode
 {
     /// <summary>

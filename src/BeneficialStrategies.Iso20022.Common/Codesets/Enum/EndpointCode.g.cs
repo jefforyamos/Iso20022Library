@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_znpagINmEeuHqfO1LgkE9Q")]
 [Description(@"Defines the type of endpoint.")]
+[Derivations(typeof(Endpoint1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EndpointCode
 {
     /// <summary>

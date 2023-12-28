@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Rr44gGkCEeS7zPBpvm732w")]
 [Description(@"Information about card entry mode fallback.")]
+[Derivations(typeof(CardFallback1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardFallbackCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_sPf1A154Ee2a_-MvhEjKmA")]
 [Description(@"Pairing status for an individual transaction or report.")]
+[Derivations(typeof(PairingStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PairingStatusCode
 {
     /// <summary>

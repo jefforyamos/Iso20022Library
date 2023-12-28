@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_iybhYxHaEeKVqeHljBM1MQ")]
 [Description(@"Specifies the reason an account is blocked.")]
+[Derivations(typeof(BlockedReason1Code),typeof(BlockedReason2Code),typeof(DisabledReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BlockedReasonCode
 {
     /// <summary>

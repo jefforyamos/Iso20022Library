@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_avkfGdp-Ed-ak6NoX_4Aeg_-135680371")]
 [Description(@"Specifies the denied reason.")]
+[Derivations(typeof(DeniedReason4Code),typeof(DeniedReason3Code),typeof(DeniedReason5Code),typeof(DeniedReason1Code),typeof(DeniedReason2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DeniedReasonCode
 {
     /// <summary>

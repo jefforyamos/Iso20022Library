@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-fsj2qMOEeCojJW5vEuTEQ_-1682565649")]
 [Description(@"Specifies the type of margin, for example, initial margin, variation margin, initial deposit or coupon margin.")]
+[Derivations(typeof(MarginType1Code),typeof(MarginType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MarginTypeCode
 {
     /// <summary>

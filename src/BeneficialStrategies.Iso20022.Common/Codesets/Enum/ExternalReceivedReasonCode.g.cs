@@ -18,6 +18,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_n0f5oVjrEeOnqqBHs8Gasw")]
 [Description(@"Specifies the reason for a received status.| The list of valid codes is an external code list published separately.  External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalReceivedReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalReceivedReasonCode
 {
     /// <summary>

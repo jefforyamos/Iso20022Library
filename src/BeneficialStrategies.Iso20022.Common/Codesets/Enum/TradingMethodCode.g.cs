@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YrGs8Np-Ed-ak6NoX_4Aeg_627416882")]
 [Description(@"Specifies the method used for the negotiation and execution of a trade.")]
+[Derivations(typeof(Trading1MethodCode))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradingMethodCode
 {
     /// <summary>

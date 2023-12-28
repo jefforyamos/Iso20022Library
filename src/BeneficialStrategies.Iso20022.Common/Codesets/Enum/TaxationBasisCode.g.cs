@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZSljs9p-Ed-ak6NoX_4Aeg_618293605")]
 [Description(@"Specifies the tax basis.")]
+[Derivations(typeof(TaxationBasis2Code),typeof(TaxationBasis4Code),typeof(TaxationBasis3Code),typeof(TaxationBasis5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TaxationBasisCode
 {
     /// <summary>

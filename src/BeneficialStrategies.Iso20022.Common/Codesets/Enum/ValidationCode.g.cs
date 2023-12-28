@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_tUnxYMmKEeWAGphE2LvqeA")]
 [Description(@"Specifies the validation of a signature used to sign the file.")]
+[Derivations(typeof(Validation1Code),typeof(Validation2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ValidationCode
 {
     /// <summary>

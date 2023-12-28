@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a_X1oNp-Ed-ak6NoX_4Aeg_-75802580")]
 [Description(@"Specifies the clearing channel for the routing of the transaction, as part of the payment type identification.")]
+[Derivations(typeof(ClearingChannel2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ClearingChannelCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aVWBNtp-Ed-ak6NoX_4Aeg_-958051818")]
 [Description(@"Identifies the possible statuses of a meeting date.")]
+[Derivations(typeof(MeetingDateStatus1Code),typeof(MeetingDateStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MeetingDateStatusCode
 {
     /// <summary>

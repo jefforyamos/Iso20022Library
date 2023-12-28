@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YwYvUQ2XEeStB9HSJRk0Qw")]
 [Description(@"Specifies the rate of tax levied.")]
+[Derivations(typeof(TaxRateMarker1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TaxRateMarkerCode
 {
     /// <summary>

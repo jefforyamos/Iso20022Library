@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_LmV-saacEeSR8qifggAitQ")]
 [Description(@"Specifies the inquiry status of the trade.")]
+[Derivations(typeof(QueryTradeStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QueryTradeStatusCode
 {
     /// <summary>

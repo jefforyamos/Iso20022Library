@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__1M6s9ojEeC60axPepSq7g_1756834553")]
 [Description(@"Side taken by a party on an order.")]
+[Derivations(typeof(ClearingSide1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ClearingSideCode
 {
     /// <summary>

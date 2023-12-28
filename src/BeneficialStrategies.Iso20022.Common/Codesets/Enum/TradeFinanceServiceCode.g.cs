@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YmyNoNp-Ed-ak6NoX_4Aeg_243553548")]
 [Description(@"Specifies the type of bank service selected by the user.")]
+[Derivations(typeof(TradeFinanceService2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradeFinanceServiceCode
 {
     /// <summary>

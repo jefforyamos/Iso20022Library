@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1pktlTL3EeKU9IrkkToqcw_-2000683477")]
 [Description(@"Specifies the oversubscription type.")]
+[Derivations(typeof(OversubscriptionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OversubscriptionTypeCode
 {
     /// <summary>

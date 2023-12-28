@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_tYWj0M2uEeuAE-cYsQdwHQ")]
 [Description(@"Specifies if focus will be Environmental, Social or Governance.")]
+[Derivations(typeof(ESGFocus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ESGFocusCode
 {
     /// <summary>

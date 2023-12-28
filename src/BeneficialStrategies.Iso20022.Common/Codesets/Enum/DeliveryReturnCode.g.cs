@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_azc5g9p-Ed-ak6NoX_4Aeg_-2045082222")]
 [Description(@"Specifies the type of delivery return.")]
+[Derivations(typeof(DeliveryReturn1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DeliveryReturnCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KxndUJfMEeuqNYk2TG3bTg")]
 [Description(@"Type of identification for the device.")]
+[Derivations(typeof(DeviceIdentificationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DeviceIdentificationTypeCode
 {
     /// <summary>

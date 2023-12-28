@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_JdeN8PeZEee0h5ZXun0VTA")]
 [Description(@"Specifies the packaging type as published in an external packaging type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalPackagingType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalPackagingTypeCode
 {
     /// <summary>

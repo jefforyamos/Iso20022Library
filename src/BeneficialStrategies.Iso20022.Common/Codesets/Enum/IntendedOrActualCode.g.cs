@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_lko5sDcjEeidBoT_PugKiA")]
 [Description(@"Specifies if a charge or cost is intended (ex ante) or actual (post ante).")]
+[Derivations(typeof(IntendedOrActual2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum IntendedOrActualCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_E3W44QneEeWa7rBfPECYsw")]
 [Description(@"Specifies an equity derivative return parameter.")]
+[Derivations(typeof(EquityReturnParameter1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum EquityReturnParameterCode
 {
     /// <summary>

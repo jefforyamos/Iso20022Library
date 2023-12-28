@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bkLL0tp-Ed-ak6NoX_4Aeg_882404778")]
 [Description(@"Specifies the balance of transactions with a certain status.")]
+[Derivations(typeof(BalanceStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BalanceStatusCode
 {
     /// <summary>

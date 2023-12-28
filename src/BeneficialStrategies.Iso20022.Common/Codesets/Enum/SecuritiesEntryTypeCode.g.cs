@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZFLZ2Np-Ed-ak6NoX_4Aeg_1201325476")]
 [Description(@"Specifies the type of securities entry on an account.")]
+[Derivations(typeof(SecuritiesEntryType1Code),typeof(SecuritiesEntryType2Code),typeof(SecuritiesEntryType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesEntryTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1nV48zL3EeKU9IrkkToqcw_1768517900")]
 [Description(@"Specifies DTC (The Depository Trust Company) defined issuer status of the event.")]
+[Derivations(typeof(IssuerStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum IssuerStatusCode
 {
     /// <summary>

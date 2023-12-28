@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVWQAgEcEeCQm6a_G2yO_w_1626572766")]
 [Description(@"Level of urgency in contacting the terminal management system.")]
+[Derivations(typeof(TMSContactLevel1Code),typeof(TMSContactLevel2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TMSContactLevelCode
 {
     /// <summary>

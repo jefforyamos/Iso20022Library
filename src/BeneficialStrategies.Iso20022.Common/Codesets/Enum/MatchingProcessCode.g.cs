@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aVDGQNp-Ed-ak6NoX_4Aeg_-850156011")]
 [Description(@"Specifies the action to be performed on the matching process.")]
+[Derivations(typeof(MatchingProcess1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MatchingProcessCode
 {
     /// <summary>

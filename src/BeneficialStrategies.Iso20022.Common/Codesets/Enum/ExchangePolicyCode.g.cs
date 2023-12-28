@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KR1s8X1DEeCF8NjrBemJWQ_-1574352782")]
 [Description(@"Exchange policy between parties.")]
+[Derivations(typeof(ExchangePolicy1Code),typeof(ExchangePolicy2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExchangePolicyCode
 {
     /// <summary>

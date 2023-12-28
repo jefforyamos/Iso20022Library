@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bVa-INp-Ed-ak6NoX_4Aeg_-1889057025")]
 [Description(@"Specifies the calculation basis.")]
+[Derivations(typeof(CalculationBasis1Code),typeof(CalculationBasis2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CalculationBasisCode
 {
     /// <summary>

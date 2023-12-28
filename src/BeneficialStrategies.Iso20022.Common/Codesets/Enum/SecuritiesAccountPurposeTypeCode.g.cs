@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y_Ex0dp-Ed-ak6NoX_4Aeg_965558025")]
 [Description(@"Specifies the purpose of the securities account.")]
+[Derivations(typeof(SecuritiesAccountPurposeType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecuritiesAccountPurposeTypeCode
 {
     /// <summary>

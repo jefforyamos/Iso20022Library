@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_yNs5MNDREeSv_Pll20DdbA")]
 [Description(@"Code list of transaction type as specified by the trading venue.")]
+[Derivations(typeof(AssetClassTransactionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AssetClassTransactionTypeCode
 {
     /// <summary>

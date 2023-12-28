@@ -18,6 +18,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hg1eYJkYEeu3i5QmrY5b7Q")]
 [Description(@"Specifies the external rates and tenors code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalRatesAndTenors1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalRatesAndTenorsCode
 {
     /// <summary>

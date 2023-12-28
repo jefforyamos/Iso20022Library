@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YczLM9p-Ed-ak6NoX_4Aeg_-483728852")]
 [Description(@"Determines how the variation margin requirement will be calculated, either net or gross.")]
+[Derivations(typeof(ExposureConventionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExposureConventionTypeCode
 {
     /// <summary>

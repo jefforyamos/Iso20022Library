@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YrGs9Np-Ed-ak6NoX_4Aeg_-1913582483")]
 [Description(@"Indicates the factors that are/were applied in the event of pre-allocation.")]
+[Derivations(typeof(TradingSession1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradingSessionCode
 {
     /// <summary>

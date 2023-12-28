@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_40EQcJF2EeeMPMycDdDCGw")]
 [Description(@"Specifies the type of billing rate or factor, as published in an external billing rate identification code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalBillingRateIdentification1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalBillingRateIdentificationCode
 {
     /// <summary>

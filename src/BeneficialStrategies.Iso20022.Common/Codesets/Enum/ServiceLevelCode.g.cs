@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZKjCBtp-Ed-ak6NoX_4Aeg_27077398")]
 [Description(@"Specifies the pre-agreed level of service between the parties.")]
+[Derivations(typeof(ServiceLevel1Code),typeof(ServiceLevel2Code),typeof(ServiceLevel4Code),typeof(ServiceLevel3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ServiceLevelCode
 {
     /// <summary>

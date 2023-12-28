@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aLgvwtp-Ed-ak6NoX_4Aeg_-1244080292")]
 [Description(@"Specifies the type of security holders meeting.")]
+[Derivations(typeof(MeetingType1Code),typeof(MeetingType2Code),typeof(MeetingType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MeetingTypeCode
 {
     /// <summary>

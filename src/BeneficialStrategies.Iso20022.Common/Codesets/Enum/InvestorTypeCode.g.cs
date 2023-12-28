@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_adQABtp-Ed-ak6NoX_4Aeg_-2008632624")]
 [Description(@"Specifies the type of investor.")]
+[Derivations(typeof(InvestorType1Code),typeof(InvestorType2Code),typeof(InvestorType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestorTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__0Jx0dojEeC60axPepSq7g_-2133812073")]
 [Description(@"Specifies the reason why the instruction has an allegement status.")]
+[Derivations(typeof(AllegementReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AllegementReasonCode
 {
     /// <summary>

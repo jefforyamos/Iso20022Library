@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aP_AENp-Ed-ak6NoX_4Aeg_1603970622")]
 [Description(@"Code identifying special corporate action option numbers.")]
+[Derivations(typeof(OptionNumber1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OptionNumberCode
 {
     /// <summary>

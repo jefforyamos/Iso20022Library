@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aghWddp-Ed-ak6NoX_4Aeg_-1963478091")]
 [Description(@"Specifies a type of financial or commercial document.")]
+[Derivations(typeof(DocumentType2Code),typeof(DocumentType3Code),typeof(DocumentType5Code),typeof(DocumentType1Code),typeof(DocumentType4Code),typeof(DocumentType6Code),typeof(DocumentType7Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DocumentTypeCode
 {
     /// <summary>

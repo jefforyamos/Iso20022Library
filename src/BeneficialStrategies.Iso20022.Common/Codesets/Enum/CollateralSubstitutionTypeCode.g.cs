@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YcDkV9p-Ed-ak6NoX_4Aeg_-2087044580")]
 [Description(@"Specifies if the collateral that is substituted was posted against the variation margin or the independent amount.")]
+[Derivations(typeof(CollateralSubstitutionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralSubstitutionTypeCode
 {
     /// <summary>

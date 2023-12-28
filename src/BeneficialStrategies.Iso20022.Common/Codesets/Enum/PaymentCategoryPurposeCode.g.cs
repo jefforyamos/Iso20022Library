@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZzX8ldp-Ed-ak6NoX_4Aeg_-191357927")]
 [Description(@"Specifies the type of transaction that resulted in the payment.")]
+[Derivations(typeof(PaymentCategoryPurpose1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentCategoryPurposeCode
 {
     /// <summary>

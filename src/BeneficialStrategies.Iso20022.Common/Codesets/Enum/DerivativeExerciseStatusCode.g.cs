@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_l2kogCKKEeSbDuI5b0sFEQ")]
 [Description(@"Specifies the exercise status of the derivative products.")]
+[Derivations(typeof(DerivativeExerciseStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DerivativeExerciseStatusCode
 {
     /// <summary>

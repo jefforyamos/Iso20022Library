@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_X1pf0HyiEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the termination reason.")]
+[Derivations(typeof(TerminationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TerminationReasonCode
 {
     /// <summary>

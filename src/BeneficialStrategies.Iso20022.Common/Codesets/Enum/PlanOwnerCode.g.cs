@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_799uQNuJEei2qvU6FBLZYA")]
 [Description(@"Contains list of plan owners")]
+[Derivations(typeof(PlanOwner1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PlanOwnerCode
 {
     /// <summary>

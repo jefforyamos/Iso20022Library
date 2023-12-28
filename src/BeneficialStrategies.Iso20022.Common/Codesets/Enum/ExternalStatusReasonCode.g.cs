@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a929gJ0uEeeuSNj2bfEs7Q")]
 [Description(@"Specifies the status reason, as published in an external status reason code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalStatusReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalStatusReasonCode
 {
     /// <summary>

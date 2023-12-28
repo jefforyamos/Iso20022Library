@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-snCEHi8EeaRm5xIK6nGuQ")]
 [Description(@"Specifies the reason for an instruction to change to an account status.")]
+[Derivations(typeof(AccountStatusUpdateRequestReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AccountStatusUpdateRequestReasonCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_brn3odp-Ed-ak6NoX_4Aeg_-1657976569")]
 [Description(@"Specifies the current state of an account.")]
+[Derivations(typeof(AccountStatus2Code),typeof(AccountStatus1Code),typeof(AccountStatus3Code),typeof(AccountStatus4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AccountStatusCode
 {
     /// <summary>

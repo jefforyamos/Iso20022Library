@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aQ4X9dp-Ed-ak6NoX_4Aeg_-2067326858")]
 [Description(@"Specifies the current status of an order confirmation or of an order confirmation amendment.")]
+[Derivations(typeof(OrderConfirmationStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OrderConfirmationStatusCode
 {
     /// <summary>

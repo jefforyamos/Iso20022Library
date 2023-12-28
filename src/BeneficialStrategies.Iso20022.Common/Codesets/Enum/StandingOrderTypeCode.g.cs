@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8N7QU6MgEeCJ6YNENx4h-w_814542161")]
 [Description(@"Specifies the type of standing order.")]
+[Derivations(typeof(StandingOrderType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum StandingOrderTypeCode
 {
     /// <summary>

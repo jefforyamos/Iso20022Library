@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_NFe4o90mEeil7LQldntseg")]
 [Description(@"Indicates whether the action applies to a file or a record.")]
+[Derivations(typeof(FileActionScope1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FileActionScopeCode
 {
     /// <summary>

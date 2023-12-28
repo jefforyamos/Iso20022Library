@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1dJHwNuYEeiB5uLfkg9ZJA")]
 [Description(@"Type of Barcode coding.")]
+[Derivations(typeof(BarcodeType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BarcodeTypeCode
 {
     /// <summary>

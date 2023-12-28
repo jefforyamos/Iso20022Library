@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8RJ1sPpPEemXaqBx8S4XSg")]
 [Description(@"Provides the reason for a status of a payment transaction in the tracker.")]
+[Derivations(typeof(TrackerTransactionStatusReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TrackerTransactionStatusReasonCode
 {
     /// <summary>

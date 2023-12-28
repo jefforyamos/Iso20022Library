@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_j4SNANQCEeWBZtcpHyzahg")]
 [Description(@"Specifies the methodology used for a transparency operation.")]
+[Derivations(typeof(TransparencyMethodology2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransparencyMethodologyCode
 {
     /// <summary>

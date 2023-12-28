@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_6WXNt5qlEeGSON8vddiWzQ_-277040483")]
 [Description(@"Defines the currency type to be used in the billing balance.")]
+[Derivations(typeof(BillingCurrencyType1Code),typeof(BillingCurrencyType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BillingCurrencyTypeCode
 {
     /// <summary>

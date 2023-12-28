@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_A9WDQD5GEeyHI64WSlzTlg")]
 [Description(@"Code that specifies the good or service delivery channel.")]
+[Derivations(typeof(GoodAndServiceDeliveryChannel1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GoodAndServiceDeliveryChannelCode
 {
     /// <summary>

@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_-M07BW7iEeKo25nLKvGr8w_-365959647")]
 [Description(@"Specifies the external status stage code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalUndertakingStatusCategory1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalUndertakingStatusCategoryCode
 {
     /// <summary>

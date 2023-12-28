@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TXL5MHvREeWrWYBng3OpVw")]
 [Description(@"Specifies whether the transaction is arranged via a third party broker or not.")]
+[Derivations(typeof(BrokeredDeal1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BrokeredDealCode
 {
     /// <summary>

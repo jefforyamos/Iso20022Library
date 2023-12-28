@@ -9,7 +9,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// <summary>
 /// The values that should be expected from a single row of dropdown data.
 /// </summary>
-public partial interface IPendingReason5CodeDropdownRow : IDropdownRow
+public partial interface IPendingReason5CodeDropdownRow : IEnumMetadataDropdownRow<PendingReason5Code>
 {
 }
 

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_d9DQsA4SEeKGXqvMN6jpiw")]
 [Description(@"Specifies if an item is added, modified, deleted or unchanged.")]
+[Derivations(typeof(Modification1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ModificationCode
 {
     /// <summary>

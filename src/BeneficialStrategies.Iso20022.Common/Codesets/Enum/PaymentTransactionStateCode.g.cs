@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_fEf3YKHmEeagRbKvRt3LnA")]
 [Description(@"Contains the different states which a payment transaction can be in.")]
+[Derivations(typeof(PaymentTransactionState1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentTransactionStateCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TVyU4gEcEeCQm6a_G2yO_w_-1187530480")]
 [Description(@"Human attendance at the POI location during the transaction.")]
+[Derivations(typeof(AttendanceContext1Code),typeof(AttendanceContext2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AttendanceContextCode
 {
     /// <summary>

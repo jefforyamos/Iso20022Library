@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_azANldp-Ed-ak6NoX_4Aeg_-684562382")]
 [Description(@"Specifies the place of delivery.")]
+[Derivations(typeof(DeliveryPlace1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DeliveryPlaceCode
 {
     /// <summary>

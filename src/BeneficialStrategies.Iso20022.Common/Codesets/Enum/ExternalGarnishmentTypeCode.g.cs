@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_vfkPYLf7Eee9KIDjEHK7ZQ")]
 [Description(@"Specifies the garnishment type as published in an external document type code list.")]
+[Derivations(typeof(ExternalGarnishmentType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalGarnishmentTypeCode
 {
     /// <summary>

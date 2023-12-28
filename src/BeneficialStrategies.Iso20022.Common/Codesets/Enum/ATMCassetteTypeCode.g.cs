@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_W-ddQIqfEeS4a4abTJTSSw")]
 [Description(@"Type of cassette.")]
+[Derivations(typeof(ATMCassetteType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ATMCassetteTypeCode
 {
     /// <summary>

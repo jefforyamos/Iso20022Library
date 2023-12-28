@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aVDGRtp-Ed-ak6NoX_4Aeg_162716149")]
 [Description(@"Provides the matching status of the instruction at the time the settlement instruction was sent.")]
+[Derivations(typeof(MatchingStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum MatchingStatusCode
 {
     /// <summary>

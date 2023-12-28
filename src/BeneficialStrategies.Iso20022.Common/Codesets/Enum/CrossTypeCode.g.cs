@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bUhmQNp-Ed-ak6NoX_4Aeg_1989083397")]
 [Description(@"Type of cross being submitted to a market.")]
+[Derivations(typeof(CrossType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CrossTypeCode
 {
     /// <summary>

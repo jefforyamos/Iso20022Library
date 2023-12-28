@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bkBa1dp-Ed-ak6NoX_4Aeg_678189971")]
 [Description(@"Specifies the type of counterparty to be taken into account for calculation of the balance.")]
+[Derivations(typeof(BalanceCounterparty1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BalanceCounterpartyCode
 {
     /// <summary>

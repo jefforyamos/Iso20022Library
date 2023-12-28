@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aZEqotp-Ed-ak6NoX_4Aeg_976637789")]
 [Description(@"List of standards insurance clauses. (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).")]
+[Derivations(typeof(InsuranceClauses1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InsuranceClausesCode
 {
     /// <summary>

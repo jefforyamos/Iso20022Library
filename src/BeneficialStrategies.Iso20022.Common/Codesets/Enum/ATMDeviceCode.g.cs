@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_7UYaUIqHEeSRT5rEzcAHEw")]
 [Description(@"ATM devices.")]
+[Derivations(typeof(ATMDevice2Code),typeof(ATMDevice1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ATMDeviceCode
 {
     /// <summary>

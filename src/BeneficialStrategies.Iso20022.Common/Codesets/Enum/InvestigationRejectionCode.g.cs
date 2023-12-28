@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ab58Mtp-Ed-ak6NoX_4Aeg_-1473436095")]
 [Description(@"Specifies the reason for rejecting an investigation case.")]
+[Derivations(typeof(InvestigationRejection1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InvestigationRejectionCode
 {
     /// <summary>

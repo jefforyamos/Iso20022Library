@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hWYrAF2iEeekzJIz1JxYSQ")]
 [Description(@"Specific TR34 command that the ATM could perform.")]
+[Derivations(typeof(TR34Command1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TR34CommandCode
 {
     /// <summary>

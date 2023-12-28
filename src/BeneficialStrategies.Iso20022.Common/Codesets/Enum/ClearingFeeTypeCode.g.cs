@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_a_qwkNp-Ed-ak6NoX_4Aeg_335335694")]
 [Description(@"Indicates the type of fee being assessed of the customer for trade executions at an exchange. Applicable for futures markets only at this time.")]
+[Derivations(typeof(ClearingFeeType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ClearingFeeTypeCode
 {
     /// <summary>

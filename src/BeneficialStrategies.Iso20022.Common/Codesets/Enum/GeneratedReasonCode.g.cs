@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_auFRVdp-Ed-ak6NoX_4Aeg_-239668022")]
 [Description(@"Specifies the reason why the transaction was generated.")]
+[Derivations(typeof(GeneratedReason2Code),typeof(GeneratedReason1Code),typeof(GeneratedReason3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GeneratedReasonCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Kx1cMH4LEeG05p8M2uqofg")]
 [Description(@"Specifies the undertaking issuance type.")]
+[Derivations(typeof(IssuanceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum IssuanceTypeCode
 {
     /// <summary>

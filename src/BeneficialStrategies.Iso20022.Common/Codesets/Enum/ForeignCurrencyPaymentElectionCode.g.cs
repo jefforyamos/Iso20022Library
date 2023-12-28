@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1zjwBDL3EeKU9IrkkToqcw_-811455456")]
 [Description(@"Specifies whether the foreign currency payment is offered.")]
+[Derivations(typeof(ForeignCurrencyPaymentElection1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ForeignCurrencyPaymentElectionCode
 {
     /// <summary>

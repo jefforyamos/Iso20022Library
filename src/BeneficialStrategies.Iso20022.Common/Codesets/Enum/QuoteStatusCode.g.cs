@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZYjBxdp-Ed-ak6NoX_4Aeg_336258615")]
 [Description(@"Identifies the status of a quote acknowledgement.")]
+[Derivations(typeof(QuoteStatus1Code),typeof(QuoteStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QuoteStatusCode
 {
     /// <summary>

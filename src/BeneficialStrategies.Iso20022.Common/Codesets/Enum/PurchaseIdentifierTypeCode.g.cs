@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_dsO7g_JOEeiJn9rM2Znz2w")]
 [Description(@"Identifies the type of identifier used in the Purchase Identifier field. ")]
+[Derivations(typeof(PurchaseIdentifierType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PurchaseIdentifierTypeCode
 {
     /// <summary>

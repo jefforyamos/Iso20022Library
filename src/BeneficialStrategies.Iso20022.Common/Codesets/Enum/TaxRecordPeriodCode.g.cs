@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Yim4RNp-Ed-ak6NoX_4Aeg_463735994")]
 [Description(@"Specifies the period related to the tax payment.")]
+[Derivations(typeof(TaxRecordPeriod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TaxRecordPeriodCode
 {
     /// <summary>

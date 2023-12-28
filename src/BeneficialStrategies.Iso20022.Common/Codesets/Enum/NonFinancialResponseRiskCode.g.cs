@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_qrdJwC_vEeugIJ3Gvoevmg")]
 [Description(@"Type of risk management answer from an Acquirer (or its IntermediaryAgent) to a POI through a NonFinancialResponse. ")]
+[Derivations(typeof(NonFinancialResponseRisk1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum NonFinancialResponseRiskCode
 {
     /// <summary>

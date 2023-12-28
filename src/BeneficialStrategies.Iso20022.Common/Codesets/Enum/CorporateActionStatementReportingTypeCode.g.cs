@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bTCYiNp-Ed-ak6NoX_4Aeg_263893387")]
 [Description(@"Type of statement reporting on account holdings for corporate action events eg. reporting on multiple accounts or multiple events.")]
+[Derivations(typeof(CorporateActionStatementReportingType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionStatementReportingTypeCode
 {
     /// <summary>

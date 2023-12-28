@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_EBcskIqSEeSRT5rEzcAHEw")]
 [Description(@"Status of an ATM transaction.")]
+[Derivations(typeof(ATMTransactionStatus1Code),typeof(ATMTransactionStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ATMTransactionStatusCode
 {
     /// <summary>

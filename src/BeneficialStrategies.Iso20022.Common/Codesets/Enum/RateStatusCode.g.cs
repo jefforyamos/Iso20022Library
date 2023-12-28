@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZY_tttp-Ed-ak6NoX_4Aeg_878479095")]
 [Description(@"Specifies the type of rate.")]
+[Derivations(typeof(RateStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RateStatusCode
 {
     /// <summary>

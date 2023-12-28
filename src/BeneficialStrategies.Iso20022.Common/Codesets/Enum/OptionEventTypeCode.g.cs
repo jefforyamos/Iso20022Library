@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TGmBAcR0EeOg-a7zWL_U0A")]
 [Description(@"Specifies the type of event for an option.")]
+[Derivations(typeof(OptionEventType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OptionEventTypeCode
 {
     /// <summary>

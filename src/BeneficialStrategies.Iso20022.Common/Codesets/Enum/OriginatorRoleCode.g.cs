@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Zw_W9tp-Ed-ak6NoX_4Aeg_141531855")]
 [Description(@"Specifies in what capacity (role) the originator of a quote is acting.")]
+[Derivations(typeof(OriginatorRole2Code),typeof(OriginatorRole1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OriginatorRoleCode
 {
     /// <summary>

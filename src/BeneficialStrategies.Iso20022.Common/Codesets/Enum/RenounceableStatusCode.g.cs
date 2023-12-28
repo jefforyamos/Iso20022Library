@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Zsq3otp-Ed-ak6NoX_4Aeg_159300519")]
 [Description(@"Specifies the renounceable status.")]
+[Derivations(typeof(RenounceableStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum RenounceableStatusCode
 {
     /// <summary>

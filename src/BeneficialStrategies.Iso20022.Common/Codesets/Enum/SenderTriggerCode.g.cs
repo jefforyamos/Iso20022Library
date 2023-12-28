@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hy2h4MmLEeWAGphE2LvqeA")]
 [Description(@"Specifies the trigger code used by the sender to generate the file.")]
+[Derivations(typeof(SenderTrigger1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SenderTriggerCode
 {
     /// <summary>

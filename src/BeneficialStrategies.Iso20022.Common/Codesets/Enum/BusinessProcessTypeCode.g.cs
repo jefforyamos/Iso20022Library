@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__0wOw9ojEeC60axPepSq7g_-159430534")]
 [Description(@"Type of business process model used to carry out the transaction.")]
+[Derivations(typeof(BusinessProcessType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BusinessProcessTypeCode
 {
     /// <summary>

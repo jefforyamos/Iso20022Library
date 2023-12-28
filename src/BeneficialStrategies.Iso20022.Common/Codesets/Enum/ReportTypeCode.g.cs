@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZTe7kNp-Ed-ak6NoX_4Aeg_448071852")]
 [Description(@"Specifies the purpose of the report.")]
+[Derivations(typeof(ReportType2Code),typeof(ReportType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReportTypeCode
 {
     /// <summary>

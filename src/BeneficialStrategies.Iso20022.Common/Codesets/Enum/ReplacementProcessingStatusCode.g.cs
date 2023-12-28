@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZwirANp-Ed-ak6NoX_4Aeg_478087079")]
 [Description(@"Specifies the processing status of the replacement request.")]
+[Derivations(typeof(ReplacementProcessingStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReplacementProcessingStatusCode
 {
     /// <summary>

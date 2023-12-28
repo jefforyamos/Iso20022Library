@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_fynYkE9ZEeSn2-3swbRbzg")]
 [Description(@"Specifies the type of pledgee.")]
+[Derivations(typeof(PledgeeType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PledgeeTypeCode
 {
     /// <summary>

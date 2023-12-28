@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bc3p9dp-Ed-ak6NoX_4Aeg_-1712185588")]
 [Description(@"Indicates the status of a baseline.")]
+[Derivations(typeof(BaselineStatus1Code),typeof(BaselineStatus3Code),typeof(BaselineStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum BaselineStatusCode
 {
     /// <summary>

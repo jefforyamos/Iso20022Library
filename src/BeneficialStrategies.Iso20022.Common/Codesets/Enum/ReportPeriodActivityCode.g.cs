@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_NgO2UZfnEeSfnc-VXAEapg")]
 [Description(@"Specifies the type of report activity for a specific period.")]
+[Derivations(typeof(ReportPeriodActivity1Code),typeof(ReportPeriodActivity3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReportPeriodActivityCode
 {
     /// <summary>

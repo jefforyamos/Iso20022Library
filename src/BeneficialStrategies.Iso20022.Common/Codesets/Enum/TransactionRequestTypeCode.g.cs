@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_0-HZ0GKCEeGByYwyG-c4ow")]
 [Description(@"Specifies the type of information request related to a transaction number.")]
+[Derivations(typeof(TransactionRequestType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TransactionRequestTypeCode
 {
     /// <summary>

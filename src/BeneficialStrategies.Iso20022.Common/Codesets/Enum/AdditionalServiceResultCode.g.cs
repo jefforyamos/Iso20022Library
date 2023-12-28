@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_koClUJ1JEeublrfU-wN95w")]
 [Description(@"Identifies the result of the service.")]
+[Derivations(typeof(AdditionalServiceResult1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum AdditionalServiceResultCode
 {
     /// <summary>

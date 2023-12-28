@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_T9qiUCHmEeOQ7qT4JUI53A")]
 [Description(@"Specifies the type of consent announced.")]
+[Derivations(typeof(ConsentType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ConsentTypeCode
 {
     /// <summary>

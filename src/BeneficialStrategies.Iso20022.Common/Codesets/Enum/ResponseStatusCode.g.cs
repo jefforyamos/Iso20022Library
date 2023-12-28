@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y94fANp-Ed-ak6NoX_4Aeg_1785427389")]
 [Description(@"Specifies the status of the received collateral message (collateral claim, a collateral proposal or a proposal/request for collateral substitution) from a collateral management perspective.")]
+[Derivations(typeof(ResponseStatus1Code),typeof(ResponseStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ResponseStatusCode
 {
     /// <summary>

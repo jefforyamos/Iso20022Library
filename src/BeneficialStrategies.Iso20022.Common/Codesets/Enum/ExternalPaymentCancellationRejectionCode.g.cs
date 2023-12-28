@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_qcZCgYluEeePr-EGJjGYzQ")]
 [Description(@"Specifies the reason for the rejection of a cancellation, as published in an external payment cancellation rejection code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalPaymentCancellationRejection1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalPaymentCancellationRejectionCode
 {
     /// <summary>

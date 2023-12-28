@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZKGWEtp-Ed-ak6NoX_4Aeg_274745711")]
 [Description(@"Specifies the status of the security.")]
+[Derivations(typeof(SecurityStatus1Code),typeof(SecurityStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SecurityStatusCode
 {
     /// <summary>

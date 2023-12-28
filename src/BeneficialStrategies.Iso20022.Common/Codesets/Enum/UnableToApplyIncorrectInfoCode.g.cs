@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Yz5cktp-Ed-ak6NoX_4Aeg_22044540")]
 [Description(@"Used when the unable to apply is due to incorrect information.")]
+[Derivations(typeof(UnableToApplyIncorrectInfo1Code),typeof(UnableToApplyIncorrectInfo2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UnableToApplyIncorrectInfoCode
 {
     /// <summary>

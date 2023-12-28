@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_w6pwoCDYEeWCLu74WLgP4w")]
 [Description(@"Specifes the operational status.")]
+[Derivations(typeof(OperationalStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OperationalStatusCode
 {
     /// <summary>

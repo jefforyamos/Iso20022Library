@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ji4689uTEei2qvU6FBLZYA")]
 [Description(@"Instalment period.")]
+[Derivations(typeof(InstalmentPeriod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InstalmentPeriodCode
 {
     /// <summary>

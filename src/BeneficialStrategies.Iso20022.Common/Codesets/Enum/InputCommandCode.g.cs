@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_jBTTwN6nEeiwsev40qZGEQ")]
 [Description(@"Type of requested input.")]
+[Derivations(typeof(InputCommand1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InputCommandCode
 {
     /// <summary>

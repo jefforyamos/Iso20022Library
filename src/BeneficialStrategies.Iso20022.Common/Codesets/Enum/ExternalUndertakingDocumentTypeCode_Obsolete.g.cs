@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_rJUs5nCcEe2v-4Te0Ownww")]
 [Description(@"Specifies the external undertaking document type code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalUndertakingDocumentType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalUndertakingDocumentTypeCode_Obsolete
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_1qUUcDL3EeKU9IrkkToqcw_-747430383")]
 [Description(@"Specifies the type of cash proceeds that the holder is eligible to reinvest.")]
+[Derivations(typeof(ReinvestmentIncomeClassification1Code),typeof(ReinvestmentIncomeClassification2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReinvestmentIncomeClassificationCode
 {
     /// <summary>

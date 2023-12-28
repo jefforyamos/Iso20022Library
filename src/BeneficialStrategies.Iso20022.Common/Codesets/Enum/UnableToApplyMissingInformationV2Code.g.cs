@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Y11WR9p-Ed-ak6NoX_4Aeg_-1474250658")]
 [Description(@"Specifies the reason of an unable to apply due to missing information.")]
+[Derivations(typeof(UnableToApplyMissingInformation2Code),typeof(UnableToApplyMissingInformation3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum UnableToApplyMissingInformationV2Code
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hbIeoGliEeGaMcKyqKNRfQ_1900611305")]
 [Description(@"Indicates the type of deal for structured finance.")]
+[Derivations(typeof(InstrumentSubStructureType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InstrumentSubStructureTypeCode
 {
     /// <summary>

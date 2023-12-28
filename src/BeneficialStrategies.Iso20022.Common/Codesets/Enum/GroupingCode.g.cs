@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_au04M9p-Ed-ak6NoX_4Aeg_-1706891243")]
 [Description(@"Specifies the grouping options of the payment transaction.")]
+[Derivations(typeof(Grouping1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GroupingCode
 {
     /// <summary>

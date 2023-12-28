@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_JJT9wLh0Eea3PLWeF1tJsQ")]
 [Description(@"Domain of an identifier.")]
+[Derivations(typeof(SchemeIdentificationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SchemeIdentificationTypeCode
 {
     /// <summary>

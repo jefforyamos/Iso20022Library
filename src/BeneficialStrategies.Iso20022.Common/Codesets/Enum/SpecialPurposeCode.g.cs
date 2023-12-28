@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_WjGtkBvUEeWeg9zOuV6DZQ")]
 [Description(@"Specifies special purpose codes.")]
+[Derivations(typeof(NoReasonCode),typeof(AnyMIC1Code),typeof(NotAvailable1Code),typeof(NotReported1Code),typeof(SpecialPurpose2Code),typeof(NotApplicable1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SpecialPurposeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TWii4QEcEeCQm6a_G2yO_w_1480882734")]
 [Description(@"CSC (Card Security Code) management associated with the transaction.")]
+[Derivations(typeof(CSCManagement1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CSCManagementCode
 {
     /// <summary>

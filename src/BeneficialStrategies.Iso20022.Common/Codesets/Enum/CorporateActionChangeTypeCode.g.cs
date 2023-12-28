@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_bDF4Bdp-Ed-ak6NoX_4Aeg_-1435625775")]
 [Description(@"Specifies the type of changes.")]
+[Derivations(typeof(CorporateActionChangeType2Code),typeof(CorporateActionChangeType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CorporateActionChangeTypeCode
 {
     /// <summary>

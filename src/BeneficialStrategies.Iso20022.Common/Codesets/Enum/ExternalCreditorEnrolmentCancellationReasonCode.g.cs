@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_EvdPM_DCEemsS_0xy2XRug")]
 [Description(@"Specifies the creditor enrolment cancellation reason code, as published in an external creditor enrolment cancellation reason code set. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalCreditorEnrolmentCancellationReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalCreditorEnrolmentCancellationReasonCode
 {
     /// <summary>

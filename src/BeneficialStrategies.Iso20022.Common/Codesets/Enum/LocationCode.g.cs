@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_s14uMKHnEeagRbKvRt3LnA")]
 [Description(@"Specifies a location.")]
+[Derivations(typeof(Location1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LocationCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_xv3G8GiLEeOdXoiw6mfXMw")]
 [Description(@"DTC Unallocated reason codes for payment adjustments.")]
+[Derivations(typeof(DTCUnallocatedAdjustmentReason1Code),typeof(DTCUnallocatedAdjustmentReason2Code),typeof(DTCUnallocatedAdjustmentReason3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DTCUnallocatedAdjustmentReasonCode
 {
     /// <summary>

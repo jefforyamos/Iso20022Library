@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aR8RMQ26EeWmAKKPnqYEVQ")]
 [Description(@"Specifies whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.")]
+[Derivations(typeof(TradeConfirmationType2Code),typeof(TradeConfirmationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TradeConfirmationTypeCode
 {
     /// <summary>

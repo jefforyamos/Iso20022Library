@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_TU5kHAEcEeCQm6a_G2yO_w_1796414491")]
 [Description(@"On-line and off-line capabilities of the POI (Point Of Interaction).")]
+[Derivations(typeof(OnLineCapability1Code),typeof(OnLineCapability2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OnLineCapabilityCode
 {
     /// <summary>

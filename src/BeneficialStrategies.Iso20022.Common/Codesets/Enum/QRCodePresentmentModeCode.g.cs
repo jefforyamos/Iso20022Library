@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_JsWoAMV3Eeua2vd9tJAtHg")]
 [Description(@"Identifies the mode used to present a QR Code for a transaction.")]
+[Derivations(typeof(QRCodePresentmentMode1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QRCodePresentmentModeCode
 {
     /// <summary>

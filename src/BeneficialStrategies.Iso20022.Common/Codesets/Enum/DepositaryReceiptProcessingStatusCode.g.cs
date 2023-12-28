@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_av4BF9p-Ed-ak6NoX_4Aeg_1948323043")]
 [Description(@"Specifies the status of a depositary receipt processing.")]
+[Derivations(typeof(DepositaryReceiptProcessingStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DepositaryReceiptProcessingStatusCode
 {
     /// <summary>

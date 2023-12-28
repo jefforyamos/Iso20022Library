@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ad114Np-Ed-ak6NoX_4Aeg_-1931554281")]
 [Description(@"Specifies whether a transaction report is late.")]
+[Derivations(typeof(LateReport1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LateReportCode
 {
     /// <summary>

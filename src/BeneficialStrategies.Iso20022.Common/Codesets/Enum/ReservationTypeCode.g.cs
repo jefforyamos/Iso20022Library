@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZUrOYNp-Ed-ak6NoX_4Aeg_-459088300")]
 [Description(@"Specifies the precise type of reservation.")]
+[Derivations(typeof(ReservationType1Code),typeof(ReservationType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReservationTypeCode
 {
     /// <summary>

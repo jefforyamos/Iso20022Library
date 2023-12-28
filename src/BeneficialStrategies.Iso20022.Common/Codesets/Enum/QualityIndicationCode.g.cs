@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZXWu8Np-Ed-ak6NoX_4Aeg_336258088")]
 [Description(@"Indicates the relative quality of the indication of interest.")]
+[Derivations(typeof(QualityIndication1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QualityIndicationCode
 {
     /// <summary>

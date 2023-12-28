@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_NR5vEFuREeSmO6RkXg92Lg")]
 [Description(@"Specifies, for a date, when the event or operation is to take place, for example at the beginning or end of the day.")]
+[Derivations(typeof(DateMode1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DateModeCode
 {
     /// <summary>

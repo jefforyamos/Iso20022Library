@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YsCg1ph8EeumhIk_Pv20Lg")]
 [Description(@"Common report status for all individual reports sent / received.")]
+[Derivations(typeof(PairedReconciled3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PairedReconciledV2Code
 {
     /// <summary>

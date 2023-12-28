@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_EroPkPeZEee0h5ZXun0VTA")]
 [Description(@"Specifies the information type, as published in an external information type code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalInformationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalInformationTypeCode
 {
     /// <summary>

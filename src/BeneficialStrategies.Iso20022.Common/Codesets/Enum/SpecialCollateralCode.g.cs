@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Q4dpgJf_EeSfnc-VXAEapg")]
 [Description(@"Specifies the collateral type against which all repurchase agreements are conducted.")]
+[Derivations(typeof(SpecialCollateral1Code),typeof(SpecialCollateral2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SpecialCollateralCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_YZXcuNp-Ed-ak6NoX_4Aeg_1268885357")]
 [Description(@"Indicates whether the collateral has been posted against the variation margin or the segregated independent amount.")]
+[Derivations(typeof(CollateralPurpose1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CollateralPurposeCode
 {
     /// <summary>

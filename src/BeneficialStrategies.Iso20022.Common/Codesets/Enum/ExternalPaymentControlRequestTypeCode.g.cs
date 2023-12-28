@@ -18,6 +18,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_hQU4EZIgEeect698_YsnIA")]
 [Description(@"Specifies the external request type code for a payment control command in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code set published separately. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalPaymentControlRequestType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalPaymentControlRequestTypeCode
 {
     /// <summary>

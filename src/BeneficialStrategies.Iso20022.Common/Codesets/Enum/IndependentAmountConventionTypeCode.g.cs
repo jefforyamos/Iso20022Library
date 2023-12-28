@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Yc8VItp-Ed-ak6NoX_4Aeg_-469659155")]
 [Description(@"Determines how the independent amount was applied in the margin calculation.")]
+[Derivations(typeof(IndependentAmountConventionType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum IndependentAmountConventionTypeCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("__2_DY9ojEeC60axPepSq7g_1658762544")]
 [Description(@"Lending method applied to the securities financing contract.")]
+[Derivations(typeof(LendingTransactionMethod1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum LendingTransactionMethodCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aRLS49p-Ed-ak6NoX_4Aeg_-105822202")]
 [Description(@"Specifies the type of the counterparties eligibility as defined by article 24 of the EU MiFID Directive applicable to transactions executed by investment firms for eligible counterparties.")]
+[Derivations(typeof(OrderOriginatorEligibility1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum OrderOriginatorEligibilityCode
 {
     /// <summary>

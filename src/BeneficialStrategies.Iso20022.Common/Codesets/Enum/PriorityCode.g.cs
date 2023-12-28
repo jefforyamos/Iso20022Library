@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_aKUc9Np-Ed-ak6NoX_4Aeg_1549809096")]
 [Description(@"Specifies the priority level of an event.")]
+[Derivations(typeof(Priority1Code),typeof(Priority2Code),typeof(Priority3Code),typeof(Priority4Code),typeof(Priority5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PriorityCode
 {
     /// <summary>

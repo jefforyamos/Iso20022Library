@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_5IF6kxKEEeKj15WxqwlXPw")]
 [Description(@"Specifies whether items have been provided.")]
+[Derivations(typeof(Provided1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProvidedCode
 {
     /// <summary>

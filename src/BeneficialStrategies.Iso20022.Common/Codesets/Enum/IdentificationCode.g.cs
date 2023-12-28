@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_3AoIYMV1Eee3gsS0IxDWIA")]
 [Description(@"Code to identify an individual.")]
+[Derivations(typeof(Identification2Code),typeof(Identification3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum IdentificationCode
 {
     /// <summary>

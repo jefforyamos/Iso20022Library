@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_yG5lsEU8EeSGWeX3z5zSZQ")]
 [Description(@"Specifies an alternative identification of a trading party, for example, trader code, trader name, short legal name of firm and so on.")]
+[Derivations(typeof(PartyIdentificationType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PartyIdentificationTypeCode
 {
     /// <summary>

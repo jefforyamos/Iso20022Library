@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZOkmYdp-Ed-ak6NoX_4Aeg_-1171911201")]
 [Description(@"Specifies the role of the party in the settlement of the transaction.")]
+[Derivations(typeof(SettlingCapacity1Code),typeof(SettlingCapacity2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SettlingCapacityCode
 {
     /// <summary>

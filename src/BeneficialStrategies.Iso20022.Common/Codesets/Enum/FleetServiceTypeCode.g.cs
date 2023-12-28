@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_9zEEI_jUEeiM7KpzmLtmTQ")]
 [Description(@"Contains the list of fleet service type codes.")]
+[Derivations(typeof(FleetServiceType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FleetServiceTypeCode
 {
     /// <summary>

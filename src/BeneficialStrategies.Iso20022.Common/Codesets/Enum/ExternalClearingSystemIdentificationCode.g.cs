@@ -17,6 +17,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_mjIcEIKWEeeCI5iKR7LsYQ")]
 [Description(@"Specifies the clearing system identification code, as published in an external clearing system identification code list. External code sets can be downloaded from www.iso20022.org.")]
+[Derivations(typeof(ExternalClearingSystemIdentification1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExternalClearingSystemIdentificationCode
 {
     /// <summary>

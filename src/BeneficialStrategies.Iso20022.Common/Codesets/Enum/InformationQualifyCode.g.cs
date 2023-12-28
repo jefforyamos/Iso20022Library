@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_2pcDINuVEeiB5uLfkg9ZJA")]
 [Description(@"Qualification of the information to sent to an output logical device, to display or print to the Cashier or the Customer.")]
+[Derivations(typeof(InformationQualify1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum InformationQualifyCode
 {
     /// <summary>

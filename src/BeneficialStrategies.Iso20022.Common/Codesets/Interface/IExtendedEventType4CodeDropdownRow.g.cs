@@ -9,7 +9,7 @@ namespace BeneficialStrategies.Iso20222.Common;
 /// <summary>
 /// The values that should be expected from a single row of dropdown data.
 /// </summary>
-public partial interface IExtendedEventType4CodeDropdownRow : IDropdownRow
+public partial interface IExtendedEventType4CodeDropdownRow : IEnumMetadataDropdownRow<ExtendedEventType4Code>
 {
 }
 

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_jtniYIqdEeS4a4abTJTSSw")]
 [Description(@"Type or category of media inside an ATM cassette.")]
+[Derivations(typeof(ATMMediaType1Code),typeof(ATMMediaType3Code),typeof(ATMMediaType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ATMMediaTypeCode
 {
     /// <summary>

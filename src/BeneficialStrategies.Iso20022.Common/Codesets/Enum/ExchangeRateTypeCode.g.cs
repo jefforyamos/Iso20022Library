@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ak11w9p-Ed-ak6NoX_4Aeg_-83850044")]
 [Description(@"Code used to define the type of the currency exchange.")]
+[Derivations(typeof(ExchangeRateType1Code),typeof(ExchangeRateType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ExchangeRateTypeCode
 {
     /// <summary>

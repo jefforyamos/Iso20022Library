@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZKZRAdp-Ed-ak6NoX_4Aeg_195863481")]
 [Description(@"Specifies the type of the current transaction that belongs to a sequence of transactions.")]
+[Derivations(typeof(SequenceType1Code),typeof(SequenceType3Code),typeof(SequenceType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum SequenceTypeCode
 {
     /// <summary>

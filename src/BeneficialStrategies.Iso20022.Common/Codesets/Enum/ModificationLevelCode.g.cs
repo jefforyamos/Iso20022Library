@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZzzfsQ3mEeWc7_0KPiuk6w")]
 [Description(@"Specifies the transaction or position level.")]
+[Derivations(typeof(ModificationLevel1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ModificationLevelCode
 {
     /// <summary>

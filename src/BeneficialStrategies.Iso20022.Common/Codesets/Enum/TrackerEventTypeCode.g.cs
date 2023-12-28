@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_mPL1QHk_Eei6J5_ka3EtUg")]
 [Description(@"Indicates the type of payment event.")]
+[Derivations(typeof(TrackerEventType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum TrackerEventTypeCode
 {
     /// <summary>

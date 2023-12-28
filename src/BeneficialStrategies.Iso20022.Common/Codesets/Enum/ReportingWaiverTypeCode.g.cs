@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_sNAZ0O8UEeSLA89yUYsVSw")]
 [Description(@"Specifies the type of regulatory reporting pre-trade waiver.")]
+[Derivations(typeof(ReportingWaiverType1Code),typeof(ReportingWaiverType3Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReportingWaiverTypeCode
 {
     /// <summary>

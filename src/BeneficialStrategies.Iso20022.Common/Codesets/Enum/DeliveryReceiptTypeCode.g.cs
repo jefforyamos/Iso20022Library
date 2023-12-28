@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_azTIgNp-Ed-ak6NoX_4Aeg_-314094989")]
 [Description(@"Specifies how the transaction is to be settled.")]
+[Derivations(typeof(DeliveryReceiptType2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum DeliveryReceiptTypeCode
 {
     /// <summary>

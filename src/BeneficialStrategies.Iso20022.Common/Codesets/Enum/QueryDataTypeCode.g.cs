@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_cklwEKa-EeSxuMLA5o46jQ")]
 [Description(@"Specifies the inquiry type of the data.")]
+[Derivations(typeof(QueryDataType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum QueryDataTypeCode
 {
     /// <summary>

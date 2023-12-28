@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ygvPwDwvEeaFzejt0Yw_3A")]
 [Description(@"Specifies the type of hold back on redemption proceeds.")]
+[Derivations(typeof(GateHoldBack1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum GateHoldBackCode
 {
     /// <summary>

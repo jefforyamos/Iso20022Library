@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_I5k0cNtbEeipuvJHTHIw9A")]
 [Description(@"Type of bank check.")]
+[Derivations(typeof(CheckType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CheckTypeCode
 {
     /// <summary>

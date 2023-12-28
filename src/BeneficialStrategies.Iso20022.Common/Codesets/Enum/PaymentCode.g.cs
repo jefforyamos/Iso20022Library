@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Zzq3hNp-Ed-ak6NoX_4Aeg_-967340295")]
 [Description(@"Indicates whether the cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer or upon receipt of proceeds from the issuer.")]
+[Derivations(typeof(Payment1Code),typeof(Payment2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentCode
 {
     /// <summary>

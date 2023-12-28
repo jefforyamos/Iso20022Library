@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_KU0viX1DEeCF8NjrBemJWQ_1699573944")]
 [Description(@"Type of algorithm used by the cryptographic key.")]
+[Derivations(typeof(CryptographicKeyType1Code),typeof(CryptographicKeyType2Code),typeof(CryptographicKeyType3Code),typeof(CryptographicKeyType4Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CryptographicKeyTypeCode
 {
     /// <summary>

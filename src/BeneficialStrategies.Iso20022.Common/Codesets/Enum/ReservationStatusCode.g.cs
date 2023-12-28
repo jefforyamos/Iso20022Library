@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_8J5r9qMgEeCJ6YNENx4h-w_-31027971")]
 [Description(@"Specifies the current status of a limit.")]
+[Derivations(typeof(ReservationStatus1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ReservationStatusCode
 {
     /// <summary>

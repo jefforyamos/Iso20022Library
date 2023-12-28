@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z0uAYNp-Ed-ak6NoX_4Aeg_2143732969")]
 [Description(@"Specifies the transfer method that will be used to transfer the cash.")]
+[Derivations(typeof(PaymentMethod3Code),typeof(PaymentMethod2Code),typeof(PaymentMethod4Code),typeof(PaymentMethod7Code),typeof(PaymentMethod6Code),typeof(PaymentMethod5Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentMethodCode
 {
     /// <summary>

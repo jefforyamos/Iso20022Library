@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_3uoL8E_uEeaB8-OWTiMVrQ")]
 [Description(@"Specifies the reason for proforma status.")]
+[Derivations(typeof(ProformaStatusReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum ProformaStatusReasonCode
 {
     /// <summary>

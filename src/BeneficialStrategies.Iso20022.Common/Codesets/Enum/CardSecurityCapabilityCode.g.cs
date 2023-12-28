@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_w7olUJitEeefZKJHxQTztg")]
 [Description(@"Identifies security capabilties of the card.")]
+[Derivations(typeof(CardSecurityCapability1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardSecurityCapabilityCode
 {
     /// <summary>

@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_amyWh9p-Ed-ak6NoX_4Aeg_534843622")]
 [Description(@"Specifies the reason of a settlement failure.")]
+[Derivations(typeof(FailedSettlementReason1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum FailedSettlementReasonCode
 {
     /// <summary>

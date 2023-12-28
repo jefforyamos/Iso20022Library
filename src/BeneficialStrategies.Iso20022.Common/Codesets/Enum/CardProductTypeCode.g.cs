@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_SaRAQGtZEeSKOvNNYJQdoQ")]
 [Description(@"Type of card product.")]
+[Derivations(typeof(CardProductType1Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum CardProductTypeCode
 {
     /// <summary>

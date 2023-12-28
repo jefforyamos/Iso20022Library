@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_Z7RUV9p-Ed-ak6NoX_4Aeg_-481257913")]
 [Description(@"Indicates the status of a single payment transaction or of a group of payment transactions.")]
+[Derivations(typeof(TransactionGroupStatus1Code),typeof(TransactionIndividualStatus1Code),typeof(TransactionGroupStatus3Code),typeof(TransactionIndividualStatus3Code),typeof(GroupCancellationStatus1Code),typeof(CancellationIndividualStatus1Code),typeof(PartialGroupStatus2Code),typeof(PartialGroupStatus1Code),typeof(TransactionGroupStatus2Code),typeof(TransactionIndividualStatus2Code),typeof(ValidationGroupStatus1Code),typeof(ValidationGroupStatus2Code),typeof(TransactionIndividualStatus5Code),typeof(TransactionIndividualStatus4Code),typeof(CancellationIndividualStatus2Code))]
+// External derivations that should be provided by the proper interface are: 
 public enum PaymentStatusCode
 {
     /// <summary>
