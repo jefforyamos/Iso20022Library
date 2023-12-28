@@ -11,7 +11,7 @@ public abstract class IsoRepoElement
         this.xElement = xElement ?? throw new ArgumentNullException(nameof(xElement));
         this.Id = xElement?.Attribute(IsoXmlAttributes.Xmi.Id)?.Value ?? "Unknown";
         Name = xElement?.Attribute(IsoXmlAttributes.Default.Name)?.Value ?? "??";
-        var definition = xElement?.Attribute(IsoXmlAttributes.Default.Definition)?.Value ?? "??";
+        var definition = xElement?.Attribute(IsoXmlAttributes.Default.Definition)?.Value ?? string.Empty;
         Definition = definition.Split("\r\n");
         GenNames = new CSharpDerivedNames(this);
     }
@@ -20,14 +20,27 @@ public abstract class IsoRepoElement
 
     public string Name { get; }
 
-    public string[] Definition { get; }
+    public string[] Definition { get; internal set; }
 
     /// <summary>
     /// For the definition embedded inside a desc attribute.
     /// </summary>
     public string DefinitionWithQuotesDoubled => string.Join(" ", Definition).Replace("\"", "\"\"");
 
-    public CSharpDerivedNames GenNames { get; } 
+    public CSharpDerivedNames GenNames { get; }
+
+    /// <summary>
+    /// The ISO20022 repo sometimes has descriptions in the derived parent and not in the derived definition.
+    /// After parential hierarchy is established, this allows appropriate values to be updated from the parent.
+    /// </summary>
+    /// <param name="derivationParent">Element from which this item is derived.</param>
+    internal void UpdateMissingElementValues(IsoRepoElement derivationParent)
+    { 
+        if (Definition.Length == 1 && string.IsNullOrWhiteSpace(Definition[0]))
+        {
+            Definition = derivationParent.Definition;
+        }
+    }
 
     public override string ToString()
     {

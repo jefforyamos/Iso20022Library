@@ -84,6 +84,7 @@ public class DataDictionary : IsoRepoElement
                 if ( childCodeSet is not null)
                 {
                     childCodeSet.DerivedFrom = parentCodeSet;
+                    childCodeSet.UpdateMissingValues(parentCodeSet);
                     list.Add(childCodeSet);
                 }
             }

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Immutable;
+using System.Diagnostics;
 using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Repository;
@@ -19,13 +20,31 @@ public class CodeSet : TopLevelDictionaryEntry
         var duplicateDetection = new HashSet<string>();
         Codes = xElement.Elements(IsoXmlElements.Default.Code)
             .Select(e => new Code(e, duplicateDetection))
-            .ToArray();
+            .ToImmutableArray();
         if (this.Id == "_XWoxEI9EEeqMo4JxiuZGSw" || this.Id == "_mDriYI9GEeqMo4JxiuZGSw")
         {
             var firstCode = xElement.Elements().First();
             Debug.Assert(firstCode?.Name.LocalName == IsoXmlElements.Default.Code.LocalName);
             Debug.Assert(firstCode?.Name.Namespace == IsoXmlElements.Default.Code.Namespace);
             // Debug.Fail("What is wrong??");
+        }
+    }
+
+    /// <summary>
+    /// The ISO20022 repo sometimes has descriptions in the derived parent and not in the derived definition.
+    /// After parential hierarchy is established, this allows appropriate values to be updated from the parent.
+    /// </summary>
+    /// <param name="derivationParent">CodeSet from which this code item is derived.</param>
+    internal void UpdateMissingValues(CodeSet derivationParent)
+    {
+        UpdateMissingElementValues(derivationParent);
+        var parentLookupByName = derivationParent.Codes.ToDictionary(i => i.Name);
+        foreach(var code in Codes)
+        {
+            var parentCode = parentLookupByName.ContainsKey(code.Name)
+                ? parentLookupByName[code.Name]
+                : null;
+            if (parentCode != null) code.UpdateMissingValues(parentCode);
         }
     }
 
@@ -45,6 +64,9 @@ public class CodeSet : TopLevelDictionaryEntry
     /// </summary>
     public CodeSet? DerivedFrom { get; internal set; }
 
-    public Code[] Codes { get; }
+    /// <summary>
+    /// The collection of codes that we loaded from the metadata.
+    /// </summary>
+    public ImmutableArray<Code> Codes { get; }
 }
 
