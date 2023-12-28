@@ -20,35 +20,39 @@ public enum MeetingInstructionCancellationStatusCode
 {
     /// <summary>
     /// Cancellation has been completed.
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_VpiZYdp-Ed-ak6NoX_4Aeg_1796054566")]
     [Description(@"Cancellation has been completed.")]
-    CAND,
+    CancellationCompleted,
     
     /// <summary>
     /// Cancellation is pending. It is not known at this time whether cancellation can be executed.
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_VpiZYtp-Ed-ak6NoX_4Aeg_2029705192")]
     [Description(@"Cancellation is pending. It is not known at this time whether cancellation can be executed.")]
-    CANP,
+    PendingCancellation,
     
     /// <summary>
     /// Cancellation will not be executed due to business reasons.
+    /// Encoded/decoded by serializers as "DEND".
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_VpiZY9p-Ed-ak6NoX_4Aeg_-1981741169")]
     [Description(@"Cancellation will not be executed due to business reasons.")]
-    DEND,
+    CancellationDenied,
     
     /// <summary>
     /// Cancellation request has been rejected for further processing due to system (data) reasons.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_VpiZZNp-Ed-ak6NoX_4Aeg_-1596634915")]
     [Description(@"Cancellation request has been rejected for further processing due to system (data) reasons.")]
-    REJT,
+    CancellationRejected,
     
 }
 

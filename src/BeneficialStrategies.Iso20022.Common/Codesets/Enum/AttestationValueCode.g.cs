@@ -20,35 +20,39 @@ public enum AttestationValueCode
 {
     /// <summary>
     /// Attestation claimed.
+    /// Encoded/decoded by serializers as "CLAI".
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_tg4EUAMkEeujMs2LsB3mMw")]
     [Description(@"Attestation claimed.")]
-    CLAI,
+    Claimed,
     
     /// <summary>
     /// Attestation not claimed.
+    /// Encoded/decoded by serializers as "NCLA".
     /// </summary>
     [EnumMember(Value = "NCLA")]
     [IsoId("_xlUxMAMkEeujMs2LsB3mMw")]
     [Description(@"Attestation not claimed.")]
-    NCLA,
+    NotClaimed,
     
     /// <summary>
     /// Attestation validated.
+    /// Encoded/decoded by serializers as "HONO".
     /// </summary>
     [EnumMember(Value = "HONO")]
     [IsoId("_4sJp8AMkEeujMs2LsB3mMw")]
     [Description(@"Attestation validated.")]
-    HONO,
+    Honored,
     
     /// <summary>
     /// Attestation failed validation.
+    /// Encoded/decoded by serializers as "NHON".
     /// </summary>
     [EnumMember(Value = "NHON")]
     [IsoId("_91-DcAMkEeujMs2LsB3mMw")]
     [Description(@"Attestation failed validation.")]
-    NHON,
+    NotHonored,
     
 }
 

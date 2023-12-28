@@ -20,51 +20,57 @@ public enum ATMCounterTypeCode
 {
     /// <summary>
     /// Counters since the last cut-off.
+    /// Encoded/decoded by serializers as "CTOF".
     /// </summary>
     [EnumMember(Value = "CTOF")]
     [IsoId("_zjMhsIqiEeS4a4abTJTSSw")]
     [Description(@"Counters since the last cut-off.")]
-    CTOF,
+    CutOff,
     
     /// <summary>
     /// Counters since the last update by an operator on the ATM.
+    /// Encoded/decoded by serializers as "OPER".
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_3CFqcIqiEeS4a4abTJTSSw")]
     [Description(@"Counters since the last update by an operator on the ATM.")]
-    OPER,
+    OperatorAdjust,
     
     /// <summary>
     /// Counters since the last counters inquiry.
+    /// Encoded/decoded by serializers as "INQU".
     /// </summary>
     [EnumMember(Value = "INQU")]
     [IsoId("_iszAsOg2EeSbwP3G-MV9YA")]
     [Description(@"Counters since the last counters inquiry.")]
-    INQU,
+    CountersInquiry,
     
     /// <summary>
     /// Counters for a customer transaction.
+    /// Encoded/decoded by serializers as "CTXN".
     /// </summary>
     [EnumMember(Value = "CTXN")]
     [IsoId("_nIHVcOg2EeSbwP3G-MV9YA")]
     [Description(@"Counters for a customer transaction.")]
-    CTXN,
+    CustomerTransaction,
     
     /// <summary>
     /// Counters since the beginning of the business day.
+    /// Encoded/decoded by serializers as "BDAY".
     /// </summary>
     [EnumMember(Value = "BDAY")]
     [IsoId("_q0zpoOg2EeSbwP3G-MV9YA")]
     [Description(@"Counters since the beginning of the business day.")]
-    BDAY,
+    BusinessDay,
     
     /// <summary>
     /// Counters for an operation performed by an operator on the ATM.
+    /// Encoded/decoded by serializers as "PRTN".
     /// </summary>
     [EnumMember(Value = "PRTN")]
     [IsoId("_uJyBYOg2EeSbwP3G-MV9YA")]
     [Description(@"Counters for an operation performed by an operator on the ATM.")]
-    PRTN,
+    Operation,
     
 }
 

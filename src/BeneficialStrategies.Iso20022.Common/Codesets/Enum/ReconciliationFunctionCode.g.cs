@@ -20,27 +20,30 @@ public enum ReconciliationFunctionCode
 {
     /// <summary>
     /// Inquiry for reconciliation totals
+    /// Encoded/decoded by serializers as "INQR".
     /// </summary>
     [EnumMember(Value = "INQR")]
     [IsoId("_gpSC1PGHEeiGNursv3uE_g")]
     [Description(@"Inquiry for reconciliation totals")]
-    INQR,
+    Inquire,
     
     /// <summary>
     /// Convey reconciliation totals
+    /// Encoded/decoded by serializers as "CNVY".
     /// </summary>
     [EnumMember(Value = "CNVY")]
     [IsoId("_gpSC1fGHEeiGNursv3uE_g")]
     [Description(@"Convey reconciliation totals")]
-    CNVY,
+    Convey,
     
     /// <summary>
     /// Initiation of a cutover. 
+    /// Encoded/decoded by serializers as "INCU".
     /// </summary>
     [EnumMember(Value = "INCU")]
     [IsoId("_WQf80P2KEeiETYIvb2Y3Bg")]
     [Description(@"Initiation of a cutover. ")]
-    INCU,
+    InitiateCutover,
     
 }
 

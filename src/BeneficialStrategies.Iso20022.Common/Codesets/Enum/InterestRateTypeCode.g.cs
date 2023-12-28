@@ -20,147 +20,165 @@ public enum InterestRateTypeCode
 {
     /// <summary>
     /// Rate is fixed.
+    /// Encoded/decoded by serializers as "FIXE".
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_b3lpIe7nEeK-Kt3xkpFJcA_207640149")]
     [Description(@"Rate is fixed.")]
-    FIXE,
+    Fixed,
     
     /// <summary>
     /// No specific repurchase rate applies to the transaction Repo, only a forfeit.
+    /// Encoded/decoded by serializers as "FORF".
     /// </summary>
     [EnumMember(Value = "FORF")]
     [IsoId("_b3uzEO7nEeK-Kt3xkpFJcA_-1709364962")]
     [Description(@"No specific repurchase rate applies to the transaction Repo, only a forfeit.")]
-    FORF,
+    Forfeit,
     
     /// <summary>
     /// Rate is variable.
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_b3uzE-7nEeK-Kt3xkpFJcA_-1666520361")]
     [Description(@"Rate is variable.")]
-    VARI,
+    Variable,
     
     /// <summary>
     /// Rate of the scheduled payment.
+    /// Encoded/decoded by serializers as "SCHD".
     /// </summary>
     [EnumMember(Value = "SCHD")]
     [IsoId("_b3uzEe7nEeK-Kt3xkpFJcA_1933373909")]
     [Description(@"Rate of the scheduled payment.")]
-    SCHD,
+    Scheduled,
     
     /// <summary>
     /// Rate of the unscheduled payment.
+    /// Encoded/decoded by serializers as "USCD".
     /// </summary>
     [EnumMember(Value = "USCD")]
     [IsoId("_b3uzEu7nEeK-Kt3xkpFJcA_1718331141")]
     [Description(@"Rate of the unscheduled payment.")]
-    USCD,
+    Unscheduled,
     
     /// <summary>
     /// Interest rate type is Discount.
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_OlFpwCRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Discount.")]
-    DISC,
+    Discount,
     
     /// <summary>
     /// Interest rate type is Fixed rate underlying exposure (for life).
+    /// Encoded/decoded by serializers as "FXRL".
     /// </summary>
     [EnumMember(Value = "FXRL")]
     [IsoId("_SiYlwCRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Fixed rate underlying exposure (for life).")]
-    FXRL,
+    FixedRateUnderlyingExposureForLife,
     
     /// <summary>
     /// Interest rate type is Fixed rate underlying exposure with compulsory future switch to floating.
+    /// Encoded/decoded by serializers as "FLCF".
     /// </summary>
     [EnumMember(Value = "FLCF")]
     [IsoId("_VFNH0CRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Fixed rate underlying exposure with compulsory future switch to floating.")]
-    FLCF,
+    FixedRateUnderlyingExposureWithCompulsoryFutureSwitchToFloating,
     
     /// <summary>
     /// Interest rate type is Fixed with future periodic resets.
+    /// Encoded/decoded by serializers as "FXPR".
     /// </summary>
     [EnumMember(Value = "FXPR")]
     [IsoId("_Y1woUCRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Fixed with future periodic resets.")]
-    FXPR,
+    FixedWithFuturePeriodicResets,
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure linked to one index that will revert to another index in the future.
+    /// Encoded/decoded by serializers as "FINX".
     /// </summary>
     [EnumMember(Value = "FINX")]
     [IsoId("_b1yq0CRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Floating rate underlying exposure linked to one index that will revert to another index in the future.")]
-    FINX,
+    FloatingLinkedToIndex,
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure (for life).
+    /// Encoded/decoded by serializers as "FLIF".
     /// </summary>
     [EnumMember(Value = "FLIF")]
     [IsoId("_eYTq4CRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Floating rate underlying exposure (for life).")]
-    FLIF,
+    FloatingRateUnderlyingExposureForLife,
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure with cap.
+    /// Encoded/decoded by serializers as "CAPP".
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_g6qS4CRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Floating rate underlying exposure with cap.")]
-    CAPP,
+    FloatingRateUnderlyingExposureWithCap,
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure with floor.
+    /// Encoded/decoded by serializers as "FLFL".
     /// </summary>
     [EnumMember(Value = "FLFL")]
     [IsoId("_jfr0YCRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Floating rate underlying exposure with floor.")]
-    FLFL,
+    FloatingRateUnderlyingExposureWithFloor,
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure with both floor and cap.
+    /// Encoded/decoded by serializers as "FLCA".
     /// </summary>
     [EnumMember(Value = "FLCA")]
     [IsoId("_l9Fq8CRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Floating rate underlying exposure with both floor and cap.")]
-    FLCA,
+    FloatingRateUnderlyingExposureWithFloorAndCap,
     
     /// <summary>
     /// Interest rate type is Modular.
+    /// Encoded/decoded by serializers as "MODE".
     /// </summary>
     [EnumMember(Value = "MODE")]
     [IsoId("_pAGwACRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Modular.")]
-    MODE,
+    Modular,
     
     /// <summary>
     /// Interest rate type is Obligor Swapped.
+    /// Encoded/decoded by serializers as "OBLS".
     /// </summary>
     [EnumMember(Value = "OBLS")]
     [IsoId("_rCZ-8CRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Obligor Swapped.")]
-    OBLS,
+    ObligorSwapped,
     
     /// <summary>
     /// Any other type of interest rate that can be applied.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_tvX7gCRtEemoiMEiwtMpyw")]
     [Description(@"Any other type of interest rate that can be applied.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Interest rate type is Switch Optionality.
+    /// Encoded/decoded by serializers as "SWIC".
     /// </summary>
     [EnumMember(Value = "SWIC")]
     [IsoId("_3jp5ACRtEemoiMEiwtMpyw")]
     [Description(@"Interest rate type is Switch Optionality.")]
-    SWIC,
+    SwicthOptionality,
     
 }
 

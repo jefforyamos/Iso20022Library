@@ -20,67 +20,75 @@ public enum SpecialPurposeCode
 {
     /// <summary>
     /// Blank value.
+    /// Encoded/decoded by serializers as "BLNK".
     /// </summary>
     [EnumMember(Value = "BLNK")]
     [IsoId("_aerLQBvUEeWeg9zOuV6DZQ")]
     [Description(@"Blank value.")]
-    BLNK,
+    Blank,
     
     /// <summary>
     /// Not available (N/A).
+    /// Encoded/decoded by serializers as "NTAV".
     /// </summary>
     [EnumMember(Value = "NTAV")]
     [IsoId("_brFsUBvaEeWeg9zOuV6DZQ")]
     [Description(@"Not available (N/A).")]
-    NTAV,
+    NotAvailable,
     
     /// <summary>
     /// Any MIC code.
+    /// Encoded/decoded by serializers as "ANYM".
     /// </summary>
     [EnumMember(Value = "ANYM")]
     [IsoId("_KyeQMB3ZEeWNp95x0ENf8w")]
     [Description(@"Any MIC code.")]
-    ANYM,
+    AnyMIC,
     
     /// <summary>
     /// Value not reported by the party.
+    /// Encoded/decoded by serializers as "NORP".
     /// </summary>
     [EnumMember(Value = "NORP")]
     [IsoId("_3wXcQNGeEeaQk737TH1Fzw")]
     [Description(@"Value not reported by the party.")]
-    NORP,
+    NotReported,
     
     /// <summary>
     /// No reason to report or no reason available to report.
+    /// Encoded/decoded by serializers as "NORE".
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_rM9R8OtfEeqXXbgP9HbjvA")]
     [Description(@"No reason to report or no reason available to report.")]
-    NORE,
+    NoReason,
     
     /// <summary>
     /// Not applicable (N/A).
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_M1W0YICCEeqdQubSe21TTw")]
     [Description(@"Not applicable (N/A).")]
-    NOAP,
+    NotApplicable,
     
     /// <summary>
     /// Positive indication.
+    /// Encoded/decoded by serializers as "TRUE".
     /// </summary>
     [EnumMember(Value = "TRUE")]
     [IsoId("_KQB1wOG8EeyjU5A7t8P1KA")]
     [Description(@"Positive indication.")]
-    TRUE,
+    True,
     
     /// <summary>
     /// Negative indication.
+    /// Encoded/decoded by serializers as "FALS".
     /// </summary>
     [EnumMember(Value = "FALS")]
     [IsoId("_NSF4kOG8EeyjU5A7t8P1KA")]
     [Description(@"Negative indication.")]
-    FALS,
+    False,
     
 }
 

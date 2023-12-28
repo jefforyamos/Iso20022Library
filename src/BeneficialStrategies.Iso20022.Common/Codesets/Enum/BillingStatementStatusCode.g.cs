@@ -20,27 +20,30 @@ public enum BillingStatementStatusCode
 {
     /// <summary>
     /// Statement is the original statement.
+    /// Encoded/decoded by serializers as "ORGN".
     /// </summary>
     [EnumMember(Value = "ORGN")]
     [IsoId("_6VUE15qlEeGSON8vddiWzQ_25393892")]
     [Description(@"Statement is the original statement.")]
-    ORGN,
+    Original,
     
     /// <summary>
     /// Statement replaces the original statement.
+    /// Encoded/decoded by serializers as "RPLC".
     /// </summary>
     [EnumMember(Value = "RPLC")]
     [IsoId("_6Vd10JqlEeGSON8vddiWzQ_1981252080")]
     [Description(@"Statement replaces the original statement.")]
-    RPLC,
+    Replace,
     
     /// <summary>
     /// Statement is a test statement.
+    /// Encoded/decoded by serializers as "TEST".
     /// </summary>
     [EnumMember(Value = "TEST")]
     [IsoId("_6Vd10ZqlEeGSON8vddiWzQ_612239661")]
     [Description(@"Statement is a test statement.")]
-    TEST,
+    Test,
     
 }
 

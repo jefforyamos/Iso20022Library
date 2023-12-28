@@ -20,27 +20,30 @@ public enum GroupingCode
 {
     /// <summary>
     /// Indicates that for each occurrences of the payment information block, exactly one occurrence of the payment transaction block is present.
+    /// Encoded/decoded by serializers as "SNGL".
     /// </summary>
     [EnumMember(Value = "SNGL")]
     [IsoId("_au04NNp-Ed-ak6NoX_4Aeg_-1661638294")]
     [Description(@"Indicates that for each occurrences of the payment information block, exactly one occurrence of the payment transaction block is present.")]
-    SNGL,
+    Single,
     
     /// <summary>
     /// Indicates that there is only one occurrence of the payment information block and several occurrences of the payment transaction block.
+    /// Encoded/decoded by serializers as "GRPD".
     /// </summary>
     [EnumMember(Value = "GRPD")]
     [IsoId("_au04Ndp-Ed-ak6NoX_4Aeg_-1575752625")]
     [Description(@"Indicates that there is only one occurrence of the payment information block and several occurrences of the payment transaction block.")]
-    GRPD,
+    Grouped,
     
     /// <summary>
     /// Indicates that there are one or several occurrences of the payment information block where each of the occurrences might contain one or several occurrences of the payment transaction block.
+    /// Encoded/decoded by serializers as "MIXD".
     /// </summary>
     [EnumMember(Value = "MIXD")]
     [IsoId("_au04Ntp-Ed-ak6NoX_4Aeg_-1530498717")]
     [Description(@"Indicates that there are one or several occurrences of the payment information block where each of the occurrences might contain one or several occurrences of the payment transaction block.")]
-    MIXD,
+    Mixed,
     
 }
 

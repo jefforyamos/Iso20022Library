@@ -22,843 +22,948 @@ public enum ExternalLocalInstrumentCode
 {
     /// <summary>
     /// Transaction is related to a direct debit instruction authorized under a confirmed electronic mandate.
+    /// Encoded/decoded by serializers as "DDMC".
     /// </summary>
     [EnumMember(Value = "DDMC")]
     [IsoId("_tmA1tvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit instruction authorized under a confirmed electronic mandate.")]
-    DDMC,
+    DirectDebitConfirmedElectronicMandate,
     
     /// <summary>
     /// Transaction is related to a direct debit instruction authorized under a paper based mandate, supported by paper authorization signed by the debtor.
+    /// Encoded/decoded by serializers as "DDMP".
     /// </summary>
     [EnumMember(Value = "DDMP")]
     [IsoId("_tmA1ufRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit instruction authorized under a paper based mandate, supported by paper authorization signed by the debtor.")]
-    DDMP,
+    DirectDebitPaperMandateWithPaperAuthorization,
     
     /// <summary>
     /// Transaction is related to a direct debit instruction authorized under an unconfirmed electronic mandate requiring confirmation by the debtor.
+    /// Encoded/decoded by serializers as "DDMU".
     /// </summary>
     [EnumMember(Value = "DDMU")]
     [IsoId("_tmJ_oPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit instruction authorized under an unconfirmed electronic mandate requiring confirmation by the debtor.")]
-    DDMU,
+    DirectDebitUnconfirmedElectronicMandate,
     
     /// <summary>
     /// Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme, with a specific batch time-out delay.
+    /// Encoded/decoded by serializers as "BPA".
     /// </summary>
     [EnumMember(Value = "BPA")]
     [IsoId("_tmJ_o_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme, with a specific batch time-out delay.")]
-    BPA,
+    BatchPaymentsAruba,
     
     /// <summary>
     /// Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme.
+    /// Encoded/decoded by serializers as "IPA".
     /// </summary>
     [EnumMember(Value = "IPA")]
     [IsoId("_tmJ_pvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme.")]
-    IPA,
+    InstantPaymentsAruba,
     
     /// <summary>
     /// Transaction is related to credit transfers
+    /// Encoded/decoded by serializers as "TRF".
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_tmJ_qfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to credit transfers")]
-    TRF,
+    CreditTransfers,
     
     /// <summary>
     /// Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). 
+    /// Encoded/decoded by serializers as "_82".
     /// </summary>
     [EnumMember(Value = "82")]
     [IsoId("_tmTwoPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). ")]
-    _82,
+    NonPreauthorisedDirectDebitAT,
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). 
+    /// Encoded/decoded by serializers as "_83".
     /// </summary>
     [EnumMember(Value = "83")]
     [IsoId("_tmTwo_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). ")]
-    _83,
+    PreauthorisedDirectDebitAT,
     
     /// <summary>
     /// Transaction is related to cash per post.|Transaction to ultimate recipient having no bank account. Primary beneficiary is a postal service provider. Funds are paid out by cash. Additional necessary information for address and delivery options need to be attached.|
+    /// Encoded/decoded by serializers as "CPP".
     /// </summary>
     [EnumMember(Value = "CPP")]
     [IsoId("_tmTwpvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to cash per post.|Transaction to ultimate recipient having no bank account. Primary beneficiary is a postal service provider. Funds are paid out by cash. Additional necessary information for address and delivery options need to be attached.|")]
-    CPP,
+    CashPerPost,
     
     /// <summary>
     /// Transaction is related to returned credit transfers.
+    /// Encoded/decoded by serializers as "RTR".
     /// </summary>
     [EnumMember(Value = "RTR")]
     [IsoId("_tmTwqfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to returned credit transfers.")]
-    RTR,
+    ReturnedCreditTransfers,
     
     /// <summary>
     /// Transaction is related to truncated credit transfers.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process..The original instrument rules are retained throughout the life of the instrument.|Transaction triggered by specific marked and populated paper slip.|Reconciliation reference is secured by check digits supporting secure optical recognition. All other remittance information is truncated prior transmission.|
+    /// Encoded/decoded by serializers as "GST".
     /// </summary>
     [EnumMember(Value = "GST")]
     [IsoId("_tmc6kPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to truncated credit transfers.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process..The original instrument rules are retained throughout the life of the instrument.|Transaction triggered by specific marked and populated paper slip.|Reconciliation reference is secured by check digits supporting secure optical recognition. All other remittance information is truncated prior transmission.|")]
-    GST,
+    TruncatedCreditTransfers,
     
     /// <summary>
     /// Transaction is related to direct debits.
+    /// Encoded/decoded by serializers as "DDT".
     /// </summary>
     [EnumMember(Value = "DDT")]
     [IsoId("_tmc6k_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to direct debits.")]
-    DDT,
+    DirectDebits,
     
     /// <summary>
     /// Transaction is related to returned direct debits.
+    /// Encoded/decoded by serializers as "RDD".
     /// </summary>
     [EnumMember(Value = "RDD")]
     [IsoId("_tmc6lvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to returned direct debits.")]
-    RDD,
+    ReturnedDirectDebits,
     
     /// <summary>
     /// Transaction is related to truncated checks.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process..The original instrument rules are retained throughout the life of the instrument.
+    /// Encoded/decoded by serializers as "CHN".
     /// </summary>
     [EnumMember(Value = "CHN")]
     [IsoId("_tmmrkPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to truncated checks.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process..The original instrument rules are retained throughout the life of the instrument.")]
-    CHN,
+    TruncatedChecks,
     
     /// <summary>
     /// Transaction is related to revoked credit transfers
+    /// Encoded/decoded by serializers as "STR".
     /// </summary>
     [EnumMember(Value = "STR")]
     [IsoId("_tmmrk_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked credit transfers")]
-    STR,
+    RevokedCreditTransfers,
     
     /// <summary>
     /// Transaction is related to revoked direct debits.
+    /// Encoded/decoded by serializers as "SDD".
     /// </summary>
     [EnumMember(Value = "SDD")]
     [IsoId("_tmmrlvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked direct debits.")]
-    SDD,
+    RevokedDirectDebits,
     
     /// <summary>
     /// Transaction is related to revoked returned credit transfers
+    /// Encoded/decoded by serializers as "SRT".
     /// </summary>
     [EnumMember(Value = "SRT")]
     [IsoId("_tmmrmfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked returned credit transfers")]
-    SRT,
+    RevokedReturnedCreditTransfers,
     
     /// <summary>
     /// Transaction is related to revoked returned direct debits.
+    /// Encoded/decoded by serializers as "SRD".
     /// </summary>
     [EnumMember(Value = "SRD")]
     [IsoId("_tmmrnPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked returned direct debits.")]
-    SRD,
+    RevokedReturnedDirectDebits,
     
     /// <summary>
     /// Transaction is related to revoked truncated checks.
+    /// Encoded/decoded by serializers as "SCN".
     /// </summary>
     [EnumMember(Value = "SCN")]
     [IsoId("_tmwckPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked truncated checks.")]
-    SCN,
+    RevokedTruncatedChecks,
     
     /// <summary>
     /// Transaction is related to revoked truncated credit transfers.
+    /// Encoded/decoded by serializers as "SGT".
     /// </summary>
     [EnumMember(Value = "SGT")]
     [IsoId("_tmwck_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to revoked truncated credit transfers.")]
-    SGT,
+    RevokedTruncatedCreditTransfers,
     
     /// <summary>
     /// Transaction is related to card clearing.
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_tmwclvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to card clearing.")]
-    CARD,
+    CardClearing,
     
     /// <summary>
     /// Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). 
+    /// Encoded/decoded by serializers as "_05".
     /// </summary>
     [EnumMember(Value = "05")]
     [IsoId("_tm5mgPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is not pre authorised (Einzugsermächtigung). ")]
-    _05,
+    NonPreauthorisedDirectDebitDE,
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). 
+    /// Encoded/decoded by serializers as "_04".
     /// </summary>
     [EnumMember(Value = "04")]
     [IsoId("_tm5mg_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is pre authorised (Abbuchungsauftrag). ")]
-    _04,
+    PreauthorisedDirectDebitDE,
     
     /// <summary>
     /// Transaction is related to the German Image-based Cheque Collection Procedure “Imagegestützter Scheckeinzug - ISE”
+    /// Encoded/decoded by serializers as "ISE".
     /// </summary>
     [EnumMember(Value = "ISE")]
     [IsoId("_tm5mhvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to the German Image-based Cheque Collection Procedure “Imagegestützter Scheckeinzug - ISE”")]
-    ISE,
+    ImageBasedChequeCollection,
     
     /// <summary>
     /// Transaction is related to the German Paperless Cheque Collection procedure “Belegloser Scheckeinzug - BSE”
+    /// Encoded/decoded by serializers as "BSE".
     /// </summary>
     [EnumMember(Value = "BSE")]
     [IsoId("_tm5mifRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to the German Paperless Cheque Collection procedure “Belegloser Scheckeinzug - BSE”")]
-    BSE,
+    PaperlessChequeCollection,
     
     /// <summary>
     /// Transaction is related to a business-to-business direct debit (CSB58).
+    /// Encoded/decoded by serializers as "_58".
     /// </summary>
     [EnumMember(Value = "58")]
     [IsoId("_tm5mjPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a business-to-business direct debit (CSB58).")]
-    _58,
+    BusinessToBusinessDirectDebit,
     
     /// <summary>
     /// Transaction is related to a business-to-customer direct debit (CSB19).
+    /// Encoded/decoded by serializers as "_19".
     /// </summary>
     [EnumMember(Value = "19")]
     [IsoId("_tnDXgPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a business-to-customer direct debit (CSB19).")]
-    _19,
+    BusinessToCustomerDirectDebit,
     
     /// <summary>
     /// Indicates that the payment is sent by an authorized third party on behalf of the participant. 
+    /// Encoded/decoded by serializers as "ASTI".
     /// </summary>
     [EnumMember(Value = "ASTI")]
     [IsoId("_tnDXg_RYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that the payment is sent by an authorized third party on behalf of the participant. ")]
-    ASTI,
+    AncillarySystemTransferInitiation,
     
     /// <summary>
     /// Indicates that the payment was initiated manually using a GUI (Graphical User Interface).
+    /// Encoded/decoded by serializers as "BACP".
     /// </summary>
     [EnumMember(Value = "BACP")]
     [IsoId("_tnDXhvRYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that the payment was initiated manually using a GUI (Graphical User Interface).")]
-    BACP,
+    BackupPayment,
     
     /// <summary>
     /// Indicates that the payment is sent by responsible Central Bank on behalf of the participant in case of contingency.
+    /// Encoded/decoded by serializers as "MANP".
     /// </summary>
     [EnumMember(Value = "MANP")]
     [IsoId("_tnDXifRYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that the payment is sent by responsible Central Bank on behalf of the participant in case of contingency.")]
-    MANP,
+    MandatedPayment,
     
     /// <summary>
     /// Indicates that the payment is submitted to move  liquidity to the technical account - dedicated to real-time settlement in an external system (for example ancillary system) . The payment is processed in a separate payment queue besides the normal processing.
+    /// Encoded/decoded by serializers as "SBTI".
     /// </summary>
     [EnumMember(Value = "SBTI")]
     [IsoId("_tnNIgPRYEeuLhpyIdtJzwg")]
     [Description(@"Indicates that the payment is submitted to move  liquidity to the technical account - dedicated to real-time settlement in an external system (for example ancillary system) . The payment is processed in a separate payment queue besides the normal processing.")]
-    SBTI,
+    SettlementBankTransferInitiation,
     
     /// <summary>
     /// Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement accéléré).
+    /// Encoded/decoded by serializers as "_85".
     /// </summary>
     [EnumMember(Value = "85")]
     [IsoId("_tnNIg_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement accéléré).")]
-    _85,
+    PreauthorisedDirectDebitAccéléréAcceleratedClearing2DayOrdinaireNormalClearing4Day,
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised (Avis de Prélèvement).
+    /// Encoded/decoded by serializers as "_08".
     /// </summary>
     [EnumMember(Value = "08")]
     [IsoId("_tnNIhvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is pre authorised (Avis de Prélèvement).")]
-    _08,
+    PreauthorisedDirectDebitOrdinaireNormalClearing4Day,
     
     /// <summary>
     /// Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement vérifié).
+    /// Encoded/decoded by serializers as "_89".
     /// </summary>
     [EnumMember(Value = "89")]
     [IsoId("_tnNIifRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an urgent direct debit that is pre authorised (Avis de Prélèvement vérifié).")]
-    _89,
+    PreauthorisedDirectDebitVérifiéVerifiedClearing,
     
     /// <summary>
     /// LCR - Lettre de Change Relevé (Recovered Bill of Exchange) and BOR - Billet à Orde Relevé (Promissory Note)
+    /// Encoded/decoded by serializers as "_60".
     /// </summary>
     [EnumMember(Value = "60")]
     [IsoId("_tnNIjPRYEeuLhpyIdtJzwg")]
     [Description(@"LCR - Lettre de Change Relevé (Recovered Bill of Exchange) and BOR - Billet à Orde Relevé (Promissory Note)")]
-    _60,
+    RecoveredBillofExchangeorPromissoryNote,
     
     /// <summary>
     /// Transaction is related to a non-pre authorised collection (RIBA).
+    /// Encoded/decoded by serializers as "RIBA".
     /// </summary>
     [EnumMember(Value = "RIBA")]
     [IsoId("_tnW5gPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a non-pre authorised collection (RIBA).")]
-    RIBA,
+    NonPreauthorisedDirectDebitRIBA,
     
     /// <summary>
     /// Transaction is related to a direct debit that is pre authorised and revocable (RID Ordinario).
+    /// Encoded/decoded by serializers as "RIDO".
     /// </summary>
     [EnumMember(Value = "RIDO")]
     [IsoId("_tnW5g_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a direct debit that is pre authorised and revocable (RID Ordinario).")]
-    RIDO,
+    PreauthorisedRevocableDirectDebit,
     
     /// <summary>
     /// Transaction is related to an urgent direct debit that is pre authorised and revocable (RID Veloce).
+    /// Encoded/decoded by serializers as "RIDV".
     /// </summary>
     [EnumMember(Value = "RIDV")]
     [IsoId("_tngDcPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an urgent direct debit that is pre authorised and revocable (RID Veloce).")]
-    RIDV,
+    PreauthorisedRevocableUrgentDirectDebit,
     
     /// <summary>
     /// Transaction is related to payments via internet owned by Currence.
+    /// Encoded/decoded by serializers as "IDEAL".
     /// </summary>
     [EnumMember(Value = "IDEAL")]
     [IsoId("_tngDc_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via internet owned by Currence.")]
-    IDEAL,
+    PaymentsViaInternetOwnedByCurrence,
     
     /// <summary>
     /// The transaction is related to a regular  Credit Transfer and will be instantly processed under the Dutch AOS on top of the EPC SCT scheme.
+    /// Encoded/decoded by serializers as "INSTNT01".
     /// </summary>
     [EnumMember(Value = "INSTNT01")]
     [IsoId("_tngDdvRYEeuLhpyIdtJzwg")]
     [Description(@"The transaction is related to a regular  Credit Transfer and will be instantly processed under the Dutch AOS on top of the EPC SCT scheme.")]
-    INSTNT01,
+    InstantCreditTransferNotTimeCritical,
     
     /// <summary>
     /// The transaction is related to an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.
+    /// Encoded/decoded by serializers as "INSTTC01".
     /// </summary>
     [EnumMember(Value = "INSTTC01")]
     [IsoId("_tngDefRYEeuLhpyIdtJzwg")]
     [Description(@"The transaction is related to an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.")]
-    INSTTC01,
+    InstantCreditTransferTimeCritical,
     
     /// <summary>
     /// Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer.
+    /// Encoded/decoded by serializers as "INSTIDEAL".
     /// </summary>
     [EnumMember(Value = "INSTIDEAL")]
     [IsoId("_tngDfPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer.")]
-    INSTIDEAL,
+    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransfer,
     
     /// <summary>
     /// Transaction is related to payments via internet owned by Currence which uses a regular  Credit Transfer and will be instantly processed under the Dutch AOS on top of the EPC SCT scheme.
+    /// Encoded/decoded by serializers as "INSTNT01IDEAL".
     /// </summary>
     [EnumMember(Value = "INSTNT01IDEAL")]
     [IsoId("_tnp0cPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via internet owned by Currence which uses a regular  Credit Transfer and will be instantly processed under the Dutch AOS on top of the EPC SCT scheme.")]
-    INSTNT01IDEAL,
+    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferNotTimeCritical,
     
     /// <summary>
     /// Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.
+    /// Encoded/decoded by serializers as "INSTTC01IDEAL".
     /// </summary>
     [EnumMember(Value = "INSTTC01IDEAL")]
     [IsoId("_tnp0c_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.")]
-    INSTTC01IDEAL,
+    PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferTimeCritical,
     
     /// <summary>
     /// Transaction is related to a Domestic payment initiated by PAIN.001
+    /// Encoded/decoded by serializers as "NLDO".
     /// </summary>
     [EnumMember(Value = "NLDO")]
     [IsoId("_tnp0dvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a Domestic payment initiated by PAIN.001")]
-    NLDO,
+    DutchDomesticBulkPayment,
     
     /// <summary>
     /// Transaction is related to a Domestic payment initiated by PAIN.001
+    /// Encoded/decoded by serializers as "NLUP".
     /// </summary>
     [EnumMember(Value = "NLUP")]
     [IsoId("_tny-YPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a Domestic payment initiated by PAIN.001")]
-    NLUP,
+    DutchUrgentPayment,
     
     /// <summary>
     /// Transaction is related to payments via a ‘Standaard Digitale Nota’ InvoiceAcceptgiro payment.
+    /// Encoded/decoded by serializers as "SDN".
     /// </summary>
     [EnumMember(Value = "SDN")]
     [IsoId("_tny-Y_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via a ‘Standaard Digitale Nota’ InvoiceAcceptgiro payment.")]
-    SDN,
+    PaymentsViaStandaardDigitaleNota,
     
     /// <summary>
     /// Transaction is related to payments via Acceptgiro owned by Currence.
+    /// Encoded/decoded by serializers as "ACCEPT".
     /// </summary>
     [EnumMember(Value = "ACCEPT")]
     [IsoId("_tn8vYPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to payments via Acceptgiro owned by Currence.")]
-    ACCEPT,
+    PaymentViaAcceptgiroOwnedByCurrence,
     
     /// <summary>
     /// Transaction is related to an Incident Management Correction procedure based on the DD infrastructure.
+    /// Encoded/decoded by serializers as "ICMC".
     /// </summary>
     [EnumMember(Value = "ICMC")]
     [IsoId("_tn8vY_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an Incident Management Correction procedure based on the DD infrastructure.")]
-    ICMC,
+    IncidentManagementCorrection,
     
     /// <summary>
     /// Transaction is related to direct debit scheme owned by the NVB.
+    /// Encoded/decoded by serializers as "NLGOV".
     /// </summary>
     [EnumMember(Value = "NLGOV")]
     [IsoId("_tn8vZvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to direct debit scheme owned by the NVB.")]
-    NLGOV,
+    DirectDebitInitiatedByTheGovernmentWithSpecialConditions,
     
     /// <summary>
     /// Transaction is related to mass payment beneficiary.|
+    /// Encoded/decoded by serializers as "_0090".
     /// </summary>
     [EnumMember(Value = "0090")]
     [IsoId("_tn8vafRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to mass payment beneficiary.|")]
-    _0090,
+    MassPaymentBeneficiary,
     
     /// <summary>
     /// Transaction is related to mass payment ours.|
+    /// Encoded/decoded by serializers as "_0091".
     /// </summary>
     [EnumMember(Value = "0091")]
     [IsoId("_tn8vbPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to mass payment ours.|")]
-    _0091,
+    MassPaymentOurs,
     
     /// <summary>
     /// Transaction is related to mass payment shared.|
+    /// Encoded/decoded by serializers as "_0092".
     /// </summary>
     [EnumMember(Value = "0092")]
     [IsoId("_toF5UPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to mass payment shared.|")]
-    _0092,
+    MassPaymentShared,
     
     /// <summary>
     /// Transaction is related to standing order.
+    /// Encoded/decoded by serializers as "_0002".
     /// </summary>
     [EnumMember(Value = "0002")]
     [IsoId("_toF5U_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing order.")]
-    _0002,
+    StandingOrder,
     
     /// <summary>
     /// Transaction is related to one-off authorisation.
+    /// Encoded/decoded by serializers as "_0221".
     /// </summary>
     [EnumMember(Value = "0221")]
     [IsoId("_toF5VvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to one-off authorisation.")]
-    _0221,
+    OneOffAuthorisation,
     
     /// <summary>
     /// Transaction is related to one-off authorisation charities.
+    /// Encoded/decoded by serializers as "_0224".
     /// </summary>
     [EnumMember(Value = "0224")]
     [IsoId("_toF5WfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to one-off authorisation charities.")]
-    _0224,
+    OneOffAuthorisationCharities,
     
     /// <summary>
     /// Transaction is related to one-off authorisation construction industry.
+    /// Encoded/decoded by serializers as "_0226".
     /// </summary>
     [EnumMember(Value = "0226")]
     [IsoId("_toPqUPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to one-off authorisation construction industry.")]
-    _0226,
+    OneOffAuthorisationConstructionIndustry,
     
     /// <summary>
     /// Transaction is related to one-off authorisation tuition fees.
+    /// Encoded/decoded by serializers as "_0225".
     /// </summary>
     [EnumMember(Value = "0225")]
     [IsoId("_toPqU_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to one-off authorisation tuition fees.")]
-    _0225,
+    OneOffAuthorisationTuitionFees,
     
     /// <summary>
     /// Transaction is related to standing authorisation companies.
+    /// Encoded/decoded by serializers as "_0222".
     /// </summary>
     [EnumMember(Value = "0222")]
     [IsoId("_toPqVvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing authorisation companies.")]
-    _0222,
+    StandingAuthorisationCompanies,
     
     /// <summary>
     /// Transaction is related to standing authorisation companies without debtor revocation right.
+    /// Encoded/decoded by serializers as "_0227".
     /// </summary>
     [EnumMember(Value = "0227")]
     [IsoId("_toZbUPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing authorisation companies without debtor revocation right.")]
-    _0227,
+    StandingAuthorisationCompaniesWithoutDebtorRevocationRight,
     
     /// <summary>
     /// Transaction is related to standing authorisation general.|
+    /// Encoded/decoded by serializers as "_0220".
     /// </summary>
     [EnumMember(Value = "0220")]
     [IsoId("_toZbU_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing authorisation general.|")]
-    _0220,
+    StandingAuthorisationGeneral,
     
     /// <summary>
     /// Transaction is related to standing authorisation lotteries.
+    /// Encoded/decoded by serializers as "_0223".
     /// </summary>
     [EnumMember(Value = "0223")]
     [IsoId("_toilQPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to standing authorisation lotteries.")]
-    _0223,
+    StandingAuthorisationLotteries,
     
     /// <summary>
     /// Transaction is related to converted (bank) payment.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process.The instrument rules change upon conversion.
+    /// Encoded/decoded by serializers as "_0001".
     /// </summary>
     [EnumMember(Value = "0001")]
     [IsoId("_toilQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to converted (bank) payment.|Conversion of physical instrument to electonric form for transmission to the paying bank and where the original paper document does not continue in the clearing process.The instrument rules change upon conversion.")]
-    _0001,
+    ConvertedBankPayment,
     
     /// <summary>
     /// Transaction is related to business payment
+    /// Encoded/decoded by serializers as "_0000".
     /// </summary>
     [EnumMember(Value = "0000")]
     [IsoId("_toilRvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to business payment")]
-    _0000,
+    BusinessPayment,
     
     /// <summary>
     /// Transaction is related to cross border customer credit transfer.
+    /// Encoded/decoded by serializers as "IN".
     /// </summary>
     [EnumMember(Value = "IN")]
     [IsoId("_tosWQPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to cross border customer credit transfer.")]
-    IN,
+    CrossBorderCustomerCreditTransfer,
     
     /// <summary>
     /// Transaction is related to overnight clearing.
+    /// Encoded/decoded by serializers as "ONCL".
     /// </summary>
     [EnumMember(Value = "ONCL")]
     [IsoId("_tosWQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to overnight clearing.")]
-    ONCL,
+    Overnight,
     
     /// <summary>
     /// Credit transfer contains Extended Remittance Information (ERI) as defined within the applicable scheme.
+    /// Encoded/decoded by serializers as "PERI".
     /// </summary>
     [EnumMember(Value = "PERI")]
     [IsoId("_tosWRvRYEeuLhpyIdtJzwg")]
     [Description(@"Credit transfer contains Extended Remittance Information (ERI) as defined within the applicable scheme.")]
-    PERI,
+    PaymentWithERI,
     
     /// <summary>
     /// Transaction is related to New Zealand High Value Clearing System (HVCS) same day clearing payments.
+    /// Encoded/decoded by serializers as "SDCL".
     /// </summary>
     [EnumMember(Value = "SDCL")]
     [IsoId("_tosWSfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to New Zealand High Value Clearing System (HVCS) same day clearing payments.")]
-    SDCL,
+    SameDayClearedPayments,
     
     /// <summary>
     /// SEPA Core Direct Debit with ‘no refund’ option
+    /// Encoded/decoded by serializers as "DDNR".
     /// </summary>
     [EnumMember(Value = "DDNR")]
     [IsoId("_tosWTPRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA Core Direct Debit with ‘no refund’ option")]
-    DDNR,
+    CoreNoRefund,
     
     /// <summary>
     /// SEPA Fixed Amount Direct Debit
+    /// Encoded/decoded by serializers as "DDFA".
     /// </summary>
     [EnumMember(Value = "DDFA")]
     [IsoId("_to2HQPRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA Fixed Amount Direct Debit")]
-    DDFA,
+    DirectDebitFixedAmount,
     
     /// <summary>
     /// Transaction is related to SEPA direct debit -core.
+    /// Encoded/decoded by serializers as "CORE".
     /// </summary>
     [EnumMember(Value = "CORE")]
     [IsoId("_to2HQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to SEPA direct debit -core.")]
-    CORE,
+    SEPADirectDebitCore,
     
     /// <summary>
     /// SEPA B2B Direct Debit AMI based on a paper mandate
+    /// Encoded/decoded by serializers as "B2BAMIPM".
     /// </summary>
     [EnumMember(Value = "B2BAMIPM")]
     [IsoId("_to_RMPRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA B2B Direct Debit AMI based on a paper mandate")]
-    B2BAMIPM,
+    SEPAB2BDirectDebitAMI,
     
     /// <summary>
     /// Transaction is related to SEPA business to business direct debit.
+    /// Encoded/decoded by serializers as "B2B".
     /// </summary>
     [EnumMember(Value = "B2B")]
     [IsoId("_to_RM_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to SEPA business to business direct debit.")]
-    B2B,
+    SEPABusinessToBusinessDirectDebit,
     
     /// <summary>
     /// Optional shorter time cycle (D-1) for SEPA Core Direct Debit AMI based on a paper mandate
+    /// Encoded/decoded by serializers as "CR1AMIPM".
     /// </summary>
     [EnumMember(Value = "CR1AMIPM")]
     [IsoId("_to_RNvRYEeuLhpyIdtJzwg")]
     [Description(@"Optional shorter time cycle (D-1) for SEPA Core Direct Debit AMI based on a paper mandate")]
-    CR1AMIPM,
+    SEPACoreD1DirectDebitAMI,
     
     /// <summary>
     /// SEPA Core Direct Debit AMI based on a paper mandate
+    /// Encoded/decoded by serializers as "CORAMIPM".
     /// </summary>
     [EnumMember(Value = "CORAMIPM")]
     [IsoId("_to_ROfRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA Core Direct Debit AMI based on a paper mandate")]
-    CORAMIPM,
+    SEPACoreDirectDebitAMI,
     
     /// <summary>
     /// Optional shorter time cycle (D-1) for SEPA Core Direct Debit
+    /// Encoded/decoded by serializers as "COR1".
     /// </summary>
     [EnumMember(Value = "COR1")]
     [IsoId("_to_RPPRYEeuLhpyIdtJzwg")]
     [Description(@"Optional shorter time cycle (D-1) for SEPA Core Direct Debit")]
-    COR1,
+    SEPADirectDebit1DaySettlement,
     
     /// <summary>
     /// SEPA Fixed Amount Direct Debit AMI based on a paper mandate
+    /// Encoded/decoded by serializers as "FADAMIPM".
     /// </summary>
     [EnumMember(Value = "FADAMIPM")]
     [IsoId("_tpJCMPRYEeuLhpyIdtJzwg")]
     [Description(@"SEPA Fixed Amount Direct Debit AMI based on a paper mandate")]
-    FADAMIPM,
+    SEPAFADirectDebitAMI,
     
     /// <summary>
     /// Transaction is related to the CLSClearedFX service for Eurex.  |Usage: The code is mandatory for all pacs.009 payments to this service.
+    /// Encoded/decoded by serializers as "CLSCCPERX".
     /// </summary>
     [EnumMember(Value = "CLSCCPERX")]
     [IsoId("_tpJCM_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to the CLSClearedFX service for Eurex.  |Usage: The code is mandatory for all pacs.009 payments to this service.")]
-    CLSCCPERX,
+    CLSClearedFXForEurex,
     
     /// <summary>
     /// Transaction is related to the CLSClearedFX service for London Exchange Clearing House. |Usage: The code is mandatory for all pacs.009 payments to this service.
+    /// Encoded/decoded by serializers as "CLSCCPLCH".
     /// </summary>
     [EnumMember(Value = "CLSCCPLCH")]
     [IsoId("_tpJCNvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to the CLSClearedFX service for London Exchange Clearing House. |Usage: The code is mandatory for all pacs.009 payments to this service.")]
-    CLSCCPLCH,
+    CLSClearedFXForLCH,
     
     /// <summary>
     /// Transaction is related to an Instant Credit Transfer.|Use case example: SEPA Instant Credit Transfer (SCT Inst)
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_tpJCOfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an Instant Credit Transfer.|Use case example: SEPA Instant Credit Transfer (SCT Inst)")]
-    INST,
+    InstantCreditTransfer,
     
     /// <summary>
     /// Transaction is authenticated direct debit for domestic use.
+    /// Encoded/decoded by serializers as "ADD".
     /// </summary>
     [EnumMember(Value = "ADD")]
     [IsoId("_tpJCPPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is authenticated direct debit for domestic use.")]
-    ADD,
+    AuthenticatedDirectDebit,
     
     /// <summary>
     /// Transaction is unauthenticated direct debit for domestic use.
+    /// Encoded/decoded by serializers as "UDD".
     /// </summary>
     [EnumMember(Value = "UDD")]
     [IsoId("_tpSzMPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is unauthenticated direct debit for domestic use.")]
-    UDD,
+    UnauthenticatedDirectDebit,
     
     /// <summary>
     /// Transaction is related to an intra-group bank initiated cash management payment
+    /// Encoded/decoded by serializers as "CCI".
     /// </summary>
     [EnumMember(Value = "CCI")]
     [IsoId("_tpSzM_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to an intra-group bank initiated cash management payment")]
-    CCI,
+    CashConcentrationIntragroup,
     
     /// <summary>
     /// Transaction is related to a bank transfer.
+    /// Encoded/decoded by serializers as "BTR".
     /// </summary>
     [EnumMember(Value = "BTR")]
     [IsoId("_tpb9IPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a bank transfer.")]
-    BTR,
+    BankTransfer,
     
     /// <summary>
     /// Transaction is related to check same day settlement wire.
+    /// Encoded/decoded by serializers as "CKS".
     /// </summary>
     [EnumMember(Value = "CKS")]
     [IsoId("_tpb9I_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to check same day settlement wire.")]
-    CKS,
+    CheckSameDaySettlementWire,
     
     /// <summary>
     /// Transaction is related to customer transfer.
+    /// Encoded/decoded by serializers as "CTR".
     /// </summary>
     [EnumMember(Value = "CTR")]
     [IsoId("_tpluIPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to customer transfer.")]
-    CTR,
+    CustomerTransfer,
     
     /// <summary>
     /// Transaction is related to a customer transfer, which may include information related to a cover payment or extended remittance information.  
+    /// Encoded/decoded by serializers as "CTP".
     /// </summary>
     [EnumMember(Value = "CTP")]
     [IsoId("_tpluI_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to a customer transfer, which may include information related to a cover payment or extended remittance information.  ")]
-    CTP,
+    CustomerTransferPlus,
     
     /// <summary>
     /// Transaction is related to deposit to sender's account.
+    /// Encoded/decoded by serializers as "DEP".
     /// </summary>
     [EnumMember(Value = "DEP")]
     [IsoId("_tpluJvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to deposit to sender's account.")]
-    DEP,
+    DepositToSendersAccount,
     
     /// <summary>
     /// Transaction is related to Fed funds returned.
+    /// Encoded/decoded by serializers as "FFR".
     /// </summary>
     [EnumMember(Value = "FFR")]
     [IsoId("_tpluKfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to Fed funds returned.")]
-    FFR,
+    FedFundsReturned,
     
     /// <summary>
     /// Transaction is related to Fed funds sold.
+    /// Encoded/decoded by serializers as "FFS".
     /// </summary>
     [EnumMember(Value = "FFS")]
     [IsoId("_tpvfIPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to Fed funds sold.")]
-    FFS,
+    FedFundsSold,
     
     /// <summary>
     /// Transaction is related to non-value service message.
+    /// Encoded/decoded by serializers as "SVC".
     /// </summary>
     [EnumMember(Value = "SVC")]
     [IsoId("_tpvfI_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to non-value service message.")]
-    SVC,
+    NonValueServiceMessage,
     
     /// <summary>
     /// Transaction is related to drawdown response (value) to honor a drawdown request.
+    /// Encoded/decoded by serializers as "DRW".
     /// </summary>
     [EnumMember(Value = "DRW")]
     [IsoId("_tpvfJvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to drawdown response (value) to honor a drawdown request.")]
-    DRW,
+    DrawdownResponseValueToHonorADrawdownRequest,
     
     /// <summary>
     /// Transaction is related to bank-to-bank drawdown request or response (non-value)
+    /// Encoded/decoded by serializers as "DRB".
     /// </summary>
     [EnumMember(Value = "DRB")]
     [IsoId("_tpvfKfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to bank-to-bank drawdown request or response (non-value)")]
-    DRB,
+    BankToBankDrawdownRequestOrResponseNonvalue,
     
     /// <summary>
     /// Transaction is related to customer or corporate drawdown request or response (non-value).
+    /// Encoded/decoded by serializers as "DRC".
     /// </summary>
     [EnumMember(Value = "DRC")]
     [IsoId("_tpvfLPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to customer or corporate drawdown request or response (non-value).")]
-    DRC,
+    CustomerOrCorporateDrawdownRequestOrResponseNonvalue,
     
     /// <summary>
     /// Transaction is related to international ACH.
+    /// Encoded/decoded by serializers as "IAT".
     /// </summary>
     [EnumMember(Value = "IAT")]
     [IsoId("_tp4pEPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to international ACH.")]
-    IAT,
+    InternationalACH,
     
     /// <summary>
     /// Transaction is related to cash concentration or disbursement corporate counterparty.
+    /// Encoded/decoded by serializers as "CCD".
     /// </summary>
     [EnumMember(Value = "CCD")]
     [IsoId("_tp4pE_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to cash concentration or disbursement corporate counterparty.")]
-    CCD,
+    CashConcentrationOrDisbursementCorporateCounterparty,
     
     /// <summary>
     /// Transaction is related to corporate trade exchange.
+    /// Encoded/decoded by serializers as "CTX".
     /// </summary>
     [EnumMember(Value = "CTX")]
     [IsoId("_tp4pFvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to corporate trade exchange.")]
-    CTX,
+    CorporateTradeExchange,
     
     /// <summary>
     /// Transaction is related to prearranged payment or deposit consumer counterparty.
+    /// Encoded/decoded by serializers as "PPD".
     /// </summary>
     [EnumMember(Value = "PPD")]
     [IsoId("_tp4pGfRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to prearranged payment or deposit consumer counterparty.")]
-    PPD,
+    PrearrangedPaymentOrDepositConsumerCounterparty,
     
     /// <summary>
     /// A credit entry initiated by or on behalf of the holder of a consumer account
+    /// Encoded/decoded by serializers as "CIE".
     /// </summary>
     [EnumMember(Value = "CIE")]
     [IsoId("_tp4pHPRYEeuLhpyIdtJzwg")]
     [Description(@"A credit entry initiated by or on behalf of the holder of a consumer account")]
-    CIE,
+    CustomerInitiatedEntry,
     
     /// <summary>
     /// Transaction is related to re-presented check entry.
+    /// Encoded/decoded by serializers as "RCK".
     /// </summary>
     [EnumMember(Value = "RCK")]
     [IsoId("_tqCaEPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to re-presented check entry.")]
-    RCK,
+    RepresentedCheckEntry,
     
     /// <summary>
     /// Transaction is related to accounts receivable check.
+    /// Encoded/decoded by serializers as "ARC".
     /// </summary>
     [EnumMember(Value = "ARC")]
     [IsoId("_tqCaE_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to accounts receivable check.")]
-    ARC,
+    AccountsReceivableCheck,
     
     /// <summary>
     /// Transaction is related to internet initiated entry.
+    /// Encoded/decoded by serializers as "WEB".
     /// </summary>
     [EnumMember(Value = "WEB")]
     [IsoId("_tqCaFvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to internet initiated entry.")]
-    WEB,
+    InternetInitiatedEntry,
     
     /// <summary>
     /// Transaction is related to point-of-purchase.
+    /// Encoded/decoded by serializers as "POP".
     /// </summary>
     [EnumMember(Value = "POP")]
     [IsoId("_tqLkAPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to point-of-purchase.")]
-    POP,
+    PointOfPurchase,
     
     /// <summary>
     /// Transaction is related to point-of-sale.
+    /// Encoded/decoded by serializers as "POS".
     /// </summary>
     [EnumMember(Value = "POS")]
     [IsoId("_tqLkA_RYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to point-of-sale.")]
-    POS,
+    PointOfSale,
     
     /// <summary>
     /// Transaction is related to telephone initiated entry.
+    /// Encoded/decoded by serializers as "TEL".
     /// </summary>
     [EnumMember(Value = "TEL")]
     [IsoId("_tqLkBvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is related to telephone initiated entry.")]
-    TEL,
+    TelephoneInitiatedEntry,
     
     /// <summary>
     /// Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.
@@ -868,23 +973,25 @@ public enum ExternalLocalInstrumentCode
     [EnumMember(Value = "CTP")] // Beware deserialization issues here because of ambiguity
     [IsoId("_o0mT8FEEEey6cYDbEubNXg")]
     [Description(@"Request-to-pay preferred payment via Credit Transfer but Instant Credit Transfer is also possible.")]
-    CTP2,
+    CreditTransferPreferred,
     
     /// <summary>
     /// Request-to-pay preferred payment via Instant Credit Transfer but Credit Transfer is also possible.
+    /// Encoded/decoded by serializers as "ITP".
     /// </summary>
     [EnumMember(Value = "ITP")]
     [IsoId("_60dy0FEEEey6cYDbEubNXg")]
     [Description(@"Request-to-pay preferred payment via Instant Credit Transfer but Credit Transfer is also possible.")]
-    ITP,
+    InstantCreditTransferPreferred,
     
     /// <summary>
     /// Type of New Payments Architecture (NPA) payment. Payments are processed over a three-day cycle and available to customers early in the morning of Day 3.
+    /// Encoded/decoded by serializers as "MDP".
     /// </summary>
     [EnumMember(Value = "MDP")]
     [IsoId("_Uq5aoOAmEey0k8vo1GQhqQ")]
     [Description(@"Type of New Payments Architecture (NPA) payment. Payments are processed over a three-day cycle and available to customers early in the morning of Day 3.")]
-    MDP,
+    MultiDayPayment,
     
 }
 

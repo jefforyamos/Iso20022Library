@@ -20,131 +20,147 @@ public enum StatusV2Code
 {
     /// <summary>
     /// Processing of the instruction is pending.
+    /// Encoded/decoded by serializers as "PPRC".
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_k1I4dvNvEeqRfth943bvEA")]
     [Description(@"Processing of the instruction is pending.")]
-    PPRC,
+    PendingProcessing,
     
     /// <summary>
     /// Instruction has been acknowledged and accepted and is validated for further processing.
+    /// Encoded/decoded by serializers as "PAAC".
     /// </summary>
     [EnumMember(Value = "PAAC")]
     [IsoId("_k1I4ffNvEeqRfth943bvEA")]
     [Description(@"Instruction has been acknowledged and accepted and is validated for further processing.")]
-    PAAC,
+    AcknowledgedAccepted,
     
     /// <summary>
     /// Instruction has been rejected.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_k1I4ePNvEeqRfth943bvEA")]
     [Description(@"Instruction has been rejected.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_k1I4c_NvEeqRfth943bvEA")]
     [Description(@"Instruction has been accepted and is validated for further processing.")]
-    PACK,
+    Accepted,
     
     /// <summary>
     /// Processing has been completed.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_k1I4evNvEeqRfth943bvEA")]
     [Description(@"Processing has been completed.")]
-    COMP,
+    Completed,
     
     /// <summary>
     /// No instruction has been received (to be used in a reminder).
+    /// Encoded/decoded by serializers as "NOIN".
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_k1I4fvNvEeqRfth943bvEA")]
     [Description(@"No instruction has been received (to be used in a reminder).")]
-    NOIN,
+    NotReceived,
     
     /// <summary>
     /// Instruction has been cancelled.
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_k1I4f_NvEeqRfth943bvEA")]
     [Description(@"Instruction has been cancelled.")]
-    CAND,
+    Cancelled,
     
     /// <summary>
     /// Cancel request is being processed.
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_k1I4d_NvEeqRfth943bvEA")]
     [Description(@"Cancel request is being processed.")]
-    CANP,
+    BeingCancelled,
     
     /// <summary>
     /// Instruction has been received by Issuer, equivalent to the confirmation of receipt of votes cast electronically.
+    /// Encoded/decoded by serializers as "RCIS".
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_k1I4gfNvEeqRfth943bvEA")]
     [Description(@"Instruction has been received by Issuer, equivalent to the confirmation of receipt of votes cast electronically.")]
-    RCIS,
+    ReceivedByIssuerOrRegistrar,
     
     /// <summary>
     /// Instruction is pending.
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_k1I4e_NvEeqRfth943bvEA")]
     [Description(@"Instruction is pending.")]
-    PDNG,
+    Pending,
     
     /// <summary>
     /// Standing instruction is applied.
+    /// Encoded/decoded by serializers as "STIN".
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_k1I4dPNvEeqRfth943bvEA")]
     [Description(@"Standing instruction is applied.")]
-    STIN,
+    StandingInstruction,
     
     /// <summary>
     /// Instruction is queued.
+    /// Encoded/decoded by serializers as "QUED".
     /// </summary>
     [EnumMember(Value = "QUED")]
     [IsoId("_k1I4efNvEeqRfth943bvEA")]
     [Description(@"Instruction is queued.")]
-    QUED,
+    Queued,
     
     /// <summary>
     /// Instruction has been cancelled by the agent, for example, due to an event deadline extension.
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_k1I4fPNvEeqRfth943bvEA")]
     [Description(@"Instruction has been cancelled by the agent, for example, due to an event deadline extension.")]
-    CSUB,
+    CancelledBySubcustodian,
     
     /// <summary>
     /// Accepted and sent along the chain.
+    /// Encoded/decoded by serializers as "FRWD".
     /// </summary>
     [EnumMember(Value = "FRWD")]
     [IsoId("_k1I4gPNvEeqRfth943bvEA")]
     [Description(@"Accepted and sent along the chain.")]
-    FRWD,
+    Forwarded,
     
     /// <summary>
     /// Attendance is confirmed at the meeting.
+    /// Encoded/decoded by serializers as "ATTC".
     /// </summary>
     [EnumMember(Value = "ATTC")]
     [IsoId("_k1I4cvNvEeqRfth943bvEA")]
     [Description(@"Attendance is confirmed at the meeting.")]
-    ATTC,
+    AttendanceConfirmed,
     
     /// <summary>
     /// Rights holder has been registered to participate to the meeting.
+    /// Encoded/decoded by serializers as "REGM".
     /// </summary>
     [EnumMember(Value = "REGM")]
     [IsoId("_k1I4dfNvEeqRfth943bvEA")]
     [Description(@"Rights holder has been registered to participate to the meeting.")]
-    REGM,
+    RegisteredToParticipateAtMeeting,
     
 }
 

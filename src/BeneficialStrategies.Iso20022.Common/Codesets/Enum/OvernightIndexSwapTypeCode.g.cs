@@ -20,19 +20,21 @@ public enum OvernightIndexSwapTypeCode
 {
     /// <summary>
     /// Fixed interest rate is paid by the reporting agent.
+    /// Encoded/decoded by serializers as "PAID".
     /// </summary>
     [EnumMember(Value = "PAID")]
     [IsoId("_82nLALu8EeSXxOgurgHGgw")]
     [Description(@"Fixed interest rate is paid by the reporting agent.")]
-    PAID,
+    Paid,
     
     /// <summary>
     /// Fixed interest rate is received by the reporting agent.
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_9D2VwLu8EeSXxOgurgHGgw")]
     [Description(@"Fixed interest rate is received by the reporting agent.")]
-    RECE,
+    Received,
     
 }
 

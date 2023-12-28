@@ -11,7 +11,6 @@ public class GeneratorsGroupedByRequestedNameDictionary : Dictionary<string, IGe
                 new CodesetEnumGenerator(),
                 new DropdownSourceGenerator(),
                 new DropdownRowGenerator(),
-                new XmlBreakoutGenerator(),
         });
         this.Add("doc", new IGenerate[]
         {

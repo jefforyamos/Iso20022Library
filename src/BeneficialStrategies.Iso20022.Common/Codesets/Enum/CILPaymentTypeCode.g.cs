@@ -20,27 +20,30 @@ public enum CILPaymentTypeCode
 {
     /// <summary>
     /// Event pays daily at fixed rate.
+    /// Encoded/decoded by serializers as "FIXD".
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_1n7u0zL3EeKU9IrkkToqcw_-110040090")]
     [Description(@"Event pays daily at fixed rate.")]
-    FIXD,
+    Fixed,
     
     /// <summary>
     /// Price can fluctuate. Payment is held until released.
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_1n7u1DL3EeKU9IrkkToqcw_-307768782")]
     [Description(@"Price can fluctuate. Payment is held until released.")]
-    HOLD,
+    Hold,
     
     /// <summary>
     /// Pays on same day as convert/exercise instructions.
+    /// Encoded/decoded by serializers as "PCIL".
     /// </summary>
     [EnumMember(Value = "PCIL")]
     [IsoId("_1n7u1TL3EeKU9IrkkToqcw_-1762418008")]
     [Description(@"Pays on same day as convert/exercise instructions.")]
-    PCIL,
+    PayCIL,
     
 }
 

@@ -20,27 +20,30 @@ public enum ResidentialStatusCode
 {
     /// <summary>
     /// Resident.
+    /// Encoded/decoded by serializers as "RESI".
     /// </summary>
     [EnumMember(Value = "RESI")]
     [IsoId("_ZU0_Ytp-Ed-ak6NoX_4Aeg_-1093909086")]
     [Description(@"Resident.")]
-    RESI,
+    Resident,
     
     /// <summary>
     /// Permanent resident.
+    /// Encoded/decoded by serializers as "PRES".
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_ZU0_Y9p-Ed-ak6NoX_4Aeg_-1073588583")]
     [Description(@"Permanent resident.")]
-    PRES,
+    PermanentResident,
     
     /// <summary>
     /// Non-resident.
+    /// Encoded/decoded by serializers as "NRES".
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_ZU0_ZNp-Ed-ak6NoX_4Aeg_-1065279846")]
     [Description(@"Non-resident.")]
-    NRES,
+    NonResident,
     
 }
 

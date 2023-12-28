@@ -20,43 +20,48 @@ public enum ReportTypeCode
 {
     /// <summary>
     /// The report is precalculated. This type of report is sent when an amendment is proposed.
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_ZTe7kdp-Ed-ak6NoX_4Aeg_882128178")]
     [Description(@"The report is precalculated. This type of report is sent when an amendment is proposed.")]
-    PREC,
+    Precalculated,
     
     /// <summary>
     /// The report is calculated on the basis of a dataset matched with a baseline.
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_ZTe7ktp-Ed-ak6NoX_4Aeg_919991130")]
     [Description(@"The report is calculated on the basis of a dataset matched with a baseline.")]
-    CURR,
+    Current,
     
     /// <summary>
     /// The report contains a baseline submitted for the first time.
+    /// Encoded/decoded by serializers as "FWIS".
     /// </summary>
     [EnumMember(Value = "FWIS")]
     [IsoId("_ZTe7k9p-Ed-ak6NoX_4Aeg_2058968655")]
     [Description(@"The report contains a baseline submitted for the first time.")]
-    FWIS,
+    ForwardInitialSubmission,
     
     /// <summary>
     /// The report contains a baseline that is resubmitted.
+    /// Encoded/decoded by serializers as "FWRE".
     /// </summary>
     [EnumMember(Value = "FWRE")]
     [IsoId("_ZTe7lNp-Ed-ak6NoX_4Aeg_2058970671")]
     [Description(@"The report contains a baseline that is resubmitted.")]
-    FWRE,
+    ForwardReSubmission,
     
     /// <summary>
     /// The report contains a baseline that is amended.
+    /// Encoded/decoded by serializers as "FWAM".
     /// </summary>
     [EnumMember(Value = "FWAM")]
     [IsoId("_ZTe7ldp-Ed-ak6NoX_4Aeg_2058971008")]
     [Description(@"The report contains a baseline that is amended.")]
-    FWAM,
+    ForwardAmend,
     
 }
 

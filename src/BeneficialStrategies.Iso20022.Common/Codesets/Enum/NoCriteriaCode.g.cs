@@ -20,11 +20,12 @@ public enum NoCriteriaCode
 {
     /// <summary>
     /// No criteria.
+    /// Encoded/decoded by serializers as "NOCR".
     /// </summary>
     [EnumMember(Value = "NOCR")]
     [IsoId("_aNcpddp-Ed-ak6NoX_4Aeg_-365356859")]
     [Description(@"No criteria.")]
-    NOCR,
+    NoCriteria,
     
 }
 

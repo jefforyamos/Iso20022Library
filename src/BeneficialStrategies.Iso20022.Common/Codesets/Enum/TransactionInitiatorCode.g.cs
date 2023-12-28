@@ -20,19 +20,21 @@ public enum TransactionInitiatorCode
 {
     /// <summary>
     /// Merchant initiated transaction.
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_jfoDt2zfEemD24gVaMSpeA")]
     [Description(@"Merchant initiated transaction.")]
-    MERC,
+    Merchant,
     
     /// <summary>
     /// Customer initiated transaction.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_jfoDuGzfEemD24gVaMSpeA")]
     [Description(@"Customer initiated transaction.")]
-    CUST,
+    Customer,
     
 }
 

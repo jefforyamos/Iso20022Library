@@ -20,19 +20,21 @@ public enum UKTaxGroupUnitCode
 {
     /// <summary>
     /// The units that were purchased prior to the last ex-div date.
+    /// Encoded/decoded by serializers as "GRP1".
     /// </summary>
     [EnumMember(Value = "GRP1")]
     [IsoId("_Yzcwpdp-Ed-ak6NoX_4Aeg_2015540551")]
     [Description(@"The units that were purchased prior to the last ex-div date.")]
-    GRP1,
+    Group1,
     
     /// <summary>
     /// The units that were purchased since the ex-div date, and that benefit from the tax exemption.
+    /// Encoded/decoded by serializers as "GRP2".
     /// </summary>
     [EnumMember(Value = "GRP2")]
     [IsoId("_Yzcwptp-Ed-ak6NoX_4Aeg_2015540552")]
     [Description(@"The units that were purchased since the ex-div date, and that benefit from the tax exemption.")]
-    GRP2,
+    Group2,
     
 }
 

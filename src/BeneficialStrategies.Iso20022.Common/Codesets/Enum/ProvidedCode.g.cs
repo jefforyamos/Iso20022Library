@@ -20,19 +20,21 @@ public enum ProvidedCode
 {
     /// <summary>
     /// Provided.
+    /// Encoded/decoded by serializers as "PROV".
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_EOnjEBKFEeKj15WxqwlXPw")]
     [Description(@"Provided.")]
-    PROV,
+    Provided,
     
     /// <summary>
     /// Not provided.
+    /// Encoded/decoded by serializers as "NPRO".
     /// </summary>
     [EnumMember(Value = "NPRO")]
     [IsoId("_EiSF8BKFEeKj15WxqwlXPw")]
     [Description(@"Not provided.")]
-    NPRO,
+    NotProvided,
     
 }
 

@@ -20,43 +20,48 @@ public enum RestrictionTypeCode
 {
     /// <summary>
     /// Selling restriction.
+    /// Encoded/decoded by serializers as "SELR".
     /// </summary>
     [EnumMember(Value = "SELR")]
     [IsoId("_Y94fBtp-Ed-ak6NoX_4Aeg_-1008194444")]
     [Description(@"Selling restriction.")]
-    SELR,
+    Selling,
     
     /// <summary>
     /// Buying restriction.
+    /// Encoded/decoded by serializers as "BUYR".
     /// </summary>
     [EnumMember(Value = "BUYR")]
     [IsoId("_Y94fB9p-Ed-ak6NoX_4Aeg_-1007271038")]
     [Description(@"Buying restriction.")]
-    BUYR,
+    Buying,
     
     /// <summary>
     /// Placing restriction.
+    /// Encoded/decoded by serializers as "PLAR".
     /// </summary>
     [EnumMember(Value = "PLAR")]
     [IsoId("_Y94fCNp-Ed-ak6NoX_4Aeg_-1006348350")]
     [Description(@"Placing restriction.")]
-    PLAR,
+    Placing,
     
     /// <summary>
     /// Holding restriction.
+    /// Encoded/decoded by serializers as "HOLR".
     /// </summary>
     [EnumMember(Value = "HOLR")]
     [IsoId("_Y-Bo8Np-Ed-ak6NoX_4Aeg_-1005425344")]
     [Description(@"Holding restriction.")]
-    HOLR,
+    Holding,
     
     /// <summary>
     /// Voting restriction.
+    /// Encoded/decoded by serializers as "VOTR".
     /// </summary>
     [EnumMember(Value = "VOTR")]
     [IsoId("_Y-Bo8dp-Ed-ak6NoX_4Aeg_-1004502316")]
     [Description(@"Voting restriction.")]
-    VOTR,
+    Voting,
     
 }
 

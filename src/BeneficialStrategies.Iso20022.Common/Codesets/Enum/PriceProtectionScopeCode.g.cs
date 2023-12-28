@@ -20,35 +20,39 @@ public enum PriceProtectionScopeCode
 {
     /// <summary>
     /// Price protection is local (for example, Exchange, ECN, ATS).
+    /// Encoded/decoded by serializers as "LOCA".
     /// </summary>
     [EnumMember(Value = "LOCA")]
     [IsoId("_aI1PN9p-Ed-ak6NoX_4Aeg_1048703534")]
     [Description(@"Price protection is local (for example, Exchange, ECN, ATS).")]
-    LOCA,
+    Local,
     
     /// <summary>
     /// Price protection is national (across all national markets).
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_aI_AMNp-Ed-ak6NoX_4Aeg_-936209086")]
     [Description(@"Price protection is national (across all national markets).")]
-    NATI,
+    National,
     
     /// <summary>
     /// Price protection is global (across all markets).
+    /// Encoded/decoded by serializers as "GLOB".
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_aI_AMdp-Ed-ak6NoX_4Aeg_-861403951")]
     [Description(@"Price protection is global (across all markets).")]
-    GLOB,
+    Global,
     
     /// <summary>
     /// Price protection is national (across all national markets) excluding local price protection.
+    /// Encoded/decoded by serializers as "NAEL".
     /// </summary>
     [EnumMember(Value = "NAEL")]
     [IsoId("_aI_AMtp-Ed-ak6NoX_4Aeg_-442386317")]
     [Description(@"Price protection is national (across all national markets) excluding local price protection.")]
-    NAEL,
+    NationalExcludingLocal,
     
 }
 

@@ -20,11 +20,12 @@ public enum AwaitingAffirmationReasonCode
 {
     /// <summary>
     /// Affirmation has not been received yet.
+    /// Encoded/decoded by serializers as "WAFF".
     /// </summary>
     [EnumMember(Value = "WAFF")]
     [IsoId("__0Ti0NojEeC60axPepSq7g_-909160463")]
     [Description(@"Affirmation has not been received yet.")]
-    WAFF,
+    AwaitingAffirmation,
     
 }
 

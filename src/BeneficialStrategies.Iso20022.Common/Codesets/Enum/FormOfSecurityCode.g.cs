@@ -20,19 +20,21 @@ public enum FormOfSecurityCode
 {
     /// <summary>
     /// Shareholder name of the financial instrument appears in the corporation/funds books.
+    /// Encoded/decoded by serializers as "REGD".
     /// </summary>
     [EnumMember(Value = "REGD")]
     [IsoId("_arP_w9p-Ed-ak6NoX_4Aeg_1876631848")]
     [Description(@"Shareholder name of the financial instrument appears in the corporation/funds books.")]
-    REGD,
+    Registered,
     
     /// <summary>
     /// The financial instrument does not specify any registration of ownership, and is payable to whomever possesses the certificate.
+    /// Encoded/decoded by serializers as "BEAR".
     /// </summary>
     [EnumMember(Value = "BEAR")]
     [IsoId("_arP_wtp-Ed-ak6NoX_4Aeg_1839687617")]
     [Description(@"The financial instrument does not specify any registration of ownership, and is payable to whomever possesses the certificate.")]
-    BEAR,
+    Bearer,
     
 }
 

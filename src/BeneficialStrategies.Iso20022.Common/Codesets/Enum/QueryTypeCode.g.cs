@@ -20,35 +20,39 @@ public enum QueryTypeCode
 {
     /// <summary>
     /// Specifies that the query requests that all matching items be returned.
+    /// Encoded/decoded by serializers as "ALLL".
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_ZXza4tp-Ed-ak6NoX_4Aeg_1663250445")]
     [Description(@"Specifies that the query requests that all matching items be returned.")]
-    ALLL,
+    All,
     
     /// <summary>
     /// Specifies that the query requests that only new matching items since the last similar query be returned.
+    /// Encoded/decoded by serializers as "CHNG".
     /// </summary>
     [EnumMember(Value = "CHNG")]
     [IsoId("_ZXza49p-Ed-ak6NoX_4Aeg_1663250454")]
     [Description(@"Specifies that the query requests that only new matching items since the last similar query be returned.")]
-    CHNG,
+    Changed,
     
     /// <summary>
     /// Specifies that the query requests that only items that have changed since the last query be returned.
+    /// Encoded/decoded by serializers as "MODF".
     /// </summary>
     [EnumMember(Value = "MODF")]
     [IsoId("_ZXza5Np-Ed-ak6NoX_4Aeg_2022498795")]
     [Description(@"Specifies that the query requests that only items that have changed since the last query be returned.")]
-    MODF,
+    Modified,
     
     /// <summary>
     /// Specifies that the query requests that items that have been deleted since the last query be returned.
+    /// Encoded/decoded by serializers as "DELD".
     /// </summary>
     [EnumMember(Value = "DELD")]
     [IsoId("_ZX9L4Np-Ed-ak6NoX_4Aeg_2062212062")]
     [Description(@"Specifies that the query requests that items that have been deleted since the last query be returned.")]
-    DELD,
+    Deleted,
     
 }
 

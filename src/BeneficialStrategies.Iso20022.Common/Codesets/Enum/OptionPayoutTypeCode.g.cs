@@ -20,27 +20,30 @@ public enum OptionPayoutTypeCode
 {
     /// <summary>
     /// Indicates the type of vanilla option.
+    /// Encoded/decoded by serializers as "VANI".
     /// </summary>
     [EnumMember(Value = "VANI")]
     [IsoId("_dV968KbEEeSxuMLA5o46jQ")]
     [Description(@"Indicates the type of vanilla option.")]
-    VANI,
+    Vanilla,
     
     /// <summary>
     /// Indicates the type of capped option.
+    /// Encoded/decoded by serializers as "CAPP".
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_dhVdcKbEEeSxuMLA5o46jQ")]
     [Description(@"Indicates the type of capped option.")]
-    CAPP,
+    Capped,
     
     /// <summary>
     /// Indicates the type of binaryoption.
+    /// Encoded/decoded by serializers as "BINA".
     /// </summary>
     [EnumMember(Value = "BINA")]
     [IsoId("_dlwqcKbEEeSxuMLA5o46jQ")]
     [Description(@"Indicates the type of binaryoption.")]
-    BINA,
+    Binary,
     
 }
 

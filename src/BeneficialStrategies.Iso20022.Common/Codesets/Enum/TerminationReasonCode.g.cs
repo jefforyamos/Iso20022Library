@@ -20,35 +20,39 @@ public enum TerminationReasonCode
 {
     /// <summary>
     /// Reason for termination is underlying business has finished.
+    /// Encoded/decoded by serializers as "BUFI".
     /// </summary>
     [EnumMember(Value = "BUFI")]
     [IsoId("_oq2kIBSJEeKyNbjzgBLUcA")]
     [Description(@"Reason for termination is underlying business has finished.")]
-    BUFI,
+    UnderlyingBusinessFinished,
     
     /// <summary>
     /// Reason for termination is warranty obligation period has expired.
+    /// Encoded/decoded by serializers as "WOEX".
     /// </summary>
     [EnumMember(Value = "WOEX")]
     [IsoId("_8xeUIBSJEeKyNbjzgBLUcA")]
     [Description(@"Reason for termination is warranty obligation period has expired.")]
-    WOEX,
+    WarrantyObligationPeriodExpired,
     
     /// <summary>
     /// Reason for termination is non-acceptance of a tender.
+    /// Encoded/decoded by serializers as "NOAC".
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_PBLl0BSKEeKyNbjzgBLUcA")]
     [Description(@"Reason for termination is non-acceptance of a tender.")]
-    NOAC,
+    TenderNonAcceptance,
     
     /// <summary>
     /// Reason for termination is reduction terms have been fulfilled.
+    /// Encoded/decoded by serializers as "REFU".
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_cd6QsBSKEeKyNbjzgBLUcA")]
     [Description(@"Reason for termination is reduction terms have been fulfilled.")]
-    REFU,
+    ReductionTermsFulfilled,
     
 }
 

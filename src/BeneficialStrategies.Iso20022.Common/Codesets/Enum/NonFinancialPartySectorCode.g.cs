@@ -21,180 +21,201 @@ public enum NonFinancialPartySectorCode
     /// <summary>
     /// Agriculture, forestry and fishing activities.
     /// 
+    /// Encoded/decoded by serializers as "AGRI".
     /// </summary>
     [EnumMember(Value = "AGRI")]
     [IsoId("_KwGxUBQYEeWSI-Fz8Zwg6g")]
     [Description(@"Agriculture, forestry and fishing activities. ")]
-    AGRI,
+    AgricultureForestryAndFishing,
     
     /// <summary>
     /// Mining and quarrying activities.
     /// 
+    /// Encoded/decoded by serializers as "MING".
     /// </summary>
     [EnumMember(Value = "MING")]
     [IsoId("_K9peEBQYEeWSI-Fz8Zwg6g")]
     [Description(@"Mining and quarrying activities. ")]
-    MING,
+    MiningAndQuarrying,
     
     /// <summary>
     /// Manufacturing activities.
     /// 
+    /// Encoded/decoded by serializers as "MAFG".
     /// </summary>
     [EnumMember(Value = "MAFG")]
     [IsoId("_K_db8BQYEeWSI-Fz8Zwg6g")]
     [Description(@"Manufacturing activities. ")]
-    MAFG,
+    Manufacturing,
     
     /// <summary>
     /// Electricity, gas, steam and air conditioning supply activities.
     /// 
+    /// Encoded/decoded by serializers as "SPLY".
     /// </summary>
     [EnumMember(Value = "SPLY")]
     [IsoId("_LA_F8BQYEeWSI-Fz8Zwg6g")]
     [Description(@"Electricity, gas, steam and air conditioning supply activities. ")]
-    SPLY,
+    ElectricityGasSteamAndAirConditioningSupply,
     
     /// <summary>
     /// Water supply, sewerage, waste management and remediation activities.
     /// 
+    /// Encoded/decoded by serializers as "WTER".
     /// </summary>
     [EnumMember(Value = "WTER")]
     [IsoId("_LCzD0BQYEeWSI-Fz8Zwg6g")]
     [Description(@"Water supply, sewerage, waste management and remediation activities. ")]
-    WTER,
+    WaterSupplySewerageWasteManagementAndRemediation,
     
     /// <summary>
     /// Construction activities.
+    /// Encoded/decoded by serializers as "CSTR".
     /// </summary>
     [EnumMember(Value = "CSTR")]
     [IsoId("_LEa0cBQYEeWSI-Fz8Zwg6g")]
     [Description(@"Construction activities.")]
-    CSTR,
+    Construction,
     
     /// <summary>
     /// Wholesale and retail trade, repair of motor vehicles and motorcycles.
+    /// Encoded/decoded by serializers as "WRRM".
     /// </summary>
     [EnumMember(Value = "WRRM")]
     [IsoId("_6QPQIBQYEeWSI-Fz8Zwg6g")]
     [Description(@"Wholesale and retail trade, repair of motor vehicles and motorcycles.")]
-    WRRM,
+    MotorVehiclesAndMotorcycles,
     
     /// <summary>
     /// Information and communication activities.
+    /// Encoded/decoded by serializers as "INCO".
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_8T8NQBQYEeWSI-Fz8Zwg6g")]
     [Description(@"Information and communication activities.")]
-    INCO,
+    InformationAndCommunication,
     
     /// <summary>
     /// Transportation and storage activities.
+    /// Encoded/decoded by serializers as "TRAS".
     /// </summary>
     [EnumMember(Value = "TRAS")]
     [IsoId("_-XFJsBQYEeWSI-Fz8Zwg6g")]
     [Description(@"Transportation and storage activities.")]
-    TRAS,
+    TransportationAndStorage,
     
     /// <summary>
     /// Accommodation and food service activities.
+    /// Encoded/decoded by serializers as "ACAF".
     /// </summary>
     [EnumMember(Value = "ACAF")]
     [IsoId("_ABOXUBQZEeWSI-Fz8Zwg6g")]
     [Description(@"Accommodation and food service activities.")]
-    ACAF,
+    AccomodationAndFood,
     
     /// <summary>
     /// Financial and insurance activities.
+    /// Encoded/decoded by serializers as "FINA".
     /// </summary>
     [EnumMember(Value = "FINA")]
     [IsoId("_V_6w0BVZEeWLrt6TQWUeiw")]
     [Description(@"Financial and insurance activities.")]
-    FINA,
+    FinancialAndInsuranceActivity,
     
     /// <summary>
     /// Real estate activities.
+    /// Encoded/decoded by serializers as "RESA".
     /// </summary>
     [EnumMember(Value = "RESA")]
     [IsoId("_WIZXYBVZEeWLrt6TQWUeiw")]
     [Description(@"Real estate activities.")]
-    RESA,
+    RealEstateActivity,
     
     /// <summary>
     /// Professional, scientific and technical activities.
     /// 
+    /// Encoded/decoded by serializers as "PSTA".
     /// </summary>
     [EnumMember(Value = "PSTA")]
     [IsoId("_WRLf8BVZEeWLrt6TQWUeiw")]
     [Description(@"Professional, scientific and technical activities. ")]
-    PSTA,
+    ProfessionalScientificAndTechnicalActivity,
     
     /// <summary>
     /// Administrative and support service activities.
     /// 
+    /// Encoded/decoded by serializers as "ASSA".
     /// </summary>
     [EnumMember(Value = "ASSA")]
     [IsoId("_WRea4BVZEeWLrt6TQWUeiw")]
     [Description(@"Administrative and support service activities. ")]
-    ASSA,
+    AdministrativeAndSupportServiceActivity,
     
     /// <summary>
     /// Public administration and defence, compulsory social security.
     /// 
+    /// Encoded/decoded by serializers as "PADS".
     /// </summary>
     [EnumMember(Value = "PADS")]
     [IsoId("_WZqGgBVZEeWLrt6TQWUeiw")]
     [Description(@"Public administration and defence, compulsory social security. ")]
-    PADS,
+    PublicAdministrationAndDefence,
     
     /// <summary>
     /// Education activities.
+    /// Encoded/decoded by serializers as "EDUC".
     /// </summary>
     [EnumMember(Value = "EDUC")]
     [IsoId("_WiItEBVZEeWLrt6TQWUeiw")]
     [Description(@"Education activities.")]
-    EDUC,
+    Education,
     
     /// <summary>
     /// Human health and social work activities.
+    /// Encoded/decoded by serializers as "HHSW".
     /// </summary>
     [EnumMember(Value = "HHSW")]
     [IsoId("_WiItERVZEeWLrt6TQWUeiw")]
     [Description(@"Human health and social work activities.")]
-    HHSW,
+    HumanHealthAndSocialWorkActivity,
     
     /// <summary>
     /// Arts, entertainment and recreation activities.
     /// 
+    /// Encoded/decoded by serializers as "AEAR".
     /// </summary>
     [EnumMember(Value = "AEAR")]
     [IsoId("_WqUYsBVZEeWLrt6TQWUeiw")]
     [Description(@"Arts, entertainment and recreation activities. ")]
-    AEAR,
+    ArtsEntertainmentAndRecreation,
     
     /// <summary>
     /// Other service activities.
+    /// Encoded/decoded by serializers as "OTSA".
     /// </summary>
     [EnumMember(Value = "OTSA")]
     [IsoId("_WypOQBVZEeWLrt6TQWUeiw")]
     [Description(@"Other service activities.")]
-    OTSA,
+    OtherServiceActivity,
     
     /// <summary>
     /// Activities of households as employers; undifferentiated goods – and services –producing activities of households for own use.
+    /// Encoded/decoded by serializers as "AHAE".
     /// </summary>
     [EnumMember(Value = "AHAE")]
     [IsoId("_WypOQRVZEeWLrt6TQWUeiw")]
     [Description(@"Activities of households as employers; undifferentiated goods – and services –producing activities of households for own use.")]
-    AHAE,
+    ActivityOfHouseholdsAsEmployer,
     
     /// <summary>
     /// Activities of extraterritorial organisations and bodies.
     /// 
+    /// Encoded/decoded by serializers as "AEOB".
     /// </summary>
     [EnumMember(Value = "AEOB")]
     [IsoId("_W6054BVZEeWLrt6TQWUeiw")]
     [Description(@"Activities of extraterritorial organisations and bodies. ")]
-    AEOB,
+    ActivityOfExtraterritorialOrganisationAndBody,
     
 }
 

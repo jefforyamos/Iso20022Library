@@ -20,43 +20,48 @@ public enum ActionTakenCode
 {
     /// <summary>
     /// Reported fraud was accepted
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_8QpIIHdjEeeKH6vrEwvLHA")]
     [Description(@"Reported fraud was accepted")]
-    ACCP,
+    Accepted,
     
     /// <summary>
     /// Reported fraud was rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_Og4TYHdmEeeKH6vrEwvLHA")]
     [Description(@"Reported fraud was rejected.")]
-    RJCT,
+    Rejected,
     
     /// <summary>
     /// Reported fraud was accepted with warnings.
+    /// Encoded/decoded by serializers as "WARN".
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_XWXGUHdmEeeKH6vrEwvLHA")]
     [Description(@"Reported fraud was accepted with warnings.")]
-    WARN,
+    Warning,
     
     /// <summary>
     /// Reported fraud led to actions defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_eaCkcHdmEeeKH6vrEwvLHA")]
     [Description(@"Reported fraud led to actions defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Reported fraud led to actions defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_nOyXkHdmEeeKH6vrEwvLHA")]
     [Description(@"Reported fraud led to actions defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

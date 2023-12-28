@@ -20,35 +20,39 @@ public enum StatusSubTypeCode
 {
     /// <summary>
     /// No flag has been set for the sub status of the trade notification.
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_fI1ssB3cEeKXIbeXfdPzuw")]
     [Description(@"No flag has been set for the sub status of the trade notification.")]
-    NONE,
+    NoFlagsSet,
     
     /// <summary>
     /// Same day flag has been set to true for the sub status of the trade notification.
+    /// Encoded/decoded by serializers as "SMDY".
     /// </summary>
     [EnumMember(Value = "SMDY")]
     [IsoId("_lXEJgB3cEeKXIbeXfdPzuw")]
     [Description(@"Same day flag has been set to true for the sub status of the trade notification.")]
-    SMDY,
+    OnlySameDayFlagTrue,
     
     /// <summary>
     /// Pending flag has been set to true for the sub status of the trade notification.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_sw0lUB3cEeKXIbeXfdPzuw")]
     [Description(@"Pending flag has been set to true for the sub status of the trade notification.")]
-    PEND,
+    OnlyPendingFlagTrue,
     
     /// <summary>
     /// Both the same day and pending flags have been set to true for the sub status of the trade notification.
+    /// Encoded/decoded by serializers as "SDPG".
     /// </summary>
     [EnumMember(Value = "SDPG")]
     [IsoId("_yIHaIB3cEeKXIbeXfdPzuw")]
     [Description(@"Both the same day and pending flags have been set to true for the sub status of the trade notification.")]
-    SDPG,
+    SameDayAndPendingFlagsTrue,
     
 }
 

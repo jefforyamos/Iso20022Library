@@ -20,19 +20,21 @@ public enum ModifiedStatusReasonCode
 {
     /// <summary>
     /// Modification of a transaction by the account owner.
+    /// Encoded/decoded by serializers as "MDBY".
     /// </summary>
     [EnumMember(Value = "MDBY")]
     [IsoId("_0ldWowlIEeGATtfOBToyew_471915014")]
     [Description(@"Modification of a transaction by the account owner.")]
-    MDBY,
+    ModifiedByYourself,
     
     /// <summary>
     /// Other. See Narrative.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_0ldWpAlIEeGATtfOBToyew_377855801")]
     [Description(@"Other. See Narrative.")]
-    OTHR,
+    Other,
     
 }
 

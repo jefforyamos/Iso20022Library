@@ -20,43 +20,48 @@ public enum ATMOperationCode
 {
     /// <summary>
     /// Adjust logical counters of the cassette.
+    /// Encoded/decoded by serializers as "ADJU".
     /// </summary>
     [EnumMember(Value = "ADJU")]
     [IsoId("_csAXYOhAEeSbwP3G-MV9YA")]
     [Description(@"Adjust logical counters of the cassette.")]
-    ADJU,
+    Adjust,
     
     /// <summary>
     /// Add physically media to cassette.
+    /// Encoded/decoded by serializers as "INSR".
     /// </summary>
     [EnumMember(Value = "INSR")]
     [IsoId("_jo54EOhAEeSbwP3G-MV9YA")]
     [Description(@"Add physically media to cassette.")]
-    INSR,
+    InsertMedia,
     
     /// <summary>
     /// Loading cassette.
+    /// Encoded/decoded by serializers as "LOAD".
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_nZwTgOhAEeSbwP3G-MV9YA")]
     [Description(@"Loading cassette.")]
-    LOAD,
+    Loading,
     
     /// <summary>
     /// Substract physically media from cassette.
+    /// Encoded/decoded by serializers as "REMV".
     /// </summary>
     [EnumMember(Value = "REMV")]
     [IsoId("_q0sJUOhAEeSbwP3G-MV9YA")]
     [Description(@"Substract physically media from cassette.")]
-    REMV,
+    RemoveMedia,
     
     /// <summary>
     /// Unloading cassette.
+    /// Encoded/decoded by serializers as "UNLD".
     /// </summary>
     [EnumMember(Value = "UNLD")]
     [IsoId("_xL_CkOhAEeSbwP3G-MV9YA")]
     [Description(@"Unloading cassette.")]
-    UNLD,
+    Unloading,
     
 }
 

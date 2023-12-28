@@ -20,43 +20,48 @@ public enum AccountStatusCode
 {
     /// <summary>
     /// Account can be used for its intended purpose.
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_brn3otp-Ed-ak6NoX_4Aeg_-1967705692")]
     [Description(@"Account can be used for its intended purpose.")]
-    ENAB,
+    Enabled,
     
     /// <summary>
     /// Account cannot be used for its intended purpose, either temporarily or permanently.
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_brn3o9p-Ed-ak6NoX_4Aeg_-1949232976")]
     [Description(@"Account cannot be used for its intended purpose, either temporarily or permanently.")]
-    DISA,
+    Disabled,
     
     /// <summary>
     /// Account cannot be used any longer.
+    /// Encoded/decoded by serializers as "DELE".
     /// </summary>
     [EnumMember(Value = "DELE")]
     [IsoId("_brn3pNp-Ed-ak6NoX_4Aeg_-1923375698")]
     [Description(@"Account cannot be used any longer.")]
-    DELE,
+    Deleted,
     
     /// <summary>
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
+    /// Encoded/decoded by serializers as "FORM".
     /// </summary>
     [EnumMember(Value = "FORM")]
     [IsoId("_brn3pdp-Ed-ak6NoX_4Aeg_-54743257")]
     [Description(@"Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.")]
-    FORM,
+    ProForma,
     
     /// <summary>
     /// Account change is pending approval.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_Oi_OkCF1EeW9XJWqfgXIIA")]
     [Description(@"Account change is pending approval.")]
-    PEND,
+    Pending,
     
 }
 

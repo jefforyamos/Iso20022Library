@@ -20,19 +20,21 @@ public enum RemarketingMarginTypeCode
 {
     /// <summary>
     /// Agreed margin.
+    /// Encoded/decoded by serializers as "AGRE".
     /// </summary>
     [EnumMember(Value = "AGRE")]
     [IsoId("_aUJuaNp-Ed-ak6NoX_4Aeg_2083917829")]
     [Description(@"Agreed margin.")]
-    AGRE,
+    Agreed,
     
     /// <summary>
     /// Alternative margin.
+    /// Encoded/decoded by serializers as "ALTE".
     /// </summary>
     [EnumMember(Value = "ALTE")]
     [IsoId("_aUTfYNp-Ed-ak6NoX_4Aeg_2083917830")]
     [Description(@"Alternative margin.")]
-    ALTE,
+    Alternative,
     
 }
 

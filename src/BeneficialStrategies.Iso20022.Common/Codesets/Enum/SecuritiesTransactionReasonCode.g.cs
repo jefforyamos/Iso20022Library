@@ -20,75 +20,84 @@ public enum SecuritiesTransactionReasonCode
 {
     /// <summary>
     /// Specifies the reason why the instruction is cancelled.
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_ZGOisdp-Ed-ak6NoX_4Aeg_-1565978521")]
     [Description(@"Specifies the reason why the instruction is cancelled.")]
-    CAND,
+    Cancellation,
     
     /// <summary>
     /// Specifies the reason why a cancellation request sent for the related instruction is pending.
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_ZGOistp-Ed-ak6NoX_4Aeg_-1538271512")]
     [Description(@"Specifies the reason why a cancellation request sent for the related instruction is pending.")]
-    CANP,
+    PendingCancellation,
     
     /// <summary>
     /// Specifies the reason why the transaction was generated.
+    /// Encoded/decoded by serializers as "CGEN".
     /// </summary>
     [EnumMember(Value = "CGEN")]
     [IsoId("_ZGOis9p-Ed-ak6NoX_4Aeg_-1537348292")]
     [Description(@"Specifies the reason why the transaction was generated.")]
-    CGEN,
+    Generated,
     
     /// <summary>
     /// Specifies the reason why the instruction has an unmatched status.
+    /// Encoded/decoded by serializers as "NMAT".
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_ZGOitNp-Ed-ak6NoX_4Aeg_-1536425172")]
     [Description(@"Specifies the reason why the instruction has an unmatched status.")]
-    NMAT,
+    Unmatched,
     
     /// <summary>
     /// Specifies additional information about the processed instruction.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZGOitdp-Ed-ak6NoX_4Aeg_-1535502205")]
     [Description(@"Specifies additional information about the processed instruction.")]
-    PACK,
+    Acknowledgement,
     
     /// <summary>
     /// Specifies the reason why the instruction has a pending status.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZGOittp-Ed-ak6NoX_4Aeg_-1534577760")]
     [Description(@"Specifies the reason why the instruction has a pending status.")]
-    PEND,
+    Pending,
     
     /// <summary>
     /// Specifies the reason why the instruction has a failing settlement status.
+    /// Encoded/decoded by serializers as "PENF".
     /// </summary>
     [EnumMember(Value = "PENF")]
     [IsoId("_ZGOit9p-Ed-ak6NoX_4Aeg_-1526266040")]
     [Description(@"Specifies the reason why the instruction has a failing settlement status.")]
-    PENF,
+    Failing,
     
     /// <summary>
     /// Specifies the reason why the instruction has a pending processing status.
+    /// Encoded/decoded by serializers as "PPRC".
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_ZGOiuNp-Ed-ak6NoX_4Aeg_-1525342519")]
     [Description(@"Specifies the reason why the instruction has a pending processing status.")]
-    PPRC,
+    PendingProcessing,
     
     /// <summary>
     /// Specifies the reason why the instruction is in repair.
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_ZGOiudp-Ed-ak6NoX_4Aeg_-1524418998")]
     [Description(@"Specifies the reason why the instruction is in repair.")]
-    REPR,
+    Repair,
     
 }
 

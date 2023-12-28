@@ -20,19 +20,21 @@ public enum PriceStatusCode
 {
     /// <summary>
     /// Price is pending.
+    /// Encoded/decoded by serializers as "PNDG".
     /// </summary>
     [EnumMember(Value = "PNDG")]
     [IsoId("_KRC3kOzYEeSBf_ghFpb9rQ")]
     [Description(@"Price is pending.")]
-    PNDG,
+    Pending,
     
     /// <summary>
     /// No price for transaction (e.g. transfer between accounts).
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_ybLl0I-SEeWtN7rsKJRs8Q")]
     [Description(@"No price for transaction (e.g. transfer between accounts).")]
-    NOAP,
+    NotApplicable,
     
 }
 

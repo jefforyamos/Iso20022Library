@@ -21,563 +21,633 @@ public enum ExternalSystemBalanceTypeCode
 {
     /// <summary>
     /// Average balance to be held in the settlement account at the end of each day in order to fulfil the reserve due.|The approximation will be always made rounding up.
+    /// Encoded/decoded by serializers as "ADJT".
     /// </summary>
     [EnumMember(Value = "ADJT")]
     [IsoId("_ueCp7PRYEeuLhpyIdtJzwg")]
     [Description(@"Average balance to be held in the settlement account at the end of each day in order to fulfil the reserve due.|The approximation will be always made rounding up.")]
-    ADJT,
+    Adjustment,
     
     /// <summary>
     /// Balance represents the available discounted market value for discount window repo.
+    /// Encoded/decoded by serializers as "ADWR".
     /// </summary>
     [EnumMember(Value = "ADWR")]
     [IsoId("_ueLz0PRYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the available discounted market value for discount window repo.")]
-    ADWR,
+    AvailableDMVForDiscountWindowRepo,
     
     /// <summary>
     /// Balance represents the available discounted market value for intraday repo.
+    /// Encoded/decoded by serializers as "AIDR".
     /// </summary>
     [EnumMember(Value = "AIDR")]
     [IsoId("_ueLz0_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the available discounted market value for intraday repo.")]
-    AIDR,
+    AvailableDMVForIntradayRepo,
     
     /// <summary>
     /// Balance of money or securities that is at the disposal of the account owner on the date specified.
+    /// Encoded/decoded by serializers as "AVLB".
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_ueVk0PRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
-    AVLB,
+    Available,
     
     /// <summary>
     /// Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, such as the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.
+    /// Encoded/decoded by serializers as "BLCK".
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_ueVk0_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, such as the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.")]
-    BLCK,
+    Blocked,
     
     /// <summary>
     /// Balance representing the projected total of all cash legs for trades settling via a central securities depository that have been matched but blocked in order to not settle. These blocked trades are included in the calculation for settlement (for example to avoid overdrafts).|Usage rule: Blocking can be done by account owner or its counterparties. Usually this is done to chain transactions or to prioritise other trades. Blocked trades have an indicator that prevents the transactions from settling. Once matched, they can settle whenever the freeze is lifted. In this case they will move to FSET. Lifting the freeze can happen anytime during the day and the transaction will be settling in the next settlement cycle which can be the same day if the (international) central securities depository's operates several settlements cycles per day.
+    /// Encoded/decoded by serializers as "BLOC".
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_ueVk1vRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the projected total of all cash legs for trades settling via a central securities depository that have been matched but blocked in order to not settle. These blocked trades are included in the calculation for settlement (for example to avoid overdrafts).|Usage rule: Blocking can be done by account owner or its counterparties. Usually this is done to chain transactions or to prioritise other trades. Blocked trades have an indicator that prevents the transactions from settling. Once matched, they can settle whenever the freeze is lifted. In this case they will move to FSET. Lifting the freeze can happen anytime during the day and the transaction will be settling in the next settlement cycle which can be the same day if the (international) central securities depository's operates several settlements cycles per day.")]
-    BLOC,
+    BlockedTrades,
     
     /// <summary>
     /// Balance that is registered in the books of the account servicer.
+    /// Encoded/decoded by serializers as "BOOK".
     /// </summary>
     [EnumMember(Value = "BOOK")]
     [IsoId("_ueVk2fRYEeuLhpyIdtJzwg")]
     [Description(@"Balance that is registered in the books of the account servicer.")]
-    BOOK,
+    Book,
     
     /// <summary>
     /// Balance represents the total of the bulk settlement and central moneymarkets unit processor credit.
+    /// Encoded/decoded by serializers as "BSCC".
     /// </summary>
     [EnumMember(Value = "BSCC")]
     [IsoId("_uefV0PRYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the total of the bulk settlement and central moneymarkets unit processor credit.")]
-    BSCC,
+    BulkSettlementCMUPCredit,
     
     /// <summary>
     /// Balance represents the total of the bulk settlement and central moneymarkets unit processor debit.
+    /// Encoded/decoded by serializers as "BSCD".
     /// </summary>
     [EnumMember(Value = "BSCD")]
     [IsoId("_uefV0_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the total of the bulk settlement and central moneymarkets unit processor debit.")]
-    BSCD,
+    BulkSettlementCMUPDebit,
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded in exchanges that operate a central counterparty functionality.
+    /// Encoded/decoded by serializers as "CCPS".
     /// </summary>
     [EnumMember(Value = "CCPS")]
     [IsoId("_uefV1vRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded in exchanges that operate a central counterparty functionality.")]
-    CCPS,
+    CentralCounterparty,
     
     /// <summary>
     /// Balance of the account at the end of the account servicer's business day. It is the sum of the opening balance at the beginning of the day and all entries booked to the account during the account servicer's business day.
+    /// Encoded/decoded by serializers as "CLSG".
     /// </summary>
     [EnumMember(Value = "CLSG")]
     [IsoId("_uefV2fRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of the account at the end of the account servicer's business day. It is the sum of the opening balance at the beginning of the day and all entries booked to the account during the account servicer's business day.")]
-    CLSG,
+    Closing,
     
     /// <summary>
     /// Balance representing the total incoming payments that were put on hold because the credit limit has been exceeded.
+    /// Encoded/decoded by serializers as "COHB".
     /// </summary>
     [EnumMember(Value = "COHB")]
     [IsoId("_ueofwPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total incoming payments that were put on hold because the credit limit has been exceeded.")]
-    COHB,
+    CreditOnHold,
     
     /// <summary>
     /// Balance representing the projected total amount of all payment obligations to the participant (bank), based on their role as main paying agent.
+    /// Encoded/decoded by serializers as "COLC".
     /// </summary>
     [EnumMember(Value = "COLC")]
     [IsoId("_ueofw_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the projected total amount of all payment obligations to the participant (bank), based on their role as main paying agent.")]
-    COLC,
+    DividendsCollection,
     
     /// <summary>
     /// Balance representing the total incoming payments that have been processed and are waiting for settlement.
+    /// Encoded/decoded by serializers as "CPBL".
     /// </summary>
     [EnumMember(Value = "CPBL")]
     [IsoId("_ueofxvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total incoming payments that have been processed and are waiting for settlement.")]
-    CPBL,
+    CreditProcessed,
     
     /// <summary>
     /// Balance representing the sum of all credit entries booked to an account.
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_ueofyfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the sum of all credit entries booked to an account.")]
-    CRDT,
+    Credit,
     
     /// <summary>
     /// Balance of the account at a precise moment in time.
+    /// Encoded/decoded by serializers as "CRRT".
     /// </summary>
     [EnumMember(Value = "CRRT")]
     [IsoId("_ueofzPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of the account at a precise moment in time.")]
-    CRRT,
+    Current,
     
     /// <summary>
     /// Balance representing the actual total of all asset servicing transactions such as dividends, income corporate actions equivalents, tax returns, redemptions, etc.
+    /// Encoded/decoded by serializers as "CUSA".
     /// </summary>
     [EnumMember(Value = "CUSA")]
     [IsoId("_ueyQwPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the actual total of all asset servicing transactions such as dividends, income corporate actions equivalents, tax returns, redemptions, etc.")]
-    CUSA,
+    CustodyActual,
     
     /// <summary>
     /// Balance representing the projected total of all asset servicing transactions such as dividends, income corporate actions equivalents, tax returns, etc.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_ueyQw_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the projected total of all asset servicing transactions such as dividends, income corporate actions equivalents, tax returns, etc.")]
-    CUST,
+    Custody,
     
     /// <summary>
     /// Balance representing the sum of all debit entries booked to an account.
+    /// Encoded/decoded by serializers as "DBIT".
     /// </summary>
     [EnumMember(Value = "DBIT")]
     [IsoId("_ue8BwvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the sum of all debit entries booked to an account.")]
-    DBIT,
+    Debit,
     
     /// <summary>
     /// Balance representing the intra day overdraft granted by the central bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.
+    /// Encoded/decoded by serializers as "DLOD".
     /// </summary>
     [EnumMember(Value = "DLOD")]
     [IsoId("_ue8BxfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the intra day overdraft granted by the central bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.")]
-    DLOD,
+    DaylightOverdraft,
     
     /// <summary>
     /// Balance representing the total outgoing payments that were put on hold because the debit limit has been exceeded.
+    /// Encoded/decoded by serializers as "DOHB".
     /// </summary>
     [EnumMember(Value = "DOHB")]
     [IsoId("_ufFLsPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total outgoing payments that were put on hold because the debit limit has been exceeded.")]
-    DOHB,
+    DebitOnHold,
     
     /// <summary>
     /// Balance representing the total outgoing payments that have been processed and are waiting for settlement.
+    /// Encoded/decoded by serializers as "DPBL".
     /// </summary>
     [EnumMember(Value = "DPBL")]
     [IsoId("_ufFLs_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total outgoing payments that have been processed and are waiting for settlement.")]
-    DPBL,
+    DebitProcessed,
     
     /// <summary>
     /// Balance representing the cash equivalent of all settled securities transactions.
+    /// Encoded/decoded by serializers as "DSET".
     /// </summary>
     [EnumMember(Value = "DSET")]
     [IsoId("_ufFLtvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash equivalent of all settled securities transactions.")]
-    DSET,
+    DefinitiveSettledSecurities,
     
     /// <summary>
     /// Balance represents the discount window repo drawings.
+    /// Encoded/decoded by serializers as "DWRD".
     /// </summary>
     [EnumMember(Value = "DWRD")]
     [IsoId("_ufFLufRYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the discount window repo drawings.")]
-    DWRD,
+    DiscountWindowRepoDrawings,
     
     /// <summary>
     /// Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, such as securities available and eligible as collateral with the central bank.
+    /// Encoded/decoded by serializers as "EAST".
     /// </summary>
     [EnumMember(Value = "EAST")]
     [IsoId("_ufO8sPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, such as securities available and eligible as collateral with the central bank.")]
-    EAST,
+    EligibleAssets,
     
     /// <summary>
     /// The code defines the threshold to the value excess reserve exemption balance between the exempt and non-exempt tiers of excess reserve. 
+    /// Encoded/decoded by serializers as "EXRE".
     /// </summary>
     [EnumMember(Value = "EXRE")]
     [IsoId("_ufO8s_RYEeuLhpyIdtJzwg")]
     [Description(@"The code defines the threshold to the value excess reserve exemption balance between the exempt and non-exempt tiers of excess reserve. ")]
-    EXRE,
+    ExcessReserveExemptionThresholdExemptTier,
     
     /// <summary>
     /// The code defines the balance beyond excess reserve exemption threshold within the periodic average balance for minimum reserve. Thus, this part of the excess reserve is still to be remunerated.
+    /// Encoded/decoded by serializers as "EXRR".
     /// </summary>
     [EnumMember(Value = "EXRR")]
     [IsoId("_ufO8tvRYEeuLhpyIdtJzwg")]
     [Description(@"The code defines the balance beyond excess reserve exemption threshold within the periodic average balance for minimum reserve. Thus, this part of the excess reserve is still to be remunerated.")]
-    EXRR,
+    ExcessReserveRemunerationBalanceNonExemptTier,
     
     /// <summary>
     /// Balance representing the forecast of the cash-equivalent resulting from evaluation of existing holdings at central securities depositary that are qualified to serve as collateral.
+    /// Encoded/decoded by serializers as "FCOL".
     /// </summary>
     [EnumMember(Value = "FCOL")]
     [IsoId("_ufO8ufRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the cash-equivalent resulting from evaluation of existing holdings at central securities depositary that are qualified to serve as collateral.")]
-    FCOL,
+    FirmCollateralisation,
     
     /// <summary>
     /// Balance representing the cash equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral and have been used as collateral.
+    /// Encoded/decoded by serializers as "FCOU".
     /// </summary>
     [EnumMember(Value = "FCOU")]
     [IsoId("_ufYGoPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral and have been used as collateral.")]
-    FCOU,
+    UsedAmountsFirmCollateralisation,
     
     /// <summary>
     /// Balance representing the total of all balance types representing transactions to settle, blocked items and custody transactions.
+    /// Encoded/decoded by serializers as "FORC".
     /// </summary>
     [EnumMember(Value = "FORC")]
     [IsoId("_ufYGo_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total of all balance types representing transactions to settle, blocked items and custody transactions.")]
-    FORC,
+    CashForecast,
     
     /// <summary>
     /// Balance representing the forecast of total of all cash legs for trades that are ready to settle via a central securities depository. Amounts shown are still subject to processing of the securities settlement.
+    /// Encoded/decoded by serializers as "FSET".
     /// </summary>
     [EnumMember(Value = "FSET")]
     [IsoId("_ufYGpvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of total of all cash legs for trades that are ready to settle via a central securities depository. Amounts shown are still subject to processing of the securities settlement.")]
-    FSET,
+    ForecastSettlement,
     
     /// <summary>
     /// Balance representing the net amount to be funded resulting from all transactions which have an impact on the funding requirement.
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_ufYGqfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the net amount to be funded resulting from all transactions which have an impact on the funding requirement.")]
-    FUND,
+    NetFunding,
     
     /// <summary>
     /// Balance representing the total of the payments with a processing date in the future.
+    /// Encoded/decoded by serializers as "FUTB".
     /// </summary>
     [EnumMember(Value = "FUTB")]
     [IsoId("_ufYGrPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total of the payments with a processing date in the future.")]
-    FUTB,
+    TotalFuture,
     
     /// <summary>
     /// Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as "INTM".
     /// </summary>
     [EnumMember(Value = "INTM")]
     [IsoId("_ufh3oPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.")]
-    INTM,
+    Interim,
     
     /// <summary>
     /// Balance represents the intraday repo drawings.
+    /// Encoded/decoded by serializers as "IRDR".
     /// </summary>
     [EnumMember(Value = "IRDR")]
     [IsoId("_ufh3o_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the intraday repo drawings.")]
-    IRDR,
+    IntradayRepoDrawings,
     
     /// <summary>
     /// Balance represents the intraday repo limit.
+    /// Encoded/decoded by serializers as "IRLT".
     /// </summary>
     [EnumMember(Value = "IRLT")]
     [IsoId("_ufh3pvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the intraday repo limit.")]
-    IRLT,
+    IntradayRepoLimit,
     
     /// <summary>
     /// Balance representing the cash equivalent of transactions with a lack of holdings.
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_ufh3qfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash equivalent of transactions with a lack of holdings.")]
-    LACK,
+    LackOfHoldingsTransactions,
     
     /// <summary>
     /// Balance of a specific limit value, such as a bilateral balance is calculated in relation to a given bilateral limit.
+    /// Encoded/decoded by serializers as "LRLD".
     /// </summary>
     [EnumMember(Value = "LRLD")]
     [IsoId("_ufrBkPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of a specific limit value, such as a bilateral balance is calculated in relation to a given bilateral limit.")]
-    LRLD,
+    LimitRelated,
     
     /// <summary>
     /// Balance composed of the sum of all liquidity transfers made to or from an account.
+    /// Encoded/decoded by serializers as "LTSF".
     /// </summary>
     [EnumMember(Value = "LTSF")]
     [IsoId("_ufrBk_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance composed of the sum of all liquidity transfers made to or from an account.")]
-    LTSF,
+    LiquidityTransfer,
     
     /// <summary>
     /// Balance of the identified account plus the balance of all of its subaccounts.
+    /// Encoded/decoded by serializers as "MSTR".
     /// </summary>
     [EnumMember(Value = "MSTR")]
     [IsoId("_ufrBlvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of the identified account plus the balance of all of its subaccounts.")]
-    MSTR,
+    Master,
     
     /// <summary>
     /// Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available.
+    /// Encoded/decoded by serializers as "NOTE".
     /// </summary>
     [EnumMember(Value = "NOTE")]
     [IsoId("_ufrBmfRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available.")]
-    NOTE,
+    Noted,
     
     /// <summary>
     /// Balance representing the cash equivalent of all non-settled securities transactions.
+    /// Encoded/decoded by serializers as "NSET".
     /// </summary>
     [EnumMember(Value = "NSET")]
     [IsoId("_uf0ykPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash equivalent of all non-settled securities transactions.")]
-    NSET,
+    NonSettledSecurities,
     
     /// <summary>
     /// Book balance of the account at the beginning of the account servicer's business day. It always equals the closing book balance from the previous business day. |Note: the available balance at the beginning of the account servicer's business day may be different from the closing book balance from the previous business day.
+    /// Encoded/decoded by serializers as "OPNG".
     /// </summary>
     [EnumMember(Value = "OPNG")]
     [IsoId("_uf0yk_RYEeuLhpyIdtJzwg")]
     [Description(@"Book balance of the account at the beginning of the account servicer's business day. It always equals the closing book balance from the previous business day. |Note: the available balance at the beginning of the account servicer's business day may be different from the closing book balance from the previous business day.")]
-    OPNG,
+    Opening,
     
     /// <summary>
     /// Balance representing the Forecast of the total of all cash-legs of transactions 'over the counter' (OTC), going through central counter party (CCP) functions.
+    /// Encoded/decoded by serializers as "OTCC".
     /// </summary>
     [EnumMember(Value = "OTCC")]
     [IsoId("_uf-jkPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the Forecast of the total of all cash-legs of transactions 'over the counter' (OTC), going through central counter party (CCP) functions.")]
-    OTCC,
+    CCPGuaranteedOTCTransactions,
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded 'over the counter' (OTC).
+    /// Encoded/decoded by serializers as "OTCG".
     /// </summary>
     [EnumMember(Value = "OTCG")]
     [IsoId("_uf-jk_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded 'over the counter' (OTC).")]
-    OTCG,
+    ForecastOTCTransactions,
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded 'over the counter' (OTC) not going through central counter party (CCP) functions.
+    /// Encoded/decoded by serializers as "OTCN".
     /// </summary>
     [EnumMember(Value = "OTCN")]
     [IsoId("_uf-jlvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded 'over the counter' (OTC) not going through central counter party (CCP) functions.")]
-    OTCN,
+    NonCCPGuaranteedOTCTransactions,
     
     /// <summary>
     /// Balance representing the projected total of all cash legs for trades settling via a central securities depository that have been matched but blocked in order to not settle. These blocked transactions are not included in the calculation for settlement.
+    /// Encoded/decoded by serializers as "OTHB".
     /// </summary>
     [EnumMember(Value = "OTHB")]
     [IsoId("_ugIUkPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the projected total of all cash legs for trades settling via a central securities depository that have been matched but blocked in order to not settle. These blocked transactions are not included in the calculation for settlement.")]
-    OTHB,
+    OtherBlockedTrades,
     
     /// <summary>
     /// Balance of securities pending delivery, such as the orders to sell securities have been executed but settlement of the open transactions has not been confirmed.
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_ugIUk_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance of securities pending delivery, such as the orders to sell securities have been executed but settlement of the open transactions has not been confirmed.")]
-    PDNG,
+    Pending,
     
     /// <summary>
     /// Balance representing the fictive forecast of automated direct debits or payment based on standing arrangements between a central securities depository and the user.||||Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.
+    /// Encoded/decoded by serializers as "PIPO".
     /// </summary>
     [EnumMember(Value = "PIPO")]
     [IsoId("_ugIUlvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the fictive forecast of automated direct debits or payment based on standing arrangements between a central securities depository and the user.||||Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.")]
-    PIPO,
+    PayInPayOut,
     
     /// <summary>
     /// Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.
+    /// Encoded/decoded by serializers as "PRAV".
     /// </summary>
     [EnumMember(Value = "PRAV")]
     [IsoId("_ugIUmfRYEeuLhpyIdtJzwg")]
     [Description(@"Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.")]
-    PRAV,
+    ProgressiveAverage,
     
     /// <summary>
     /// Balance representing the sum of entries as a result of payments processing. Entries relating to fees, interest, or other movements not a result of payments sent or received by the account owner are not included.
+    /// Encoded/decoded by serializers as "PYMT".
     /// </summary>
     [EnumMember(Value = "PYMT")]
     [IsoId("_ugIUnPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the sum of entries as a result of payments processing. Entries relating to fees, interest, or other movements not a result of payments sent or received by the account owner are not included.")]
-    PYMT,
+    Payment,
     
     /// <summary>
     /// Balance representing the total of the payments that have been rejected.
+    /// Encoded/decoded by serializers as "REJB".
     /// </summary>
     [EnumMember(Value = "REJB")]
     [IsoId("_ugRegPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total of the payments that have been rejected.")]
-    REJB,
+    TotalRejected,
     
     /// <summary>
     /// Balance represents the total of the central moneymarkets unit processor repo credits.
+    /// Encoded/decoded by serializers as "REPC".
     /// </summary>
     [EnumMember(Value = "REPC")]
     [IsoId("_ugReg_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the total of the central moneymarkets unit processor repo credits.")]
-    REPC,
+    CMUPRepoCredit,
     
     /// <summary>
     /// Balance represents the total of the central moneymarkets unit processor repo debits.
+    /// Encoded/decoded by serializers as "REPD".
     /// </summary>
     [EnumMember(Value = "REPD")]
     [IsoId("_ugRehvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the total of the central moneymarkets unit processor repo debits.")]
-    REPD,
+    CMUPRepoDebit,
     
     /// <summary>
     /// Balance of cash that may only be used under certain conditions.||Balance type is used to block securities/cash in the client account for example, when related to specific corporate actions, the holding is under the direct control of the system paying agent, who is the only one who can transfer securities out of this balance type.|Also known as the "escrow balance" or "sequestered balance".
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_ugReifRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of cash that may only be used under certain conditions.||Balance type is used to block securities/cash in the client account for example, when related to specific corporate actions, the holding is under the direct control of the system paying agent, who is the only one who can transfer securities out of this balance type.|Also known as the ""escrow balance"" or ""sequestered balance"".")]
-    REST,
+    Restricted,
     
     /// <summary>
     /// Balance represents the settlement account processor direct credit amount.
+    /// Encoded/decoded by serializers as "SAPC".
     /// </summary>
     [EnumMember(Value = "SAPC")]
     [IsoId("_ugbPgPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the settlement account processor direct credit amount.")]
-    SAPC,
+    SAPDirectCreditAmount,
     
     /// <summary>
     /// Balance represents the settlement account processor direct debit amount.
+    /// Encoded/decoded by serializers as "SAPD".
     /// </summary>
     [EnumMember(Value = "SAPD")]
     [IsoId("_ugbPg_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the settlement account processor direct debit amount.")]
-    SAPD,
+    SAPDirectDebitAmount,
     
     /// <summary>
     /// Balance represents the settlement account processor queue amount.
+    /// Encoded/decoded by serializers as "SAPP".
     /// </summary>
     [EnumMember(Value = "SAPP")]
     [IsoId("_uglAgPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance represents the settlement account processor queue amount.")]
-    SAPP,
+    SAPQueueAmount,
     
     /// <summary>
     /// Balance representing the forecast of the cash-equivalent resulting from evaluation of the net incoming balance of securities qualified to serve as collateral for which settlement instructions are held at.
+    /// Encoded/decoded by serializers as "SCOL".
     /// </summary>
     [EnumMember(Value = "SCOL")]
     [IsoId("_uglAg_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the cash-equivalent resulting from evaluation of the net incoming balance of securities qualified to serve as collateral for which settlement instructions are held at.")]
-    SCOL,
+    SelfCollateralisation,
     
     /// <summary>
     /// Balance representing the cash-equivalent resulting from evaluation of incoming securities, qualified to serve as collateral and actually used as collateral, which have been settled during the settlement process.
+    /// Encoded/decoded by serializers as "SCOU".
     /// </summary>
     [EnumMember(Value = "SCOU")]
     [IsoId("_uglAhvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash-equivalent resulting from evaluation of incoming securities, qualified to serve as collateral and actually used as collateral, which have been settled during the settlement process.")]
-    SCOU,
+    UsedAmountsSelfCollateralisation,
     
     /// <summary>
     /// Balance of the account identified (as opposed to Master Balance).
+    /// Encoded/decoded by serializers as "SELF".
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_uguKcPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of the account identified (as opposed to Master Balance).")]
-    SELF,
+    Self,
     
     /// <summary>
     /// Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.
+    /// Encoded/decoded by serializers as "THRE".
     /// </summary>
     [EnumMember(Value = "THRE")]
     [IsoId("_uguKc_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.")]
-    THRE,
+    Threshold,
     
     /// <summary>
     /// Balance representing the total of the payments that were put on hold because the limits have been exceeded.
+    /// Encoded/decoded by serializers as "TOHB".
     /// </summary>
     [EnumMember(Value = "TOHB")]
     [IsoId("_uguKdvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total of the payments that were put on hold because the limits have been exceeded.")]
-    TOHB,
+    TotalOnHold,
     
     /// <summary>
     /// Balance representing the total of the payments that have been processed and are waiting for settlement during the day.
+    /// Encoded/decoded by serializers as "TPBL".
     /// </summary>
     [EnumMember(Value = "TPBL")]
     [IsoId("_uguKefRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total of the payments that have been processed and are waiting for settlement during the day.")]
-    TPBL,
+    TotalProcessed,
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions in exchanges, going through CCP functions.
+    /// Encoded/decoded by serializers as "XCHC".
     /// </summary>
     [EnumMember(Value = "XCHC")]
     [IsoId("_ug37cPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions in exchanges, going through CCP functions.")]
-    XCHC,
+    CCPGuaranteedForecasting,
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded in exchanges.
+    /// Encoded/decoded by serializers as "XCHG".
     /// </summary>
     [EnumMember(Value = "XCHG")]
     [IsoId("_ug37c_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded in exchanges.")]
-    XCHG,
+    ExchangeForecast,
     
     /// <summary>
     /// Balance representing the forecast of the total of all cash legs of transactions traded in exchanges not going through central counter party (CCP) functions.
+    /// Encoded/decoded by serializers as "XCHN".
     /// </summary>
     [EnumMember(Value = "XCHN")]
     [IsoId("_ug37dvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the total of all cash legs of transactions traded in exchanges not going through central counter party (CCP) functions.")]
-    XCHN,
+    NonCCPGuaranteedForecasting,
     
     /// <summary>
     /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day credit balance if everything books to the account and no other credit entry is posted.
+    /// Encoded/decoded by serializers as "XCRD".
     /// </summary>
     [EnumMember(Value = "XCRD")]
     [IsoId("_ug37efRYEeuLhpyIdtJzwg")]
     [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day credit balance if everything books to the account and no other credit entry is posted.")]
-    XCRD,
+    ExpectedCredit,
     
     /// <summary>
     /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day debit balance if everything books to the account and no other debit entry is posted.
+    /// Encoded/decoded by serializers as "XDBT".
     /// </summary>
     [EnumMember(Value = "XDBT")]
     [IsoId("_ug37fPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day debit balance if everything books to the account and no other debit entry is posted.")]
-    XDBT,
+    ExpectedDebit,
     
     /// <summary>
     /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted.
+    /// Encoded/decoded by serializers as "XPCD".
     /// </summary>
     [EnumMember(Value = "XPCD")]
     [IsoId("_uhBFYPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted.")]
-    XPCD,
+    Expected,
     
 }
 

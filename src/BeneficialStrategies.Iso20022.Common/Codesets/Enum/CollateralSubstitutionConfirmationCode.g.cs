@@ -20,19 +20,21 @@ public enum CollateralSubstitutionConfirmationCode
 {
     /// <summary>
     /// Notification that the collateral substitution, that is new piece(s) of collateral, have been released.
+    /// Encoded/decoded by serializers as "CREL".
     /// </summary>
     [EnumMember(Value = "CREL")]
     [IsoId("_Yb5zVNp-Ed-ak6NoX_4Aeg_-808634352")]
     [Description(@"Notification that the collateral substitution, that is new piece(s) of collateral, have been released.")]
-    CREL,
+    CollateralSubstitutionReleased,
     
     /// <summary>
     /// Confirmation that the collateral substitution, that is new piece(s) of collateral, have been received.
+    /// Encoded/decoded by serializers as "CRET".
     /// </summary>
     [EnumMember(Value = "CRET")]
     [IsoId("_Yb5zVdp-Ed-ak6NoX_4Aeg_-760306748")]
     [Description(@"Confirmation that the collateral substitution, that is new piece(s) of collateral, have been received.")]
-    CRET,
+    CollateralSubstitutionReturned,
     
 }
 

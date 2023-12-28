@@ -20,43 +20,48 @@ public enum AgreementFrameworkCode
 {
     /// <summary>
     /// French Banker's Association Agreement.
+    /// Encoded/decoded by serializers as "FBAA".
     /// </summary>
     [EnumMember(Value = "FBAA")]
     [IsoId("_YbdHZtp-Ed-ak6NoX_4Aeg_-475249815")]
     [Description(@"French Banker's Association Agreement.")]
-    FBAA,
+    FBAAgreement,
     
     /// <summary>
     /// British Banker's Association Agreement.
+    /// Encoded/decoded by serializers as "BBAA".
     /// </summary>
     [EnumMember(Value = "BBAA")]
     [IsoId("_Ybm4YNp-Ed-ak6NoX_4Aeg_-482117852")]
     [Description(@"British Banker's Association Agreement.")]
-    BBAA,
+    BBAAgreement,
     
     /// <summary>
     /// German Rahmenvertrag Agreement.
+    /// Encoded/decoded by serializers as "DERV".
     /// </summary>
     [EnumMember(Value = "DERV")]
     [IsoId("_Ybm4Ydp-Ed-ak6NoX_4Aeg_368638088")]
     [Description(@"German Rahmenvertrag Agreement.")]
-    DERV,
+    GermanRahmenvertragAgreement,
     
     /// <summary>
     /// International Swaps and Derivatives Association Agreement.
+    /// Encoded/decoded by serializers as "ISDA".
     /// </summary>
     [EnumMember(Value = "ISDA")]
     [IsoId("_Ybm4Ytp-Ed-ak6NoX_4Aeg_343206723")]
     [Description(@"International Swaps and Derivatives Association Agreement.")]
-    ISDA,
+    ISDAAgreement,
     
     /// <summary>
     /// No information about the master agreement is available.
+    /// Encoded/decoded by serializers as "NONR".
     /// </summary>
     [EnumMember(Value = "NONR")]
     [IsoId("_Ybm4Y9p-Ed-ak6NoX_4Aeg_-2097675031")]
     [Description(@"No information about the master agreement is available.")]
-    NONR,
+    NoReference,
     
 }
 

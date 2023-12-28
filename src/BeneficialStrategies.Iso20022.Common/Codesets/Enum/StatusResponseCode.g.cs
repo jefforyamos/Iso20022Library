@@ -20,27 +20,30 @@ public enum StatusResponseCode
 {
     /// <summary>
     /// Response not provided yet.
+    /// Encoded/decoded by serializers as "NRES".
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_Oh2ljT2yEeGXQ7zxoAIFpQ")]
     [Description(@"Response not provided yet.")]
-    NRES,
+    NoResponseYet,
     
     /// <summary>
     /// Response is partially provided.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_b9g5bT2yEeGXQ7zxoAIFpQ")]
     [Description(@"Response is partially provided.")]
-    PART,
+    PartialResponse,
     
     /// <summary>
     /// Response is complete.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ilBY7T2yEeGXQ7zxoAIFpQ")]
     [Description(@"Response is complete.")]
-    COMP,
+    CompleteResponse,
     
 }
 

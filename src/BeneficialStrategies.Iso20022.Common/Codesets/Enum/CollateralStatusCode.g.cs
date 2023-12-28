@@ -20,27 +20,30 @@ public enum CollateralStatusCode
 {
     /// <summary>
     /// Shortage of collateral.
+    /// Encoded/decoded by serializers as "DEFI".
     /// </summary>
     [EnumMember(Value = "DEFI")]
     [IsoId("_HnIp4MUaEeiF-qqyf1JQhg")]
     [Description(@"Shortage of collateral.")]
-    DEFI,
+    CollateralShortage,
     
     /// <summary>
     /// Excess of collateral.
+    /// Encoded/decoded by serializers as "EXCS".
     /// </summary>
     [EnumMember(Value = "EXCS")]
     [IsoId("_KxXKMMUaEeiF-qqyf1JQhg")]
     [Description(@"Excess of collateral.")]
-    EXCS,
+    CollateralExcess,
     
     /// <summary>
     /// Collateral covers the exposure and there is no excess.
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_UvIa4MUaEeiF-qqyf1JQhg")]
     [Description(@"Collateral covers the exposure and there is no excess.")]
-    FLAT,
+    NoExcessCollateral,
     
 }
 

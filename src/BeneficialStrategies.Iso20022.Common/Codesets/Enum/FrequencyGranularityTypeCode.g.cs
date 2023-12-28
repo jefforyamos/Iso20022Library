@@ -20,115 +20,129 @@ public enum FrequencyGranularityTypeCode
 {
     /// <summary>
     /// Event takes place every day.
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_wdB9ADy5EeS4E7Ac8_OV3g")]
     [Description(@"Event takes place every day.")]
-    DAIL,
+    Daily,
     
     /// <summary>
     /// Event takes place at the end of each month or period of one month.
+    /// Encoded/decoded by serializers as "EMON".
     /// </summary>
     [EnumMember(Value = "EMON")]
     [IsoId("_zkoAEDy5EeS4E7Ac8_OV3g")]
     [Description(@"Event takes place at the end of each month or period of one month.")]
-    EMON,
+    EndOfMonth,
     
     /// <summary>
     /// Event takes place once a week.
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_3QM58Dy5EeS4E7Ac8_OV3g")]
     [Description(@"Event takes place once a week.")]
-    WEEK,
+    Weekly,
     
     /// <summary>
     /// Event takes place at the end of each week.
+    /// Encoded/decoded by serializers as "EWEK".
     /// </summary>
     [EnumMember(Value = "EWEK")]
     [IsoId("_DXBh0Dy6EeS4E7Ac8_OV3g")]
     [Description(@"Event takes place at the end of each week.")]
-    EWEK,
+    EndOfWeek,
     
     /// <summary>
     /// Event takes place at the end of each day.
+    /// Encoded/decoded by serializers as "EDAY".
     /// </summary>
     [EnumMember(Value = "EDAY")]
     [IsoId("_GuKcwDy6EeS4E7Ac8_OV3g")]
     [Description(@"Event takes place at the end of each day.")]
-    EDAY,
+    EndOfDay,
     
     /// <summary>
     /// Event takes place every month or once a month.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_I4xTIDy6EeS4E7Ac8_OV3g")]
     [Description(@"Event takes place every month or once a month.")]
-    MNTH,
+    Monthly,
     
     /// <summary>
     /// Event takes place every three months or four times a year.
+    /// Encoded/decoded by serializers as "QURT".
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_rT_w0EilEeSlHoYg_EudVQ")]
     [Description(@"Event takes place every three months or four times a year.")]
-    QURT,
+    Quarterly,
     
     /// <summary>
     /// Event takes place at the end of each period of three months (or four times a year).
+    /// Encoded/decoded by serializers as "EQRT".
     /// </summary>
     [EnumMember(Value = "EQRT")]
     [IsoId("_rd0bMEilEeSlHoYg_EudVQ")]
     [Description(@"Event takes place at the end of each period of three months (or four times a year).")]
-    EQRT,
+    EndOfQuarter,
     
     /// <summary>
     /// Event takes place every year or once a year.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_rjBrUEilEeSlHoYg_EudVQ")]
     [Description(@"Event takes place every year or once a year.")]
-    YEAR,
+    Yearly,
     
     /// <summary>
     /// Event takes place every six months or two times a year.
+    /// Encoded/decoded by serializers as "MIAN".
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_7KE4sEilEeSlHoYg_EudVQ")]
     [Description(@"Event takes place every six months or two times a year.")]
-    MIAN,
+    Semiannually,
     
     /// <summary>
     /// Event takes place at the end of each six months (or two times a year).
+    /// Encoded/decoded by serializers as "ESEM".
     /// </summary>
     [EnumMember(Value = "ESEM")]
     [IsoId("_7Ny7EEilEeSlHoYg_EudVQ")]
     [Description(@"Event takes place at the end of each six months (or two times a year).")]
-    ESEM,
+    EndOfSemester,
     
     /// <summary>
     /// Event takes place at the end of each two weeks.
+    /// Encoded/decoded by serializers as "EFRT".
     /// </summary>
     [EnumMember(Value = "EFRT")]
     [IsoId("_atIPwEimEeSlHoYg_EudVQ")]
     [Description(@"Event takes place at the end of each two weeks.")]
-    EFRT,
+    EndOfFortnight,
     
     /// <summary>
     /// Event takes place every two weeks.
+    /// Encoded/decoded by serializers as "FRTN".
     /// </summary>
     [EnumMember(Value = "FRTN")]
     [IsoId("_d0aJwEimEeSlHoYg_EudVQ")]
     [Description(@"Event takes place every two weeks.")]
-    FRTN,
+    Fortnightly,
     
     /// <summary>
     /// Event takes place at the end of each year.
+    /// Encoded/decoded by serializers as "ENDY".
     /// </summary>
     [EnumMember(Value = "ENDY")]
     [IsoId("_e9KBsErvEeSHP9pzU4nIpA")]
     [Description(@"Event takes place at the end of each year.")]
-    ENDY,
+    EndOfYear,
     
 }
 

@@ -20,27 +20,30 @@ public enum BuyInStateCode
 {
     /// <summary>
     /// Buy-in was successful.
+    /// Encoded/decoded by serializers as "BSSY".
     /// </summary>
     [EnumMember(Value = "BSSY")]
     [IsoId("_bHt9IJwVEeqtp-LOti013g")]
     [Description(@"Buy-in was successful.")]
-    BSSY,
+    Successful,
     
     /// <summary>
     /// Buy-in was unsuccessful.
+    /// Encoded/decoded by serializers as "BSSN".
     /// </summary>
     [EnumMember(Value = "BSSN")]
     [IsoId("_bOt9AJwVEeqtp-LOti013g")]
     [Description(@"Buy-in was unsuccessful.")]
-    BSSN,
+    Unsuccesssful,
     
     /// <summary>
     /// Buy-in was partially successful.
+    /// Encoded/decoded by serializers as "BSSP".
     /// </summary>
     [EnumMember(Value = "BSSP")]
     [IsoId("_bUEXEJwVEeqtp-LOti013g")]
     [Description(@"Buy-in was partially successful.")]
-    BSSP,
+    PartiallySuccessful,
     
 }
 

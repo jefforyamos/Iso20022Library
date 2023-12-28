@@ -20,51 +20,57 @@ public enum FinancialAssetTypeCategoryCode
 {
     /// <summary>
     /// Balance attributed to equities.
+    /// Encoded/decoded by serializers as "EQTY".
     /// </summary>
     [EnumMember(Value = "EQTY")]
     [IsoId("_m9ZG0fNBEeCuA5Tr22BnwA_1512048060")]
     [Description(@"Balance attributed to equities.")]
-    EQTY,
+    Equities,
     
     /// <summary>
     /// Balance attributed to debt instruments.
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_m9ZG0vNBEeCuA5Tr22BnwA_-1310716183")]
     [Description(@"Balance attributed to debt instruments.")]
-    DEBT,
+    DebtInstruments,
     
     /// <summary>
     /// Balance attributed to entitlements.
+    /// Encoded/decoded by serializers as "ENTL".
     /// </summary>
     [EnumMember(Value = "ENTL")]
     [IsoId("_m9ZG0_NBEeCuA5Tr22BnwA_-492039069")]
     [Description(@"Balance attributed to entitlements.")]
-    ENTL,
+    Entitlements,
     
     /// <summary>
     /// Balance attributed to derivatives.
+    /// Encoded/decoded by serializers as "DERV".
     /// </summary>
     [EnumMember(Value = "DERV")]
     [IsoId("_m9ZG1PNBEeCuA5Tr22BnwA_2127191488")]
     [Description(@"Balance attributed to derivatives.")]
-    DERV,
+    Derivatives,
     
     /// <summary>
     /// Balance attributed to money market instruments.
+    /// Encoded/decoded by serializers as "MMKT".
     /// </summary>
     [EnumMember(Value = "MMKT")]
     [IsoId("_m9ZG1fNBEeCuA5Tr22BnwA_-1923244113")]
     [Description(@"Balance attributed to money market instruments.")]
-    MMKT,
+    MoneyMarket,
     
     /// <summary>
     /// Other financial asset type balance according to a different classification, which is not explictly defined.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_m9i30PNBEeCuA5Tr22BnwA_-878884426")]
     [Description(@"Other financial asset type balance according to a different classification, which is not explictly defined.")]
-    OTHR,
+    Others,
     
 }
 

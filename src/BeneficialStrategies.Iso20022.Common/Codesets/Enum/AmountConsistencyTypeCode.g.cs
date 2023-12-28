@@ -20,43 +20,48 @@ public enum AmountConsistencyTypeCode
 {
     /// <summary>
     /// Amount information matches the reference data record.
+    /// Encoded/decoded by serializers as "CONS".
     /// </summary>
     [EnumMember(Value = "CONS")]
     [IsoId("_k5v2UASsEeusZ4O-nsxv_w")]
     [Description(@"Amount information matches the reference data record.")]
-    CONS,
+    ConsistentAmount,
     
     /// <summary>
     /// Amount information does not match the reference data record.
+    /// Encoded/decoded by serializers as "ICNS".
     /// </summary>
     [EnumMember(Value = "ICNS")]
     [IsoId("_vMOLsQSsEeusZ4O-nsxv_w")]
     [Description(@"Amount information does not match the reference data record.")]
-    ICNS,
+    InconsistentAmount,
     
     /// <summary>
     /// Charges amount information does not match the reference data record.
+    /// Encoded/decoded by serializers as "ICGA".
     /// </summary>
     [EnumMember(Value = "ICGA")]
     [IsoId("_3F2aYQSsEeusZ4O-nsxv_w")]
     [Description(@"Charges amount information does not match the reference data record.")]
-    ICGA,
+    InconsistentChargesAmount,
     
     /// <summary>
     /// Interbank settlement amount information does not match the reference data record.
+    /// Encoded/decoded by serializers as "IISA".
     /// </summary>
     [EnumMember(Value = "IISA")]
     [IsoId("_3bdeAQSsEeusZ4O-nsxv_w")]
     [Description(@"Interbank settlement amount information does not match the reference data record.")]
-    IISA,
+    InconsistentInterbankSettlementAmount,
     
     /// <summary>
     /// Amount information confirmed to the creditor does not match the reference data record.
+    /// Encoded/decoded by serializers as "ICFA".
     /// </summary>
     [EnumMember(Value = "ICFA")]
     [IsoId("_3wpD0QSsEeusZ4O-nsxv_w")]
     [Description(@"Amount information confirmed to the creditor does not match the reference data record.")]
-    ICFA,
+    InconsistentConfirmedAmount,
     
 }
 

@@ -22,11 +22,12 @@ public enum PortfolioWithdrawalReasonCode
     /// Withdrawal is for a first time residential property.
     /// 
     /// 
+    /// Encoded/decoded by serializers as "FTRS".
     /// </summary>
     [EnumMember(Value = "FTRS")]
     [IsoId("_aXNDQF23EeiFXdiLi_Nf4A")]
     [Description(@"Withdrawal is for a first time residential property.  ")]
-    FTRS,
+    FirstTimeResidentialProperty,
     
 }
 

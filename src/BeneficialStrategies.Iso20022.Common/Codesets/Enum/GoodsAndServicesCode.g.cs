@@ -20,27 +20,30 @@ public enum GoodsAndServicesCode
 {
     /// <summary>
     /// Physical goods or services.
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_49iw0FHhEeeJoafcMZup1w")]
     [Description(@"Physical goods or services.")]
-    PHYS,
+    Physical,
     
     /// <summary>
     /// Electronic goods and services.
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_9rGsIFHhEeeJoafcMZup1w")]
     [Description(@"Electronic goods and services.")]
-    ELEC,
+    Electronic,
     
     /// <summary>
     /// Electronic and physical goods and services.
+    /// Encoded/decoded by serializers as "ELPH".
     /// </summary>
     [EnumMember(Value = "ELPH")]
     [IsoId("_GAAhkFHiEeeJoafcMZup1w")]
     [Description(@"Electronic and physical goods and services.")]
-    ELPH,
+    ElectronicAndPhysical,
     
 }
 

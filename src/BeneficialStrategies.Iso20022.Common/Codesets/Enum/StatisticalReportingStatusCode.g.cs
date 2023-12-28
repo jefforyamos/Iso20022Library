@@ -20,99 +20,111 @@ public enum StatisticalReportingStatusCode
 {
     /// <summary>
     /// Transaction or report has passed syntactical and semantical validation.
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_WxrMTNjEEeSdIOSPwTkydQ")]
     [Description(@"Transaction or report has passed syntactical and semantical validation.")]
-    ACTC,
+    AcceptedTechnicalValidation,
     
     /// <summary>
     /// Report has been received.
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_WxrMRtjEEeSdIOSPwTkydQ")]
     [Description(@"Report has been received.")]
-    RCVD,
+    Received,
     
     /// <summary>
     /// Report has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_WxrMSNjEEeSdIOSPwTkydQ")]
     [Description(@"Report has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.")]
-    PART,
+    PartiallyAccepted,
     
     /// <summary>
     /// Transaction or report has been rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_WxrMRdjEEeSdIOSPwTkydQ")]
     [Description(@"Transaction or report has been rejected.")]
-    RJCT,
+    Rejected,
     
     /// <summary>
     /// Processing of transaction or report is pending.
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_WxrMQdjEEeSdIOSPwTkydQ")]
     [Description(@"Processing of transaction or report is pending.")]
-    PDNG,
+    Pending,
     
     /// <summary>
     /// Transaction or report has been accepted.
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_WxrMQNjEEeSdIOSPwTkydQ")]
     [Description(@"Transaction or report has been accepted.")]
-    ACPT,
+    Accepted,
     
     /// <summary>
     /// Transaction has been accepted with warnings.
+    /// Encoded/decoded by serializers as "WARN".
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_j11wUO2wEeS-SNPe_7uMwA")]
     [Description(@"Transaction has been accepted with warnings.")]
-    WARN,
+    Warning,
     
     /// <summary>
     /// Reminder of a non received report.
+    /// Encoded/decoded by serializers as "RMDR".
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_s-hMEO2wEeS-SNPe_7uMwA")]
     [Description(@"Reminder of a non received report.")]
-    RMDR,
+    Reminder,
     
     /// <summary>
     /// File containing the report is corrupted.
+    /// Encoded/decoded by serializers as "CRPT".
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_PQjosO8AEeSo-uJuUW33Ew")]
     [Description(@"File containing the report is corrupted.")]
-    CRPT,
+    CorruptedFile,
     
     /// <summary>
     /// File containing the report has an incorrect filename.
+    /// Encoded/decoded by serializers as "INCF".
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_m-pOoe8AEeSo-uJuUW33Ew")]
     [Description(@"File containing the report has an incorrect filename.")]
-    INCF,
+    IncorrectFilename,
     
     /// <summary>
     /// Transaction or report has been accepted, following a pending status.
+    /// Encoded/decoded by serializers as "ACPD".
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_FI0VcLX6EeWOIMMXtF0SdQ")]
     [Description(@"Transaction or report has been accepted, following a pending status.")]
-    ACPD,
+    AcceptedAfterPending,
     
     /// <summary>
     /// Transaction or report has been rejected, following a pending status.
+    /// Encoded/decoded by serializers as "RJPD".
     /// </summary>
     [EnumMember(Value = "RJPD")]
     [IsoId("_J33egLX6EeWOIMMXtF0SdQ")]
     [Description(@"Transaction or report has been rejected, following a pending status.")]
-    RJPD,
+    RejectedAfterPending,
     
 }
 

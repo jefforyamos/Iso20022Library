@@ -20,19 +20,21 @@ public enum InstalmentPeriodCode
 {
     /// <summary>
     /// Monthly instalment period.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ji469duTEei2qvU6FBLZYA")]
     [Description(@"Monthly instalment period.")]
-    MNTH,
+    Monthly,
     
     /// <summary>
     /// Annual instalment period.
+    /// Encoded/decoded by serializers as "ANNU".
     /// </summary>
     [EnumMember(Value = "ANNU")]
     [IsoId("_ji469NuTEei2qvU6FBLZYA")]
     [Description(@"Annual instalment period.")]
-    ANNU,
+    Annual,
     
 }
 

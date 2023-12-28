@@ -20,27 +20,30 @@ public enum DTCCQuantitySoughtCode
 {
     /// <summary>
     /// Quantity Sought expressed as quantity.
+    /// Encoded/decoded by serializers as "QTTY".
     /// </summary>
     [EnumMember(Value = "QTTY")]
     [IsoId("_1oiLxDL3EeKU9IrkkToqcw_1656668752")]
     [Description(@"Quantity Sought expressed as quantity.")]
-    QTTY,
+    Quantity,
     
     /// <summary>
     /// Check Quantity Sought Comments for quantity sought (irregular expression).
+    /// Encoded/decoded by serializers as "CHCO".
     /// </summary>
     [EnumMember(Value = "CHCO")]
     [IsoId("_1oiLxTL3EeKU9IrkkToqcw_-517245427")]
     [Description(@"Check Quantity Sought Comments for quantity sought (irregular expression).")]
-    CHCO,
+    CheckComments,
     
     /// <summary>
     /// Quantity sought is expressed as percentage.
+    /// Encoded/decoded by serializers as "PRTG".
     /// </summary>
     [EnumMember(Value = "PRTG")]
     [IsoId("_1orVsDL3EeKU9IrkkToqcw_1342787087")]
     [Description(@"Quantity sought is expressed as percentage.")]
-    PRTG,
+    Percentage,
     
 }
 

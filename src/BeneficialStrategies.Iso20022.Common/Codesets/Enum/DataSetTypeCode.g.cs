@@ -20,51 +20,57 @@ public enum DataSetTypeCode
 {
     /// <summary>
     /// Data set is a baseline.
+    /// Encoded/decoded by serializers as "BASE".
     /// </summary>
     [EnumMember(Value = "BASE")]
     [IsoId("_ayQmsdp-Ed-ak6NoX_4Aeg_1355767413")]
     [Description(@"Data set is a baseline.")]
-    BASE,
+    Baseline,
     
     /// <summary>
     /// Data set is a transport data set.
+    /// Encoded/decoded by serializers as "TRDS".
     /// </summary>
     [EnumMember(Value = "TRDS")]
     [IsoId("_ayQmstp-Ed-ak6NoX_4Aeg_1425954834")]
     [Description(@"Data set is a transport data set.")]
-    TRDS,
+    TransportDataSet,
     
     /// <summary>
     /// Data set is a commercial data set.
+    /// Encoded/decoded by serializers as "CODS".
     /// </summary>
     [EnumMember(Value = "CODS")]
     [IsoId("_ayQms9p-Ed-ak6NoX_4Aeg_1497987506")]
     [Description(@"Data set is a commercial data set.")]
-    CODS,
+    CommercialDataSet,
     
     /// <summary>
     /// Data set is an insurance data set.
+    /// Encoded/decoded by serializers as "INDS".
     /// </summary>
     [EnumMember(Value = "INDS")]
     [IsoId("_ayQmtNp-Ed-ak6NoX_4Aeg_1136593278")]
     [Description(@"Data set is an insurance data set.")]
-    INDS,
+    InsuranceDataSet,
     
     /// <summary>
     /// Data set is a certificate data set.
+    /// Encoded/decoded by serializers as "CEDS".
     /// </summary>
     [EnumMember(Value = "CEDS")]
     [IsoId("_ayQmtdp-Ed-ak6NoX_4Aeg_1136593309")]
     [Description(@"Data set is a certificate data set.")]
-    CEDS,
+    CertificateDataSet,
     
     /// <summary>
     /// Data set is an other special certificate data set.
+    /// Encoded/decoded by serializers as "OCDS".
     /// </summary>
     [EnumMember(Value = "OCDS")]
     [IsoId("_ayQmttp-Ed-ak6NoX_4Aeg_1136593339")]
     [Description(@"Data set is an other special certificate data set.")]
-    OCDS,
+    OtherCertificateDataSet,
     
 }
 

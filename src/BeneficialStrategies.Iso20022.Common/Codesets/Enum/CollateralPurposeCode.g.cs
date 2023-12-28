@@ -20,19 +20,21 @@ public enum CollateralPurposeCode
 {
     /// <summary>
     /// Collateral has been posted against the variation margin.
+    /// Encoded/decoded by serializers as "VAMA".
     /// </summary>
     [EnumMember(Value = "VAMA")]
     [IsoId("_YZXcudp-Ed-ak6NoX_4Aeg_-2132642673")]
     [Description(@"Collateral has been posted against the variation margin.")]
-    VAMA,
+    VariationMargin,
     
     /// <summary>
     /// Collateral has been posted against the segregated independent amount.
+    /// Encoded/decoded by serializers as "SINA".
     /// </summary>
     [EnumMember(Value = "SINA")]
     [IsoId("_YZXcutp-Ed-ak6NoX_4Aeg_846367471")]
     [Description(@"Collateral has been posted against the segregated independent amount.")]
-    SINA,
+    SegregatedIndependentAmount,
     
 }
 

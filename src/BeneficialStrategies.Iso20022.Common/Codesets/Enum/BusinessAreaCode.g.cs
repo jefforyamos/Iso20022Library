@@ -20,51 +20,57 @@ public enum BusinessAreaCode
 {
     /// <summary>
     /// The card is used to perform a plain payment.
+    /// Encoded/decoded by serializers as "PPAY".
     /// </summary>
     [EnumMember(Value = "PPAY")]
     [IsoId("_uS3KUE4NEey_VecAUE-C9Q")]
     [Description(@"The card is used to perform a plain payment.")]
-    PPAY,
+    PlainPayment,
     
     /// <summary>
     /// The card is used in a Transit business case where the fare amount is not known when the transaction is initiated.
+    /// Encoded/decoded by serializers as "OPMT".
     /// </summary>
     [EnumMember(Value = "OPMT")]
     [IsoId("_zwl-UE4NEey_VecAUE-C9Q")]
     [Description(@"The card is used in a Transit business case where the fare amount is not known when the transaction is initiated.")]
-    OPMT,
+    Openpayment,
     
     /// <summary>
     /// The card is used in a Transit business case where the fare amount is known when the transaction is initiated.
+    /// Encoded/decoded by serializers as "TKNF".
     /// </summary>
     [EnumMember(Value = "TKNF")]
     [IsoId("_4Kzf0E4NEey_VecAUE-C9Q")]
     [Description(@"The card is used in a Transit business case where the fare amount is known when the transaction is initiated.")]
-    TKNF,
+    TransitKnownFare,
     
     /// <summary>
     /// The payment is initiated by an artificial intelligence based decision.
+    /// Encoded/decoded by serializers as "AIBD".
     /// </summary>
     [EnumMember(Value = "AIBD")]
     [IsoId("_9NsK4E4NEey_VecAUE-C9Q")]
     [Description(@"The payment is initiated by an artificial intelligence based decision.")]
-    AIBD,
+    ArtificialIntelligenceBasedDecision,
     
     /// <summary>
     /// Indicates when the card is used in an energy business case where the amount could not be assessed when the transaction is initiated.
+    /// Encoded/decoded by serializers as "EOPT".
     /// </summary>
     [EnumMember(Value = "EOPT")]
     [IsoId("_OdgGAHC6Ee2bmOA3bkVsMg")]
     [Description(@"Indicates when the card is used in an energy business case where the amount could not be assessed when the transaction is initiated.")]
-    EOPT,
+    EnergyOpenPayment,
     
     /// <summary>
     /// Indicates when the card is used in a transit business case where the fare amount is not known when the transaction is initiated.
+    /// Encoded/decoded by serializers as "TOPT".
     /// </summary>
     [EnumMember(Value = "TOPT")]
     [IsoId("_QOkbAHC6Ee2bmOA3bkVsMg")]
     [Description(@"Indicates when the card is used in a transit business case where the fare amount is not known when the transaction is initiated.")]
-    TOPT,
+    TransitOpenPayment,
     
 }
 

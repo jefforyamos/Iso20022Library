@@ -20,43 +20,48 @@ public enum SettlementConditionModificationStatusStatusCode
 {
     /// <summary>
     /// Instruction has been acknowledged/accepted by the account servicer.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZK_t8dp-Ed-ak6NoX_4Aeg_-1855259727")]
     [Description(@"Instruction has been acknowledged/accepted by the account servicer.")]
-    PACK,
+    AcknowledgedAccepted,
     
     /// <summary>
     /// Instruction has been rejected for further processing.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_ZK_t8tp-Ed-ak6NoX_4Aeg_-316471285")]
     [Description(@"Instruction has been rejected for further processing.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Modification Request will not be executed.
+    /// Encoded/decoded by serializers as "DEND".
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_ZK_t89p-Ed-ak6NoX_4Aeg_-339767045")]
     [Description(@"Modification Request will not be executed.")]
-    DEND,
+    Denied,
     
     /// <summary>
     /// Modification has been completed.
+    /// Encoded/decoded by serializers as "MODC".
     /// </summary>
     [EnumMember(Value = "MODC")]
     [IsoId("_ZK_t9Np-Ed-ak6NoX_4Aeg_1475845866")]
     [Description(@"Modification has been completed.")]
-    MODC,
+    Completed,
     
     /// <summary>
     /// Modification is pending. At this time, it is unknown whether the modification can be affected.
+    /// Encoded/decoded by serializers as "MODP".
     /// </summary>
     [EnumMember(Value = "MODP")]
     [IsoId("_ZK_t9dp-Ed-ak6NoX_4Aeg_476350512")]
     [Description(@"Modification is pending. At this time, it is unknown whether the modification can be affected.")]
-    MODP,
+    Pending,
     
 }
 

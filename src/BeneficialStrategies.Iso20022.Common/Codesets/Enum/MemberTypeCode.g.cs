@@ -20,43 +20,48 @@ public enum MemberTypeCode
 {
     /// <summary>
     /// Member has full rights in the system. In principle, this membership status entails financial responsibility for its own operations and sponsored members' operations submitted to the system.
+    /// Encoded/decoded by serializers as "DRCT".
     /// </summary>
     [EnumMember(Value = "DRCT")]
     [IsoId("_aLzqtdp-Ed-ak6NoX_4Aeg_977880732")]
     [Description(@"Member has full rights in the system. In principle, this membership status entails financial responsibility for its own operations and sponsored members' operations submitted to the system.")]
-    DRCT,
+    Direct,
     
     /// <summary>
     /// Member has limited rights in the system specifications. In principle, this membership status entails no financial responsibility for its operations submitted to the system.
+    /// Encoded/decoded by serializers as "IDRT".
     /// </summary>
     [EnumMember(Value = "IDRT")]
     [IsoId("_aLzqttp-Ed-ak6NoX_4Aeg_977880733")]
     [Description(@"Member has limited rights in the system specifications. In principle, this membership status entails no financial responsibility for its operations submitted to the system.")]
-    IDRT,
+    Indirect,
     
     /// <summary>
     /// Member has access to the system from a remote location or through remote technical means.
+    /// Encoded/decoded by serializers as "RMTE".
     /// </summary>
     [EnumMember(Value = "RMTE")]
     [IsoId("_aLzqt9p-Ed-ak6NoX_4Aeg_977880734")]
     [Description(@"Member has access to the system from a remote location or through remote technical means.")]
-    RMTE,
+    Remote,
     
     /// <summary>
     /// Member is entitled to access the Euro1 system of the Euro Banking Association (EBA).
+    /// Encoded/decoded by serializers as "EURO".
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_aLzquNp-Ed-ak6NoX_4Aeg_977880735")]
     [Description(@"Member is entitled to access the Euro1 system of the Euro Banking Association (EBA).")]
-    EURO,
+    EURO1,
     
     /// <summary>
     /// Member is entitled to access the Step1 system of the Euro Banking Association (EBA).
+    /// Encoded/decoded by serializers as "STEP".
     /// </summary>
     [EnumMember(Value = "STEP")]
     [IsoId("_aLzqudp-Ed-ak6NoX_4Aeg_977880736")]
     [Description(@"Member is entitled to access the Step1 system of the Euro Banking Association (EBA).")]
-    STEP,
+    STEP1,
     
 }
 

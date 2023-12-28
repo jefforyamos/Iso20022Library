@@ -16,23 +16,26 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_cnUUEDFsEeGKkIZzgd38VA")]
 [Description(@"Jasdec codes for the specific use of pro ration.")]
+[DerivedFrom(typeof(ProrationTypeCode))]
 public enum ProrationType1Code
 {
     /// <summary>
     /// ??
+    /// Encoded/decoded by serializers as "PRND".
     /// </summary>
     [EnumMember(Value = "PRND")]
     [IsoId("_d7XV5jFsEeGKkIZzgd38VA")]
     [Description(@"??")]
-    PRND,
+    NotDecided,
     
     /// <summary>
     /// ??
+    /// Encoded/decoded by serializers as "PRNU".
     /// </summary>
     [EnumMember(Value = "PRNU")]
     [IsoId("_DIpHtjVFEeGIoujPqYSZDw")]
     [Description(@"??")]
-    PRNU,
+    NotUsed,
     
 }
 

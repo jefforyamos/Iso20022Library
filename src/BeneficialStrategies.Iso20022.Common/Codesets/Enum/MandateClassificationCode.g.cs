@@ -20,27 +20,30 @@ public enum MandateClassificationCode
 {
     /// <summary>
     /// Direct debit amount is fixed.
+    /// Encoded/decoded by serializers as "FIXE".
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_zmsM2GVQEeacpJ-gG9kyUQ")]
     [Description(@"Direct debit amount is fixed.")]
-    FIXE,
+    Fixed,
     
     /// <summary>
     /// Direct debit amount is variable.
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_zmsM22VQEeacpJ-gG9kyUQ")]
     [Description(@"Direct debit amount is variable.")]
-    VARI,
+    Variable,
     
     /// <summary>
     /// Direct debit amount is based on usage.
+    /// Encoded/decoded by serializers as "USGB".
     /// </summary>
     [EnumMember(Value = "USGB")]
     [IsoId("_KVQPcGVREeacpJ-gG9kyUQ")]
     [Description(@"Direct debit amount is based on usage.")]
-    USGB,
+    UsageBased,
     
 }
 

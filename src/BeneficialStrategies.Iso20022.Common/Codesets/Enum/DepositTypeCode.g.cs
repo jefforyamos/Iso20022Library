@@ -20,19 +20,21 @@ public enum DepositTypeCode
 {
     /// <summary>
     /// Specifies that it is a fixed term deposit.
+    /// Encoded/decoded by serializers as "FITE".
     /// </summary>
     [EnumMember(Value = "FITE")]
     [IsoId("_YcWfQ9p-Ed-ak6NoX_4Aeg_-1782295847")]
     [Description(@"Specifies that it is a fixed term deposit.")]
-    FITE,
+    FixedTerm,
     
     /// <summary>
     /// Specifies that it is a call/notice deposit.
+    /// Encoded/decoded by serializers as "CALL".
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_YcWfRNp-Ed-ak6NoX_4Aeg_-224803349")]
     [Description(@"Specifies that it is a call/notice deposit.")]
-    CALL,
+    Call,
     
 }
 

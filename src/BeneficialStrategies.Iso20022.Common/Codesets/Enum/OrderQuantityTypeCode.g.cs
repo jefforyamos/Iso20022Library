@@ -20,107 +20,120 @@ public enum OrderQuantityTypeCode
 {
     /// <summary>
     /// Order is placed by unit.
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_aRVD6Np-Ed-ak6NoX_4Aeg_1363215467")]
     [Description(@"Order is placed by unit.")]
-    UNIT,
+    Unit,
     
     /// <summary>
     /// Order is placed by amount of money.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aReN0Np-Ed-ak6NoX_4Aeg_1395535617")]
     [Description(@"Order is placed by amount of money.")]
-    CASH,
+    Amount,
     
     /// <summary>
     /// Transaction is another type of transaction.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aReN0dp-Ed-ak6NoX_4Aeg_-755014973")]
     [Description(@"Transaction is another type of transaction.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// For futures - units of Measure per Time Unit (if used - must specify UnitofMeasure and TimeUnit.
+    /// Encoded/decoded by serializers as "UMPU".
     /// </summary>
     [EnumMember(Value = "UMPU")]
     [IsoId("_aReN0tp-Ed-ak6NoX_4Aeg_-921229596")]
     [Description(@"For futures - units of Measure per Time Unit (if used - must specify UnitofMeasure and TimeUnit.")]
-    UMPU,
+    UnitsOfMeasurePerTimeUnit,
     
     /// <summary>
     /// Quantity of the financial instrument effectively cancelled (for CPRC status only).
+    /// Encoded/decoded by serializers as "AFCA".
     /// </summary>
     [EnumMember(Value = "AFCA")]
     [IsoId("_TRIcgdUcEeOz093LM8f3Hw")]
     [Description(@"Quantity of the financial instrument effectively cancelled (for CPRC status only).")]
-    AFCA,
+    CancelledQuantity,
     
     /// <summary>
     /// Quantity of financial instrument confirmed.
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_Yl13aNUcEeOz093LM8f3Hw")]
     [Description(@"Quantity of financial instrument confirmed.")]
-    CONF,
+    Confirmed,
     
     /// <summary>
     /// Minimum quantity that applies to every execution. The order may still fill against smaller orders, but the cumulative quantity of the execution must be in multiples of the Match Increment.
+    /// Encoded/decoded by serializers as "MAIN".
     /// </summary>
     [EnumMember(Value = "MAIN")]
     [IsoId("_Yl13adUcEeOz093LM8f3Hw")]
     [Description(@"Minimum quantity that applies to every execution. The order may still fill against smaller orders, but the cumulative quantity of the execution must be in multiples of the Match Increment.")]
-    MAIN,
+    MatchIncrement,
     
     /// <summary>
     /// Quantity of financial instrument ordered.
+    /// Encoded/decoded by serializers as "ORDR".
     /// </summary>
     [EnumMember(Value = "ORDR")]
     [IsoId("_Yl13atUcEeOz093LM8f3Hw")]
     [Description(@"Quantity of financial instrument ordered.")]
-    ORDR,
+    OriginalOrdered,
     
     /// <summary>
     /// Quantity of financial instrument that has been previously executed.
+    /// Encoded/decoded by serializers as "PREX".
     /// </summary>
     [EnumMember(Value = "PREX")]
     [IsoId("_Yl13a9UcEeOz093LM8f3Hw")]
     [Description(@"Quantity of financial instrument that has been previously executed.")]
-    PREX,
+    PreviouslyExecuted,
     
     /// <summary>
     /// Quantity of financial instrument that is remaining on order.
+    /// Encoded/decoded by serializers as "REMI".
     /// </summary>
     [EnumMember(Value = "REMI")]
     [IsoId("_Yl13bNUcEeOz093LM8f3Hw")]
     [Description(@"Quantity of financial instrument that is remaining on order.")]
-    REMI,
+    RemainingOnOrder,
     
     /// <summary>
     /// Quantity of the financial instrument effectively replaced (For RPRC status only).
+    /// Encoded/decoded by serializers as "REMA".
     /// </summary>
     [EnumMember(Value = "REMA")]
     [IsoId("_Yl13bdUcEeOz093LM8f3Hw")]
     [Description(@"Quantity of the financial instrument effectively replaced (For RPRC status only).")]
-    REMA,
+    ReplacedQuantity,
     
     /// <summary>
     /// Quantity of the financial instrument requested to be cancelled (for CPRC Status only).
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_Yl13btUcEeOz093LM8f3Hw")]
     [Description(@"Quantity of the financial instrument requested to be cancelled (for CPRC Status only).")]
-    CANC,
+    RequestedToBeCancelledQuantity,
     
     /// <summary>
     /// Quantity of the financial instrument requested to be replaced (for RPRC Status only).
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_Yl13b9UcEeOz093LM8f3Hw")]
     [Description(@"Quantity of the financial instrument requested to be replaced (for RPRC Status only).")]
-    REPL,
+    RequestedToBeReplacedQuantity,
     
 }
 

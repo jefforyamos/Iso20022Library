@@ -20,19 +20,21 @@ public enum LifeCycleSupportCode
 {
     /// <summary>
     /// Assigned at authorisation time.
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_88m9QFJ3EeeHVODnW-1ONQ")]
     [Description(@"Assigned at authorisation time.")]
-    AUTH,
+    Authorisation,
     
     /// <summary>
     /// Assigned at financial time.
+    /// Encoded/decoded by serializers as "FINC".
     /// </summary>
     [EnumMember(Value = "FINC")]
     [IsoId("_BxBHcFJ4EeeHVODnW-1ONQ")]
     [Description(@"Assigned at financial time.")]
-    FINC,
+    Financial,
     
 }
 

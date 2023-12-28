@@ -20,51 +20,57 @@ public enum CorporateActionInstructionProcessingStatusCode
 {
     /// <summary>
     /// Instruction has been cancelled.
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_bKjK4tp-Ed-ak6NoX_4Aeg_86891368")]
     [Description(@"Instruction has been cancelled.")]
-    CAND,
+    Cancelled,
     
     /// <summary>
     /// Default action is taken.
+    /// Encoded/decoded by serializers as "DFLA".
     /// </summary>
     [EnumMember(Value = "DFLA")]
     [IsoId("_bKjK49p-Ed-ak6NoX_4Aeg_1478052223")]
     [Description(@"Default action is taken.")]
-    DFLA,
+    DefaultAction,
     
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing. In other words, this means that the instruction has been received, is processable and has been validated for further processing.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bKjK5Np-Ed-ak6NoX_4Aeg_1586320101")]
     [Description(@"Instruction has been acknowledged/accepted for further processing. In other words, this means that the instruction has been received, is processable and has been validated for further processing.")]
-    PACK,
+    Accepted,
     
     /// <summary>
     /// Instruction's processing is pending.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_bKjK5dp-Ed-ak6NoX_4Aeg_271390723")]
     [Description(@"Instruction's processing is pending.")]
-    PEND,
+    Pending,
     
     /// <summary>
     /// Instruction has been rejected for further processing due to system reasons.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_bKjK5tp-Ed-ak6NoX_4Aeg_363574550")]
     [Description(@"Instruction has been rejected for further processing due to system reasons.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Standing instruction is applied.
+    /// Encoded/decoded by serializers as "STIN".
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_bKsU0Np-Ed-ak6NoX_4Aeg_-721845566")]
     [Description(@"Standing instruction is applied.")]
-    STIN,
+    StandingInstruction,
     
 }
 

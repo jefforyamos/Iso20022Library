@@ -20,83 +20,93 @@ public enum VerificationCode
 {
     /// <summary>
     /// Device or entity to perform the verification was unavailable.
+    /// Encoded/decoded by serializers as "ERRR".
     /// </summary>
     [EnumMember(Value = "ERRR")]
     [IsoId("_XGJrIGjpEeSDR-pyia6Xtg")]
     [Description(@"Device or entity to perform the verification was unavailable.")]
-    ERRR,
+    TechnicalError,
     
     /// <summary>
     /// Verification was successful.
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_b05SMGjpEeSDR-pyia6Xtg")]
     [Description(@"Verification was successful.")]
-    SUCC,
+    Successful,
     
     /// <summary>
     /// Verification was partially successful.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_fI-5IGjpEeSDR-pyia6Xtg")]
     [Description(@"Verification was partially successful.")]
-    PART,
+    PartialMatch,
     
     /// <summary>
     /// Verification has not been performed.
+    /// Encoded/decoded by serializers as "NOVF".
     /// </summary>
     [EnumMember(Value = "NOVF")]
     [IsoId("_jJWXQGjpEeSDR-pyia6Xtg")]
     [Description(@"Verification has not been performed.")]
-    NOVF,
+    NotPerformed,
     
     /// <summary>
     /// Information required to perform the verification was missing.
+    /// Encoded/decoded by serializers as "MISS".
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_l-YDoGjpEeSDR-pyia6Xtg")]
     [Description(@"Information required to perform the verification was missing.")]
-    MISS,
+    Missing,
     
     /// <summary>
     /// Verification failed.
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_pexBMGjpEeSDR-pyia6Xtg")]
     [Description(@"Verification failed.")]
-    FAIL,
+    Failed,
     
     /// <summary>
     /// Further action required.
+    /// Encoded/decoded by serializers as "FUTA".
     /// </summary>
     [EnumMember(Value = "FUTA")]
     [IsoId("_B25Bk3yNEemHsOqJOzMVfg")]
     [Description(@"Further action required.")]
-    FUTA,
+    FurtherAction,
     
     /// <summary>
     /// Other result of verification defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_B25BlHyNEemHsOqJOzMVfg")]
     [Description(@"Other result of verification defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other result of verification defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_B25BlXyNEemHsOqJOzMVfg")]
     [Description(@"Other result of verification defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Not support the verification type
+    /// Encoded/decoded by serializers as "NOSP".
     /// </summary>
     [EnumMember(Value = "NOSP")]
     [IsoId("_WfcoECYDEeym0KcvJF9aDQ")]
     [Description(@"Not support the verification type")]
-    NOSP,
+    NotSupported,
     
 }
 

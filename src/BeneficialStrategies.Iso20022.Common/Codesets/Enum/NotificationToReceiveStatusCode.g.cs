@@ -20,27 +20,30 @@ public enum NotificationToReceiveStatusCode
 {
     /// <summary>
     /// Event(s) as described in the notification to receive occurred but details are different.
+    /// Encoded/decoded by serializers as "RCBD".
     /// </summary>
     [EnumMember(Value = "RCBD")]
     [IsoId("_aODGY9p-Ed-ak6NoX_4Aeg_1172047117")]
     [Description(@"Event(s) as described in the notification to receive occurred but details are different.")]
-    RCBD,
+    ReceivedButDifferent,
     
     /// <summary>
     /// Event(s) as described in the notification to receive occurred.
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_aODGZNp-Ed-ak6NoX_4Aeg_1172047143")]
     [Description(@"Event(s) as described in the notification to receive occurred.")]
-    RCVD,
+    Received,
     
     /// <summary>
     /// Event(s) as described in the notification to receive did not occur.
+    /// Encoded/decoded by serializers as "NRCD".
     /// </summary>
     [EnumMember(Value = "NRCD")]
     [IsoId("_aODGZdp-Ed-ak6NoX_4Aeg_1172047219")]
     [Description(@"Event(s) as described in the notification to receive did not occur.")]
-    NRCD,
+    NotReceived,
     
 }
 

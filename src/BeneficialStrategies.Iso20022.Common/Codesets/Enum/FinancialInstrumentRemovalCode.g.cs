@@ -20,27 +20,30 @@ public enum FinancialInstrumentRemovalCode
 {
     /// <summary>
     /// Financial instrument must be removed from the collateral pool.
+    /// Encoded/decoded by serializers as "REMO".
     /// </summary>
     [EnumMember(Value = "REMO")]
     [IsoId("_V1k88PkMEeicy5Zn42b9bg")]
     [Description(@"Financial instrument must be removed from the collateral pool.")]
-    REMO,
+    Removal,
     
     /// <summary>
     /// Removal period for the financial instrument from the collateral pool must be extended.
+    /// Encoded/decoded by serializers as "EXTN".
     /// </summary>
     [EnumMember(Value = "EXTN")]
     [IsoId("_cuv0MPkMEeicy5Zn42b9bg")]
     [Description(@"Removal period for the financial instrument from the collateral pool must be extended.")]
-    EXTN,
+    Extension,
     
     /// <summary>
     /// Financial instrument removal is termintated.
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_97V78PkMEeicy5Zn42b9bg")]
     [Description(@"Financial instrument removal is termintated.")]
-    TERM,
+    Termination,
     
 }
 

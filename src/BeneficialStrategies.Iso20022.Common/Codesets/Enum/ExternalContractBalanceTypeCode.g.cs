@@ -21,19 +21,21 @@ public enum ExternalContractBalanceTypeCode
 {
     /// <summary>
     /// Revolver loan current utilisation (applicable on loan contracts types)
+    /// Encoded/decoded by serializers as "EXPC".
     /// </summary>
     [EnumMember(Value = "EXPC")]
     [IsoId("_uUDnc_RYEeuLhpyIdtJzwg")]
     [Description(@"Revolver loan current utilisation (applicable on loan contracts types)")]
-    EXPC,
+    CurrentUtilisation,
     
     /// <summary>
     /// Total loan utilisation for loans with total loan limit  (applicable on loan contracts types)
+    /// Encoded/decoded by serializers as "EXPT".
     /// </summary>
     [EnumMember(Value = "EXPT")]
     [IsoId("_uUDndvRYEeuLhpyIdtJzwg")]
     [Description(@"Total loan utilisation for loans with total loan limit  (applicable on loan contracts types)")]
-    EXPT,
+    TotalUtilisation,
     
 }
 

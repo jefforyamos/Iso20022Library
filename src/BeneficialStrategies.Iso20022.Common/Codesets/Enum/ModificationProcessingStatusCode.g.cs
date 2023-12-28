@@ -20,51 +20,57 @@ public enum ModificationProcessingStatusCode
 {
     /// <summary>
     /// Modification has been completed.
+    /// Encoded/decoded by serializers as "MODC".
     /// </summary>
     [EnumMember(Value = "MODC")]
     [IsoId("_jQp0hO5NEeCisYr99QEiWA_152485139")]
     [Description(@"Modification has been completed.")]
-    MODC,
+    Completed,
     
     /// <summary>
     /// Modification is pending. It is not known at this time whether modified can be executed.
+    /// Encoded/decoded by serializers as "MODP".
     /// </summary>
     [EnumMember(Value = "MODP")]
     [IsoId("_jQzlgO5NEeCisYr99QEiWA_874616089")]
     [Description(@"Modification is pending. It is not known at this time whether modified can be executed.")]
-    MODP,
+    Pending,
     
     /// <summary>
     /// Modification will not be executed.
+    /// Encoded/decoded by serializers as "DEND".
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_jQzlge5NEeCisYr99QEiWA_-1727820501")]
     [Description(@"Modification will not be executed.")]
-    DEND,
+    Denied,
     
     /// <summary>
     /// Modification request has been acknowledged for further processing by the account servicer.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_jQzlgu5NEeCisYr99QEiWA_751120761")]
     [Description(@"Modification request has been acknowledged for further processing by the account servicer.")]
-    PACK,
+    Accepted,
     
     /// <summary>
     /// Modification has been rejected for further processing.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_jQzlg-5NEeCisYr99QEiWA_-359790658")]
     [Description(@"Modification has been rejected for further processing.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Modification request is in repair.
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_jQzlhO5NEeCisYr99QEiWA_-1534981683")]
     [Description(@"Modification request is in repair.")]
-    REPR,
+    InRepair,
     
 }
 

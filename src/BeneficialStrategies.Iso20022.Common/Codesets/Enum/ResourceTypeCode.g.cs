@@ -20,19 +20,21 @@ public enum ResourceTypeCode
 {
     /// <summary>
     /// Voice synthesis.
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_togtcC8CEeu125Ip9zFcsQ")]
     [Description(@"Voice synthesis.")]
-    TEXT,
+    TextToSpeech,
     
     /// <summary>
     /// String of characters that unambiguously identifies a particular resource.
+    /// Encoded/decoded by serializers as "URLI".
     /// </summary>
     [EnumMember(Value = "URLI")]
     [IsoId("_1mAIcC8CEeu125Ip9zFcsQ")]
     [Description(@"String of characters that unambiguously identifies a particular resource.")]
-    URLI,
+    UniformResourceIdentifier,
     
 }
 

@@ -20,35 +20,39 @@ public enum LiquidityIndicatorTypeCode
 {
     /// <summary>
     /// Computation is on the average value of the price of a security over a period of five days.
+    /// Encoded/decoded by serializers as "FIVE".
     /// </summary>
     [EnumMember(Value = "FIVE")]
     [IsoId("_afL5sNp-Ed-ak6NoX_4Aeg_336256713")]
     [Description(@"Computation is on the average value of the price of a security over a period of five days.")]
-    FIVE,
+    FiveDayMovingAverage,
     
     /// <summary>
     /// Computation is on the average value of the price of a security over a period of 20 days.
+    /// Encoded/decoded by serializers as "TWEN".
     /// </summary>
     [EnumMember(Value = "TWEN")]
     [IsoId("_afL5sdp-Ed-ak6NoX_4Aeg_336256721")]
     [Description(@"Computation is on the average value of the price of a security over a period of 20 days.")]
-    TWEN,
+    TwentyDayMovingAverage,
     
     /// <summary>
     /// Computation is on the standard market conditions and volume.
+    /// Encoded/decoded by serializers as "NORM".
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_afL5stp-Ed-ak6NoX_4Aeg_336256722")]
     [Description(@"Computation is on the standard market conditions and volume.")]
-    NORM,
+    NormalMarketSize,
     
     /// <summary>
     /// Computation is on another price computation method.
+    /// Encoded/decoded by serializers as "OTHE".
     /// </summary>
     [EnumMember(Value = "OTHE")]
     [IsoId("_afL5s9p-Ed-ak6NoX_4Aeg_336256723")]
     [Description(@"Computation is on another price computation method.")]
-    OTHE,
+    Other,
     
 }
 

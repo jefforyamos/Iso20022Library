@@ -20,27 +20,30 @@ public enum WithdrawalReasonCode
 {
     /// <summary>
     /// Alleged trade is rescinded.
+    /// Encoded/decoded by serializers as "RSCD".
     /// </summary>
     [EnumMember(Value = "RSCD")]
     [IsoId("_N4ADUJElEeKcLcxonNWTXg")]
     [Description(@"Alleged trade is rescinded.")]
-    RSCD,
+    Rescinded,
     
     /// <summary>
     /// Alleged trade is rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_OBsK0JElEeKcLcxonNWTXg")]
     [Description(@"Alleged trade is rejected.")]
-    RJCT,
+    Rejected,
     
     /// <summary>
     /// Alleged trade is withdrawn due to an amendment.
+    /// Encoded/decoded by serializers as "WTDN".
     /// </summary>
     [EnumMember(Value = "WTDN")]
     [IsoId("_OKLYcJElEeKcLcxonNWTXg")]
     [Description(@"Alleged trade is withdrawn due to an amendment.")]
-    WTDN,
+    Withdrawn,
     
 }
 

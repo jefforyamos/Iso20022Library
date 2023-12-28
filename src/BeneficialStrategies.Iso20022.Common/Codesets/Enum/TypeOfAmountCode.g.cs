@@ -20,740 +20,832 @@ public enum TypeOfAmountCode
 {
     /// <summary>
     /// Cash-back amount.
+    /// Encoded/decoded by serializers as "CSHB".
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_TVfZ8AEcEeCQm6a_G2yO_w_-1930184107")]
     [Description(@"Cash-back amount.")]
-    CSHB,
+    Cashback,
     
     /// <summary>
     /// Gratuity amount.
+    /// Encoded/decoded by serializers as "GRTY".
     /// </summary>
     [EnumMember(Value = "GRTY")]
     [IsoId("_TVfZ8QEcEeCQm6a_G2yO_w_-1180517731")]
     [Description(@"Gratuity amount.")]
-    GRTY,
+    Gratuity,
     
     /// <summary>
     /// Fees.
+    /// Encoded/decoded by serializers as "FEES".
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_TVfZ8gEcEeCQm6a_G2yO_w_343727554")]
     [Description(@"Fees.")]
-    FEES,
+    Fees,
     
     /// <summary>
     /// Global rebate of the transaction. This amount is counted as a negative amount.
+    /// Encoded/decoded by serializers as "RBTS".
     /// </summary>
     [EnumMember(Value = "RBTS")]
     [IsoId("_TVfZ8wEcEeCQm6a_G2yO_w_1690439733")]
     [Description(@"Global rebate of the transaction. This amount is counted as a negative amount.")]
-    RBTS,
+    Rebates,
     
     /// <summary>
     /// Value added tax amount.
+    /// Encoded/decoded by serializers as "VATX".
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_TVfZ9AEcEeCQm6a_G2yO_w_2144527002")]
     [Description(@"Value added tax amount.")]
-    VATX,
+    ValueAddedTax,
     
     /// <summary>
     /// Actual amount.
+    /// Encoded/decoded by serializers as "ACTL".
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_TVfZ9QEcEeCQm6a_G2yO_w_540972543")]
     [Description(@"Actual amount.")]
-    ACTL,
+    Actual,
     
     /// <summary>
     /// Replacement amount.
+    /// Encoded/decoded by serializers as "RPLT".
     /// </summary>
     [EnumMember(Value = "RPLT")]
     [IsoId("_TVfZ9gEcEeCQm6a_G2yO_w_-2108727318")]
     [Description(@"Replacement amount.")]
-    RPLT,
+    Replacement,
     
     /// <summary>
     /// Maximum amount (the final amount must be less or equal).
+    /// Encoded/decoded by serializers as "MAXI".
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_TVfZ9wEcEeCQm6a_G2yO_w_-569938876")]
     [Description(@"Maximum amount (the final amount must be less or equal).")]
-    MAXI,
+    Maximum,
     
     /// <summary>
     /// Default amount.
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_TVfZ-AEcEeCQm6a_G2yO_w_-1745129901")]
     [Description(@"Default amount.")]
-    DFLT,
+    Default,
     
     /// <summary>
     /// Estimated amount (the final amount could be above or below).
+    /// Encoded/decoded by serializers as "ESTM".
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_TVfZ-QEcEeCQm6a_G2yO_w_1844722780")]
     [Description(@"Estimated amount (the final amount could be above or below).")]
-    ESTM,
+    Estimated,
     
     /// <summary>
     /// Original amount authorised during the real-time authorisation process.
+    /// Encoded/decoded by serializers as "ORIG".
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_Y_ZH8PwLEeGHDMP28rpT3g_1300091733")]
     [Description(@"Original amount authorised during the real-time authorisation process.")]
-    ORIG,
+    Original,
     
     /// <summary>
     /// Extra fee for a purchase or a withdrawal.
+    /// Encoded/decoded by serializers as "SRCH".
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_Y_ZH8fwLEeGHDMP28rpT3g_481138052")]
     [Description(@"Extra fee for a purchase or a withdrawal.")]
-    SRCH,
+    Surcharge,
     
     /// <summary>
     /// Service fee.
+    /// Encoded/decoded by serializers as "SRVF".
     /// </summary>
     [EnumMember(Value = "SRVF")]
     [IsoId("_Y_ZH8vwLEeGHDMP28rpT3g_894022134")]
     [Description(@"Service fee.")]
-    SRVF,
+    ServiceFee,
     
     /// <summary>
     /// Interchange fee.
+    /// Encoded/decoded by serializers as "INTC".
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_Y_ZH8_wLEeGHDMP28rpT3g_-221556024")]
     [Description(@"Interchange fee.")]
-    INTC,
+    InterchangeFee,
     
     /// <summary>
     /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
+    /// Encoded/decoded by serializers as "DCNT".
     /// </summary>
     [EnumMember(Value = "DCNT")]
     [IsoId("_-GjvoHs0EeSTS7uHCe8FPQ")]
     [Description(@"Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.")]
-    DCNT,
+    Discount,
     
     /// <summary>
     /// Commission that the issuer will charge to the cardholder, which should be shown and accepted by the cardholder before the money is disbursed.
+    /// Encoded/decoded by serializers as "ATMF".
     /// </summary>
     [EnumMember(Value = "ATMF")]
     [IsoId("_i2oIsHs2EeSTS7uHCe8FPQ")]
     [Description(@"Commission that the issuer will charge to the cardholder, which should be shown and accepted by the cardholder before the money is disbursed.")]
-    ATMF,
+    ATMCommissionFee,
     
     /// <summary>
     /// Transaction amount that has been authorised.
+    /// Encoded/decoded by serializers as "AMTH".
     /// </summary>
     [EnumMember(Value = "AMTH")]
     [IsoId("_lu4IMHs2EeSTS7uHCe8FPQ")]
     [Description(@"Transaction amount that has been authorised.")]
-    AMTH,
+    AuthorisedAmount,
     
     /// <summary>
     /// Remaining allowed amount for this type of transaction with this card, after the transaction, until the end of the card limit period.
+    /// Encoded/decoded by serializers as "CRDB".
     /// </summary>
     [EnumMember(Value = "CRDB")]
     [IsoId("_ovI0MHs2EeSTS7uHCe8FPQ")]
     [Description(@"Remaining allowed amount for this type of transaction with this card, after the transaction, until the end of the card limit period.")]
-    CRDB,
+    CardRemainingBalance,
     
     /// <summary>
     /// Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.
+    /// Encoded/decoded by serializers as "AMTX".
     /// </summary>
     [EnumMember(Value = "AMTX")]
     [IsoId("_xRU3sHs2EeSTS7uHCe8FPQ")]
     [Description(@"Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.")]
-    AMTX,
+    MaximumAllowedAmount,
     
     /// <summary>
     /// Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.
+    /// Encoded/decoded by serializers as "AMTN".
     /// </summary>
     [EnumMember(Value = "AMTN")]
     [IsoId("_J1ctwHs3EeSTS7uHCe8FPQ")]
     [Description(@"Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.")]
-    AMTN,
+    MinimumAllowedAmount,
     
     /// <summary>
     /// Transaction amount that has been requested to be authorised.
+    /// Encoded/decoded by serializers as "AMTQ".
     /// </summary>
     [EnumMember(Value = "AMTQ")]
     [IsoId("_PQuqsHs3EeSTS7uHCe8FPQ")]
     [Description(@"Transaction amount that has been requested to be authorised.")]
-    AMTQ,
+    RequestedAmount,
     
     /// <summary>
     /// Fees amount from the card issuer.
+    /// Encoded/decoded by serializers as "FEEI".
     /// </summary>
     [EnumMember(Value = "FEEI")]
     [IsoId("_V4YFgIN5EeSNofOeou9G3A")]
     [Description(@"Fees amount from the card issuer.")]
-    FEEI,
+    IssuerFees,
     
     /// <summary>
     /// Commission from the card issuer.
+    /// Encoded/decoded by serializers as "COMI".
     /// </summary>
     [EnumMember(Value = "COMI")]
     [IsoId("_FlIEAIN6EeSNofOeou9G3A")]
     [Description(@"Commission from the card issuer.")]
-    COMI,
+    IssuerCommission,
     
     /// <summary>
     /// Interchange fees.
+    /// Encoded/decoded by serializers as "FEEH".
     /// </summary>
     [EnumMember(Value = "FEEH")]
     [IsoId("_bHvUEIN-EeSNofOeou9G3A")]
     [Description(@"Interchange fees.")]
-    FEEH,
+    InterchangeFees,
     
     /// <summary>
     /// Processing fees.
+    /// Encoded/decoded by serializers as "FEEP".
     /// </summary>
     [EnumMember(Value = "FEEP")]
     [IsoId("_hkLzEIN-EeSNofOeou9G3A")]
     [Description(@"Processing fees.")]
-    FEEP,
+    ProcessingFees,
     
     /// <summary>
     /// Currency conversion fees.
+    /// Encoded/decoded by serializers as "FEEC".
     /// </summary>
     [EnumMember(Value = "FEEC")]
     [IsoId("_oS7jAIN-EeSNofOeou9G3A")]
     [Description(@"Currency conversion fees.")]
-    FEEC,
+    CurrencyConversionFees,
     
     /// <summary>
     /// International service assessment fees.
+    /// Encoded/decoded by serializers as "FEEA".
     /// </summary>
     [EnumMember(Value = "FEEA")]
     [IsoId("_yhTbgIN-EeSNofOeou9G3A")]
     [Description(@"International service assessment fees.")]
-    FEEA,
+    InternationalServiceAssessmentFees,
     
     /// <summary>
     /// Commission, for example for DCC (Dynamic Currency Conversion) transactions.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_06w68NPHEeSFn54OzS96Iw")]
     [Description(@"Commission, for example for DCC (Dynamic Currency Conversion) transactions.")]
-    COMM,
+    Commission,
     
     /// <summary>
     /// Donation amount.
+    /// Encoded/decoded by serializers as "DONN".
     /// </summary>
     [EnumMember(Value = "DONN")]
     [IsoId("_PwDnsC70EeWc7f-D6ByqMg")]
     [Description(@"Donation amount.")]
-    DONN,
+    Donation,
     
     /// <summary>
     /// Taxes applicable to the transaction.
+    /// Encoded/decoded by serializers as "TAXT".
     /// </summary>
     [EnumMember(Value = "TAXT")]
     [IsoId("_UwZ8IC70EeWc7f-D6ByqMg")]
     [Description(@"Taxes applicable to the transaction.")]
-    TAXT,
+    Tax,
     
     /// <summary>
     /// Incremental amount for reservation.
+    /// Encoded/decoded by serializers as "INCR".
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_qnZCIK1zEeawR4FMacHsRQ")]
     [Description(@"Incremental amount for reservation.")]
-    INCR,
+    Incremental,
     
     /// <summary>
     /// Decremental amount for reservation.
+    /// Encoded/decoded by serializers as "DECR".
     /// </summary>
     [EnumMember(Value = "DECR")]
     [IsoId("_yI654K1zEeawR4FMacHsRQ")]
     [Description(@"Decremental amount for reservation.")]
-    DECR,
+    Decremental,
     
     /// <summary>
     /// Reserved or updated reserved amount for reservation.
+    /// Encoded/decoded by serializers as "RESD".
     /// </summary>
     [EnumMember(Value = "RESD")]
     [IsoId("_2wFSQK1zEeawR4FMacHsRQ")]
     [Description(@"Reserved or updated reserved amount for reservation.")]
-    RESD,
+    Reserved,
     
     /// <summary>
     /// Actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_McjMMqHjEeagRbKvRt3LnA")]
     [Description(@"Actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.")]
-    CONF,
+    ConfirmedAmount,
     
     /// <summary>
     /// Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_McjMM6HjEeagRbKvRt3LnA")]
     [Description(@"Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party. Usage: This amount has to be transported unchanged through the transaction chain.")]
-    INST,
+    InstructedAmount,
     
     /// <summary>
     /// Fee for giving access to an ATM.
+    /// Encoded/decoded by serializers as "ATAF".
     /// </summary>
     [EnumMember(Value = "ATAF")]
     [IsoId("_FyM2EnyMEemHsOqJOzMVfg")]
     [Description(@"Fee for giving access to an ATM.")]
-    ATAF,
+    ATMAccessFee,
     
     /// <summary>
     /// Fee related to a cardholder billing.
+    /// Encoded/decoded by serializers as "CHBF".
     /// </summary>
     [EnumMember(Value = "CHBF")]
     [IsoId("_FyM2E3yMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a cardholder billing.")]
-    CHBF,
+    CardholderBillingFee,
     
     /// <summary>
     /// Fee related to a clearing transaction.
+    /// Encoded/decoded by serializers as "CLFE".
     /// </summary>
     [EnumMember(Value = "CLFE")]
     [IsoId("_FyM2FHyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a clearing transaction.")]
-    CLFE,
+    ClearingFee,
     
     /// <summary>
     /// Fee related to a credit transaction.
+    /// Encoded/decoded by serializers as "CRTF".
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_FyM2FXyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a credit transaction.")]
-    CRTF,
+    CreditTransactionFee,
     
     /// <summary>
     /// Contains the total amount of all authorisations related to the same cardholder purchase activities. Example: total of all incremental or splitted shipment authorisations for the same purchase.
+    /// Encoded/decoded by serializers as "CUAT".
     /// </summary>
     [EnumMember(Value = "CUAT")]
     [IsoId("_FyM2FnyMEemHsOqJOzMVfg")]
     [Description(@"Contains the total amount of all authorisations related to the same cardholder purchase activities. Example: total of all incremental or splitted shipment authorisations for the same purchase.")]
-    CUAT,
+    Cumulative,
     
     /// <summary>
     /// Fee related to a debit transaction.
+    /// Encoded/decoded by serializers as "DBTF".
     /// </summary>
     [EnumMember(Value = "DBTF")]
     [IsoId("_FyM2F3yMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a debit transaction.")]
-    DBTF,
+    DebitTransactionFee,
     
     /// <summary>
     /// Extra charges (for example,  minibar, etc.)
+    /// Encoded/decoded by serializers as "EXTR".
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("_FyM2GHyMEemHsOqJOzMVfg")]
     [Description(@"Extra charges (for example,  minibar, etc.)")]
-    EXTR,
+    Extra,
     
     /// <summary>
     /// Fee related to a foreign exchange transaction.
+    /// Encoded/decoded by serializers as "FXFE".
     /// </summary>
     [EnumMember(Value = "FXFE")]
     [IsoId("_FyM2GXyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a foreign exchange transaction.")]
-    FXFE,
+    ForeignExchangeFee,
     
     /// <summary>
     /// Fee related to a funds transfer transaction
+    /// Encoded/decoded by serializers as "FDTF".
     /// </summary>
     [EnumMember(Value = "FDTF")]
     [IsoId("_FyM2GnyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a funds transfer transaction")]
-    FDTF,
+    FundsTransfer,
     
     /// <summary>
     /// Fee related to an instant payment.
+    /// Encoded/decoded by serializers as "IPFE".
     /// </summary>
     [EnumMember(Value = "IPFE")]
     [IsoId("_FyM2G3yMEemHsOqJOzMVfg")]
     [Description(@"Fee related to an instant payment.")]
-    IPFE,
+    InstantPaymentFee,
     
     /// <summary>
     /// Fee related to an instant transfer transaction.
+    /// Encoded/decoded by serializers as "ITFE".
     /// </summary>
     [EnumMember(Value = "ITFE")]
     [IsoId("_FyM2HHyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to an instant transfer transaction.")]
-    ITFE,
+    InstantTransferFee,
     
     /// <summary>
     /// Fee applied by the card issuer to the cardholder.
+    /// Encoded/decoded by serializers as "ISCF".
     /// </summary>
     [EnumMember(Value = "ISCF")]
     [IsoId("_FyM2HXyMEemHsOqJOzMVfg")]
     [Description(@"Fee applied by the card issuer to the cardholder.")]
-    ISCF,
+    IssuerCardholderFee,
     
     /// <summary>
     /// Limit of amounts for the transaction.
+    /// Encoded/decoded by serializers as "LTAM".
     /// </summary>
     [EnumMember(Value = "LTAM")]
     [IsoId("_FyM2HnyMEemHsOqJOzMVfg")]
     [Description(@"Limit of amounts for the transaction.")]
-    LTAM,
+    Limit,
     
     /// <summary>
     /// Other type of amount defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_FyM2H3yMEemHsOqJOzMVfg")]
     [Description(@"Other type of amount defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other type of amount defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_FyM2IHyMEemHsOqJOzMVfg")]
     [Description(@"Other type of amount defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Fee related to a reconciliation transaction.
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_FyM2IXyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a reconciliation transaction.")]
-    REFE,
+    ReconciliationFee,
     
     /// <summary>
     /// Fee related to a settlement transaction.
+    /// Encoded/decoded by serializers as "STFE".
     /// </summary>
     [EnumMember(Value = "STFE")]
     [IsoId("_FyM2InyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a settlement transaction.")]
-    STFE,
+    SettlementFee,
     
     /// <summary>
     /// Fee related to a transaction.
+    /// Encoded/decoded by serializers as "TXFE".
     /// </summary>
     [EnumMember(Value = "TXFE")]
     [IsoId("_FyM2I3yMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a transaction.")]
-    TXFE,
+    TransactionFee,
     
     /// <summary>
     /// Amount anticipated for the transaction
+    /// Encoded/decoded by serializers as "ANTA".
     /// </summary>
     [EnumMember(Value = "ANTA")]
     [IsoId("_VmvFz3yMEemHsOqJOzMVfg")]
     [Description(@"Amount anticipated for the transaction")]
-    ANTA,
+    Anticipated,
     
     /// <summary>
     /// Baggage related fees
+    /// Encoded/decoded by serializers as "BAGG".
     /// </summary>
     [EnumMember(Value = "BAGG")]
     [IsoId("_VmvF0HyMEemHsOqJOzMVfg")]
     [Description(@"Baggage related fees")]
-    BAGG,
+    Baggage,
     
     /// <summary>
     /// Amount that has been charged to card account
+    /// Encoded/decoded by serializers as "CHTC".
     /// </summary>
     [EnumMember(Value = "CHTC")]
     [IsoId("_VmvF0XyMEemHsOqJOzMVfg")]
     [Description(@"Amount that has been charged to card account")]
-    CHTC,
+    ChargedToCard,
     
     /// <summary>
     /// Fee related to a clearing transaction for a given priority.
+    /// Encoded/decoded by serializers as "CPFE".
     /// </summary>
     [EnumMember(Value = "CPFE")]
     [IsoId("_VmvF0nyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a clearing transaction for a given priority.")]
-    CPFE,
+    ClearingPriorityFee,
     
     /// <summary>
     /// Amount qualified for dental prescriptions
+    /// Encoded/decoded by serializers as "DNTL".
     /// </summary>
     [EnumMember(Value = "DNTL")]
     [IsoId("_VmvF03yMEemHsOqJOzMVfg")]
     [Description(@"Amount qualified for dental prescriptions")]
-    DNTL,
+    Dental,
     
     /// <summary>
     /// Deposit amount.
+    /// Encoded/decoded by serializers as "DPST".
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_VmvF1HyMEemHsOqJOzMVfg")]
     [Description(@"Deposit amount.")]
-    DPST,
+    Deposit,
     
     /// <summary>
     /// Fee related to a funds transfer.
+    /// Encoded/decoded by serializers as "FUFE".
     /// </summary>
     [EnumMember(Value = "FUFE")]
     [IsoId("_VmvF1XyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a funds transfer.")]
-    FUFE,
+    FundsTransferFee,
     
     /// <summary>
     /// Amount qualified for other medical expenses
+    /// Encoded/decoded by serializers as "OQME".
     /// </summary>
     [EnumMember(Value = "OQME")]
     [IsoId("_VmvF1nyMEemHsOqJOzMVfg")]
     [Description(@"Amount qualified for other medical expenses")]
-    OQME,
+    OtherQualifiedMedical,
     
     /// <summary>
     /// Amount for medical prescription
+    /// Encoded/decoded by serializers as "PRES".
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_VmvF13yMEemHsOqJOzMVfg")]
     [Description(@"Amount for medical prescription")]
-    PRES,
+    Prescription,
     
     /// <summary>
     /// Substitute for an amount to be authorised.
+    /// Encoded/decoded by serializers as "PRXY".
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_VmvF2HyMEemHsOqJOzMVfg")]
     [Description(@"Substitute for an amount to be authorised.")]
-    PRXY,
+    Proxy,
     
     /// <summary>
     /// Requested cashback amount
+    /// Encoded/decoded by serializers as "RQCH".
     /// </summary>
     [EnumMember(Value = "RQCH")]
     [IsoId("_VmvF2XyMEemHsOqJOzMVfg")]
     [Description(@"Requested cashback amount")]
-    RQCH,
+    RequestedCashback,
     
     /// <summary>
     /// Fee related to a settlement transaction for a given priority.
+    /// Encoded/decoded by serializers as "SPFE".
     /// </summary>
     [EnumMember(Value = "SPFE")]
     [IsoId("_VmvF2nyMEemHsOqJOzMVfg")]
     [Description(@"Fee related to a settlement transaction for a given priority.")]
-    SPFE,
+    SettlementPriorityFee,
     
     /// <summary>
     /// Total healthcare amount
+    /// Encoded/decoded by serializers as "THTC".
     /// </summary>
     [EnumMember(Value = "THTC")]
     [IsoId("_VmvF23yMEemHsOqJOzMVfg")]
     [Description(@"Total healthcare amount")]
-    THTC,
+    TotalHealthcare,
     
     /// <summary>
     /// Amount in transit
+    /// Encoded/decoded by serializers as "TRNS".
     /// </summary>
     [EnumMember(Value = "TRNS")]
     [IsoId("_VmvF3HyMEemHsOqJOzMVfg")]
     [Description(@"Amount in transit")]
-    TRNS,
+    Transit,
     
     /// <summary>
     /// Amount qualified for medical vision expenses
+    /// Encoded/decoded by serializers as "VISN".
     /// </summary>
     [EnumMember(Value = "VISN")]
     [IsoId("_VmvF3XyMEemHsOqJOzMVfg")]
     [Description(@"Amount qualified for medical vision expenses")]
-    VISN,
+    Vision,
     
     /// <summary>
     /// Telephone connection-related charge
+    /// Encoded/decoded by serializers as "CONN".
     /// </summary>
     [EnumMember(Value = "CONN")]
     [IsoId("_iJ8uvXyMEemHsOqJOzMVfg")]
     [Description(@"Telephone connection-related charge")]
-    CONN,
+    Connect,
     
     /// <summary>
     /// Data communication related charges
+    /// Encoded/decoded by serializers as "DATA".
     /// </summary>
     [EnumMember(Value = "DATA")]
     [IsoId("_iJ8uvnyMEemHsOqJOzMVfg")]
     [Description(@"Data communication related charges")]
-    DATA,
+    Data,
     
     /// <summary>
     /// Fee for exchanging a ticket (modifying an itinerary)
+    /// Encoded/decoded by serializers as "EXTK".
     /// </summary>
     [EnumMember(Value = "EXTK")]
     [IsoId("_iJ8uv3yMEemHsOqJOzMVfg")]
     [Description(@"Fee for exchanging a ticket (modifying an itinerary)")]
-    EXTK,
+    ExchangeTicket,
     
     /// <summary>
     /// Fee for exchanging a ticket (modifying an itinerary)
+    /// Encoded/decoded by serializers as "EXTF".
     /// </summary>
     [EnumMember(Value = "EXTF")]
     [IsoId("_iJ8uwHyMEemHsOqJOzMVfg")]
     [Description(@"Fee for exchanging a ticket (modifying an itinerary)")]
-    EXTF,
+    ExchangeTicketFee,
     
     /// <summary>
     /// Amount of fare
+    /// Encoded/decoded by serializers as "FARE".
     /// </summary>
     [EnumMember(Value = "FARE")]
     [IsoId("_iJ8uwXyMEemHsOqJOzMVfg")]
     [Description(@"Amount of fare")]
-    FARE,
+    Fare,
     
     /// <summary>
     /// Amount of food and beverages
+    /// Encoded/decoded by serializers as "FDBV".
     /// </summary>
     [EnumMember(Value = "FDBV")]
     [IsoId("_iJ8uwnyMEemHsOqJOzMVfg")]
     [Description(@"Amount of food and beverages")]
-    FDBV,
+    FoodBeverage,
     
     /// <summary>
     /// Insurance charges 
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_iJ8uw3yMEemHsOqJOzMVfg")]
     [Description(@"Insurance charges ")]
-    INSU,
+    Insurance,
     
     /// <summary>
     /// Charges related to a long distance call. 
+    /// Encoded/decoded by serializers as "LNDS".
     /// </summary>
     [EnumMember(Value = "LNDS")]
     [IsoId("_iJ8uxHyMEemHsOqJOzMVfg")]
     [Description(@"Charges related to a long distance call. ")]
-    LNDS,
+    LongDistance,
     
     /// <summary>
     /// Miscellaneous charges not elsewhere defined
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_iJ8uxXyMEemHsOqJOzMVfg")]
     [Description(@"Miscellaneous charges not elsewhere defined")]
-    MISC,
+    Miscellaneous,
     
     /// <summary>
     /// Phone charges
+    /// Encoded/decoded by serializers as "PHNE".
     /// </summary>
     [EnumMember(Value = "PHNE")]
     [IsoId("_iJ8uxnyMEemHsOqJOzMVfg")]
     [Description(@"Phone charges")]
-    PHNE,
+    Phone,
     
     /// <summary>
     /// Amount of prepayment
+    /// Encoded/decoded by serializers as "PRPY".
     /// </summary>
     [EnumMember(Value = "PRPY")]
     [IsoId("_iJ8ux3yMEemHsOqJOzMVfg")]
     [Description(@"Amount of prepayment")]
-    PRPY,
+    Prepayment,
     
     /// <summary>
     /// Total amount of charges
+    /// Encoded/decoded by serializers as "TOTL".
     /// </summary>
     [EnumMember(Value = "TOTL")]
     [IsoId("_iJ8uyHyMEemHsOqJOzMVfg")]
     [Description(@"Total amount of charges")]
-    TOTL,
+    Total,
     
     /// <summary>
     /// Telephone usage-related charge
+    /// Encoded/decoded by serializers as "USGE".
     /// </summary>
     [EnumMember(Value = "USGE")]
     [IsoId("_iJ8uyXyMEemHsOqJOzMVfg")]
     [Description(@"Telephone usage-related charge")]
-    USGE,
+    Usage,
     
     /// <summary>
     /// Local amount before DCC (Dynamic Currency Conversion) was applied.
+    /// Encoded/decoded by serializers as "PDCC".
     /// </summary>
     [EnumMember(Value = "PDCC")]
     [IsoId("_c3dZUOkUEemeDPHh-U9b6w")]
     [Description(@"Local amount before DCC (Dynamic Currency Conversion) was applied.")]
-    PDCC,
+    PreDCC,
     
     /// <summary>
     /// Amount for an upgrade.
+    /// Encoded/decoded by serializers as "UPGD".
     /// </summary>
     [EnumMember(Value = "UPGD")]
     [IsoId("_NjK40JJDEeuuktRxxQZoNQ")]
     [Description(@"Amount for an upgrade.")]
-    UPGD,
+    Upgrade,
     
     /// <summary>
     /// Amount for club fee.
+    /// Encoded/decoded by serializers as "CLUB".
     /// </summary>
     [EnumMember(Value = "CLUB")]
     [IsoId("_ryiacJJDEeuuktRxxQZoNQ")]
     [Description(@"Amount for club fee.")]
-    CLUB,
+    ClubFee,
     
     /// <summary>
     /// Cargo Amount.
+    /// Encoded/decoded by serializers as "CARG".
     /// </summary>
     [EnumMember(Value = "CARG")]
     [IsoId("_vkaJkJJDEeuuktRxxQZoNQ")]
     [Description(@"Cargo Amount.")]
-    CARG,
+    Cargo,
     
     /// <summary>
     /// Duty free amount
+    /// Encoded/decoded by serializers as "DUTY".
     /// </summary>
     [EnumMember(Value = "DUTY")]
     [IsoId("_DB9ucJJEEeuuktRxxQZoNQ")]
     [Description(@"Duty free amount")]
-    DUTY,
+    DutyFree,
     
     /// <summary>
     /// Ticket delivery amount.
+    /// Encoded/decoded by serializers as "TKDL".
     /// </summary>
     [EnumMember(Value = "TKDL")]
     [IsoId("_JctkUJJEEeuuktRxxQZoNQ")]
     [Description(@"Ticket delivery amount.")]
-    TKDL,
+    TicketDelivery,
     
     /// <summary>
     /// Pet carrier.
+    /// Encoded/decoded by serializers as "PETC".
     /// </summary>
     [EnumMember(Value = "PETC")]
     [IsoId("_PSsgQJJEEeuuktRxxQZoNQ")]
     [Description(@"Pet carrier.")]
-    PETC,
+    PetCarrier,
     
     /// <summary>
     /// Tour order amount.
+    /// Encoded/decoded by serializers as "TOUR".
     /// </summary>
     [EnumMember(Value = "TOUR")]
     [IsoId("_euW9AJJEEeuuktRxxQZoNQ")]
     [Description(@"Tour order amount.")]
-    TOUR,
+    TourOrder,
     
     /// <summary>
     /// Minimum interchange fee applicable.
+    /// Encoded/decoded by serializers as "MNIF".
     /// </summary>
     [EnumMember(Value = "MNIF")]
     [IsoId("_iYjIYKH-EeuiuNcvKhXmNQ")]
     [Description(@"Minimum interchange fee applicable.")]
-    MNIF,
+    MinimumInterchangeFee,
     
     /// <summary>
     /// Maximum applicable interchange fee.
+    /// Encoded/decoded by serializers as "MXIF".
     /// </summary>
     [EnumMember(Value = "MXIF")]
     [IsoId("_rJXdwKH-EeuiuNcvKhXmNQ")]
     [Description(@"Maximum applicable interchange fee.")]
-    MXIF,
+    MaximumInterchangeFee,
     
     /// <summary>
     /// Interchange fee applicable to cash back amount.
+    /// Encoded/decoded by serializers as "CSIF".
     /// </summary>
     [EnumMember(Value = "CSIF")]
     [IsoId("_yhfh4KH-EeuiuNcvKhXmNQ")]
     [Description(@"Interchange fee applicable to cash back amount.")]
-    CSIF,
+    CashBackInterchangeFee,
     
 }
 

@@ -20,91 +20,102 @@ public enum ProductIdentifierCode
 {
     /// <summary>
     /// Product identifier assigned by the buyer.
+    /// Encoded/decoded by serializers as "BINR".
     /// </summary>
     [EnumMember(Value = "BINR")]
     [IsoId("_ZWBSMNp-Ed-ak6NoX_4Aeg_1324571761")]
     [Description(@"Product identifier assigned by the buyer.")]
-    BINR,
+    BuyersItemNumber,
     
     /// <summary>
     /// A code to identify a product based on applicable commercial conditions.
+    /// Encoded/decoded by serializers as "COMD".
     /// </summary>
     [EnumMember(Value = "COMD")]
     [IsoId("_ZWBSMdp-Ed-ak6NoX_4Aeg_1362437144")]
     [Description(@"A code to identify a product based on applicable commercial conditions.")]
-    COMD,
+    CommercialDescriptionCodeName,
     
     /// <summary>
     /// The unique EAN (European Article Number) code.
+    /// Encoded/decoded by serializers as "EANC".
     /// </summary>
     [EnumMember(Value = "EANC")]
     [IsoId("_ZWBSMtp-Ed-ak6NoX_4Aeg_1363358278")]
     [Description(@"The unique EAN (European Article Number) code.")]
-    EANC,
+    EAN,
     
     /// <summary>
     /// Classification of goods as developed by the Customs Cooperation council.
+    /// Encoded/decoded by serializers as "HRTR".
     /// </summary>
     [EnumMember(Value = "HRTR")]
     [IsoId("_ZWBSM9p-Ed-ak6NoX_4Aeg_1363359641")]
     [Description(@"Classification of goods as developed by the Customs Cooperation council.")]
-    HRTR,
+    HarmonizedTariffCodeName,
     
     /// <summary>
     /// Product identifier as assigned by the manufacturer.
+    /// Encoded/decoded by serializers as "MANI".
     /// </summary>
     [EnumMember(Value = "MANI")]
     [IsoId("_ZWBSNNp-Ed-ak6NoX_4Aeg_1363361086")]
     [Description(@"Product identifier as assigned by the manufacturer.")]
-    MANI,
+    ManufacturersItemNumber,
     
     /// <summary>
     /// Reference number assigned by the manufacturer to differentiate variations in similar products in a class or group.
+    /// Encoded/decoded by serializers as "MODL".
     /// </summary>
     [EnumMember(Value = "MODL")]
     [IsoId("_ZWBSNdp-Ed-ak6NoX_4Aeg_1364282208")]
     [Description(@"Reference number assigned by the manufacturer to differentiate variations in similar products in a class or group.")]
-    MODL,
+    ModelNumber,
     
     /// <summary>
     /// Reference assigned by the manufacturer to a product part.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_ZWBSNtp-Ed-ak6NoX_4Aeg_1364283678")]
     [Description(@"Reference assigned by the manufacturer to a product part.")]
-    PART,
+    PartNumber,
     
     /// <summary>
     /// Product identifier used by the retail industry.
+    /// Encoded/decoded by serializers as "QOTA".
     /// </summary>
     [EnumMember(Value = "QOTA")]
     [IsoId("_ZWBSN9p-Ed-ak6NoX_4Aeg_1364285059")]
     [Description(@"Product identifier used by the retail industry.")]
-    QOTA,
+    QuotaCategory,
     
     /// <summary>
     /// Identification of the style of a product.
+    /// Encoded/decoded by serializers as "STYL".
     /// </summary>
     [EnumMember(Value = "STYL")]
     [IsoId("_ZWBSONp-Ed-ak6NoX_4Aeg_1780791760")]
     [Description(@"Identification of the style of a product.")]
-    STYL,
+    StyleNumber,
     
     /// <summary>
     /// Number assigned to an article by the supplier of that article.
+    /// Encoded/decoded by serializers as "SUPI".
     /// </summary>
     [EnumMember(Value = "SUPI")]
     [IsoId("_ZWBSOdp-Ed-ak6NoX_4Aeg_-155980102")]
     [Description(@"Number assigned to an article by the supplier of that article.")]
-    SUPI,
+    SuppliersItemNumber,
     
     /// <summary>
     /// Number assigned to a manufacturer's product by the Product Code Council.
+    /// Encoded/decoded by serializers as "UPCC".
     /// </summary>
     [EnumMember(Value = "UPCC")]
     [IsoId("_ZWKcINp-Ed-ak6NoX_4Aeg_-155980059")]
     [Description(@"Number assigned to a manufacturer's product by the Product Code Council.")]
-    UPCC,
+    UniversalProductCode,
     
 }
 

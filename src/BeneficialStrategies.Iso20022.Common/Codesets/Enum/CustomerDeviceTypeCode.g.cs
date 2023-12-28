@@ -20,131 +20,147 @@ public enum CustomerDeviceTypeCode
 {
     /// <summary>
     /// Secure card reader attached to the customer device
+    /// Encoded/decoded by serializers as "SECR".
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_YSJjAEesEee9r7QjOdsbFw")]
     [Description(@"Secure card reader attached to the customer device")]
-    SECR,
+    SecureCardReader,
     
     /// <summary>
     /// Non-secure card reader attached to the customer device.
+    /// Encoded/decoded by serializers as "NSCR".
     /// </summary>
     [EnumMember(Value = "NSCR")]
     [IsoId("_e-35sEesEee9r7QjOdsbFw")]
     [Description(@"Non-secure card reader attached to the customer device.")]
-    NSCR,
+    NonSecureCardReader,
     
     /// <summary>
     /// Mobile phone
+    /// Encoded/decoded by serializers as "MOBL".
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_kG6xkEesEee9r7QjOdsbFw")]
     [Description(@"Mobile phone")]
-    MOBL,
+    Mobile,
     
     /// <summary>
     /// Tablet
+    /// Encoded/decoded by serializers as "TBLT".
     /// </summary>
     [EnumMember(Value = "TBLT")]
     [IsoId("_nML5YEesEee9r7QjOdsbFw")]
     [Description(@"Tablet")]
-    TBLT,
+    Tablet,
     
     /// <summary>
     /// Personal computer
+    /// Encoded/decoded by serializers as "PECR".
     /// </summary>
     [EnumMember(Value = "PECR")]
     [IsoId("_rk-ekEesEee9r7QjOdsbFw")]
     [Description(@"Personal computer")]
-    PECR,
+    PersonalComputer,
     
     /// <summary>
     /// Other device defined at national level
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_yf-h0EesEee9r7QjOdsbFw")]
     [Description(@"Other device defined at national level")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other device defined in a private way.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_4LcP0EesEee9r7QjOdsbFw")]
     [Description(@"Other device defined in a private way.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Wearable device.
+    /// Encoded/decoded by serializers as "WRBL".
     /// </summary>
     [EnumMember(Value = "WRBL")]
     [IsoId("_X8VvAJfIEeuqNYk2TG3bTg")]
     [Description(@"Wearable device.")]
-    WRBL,
+    Wearable,
     
     /// <summary>
     /// Vehicle.
+    /// Encoded/decoded by serializers as "VHCL".
     /// </summary>
     [EnumMember(Value = "VHCL")]
     [IsoId("_jNyOEJfIEeuqNYk2TG3bTg")]
     [Description(@"Vehicle.")]
-    VHCL,
+    Vehicle,
     
     /// <summary>
     /// Embedded in a device.
+    /// Encoded/decoded by serializers as "EMBD".
     /// </summary>
     [EnumMember(Value = "EMBD")]
     [IsoId("_sYPygJfIEeuqNYk2TG3bTg")]
     [Description(@"Embedded in a device.")]
-    EMBD,
+    Embedded,
     
     /// <summary>
     /// Key Fob
+    /// Encoded/decoded by serializers as "KFOB".
     /// </summary>
     [EnumMember(Value = "KFOB")]
     [IsoId("_waLSYCbMEeyhZIgCcGlTyA")]
     [Description(@"Key Fob")]
-    KFOB,
+    KeyFob,
     
     /// <summary>
     /// Jewellery
+    /// Encoded/decoded by serializers as "JEWL".
     /// </summary>
     [EnumMember(Value = "JEWL")]
     [IsoId("_C5CaYCbNEeyhZIgCcGlTyA")]
     [Description(@"Jewellery")]
-    JEWL,
+    Jewellery,
     
     /// <summary>
     /// Sticker
+    /// Encoded/decoded by serializers as "STIC".
     /// </summary>
     [EnumMember(Value = "STIC")]
     [IsoId("_GzW64CbNEeyhZIgCcGlTyA")]
     [Description(@"Sticker")]
-    STIC,
+    Sticker,
     
     /// <summary>
     /// Gaming Device
+    /// Encoded/decoded by serializers as "GAMB".
     /// </summary>
     [EnumMember(Value = "GAMB")]
     [IsoId("_JRYcgCbNEeyhZIgCcGlTyA")]
     [Description(@"Gaming Device")]
-    GAMB,
+    GamingDevice,
     
     /// <summary>
     /// Watch
+    /// Encoded/decoded by serializers as "WATC".
     /// </summary>
     [EnumMember(Value = "WATC")]
     [IsoId("_MH0eICbNEeyhZIgCcGlTyA")]
     [Description(@"Watch")]
-    WATC,
+    Watch,
     
     /// <summary>
     /// Device type unknown
+    /// Encoded/decoded by serializers as "UNKW".
     /// </summary>
     [EnumMember(Value = "UNKW")]
     [IsoId("_Qai8wEQHEeyANrrBvBlqVg")]
     [Description(@"Device type unknown")]
-    UNKW,
+    Unknown,
     
 }
 

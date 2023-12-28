@@ -20,59 +20,66 @@ public enum DeviceOperatingSystemTypeCode
 {
     /// <summary>
     /// Android operating system.
+    /// Encoded/decoded by serializers as "DROI".
     /// </summary>
     [EnumMember(Value = "DROI")]
     [IsoId("_V5SYgJfQEeuqNYk2TG3bTg")]
     [Description(@"Android operating system.")]
-    DROI,
+    Android,
     
     /// <summary>
     /// iOS operating system.
+    /// Encoded/decoded by serializers as "IOSS".
     /// </summary>
     [EnumMember(Value = "IOSS")]
     [IsoId("_cBa0YJfQEeuqNYk2TG3bTg")]
     [Description(@"iOS operating system.")]
-    IOSS,
+    iOS,
     
     /// <summary>
     /// Windows operating system.
+    /// Encoded/decoded by serializers as "WIND".
     /// </summary>
     [EnumMember(Value = "WIND")]
     [IsoId("_xg0VMJfQEeuqNYk2TG3bTg")]
     [Description(@"Windows operating system.")]
-    WIND,
+    Windows,
     
     /// <summary>
     /// Blackberry operating system.
+    /// Encoded/decoded by serializers as "BLCK".
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_Wcn5oJfREeuqNYk2TG3bTg")]
     [Description(@"Blackberry operating system.")]
-    BLCK,
+    Blackberry,
     
     /// <summary>
     /// Tizen operating system.
+    /// Encoded/decoded by serializers as "TIZN".
     /// </summary>
     [EnumMember(Value = "TIZN")]
     [IsoId("_cmnWsJfREeuqNYk2TG3bTg")]
     [Description(@"Tizen operating system.")]
-    TIZN,
+    Tizen,
     
     /// <summary>
     /// Other nationally defined code.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_in48oJfREeuqNYk2TG3bTg")]
     [Description(@"Other nationally defined code.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other privately defined code.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_roPi0JfREeuqNYk2TG3bTg")]
     [Description(@"Other privately defined code.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

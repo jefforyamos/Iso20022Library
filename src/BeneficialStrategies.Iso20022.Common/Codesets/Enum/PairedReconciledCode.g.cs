@@ -20,43 +20,48 @@ public enum PairedReconciledCode
 {
     /// <summary>
     /// Reconciled.
+    /// Encoded/decoded by serializers as "RECO".
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_AjtvICmtEeerta_tWXAsWQ")]
     [Description(@"Reconciled.")]
-    RECO,
+    Reconciled,
     
     /// <summary>
     /// Paired.
+    /// Encoded/decoded by serializers as "PARD".
     /// </summary>
     [EnumMember(Value = "PARD")]
     [IsoId("_BvjQICmtEeerta_tWXAsWQ")]
     [Description(@"Paired.")]
-    PARD,
+    Paired,
     
     /// <summary>
     /// Status should be reported when the loan is unpaired.
+    /// Encoded/decoded by serializers as "UNPR".
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_U0AQkGofEeu35dLEXN5XLw")]
     [Description(@"Status should be reported when the loan is unpaired.")]
-    UNPR,
+    Unpaired,
     
     /// <summary>
     /// Status should be reported when the loan was paired and matched.
+    /// Encoded/decoded by serializers as "LNRC".
     /// </summary>
     [EnumMember(Value = "LNRC")]
     [IsoId("_C-AocHBLEeuTl53AHNKO7w")]
     [Description(@"Status should be reported when the loan was paired and matched.")]
-    LNRC,
+    LoanReconciled,
     
     /// <summary>
     /// Status should be reported when the collateral associated with the loan(s) was matched.
+    /// Encoded/decoded by serializers as "CLRC".
     /// </summary>
     [EnumMember(Value = "CLRC")]
     [IsoId("_S6_CgHBLEeuTl53AHNKO7w")]
     [Description(@"Status should be reported when the collateral associated with the loan(s) was matched.")]
-    CLRC,
+    CollateralReconciled,
     
 }
 

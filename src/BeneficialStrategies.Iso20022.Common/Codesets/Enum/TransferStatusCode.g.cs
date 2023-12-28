@@ -20,115 +20,129 @@ public enum TransferStatusCode
 {
     /// <summary>
     /// Transfer or settlement instruction has been cancelled.
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_YvRbRNp-Ed-ak6NoX_4Aeg_-57488337")]
     [Description(@"Transfer or settlement instruction has been cancelled.")]
-    CAND,
+    Cancelled,
     
     /// <summary>
     /// Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_YvRbRdp-Ed-ak6NoX_4Aeg_-57487407")]
     [Description(@"Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.")]
-    STNP,
+    SentToNextParty,
     
     /// <summary>
     /// Transfer or settlement instruction has been acknowledged / accepted for further processing.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_YvRbRtp-Ed-ak6NoX_4Aeg_593328820")]
     [Description(@"Transfer or settlement instruction has been acknowledged / accepted for further processing.")]
-    PACK,
+    Accepted,
     
     /// <summary>
     /// Transfer or settlement instruction has been executed, confirmed and then the confirmation has been reversed.
+    /// Encoded/decoded by serializers as "RVSD".
     /// </summary>
     [EnumMember(Value = "RVSD")]
     [IsoId("_YvRbR9p-Ed-ak6NoX_4Aeg_-1794302245")]
     [Description(@"Transfer or settlement instruction has been executed, confirmed and then the confirmation has been reversed.")]
-    RVSD,
+    Reversed,
     
     /// <summary>
     /// Transfer or settlement instruction is matched.
+    /// Encoded/decoded by serializers as "MACH".
     /// </summary>
     [EnumMember(Value = "MACH")]
     [IsoId("_YvbMQNp-Ed-ak6NoX_4Aeg_1040312490")]
     [Description(@"Transfer or settlement instruction is matched.")]
-    MACH,
+    Matched,
     
     /// <summary>
     /// Transfer or settlement instruction is fully executed and the confirmation is sent.
+    /// Encoded/decoded by serializers as "COSE".
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_YvbMQdp-Ed-ak6NoX_4Aeg_1458667502")]
     [Description(@"Transfer or settlement instruction is fully executed and the confirmation is sent.")]
-    COSE,
+    AlreadyExecuted,
     
     /// <summary>
     /// Transfer or settlement instruction is in repair.
+    /// Encoded/decoded by serializers as "REPR".
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_YvbMQtp-Ed-ak6NoX_4Aeg_1566721757")]
     [Description(@"Transfer or settlement instruction is in repair.")]
-    REPR,
+    InRepair,
     
     /// <summary>
     /// Transfer or settlement instruction is unmatched.
+    /// Encoded/decoded by serializers as "NMAT".
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_YvbMQ9p-Ed-ak6NoX_4Aeg_1639679493")]
     [Description(@"Transfer or settlement instruction is unmatched.")]
-    NMAT,
+    Unmatched,
     
     /// <summary>
     /// Transfer or settlement instruction has been rejected for further processing.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_YvbMRNp-Ed-ak6NoX_4Aeg_913854987")]
     [Description(@"Transfer or settlement instruction has been rejected for further processing.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Transfer cancellation instruction or settlement cancellation instruction is pending.
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_YvbMRdp-Ed-ak6NoX_4Aeg_2126556345")]
     [Description(@"Transfer cancellation instruction or settlement cancellation instruction is pending.")]
-    CANP,
+    CancellationPending,
     
     /// <summary>
     /// Transfer or settlement instruction is settled.
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_YvbMRtp-Ed-ak6NoX_4Aeg_823239905")]
     [Description(@"Transfer or settlement instruction is settled.")]
-    SETT,
+    Settled,
     
     /// <summary>
     /// Instruction has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_Q03ocBwfEeOIveEnnb_1-A")]
     [Description(@"Instruction has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.")]
-    RECE,
+    Received,
     
     /// <summary>
     /// Portfolio transfer is complete.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_snBMQCY-EeW_ZNn8gbfY7Q")]
     [Description(@"Portfolio transfer is complete.")]
-    COMP,
+    Complete,
     
     /// <summary>
     /// Transfer or settlement instruction is delayed.
+    /// Encoded/decoded by serializers as "DELY".
     /// </summary>
     [EnumMember(Value = "DELY")]
     [IsoId("_Bmb04LsYEeiTr4dQrTCaYA")]
     [Description(@"Transfer or settlement instruction is delayed.")]
-    DELY,
+    Delayed,
     
 }
 

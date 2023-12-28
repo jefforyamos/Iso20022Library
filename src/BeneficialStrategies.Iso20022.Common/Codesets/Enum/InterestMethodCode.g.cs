@@ -20,19 +20,21 @@ public enum InterestMethodCode
 {
     /// <summary>
     /// Indicates that the interest is intended to be settled in cash.
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_YbAbd9p-Ed-ak6NoX_4Aeg_-1909597864")]
     [Description(@"Indicates that the interest is intended to be settled in cash.")]
-    PHYS,
+    PhysicalSettlement,
     
     /// <summary>
     /// Indicates that the interest is intended to be rolled in to existing collateral balances.
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_YbKMcNp-Ed-ak6NoX_4Aeg_-2144375015")]
     [Description(@"Indicates that the interest is intended to be rolled in to existing collateral balances.")]
-    ROLL,
+    RollIn,
     
 }
 

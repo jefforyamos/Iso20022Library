@@ -20,35 +20,39 @@ public enum POIComponentStatusCode
 {
     /// <summary>
     /// Component not yet activated.
+    /// Encoded/decoded by serializers as "WAIT".
     /// </summary>
     [EnumMember(Value = "WAIT")]
     [IsoId("_rAURoAxwEeKa_56Jbsi1RQ")]
     [Description(@"Component not yet activated.")]
-    WAIT,
+    WaitingActivation,
     
     /// <summary>
     /// Component activated and in operation.
+    /// Encoded/decoded by serializers as "OPER".
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_09qrkAxwEeKa_56Jbsi1RQ")]
     [Description(@"Component activated and in operation.")]
-    OPER,
+    InOperation,
     
     /// <summary>
     /// Component not working properly.
+    /// Encoded/decoded by serializers as "OUTD".
     /// </summary>
     [EnumMember(Value = "OUTD")]
     [IsoId("_6gMgAAxwEeKa_56Jbsi1RQ")]
     [Description(@"Component not working properly.")]
-    OUTD,
+    OutOfOrder,
     
     /// <summary>
     /// Component has been deactivated.
+    /// Encoded/decoded by serializers as "DACT".
     /// </summary>
     [EnumMember(Value = "DACT")]
     [IsoId("__5DbEAxwEeKa_56Jbsi1RQ")]
     [Description(@"Component has been deactivated.")]
-    DACT,
+    Deactivated,
     
 }
 

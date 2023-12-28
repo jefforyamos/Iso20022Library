@@ -20,43 +20,48 @@ public enum ReconciliationCategoryCode
 {
     /// <summary>
     /// Reconciliation category is financial.
+    /// Encoded/decoded by serializers as "FNCL".
     /// </summary>
     [EnumMember(Value = "FNCL")]
     [IsoId("_tJKXpcyrEeiqqJhU2tqK8A")]
     [Description(@"Reconciliation category is financial.")]
-    FNCL,
+    Financial,
     
     /// <summary>
     /// Reconciliation category is reversal.
+    /// Encoded/decoded by serializers as "RVSL".
     /// </summary>
     [EnumMember(Value = "RVSL")]
     [IsoId("_tJKXpMyrEeiqqJhU2tqK8A")]
     [Description(@"Reconciliation category is reversal.")]
-    RVSL,
+    Reversal,
     
     /// <summary>
     /// Reconciliation category is a chargeback.
+    /// Encoded/decoded by serializers as "CGBK".
     /// </summary>
     [EnumMember(Value = "CGBK")]
     [IsoId("_RAve8MysEeiqqJhU2tqK8A")]
     [Description(@"Reconciliation category is a chargeback.")]
-    CGBK,
+    Chargeback,
     
     /// <summary>
     /// Reconciliation category is other national.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_Zq06MMysEeiqqJhU2tqK8A")]
     [Description(@"Reconciliation category is other national.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Reconciliation category is other private
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_cd3CgMysEeiqqJhU2tqK8A")]
     [Description(@"Reconciliation category is other private")]
-    OTHP,
+    OtherPrivate,
     
 }
 

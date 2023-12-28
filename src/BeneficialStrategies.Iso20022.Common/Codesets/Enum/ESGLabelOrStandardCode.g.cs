@@ -20,123 +20,138 @@ public enum ESGLabelOrStandardCode
 {
     /// <summary>
     /// International Capital Markets Association (ICMA) Green Bond Principles.
+    /// Encoded/decoded by serializers as "A001".
     /// </summary>
     [EnumMember(Value = "A001")]
     [IsoId("_Rmxy8M2xEeuAE-cYsQdwHQ")]
     [Description(@"International Capital Markets Association (ICMA) Green Bond Principles.")]
-    A001,
+    ICMAGreenBond,
     
     /// <summary>
     /// EU Green Bond Standard.
+    /// Encoded/decoded by serializers as "B002".
     /// </summary>
     [EnumMember(Value = "B002")]
     [IsoId("_XDlZ4M2xEeuAE-cYsQdwHQ")]
     [Description(@"EU Green Bond Standard.")]
-    B002,
+    EUGreenBond,
     
     /// <summary>
     /// EU Ecolabel for financial products.
+    /// Encoded/decoded by serializers as "C003".
     /// </summary>
     [EnumMember(Value = "C003")]
     [IsoId("_bozRgM2xEeuAE-cYsQdwHQ")]
     [Description(@"EU Ecolabel for financial products.")]
-    C003,
+    EUEcolabel,
     
     /// <summary>
     /// FNG-Siegel.
+    /// Encoded/decoded by serializers as "D004".
     /// </summary>
     [EnumMember(Value = "D004")]
     [IsoId("_gIkocM2xEeuAE-cYsQdwHQ")]
     [Description(@"FNG-Siegel.")]
-    D004,
+    FNGSiegel,
     
     /// <summary>
     /// Climate Bonds Initiative (CBI) Climate Bonds Standard.
+    /// Encoded/decoded by serializers as "E005".
     /// </summary>
     [EnumMember(Value = "E005")]
     [IsoId("_kHwa0M2xEeuAE-cYsQdwHQ")]
     [Description(@"Climate Bonds Initiative (CBI) Climate Bonds Standard.")]
-    E005,
+    CBIClimateBonds,
     
     /// <summary>
     /// International Capital Markets Association (ICMA) Social Bonds Principles.
+    /// Encoded/decoded by serializers as "F006".
     /// </summary>
     [EnumMember(Value = "F006")]
     [IsoId("_qL8K0M2xEeuAE-cYsQdwHQ")]
     [Description(@"International Capital Markets Association (ICMA) Social Bonds Principles.")]
-    F006,
+    ICMASocialBonds,
     
     /// <summary>
     /// LuxFLAG ESG label.
+    /// Encoded/decoded by serializers as "G007".
     /// </summary>
     [EnumMember(Value = "G007")]
     [IsoId("_uZwPEM2xEeuAE-cYsQdwHQ")]
     [Description(@"LuxFLAG ESG label.")]
-    G007,
+    LuxFLAGESG,
     
     /// <summary>
     /// LuxFLAG climate finance label.
+    /// Encoded/decoded by serializers as "H008".
     /// </summary>
     [EnumMember(Value = "H008")]
     [IsoId("_x5fFUM2xEeuAE-cYsQdwHQ")]
     [Description(@"LuxFLAG climate finance label.")]
-    H008,
+    LuxFLAGClimate,
     
     /// <summary>
     /// LuxFLAG environment label.
+    /// Encoded/decoded by serializers as "I009".
     /// </summary>
     [EnumMember(Value = "I009")]
     [IsoId("_7UqmUM2xEeuAE-cYsQdwHQ")]
     [Description(@"LuxFLAG environment label.")]
-    I009,
+    LuxFLAGEnvironment,
     
     /// <summary>
     /// Kein Verstoss gegen Atomwaffensperrvertrag.
+    /// Encoded/decoded by serializers as "J010".
     /// </summary>
     [EnumMember(Value = "J010")]
     [IsoId("_ATLuwM2yEeuAE-cYsQdwHQ")]
     [Description(@"Kein Verstoss gegen Atomwaffensperrvertrag.")]
-    J010,
+    KeinVerstoßGegenAtomwaffensperrvertrag,
     
     /// <summary>
     /// Label "Investissement Socialement Responsable" (ISR).
+    /// Encoded/decoded by serializers as "K011".
     /// </summary>
     [EnumMember(Value = "K011")]
     [IsoId("_EENJUM2yEeuAE-cYsQdwHQ")]
     [Description(@"Label ""Investissement Socialement Responsable"" (ISR).")]
-    K011,
+    ISR,
     
     /// <summary>
     /// Febelfin Towards Sustainability label.
+    /// Encoded/decoded by serializers as "L012".
     /// </summary>
     [EnumMember(Value = "L012")]
     [IsoId("_JiJ_wM2yEeuAE-cYsQdwHQ")]
     [Description(@"Febelfin Towards Sustainability label.")]
-    L012,
+    FebelfinTowardsSustainability,
     
     /// <summary>
     /// UZ49 - das Oesterreichische Umweltzeichen.
+    /// Encoded/decoded by serializers as "M013".
     /// </summary>
     [EnumMember(Value = "M013")]
     [IsoId("_NtUYoM2yEeuAE-cYsQdwHQ")]
     [Description(@"UZ49 - das Oesterreichische Umweltzeichen.")]
-    M013,
+    UZ49,
     
     /// <summary>
     /// Nordic Swan Ecolabel.
+    /// Encoded/decoded by serializers as "N014".
     /// </summary>
     [EnumMember(Value = "N014")]
     [IsoId("_SlY60M2yEeuAE-cYsQdwHQ")]
     [Description(@"Nordic Swan Ecolabel.")]
-    N014,
+    NordicSwan,
     
     /// <summary>
     /// Greenfin label.
+    /// Encoded/decoded by serializers as "O015".
     /// </summary>
     [EnumMember(Value = "O015")]
     [IsoId("_VitAgM2yEeuAE-cYsQdwHQ")]
     [Description(@"Greenfin label.")]
-    O015,
+    GreenfinLabel,
     
 }
 

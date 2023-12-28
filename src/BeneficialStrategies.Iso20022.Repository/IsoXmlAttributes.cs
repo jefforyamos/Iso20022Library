@@ -20,6 +20,7 @@ public static class IsoXmlAttributes
         public static readonly XName RegistrationStatus = XName.Get("registrationStatus", IsoXmlNamespaces.Default);
         public static readonly XName CodeName = XName.Get("codeName", IsoXmlNamespaces.Default);
         public static readonly XName SubType = XName.Get("subType", IsoXmlNamespaces.Default);
+        public static readonly XName Derivation = XName.Get("derivation", IsoXmlNamespaces.Default);
     }
 }
 

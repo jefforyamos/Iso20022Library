@@ -20,43 +20,48 @@ public enum DerivativeWorkflowStatusCode
 {
     /// <summary>
     /// Notice is an advance warning that an adjustment may be applied.
+    /// Encoded/decoded by serializers as "PREL".
     /// </summary>
     [EnumMember(Value = "PREL")]
     [IsoId("_12FflDL3EeKU9IrkkToqcw_1152575769")]
     [Description(@"Notice is an advance warning that an adjustment may be applied.")]
-    PREL,
+    Preliminary,
     
     /// <summary>
     /// Notice confirms that an adjustment will be applied.
+    /// Encoded/decoded by serializers as "ADJU".
     /// </summary>
     [EnumMember(Value = "ADJU")]
     [IsoId("_12FflTL3EeKU9IrkkToqcw_1026052659")]
     [Description(@"Notice confirms that an adjustment will be applied.")]
-    ADJU,
+    Adjustment,
     
     /// <summary>
     /// Notice confirms that no adjustment will be applied.
+    /// Encoded/decoded by serializers as "NOAC".
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_12FfljL3EeKU9IrkkToqcw_757086237")]
     [Description(@"Notice confirms that no adjustment will be applied.")]
-    NOAC,
+    NoAction,
     
     /// <summary>
     /// GCA VS (Global Corporate Actions Validation Service) is unable to confirm that there is a corporate action corresponding to this notice.
+    /// Encoded/decoded by serializers as "UCON".
     /// </summary>
     [EnumMember(Value = "UCON")]
     [IsoId("_12PQkDL3EeKU9IrkkToqcw_1014152022")]
     [Description(@"GCA VS (Global Corporate Actions Validation Service) is unable to confirm that there is a corporate action corresponding to this notice.")]
-    UCON,
+    Unconfirmed,
     
     /// <summary>
     /// Details were entered in error. All data should be ignored.
+    /// Encoded/decoded by serializers as "DLTD".
     /// </summary>
     [EnumMember(Value = "DLTD")]
     [IsoId("_12PQkTL3EeKU9IrkkToqcw_954160850")]
     [Description(@"Details were entered in error. All data should be ignored.")]
-    DLTD,
+    Deleted,
     
 }
 

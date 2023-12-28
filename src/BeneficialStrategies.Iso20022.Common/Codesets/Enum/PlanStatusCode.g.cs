@@ -20,27 +20,30 @@ public enum PlanStatusCode
 {
     /// <summary>
     /// Plan is active.
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_F5AH4AjcEeS5F6qHcKOrew")]
     [Description(@"Plan is active.")]
-    ACTV,
+    Active,
     
     /// <summary>
     /// Plan is suspended.
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_Illp8AjcEeS5F6qHcKOrew")]
     [Description(@"Plan is suspended.")]
-    SUSP,
+    Suspended,
     
     /// <summary>
     /// Plan is closed.
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_MFzBUAjcEeS5F6qHcKOrew")]
     [Description(@"Plan is closed.")]
-    CLOS,
+    Closed,
     
 }
 

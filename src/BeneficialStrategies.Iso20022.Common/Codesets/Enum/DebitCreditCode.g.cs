@@ -20,19 +20,21 @@ public enum DebitCreditCode
 {
     /// <summary>
     /// Operation is an increase.
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_Ieq6AVlcEeGqx4xQw6z6Ug_-1358749425")]
     [Description(@"Operation is an increase.")]
-    CRDT,
+    Credit,
     
     /// <summary>
     /// Operation is a decrease.
+    /// Encoded/decoded by serializers as "DBIT".
     /// </summary>
     [EnumMember(Value = "DBIT")]
     [IsoId("_Ieq6AllcEeGqx4xQw6z6Ug_-1371089833")]
     [Description(@"Operation is a decrease.")]
-    DBIT,
+    Debit,
     
 }
 

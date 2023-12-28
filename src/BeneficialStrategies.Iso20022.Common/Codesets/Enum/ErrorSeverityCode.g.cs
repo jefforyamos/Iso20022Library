@@ -20,19 +20,21 @@ public enum ErrorSeverityCode
 {
     /// <summary>
     /// The error is considered transient.
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_YJX2oA3EEeWH49U6bkyMaA")]
     [Description(@"The error is considered transient.")]
-    TRAN,
+    Transient,
     
     /// <summary>
     /// The error is considered fatal.
+    /// Encoded/decoded by serializers as "FATL".
     /// </summary>
     [EnumMember(Value = "FATL")]
     [IsoId("_h5VU0A3EEeWH49U6bkyMaA")]
     [Description(@"The error is considered fatal.")]
-    FATL,
+    Fatal,
     
 }
 

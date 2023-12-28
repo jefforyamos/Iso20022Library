@@ -20,35 +20,39 @@ public enum ReconciliationTypeCode
 {
     /// <summary>
     /// Reconciliation with closure of the current period, without	any Acquirers synchronisation.
+    /// Encoded/decoded by serializers as "SREC".
     /// </summary>
     [EnumMember(Value = "SREC")]
     [IsoId("_My0YMNxeEeioifFt1dhnJA")]
     [Description(@"Reconciliation with closure of the current period, without	any Acquirers synchronisation.")]
-    SREC,
+    SaleReconciliation,
     
     /// <summary>
     /// Reconciliation and closure of the current period, with synchronisation of the reconciliation between the POI and Acquirers.
+    /// Encoded/decoded by serializers as "ASYN".
     /// </summary>
     [EnumMember(Value = "ASYN")]
     [IsoId("_QEaEwNxeEeioifFt1dhnJA")]
     [Description(@"Reconciliation and closure of the current period, with synchronisation of the reconciliation between the POI and Acquirers.")]
-    ASYN,
+    AcquirerSynchronisation,
     
     /// <summary>
     /// Reconciliation between the POI and one or several Acquirers only. There is no reconciliation between the Sale System and the POI System.
+    /// Encoded/decoded by serializers as "AREC".
     /// </summary>
     [EnumMember(Value = "AREC")]
     [IsoId("_TVSmsNxeEeioifFt1dhnJA")]
     [Description(@"Reconciliation between the POI and one or several Acquirers only. There is no reconciliation between the Sale System and the POI System.")]
-    AREC,
+    AcquirerReconciliation,
     
     /// <summary>
     /// Request result of a previous reconciliation.
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_Wlz8QNxeEeioifFt1dhnJA")]
     [Description(@"Request result of a previous reconciliation.")]
-    PREC,
+    PreviousReconciliation,
     
 }
 

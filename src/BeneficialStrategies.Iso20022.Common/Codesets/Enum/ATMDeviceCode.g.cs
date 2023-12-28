@@ -20,179 +20,201 @@ public enum ATMDeviceCode
 {
     /// <summary>
     /// Customer display and keyboard.
+    /// Encoded/decoded by serializers as "CDIS".
     /// </summary>
     [EnumMember(Value = "CDIS")]
     [IsoId("__h-cIIqHEeSRT5rEzcAHEw")]
     [Description(@"Customer display and keyboard.")]
-    CDIS,
+    CustomerConsole,
     
     /// <summary>
     /// Printer for full-size forms documents and supporting the printing of text and graphic.
+    /// Encoded/decoded by serializers as "DPRN".
     /// </summary>
     [EnumMember(Value = "DPRN")]
     [IsoId("_CR0GgIqIEeSRT5rEzcAHEw")]
     [Description(@"Printer for full-size forms documents and supporting the printing of text and graphic.")]
-    DPRN,
+    DocumentPrinter,
     
     /// <summary>
     /// Event log.
+    /// Encoded/decoded by serializers as "JRNL".
     /// </summary>
     [EnumMember(Value = "JRNL")]
     [IsoId("_ExtQYIqIEeSRT5rEzcAHEw")]
     [Description(@"Event log.")]
-    JRNL,
+    Journal,
     
     /// <summary>
     /// Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.
+    /// Encoded/decoded by serializers as "JPRN".
     /// </summary>
     [EnumMember(Value = "JPRN")]
     [IsoId("_HpcSgIqIEeSRT5rEzcAHEw")]
     [Description(@"Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.")]
-    JPRN,
+    JournalPrinter,
     
     /// <summary>
     /// Receipt printer used to print cut sheet documents.
+    /// Encoded/decoded by serializers as "RPRN".
     /// </summary>
     [EnumMember(Value = "RPRN")]
     [IsoId("_KHisoIqIEeSRT5rEzcAHEw")]
     [Description(@"Receipt printer used to print cut sheet documents.")]
-    RPRN,
+    ReceiptPrinter,
     
     /// <summary>
     /// Receipt of the withdrawal transactions.
+    /// Encoded/decoded by serializers as "RWDR".
     /// </summary>
     [EnumMember(Value = "RWDR")]
     [IsoId("_Mj2-EIqIEeSRT5rEzcAHEw")]
     [Description(@"Receipt of the withdrawal transactions.")]
-    RWDR,
+    WithdrawalReceipt,
     
     /// <summary>
     /// Alarm sensors, such as tamper, seismic or heat sensors.
+    /// Encoded/decoded by serializers as "ALRM".
     /// </summary>
     [EnumMember(Value = "ALRM")]
     [IsoId("_6Jq64IqsEeSIDtZ76p6McQ")]
     [Description(@"Alarm sensors, such as tamper, seismic or heat sensors.")]
-    ALRM,
+    AlarmSensors,
     
     /// <summary>
     /// Device scanning barcodes using any scanning technology.
+    /// Encoded/decoded by serializers as "BRCD".
     /// </summary>
     [EnumMember(Value = "BRCD")]
     [IsoId("_8i2_0IqsEeSIDtZ76p6McQ")]
     [Description(@"Device scanning barcodes using any scanning technology.")]
-    BRCD,
+    BarCodeReader,
     
     /// <summary>
     /// Camera, recorder, video mixer.
+    /// Encoded/decoded by serializers as "CAMR".
     /// </summary>
     [EnumMember(Value = "CAMR")]
     [IsoId("_ASBZMIqtEeSIDtZ76p6McQ")]
     [Description(@"Camera, recorder, video mixer.")]
-    CAMR,
+    Camera,
     
     /// <summary>
     /// Device dispensing card to a consumer.
+    /// Encoded/decoded by serializers as "CRDD".
     /// </summary>
     [EnumMember(Value = "CRDD")]
     [IsoId("_DTlswIqtEeSIDtZ76p6McQ")]
     [Description(@"Device dispensing card to a consumer.")]
-    CRDD,
+    CardDispenser,
     
     /// <summary>
     /// Device to read and optionally write card with various entry modes.
+    /// Encoded/decoded by serializers as "CRDR".
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_G47bwIqtEeSIDtZ76p6McQ")]
     [Description(@"Device to read and optionally write card with various entry modes.")]
-    CRDR,
+    CardUnit,
     
     /// <summary>
     /// Device accepting in-out of items as coupons, documents, bills and coins.
+    /// Encoded/decoded by serializers as "CSHI".
     /// </summary>
     [EnumMember(Value = "CSHI")]
     [IsoId("_KMFOkIqtEeSIDtZ76p6McQ")]
     [Description(@"Device accepting in-out of items as coupons, documents, bills and coins.")]
-    CSHI,
+    CashInModule,
     
     /// <summary>
     /// Compound device with cash in module, cash dispenser, and cash exchange.
+    /// Encoded/decoded by serializers as "CSHR".
     /// </summary>
     [EnumMember(Value = "CSHR")]
     [IsoId("_MbN_oIqtEeSIDtZ76p6McQ")]
     [Description(@"Compound device with cash in module, cash dispenser, and cash exchange.")]
-    CSHR,
+    CashRecycler,
     
     /// <summary>
     /// Device dispensing cash in an automated environment, or with an operator present.
+    /// Encoded/decoded by serializers as "CSHD".
     /// </summary>
     [EnumMember(Value = "CSHD")]
     [IsoId("_Pd1cEIqtEeSIDtZ76p6McQ")]
     [Description(@"Device dispensing cash in an automated environment, or with an operator present.")]
-    CSHD,
+    CashDispenser,
     
     /// <summary>
     /// Check reader and check image scanner.
+    /// Encoded/decoded by serializers as "CHCK".
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_RRLB8IqtEeSIDtZ76p6McQ")]
     [Description(@"Check reader and check image scanner.")]
-    CHCK,
+    CheckReader,
     
     /// <summary>
     /// Device for the deposit of media in envelopes or deposit of bags containing bulk media.
+    /// Encoded/decoded by serializers as "DPST".
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_VS_4oIqtEeSIDtZ76p6McQ")]
     [Description(@"Device for the deposit of media in envelopes or deposit of bags containing bulk media.")]
-    DPST,
+    Deposit,
     
     /// <summary>
     /// Door sensors, such as cabinet, safe or vandal shield doors.
+    /// Encoded/decoded by serializers as "DOOR".
     /// </summary>
     [EnumMember(Value = "DOOR")]
     [IsoId("_ZK9BoIqtEeSIDtZ76p6McQ")]
     [Description(@"Door sensors, such as cabinet, safe or vandal shield doors.")]
-    DOOR,
+    DoorSensors,
     
     /// <summary>
     /// Self service device processing items.
+    /// Encoded/decoded by serializers as "INPM".
     /// </summary>
     [EnumMember(Value = "INPM")]
     [IsoId("_b-s7oIqtEeSIDtZ76p6McQ")]
     [Description(@"Self service device processing items.")]
-    INPM,
+    InputProcessingModule,
     
     /// <summary>
     /// Other sensors and indicators unit.
+    /// Encoded/decoded by serializers as "SNSR".
     /// </summary>
     [EnumMember(Value = "SNSR")]
     [IsoId("_gAfWEIqtEeSIDtZ76p6McQ")]
     [Description(@"Other sensors and indicators unit.")]
-    SNSR,
+    OtherSensor,
     
     /// <summary>
     /// Passbook device supporting automatic positioning of the book.
+    /// Encoded/decoded by serializers as "PSBK".
     /// </summary>
     [EnumMember(Value = "PSBK")]
     [IsoId("_jDZtcIqtEeSIDtZ76p6McQ")]
     [Description(@"Passbook device supporting automatic positioning of the book.")]
-    PSBK,
+    PassbookPrinter,
     
     /// <summary>
     /// Hardware security module allowing the PIN (Personal Identification Number) entry, secure storing of cryptographic keys, and other cryptographic functions.
+    /// Encoded/decoded by serializers as "PINR".
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_ob1KsIqtEeSIDtZ76p6McQ")]
     [Description(@"Hardware security module allowing the PIN (Personal Identification Number) entry, secure storing of cryptographic keys, and other cryptographic functions.")]
-    PINR,
+    PINKeypad,
     
     /// <summary>
     /// Device incorporating both the capabilities to scan inserted documents and optionally to print on them.
+    /// Encoded/decoded by serializers as "SCAN".
     /// </summary>
     [EnumMember(Value = "SCAN")]
     [IsoId("_q6PG0IqtEeSIDtZ76p6McQ")]
     [Description(@"Device incorporating both the capabilities to scan inserted documents and optionally to print on them.")]
-    SCAN,
+    ScannerPrinter,
     
 }
 

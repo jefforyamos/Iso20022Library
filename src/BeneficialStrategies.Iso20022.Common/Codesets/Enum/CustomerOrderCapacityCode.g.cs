@@ -20,27 +20,30 @@ public enum CustomerOrderCapacityCode
 {
     /// <summary>
     /// Member trading for their own account.
+    /// Encoded/decoded by serializers as "OWNE".
     /// </summary>
     [EnumMember(Value = "OWNE")]
     [IsoId("_axz6xdp-Ed-ak6NoX_4Aeg_335336024")]
     [Description(@"Member trading for their own account.")]
-    OWNE,
+    MemberOwnAccount,
     
     /// <summary>
     /// Clearing firm trading for its proprietary account.
+    /// Encoded/decoded by serializers as "CLAR".
     /// </summary>
     [EnumMember(Value = "CLAR")]
     [IsoId("_axz6xtp-Ed-ak6NoX_4Aeg_335336025")]
     [Description(@"Clearing firm trading for its proprietary account.")]
-    CLAR,
+    ClearingProprietary,
     
     /// <summary>
     /// Member trading for another member.
+    /// Encoded/decoded by serializers as "OTHM".
     /// </summary>
     [EnumMember(Value = "OTHM")]
     [IsoId("_axz6x9p-Ed-ak6NoX_4Aeg_335336026")]
     [Description(@"Member trading for another member.")]
-    OTHM,
+    MemberOtherMember,
     
 }
 

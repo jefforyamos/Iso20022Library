@@ -20,27 +20,30 @@ public enum BidTypeCode
 {
     /// <summary>
     /// Bid type is non disclosed.
+    /// Encoded/decoded by serializers as "NDIS".
     /// </summary>
     [EnumMember(Value = "NDIS")]
     [IsoId("_begosdp-Ed-ak6NoX_4Aeg_467216118")]
     [Description(@"Bid type is non disclosed.")]
-    NDIS,
+    NonDisclosed,
     
     /// <summary>
     /// Bid type is disclosed.
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_begostp-Ed-ak6NoX_4Aeg_481992122")]
     [Description(@"Bid type is disclosed.")]
-    DISC,
+    Disclosed,
     
     /// <summary>
     /// List order is not related to a bid.
+    /// Encoded/decoded by serializers as "NOBI".
     /// </summary>
     [EnumMember(Value = "NOBI")]
     [IsoId("_begos9p-Ed-ak6NoX_4Aeg_487533177")]
     [Description(@"List order is not related to a bid.")]
-    NOBI,
+    NoBid,
     
 }
 

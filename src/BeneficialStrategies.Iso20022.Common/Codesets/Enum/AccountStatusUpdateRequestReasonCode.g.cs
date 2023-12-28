@@ -20,11 +20,12 @@ public enum AccountStatusUpdateRequestReasonCode
 {
     /// <summary>
     /// Previous account closure instruction was sent in error.
+    /// Encoded/decoded by serializers as "CLOE".
     /// </summary>
     [EnumMember(Value = "CLOE")]
     [IsoId("_BHVYEHi9EeaRm5xIK6nGuQ")]
     [Description(@"Previous account closure instruction was sent in error.")]
-    CLOE,
+    AccountClosureInstructionError,
     
 }
 

@@ -20,19 +20,21 @@ public enum CalculationMethodCode
 {
     /// <summary>
     /// Calculation method by which interest is calculated on the original principal only. Accumulated interest from prior periods is not used in calculations for the following periods.
+    /// Encoded/decoded by serializers as "SIMP".
     /// </summary>
     [EnumMember(Value = "SIMP")]
     [IsoId("_YbAbcdp-Ed-ak6NoX_4Aeg_-87374057")]
     [Description(@"Calculation method by which interest is calculated on the original principal only. Accumulated interest from prior periods is not used in calculations for the following periods.")]
-    SIMP,
+    Simple,
     
     /// <summary>
     /// Calculation method by which interest is calculated each period on the original principal and all interest accumulated during past periods.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_YbAbctp-Ed-ak6NoX_4Aeg_489801188")]
     [Description(@"Calculation method by which interest is calculated each period on the original principal and all interest accumulated during past periods.")]
-    COMP,
+    Compounding,
     
 }
 

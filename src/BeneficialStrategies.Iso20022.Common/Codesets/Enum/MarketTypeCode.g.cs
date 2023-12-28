@@ -20,107 +20,120 @@ public enum MarketTypeCode
 {
     /// <summary>
     /// The place is a primary market.
+    /// Encoded/decoded by serializers as "PRIM".
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_aUwLVNp-Ed-ak6NoX_4Aeg_1011156230")]
     [Description(@"The place is a primary market.")]
-    PRIM,
+    PrimaryMarket,
     
     /// <summary>
     /// The place is a secondary market.
+    /// Encoded/decoded by serializers as "SECM".
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_aUwLVdp-Ed-ak6NoX_4Aeg_306041615")]
     [Description(@"The place is a secondary market.")]
-    SECM,
+    SecondaryMarket,
     
     /// <summary>
     /// The place is a third market.
+    /// Encoded/decoded by serializers as "THIM".
     /// </summary>
     [EnumMember(Value = "THIM")]
     [IsoId("_aUwLVtp-Ed-ak6NoX_4Aeg_-869149410")]
     [Description(@"The place is a third market.")]
-    THIM,
+    ThirdMarket,
     
     /// <summary>
     /// The place is a fourth market.
+    /// Encoded/decoded by serializers as "FOUM".
     /// </summary>
     [EnumMember(Value = "FOUM")]
     [IsoId("_aUwLV9p-Ed-ak6NoX_4Aeg_776118025")]
     [Description(@"The place is a fourth market.")]
-    FOUM,
+    FourthMarket,
     
     /// <summary>
     /// The place is over the counter.
+    /// Encoded/decoded by serializers as "OTCO".
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("_aUwLWNp-Ed-ak6NoX_4Aeg_-1980060829")]
     [Description(@"The place is over the counter.")]
-    OTCO,
+    OverTheCounter,
     
     /// <summary>
     /// Various places.
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_aU58UNp-Ed-ak6NoX_4Aeg_1609791852")]
     [Description(@"Various places.")]
-    VARI,
+    Various,
     
     /// <summary>
     /// The place is a stock exchange.
+    /// Encoded/decoded by serializers as "EXCH".
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_aU58Udp-Ed-ak6NoX_4Aeg_434600827")]
     [Description(@"The place is a stock exchange.")]
-    EXCH,
+    StockExchange,
     
     /// <summary>
     /// The place is a fund (transfer agent, fund itself, etc.).
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_aU58Utp-Ed-ak6NoX_4Aeg_-1340620878")]
     [Description(@"The place is a fund (transfer agent, fund itself, etc.).")]
-    FUND,
+    Fund,
     
     /// <summary>
     /// The place is a local market.
+    /// Encoded/decoded by serializers as "LMAR".
     /// </summary>
     [EnumMember(Value = "LMAR")]
     [IsoId("_aU58U9p-Ed-ak6NoX_4Aeg_1499568600")]
     [Description(@"The place is a local market.")]
-    LMAR,
+    LocalMarket,
     
     /// <summary>
     /// The place is theoretical.
+    /// Encoded/decoded by serializers as "THEO".
     /// </summary>
     [EnumMember(Value = "THEO")]
     [IsoId("_aU58VNp-Ed-ak6NoX_4Aeg_-1975383519")]
     [Description(@"The place is theoretical.")]
-    THEO,
+    Theoretical,
     
     /// <summary>
     /// The place is a vendor.
+    /// Encoded/decoded by serializers as "VEND".
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_aU58Vdp-Ed-ak6NoX_4Aeg_-692811024")]
     [Description(@"The place is a vendor.")]
-    VEND,
+    Vendor,
     
     /// <summary>
     /// Specified type of market is inter bank market.
+    /// Encoded/decoded by serializers as "INBA".
     /// </summary>
     [EnumMember(Value = "INBA")]
     [IsoId("_l8xukDxHEeWZTovCemTvqg")]
     [Description(@"Specified type of market is inter bank market.")]
-    INBA,
+    InterBank,
     
     /// <summary>
     /// Specified type of market is counter market.
+    /// Encoded/decoded by serializers as "COUN".
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_tWXyUDxHEeWZTovCemTvqg")]
     [Description(@"Specified type of market is counter market.")]
-    COUN,
+    Counter,
     
 }
 

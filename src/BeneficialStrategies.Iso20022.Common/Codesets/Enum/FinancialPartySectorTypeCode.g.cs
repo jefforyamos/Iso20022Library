@@ -21,93 +21,104 @@ public enum FinancialPartySectorTypeCode
     /// <summary>
     /// Assurance undertaking.
     /// 
+    /// Encoded/decoded by serializers as "ASSU".
     /// </summary>
     [EnumMember(Value = "ASSU")]
     [IsoId("_QvpuYBQXEeWSI-Fz8Zwg6g")]
     [Description(@"Assurance undertaking. ")]
-    ASSU,
+    AssuranceUndertaking,
     
     /// <summary>
     /// Credit institution that takes deposits or other repayable funds from the public and grants credits for its own account.
     /// 
+    /// Encoded/decoded by serializers as "CDTI".
     /// </summary>
     [EnumMember(Value = "CDTI")]
     [IsoId("_SQvGoBQXEeWSI-Fz8Zwg6g")]
     [Description(@"Credit institution that takes deposits or other repayable funds from the public and grants credits for its own account. ")]
-    CDTI,
+    CreditInstitution,
     
     /// <summary>
     /// Investment firm.
     /// 
+    /// Encoded/decoded by serializers as "INVF".
     /// </summary>
     [EnumMember(Value = "INVF")]
     [IsoId("_TimXIBQXEeWSI-Fz8Zwg6g")]
     [Description(@"Investment firm. ")]
-    INVF,
+    InvestmentFirm,
     
     /// <summary>
     /// Insurance undertaking.
+    /// Encoded/decoded by serializers as "INUN".
     /// </summary>
     [EnumMember(Value = "INUN")]
     [IsoId("_Utv7oBQXEeWSI-Fz8Zwg6g")]
     [Description(@"Insurance undertaking.")]
-    INUN,
+    InsuranceUndertaking,
     
     /// <summary>
     /// Alternative investment fund managed by an alternative investment fund manager (AIFM).
+    /// Encoded/decoded by serializers as "AIFD".
     /// </summary>
     [EnumMember(Value = "AIFD")]
     [IsoId("_WAPeQBQXEeWSI-Fz8Zwg6g")]
     [Description(@"Alternative investment fund managed by an alternative investment fund manager (AIFM).")]
-    AIFD,
+    AlternativeInvestmentFund,
     
     /// <summary>
     /// Institution for occupational retirement provision established for the purpose of providing retirement benefits in the context of an occupational activity.
+    /// Encoded/decoded by serializers as "ORPI".
     /// </summary>
     [EnumMember(Value = "ORPI")]
     [IsoId("_XEhlwBQXEeWSI-Fz8Zwg6g")]
     [Description(@"Institution for occupational retirement provision established for the purpose of providing retirement benefits in the context of an occupational activity.")]
-    ORPI,
+    OccupationalRetirementProvisionInstitution,
     
     /// <summary>
     /// Reinsurance undertaking performing the activity of accepting risks ceded by an insurance undertaking or by another reinsurance undertaking.
+    /// Encoded/decoded by serializers as "REIN".
     /// </summary>
     [EnumMember(Value = "REIN")]
     [IsoId("_YiRWIBQXEeWSI-Fz8Zwg6g")]
     [Description(@"Reinsurance undertaking performing the activity of accepting risks ceded by an insurance undertaking or by another reinsurance undertaking.")]
-    REIN,
+    ReinsuranceUndertaking,
     
     /// <summary>
     /// Undertaking for collective investment in transferable securities (UCITS) and its management company.
+    /// Encoded/decoded by serializers as "UCIT".
     /// </summary>
     [EnumMember(Value = "UCIT")]
     [IsoId("_Z4lo0BQXEeWSI-Fz8Zwg6g")]
     [Description(@"Undertaking for collective investment in transferable securities (UCITS) and its management company.")]
-    UCIT,
+    UCITSManagementCompany,
     
     /// <summary>
     /// Other type of financial institution.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_9zKLkAFdEeaDfK-zDSyB6A")]
     [Description(@"Other type of financial institution.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Central counterparty.
+    /// Encoded/decoded by serializers as "CCPS".
     /// </summary>
     [EnumMember(Value = "CCPS")]
     [IsoId("_zl8_YAb9EeamHPKpTHjX5Q")]
     [Description(@"Central counterparty.")]
-    CCPS,
+    CentralCounterparty,
     
     /// <summary>
     /// Central securities depository.
+    /// Encoded/decoded by serializers as "CSDS".
     /// </summary>
     [EnumMember(Value = "CSDS")]
     [IsoId("_3QpIcAb9EeamHPKpTHjX5Q")]
     [Description(@"Central securities depository.")]
-    CSDS,
+    CentralSecuritiesDepository,
     
 }
 

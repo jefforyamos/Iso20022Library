@@ -20,43 +20,48 @@ public enum ExchangeRateAgreementTypeCode
 {
     /// <summary>
     /// Normal exchange rate agreement type.
+    /// Encoded/decoded by serializers as "NORM".
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_qOpjMIZ5EeuSbct6WWD-Ng")]
     [Description(@"Normal exchange rate agreement type.")]
-    NORM,
+    Normal,
     
     /// <summary>
     /// Spot agreement exchange rate type.
+    /// Encoded/decoded by serializers as "SPOT".
     /// </summary>
     [EnumMember(Value = "SPOT")]
     [IsoId("_vLLHkIZ5EeuSbct6WWD-Ng")]
     [Description(@"Spot agreement exchange rate type.")]
-    SPOT,
+    Spot,
     
     /// <summary>
     /// Forward contract exchange rate type.
+    /// Encoded/decoded by serializers as "FWCT".
     /// </summary>
     [EnumMember(Value = "FWCT")]
     [IsoId("_zdOyoIZ5EeuSbct6WWD-Ng")]
     [Description(@"Forward contract exchange rate type.")]
-    FWCT,
+    ForwardContract,
     
     /// <summary>
     /// Other exchange rate agreement type defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_7OiLwIZ5EeuSbct6WWD-Ng")]
     [Description(@"Other exchange rate agreement type defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other exchange rate agreement type that is privately defined.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_ENkjUIZ6EeuSbct6WWD-Ng")]
     [Description(@"Other exchange rate agreement type that is privately defined.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

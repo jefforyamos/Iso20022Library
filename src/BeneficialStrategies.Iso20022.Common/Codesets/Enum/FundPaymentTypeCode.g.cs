@@ -20,51 +20,57 @@ public enum FundPaymentTypeCode
 {
     /// <summary>
     /// Payment instrument is a payment card.
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_Pw2Q0F8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a payment card.")]
-    CARD,
+    PaymentCard,
     
     /// <summary>
     /// Payment instrument is a credit transfer.
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_TdQRIF8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a credit transfer.")]
-    CRDT,
+    CreditTransfer,
     
     /// <summary>
     /// Payment instrument is a direct debit.
+    /// Encoded/decoded by serializers as "DDEB".
     /// </summary>
     [EnumMember(Value = "DDEB")]
     [IsoId("_dac6EF8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a direct debit.")]
-    DDEB,
+    DirectDebit,
     
     /// <summary>
     /// Payment instrument is a cheque.
+    /// Encoded/decoded by serializers as "CHEQ".
     /// </summary>
     [EnumMember(Value = "CHEQ")]
     [IsoId("_iJzlIF8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a cheque.")]
-    CHEQ,
+    Cheque,
     
     /// <summary>
     /// Payment instrument is a bankers draft.
+    /// Encoded/decoded by serializers as "DRAF".
     /// </summary>
     [EnumMember(Value = "DRAF")]
     [IsoId("_mZUSgF8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a bankers draft.")]
-    DRAF,
+    BankersDraft,
     
     /// <summary>
     /// Payment instrument is a cash account.
+    /// Encoded/decoded by serializers as "CACC".
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_qPsHIF8xEeicg40_9gK9vQ")]
     [Description(@"Payment instrument is a cash account.")]
-    CACC,
+    CashAccount,
     
 }
 

@@ -20,27 +20,30 @@ public enum EntryCode
 {
     /// <summary>
     /// Trial pay-in schedule.
+    /// Encoded/decoded by serializers as "TRIA".
     /// </summary>
     [EnumMember(Value = "TRIA")]
     [IsoId("_ahauUNp-Ed-ak6NoX_4Aeg_-1237295637")]
     [Description(@"Trial pay-in schedule.")]
-    TRIA,
+    Trial,
     
     /// <summary>
     /// Official pay-in schedule.
+    /// Encoded/decoded by serializers as "OFFI".
     /// </summary>
     [EnumMember(Value = "OFFI")]
     [IsoId("_ahauUdp-Ed-ak6NoX_4Aeg_-1227134519")]
     [Description(@"Official pay-in schedule.")]
-    OFFI,
+    Official,
     
     /// <summary>
     /// Pay-in schedule on request.
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_ahauUtp-Ed-ak6NoX_4Aeg_-276202344")]
     [Description(@"Pay-in schedule on request.")]
-    REQU,
+    Requested,
     
 }
 

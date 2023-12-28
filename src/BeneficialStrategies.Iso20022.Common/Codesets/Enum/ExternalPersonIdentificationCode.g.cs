@@ -22,83 +22,93 @@ public enum ExternalPersonIdentificationCode
 {
     /// <summary>
     /// Number assigned by a social security agency to identify a non-resident person.
+    /// Encoded/decoded by serializers as "ARNU".
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_tsaYpvRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by a social security agency to identify a non-resident person.")]
-    ARNU,
+    AlienRegistrationNumber,
     
     /// <summary>
     /// Number assigned by an authority to identify the passport number of a person.
+    /// Encoded/decoded by serializers as "CCPT".
     /// </summary>
     [EnumMember(Value = "CCPT")]
     [IsoId("_tsaYqfRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an authority to identify the passport number of a person.")]
-    CCPT,
+    PassportNumber,
     
     /// <summary>
     /// Number assigned by an issuer to identify a customer.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_tsaYrPRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an issuer to identify a customer.")]
-    CUST,
+    CustomerIdentificationNumber,
     
     /// <summary>
     /// Number assigned by an authority to identify a driver's license.
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_tskJoPRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an authority to identify a driver's license.")]
-    DRLC,
+    DriversLicenseNumber,
     
     /// <summary>
     /// Number assigned by a registration authority to an employee.
+    /// Encoded/decoded by serializers as "EMPL".
     /// </summary>
     [EnumMember(Value = "EMPL")]
     [IsoId("_tskJo_RYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by a registration authority to an employee.")]
-    EMPL,
+    EmployeeIdentificationNumber,
     
     /// <summary>
     /// Number assigned by an authority to identify the national identity number of a person.
+    /// Encoded/decoded by serializers as "NIDN".
     /// </summary>
     [EnumMember(Value = "NIDN")]
     [IsoId("_tskJpvRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an authority to identify the national identity number of a person.")]
-    NIDN,
+    NationalIdentityNumber,
     
     /// <summary>
     /// Number assigned by an authority to identify the social security number of a person.
+    /// Encoded/decoded by serializers as "SOSE".
     /// </summary>
     [EnumMember(Value = "SOSE")]
     [IsoId("_tskJqfRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by an authority to identify the social security number of a person.")]
-    SOSE,
+    SocialSecurityNumber,
     
     /// <summary>
     /// Number assigned by a telephone or mobile phone operator to identify a person. A person may have multiple phone numbers.
+    /// Encoded/decoded by serializers as "TELE".
     /// </summary>
     [EnumMember(Value = "TELE")]
     [IsoId("_tskJrPRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by a telephone or mobile phone operator to identify a person. A person may have multiple phone numbers.")]
-    TELE,
+    TelephoneNumber,
     
     /// <summary>
     /// Number assigned by a tax authority to identify a person.
+    /// Encoded/decoded by serializers as "TXID".
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_tst6oPRYEeuLhpyIdtJzwg")]
     [Description(@"Number assigned by a tax authority to identify a person.")]
-    TXID,
+    TaxIdentificationNumber,
     
     /// <summary>
     /// Commercial identification of the person.
+    /// Encoded/decoded by serializers as "POID".
     /// </summary>
     [EnumMember(Value = "POID")]
     [IsoId("_eXveEFEFEey6cYDbEubNXg")]
     [Description(@"Commercial identification of the person.")]
-    POID,
+    PersonCommercialIdentification,
     
 }
 

@@ -20,59 +20,66 @@ public enum RecordStatusCode
 {
     /// <summary>
     /// Record has been accepted.
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_iqDKAdHDEeaokquJJ-K6uA")]
     [Description(@"Record has been accepted.")]
-    ACPT,
+    Accepted,
     
     /// <summary>
     /// Record has been accepted, following a pending status.
+    /// Encoded/decoded by serializers as "ACPD".
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_oWERptHDEeaokquJJ-K6uA")]
     [Description(@"Record has been accepted, following a pending status.")]
-    ACPD,
+    AcceptedAfterPending,
     
     /// <summary>
     /// Processing of the record is pending (some validation rules have been executed but some have not and the final status is not known yet).
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_oWERp9HDEeaokquJJ-K6uA")]
     [Description(@"Processing of the record is pending (some validation rules have been executed but some have not and the final status is not known yet).")]
-    PDNG,
+    Pending,
     
     /// <summary>
     /// Recrod has been received but not processed yet.
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_oWERqNHDEeaokquJJ-K6uA")]
     [Description(@"Recrod has been received but not processed yet.")]
-    RCVD,
+    Received,
     
     /// <summary>
     /// Record has been rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_oWERqdHDEeaokquJJ-K6uA")]
     [Description(@"Record has been rejected.")]
-    RJCT,
+    Rejected,
     
     /// <summary>
     /// Record has been rejected, following a pending status.
+    /// Encoded/decoded by serializers as "RJPD".
     /// </summary>
     [EnumMember(Value = "RJPD")]
     [IsoId("_oWERqtHDEeaokquJJ-K6uA")]
     [Description(@"Record has been rejected, following a pending status.")]
-    RJPD,
+    RejectedAfterPending,
     
     /// <summary>
     /// Record has been accepted with warnings.
+    /// Encoded/decoded by serializers as "WARN".
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_oWERq9HDEeaokquJJ-K6uA")]
     [Description(@"Record has been accepted with warnings.")]
-    WARN,
+    Warning,
     
 }
 

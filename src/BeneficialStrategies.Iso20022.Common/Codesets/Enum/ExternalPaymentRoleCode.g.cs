@@ -21,51 +21,57 @@ public enum ExternalPaymentRoleCode
 {
     /// <summary>
     /// Party responsible for managing the recovery functions related to a system.
+    /// Encoded/decoded by serializers as "BKMG".
     /// </summary>
     [EnumMember(Value = "BKMG")]
     [IsoId("_umh3ifRYEeuLhpyIdtJzwg")]
     [Description(@"Party responsible for managing the recovery functions related to a system.")]
-    BKMG,
+    BackupManager,
     
     /// <summary>
     /// Party in a financial institution responsible for the management of the limits. This party is responsible for fixing, modifying, or suspending limits as relevant for the management of counterpart risk or systemic risk containment.
+    /// Encoded/decoded by serializers as "LMMG".
     /// </summary>
     [EnumMember(Value = "LMMG")]
     [IsoId("_umh3jPRYEeuLhpyIdtJzwg")]
     [Description(@"Party in a financial institution responsible for the management of the limits. This party is responsible for fixing, modifying, or suspending limits as relevant for the management of counterpart risk or systemic risk containment.")]
-    LMMG,
+    LimitManager,
     
     /// <summary>
     /// Party in a financial institution responsible for the management of liquidity for the financial institution. This party has access to some functions available on the system, such as the liquidity transfers or management of standing instructions for liquidity control.
+    /// Encoded/decoded by serializers as "LQMG".
     /// </summary>
     [EnumMember(Value = "LQMG")]
     [IsoId("_umrogPRYEeuLhpyIdtJzwg")]
     [Description(@"Party in a financial institution responsible for the management of liquidity for the financial institution. This party has access to some functions available on the system, such as the liquidity transfers or management of standing instructions for liquidity control.")]
-    LQMG,
+    LiquidityManager,
     
     /// <summary>
     /// Party in a financial institution responsible for the management of payment processing for the financial institution. This includes authorising, recycling, and modification of payment transactions.
+    /// Encoded/decoded by serializers as "PYMG".
     /// </summary>
     [EnumMember(Value = "PYMG")]
     [IsoId("_umrog_RYEeuLhpyIdtJzwg")]
     [Description(@"Party in a financial institution responsible for the management of payment processing for the financial institution. This includes authorising, recycling, and modification of payment transactions.")]
-    PYMG,
+    PaymentManager,
     
     /// <summary>
     /// Party in a financial institution entitled to obtain information from the system, but not act upon/alter this information.
+    /// Encoded/decoded by serializers as "REDR".
     /// </summary>
     [EnumMember(Value = "REDR")]
     [IsoId("_um0ycPRYEeuLhpyIdtJzwg")]
     [Description(@"Party in a financial institution entitled to obtain information from the system, but not act upon/alter this information.")]
-    REDR,
+    Reader,
     
     /// <summary>
     /// Party in a financial institution responsible for the management of settlement processing.
+    /// Encoded/decoded by serializers as "STMG".
     /// </summary>
     [EnumMember(Value = "STMG")]
     [IsoId("_um0yc_RYEeuLhpyIdtJzwg")]
     [Description(@"Party in a financial institution responsible for the management of settlement processing.")]
-    STMG,
+    SettlementManager,
     
 }
 

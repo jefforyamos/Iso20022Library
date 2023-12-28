@@ -20,27 +20,30 @@ public enum LumpSumTypeCode
 {
     /// <summary>
     /// Lump sum is a death benefit lump sum.
+    /// Encoded/decoded by serializers as "DEAB".
     /// </summary>
     [EnumMember(Value = "DEAB")]
     [IsoId("_V_DSULKdEeiXL6Ccd-oU8g")]
     [Description(@"Lump sum is a death benefit lump sum.")]
-    DEAB,
+    DeathBenefit,
     
     /// <summary>
     /// Lump sum is a pension commencement lump sum.
+    /// Encoded/decoded by serializers as "PCLS".
     /// </summary>
     [EnumMember(Value = "PCLS")]
     [IsoId("_10zi8LKdEeiXL6Ccd-oU8g")]
     [Description(@"Lump sum is a pension commencement lump sum.")]
-    PCLS,
+    PensionCommencement,
     
     /// <summary>
     /// Lump sum is an uncrystallised fund pension lump sum.
+    /// Encoded/decoded by serializers as "UFPL".
     /// </summary>
     [EnumMember(Value = "UFPL")]
     [IsoId("_E5dN4LKeEeiXL6Ccd-oU8g")]
     [Description(@"Lump sum is an uncrystallised fund pension lump sum.")]
-    UFPL,
+    Uncrystallised,
     
 }
 

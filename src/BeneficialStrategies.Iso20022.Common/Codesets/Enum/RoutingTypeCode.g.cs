@@ -20,19 +20,21 @@ public enum RoutingTypeCode
 {
     /// <summary>
     /// Indicates that routing is allowed.
+    /// Encoded/decoded by serializers as "ALLO".
     /// </summary>
     [EnumMember(Value = "ALLO")]
     [IsoId("_Y-eU4dp-Ed-ak6NoX_4Aeg_-713294906")]
     [Description(@"Indicates that routing is allowed.")]
-    ALLO,
+    Allowed,
     
     /// <summary>
     /// Indicates that routing is blocked.
+    /// Encoded/decoded by serializers as "BLOC".
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_Y-eU4tp-Ed-ak6NoX_4Aeg_-697596993")]
     [Description(@"Indicates that routing is blocked.")]
-    BLOC,
+    Blocked,
     
 }
 

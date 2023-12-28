@@ -20,35 +20,39 @@ public enum DividendTypeCode
 {
     /// <summary>
     /// Dividend is paid in cash.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_axXO0Np-Ed-ak6NoX_4Aeg_-789142502")]
     [Description(@"Dividend is paid in cash.")]
-    CASH,
+    Cash,
     
     /// <summary>
     /// Dividend is paid in units.
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_axXO0dp-Ed-ak6NoX_4Aeg_-789142485")]
     [Description(@"Dividend is paid in units.")]
-    UNIT,
+    Units,
     
     /// <summary>
     /// Dividend is paid in the form of scrip.
+    /// Encoded/decoded by serializers as "SCRI".
     /// </summary>
     [EnumMember(Value = "SCRI")]
     [IsoId("_axXO0tp-Ed-ak6NoX_4Aeg_-773440098")]
     [Description(@"Dividend is paid in the form of scrip.")]
-    SCRI,
+    Scrip,
     
     /// <summary>
     /// Dividend is paid in kind.
+    /// Encoded/decoded by serializers as "KIND".
     /// </summary>
     [EnumMember(Value = "KIND")]
     [IsoId("_axXO09p-Ed-ak6NoX_4Aeg_-358781618")]
     [Description(@"Dividend is paid in kind.")]
-    KIND,
+    InKind,
     
 }
 

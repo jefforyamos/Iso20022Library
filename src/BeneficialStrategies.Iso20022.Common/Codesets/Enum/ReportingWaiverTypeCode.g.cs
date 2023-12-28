@@ -20,157 +20,176 @@ public enum ReportingWaiverTypeCode
 {
     /// <summary>
     /// Large-in-scale transactions. Applicable for all instruments.
+    /// Encoded/decoded by serializers as "LRGS".
     /// </summary>
     [EnumMember(Value = "LRGS")]
     [IsoId("_-1R8gO8UEeSLA89yUYsVSw")]
     [Description(@"Large-in-scale transactions. Applicable for all instruments.")]
-    LRGS,
+    LargeInScale,
     
     /// <summary>
     /// Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.
+    /// Encoded/decoded by serializers as "SIZE".
     /// </summary>
     [EnumMember(Value = "SIZE")]
     [IsoId("_Kgj34O8VEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.")]
-    SIZE,
+    AboveSpecificSizeTransaction,
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction in illiquid financial instruments. Applicable to equity instruments.
+    /// Encoded/decoded by serializers as "OILQ".
     /// </summary>
     [EnumMember(Value = "OILQ")]
     [IsoId("_VeVNAe8VEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for a negotiated transaction in illiquid financial instruments. Applicable to equity instruments.")]
-    OILQ,
+    NegotiatedTransactionInIlliquidFinancialInstrument,
     
     /// <summary>
     /// Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.
+    /// Encoded/decoded by serializers as "ILQD".
     /// </summary>
     [EnumMember(Value = "ILQD")]
     [IsoId("_V9420e8VEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.")]
-    ILQD,
+    IlliquidInstrumentTransaction,
     
     /// <summary>
     /// Pre-trade waiver was for a reference price transaction. Applicable to equity instruments.
+    /// Encoded/decoded by serializers as "RFPT".
     /// </summary>
     [EnumMember(Value = "RFPT")]
     [IsoId("_WWfkEe8VEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for a reference price transaction. Applicable to equity instruments.")]
-    RFPT,
+    ReferencePriceTransaction,
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction in liquid financial instruments. Applicable to equity instruments.
+    /// Encoded/decoded by serializers as "NLIQ".
     /// </summary>
     [EnumMember(Value = "NLIQ")]
     [IsoId("_oYE6Me8VEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for a negotiated transaction in liquid financial instruments. Applicable to equity instruments.")]
-    NLIQ,
+    NegotiatedTransactionInLiquidFinancialInstrument,
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction subject to conditions other than the current market price of that financial instruments. Applicable to equity instruments.
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_pL3uoe8VEeSLA89yUYsVSw")]
     [Description(@"Pre-trade waiver was for a negotiated transaction subject to conditions other than the current market price of that financial instruments. Applicable to equity instruments.")]
-    PRIC,
+    NegotiatedTransactionWithConditions,
     
     /// <summary>
     /// Benchmark transaction.
+    /// Encoded/decoded by serializers as "BENC".
     /// </summary>
     [EnumMember(Value = "BENC")]
     [IsoId("_sIJwcBqBEeWZfqhJDVHHrQ")]
     [Description(@"Benchmark transaction.")]
-    BENC,
+    BenchmarkTransaction,
     
     /// <summary>
     /// Agency cross transaction.
+    /// Encoded/decoded by serializers as "ACTX".
     /// </summary>
     [EnumMember(Value = "ACTX")]
     [IsoId("_0OYQsBqBEeWZfqhJDVHHrQ")]
     [Description(@"Agency cross transaction.")]
-    ACTX,
+    AgencyCrossTransaction,
     
     /// <summary>
     /// Non-price forming transactions.
+    /// Encoded/decoded by serializers as "NPFT".
     /// </summary>
     [EnumMember(Value = "NPFT")]
     [IsoId("_5X-AsBqBEeWZfqhJDVHHrQ")]
     [Description(@"Non-price forming transactions.")]
-    NPFT,
+    NonPriceFormingTransaction,
     
     /// <summary>
     /// Cancellations.
     /// 
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_RupQoBqCEeWZfqhJDVHHrQ")]
     [Description(@"Cancellations. ")]
-    CANC,
+    Cancellations,
     
     /// <summary>
     /// Special dividend transactions.
     /// 
+    /// Encoded/decoded by serializers as "SDIV".
     /// </summary>
     [EnumMember(Value = "SDIV")]
     [IsoId("_WvjlwBqCEeWZfqhJDVHHrQ")]
     [Description(@"Special dividend transactions. ")]
-    SDIV,
+    SpecialDividendTransaction,
     
     /// <summary>
     /// Amendments.
+    /// Encoded/decoded by serializers as "AMND".
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_YqJDIBqCEeWZfqhJDVHHrQ")]
     [Description(@"Amendments.")]
-    AMND,
+    Amendments,
     
     /// <summary>
     /// Algorithmic transactions. Applicable to equity instruments.
+    /// Encoded/decoded by serializers as "ALGO".
     /// </summary>
     [EnumMember(Value = "ALGO")]
     [IsoId("_x0nukBqCEeWZfqhJDVHHrQ")]
     [Description(@"Algorithmic transactions. Applicable to equity instruments.")]
-    ALGO,
+    AlgorithmicTransaction,
     
     /// <summary>
     /// Transactions which have received price improvement. Applicable to equity instruments.
+    /// Encoded/decoded by serializers as "RPRI".
     /// </summary>
     [EnumMember(Value = "RPRI")]
     [IsoId("_XrZGcBqDEeWZfqhJDVHHrQ")]
     [Description(@"Transactions which have received price improvement. Applicable to equity instruments.")]
-    RPRI,
+    TransactionWithPriceImprovment,
     
     /// <summary>
     /// Duplicative trade reports.
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_hzmFgBqDEeWZfqhJDVHHrQ")]
     [Description(@"Duplicative trade reports.")]
-    DUPL,
+    DuplicativeTradeReport,
     
     /// <summary>
     /// Transactions not contributing to the price discovery process.
+    /// Encoded/decoded by serializers as "TNCP".
     /// </summary>
     [EnumMember(Value = "TNCP")]
     [IsoId("_6kelQEWxEeWh1Y8PiCwMhg")]
     [Description(@"Transactions not contributing to the price discovery process.")]
-    TNCP,
+    TransactionNotContributingToPriceDiscovery,
     
     /// <summary>
     /// Package transaction.
+    /// Encoded/decoded by serializers as "TPAC".
     /// </summary>
     [EnumMember(Value = "TPAC")]
     [IsoId("__tGr8EWxEeWh1Y8PiCwMhg")]
     [Description(@"Package transaction.")]
-    TPAC,
+    PackageTransaction,
     
     /// <summary>
     /// Transaction where the contract on a commodity is exchanged for the actual physical good.
+    /// Encoded/decoded by serializers as "XFPH".
     /// </summary>
     [EnumMember(Value = "XFPH")]
     [IsoId("_N4PO4FyxEeWBopJHIRjb4g")]
     [Description(@"Transaction where the contract on a commodity is exchanged for the actual physical good.")]
-    XFPH,
+    ExchangeForPhysical,
     
 }
 

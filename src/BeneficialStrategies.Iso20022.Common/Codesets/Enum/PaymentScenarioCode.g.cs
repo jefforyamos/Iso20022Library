@@ -20,43 +20,48 @@ public enum PaymentScenarioCode
 {
     /// <summary>
     /// Indicates cover payment(s).
+    /// Encoded/decoded by serializers as "COVE".
     /// </summary>
     [EnumMember(Value = "COVE")]
     [IsoId("_5KoqcDKlEeipv8GJ5uBgPw")]
     [Description(@"Indicates cover payment(s).")]
-    COVE,
+    Cover,
     
     /// <summary>
     /// Indicates customer credit transfer(s).
+    /// Encoded/decoded by serializers as "CCTR".
     /// </summary>
     [EnumMember(Value = "CCTR")]
     [IsoId("_rs1SUHYhEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s).")]
-    CCTR,
+    CustomerCreditTransfer,
     
     /// <summary>
     /// Indicates customer credit transfer(s) and cover(s).
+    /// Encoded/decoded by serializers as "CTCO".
     /// </summary>
     [EnumMember(Value = "CTCO")]
     [IsoId("_xw0OAHYhEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s) and cover(s).")]
-    CTCO,
+    CustomerCreditTransferAndCover,
     
     /// <summary>
     /// Indicates customer credit transfer(s) without cover.
+    /// Encoded/decoded by serializers as "CCTW".
     /// </summary>
     [EnumMember(Value = "CCTW")]
     [IsoId("_u4b2MHYiEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s) without cover.")]
-    CCTW,
+    CustomerCreditTransferWithoutCover,
     
     /// <summary>
     /// Indicates customer credit transfer(s) with cover.
+    /// Encoded/decoded by serializers as "CCTC".
     /// </summary>
     [EnumMember(Value = "CCTC")]
     [IsoId("_7WlY8HYiEei7x9Ux0Cio1w")]
     [Description(@"Indicates customer credit transfer(s) with cover.")]
-    CCTC,
+    CustomerCreditTransferWithCover,
     
 }
 

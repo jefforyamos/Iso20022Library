@@ -20,123 +20,138 @@ public enum AssetClassProductTypeCode
 {
     /// <summary>
     /// Commodity of type agricultural.
+    /// Encoded/decoded by serializers as "AGRI".
     /// </summary>
     [EnumMember(Value = "AGRI")]
     [IsoId("_eSXiYAnYEeWa7rBfPECYsw")]
     [Description(@"Commodity of type agricultural.")]
-    AGRI,
+    Agricultural,
     
     /// <summary>
     /// Commodity of type energy.
+    /// Encoded/decoded by serializers as "NRGY".
     /// </summary>
     [EnumMember(Value = "NRGY")]
     [IsoId("_epu5gAnYEeWa7rBfPECYsw")]
     [Description(@"Commodity of type energy.")]
-    NRGY,
+    Energy,
     
     /// <summary>
     /// Commodity of type environmental.
+    /// Encoded/decoded by serializers as "ENVR".
     /// </summary>
     [EnumMember(Value = "ENVR")]
     [IsoId("_etJZ4AnYEeWa7rBfPECYsw")]
     [Description(@"Commodity of type environmental.")]
-    ENVR,
+    Environmental,
     
     /// <summary>
     /// Commodity of type freight.
+    /// Encoded/decoded by serializers as "FRGT".
     /// </summary>
     [EnumMember(Value = "FRGT")]
     [IsoId("_evFTkAnYEeWa7rBfPECYsw")]
     [Description(@"Commodity of type freight.")]
-    FRGT,
+    Freight,
     
     /// <summary>
     /// Commodity of type fertilizer.
+    /// Encoded/decoded by serializers as "FRTL".
     /// </summary>
     [EnumMember(Value = "FRTL")]
     [IsoId("_exBNQAnYEeWa7rBfPECYsw")]
     [Description(@"Commodity of type fertilizer.")]
-    FRTL,
+    Fertilizer,
     
     /// <summary>
     /// Commodity of type industrial product.
+    /// Encoded/decoded by serializers as "INDP".
     /// </summary>
     [EnumMember(Value = "INDP")]
     [IsoId("_eyqMAAnYEeWa7rBfPECYsw")]
     [Description(@"Commodity of type industrial product.")]
-    INDP,
+    IndustrialProduct,
     
     /// <summary>
     /// Commodity of type metal.
+    /// Encoded/decoded by serializers as "METL".
     /// </summary>
     [EnumMember(Value = "METL")]
     [IsoId("_0Lg_8AnYEeWa7rBfPECYsw")]
     [Description(@"Commodity of type metal.")]
-    METL,
+    Metal,
     
     /// <summary>
     /// Commodity of type multi commodity exotic.
+    /// Encoded/decoded by serializers as "MCEX".
     /// </summary>
     [EnumMember(Value = "MCEX")]
     [IsoId("_S2ITIQnZEeWa7rBfPECYsw")]
     [Description(@"Commodity of type multi commodity exotic.")]
-    MCEX,
+    MultiCommodityExotic,
     
     /// <summary>
     /// Commodity of type paper.
+    /// Encoded/decoded by serializers as "PAPR".
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_V1wF8AnZEeWa7rBfPECYsw")]
     [Description(@"Commodity of type paper.")]
-    PAPR,
+    Paper,
     
     /// <summary>
     /// Commodity of type polypropylene.
+    /// Encoded/decoded by serializers as "POLY".
     /// </summary>
     [EnumMember(Value = "POLY")]
     [IsoId("_ci9k0AnZEeWa7rBfPECYsw")]
     [Description(@"Commodity of type polypropylene.")]
-    POLY,
+    Polypropylene,
     
     /// <summary>
     /// Commodity of type inflation.
+    /// Encoded/decoded by serializers as "INFL".
     /// </summary>
     [EnumMember(Value = "INFL")]
     [IsoId("_iUqdsAnZEeWa7rBfPECYsw")]
     [Description(@"Commodity of type inflation.")]
-    INFL,
+    Inflation,
     
     /// <summary>
     /// Commodity of type official economic statistic.
+    /// Encoded/decoded by serializers as "OEST".
     /// </summary>
     [EnumMember(Value = "OEST")]
     [IsoId("_lTipoAnZEeWa7rBfPECYsw")]
     [Description(@"Commodity of type official economic statistic.")]
-    OEST,
+    OfficialEconomicStatistic,
     
     /// <summary>
     /// Commodity of other type C10.
+    /// Encoded/decoded by serializers as "OTHC".
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_9vcX0AnZEeWa7rBfPECYsw")]
     [Description(@"Commodity of other type C10.")]
-    OTHC,
+    OtherC10,
     
     /// <summary>
     /// Commodity of other type.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_AKnZwAnaEeWa7rBfPECYsw")]
     [Description(@"Commodity of other type.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Index type of commodities.
+    /// Encoded/decoded by serializers as "INDX".
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("_zkf6EE7JEe2PGo0mhYCh1g")]
     [Description(@"Index type of commodities.")]
-    INDX,
+    Index,
     
 }
 

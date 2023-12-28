@@ -20,35 +20,39 @@ public enum GDPRDataConsentCode
 {
     /// <summary>
     /// Consent to authorise the controller of personal data processing to process personal data for marketing purposes.
+    /// Encoded/decoded by serializers as "DP00".
     /// </summary>
     [EnumMember(Value = "DP00")]
     [IsoId("_jLKpAJTTEemC09f0MxYkRg")]
     [Description(@"Consent to authorise the controller of personal data processing to process personal data for marketing purposes.")]
-    DP00,
+    ConsentMarketing,
     
     /// <summary>
     /// Consent to authorise the controller of personal data processing to transfer personal data to other companies belonging to the same group for independent processing for marketing purposes.
+    /// Encoded/decoded by serializers as "DP01".
     /// </summary>
     [EnumMember(Value = "DP01")]
     [IsoId("_CRy34JTWEemC09f0MxYkRg")]
     [Description(@"Consent to authorise the controller of personal data processing to transfer personal data to other companies belonging to the same group for independent processing for marketing purposes.")]
-    DP01,
+    ConsentTransferSameMarketing,
     
     /// <summary>
     /// Consent to authorise the controller of personal data processing to transfer personal data to third party companies for independent processing for marketing purposes.
+    /// Encoded/decoded by serializers as "DP02".
     /// </summary>
     [EnumMember(Value = "DP02")]
     [IsoId("_E15MUJTWEemC09f0MxYkRg")]
     [Description(@"Consent to authorise the controller of personal data processing to transfer personal data to third party companies for independent processing for marketing purposes.")]
-    DP02,
+    ConsentTransferThirdPartyMarketing,
     
     /// <summary>
     /// Consent to authorise the controller of personal data processing to process personal data for profiling purposes in order to formulate customised and targeted product and service offers.
+    /// Encoded/decoded by serializers as "DP03".
     /// </summary>
     [EnumMember(Value = "DP03")]
     [IsoId("_FJ-l8JTWEemC09f0MxYkRg")]
     [Description(@"Consent to authorise the controller of personal data processing to process personal data for profiling purposes in order to formulate customised and targeted product and service offers.")]
-    DP03,
+    ConsentProfilingTargeted,
     
 }
 

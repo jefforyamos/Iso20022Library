@@ -20,51 +20,57 @@ public enum CSCResultCode
 {
     /// <summary>
     /// Card security code match.
+    /// Encoded/decoded by serializers as "CMCH".
     /// </summary>
     [EnumMember(Value = "CMCH")]
     [IsoId("_TWrsxAEcEeCQm6a_G2yO_w_-2043310910")]
     [Description(@"Card security code match.")]
-    CMCH,
+    CSCMatch,
     
     /// <summary>
     /// No card security code match.
+    /// Encoded/decoded by serializers as "CNMH".
     /// </summary>
     [EnumMember(Value = "CNMH")]
     [IsoId("_TWrsxQEcEeCQm6a_G2yO_w_-905692296")]
     [Description(@"No card security code match.")]
-    CNMH,
+    CSCNoMatch,
     
     /// <summary>
     /// Card security code not processed for technical reason.
+    /// Encoded/decoded by serializers as "CNMT".
     /// </summary>
     [EnumMember(Value = "CNMT")]
     [IsoId("_TWrsxgEcEeCQm6a_G2yO_w_1950993781")]
     [Description(@"Card security code not processed for technical reason.")]
-    CNMT,
+    CSCTechnical,
     
     /// <summary>
     /// Card security code not processed for non-technical reason.
+    /// Encoded/decoded by serializers as "CNMO".
     /// </summary>
     [EnumMember(Value = "CNMO")]
     [IsoId("_TWrsxwEcEeCQm6a_G2yO_w_1234780389")]
     [Description(@"Card security code not processed for non-technical reason.")]
-    CNMO,
+    CSCNotTechnical,
     
     /// <summary>
     /// Card security code missing in request.
+    /// Encoded/decoded by serializers as "CMSS".
     /// </summary>
     [EnumMember(Value = "CMSS")]
     [IsoId("_TWrsyAEcEeCQm6a_G2yO_w_-764077692")]
     [Description(@"Card security code missing in request.")]
-    CMSS,
+    CSCMissing,
     
     /// <summary>
     /// Card security code not used by issuer.
+    /// Encoded/decoded by serializers as "CNUS".
     /// </summary>
     [EnumMember(Value = "CNUS")]
     [IsoId("_TWrsyQEcEeCQm6a_G2yO_w_690703299")]
     [Description(@"Card security code not used by issuer.")]
-    CNUS,
+    CSCNotUsed,
     
 }
 

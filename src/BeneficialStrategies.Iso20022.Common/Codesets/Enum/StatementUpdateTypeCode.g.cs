@@ -20,19 +20,21 @@ public enum StatementUpdateTypeCode
 {
     /// <summary>
     /// Statement is complete.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ZQWvEtp-Ed-ak6NoX_4Aeg_-1582551317")]
     [Description(@"Statement is complete.")]
-    COMP,
+    Complete,
     
     /// <summary>
     /// Statement contains changes only.
+    /// Encoded/decoded by serializers as "DELT".
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_ZQWvE9p-Ed-ak6NoX_4Aeg_-1582551316")]
     [Description(@"Statement contains changes only.")]
-    DELT,
+    Delta,
     
 }
 

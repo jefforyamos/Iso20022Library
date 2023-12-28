@@ -20,43 +20,48 @@ public enum LoyaltyValueTypeCode
 {
     /// <summary>
     /// Value expressed in points.
+    /// Encoded/decoded by serializers as "POIN".
     /// </summary>
     [EnumMember(Value = "POIN")]
     [IsoId("_xDNpgF_BEee_oqB7UglxLw")]
     [Description(@"Value expressed in points.")]
-    POIN,
+    Points,
     
     /// <summary>
     /// Value expressed in miles.
+    /// Encoded/decoded by serializers as "MILE".
     /// </summary>
     [EnumMember(Value = "MILE")]
     [IsoId("_0JFOQF_BEee_oqB7UglxLw")]
     [Description(@"Value expressed in miles.")]
-    MILE,
+    Miles,
     
     /// <summary>
     /// Value expressed in monetary units.
+    /// Encoded/decoded by serializers as "MONE".
     /// </summary>
     [EnumMember(Value = "MONE")]
     [IsoId("_3WrysF_BEee_oqB7UglxLw")]
     [Description(@"Value expressed in monetary units.")]
-    MONE,
+    Monetary,
     
     /// <summary>
     /// Value expressed in a private currency.
+    /// Encoded/decoded by serializers as "PRIV".
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_8cf18F_BEee_oqB7UglxLw")]
     [Description(@"Value expressed in a private currency.")]
-    PRIV,
+    PrivateCurrency,
     
     /// <summary>
     /// Value expressed in any other type of loyalty value.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_BI4FgF_CEee_oqB7UglxLw")]
     [Description(@"Value expressed in any other type of loyalty value.")]
-    OTHR,
+    Other,
     
 }
 

@@ -20,19 +20,21 @@ public enum DeliverReturnCode
 {
     /// <summary>
     /// Specifies that the collateral is to be delivered.
+    /// Encoded/decoded by serializers as "DELV".
     /// </summary>
     [EnumMember(Value = "DELV")]
     [IsoId("_YcMuRtp-Ed-ak6NoX_4Aeg_-205401924")]
     [Description(@"Specifies that the collateral is to be delivered.")]
-    DELV,
+    Deliver,
     
     /// <summary>
     /// Specifies that the collateral is to be returned.
+    /// Encoded/decoded by serializers as "RETN".
     /// </summary>
     [EnumMember(Value = "RETN")]
     [IsoId("_YcMuR9p-Ed-ak6NoX_4Aeg_-272083435")]
     [Description(@"Specifies that the collateral is to be returned.")]
-    RETN,
+    Return,
     
 }
 

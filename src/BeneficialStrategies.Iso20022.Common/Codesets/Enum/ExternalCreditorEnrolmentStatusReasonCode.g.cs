@@ -21,59 +21,66 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
 {
     /// <summary>
     /// Already existing creditor.
+    /// Encoded/decoded by serializers as "ACRD".
     /// </summary>
     [EnumMember(Value = "ACRD")]
     [IsoId("_uvUnI_RYEeuLhpyIdtJzwg")]
     [Description(@"Already existing creditor.")]
-    ACRD,
+    AlreadyExistingCreditor,
     
     /// <summary>
     /// Duplication.
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_uvUnJvRYEeuLhpyIdtJzwg")]
     [Description(@"Duplication.")]
-    AM05,
+    Duplication,
     
     /// <summary>
     /// Invalid file format.
+    /// Encoded/decoded by serializers as "FF01".
     /// </summary>
     [EnumMember(Value = "FF01")]
     [IsoId("_uvUnKfRYEeuLhpyIdtJzwg")]
     [Description(@"Invalid file format.")]
-    FF01,
+    InvalidFileFormat,
     
     /// <summary>
     /// Reference is not unique.
+    /// Encoded/decoded by serializers as "RF01".
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_uveYIPRYEeuLhpyIdtJzwg")]
     [Description(@"Reference is not unique.")]
-    RF01,
+    NotUniqueReference,
     
     /// <summary>
     /// Regulatory Reason.
+    /// Encoded/decoded by serializers as "RR04".
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_uveYI_RYEeuLhpyIdtJzwg")]
     [Description(@"Regulatory Reason.")]
-    RR04,
+    RegulatoryReason,
     
     /// <summary>
     /// Invalid character set.
+    /// Encoded/decoded by serializers as "RR10".
     /// </summary>
     [EnumMember(Value = "RR10")]
     [IsoId("_uvoJIPRYEeuLhpyIdtJzwg")]
     [Description(@"Invalid character set.")]
-    RR10,
+    InvalidCharacterSet,
     
     /// <summary>
     /// Technical rejection.
+    /// Encoded/decoded by serializers as "TRJT".
     /// </summary>
     [EnumMember(Value = "TRJT")]
     [IsoId("_uvoJI_RYEeuLhpyIdtJzwg")]
     [Description(@"Technical rejection.")]
-    TRJT,
+    TechnicalRejection,
     
 }
 

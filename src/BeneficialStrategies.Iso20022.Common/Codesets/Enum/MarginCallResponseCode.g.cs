@@ -20,19 +20,21 @@ public enum MarginCallResponseCode
 {
     /// <summary>
     /// Indicates that the margin call request was sent on a non valuation day.
+    /// Encoded/decoded by serializers as "NVDA".
     /// </summary>
     [EnumMember(Value = "NVDA")]
     [IsoId("_YdGGIdp-Ed-ak6NoX_4Aeg_-1089065484")]
     [Description(@"Indicates that the margin call request was sent on a non valuation day.")]
-    NVDA,
+    NonValuationDay,
     
     /// <summary>
     /// Indicates that the margin call request was sent after the notification time.
+    /// Encoded/decoded by serializers as "RANT".
     /// </summary>
     [EnumMember(Value = "RANT")]
     [IsoId("_YdGGItp-Ed-ak6NoX_4Aeg_-1747873600")]
     [Description(@"Indicates that the margin call request was sent after the notification time.")]
-    RANT,
+    ReceivedAfterNotificationTime,
     
 }
 

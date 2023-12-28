@@ -20,99 +20,111 @@ public enum ChequeDeliveryCode
 {
     /// <summary>
     /// Cheque is to be sent through mail services to debtor.
+    /// Encoded/decoded by serializers as "MLDB".
     /// </summary>
     [EnumMember(Value = "MLDB")]
     [IsoId("_a-oOxtp-Ed-ak6NoX_4Aeg_369384589")]
     [Description(@"Cheque is to be sent through mail services to debtor.")]
-    MLDB,
+    MailToDebtor,
     
     /// <summary>
     /// Cheque is to be sent through mail services to creditor.
+    /// Encoded/decoded by serializers as "MLCD".
     /// </summary>
     [EnumMember(Value = "MLCD")]
     [IsoId("_a-oOx9p-Ed-ak6NoX_4Aeg_454348891")]
     [Description(@"Cheque is to be sent through mail services to creditor.")]
-    MLCD,
+    MailToCreditor,
     
     /// <summary>
     /// Cheque is to be sent through mail services to creditor agent.
+    /// Encoded/decoded by serializers as "MLFA".
     /// </summary>
     [EnumMember(Value = "MLFA")]
     [IsoId("_a-oOyNp-Ed-ak6NoX_4Aeg_455271423")]
     [Description(@"Cheque is to be sent through mail services to creditor agent.")]
-    MLFA,
+    MailToFinalAgent,
     
     /// <summary>
     /// Cheque is to be sent through courier services to debtor.
+    /// Encoded/decoded by serializers as "CRDB".
     /// </summary>
     [EnumMember(Value = "CRDB")]
     [IsoId("_a-xYsNp-Ed-ak6NoX_4Aeg_456194658")]
     [Description(@"Cheque is to be sent through courier services to debtor.")]
-    CRDB,
+    CourierToDebtor,
     
     /// <summary>
     /// Cheque is to be sent through courier services to creditor.
+    /// Encoded/decoded by serializers as "CRCD".
     /// </summary>
     [EnumMember(Value = "CRCD")]
     [IsoId("_a-xYsdp-Ed-ak6NoX_4Aeg_55718226")]
     [Description(@"Cheque is to be sent through courier services to creditor.")]
-    CRCD,
+    CourierToCreditor,
     
     /// <summary>
     /// Cheque is to be sent through courier services to creditor agent.
+    /// Encoded/decoded by serializers as "CRFA".
     /// </summary>
     [EnumMember(Value = "CRFA")]
     [IsoId("_a-xYstp-Ed-ak6NoX_4Aeg_56641303")]
     [Description(@"Cheque is to be sent through courier services to creditor agent.")]
-    CRFA,
+    CourierToFinalAgent,
     
     /// <summary>
     /// Cheque will be picked up by the debtor.
+    /// Encoded/decoded by serializers as "PUDB".
     /// </summary>
     [EnumMember(Value = "PUDB")]
     [IsoId("_a-xYs9p-Ed-ak6NoX_4Aeg_557187710")]
     [Description(@"Cheque will be picked up by the debtor.")]
-    PUDB,
+    PickUpByDebtor,
     
     /// <summary>
     /// Cheque will be picked up by the creditor.
+    /// Encoded/decoded by serializers as "PUCD".
     /// </summary>
     [EnumMember(Value = "PUCD")]
     [IsoId("_a-xYtNp-Ed-ak6NoX_4Aeg_-61836275")]
     [Description(@"Cheque will be picked up by the creditor.")]
-    PUCD,
+    PickUpByCreditor,
     
     /// <summary>
     /// Cheque will be picked up by the creditor agent.
+    /// Encoded/decoded by serializers as "PUFA".
     /// </summary>
     [EnumMember(Value = "PUFA")]
     [IsoId("_a-xYtdp-Ed-ak6NoX_4Aeg_-59989603")]
     [Description(@"Cheque will be picked up by the creditor agent.")]
-    PUFA,
+    PickUpByFinalAgent,
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to debtor.
+    /// Encoded/decoded by serializers as "RGDB".
     /// </summary>
     [EnumMember(Value = "RGDB")]
     [IsoId("_a-xYttp-Ed-ak6NoX_4Aeg_22203700")]
     [Description(@"Cheque is to be sent through registered mail services to debtor.")]
-    RGDB,
+    RegisteredMailToDebtor,
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to creditor.
+    /// Encoded/decoded by serializers as "RGCD".
     /// </summary>
     [EnumMember(Value = "RGCD")]
     [IsoId("_a-xYt9p-Ed-ak6NoX_4Aeg_337125880")]
     [Description(@"Cheque is to be sent through registered mail services to creditor.")]
-    RGCD,
+    RegisteredMailToCreditor,
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to creditor agent.
+    /// Encoded/decoded by serializers as "RGFA".
     /// </summary>
     [EnumMember(Value = "RGFA")]
     [IsoId("_a-xYuNp-Ed-ak6NoX_4Aeg_339893887")]
     [Description(@"Cheque is to be sent through registered mail services to creditor agent.")]
-    RGFA,
+    RegisteredMailToFinalAgent,
     
 }
 

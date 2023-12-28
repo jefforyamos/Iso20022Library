@@ -20,117 +20,131 @@ public enum DerivativeEventTypeCode
 {
     /// <summary>
     /// Conclusion of a derivative or renegotiation of its terms that does not result in change of a counterparty.
+    /// Encoded/decoded by serializers as "TRAD".
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_TBE_UCjBEeuKKc2MztSwPw")]
     [Description(@"Conclusion of a derivative or renegotiation of its terms that does not result in change of a counterparty.")]
-    TRAD,
+    Trade,
     
     /// <summary>
     /// The replacement of a party to a derivative contract with another party giving rise to a new derivative contract.
+    /// Encoded/decoded by serializers as "NOVA".
     /// </summary>
     [EnumMember(Value = "NOVA")]
     [IsoId("_aBVWACjBEeuKKc2MztSwPw")]
     [Description(@"The replacement of a party to a derivative contract with another party giving rise to a new derivative contract.")]
-    NOVA,
+    Novation,
     
     /// <summary>
     /// Compression or post-trade risk reduction exercise.
     /// 
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_d4cKcCjBEeuKKc2MztSwPw")]
     [Description(@"Compression or post-trade risk reduction exercise. ")]
-    COMP,
+    Compression,
     
     /// <summary>
     /// Termination of an existing derivative transaction prior to scheduled termination or maturity date.
+    /// Encoded/decoded by serializers as "ETRM".
     /// </summary>
     [EnumMember(Value = "ETRM")]
     [IsoId("_hCoOgCjBEeuKKc2MztSwPw")]
     [Description(@"Termination of an existing derivative transaction prior to scheduled termination or maturity date.")]
-    ETRM,
+    EarlyTermination,
     
     /// <summary>
     /// Process in which a CCP interposes itself between the counterparties to the contract becoming the buyer to the counterparty that was a seller and the seller to the counterparty that was a buyer
+    /// Encoded/decoded by serializers as "CLRG".
     /// </summary>
     [EnumMember(Value = "CLRG")]
     [IsoId("_lCqVcCjBEeuKKc2MztSwPw")]
     [Description(@"Process in which a CCP interposes itself between the counterparties to the contract becoming the buyer to the counterparty that was a seller and the seller to the counterparty that was a buyer")]
-    CLRG,
+    Clearing,
     
     /// <summary>
     /// The exercise of an option or a swaption by one counterparty of the transaction, fully or partially. 
     /// 
+    /// Encoded/decoded by serializers as "EXER".
     /// </summary>
     [EnumMember(Value = "EXER")]
     [IsoId("_qTyQ0CjBEeuKKc2MztSwPw")]
     [Description(@"The exercise of an option or a swaption by one counterparty of the transaction, fully or partially.  ")]
-    EXER,
+    Exercise,
     
     /// <summary>
     /// Allocation event, where an existing derivative is allocated to different counterparties and reported as new derivatives with reduced notional amounts.
+    /// Encoded/decoded by serializers as "ALOC".
     /// </summary>
     [EnumMember(Value = "ALOC")]
     [IsoId("_s2ZXgCjBEeuKKc2MztSwPw")]
     [Description(@"Allocation event, where an existing derivative is allocated to different counterparties and reported as new derivatives with reduced notional amounts.")]
-    ALOC,
+    Allocation,
     
     /// <summary>
     /// Applies only to credit derivatives. A credit event that results in a modification of a derivative, at a trade or position level
+    /// Encoded/decoded by serializers as "CREV".
     /// </summary>
     [EnumMember(Value = "CREV")]
     [IsoId("_w3enUCjBEeuKKc2MztSwPw")]
     [Description(@"Applies only to credit derivatives. A credit event that results in a modification of a derivative, at a trade or position level")]
-    CREV,
+    CreditEvent,
     
     /// <summary>
     /// Result of a corporate action.
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_zwQLQCjBEeuKKc2MztSwPw")]
     [Description(@"Result of a corporate action.")]
-    CORP,
+    CorporateAction,
     
     /// <summary>
     /// Inclusion of an ETD or CFD into a position, where an existing derivative is terminated and either a new position is created or the notional of an existing position is modified.
+    /// Encoded/decoded by serializers as "INCP".
     /// </summary>
     [EnumMember(Value = "INCP")]
     [IsoId("_4aP1MCjBEeuKKc2MztSwPw")]
     [Description(@"Inclusion of an ETD or CFD into a position, where an existing derivative is terminated and either a new position is created or the notional of an existing position is modified.")]
-    INCP,
+    InclusionInPosition,
     
     /// <summary>
     /// Outstanding derivative is updated to comply with the revised requirements on reporting.
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_82jBYCjBEeuKKc2MztSwPw")]
     [Description(@"Outstanding derivative is updated to comply with the revised requirements on reporting.")]
-    UPDT,
+    Update,
     
     /// <summary>
     /// Simultaneous clearing and allocation event in a derivatives clearing organisation.
+    /// Encoded/decoded by serializers as "CLAL".
     /// </summary>
     [EnumMember(Value = "CLAL")]
     [IsoId("_0_py4CsMEeuBCuYCb8AfiA")]
     [Description(@"Simultaneous clearing and allocation event in a derivatives clearing organisation.")]
-    CLAL,
+    ClearingAndAllocation,
     
     /// <summary>
     /// The process by which a derivative transaction is transferred to another trade repository using the same UTI.
+    /// Encoded/decoded by serializers as "PTNG".
     /// </summary>
     [EnumMember(Value = "PTNG")]
     [IsoId("_YrngESsNEeuBCuYCb8AfiA")]
     [Description(@"The process by which a derivative transaction is transferred to another trade repository using the same UTI.")]
-    PTNG,
+    Porting,
     
     /// <summary>
     /// Re-opening of a derivative, at a trade or position level, that was cancelled or terminated by mistake.
+    /// Encoded/decoded by serializers as "REVI".
     /// </summary>
     [EnumMember(Value = "REVI")]
     [IsoId("_mCBggCsNEeuBCuYCb8AfiA")]
     [Description(@"Re-opening of a derivative, at a trade or position level, that was cancelled or terminated by mistake.")]
-    REVI,
+    Revive,
     
 }
 

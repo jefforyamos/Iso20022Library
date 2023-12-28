@@ -20,19 +20,21 @@ public enum AllocationStatusCode
 {
     /// <summary>
     /// Instruction has been fully covered by collateral.
+    /// Encoded/decoded by serializers as "AOLF".
     /// </summary>
     [EnumMember(Value = "AOLF")]
     [IsoId("_boymE9p-Ed-ak6NoX_4Aeg_-1510657003")]
     [Description(@"Instruction has been fully covered by collateral.")]
-    AOLF,
+    FullyAllocated,
     
     /// <summary>
     /// Instruction has been partially covered by collateral.
+    /// Encoded/decoded by serializers as "AOLP".
     /// </summary>
     [EnumMember(Value = "AOLP")]
     [IsoId("_boymFNp-Ed-ak6NoX_4Aeg_-1510654068")]
     [Description(@"Instruction has been partially covered by collateral.")]
-    AOLP,
+    PartiallyAllocated,
     
 }
 

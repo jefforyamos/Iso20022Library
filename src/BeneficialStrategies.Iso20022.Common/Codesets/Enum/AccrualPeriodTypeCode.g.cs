@@ -20,59 +20,66 @@ public enum AccrualPeriodTypeCode
 {
     /// <summary>
     /// Long first payment period is applicable.
+    /// Encoded/decoded by serializers as "LONG".
     /// </summary>
     [EnumMember(Value = "LONG")]
     [IsoId("_1z2q8DL3EeKU9IrkkToqcw_1530482558")]
     [Description(@"Long first payment period is applicable.")]
-    LONG,
+    LongFirstPaymentPeriod,
     
     /// <summary>
     /// Regular first payment period is applicable.
+    /// Encoded/decoded by serializers as "FREG".
     /// </summary>
     [EnumMember(Value = "FREG")]
     [IsoId("_1z2q8TL3EeKU9IrkkToqcw_-1113628847")]
     [Description(@"Regular first payment period is applicable.")]
-    FREG,
+    FirstRegularPaymentPeriod,
     
     /// <summary>
     /// Short first payment period is applicable.
+    /// Encoded/decoded by serializers as "SHRT".
     /// </summary>
     [EnumMember(Value = "SHRT")]
     [IsoId("_1z2q8jL3EeKU9IrkkToqcw_751017904")]
     [Description(@"Short first payment period is applicable.")]
-    SHRT,
+    ShortFirstPaymentperiod,
     
     /// <summary>
     /// First year of payment is applicable.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_1z2q8zL3EeKU9IrkkToqcw_1599898201")]
     [Description(@"First year of payment is applicable.")]
-    YEAR,
+    FirstYearOfPayment,
     
     /// <summary>
     /// Extra long payment period is applicable.
+    /// Encoded/decoded by serializers as "XLNG".
     /// </summary>
     [EnumMember(Value = "XLNG")]
     [IsoId("_1z2q9DL3EeKU9IrkkToqcw_973611791")]
     [Description(@"Extra long payment period is applicable.")]
-    XLNG,
+    ExtraLongPaymentPeriod,
     
     /// <summary>
     /// Default payment period is applicable.
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_1z2q9TL3EeKU9IrkkToqcw_-1800034999")]
     [Description(@"Default payment period is applicable.")]
-    DFLT,
+    DefaultPeriod,
     
     /// <summary>
     /// Payment has not been done.
+    /// Encoded/decoded by serializers as "OMIT".
     /// </summary>
     [EnumMember(Value = "OMIT")]
     [IsoId("_1z2q9jL3EeKU9IrkkToqcw_1213629179")]
     [Description(@"Payment has not been done.")]
-    OMIT,
+    PaymentOmitted,
     
 }
 

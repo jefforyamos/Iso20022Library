@@ -21,171 +21,192 @@ public enum ExternalBalanceSubTypeCode
 {
     /// <summary>
     /// Balance to be held in the settlement account in order to comply with the average reserve due, in the event that the bank's balance is equal to the reserve due during the remaining days of the maintenance period.
+    /// Encoded/decoded by serializers as "ADJT".
     /// </summary>
     [EnumMember(Value = "ADJT")]
     [IsoId("_teji0_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance to be held in the settlement account in order to comply with the average reserve due, in the event that the bank's balance is equal to the reserve due during the remaining days of the maintenance period.")]
-    ADJT,
+    Adjustment,
     
     /// <summary>
     /// Balance representing the amount in the domestic or base accounting currency. 
+    /// Encoded/decoded by serializers as "BCUR".
     /// </summary>
     [EnumMember(Value = "BCUR")]
     [IsoId("_tetT0PRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount in the domestic or base accounting currency. ")]
-    BCUR,
+    BaseCurrency,
     
     /// <summary>
     /// Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.
+    /// Encoded/decoded by serializers as "BLCK".
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_tetT0_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.")]
-    BLCK,
+    Blocked,
     
     /// <summary>
     /// Balance representing funds that cannot be touched by the account owner.
+    /// Encoded/decoded by serializers as "BLKD".
     /// </summary>
     [EnumMember(Value = "BLKD")]
     [IsoId("_te3E0PRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing funds that cannot be touched by the account owner.")]
-    BLKD,
+    BlockedFunds,
     
     /// <summary>
     /// Balance representing the intra day overdraft granted by the Central Bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.
+    /// Encoded/decoded by serializers as "DLOD".
     /// </summary>
     [EnumMember(Value = "DLOD")]
     [IsoId("_te3E0_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the intra day overdraft granted by the Central Bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.")]
-    DLOD,
+    DaylightOverdraft,
     
     /// <summary>
     /// Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, eg, securities available and eligible as collateral with the Central Bank.
+    /// Encoded/decoded by serializers as "EAST".
     /// </summary>
     [EnumMember(Value = "EAST")]
     [IsoId("_te3E1vRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, eg, securities available and eligible as collateral with the Central Bank.")]
-    EAST,
+    EligibleAssets,
     
     /// <summary>
     /// Balance representing the forecast of the cash-equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral.
+    /// Encoded/decoded by serializers as "FCOL".
     /// </summary>
     [EnumMember(Value = "FCOL")]
     [IsoId("_tfAOwPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the cash-equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral.")]
-    FCOL,
+    FirmCollateralization,
     
     /// <summary>
     /// Balance representing the cash equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral and have been used as collateral.
+    /// Encoded/decoded by serializers as "FCOU".
     /// </summary>
     [EnumMember(Value = "FCOU")]
     [IsoId("_tfAOw_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash equivalent resulting from evaluation of existing holdings at CSD that are qualified to serve as collateral and have been used as collateral.")]
-    FCOU,
+    AmountsThatHaveBeenUsedToServeAsFirmCollateral,
     
     /// <summary>
     /// Balance representing the total of all balance types representing the forecast of transactions to settle, blocked items, custody transactions and corporate actions cash disbursements.
+    /// Encoded/decoded by serializers as "FORC".
     /// </summary>
     [EnumMember(Value = "FORC")]
     [IsoId("_tfAOxvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the total of all balance types representing the forecast of transactions to settle, blocked items, custody transactions and corporate actions cash disbursements.")]
-    FORC,
+    SecuritiesForecast,
     
     /// <summary>
     /// Balance representing the net amount to be funded resulting from the difference between the total of all transactions with a cash impact and the existing cash coverage.
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_tfJ_wPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the net amount to be funded resulting from the difference between the total of all transactions with a cash impact and the existing cash coverage.")]
-    FUND,
+    NetFunding,
     
     /// <summary>
     /// Balance representing an intermediate amount such as the opening or closing balance incrementally carried forward from one page to the next in a multi-page statement or report.
+    /// Encoded/decoded by serializers as "INTM".
     /// </summary>
     [EnumMember(Value = "INTM")]
     [IsoId("_tfJ_w_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing an intermediate amount such as the opening or closing balance incrementally carried forward from one page to the next in a multi-page statement or report.")]
-    INTM,
+    Intermediate,
     
     /// <summary>
     /// Balance representing the amount in the local market currency for which the asset is held. 
+    /// Encoded/decoded by serializers as "LCUR".
     /// </summary>
     [EnumMember(Value = "LCUR")]
     [IsoId("_tfJ_xvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount in the local market currency for which the asset is held. ")]
-    LCUR,
+    LocalCurrency,
     
     /// <summary>
     /// Balance of a specific limit value, eg, a bilateral balance is calculated in relation to a given bilateral limit.
+    /// Encoded/decoded by serializers as "LRLD".
     /// </summary>
     [EnumMember(Value = "LRLD")]
     [IsoId("_tfTJsPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of a specific limit value, eg, a bilateral balance is calculated in relation to a given bilateral limit.")]
-    LRLD,
+    LimitRelated,
     
     /// <summary>
     /// Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available. In the context of CSDs, reservation of liquidity made to meet settlement obligations.
+    /// Encoded/decoded by serializers as "NOTE".
     /// </summary>
     [EnumMember(Value = "NOTE")]
     [IsoId("_tfTJs_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available. In the context of CSDs, reservation of liquidity made to meet settlement obligations.")]
-    NOTE,
+    ReservedLiquidity,
     
     /// <summary>
     /// Balance of securities pending delivery, such as orders to sell securities have been executed but settlement of the open transactions has not been confirmed.
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_tfTJtvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance of securities pending delivery, such as orders to sell securities have been executed but settlement of the open transactions has not been confirmed.")]
-    PDNG,
+    SecuritiesPending,
     
     /// <summary>
     /// Balance representing the fictive amount of automated direct debits or payment based on standing arrangements between the CSD and the user. Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.
+    /// Encoded/decoded by serializers as "PIPO".
     /// </summary>
     [EnumMember(Value = "PIPO")]
     [IsoId("_tfTJufRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the fictive amount of automated direct debits or payment based on standing arrangements between the CSD and the user. Usage: Pay-Ins and Pay-Outs can be different based on individual payment instructions or available funds.")]
-    PIPO,
+    PayInPayOut,
     
     /// <summary>
     /// Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.
+    /// Encoded/decoded by serializers as "PRAV".
     /// </summary>
     [EnumMember(Value = "PRAV")]
     [IsoId("_tfc6sPRYEeuLhpyIdtJzwg")]
     [Description(@"Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.")]
-    PRAV,
+    ProgressiveAverage,
     
     /// <summary>
     /// Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. 
+    /// Encoded/decoded by serializers as "RESV".
     /// </summary>
     [EnumMember(Value = "RESV")]
     [IsoId("_tfc6s_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. ")]
-    RESV,
+    Reserve,
     
     /// <summary>
     /// Balance representing the forecast of the cash-equivalent resulting from evaluation of the net incoming balance of securities qualified to serve as collateral for which settlement instructions are held at.
+    /// Encoded/decoded by serializers as "SCOL".
     /// </summary>
     [EnumMember(Value = "SCOL")]
     [IsoId("_tfc6tvRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the forecast of the cash-equivalent resulting from evaluation of the net incoming balance of securities qualified to serve as collateral for which settlement instructions are held at.")]
-    SCOL,
+    SelfCollateralization,
     
     /// <summary>
     /// Balance representing the cash-equivalent resulting from evaluation of incoming securities, qualified to serve as collateral and actually used as collateral, which have been settled during the settlement process. 
+    /// Encoded/decoded by serializers as "SCOU".
     /// </summary>
     [EnumMember(Value = "SCOU")]
     [IsoId("_tfc6ufRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the cash-equivalent resulting from evaluation of incoming securities, qualified to serve as collateral and actually used as collateral, which have been settled during the settlement process. ")]
-    SCOU,
+    AmountsThatHaveBeenUsedToServeAsSelfCollateral,
     
     /// <summary>
     /// Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.
+    /// Encoded/decoded by serializers as "THRE".
     /// </summary>
     [EnumMember(Value = "THRE")]
     [IsoId("_tfc6vPRYEeuLhpyIdtJzwg")]
     [Description(@"Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.")]
-    THRE,
+    Threshold,
     
 }
 

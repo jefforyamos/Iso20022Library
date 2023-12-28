@@ -20,763 +20,858 @@ public enum PaymentPurposeCode
 {
     /// <summary>
     /// Transaction is the payment of salaries.
+    /// Encoded/decoded by serializers as "SALA".
     /// </summary>
     [EnumMember(Value = "SALA")]
     [IsoId("_Z5yGk9p-Ed-ak6NoX_4Aeg_1855256994")]
     [Description(@"Transaction is the payment of salaries.")]
-    SALA,
+    SalaryPayment,
     
     /// <summary>
     /// Transaction is related to treasury operations.
+    /// Encoded/decoded by serializers as "TREA".
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_Z5yGlNp-Ed-ak6NoX_4Aeg_1855257012")]
     [Description(@"Transaction is related to treasury operations.")]
-    TREA,
+    TreasuryPayment,
     
     /// <summary>
     /// Transaction is an advance payment.
+    /// Encoded/decoded by serializers as "ADVA".
     /// </summary>
     [EnumMember(Value = "ADVA")]
     [IsoId("_Z5yGldp-Ed-ak6NoX_4Aeg_1855257013")]
     [Description(@"Transaction is an advance payment.")]
-    ADVA,
+    AdvancePayment,
     
     /// <summary>
     /// Transaction is related to the agricultural domain.
+    /// Encoded/decoded by serializers as "AGRT".
     /// </summary>
     [EnumMember(Value = "AGRT")]
     [IsoId("_Z5yGltp-Ed-ak6NoX_4Aeg_1855257014")]
     [Description(@"Transaction is related to the agricultural domain.")]
-    AGRT,
+    AgriculturalTransfer,
     
     /// <summary>
     /// Transaction is the payment of alimony.
+    /// Encoded/decoded by serializers as "ALMY".
     /// </summary>
     [EnumMember(Value = "ALMY")]
     [IsoId("_Z5yGl9p-Ed-ak6NoX_4Aeg_1855257029")]
     [Description(@"Transaction is the payment of alimony.")]
-    ALMY,
+    AlimonyPayment,
     
     /// <summary>
     /// Transaction is related to a payment made to assist parent/guardian to maintain child.
+    /// Encoded/decoded by serializers as "BECH".
     /// </summary>
     [EnumMember(Value = "BECH")]
     [IsoId("_Z5yGmNp-Ed-ak6NoX_4Aeg_1855257038")]
     [Description(@"Transaction is related to a payment made to assist parent/guardian to maintain child.")]
-    BECH,
+    ChildBenefit,
     
     /// <summary>
     /// Transaction is related to a payment to a person who is unemployed/disabled.
+    /// Encoded/decoded by serializers as "BENE".
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_Z57QgNp-Ed-ak6NoX_4Aeg_1855257039")]
     [Description(@"Transaction is related to a payment to a person who is unemployed/disabled.")]
-    BENE,
+    UnemploymentDisabilityBenefit,
     
     /// <summary>
     /// Transaction is related to payment of a bonus.
+    /// Encoded/decoded by serializers as "BONU".
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_Z57Qgdp-Ed-ak6NoX_4Aeg_1855257047")]
     [Description(@"Transaction is related to payment of a bonus.")]
-    BONU,
+    BonusPayment,
     
     /// <summary>
     /// Transaction is a general cash management instruction.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Z57Qgtp-Ed-ak6NoX_4Aeg_1855257055")]
     [Description(@"Transaction is a general cash management instruction.")]
-    CASH,
+    CashManagementTransfer,
     
     /// <summary>
     /// Transaction is related to capital building fringe fortune, ie capital building for retirement.
+    /// Encoded/decoded by serializers as "CBFF".
     /// </summary>
     [EnumMember(Value = "CBFF")]
     [IsoId("_Z57Qg9p-Ed-ak6NoX_4Aeg_1855257056")]
     [Description(@"Transaction is related to capital building fringe fortune, ie capital building for retirement.")]
-    CBFF,
+    CapitalBuilding,
     
     /// <summary>
     /// Transaction is a payment for charity reasons.
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_Z57QhNp-Ed-ak6NoX_4Aeg_1855257072")]
     [Description(@"Transaction is a payment for charity reasons.")]
-    CHAR,
+    CharityPayment,
     
     /// <summary>
     /// Transaction is a collection of funds initiated via a credit transfer or direct debit.
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_Z57Qhdp-Ed-ak6NoX_4Aeg_1855257073")]
     [Description(@"Transaction is a collection of funds initiated via a credit transfer or direct debit.")]
-    COLL,
+    CollectionPayment,
     
     /// <summary>
     /// Transaction is payment of commodities.
+    /// Encoded/decoded by serializers as "CMDT".
     /// </summary>
     [EnumMember(Value = "CMDT")]
     [IsoId("_Z57Qhtp-Ed-ak6NoX_4Aeg_1855257074")]
     [Description(@"Transaction is payment of commodities.")]
-    CMDT,
+    CommodityTransfer,
     
     /// <summary>
     /// Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit).
+    /// Encoded/decoded by serializers as "COMC".
     /// </summary>
     [EnumMember(Value = "COMC")]
     [IsoId("_Z57Qh9p-Ed-ak6NoX_4Aeg_1855257089")]
     [Description(@"Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit).")]
-    COMC,
+    CommercialPayment,
     
     /// <summary>
     /// Transaction is payment of commission.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_Z57QiNp-Ed-ak6NoX_4Aeg_1855257090")]
     [Description(@"Transaction is payment of commission.")]
-    COMM,
+    Commission,
     
     /// <summary>
     /// Transaction is related to payment of costs.
+    /// Encoded/decoded by serializers as "COST".
     /// </summary>
     [EnumMember(Value = "COST")]
     [IsoId("_Z57Qidp-Ed-ak6NoX_4Aeg_1855257091")]
     [Description(@"Transaction is related to payment of costs.")]
-    COST,
+    Costs,
     
     /// <summary>
     /// Transaction is payment of copyright.
+    /// Encoded/decoded by serializers as "CPYR".
     /// </summary>
     [EnumMember(Value = "CPYR")]
     [IsoId("_Z6FBgNp-Ed-ak6NoX_4Aeg_1855257355")]
     [Description(@"Transaction is payment of copyright.")]
-    CPYR,
+    Copyright,
     
     /// <summary>
     /// Transaction is payment of dividends.
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_Z6FBgdp-Ed-ak6NoX_4Aeg_1855257356")]
     [Description(@"Transaction is payment of dividends.")]
-    DIVI,
+    Dividend,
     
     /// <summary>
     /// Transaction is related to a foreign exchange operation.
+    /// Encoded/decoded by serializers as "FREX".
     /// </summary>
     [EnumMember(Value = "FREX")]
     [IsoId("_Z6FBgtp-Ed-ak6NoX_4Aeg_1855257357")]
     [Description(@"Transaction is related to a foreign exchange operation.")]
-    FREX,
+    ForeignExchange,
     
     /// <summary>
     /// Transaction is related to purchase and sale of goods.
+    /// Encoded/decoded by serializers as "GDDS".
     /// </summary>
     [EnumMember(Value = "GDDS")]
     [IsoId("_Z6FBg9p-Ed-ak6NoX_4Aeg_1855257380")]
     [Description(@"Transaction is related to purchase and sale of goods.")]
-    GDDS,
+    PurchaseSaleOfGoods,
     
     /// <summary>
     /// Transaction is a payment to or from a government department.
+    /// Encoded/decoded by serializers as "GOVT".
     /// </summary>
     [EnumMember(Value = "GOVT")]
     [IsoId("_Z6FBhNp-Ed-ak6NoX_4Aeg_1855257381")]
     [Description(@"Transaction is a payment to or from a government department.")]
-    GOVT,
+    GovernmentPayment,
     
     /// <summary>
     /// Transaction is payment for an installment/hire-purchase agreement.
+    /// Encoded/decoded by serializers as "IHRP".
     /// </summary>
     [EnumMember(Value = "IHRP")]
     [IsoId("_Z6FBhdp-Ed-ak6NoX_4Aeg_1855257382")]
     [Description(@"Transaction is payment for an installment/hire-purchase agreement.")]
-    IHRP,
+    InstalmentHirePurchaseAgreement,
     
     /// <summary>
     /// Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
+    /// Encoded/decoded by serializers as "INTC".
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_Z6FBhtp-Ed-ak6NoX_4Aeg_1855257383")]
     [Description(@"Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.")]
-    INTC,
+    IntraCompanyPayment,
     
     /// <summary>
     /// Transaction is payment of an insurance premium.
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_Z6FBh9p-Ed-ak6NoX_4Aeg_1855257397")]
     [Description(@"Transaction is payment of an insurance premium.")]
-    INSU,
+    InsurancePremium,
     
     /// <summary>
     /// Transaction is payment of interest.
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_Z6FBiNp-Ed-ak6NoX_4Aeg_1855257432")]
     [Description(@"Transaction is payment of interest.")]
-    INTE,
+    Interest,
     
     /// <summary>
     /// Transaction is payment of a license fee.
+    /// Encoded/decoded by serializers as "LICF".
     /// </summary>
     [EnumMember(Value = "LICF")]
     [IsoId("_Z6FBidp-Ed-ak6NoX_4Aeg_1855257450")]
     [Description(@"Transaction is payment of a license fee.")]
-    LICF,
+    LicenseFee,
     
     /// <summary>
     /// Transaction is related to transfer of loan to borrower.
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_Z6OygNp-Ed-ak6NoX_4Aeg_1855257458")]
     [Description(@"Transaction is related to transfer of loan to borrower.")]
-    LOAN,
+    Loan,
     
     /// <summary>
     /// Transaction is related to repayment of loan to lender.
+    /// Encoded/decoded by serializers as "LOAR".
     /// </summary>
     [EnumMember(Value = "LOAR")]
     [IsoId("_Z6Oygdp-Ed-ak6NoX_4Aeg_1855257475")]
     [Description(@"Transaction is related to repayment of loan to lender.")]
-    LOAR,
+    LoanRepayment,
     
     /// <summary>
     /// Transaction is related to a netting operation.
+    /// Encoded/decoded by serializers as "NETT".
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_Z6Oygtp-Ed-ak6NoX_4Aeg_1855257476")]
     [Description(@"Transaction is related to a netting operation.")]
-    NETT,
+    Netting,
     
     /// <summary>
     /// Transaction is related to the payment of payroll.
+    /// Encoded/decoded by serializers as "PAYR".
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_Z6Oyg9p-Ed-ak6NoX_4Aeg_1855257477")]
     [Description(@"Transaction is related to the payment of payroll.")]
-    PAYR,
+    Payroll,
     
     /// <summary>
     /// Transaction is the payment of pension.
+    /// Encoded/decoded by serializers as "PENS".
     /// </summary>
     [EnumMember(Value = "PENS")]
     [IsoId("_Z6OyhNp-Ed-ak6NoX_4Aeg_1855257492")]
     [Description(@"Transaction is the payment of pension.")]
-    PENS,
+    PensionPayment,
     
     /// <summary>
     /// Transaction is the payment of a refund.
+    /// Encoded/decoded by serializers as "REFU".
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_Z6Oyhdp-Ed-ak6NoX_4Aeg_1855257493")]
     [Description(@"Transaction is the payment of a refund.")]
-    REFU,
+    Refund,
     
     /// <summary>
     /// Transaction is the payment of rent.
+    /// Encoded/decoded by serializers as "RENT".
     /// </summary>
     [EnumMember(Value = "RENT")]
     [IsoId("_Z6Oyhtp-Ed-ak6NoX_4Aeg_1855257494")]
     [Description(@"Transaction is the payment of rent.")]
-    RENT,
+    Rent,
     
     /// <summary>
     /// Transaction is the payment of royalties.
+    /// Encoded/decoded by serializers as "ROYA".
     /// </summary>
     [EnumMember(Value = "ROYA")]
     [IsoId("_Z6Oyh9p-Ed-ak6NoX_4Aeg_1855257510")]
     [Description(@"Transaction is the payment of royalties.")]
-    ROYA,
+    Royalties,
     
     /// <summary>
     /// Transaction is related to purchase and sale of services.
+    /// Encoded/decoded by serializers as "SCVE".
     /// </summary>
     [EnumMember(Value = "SCVE")]
     [IsoId("_Z6OyiNp-Ed-ak6NoX_4Aeg_1855257511")]
     [Description(@"Transaction is related to purchase and sale of services.")]
-    SCVE,
+    PurchaseSaleOfServices,
     
     /// <summary>
     /// Transaction is the payment of securities.
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_Z6Oyidp-Ed-ak6NoX_4Aeg_1855257512")]
     [Description(@"Transaction is the payment of securities.")]
-    SECU,
+    Securities,
     
     /// <summary>
     /// Transaction is a social security benefit, ie payment made by a government to support individuals.
+    /// Encoded/decoded by serializers as "SSBE".
     /// </summary>
     [EnumMember(Value = "SSBE")]
     [IsoId("_Z6X8cNp-Ed-ak6NoX_4Aeg_1855257535")]
     [Description(@"Transaction is a social security benefit, ie payment made by a government to support individuals.")]
-    SSBE,
+    SocialSecurityBenefit,
     
     /// <summary>
     /// Transaction is related to a payment of information or entertainment services either in printed or electronic form.
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_Z6X8cdp-Ed-ak6NoX_4Aeg_1855257536")]
     [Description(@"Transaction is related to a payment of information or entertainment services either in printed or electronic form.")]
-    SUBS,
+    Subscription,
     
     /// <summary>
     /// Transaction is the payment of taxes.
+    /// Encoded/decoded by serializers as "TAXS".
     /// </summary>
     [EnumMember(Value = "TAXS")]
     [IsoId("_Z6X8ctp-Ed-ak6NoX_4Aeg_1855257537")]
     [Description(@"Transaction is the payment of taxes.")]
-    TAXS,
+    TaxPayment,
     
     /// <summary>
     /// Transaction is the payment of value added tax.
+    /// Encoded/decoded by serializers as "VATX".
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_Z6X8c9p-Ed-ak6NoX_4Aeg_1855257552")]
     [Description(@"Transaction is the payment of value added tax.")]
-    VATX,
+    ValueAddedTaxPayment,
     
     /// <summary>
     /// Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.
+    /// Encoded/decoded by serializers as "COMT".
     /// </summary>
     [EnumMember(Value = "COMT")]
     [IsoId("_Z6X8dNp-Ed-ak6NoX_4Aeg_1855257553")]
     [Description(@"Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.")]
-    COMT,
+    ConsumerThirdPartyConsolidatedPayment,
     
     /// <summary>
     /// Collection of funds initiated via a debit transfer.
+    /// Encoded/decoded by serializers as "DBTC".
     /// </summary>
     [EnumMember(Value = "DBTC")]
     [IsoId("_Z6X8ddp-Ed-ak6NoX_4Aeg_1855257554")]
     [Description(@"Collection of funds initiated via a debit transfer.")]
-    DBTC,
+    DebitCollectionPayment,
     
     /// <summary>
     /// Transaction is related to a payment to a supplier.
+    /// Encoded/decoded by serializers as "SUPP".
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_Z6X8dtp-Ed-ak6NoX_4Aeg_1855257555")]
     [Description(@"Transaction is related to a payment to a supplier.")]
-    SUPP,
+    SupplierPayment,
     
     /// <summary>
     /// Transaction is related to a hedging operation.
+    /// Encoded/decoded by serializers as "HEDG".
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_Z6X8d9p-Ed-ak6NoX_4Aeg_1855257570")]
     [Description(@"Transaction is related to a hedging operation.")]
-    HEDG,
+    Hedging,
     
     /// <summary>
     /// Transaction is related to a payment for multiple service types.
+    /// Encoded/decoded by serializers as "MSVC".
     /// </summary>
     [EnumMember(Value = "MSVC")]
     [IsoId("_Z6X8eNp-Ed-ak6NoX_4Aeg_-1784475784")]
     [Description(@"Transaction is related to a payment for multiple service types.")]
-    MSVC,
+    MultipleServiceTypes,
     
     /// <summary>
     /// Transaction is related to a payment for type of services not specified elsewhere.
+    /// Encoded/decoded by serializers as "NOWS".
     /// </summary>
     [EnumMember(Value = "NOWS")]
     [IsoId("_Z6X8edp-Ed-ak6NoX_4Aeg_-1784475458")]
     [Description(@"Transaction is related to a payment for type of services not specified elsewhere.")]
-    NOWS,
+    NotOtherwiseSpecified,
     
     /// <summary>
     /// Transaction is related to a payment of credit card account.
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_Z6htcNp-Ed-ak6NoX_4Aeg_-1784475381")]
     [Description(@"Transaction is related to a payment of credit card account.")]
-    CARD,
+    CardPayment,
     
     /// <summary>
     /// Transaction is related to a payment of credit card bill.
+    /// Encoded/decoded by serializers as "CDBL".
     /// </summary>
     [EnumMember(Value = "CDBL")]
     [IsoId("_Z6htcdp-Ed-ak6NoX_4Aeg_-1784475328")]
     [Description(@"Transaction is related to a payment of credit card bill.")]
-    CDBL,
+    CreditCardBill,
     
     /// <summary>
     /// Transaction is a payment for ferry related business.
+    /// Encoded/decoded by serializers as "FERB".
     /// </summary>
     [EnumMember(Value = "FERB")]
     [IsoId("_Z6htctp-Ed-ak6NoX_4Aeg_-1784475243")]
     [Description(@"Transaction is a payment for ferry related business.")]
-    FERB,
+    Ferry,
     
     /// <summary>
     /// Transaction is a payment for air transport related business.
+    /// Encoded/decoded by serializers as "AIRB".
     /// </summary>
     [EnumMember(Value = "AIRB")]
     [IsoId("_Z6htc9p-Ed-ak6NoX_4Aeg_-1784474956")]
     [Description(@"Transaction is a payment for air transport related business.")]
-    AIRB,
+    Air,
     
     /// <summary>
     /// Transaction is a payment for bus transport related business.
+    /// Encoded/decoded by serializers as "BUSB".
     /// </summary>
     [EnumMember(Value = "BUSB")]
     [IsoId("_Z6htdNp-Ed-ak6NoX_4Aeg_-1784474870")]
     [Description(@"Transaction is a payment for bus transport related business.")]
-    BUSB,
+    Bus,
     
     /// <summary>
     /// Transaction is a payment for railway transport related business.
+    /// Encoded/decoded by serializers as "RLWY".
     /// </summary>
     [EnumMember(Value = "RLWY")]
     [IsoId("_Z6htddp-Ed-ak6NoX_4Aeg_-1783554846")]
     [Description(@"Transaction is a payment for railway transport related business.")]
-    RLWY,
+    Railway,
     
     /// <summary>
     /// Transaction is a payment for convalescence care facility services.
+    /// Encoded/decoded by serializers as "CVCF".
     /// </summary>
     [EnumMember(Value = "CVCF")]
     [IsoId("_Z6htdtp-Ed-ak6NoX_4Aeg_-1783554761")]
     [Description(@"Transaction is a payment for convalescence care facility services.")]
-    CVCF,
+    ConvalescentCareFacility,
     
     /// <summary>
     /// Transaction is a payment for dental services.
+    /// Encoded/decoded by serializers as "DNTS".
     /// </summary>
     [EnumMember(Value = "DNTS")]
     [IsoId("_Z6htd9p-Ed-ak6NoX_4Aeg_-1783554691")]
     [Description(@"Transaction is a payment for dental services.")]
-    DNTS,
+    DentalServices,
     
     /// <summary>
     /// Transaction is a payment for anesthesia services.
+    /// Encoded/decoded by serializers as "ANTS".
     /// </summary>
     [EnumMember(Value = "ANTS")]
     [IsoId("_Z6hteNp-Ed-ak6NoX_4Aeg_-1783554606")]
     [Description(@"Transaction is a payment for anesthesia services.")]
-    ANTS,
+    AnesthesiaServices,
     
     /// <summary>
     /// Transaction is a payment for home health care services.
+    /// Encoded/decoded by serializers as "HLTC".
     /// </summary>
     [EnumMember(Value = "HLTC")]
     [IsoId("_Z6htedp-Ed-ak6NoX_4Aeg_-1783554319")]
     [Description(@"Transaction is a payment for home health care services.")]
-    HLTC,
+    HomeHealthCare,
     
     /// <summary>
     /// Transaction is a payment for hospital care services.
+    /// Encoded/decoded by serializers as "HSPC".
     /// </summary>
     [EnumMember(Value = "HSPC")]
     [IsoId("_Z6recNp-Ed-ak6NoX_4Aeg_-1783554234")]
     [Description(@"Transaction is a payment for hospital care services.")]
-    HSPC,
+    HospitalCare,
     
     /// <summary>
     /// Transaction is a payment for intermediate care facility services.
+    /// Encoded/decoded by serializers as "ICRF".
     /// </summary>
     [EnumMember(Value = "ICRF")]
     [IsoId("_Z6recdp-Ed-ak6NoX_4Aeg_-1783553916")]
     [Description(@"Transaction is a payment for intermediate care facility services.")]
-    ICRF,
+    IntermediateCareFacility,
     
     /// <summary>
     /// Transaction is a payment for long-term care facility services.
+    /// Encoded/decoded by serializers as "LTCF".
     /// </summary>
     [EnumMember(Value = "LTCF")]
     [IsoId("_Z6rectp-Ed-ak6NoX_4Aeg_-1783553831")]
     [Description(@"Transaction is a payment for long-term care facility services.")]
-    LTCF,
+    LongTermCareFacility,
     
     /// <summary>
     /// Transaction is a payment for medical care services.
+    /// Encoded/decoded by serializers as "MDCS".
     /// </summary>
     [EnumMember(Value = "MDCS")]
     [IsoId("_Z6rec9p-Ed-ak6NoX_4Aeg_-1783553736")]
     [Description(@"Transaction is a payment for medical care services.")]
-    MDCS,
+    MedicalServices,
     
     /// <summary>
     /// Transaction is a payment for vision care services.
+    /// Encoded/decoded by serializers as "VIEW".
     /// </summary>
     [EnumMember(Value = "VIEW")]
     [IsoId("_Z6redNp-Ed-ak6NoX_4Aeg_-1783553659")]
     [Description(@"Transaction is a payment for vision care services.")]
-    VIEW,
+    VisionCare,
     
     /// <summary>
     /// Transaction is a payment is for use of durable medical equipment.
+    /// Encoded/decoded by serializers as "DMEQ".
     /// </summary>
     [EnumMember(Value = "DMEQ")]
     [IsoId("_Z6reddp-Ed-ak6NoX_4Aeg_-1783553364")]
     [Description(@"Transaction is a payment is for use of durable medical equipment.")]
-    DMEQ,
+    DurableMedicaleEquipment,
     
     /// <summary>
     /// Transaction is related to a payment of cable TV bill.
+    /// Encoded/decoded by serializers as "CBTV".
     /// </summary>
     [EnumMember(Value = "CBTV")]
     [IsoId("_Z6redtp-Ed-ak6NoX_4Aeg_-1783553269")]
     [Description(@"Transaction is related to a payment of cable TV bill.")]
-    CBTV,
+    CableTVBill,
     
     /// <summary>
     /// Transaction is related to a payment of electricity bill.
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_Z6red9p-Ed-ak6NoX_4Aeg_-1783552944")]
     [Description(@"Transaction is related to a payment of electricity bill.")]
-    ELEC,
+    ElectricityBill,
     
     /// <summary>
     /// Transaction is related to a payment of gas bill.
+    /// Encoded/decoded by serializers as "GASB".
     /// </summary>
     [EnumMember(Value = "GASB")]
     [IsoId("_Z6reeNp-Ed-ak6NoX_4Aeg_-1783552849")]
     [Description(@"Transaction is related to a payment of gas bill.")]
-    GASB,
+    GasBill,
     
     /// <summary>
     /// Transaction is related to a payment of telephone bill.
+    /// Encoded/decoded by serializers as "PHON".
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_Z60oYNp-Ed-ak6NoX_4Aeg_-1783552771")]
     [Description(@"Transaction is related to a payment of telephone bill.")]
-    PHON,
+    TelephoneBill,
     
     /// <summary>
     /// Transaction is related to a payment of other telecom related bill.
+    /// Encoded/decoded by serializers as "OTLC".
     /// </summary>
     [EnumMember(Value = "OTLC")]
     [IsoId("_Z60oYdp-Ed-ak6NoX_4Aeg_-1783552676")]
     [Description(@"Transaction is related to a payment of other telecom related bill.")]
-    OTLC,
+    OtherTelecomRelatedBill,
     
     /// <summary>
     /// Transaction is related to a payment of water bill.
+    /// Encoded/decoded by serializers as "WTER".
     /// </summary>
     [EnumMember(Value = "WTER")]
     [IsoId("_Z60oYtp-Ed-ak6NoX_4Aeg_-1783552373")]
     [Description(@"Transaction is related to a payment of water bill.")]
-    WTER,
+    WaterBill,
     
     /// <summary>
     /// Transaction is related to a payment of study/tuition costs.
+    /// Encoded/decoded by serializers as "STDY".
     /// </summary>
     [EnumMember(Value = "STDY")]
     [IsoId("_Z60oY9p-Ed-ak6NoX_4Aeg_-1783552278")]
     [Description(@"Transaction is related to a payment of study/tuition costs.")]
-    STDY,
+    Study,
     
     /// <summary>
     /// Transaction is related to a payment of a price.
+    /// Encoded/decoded by serializers as "PRCP".
     /// </summary>
     [EnumMember(Value = "PRCP")]
     [IsoId("_Z60oZNp-Ed-ak6NoX_4Aeg_-1783551953")]
     [Description(@"Transaction is related to a payment of a price.")]
-    PRCP,
+    PricePayment,
     
     /// <summary>
     /// Transaction is related to a payment of an installment.
+    /// Encoded/decoded by serializers as "INSM".
     /// </summary>
     [EnumMember(Value = "INSM")]
     [IsoId("_Z60oZdp-Ed-ak6NoX_4Aeg_-1783551858")]
     [Description(@"Transaction is related to a payment of an installment.")]
-    INSM,
+    Installment,
     
     /// <summary>
     /// Transaction is related to a payment of a recurring installment made at regular intervals.
+    /// Encoded/decoded by serializers as "RINP".
     /// </summary>
     [EnumMember(Value = "RINP")]
     [IsoId("_Z60oZtp-Ed-ak6NoX_4Aeg_-1783551763")]
     [Description(@"Transaction is related to a payment of a recurring installment made at regular intervals.")]
-    RINP,
+    RecurringInstallmentPayment,
     
     /// <summary>
     /// Transaction is related to a payment of opening fee.
+    /// Encoded/decoded by serializers as "OFEE".
     /// </summary>
     [EnumMember(Value = "OFEE")]
     [IsoId("_Z60oZ9p-Ed-ak6NoX_4Aeg_-1783551443")]
     [Description(@"Transaction is related to a payment of opening fee.")]
-    OFEE,
+    OpeningFee,
     
     /// <summary>
     /// Transaction is related to a payment of cancellation fee.
+    /// Encoded/decoded by serializers as "CFEE".
     /// </summary>
     [EnumMember(Value = "CFEE")]
     [IsoId("_Z60oaNp-Ed-ak6NoX_4Aeg_-1783551348")]
     [Description(@"Transaction is related to a payment of cancellation fee.")]
-    CFEE,
+    CancellationFee,
     
     /// <summary>
     /// Transaction is related to a payment of government insurance.
+    /// Encoded/decoded by serializers as "GOVI".
     /// </summary>
     [EnumMember(Value = "GOVI")]
     [IsoId("_Z60oadp-Ed-ak6NoX_4Aeg_-1782631299")]
     [Description(@"Transaction is related to a payment of government insurance.")]
-    GOVI,
+    GovernmentInsurance,
     
     /// <summary>
     /// Transaction is a payment of car insurance premium.
+    /// Encoded/decoded by serializers as "INPC".
     /// </summary>
     [EnumMember(Value = "INPC")]
     [IsoId("_Z6-ZYNp-Ed-ak6NoX_4Aeg_-1782631204")]
     [Description(@"Transaction is a payment of car insurance premium.")]
-    INPC,
+    InsurancePremiumCar,
     
     /// <summary>
     /// Transaction is a payment of labor insurance.
+    /// Encoded/decoded by serializers as "LBRI".
     /// </summary>
     [EnumMember(Value = "LBRI")]
     [IsoId("_Z6-ZYdp-Ed-ak6NoX_4Aeg_-1782631109")]
     [Description(@"Transaction is a payment of labor insurance.")]
-    LBRI,
+    LaborInsurance,
     
     /// <summary>
     /// Transaction is a payment of life insurance.
+    /// Encoded/decoded by serializers as "LIFI".
     /// </summary>
     [EnumMember(Value = "LIFI")]
     [IsoId("_Z6-ZYtp-Ed-ak6NoX_4Aeg_-1782630797")]
     [Description(@"Transaction is a payment of life insurance.")]
-    LIFI,
+    LifeInsurance,
     
     /// <summary>
     /// Transaction is a payment of property insurance.
+    /// Encoded/decoded by serializers as "PPTI".
     /// </summary>
     [EnumMember(Value = "PPTI")]
     [IsoId("_Z6-ZY9p-Ed-ak6NoX_4Aeg_-1782630695")]
     [Description(@"Transaction is a payment of property insurance.")]
-    PPTI,
+    PropertyInsurance,
     
     /// <summary>
     /// Transaction is a payment of health insurance.
+    /// Encoded/decoded by serializers as "HLTI".
     /// </summary>
     [EnumMember(Value = "HLTI")]
     [IsoId("_Z6-ZZNp-Ed-ak6NoX_4Aeg_-1782630334")]
     [Description(@"Transaction is a payment of health insurance.")]
-    HLTI,
+    HealthInsurance,
     
     /// <summary>
     /// Transaction is a payment of car loan principal payment.
+    /// Encoded/decoded by serializers as "CLPR".
     /// </summary>
     [EnumMember(Value = "CLPR")]
     [IsoId("_Z6-ZZdp-Ed-ak6NoX_4Aeg_-1782630239")]
     [Description(@"Transaction is a payment of car loan principal payment.")]
-    CLPR,
+    CarLoanPrincipalRepayment,
     
     /// <summary>
     /// Transaction is related to a payment of housing loan.
+    /// Encoded/decoded by serializers as "HLRP".
     /// </summary>
     [EnumMember(Value = "HLRP")]
     [IsoId("_Z6-ZZtp-Ed-ak6NoX_4Aeg_-1782630136")]
     [Description(@"Transaction is related to a payment of housing loan.")]
-    HLRP,
+    HousingLoanRepayment,
     
     /// <summary>
     /// Transaction is a payment by a company to a bank for financing social loans to employees.
+    /// Encoded/decoded by serializers as "CSLP".
     /// </summary>
     [EnumMember(Value = "CSLP")]
     [IsoId("_Z6-ZZ9p-Ed-ak6NoX_4Aeg_-1782629824")]
     [Description(@"Transaction is a payment by a company to a bank for financing social loans to employees.")]
-    CSLP,
+    CompanySocialLoanPaymentToBank,
     
     /// <summary>
     /// Transaction is related to a payment of estate tax.
+    /// Encoded/decoded by serializers as "ESTX".
     /// </summary>
     [EnumMember(Value = "ESTX")]
     [IsoId("_Z6-ZaNp-Ed-ak6NoX_4Aeg_-1782629721")]
     [Description(@"Transaction is related to a payment of estate tax.")]
-    ESTX,
+    EstateTax,
     
     /// <summary>
     /// Transaction is related to a payment of housing tax.
+    /// Encoded/decoded by serializers as "HSTX".
     /// </summary>
     [EnumMember(Value = "HSTX")]
     [IsoId("_Z6-Zadp-Ed-ak6NoX_4Aeg_-1782629361")]
     [Description(@"Transaction is related to a payment of housing tax.")]
-    HSTX,
+    HousingTax,
     
     /// <summary>
     /// Transaction is related to a payment of income tax.
+    /// Encoded/decoded by serializers as "INTX".
     /// </summary>
     [EnumMember(Value = "INTX")]
     [IsoId("_Z7HjUNp-Ed-ak6NoX_4Aeg_-1782629266")]
     [Description(@"Transaction is related to a payment of income tax.")]
-    INTX,
+    IncomeTax,
     
     /// <summary>
     /// Transaction is related to a payment of net income tax.
+    /// Encoded/decoded by serializers as "NITX".
     /// </summary>
     [EnumMember(Value = "NITX")]
     [IsoId("_Z7HjUdp-Ed-ak6NoX_4Aeg_-1782629163")]
     [Description(@"Transaction is related to a payment of net income tax.")]
-    NITX,
+    NetIncomeTax,
     
     /// <summary>
     /// Transaction is related to a payment of business expenses.
+    /// Encoded/decoded by serializers as "BEXP".
     /// </summary>
     [EnumMember(Value = "BEXP")]
     [IsoId("_Z7HjUtp-Ed-ak6NoX_4Aeg_-1782628834")]
     [Description(@"Transaction is related to a payment of business expenses.")]
-    BEXP,
+    BusinessExpenses,
     
     /// <summary>
     /// Transaction is related to a payment of a trust fund.
+    /// Encoded/decoded by serializers as "TRFD".
     /// </summary>
     [EnumMember(Value = "TRFD")]
     [IsoId("_Z7HjU9p-Ed-ak6NoX_4Aeg_-1782628473")]
     [Description(@"Transaction is related to a payment of a trust fund.")]
-    TRFD,
+    TrustFund,
     
     /// <summary>
     /// Transaction is related to a payment of network charges.
+    /// Encoded/decoded by serializers as "NWCH".
     /// </summary>
     [EnumMember(Value = "NWCH")]
     [IsoId("_Z7HjVNp-Ed-ak6NoX_4Aeg_-1782628258")]
     [Description(@"Transaction is related to a payment of network charges.")]
-    NWCH,
+    NetworkCharge,
     
     /// <summary>
     /// Transaction is related to a payment of network communication.
+    /// Encoded/decoded by serializers as "NWCM".
     /// </summary>
     [EnumMember(Value = "NWCM")]
     [IsoId("_Z7HjVdp-Ed-ak6NoX_4Aeg_-1782627886")]
     [Description(@"Transaction is related to a payment of network communication.")]
-    NWCM,
+    NetworkCommunication,
     
     /// <summary>
     /// Transaction is related to a payment of receipt.
+    /// Encoded/decoded by serializers as "RCPT".
     /// </summary>
     [EnumMember(Value = "RCPT")]
     [IsoId("_Z7HjVtp-Ed-ak6NoX_4Aeg_-1781707777")]
     [Description(@"Transaction is related to a payment of receipt.")]
-    RCPT,
+    ReceiptPayment,
     
     /// <summary>
     /// Transaction is related to payment terms specifications.
+    /// Encoded/decoded by serializers as "PTSP".
     /// </summary>
     [EnumMember(Value = "PTSP")]
     [IsoId("_Z7HjV9p-Ed-ak6NoX_4Aeg_-1781707639")]
     [Description(@"Transaction is related to payment terms specifications.")]
-    PTSP,
+    PaymentTerms,
     
     /// <summary>
     /// Other payment purpose.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Z7HjWNp-Ed-ak6NoX_4Aeg_-1781707544")]
     [Description(@"Other payment purpose.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Transaction is related to a payment of withholding tax.
+    /// Encoded/decoded by serializers as "WHLD".
     /// </summary>
     [EnumMember(Value = "WHLD")]
     [IsoId("_Z7HjWdp-Ed-ak6NoX_4Aeg_-1958265826")]
     [Description(@"Transaction is related to a payment of withholding tax.")]
-    WHLD,
+    WithHolding,
     
 }
 

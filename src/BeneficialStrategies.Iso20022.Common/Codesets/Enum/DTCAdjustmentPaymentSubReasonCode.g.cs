@@ -20,1277 +20,1436 @@ public enum DTCAdjustmentPaymentSubReasonCode
 {
     /// <summary>
     /// Reorganization related adjustment on user defined date.
+    /// Encoded/decoded by serializers as "S777".
     /// </summary>
     [EnumMember(Value = "S777")]
     [IsoId("_a7mbUGfjEeOB5r-GpjGdRQ")]
     [Description(@"Reorganization related adjustment on user defined date.")]
-    S777,
+    ReorganizationRelatedAdjustment,
     
     /// <summary>
     /// The interest due on the above cusip was erroneously paid to you by the issuer although the certificate of deposit was transferred to CEDE (DTCC) prior to the interest payment date.
+    /// Encoded/decoded by serializers as "S66P".
     /// </summary>
     [EnumMember(Value = "S66P")]
     [IsoId("_ot1cIGfjEeOB5r-GpjGdRQ")]
     [Description(@"The interest due on the above cusip was erroneously paid to you by the issuer although the certificate of deposit was transferred to CEDE (DTCC) prior to the interest payment date.")]
-    S66P,
+    InterestDueWasErroneouslyPaidToYouByTheIssuer,
     
     /// <summary>
     /// Allocation of baby bonds amount to be exited in USD.
+    /// Encoded/decoded by serializers as "SABA".
     /// </summary>
     [EnumMember(Value = "SABA")]
     [IsoId("_-NajIGfjEeOB5r-GpjGdRQ")]
     [Description(@"Allocation of baby bonds amount to be exited in USD.")]
-    SABA,
+    AllocationOfBabyBondsAmountToBeExited,
     
     /// <summary>
     /// Interest or dividend due on conversion related adjustment.
+    /// Encoded/decoded by serializers as "SAC7".
     /// </summary>
     [EnumMember(Value = "SAC7")]
     [IsoId("_-mr-wGfjEeOB5r-GpjGdRQ")]
     [Description(@"Interest or dividend due on conversion related adjustment.")]
-    SAC7,
+    InterestorDividendDueOnConversion,
     
     /// <summary>
     /// The accrued interest previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.
+    /// Encoded/decoded by serializers as "SACA".
     /// </summary>
     [EnumMember(Value = "SACA")]
     [IsoId("_-tOroGfjEeOB5r-GpjGdRQ")]
     [Description(@"The accrued interest previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.")]
-    SACA,
+    AccruedInterestWrongRate,
     
     /// <summary>
     /// Interest adjusted due to early withdrawal (certificate of deposit).
+    /// Encoded/decoded by serializers as "SACB".
     /// </summary>
     [EnumMember(Value = "SACB")]
     [IsoId("_-yzIIGfjEeOB5r-GpjGdRQ")]
     [Description(@"Interest adjusted due to early withdrawal (certificate of deposit).")]
-    SACB,
+    InterestAdjustedDueToEarlyWithdrawal,
     
     /// <summary>
     /// Accrued interest was not previously paid to you for the redemption in this issue. This adjustment is to pay you for this accrued interest.
+    /// Encoded/decoded by serializers as "SACP".
     /// </summary>
     [EnumMember(Value = "SACP")]
     [IsoId("_-4F30GfjEeOB5r-GpjGdRQ")]
     [Description(@"Accrued interest was not previously paid to you for the redemption in this issue. This adjustment is to pay you for this accrued interest.")]
-    SACP,
+    AccruedInterestNotPaid,
     
     /// <summary>
     /// Company in default related adjustment.
+    /// Encoded/decoded by serializers as "SADA".
     /// </summary>
     [EnumMember(Value = "SADA")]
     [IsoId("_-9bDwGfjEeOB5r-GpjGdRQ")]
     [Description(@"Company in default related adjustment.")]
-    SADA,
+    CompanyInDefault,
     
     /// <summary>
     /// Issue in default related adjustment.
+    /// Encoded/decoded by serializers as "SADM".
     /// </summary>
     [EnumMember(Value = "SADM")]
     [IsoId("__CuagGfjEeOB5r-GpjGdRQ")]
     [Description(@"Issue in default related adjustment.")]
-    SADM,
+    IssueInDefault,
     
     /// <summary>
     /// Interest allocated in error first payment on "date user defined".
+    /// Encoded/decoded by serializers as "SAEA".
     /// </summary>
     [EnumMember(Value = "SAEA")]
     [IsoId("__IHQ0GfjEeOB5r-GpjGdRQ")]
     [Description(@"Interest allocated in error first payment on ""date user defined"".")]
-    SAEA,
+    InterestAllocatedInError,
     
     /// <summary>
     /// Interest adjusted due to tender fee deduction.
+    /// Encoded/decoded by serializers as "SAF7".
     /// </summary>
     [EnumMember(Value = "SAF7")]
     [IsoId("__NaAgGfjEeOB5r-GpjGdRQ")]
     [Description(@"Interest adjusted due to tender fee deduction.")]
-    SAF7,
+    TenderFeeDeduction,
     
     /// <summary>
     /// Supplementary interim on user defined date.
+    /// Encoded/decoded by serializers as "SAFA".
     /// </summary>
     [EnumMember(Value = "SAFA")]
     [IsoId("__SswMGfjEeOB5r-GpjGdRQ")]
     [Description(@"Supplementary interim on user defined date.")]
-    SAFA,
+    SupplementaryInterimOn,
     
     /// <summary>
     /// Company is taking 30 day grace period.
+    /// Encoded/decoded by serializers as "SAGA".
     /// </summary>
     [EnumMember(Value = "SAGA")]
     [IsoId("__YAG8GfjEeOB5r-GpjGdRQ")]
     [Description(@"Company is taking 30 day grace period.")]
-    SAGA,
+    GracePeriod,
     
     /// <summary>
     /// Payment of full avoid fiscal tax refund (equal to 42.5% of the dividend).
+    /// Encoded/decoded by serializers as "SAHA".
     /// </summary>
     [EnumMember(Value = "SAHA")]
     [IsoId("__ddOsGfjEeOB5r-GpjGdRQ")]
     [Description(@"Payment of full avoid fiscal tax refund (equal to 42.5% of the dividend).")]
-    SAHA,
+    PaymentOfFullAvoidFiscalTaxRefund,
     
     /// <summary>
     /// Adjustment to avoid fiscal payment.
+    /// Encoded/decoded by serializers as "SAIA".
     /// </summary>
     [EnumMember(Value = "SAIA")]
     [IsoId("__iwlcGfjEeOB5r-GpjGdRQ")]
     [Description(@"Adjustment to avoid fiscal payment.")]
-    SAIA,
+    AdjustmentToAvoidFiscalPayment,
     
     /// <summary>
     /// Revision of charge for withholding tax.
+    /// Encoded/decoded by serializers as "SAJA".
     /// </summary>
     [EnumMember(Value = "SAJA")]
     [IsoId("__oINoGfjEeOB5r-GpjGdRQ")]
     [Description(@"Revision of charge for withholding tax.")]
-    SAJA,
+    RevisionOfChargeForWithholdingTax,
     
     /// <summary>
     /// Interest or dividend due on merger related adjustment.
+    /// Encoded/decoded by serializers as "SAM7".
     /// </summary>
     [EnumMember(Value = "SAM7")]
     [IsoId("__tcLcGfjEeOB5r-GpjGdRQ")]
     [Description(@"Interest or dividend due on merger related adjustment.")]
-    SAM7,
+    InterestOrDividendDueOnMerger,
     
     /// <summary>
     /// Interest pays at maturity. Allocated in error onn user defined date.
+    /// Encoded/decoded by serializers as "SAMA".
     /// </summary>
     [EnumMember(Value = "SAMA")]
     [IsoId("__yu7IGfjEeOB5r-GpjGdRQ")]
     [Description(@"Interest pays at maturity. Allocated in error onn user defined date.")]
-    SAMA,
+    InterestPaysAtMaturity,
     
     /// <summary>
     /// Company never declared dividend adjust allocation on user defined date.
+    /// Encoded/decoded by serializers as "SANA".
     /// </summary>
     [EnumMember(Value = "SANA")]
     [IsoId("__4EuIGfjEeOB5r-GpjGdRQ")]
     [Description(@"Company never declared dividend adjust allocation on user defined date.")]
-    SANA,
+    CompanyDidNotDeclareDividend,
     
     /// <summary>
     /// Interest or dividend due on repayment option.
+    /// Encoded/decoded by serializers as "SAP7".
     /// </summary>
     [EnumMember(Value = "SAP7")]
     [IsoId("__9fZoGfjEeOB5r-GpjGdRQ")]
     [Description(@"Interest or dividend due on repayment option.")]
-    SAP7,
+    InterestOrDividendDueOnRepaymentOption,
     
     /// <summary>
     /// Payment of partial avoid fiscal tax refund (equal to 15% of the dividend).
+    /// Encoded/decoded by serializers as "SAPA".
     /// </summary>
     [EnumMember(Value = "SAPA")]
     [IsoId("_AC9IcGfkEeOB5r-GpjGdRQ")]
     [Description(@"Payment of partial avoid fiscal tax refund (equal to 15% of the dividend).")]
-    SAPA,
+    PaymentOfPartialAvoidFiscalTaxRefund,
     
     /// <summary>
     /// Certificates you deposited prior to publication date were subsequently called. the agent paid DTCC the principal redemption proceeds but erroneously paid you the accrued interest.
+    /// Encoded/decoded by serializers as "SAPP".
     /// </summary>
     [EnumMember(Value = "SAPP")]
     [IsoId("_AIXM4GfkEeOB5r-GpjGdRQ")]
     [Description(@"Certificates you deposited prior to publication date were subsequently called. the agent paid DTCC the principal redemption proceeds but erroneously paid you the accrued interest.")]
-    SAPP,
+    CalledCertificatesAccruedErroneousInterestChargeBack,
     
     /// <summary>
     /// Interest or dividend due on redemption.
+    /// Encoded/decoded by serializers as "SAR7".
     /// </summary>
     [EnumMember(Value = "SAR7")]
     [IsoId("_ANxRUGfkEeOB5r-GpjGdRQ")]
     [Description(@"Interest or dividend due on redemption.")]
-    SAR7,
+    InterestOrDividendDueOnRedemption,
     
     /// <summary>
     /// Allocation for a Participant position that was assumed by your goodselves paid on - retired Participant number.
+    /// Encoded/decoded by serializers as "SARA".
     /// </summary>
     [EnumMember(Value = "SARA")]
     [IsoId("_ATHEUGfkEeOB5r-GpjGdRQ")]
     [Description(@"Allocation for a Participant position that was assumed by your goodselves paid on - retired Participant number.")]
-    SARA,
+    AssumedByYourGoodselves,
     
     /// <summary>
     /// Allocation of script shares amount to be exited in dollar value.
+    /// Encoded/decoded by serializers as "SASA".
     /// </summary>
     [EnumMember(Value = "SASA")]
     [IsoId("_AYeFcGfkEeOB5r-GpjGdRQ")]
     [Description(@"Allocation of script shares amount to be exited in dollar value.")]
-    SASA,
+    ScriptSharesExited,
     
     /// <summary>
     /// Interestor dividend due on tender.
+    /// Encoded/decoded by serializers as "SAT7".
     /// </summary>
     [EnumMember(Value = "SAT7")]
     [IsoId("_Ad1GkGfkEeOB5r-GpjGdRQ")]
     [Description(@"Interestor dividend due on tender.")]
-    SAT7,
+    InterestOrDividendDueOnTender,
     
     /// <summary>
     /// Uninsured interest withheld as per FSLICN.
+    /// Encoded/decoded by serializers as "SAWA".
     /// </summary>
     [EnumMember(Value = "SAWA")]
     [IsoId("_AjN84GfkEeOB5r-GpjGdRQ")]
     [Description(@"Uninsured interest withheld as per FSLICN.")]
-    SAWA,
+    UninsuredInterestWithheld,
     
     /// <summary>
     /// Your record date position was adjusted for a DWAC buy back withdrawal.
+    /// Encoded/decoded by serializers as "SSBB".
     /// </summary>
     [EnumMember(Value = "SSBB")]
     [IsoId("_AqmXQGfkEeOB5r-GpjGdRQ")]
     [Description(@"Your record date position was adjusted for a DWAC buy back withdrawal.")]
-    SSBB,
+    DWACBuyBackWithdrawal,
     
     /// <summary>
     /// Your record date position was adjusted for a COD buy back withdrawal.
+    /// Encoded/decoded by serializers as "SBB1".
     /// </summary>
     [EnumMember(Value = "SBB1")]
     [IsoId("_A63A0GfkEeOB5r-GpjGdRQ")]
     [Description(@"Your record date position was adjusted for a COD buy back withdrawal.")]
-    SBB1,
+    CODBuyBackWithdrawal,
     
     /// <summary>
     /// Your record date position was adjusted for a w/t buy back withdrawal.
+    /// Encoded/decoded by serializers as "SBB2".
     /// </summary>
     [EnumMember(Value = "SBB2")]
     [IsoId("_W7S1UGfoEeOB5r-GpjGdRQ")]
     [Description(@"Your record date position was adjusted for a w/t buy back withdrawal.")]
-    SBB2,
+    WithdrawalTransferBuyBackWithdrawal,
     
     /// <summary>
     /// Your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your goodselves.
+    /// Encoded/decoded by serializers as "SBDB".
     /// </summary>
     [EnumMember(Value = "SBDB")]
     [IsoId("_XcoAwGfoEeOB5r-GpjGdRQ")]
     [Description(@"Your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your goodselves.")]
-    SBDB,
+    CODWithdrawalNotDeliveredAndCertificatesInTheNameOfYourGoodselves,
     
     /// <summary>
     /// Your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your nominee.
+    /// Encoded/decoded by serializers as "SBEB".
     /// </summary>
     [EnumMember(Value = "SBEB")]
     [IsoId("_XiIL0GfoEeOB5r-GpjGdRQ")]
     [Description(@"Your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your nominee.")]
-    SBEB,
+    CODWithdrawalNotDeliveredAndCertificatesIssuedInTheNameOfYourNominee,
     
     /// <summary>
     /// Reversal of a COD withdrawal related adjustment.
+    /// Encoded/decoded by serializers as "SBRH".
     /// </summary>
     [EnumMember(Value = "SBRH")]
     [IsoId("_XnyH4GfoEeOB5r-GpjGdRQ")]
     [Description(@"Reversal of a COD withdrawal related adjustment.")]
-    SBRH,
+    ReversalOfACODWithdrawal,
     
     /// <summary>
     /// Custody payment.
+    /// Encoded/decoded by serializers as "SCDP".
     /// </summary>
     [EnumMember(Value = "SCDP")]
     [IsoId("_Xtu-4GfoEeOB5r-GpjGdRQ")]
     [Description(@"Custody payment.")]
-    SCDP,
+    CustodyPayment,
     
     /// <summary>
     /// Certificates you deposited prior to publication date were subsequently called. the agent paid DTCC the principal proceeds via check, but in your customer’s name. we are forwarding the check today. this adjustment is to charge you for the funds.
+    /// Encoded/decoded by serializers as "SCKS".
     /// </summary>
     [EnumMember(Value = "SCKS")]
     [IsoId("_XzPJ8GfoEeOB5r-GpjGdRQ")]
     [Description(@"Certificates you deposited prior to publication date were subsequently called. the agent paid DTCC the principal proceeds via check, but in your customer’s name. we are forwarding the check today. this adjustment is to charge you for the funds.")]
-    SCKS,
+    CalledCertificatesCheckInParticipantsNameChargeBack,
     
     /// <summary>
     /// Adjustment made for the Pacific depository (3097).
+    /// Encoded/decoded by serializers as "SCLU".
     /// </summary>
     [EnumMember(Value = "SCLU")]
     [IsoId("_X4lkAGfoEeOB5r-GpjGdRQ")]
     [Description(@"Adjustment made for the Pacific depository (3097).")]
-    SCLU,
+    PacificDepository,
     
     /// <summary>
     /// Adjustment made for the Midwest depository (6942).
+    /// Encoded/decoded by serializers as "SCMU".
     /// </summary>
     [EnumMember(Value = "SCMU")]
     [IsoId("_X98lIGfoEeOB5r-GpjGdRQ")]
     [Description(@"Adjustment made for the Midwest depository (6942).")]
-    SCMU,
+    MidwestDepository,
     
     /// <summary>
     /// Adjustment made for the Philadelphia depository (6070).
+    /// Encoded/decoded by serializers as "SCNU".
     /// </summary>
     [EnumMember(Value = "SCNU")]
     [IsoId("_YDTmQGfoEeOB5r-GpjGdRQ")]
     [Description(@"Adjustment made for the Philadelphia depository (6070).")]
-    SCNU,
+    PhiladelphiaDepository,
     
     /// <summary>
     /// Accrual claim payment related to a stock distribution payable on user defined date.
+    /// Encoded/decoded by serializers as "SCPK".
     /// </summary>
     [EnumMember(Value = "SCPK")]
     [IsoId("_YIg2YGfoEeOB5r-GpjGdRQ")]
     [Description(@"Accrual claim payment related to a stock distribution payable on user defined date.")]
-    SCPK,
+    AccrualClaimPayment,
     
     /// <summary>
     /// Part claim payment.
+    /// Encoded/decoded by serializers as "SCPP".
     /// </summary>
     [EnumMember(Value = "SCPP")]
     [IsoId("_YN3QcGfoEeOB5r-GpjGdRQ")]
     [Description(@"Part claim payment.")]
-    SCPP,
+    PartClaimPayment,
     
     /// <summary>
     /// Reversal of an accrual claim payment related to a stock distribution payable on user defined date.
+    /// Encoded/decoded by serializers as "SCRK".
     /// </summary>
     [EnumMember(Value = "SCRK")]
     [IsoId("_YTORkGfoEeOB5r-GpjGdRQ")]
     [Description(@"Reversal of an accrual claim payment related to a stock distribution payable on user defined date.")]
-    SCRK,
+    ReversalOfAnAccrualClaimPayment,
     
     /// <summary>
     /// Part-claim reversal.
+    /// Encoded/decoded by serializers as "SCRP".
     /// </summary>
     [EnumMember(Value = "SCRP")]
     [IsoId("_YYbhsGfoEeOB5r-GpjGdRQ")]
     [Description(@"Part-claim reversal.")]
-    SCRP,
+    PartClaimReversal,
     
     /// <summary>
     /// Coupon collection service adjustment for coupon deposit.
+    /// Encoded/decoded by serializers as "SCSM".
     /// </summary>
     [EnumMember(Value = "SCSM")]
     [IsoId("_Ydox0GfoEeOB5r-GpjGdRQ")]
     [Description(@"Coupon collection service adjustment for coupon deposit.")]
-    SCSM,
+    CouponCollectionService,
     
     /// <summary>
     /// Reversal of a deposit adjustment.
+    /// Encoded/decoded by serializers as "SDRH".
     /// </summary>
     [EnumMember(Value = "SDRH")]
     [IsoId("_YjI84GfoEeOB5r-GpjGdRQ")]
     [Description(@"Reversal of a deposit adjustment.")]
-    SDRH,
+    ReversalOfADeposit,
     
     /// <summary>
     /// Your record date position was adjusted for deliver order (DO) activity.
+    /// Encoded/decoded by serializers as "SEEE".
     /// </summary>
     [EnumMember(Value = "SEEE")]
     [IsoId("_Yof-AGfoEeOB5r-GpjGdRQ")]
     [Description(@"Your record date position was adjusted for deliver order (DO) activity.")]
-    SEEE,
+    DeliverOrderActivity,
     
     /// <summary>
     /// Shares escheated to New York state in error; affidavit to follow. This is to reverse.
+    /// Encoded/decoded by serializers as "SETO".
     /// </summary>
     [EnumMember(Value = "SETO")]
     [IsoId("_YttOIGfoEeOB5r-GpjGdRQ")]
     [Description(@"Shares escheated to New York state in error; affidavit to follow. This is to reverse.")]
-    SETO,
+    ReverseOfTheSharesEscheatedToNYStateInError,
     
     /// <summary>
     /// As per agent, this charge is for french avoid fiscal tax credit.
+    /// Encoded/decoded by serializers as "SFAF".
     /// </summary>
     [EnumMember(Value = "SFAF")]
     [IsoId("_YzDoMGfoEeOB5r-GpjGdRQ")]
     [Description(@"As per agent, this charge is for french avoid fiscal tax credit.")]
-    SFAF,
+    ChargeForFrenchAvoidFiscalTaxCredit,
     
     /// <summary>
     /// Funds previously escheated to ny state, affidavit to follow this is to reverse escheated amount of claim paid on user defined date.
+    /// Encoded/decoded by serializers as "SFAP".
     /// </summary>
     [EnumMember(Value = "SFAP")]
     [IsoId("_Y4apUGfoEeOB5r-GpjGdRQ")]
     [Description(@"Funds previously escheated to ny state, affidavit to follow this is to reverse escheated amount of claim paid on user defined date.")]
-    SFAP,
+    ReverseOfEscheatedAmountOfClaim,
     
     /// <summary>
     /// Foreign cash dividends/bond interest allocation at exempt rate.
+    /// Encoded/decoded by serializers as "SFE8".
     /// </summary>
     [EnumMember(Value = "SFE8")]
     [IsoId("_Y9xqcGfoEeOB5r-GpjGdRQ")]
     [Description(@"Foreign cash dividends/bond interest allocation at exempt rate.")]
-    SFE8,
+    ForeignCashDividendsOrBondInterestAllocationAtExemptRate,
     
     /// <summary>
     /// Foreign cash dividends/bonds interest allocation at favorable rate.
+    /// Encoded/decoded by serializers as "SFF8".
     /// </summary>
     [EnumMember(Value = "SFF8")]
     [IsoId("_ZC-6kGfoEeOB5r-GpjGdRQ")]
     [Description(@"Foreign cash dividends/bonds interest allocation at favorable rate.")]
-    SFF8,
+    ForeignCashDividendsOrBondsInterestAllocationAtFavorableRate,
     
     /// <summary>
     /// Fifteen percent french withholding tax, based on your option election of 100% ADRs at the favorable rate.
+    /// Encoded/decoded by serializers as "SFG8".
     /// </summary>
     [EnumMember(Value = "SFG8")]
     [IsoId("_ZIVUoGfoEeOB5r-GpjGdRQ")]
     [Description(@"Fifteen percent french withholding tax, based on your option election of 100% ADRs at the favorable rate.")]
-    SFG8,
+    FrenchWithholdingTax15Percent,
     
     /// <summary>
     /// Twenty five percent french withholding tax, based on your option election of 100% ADRs at the unfavorable rate.
+    /// Encoded/decoded by serializers as "SFG9".
     /// </summary>
     [EnumMember(Value = "SFG9")]
     [IsoId("_ZTMg0GfoEeOB5r-GpjGdRQ")]
     [Description(@"Twenty five percent french withholding tax, based on your option election of 100% ADRs at the unfavorable rate.")]
-    SFG9,
+    FrenchWithholdingTax25Percent,
     
     /// <summary>
     /// Adjustment related to the deposit of lost certificate over the record date was registered in the name of your [user defined].
+    /// Encoded/decoded by serializers as "SDAD".
     /// </summary>
     [EnumMember(Value = "SDAD")]
     [IsoId("_Zb-CUGfoEeOB5r-GpjGdRQ")]
     [Description(@"Adjustment related to the deposit of lost certificate over the record date was registered in the name of your [user defined].")]
-    SDAD,
+    DepositLostCertificateOverTheRecordDateWasRegisteredInTheNameOfYour,
     
     /// <summary>
     /// Adjustment related to the deposit of lost certificate over the record date was registered in the name of your goodselves.
+    /// Encoded/decoded by serializers as "SDBD".
     /// </summary>
     [EnumMember(Value = "SDBD")]
     [IsoId("_ZjQ9IGfoEeOB5r-GpjGdRQ")]
     [Description(@"Adjustment related to the deposit of lost certificate over the record date was registered in the name of your goodselves.")]
-    SDBD,
+    LostCertificateRegisteredInTheNameOfYourGoodselves,
     
     /// <summary>
     /// Deposit after cut off date transferred into the name of the CEDE on record date.
+    /// Encoded/decoded by serializers as "SDCD".
     /// </summary>
     [EnumMember(Value = "SDCD")]
     [IsoId("_arty8GfoEeOB5r-GpjGdRQ")]
     [Description(@"Deposit after cut off date transferred into the name of the CEDE on record date.")]
-    SDCD,
+    DepositTransferredIntoTheNameOfTheCEDEAndCo,
     
     /// <summary>
     /// Your record date position was adjusted for deposit activity.
+    /// Encoded/decoded by serializers as "SDDD".
     /// </summary>
     [EnumMember(Value = "SDDD")]
     [IsoId("_ax9k4GfoEeOB5r-GpjGdRQ")]
     [Description(@"Your record date position was adjusted for deposit activity.")]
-    SDDD,
+    PositionAdjustedForDepositActivity,
     
     /// <summary>
     /// Adjustment related to the deposit of lost certificate over the record date was registered in the name of your nominee.
+    /// Encoded/decoded by serializers as "SDED".
     /// </summary>
     [EnumMember(Value = "SDED")]
     [IsoId("_a3xR8GfoEeOB5r-GpjGdRQ")]
     [Description(@"Adjustment related to the deposit of lost certificate over the record date was registered in the name of your nominee.")]
-    SDED,
+    LostCertificateWasRegisteredInTheNameOfYourNominee,
     
     /// <summary>
     /// You deposited securities that were previously called. the agent paid DTCC the redemption proceeds. this adjustment is to pass these proceeds on to you. your free account security position will be adjusted (shorted) today for the called quantity.
+    /// Encoded/decoded by serializers as "SDEP".
     /// </summary>
     [EnumMember(Value = "SDEP")]
     [IsoId("_a9uI8GfoEeOB5r-GpjGdRQ")]
     [Description(@"You deposited securities that were previously called. the agent paid DTCC the redemption proceeds. this adjustment is to pass these proceeds on to you. your free account security position will be adjusted (shorted) today for the called quantity.")]
-    SDEP,
+    PreviouslyCalledCertificatesFundsDelivery,
     
     /// <summary>
     /// CTF(s) held over record date on which we guarantee to hold you free and harmless of any further claim on this dividend.
+    /// Encoded/decoded by serializers as "SDMT".
     /// </summary>
     [EnumMember(Value = "SDMT")]
     [IsoId("_bD0J4GfoEeOB5r-GpjGdRQ")]
     [Description(@"CTF(s) held over record date on which we guarantee to hold you free and harmless of any further claim on this dividend.")]
-    SDMT,
+    CTFSHeldOverRecordDateOnWhichWeGuaranteeToHoldYouFreeAndHarmless,
     
     /// <summary>
     /// Ten percent french withholding tax, based on your revised instructions to reduce favorable tax status to unfavorable.
+    /// Encoded/decoded by serializers as "SFH9".
     /// </summary>
     [EnumMember(Value = "SFH9")]
     [IsoId("_TDr-sGf1EeOB5r-GpjGdRQ")]
     [Description(@"Ten percent french withholding tax, based on your revised instructions to reduce favorable tax status to unfavorable.")]
-    SFH9,
+    FrenchWithholdingTax10Percent,
     
     /// <summary>
     /// Required lists contained discrepancies or were not forwarded to french paying agent. This charge is at user defined withholding rate.
+    /// Encoded/decoded by serializers as "SFI9".
     /// </summary>
     [EnumMember(Value = "SFI9")]
     [IsoId("_TRX1YGf1EeOB5r-GpjGdRQ")]
     [Description(@"Required lists contained discrepancies or were not forwarded to french paying agent. This charge is at user defined withholding rate.")]
-    SFI9,
+    ChargeAtWithholdingRate,
     
     /// <summary>
     /// The 25% french withholding rate has been revised. This adjustment is based on the refunded tax rate.
+    /// Encoded/decoded by serializers as "SFJ9".
     /// </summary>
     [EnumMember(Value = "SFJ9")]
     [IsoId("_TXBxcGf1EeOB5r-GpjGdRQ")]
     [Description(@"The 25% french withholding rate has been revised. This adjustment is based on the refunded tax rate.")]
-    SFJ9,
+    RefundedTaxRate,
     
     /// <summary>
     /// Rate unknown for fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFL0".
     /// </summary>
     [EnumMember(Value = "SFL0")]
     [IsoId("_TcrtgGf1EeOB5r-GpjGdRQ")]
     [Description(@"Rate unknown for fail tracking related adjustment.")]
-    SFL0,
+    RateUnknown,
     
     /// <summary>
     /// Deletefor fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFL1".
     /// </summary>
     [EnumMember(Value = "SFL1")]
     [IsoId("_TiL4kGf1EeOB5r-GpjGdRQ")]
     [Description(@"Deletefor fail tracking related adjustment.")]
-    SFL1,
+    Delete,
     
     /// <summary>
     /// Reinstate for fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFL2".
     /// </summary>
     [EnumMember(Value = "SFL2")]
     [IsoId("_Tn10oGf1EeOB5r-GpjGdRQ")]
     [Description(@"Reinstate for fail tracking related adjustment.")]
-    SFL2,
+    Reinstate,
     
     /// <summary>
     /// Post date changefor fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFL3".
     /// </summary>
     [EnumMember(Value = "SFL3")]
     [IsoId("_To4WcGf1EeOB5r-GpjGdRQ")]
     [Description(@"Post date changefor fail tracking related adjustment.")]
-    SFL3,
+    PostDateChangeForFailTracking,
     
     /// <summary>
     /// Announcement deleted for fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFLD".
     /// </summary>
     [EnumMember(Value = "SFLD")]
     [IsoId("_TtfwsGf1EeOB5r-GpjGdRQ")]
     [Description(@"Announcement deleted for fail tracking related adjustment.")]
-    SFLD,
+    AnnouncementDeletedOrFailTracking,
     
     /// <summary>
     /// Due bill for fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFLE".
     /// </summary>
     [EnumMember(Value = "SFLE")]
     [IsoId("_TuYhgGf1EeOB5r-GpjGdRQ")]
     [Description(@"Due bill for fail tracking related adjustment.")]
-    SFLE,
+    DueBill,
     
     /// <summary>
     /// Fail tracking for fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFLL".
     /// </summary>
     [EnumMember(Value = "SFLL")]
     [IsoId("_TzcnsGf1EeOB5r-GpjGdRQ")]
     [Description(@"Fail tracking for fail tracking related adjustment.")]
-    SFLL,
+    LateAnnouncement,
     
     /// <summary>
     /// Date revision for fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFLN".
     /// </summary>
     [EnumMember(Value = "SFLN")]
     [IsoId("_T4Da4Gf1EeOB5r-GpjGdRQ")]
     [Description(@"Date revision for fail tracking related adjustment.")]
-    SFLN,
+    DateRevision,
     
     /// <summary>
     /// Rate revisionfor fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFLR".
     /// </summary>
     [EnumMember(Value = "SFLR")]
     [IsoId("_T4NL4Gf1EeOB5r-GpjGdRQ")]
     [Description(@"Rate revisionfor fail tracking related adjustment.")]
-    SFLR,
+    RateRevision,
     
     /// <summary>
     /// Non allocation for fail tracking related adjustment.
+    /// Encoded/decoded by serializers as "SFLS".
     /// </summary>
     [EnumMember(Value = "SFLS")]
     [IsoId("_T93H8Gf1EeOB5r-GpjGdRQ")]
     [Description(@"Non allocation for fail tracking related adjustment.")]
-    SFLS,
+    NonAllocation,
     
     /// <summary>
     /// Refund of french tax based on acceptance of global reclamation for the june 1992 distribution refer to important notice b # 1352‑93.
+    /// Encoded/decoded by serializers as "SFRA".
     /// </summary>
     [EnumMember(Value = "SFRA")]
     [IsoId("_UCeiMGf1EeOB5r-GpjGdRQ")]
     [Description(@"Refund of french tax based on acceptance of global reclamation for the june 1992 distribution refer to important notice b # 1352‑93.")]
-    SFRA,
+    RefundOfFrenchTaxJune,
     
     /// <summary>
     /// Refund of french tax based on acceptance of global reclamation for the july 1992 distribution refer to important notice b # 1352‑93.
+    /// Encoded/decoded by serializers as "SFRB".
     /// </summary>
     [EnumMember(Value = "SFRB")]
     [IsoId("_UCeiMWf1EeOB5r-GpjGdRQ")]
     [Description(@"Refund of french tax based on acceptance of global reclamation for the july 1992 distribution refer to important notice b # 1352‑93.")]
-    SFRB,
+    RefundOfFrenchTaxJuly,
     
     /// <summary>
     /// Foreign cash dividends or bond interest allocation at unfavorable rate.
+    /// Encoded/decoded by serializers as "SFU9".
     /// </summary>
     [EnumMember(Value = "SFU9")]
     [IsoId("_UHPGYGf1EeOB5r-GpjGdRQ")]
     [Description(@"Foreign cash dividends or bond interest allocation at unfavorable rate.")]
-    SFU9,
+    ForeignCashDividendsOrBondInterestAllocationAtUnfavorableRate,
     
     /// <summary>
     /// Redemption cash settlement.
+    /// Encoded/decoded by serializers as "SGL7".
     /// </summary>
     [EnumMember(Value = "SGL7")]
     [IsoId("_UL15kGf1EeOB5r-GpjGdRQ")]
     [Description(@"Redemption cash settlement.")]
-    SGL7,
+    RedemptionCash,
     
     /// <summary>
     /// Allocation adjustment.
+    /// Encoded/decoded by serializers as "SGLA".
     /// </summary>
     [EnumMember(Value = "SGLA")]
     [IsoId("_UL15kWf1EeOB5r-GpjGdRQ")]
     [Description(@"Allocation adjustment.")]
-    SGLA,
+    AllocationAdjustment,
     
     /// <summary>
     /// Muni bearer bond coupon adjustment (same as line 118).
+    /// Encoded/decoded by serializers as "SGLM".
     /// </summary>
     [EnumMember(Value = "SGLM")]
     [IsoId("_UR8hkGf1EeOB5r-GpjGdRQ")]
     [Description(@"Muni bearer bond coupon adjustment (same as line 118).")]
-    SGLM,
+    MuniBearerBond,
     
     /// <summary>
     /// Redemption payment due to pledge release.
+    /// Encoded/decoded by serializers as "SGLP".
     /// </summary>
     [EnumMember(Value = "SGLP")]
     [IsoId("_UR8hkWf1EeOB5r-GpjGdRQ")]
     [Description(@"Redemption payment due to pledge release.")]
-    SGLP,
+    RedemptionPaymentDueToPledgeRelease,
     
     /// <summary>
     /// DTCC claim on registered holder in the name of your goodselves.
+    /// Encoded/decoded by serializers as "SGLQ".
     /// </summary>
     [EnumMember(Value = "SGLQ")]
     [IsoId("_0cPUAGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC claim on registered holder in the name of your goodselves.")]
-    SGLQ,
+    DTCCClaimOnRegisteredHolderInTheNameOfYourGoodselves,
     
     /// <summary>
     /// In settlement of a trade - DTCC reorg account 428-10271-1-2-039.
+    /// Encoded/decoded by serializers as "SGLT".
     /// </summary>
     [EnumMember(Value = "SGLT")]
     [IsoId("_1dsxAGiTEeOdXoiw6mfXMw")]
     [Description(@"In settlement of a trade - DTCC reorg account 428-10271-1-2-039.")]
-    SGLT,
+    InSettlementOfATradeDTCCReorgAccount,
     
     /// <summary>
     /// DTCC claim on registered holder in the name of your customer.
+    /// Encoded/decoded by serializers as "SGLZ".
     /// </summary>
     [EnumMember(Value = "SGLZ")]
     [IsoId("_1lvSsGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC claim on registered holder in the name of your customer.")]
-    SGLZ,
+    DTCCClaimOnRegisteredHolderInTheNameOfYourCustomer,
     
     /// <summary>
     /// Your interim position was adjusted for deliver orderactivity.
+    /// Encoded/decoded by serializers as "SIGE".
     /// </summary>
     [EnumMember(Value = "SIGE")]
     [IsoId("_1teSYGiTEeOdXoiw6mfXMw")]
     [Description(@"Your interim position was adjusted for deliver orderactivity.")]
-    SIGE,
+    InterimPositionAdjustedForDeliverOrderActivity,
     
     /// <summary>
     /// Late announcement activity due bill activity related adjustment.
+    /// Encoded/decoded by serializers as "SILL".
     /// </summary>
     [EnumMember(Value = "SILL")]
     [IsoId("_106XIGiTEeOdXoiw6mfXMw")]
     [Description(@"Late announcement activity due bill activity related adjustment.")]
-    SILL,
+    LateAnnouncementActivityDueBillActivity,
     
     /// <summary>
     /// DTCC COD withdrawal adjustment.
+    /// Encoded/decoded by serializers as "SJCB".
     /// </summary>
     [EnumMember(Value = "SJCB")]
     [IsoId("_18Wb4GiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC COD withdrawal adjustment.")]
-    SJCB,
+    CODWithdrawal,
     
     /// <summary>
     /// DTCC deposit related adjustment.
+    /// Encoded/decoded by serializers as "SJDD".
     /// </summary>
     [EnumMember(Value = "SJDD")]
     [IsoId("_2D7qkGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC deposit related adjustment.")]
-    SJDD,
+    DepositAdjustment,
     
     /// <summary>
     /// DTCC redemption related adjustment.
+    /// Encoded/decoded by serializers as "SJE7".
     /// </summary>
     [EnumMember(Value = "SJE7")]
     [IsoId("_2LOlYGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC redemption related adjustment.")]
-    SJE7,
+    RedemptionAdjustment,
     
     /// <summary>
     /// DTCC pledge release related adjustment.
+    /// Encoded/decoded by serializers as "SJEE".
     /// </summary>
     [EnumMember(Value = "SJEE")]
     [IsoId("_2SqqIGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC pledge release related adjustment.")]
-    SJEE,
+    PledgeReleaseAdjustment,
     
     /// <summary>
     /// Write off reorganization related adjustment.
+    /// Encoded/decoded by serializers as "SJEW".
     /// </summary>
     [EnumMember(Value = "SJEW")]
     [IsoId("_2VWKsGiTEeOdXoiw6mfXMw")]
     [Description(@"Write off reorganization related adjustment.")]
-    SJEW,
+    WriteOffReorganization,
     
     /// <summary>
     /// DTCC investment id related adjustment.
+    /// Encoded/decoded by serializers as "SJIE".
     /// </summary>
     [EnumMember(Value = "SJIE")]
     [IsoId("_2coecGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC investment id related adjustment.")]
-    SJIE,
+    InvestmentIdAdjustment,
     
     /// <summary>
     /// DTCC pledge related adjustment.
+    /// Encoded/decoded by serializers as "SJEF".
     /// </summary>
     [EnumMember(Value = "SJEF")]
     [IsoId("_2j6yMGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC pledge related adjustment.")]
-    SJEF,
+    PledgeAdjustment,
     
     /// <summary>
     /// DTCC deliver order related adjustment.
+    /// Encoded/decoded by serializers as "SJEG".
     /// </summary>
     [EnumMember(Value = "SJEG")]
     [IsoId("_2rNtAGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC deliver order related adjustment.")]
-    SJEG,
+    DeliverOrder,
     
     /// <summary>
     /// DTCC reorganization related adjustment.
     /// 
+    /// Encoded/decoded by serializers as "SJR7".
     /// </summary>
     [EnumMember(Value = "SJR7")]
     [IsoId("_2ypxwGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC reorganization related adjustment. ")]
-    SJR7,
+    ReorganizationAdjustment,
     
     /// <summary>
     /// DTCC WT related adjustment.
+    /// Encoded/decoded by serializers as "SJWT".
     /// </summary>
     [EnumMember(Value = "SJWT")]
     [IsoId("_26F2gGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC WT related adjustment.")]
-    SJWT,
+    WithdrawalTransferAdjustment,
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your customer. Late identification of missed transfer by Transfer Agent.
+    /// Encoded/decoded by serializers as "SLCP".
     /// </summary>
     [EnumMember(Value = "SLCP")]
     [IsoId("_3BYKQGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC claim against registered holder in the name of your customer. Late identification of missed transfer by Transfer Agent.")]
-    SLCP,
+    DTCCClaimAgainstRegisteredHolderInTheNameOfYourCustomerLateTransfer,
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your goodselves. Late identification of missed transfer by Transfer Agent.
+    /// Encoded/decoded by serializers as "SLGP".
     /// </summary>
     [EnumMember(Value = "SLGP")]
     [IsoId("_3GlaYGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC claim against registered holder in the name of your goodselves. Late identification of missed transfer by Transfer Agent.")]
-    SLGP,
+    DTCCClaimAgainstRegisteredHolderInTheNameOfYourGoodselvesLateTransfer,
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your nominee. Late identification of missed transfer by Transfer Agent.
+    /// Encoded/decoded by serializers as "SLNP".
     /// </summary>
     [EnumMember(Value = "SLNP")]
     [IsoId("_3NlaQGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC claim against registered holder in the name of your nominee. Late identification of missed transfer by Transfer Agent.")]
-    SLNP,
+    DTCCClaimAgainstRegisteredHolderInTheNameOfYourNominee,
     
     /// <summary>
     /// Muni bearer bond coupon related adjustment.
+    /// Encoded/decoded by serializers as "SMAM".
     /// </summary>
     [EnumMember(Value = "SMAM")]
     [IsoId("_3U3uAGiTEeOdXoiw6mfXMw")]
     [Description(@"Muni bearer bond coupon related adjustment.")]
-    SMAM,
+    MuniBearerBondCoupon,
     
     /// <summary>
     /// Muni bearer bond coupon adjustment for coupon(s) missing from a deposit related adjustment.
+    /// Encoded/decoded by serializers as "SMBM".
     /// </summary>
     [EnumMember(Value = "SMBM")]
     [IsoId("_3hEW8GiTEeOdXoiw6mfXMw")]
     [Description(@"Muni bearer bond coupon adjustment for coupon(s) missing from a deposit related adjustment.")]
-    SMBM,
+    MuniBearerBondCouponAdjustmentForCouponsMissingFromaDeposit,
     
     /// <summary>
     /// Muni bearer bond coupon adjustment for coupon(s) missing from a withdrawal.
+    /// Encoded/decoded by serializers as "SMCM".
     /// </summary>
     [EnumMember(Value = "SMCM")]
     [IsoId("_31crgGiTEeOdXoiw6mfXMw")]
     [Description(@"Muni bearer bond coupon adjustment for coupon(s) missing from a withdrawal.")]
-    SMCM,
+    MuniBearerBondCouponAdjustmentForCouponsMissingFromaWithdrawal,
     
     /// <summary>
     /// Muni bearer bond coupon adjustment excess coupon(s) withdrawn on user defined date.
+    /// Encoded/decoded by serializers as "SMDM".
     /// </summary>
     [EnumMember(Value = "SMDM")]
     [IsoId("_39ChQGiTEeOdXoiw6mfXMw")]
     [Description(@"Muni bearer bond coupon adjustment excess coupon(s) withdrawn on user defined date.")]
-    SMDM,
+    MuniBearerBondCouponAdjustmentExcessCouponsWithdrawnOn,
     
     /// <summary>
     /// Muni bearer bond coupon adjustment excess coupon(s) deposited on user defined date.
+    /// Encoded/decoded by serializers as "SMEM".
     /// </summary>
     [EnumMember(Value = "SMEM")]
     [IsoId("_4EU1AGiTEeOdXoiw6mfXMw")]
     [Description(@"Muni bearer bond coupon adjustment excess coupon(s) deposited on user defined date.")]
-    SMEM,
+    MuniBearerBondCouponAdjustmentExcessCouponsDepositedOn,
     
     /// <summary>
     /// Muni bearer bond coupon adjustment your interim position was adjusted for deposit activity.
+    /// Encoded/decoded by serializers as "SMMM".
     /// </summary>
     [EnumMember(Value = "SMMM")]
     [IsoId("_4OTQYGiTEeOdXoiw6mfXMw")]
     [Description(@"Muni bearer bond coupon adjustment your interim position was adjusted for deposit activity.")]
-    SMMM,
+    MuniBearerBondCouponPositionAdjustedForDepositActivity,
     
     /// <summary>
     /// Adjustment for cash on increased shares due to a stock distribution payable.
+    /// Encoded/decoded by serializers as "SNNG".
     /// </summary>
     [EnumMember(Value = "SNNG")]
     [IsoId("_4VlkIGiTEeOdXoiw6mfXMw")]
     [Description(@"Adjustment for cash on increased shares due to a stock distribution payable.")]
-    SNNG,
+    AdjustmentForCashOnIncreasedShares,
     
     /// <summary>
     /// Optional dividend (ops) allocation related adjustment.
+    /// Encoded/decoded by serializers as "SOP2".
     /// </summary>
     [EnumMember(Value = "SOP2")]
     [IsoId("_4irk8GiTEeOdXoiw6mfXMw")]
     [Description(@"Optional dividend (ops) allocation related adjustment.")]
-    SOP2,
+    OptionalDividendAllocationAdjustment,
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your customer.
+    /// Encoded/decoded by serializers as "SPCP".
     /// </summary>
     [EnumMember(Value = "SPCP")]
     [IsoId("_4rdGcGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC claim against registered holder in the name of your customer.")]
-    SPCP,
+    DTCCClaimAgainstRegisteredHolderInTheNameOfYourCustomer,
     
     /// <summary>
     /// Proceeds from sale of.
+    /// Encoded/decoded by serializers as "SPFS".
     /// </summary>
     [EnumMember(Value = "SPFS")]
     [IsoId("_4zoyEGiTEeOdXoiw6mfXMw")]
     [Description(@"Proceeds from sale of.")]
-    SPFS,
+    ProceedsFromSaleOf,
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your goodselves.
+    /// Encoded/decoded by serializers as "SPGP".
     /// </summary>
     [EnumMember(Value = "SPGP")]
     [IsoId("_470dsGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC claim against registered holder in the name of your goodselves.")]
-    SPGP,
+    DTCCClaimAgainstRegisteredHolderInTheNameOfYourGoodselves,
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your nominee.
+    /// Encoded/decoded by serializers as "SPNP".
     /// </summary>
     [EnumMember(Value = "SPNP")]
     [IsoId("_5Jg7cGiTEeOdXoiw6mfXMw")]
     [Description(@"DTCC claim against registered holder in the name of your nominee.")]
-    SPNP,
+    DTCCClaimAgainstRegisteredHolderInTheNameOfYourNomineeLateTransfer,
     
     /// <summary>
     /// The principal previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.
+    /// Encoded/decoded by serializers as "SPRA".
     /// </summary>
     [EnumMember(Value = "SPRA")]
     [IsoId("_DQFacGiiEeOdXoiw6mfXMw")]
     [Description(@"The principal previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.")]
-    SPRA,
+    WrongRatePrincipal,
     
     /// <summary>
     /// This adjustment is in responve to your written inquiry.
+    /// Encoded/decoded by serializers as "SRAH".
     /// </summary>
     [EnumMember(Value = "SRAH")]
     [IsoId("_D5vbcGiiEeOdXoiw6mfXMw")]
     [Description(@"This adjustment is in responve to your written inquiry.")]
-    SRAH,
+    AdjustmentForWrittenInquiry,
     
     /// <summary>
     /// Allocation adjustment due to a change in the record date.
+    /// Encoded/decoded by serializers as "SRDA".
     /// </summary>
     [EnumMember(Value = "SRDA")]
     [IsoId("_EAvbUGiiEeOdXoiw6mfXMw")]
     [Description(@"Allocation adjustment due to a change in the record date.")]
-    SRDA,
+    ChangeInTheRecordDate,
     
     /// <summary>
     /// This adjustment is in response to your inquiry. refer to control number:
+    /// Encoded/decoded by serializers as "SRIH".
     /// </summary>
     [EnumMember(Value = "SRIH")]
     [IsoId("_EHu0IGiiEeOdXoiw6mfXMw")]
     [Description(@"This adjustment is in response to your inquiry. refer to control number:")]
-    SRIH,
+    AdjustmentIsInResponseToYourInquiry,
     
     /// <summary>
     /// Rep payment/charge.
+    /// Encoded/decoded by serializers as "SRPO".
     /// </summary>
     [EnumMember(Value = "SRPO")]
     [IsoId("_EO398GiiEeOdXoiw6mfXMw")]
     [Description(@"Rep payment/charge.")]
-    SRPO,
+    RepPaymentCharge,
     
     /// <summary>
     /// Supplemental interim activity related adjustment.
+    /// Encoded/decoded by serializers as "SRPP".
     /// </summary>
     [EnumMember(Value = "SRPP")]
     [IsoId("_EVtlwGiiEeOdXoiw6mfXMw")]
     [Description(@"Supplemental interim activity related adjustment.")]
-    SRPP,
+    SupplementalInterimActivity,
     
     /// <summary>
     /// This adjustment represents credits/debits to your account in lieu of reorg deposit activity.
+    /// Encoded/decoded by serializers as "SPRG".
     /// </summary>
     [EnumMember(Value = "SPRG")]
     [IsoId("_FUpTMGiiEeOdXoiw6mfXMw")]
     [Description(@"This adjustment represents credits/debits to your account in lieu of reorg deposit activity.")]
-    SPRG,
+    InLieuOfReorgDepositActivity,
     
     /// <summary>
     /// This allocation was adjusted for a rate change. Please refer to DIVA comment field for additional information.
+    /// Encoded/decoded by serializers as "SRTA".
     /// </summary>
     [EnumMember(Value = "SRTA")]
     [IsoId("_FbosAGiiEeOdXoiw6mfXMw")]
     [Description(@"This allocation was adjusted for a rate change. Please refer to DIVA comment field for additional information.")]
-    SRTA,
+    RateChange,
     
     /// <summary>
     /// Allocation adjustment for dividend reinvestment due to price correction by the agent.
+    /// Encoded/decoded by serializers as "SSA6".
     /// </summary>
     [EnumMember(Value = "SSA6")]
     [IsoId("_FiVJ4GiiEeOdXoiw6mfXMw")]
     [Description(@"Allocation adjustment for dividend reinvestment due to price correction by the agent.")]
-    SSA6,
+    PriceCorrectionDividendReinvestment,
     
     /// <summary>
     /// Adjustment for cash due on an accrued stock payment.
+    /// Encoded/decoded by serializers as "SSBK".
     /// </summary>
     [EnumMember(Value = "SSBK")]
     [IsoId("_FpLYwGiiEeOdXoiw6mfXMw")]
     [Description(@"Adjustment for cash due on an accrued stock payment.")]
-    SSBK,
+    CashDueOnAnAccruedStockPayment,
     
     /// <summary>
     /// Dividend reinvestment allocation why not on normal event.
+    /// Encoded/decoded by serializers as "SSC6".
     /// </summary>
     [EnumMember(Value = "SSC6")]
     [IsoId("_FwKxkGiiEeOdXoiw6mfXMw")]
     [Description(@"Dividend reinvestment allocation why not on normal event.")]
-    SSC6,
+    DividendReinvestmentAllocation,
     
     /// <summary>
     /// Accrued cash due on a stock dividend adjustment made on user defined date.
+    /// Encoded/decoded by serializers as "SSCK".
     /// </summary>
     [EnumMember(Value = "SSCK")]
     [IsoId("_F23PcGiiEeOdXoiw6mfXMw")]
     [Description(@"Accrued cash due on a stock dividend adjustment made on user defined date.")]
-    SSCK,
+    CashDueOnStockDividend,
     
     /// <summary>
     /// Adjustment to your dividend reinvestment (DRP) position related adjustment.
+    /// Encoded/decoded by serializers as "SSD6".
     /// </summary>
     [EnumMember(Value = "SSD6")]
     [IsoId("_F9jtUGiiEeOdXoiw6mfXMw")]
     [Description(@"Adjustment to your dividend reinvestment (DRP) position related adjustment.")]
-    SSD6,
+    AdjustmentToYourDividendReinvestmentPosition,
     
     /// <summary>
     /// Accrued cash due on DRP share allocation.
+    /// Encoded/decoded by serializers as "SSDK".
     /// </summary>
     [EnumMember(Value = "SSDK")]
     [IsoId("_GLZVAGiiEeOdXoiw6mfXMw")]
     [Description(@"Accrued cash due on DRP share allocation.")]
-    SSDK,
+    CashDueOnDRPShareAllocation,
     
     /// <summary>
     /// Dividend reinvestment (DRP) allocation of cash in lieu of fractions related adjustment.
+    /// Encoded/decoded by serializers as "SSE6".
     /// </summary>
     [EnumMember(Value = "SSE6")]
     [IsoId("_GSFy4GiiEeOdXoiw6mfXMw")]
     [Description(@"Dividend reinvestment (DRP) allocation of cash in lieu of fractions related adjustment.")]
-    SSE6,
+    DividendReinvestmentAllocationOfCashInLieuOfFractions,
     
     /// <summary>
     /// Adjustment for cash-in-lieu of fractional shares related adjustment.
+    /// Encoded/decoded by serializers as "SSJJ".
     /// </summary>
     [EnumMember(Value = "SSJJ")]
     [IsoId("_GZO8sGiiEeOdXoiw6mfXMw")]
     [Description(@"Adjustment for cash-in-lieu of fractional shares related adjustment.")]
-    SSJJ,
+    AdjustmentForCashInLieuOfFractionalShares,
     
     /// <summary>
     /// Stock loan related payment or charge.
     /// 
+    /// Encoded/decoded by serializers as "SSLA".
     /// </summary>
     [EnumMember(Value = "SSLA")]
     [IsoId("_GgFLkGiiEeOdXoiw6mfXMw")]
     [Description(@"Stock loan related payment or charge. ")]
-    SSLA,
+    StockLoanAdjustment,
     
     /// <summary>
     /// Supplemental interim activity from midwest (6942).
+    /// Encoded/decoded by serializers as "SSME".
     /// </summary>
     [EnumMember(Value = "SSME")]
     [IsoId("_GmxpcGiiEeOdXoiw6mfXMw")]
     [Description(@"Supplemental interim activity from midwest (6942).")]
-    SSME,
+    SupplementalInterimActivityFromMidwest,
     
     /// <summary>
     /// Proceeds resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
+    /// Encoded/decoded by serializers as "SSP4".
     /// </summary>
     [EnumMember(Value = "SSP4")]
     [IsoId("_UNzkMGjAEeOdXoiw6mfXMw")]
     [Description(@"Proceeds resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).")]
-    SSP4,
+    ProceedsFromBuyTransactionInOurDTCCDividendTradingAccount,
     
     /// <summary>
     /// Supplemental interim activity from Philadelphia (6070).
+    /// Encoded/decoded by serializers as "SSPE".
     /// </summary>
     [EnumMember(Value = "SSPE")]
     [IsoId("_U8EYYGjAEeOdXoiw6mfXMw")]
     [Description(@"Supplemental interim activity from Philadelphia (6070).")]
-    SSPE,
+    SupplementalInterimActivityFromPhiladelphia,
     
     /// <summary>
     /// Stock loan or repo payment order related adjustment.
+    /// Encoded/decoded by serializers as "SSPO".
     /// </summary>
     [EnumMember(Value = "SSPO")]
     [IsoId("_VDNiMGjAEeOdXoiw6mfXMw")]
     [Description(@"Stock loan or repo payment order related adjustment.")]
-    SSPO,
+    StockLoanOrRepoPaymentOrder,
     
     /// <summary>
     /// Share adjustment resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
+    /// Encoded/decoded by serializers as "SSR4".
     /// </summary>
     [EnumMember(Value = "SSR4")]
     [IsoId("_VKM7AGjAEeOdXoiw6mfXMw")]
     [Description(@"Share adjustment resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).")]
-    SSR4,
+    ShareAdjustmentFromABuyTransactionInOurDTCCDividendTradingAccount,
     
     /// <summary>
     /// Share adjustment resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
+    /// Encoded/decoded by serializers as "SSR5".
     /// </summary>
     [EnumMember(Value = "SSR5")]
     [IsoId("_VRMT0GjAEeOdXoiw6mfXMw")]
     [Description(@"Share adjustment resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).")]
-    SSR5,
+    ShareAdjustmentResultingFromASellTransactionAffectedInOurDTCCDividendTradingAccount,
     
     /// <summary>
     /// As per your authorization, we are charging your account in lieu of receipt of dividend reinvestment related shares related adjustment.
+    /// Encoded/decoded by serializers as "SSR6".
     /// </summary>
     [EnumMember(Value = "SSR6")]
     [IsoId("_VUBlYGjAEeOdXoiw6mfXMw")]
     [Description(@"As per your authorization, we are charging your account in lieu of receipt of dividend reinvestment related shares related adjustment.")]
-    SSR6,
+    ChargeInLieuOfReceiptOfDividendReinvestment,
     
     /// <summary>
     /// Allocation adjustment due to fractions rounded up by the agent related adjustment.
+    /// Encoded/decoded by serializers as "SSRJ".
     /// </summary>
     [EnumMember(Value = "SSRJ")]
     [IsoId("_VfLsgGjAEeOdXoiw6mfXMw")]
     [Description(@"Allocation adjustment due to fractions rounded up by the agent related adjustment.")]
-    SSRJ,
+    AllocationAdjustmentDueToFractionsRoundedUpByTheAgent,
     
     /// <summary>
     /// Proceeds resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
+    /// Encoded/decoded by serializers as "SSS5".
     /// </summary>
     [EnumMember(Value = "SSS5")]
     [IsoId("_VmLFUGjAEeOdXoiw6mfXMw")]
     [Description(@"Proceeds resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).")]
-    SSS5,
+    ProceedsResultingFromaASellTransactionAffectedInOurDTCCDividendTradingAccount,
     
     /// <summary>
     /// DRP allocation adjustment due to your sub accounting instructions to the agent.
+    /// Encoded/decoded by serializers as "SSS6".
     /// </summary>
     [EnumMember(Value = "SSS6")]
     [IsoId("_VteAIGjAEeOdXoiw6mfXMw")]
     [Description(@"DRP allocation adjustment due to your sub accounting instructions to the agent.")]
-    SSS6,
+    DividendReinvestmentAllocationAdjustmentDueToYourSubAccountingInstructionsToTheAgent,
     
     /// <summary>
     /// Allocation of dividend reinvestment shares - DRP/TEDS instruction @100%.
+    /// Encoded/decoded by serializers as "SST6".
     /// </summary>
     [EnumMember(Value = "SST6")]
     [IsoId("_V0Tn8GjAEeOdXoiw6mfXMw")]
     [Description(@"Allocation of dividend reinvestment shares - DRP/TEDS instruction @100%.")]
-    SST6,
+    AllocationOfDRPTEDSInstruction,
     
     /// <summary>
     /// To adjust allocation at 100% on your tax exempt instructions.
+    /// Encoded/decoded by serializers as "STEA".
     /// </summary>
     [EnumMember(Value = "STEA")]
     [IsoId("_V7J20GjAEeOdXoiw6mfXMw")]
     [Description(@"To adjust allocation at 100% on your tax exempt instructions.")]
-    STEA,
+    TaxExemptInstructions,
     
     /// <summary>
     /// Withdrawal by transfer - lost certificate over the record date was registered in the name of your customer.
+    /// Encoded/decoded by serializers as "SWG1".
     /// </summary>
     [EnumMember(Value = "SWG1")]
     [IsoId("_WCJPoGjAEeOdXoiw6mfXMw")]
     [Description(@"Withdrawal by transfer - lost certificate over the record date was registered in the name of your customer.")]
-    SWG1,
+    LostCertificateWasRegisteredInTheNameOfYourCustomer,
     
     /// <summary>
     /// Our record date position was adjusted for a withdrawal by transfer activity.
+    /// Encoded/decoded by serializers as "SWHT".
     /// </summary>
     [EnumMember(Value = "SWHT")]
     [IsoId("_WI_egGjAEeOdXoiw6mfXMw")]
     [Description(@"Our record date position was adjusted for a withdrawal by transfer activity.")]
-    SWHT,
+    RecordDatePositionAdjustedForaWithdrawalByTransfer,
     
     /// <summary>
     /// Adjustment made for a withdrawal by transfer that was not transferred into your clients name by the record date.
+    /// Encoded/decoded by serializers as "SWL1".
     /// </summary>
     [EnumMember(Value = "SWL1")]
     [IsoId("_WP1GUGjAEeOdXoiw6mfXMw")]
     [Description(@"Adjustment made for a withdrawal by transfer that was not transferred into your clients name by the record date.")]
-    SWL1,
+    AdjustmentForAWithdrawalByTransferNotTransferredIntoYourClientsName,
     
     /// <summary>
     /// Adjustment made for a withdrawal by transfer set up after the cut off date made transfer into your clients name.
+    /// Encoded/decoded by serializers as "SWM1".
     /// </summary>
     [EnumMember(Value = "SWM1")]
     [IsoId("_WW0fIGjAEeOdXoiw6mfXMw")]
     [Description(@"Adjustment made for a withdrawal by transfer set up after the cut off date made transfer into your clients name.")]
-    SWM1,
+    AdjustmentMadeForAWithdrawalByTransferSetUpAfterTheCutOffDateMadeTransferIntoYourClientsName,
     
     /// <summary>
     /// Your position was reinstated for a withdrawal by transfer. However the certificates(s) were issued and outstanding over the record date in the name of your customer(s).
+    /// Encoded/decoded by serializers as "SWN1".
     /// </summary>
     [EnumMember(Value = "SWN1")]
     [IsoId("_Wd9o8GjAEeOdXoiw6mfXMw")]
     [Description(@"Your position was reinstated for a withdrawal by transfer. However the certificates(s) were issued and outstanding over the record date in the name of your customer(s).")]
-    SWN1,
+    PositionReinstatedCertificatesIssuedAndOutstandingInTheNameOfYourCustomers,
     
     /// <summary>
     /// Reversal of a withdrawal by transfer adjustment.
+    /// Encoded/decoded by serializers as "SWRH".
     /// </summary>
     [EnumMember(Value = "SWRH")]
     [IsoId("_Wk9BwGjAEeOdXoiw6mfXMw")]
     [Description(@"Reversal of a withdrawal by transfer adjustment.")]
-    SWRH,
+    ReversalOfaWithdrawalByTransfer,
     
     /// <summary>
     /// Adjustment to allocation to charge (user defined percentage) withholding tax in (user defined) country.
+    /// Encoded/decoded by serializers as "SWTA".
     /// </summary>
     [EnumMember(Value = "SWTA")]
     [IsoId("_Wr9BoGjAEeOdXoiw6mfXMw")]
     [Description(@"Adjustment to allocation to charge (user defined percentage) withholding tax in (user defined) country.")]
-    SWTA,
+    WithholdingTaxAdjustmentInUserDefinedCountry,
     
     /// <summary>
     /// Your account is being credited at the unfav rate (20%) as a result of the reorg merger pd on 4/2/93 (Armstrong Pharm to Medeva plc, eff 1/15/93; if entitled to fav rate(15%), you must follow attached.
+    /// Encoded/decoded by serializers as "SAA7".
     /// </summary>
     [EnumMember(Value = "SAA7")]
     [IsoId("_WyypcGjAEeOdXoiw6mfXMw")]
     [Description(@"Your account is being credited at the unfav rate (20%) as a result of the reorg merger pd on 4/2/93 (Armstrong Pharm to Medeva plc, eff 1/15/93; if entitled to fav rate(15%), you must follow attached.")]
-    SAA7,
+    UnfavorableRateMerger,
     
     /// <summary>
     /// Allocation of fractional rights.
+    /// Encoded/decoded by serializers as "SAFR".
     /// </summary>
     [EnumMember(Value = "SAFR")]
     [IsoId("_W5o4UGjAEeOdXoiw6mfXMw")]
     [Description(@"Allocation of fractional rights.")]
-    SAFR,
+    FractionalRights,
     
     /// <summary>
     /// Your record date position was adjusted for a DWAC withdrawal to effect a buy back/treasury purchase.
+    /// Encoded/decoded by serializers as "SBB3".
     /// </summary>
     [EnumMember(Value = "SBB3")]
     [IsoId("_8xQS0GjCEeOdXoiw6mfXMw")]
     [Description(@"Your record date position was adjusted for a DWAC withdrawal to effect a buy back/treasury purchase.")]
-    SBB3,
+    DWACAdjustment,
     
     /// <summary>
     /// Foreign cash dividends allocation at unfavorable rate.
+    /// Encoded/decoded by serializers as "SFL9".
     /// </summary>
     [EnumMember(Value = "SFL9")]
     [IsoId("_9DG30GjCEeOdXoiw6mfXMw")]
     [Description(@"Foreign cash dividends allocation at unfavorable rate.")]
-    SFL9,
+    ForeignCashDividendUnfavorableRate,
     
     /// <summary>
     /// As per memo requesting a frozen letter movement from part number.
+    /// Encoded/decoded by serializers as "SFRO".
     /// </summary>
     [EnumMember(Value = "SFRO")]
     [IsoId("_9tqQsGjCEeOdXoiw6mfXMw")]
     [Description(@"As per memo requesting a frozen letter movement from part number.")]
-    SFRO,
+    FrozenLetterMovement,
     
     /// <summary>
     /// Option to receive Vodafone Group adrs at 11.354392 for every 100 adrs.
+    /// Encoded/decoded by serializers as "SRRA".
     /// </summary>
     [EnumMember(Value = "SRRA")]
     [IsoId("_91GVcGjCEeOdXoiw6mfXMw")]
     [Description(@"Option to receive Vodafone Group adrs at 11.354392 for every 100 adrs.")]
-    SRRA,
+    VodaphoneADR,
     
     /// <summary>
     /// Distribution of additional rights for round up of fractions as requested for your beneficial owners.
+    /// Encoded/decoded by serializers as "SRTJ".
     /// </summary>
     [EnumMember(Value = "SRTJ")]
     [IsoId("_98FuQGjCEeOdXoiw6mfXMw")]
     [Description(@"Distribution of additional rights for round up of fractions as requested for your beneficial owners.")]
-    SRTJ,
+    AdditionalRightsForBeneficialOwner,
     
     /// <summary>
     /// Bond pays in baby bonds that are issued in minimum/incre-mental denominations; this is to adjust for the amount of pending unissued bonds.
+    /// Encoded/decoded by serializers as "SSDJ".
     /// </summary>
     [EnumMember(Value = "SSDJ")]
     [IsoId("_-DFHEGjCEeOdXoiw6mfXMw")]
     [Description(@"Bond pays in baby bonds that are issued in minimum/incre-mental denominations; this is to adjust for the amount of pending unissued bonds.")]
-    SSDJ,
+    BabyBondPayment,
     
     /// <summary>
     /// Due bill fail tracking reversal.
+    /// Encoded/decoded by serializers as "SSFR".
     /// </summary>
     [EnumMember(Value = "SSFR")]
     [IsoId("_-KOQ4GjCEeOdXoiw6mfXMw")]
     [Description(@"Due bill fail tracking reversal.")]
-    SSFR,
+    DueBillReversal,
     
     /// <summary>
     /// Due bill fail tracking.
+    /// Encoded/decoded by serializers as "SSFF".
     /// </summary>
     [EnumMember(Value = "SSFF")]
     [IsoId("_-RNpsGjCEeOdXoiw6mfXMw")]
     [Description(@"Due bill fail tracking.")]
-    SSFF,
+    DueBillFailTracking,
     
     /// <summary>
     /// Allocation of spinoff security.
+    /// Encoded/decoded by serializers as "SSOS".
     /// </summary>
     [EnumMember(Value = "SSOS")]
     [IsoId("_-YWzgGjCEeOdXoiw6mfXMw")]
     [Description(@"Allocation of spinoff security.")]
-    SSOS,
+    SpinOffAllocation,
     
     /// <summary>
     /// Agent paid DTC based on combined fractions for all public service–new hamp.(new) spinoffs distributed on july 25, 1991.
+    /// Encoded/decoded by serializers as "SSPJ".
     /// </summary>
     [EnumMember(Value = "SSPJ")]
     [IsoId("_-fWMUGjCEeOdXoiw6mfXMw")]
     [Description(@"Agent paid DTC based on combined fractions for all public service–new hamp.(new) spinoffs distributed on july 25, 1991.")]
-    SSPJ,
+    AgentPaidBasedOnCombinedFractions,
     
     /// <summary>
     /// Allocation of a Pay in Kind distribution.
+    /// Encoded/decoded by serializers as "SSPA".
     /// </summary>
     [EnumMember(Value = "SSPA")]
     [IsoId("_-mMbMGjCEeOdXoiw6mfXMw")]
     [Description(@"Allocation of a Pay in Kind distribution.")]
-    SSPA,
+    PaynInKindDistribution,
     
     /// <summary>
     /// Reserved for new user defined reason codes.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_-teu8GjCEeOdXoiw6mfXMw")]
     [Description(@"Reserved for new user defined reason codes.")]
-    OTHR,
+    Other,
     
 }
 

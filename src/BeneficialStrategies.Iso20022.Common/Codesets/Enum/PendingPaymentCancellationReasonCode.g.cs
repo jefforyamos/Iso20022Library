@@ -20,28 +20,31 @@ public enum PendingPaymentCancellationReasonCode
 {
     /// <summary>
     /// The cancellation has been forwarded to the next agent in the payment chain.
+    /// Encoded/decoded by serializers as "PTNA".
     /// </summary>
     [EnumMember(Value = "PTNA")]
     [IsoId("_aULmUB0-EeiYoZGjIMHr2A")]
     [Description(@"The cancellation has been forwarded to the next agent in the payment chain.")]
-    PTNA,
+    PassedToNextAgent,
     
     /// <summary>
     /// Creditor authorisation is required to return the payment.
+    /// Encoded/decoded by serializers as "RQDA".
     /// </summary>
     [EnumMember(Value = "RQDA")]
     [IsoId("_kfp70B0-EeiYoZGjIMHr2A")]
     [Description(@"Creditor authorisation is required to return the payment.")]
-    RQDA,
+    RequestedDebitAuthority,
     
     /// <summary>
     /// Cancellation indemnity is required. 
     /// 
+    /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_1gtpEB0-EeiYoZGjIMHr2A")]
     [Description(@"Cancellation indemnity is required.  ")]
-    INDM,
+    CancellationIndemnityRequired,
     
 }
 

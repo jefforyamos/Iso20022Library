@@ -22,379 +22,426 @@ public enum ExternalTradeTransactionConditionCode
 {
     /// <summary>
     /// Board lots, not set for odd lots (UK specific).
+    /// Encoded/decoded by serializers as "BCBL".
     /// </summary>
     [EnumMember(Value = "BCBL")]
     [IsoId("_uJn5HPRYEeuLhpyIdtJzwg")]
     [Description(@"Board lots, not set for odd lots (UK specific).")]
-    BCBL,
+    BoardLot,
     
     /// <summary>
     /// Bad names, not set for good names (UK specific).
+    /// Encoded/decoded by serializers as "BCBN".
     /// </summary>
     [EnumMember(Value = "BCBN")]
     [IsoId("_uJxqEPRYEeuLhpyIdtJzwg")]
     [Description(@"Bad names, not set for good names (UK specific).")]
-    BCBN,
+    BadName,
     
     /// <summary>
     /// Form of delivery, not for foreign registration when unset (UK specific).
+    /// Encoded/decoded by serializers as "BCFD".
     /// </summary>
     [EnumMember(Value = "BCFD")]
     [IsoId("_uJxqE_RYEeuLhpyIdtJzwg")]
     [Description(@"Form of delivery, not for foreign registration when unset (UK specific).")]
-    BCFD,
+    DeliveryForm,
     
     /// <summary>
     /// Place of delivery, in country of incorporation when unset (UK specific).
+    /// Encoded/decoded by serializers as "BCPD".
     /// </summary>
     [EnumMember(Value = "BCPD")]
     [IsoId("_uJxqFvRYEeuLhpyIdtJzwg")]
     [Description(@"Place of delivery, in country of incorporation when unset (UK specific).")]
-    BCPD,
+    DeliverCountryIncorporation,
     
     /// <summary>
     /// Result of option when set (UK specific).
+    /// Encoded/decoded by serializers as "BCRO".
     /// </summary>
     [EnumMember(Value = "BCRO")]
     [IsoId("_uJxqGfRYEeuLhpyIdtJzwg")]
     [Description(@"Result of option when set (UK specific).")]
-    BCRO,
+    ResultOption,
     
     /// <summary>
     /// Result of repo when set (UK specific).
+    /// Encoded/decoded by serializers as "BCRP".
     /// </summary>
     [EnumMember(Value = "BCRP")]
     [IsoId("_uJ60APRYEeuLhpyIdtJzwg")]
     [Description(@"Result of repo when set (UK specific).")]
-    BCRP,
+    ResultRepo,
     
     /// <summary>
     /// The trade is a block trade or not, ie, whether allocation instruction will follow or not.
+    /// Encoded/decoded by serializers as "BLKO".
     /// </summary>
     [EnumMember(Value = "BLKO")]
     [IsoId("_uJ60A_RYEeuLhpyIdtJzwg")]
     [Description(@"The trade is a block trade or not, ie, whether allocation instruction will follow or not.")]
-    BLKO,
+    Block,
     
     /// <summary>
     /// Trade to be executed done at best execution.
+    /// Encoded/decoded by serializers as "BTEX".
     /// </summary>
     [EnumMember(Value = "BTEX")]
     [IsoId("_uJ60BvRYEeuLhpyIdtJzwg")]
     [Description(@"Trade to be executed done at best execution.")]
-    BTEX,
+    BestExecution,
     
     /// <summary>
     /// Bought minus indicator.
+    /// Encoded/decoded by serializers as "BTMI".
     /// </summary>
     [EnumMember(Value = "BTMI")]
     [IsoId("_uJ60CfRYEeuLhpyIdtJzwg")]
     [Description(@"Bought minus indicator.")]
-    BTMI,
+    BoughtMinus,
     
     /// <summary>
     /// Trade to be executed following the exercise of a call option on the security.
+    /// Encoded/decoded by serializers as "CALL".
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_uJ60DPRYEeuLhpyIdtJzwg")]
     [Description(@"Trade to be executed following the exercise of a call option on the security.")]
-    CALL,
+    Call,
     
     /// <summary>
     /// The trade is executed cum bonus.
+    /// Encoded/decoded by serializers as "CBNS".
     /// </summary>
     [EnumMember(Value = "CBNS")]
     [IsoId("_uKElAPRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed cum bonus.")]
-    CBNS,
+    CumBonus,
     
     /// <summary>
     /// The trade is executed cum coupon.
+    /// Encoded/decoded by serializers as "CCPN".
     /// </summary>
     [EnumMember(Value = "CCPN")]
     [IsoId("_uKElA_RYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed cum coupon.")]
-    CCPN,
+    CumCoupon,
     
     /// <summary>
     /// The trade is executed cum dividend.
+    /// Encoded/decoded by serializers as "CDIV".
     /// </summary>
     [EnumMember(Value = "CDIV")]
     [IsoId("_uKElBvRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed cum dividend.")]
-    CDIV,
+    CumDividend,
     
     /// <summary>
     /// Trade to be executed for closure of a previous position before the rollover of a position (Deferred Settlement Service). 
+    /// Encoded/decoded by serializers as "CLBR".
     /// </summary>
     [EnumMember(Value = "CLBR")]
     [IsoId("_uKElCfRYEeuLhpyIdtJzwg")]
     [Description(@"Trade to be executed for closure of a previous position before the rollover of a position (Deferred Settlement Service). ")]
-    CLBR,
+    ClosureBeforeRollOver,
     
     /// <summary>
     /// The trade is executed clean, ie government tax must not be paid on the accrued interest on the bond.
+    /// Encoded/decoded by serializers as "CLEN".
     /// </summary>
     [EnumMember(Value = "CLEN")]
     [IsoId("_uKNu8PRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed clean, ie government tax must not be paid on the accrued interest on the bond.")]
-    CLEN,
+    Clean,
     
     /// <summary>
     /// Cross trades are allowed whereby buy and sell orders are offset without recording the trade on the exchange
+    /// Encoded/decoded by serializers as "CRST".
     /// </summary>
     [EnumMember(Value = "CRST")]
     [IsoId("_uKNu8_RYEeuLhpyIdtJzwg")]
     [Description(@"Cross trades are allowed whereby buy and sell orders are offset without recording the trade on the exchange")]
-    CRST,
+    CrossTrade,
     
     /// <summary>
     /// The trade is executed cum rights.
+    /// Encoded/decoded by serializers as "CRTS".
     /// </summary>
     [EnumMember(Value = "CRTS")]
     [IsoId("_uKNu9vRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed cum rights.")]
-    CRTS,
+    CumRights,
     
     /// <summary>
     /// The trade is executed cum warrant.
+    /// Encoded/decoded by serializers as "CWAR".
     /// </summary>
     [EnumMember(Value = "CWAR")]
     [IsoId("_uKNu-fRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed cum warrant.")]
-    CWAR,
+    CumWarrant,
     
     /// <summary>
     /// A customer order where the customer gives specific instructions to the broker concerning the orders routing destination.
+    /// Encoded/decoded by serializers as "DIOR".
     /// </summary>
     [EnumMember(Value = "DIOR")]
     [IsoId("_uKNu_PRYEeuLhpyIdtJzwg")]
     [Description(@"A customer order where the customer gives specific instructions to the broker concerning the orders routing destination.")]
-    DIOR,
+    DirectedOrder,
     
     /// <summary>
     /// The trade is executed dirty, ie government tax must be paid on the accrued interest on the bond.
+    /// Encoded/decoded by serializers as "DIRT".
     /// </summary>
     [EnumMember(Value = "DIRT")]
     [IsoId("_uKXf8PRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed dirty, ie government tax must be paid on the accrued interest on the bond.")]
-    DIRT,
+    Dirty,
     
     /// <summary>
     /// The order is to be executed by a trading party other than the trading party to which the order is sent. In this case, the instructing party has traded with another broker which will subsequently send an advice of execution to the executing party who received the order and which is acting as clearing broker.
+    /// Encoded/decoded by serializers as "DORD".
     /// </summary>
     [EnumMember(Value = "DORD")]
     [IsoId("_uKXf8_RYEeuLhpyIdtJzwg")]
     [Description(@"The order is to be executed by a trading party other than the trading party to which the order is sent. In this case, the instructing party has traded with another broker which will subsequently send an advice of execution to the executing party who received the order and which is acting as clearing broker.")]
-    DORD,
+    DirectOrder,
     
     /// <summary>
     /// The order is based on a forward price.
+    /// Encoded/decoded by serializers as "FORW".
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_uKXf9vRYEeuLhpyIdtJzwg")]
     [Description(@"The order is based on a forward price.")]
-    FORW,
+    ForwardPriceTrade,
     
     /// <summary>
     /// Fractional parts are allowed.
+    /// Encoded/decoded by serializers as "FRAC".
     /// </summary>
     [EnumMember(Value = "FRAC")]
     [IsoId("_uKXf-fRYEeuLhpyIdtJzwg")]
     [Description(@"Fractional parts are allowed.")]
-    FRAC,
+    Fractions,
     
     /// <summary>
     /// The delivery of the financial instrument on settlement date is guaranteed.
+    /// Encoded/decoded by serializers as "GTDL".
     /// </summary>
     [EnumMember(Value = "GTDL")]
     [IsoId("_uKXf_PRYEeuLhpyIdtJzwg")]
     [Description(@"The delivery of the financial instrument on settlement date is guaranteed.")]
-    GTDL,
+    GuaranteedDelivery,
     
     /// <summary>
     /// The order is based on a historic price.
+    /// Encoded/decoded by serializers as "HIST".
     /// </summary>
     [EnumMember(Value = "HIST")]
     [IsoId("_uKhQ8PRYEeuLhpyIdtJzwg")]
     [Description(@"The order is based on a historic price.")]
-    HIST,
+    HistoricPriceTrade,
     
     /// <summary>
     /// Trade was executed at market price.
+    /// Encoded/decoded by serializers as "MAPR".
     /// </summary>
     [EnumMember(Value = "MAPR")]
     [IsoId("_uKhQ8_RYEeuLhpyIdtJzwg")]
     [Description(@"Trade was executed at market price.")]
-    MAPR,
+    MarketPrice,
     
     /// <summary>
     /// Trade to be executed for month-end settlement (Deferred Settlement Service). 
+    /// Encoded/decoded by serializers as "MONT".
     /// </summary>
     [EnumMember(Value = "MONT")]
     [IsoId("_uKhQ9vRYEeuLhpyIdtJzwg")]
     [Description(@"Trade to be executed for month-end settlement (Deferred Settlement Service). ")]
-    MONT,
+    Monthly,
     
     /// <summary>
     /// Trade to be executed for a new trade position on the next month following the roll-over of a position (Deferred Settlement Service). 
+    /// Encoded/decoded by serializers as "NBFR".
     /// </summary>
     [EnumMember(Value = "NBFR")]
     [IsoId("_uKhQ-fRYEeuLhpyIdtJzwg")]
     [Description(@"Trade to be executed for a new trade position on the next month following the roll-over of a position (Deferred Settlement Service). ")]
-    NBFR,
+    NewTradeFollowingRollover,
     
     /// <summary>
     /// Cross trades, whereby buy and sell orders are offset without recording the trade on the exchange, are not allowed.
+    /// Encoded/decoded by serializers as "NCRS".
     /// </summary>
     [EnumMember(Value = "NCRS")]
     [IsoId("_uKrB8PRYEeuLhpyIdtJzwg")]
     [Description(@"Cross trades, whereby buy and sell orders are offset without recording the trade on the exchange, are not allowed.")]
-    NCRS,
+    NoCrossTrade,
     
     /// <summary>
     /// Trade for which the price is not the one quoted but an improved one, that is, the negotiated price.
+    /// Encoded/decoded by serializers as "NEGO".
     /// </summary>
     [EnumMember(Value = "NEGO")]
     [IsoId("_uKrB8_RYEeuLhpyIdtJzwg")]
     [Description(@"Trade for which the price is not the one quoted but an improved one, that is, the negotiated price.")]
-    NEGO,
+    NegotiatedTrade,
     
     /// <summary>
     /// Trade was executed outside of normal market conditions, for example, in the case of an iceberg order.
+    /// Encoded/decoded by serializers as "NMPR".
     /// </summary>
     [EnumMember(Value = "NMPR")]
     [IsoId("_uKrB9vRYEeuLhpyIdtJzwg")]
     [Description(@"Trade was executed outside of normal market conditions, for example, in the case of an iceberg order.")]
-    NMPR,
+    NonMarketPrice,
     
     /// <summary>
     /// Allows trader to explicitly request anonymity or disclosure in pre-trade market data feeds. Anonymity is relevant in markets where counterparties are regularly disclosed in order depth feeds. Disclosure is relevant when counterparties are not normally visible.
+    /// Encoded/decoded by serializers as "PETA".
     /// </summary>
     [EnumMember(Value = "PETA")]
     [IsoId("_uKrB-fRYEeuLhpyIdtJzwg")]
     [Description(@"Allows trader to explicitly request anonymity or disclosure in pre-trade market data feeds. Anonymity is relevant in markets where counterparties are regularly disclosed in order depth feeds. Disclosure is relevant when counterparties are not normally visible.")]
-    PETA,
+    PreTradeAnonimity,
     
     /// <summary>
     /// Trade to be executed following the exercise of a put option on the security. 
+    /// Encoded/decoded by serializers as "PUTT".
     /// </summary>
     [EnumMember(Value = "PUTT")]
     [IsoId("_uKrB_PRYEeuLhpyIdtJzwg")]
     [Description(@"Trade to be executed following the exercise of a put option on the security. ")]
-    PUTT,
+    Putt,
     
     /// <summary>
     /// Trade is exempt from short-sale rules.
+    /// Encoded/decoded by serializers as "SETI".
     /// </summary>
     [EnumMember(Value = "SETI")]
     [IsoId("_uK0L4PRYEeuLhpyIdtJzwg")]
     [Description(@"Trade is exempt from short-sale rules.")]
-    SETI,
+    SoldExempt,
     
     /// <summary>
     /// The trade is executed  with a special cum dividend, ie, buying after the ex date and getting the dividend.
+    /// Encoded/decoded by serializers as "SPCU".
     /// </summary>
     [EnumMember(Value = "SPCU")]
     [IsoId("_uK0L4_RYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed  with a special cum dividend, ie, buying after the ex date and getting the dividend.")]
-    SPCU,
+    SpecialCumDividend,
     
     /// <summary>
     /// The trade is executed  with a special ex dividend, ie, selling before the ex date without the coupon. 
+    /// Encoded/decoded by serializers as "SPEX".
     /// </summary>
     [EnumMember(Value = "SPEX")]
     [IsoId("_uK0L5vRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed  with a special ex dividend, ie, selling before the ex date without the coupon. ")]
-    SPEX,
+    SpecialExDividend,
     
     /// <summary>
     /// Sold plus indication.
+    /// Encoded/decoded by serializers as "SPSI".
     /// </summary>
     [EnumMember(Value = "SPSI")]
     [IsoId("_uK0L6fRYEeuLhpyIdtJzwg")]
     [Description(@"Sold plus indication.")]
-    SPSI,
+    SoldPlus,
     
     /// <summary>
     /// The trade is sold short. When the seller does not have the financial instrument, the delivery is effected by borrowing the financial instrument by or for the account of the seller.
+    /// Encoded/decoded by serializers as "SSTI".
     /// </summary>
     [EnumMember(Value = "SSTI")]
     [IsoId("_uK0L7PRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is sold short. When the seller does not have the financial instrument, the delivery is effected by borrowing the financial instrument by or for the account of the seller.")]
-    SSTI,
+    SoldShort,
     
     /// <summary>
     /// Trade executed this month following the rollover of positions. 
+    /// Encoded/decoded by serializers as "TEFR".
     /// </summary>
     [EnumMember(Value = "TEFR")]
     [IsoId("_uK984PRYEeuLhpyIdtJzwg")]
     [Description(@"Trade executed this month following the rollover of positions. ")]
-    TEFR,
+    TradeExecutedFollowingRollover,
     
     /// <summary>
     /// Trade to be executed on the next month following the roll-over of positions. 
+    /// Encoded/decoded by serializers as "TRFR".
     /// </summary>
     [EnumMember(Value = "TRFR")]
     [IsoId("_uK984_RYEeuLhpyIdtJzwg")]
     [Description(@"Trade to be executed on the next month following the roll-over of positions. ")]
-    TRFR,
+    TradeFollowingRollover,
     
     /// <summary>
     /// Transaction is before the issue date after announcement of the auction.
+    /// Encoded/decoded by serializers as "WIBC".
     /// </summary>
     [EnumMember(Value = "WIBC")]
     [IsoId("_uK985vRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is before the issue date after announcement of the auction.")]
-    WIBC,
+    BeforeAuction,
     
     /// <summary>
     /// Transaction is after the issue date after announcement of the auction.
+    /// Encoded/decoded by serializers as "WICD".
     /// </summary>
     [EnumMember(Value = "WICD")]
     [IsoId("_uK986fRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction is after the issue date after announcement of the auction.")]
-    WICD,
+    AfterAuction,
     
     /// <summary>
     /// The trade is executed ex bonus.
+    /// Encoded/decoded by serializers as "XBNS".
     /// </summary>
     [EnumMember(Value = "XBNS")]
     [IsoId("_uK987PRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed ex bonus.")]
-    XBNS,
+    ExBonus,
     
     /// <summary>
     /// The trade is executed ex coupon.
+    /// Encoded/decoded by serializers as "XCPN".
     /// </summary>
     [EnumMember(Value = "XCPN")]
     [IsoId("_uLHG0PRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed ex coupon.")]
-    XCPN,
+    ExCoupon,
     
     /// <summary>
     /// The trade is executed ex dividend.
+    /// Encoded/decoded by serializers as "XDIV".
     /// </summary>
     [EnumMember(Value = "XDIV")]
     [IsoId("_uLHG0_RYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed ex dividend.")]
-    XDIV,
+    ExDividend,
     
     /// <summary>
     /// The trade is executed ex rights.
+    /// Encoded/decoded by serializers as "XRTS".
     /// </summary>
     [EnumMember(Value = "XRTS")]
     [IsoId("_uLHG1vRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed ex rights.")]
-    XRTS,
+    ExRights,
     
     /// <summary>
     /// The trade is executed ex warrant.
+    /// Encoded/decoded by serializers as "XWAR".
     /// </summary>
     [EnumMember(Value = "XWAR")]
     [IsoId("_uLHG2fRYEeuLhpyIdtJzwg")]
     [Description(@"The trade is executed ex warrant.")]
-    XWAR,
+    ExWarrant,
     
 }
 

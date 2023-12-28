@@ -21,51 +21,57 @@ public enum ExternalTradeMarketCode
 {
     /// <summary>
     /// Factoring service provider, Factoring client and third party in the same country
+    /// Encoded/decoded by serializers as "FDMS".
     /// </summary>
     [EnumMember(Value = "FDMS")]
     [IsoId("_uTUAlvRYEeuLhpyIdtJzwg")]
     [Description(@"Factoring service provider, Factoring client and third party in the same country")]
-    FDMS,
+    FactoringDomestic,
     
     /// <summary>
     /// Factoring service provider, Factoring client in the same country, third party in another country
+    /// Encoded/decoded by serializers as "FEXP".
     /// </summary>
     [EnumMember(Value = "FEXP")]
     [IsoId("_uTUAmfRYEeuLhpyIdtJzwg")]
     [Description(@"Factoring service provider, Factoring client in the same country, third party in another country")]
-    FEXP,
+    FactoringExport,
     
     /// <summary>
     /// Factoring client and third party in the same country, Factoring service provider in another country
+    /// Encoded/decoded by serializers as "FFDM".
     /// </summary>
     [EnumMember(Value = "FFDM")]
     [IsoId("_uTdKgPRYEeuLhpyIdtJzwg")]
     [Description(@"Factoring client and third party in the same country, Factoring service provider in another country")]
-    FFDM,
+    FactoringForeignDomestic,
     
     /// <summary>
     /// Factoring service provider, Factoring client and third party in the same country, but factoring client has an exceptional VAT ruling, for example if it’s overseas
+    /// Encoded/decoded by serializers as "FFDT".
     /// </summary>
     [EnumMember(Value = "FFDT")]
     [IsoId("_uTdKg_RYEeuLhpyIdtJzwg")]
     [Description(@"Factoring service provider, Factoring client and third party in the same country, but factoring client has an exceptional VAT ruling, for example if it’s overseas")]
-    FFDT,
+    FactoringFrenchDomTom,
     
     /// <summary>
     /// Factoring service provider and third party in the same country, Factoring client in another country
+    /// Encoded/decoded by serializers as "FIMP".
     /// </summary>
     [EnumMember(Value = "FIMP")]
     [IsoId("_uTdKhvRYEeuLhpyIdtJzwg")]
     [Description(@"Factoring service provider and third party in the same country, Factoring client in another country")]
-    FIMP,
+    FactoringImport,
     
     /// <summary>
     /// Factoring service provider, Factoring client and third party in three different countries
+    /// Encoded/decoded by serializers as "FREX".
     /// </summary>
     [EnumMember(Value = "FREX")]
     [IsoId("_uTdKifRYEeuLhpyIdtJzwg")]
     [Description(@"Factoring service provider, Factoring client and third party in three different countries")]
-    FREX,
+    FactoringReexportedExport,
     
 }
 

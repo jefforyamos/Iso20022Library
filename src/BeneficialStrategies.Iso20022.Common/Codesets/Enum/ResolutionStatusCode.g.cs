@@ -20,35 +20,39 @@ public enum ResolutionStatusCode
 {
     /// <summary>
     /// Meeting resolution has to be voted for by the participants to a general meeting.
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZU-JUNp-Ed-ak6NoX_4Aeg_1419601443")]
     [Description(@"Meeting resolution has to be voted for by the participants to a general meeting.")]
-    ACTV,
+    Active,
     
     /// <summary>
     /// Meeting resolution has been withdrawn.
+    /// Encoded/decoded by serializers as "WDRA".
     /// </summary>
     [EnumMember(Value = "WDRA")]
     [IsoId("_ZU-JUdp-Ed-ak6NoX_4Aeg_1710508898")]
     [Description(@"Meeting resolution has been withdrawn.")]
-    WDRA,
+    Withdrawn,
     
     /// <summary>
     /// Meeting resolution has been rejected.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_XE0YYF63EeSjaerr_EM7AQ")]
     [Description(@"Meeting resolution has been rejected.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Meeting resolution has been accepted.
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_eBOw4F63EeSjaerr_EM7AQ")]
     [Description(@"Meeting resolution has been accepted.")]
-    ACPT,
+    Accepted,
     
 }
 

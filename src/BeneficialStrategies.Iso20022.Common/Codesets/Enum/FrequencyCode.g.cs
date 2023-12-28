@@ -20,187 +20,210 @@ public enum FrequencyCode
 {
     /// <summary>
     /// Event takes place every year or once a year.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_ascSkNp-Ed-ak6NoX_4Aeg_1955128933")]
     [Description(@"Event takes place every year or once a year.")]
-    YEAR,
+    Annual,
     
     /// <summary>
     /// Event takes place every month or once a month.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ascSkdp-Ed-ak6NoX_4Aeg_-1999057333")]
     [Description(@"Event takes place every month or once a month.")]
-    MNTH,
+    Monthly,
     
     /// <summary>
     /// Event takes place every three months or four times a year.
+    /// Encoded/decoded by serializers as "QURT".
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_ascSktp-Ed-ak6NoX_4Aeg_-1972278110")]
     [Description(@"Event takes place every three months or four times a year.")]
-    QURT,
+    Quarterly,
     
     /// <summary>
     /// Event takes place every six months or two times a year.
+    /// Encoded/decoded by serializers as "MIAN".
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_ascSk9p-Ed-ak6NoX_4Aeg_-1941802024")]
     [Description(@"Event takes place every six months or two times a year.")]
-    MIAN,
+    SemiAnnual,
     
     /// <summary>
     /// Event takes place once a week.
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_ascSlNp-Ed-ak6NoX_4Aeg_-1913171921")]
     [Description(@"Event takes place once a week.")]
-    WEEK,
+    Weekly,
     
     /// <summary>
     /// Event takes place every day.
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_ascSldp-Ed-ak6NoX_4Aeg_-1541103412")]
     [Description(@"Event takes place every day.")]
-    DAIL,
+    Daily,
     
     /// <summary>
     /// Event takes place on request or as necessary.
+    /// Encoded/decoded by serializers as "ADHO".
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_ascSltp-Ed-ak6NoX_4Aeg_18718985")]
     [Description(@"Event takes place on request or as necessary.")]
-    ADHO,
+    Adhoc,
     
     /// <summary>
     /// Event takes place several times a day.
+    /// Encoded/decoded by serializers as "INDA".
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_ascSl9p-Ed-ak6NoX_4Aeg_18718986")]
     [Description(@"Event takes place several times a day.")]
-    INDA,
+    IntraDay,
     
     /// <summary>
     /// Event takes place overnight.
+    /// Encoded/decoded by serializers as "OVNG".
     /// </summary>
     [EnumMember(Value = "OVNG")]
     [IsoId("_ascSmNp-Ed-ak6NoX_4Aeg_1507193436")]
     [Description(@"Event takes place overnight.")]
-    OVNG,
+    Overnight,
     
     /// <summary>
     /// Event takes place every ten business days.
+    /// Encoded/decoded by serializers as "TEND".
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_ascSmdp-Ed-ak6NoX_4Aeg_-2122538311")]
     [Description(@"Event takes place every ten business days.")]
-    TEND,
+    TenDays,
     
     /// <summary>
     /// Event takes place every two weeks.
+    /// Encoded/decoded by serializers as "FRTN".
     /// </summary>
     [EnumMember(Value = "FRTN")]
     [IsoId("_t74UdFkyEeGeoaLUQk__nA_329470843")]
     [Description(@"Event takes place every two weeks.")]
-    FRTN,
+    Fortnightly,
     
     /// <summary>
     /// Event takes place at the end of the day if there was a movement on the account, otherwise nothing is sent that day.
+    /// Encoded/decoded by serializers as "MOVE".
     /// </summary>
     [EnumMember(Value = "MOVE")]
     [IsoId("_24tC4BztEeKjsOi3S79ecQ_349226249")]
     [Description(@"Event takes place at the end of the day if there was a movement on the account, otherwise nothing is sent that day.")]
-    MOVE,
+    TriggeredByMovement,
     
     /// <summary>
     /// Event does never take place.
+    /// Encoded/decoded by serializers as "NEVR".
     /// </summary>
     [EnumMember(Value = "NEVR")]
     [IsoId("_bAnk4GoEEearR-CA7eRZXQ")]
     [Description(@"Event does never take place.")]
-    NEVR,
+    Never,
     
     /// <summary>
     /// Event takes place based on a change of a rate.
+    /// Encoded/decoded by serializers as "RATE".
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("_wrYBIGoEEearR-CA7eRZXQ")]
     [Description(@"Event takes place based on a change of a rate.")]
-    RATE,
+    Rate,
     
     /// <summary>
     /// Event occurs due to a credit event occurring for an issuer.
+    /// Encoded/decoded by serializers as "CRED".
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_pL-KAMhvEeadgvwNGwK05w")]
     [Description(@"Event occurs due to a credit event occurring for an issuer.")]
-    CRED,
+    OnCreditEvent,
     
     /// <summary>
     /// Event that takes place at the initiation of a trade or agreement.
+    /// Encoded/decoded by serializers as "UPFR".
     /// </summary>
     [EnumMember(Value = "UPFR")]
     [IsoId("_sHTSsMhvEeadgvwNGwK05w")]
     [Description(@"Event that takes place at the initiation of a trade or agreement.")]
-    UPFR,
+    Upfront,
     
     /// <summary>
     /// Event occurs on expiry of a financial contract.
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_yICGEMhvEeadgvwNGwK05w")]
     [Description(@"Event occurs on expiry of a financial contract.")]
-    EXPI,
+    OnExpiry,
     
     /// <summary>
     /// Event takes place every hours.
+    /// Encoded/decoded by serializers as "HOUL".
     /// </summary>
     [EnumMember(Value = "HOUL")]
     [IsoId("_--514IcEEeu4rpsqTt37Pg")]
     [Description(@"Event takes place every hours.")]
-    HOUL,
+    Hourly,
     
     /// <summary>
     /// Event takes place every four months or three times a year.
+    /// Encoded/decoded by serializers as "TRIL".
     /// </summary>
     [EnumMember(Value = "TRIL")]
     [IsoId("_MH1EENW3EeyVKLlq2-NhyA")]
     [Description(@"Event takes place every four months or three times a year.")]
-    TRIL,
+    TriAnnual,
     
     /// <summary>
     /// Event takes place every two months or six times a year.
+    /// Encoded/decoded by serializers as "BIMN".
     /// </summary>
     [EnumMember(Value = "BIMN")]
     [IsoId("_MaBAQNW3EeyVKLlq2-NhyA")]
     [Description(@"Event takes place every two months or six times a year.")]
-    BIMN,
+    Bimonthly,
     
     /// <summary>
     /// Event takes place on demand.
+    /// Encoded/decoded by serializers as "ODMD".
     /// </summary>
     [EnumMember(Value = "ODMD")]
     [IsoId("_13-sAMlPEeuJ35KoBRZFOg")]
     [Description(@"Event takes place on demand.")]
-    ODMD,
+    OnDemand,
     
     /// <summary>
     /// Event associated with a shift.
+    /// Encoded/decoded by serializers as "SHFT".
     /// </summary>
     [EnumMember(Value = "SHFT")]
     [IsoId("_PBtwkMlQEeuJ35KoBRZFOg")]
     [Description(@"Event associated with a shift.")]
-    SHFT,
+    Shift,
     
     /// <summary>
     /// Two times a week
+    /// Encoded/decoded by serializers as "TWWK".
     /// </summary>
     [EnumMember(Value = "TWWK")]
     [IsoId("_Ss5qMB1VEey8XKHwKquEQw")]
     [Description(@"Two times a week")]
-    TWWK,
+    TwiceAWeek,
     
 }
 

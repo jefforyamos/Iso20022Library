@@ -20,19 +20,21 @@ public enum ConfirmationTypeCode
 {
     /// <summary>
     /// Specifies that the confirmation is an intention to execute a transfer instruction for the listed assets.
+    /// Encoded/decoded by serializers as "INTT".
     /// </summary>
     [EnumMember(Value = "INTT")]
     [IsoId("_VqbxQtp-Ed-ak6NoX_4Aeg_-1318772467")]
     [Description(@"Specifies that the confirmation is an intention to execute a transfer instruction for the listed assets.")]
-    INTT,
+    Intent,
     
     /// <summary>
     /// Specifies that the message is an actual confirmation of the execution of a transfer request.
+    /// Encoded/decoded by serializers as "ACTL".
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_VqbxQ9p-Ed-ak6NoX_4Aeg_887847604")]
     [Description(@"Specifies that the message is an actual confirmation of the execution of a transfer request.")]
-    ACTL,
+    Actual,
     
 }
 

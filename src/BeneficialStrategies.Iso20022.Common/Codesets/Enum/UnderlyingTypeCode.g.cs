@@ -20,171 +20,192 @@ public enum UnderlyingTypeCode
 {
     /// <summary>
     /// The underlying is an equity.
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_Y2IRNtp-Ed-ak6NoX_4Aeg_-1988802884")]
     [Description(@"The underlying is an equity.")]
-    EQUI,
+    Equity,
     
     /// <summary>
     /// The underlying is an index.
+    /// Encoded/decoded by serializers as "INDX".
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("_Y2IRN9p-Ed-ak6NoX_4Aeg_-1987879702")]
     [Description(@"The underlying is an index.")]
-    INDX,
+    Index,
     
     /// <summary>
     /// The underlying is an interest.
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_Y2IRONp-Ed-ak6NoX_4Aeg_-1986955781")]
     [Description(@"The underlying is an interest.")]
-    INTR,
+    Interest,
     
     /// <summary>
     /// The underlying is a currency.
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_Y2IROdp-Ed-ak6NoX_4Aeg_-1512268250")]
     [Description(@"The underlying is a currency.")]
-    CURR,
+    Currency,
     
     /// <summary>
     /// The underlying is a precious metal.
+    /// Encoded/decoded by serializers as "PRME".
     /// </summary>
     [EnumMember(Value = "PRME")]
     [IsoId("_Y2SCMNp-Ed-ak6NoX_4Aeg_-1499340087")]
     [Description(@"The underlying is a precious metal.")]
-    PRME,
+    PreciousMetal,
     
     /// <summary>
     /// The underlying is a future.
+    /// Encoded/decoded by serializers as "FUTR".
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("_Y2SCMdp-Ed-ak6NoX_4Aeg_-1499336660")]
     [Description(@"The underlying is a future.")]
-    FUTR,
+    Future,
     
     /// <summary>
     /// The underlying is an option.
+    /// Encoded/decoded by serializers as "OPTN".
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_Y2SCMtp-Ed-ak6NoX_4Aeg_-1497492984")]
     [Description(@"The underlying is an option.")]
-    OPTN,
+    Option,
     
     /// <summary>
     /// The underlying is a basket.
+    /// Encoded/decoded by serializers as "BASK".
     /// </summary>
     [EnumMember(Value = "BASK")]
     [IsoId("_Y2SCM9p-Ed-ak6NoX_4Aeg_-1496568515")]
     [Description(@"The underlying is a basket.")]
-    BASK,
+    Basket,
     
     /// <summary>
     /// The underlying is a swap.
+    /// Encoded/decoded by serializers as "SWAP".
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_Y2SCNNp-Ed-ak6NoX_4Aeg_-1495643925")]
     [Description(@"The underlying is a swap.")]
-    SWAP,
+    Swap,
     
     /// <summary>
     /// The underlying is a commodity.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_Y2SCNdp-Ed-ak6NoX_4Aeg_-1493796173")]
     [Description(@"The underlying is a commodity.")]
-    COMM,
+    Commodity,
     
     /// <summary>
     /// Underlying is a stock index.
+    /// Encoded/decoded by serializers as "STIX".
     /// </summary>
     [EnumMember(Value = "STIX")]
     [IsoId("_o-mEQCSiEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is a stock index.")]
-    STIX,
+    StockIndex,
     
     /// <summary>
     /// Underlying is a share.
+    /// Encoded/decoded by serializers as "SHAR".
     /// </summary>
     [EnumMember(Value = "SHAR")]
     [IsoId("_x_SosCSiEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is a share.")]
-    SHAR,
+    Share,
     
     /// <summary>
     /// Underlying is a dividend index.
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_1iEy8CSiEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is a dividend index.")]
-    DIVI,
+    DividendIndex,
     
     /// <summary>
     /// Underlying is a stock dividend.
+    /// Encoded/decoded by serializers as "DVSE".
     /// </summary>
     [EnumMember(Value = "DVSE")]
     [IsoId("_5O97cCSiEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is a stock dividend.")]
-    DVSE,
+    StockDividend,
     
     /// <summary>
     /// Underlying is of other type.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ALdXACSkEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is of other type.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Underlying is a volatility index.
+    /// Encoded/decoded by serializers as "VOLI".
     /// </summary>
     [EnumMember(Value = "VOLI")]
     [IsoId("_NHqHsCSkEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is a volatility index.")]
-    VOLI,
+    VolatilityIndex,
     
     /// <summary>
     /// Underlying is an exchange traded fund.
+    /// Encoded/decoded by serializers as "ETFT".
     /// </summary>
     [EnumMember(Value = "ETFT")]
     [IsoId("_Ssu50CSkEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is an exchange traded fund.")]
-    ETFT,
+    ExchangeTradedFund,
     
     /// <summary>
     /// Underlying is a bond.
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_dvuGICSkEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is a bond.")]
-    BOND,
+    Bond,
     
     /// <summary>
     /// Underlying is a future on equity.
+    /// Encoded/decoded by serializers as "FTEQ".
     /// </summary>
     [EnumMember(Value = "FTEQ")]
     [IsoId("_hM-3MCSkEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is a future on equity.")]
-    FTEQ,
+    FutureOnEquity,
     
     /// <summary>
     /// Underlying is an option on equity.
+    /// Encoded/decoded by serializers as "OPEQ".
     /// </summary>
     [EnumMember(Value = "OPEQ")]
     [IsoId("_n5rYsSSkEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is an option on equity.")]
-    OPEQ,
+    OptionOnEquity,
     
     /// <summary>
     /// Underlying is a bond future.
+    /// Encoded/decoded by serializers as "BNDF".
     /// </summary>
     [EnumMember(Value = "BNDF")]
     [IsoId("_xqQh8CSkEeW2Xf4A_zKwwg")]
     [Description(@"Underlying is a bond future.")]
-    BNDF,
+    BondFuture,
     
 }
 

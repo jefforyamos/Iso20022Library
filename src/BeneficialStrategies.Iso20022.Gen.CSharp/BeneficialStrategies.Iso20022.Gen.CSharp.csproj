@@ -7,6 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeneficialStrategies.Iso20022.Repository\BeneficialStrategies.Iso20022.Repository.csproj" />
   </ItemGroup>

@@ -20,51 +20,57 @@ public enum CaseAssignmentRejectionCode
 {
     /// <summary>
     /// Underlying instruction can not be found.
+    /// Encoded/decoded by serializers as "NFND".
     /// </summary>
     [EnumMember(Value = "NFND")]
     [IsoId("_a2IaF9p-Ed-ak6NoX_4Aeg_-141872446")]
     [Description(@"Underlying instruction can not be found.")]
-    NFND,
+    UnderlyingPaymentNotFound,
     
     /// <summary>
     /// Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).
+    /// Encoded/decoded by serializers as "NAUT".
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_a2IaGNp-Ed-ak6NoX_4Aeg_-141872403")]
     [Description(@"Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).")]
-    NAUT,
+    NotAuthorisedToInvestigate,
     
     /// <summary>
     /// Case has never been assigned before.
+    /// Encoded/decoded by serializers as "UKNW".
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_a2SLENp-Ed-ak6NoX_4Aeg_-141872368")]
     [Description(@"Case has never been assigned before.")]
-    UKNW,
+    UnknownCase,
     
     /// <summary>
     /// Used when the payment instruction has been rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_a2SLEdp-Ed-ak6NoX_4Aeg_-141872333")]
     [Description(@"Used when the payment instruction has been rejected.")]
-    RJCT,
+    PaymentRejected,
     
     /// <summary>
     /// Used when the payment instruction has been cancelled.
+    /// Encoded/decoded by serializers as "CNCL".
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_a2SLEtp-Ed-ak6NoX_4Aeg_-141872308")]
     [Description(@"Used when the payment instruction has been cancelled.")]
-    CNCL,
+    PaymentCancelled,
     
     /// <summary>
     /// Used when the payment instruction has previously been cancelled or rejected.
+    /// Encoded/decoded by serializers as "PCOR".
     /// </summary>
     [EnumMember(Value = "PCOR")]
     [IsoId("_a2SLE9p-Ed-ak6NoX_4Aeg_-795580088")]
     [Description(@"Used when the payment instruction has previously been cancelled or rejected.")]
-    PCOR,
+    PaymentPreviouslyCancelledOrRejected,
     
 }
 

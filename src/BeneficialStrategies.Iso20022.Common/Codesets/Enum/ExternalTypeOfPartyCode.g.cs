@@ -21,107 +21,120 @@ public enum ExternalTypeOfPartyCode
 {
     /// <summary>
     /// Party advising the undertaking.
+    /// Encoded/decoded by serializers as "ADVP".
     /// </summary>
     [EnumMember(Value = "ADVP")]
     [IsoId("_uQCDGfRYEeuLhpyIdtJzwg")]
     [Description(@"Party advising the undertaking.")]
-    ADVP,
+    AdvisingParty,
     
     /// <summary>
     /// Any bank.
+    /// Encoded/decoded by serializers as "ANYB".
     /// </summary>
     [EnumMember(Value = "ANYB")]
     [IsoId("_uQCDHPRYEeuLhpyIdtJzwg")]
     [Description(@"Any bank.")]
-    ANYB,
+    AnyBank,
     
     /// <summary>
     /// Party named in the undertaking as the “applicant”. 
+    /// Encoded/decoded by serializers as "APPL".
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_uQL0EPRYEeuLhpyIdtJzwg")]
     [Description(@"Party named in the undertaking as the “applicant”. ")]
-    APPL,
+    Applicant,
     
     /// <summary>
     /// Party in whose favour the undertaking (or counter-undertaking) is issued.
+    /// Encoded/decoded by serializers as "BENE".
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_uQL0E_RYEeuLhpyIdtJzwg")]
     [Description(@"Party in whose favour the undertaking (or counter-undertaking) is issued.")]
-    BENE,
+    Beneficiary,
     
     /// <summary>
     /// Party that adds its undertaking to honour the undertaking.
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uQL0FvRYEeuLhpyIdtJzwg")]
     [Description(@"Party that adds its undertaking to honour the undertaking.")]
-    CONF,
+    ConfirmationParty,
     
     /// <summary>
     /// Beneficiary of the second counter-undertaking.
+    /// Encoded/decoded by serializers as "CUB2".
     /// </summary>
     [EnumMember(Value = "CUB2")]
     [IsoId("_uQL0GfRYEeuLhpyIdtJzwg")]
     [Description(@"Beneficiary of the second counter-undertaking.")]
-    CUB2,
+    SecondCounterUndertakingBeneficiary,
     
     /// <summary>
     /// Beneficiary of the third counter-undertaking.
+    /// Encoded/decoded by serializers as "CUB3".
     /// </summary>
     [EnumMember(Value = "CUB3")]
     [IsoId("_uQL0HPRYEeuLhpyIdtJzwg")]
     [Description(@"Beneficiary of the third counter-undertaking.")]
-    CUB3,
+    ThirdCounterUndertakingBeneficiary,
     
     /// <summary>
     /// Party that issues the undertaking (or counter-undertaking). 
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_uQU-APRYEeuLhpyIdtJzwg")]
     [Description(@"Party that issues the undertaking (or counter-undertaking). ")]
-    ISSU,
+    Issuer,
     
     /// <summary>
     /// Party obligated to reimburse the issuer. 
+    /// Encoded/decoded by serializers as "OBLG".
     /// </summary>
     [EnumMember(Value = "OBLG")]
     [IsoId("_uQU-A_RYEeuLhpyIdtJzwg")]
     [Description(@"Party obligated to reimburse the issuer. ")]
-    OBLG,
+    Obligor,
     
     /// <summary>
     /// Party requested to issue an undertaking on behalf of the applicant. Also known as the ordering institution or applicant's bank.
+    /// Encoded/decoded by serializers as "ORDR".
     /// </summary>
     [EnumMember(Value = "ORDR")]
     [IsoId("_uQevAPRYEeuLhpyIdtJzwg")]
     [Description(@"Party requested to issue an undertaking on behalf of the applicant. Also known as the ordering institution or applicant's bank.")]
-    ORDR,
+    OrderingParty,
     
     /// <summary>
     /// Party nominated to receive presentation. 
+    /// Encoded/decoded by serializers as "PRES".
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_uQevA_RYEeuLhpyIdtJzwg")]
     [Description(@"Party nominated to receive presentation. ")]
-    PRES,
+    PresentingParty,
     
     /// <summary>
     /// Second advising party.
+    /// Encoded/decoded by serializers as "SADV".
     /// </summary>
     [EnumMember(Value = "SADV")]
     [IsoId("_uQevBvRYEeuLhpyIdtJzwg")]
     [Description(@"Second advising party.")]
-    SADV,
+    SecondAdvisingParty,
     
     /// <summary>
     /// Party located at specified address.
+    /// Encoded/decoded by serializers as "SPEC".
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_uQevCfRYEeuLhpyIdtJzwg")]
     [Description(@"Party located at specified address.")]
-    SPEC,
+    SpecifiedAddress,
     
 }
 

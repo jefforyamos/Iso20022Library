@@ -20,19 +20,21 @@ public enum TaxWrapperAmountTypeCode
 {
     /// <summary>
     /// Type of amount is a bonus, for example, a government bonus.
+    /// Encoded/decoded by serializers as "BONU".
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_yDkVcF24EeiFXdiLi_Nf4A")]
     [Description(@"Type of amount is a bonus, for example, a government bonus.")]
-    BONU,
+    Bonus,
     
     /// <summary>
     /// Type of amount is a withdrawal, for example, a withdrawal for a first time residential purchase.
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_4O2zAF24EeiFXdiLi_Nf4A")]
     [Description(@"Type of amount is a withdrawal, for example, a withdrawal for a first time residential purchase.")]
-    WTHD,
+    Withdrawal,
     
 }
 

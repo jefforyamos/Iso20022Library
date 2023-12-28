@@ -20,67 +20,75 @@ public enum AppearanceCode
 {
     /// <summary>
     /// Physical certificates exist.
+    /// Encoded/decoded by serializers as "DELI".
     /// </summary>
     [EnumMember(Value = "DELI")]
     [IsoId("_bfHFo9p-Ed-ak6NoX_4Aeg_-1137977785")]
     [Description(@"Physical certificates exist.")]
-    DELI,
+    Deliverable,
     
     /// <summary>
     /// Not yet deliverable contract.
+    /// Encoded/decoded by serializers as "NDEL".
     /// </summary>
     [EnumMember(Value = "NDEL")]
     [IsoId("_bfHFpNp-Ed-ak6NoX_4Aeg_-1137977784")]
     [Description(@"Not yet deliverable contract.")]
-    NDEL,
+    NotDeliverable,
     
     /// <summary>
     /// Limited or partial deliverability.
+    /// Encoded/decoded by serializers as "LIMI".
     /// </summary>
     [EnumMember(Value = "LIMI")]
     [IsoId("_bfHFpdp-Ed-ak6NoX_4Aeg_-1137977783")]
     [Description(@"Limited or partial deliverability.")]
-    LIMI,
+    Limited,
     
     /// <summary>
     /// Security exists only as an electronic record, ie, there are no physical certificates representing the security.
+    /// Encoded/decoded by serializers as "BENT".
     /// </summary>
     [EnumMember(Value = "BENT")]
     [IsoId("_bfHFptp-Ed-ak6NoX_4Aeg_-1137977755")]
     [Description(@"Security exists only as an electronic record, ie, there are no physical certificates representing the security.")]
-    BENT,
+    BookEntry,
     
     /// <summary>
     /// Deferred printing, book entry.
+    /// Encoded/decoded by serializers as "DFBE".
     /// </summary>
     [EnumMember(Value = "DFBE")]
     [IsoId("_bfHFp9p-Ed-ak6NoX_4Aeg_-1137977754")]
     [Description(@"Deferred printing, book entry.")]
-    DFBE,
+    DeferredBookEntry,
     
     /// <summary>
     /// Deliverable, book entry.
+    /// Encoded/decoded by serializers as "DLBE".
     /// </summary>
     [EnumMember(Value = "DLBE")]
     [IsoId("_bfQPkNp-Ed-ak6NoX_4Aeg_-1137977753")]
     [Description(@"Deliverable, book entry.")]
-    DLBE,
+    DeliverableBookEntry,
     
     /// <summary>
     /// Deferred printing, global certificate.
+    /// Encoded/decoded by serializers as "TMPG".
     /// </summary>
     [EnumMember(Value = "TMPG")]
     [IsoId("_bfQPkdp-Ed-ak6NoX_4Aeg_-1137977752")]
     [Description(@"Deferred printing, global certificate.")]
-    TMPG,
+    TemporaryGlobal,
     
     /// <summary>
     /// Not deliverable, global certificate.
+    /// Encoded/decoded by serializers as "GLOB".
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_bfQPktp-Ed-ak6NoX_4Aeg_-1137977725")]
     [Description(@"Not deliverable, global certificate.")]
-    GLOB,
+    Global,
     
 }
 

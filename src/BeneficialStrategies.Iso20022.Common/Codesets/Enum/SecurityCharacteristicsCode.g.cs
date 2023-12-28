@@ -20,147 +20,165 @@ public enum SecurityCharacteristicsCode
 {
     /// <summary>
     /// Private network.
+    /// Encoded/decoded by serializers as "PRVN".
     /// </summary>
     [EnumMember(Value = "PRVN")]
     [IsoId("_g_y-cEqzEeenp6hmNprBHg")]
     [Description(@"Private network.")]
-    PRVN,
+    PrivateNetwork,
     
     /// <summary>
     /// Open network
+    /// Encoded/decoded by serializers as "OPNN".
     /// </summary>
     [EnumMember(Value = "OPNN")]
     [IsoId("_oj8FUEqzEeenp6hmNprBHg")]
     [Description(@"Open network")]
-    OPNN,
+    OpenNetwork,
     
     /// <summary>
     /// Usage of MAC to secure a communication channel
+    /// Encoded/decoded by serializers as "CMAC".
     /// </summary>
     [EnumMember(Value = "CMAC")]
     [IsoId("_sG2ycEqzEeenp6hmNprBHg")]
     [Description(@"Usage of MAC to secure a communication channel")]
-    CMAC,
+    ChannelMAC,
     
     /// <summary>
     /// MAC used in a pass-through communication mode
+    /// Encoded/decoded by serializers as "PMAC".
     /// </summary>
     [EnumMember(Value = "PMAC")]
     [IsoId("_1EVDwEqzEeenp6hmNprBHg")]
     [Description(@"MAC used in a pass-through communication mode")]
-    PMAC,
+    PassthroughMAC,
     
     /// <summary>
     /// Encryption used from one end to the other end of the communication channel.
+    /// Encoded/decoded by serializers as "ETEE".
     /// </summary>
     [EnumMember(Value = "ETEE")]
     [IsoId("_-f9QsEqzEeenp6hmNprBHg")]
     [Description(@"Encryption used from one end to the other end of the communication channel.")]
-    ETEE,
+    EndToEndEncryption,
     
     /// <summary>
     /// Encryption used to secure the communication channel.
+    /// Encoded/decoded by serializers as "CENC".
     /// </summary>
     [EnumMember(Value = "CENC")]
     [IsoId("_AOq1QEq0Eeenp6hmNprBHg")]
     [Description(@"Encryption used to secure the communication channel.")]
-    CENC,
+    ChannelEncryption,
     
     /// <summary>
     /// Encryption using a private algorithm to secure a communication channel.
+    /// Encoded/decoded by serializers as "PRAE".
     /// </summary>
     [EnumMember(Value = "PRAE")]
     [IsoId("_WeDokEq0Eeenp6hmNprBHg")]
     [Description(@"Encryption using a private algorithm to secure a communication channel.")]
-    PRAE,
+    PrivateAlgorithmEncryption,
     
     /// <summary>
     /// Encryption using PKI to secure the communication channel.
+    /// Encoded/decoded by serializers as "PKIE".
     /// </summary>
     [EnumMember(Value = "PKIE")]
     [IsoId("_fNZ-UEq0Eeenp6hmNprBHg")]
     [Description(@"Encryption using PKI to secure the communication channel.")]
-    PKIE,
+    PKIEncryption,
     
     /// <summary>
     /// Private algorithm used for MAC.
+    /// Encoded/decoded by serializers as "PRAM".
     /// </summary>
     [EnumMember(Value = "PRAM")]
     [IsoId("_kp74cEq0Eeenp6hmNprBHg")]
     [Description(@"Private algorithm used for MAC.")]
-    PRAM,
+    PrivateAlgorithmMAC,
     
     /// <summary>
     /// Standard algorithm used for MAC
+    /// Encoded/decoded by serializers as "STAM".
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_w9ZOIEq0Eeenp6hmNprBHg")]
     [Description(@"Standard algorithm used for MAC")]
-    STAM,
+    StandardAlgorithmMAC,
     
     /// <summary>
     /// Encryption initiated by the cardholder to secure end-to-end communication channel.
+    /// Encoded/decoded by serializers as "CETE".
     /// </summary>
     [EnumMember(Value = "CETE")]
     [IsoId("_5JXKAEq0Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the cardholder to secure end-to-end communication channel.")]
-    CETE,
+    CardholderEndToEndEncryption,
     
     /// <summary>
     /// Encryption initiated by the cardholder to secure point-to-point communication channel.
+    /// Encoded/decoded by serializers as "CPTE".
     /// </summary>
     [EnumMember(Value = "CPTE")]
     [IsoId("_IMrYMEq1Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the cardholder to secure point-to-point communication channel.")]
-    CPTE,
+    CardholderPointToPointEncryption,
     
     /// <summary>
     /// Encryption initiated by the merchant to secure end-to-end communication channel.
+    /// Encoded/decoded by serializers as "METE".
     /// </summary>
     [EnumMember(Value = "METE")]
     [IsoId("_VEq-UEq1Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the merchant to secure end-to-end communication channel.")]
-    METE,
+    MerchantEndToEndEncryption,
     
     /// <summary>
     /// Encryption initiated by the merchant to secure point-to-point communication channel.
+    /// Encoded/decoded by serializers as "MPTE".
     /// </summary>
     [EnumMember(Value = "MPTE")]
     [IsoId("_cKz6kEq1Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the merchant to secure point-to-point communication channel.")]
-    MPTE,
+    MerchantPointToPointEncryption,
     
     /// <summary>
     /// Encryption initiated by the acquirer to secure end-to-end communication channel.
+    /// Encoded/decoded by serializers as "AETE".
     /// </summary>
     [EnumMember(Value = "AETE")]
     [IsoId("_mvjrsEq1Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the acquirer to secure end-to-end communication channel.")]
-    AETE,
+    AcquirerEndToEndEncryption,
     
     /// <summary>
     /// Encryption initiated by the acquirer to secure point-to-point communication channel.
+    /// Encoded/decoded by serializers as "APTE".
     /// </summary>
     [EnumMember(Value = "APTE")]
     [IsoId("_tBuNUEq1Eeenp6hmNprBHg")]
     [Description(@"Encryption initiated by the acquirer to secure point-to-point communication channel.")]
-    APTE,
+    AcquirerPointToPointEncryption,
     
     /// <summary>
     /// Other security characteristics defined at national level
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_7qoHQAwfEeiHgJ0O2VQ-kg")]
     [Description(@"Other security characteristics defined at national level")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other security characteristics defined at private level
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_CwUXkAwgEeiHgJ0O2VQ-kg")]
     [Description(@"Other security characteristics defined at private level")]
-    OTHP,
+    OtherPrivate,
     
 }
 

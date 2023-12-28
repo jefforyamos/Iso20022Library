@@ -20,35 +20,39 @@ public enum TransferTypeCode
 {
     /// <summary>
     /// Transfer the security as an asset in specie, that is, 'in its actual form'.
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_Yvk9Qtp-Ed-ak6NoX_4Aeg_-1137009131")]
     [Description(@"Transfer the security as an asset in specie, that is, 'in its actual form'.")]
-    SECU,
+    InSpecie,
     
     /// <summary>
     /// Transfer as cash.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Yvk9Q9p-Ed-ak6NoX_4Aeg_-1137009106")]
     [Description(@"Transfer as cash.")]
-    CASH,
+    Cash,
     
     /// <summary>
     /// ISIN is converted to another ISIN and then transferred.
+    /// Encoded/decoded by serializers as "CONV".
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_uSFHgcVYEei2doMlOscgeg")]
     [Description(@"ISIN is converted to another ISIN and then transferred.")]
-    CONV,
+    Conversion,
     
     /// <summary>
     /// Asset excluded from transfer.
+    /// Encoded/decoded by serializers as "EXCL".
     /// </summary>
     [EnumMember(Value = "EXCL")]
     [IsoId("_qbM2EKxWEemRcYBAkJyjkg")]
     [Description(@"Asset excluded from transfer.")]
-    EXCL,
+    Excluded,
     
 }
 

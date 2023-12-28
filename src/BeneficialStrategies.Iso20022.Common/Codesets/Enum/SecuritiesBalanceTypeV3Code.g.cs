@@ -20,348 +20,391 @@ public enum SecuritiesBalanceTypeV3Code
 {
     /// <summary>
     /// Balance of financial instruments that are freely available with no specific additional status.
+    /// Encoded/decoded by serializers as "AWAS".
     /// </summary>
     [EnumMember(Value = "AWAS")]
     [IsoId("_kKSiw4hAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are freely available with no specific additional status.")]
-    AWAS,
+    AvailableWithNoAdditionalStatus,
     
     /// <summary>
     /// Balance of financial instruments that are blocked.
+    /// Encoded/decoded by serializers as "BLOK".
     /// </summary>
     [EnumMember(Value = "BLOK")]
     [IsoId("_kKQGhIhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are blocked.")]
-    BLOK,
+    Blocked,
     
     /// <summary>
     /// Balance of financial instruments that are available.
+    /// Encoded/decoded by serializers as "AVAI".
     /// </summary>
     [EnumMember(Value = "AVAI")]
     [IsoId("_kKQtlIhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are available.")]
-    AVAI,
+    Available,
     
     /// <summary>
     /// Balance of financial instrument blocked following a corporate action, including proxy activities.
+    /// Encoded/decoded by serializers as "BLCA".
     /// </summary>
     [EnumMember(Value = "BLCA")]
     [IsoId("_kKRUpohAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instrument blocked following a corporate action, including proxy activities.")]
-    BLCA,
+    BlockedCorporateAction,
     
     /// <summary>
     /// Balance of financial instruments that are blocked for trading.
+    /// Encoded/decoded by serializers as "BLOT".
     /// </summary>
     [EnumMember(Value = "BLOT")]
     [IsoId("_kKSiwYhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are blocked for trading.")]
-    BLOT,
+    BlockedTrading,
     
     /// <summary>
     /// Balance of financial instruments that are blocked for verification of authenticity.
+    /// Encoded/decoded by serializers as "BLOV".
     /// </summary>
     [EnumMember(Value = "BLOV")]
     [IsoId("_kKSiwohAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are blocked for verification of authenticity.")]
-    BLOV,
+    BlockedAuthenticity,
     
     /// <summary>
     /// Balance of financial instruments that have been borrowed from another party.
+    /// Encoded/decoded by serializers as "BORR".
     /// </summary>
     [EnumMember(Value = "BORR")]
     [IsoId("_kKR7sohAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that have been borrowed from another party.")]
-    BORR,
+    Borrowed,
     
     /// <summary>
     /// Balance of financial instruments that are pending delivery in relation to a borrow transaction.
+    /// Encoded/decoded by serializers as "BODE".
     /// </summary>
     [EnumMember(Value = "BODE")]
     [IsoId("_kKQtk4hAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are pending delivery in relation to a borrow transaction.")]
-    BODE,
+    PendingBorrowedDelivery,
     
     /// <summary>
     /// Balance of financial instruments that are pending receipt in relation to a borrow transaction.
+    /// Encoded/decoded by serializers as "BORE".
     /// </summary>
     [EnumMember(Value = "BORE")]
     [IsoId("_kKRUoIhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are pending receipt in relation to a borrow transaction.")]
-    BORE,
+    PendingBorrowedReceipt,
     
     /// <summary>
     /// Balance of securities that belong to a third party and that are held for the purpose of collateralisation.
+    /// Encoded/decoded by serializers as "COLI".
     /// </summary>
     [EnumMember(Value = "COLI")]
     [IsoId("_kKPfm4hAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of securities that belong to a third party and that are held for the purpose of collateralisation.")]
-    COLI,
+    CollateralIn,
     
     /// <summary>
     /// Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.
+    /// Encoded/decoded by serializers as "COLO".
     /// </summary>
     [EnumMember(Value = "COLO")]
     [IsoId("_kKQtlYhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.")]
-    COLO,
+    CollateralOut,
     
     /// <summary>
     /// Balance of securities that are eligible for use for collateral purposes.
+    /// Encoded/decoded by serializers as "COLA".
     /// </summary>
     [EnumMember(Value = "COLA")]
     [IsoId("_kKR7tYhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of securities that are eligible for use for collateral purposes.")]
-    COLA,
+    EligibleForCollateralPurposes,
     
     /// <summary>
     /// Loan for consumption.
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_kKRUoYhAEeOxVLCZ_vEz5w")]
     [Description(@"Loan for consumption.")]
-    LOAN,
+    OnLoan,
     
     /// <summary>
     /// Balance of financial instruments that are pending delivery in relation to a lending transaction.
+    /// Encoded/decoded by serializers as "LODE".
     /// </summary>
     [EnumMember(Value = "LODE")]
     [IsoId("_kKR7sYhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are pending delivery in relation to a lending transaction.")]
-    LODE,
+    PendingOnLoanDelivery,
     
     /// <summary>
     /// Balance of financial instruments that are pending receipt in relation to a lending transaction.
+    /// Encoded/decoded by serializers as "LORE".
     /// </summary>
     [EnumMember(Value = "LORE")]
     [IsoId("_kKR7sIhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are pending receipt in relation to a lending transaction.")]
-    LORE,
+    PendingOnLoanReceipt,
     
     /// <summary>
     /// Account is used when financing is by the broker/dealer.
+    /// Encoded/decoded by serializers as "MARG".
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_kKQtkYhAEeOxVLCZ_vEz5w")]
     [Description(@"Account is used when financing is by the broker/dealer.")]
-    MARG,
+    DerivativesMargin,
     
     /// <summary>
     /// Balance of financial instruments pending delivery that have been matched.
+    /// Encoded/decoded by serializers as "PDMT".
     /// </summary>
     [EnumMember(Value = "PDMT")]
     [IsoId("_kKPfmYhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments pending delivery that have been matched.")]
-    PDMT,
+    PendingDeliveryMatchedBalance,
     
     /// <summary>
     /// Balance of financial instruments pending delivery that have been unmatched.
+    /// Encoded/decoded by serializers as "PDUM".
     /// </summary>
     [EnumMember(Value = "PDUM")]
     [IsoId("_kKRUp4hAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments pending delivery that have been unmatched.")]
-    PDUM,
+    PendingDeliveryUnmatchedBalance,
     
     /// <summary>
     /// Balance of financial instruments pending receipt that have been matched.
+    /// Encoded/decoded by serializers as "PRMT".
     /// </summary>
     [EnumMember(Value = "PRMT")]
     [IsoId("_kKR7s4hAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments pending receipt that have been matched.")]
-    PRMT,
+    PendingReceiptMatchedBalance,
     
     /// <summary>
     /// Balance of financial instruments pending receipt that are unmatched.
+    /// Encoded/decoded by serializers as "PRUM".
     /// </summary>
     [EnumMember(Value = "PRUM")]
     [IsoId("_kKQGg4hAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments pending receipt that are unmatched.")]
-    PRUM,
+    PendingReceiptUnmatchedBalance,
     
     /// <summary>
     /// Balance of financial instrument pending receipt following a corporate action.
+    /// Encoded/decoded by serializers as "PECA".
     /// </summary>
     [EnumMember(Value = "PECA")]
     [IsoId("_kKQtkIhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instrument pending receipt following a corporate action.")]
-    PECA,
+    PendingCorporateActionReceipt,
     
     /// <summary>
     /// Balance of financial instrument pending delivery following a corporate action.
+    /// Encoded/decoded by serializers as "PEDA".
     /// </summary>
     [EnumMember(Value = "PEDA")]
     [IsoId("_kKQtkohAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instrument pending delivery following a corporate action.")]
-    PEDA,
+    PendingCorporateActionDelivery,
     
     /// <summary>
     /// Processing has not been completed.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_kKSixIhAEeOxVLCZ_vEz5w")]
     [Description(@"Processing has not been completed.")]
-    PEND,
+    PendingDelivery,
     
     /// <summary>
     /// The instruction is pending receipt of securities, for example, from a purchase, loan etc.
+    /// Encoded/decoded by serializers as "PENR".
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_kKQGh4hAEeOxVLCZ_vEz5w")]
     [Description(@"The instruction is pending receipt of securities, for example, from a purchase, loan etc.")]
-    PENR,
+    PendingReceipt,
     
     /// <summary>
     /// Balance of securities that belong to and is kept in the safekeeping account indicated within this message, and that are pledged.
+    /// Encoded/decoded by serializers as "PLED".
     /// </summary>
     [EnumMember(Value = "PLED")]
     [IsoId("_kKQGhYhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of securities that belong to and is kept in the safekeeping account indicated within this message, and that are pledged.")]
-    PLED,
+    Pledged,
     
     /// <summary>
     /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
+    /// Encoded/decoded by serializers as "REGO".
     /// </summary>
     [EnumMember(Value = "REGO")]
     [IsoId("_kKR7tIhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).")]
-    REGO,
+    OutForRegistration,
     
     /// <summary>
     /// Balance of financial instruments that may only be sold under certain conditions or require legal documents.
+    /// Encoded/decoded by serializers as "RSTR".
     /// </summary>
     [EnumMember(Value = "RSTR")]
     [IsoId("_kKSiwIhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that may only be sold under certain conditions or require legal documents.")]
-    RSTR,
+    Restricted,
     
     /// <summary>
     /// Other. See Narrative.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_kKQtlohAEeOxVLCZ_vEz5w")]
     [Description(@"Other. See Narrative.")]
-    OTHR,
+    Unclassified,
     
     /// <summary>
     /// Transaction has been generated due to transformation following a corporate action.
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_kKQGgYhAEeOxVLCZ_vEz5w")]
     [Description(@"Transaction has been generated due to transformation following a corporate action.")]
-    TRAN,
+    InTransshipment,
     
     /// <summary>
     /// Settlement transactions relates to drawn securities.
+    /// Encoded/decoded by serializers as "DRAW".
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_kKPfmohAEeOxVLCZ_vEz5w")]
     [Description(@"Settlement transactions relates to drawn securities.")]
-    DRAW,
+    Drawn,
     
     /// <summary>
     /// Tax-exempt financial instruments are to be settled.
+    /// Encoded/decoded by serializers as "CLEN".
     /// </summary>
     [EnumMember(Value = "CLEN")]
     [IsoId("_kKSixYhAEeOxVLCZ_vEz5w")]
     [Description(@"Tax-exempt financial instruments are to be settled.")]
-    CLEN,
+    TaxExempt,
     
     /// <summary>
     /// Taxable financial instruments are to be settled.
+    /// Encoded/decoded by serializers as "DIRT".
     /// </summary>
     [EnumMember(Value = "DIRT")]
     [IsoId("_kKQGgIhAEeOxVLCZ_vEz5w")]
     [Description(@"Taxable financial instruments are to be settled.")]
-    DIRT,
+    NonTaxExempt,
     
     /// <summary>
     /// Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).
+    /// Encoded/decoded by serializers as "NOMI".
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_kKQGgohAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).")]
-    NOMI,
+    Registered,
     
     /// <summary>
     /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
+    /// Encoded/decoded by serializers as "SPOS".
     /// </summary>
     [EnumMember(Value = "SPOS")]
     [IsoId("_kKRUoohAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of financial instruments that remain registered in the name of the prior beneficial owner.")]
-    SPOS,
+    StreetPosition,
     
     /// <summary>
     /// Balance of securities that could not be registered due to foreign ownership limitation.
+    /// Encoded/decoded by serializers as "UNRG".
     /// </summary>
     [EnumMember(Value = "UNRG")]
     [IsoId("_kKRUpIhAEeOxVLCZ_vEz5w")]
     [Description(@"Balance of securities that could not be registered due to foreign ownership limitation.")]
-    UNRG,
+    Unregistered,
     
     /// <summary>
     /// Financial instrument is unavailable due to missing or incomplete documentation pertaining to the account, or due to a missing or incomplete order.
+    /// Encoded/decoded by serializers as "WDOC".
     /// </summary>
     [EnumMember(Value = "WDOC")]
     [IsoId("_kKR7tohAEeOxVLCZ_vEz5w")]
     [Description(@"Financial instrument is unavailable due to missing or incomplete documentation pertaining to the account, or due to a missing or incomplete order.")]
-    WDOC,
+    WaitingDocumentation,
     
     /// <summary>
     /// Financial instrument is unavailable as a result of a transfer order, pending movement in the shareholders' register.
+    /// Encoded/decoded by serializers as "BTRA".
     /// </summary>
     [EnumMember(Value = "BTRA")]
     [IsoId("_kKQGhohAEeOxVLCZ_vEz5w")]
     [Description(@"Financial instrument is unavailable as a result of a transfer order, pending movement in the shareholders' register.")]
-    BTRA,
+    BeingTransferred,
     
     /// <summary>
     /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_kKRUo4hAEeOxVLCZ_vEz5w")]
     [Description(@"In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.")]
-    ISSU,
+    Issued,
     
     /// <summary>
     /// In Issuer Agent / Depository communication, balance of issued financial instruments for which legal documentation has not yet been received.
+    /// Encoded/decoded by serializers as "QUAS".
     /// </summary>
     [EnumMember(Value = "QUAS")]
     [IsoId("_kKRUpYhAEeOxVLCZ_vEz5w")]
     [Description(@"In Issuer Agent / Depository communication, balance of issued financial instruments for which legal documentation has not yet been received.")]
-    QUAS,
+    QuasiIssued,
     
     /// <summary>
     /// Net balance of financial instrument that is traded pending settlement and settlement is overdue.
+    /// Encoded/decoded by serializers as "OPNT".
     /// </summary>
     [EnumMember(Value = "OPNT")]
     [IsoId("_vlPjIIhAEeOxVLCZ_vEz5w")]
     [Description(@"Net balance of financial instrument that is traded pending settlement and settlement is overdue.")]
-    OPNT,
+    OverdueNetPending,
     
     /// <summary>
     /// Net balance of financial instrument that is traded pending settlement.
+    /// Encoded/decoded by serializers as "PNET".
     /// </summary>
     [EnumMember(Value = "PNET")]
     [IsoId("_5HWykIhAEeOxVLCZ_vEz5w")]
     [Description(@"Net balance of financial instrument that is traded pending settlement.")]
-    PNET,
+    NetPending,
     
     /// <summary>
     /// Purchased investment fund units that were purchased prior to the last ex-div date.
     /// 
+    /// Encoded/decoded by serializers as "GRP1".
     /// </summary>
     [EnumMember(Value = "GRP1")]
     [IsoId("_RdQMEGK3EeWaPYQgYu-nxQ")]
     [Description(@"Purchased investment fund units that were purchased prior to the last ex-div date. ")]
-    GRP1,
+    PurchasedInvestmentFundTaxGroupUnit1,
     
     /// <summary>
     /// Purchased investment fund units that were purchased since the ex-div date, and that benefit from the tax exemption.
+    /// Encoded/decoded by serializers as "GRP2".
     /// </summary>
     [EnumMember(Value = "GRP2")]
     [IsoId("_07ls8WK3EeWaPYQgYu-nxQ")]
     [Description(@"Purchased investment fund units that were purchased since the ex-div date, and that benefit from the tax exemption.")]
-    GRP2,
+    PurchasedInvestmentFundTaxGroupUnit2,
     
 }
 

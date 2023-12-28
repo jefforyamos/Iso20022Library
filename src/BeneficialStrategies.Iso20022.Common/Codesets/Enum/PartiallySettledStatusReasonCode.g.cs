@@ -20,43 +20,48 @@ public enum PartiallySettledStatusReasonCode
 {
     /// <summary>
     /// Units are partially settled.
+    /// Encoded/decoded by serializers as "UPST".
     /// </summary>
     [EnumMember(Value = "UPST")]
     [IsoId("_ZxcC5Np-Ed-ak6NoX_4Aeg_-536158421")]
     [Description(@"Units are partially settled.")]
-    UPST,
+    UnitsPartiallySettled,
     
     /// <summary>
     /// Cash is partially settled.
+    /// Encoded/decoded by serializers as "CPST".
     /// </summary>
     [EnumMember(Value = "CPST")]
     [IsoId("_ZxcC5dp-Ed-ak6NoX_4Aeg_-536158386")]
     [Description(@"Cash is partially settled.")]
-    CPST,
+    CashPartiallySettled,
     
     /// <summary>
     /// Units and cash are both partially settled.
+    /// Encoded/decoded by serializers as "UCPS".
     /// </summary>
     [EnumMember(Value = "UCPS")]
     [IsoId("_ZxcC5tp-Ed-ak6NoX_4Aeg_-536158096")]
     [Description(@"Units and cash are both partially settled.")]
-    UCPS,
+    UnitsCashPartiallySettled,
     
     /// <summary>
     /// Final redemption proceeds are held back, pending annual financial audit approval.
+    /// Encoded/decoded by serializers as "HOLA".
     /// </summary>
     [EnumMember(Value = "HOLA")]
     [IsoId("_ZxcC59p-Ed-ak6NoX_4Aeg_-107645612")]
     [Description(@"Final redemption proceeds are held back, pending annual financial audit approval.")]
-    HOLA,
+    HoldBackPendingAudit,
     
     /// <summary>
     /// Final redemption proceeds are held back as the fund has been liquidated and is pending audit approval.
+    /// Encoded/decoded by serializers as "HOLL".
     /// </summary>
     [EnumMember(Value = "HOLL")]
     [IsoId("_ZxcC6Np-Ed-ak6NoX_4Aeg_156481860")]
     [Description(@"Final redemption proceeds are held back as the fund has been liquidated and is pending audit approval.")]
-    HOLL,
+    HoldBackLiquidation,
     
 }
 

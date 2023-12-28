@@ -20,27 +20,30 @@ public enum PutTypeCode
 {
     /// <summary>
     /// Type of execution of the put feature is mandatory.
+    /// Encoded/decoded by serializers as "MAND".
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_ha1jtGliEeGaMcKyqKNRfQ_-304925813")]
     [Description(@"Type of execution of the put feature is mandatory.")]
-    MAND,
+    Mandatory,
     
     /// <summary>
     /// Type of execution of the put feature is optional.
+    /// Encoded/decoded by serializers as "OPTI".
     /// </summary>
     [EnumMember(Value = "OPTI")]
     [IsoId("_ha1jtWliEeGaMcKyqKNRfQ_-1889555559")]
     [Description(@"Type of execution of the put feature is optional.")]
-    OPTI,
+    Optional,
     
     /// <summary>
     /// Type of execution of the put feature could be optional or mandatory.
+    /// Encoded/decoded by serializers as "TWOS".
     /// </summary>
     [EnumMember(Value = "TWOS")]
     [IsoId("_ha1jtmliEeGaMcKyqKNRfQ_-1569124192")]
     [Description(@"Type of execution of the put feature could be optional or mandatory.")]
-    TWOS,
+    Both,
     
 }
 

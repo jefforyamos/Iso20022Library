@@ -20,19 +20,21 @@ public enum CallTypeCode
 {
     /// <summary>
     /// Type of execution of the call feature is a lottery.
+    /// Encoded/decoded by serializers as "LOTT".
     /// </summary>
     [EnumMember(Value = "LOTT")]
     [IsoId("_ha1juGliEeGaMcKyqKNRfQ_-1311622256")]
     [Description(@"Type of execution of the call feature is a lottery.")]
-    LOTT,
+    Lottery,
     
     /// <summary>
     /// Type of execution of the call feature is pro-rata.
+    /// Encoded/decoded by serializers as "PRTA".
     /// </summary>
     [EnumMember(Value = "PRTA")]
     [IsoId("_ha1juWliEeGaMcKyqKNRfQ_253023576")]
     [Description(@"Type of execution of the call feature is pro-rata.")]
-    PRTA,
+    ProRata,
     
 }
 

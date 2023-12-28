@@ -20,59 +20,66 @@ public enum GCAActionTypeCode
 {
     /// <summary>
     /// Custodian needs to be contacted.
+    /// Encoded/decoded by serializers as "RCON".
     /// </summary>
     [EnumMember(Value = "RCON")]
     [IsoId("_11ykoTL3EeKU9IrkkToqcw_-1534472255")]
     [Description(@"Custodian needs to be contacted.")]
-    RCON,
+    ContactCustodian,
     
     /// <summary>
     /// Further research is required.
+    /// Encoded/decoded by serializers as "FREA".
     /// </summary>
     [EnumMember(Value = "FREA")]
     [IsoId("_11ykojL3EeKU9IrkkToqcw_-97617058")]
     [Description(@"Further research is required.")]
-    FREA,
+    ResearchRequired,
     
     /// <summary>
     /// Custodian has been contacted.
+    /// Encoded/decoded by serializers as "CDCU".
     /// </summary>
     [EnumMember(Value = "CDCU")]
     [IsoId("_11ykozL3EeKU9IrkkToqcw_1512813294")]
     [Description(@"Custodian has been contacted.")]
-    CDCU,
+    CustodianContacted,
     
     /// <summary>
     /// Custodian does not need to be contacted.
+    /// Encoded/decoded by serializers as "NQCU".
     /// </summary>
     [EnumMember(Value = "NQCU")]
     [IsoId("_11ykpDL3EeKU9IrkkToqcw_1707445278")]
     [Description(@"Custodian does not need to be contacted.")]
-    NQCU,
+    DoNotContactCustodian,
     
     /// <summary>
     /// No further action is required.
+    /// Encoded/decoded by serializers as "NFAC".
     /// </summary>
     [EnumMember(Value = "NFAC")]
     [IsoId("_11ykpTL3EeKU9IrkkToqcw_954466545")]
     [Description(@"No further action is required.")]
-    NFAC,
+    NoFurtherActionRequired,
     
     /// <summary>
     /// Not supported by the GCA VA (Global Corporate Actions Validation service).
+    /// Encoded/decoded by serializers as "NSUP".
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_118VoDL3EeKU9IrkkToqcw_1620933391")]
     [Description(@"Not supported by the GCA VA (Global Corporate Actions Validation service).")]
-    NSUP,
+    NotSupportedByGCA,
     
     /// <summary>
     /// Invalid.
+    /// Encoded/decoded by serializers as "INVA".
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_118VoTL3EeKU9IrkkToqcw_-704666898")]
     [Description(@"Invalid.")]
-    INVA,
+    Invalid,
     
 }
 

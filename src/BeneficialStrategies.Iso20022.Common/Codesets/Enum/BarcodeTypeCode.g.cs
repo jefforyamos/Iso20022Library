@@ -20,67 +20,75 @@ public enum BarcodeTypeCode
 {
     /// <summary>
     /// Barcode encoded according to the EAN8 standard.
+    /// Encoded/decoded by serializers as "EAN8".
     /// </summary>
     [EnumMember(Value = "EAN8")]
     [IsoId("_QG8Q4NuZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the EAN8 standard.")]
-    EAN8,
+    BarcodeEncodedAsEAN8,
     
     /// <summary>
     /// Barcode encoded according to the EAN13 standard.
+    /// Encoded/decoded by serializers as "EA13".
     /// </summary>
     [EnumMember(Value = "EA13")]
     [IsoId("_VyLVYNuZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the EAN13 standard.")]
-    EA13,
+    BarcodeEncodedAsEA13,
     
     /// <summary>
     /// Barcode encoded according to the Code 39 standard.
+    /// Encoded/decoded by serializers as "C039".
     /// </summary>
     [EnumMember(Value = "C039")]
     [IsoId("_ZRfU4NuZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the Code 39 standard.")]
-    C039,
+    BarcodeEncodedAsCode39,
     
     /// <summary>
     /// Barcode encoded according to the UPCA standard.
+    /// Encoded/decoded by serializers as "UPCA".
     /// </summary>
     [EnumMember(Value = "UPCA")]
     [IsoId("_dcmDYNuZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the UPCA standard.")]
-    UPCA,
+    BarcodeEncodedAsUPCA,
     
     /// <summary>
     /// Barcode encoded according to the Code 25 standard.
+    /// Encoded/decoded by serializers as "C025".
     /// </summary>
     [EnumMember(Value = "C025")]
     [IsoId("_hhElcNuZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the Code 25 standard.")]
-    C025,
+    BarcodeEncodedAsCode25,
     
     /// <summary>
     /// Barcode encoded according to the Code 128 standard.
+    /// Encoded/decoded by serializers as "C128".
     /// </summary>
     [EnumMember(Value = "C128")]
     [IsoId("_laFeYNuZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the Code 128 standard.")]
-    C128,
+    BarcodeEncodedAsCode128,
     
     /// <summary>
     /// Barcode encoded according to the PDF417 standard.
+    /// Encoded/decoded by serializers as "P417".
     /// </summary>
     [EnumMember(Value = "P417")]
     [IsoId("_oyYP4NuZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the PDF417 standard.")]
-    P417,
+    BarcodeEncodedAsPDF417,
     
     /// <summary>
     /// Barcode encoded according to the 2Dimensions Quick Response Code Standard.
+    /// Encoded/decoded by serializers as "COQR".
     /// </summary>
     [EnumMember(Value = "COQR")]
     [IsoId("_sx0g8NuZEeiB5uLfkg9ZJA")]
     [Description(@"Barcode encoded according to the 2Dimensions Quick Response Code Standard.")]
-    COQR,
+    BarcodeEncodedAs2DQRCode,
     
 }
 

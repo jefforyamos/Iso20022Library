@@ -20,27 +20,30 @@ public enum AmountFullfilTypeCode
 {
     /// <summary>
     /// Full redemption.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_bo8XEtp-Ed-ak6NoX_4Aeg_-525318706")]
     [Description(@"Full redemption.")]
-    COMP,
+    Completely,
     
     /// <summary>
     /// Partial redemption.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_bo8XE9p-Ed-ak6NoX_4Aeg_-525315741")]
     [Description(@"Partial redemption.")]
-    PART,
+    Partial,
     
     /// <summary>
     /// Full or partial redemption.
+    /// Encoded/decoded by serializers as "TOPA".
     /// </summary>
     [EnumMember(Value = "TOPA")]
     [IsoId("_bo8XFNp-Ed-ak6NoX_4Aeg_-524392767")]
     [Description(@"Full or partial redemption.")]
-    TOPA,
+    TotalOrPartial,
     
 }
 

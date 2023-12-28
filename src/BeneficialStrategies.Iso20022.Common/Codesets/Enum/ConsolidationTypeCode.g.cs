@@ -20,19 +20,21 @@ public enum ConsolidationTypeCode
 {
     /// <summary>
     /// Consolidation is general.
+    /// Encoded/decoded by serializers as "GENL".
     /// </summary>
     [EnumMember(Value = "GENL")]
     [IsoId("_mJEkwCDVEeWCLu74WLgP4w")]
     [Description(@"Consolidation is general.")]
-    GENL,
+    General,
     
     /// <summary>
     /// Consolidation is at the level of the participant.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_pNTx0CDVEeWCLu74WLgP4w")]
     [Description(@"Consolidation is at the level of the participant.")]
-    PART,
+    Participation,
     
 }
 

@@ -20,19 +20,21 @@ public enum MarketClaimTypeCode
 {
     /// <summary>
     /// Market claim that has been created due to a pending/failing settlement transaction, to ensure the event proceeds are delivered from the seller to the buyer.
+    /// Encoded/decoded by serializers as "MKTC".
     /// </summary>
     [EnumMember(Value = "MKTC")]
     [IsoId("_GjijwC2nEeuVt5XRmyhHiA")]
     [Description(@"Market claim that has been created due to a pending/failing settlement transaction, to ensure the event proceeds are delivered from the seller to the buyer.")]
-    MKTC,
+    MarketClaim,
     
     /// <summary>
     /// Market claim that has been created due to a settled settlement transaction, to ensure the event proceeds are delivered from the buyer to the seller.
+    /// Encoded/decoded by serializers as "RVMC".
     /// </summary>
     [EnumMember(Value = "RVMC")]
     [IsoId("_UI-esC2nEeuVt5XRmyhHiA")]
     [Description(@"Market claim that has been created due to a settled settlement transaction, to ensure the event proceeds are delivered from the buyer to the seller.")]
-    RVMC,
+    ReverseMarketClaim,
     
 }
 

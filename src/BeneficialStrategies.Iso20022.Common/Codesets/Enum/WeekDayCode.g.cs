@@ -20,99 +20,111 @@ public enum WeekDayCode
 {
     /// <summary>
     /// Weekdays.
+    /// Encoded/decoded by serializers as "WDAY".
     /// </summary>
     [EnumMember(Value = "WDAY")]
     [IsoId("_xLwXMA3eEeW9YKj3GUmIEw")]
     [Description(@"Weekdays.")]
-    WDAY,
+    Weekdays,
     
     /// <summary>
     /// Weekend.
+    /// Encoded/decoded by serializers as "WEND".
     /// </summary>
     [EnumMember(Value = "WEND")]
     [IsoId("_nCYr8BVcEeWLrt6TQWUeiw")]
     [Description(@"Weekend.")]
-    WEND,
+    Weekend,
     
     /// <summary>
     /// Monday.
+    /// Encoded/decoded by serializers as "MOND".
     /// </summary>
     [EnumMember(Value = "MOND")]
     [IsoId("_nKkXkBVcEeWLrt6TQWUeiw")]
     [Description(@"Monday.")]
-    MOND,
+    Monday,
     
     /// <summary>
     /// Tuesday.
+    /// Encoded/decoded by serializers as "TUED".
     /// </summary>
     [EnumMember(Value = "TUED")]
     [IsoId("_nKkXkRVcEeWLrt6TQWUeiw")]
     [Description(@"Tuesday.")]
-    TUED,
+    Tuesday,
     
     /// <summary>
     /// Wednesday.
+    /// Encoded/decoded by serializers as "WEDD".
     /// </summary>
     [EnumMember(Value = "WEDD")]
     [IsoId("_nKkXkhVcEeWLrt6TQWUeiw")]
     [Description(@"Wednesday.")]
-    WEDD,
+    Wednesday,
     
     /// <summary>
     /// Thursday.
+    /// Encoded/decoded by serializers as "THUD".
     /// </summary>
     [EnumMember(Value = "THUD")]
     [IsoId("_nKkXkxVcEeWLrt6TQWUeiw")]
     [Description(@"Thursday.")]
-    THUD,
+    Thursday,
     
     /// <summary>
     /// Friday.
+    /// Encoded/decoded by serializers as "FRID".
     /// </summary>
     [EnumMember(Value = "FRID")]
     [IsoId("_nTC-IBVcEeWLrt6TQWUeiw")]
     [Description(@"Friday.")]
-    FRID,
+    Friday,
     
     /// <summary>
     /// Saturday.
+    /// Encoded/decoded by serializers as "SATD".
     /// </summary>
     [EnumMember(Value = "SATD")]
     [IsoId("_nTC-IRVcEeWLrt6TQWUeiw")]
     [Description(@"Saturday.")]
-    SATD,
+    Saturday,
     
     /// <summary>
     /// Sunday.
+    /// Encoded/decoded by serializers as "SUND".
     /// </summary>
     [EnumMember(Value = "SUND")]
     [IsoId("_na7u0BVcEeWLrt6TQWUeiw")]
     [Description(@"Sunday.")]
-    SUND,
+    Sunday,
     
     /// <summary>
     /// All Days of the week.
+    /// Encoded/decoded by serializers as "ALLD".
     /// </summary>
     [EnumMember(Value = "ALLD")]
     [IsoId("_vbnBQJDoEeiZrojxmnmDSQ")]
     [Description(@"All Days of the week.")]
-    ALLD,
+    AllDays,
     
     /// <summary>
     /// Days of the week Including bank holidays.
+    /// Encoded/decoded by serializers as "IBHL".
     /// </summary>
     [EnumMember(Value = "IBHL")]
     [IsoId("__ggBMJDoEeiZrojxmnmDSQ")]
     [Description(@"Days of the week Including bank holidays.")]
-    IBHL,
+    DaysIncludingBankHolidays,
     
     /// <summary>
     /// Days of the week excluding bank holidays.
+    /// Encoded/decoded by serializers as "XBHL".
     /// </summary>
     [EnumMember(Value = "XBHL")]
     [IsoId("_feUBoZDpEeiZrojxmnmDSQ")]
     [Description(@"Days of the week excluding bank holidays.")]
-    XBHL,
+    DaysExcludingBankHolidays,
     
 }
 

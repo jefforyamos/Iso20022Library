@@ -20,43 +20,48 @@ public enum RequestModeTypeCode
 {
     /// <summary>
     /// Day information query type, in on-demand mode.
+    /// Encoded/decoded by serializers as "ONDD".
     /// </summary>
     [EnumMember(Value = "ONDD")]
     [IsoId("_Maj4YMm8EeWAGphE2LvqeA")]
     [Description(@"Day information query type, in on-demand mode.")]
-    ONDD,
+    OnDemandDayInformation,
     
     /// <summary>
     /// Future information query type, in on-demand mode.
+    /// Encoded/decoded by serializers as "ONDF".
     /// </summary>
     [EnumMember(Value = "ONDF")]
     [IsoId("_MkFAwMm8EeWAGphE2LvqeA")]
     [Description(@"Future information query type, in on-demand mode.")]
-    ONDF,
+    OnDemandFutureInformation,
     
     /// <summary>
     /// Day information query type, in scheduled mode.
+    /// Encoded/decoded by serializers as "SCHD".
     /// </summary>
     [EnumMember(Value = "SCHD")]
     [IsoId("_Mtv6IMm8EeWAGphE2LvqeA")]
     [Description(@"Day information query type, in scheduled mode.")]
-    SCHD,
+    ScheduledDayInformation,
     
     /// <summary>
     /// Future information query type, in scheduled mode.
+    /// Encoded/decoded by serializers as "SCHF".
     /// </summary>
     [EnumMember(Value = "SCHF")]
     [IsoId("_M209oMm8EeWAGphE2LvqeA")]
     [Description(@"Future information query type, in scheduled mode.")]
-    SCHF,
+    ScheduledFutureInformation,
     
     /// <summary>
     /// Forecast query type and mode.
+    /// Encoded/decoded by serializers as "FCST".
     /// </summary>
     [EnumMember(Value = "FCST")]
     [IsoId("_M-RCYMm8EeWAGphE2LvqeA")]
     [Description(@"Forecast query type and mode.")]
-    FCST,
+    Forecast,
     
 }
 

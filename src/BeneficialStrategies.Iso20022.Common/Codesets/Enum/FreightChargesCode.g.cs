@@ -20,19 +20,21 @@ public enum FreightChargesCode
 {
     /// <summary>
     /// Freight charges are to collect from consignee.
+    /// Encoded/decoded by serializers as "CLCT".
     /// </summary>
     [EnumMember(Value = "CLCT")]
     [IsoId("_ar_mpdp-Ed-ak6NoX_4Aeg_-915354796")]
     [Description(@"Freight charges are to collect from consignee.")]
-    CLCT,
+    Collect,
     
     /// <summary>
     /// Freight charges are paid by shipper.
+    /// Encoded/decoded by serializers as "PRPD".
     /// </summary>
     [EnumMember(Value = "PRPD")]
     [IsoId("_ar_mptp-Ed-ak6NoX_4Aeg_-799916141")]
     [Description(@"Freight charges are paid by shipper.")]
-    PRPD,
+    Prepaid,
     
 }
 

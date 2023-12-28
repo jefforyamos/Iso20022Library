@@ -20,35 +20,39 @@ public enum TriggerTypeCode
 {
     /// <summary>
     /// Trigger Instructions come into effect in case of partial execution.
+    /// Encoded/decoded by serializers as "PAEX".
     /// </summary>
     [EnumMember(Value = "PAEX")]
     [IsoId("_YwUkItp-Ed-ak6NoX_4Aeg_45075403")]
     [Description(@"Trigger Instructions come into effect in case of partial execution.")]
-    PAEX,
+    PartialExecution,
     
     /// <summary>
     /// Trigger Instructions come into effect at specified trading session.
+    /// Encoded/decoded by serializers as "SPTS".
     /// </summary>
     [EnumMember(Value = "SPTS")]
     [IsoId("_YwUkI9p-Ed-ak6NoX_4Aeg_140198154")]
     [Description(@"Trigger Instructions come into effect at specified trading session.")]
-    SPTS,
+    SpecifiedTradingSession,
     
     /// <summary>
     /// Trigger Instructions come into effect at next auction.
+    /// Encoded/decoded by serializers as "NEAU".
     /// </summary>
     [EnumMember(Value = "NEAU")]
     [IsoId("_YwUkJNp-Ed-ak6NoX_4Aeg_359997608")]
     [Description(@"Trigger Instructions come into effect at next auction.")]
-    NEAU,
+    NextAuction,
     
     /// <summary>
     /// Trigger Instructions come into effect in case of price movement.
+    /// Encoded/decoded by serializers as "PRMO".
     /// </summary>
     [EnumMember(Value = "PRMO")]
     [IsoId("_YwUkJdp-Ed-ak6NoX_4Aeg_383086593")]
     [Description(@"Trigger Instructions come into effect in case of price movement.")]
-    PRMO,
+    PriceMovement,
     
 }
 

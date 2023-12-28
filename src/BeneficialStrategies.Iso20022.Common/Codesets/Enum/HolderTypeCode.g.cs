@@ -20,19 +20,21 @@ public enum HolderTypeCode
 {
     /// <summary>
     /// Holder is the transferee party. The transferee party may also be known as the acquiring party.
+    /// Encoded/decoded by serializers as "TFEE".
     /// </summary>
     [EnumMember(Value = "TFEE")]
     [IsoId("_Ni66UE4SEeiQHa-q1Uephw")]
     [Description(@"Holder is the transferee party. The transferee party may also be known as the acquiring party.")]
-    TFEE,
+    Transferee,
     
     /// <summary>
     /// Holder is the transferor party. The transferee party may also be known as the ceding party.
+    /// Encoded/decoded by serializers as "TFOR".
     /// </summary>
     [EnumMember(Value = "TFOR")]
     [IsoId("_SpoVcE4SEeiQHa-q1Uephw")]
     [Description(@"Holder is the transferor party. The transferee party may also be known as the ceding party.")]
-    TFOR,
+    Transferor,
     
 }
 

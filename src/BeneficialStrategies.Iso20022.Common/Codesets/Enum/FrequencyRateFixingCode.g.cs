@@ -23,27 +23,30 @@ public enum FrequencyRateFixingCode
 {
     /// <summary>
     /// Daily fixing according to the tenor of the index.
+    /// Encoded/decoded by serializers as "OVNG".
     /// </summary>
     [EnumMember(Value = "OVNG")]
     [IsoId("_IeNDkI9MEeqMo4JxiuZGSw")]
     [Description(@"Daily fixing according to the tenor of the index.")]
-    OVNG,
+    Overnight,
     
     /// <summary>
     /// Periodic fixing of the rate in line with   (according to) the Tenor of the rate.
+    /// Encoded/decoded by serializers as "PRDC".
     /// </summary>
     [EnumMember(Value = "PRDC")]
     [IsoId("_cOAPAI9MEeqMo4JxiuZGSw")]
     [Description(@"Periodic fixing of the rate in line with   (according to) the Tenor of the rate.")]
-    PRDC,
+    Periodic,
     
     /// <summary>
     /// No update of  the rate for the duration of the trade.
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_mSKmII9NEeqMo4JxiuZGSw")]
     [Description(@"No update of  the rate for the duration of the trade.")]
-    NONE,
+    None,
     
 }
 

@@ -20,43 +20,48 @@ public enum ATMStatusCode
 {
     /// <summary>
     /// Component is in service.
+    /// Encoded/decoded by serializers as "INSV".
     /// </summary>
     [EnumMember(Value = "INSV")]
     [IsoId("_a2vtgIqLEeSRT5rEzcAHEw")]
     [Description(@"Component is in service.")]
-    INSV,
+    InService,
     
     /// <summary>
     /// ATM out of service.
+    /// Encoded/decoded by serializers as "OUTS".
     /// </summary>
     [EnumMember(Value = "OUTS")]
     [IsoId("_f0JboIqLEeSRT5rEzcAHEw")]
     [Description(@"ATM out of service.")]
-    OUTS,
+    OutOfService,
     
     /// <summary>
     /// Component is activated and in operation.
+    /// Encoded/decoded by serializers as "OPER".
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_a3AP8Ir-EeSvuOJS0mmL0g")]
     [Description(@"Component is activated and in operation.")]
-    OPER,
+    InOperation,
     
     /// <summary>
     /// Component has been stopped.
+    /// Encoded/decoded by serializers as "STOP".
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_wnKYsItCEeSxlKlAGYErFg")]
     [Description(@"Component has been stopped.")]
-    STOP,
+    Stopped,
     
     /// <summary>
     /// Component has been loaded, but not yet activated.
+    /// Encoded/decoded by serializers as "WACT".
     /// </summary>
     [EnumMember(Value = "WACT")]
     [IsoId("_6BC5MItCEeSxlKlAGYErFg")]
     [Description(@"Component has been loaded, but not yet activated.")]
-    WACT,
+    WaitingActivation,
     
 }
 

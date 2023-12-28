@@ -20,59 +20,66 @@ public enum CardIdentificationTypeCode
 {
     /// <summary>
     /// Standard card identification (card number).
+    /// Encoded/decoded by serializers as "CPAN".
     /// </summary>
     [EnumMember(Value = "CPAN")]
     [IsoId("_hi4dwNthEeipuvJHTHIw9A")]
     [Description(@"Standard card identification (card number).")]
-    CPAN,
+    PrimaryAccountNumber,
     
     /// <summary>
     /// ISO Track 2 including identification.
+    /// Encoded/decoded by serializers as "ISO2".
     /// </summary>
     [EnumMember(Value = "ISO2")]
     [IsoId("_l8QRwNthEeipuvJHTHIw9A")]
     [Description(@"ISO Track 2 including identification.")]
-    ISO2,
+    ISOTrack2,
     
     /// <summary>
     /// Bar-code with a specific form of identification.
+    /// Encoded/decoded by serializers as "BARC".
     /// </summary>
     [EnumMember(Value = "BARC")]
     [IsoId("_pbMd0NthEeipuvJHTHIw9A")]
     [Description(@"Bar-code with a specific form of identification.")]
-    BARC,
+    BarCode,
     
     /// <summary>
     /// Account identification.
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_sVH4UNthEeipuvJHTHIw9A")]
     [Description(@"Account identification.")]
-    ACCT,
+    AccountNumber,
     
     /// <summary>
     /// A phone number identifies the account on which the phone card is assigned.
+    /// Encoded/decoded by serializers as "PHON".
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_vOcO0NthEeipuvJHTHIw9A")]
     [Description(@"A phone number identifies the account on which the phone card is assigned.")]
-    PHON,
+    PhoneNumber,
     
     /// <summary>
     /// A Universal Unique Identification code is set for identification.
+    /// Encoded/decoded by serializers as "UUID".
     /// </summary>
     [EnumMember(Value = "UUID")]
     [IsoId("_yacQwNthEeipuvJHTHIw9A")]
     [Description(@"A Universal Unique Identification code is set for identification.")]
-    UUID,
+    UniversalUniqueIdentification,
     
     /// <summary>
     /// An identification set by a privative application.
+    /// Encoded/decoded by serializers as "PRIV".
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_9ra1wNthEeipuvJHTHIw9A")]
     [Description(@"An identification set by a privative application.")]
-    PRIV,
+    PrivativeNumbering,
     
 }
 

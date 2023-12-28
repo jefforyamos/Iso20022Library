@@ -20,19 +20,21 @@ public enum PensionOrderTypeCode
 {
     /// <summary>
     /// Pension policy, plan or scheme has been earmarked (set aside.)
+    /// Encoded/decoded by serializers as "EARM".
     /// </summary>
     [EnumMember(Value = "EARM")]
     [IsoId("_W4DWsLTpEeiENt6AoDfPXg")]
     [Description(@"Pension policy, plan or scheme has been earmarked (set aside.)")]
-    EARM,
+    Earmark,
     
     /// <summary>
     /// Sharing order for the pension policy, plan or scheme has been issued by a court.
+    /// Encoded/decoded by serializers as "SHAR".
     /// </summary>
     [EnumMember(Value = "SHAR")]
     [IsoId("_hgtXcLTpEeiENt6AoDfPXg")]
     [Description(@"Sharing order for the pension policy, plan or scheme has been issued by a court.")]
-    SHAR,
+    Sharing,
     
 }
 

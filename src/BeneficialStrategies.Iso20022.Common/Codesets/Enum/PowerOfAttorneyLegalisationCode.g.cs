@@ -20,35 +20,39 @@ public enum PowerOfAttorneyLegalisationCode
 {
     /// <summary>
     /// Indicates that the power of attorney must be legalised by a notary.
+    /// Encoded/decoded by serializers as "NOTA".
     /// </summary>
     [EnumMember(Value = "NOTA")]
     [IsoId("_aHytYtp-Ed-ak6NoX_4Aeg_-1070679660")]
     [Description(@"Indicates that the power of attorney must be legalised by a notary.")]
-    NOTA,
+    Notary,
     
     /// <summary>
     /// Indicates that the power of attorney must be legalised by a local authority.
+    /// Encoded/decoded by serializers as "LOCA".
     /// </summary>
     [EnumMember(Value = "LOCA")]
     [IsoId("_aHytY9p-Ed-ak6NoX_4Aeg_-999567985")]
     [Description(@"Indicates that the power of attorney must be legalised by a local authority.")]
-    LOCA,
+    LocalAuthority,
     
     /// <summary>
     /// Indicates that the power of attorney must be legalised by a legal officer.
+    /// Encoded/decoded by serializers as "APOS".
     /// </summary>
     [EnumMember(Value = "APOS")]
     [IsoId("_aHytZNp-Ed-ak6NoX_4Aeg_-685567932")]
     [Description(@"Indicates that the power of attorney must be legalised by a legal officer.")]
-    APOS,
+    Apostilled,
     
     /// <summary>
     /// Indicates that the power of attorney must be legalised by a consular officer.
+    /// Encoded/decoded by serializers as "COUN".
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_aHytZdp-Ed-ak6NoX_4Aeg_-621848373")]
     [Description(@"Indicates that the power of attorney must be legalised by a consular officer.")]
-    COUN,
+    Consularized,
     
 }
 

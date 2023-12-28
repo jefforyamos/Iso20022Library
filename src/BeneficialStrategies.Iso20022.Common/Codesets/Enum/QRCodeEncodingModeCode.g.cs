@@ -20,35 +20,39 @@ public enum QRCodeEncodingModeCode
 {
     /// <summary>
     /// Numeric value provided in Barcode field.
+    /// Encoded/decoded by serializers as "NUME".
     /// </summary>
     [EnumMember(Value = "NUME")]
     [IsoId("_P-7H4NuaEeiB5uLfkg9ZJA")]
     [Description(@"Numeric value provided in Barcode field.")]
-    NUME,
+    Numeric,
     
     /// <summary>
     /// Alphanumeric value provided in Barcode field.
+    /// Encoded/decoded by serializers as "ALFA".
     /// </summary>
     [EnumMember(Value = "ALFA")]
     [IsoId("_TEhm4NuaEeiB5uLfkg9ZJA")]
     [Description(@"Alphanumeric value provided in Barcode field.")]
-    ALFA,
+    Alphanumeric,
     
     /// <summary>
     /// Binary value provided in Quick Response Code Binary Value.
+    /// Encoded/decoded by serializers as "BINA".
     /// </summary>
     [EnumMember(Value = "BINA")]
     [IsoId("_W1ZQcNuaEeiB5uLfkg9ZJA")]
     [Description(@"Binary value provided in Quick Response Code Binary Value.")]
-    BINA,
+    Binary,
     
     /// <summary>
     /// Kanji value provided in Quick Response Code Binary Value.
+    /// Encoded/decoded by serializers as "KANJ".
     /// </summary>
     [EnumMember(Value = "KANJ")]
     [IsoId("_aEJEYNuaEeiB5uLfkg9ZJA")]
     [Description(@"Kanji value provided in Quick Response Code Binary Value.")]
-    KANJ,
+    Kanji,
     
 }
 

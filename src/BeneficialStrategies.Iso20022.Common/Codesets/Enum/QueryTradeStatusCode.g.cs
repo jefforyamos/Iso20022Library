@@ -20,51 +20,57 @@ public enum QueryTradeStatusCode
 {
     /// <summary>
     /// Query for all trades.
+    /// Encoded/decoded by serializers as "QAST".
     /// </summary>
     [EnumMember(Value = "QAST")]
     [IsoId("_kHkRwKacEeSR8qifggAitQ")]
     [Description(@"Query for all trades.")]
-    QAST,
+    QueryAllStatus,
     
     /// <summary>
     /// Query for new trades.
+    /// Encoded/decoded by serializers as "QNTR".
     /// </summary>
     [EnumMember(Value = "QNTR")]
     [IsoId("_kRQZQKacEeSR8qifggAitQ")]
     [Description(@"Query for new trades.")]
-    QNTR,
+    QueryNewTrade,
     
     /// <summary>
     /// Query for trades have been canceled.
+    /// Encoded/decoded by serializers as "QCTR".
     /// </summary>
     [EnumMember(Value = "QCTR")]
     [IsoId("_kVkRgKacEeSR8qifggAitQ")]
     [Description(@"Query for trades have been canceled.")]
-    QCTR,
+    QueryCanceledTrade,
     
     /// <summary>
     /// Query for trades have been replaced.
+    /// Encoded/decoded by serializers as "QRTR".
     /// </summary>
     [EnumMember(Value = "QRTR")]
     [IsoId("_kXgLMKacEeSR8qifggAitQ")]
     [Description(@"Query for trades have been replaced.")]
-    QRTR,
+    QueryReplacedTrade,
     
     /// <summary>
     /// Query for emergency trades.
+    /// Encoded/decoded by serializers as "QETR".
     /// </summary>
     [EnumMember(Value = "QETR")]
     [IsoId("_yRy70KacEeSR8qifggAitQ")]
     [Description(@"Query for emergency trades.")]
-    QETR,
+    QueryEmergencyTrade,
     
     /// <summary>
     /// Query for cancelling trades.
+    /// Encoded/decoded by serializers as "QCIR".
     /// </summary>
     [EnumMember(Value = "QCIR")]
     [IsoId("_8K2roKacEeSR8qifggAitQ")]
     [Description(@"Query for cancelling trades.")]
-    QCIR,
+    QueryCancellingTrade,
     
 }
 

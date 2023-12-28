@@ -20,51 +20,57 @@ public enum MandateReasonCode
 {
     /// <summary>
     /// Agent details are incorrect or have changed.
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_af7gkdp-Ed-ak6NoX_4Aeg_-1939942868")]
     [Description(@"Agent details are incorrect or have changed.")]
-    AGNT,
+    IncorrectAgent,
     
     /// <summary>
     /// Currency for the mandate is incorrect or has changed.
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_af7gktp-Ed-ak6NoX_4Aeg_-1939942867")]
     [Description(@"Currency for the mandate is incorrect or has changed.")]
-    CURR,
+    IncorrectCurrency,
     
     /// <summary>
     /// Customer requested the change.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_af7gk9p-Ed-ak6NoX_4Aeg_-1939942838")]
     [Description(@"Customer requested the change.")]
-    CUST,
+    RequestedByCustomer,
     
     /// <summary>
     /// Insufficient or incoherent details about the debtor.
+    /// Encoded/decoded by serializers as "DBTR".
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_af7glNp-Ed-ak6NoX_4Aeg_-1939942807")]
     [Description(@"Insufficient or incoherent details about the debtor.")]
-    DBTR,
+    InsufficientDebtorDetails,
     
     /// <summary>
     /// Insufficient or incoherent details about the creditor.
+    /// Encoded/decoded by serializers as "CDTR".
     /// </summary>
     [EnumMember(Value = "CDTR")]
     [IsoId("_af7gldp-Ed-ak6NoX_4Aeg_-1939942776")]
     [Description(@"Insufficient or incoherent details about the creditor.")]
-    CDTR,
+    InsufficientCreditorDetails,
     
     /// <summary>
     /// Account details are not correct.
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_af7gltp-Ed-ak6NoX_4Aeg_-2096018319")]
     [Description(@"Account details are not correct.")]
-    ACCT,
+    IncorrectAccount,
     
 }
 

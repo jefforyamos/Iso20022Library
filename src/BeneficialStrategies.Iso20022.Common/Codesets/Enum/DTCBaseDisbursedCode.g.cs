@@ -20,19 +20,21 @@ public enum DTCBaseDisbursedCode
 {
     /// <summary>
     /// Based on base security.
+    /// Encoded/decoded by serializers as "BASE".
     /// </summary>
     [EnumMember(Value = "BASE")]
     [IsoId("_1qBZgTL3EeKU9IrkkToqcw_682874645")]
     [Description(@"Based on base security.")]
-    BASE,
+    Base,
     
     /// <summary>
     /// Based on disbursed security.
+    /// Encoded/decoded by serializers as "DISB".
     /// </summary>
     [EnumMember(Value = "DISB")]
     [IsoId("_1qBZgjL3EeKU9IrkkToqcw_-1428030677")]
     [Description(@"Based on disbursed security.")]
-    DISB,
+    Disbursed,
     
 }
 

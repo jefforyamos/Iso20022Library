@@ -21,19 +21,21 @@ public enum ExternalUndertakingAmountTypeCode
 {
     /// <summary>
     /// Amount is an increase.
+    /// Encoded/decoded by serializers as "INCR".
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_uQxp-fRYEeuLhpyIdtJzwg")]
     [Description(@"Amount is an increase.")]
-    INCR,
+    Increase,
     
     /// <summary>
     /// Amount is a reduction.
+    /// Encoded/decoded by serializers as "REDC".
     /// </summary>
     [EnumMember(Value = "REDC")]
     [IsoId("_uQ7a8PRYEeuLhpyIdtJzwg")]
     [Description(@"Amount is a reduction.")]
-    REDC,
+    Reduction,
     
 }
 

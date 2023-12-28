@@ -20,19 +20,21 @@ public enum FundStructureCode
 {
     /// <summary>
     /// Investment fund that contains more than one investment fund class.
+    /// Encoded/decoded by serializers as "MFUN".
     /// </summary>
     [EnumMember(Value = "MFUN")]
     [IsoId("_atyWZdp-Ed-ak6NoX_4Aeg_-1363507035")]
     [Description(@"Investment fund that contains more than one investment fund class.")]
-    MFUN,
+    MultiClassFund,
     
     /// <summary>
     /// Investment fund that contains only one investment fund class.
+    /// Encoded/decoded by serializers as "SFUN".
     /// </summary>
     [EnumMember(Value = "SFUN")]
     [IsoId("_atyWZtp-Ed-ak6NoX_4Aeg_-904519550")]
     [Description(@"Investment fund that contains only one investment fund class.")]
-    SFUN,
+    SingleClassFund,
     
 }
 

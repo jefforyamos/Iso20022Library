@@ -20,27 +20,30 @@ public enum WarrantStyleCode
 {
     /// <summary>
     /// Option that can be exercised on expiry date only.
+    /// Encoded/decoded by serializers as "EURO".
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_Yg95gNp-Ed-ak6NoX_4Aeg_545175896")]
     [Description(@"Option that can be exercised on expiry date only.")]
-    EURO,
+    European,
     
     /// <summary>
     /// Option can be exercised before or on expiry date.
+    /// Encoded/decoded by serializers as "AMER".
     /// </summary>
     [EnumMember(Value = "AMER")]
     [IsoId("_Yg95gdp-Ed-ak6NoX_4Aeg_609455502")]
     [Description(@"Option can be exercised before or on expiry date.")]
-    AMER,
+    American,
     
     /// <summary>
     /// Option that can be exercised on multiple discrete dates prior to, or on expiry date.
+    /// Encoded/decoded by serializers as "BERM".
     /// </summary>
     [EnumMember(Value = "BERM")]
     [IsoId("_Yg95gtp-Ed-ak6NoX_4Aeg_-565735523")]
     [Description(@"Option that can be exercised on multiple discrete dates prior to, or on expiry date.")]
-    BERM,
+    Bermudan,
     
 }
 

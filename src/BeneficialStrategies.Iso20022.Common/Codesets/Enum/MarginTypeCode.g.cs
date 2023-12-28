@@ -20,179 +20,201 @@ public enum MarginTypeCode
 {
     /// <summary>
     /// Margin required to cover the risk of non settlement of the underlying. Also used to cover the risk linked to the non settlement on payment platforms (for example TARGET2 vs CLS).
+    /// Encoded/decoded by serializers as "SEMA".
     /// </summary>
     [EnumMember(Value = "SEMA")]
     [IsoId("_-f1twKMOEeCojJW5vEuTEQ_-2034787711")]
     [Description(@"Margin required to cover the risk of non settlement of the underlying. Also used to cover the risk linked to the non settlement on payment platforms (for example TARGET2 vs CLS).")]
-    SEMA,
+    SettlementRiskMargin,
     
     /// <summary>
     /// Additional margin required to cover the daily risk encountered by the central counterparty before the clearing member is actually called to cover the default fund. Indeed, central counterparty calculates the margin on the default fund on a daily basis but only calls the clearing member at the end of the month.
+    /// Encoded/decoded by serializers as "ADFM".
     /// </summary>
     [EnumMember(Value = "ADFM")]
     [IsoId("_-f1twaMOEeCojJW5vEuTEQ_-1116360912")]
     [Description(@"Additional margin required to cover the daily risk encountered by the central counterparty before the clearing member is actually called to cover the default fund. Indeed, central counterparty calculates the margin on the default fund on a daily basis but only calls the clearing member at the end of the month.")]
-    ADFM,
+    AdditionalDefaultFundMargin,
     
     /// <summary>
     /// Margin required to cover the concentration risk linked to the default of the seller of the "protection" (for example CDS seller).
+    /// Encoded/decoded by serializers as "SCMA".
     /// </summary>
     [EnumMember(Value = "SCMA")]
     [IsoId("_-f1twqMOEeCojJW5vEuTEQ_-1044911117")]
     [Description(@"Margin required to cover the concentration risk linked to the default of the seller of the ""protection"" (for example CDS seller).")]
-    SCMA,
+    ShortChargeMargin,
     
     /// <summary>
     /// Margin required to cover the non payment of the monthly premium (for credit derivatives).
+    /// Encoded/decoded by serializers as "COMA".
     /// </summary>
     [EnumMember(Value = "COMA")]
     [IsoId("_-f1tw6MOEeCojJW5vEuTEQ_532812294")]
     [Description(@"Margin required to cover the non payment of the monthly premium (for credit derivatives).")]
-    COMA,
+    CouponMargin,
     
     /// <summary>
     /// Margin required to cover the non payment of the upfront premium (for credit derivatives).
+    /// Encoded/decoded by serializers as "UFMA".
     /// </summary>
     [EnumMember(Value = "UFMA")]
     [IsoId("_-f1txKMOEeCojJW5vEuTEQ_1129854074")]
     [Description(@"Margin required to cover the non payment of the upfront premium (for credit derivatives).")]
-    UFMA,
+    UpfrontMargin,
     
     /// <summary>
     /// Margin required to cover the risk of any event linked to the underlying (for example the payment default by the issuer of a debt).
+    /// Encoded/decoded by serializers as "CEMA".
     /// </summary>
     [EnumMember(Value = "CEMA")]
     [IsoId("_-f1txaMOEeCojJW5vEuTEQ_-978337171")]
     [Description(@"Margin required to cover the risk of any event linked to the underlying (for example the payment default by the issuer of a debt).")]
-    CEMA,
+    CreditEventMargin,
     
     /// <summary>
     /// Margin required to enable a member to start trading on a specific market where high risks and amounts are involved.
+    /// Encoded/decoded by serializers as "INDE".
     /// </summary>
     [EnumMember(Value = "INDE")]
     [IsoId("_-f1txqMOEeCojJW5vEuTEQ_-1078255203")]
     [Description(@"Margin required to enable a member to start trading on a specific market where high risks and amounts are involved.")]
-    INDE,
+    InitialDeposit,
     
     /// <summary>
     /// Margin calculated on the same basis as for the variation margin but the margin is kept by the central counterparty and not "paid " to the other clearing member.
+    /// Encoded/decoded by serializers as "NEMA".
     /// </summary>
     [EnumMember(Value = "NEMA")]
     [IsoId("_-f_ewKMOEeCojJW5vEuTEQ_1562428186")]
     [Description(@"Margin calculated on the same basis as for the variation margin but the margin is kept by the central counterparty and not ""paid "" to the other clearing member.")]
-    NEMA,
+    NegociationMargin,
     
     /// <summary>
     /// Margin required for absorbing future market price fluctuations (market risks) occurring between the default of a member and close-out of unsettled securities positions by the central counterparty.
+    /// Encoded/decoded by serializers as "INMA".
     /// </summary>
     [EnumMember(Value = "INMA")]
     [IsoId("_-f_ewaMOEeCojJW5vEuTEQ_-1434830201")]
     [Description(@"Margin required for absorbing future market price fluctuations (market risks) occurring between the default of a member and close-out of unsettled securities positions by the central counterparty.")]
-    INMA,
+    InitialMargin,
     
     /// <summary>
     /// Margin required to cover the risk linked to the price fluctuations occurred on the unsettled exposures towards central counterparty.
+    /// Encoded/decoded by serializers as "VAMA".
     /// </summary>
     [EnumMember(Value = "VAMA")]
     [IsoId("_-f_ewqMOEeCojJW5vEuTEQ_-313675587")]
     [Description(@"Margin required to cover the risk linked to the price fluctuations occurred on the unsettled exposures towards central counterparty.")]
-    VAMA,
+    VariationMargin,
     
     /// <summary>
     /// Additional margin required to cover a risk increase (expressed in the reporting currency). This results from a risk management decision depending on central counterparty specific criteria.
+    /// Encoded/decoded by serializers as "INCA".
     /// </summary>
     [EnumMember(Value = "INCA")]
     [IsoId("_-f_ew6MOEeCojJW5vEuTEQ_320898032")]
     [Description(@"Additional margin required to cover a risk increase (expressed in the reporting currency). This results from a risk management decision depending on central counterparty specific criteria.")]
-    INCA,
+    IncreaseCoverageAmount,
     
     /// <summary>
     /// Margin called to cover differences in the assumed liquidation cost of a portfolio of financial instruments when estimating potential future exposure relative. For instance, where the potential future exposure is estimated using mid-prices but fails to consider the necessity to pay a bid-ask spread, or the additional cost of liquidation that may arise when liquidating a large portfolio.
+    /// Encoded/decoded by serializers as "LIRM".
     /// </summary>
     [EnumMember(Value = "LIRM")]
     [IsoId("_RGhM8KsjEeayv9XxdmMwKQ")]
     [Description(@"Margin called to cover differences in the assumed liquidation cost of a portfolio of financial instruments when estimating potential future exposure relative. For instance, where the potential future exposure is estimated using mid-prices but fails to consider the necessity to pay a bid-ask spread, or the additional cost of liquidation that may arise when liquidating a large portfolio.")]
-    LIRM,
+    LiquidityRiskMargin,
     
     /// <summary>
     /// Margin requirement to cover the risk of a breakdown in the assumed relationship between two financial instruments or risk factors when calculating the margin requirement for a portfolio of financial instruments.
+    /// Encoded/decoded by serializers as "BARM".
     /// </summary>
     [EnumMember(Value = "BARM")]
     [IsoId("_Xtoq4KsjEeayv9XxdmMwKQ")]
     [Description(@"Margin requirement to cover the risk of a breakdown in the assumed relationship between two financial instruments or risk factors when calculating the margin requirement for a portfolio of financial instruments.")]
-    BARM,
+    BasisRiskMargin,
     
     /// <summary>
     /// Margin called to cover additional current or potential future exposures that may arise due to a connection between the credit quality of the counterparty and the movement in a set of risk factors of a financial instruments or portfolio of financial instruments.
+    /// Encoded/decoded by serializers as "WWRM".
     /// </summary>
     [EnumMember(Value = "WWRM")]
     [IsoId("_dZO7wKsjEeayv9XxdmMwKQ")]
     [Description(@"Margin called to cover additional current or potential future exposures that may arise due to a connection between the credit quality of the counterparty and the movement in a set of risk factors of a financial instruments or portfolio of financial instruments.")]
-    WWRM,
+    WrongWayRiskMargin,
     
     /// <summary>
     /// Margin to cover the risk of a credit event relating to a sovereign issuer.
+    /// Encoded/decoded by serializers as "SORM".
     /// </summary>
     [EnumMember(Value = "SORM")]
     [IsoId("_g3DtgKsjEeayv9XxdmMwKQ")]
     [Description(@"Margin to cover the risk of a credit event relating to a sovereign issuer.")]
-    SORM,
+    SovereignRiskMargin,
     
     /// <summary>
     /// Margin called to cover potential future exposures caused by volatility in the underlying risk factors of a set of financial instruments.
+    /// Encoded/decoded by serializers as "MARM".
     /// </summary>
     [EnumMember(Value = "MARM")]
     [IsoId("_oE_64KsjEeayv9XxdmMwKQ")]
     [Description(@"Margin called to cover potential future exposures caused by volatility in the underlying risk factors of a set of financial instruments.")]
-    MARM,
+    MarketRiskMargin,
     
     /// <summary>
     /// Margin called to cover an increase in the probability of default by a counterparty in relation to an OTC derivative or cleared transaction. The calculation of such margin is typically independent of any changes in current or potential future exposure.
+    /// Encoded/decoded by serializers as "CRAM".
     /// </summary>
     [EnumMember(Value = "CRAM")]
     [IsoId("_PGoXoK16EeaJ-ZG7I88yBQ")]
     [Description(@"Margin called to cover an increase in the probability of default by a counterparty in relation to an OTC derivative or cleared transaction. The calculation of such margin is typically independent of any changes in current or potential future exposure.")]
-    CRAM,
+    CreditRiskAdditionalMargin,
     
     /// <summary>
     /// Margin called, by a central counterparty, to cover current exposures for a portfolio of financial instruments where collateral called against such current exposures is held by the central counterparty and returned to the poster of such collateral at the delivery of the financial instrument.
+    /// Encoded/decoded by serializers as "CVMA".
     /// </summary>
     [EnumMember(Value = "CVMA")]
     [IsoId("_hp1i4PqDEeaQh_7a05rSJQ")]
     [Description(@"Margin called, by a central counterparty, to cover current exposures for a portfolio of financial instruments where collateral called against such current exposures is held by the central counterparty and returned to the poster of such collateral at the delivery of the financial instrument.")]
-    CVMA,
+    ContingentVariationMargin,
     
     /// <summary>
     /// Margin to cover risks relating to a sponsored clearing member. That is were a third party carries out a number of obligations under the rulebook of the central counterparty on behalf of a clearing member but doing so creates additional risks for the central counterparty with respect to the clearing member.
+    /// Encoded/decoded by serializers as "SPMA".
     /// </summary>
     [EnumMember(Value = "SPMA")]
     [IsoId("_mvzXIPqDEeaQh_7a05rSJQ")]
     [Description(@"Margin to cover risks relating to a sponsored clearing member. That is were a third party carries out a number of obligations under the rulebook of the central counterparty on behalf of a clearing member but doing so creates additional risks for the central counterparty with respect to the clearing member.")]
-    SPMA,
+    SponsorRiskMargin,
     
     /// <summary>
     /// Margin called to cover a potential increase in current exposure due to the revaluation of a financial instrument, where such revaluation is caused by a sharp discontinuous increase in the probability of default of the financial instrument or major risk factor of such financial instrument.
+    /// Encoded/decoded by serializers as "JTDR".
     /// </summary>
     [EnumMember(Value = "JTDR")]
     [IsoId("_sRvVsPqDEeaQh_7a05rSJQ")]
     [Description(@"Margin called to cover a potential increase in current exposure due to the revaluation of a financial instrument, where such revaluation is caused by a sharp discontinuous increase in the probability of default of the financial instrument or major risk factor of such financial instrument.")]
-    JTDR,
+    JumpToDefaultRequirement,
     
     /// <summary>
     /// Margin set called at the discretion of the caller.
+    /// Encoded/decoded by serializers as "DRAO".
     /// </summary>
     [EnumMember(Value = "DRAO")]
     [IsoId("_yjbWMPqDEeaQh_7a05rSJQ")]
     [Description(@"Margin set called at the discretion of the caller.")]
-    DRAO,
+    DiscretionaryRiskAddOn,
     
     /// <summary>
     /// Margin not categorised by any other margin type code.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_4STkkPqDEeaQh_7a05rSJQ")]
     [Description(@"Margin not categorised by any other margin type code.")]
-    OTHR,
+    Other,
     
 }
 

@@ -20,43 +20,48 @@ public enum TerminalTypeCode
 {
     /// <summary>
     /// Automated Teller Machine
+    /// Encoded/decoded by serializers as "ATMT".
     /// </summary>
     [EnumMember(Value = "ATMT")]
     [IsoId("_CyLEgECHEeeXpbqDpLawug")]
     [Description(@"Automated Teller Machine")]
-    ATMT,
+    ATM,
     
     /// <summary>
     /// Point of Sale terminal.
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_GY-zIECHEeeXpbqDpLawug")]
     [Description(@"Point of Sale terminal.")]
-    POST,
+    POS,
     
     /// <summary>
     /// Mobile or tablet used as a Point of Sale terminal
+    /// Encoded/decoded by serializers as "MPOS".
     /// </summary>
     [EnumMember(Value = "MPOS")]
     [IsoId("_K_CYQECHEeeXpbqDpLawug")]
     [Description(@"Mobile or tablet used as a Point of Sale terminal")]
-    MPOS,
+    mPOS,
     
     /// <summary>
     /// Other type defined at national level
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_QkQ7YECHEeeXpbqDpLawug")]
     [Description(@"Other type defined at national level")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other private type of terminal.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_VOi5MECHEeeXpbqDpLawug")]
     [Description(@"Other private type of terminal.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

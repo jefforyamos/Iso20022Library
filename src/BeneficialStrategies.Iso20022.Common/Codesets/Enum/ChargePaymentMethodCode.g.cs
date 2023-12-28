@@ -20,19 +20,21 @@ public enum ChargePaymentMethodCode
 {
     /// <summary>
     /// Payment is with cash.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_N9CzIBXyEeOBE-jZfcm4KQ")]
     [Description(@"Payment is with cash.")]
-    CASH,
+    Cash,
     
     /// <summary>
     /// Units are redeemed to cover payment.
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_OOJxQBXyEeOBE-jZfcm4KQ")]
     [Description(@"Units are redeemed to cover payment.")]
-    UNIT,
+    Unit,
     
 }
 

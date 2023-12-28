@@ -20,107 +20,120 @@ public enum CapitalTypeCode
 {
     /// <summary>
     /// Approved capital.
+    /// Encoded/decoded by serializers as "APPD".
     /// </summary>
     [EnumMember(Value = "APPD")]
     [IsoId("_a11fItp-Ed-ak6NoX_4Aeg_545560156")]
     [Description(@"Approved capital.")]
-    APPD,
+    Approved,
     
     /// <summary>
     /// Issued voting rights.
+    /// Encoded/decoded by serializers as "ISVR".
     /// </summary>
     [EnumMember(Value = "ISVR")]
     [IsoId("_a11fI9p-Ed-ak6NoX_4Aeg_545563282")]
     [Description(@"Issued voting rights.")]
-    ISVR,
+    IssuedVotingRights,
     
     /// <summary>
     /// Maximum amount of increase.
+    /// Encoded/decoded by serializers as "MXIN".
     /// </summary>
     [EnumMember(Value = "MXIN")]
     [IsoId("_a11fJNp-Ed-ak6NoX_4Aeg_546486650")]
     [Description(@"Maximum amount of increase.")]
-    MXIN,
+    MaximumIncrease,
     
     /// <summary>
     /// Outstanding capital.
+    /// Encoded/decoded by serializers as "OUTS".
     /// </summary>
     [EnumMember(Value = "OUTS")]
     [IsoId("_a11fJdp-Ed-ak6NoX_4Aeg_547409678")]
     [Description(@"Outstanding capital.")]
-    OUTS,
+    Outstanding,
     
     /// <summary>
     /// Redeemed capital.
+    /// Encoded/decoded by serializers as "REDE".
     /// </summary>
     [EnumMember(Value = "REDE")]
     [IsoId("_a11fJtp-Ed-ak6NoX_4Aeg_554798278")]
     [Description(@"Redeemed capital.")]
-    REDE,
+    Redeemed,
     
     /// <summary>
     /// Stated capital.
+    /// Encoded/decoded by serializers as "STCA".
     /// </summary>
     [EnumMember(Value = "STCA")]
     [IsoId("_a11fJ9p-Ed-ak6NoX_4Aeg_555721367")]
     [Description(@"Stated capital.")]
-    STCA,
+    StatedCapital,
     
     /// <summary>
     /// Issued reserve capital.
+    /// Encoded/decoded by serializers as "TRSO".
     /// </summary>
     [EnumMember(Value = "TRSO")]
     [IsoId("_a11fKNp-Ed-ak6NoX_4Aeg_556644310")]
     [Description(@"Issued reserve capital.")]
-    TRSO,
+    TreasuryStock,
     
     /// <summary>
     /// Contingent capital.
+    /// Encoded/decoded by serializers as "UISS".
     /// </summary>
     [EnumMember(Value = "UISS")]
     [IsoId("_a11fKdp-Ed-ak6NoX_4Aeg_557567152")]
     [Description(@"Contingent capital.")]
-    UISS,
+    Unissued,
     
     /// <summary>
     /// Withdrawn capital.
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_a1-pENp-Ed-ak6NoX_4Aeg_572344351")]
     [Description(@"Withdrawn capital.")]
-    WTHD,
+    Withdrawn,
     
     /// <summary>
     /// Authorised capital.
+    /// Encoded/decoded by serializers as "AUTD".
     /// </summary>
     [EnumMember(Value = "AUTD")]
     [IsoId("_a1-pEdp-Ed-ak6NoX_4Aeg_573267379")]
     [Description(@"Authorised capital.")]
-    AUTD,
+    Authorised,
     
     /// <summary>
     /// In circulation.
+    /// Encoded/decoded by serializers as "ICIR".
     /// </summary>
     [EnumMember(Value = "ICIR")]
     [IsoId("_a1-pEtp-Ed-ak6NoX_4Aeg_574190900")]
     [Description(@"In circulation.")]
-    ICIR,
+    InCirculation,
     
     /// <summary>
     /// Issued capital.
+    /// Encoded/decoded by serializers as "ISUD".
     /// </summary>
     [EnumMember(Value = "ISUD")]
     [IsoId("_a1-pE9p-Ed-ak6NoX_4Aeg_576037973")]
     [Description(@"Issued capital.")]
-    ISUD,
+    Issued,
     
     /// <summary>
     /// Issued reserve capital.
+    /// Encoded/decoded by serializers as "IRCA".
     /// </summary>
     [EnumMember(Value = "IRCA")]
     [IsoId("_a1-pFNp-Ed-ak6NoX_4Aeg_583426997")]
     [Description(@"Issued reserve capital.")]
-    IRCA,
+    IssuedReserveCapital,
     
 }
 

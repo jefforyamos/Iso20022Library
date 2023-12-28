@@ -20,52 +20,58 @@ public enum ResponseStatusCode
 {
     /// <summary>
     /// Part of the collateral is accepted, a part rejected.
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_Y94fAdp-Ed-ak6NoX_4Aeg_-2007141387")]
     [Description(@"Part of the collateral is accepted, a part rejected.")]
-    ACCP,
+    PartlyAccepted,
     
     /// <summary>
     /// Claim, substitution, proposal is fully accepted.
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_Y94fAtp-Ed-ak6NoX_4Aeg_-1286794697")]
     [Description(@"Claim, substitution, proposal is fully accepted.")]
-    ACCT,
+    Accepted,
     
     /// <summary>
     /// Claim, substitution, proposal is fully rejected.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_Y94fA9p-Ed-ak6NoX_4Aeg_-1200908229")]
     [Description(@"Claim, substitution, proposal is fully rejected.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Party A agrees with the return part of the substitution and accepts to wait for the proposal of the new collateral.
+    /// Encoded/decoded by serializers as "SUBR".
     /// </summary>
     [EnumMember(Value = "SUBR")]
     [IsoId("_Y94fBNp-Ed-ak6NoX_4Aeg_-1161198752")]
     [Description(@"Party A agrees with the return part of the substitution and accepts to wait for the proposal of the new collateral.")]
-    SUBR,
+    SubstitutionAccepted,
     
     /// <summary>
     /// Collateral giver instruction details are confirmed.
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_dS5_gcf0EemlRYW9CHJ8_Q")]
     [Description(@"Collateral giver instruction details are confirmed.")]
-    CONF,
+    Confirmed,
     
     /// <summary>
     /// Collateral giver instruction details are not recognised.
     /// 
+    /// Encoded/decoded by serializers as "DKNY".
     /// </summary>
     [EnumMember(Value = "DKNY")]
     [IsoId("_euTmgcf0EemlRYW9CHJ8_Q")]
     [Description(@"Collateral giver instruction details are not recognised. ")]
-    DKNY,
+    NotRecognised,
     
 }
 

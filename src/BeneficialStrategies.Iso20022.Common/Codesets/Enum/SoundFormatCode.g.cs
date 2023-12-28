@@ -20,27 +20,30 @@ public enum SoundFormatCode
 {
     /// <summary>
     /// Preloaded sound File.
+    /// Encoded/decoded by serializers as "SNDR".
     /// </summary>
     [EnumMember(Value = "SNDR")]
     [IsoId("_Dn7JMN6_Eeiwsev40qZGEQ")]
     [Description(@"Preloaded sound File.")]
-    SNDR,
+    SoundRef,
     
     /// <summary>
     /// Reference of a preloaded text to play.
+    /// Encoded/decoded by serializers as "MSGR".
     /// </summary>
     [EnumMember(Value = "MSGR")]
     [IsoId("_F6QYMN6_Eeiwsev40qZGEQ")]
     [Description(@"Reference of a preloaded text to play.")]
-    MSGR,
+    MessageRef,
     
     /// <summary>
     /// Text to play.
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_IaHF0N6_Eeiwsev40qZGEQ")]
     [Description(@"Text to play.")]
-    TEXT,
+    Text,
     
 }
 

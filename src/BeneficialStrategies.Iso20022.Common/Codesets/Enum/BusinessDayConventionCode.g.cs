@@ -20,43 +20,48 @@ public enum BusinessDayConventionCode
 {
     /// <summary>
     /// The date will be the first following day that is a business day.
+    /// Encoded/decoded by serializers as "FWNG".
     /// </summary>
     [EnumMember(Value = "FWNG")]
     [IsoId("_bVR0MNp-Ed-ak6NoX_4Aeg_627416390")]
     [Description(@"The date will be the first following day that is a business day.")]
-    FWNG,
+    Following,
     
     /// <summary>
     /// The date will be the first following day that is a business day unless that day falls in the next calendar month, in which case that date will be the first preceding day that is a business day.
+    /// Encoded/decoded by serializers as "MODF".
     /// </summary>
     [EnumMember(Value = "MODF")]
     [IsoId("_bVR0Mdp-Ed-ak6NoX_4Aeg_627416391")]
     [Description(@"The date will be the first following day that is a business day unless that day falls in the next calendar month, in which case that date will be the first preceding day that is a business day.")]
-    MODF,
+    ModifiedFollowing,
     
     /// <summary>
     /// The date will be the first preceding day that is a business day.
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_bVR0Mtp-Ed-ak6NoX_4Aeg_627416400")]
     [Description(@"The date will be the first preceding day that is a business day.")]
-    PREC,
+    Preceding,
     
     /// <summary>
     /// The date will be the first preceding day that is a business day unless that day falls on a day other than a sunday or a monday, and will be the first following day that is a business day, if the relevant date otherwise falls on a sunday or a monday.
+    /// Encoded/decoded by serializers as "NEAR".
     /// </summary>
     [EnumMember(Value = "NEAR")]
     [IsoId("_bVR0M9p-Ed-ak6NoX_4Aeg_627416407")]
     [Description(@"The date will be the first preceding day that is a business day unless that day falls on a day other than a sunday or a monday, and will be the first following day that is a business day, if the relevant date otherwise falls on a sunday or a monday.")]
-    NEAR,
+    Nearest,
     
     /// <summary>
     /// Any other business day convention.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_uUXrwCibEemeS_hzZ1Fwog")]
     [Description(@"Any other business day convention.")]
-    OTHR,
+    Other,
     
 }
 

@@ -20,27 +20,30 @@ public enum RiskLevelCode
 {
     /// <summary>
     /// High.
+    /// Encoded/decoded by serializers as "HIGH".
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_1Fus0BdwEeKYM7Bc71nDlA")]
     [Description(@"High.")]
-    HIGH,
+    High,
     
     /// <summary>
     /// Medium.
+    /// Encoded/decoded by serializers as "MEDM".
     /// </summary>
     [EnumMember(Value = "MEDM")]
     [IsoId("_1R8j4BdwEeKYM7Bc71nDlA")]
     [Description(@"Medium.")]
-    MEDM,
+    Medium,
     
     /// <summary>
     /// Low.
+    /// Encoded/decoded by serializers as "LOWW".
     /// </summary>
     [EnumMember(Value = "LOWW")]
     [IsoId("_1Z17oBdwEeKYM7Bc71nDlA")]
     [Description(@"Low.")]
-    LOWW,
+    Low,
     
 }
 

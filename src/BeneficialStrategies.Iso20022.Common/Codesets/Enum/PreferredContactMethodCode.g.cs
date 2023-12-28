@@ -20,43 +20,48 @@ public enum PreferredContactMethodCode
 {
     /// <summary>
     /// Preferred method used to reach the contact is per letter.
+    /// Encoded/decoded by serializers as "LETT".
     /// </summary>
     [EnumMember(Value = "LETT")]
     [IsoId("_6UHyCZqlEeGSON8vddiWzQ_-1387252991")]
     [Description(@"Preferred method used to reach the contact is per letter.")]
-    LETT,
+    Letter,
     
     /// <summary>
     /// Preferred method used to reach the contact is per email.
+    /// Encoded/decoded by serializers as "MAIL".
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_6URjAJqlEeGSON8vddiWzQ_-735312912")]
     [Description(@"Preferred method used to reach the contact is per email.")]
-    MAIL,
+    Email,
     
     /// <summary>
     /// Preferred method used to reach the contact is per phone.
+    /// Encoded/decoded by serializers as "PHON".
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_6URjAZqlEeGSON8vddiWzQ_877055563")]
     [Description(@"Preferred method used to reach the contact is per phone.")]
-    PHON,
+    Phone,
     
     /// <summary>
     /// Preferred method used to reach the contact is per fax.
+    /// Encoded/decoded by serializers as "FAXX".
     /// </summary>
     [EnumMember(Value = "FAXX")]
     [IsoId("_6URjApqlEeGSON8vddiWzQ_-724061441")]
     [Description(@"Preferred method used to reach the contact is per fax.")]
-    FAXX,
+    Fax,
     
     /// <summary>
     /// Preferred method used to reach the contact is per mobile or cell phone.
+    /// Encoded/decoded by serializers as "CELL".
     /// </summary>
     [EnumMember(Value = "CELL")]
     [IsoId("_6URjA5qlEeGSON8vddiWzQ_-2097794174")]
     [Description(@"Preferred method used to reach the contact is per mobile or cell phone.")]
-    CELL,
+    MobileOrCellPhone,
     
 }
 

@@ -20,27 +20,30 @@ public enum FormCode
 {
     /// <summary>
     /// A phsyical form is required through the main fund order desk.
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_VsEwAtp-Ed-ak6NoX_4Aeg_-1436042438")]
     [Description(@"A phsyical form is required through the main fund order desk.")]
-    REQU,
+    Required,
     
     /// <summary>
     /// A phsyical form is not required through the main fund order desk.
+    /// Encoded/decoded by serializers as "NREQ".
     /// </summary>
     [EnumMember(Value = "NREQ")]
     [IsoId("_VsEwA9p-Ed-ak6NoX_4Aeg_-1431426395")]
     [Description(@"A phsyical form is not required through the main fund order desk.")]
-    NREQ,
+    NotRequired,
     
     /// <summary>
     /// A phsyical form with the investor's written signature is required through the main fund order desk.
+    /// Encoded/decoded by serializers as "SREQ".
     /// </summary>
     [EnumMember(Value = "SREQ")]
     [IsoId("_VsEwBNp-Ed-ak6NoX_4Aeg_-1416648096")]
     [Description(@"A phsyical form with the investor's written signature is required through the main fund order desk.")]
-    SREQ,
+    SignatureRequired,
     
 }
 

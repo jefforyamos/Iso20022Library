@@ -20,19 +20,21 @@ public enum UnrealisedCode
 {
     /// <summary>
     /// Unrealised gain.
+    /// Encoded/decoded by serializers as "GAIN".
     /// </summary>
     [EnumMember(Value = "GAIN")]
     [IsoId("_m50OZPNBEeCuA5Tr22BnwA_667402002")]
     [Description(@"Unrealised gain.")]
-    GAIN,
+    Gain,
     
     /// <summary>
     /// Unrealised loss.
+    /// Encoded/decoded by serializers as "LOSS".
     /// </summary>
     [EnumMember(Value = "LOSS")]
     [IsoId("_m50OZfNBEeCuA5Tr22BnwA_-1644430516")]
     [Description(@"Unrealised loss.")]
-    LOSS,
+    Loss,
     
 }
 

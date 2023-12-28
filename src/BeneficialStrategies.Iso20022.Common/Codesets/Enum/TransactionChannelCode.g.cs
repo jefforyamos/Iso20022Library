@@ -20,83 +20,93 @@ public enum TransactionChannelCode
 {
     /// <summary>
     /// Mail order.
+    /// Encoded/decoded by serializers as "MAIL".
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_TVWQBwEcEeCQm6a_G2yO_w_977545378")]
     [Description(@"Mail order.")]
-    MAIL,
+    MailOrder,
     
     /// <summary>
     /// Telephone order.
+    /// Encoded/decoded by serializers as "TLPH".
     /// </summary>
     [EnumMember(Value = "TLPH")]
     [IsoId("_TVWQCAEcEeCQm6a_G2yO_w_1632008527")]
     [Description(@"Telephone order.")]
-    TLPH,
+    TelephoneOrder,
     
     /// <summary>
     /// Electronic commerce.
+    /// Encoded/decoded by serializers as "ECOM".
     /// </summary>
     [EnumMember(Value = "ECOM")]
     [IsoId("_TVWQCQEcEeCQm6a_G2yO_w_-1433707025")]
     [Description(@"Electronic commerce.")]
-    ECOM,
+    ElectronicCommerce,
     
     /// <summary>
     /// Payment on television.
+    /// Encoded/decoded by serializers as "TVPY".
     /// </summary>
     [EnumMember(Value = "TVPY")]
     [IsoId("_TVWQCgEcEeCQm6a_G2yO_w_-2041458064")]
     [Description(@"Payment on television.")]
-    TVPY,
+    TelevisionPayment,
     
     /// <summary>
     /// Office or branch.
+    /// Encoded/decoded by serializers as "BRAN".
     /// </summary>
     [EnumMember(Value = "BRAN")]
     [IsoId("_TaM_UBRFEeOKWo1NF21OVw")]
     [Description(@"Office or branch.")]
-    BRAN,
+    OfficeOrBranch,
     
     /// <summary>
     /// Home banking.
+    /// Encoded/decoded by serializers as "HOBA".
     /// </summary>
     [EnumMember(Value = "HOBA")]
     [IsoId("_TwXckBRFEeOKWo1NF21OVw")]
     [Description(@"Home banking.")]
-    HOBA,
+    HomeBanking,
     
     /// <summary>
     /// Financial advisor.
+    /// Encoded/decoded by serializers as "FIAD".
     /// </summary>
     [EnumMember(Value = "FIAD")]
     [IsoId("_UBVQwBRFEeOKWo1NF21OVw")]
     [Description(@"Financial advisor.")]
-    FIAD,
+    FinancialAdvisor,
     
     /// <summary>
     /// Payment performed through a cardholder mobile device.
+    /// Encoded/decoded by serializers as "MOBL".
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_0EyQwGkBEeS7zPBpvm732w")]
     [Description(@"Payment performed through a cardholder mobile device.")]
-    MOBL,
+    MobilePayment,
     
     /// <summary>
     /// Electronic commerce with cardholder authentication.
+    /// Encoded/decoded by serializers as "SECM".
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_3fSowGkBEeS7zPBpvm732w")]
     [Description(@"Electronic commerce with cardholder authentication.")]
-    SECM,
+    SecuredElectronicCommerce,
     
     /// <summary>
     /// Payment performed through a merchant mobile device.
+    /// Encoded/decoded by serializers as "MPOS".
     /// </summary>
     [EnumMember(Value = "MPOS")]
     [IsoId("_BAAuQLDHEeaW-9Sj0pzN5A")]
     [Description(@"Payment performed through a merchant mobile device.")]
-    MPOS,
+    MobilePOS,
     
 }
 

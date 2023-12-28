@@ -20,67 +20,75 @@ public enum SecurityStatusCode
 {
     /// <summary>
     /// The status is active.
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZKGWE9p-Ed-ak6NoX_4Aeg_875031399")]
     [Description(@"The status is active.")]
-    ACTV,
+    Active,
     
     /// <summary>
     /// The status is inactive.
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_ZKGWFNp-Ed-ak6NoX_4Aeg_924902935")]
     [Description(@"The status is inactive.")]
-    INAC,
+    Inactive,
     
     /// <summary>
     /// The status is when issued.
+    /// Encoded/decoded by serializers as "WISS".
     /// </summary>
     [EnumMember(Value = "WISS")]
     [IsoId("_ZKGWFdp-Ed-ak6NoX_4Aeg_1162247833")]
     [Description(@"The status is when issued.")]
-    WISS,
+    WhenIssued,
     
     /// <summary>
     /// The status is when distributed.
+    /// Encoded/decoded by serializers as "WDIS".
     /// </summary>
     [EnumMember(Value = "WDIS")]
     [IsoId("_ZKGWFtp-Ed-ak6NoX_4Aeg_1205652804")]
     [Description(@"The status is when distributed.")]
-    WDIS,
+    WhenDistributed,
     
     /// <summary>
     /// The status is issued.
+    /// Encoded/decoded by serializers as "ISUD".
     /// </summary>
     [EnumMember(Value = "ISUD")]
     [IsoId("_ZKGWF9p-Ed-ak6NoX_4Aeg_1232436292")]
     [Description(@"The status is issued.")]
-    ISUD,
+    Issued,
     
     /// <summary>
     /// The status is suspended.
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_ZKGWGNp-Ed-ak6NoX_4Aeg_1249981812")]
     [Description(@"The status is suspended.")]
-    SUSP,
+    Suspended,
     
     /// <summary>
     /// The status is in default.
+    /// Encoded/decoded by serializers as "IDEF".
     /// </summary>
     [EnumMember(Value = "IDEF")]
     [IsoId("_ZKPgANp-Ed-ak6NoX_4Aeg_1275841256")]
     [Description(@"The status is in default.")]
-    IDEF,
+    InDefault,
     
     /// <summary>
     /// Annoucement by the regulator that the security has become worthless.
+    /// Encoded/decoded by serializers as "WRTH".
     /// </summary>
     [EnumMember(Value = "WRTH")]
     [IsoId("_ZKPgAdp-Ed-ak6NoX_4Aeg_1295235874")]
     [Description(@"Annoucement by the regulator that the security has become worthless.")]
-    WRTH,
+    Worthless,
     
 }
 

@@ -21,91 +21,102 @@ public enum ExternalReversalReasonCode
 {
     /// <summary>
     /// Wrong IBAN in  SCT
+    /// Encoded/decoded by serializers as "AC03".
     /// </summary>
     [EnumMember(Value = "AC03")]
     [IsoId("_t8gqIPRYEeuLhpyIdtJzwg")]
     [Description(@"Wrong IBAN in  SCT")]
-    AC03,
+    InvalidCreditorAccountNumber,
     
     /// <summary>
     /// Account number specified has been closed on the Receiver's books
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_t8gqI_RYEeuLhpyIdtJzwg")]
     [Description(@"Account number specified has been closed on the Receiver's books")]
-    AC04,
+    ClosedAccountNumber,
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver
+    /// Encoded/decoded by serializers as "AG02".
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_t8gqJvRYEeuLhpyIdtJzwg")]
     [Description(@"Bank Operation code specified in the message is not valid for receiver")]
-    AG02,
+    InvalidBankOperationCode,
     
     /// <summary>
     /// Duplication
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_t8gqKfRYEeuLhpyIdtJzwg")]
     [Description(@"Duplication")]
-    AM05,
+    Duplication,
     
     /// <summary>
     /// Wrong amount in SCT
+    /// Encoded/decoded by serializers as "AM09".
     /// </summary>
     [EnumMember(Value = "AM09")]
     [IsoId("_t8qbIPRYEeuLhpyIdtJzwg")]
     [Description(@"Wrong amount in SCT")]
-    AM09,
+    WrongAmount,
     
     /// <summary>
     /// No Mandate
+    /// Encoded/decoded by serializers as "MD01".
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_t8qbI_RYEeuLhpyIdtJzwg")]
     [Description(@"No Mandate")]
-    MD01,
+    NoMandate,
     
     /// <summary>
     /// Creditor or creditor's agent should not have collected the direct debit
+    /// Encoded/decoded by serializers as "MD05".
     /// </summary>
     [EnumMember(Value = "MD05")]
     [IsoId("_t8qbJvRYEeuLhpyIdtJzwg")]
     [Description(@"Creditor or creditor's agent should not have collected the direct debit")]
-    MD05,
+    CollectionNotDue,
     
     /// <summary>
     /// Reason has not been specified by end customer
+    /// Encoded/decoded by serializers as "MS02".
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_t8qbKfRYEeuLhpyIdtJzwg")]
     [Description(@"Reason has not been specified by end customer")]
-    MS02,
+    NotSpecifiedReasonCustomerGenerated,
     
     /// <summary>
     /// Reason has not been specified by agent.
+    /// Encoded/decoded by serializers as "MS03".
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_t8qbLPRYEeuLhpyIdtJzwg")]
     [Description(@"Reason has not been specified by agent.")]
-    MS03,
+    NotSpecifiedReasonAgentGenerated,
     
     /// <summary>
     /// Wrong BIC in SCT
+    /// Encoded/decoded by serializers as "RC07".
     /// </summary>
     [EnumMember(Value = "RC07")]
     [IsoId("_t8zlEPRYEeuLhpyIdtJzwg")]
     [Description(@"Wrong BIC in SCT")]
-    RC07,
+    InvalidCreditorBICIdentifier,
     
     /// <summary>
     /// Associated message was received after agreed processing cut-off time.
+    /// Encoded/decoded by serializers as "TM01".
     /// </summary>
     [EnumMember(Value = "TM01")]
     [IsoId("_t8zlE_RYEeuLhpyIdtJzwg")]
     [Description(@"Associated message was received after agreed processing cut-off time.")]
-    TM01,
+    CutOffTime,
     
 }
 

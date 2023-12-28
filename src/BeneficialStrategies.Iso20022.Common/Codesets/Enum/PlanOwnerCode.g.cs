@@ -20,43 +20,48 @@ public enum PlanOwnerCode
 {
     /// <summary>
     /// Plan owner is an acquirer.
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_79-8YNuJEei2qvU6FBLZYA")]
     [Description(@"Plan owner is an acquirer.")]
-    ACQR,
+    Acquirer,
     
     /// <summary>
     /// Plan owner is an acceptor.
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_799uQduJEei2qvU6FBLZYA")]
     [Description(@"Plan owner is an acceptor.")]
-    ACCP,
+    Acceptor,
     
     /// <summary>
     /// Plan owner is an issuer.
+    /// Encoded/decoded by serializers as "ISSR".
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_7-AxkduJEei2qvU6FBLZYA")]
     [Description(@"Plan owner is an issuer.")]
-    ISSR,
+    Issuer,
     
     /// <summary>
     /// plan owner type is other national.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_7-AxkNuJEei2qvU6FBLZYA")]
     [Description(@"plan owner type is other national.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// plan owner type is other private.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_7-Axk9uJEei2qvU6FBLZYA")]
     [Description(@"plan owner type is other private.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

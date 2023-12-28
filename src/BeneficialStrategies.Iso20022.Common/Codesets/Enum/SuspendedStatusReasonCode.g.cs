@@ -20,43 +20,48 @@ public enum SuspendedStatusReasonCode
 {
     /// <summary>
     /// There is a suspension of pricing. The order will stay on the books until the next pricing.
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_ZQ9MAdp-Ed-ak6NoX_4Aeg_-102197550")]
     [Description(@"There is a suspension of pricing. The order will stay on the books until the next pricing.")]
-    PRIC,
+    PriceSuspension,
     
     /// <summary>
     /// There is a fund overflow.
+    /// Encoded/decoded by serializers as "FLOW".
     /// </summary>
     [EnumMember(Value = "FLOW")]
     [IsoId("_ZQ9MAtp-Ed-ak6NoX_4Aeg_-102197438")]
     [Description(@"There is a fund overflow.")]
-    FLOW,
+    Overflow,
     
     /// <summary>
     /// Transaction/instruction is suspended following your earlier suspension instruction.
+    /// Encoded/decoded by serializers as "SUBY".
     /// </summary>
     [EnumMember(Value = "SUBY")]
     [IsoId("_ZQ9MA9p-Ed-ak6NoX_4Aeg_-83724631")]
     [Description(@"Transaction/instruction is suspended following your earlier suspension instruction.")]
-    SUBY,
+    SuspendedByYourself,
     
     /// <summary>
     /// Transaction/instruction is suspended following a system suspension instruction.
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_ZQ9MBNp-Ed-ak6NoX_4Aeg_-75415371")]
     [Description(@"Transaction/instruction is suspended following a system suspension instruction.")]
-    SUBS,
+    SuspendedBySystem,
     
     /// <summary>
     /// Another reason for the status suspended.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ZQ9MBdp-Ed-ak6NoX_4Aeg_82201992")]
     [Description(@"Another reason for the status suspended.")]
-    OTHR,
+    Other,
     
 }
 

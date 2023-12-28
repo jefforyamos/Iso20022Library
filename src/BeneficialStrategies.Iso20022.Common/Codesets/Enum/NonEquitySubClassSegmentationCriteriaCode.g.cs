@@ -20,270 +20,304 @@ public enum NonEquitySubClassSegmentationCriteriaCode
 {
     /// <summary>
     /// Sub-asset class.
+    /// Encoded/decoded by serializers as "SACL".
     /// </summary>
     [EnumMember(Value = "SACL")]
     [IsoId("_9tdQMGkfEeqf6OGS6ti91w")]
     [Description(@"Sub-asset class.")]
-    SACL,
+    SubAssetClass,
     
     /// <summary>
     /// Time to maturity bucket.
+    /// Encoded/decoded by serializers as "TTMB".
     /// </summary>
     [EnumMember(Value = "TTMB")]
     [IsoId("_ogEP8GkgEeqf6OGS6ti91w")]
     [Description(@"Time to maturity bucket.")]
-    TTMB,
+    TimeToMaturityBucket,
     
     /// <summary>
     /// Time to maturity bucket of the option.
+    /// Encoded/decoded by serializers as "TTMO".
     /// </summary>
     [EnumMember(Value = "TTMO")]
     [IsoId("_rzkBAGkgEeqf6OGS6ti91w")]
     [Description(@"Time to maturity bucket of the option.")]
-    TTMO,
+    OptionTimeToMaturityBucket,
     
     /// <summary>
     /// Time to maturity bucket of the swap.
+    /// Encoded/decoded by serializers as "TTMS".
     /// </summary>
     [EnumMember(Value = "TTMS")]
     [IsoId("_r1hv4GkgEeqf6OGS6ti91w")]
     [Description(@"Time to maturity bucket of the swap.")]
-    TTMS,
+    SwapTimeToMaturityBucket,
     
     /// <summary>
     /// Underlying instrument identification, such as an ISIN code.
+    /// Encoded/decoded by serializers as "UINS".
     /// </summary>
     [EnumMember(Value = "UINS")]
     [IsoId("_102fwGkgEeqf6OGS6ti91w")]
     [Description(@"Underlying instrument identification, such as an ISIN code.")]
-    UINS,
+    UnderlyingInstrumentIdentification,
     
     /// <summary>
     /// Issuer of the underlying bond.
+    /// Encoded/decoded by serializers as "IOUB".
     /// </summary>
     [EnumMember(Value = "IOUB")]
     [IsoId("_8VPqoGkgEeqf6OGS6ti91w")]
     [Description(@"Issuer of the underlying bond.")]
-    IOUB,
+    UnderlyingBondIssuer,
     
     /// <summary>
     /// Underlying interest rate.
+    /// Encoded/decoded by serializers as "UIRT".
     /// </summary>
     [EnumMember(Value = "UIRT")]
     [IsoId("_S5kMIGkhEeqf6OGS6ti91w")]
     [Description(@"Underlying interest rate.")]
-    UIRT,
+    UnderlyingInterestRate,
     
     /// <summary>
     /// Term of the underlying bond.
+    /// Encoded/decoded by serializers as "TOUB".
     /// </summary>
     [EnumMember(Value = "TOUB")]
     [IsoId("_UCT84GkhEeqf6OGS6ti91w")]
     [Description(@"Term of the underlying bond.")]
-    TOUB,
+    UnderlyingBondTerm,
     
     /// <summary>
     /// Asset class.
+    /// Encoded/decoded by serializers as "ASCL".
     /// </summary>
     [EnumMember(Value = "ASCL")]
     [IsoId("_Dk4k4G52EeqChceapNqdqQ")]
     [Description(@"Asset class.")]
-    ASCL,
+    AssetClass,
     
     /// <summary>
     /// Underlying index identification such as an ISIN or an index name.
+    /// Encoded/decoded by serializers as "UIDX".
     /// </summary>
     [EnumMember(Value = "UIDX")]
     [IsoId("_xbe04G6IEeqTXeGPLsqb_w")]
     [Description(@"Underlying index identification such as an ISIN or an index name.")]
-    UIDX,
+    UnderlyingIndexIdentification,
     
     /// <summary>
     /// Interest rate term of contract.
+    /// Encoded/decoded by serializers as "IRTC".
     /// </summary>
     [EnumMember(Value = "IRTC")]
     [IsoId("_6JxasG6IEeqTXeGPLsqb_w")]
     [Description(@"Interest rate term of contract.")]
-    IRTC,
+    InterestRateTermOfContract,
     
     /// <summary>
     /// Underlying reference entity.
+    /// Encoded/decoded by serializers as "REOU".
     /// </summary>
     [EnumMember(Value = "REOU")]
     [IsoId("_9gVt4G6IEeqTXeGPLsqb_w")]
     [Description(@"Underlying reference entity.")]
-    REOU,
+    UnderlyingReferenceEntity,
     
     /// <summary>
     /// Issuer of sovereign and public type.
+    /// Encoded/decoded by serializers as "ISPT".
     /// </summary>
     [EnumMember(Value = "ISPT")]
     [IsoId("_X3Ms4G6JEeqTXeGPLsqb_w")]
     [Description(@"Issuer of sovereign and public type.")]
-    ISPT,
+    SovereignAndPublicTypeIssuer,
     
     /// <summary>
     /// Interest rate derivative notional currency 1.
+    /// Encoded/decoded by serializers as "INC1".
     /// </summary>
     [EnumMember(Value = "INC1")]
     [IsoId("_eKAuwG6JEeqTXeGPLsqb_w")]
     [Description(@"Interest rate derivative notional currency 1.")]
-    INC1,
+    IRDNotionalCurrency1,
     
     /// <summary>
     /// Foreign exchange derivative notional currency 1.
+    /// Encoded/decoded by serializers as "FNC1".
     /// </summary>
     [EnumMember(Value = "FNC1")]
     [IsoId("_72wrgG6JEeqTXeGPLsqb_w")]
     [Description(@"Foreign exchange derivative notional currency 1.")]
-    FNC1,
+    FEXNotionalCurrency1,
     
     /// <summary>
     /// Contract for difference notional currency 1.
+    /// Encoded/decoded by serializers as "CNC1".
     /// </summary>
     [EnumMember(Value = "CNC1")]
     [IsoId("_WyeEAG6KEeqTXeGPLsqb_w")]
     [Description(@"Contract for difference notional currency 1.")]
-    CNC1,
+    CFDNotionalCurrency1,
     
     /// <summary>
     /// Foreign exchange derivative notional currency 2.
+    /// Encoded/decoded by serializers as "FNC2".
     /// </summary>
     [EnumMember(Value = "FNC2")]
     [IsoId("_58YNAG6KEeqTXeGPLsqb_w")]
     [Description(@"Foreign exchange derivative notional currency 2.")]
-    FNC2,
+    FEXNotionalCurrency2,
     
     /// <summary>
     /// Interest rate derivative notional currency 2.
+    /// Encoded/decoded by serializers as "INC2".
     /// </summary>
     [EnumMember(Value = "INC2")]
     [IsoId("_-LqQ4G6KEeqTXeGPLsqb_w")]
     [Description(@"Interest rate derivative notional currency 2.")]
-    INC2,
+    IRDNotionalCurrency2,
     
     /// <summary>
     /// Contract for difference notional currency 2.
+    /// Encoded/decoded by serializers as "CNC2".
     /// </summary>
     [EnumMember(Value = "CNC2")]
     [IsoId("_BkKdwG6LEeqTXeGPLsqb_w")]
     [Description(@"Contract for difference notional currency 2.")]
-    CNC2,
+    CFDNotionalCurrency2,
     
     /// <summary>
     /// Notional currency of the swaption.
+    /// Encoded/decoded by serializers as "NCSW".
     /// </summary>
     [EnumMember(Value = "NCSW")]
     [IsoId("_HUF1AG6LEeqTXeGPLsqb_w")]
     [Description(@"Notional currency of the swaption.")]
-    NCSW,
+    SwaptionNotionalCurrency,
     
     /// <summary>
     /// Credit derivative notional currency.
+    /// Encoded/decoded by serializers as "NCCR".
     /// </summary>
     [EnumMember(Value = "NCCR")]
     [IsoId("_Hvq9wG6LEeqTXeGPLsqb_w")]
     [Description(@"Credit derivative notional currency.")]
-    NCCR,
+    CreditNotionalCurrency,
     
     /// <summary>
     /// Commodity derivative notional currency.
+    /// Encoded/decoded by serializers as "NCCO".
     /// </summary>
     [EnumMember(Value = "NCCO")]
     [IsoId("_YvKkwG6LEeqTXeGPLsqb_w")]
     [Description(@"Commodity derivative notional currency.")]
-    NCCO,
+    CommodityNotionalCurrency,
     
     /// <summary>
     /// Contract type.
+    /// Encoded/decoded by serializers as "CTYP".
     /// </summary>
     [EnumMember(Value = "CTYP")]
     [IsoId("_dcJRQG6LEeqTXeGPLsqb_w")]
     [Description(@"Contract type.")]
-    CTYP,
+    ContractType,
     
     /// <summary>
     /// Base product.
+    /// Encoded/decoded by serializers as "BSPD".
     /// </summary>
     [EnumMember(Value = "BSPD")]
     [IsoId("_kPZGsG6LEeqTXeGPLsqb_w")]
     [Description(@"Base product.")]
-    BSPD,
+    BaseProduct,
     
     /// <summary>
     /// Sub product.
+    /// Encoded/decoded by serializers as "SBPD".
     /// </summary>
     [EnumMember(Value = "SBPD")]
     [IsoId("_qZRPAG6LEeqTXeGPLsqb_w")]
     [Description(@"Sub product.")]
-    SBPD,
+    SubProduct,
     
     /// <summary>
     /// Further sub product.
+    /// Encoded/decoded by serializers as "FSPD".
     /// </summary>
     [EnumMember(Value = "FSPD")]
     [IsoId("_yCr3cG6LEeqTXeGPLsqb_w")]
     [Description(@"Further sub product.")]
-    FSPD,
+    FurtherSubProduct,
     
     /// <summary>
     /// Delivery cash settlement location.
+    /// Encoded/decoded by serializers as "DCSL".
     /// </summary>
     [EnumMember(Value = "DCSL")]
     [IsoId("_0TPk0G6LEeqTXeGPLsqb_w")]
     [Description(@"Delivery cash settlement location.")]
-    DCSL,
+    DeliveryCashLocation,
     
     /// <summary>
     /// Delivery settlement type.
+    /// Encoded/decoded by serializers as "DTYP".
     /// </summary>
     [EnumMember(Value = "DTYP")]
     [IsoId("_5fFXkG6LEeqTXeGPLsqb_w")]
     [Description(@"Delivery settlement type.")]
-    DTYP,
+    DeliverySettlementType,
     
     /// <summary>
     /// Size specification related to freight subtype.
+    /// Encoded/decoded by serializers as "SSRF".
     /// </summary>
     [EnumMember(Value = "SSRF")]
     [IsoId("_QEl58G6OEeqTXeGPLsqb_w")]
     [Description(@"Size specification related to freight subtype.")]
-    SSRF,
+    SizeSpecificationRelatedToFreightSubtype,
     
     /// <summary>
     /// Specific route time charter average.
+    /// Encoded/decoded by serializers as "SRTC".
     /// </summary>
     [EnumMember(Value = "SRTC")]
     [IsoId("_Xgfq0G6OEeqTXeGPLsqb_w")]
     [Description(@"Specific route time charter average.")]
-    SRTC,
+    SpecificRouteTimeCharterAverage,
     
     /// <summary>
     /// Equity derivative underlying type.
+    /// Encoded/decoded by serializers as "EQUT".
     /// </summary>
     [EnumMember(Value = "EQUT")]
     [IsoId("_igOu0G6OEeqTXeGPLsqb_w")]
     [Description(@"Equity derivative underlying type.")]
-    EQUT,
+    EquityUnderlyingType,
     
     /// <summary>
     /// Parameter.
+    /// Encoded/decoded by serializers as "PRMT".
     /// </summary>
     [EnumMember(Value = "PRMT")]
     [IsoId("_4fjs4G6OEeqTXeGPLsqb_w")]
     [Description(@"Parameter.")]
-    PRMT,
+    Parameter,
     
     /// <summary>
     /// Inflation index code or name.
+    /// Encoded/decoded by serializers as "IIND".
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_iQNgYG6PEeqTXeGPLsqb_w")]
     [Description(@"Inflation index code or name.")]
-    IIND,
+    InflationIndexCodeName,
     
     /// <summary>
     /// Instrument identification.
+    /// Encoded/decoded by serializers as "ISIN".
     /// </summary>
     [EnumMember(Value = "ISIN")]
     [IsoId("_PMaC0G6QEeqTXeGPLsqb_w")]
@@ -292,19 +326,21 @@ public enum NonEquitySubClassSegmentationCriteriaCode
     
     /// <summary>
     /// Sub class of the underlying index credit default swap (CDS).
+    /// Encoded/decoded by serializers as "UISC".
     /// </summary>
     [EnumMember(Value = "UISC")]
     [IsoId("_NUtE4G6REeqTXeGPLsqb_w")]
     [Description(@"Sub class of the underlying index credit default swap (CDS).")]
-    UISC,
+    UnderlyingIndexCDSSubClassIdentification,
     
     /// <summary>
     /// Underlying type.
+    /// Encoded/decoded by serializers as "UTYP".
     /// </summary>
     [EnumMember(Value = "UTYP")]
     [IsoId("_bll6QG-GEeqI8dOxSar9sQ")]
     [Description(@"Underlying type.")]
-    UTYP,
+    UnderlyingType,
     
 }
 

@@ -22,379 +22,426 @@ public enum ExternalAuthorityIdentificationCode
 {
     /// <summary>
     /// Australian Securities and Investments Commission (ASIC)
+    /// Encoded/decoded by serializers as "AUAS".
     /// </summary>
     [EnumMember(Value = "AUAS")]
     [IsoId("_um-jc_RYEeuLhpyIdtJzwg")]
     [Description(@"Australian Securities and Investments Commission (ASIC)")]
-    AUAS,
+    AustralianSecuritiesAndInvestmentsCommissionASIC,
     
     /// <summary>
     /// Austrian Financial Market Authority (FMA)
+    /// Encoded/decoded by serializers as "ATFM".
     /// </summary>
     [EnumMember(Value = "ATFM")]
     [IsoId("_unIUcPRYEeuLhpyIdtJzwg")]
     [Description(@"Austrian Financial Market Authority (FMA)")]
-    ATFM,
+    AustrianFinancialMarketAuthorityFMA,
     
     /// <summary>
     /// Financial Services and Markets Authority (FSMA)
+    /// Encoded/decoded by serializers as "BEFS".
     /// </summary>
     [EnumMember(Value = "BEFS")]
     [IsoId("_unIUc_RYEeuLhpyIdtJzwg")]
     [Description(@"Financial Services and Markets Authority (FSMA)")]
-    BEFS,
+    FinancialServicesAndMarketsAuthorityFSMA,
     
     /// <summary>
     /// National Bank of Belgium
+    /// Encoded/decoded by serializers as "BENB".
     /// </summary>
     [EnumMember(Value = "BENB")]
     [IsoId("_unIUdvRYEeuLhpyIdtJzwg")]
     [Description(@"National Bank of Belgium")]
-    BENB,
+    NationalBankOfBelgium,
     
     /// <summary>
     /// Financial Supervision Commission (FSC)
+    /// Encoded/decoded by serializers as "BGFS".
     /// </summary>
     [EnumMember(Value = "BGFS")]
     [IsoId("_unReYPRYEeuLhpyIdtJzwg")]
     [Description(@"Financial Supervision Commission (FSC)")]
-    BGFS,
+    FinancialSupervisionCommissionFSC,
     
     /// <summary>
     /// Canadian Securities Transition Office (CSTO)
+    /// Encoded/decoded by serializers as "CACS".
     /// </summary>
     [EnumMember(Value = "CACS")]
     [IsoId("_unReY_RYEeuLhpyIdtJzwg")]
     [Description(@"Canadian Securities Transition Office (CSTO)")]
-    CACS,
+    CanadianSecuritiesTransitionOfficeCSTO,
     
     /// <summary>
     /// Authority for the Supervision and Development of Cooperative Societies
+    /// Encoded/decoded by serializers as "CYAS".
     /// </summary>
     [EnumMember(Value = "CYAS")]
     [IsoId("_unbPYPRYEeuLhpyIdtJzwg")]
     [Description(@"Authority for the Supervision and Development of Cooperative Societies")]
-    CYAS,
+    AuthorityForTheSupervisionAndDevelopmentOfCooperativeSocieties,
     
     /// <summary>
     /// Central Bank of Cyprus (CBC)
+    /// Encoded/decoded by serializers as "CYCB".
     /// </summary>
     [EnumMember(Value = "CYCB")]
     [IsoId("_unbPY_RYEeuLhpyIdtJzwg")]
     [Description(@"Central Bank of Cyprus (CBC)")]
-    CYCB,
+    CentralBankOfCyprusCBC,
     
     /// <summary>
     /// Cyprus Securities and Exchange Commission (CySEC)
+    /// Encoded/decoded by serializers as "CYCY".
     /// </summary>
     [EnumMember(Value = "CYCY")]
     [IsoId("_unbPZvRYEeuLhpyIdtJzwg")]
     [Description(@"Cyprus Securities and Exchange Commission (CySEC)")]
-    CYCY,
+    CyprusSecuritiesAndExchangeCommissionCySEC,
     
     /// <summary>
     /// Czech National Bank (CNB)
+    /// Encoded/decoded by serializers as "CZCN".
     /// </summary>
     [EnumMember(Value = "CZCN")]
     [IsoId("_unlAYPRYEeuLhpyIdtJzwg")]
     [Description(@"Czech National Bank (CNB)")]
-    CZCN,
+    CzechNationalBankCNB,
     
     /// <summary>
     /// Federal Financial Supervisory Authority (BaFin)
+    /// Encoded/decoded by serializers as "DEBA".
     /// </summary>
     [EnumMember(Value = "DEBA")]
     [IsoId("_unlAY_RYEeuLhpyIdtJzwg")]
     [Description(@"Federal Financial Supervisory Authority (BaFin)")]
-    DEBA,
+    FederalFinancialSupervisoryAuthorityBaFin,
     
     /// <summary>
     /// Finanstilsynet 
+    /// Encoded/decoded by serializers as "DKFI".
     /// </summary>
     [EnumMember(Value = "DKFI")]
     [IsoId("_unlAZvRYEeuLhpyIdtJzwg")]
     [Description(@"Finanstilsynet ")]
-    DKFI,
+    Finanstilsynet,
     
     /// <summary>
     /// Estonian Financial Supervision Authority (EFSA)
+    /// Encoded/decoded by serializers as "EEEF".
     /// </summary>
     [EnumMember(Value = "EEEF")]
     [IsoId("_unlAafRYEeuLhpyIdtJzwg")]
     [Description(@"Estonian Financial Supervision Authority (EFSA)")]
-    EEEF,
+    EstonianFinancialSupervisionAuthorityEFSA,
     
     /// <summary>
     /// European Securities and Markets Authority (ESMA)
+    /// Encoded/decoded by serializers as "EUES".
     /// </summary>
     [EnumMember(Value = "EUES")]
     [IsoId("_unuKUPRYEeuLhpyIdtJzwg")]
     [Description(@"European Securities and Markets Authority (ESMA)")]
-    EUES,
+    EuropeanSecuritiesAndMarketsAuthorityESMA,
     
     /// <summary>
     /// Bank of Spain (BDE)
+    /// Encoded/decoded by serializers as "ESBD".
     /// </summary>
     [EnumMember(Value = "ESBD")]
     [IsoId("_unuKU_RYEeuLhpyIdtJzwg")]
     [Description(@"Bank of Spain (BDE)")]
-    ESBD,
+    BankOfSpainBDE,
     
     /// <summary>
     /// Comisión Nacional del Mercado de Valores (CNMV)
+    /// Encoded/decoded by serializers as "ESCN".
     /// </summary>
     [EnumMember(Value = "ESCN")]
     [IsoId("_unuKVvRYEeuLhpyIdtJzwg")]
     [Description(@"Comisión Nacional del Mercado de Valores (CNMV)")]
-    ESCN,
+    ComisiónNacionalDelMercadoDeValoresCNMV,
     
     /// <summary>
     /// Finanssivalvonta (FSA)
+    /// Encoded/decoded by serializers as "FIFS".
     /// </summary>
     [EnumMember(Value = "FIFS")]
     [IsoId("_un37UPRYEeuLhpyIdtJzwg")]
     [Description(@"Finanssivalvonta (FSA)")]
-    FIFS,
+    FinanssivalvontaFSA,
     
     /// <summary>
     /// Autorité de Contrôle Prudentiel et de Résolution (ACPR)
+    /// Encoded/decoded by serializers as "FRAC".
     /// </summary>
     [EnumMember(Value = "FRAC")]
     [IsoId("_un37U_RYEeuLhpyIdtJzwg")]
     [Description(@"Autorité de Contrôle Prudentiel et de Résolution (ACPR)")]
-    FRAC,
+    AutoritéDeContrôlePrudentielEtDeRésolutionACPR,
     
     /// <summary>
     /// Autorité des Marchés Financiers (AMF)
+    /// Encoded/decoded by serializers as "FRAM".
     /// </summary>
     [EnumMember(Value = "FRAM")]
     [IsoId("_un37VvRYEeuLhpyIdtJzwg")]
     [Description(@"Autorité des Marchés Financiers (AMF)")]
-    FRAM,
+    AutoritéDesMarchésFinanciersAMF,
     
     /// <summary>
     /// Financial Services Authority (FSA)
+    /// Encoded/decoded by serializers as "GBFS".
     /// </summary>
     [EnumMember(Value = "GBFS")]
     [IsoId("_uoBsUPRYEeuLhpyIdtJzwg")]
     [Description(@"Financial Services Authority (FSA)")]
-    GBFS,
+    FinancialServicesAuthorityFSA,
     
     /// <summary>
     /// Financial Conduct Authority (FCA)
+    /// Encoded/decoded by serializers as "GBFC".
     /// </summary>
     [EnumMember(Value = "GBFC")]
     [IsoId("_uoBsU_RYEeuLhpyIdtJzwg")]
     [Description(@"Financial Conduct Authority (FCA)")]
-    GBFC,
+    FinancialConductAuthorityFCA,
     
     /// <summary>
     /// Prudential Regulation Authority (PRA)
+    /// Encoded/decoded by serializers as "GBPR".
     /// </summary>
     [EnumMember(Value = "GBPR")]
     [IsoId("_uoBsVvRYEeuLhpyIdtJzwg")]
     [Description(@"Prudential Regulation Authority (PRA)")]
-    GBPR,
+    PrudentialRegulationAuthorityPRA,
     
     /// <summary>
     /// Gibraltar FSC (FSC)
+    /// Encoded/decoded by serializers as "GIFS".
     /// </summary>
     [EnumMember(Value = "GIFS")]
     [IsoId("_uoK2QPRYEeuLhpyIdtJzwg")]
     [Description(@"Gibraltar FSC (FSC)")]
-    GIFS,
+    GibraltarFSC,
     
     /// <summary>
     /// US Commodity Futures Trading Commission (CFTC)
+    /// Encoded/decoded by serializers as "USCF".
     /// </summary>
     [EnumMember(Value = "USCF")]
     [IsoId("_uoK2Q_RYEeuLhpyIdtJzwg")]
     [Description(@"US Commodity Futures Trading Commission (CFTC)")]
-    USCF,
+    USCommodityFuturesTradingCommissionCFTC,
     
     /// <summary>
     /// Bank of Greece (BOG)
+    /// Encoded/decoded by serializers as "GRBO".
     /// </summary>
     [EnumMember(Value = "GRBO")]
     [IsoId("_uoUnQPRYEeuLhpyIdtJzwg")]
     [Description(@"Bank of Greece (BOG)")]
-    GRBO,
+    BankOfGreeceBOG,
     
     /// <summary>
     /// Hellenic Capital Market Commission (HCMC)
+    /// Encoded/decoded by serializers as "GRHC".
     /// </summary>
     [EnumMember(Value = "GRHC")]
     [IsoId("_uoUnQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Hellenic Capital Market Commission (HCMC)")]
-    GRHC,
+    HellenicCapitalMarketCommissionHCMC,
     
     /// <summary>
     /// Croatian Financial Services Supervisory Agency (HANFA)
+    /// Encoded/decoded by serializers as "HRHA".
     /// </summary>
     [EnumMember(Value = "HRHA")]
     [IsoId("_uoUnRvRYEeuLhpyIdtJzwg")]
     [Description(@"Croatian Financial Services Supervisory Agency (HANFA)")]
-    HRHA,
+    CroatianFinancialServicesSupervisoryAgencyHANFA,
     
     /// <summary>
     /// Hungarian Financial Supervisory Authority (PSZAF)
+    /// Encoded/decoded by serializers as "HUPS".
     /// </summary>
     [EnumMember(Value = "HUPS")]
     [IsoId("_uoUnSfRYEeuLhpyIdtJzwg")]
     [Description(@"Hungarian Financial Supervisory Authority (PSZAF)")]
-    HUPS,
+    HungarianFinancialSupervisoryAuthorityPSZAF,
     
     /// <summary>
     /// Central Bank of Ireland (CBI)
+    /// Encoded/decoded by serializers as "IECB".
     /// </summary>
     [EnumMember(Value = "IECB")]
     [IsoId("_uodxMPRYEeuLhpyIdtJzwg")]
     [Description(@"Central Bank of Ireland (CBI)")]
-    IECB,
+    CentralBankOfIrelandCBI,
     
     /// <summary>
     /// Iceland Financial Supervisory Authority (FME)
+    /// Encoded/decoded by serializers as "ISFM".
     /// </summary>
     [EnumMember(Value = "ISFM")]
     [IsoId("_uodxM_RYEeuLhpyIdtJzwg")]
     [Description(@"Iceland Financial Supervisory Authority (FME)")]
-    ISFM,
+    IcelandFinancialSupervisoryAuthorityFME,
     
     /// <summary>
     /// BANCA D'ITALIA (BDI)
+    /// Encoded/decoded by serializers as "ITBD".
     /// </summary>
     [EnumMember(Value = "ITBD")]
     [IsoId("_uodxNvRYEeuLhpyIdtJzwg")]
     [Description(@"BANCA D'ITALIA (BDI)")]
-    ITBD,
+    BANCAAndDITALIA,
     
     /// <summary>
     /// Commissione Nazionale per le Societa e la Borsa (CONSOB)
+    /// Encoded/decoded by serializers as "ITCO".
     /// </summary>
     [EnumMember(Value = "ITCO")]
     [IsoId("_uodxOfRYEeuLhpyIdtJzwg")]
     [Description(@"Commissione Nazionale per le Societa e la Borsa (CONSOB)")]
-    ITCO,
+    CommissioneNazionalePerLeSocietaELaBorsaCONSOB,
     
     /// <summary>
     /// Financial Market Authority (FMA)
+    /// Encoded/decoded by serializers as "LIFM".
     /// </summary>
     [EnumMember(Value = "LIFM")]
     [IsoId("_uoniMPRYEeuLhpyIdtJzwg")]
     [Description(@"Financial Market Authority (FMA)")]
-    LIFM,
+    FinancialMarketAuthorityFMA,
     
     /// <summary>
     /// Bank of Lithuania (LSC)
+    /// Encoded/decoded by serializers as "LTLS".
     /// </summary>
     [EnumMember(Value = "LTLS")]
     [IsoId("_uoniM_RYEeuLhpyIdtJzwg")]
     [Description(@"Bank of Lithuania (LSC)")]
-    LTLS,
+    BankOfLithuaniaLSC,
     
     /// <summary>
     /// Commission de Surveillance du Secteur Financier (CSSF)
+    /// Encoded/decoded by serializers as "LUCS".
     /// </summary>
     [EnumMember(Value = "LUCS")]
     [IsoId("_uoniNvRYEeuLhpyIdtJzwg")]
     [Description(@"Commission de Surveillance du Secteur Financier (CSSF)")]
-    LUCS,
+    CommissionDeSurveillanceDuSecteurFinancierCSSF,
     
     /// <summary>
     /// Financial & Capital Market Commission (FKTK)
+    /// Encoded/decoded by serializers as "LVFK".
     /// </summary>
     [EnumMember(Value = "LVFK")]
     [IsoId("_uoniOfRYEeuLhpyIdtJzwg")]
     [Description(@"Financial & Capital Market Commission (FKTK)")]
-    LVFK,
+    FinancialAndCapitalMarketCommissionFKTK,
     
     /// <summary>
     /// Malta Financial Services Authority (MFSA)
+    /// Encoded/decoded by serializers as "MTMF".
     /// </summary>
     [EnumMember(Value = "MTMF")]
     [IsoId("_uoniPPRYEeuLhpyIdtJzwg")]
     [Description(@"Malta Financial Services Authority (MFSA)")]
-    MTMF,
+    MaltaFinancialServicesAuthorityMFSA,
     
     /// <summary>
     /// Netherlands Authority for the Financial Markets (AFM)
+    /// Encoded/decoded by serializers as "NLAF".
     /// </summary>
     [EnumMember(Value = "NLAF")]
     [IsoId("_uoxTMPRYEeuLhpyIdtJzwg")]
     [Description(@"Netherlands Authority for the Financial Markets (AFM)")]
-    NLAF,
+    NetherlandsAuthorityForTheFinancialMarketsAFM,
     
     /// <summary>
     /// Nederlandse Bank (DNB)
+    /// Encoded/decoded by serializers as "NLDN".
     /// </summary>
     [EnumMember(Value = "NLDN")]
     [IsoId("_uoxTM_RYEeuLhpyIdtJzwg")]
     [Description(@"Nederlandse Bank (DNB)")]
-    NLDN,
+    NederlandseBankDNB,
     
     /// <summary>
     /// Norwegian Financial Supervisory Authority (Finanstilsynet)
+    /// Encoded/decoded by serializers as "NOFI".
     /// </summary>
     [EnumMember(Value = "NOFI")]
     [IsoId("_uo6dIPRYEeuLhpyIdtJzwg")]
     [Description(@"Norwegian Financial Supervisory Authority (Finanstilsynet)")]
-    NOFI,
+    NorwegianFinancialSupervisoryAuthorityFinanstilsynet,
     
     /// <summary>
     /// Polish Financial Supervisory Commission (KNF)
+    /// Encoded/decoded by serializers as "PLKN".
     /// </summary>
     [EnumMember(Value = "PLKN")]
     [IsoId("_uo6dI_RYEeuLhpyIdtJzwg")]
     [Description(@"Polish Financial Supervisory Commission (KNF)")]
-    PLKN,
+    PolishFinancialSupervisoryCommissionKNF,
     
     /// <summary>
     /// Banco de Portugal (BP)
+    /// Encoded/decoded by serializers as "PTBP".
     /// </summary>
     [EnumMember(Value = "PTBP")]
     [IsoId("_uo6dJvRYEeuLhpyIdtJzwg")]
     [Description(@"Banco de Portugal (BP)")]
-    PTBP,
+    BancoDePortugalBP,
     
     /// <summary>
     /// Comissão do Mercado de Valores Mobiliários (CMVM)
+    /// Encoded/decoded by serializers as "PTCM".
     /// </summary>
     [EnumMember(Value = "PTCM")]
     [IsoId("_uo6dKfRYEeuLhpyIdtJzwg")]
     [Description(@"Comissão do Mercado de Valores Mobiliários (CMVM)")]
-    PTCM,
+    ComissãoDoMercadoDeValoresMobiliáriosCMVM,
     
     /// <summary>
     /// Romanian Financial Supervisory Authority (ASF)
+    /// Encoded/decoded by serializers as "ROAS".
     /// </summary>
     [EnumMember(Value = "ROAS")]
     [IsoId("_upEOIPRYEeuLhpyIdtJzwg")]
     [Description(@"Romanian Financial Supervisory Authority (ASF)")]
-    ROAS,
+    RomanianFinancialSupervisoryAuthorityASF,
     
     /// <summary>
     /// Finansinspektionen (FI)
+    /// Encoded/decoded by serializers as "SEFI".
     /// </summary>
     [EnumMember(Value = "SEFI")]
     [IsoId("_upEOI_RYEeuLhpyIdtJzwg")]
     [Description(@"Finansinspektionen (FI)")]
-    SEFI,
+    FinansinspektionenFI,
     
     /// <summary>
     /// Securities Market Agency (ATVP)
+    /// Encoded/decoded by serializers as "SIAT".
     /// </summary>
     [EnumMember(Value = "SIAT")]
     [IsoId("_upNYEPRYEeuLhpyIdtJzwg")]
     [Description(@"Securities Market Agency (ATVP)")]
-    SIAT,
+    SecuritiesMarketAgencyATVP,
     
     /// <summary>
     /// National Bank of Slovakia (NBS)
+    /// Encoded/decoded by serializers as "SKNB".
     /// </summary>
     [EnumMember(Value = "SKNB")]
     [IsoId("_upNYE_RYEeuLhpyIdtJzwg")]
     [Description(@"National Bank of Slovakia (NBS)")]
-    SKNB,
+    NationalBankOfSlovakiaNBS,
     
 }
 

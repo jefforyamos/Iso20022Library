@@ -21,19 +21,21 @@ public enum CollateralDirectionCode
     /// <summary>
     /// Collateral is due to party A.
     /// 
+    /// Encoded/decoded by serializers as "CDPA".
     /// </summary>
     [EnumMember(Value = "CDPA")]
     [IsoId("_9_rGIAMxEeutW5-TpeYJhA")]
     [Description(@"Collateral is due to party A. ")]
-    CDPA,
+    CollateralDueToPartyA,
     
     /// <summary>
     /// Collateral is due to party B.
+    /// Encoded/decoded by serializers as "CDPB".
     /// </summary>
     [EnumMember(Value = "CDPB")]
     [IsoId("_Pfo88QMyEeutW5-TpeYJhA")]
     [Description(@"Collateral is due to party B.")]
-    CDPB,
+    CollateralDueToPartyB,
     
 }
 

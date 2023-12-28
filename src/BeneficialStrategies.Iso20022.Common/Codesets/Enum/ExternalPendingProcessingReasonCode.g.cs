@@ -21,83 +21,93 @@ public enum ExternalPendingProcessingReasonCode
 {
     /// <summary>
     /// Received after the servicer's deadline. Processed on best effort basis
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_uVP6RvRYEeuLhpyIdtJzwg")]
     [Description(@"Received after the servicer's deadline. Processed on best effort basis")]
-    ADEA,
+    ServicerDeadlineMissed,
     
     /// <summary>
     /// Exceptional closing of all financial institutions due to natural disaster, for example, earthquake
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_uVZEMPRYEeuLhpyIdtJzwg")]
     [Description(@"Exceptional closing of all financial institutions due to natural disaster, for example, earthquake")]
-    DISA,
+    NaturalDisaster,
     
     /// <summary>
     /// Special follow-up is taking place
+    /// Encoded/decoded by serializers as "ESCA".
     /// </summary>
     [EnumMember(Value = "ESCA")]
     [IsoId("_uVZEM_RYEeuLhpyIdtJzwg")]
     [Description(@"Special follow-up is taking place")]
-    ESCA,
+    Escalation,
     
     /// <summary>
     /// Pending reason being investigated
+    /// Encoded/decoded by serializers as "IAAD".
     /// </summary>
     [EnumMember(Value = "IAAD")]
     [IsoId("_uVZENvRYEeuLhpyIdtJzwg")]
     [Description(@"Pending reason being investigated")]
-    IAAD,
+    StatusReasonInvestigation,
     
     /// <summary>
     /// Longer processing timeframe for this type of SSI
+    /// Encoded/decoded by serializers as "LPRO".
     /// </summary>
     [EnumMember(Value = "LPRO")]
     [IsoId("_uVZEOfRYEeuLhpyIdtJzwg")]
     [Description(@"Longer processing timeframe for this type of SSI")]
-    LPRO,
+    LongerProcessing,
     
     /// <summary>
     /// Information, for example, currency is missing
+    /// Encoded/decoded by serializers as "MINF".
     /// </summary>
     [EnumMember(Value = "MINF")]
     [IsoId("_uVi1MPRYEeuLhpyIdtJzwg")]
     [Description(@"Information, for example, currency is missing")]
-    MINF,
+    MissingInformation,
     
     /// <summary>
     /// Financial instrument is a new issue and not yet available/tradable
+    /// Encoded/decoded by serializers as "NEWI".
     /// </summary>
     [EnumMember(Value = "NEWI")]
     [IsoId("_uVi1M_RYEeuLhpyIdtJzwg")]
     [Description(@"Financial instrument is a new issue and not yet available/tradable")]
-    NEWI,
+    NewIssues,
     
     /// <summary>
     /// Next process is launched. No processing pending problems to be reported
+    /// Encoded/decoded by serializers as "NEXT".
     /// </summary>
     [EnumMember(Value = "NEXT")]
     [IsoId("_uVi1NvRYEeuLhpyIdtJzwg")]
     [Description(@"Next process is launched. No processing pending problems to be reported")]
-    NEXT,
+    NextProcess,
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_uVi1OfRYEeuLhpyIdtJzwg")]
     [Description(@"Instruction was not straight through processing and had to be processed manually")]
-    NSTP,
+    NotStraightThroughProcessing,
     
     /// <summary>
     /// Transaction was put on hold/frozen by the system
+    /// Encoded/decoded by serializers as "PRSY".
     /// </summary>
     [EnumMember(Value = "PRSY")]
     [IsoId("_uVsmMPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction was put on hold/frozen by the system")]
-    PRSY,
+    SystemOnHold,
     
 }
 

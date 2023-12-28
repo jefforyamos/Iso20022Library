@@ -20,19 +20,21 @@ public enum InterestCode
 {
     /// <summary>
     /// During or within a business day.
+    /// Encoded/decoded by serializers as "INDY".
     /// </summary>
     [EnumMember(Value = "INDY")]
     [IsoId("_aZ-Chdp-Ed-ak6NoX_4Aeg_-376656461")]
     [Description(@"During or within a business day.")]
-    INDY,
+    IntraDay,
     
     /// <summary>
     /// Period of time between the end of a business day and the start of the next business day (usually the day after).
+    /// Encoded/decoded by serializers as "OVRN".
     /// </summary>
     [EnumMember(Value = "OVRN")]
     [IsoId("_aZ-Chtp-Ed-ak6NoX_4Aeg_-358184956")]
     [Description(@"Period of time between the end of a business day and the start of the next business day (usually the day after).")]
-    OVRN,
+    OverNight,
     
 }
 

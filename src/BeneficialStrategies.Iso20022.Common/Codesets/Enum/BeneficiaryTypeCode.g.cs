@@ -20,27 +20,30 @@ public enum BeneficiaryTypeCode
 {
     /// <summary>
     /// Beneficiary is a dependent.
+    /// Encoded/decoded by serializers as "DEPE".
     /// </summary>
     [EnumMember(Value = "DEPE")]
     [IsoId("__reU0FNgEeijdq8ilaxyOA")]
     [Description(@"Beneficiary is a dependent.")]
-    DEPE,
+    Dependent,
     
     /// <summary>
     /// Beneficiary is a nominee.
+    /// Encoded/decoded by serializers as "NOMI".
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_GzUhQFNhEeijdq8ilaxyOA")]
     [Description(@"Beneficiary is a nominee.")]
-    NOMI,
+    Nominee,
     
     /// <summary>
     /// Beneficiary is a successor.
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_JziJ8FNhEeijdq8ilaxyOA")]
     [Description(@"Beneficiary is a successor.")]
-    SUCC,
+    Successor,
     
 }
 

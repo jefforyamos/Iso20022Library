@@ -20,19 +20,21 @@ public enum OperationalStatusCode
 {
     /// <summary>
     /// Enabled.
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_8DcqACDYEeWCLu74WLgP4w")]
     [Description(@"Enabled.")]
-    ENAB,
+    Enabled,
     
     /// <summary>
     /// Special circumstances.
+    /// Encoded/decoded by serializers as "SPEC".
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("__qqBQCDYEeWCLu74WLgP4w")]
     [Description(@"Special circumstances.")]
-    SPEC,
+    SpecialCircumstances,
     
 }
 

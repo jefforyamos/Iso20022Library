@@ -20,19 +20,21 @@ public enum AgentTypeCode
 {
     /// <summary>
     /// Trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person. Specific to bearer securities.
+    /// Encoded/decoded by serializers as "DAGB".
     /// </summary>
     [EnumMember(Value = "DAGB")]
     [IsoId("_1mchEzL3EeKU9IrkkToqcw_-898443522")]
     [Description(@"Trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person. Specific to bearer securities.")]
-    DAGB,
+    DropAgentBearer,
     
     /// <summary>
     /// Agent that cannot be classified as any listed type of agent.
+    /// Encoded/decoded by serializers as "OTAG".
     /// </summary>
     [EnumMember(Value = "OTAG")]
     [IsoId("_1mchFDL3EeKU9IrkkToqcw_1288946460")]
     [Description(@"Agent that cannot be classified as any listed type of agent.")]
-    OTAG,
+    Other,
     
 }
 

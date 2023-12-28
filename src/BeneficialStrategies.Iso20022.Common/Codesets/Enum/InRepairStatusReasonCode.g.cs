@@ -20,11 +20,12 @@ public enum InRepairStatusReasonCode
 {
     /// <summary>
     /// Order has been accepted and centralised before the cut off, but with different sales agreement than the one provided in the order.
+    /// Encoded/decoded by serializers as "COMA".
     /// </summary>
     [EnumMember(Value = "COMA")]
     [IsoId("_aW12ANp-Ed-ak6NoX_4Aeg_1620170310")]
     [Description(@"Order has been accepted and centralised before the cut off, but with different sales agreement than the one provided in the order.")]
-    COMA,
+    CommercialAgreement,
     
 }
 

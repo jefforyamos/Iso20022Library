@@ -22,11 +22,12 @@ public enum ExternalReceivedReasonCode
 {
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_uVGJRvRYEeuLhpyIdtJzwg")]
     [Description(@"Instruction was not straight through processing and had to be processed manually")]
-    NSTP,
+    NotStraightThroughProcessing,
     
 }
 

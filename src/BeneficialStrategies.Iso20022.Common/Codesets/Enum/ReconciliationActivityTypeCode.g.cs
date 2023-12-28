@@ -20,43 +20,48 @@ public enum ReconciliationActivityTypeCode
 {
     /// <summary>
     /// Acquiring activity.
+    /// Encoded/decoded by serializers as "ACQG".
     /// </summary>
     [EnumMember(Value = "ACQG")]
     [IsoId("_wAVlMCX_Eeym0KcvJF9aDQ")]
     [Description(@"Acquiring activity.")]
-    ACQG,
+    Acquiring,
     
     /// <summary>
     /// Issuing activity
+    /// Encoded/decoded by serializers as "ISSG".
     /// </summary>
     [EnumMember(Value = "ISSG")]
     [IsoId("_HGWegCYAEeym0KcvJF9aDQ")]
     [Description(@"Issuing activity")]
-    ISSG,
+    Issuing,
     
     /// <summary>
     /// All types of activity.
+    /// Encoded/decoded by serializers as "CNSD".
     /// </summary>
     [EnumMember(Value = "CNSD")]
     [IsoId("_TcHhUCYAEeym0KcvJF9aDQ")]
     [Description(@"All types of activity.")]
-    CNSD,
+    Consolidated,
     
     /// <summary>
     /// Other reconciliation activity type defined at private level 
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_ckuroCYAEeym0KcvJF9aDQ")]
     [Description(@"Other reconciliation activity type defined at private level ")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Other reconciliation activity type defined at national level
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_uAjCQCYAEeym0KcvJF9aDQ")]
     [Description(@"Other reconciliation activity type defined at national level")]
-    OTHN,
+    OtherNational,
     
 }
 

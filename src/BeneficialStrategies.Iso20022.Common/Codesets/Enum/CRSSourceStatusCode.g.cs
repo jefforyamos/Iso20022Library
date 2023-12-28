@@ -20,19 +20,21 @@ public enum CRSSourceStatusCode
 {
     /// <summary>
     /// Source of the Common Reporting Standard (CRS) status is calculated.
+    /// Encoded/decoded by serializers as "CALC".
     /// </summary>
     [EnumMember(Value = "CALC")]
     [IsoId("_rSF5wUNsEeaS-NnwLNvMPg")]
     [Description(@"Source of the Common Reporting Standard (CRS) status is calculated.")]
-    CALC,
+    Calculated,
     
     /// <summary>
     /// Source of the Common Reporting Standard (CRS) status is as declared by the investor.
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_rSF5wkNsEeaS-NnwLNvMPg")]
     [Description(@"Source of the Common Reporting Standard (CRS) status is as declared by the investor.")]
-    DECL,
+    Declared,
     
 }
 

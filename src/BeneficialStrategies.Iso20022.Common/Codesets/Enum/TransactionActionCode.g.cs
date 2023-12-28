@@ -20,19 +20,21 @@ public enum TransactionActionCode
 {
     /// <summary>
     /// Start a transaction by a swipe ahead mechanism, with the services which are enabled.
+    /// Encoded/decoded by serializers as "STAR".
     /// </summary>
     [EnumMember(Value = "STAR")]
     [IsoId("_ZrkQgNuTEeiB5uLfkg9ZJA")]
     [Description(@"Start a transaction by a swipe ahead mechanism, with the services which are enabled.")]
-    STAR,
+    StartTransaction,
     
     /// <summary>
     /// Keep quite after a swipe ahead mechanism.
+    /// Encoded/decoded by serializers as "STOP".
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_-0oHoOzHEeiojesOXOKoug")]
     [Description(@"Keep quite after a swipe ahead mechanism.")]
-    STOP,
+    Stop,
     
 }
 

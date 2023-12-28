@@ -20,67 +20,75 @@ public enum RepurchaseTypeCode
 {
     /// <summary>
     /// Relates to a Swap/Substitution.
+    /// Encoded/decoded by serializers as "CADJ".
     /// </summary>
     [EnumMember(Value = "CADJ")]
     [IsoId("_ZT7ngdp-Ed-ak6NoX_4Aeg_605345257")]
     [Description(@"Relates to a Swap/Substitution.")]
-    CADJ,
+    Swap,
     
     /// <summary>
     /// Relates to a change in the closing or maturity date.
+    /// Encoded/decoded by serializers as "CALL".
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_ZT7ngtp-Ed-ak6NoX_4Aeg_605345286")]
     [Description(@"Relates to a change in the closing or maturity date.")]
-    CALL,
+    RepurchaseCall,
     
     /// <summary>
     /// Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.
+    /// Encoded/decoded by serializers as "PAIR".
     /// </summary>
     [EnumMember(Value = "PAIR")]
     [IsoId("_ZT7ng9p-Ed-ak6NoX_4Aeg_605345287")]
     [Description(@"Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.")]
-    PAIR,
+    Pairoff,
     
     /// <summary>
     /// Is part of a pair-off.
+    /// Encoded/decoded by serializers as "RATE".
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("_ZT7nhNp-Ed-ak6NoX_4Aeg_605345316")]
     [Description(@"Is part of a pair-off.")]
-    RATE,
+    RepoRate,
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
+    /// Encoded/decoded by serializers as "ROLP".
     /// </summary>
     [EnumMember(Value = "ROLP")]
     [IsoId("_ZT7nhdp-Ed-ak6NoX_4Aeg_605345317")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    ROLP,
+    Rollover,
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
+    /// Encoded/decoded by serializers as "TOPU".
     /// </summary>
     [EnumMember(Value = "TOPU")]
     [IsoId("_ZT7nhtp-Ed-ak6NoX_4Aeg_605345564")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    TOPU,
+    TopUp,
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
+    /// Encoded/decoded by serializers as "WTHD".
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_ZT7nh9p-Ed-ak6NoX_4Aeg_605345565")]
     [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
-    WTHD,
+    Withdrawal,
     
     /// <summary>
     /// Relates to a principal adjustment.
+    /// Encoded/decoded by serializers as "PADJ".
     /// </summary>
     [EnumMember(Value = "PADJ")]
     [IsoId("_ZT7niNp-Ed-ak6NoX_4Aeg_690308694")]
     [Description(@"Relates to a principal adjustment.")]
-    PADJ,
+    PrincipalExposureAdjustment,
     
 }
 

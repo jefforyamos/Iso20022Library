@@ -20,155 +20,174 @@ public enum PriceValueTypeCode
 {
     /// <summary>
     /// Price expressed as a number of percentage points below par, for example, a discount price of 2.0% equals a price of 98 when par is 100.
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_aJunE9p-Ed-ak6NoX_4Aeg_-1109708880")]
     [Description(@"Price expressed as a number of percentage points below par, for example, a discount price of 2.0% equals a price of 98 when par is 100.")]
-    DISC,
+    Discount,
     
     /// <summary>
     /// Price expressed as a number of percentage points above par, for example, a premium price of 2.0% equals a price of 102 when par is 100.
+    /// Encoded/decoded by serializers as "PREM".
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_aJunFNp-Ed-ak6NoX_4Aeg_-1109708508")]
     [Description(@"Price expressed as a number of percentage points above par, for example, a premium price of 2.0% equals a price of 102 when par is 100.")]
-    PREM,
+    Premium,
     
     /// <summary>
     /// Price is the face amount.
+    /// Encoded/decoded by serializers as "PARV".
     /// </summary>
     [EnumMember(Value = "PARV")]
     [IsoId("_aJunFdp-Ed-ak6NoX_4Aeg_-1109708466")]
     [Description(@"Price is the face amount.")]
-    PARV,
+    Par,
     
     /// <summary>
     /// Price expressed as a yield.
+    /// Encoded/decoded by serializers as "YIEL".
     /// </summary>
     [EnumMember(Value = "YIEL")]
     [IsoId("_aJunFtp-Ed-ak6NoX_4Aeg_-384717835")]
     [Description(@"Price expressed as a yield.")]
-    YIEL,
+    Yield,
     
     /// <summary>
     /// Difference between a market maker's bid and asked price.
+    /// Encoded/decoded by serializers as "SPRE".
     /// </summary>
     [EnumMember(Value = "SPRE")]
     [IsoId("_aJunF9p-Ed-ak6NoX_4Aeg_-368096287")]
     [Description(@"Difference between a market maker's bid and asked price.")]
-    SPRE,
+    Spread,
     
     /// <summary>
     /// Price expressed per unit.
+    /// Encoded/decoded by serializers as "PEUN".
     /// </summary>
     [EnumMember(Value = "PEUN")]
     [IsoId("_aJunGNp-Ed-ak6NoX_4Aeg_-355167252")]
     [Description(@"Price expressed per unit.")]
-    PEUN,
+    PerUnit,
     
     /// <summary>
     /// Price is expressed as absolute.
+    /// Encoded/decoded by serializers as "ABSO".
     /// </summary>
     [EnumMember(Value = "ABSO")]
     [IsoId("_aJ3xANp-Ed-ak6NoX_4Aeg_-340391326")]
     [Description(@"Price is expressed as absolute.")]
-    ABSO,
+    Absolute,
     
     /// <summary>
     /// Price is expressed as Treasury Euro Dollar price.
+    /// Encoded/decoded by serializers as "TEDP".
     /// </summary>
     [EnumMember(Value = "TEDP")]
     [IsoId("_aJ3xAdp-Ed-ak6NoX_4Aeg_-327461440")]
     [Description(@"Price is expressed as Treasury Euro Dollar price.")]
-    TEDP,
+    TEDPrice,
     
     /// <summary>
     /// Price is expressed as Treasury Euro Dollar yield.
+    /// Encoded/decoded by serializers as "TEDY".
     /// </summary>
     [EnumMember(Value = "TEDY")]
     [IsoId("_aJ3xAtp-Ed-ak6NoX_4Aeg_-314530723")]
     [Description(@"Price is expressed as Treasury Euro Dollar yield.")]
-    TEDY,
+    TEDYield,
     
     /// <summary>
     /// Cabinet trades are used to indicate prices that trade at a price lower than that available on an exchange and they can be fixed or variable (primarily used for listed futures and options).
+    /// Encoded/decoded by serializers as "FICT".
     /// </summary>
     [EnumMember(Value = "FICT")]
     [IsoId("_aJ3xA9p-Ed-ak6NoX_4Aeg_-299754506")]
     [Description(@"Cabinet trades are used to indicate prices that trade at a price lower than that available on an exchange and they can be fixed or variable (primarily used for listed futures and options).")]
-    FICT,
+    FixedCabinetTrade,
     
     /// <summary>
     /// Cabinet trades are used to indicate prices that trade at a price lower than that available on an exchange and they can be fixed or variable (primarily used for listed futures and options).
+    /// Encoded/decoded by serializers as "VACT".
     /// </summary>
     [EnumMember(Value = "VACT")]
     [IsoId("_aJ3xBNp-Ed-ak6NoX_4Aeg_-270202753")]
     [Description(@"Cabinet trades are used to indicate prices that trade at a price lower than that available on an exchange and they can be fixed or variable (primarily used for listed futures and options).")]
-    VACT,
+    VariableCabinetTrade,
     
     /// <summary>
     /// Price expressed as a percentage of par.
+    /// Encoded/decoded by serializers as "PRCT".
     /// </summary>
     [EnumMember(Value = "PRCT")]
     [IsoId("_aJ3xBdp-Ed-ak6NoX_4Aeg_1243136291")]
     [Description(@"Price expressed as a percentage of par.")]
-    PRCT,
+    Percentage,
     
     /// <summary>
     /// Price is unknown by the sender or has not been established.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aJ3xBtp-Ed-ak6NoX_4Aeg_-1205888519")]
     [Description(@"Price is unknown by the sender or has not been established.")]
-    UKWN,
+    Unknown,
     
     /// <summary>
     /// Price has not been established.
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_aJ3xB9p-Ed-ak6NoX_4Aeg_-1205888489")]
     [Description(@"Price has not been established.")]
-    OPEN,
+    OpenDated,
     
     /// <summary>
     /// Price is not required to be specified by account owner.
+    /// Encoded/decoded by serializers as "UNSP".
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_aJ3xCNp-Ed-ak6NoX_4Aeg_384904535")]
     [Description(@"Price is not required to be specified by account owner.")]
-    UNSP,
+    Unspecified,
     
     /// <summary>
     /// Price to be specified by account owner.
+    /// Encoded/decoded by serializers as "TBSP".
     /// </summary>
     [EnumMember(Value = "TBSP")]
     [IsoId("_aJ3xCdp-Ed-ak6NoX_4Aeg_384904566")]
     [Description(@"Price to be specified by account owner.")]
-    TBSP,
+    ToBeSpecified,
     
     /// <summary>
     /// Price expressed as a currency and amount per unit or per share.
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_aJ3xCtp-Ed-ak6NoX_4Aeg_-1798325648")]
     [Description(@"Price expressed as a currency and amount per unit or per share.")]
-    ACTU,
+    ActualAmount,
     
     /// <summary>
     /// Price will not be paid.
+    /// Encoded/decoded by serializers as "NILP".
     /// </summary>
     [EnumMember(Value = "NILP")]
     [IsoId("_XHAZ0OEJEd-udr336SN7mQ")]
     [Description(@"Price will not be paid.")]
-    NILP,
+    NilPayment,
     
     /// <summary>
     /// Price must be interpreted as a negative amount of currency per unit or per share.
+    /// Encoded/decoded by serializers as "NEGA".
     /// </summary>
     [EnumMember(Value = "NEGA")]
     [IsoId("_c76HsAycEeuG8M5giQ2e0w")]
     [Description(@"Price must be interpreted as a negative amount of currency per unit or per share.")]
-    NEGA,
+    NegativeActualAmount,
     
 }
 

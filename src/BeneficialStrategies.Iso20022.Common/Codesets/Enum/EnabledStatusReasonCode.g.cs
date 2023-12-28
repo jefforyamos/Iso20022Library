@@ -20,11 +20,12 @@ public enum EnabledStatusReasonCode
 {
     /// <summary>
     /// Modification to the account data is in process.
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_Cny84GBhEeaR1OOiVxm3Gg")]
     [Description(@"Modification to the account data is in process.")]
-    MODI,
+    Modified,
     
 }
 

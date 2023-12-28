@@ -20,27 +20,30 @@ public enum HoldingCode
 {
     /// <summary>
     /// Partial holding.
+    /// Encoded/decoded by serializers as "PRTH".
     /// </summary>
     [EnumMember(Value = "PRTH")]
     [IsoId("_qyrf8BKfEeKj15WxqwlXPw")]
     [Description(@"Partial holding.")]
-    PRTH,
+    PartialHolding,
     
     /// <summary>
     /// Non partial holding.
+    /// Encoded/decoded by serializers as "NPRH".
     /// </summary>
     [EnumMember(Value = "NPRH")]
     [IsoId("_q7nZgBKfEeKj15WxqwlXPw")]
     [Description(@"Non partial holding.")]
-    NPRH,
+    NonPartialHolding,
     
     /// <summary>
     /// Certificate.
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_5Y4UUBKfEeKj15WxqwlXPw")]
     [Description(@"Certificate.")]
-    CERT,
+    Certificate,
     
 }
 

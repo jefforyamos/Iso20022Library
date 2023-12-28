@@ -20,59 +20,66 @@ public enum FraudReportingActionCode
 {
     /// <summary>
     /// New fraud information not reported yet.
+    /// Encoded/decoded by serializers as "NEWF".
     /// </summary>
     [EnumMember(Value = "NEWF")]
     [IsoId("_r0wFEHbBEeef9c2nwgY9Xw")]
     [Description(@"New fraud information not reported yet.")]
-    NEWF,
+    New,
     
     /// <summary>
     /// Fraud information already reported.
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_xA9rQHbBEeef9c2nwgY9Xw")]
     [Description(@"Fraud information already reported.")]
-    DUPL,
+    Duplicate,
     
     /// <summary>
     /// Update information about a fraud already reported.
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_4nmFcHbBEeef9c2nwgY9Xw")]
     [Description(@"Update information about a fraud already reported.")]
-    UPDT,
+    Update,
     
     /// <summary>
     /// Closing a previously reported fraud.
+    /// Encoded/decoded by serializers as "CLSE".
     /// </summary>
     [EnumMember(Value = "CLSE")]
     [IsoId("_JaL44HbCEeef9c2nwgY9Xw")]
     [Description(@"Closing a previously reported fraud.")]
-    CLSE,
+    Close,
     
     /// <summary>
     /// Reopen a previously closed reported fraud case
+    /// Encoded/decoded by serializers as "REOP".
     /// </summary>
     [EnumMember(Value = "REOP")]
     [IsoId("_VzYqMHbCEeef9c2nwgY9Xw")]
     [Description(@"Reopen a previously closed reported fraud case")]
-    REOP,
+    Reopen,
     
     /// <summary>
     /// Other process about a fraud already reported defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_d5f1sHbCEeef9c2nwgY9Xw")]
     [Description(@"Other process about a fraud already reported defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other process about a fraud already reported defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_meJ-YHbCEeef9c2nwgY9Xw")]
     [Description(@"Other process about a fraud already reported defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

@@ -20,35 +20,39 @@ public enum DTCCashRoundingTypeCode
 {
     /// <summary>
     /// Round down to the nearest cent.
+    /// Encoded/decoded by serializers as "RDNC".
     /// </summary>
     [EnumMember(Value = "RDNC")]
     [IsoId("_1sZ_IDL3EeKU9IrkkToqcw_-232119891")]
     [Description(@"Round down to the nearest cent.")]
-    RDNC,
+    RoundDownToTheNearestCent,
     
     /// <summary>
     /// Round down to the nearest dollar.
+    /// Encoded/decoded by serializers as "RDND".
     /// </summary>
     [EnumMember(Value = "RDND")]
     [IsoId("_1sZ_ITL3EeKU9IrkkToqcw_1453354338")]
     [Description(@"Round down to the nearest dollar.")]
-    RDND,
+    RoundDownToTheNearestDollar,
     
     /// <summary>
     /// Round up to the nearest cent.
+    /// Encoded/decoded by serializers as "RUNC".
     /// </summary>
     [EnumMember(Value = "RUNC")]
     [IsoId("_1sZ_IjL3EeKU9IrkkToqcw_1668730619")]
     [Description(@"Round up to the nearest cent.")]
-    RUNC,
+    RoundUpToTheNearestCent,
     
     /// <summary>
     /// Round up to the nearest dollar.
+    /// Encoded/decoded by serializers as "RUND".
     /// </summary>
     [EnumMember(Value = "RUND")]
     [IsoId("_1sZ_IzL3EeKU9IrkkToqcw_-1607281533")]
     [Description(@"Round up to the nearest dollar.")]
-    RUND,
+    RoundUpToTheNearestDollar,
     
 }
 

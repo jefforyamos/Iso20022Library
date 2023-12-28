@@ -20,19 +20,21 @@ public enum DistributionPolicyCode
 {
     /// <summary>
     /// Income is distributed to the investors in the fund.
+    /// Encoded/decoded by serializers as "DIST".
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_awwx5tp-Ed-ak6NoX_4Aeg_1041617774")]
     [Description(@"Income is distributed to the investors in the fund.")]
-    DIST,
+    Distribution,
     
     /// <summary>
     /// Income is added to the capital of the fund.
+    /// Encoded/decoded by serializers as "ACCU".
     /// </summary>
     [EnumMember(Value = "ACCU")]
     [IsoId("_aw6i4Np-Ed-ak6NoX_4Aeg_1041617805")]
     [Description(@"Income is added to the capital of the fund.")]
-    ACCU,
+    Accumulation,
     
 }
 

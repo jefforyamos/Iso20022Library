@@ -20,27 +20,30 @@ public enum DemandStatusCode
 {
     /// <summary>
     /// Demand refused.
+    /// Encoded/decoded by serializers as "REFD".
     /// </summary>
     [EnumMember(Value = "REFD")]
     [IsoId("_V0vHEHyZEeGWJuGCfvwOsQ")]
     [Description(@"Demand refused.")]
-    REFD,
+    Refused,
     
     /// <summary>
     /// Extend undertaking expiry date.
+    /// Encoded/decoded by serializers as "EXTD".
     /// </summary>
     [EnumMember(Value = "EXTD")]
     [IsoId("_WJq0INryEeGuxusC7C-WeA")]
     [Description(@"Extend undertaking expiry date.")]
-    EXTD,
+    Extend,
     
     /// <summary>
     /// Pay undertaking demand.
+    /// Encoded/decoded by serializers as "PAYD".
     /// </summary>
     [EnumMember(Value = "PAYD")]
     [IsoId("_nrhhUNryEeGuxusC7C-WeA")]
     [Description(@"Pay undertaking demand.")]
-    PAYD,
+    PAY,
     
 }
 

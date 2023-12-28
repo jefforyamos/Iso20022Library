@@ -20,91 +20,102 @@ public enum CorporateActionChangeTypeCode
 {
     /// <summary>
     /// Change from bearer into registered form.
+    /// Encoded/decoded by serializers as "BERE".
     /// </summary>
     [EnumMember(Value = "BERE")]
     [IsoId("_bDF4Btp-Ed-ak6NoX_4Aeg_-1431930828")]
     [Description(@"Change from bearer into registered form.")]
-    BERE,
+    BearToRegistered,
     
     /// <summary>
     /// Change of all instruments into certificates.
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_bDF4B9p-Ed-ak6NoX_4Aeg_-1173344854")]
     [Description(@"Change of all instruments into certificates.")]
-    CERT,
+    Certificates,
     
     /// <summary>
     /// Change from dematerialised into physical form.
+    /// Encoded/decoded by serializers as "DEPH".
     /// </summary>
     [EnumMember(Value = "DEPH")]
     [IsoId("_bDF4CNp-Ed-ak6NoX_4Aeg_-1131785090")]
     [Description(@"Change from dematerialised into physical form.")]
-    DEPH,
+    DematerialisedToPhysical,
     
     /// <summary>
     /// Change from global permanent to physical form.
+    /// Encoded/decoded by serializers as "GPPH".
     /// </summary>
     [EnumMember(Value = "GPPH")]
     [IsoId("_bDPpANp-Ed-ak6NoX_4Aeg_-1066217301")]
     [Description(@"Change from global permanent to physical form.")]
-    GPPH,
+    GlobalPermanentToPhysical,
     
     /// <summary>
     /// Change from global temporary to global permanent form.
+    /// Encoded/decoded by serializers as "GTGP".
     /// </summary>
     [EnumMember(Value = "GTGP")]
     [IsoId("_bDPpAdp-Ed-ak6NoX_4Aeg_-706965969")]
     [Description(@"Change from global temporary to global permanent form.")]
-    GTGP,
+    GlobalTemporaryToGlobalPermanent,
     
     /// <summary>
     /// Change from global temporary to physical form.
+    /// Encoded/decoded by serializers as "GTPH".
     /// </summary>
     [EnumMember(Value = "GTPH")]
     [IsoId("_bDPpAtp-Ed-ak6NoX_4Aeg_-645090885")]
     [Description(@"Change from global temporary to physical form.")]
-    GTPH,
+    GlobalTemporaryToPhysical,
     
     /// <summary>
     /// The issuing company changes its name. CA event shows the change from old name to new name and may involve surrendering physical shares with the old name to the registrar.
+    /// Encoded/decoded by serializers as "NAME".
     /// </summary>
     [EnumMember(Value = "NAME")]
     [IsoId("_bDPpA9p-Ed-ak6NoX_4Aeg_-587831749")]
     [Description(@"The issuing company changes its name. CA event shows the change from old name to new name and may involve surrendering physical shares with the old name to the registrar.")]
-    NAME,
+    Name,
     
     /// <summary>
     /// Change from physical into dematerialised form.
+    /// Encoded/decoded by serializers as "PHDE".
     /// </summary>
     [EnumMember(Value = "PHDE")]
     [IsoId("_bDPpBNp-Ed-ak6NoX_4Aeg_-575825829")]
     [Description(@"Change from physical into dematerialised form.")]
-    PHDE,
+    PhysicalToDematerialised,
     
     /// <summary>
     /// Change from registered into bearer form.
+    /// Encoded/decoded by serializers as "REBE".
     /// </summary>
     [EnumMember(Value = "REBE")]
     [IsoId("_bDPpBdp-Ed-ak6NoX_4Aeg_-505638656")]
     [Description(@"Change from registered into bearer form.")]
-    REBE,
+    RegisteredToBearer,
     
     /// <summary>
     /// Change in the terms of the security.
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_bDPpBtp-Ed-ak6NoX_4Aeg_-284917712")]
     [Description(@"Change in the terms of the security.")]
-    TERM,
+    Terms,
     
     /// <summary>
     /// Process of changing the accounting method of a security, for example, mutual fund, from units to a quantity with decimals.
+    /// Encoded/decoded by serializers as "DECI".
     /// </summary>
     [EnumMember(Value = "DECI")]
     [IsoId("_bDPpB9p-Ed-ak6NoX_4Aeg_-1694567219")]
     [Description(@"Process of changing the accounting method of a security, for example, mutual fund, from units to a quantity with decimals.")]
-    DECI,
+    Decimalisation,
     
 }
 

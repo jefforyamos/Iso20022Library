@@ -20,99 +20,111 @@ public enum SaleCapabilitiesCode
 {
     /// <summary>
     /// To display to the Cashier a new state on which the POI is entering. 	For instance, during a payment, the POI could display to the Cashier that POI request an authorisation to the host acquirer.
+    /// Encoded/decoded by serializers as "CHST".
     /// </summary>
     [EnumMember(Value = "CHST")]
     [IsoId("_1aQFQNtrEeiXqq0XHEoNUA")]
     [Description(@"To display to the Cashier a new state on which the POI is entering. 	For instance, during a payment, the POI could display to the Cashier that POI request an authorisation to the host acquirer.")]
-    CHST,
+    CashierStatus,
     
     /// <summary>
     /// To display to the Cashier information related to an error situation occurring on the POI.
+    /// Encoded/decoded by serializers as "CHER".
     /// </summary>
     [EnumMember(Value = "CHER")]
     [IsoId("_5kc00NtrEeiXqq0XHEoNUA")]
     [Description(@"To display to the Cashier information related to an error situation occurring on the POI.")]
-    CHER,
+    CashierError,
     
     /// <summary>
     /// Standard Cashier display interface (to ask question, or to show information). 
+    /// Encoded/decoded by serializers as "CHDI".
     /// </summary>
     [EnumMember(Value = "CHDI")]
     [IsoId("_8rCLQNtrEeiXqq0XHEoNUA")]
     [Description(@"Standard Cashier display interface (to ask question, or to show information). ")]
-    CHDI,
+    CashierDisplay,
     
     /// <summary>
     /// Information displayed on the Cardholder POI interface, replicated on the Cashier interface.
+    /// Encoded/decoded by serializers as "POIR".
     /// </summary>
     [EnumMember(Value = "POIR")]
     [IsoId("__dj9QNtrEeiXqq0XHEoNUA")]
     [Description(@"Information displayed on the Cardholder POI interface, replicated on the Cashier interface.")]
-    POIR,
+    POIReplication,
     
     /// <summary>
     /// Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element). The output device attached to this input device is the CashierDisplay device.
+    /// Encoded/decoded by serializers as "CHIN".
     /// </summary>
     [EnumMember(Value = "CHIN")]
     [IsoId("_CnlpQNtsEeiXqq0XHEoNUA")]
     [Description(@"Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element). The output device attached to this input device is the CashierDisplay device.")]
-    CHIN,
+    CashierInput,
     
     /// <summary>
     /// Input of the Cardholder POI interface which can be entered by the Cashier to assist the Customer.
+    /// Encoded/decoded by serializers as "CUAS".
     /// </summary>
     [EnumMember(Value = "CUAS")]
     [IsoId("_HNoAQNtsEeiXqq0XHEoNUA")]
     [Description(@"Input of the Cardholder POI interface which can be entered by the Cashier to assist the Customer.")]
-    CUAS,
+    CustomerAssistance,
     
     /// <summary>
     /// Standard Customer display interface used by the POI System to ask question, or to show information to the Customer inside a Service dialogue.
+    /// Encoded/decoded by serializers as "CUDI".
     /// </summary>
     [EnumMember(Value = "CUDI")]
     [IsoId("_KU_Z0NtsEeiXqq0XHEoNUA")]
     [Description(@"Standard Customer display interface used by the POI System to ask question, or to show information to the Customer inside a Service dialogue.")]
-    CUDI,
+    CustomerDisplay,
     
     /// <summary>
     /// To display to the Customer information is related to an error situation occurring on the Sale Terminal during a Sale transaction.
+    /// Encoded/decoded by serializers as "CUER".
     /// </summary>
     [EnumMember(Value = "CUER")]
     [IsoId("_NNsFQNtsEeiXqq0XHEoNUA")]
     [Description(@"To display to the Customer information is related to an error situation occurring on the Sale Terminal during a Sale transaction.")]
-    CUER,
+    CustomerError,
     
     /// <summary>
     /// Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element).
+    /// Encoded/decoded by serializers as "CUIN".
     /// </summary>
     [EnumMember(Value = "CUIN")]
     [IsoId("_QgQpQNtsEeiXqq0XHEoNUA")]
     [Description(@"Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element).")]
-    CUIN,
+    CustomerInput,
     
     /// <summary>
     /// Printer for the Payment receipt.
+    /// Encoded/decoded by serializers as "PRRP".
     /// </summary>
     [EnumMember(Value = "PRRP")]
     [IsoId("_UHz-wNtsEeiXqq0XHEoNUA")]
     [Description(@"Printer for the Payment receipt.")]
-    PRRP,
+    PrinterReceipt,
     
     /// <summary>
     /// When the POI System wants to print specific document (check, dynamic currency conversion ...).
+    /// Encoded/decoded by serializers as "PRDC".
     /// </summary>
     [EnumMember(Value = "PRDC")]
     [IsoId("_WQrvwNtsEeiXqq0XHEoNUA")]
     [Description(@"When the POI System wants to print specific document (check, dynamic currency conversion ...).")]
-    PRDC,
+    PrinterDocument,
     
     /// <summary>
     /// Coupons, voucher or special ticket generated by the POI and to be printed. 
+    /// Encoded/decoded by serializers as "PRVC".
     /// </summary>
     [EnumMember(Value = "PRVC")]
     [IsoId("_ZTVBYNtsEeiXqq0XHEoNUA")]
     [Description(@"Coupons, voucher or special ticket generated by the POI and to be printed. ")]
-    PRVC,
+    PrinterVoucher,
     
 }
 

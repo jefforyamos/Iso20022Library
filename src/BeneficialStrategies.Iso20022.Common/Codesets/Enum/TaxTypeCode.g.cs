@@ -20,307 +20,345 @@ public enum TaxTypeCode
 {
     /// <summary>
     /// Tax for which a zero rate applies.
+    /// Encoded/decoded by serializers as "VATB".
     /// </summary>
     [EnumMember(Value = "VATB")]
     [IsoId("_TW-nsAEcEeCQm6a_G2yO_w_-1666564998")]
     [Description(@"Tax for which a zero rate applies.")]
-    VATB,
+    ValueAddedTaxOfZeroRate,
     
     /// <summary>
     /// Tax is a provincial tax.
+    /// Encoded/decoded by serializers as "PROV".
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_Yk2T9Np-Ed-ak6NoX_4Aeg_101436698")]
     [Description(@"Tax is a provincial tax.")]
-    PROV,
+    Provincial,
     
     /// <summary>
     /// Tax is a national tax.
+    /// Encoded/decoded by serializers as "NATI".
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_Yk2T9dp-Ed-ak6NoX_4Aeg_101436699")]
     [Description(@"Tax is a national tax.")]
-    NATI,
+    NationalTax,
     
     /// <summary>
     /// Tax is a state tax.
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_Yk2T9tp-Ed-ak6NoX_4Aeg_101436700")]
     [Description(@"Tax is a state tax.")]
-    STAT,
+    StateTax,
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_Yk2T99p-Ed-ak6NoX_4Aeg_101436701")]
     [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
-    WITH,
+    WithholdingTax,
     
     /// <summary>
     /// Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.
+    /// Encoded/decoded by serializers as "KAPA".
     /// </summary>
     [EnumMember(Value = "KAPA")]
     [IsoId("_Yk2T-Np-Ed-ak6NoX_4Aeg_101436710")]
     [Description(@"Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.")]
-    KAPA,
+    CapitalGainTax,
     
     /// <summary>
     /// Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.
+    /// Encoded/decoded by serializers as "INPO".
     /// </summary>
     [EnumMember(Value = "INPO")]
     [IsoId("_Yk_d4Np-Ed-ak6NoX_4Aeg_101436711")]
     [Description(@"Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.")]
-    INPO,
+    InterimProfitTax,
     
     /// <summary>
     /// Tax is on certain documents and transactions.
+    /// Encoded/decoded by serializers as "STAM".
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_Yk_d4dp-Ed-ak6NoX_4Aeg_101436712")]
     [Description(@"Tax is on certain documents and transactions.")]
-    STAM,
+    StampDuty,
     
     /// <summary>
     /// Tax is a special tax imposed, applicable only when the value of assets or categories of assets owned by an entity are above a given ceiling defined by the tax authority. Wealth tax is not linked to income.
+    /// Encoded/decoded by serializers as "WTAX".
     /// </summary>
     [EnumMember(Value = "WTAX")]
     [IsoId("_Yk_d4tp-Ed-ak6NoX_4Aeg_101436713")]
     [Description(@"Tax is a special tax imposed, applicable only when the value of assets or categories of assets owned by an entity are above a given ceiling defined by the tax authority. Wealth tax is not linked to income.")]
-    WTAX,
+    WealthTax,
     
     /// <summary>
     /// Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.
+    /// Encoded/decoded by serializers as "INHT".
     /// </summary>
     [EnumMember(Value = "INHT")]
     [IsoId("_Yk_d49p-Ed-ak6NoX_4Aeg_101436714")]
     [Description(@"Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.")]
-    INHT,
+    InheritanceTax,
     
     /// <summary>
     /// Tax that is levied by legal authorities for solidarity purposes.
+    /// Encoded/decoded by serializers as "SOSU".
     /// </summary>
     [EnumMember(Value = "SOSU")]
     [IsoId("_Yk_d5Np-Ed-ak6NoX_4Aeg_101436715")]
     [Description(@"Tax that is levied by legal authorities for solidarity purposes.")]
-    SOSU,
+    SolidaritySurcharge,
     
     /// <summary>
     /// Direct reduction of an individual's tax liability.
+    /// Encoded/decoded by serializers as "CTAX".
     /// </summary>
     [EnumMember(Value = "CTAX")]
     [IsoId("_Yk_d5dp-Ed-ak6NoX_4Aeg_101436716")]
     [Description(@"Direct reduction of an individual's tax liability.")]
-    CTAX,
+    TaxCredit,
     
     /// <summary>
     /// The part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
+    /// Encoded/decoded by serializers as "EQUL".
     /// </summary>
     [EnumMember(Value = "EQUL")]
     [IsoId("_Yk_d5tp-Ed-ak6NoX_4Aeg_1366299069")]
     [Description(@"The part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.")]
-    EQUL,
+    Equalisation,
     
     /// <summary>
     /// Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.
+    /// Encoded/decoded by serializers as "GIFT".
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_Yk_d59p-Ed-ak6NoX_4Aeg_1366299070")]
     [Description(@"Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.")]
-    GIFT,
+    GiftTax,
     
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
+    /// Encoded/decoded by serializers as "COAX".
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_Yk_d6Np-Ed-ak6NoX_4Aeg_1366299071")]
     [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
-    COAX,
+    ConsumptionTax,
     
     /// <summary>
     /// Tax is an alternative minimum tax.
+    /// Encoded/decoded by serializers as "ALMI".
     /// </summary>
     [EnumMember(Value = "ALMI")]
     [IsoId("_Yk_d6dp-Ed-ak6NoX_4Aeg_-235891984")]
     [Description(@"Tax is an alternative minimum tax.")]
-    ALMI,
+    AlternativeMinimumTax,
     
     /// <summary>
     /// Tax that is charged by a local settlement system or local jurisdiction.
+    /// Encoded/decoded by serializers as "LOCL".
     /// </summary>
     [EnumMember(Value = "LOCL")]
     [IsoId("_Yk_d6tp-Ed-ak6NoX_4Aeg_1995661841")]
     [Description(@"Tax that is charged by a local settlement system or local jurisdiction.")]
-    LOCL,
+    LocalTax,
     
     /// <summary>
     /// Tax is a country, national, or federal tax that is usually charged by the custodian.
+    /// Encoded/decoded by serializers as "COUN".
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_YlJO4Np-Ed-ak6NoX_4Aeg_1995661901")]
     [Description(@"Tax is a country, national, or federal tax that is usually charged by the custodian.")]
-    COUN,
+    NationalFederalTax,
     
     /// <summary>
     /// Tax levied on a payment.
+    /// Encoded/decoded by serializers as "LEVY".
     /// </summary>
     [EnumMember(Value = "LEVY")]
     [IsoId("_YlJO4dp-Ed-ak6NoX_4Aeg_1995661936")]
     [Description(@"Tax levied on a payment.")]
-    LEVY,
+    PaymentLevyTax,
     
     /// <summary>
     /// Tax collected by a stock exchange.
+    /// Encoded/decoded by serializers as "STEX".
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_YlJO4tp-Ed-ak6NoX_4Aeg_1995662231")]
     [Description(@"Tax collected by a stock exchange.")]
-    STEX,
+    StockExchangeTax,
     
     /// <summary>
     /// Tax levied on a transaction.
+    /// Encoded/decoded by serializers as "TRAX".
     /// </summary>
     [EnumMember(Value = "TRAX")]
     [IsoId("_YlJO49p-Ed-ak6NoX_4Aeg_1995662291")]
     [Description(@"Tax levied on a transaction.")]
-    TRAX,
+    TransactionTax,
     
     /// <summary>
     /// Tax levied on a transfer.
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_YlJO5Np-Ed-ak6NoX_4Aeg_1995662599")]
     [Description(@"Tax levied on a transfer.")]
-    TRAN,
+    TransferTax,
     
     /// <summary>
     /// Tax is a value added tax.
+    /// Encoded/decoded by serializers as "VATA".
     /// </summary>
     [EnumMember(Value = "VATA")]
     [IsoId("_YlJO5dp-Ed-ak6NoX_4Aeg_1995662659")]
     [Description(@"Tax is a value added tax.")]
-    VATA,
+    ValueAddedTax,
     
     /// <summary>
     /// Local broker's commission amount.
+    /// Encoded/decoded by serializers as "LOCO".
     /// </summary>
     [EnumMember(Value = "LOCO")]
     [IsoId("_YlJO5tp-Ed-ak6NoX_4Aeg_1995662729")]
     [Description(@"Local broker's commission amount.")]
-    LOCO,
+    LocalBrokerCommission,
     
     /// <summary>
     /// Executing broker's commission amount.
+    /// Encoded/decoded by serializers as "EXEC".
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_YlJO59p-Ed-ak6NoX_4Aeg_1995662789")]
     [Description(@"Executing broker's commission amount.")]
-    EXEC,
+    ExecutingBrokerCommission,
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
+    /// Encoded/decoded by serializers as "EUTR".
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_YlJO6Np-Ed-ak6NoX_4Aeg_2062905332")]
     [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
-    EUTR,
+    EUTaxRetention,
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).
+    /// Encoded/decoded by serializers as "AKT1".
     /// </summary>
     [EnumMember(Value = "AKT1")]
     [IsoId("_YlJO6dp-Ed-ak6NoX_4Aeg_-1098061737")]
     [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).")]
-    AKT1,
+    Aktiengewinn1,
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).
+    /// Encoded/decoded by serializers as "AKT2".
     /// </summary>
     [EnumMember(Value = "AKT2")]
     [IsoId("_YlSY0Np-Ed-ak6NoX_4Aeg_-1098061719")]
     [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).")]
-    AKT2,
+    Aktiengewinn2,
     
     /// <summary>
     /// Zwischengewinn.
+    /// Encoded/decoded by serializers as "ZWIS".
     /// </summary>
     [EnumMember(Value = "ZWIS")]
     [IsoId("_YlSY0dp-Ed-ak6NoX_4Aeg_-1098061694")]
     [Description(@"Zwischengewinn.")]
-    ZWIS,
+    Zwischengewinn,
     
     /// <summary>
     /// Tax is customs and excise.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_YlSY0tp-Ed-ak6NoX_4Aeg_2120170335")]
     [Description(@"Tax is customs and excise.")]
-    CUST,
+    CustomsTax,
     
     /// <summary>
     /// Another type of tax.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YlSY09p-Ed-ak6NoX_4Aeg_-1199915118")]
     [Description(@"Another type of tax.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Earnings from renting.
+    /// Encoded/decoded by serializers as "MIET".
     /// </summary>
     [EnumMember(Value = "MIET")]
     [IsoId("_YlSY1Np-Ed-ak6NoX_4Aeg_-195327179")]
     [Description(@"Earnings from renting.")]
-    MIET,
+    Mietgewinn,
     
     /// <summary>
     /// Local tax (Zinstopf) offset interest per unit against tax exempt amount (variation to offset interest per unit in relation to tax exempt amount).
+    /// Encoded/decoded by serializers as "LOTE".
     /// </summary>
     [EnumMember(Value = "LOTE")]
     [IsoId("_YlSY1dp-Ed-ak6NoX_4Aeg_1814391584")]
     [Description(@"Local tax (Zinstopf) offset interest per unit against tax exempt amount (variation to offset interest per unit in relation to tax exempt amount).")]
-    LOTE,
+    GermanLocalTax3,
     
     /// <summary>
     /// Local tax (Ertrag Besitzanteilig) yield liable for interest down payment tax.
+    /// Encoded/decoded by serializers as "LYDT".
     /// </summary>
     [EnumMember(Value = "LYDT")]
     [IsoId("_YlSY1tp-Ed-ak6NoX_4Aeg_1814391646")]
     [Description(@"Local tax (Ertrag Besitzanteilig) yield liable for interest down payment tax.")]
-    LYDT,
+    GermanLocalTax4,
     
     /// <summary>
     /// Local tax (ZAS pflichtige Zinsen) - interest liable for interest down payment tax (proportion of gross interest per unit/interim profits that is not covered by the credit in the interest pool).
+    /// Encoded/decoded by serializers as "LIDT".
     /// </summary>
     [EnumMember(Value = "LIDT")]
     [IsoId("_YlSY19p-Ed-ak6NoX_4Aeg_165827201")]
     [Description(@"Local tax (ZAS pflichtige Zinsen) - interest liable for interest down payment tax (proportion of gross interest per unit/interim profits that is not covered by the credit in the interest pool).")]
-    LIDT,
+    GermanLocalTax2,
     
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
+    /// Encoded/decoded by serializers as "WITF".
     /// </summary>
     [EnumMember(Value = "WITF")]
     [IsoId("_YlSY2Np-Ed-ak6NoX_4Aeg_165827262")]
     [Description(@"Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.")]
-    WITF,
+    WithholdingOfForeignTax,
     
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
+    /// Encoded/decoded by serializers as "WITL".
     /// </summary>
     [EnumMember(Value = "WITL")]
     [IsoId("_YlSY2dp-Ed-ak6NoX_4Aeg_165827602")]
     [Description(@"Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.")]
-    WITL,
+    WithholdingOfLocalTax,
     
     /// <summary>
     /// Tax recovery is due to capital loss.
+    /// Encoded/decoded by serializers as "NKAP".
     /// </summary>
     [EnumMember(Value = "NKAP")]
     [IsoId("_HiqOwBuGEeOqSdXzJ0oydA")]
     [Description(@"Tax recovery is due to capital loss.")]
-    NKAP,
+    CapitalLossCredit,
     
 }
 

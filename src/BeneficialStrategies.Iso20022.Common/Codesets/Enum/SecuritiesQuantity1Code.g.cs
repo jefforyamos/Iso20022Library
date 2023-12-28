@@ -16,31 +16,35 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_VCCygDFxEeGKkIZzgd38VA")]
 [Description(@"TSE/JASDEC codes for planned, maximum and minimum of shares to be purchased.")]
+[DerivedFrom(typeof(SecuritiesQuantityTypeCode))]
 public enum SecuritiesQuantity1Code
 {
     /// <summary>
     /// ??
+    /// Encoded/decoded by serializers as "SQNO".
     /// </summary>
     [EnumMember(Value = "SQNO")]
     [IsoId("_V_Is5jFxEeGKkIZzgd38VA")]
     [Description(@"??")]
-    SQNO,
+    No,
     
     /// <summary>
     /// ??
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_WDAgRjFxEeGKkIZzgd38VA")]
     [Description(@"??")]
-    UKWN,
+    Unknown,
     
     /// <summary>
     /// ??
+    /// Encoded/decoded by serializers as "SQYS".
     /// </summary>
     [EnumMember(Value = "SQYS")]
     [IsoId("_WJ3WNjFxEeGKkIZzgd38VA")]
     [Description(@"??")]
-    SQYS,
+    Yes,
     
 }
 

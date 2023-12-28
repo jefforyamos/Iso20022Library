@@ -20,35 +20,39 @@ public enum SettlingCapacityCode
 {
     /// <summary>
     /// Settlement party is a custodian. It receives/delivers the securities and carries out custodial duties.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_ZOkmYtp-Ed-ak6NoX_4Aeg_-1285750267")]
     [Description(@"Settlement party is a custodian. It receives/delivers the securities and carries out custodial duties.")]
-    CUST,
+    SettlingCustodian,
     
     /// <summary>
     /// Settlement party is trading and settling transactions in financial instruments on behalf of its client(s).
+    /// Encoded/decoded by serializers as "SAGE".
     /// </summary>
     [EnumMember(Value = "SAGE")]
     [IsoId("_ZOkmY9p-Ed-ak6NoX_4Aeg_1834026004")]
     [Description(@"Settlement party is trading and settling transactions in financial instruments on behalf of its client(s).")]
-    SAGE,
+    SettlingAgent,
     
     /// <summary>
     /// Settlement party is settling its own trades.
+    /// Encoded/decoded by serializers as "SPRI".
     /// </summary>
     [EnumMember(Value = "SPRI")]
     [IsoId("_ZOkmZNp-Ed-ak6NoX_4Aeg_1128911389")]
     [Description(@"Settlement party is settling its own trades.")]
-    SPRI,
+    SettlingPrincipal,
     
     /// <summary>
     /// Party settles trades that were simultaneously offset.
+    /// Encoded/decoded by serializers as "RISP".
     /// </summary>
     [EnumMember(Value = "RISP")]
     [IsoId("_pNJUUCW2EeOslcz0TJwprQ")]
     [Description(@"Party settles trades that were simultaneously offset.")]
-    RISP,
+    SettlingRisklessPrincipal,
     
 }
 

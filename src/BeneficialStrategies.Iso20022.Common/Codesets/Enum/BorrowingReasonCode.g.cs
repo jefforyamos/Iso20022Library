@@ -20,27 +20,30 @@ public enum BorrowingReasonCode
 {
     /// <summary>
     /// The borrowing reason is for Self consumption.
+    /// Encoded/decoded by serializers as "SFCT".
     /// </summary>
     [EnumMember(Value = "SFCT")]
     [IsoId("__0dT1NojEeC60axPepSq7g_-1791555155")]
     [Description(@"The borrowing reason is for Self consumption.")]
-    SFCT,
+    SelfConsumption,
     
     /// <summary>
     /// The borrowing reason is for Transfer to thrid party.
+    /// Encoded/decoded by serializers as "TTTP".
     /// </summary>
     [EnumMember(Value = "TTTP")]
     [IsoId("__0dT1dojEeC60axPepSq7g_987437691")]
     [Description(@"The borrowing reason is for Transfer to thrid party.")]
-    TTTP,
+    TransferToThirdParty,
     
     /// <summary>
     /// The borrowing reason is for Market making purpose.
+    /// Encoded/decoded by serializers as "MMPP".
     /// </summary>
     [EnumMember(Value = "MMPP")]
     [IsoId("__0dT1tojEeC60axPepSq7g_-236314202")]
     [Description(@"The borrowing reason is for Market making purpose.")]
-    MMPP,
+    MarketMakingPurpose,
     
 }
 

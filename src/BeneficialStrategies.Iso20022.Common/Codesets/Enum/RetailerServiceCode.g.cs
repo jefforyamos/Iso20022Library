@@ -20,435 +20,489 @@ public enum RetailerServiceCode
 {
     /// <summary>
     /// The Sale System requests to the POI System to perform a payment(Purchase/Refund/PWCB/MOTO Payment/...).
+    /// Encoded/decoded by serializers as "FSPQ".
     /// </summary>
     [EnumMember(Value = "FSPQ")]
     [IsoId("_rzfokNt6EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to perform a payment(Purchase/Refund/PWCB/MOTO Payment/...).")]
-    FSPQ,
+    FinancialPaymentRequest,
     
     /// <summary>
     /// The Sale System requests to the POI System to perform a reversal partial or complete to cancel a former payment service.
+    /// Encoded/decoded by serializers as "FSRQ".
     /// </summary>
     [EnumMember(Value = "FSRQ")]
     [IsoId("_yLg6kNt6EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to perform a reversal partial or complete to cancel a former payment service.")]
-    FSRQ,
+    FinancialReversalRequest,
     
     /// <summary>
     /// The Sale System requests to the POI System to perform balance inquiry on the main account.
+    /// Encoded/decoded by serializers as "FSIQ".
     /// </summary>
     [EnumMember(Value = "FSIQ")]
     [IsoId("_0u75kNt6EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to perform balance inquiry on the main account.")]
-    FSIQ,
+    FinancialBalanceInquiryRequest,
     
     /// <summary>
     /// The Batch message pair is used to request or get the result of transactions (payment, loyalty and reversal) performed without connection to the Sale system (Payment delivery).
+    /// Encoded/decoded by serializers as "FSBQ".
     /// </summary>
     [EnumMember(Value = "FSBQ")]
     [IsoId("_3QYioNt6EeiXqq0XHEoNUA")]
     [Description(@"The Batch message pair is used to request or get the result of transactions (payment, loyalty and reversal) performed without connection to the Sale system (Payment delivery).")]
-    FSBQ,
+    FinancialBatchRequest,
     
     /// <summary>
     /// The Sale System requests to the POI System a loyalty service like loading or redeem.
+    /// Encoded/decoded by serializers as "FSLQ".
     /// </summary>
     [EnumMember(Value = "FSLQ")]
     [IsoId("_6Tr7kNt6EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System a loyalty service like loading or redeem.")]
-    FSLQ,
+    FinancialLoyaltyRequest,
     
     /// <summary>
     /// The Sale System requests to the POI System to manage a stored value card or account (eg. Load, Payment, Reimbursement).
+    /// Encoded/decoded by serializers as "FSVQ".
     /// </summary>
     [EnumMember(Value = "FSVQ")]
     [IsoId("_9MoeoNt6EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to manage a stored value card or account (eg. Load, Payment, Reimbursement).")]
-    FSVQ,
+    FinancialStoredValueRequest,
     
     /// <summary>
     /// The Sale System requests to the POI System to enable a service on its side.
+    /// Encoded/decoded by serializers as "FSEQ".
     /// </summary>
     [EnumMember(Value = "FSEQ")]
     [IsoId("_AIsAENt7EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to enable a service on its side.")]
-    FSEQ,
+    FinancialEnableServiceRequest,
     
     /// <summary>
     /// The Sale System requests to the POI System to handle a card data acquisition on the card reader.
+    /// Encoded/decoded by serializers as "FSAQ".
     /// </summary>
     [EnumMember(Value = "FSAQ")]
     [IsoId("_C3yDkNt7EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System to handle a card data acquisition on the card reader.")]
-    FSAQ,
+    FinancialCardAcquisitionRequest,
     
     /// <summary>
     /// The Sale System request to the POI System different kinds of transaction reconciliation. 
+    /// Encoded/decoded by serializers as "FSCQ".
     /// </summary>
     [EnumMember(Value = "FSCQ")]
     [IsoId("_Fq7goNt7EeiXqq0XHEoNUA")]
     [Description(@"The Sale System request to the POI System different kinds of transaction reconciliation. ")]
-    FSCQ,
+    FinancialReconciliationRequest,
     
     /// <summary>
     /// The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).
+    /// Encoded/decoded by serializers as "FSPP".
     /// </summary>
     [EnumMember(Value = "FSPP")]
     [IsoId("_JK19ENt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).")]
-    FSPP,
+    FinancialPaymentResponse,
     
     /// <summary>
     /// The POI System sends a response to a reversal request.
+    /// Encoded/decoded by serializers as "FSRP".
     /// </summary>
     [EnumMember(Value = "FSRP")]
     [IsoId("_L2qDENt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a reversal request.")]
-    FSRP,
+    FinancialReversalResponse,
     
     /// <summary>
     /// The POI System sends a response to a Balance Inquiry request.
+    /// Encoded/decoded by serializers as "FSIP".
     /// </summary>
     [EnumMember(Value = "FSIP")]
     [IsoId("_Oa6vkNt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a Balance Inquiry request.")]
-    FSIP,
+    FinancialBalanceInquiryResponse,
     
     /// <summary>
     /// The POI System sends a response to a batch processing request.
+    /// Encoded/decoded by serializers as "FSBP".
     /// </summary>
     [EnumMember(Value = "FSBP")]
     [IsoId("_RoYKENt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a batch processing request.")]
-    FSBP,
+    FinancialBatchResponse,
     
     /// <summary>
     /// The POI System sends a response to a loyalty processing request.
+    /// Encoded/decoded by serializers as "FSLP".
     /// </summary>
     [EnumMember(Value = "FSLP")]
     [IsoId("_U6pzINt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a loyalty processing request.")]
-    FSLP,
+    FinancialLoyaltyResponse,
     
     /// <summary>
     /// The POI System sends a response to a stored value card or account request.
+    /// Encoded/decoded by serializers as "FSVP".
     /// </summary>
     [EnumMember(Value = "FSVP")]
     [IsoId("_XwTxoNt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a stored value card or account request.")]
-    FSVP,
+    FinancialStoredValueResponse,
     
     /// <summary>
     /// The POI System sends a response after enabling or not some service.
+    /// Encoded/decoded by serializers as "FSEP".
     /// </summary>
     [EnumMember(Value = "FSEP")]
     [IsoId("_aPctkNt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response after enabling or not some service.")]
-    FSEP,
+    FinancialEnableServiceResponse,
     
     /// <summary>
     /// The POI System sends a response to a card data acquisition request.
+    /// Encoded/decoded by serializers as "FSAP".
     /// </summary>
     [EnumMember(Value = "FSAP")]
     [IsoId("_clwdoNt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a card data acquisition request.")]
-    FSAP,
+    FinancialCardAcquisitionResponse,
     
     /// <summary>
     /// The POI System sends a response to a reconciliation request.
+    /// Encoded/decoded by serializers as "FSCP".
     /// </summary>
     [EnumMember(Value = "FSCP")]
     [IsoId("_fDS3ENt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System sends a response to a reconciliation request.")]
-    FSCP,
+    FinancialReconciliationResponse,
     
     /// <summary>
     /// An administrative request, to select and start customised administrative services provided by the POI, using a "menu" for an interactive or software interface, initiated by the Sale system.
+    /// Encoded/decoded by serializers as "ADAQ".
     /// </summary>
     [EnumMember(Value = "ADAQ")]
     [IsoId("_hxZcENt7EeiXqq0XHEoNUA")]
     [Description(@"An administrative request, to select and start customised administrative services provided by the POI, using a ""menu"" for an interactive or software interface, initiated by the Sale system.")]
-    ADAQ,
+    AdministrativeAdminRequest,
     
     /// <summary>
     /// The Sale System requests a login to the POI System.
+    /// Encoded/decoded by serializers as "SMIQ".
     /// </summary>
     [EnumMember(Value = "SMIQ")]
     [IsoId("_lSPFkNt7EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests a login to the POI System.")]
-    SMIQ,
+    AdministrativeSessionManagementLoginRequest,
     
     /// <summary>
     /// The Sale System requests a logout to the POI System.
+    /// Encoded/decoded by serializers as "SMOQ".
     /// </summary>
     [EnumMember(Value = "SMOQ")]
     [IsoId("_nyElENt7EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests a logout to the POI System.")]
-    SMOQ,
+    AdministrativeSessionManagementLogoutRequest,
     
     /// <summary>
     /// The Sale System requests a session diagnosis to the POI System.
+    /// Encoded/decoded by serializers as "SMDQ".
     /// </summary>
     [EnumMember(Value = "SMDQ")]
     [IsoId("_qk-xkNt7EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests a session diagnosis to the POI System.")]
-    SMDQ,
+    AdministrativeSessionManagementDiagnosisRequest,
     
     /// <summary>
     /// The Sale System requests to the POI System a report on a list of transactions.
+    /// Encoded/decoded by serializers as "RPTQ".
     /// </summary>
     [EnumMember(Value = "RPTQ")]
     [IsoId("_vWn7oNt7EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System a report on a list of transactions.")]
-    RPTQ,
+    AdministrativeReportTransactionRequest,
     
     /// <summary>
     /// The Sale System requests to the POI System a report on the totals figures of the POI system.
+    /// Encoded/decoded by serializers as "RPAQ".
     /// </summary>
     [EnumMember(Value = "RPAQ")]
     [IsoId("_x3q8ENt7EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System a report on the totals figures of the POI system.")]
-    RPAQ,
+    AdministrativeReportGetTotalsRequest,
     
     /// <summary>
     /// The POI System responds to an administrative request.
+    /// Encoded/decoded by serializers as "ADAP".
     /// </summary>
     [EnumMember(Value = "ADAP")]
     [IsoId("_0N5MkNt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to an administrative request.")]
-    ADAP,
+    AdministrativeAdminResponse,
     
     /// <summary>
     /// The POI System responds to a login request.
+    /// Encoded/decoded by serializers as "SMIP".
     /// </summary>
     [EnumMember(Value = "SMIP")]
     [IsoId("_5GtVoNt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a login request.")]
-    SMIP,
+    AdministrativeSessionManagementLoginResponse,
     
     /// <summary>
     /// The POI System responds to a logout request.
+    /// Encoded/decoded by serializers as "SMOP".
     /// </summary>
     [EnumMember(Value = "SMOP")]
     [IsoId("_7hWzINt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a logout request.")]
-    SMOP,
+    AdministrativeSessionManagementLogoutResponse,
     
     /// <summary>
     /// The POI System responds to a diagnosis request.
+    /// Encoded/decoded by serializers as "SMDP".
     /// </summary>
     [EnumMember(Value = "SMDP")]
     [IsoId("_972foNt7EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a diagnosis request.")]
-    SMDP,
+    AdministrativeSessionManagementDiagnosisResponse,
     
     /// <summary>
     /// The POI System responds to a transaction report request.
+    /// Encoded/decoded by serializers as "RPTP".
     /// </summary>
     [EnumMember(Value = "RPTP")]
     [IsoId("_Apt0ENt8EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a transaction report request.")]
-    RPTP,
+    AdministrativeReportTransactionResponse,
     
     /// <summary>
     /// The POI System responds to a totals figures request.
+    /// Encoded/decoded by serializers as "RPAP".
     /// </summary>
     [EnumMember(Value = "RPAP")]
     [IsoId("_DIe8kNt8EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a totals figures request.")]
-    RPAP,
+    AdministrativeReportGetTotalsResponse,
     
     /// <summary>
     /// Abort a former request or message by the sale system.
+    /// Encoded/decoded by serializers as "SSAB".
     /// </summary>
     [EnumMember(Value = "SSAB")]
     [IsoId("_FqKPINt8EeiXqq0XHEoNUA")]
     [Description(@"Abort a former request or message by the sale system.")]
-    SSAB,
+    SystemAbort,
     
     /// <summary>
     /// Send an Event notification to the other party.
+    /// Encoded/decoded by serializers as "SSEN".
     /// </summary>
     [EnumMember(Value = "SSEN")]
     [IsoId("_IjsoENt8EeiXqq0XHEoNUA")]
     [Description(@"Send an Event notification to the other party.")]
-    SSEN,
+    SystemEventNotification,
     
     /// <summary>
     /// Send a rejection for a previous message.
+    /// Encoded/decoded by serializers as "SSRR".
     /// </summary>
     [EnumMember(Value = "SSRR")]
     [IsoId("_LvBUkNt8EeiXqq0XHEoNUA")]
     [Description(@"Send a rejection for a previous message.")]
-    SSRR,
+    SystemMessageRejection,
     
     /// <summary>
     /// The Sale System requests to the POI System the status of a previous transaction.
+    /// Encoded/decoded by serializers as "SSSQ".
     /// </summary>
     [EnumMember(Value = "SSSQ")]
     [IsoId("_OzyGENt8EeiXqq0XHEoNUA")]
     [Description(@"The Sale System requests to the POI System the status of a previous transaction.")]
-    SSSQ,
+    SystemMessageStatusRequest,
     
     /// <summary>
     /// The POI System responds to a message status request.
+    /// Encoded/decoded by serializers as "SSSP".
     /// </summary>
     [EnumMember(Value = "SSSP")]
     [IsoId("_RujOENt8EeiXqq0XHEoNUA")]
     [Description(@"The POI System responds to a message status request.")]
-    SSSP,
+    SystemMessageStatusResponse,
     
     /// <summary>
     /// One system requests to the other System to get data input. 
+    /// Encoded/decoded by serializers as "DINQ".
     /// </summary>
     [EnumMember(Value = "DINQ")]
     [IsoId("_UiOPkNt8EeiXqq0XHEoNUA")]
     [Description(@"One system requests to the other System to get data input. ")]
-    DINQ,
+    DeviceInputRequest,
     
     /// <summary>
     /// One System requests the other to display a message for cashier or customer.
+    /// Encoded/decoded by serializers as "DDYQ".
     /// </summary>
     [EnumMember(Value = "DDYQ")]
     [IsoId("_u5jIoNt8EeiXqq0XHEoNUA")]
     [Description(@"One System requests the other to display a message for cashier or customer.")]
-    DDYQ,
+    DeviceDisplayRequest,
     
     /// <summary>
     /// One system requests to the other System to print data.
+    /// Encoded/decoded by serializers as "DPRQ".
     /// </summary>
     [EnumMember(Value = "DPRQ")]
     [IsoId("_08gwoNt8EeiXqq0XHEoNUA")]
     [Description(@"One system requests to the other System to print data.")]
-    DPRQ,
+    DevicePrintRequest,
     
     /// <summary>
     /// One system requests to the Other System to play a sound.
+    /// Encoded/decoded by serializers as "DSOQ".
     /// </summary>
     [EnumMember(Value = "DSOQ")]
     [IsoId("_3iIvENt8EeiXqq0XHEoNUA")]
     [Description(@"One system requests to the Other System to play a sound.")]
-    DSOQ,
+    DevicePlaySoundRequest,
     
     /// <summary>
     /// One system requests to the Other System to securely get data input (e.g. for PIN).
+    /// Encoded/decoded by serializers as "DSIQ".
     /// </summary>
     [EnumMember(Value = "DSIQ")]
     [IsoId("_5wbyoNt8EeiXqq0XHEoNUA")]
     [Description(@"One system requests to the Other System to securely get data input (e.g. for PIN).")]
-    DSIQ,
+    DeviceSecureInputRequest,
     
     /// <summary>
     /// Service to send parameters to use when card reader initializes a new communication with the card.
+    /// Encoded/decoded by serializers as "DCIQ".
     /// </summary>
     [EnumMember(Value = "DCIQ")]
     [IsoId("_8K1_kNt8EeiXqq0XHEoNUA")]
     [Description(@"Service to send parameters to use when card reader initializes a new communication with the card.")]
-    DCIQ,
+    DeviceInitialisationCardReaderRequest,
     
     /// <summary>
     /// A service to send commands to a card.
+    /// Encoded/decoded by serializers as "DCAQ".
     /// </summary>
     [EnumMember(Value = "DCAQ")]
     [IsoId("_-neaENt8EeiXqq0XHEoNUA")]
     [Description(@"A service to send commands to a card.")]
-    DCAQ,
+    DeviceSendApplicationProtocolDataUnitCardReaderRequest,
     
     /// <summary>
     /// The Sale system requests to the POI System to power off the card reader.
+    /// Encoded/decoded by serializers as "DCPQ".
     /// </summary>
     [EnumMember(Value = "DCPQ")]
     [IsoId("_BROqkNt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale system requests to the POI System to power off the card reader.")]
-    DCPQ,
+    DevicePowerOffCardReaderRequest,
     
     /// <summary>
     /// The Sale system requests to the POI System to transmit a message (for instance to a mobile server).
+    /// Encoded/decoded by serializers as "DCOQ".
     /// </summary>
     [EnumMember(Value = "DCOQ")]
     [IsoId("_DmYkENt9EeiXqq0XHEoNUA")]
     [Description(@"The Sale system requests to the POI System to transmit a message (for instance to a mobile server).")]
-    DCOQ,
+    DeviceTransmissionMessageRequest,
     
     /// <summary>
     /// One system sends a notification to the POI System to update a input request.
+    /// Encoded/decoded by serializers as "DINO".
     /// </summary>
     [EnumMember(Value = "DINO")]
     [IsoId("_GD2sENt9EeiXqq0XHEoNUA")]
     [Description(@"One system sends a notification to the POI System to update a input request.")]
-    DINO,
+    DeviceInputNotification,
     
     /// <summary>
     /// One system responds to the other system for a display request.
+    /// Encoded/decoded by serializers as "DDYP".
     /// </summary>
     [EnumMember(Value = "DDYP")]
     [IsoId("_IppCkNt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other system for a display request.")]
-    DDYP,
+    DeviceDisplayResponse,
     
     /// <summary>
     /// One system responds to the other System for a input request.
+    /// Encoded/decoded by serializers as "DINP".
     /// </summary>
     [EnumMember(Value = "DINP")]
     [IsoId("_LndekNt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other System for a input request.")]
-    DINP,
+    DeviceInputResponse,
     
     /// <summary>
     /// One system responds to the other System for a print request.
+    /// Encoded/decoded by serializers as "DPRP".
     /// </summary>
     [EnumMember(Value = "DPRP")]
     [IsoId("_On80ENt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other System for a print request.")]
-    DPRP,
+    DevicePrintResponse,
     
     /// <summary>
     /// One system responds to the other System for a play sound request.
+    /// Encoded/decoded by serializers as "DSOP".
     /// </summary>
     [EnumMember(Value = "DSOP")]
     [IsoId("_RqCsENt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other System for a play sound request.")]
-    DSOP,
+    DevicePlaySoundResponse,
     
     /// <summary>
     /// One system responds to the other System for secure data input.
+    /// Encoded/decoded by serializers as "DSIP".
     /// </summary>
     [EnumMember(Value = "DSIP")]
     [IsoId("_T_SFINt9EeiXqq0XHEoNUA")]
     [Description(@"One system responds to the other System for secure data input.")]
-    DSIP,
+    DeviceSecureInputResponse,
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader initialisation.
+    /// Encoded/decoded by serializers as "DCIP".
     /// </summary>
     [EnumMember(Value = "DCIP")]
     [IsoId("_WNykENt9EeiXqq0XHEoNUA")]
     [Description(@"The POI system responds to the Sale System for a card reader initialisation.")]
-    DCIP,
+    DeviceInitialisationCardReaderResponse,
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.
+    /// Encoded/decoded by serializers as "DCAP".
     /// </summary>
     [EnumMember(Value = "DCAP")]
     [IsoId("_YdxCoNt9EeiXqq0XHEoNUA")]
     [Description(@"The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.")]
-    DCAP,
+    DeviceSendApplicationProtocolDataUnitCardReaderResponse,
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader power off.
+    /// Encoded/decoded by serializers as "DCPP".
     /// </summary>
     [EnumMember(Value = "DCPP")]
     [IsoId("_bSChENt9EeiXqq0XHEoNUA")]
     [Description(@"The POI system responds to the Sale System for a card reader power off.")]
-    DCPP,
+    DevicePowerOffCardRequestResponse,
     
     /// <summary>
     /// The POI system responds to the Sale System after a message transmission.
+    /// Encoded/decoded by serializers as "DCOP".
     /// </summary>
     [EnumMember(Value = "DCOP")]
     [IsoId("_d5lLENt9EeiXqq0XHEoNUA")]
     [Description(@"The POI system responds to the Sale System after a message transmission.")]
-    DCOP,
+    DeviceTransmissionMessageResponse,
     
 }
 

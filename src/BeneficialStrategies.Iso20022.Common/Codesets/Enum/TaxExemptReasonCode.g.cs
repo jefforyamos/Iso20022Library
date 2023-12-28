@@ -20,356 +20,400 @@ public enum TaxExemptReasonCode
 {
     /// <summary>
     /// Account is not tax exempt.
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_YhkWcdp-Ed-ak6NoX_4Aeg_1468189283")]
     [Description(@"Account is not tax exempt.")]
-    NONE,
+    None,
     
     /// <summary>
     /// Maxi Individual Savings Account (ISA). Account is an ISA with a single ISA manager that may contain cash, stocks and shares, investment funds and life assurance up to the prescribed annual subscription limit (required for UK). The Maxi ISA allows an investor to save all three of the different elements of ISA investments that are allowed, with one savings institution in a single account.
+    /// Encoded/decoded by serializers as "MASA".
     /// </summary>
     [EnumMember(Value = "MASA")]
     [IsoId("_YhkWctp-Ed-ak6NoX_4Aeg_1468189284")]
     [Description(@"Maxi Individual Savings Account (ISA). Account is an ISA with a single ISA manager that may contain cash, stocks and shares, investment funds and life assurance up to the prescribed annual subscription limit (required for UK). The Maxi ISA allows an investor to save all three of the different elements of ISA investments that are allowed, with one savings institution in a single account.")]
-    MASA,
+    MaxiISA,
     
     /// <summary>
     /// Mini Cash Individual Savings Account (ISA). Account is an ISA with a single ISA manager that may contain cash, stocks and shares, investment funds and life assurance up to the prescribed annual subscription limit (required for UK). An investor can hold more than one Mini ISA to utilise the overall Mini ISA investment limit, and can invest with more than one savings institution, however only one of the three elements of ISA investment is allowed in a single account.
+    /// Encoded/decoded by serializers as "MISA".
     /// </summary>
     [EnumMember(Value = "MISA")]
     [IsoId("_YhkWc9p-Ed-ak6NoX_4Aeg_1468189285")]
     [Description(@"Mini Cash Individual Savings Account (ISA). Account is an ISA with a single ISA manager that may contain cash, stocks and shares, investment funds and life assurance up to the prescribed annual subscription limit (required for UK). An investor can hold more than one Mini ISA to utilise the overall Mini ISA investment limit, and can invest with more than one savings institution, however only one of the three elements of ISA investment is allowed in a single account.")]
-    MISA,
+    MiniCashISA,
     
     /// <summary>
     /// Mini Stocks and Shares Individual Savings Account (ISA). Account is an ISA with an ISA manager that may only contain stocks, shares and collective investments up to the prescribed annual subscription limit (required for UK).
+    /// Encoded/decoded by serializers as "SISA".
     /// </summary>
     [EnumMember(Value = "SISA")]
     [IsoId("_YhkWdNp-Ed-ak6NoX_4Aeg_1468189286")]
     [Description(@"Mini Stocks and Shares Individual Savings Account (ISA). Account is an ISA with an ISA manager that may only contain stocks, shares and collective investments up to the prescribed annual subscription limit (required for UK).")]
-    SISA,
+    MiniStocksAndSharesISA,
     
     /// <summary>
     /// Mini Insurance Individual Savings Account (ISA). Account is an ISA with an ISA manager that may only contain life insurance investments up to the prescribed annual subscription limit (required for UK).
+    /// Encoded/decoded by serializers as "IISA".
     /// </summary>
     [EnumMember(Value = "IISA")]
     [IsoId("_YhkWddp-Ed-ak6NoX_4Aeg_1468189287")]
     [Description(@"Mini Insurance Individual Savings Account (ISA). Account is an ISA with an ISA manager that may only contain life insurance investments up to the prescribed annual subscription limit (required for UK).")]
-    IISA,
+    MiniInsuranceISA,
     
     /// <summary>
     /// Account is for current year payments into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "CUYP".
     /// </summary>
     [EnumMember(Value = "CUYP")]
     [IsoId("_YhkWdtp-Ed-ak6NoX_4Aeg_1468189288")]
     [Description(@"Account is for current year payments into an investment retirement account (required for US).")]
-    CUYP,
+    CurrentYearPayment,
     
     /// <summary>
     /// Account is for a prior year payment into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "PRYP".
     /// </summary>
     [EnumMember(Value = "PRYP")]
     [IsoId("_YhkWd9p-Ed-ak6NoX_4Aeg_1468189289")]
     [Description(@"Account is for a prior year payment into an investment retirement account (required for US).")]
-    PRYP,
+    PriorYearPayment,
     
     /// <summary>
     /// Account is for an asset transfer into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "ASTR".
     /// </summary>
     [EnumMember(Value = "ASTR")]
     [IsoId("_YhkWeNp-Ed-ak6NoX_4Aeg_1468189290")]
     [Description(@"Account is for an asset transfer into an investment retirement account (required for US).")]
-    ASTR,
+    AssetTransfer,
     
     /// <summary>
     /// Account is for employee - prior year contributions into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "EMPY".
     /// </summary>
     [EnumMember(Value = "EMPY")]
     [IsoId("_YhkWedp-Ed-ak6NoX_4Aeg_1468189291")]
     [Description(@"Account is for employee - prior year contributions into an investment retirement account (required for US).")]
-    EMPY,
+    EmployeePriorYear,
     
     /// <summary>
     /// Account is for employee - current year contributions into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "EMCY".
     /// </summary>
     [EnumMember(Value = "EMCY")]
     [IsoId("_YhtgYNp-Ed-ak6NoX_4Aeg_1468189292")]
     [Description(@"Account is for employee - current year contributions into an investment retirement account (required for US).")]
-    EMCY,
+    EmployeeCurrentYear,
     
     /// <summary>
     /// Account is for employer - prior year contributions into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "EPRY".
     /// </summary>
     [EnumMember(Value = "EPRY")]
     [IsoId("_YhtgYdp-Ed-ak6NoX_4Aeg_1468189300")]
     [Description(@"Account is for employer - prior year contributions into an investment retirement account (required for US).")]
-    EPRY,
+    EmployerPriorYear,
     
     /// <summary>
     /// Account is for employer - current year contributions into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "ECYE".
     /// </summary>
     [EnumMember(Value = "ECYE")]
     [IsoId("_YhtgYtp-Ed-ak6NoX_4Aeg_1468189301")]
     [Description(@"Account is for employer - current year contributions into an investment retirement account (required for US).")]
-    ECYE,
+    EmployerCurrentYear,
     
     /// <summary>
     /// Account is for non-fund prototype Individual Retirement Account (IRA) into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "NFPI".
     /// </summary>
     [EnumMember(Value = "NFPI")]
     [IsoId("_YhtgY9p-Ed-ak6NoX_4Aeg_1468189302")]
     [Description(@"Account is for non-fund prototype Individual Retirement Account (IRA) into an investment retirement account (required for US).")]
-    NFPI,
+    NonFundPrototypeIRA,
     
     /// <summary>
     /// Account is for non-fund qualified plan into an investment retirement account (required for US).
+    /// Encoded/decoded by serializers as "NFQP".
     /// </summary>
     [EnumMember(Value = "NFQP")]
     [IsoId("_YhtgZNp-Ed-ak6NoX_4Aeg_1468189303")]
     [Description(@"Account is for non-fund qualified plan into an investment retirement account (required for US).")]
-    NFQP,
+    NonFundQualifiedPlan,
     
     /// <summary>
     /// Account is for a defined contribution plan (required for US).
+    /// Encoded/decoded by serializers as "DECP".
     /// </summary>
     [EnumMember(Value = "DECP")]
     [IsoId("_YhtgZdp-Ed-ak6NoX_4Aeg_1468189304")]
     [Description(@"Account is for a defined contribution plan (required for US).")]
-    DECP,
+    DefinedContributionPlan,
     
     /// <summary>
     /// Account is an Individual Retirement Account (IRA) (required for US).
+    /// Encoded/decoded by serializers as "IRAC".
     /// </summary>
     [EnumMember(Value = "IRAC")]
     [IsoId("_YhtgZtp-Ed-ak6NoX_4Aeg_1468189305")]
     [Description(@"Account is an Individual Retirement Account (IRA) (required for US).")]
-    IRAC,
+    IndividualRetirementAccount,
     
     /// <summary>
     /// Account is for an Individual Retirement Account (IRA) - Rollover (required for US).
+    /// Encoded/decoded by serializers as "IRAR".
     /// </summary>
     [EnumMember(Value = "IRAR")]
     [IsoId("_YhtgZ9p-Ed-ak6NoX_4Aeg_1468189314")]
     [Description(@"Account is for an Individual Retirement Account (IRA) - Rollover (required for US).")]
-    IRAR,
+    IndividualRetirementAccountRollover,
     
     /// <summary>
     /// KEOGH. Account is a tax-deferred retirement plan designed to help self-employed workers or individuals who earn self-employed income establish a retirement savings program (required for US).
+    /// Encoded/decoded by serializers as "KEOG".
     /// </summary>
     [EnumMember(Value = "KEOG")]
     [IsoId("_YhtgaNp-Ed-ak6NoX_4Aeg_1468189315")]
     [Description(@"KEOGH. Account is a tax-deferred retirement plan designed to help self-employed workers or individuals who earn self-employed income establish a retirement savings program (required for US).")]
-    KEOG,
+    KEOGH,
     
     /// <summary>
     /// Account is a Profit Sharing Plan (required for US).
+    /// Encoded/decoded by serializers as "PFSP".
     /// </summary>
     [EnumMember(Value = "PFSP")]
     [IsoId("_Yhtgadp-Ed-ak6NoX_4Aeg_1468189316")]
     [Description(@"Account is a Profit Sharing Plan (required for US).")]
-    PFSP,
+    ProfitSharingPlan,
     
     /// <summary>
     /// 401k. Account is an optional retirement plan supported by many companies, in which income is invested before it is taxed (required for US).
+    /// Encoded/decoded by serializers as "_401K".
     /// </summary>
     [EnumMember(Value = "401K")]
     [IsoId("_Yh3RYNp-Ed-ak6NoX_4Aeg_1468189317")]
     [Description(@"401k. Account is an optional retirement plan supported by many companies, in which income is invested before it is taxed (required for US).")]
-    _401K,
+    FourHundredAndOneK,
     
     /// <summary>
     /// Self-Directed Individual Retirement Account (IRA) (required for US).
+    /// Encoded/decoded by serializers as "SIRA".
     /// </summary>
     [EnumMember(Value = "SIRA")]
     [IsoId("_Yh3RYdp-Ed-ak6NoX_4Aeg_1468189318")]
     [Description(@"Self-Directed Individual Retirement Account (IRA) (required for US).")]
-    SIRA,
+    SelfDirectedIRA,
     
     /// <summary>
     /// 403(b). Account is a tax-deferred investment and savings program for employees of hospitals, educational institutions and other non-profit organisations, to save and invest in their own retirement. The name refers to the relevant section in the US Internal Revenue Code (required for US).
+    /// Encoded/decoded by serializers as "_403B".
     /// </summary>
     [EnumMember(Value = "403B")]
     [IsoId("_Yh3RYtp-Ed-ak6NoX_4Aeg_1468189319")]
     [Description(@"403(b). Account is a tax-deferred investment and savings program for employees of hospitals, educational institutions and other non-profit organisations, to save and invest in their own retirement. The name refers to the relevant section in the US Internal Revenue Code (required for US).")]
-    _403B,
+    FourHundredAndThreeB,
     
     /// <summary>
     /// 457. Account is a non-qualified deferred compensation program that is available to state and local governments and not-for-profit employers (required for US).
+    /// Encoded/decoded by serializers as "_457X".
     /// </summary>
     [EnumMember(Value = "457X")]
     [IsoId("_Yh3RY9p-Ed-ak6NoX_4Aeg_1468189320")]
     [Description(@"457. Account is a non-qualified deferred compensation program that is available to state and local governments and not-for-profit employers (required for US).")]
-    _457X,
+    FourHundredFiftySeven,
     
     /// <summary>
     /// Roth Individual Retirement Account (IRA) Fund Prototype. Account is a tax-deferred retirement account based on the reverse principle of a traditional IRA. Retirement contributions are taxed upfront, but withdrawals may be made tax-free when a certain age is reached, provided the Roth IRA has been set up for a certain period of time (required for US).
+    /// Encoded/decoded by serializers as "RIRA".
     /// </summary>
     [EnumMember(Value = "RIRA")]
     [IsoId("_Yh3RZNp-Ed-ak6NoX_4Aeg_1468189321")]
     [Description(@"Roth Individual Retirement Account (IRA) Fund Prototype. Account is a tax-deferred retirement account based on the reverse principle of a traditional IRA. Retirement contributions are taxed upfront, but withdrawals may be made tax-free when a certain age is reached, provided the Roth IRA has been set up for a certain period of time (required for US).")]
-    RIRA,
+    RothIRAFundPrototype,
     
     /// <summary>
     /// Roth Individual Retirement Account (IRA) Non-Prototype. Account is a tax-deferred retirement account based on the reverse principle of a traditional IRA. Retirement contributions are taxed upfront, but withdrawals may be made tax-free when a certain age is reached, provided the Roth IRA has been set up for a certain period of time (required for US).
+    /// Encoded/decoded by serializers as "RIAN".
     /// </summary>
     [EnumMember(Value = "RIAN")]
     [IsoId("_Yh3RZdp-Ed-ak6NoX_4Aeg_1468189322")]
     [Description(@"Roth Individual Retirement Account (IRA) Non-Prototype. Account is a tax-deferred retirement account based on the reverse principle of a traditional IRA. Retirement contributions are taxed upfront, but withdrawals may be made tax-free when a certain age is reached, provided the Roth IRA has been set up for a certain period of time (required for US).")]
-    RIAN,
+    RothIRANonPrototype,
     
     /// <summary>
     /// Roth Conversion Individual Retirement Account (IRA) Fund Prototype. Account is a retirement account established when a party switches from a regular IRA ( required for US).
+    /// Encoded/decoded by serializers as "RCRF".
     /// </summary>
     [EnumMember(Value = "RCRF")]
     [IsoId("_Yh3RZtp-Ed-ak6NoX_4Aeg_1468189323")]
     [Description(@"Roth Conversion Individual Retirement Account (IRA) Fund Prototype. Account is a retirement account established when a party switches from a regular IRA ( required for US).")]
-    RCRF,
+    RothConversionIRAFundPrototype,
     
     /// <summary>
     /// Roth Conversion Individual Retirement Account (IRA) Non-Prototype. Account is a retirement account established when a party switches from a Regular IRA (required for US).
+    /// Encoded/decoded by serializers as "RCIP".
     /// </summary>
     [EnumMember(Value = "RCIP")]
     [IsoId("_Yh3RZ9p-Ed-ak6NoX_4Aeg_1468189331")]
     [Description(@"Roth Conversion Individual Retirement Account (IRA) Non-Prototype. Account is a retirement account established when a party switches from a Regular IRA (required for US).")]
-    RCIP,
+    RothConversionIRANonPrototype,
     
     /// <summary>
     /// Education Individual Retirement Account Fund Prototype (also known as an Education Savings Account). Account is a savings plan open to anyone under the age of 18. When the account owner withdraws money to pay for qualified higher education expenses, the withdrawals are generally tax-free (required for US).
+    /// Encoded/decoded by serializers as "EIFP".
     /// </summary>
     [EnumMember(Value = "EIFP")]
     [IsoId("_Yh3RaNp-Ed-ak6NoX_4Aeg_1468189332")]
     [Description(@"Education Individual Retirement Account Fund Prototype (also known as an Education Savings Account). Account is a savings plan open to anyone under the age of 18. When the account owner withdraws money to pay for qualified higher education expenses, the withdrawals are generally tax-free (required for US).")]
-    EIFP,
+    EducationIRAFundPrototype,
     
     /// <summary>
     /// Education Individual Retirement Account Non-Prototype (also known as an Education Savings Account). Account is a savings plan open to anyone under the age of 18. When the account owner withdraws money to pay for qualified higher education expenses, the withdrawals are generally tax-free (required in the US).
+    /// Encoded/decoded by serializers as "EIOP".
     /// </summary>
     [EnumMember(Value = "EIOP")]
     [IsoId("_Yh3Radp-Ed-ak6NoX_4Aeg_1468189333")]
     [Description(@"Education Individual Retirement Account Non-Prototype (also known as an Education Savings Account). Account is a savings plan open to anyone under the age of 18. When the account owner withdraws money to pay for qualified higher education expenses, the withdrawals are generally tax-free (required in the US).")]
-    EIOP,
+    EducationIRANonPrototype,
     
     /// <summary>
     /// Another type of tax exemption.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YiBCYNp-Ed-ak6NoX_4Aeg_-1521742840")]
     [Description(@"Another type of tax exemption.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Account is for a minor for which a tax exemption is permitted.
+    /// Encoded/decoded by serializers as "MINO".
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_wn9AcCC_EeWPMvNwVtiMsA")]
     [Description(@"Account is for a minor for which a tax exemption is permitted.")]
-    MINO,
+    Minor,
     
     /// <summary>
     /// Exemption due to incapacitation.
+    /// Encoded/decoded by serializers as "INCA".
     /// </summary>
     [EnumMember(Value = "INCA")]
     [IsoId("_zrfp8CC_EeWPMvNwVtiMsA")]
     [Description(@"Exemption due to incapacitation.")]
-    INCA,
+    Incapacity,
     
     /// <summary>
     /// Account is for a foreigner for which a tax exemption is permitted.
+    /// Encoded/decoded by serializers as "FORE".
     /// </summary>
     [EnumMember(Value = "FORE")]
     [IsoId("_25Kf0CC_EeWPMvNwVtiMsA")]
     [Description(@"Account is for a foreigner for which a tax exemption is permitted.")]
-    FORE,
+    Foreigner,
     
     /// <summary>
     /// Ordinary reporting.
+    /// Encoded/decoded by serializers as "ORDR".
     /// </summary>
     [EnumMember(Value = "ORDR")]
     [IsoId("_fukM0DaJEeWxoIK_IhudJg")]
     [Description(@"Ordinary reporting.")]
-    ORDR,
+    Ordinary,
     
     /// <summary>
     /// Account is for an association, for example, a sports club, for which a tax exemption is permitted.
+    /// Encoded/decoded by serializers as "ASSO".
     /// </summary>
     [EnumMember(Value = "ASSO")]
     [IsoId("_mK-PkDaJEeWxoIK_IhudJg")]
     [Description(@"Account is for an association, for example, a sports club, for which a tax exemption is permitted.")]
-    ASSO,
+    Association,
     
     /// <summary>
     /// Account is for two account owners that are both domestic.
+    /// Encoded/decoded by serializers as "DOME".
     /// </summary>
     [EnumMember(Value = "DOME")]
     [IsoId("_wLJ7EDaJEeWxoIK_IhudJg")]
     [Description(@"Account is for two account owners that are both domestic.")]
-    DOME,
+    Domestic,
     
     /// <summary>
     /// Account is for two account owners where one or both are foreign.
+    /// Encoded/decoded by serializers as "FORP".
     /// </summary>
     [EnumMember(Value = "FORP")]
     [IsoId("_yXmkgDaJEeWxoIK_IhudJg")]
     [Description(@"Account is for two account owners where one or both are foreign.")]
-    FORP,
+    OneOrBothForeign,
     
     /// <summary>
     /// Account is for a rights holder.
+    /// Encoded/decoded by serializers as "RIHO".
     /// </summary>
     [EnumMember(Value = "RIHO")]
     [IsoId("_DnhNIDaKEeWxoIK_IhudJg")]
     [Description(@"Account is for a rights holder.")]
-    RIHO,
+    RightsHolder,
     
     /// <summary>
     /// Account is for a pension fund for which a tax exemption is permitted.
     /// 
+    /// Encoded/decoded by serializers as "PENF".
     /// </summary>
     [EnumMember(Value = "PENF")]
     [IsoId("_HaUJUDaKEeWxoIK_IhudJg")]
     [Description(@"Account is for a pension fund for which a tax exemption is permitted. ")]
-    PENF,
+    PensionFund,
     
     /// <summary>
     /// Account is for a diplomat for which a tax exemption is permitted.
+    /// Encoded/decoded by serializers as "DIPL".
     /// </summary>
     [EnumMember(Value = "DIPL")]
     [IsoId("_Ks_bADaKEeWxoIK_IhudJg")]
     [Description(@"Account is for a diplomat for which a tax exemption is permitted.")]
-    DIPL,
+    Diplomat,
     
     /// <summary>
     /// Account is for a refugee or person without a number assigned by a government organisation, for example, without a Danish Central Securities Number.
+    /// Encoded/decoded by serializers as "REFU".
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_NYYDMDaKEeWxoIK_IhudJg")]
     [Description(@"Account is for a refugee or person without a number assigned by a government organisation, for example, without a Danish Central Securities Number.")]
-    REFU,
+    Refugee,
     
     /// <summary>
     /// One of the account owners is a foreign resident.
+    /// Encoded/decoded by serializers as "OANR".
     /// </summary>
     [EnumMember(Value = "OANR")]
     [IsoId("_deb6cL-HEeWfsa741pI6WA")]
     [Description(@"One of the account owners is a foreign resident.")]
-    OANR,
+    OneNonResident,
     
     /// <summary>
     /// Two or more of the account owners are foreign residents.
+    /// Encoded/decoded by serializers as "TANR".
     /// </summary>
     [EnumMember(Value = "TANR")]
     [IsoId("_dkSq0L-HEeWfsa741pI6WA")]
     [Description(@"Two or more of the account owners are foreign residents.")]
-    TANR,
+    TwoNonResident,
     
     /// <summary>
     /// Administrator of the account is not the owner.
+    /// Encoded/decoded by serializers as "ADMI".
     /// </summary>
     [EnumMember(Value = "ADMI")]
     [IsoId("_drDaIL-HEeWfsa741pI6WA")]
     [Description(@"Administrator of the account is not the owner.")]
-    ADMI,
+    Administrator,
     
 }
 

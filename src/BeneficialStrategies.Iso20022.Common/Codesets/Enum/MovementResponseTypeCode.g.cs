@@ -20,19 +20,21 @@ public enum MovementResponseTypeCode
 {
     /// <summary>
     /// Response will include full details on the movements reported.
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_jQ9Wg-5NEeCisYr99QEiWA_1188914924")]
     [Description(@"Response will include full details on the movements reported.")]
-    FULL,
+    Full,
     
     /// <summary>
     /// Response will include limited details including the status on the movements reported.
+    /// Encoded/decoded by serializers as "STTS".
     /// </summary>
     [EnumMember(Value = "STTS")]
     [IsoId("_jRGgcO5NEeCisYr99QEiWA_483800309")]
     [Description(@"Response will include limited details including the status on the movements reported.")]
-    STTS,
+    Status,
     
 }
 

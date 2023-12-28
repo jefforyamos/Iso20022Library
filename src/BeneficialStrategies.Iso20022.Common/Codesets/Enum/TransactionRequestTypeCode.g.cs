@@ -20,19 +20,21 @@ public enum TransactionRequestTypeCode
 {
     /// <summary>
     /// Request is the original receipt.
+    /// Encoded/decoded by serializers as "OREC".
     /// </summary>
     [EnumMember(Value = "OREC")]
     [IsoId("_890bXWKCEeGByYwyG-c4ow")]
     [Description(@"Request is the original receipt.")]
-    OREC,
+    OriginalReceipt,
     
     /// <summary>
     /// Request is the date and time related to the original transaction numlber.
+    /// Encoded/decoded by serializers as "DTTX".
     /// </summary>
     [EnumMember(Value = "DTTX")]
     [IsoId("_GMETnWKDEeGByYwyG-c4ow")]
     [Description(@"Request is the date and time related to the original transaction numlber.")]
-    DTTX,
+    DateTimeTransaction,
     
 }
 

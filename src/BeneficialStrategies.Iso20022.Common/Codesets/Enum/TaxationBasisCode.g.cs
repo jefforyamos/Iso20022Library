@@ -20,83 +20,93 @@ public enum TaxationBasisCode
 {
     /// <summary>
     /// Charge/tax basis is a lump sum.
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_ZSljtNp-Ed-ak6NoX_4Aeg_-1127639624")]
     [Description(@"Charge/tax basis is a lump sum.")]
-    FLAT,
+    Flat,
     
     /// <summary>
     /// Charges/tax basis is per unit of financial instrument.
+    /// Encoded/decoded by serializers as "PERU".
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("_ZSljtdp-Ed-ak6NoX_4Aeg_-1117483051")]
     [Description(@"Charges/tax basis is per unit of financial instrument.")]
-    PERU,
+    PerUnit,
     
     /// <summary>
     /// Charge/tax basis is a percentage.
+    /// Encoded/decoded by serializers as "PRCT".
     /// </summary>
     [EnumMember(Value = "PRCT")]
     [IsoId("_ZSljttp-Ed-ak6NoX_4Aeg_-2105967926")]
     [Description(@"Charge/tax basis is a percentage.")]
-    PRCT,
+    Percentage,
     
     /// <summary>
     /// Charge/tax basis is a percentage which depends on the tax brackets.
+    /// Encoded/decoded by serializers as "BRAC".
     /// </summary>
     [EnumMember(Value = "BRAC")]
     [IsoId("_ZSljt9p-Ed-ak6NoX_4Aeg_-1649673719")]
     [Description(@"Charge/tax basis is a percentage which depends on the tax brackets.")]
-    BRAC,
+    RatePerBrackets,
     
     /// <summary>
     /// Rate with a minimum amount.
+    /// Encoded/decoded by serializers as "MINI".
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_ZSljuNp-Ed-ak6NoX_4Aeg_-1349528343")]
     [Description(@"Rate with a minimum amount.")]
-    MINI,
+    RateWithMinimumAmount,
     
     /// <summary>
     /// Rate with a maximum amount.
+    /// Encoded/decoded by serializers as "MAXI".
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_ZSvUsNp-Ed-ak6NoX_4Aeg_-1292270181")]
     [Description(@"Rate with a maximum amount.")]
-    MAXI,
+    RateWithMaximumAmount,
     
     /// <summary>
     /// Another type of taxation basis.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ZSvUsdp-Ed-ak6NoX_4Aeg_110864883")]
     [Description(@"Another type of taxation basis.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Charge/Commission/tax basis is based on the gross amount.
+    /// Encoded/decoded by serializers as "GRAM".
     /// </summary>
     [EnumMember(Value = "GRAM")]
     [IsoId("_ZSvUstp-Ed-ak6NoX_4Aeg_-1911567579")]
     [Description(@"Charge/Commission/tax basis is based on the gross amount.")]
-    GRAM,
+    GrossAmount,
     
     /// <summary>
     /// Charge/commission/tax basis is based on the net amount.
+    /// Encoded/decoded by serializers as "NEAM".
     /// </summary>
     [EnumMember(Value = "NEAM")]
     [IsoId("_ZSvUs9p-Ed-ak6NoX_4Aeg_-1911567501")]
     [Description(@"Charge/commission/tax basis is based on the net amount.")]
-    NEAM,
+    NetAmount,
     
     /// <summary>
     /// Charge/tax basis is the price.
+    /// Encoded/decoded by serializers as "NAVP".
     /// </summary>
     [EnumMember(Value = "NAVP")]
     [IsoId("_-FMowEdkEeaBWtcfqEyXyw")]
     [Description(@"Charge/tax basis is the price.")]
-    NAVP,
+    NetAssetValuePrice,
     
 }
 

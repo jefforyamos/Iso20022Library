@@ -20,43 +20,48 @@ public enum OperatorCode
 {
     /// <summary>
     /// Smaller than.
+    /// Encoded/decoded by serializers as "SMAL".
     /// </summary>
     [EnumMember(Value = "SMAL")]
     [IsoId("_aPPZMdp-Ed-ak6NoX_4Aeg_336257297")]
     [Description(@"Smaller than.")]
-    SMAL,
+    SmallerThan,
     
     /// <summary>
     /// Smaller or equal to.
+    /// Encoded/decoded by serializers as "SMEQ".
     /// </summary>
     [EnumMember(Value = "SMEQ")]
     [IsoId("_aPPZMtp-Ed-ak6NoX_4Aeg_336257298")]
     [Description(@"Smaller or equal to.")]
-    SMEQ,
+    SmallerOrEqualTo,
     
     /// <summary>
     /// Greater than.
+    /// Encoded/decoded by serializers as "GREA".
     /// </summary>
     [EnumMember(Value = "GREA")]
     [IsoId("_aPPZM9p-Ed-ak6NoX_4Aeg_336257299")]
     [Description(@"Greater than.")]
-    GREA,
+    GreaterThan,
     
     /// <summary>
     /// Greater or equal to.
+    /// Encoded/decoded by serializers as "GREQ".
     /// </summary>
     [EnumMember(Value = "GREQ")]
     [IsoId("_aPPZNNp-Ed-ak6NoX_4Aeg_336257300")]
     [Description(@"Greater or equal to.")]
-    GREQ,
+    GreaterOrEqualTo,
     
     /// <summary>
     /// Equal to.
+    /// Encoded/decoded by serializers as "EQAL".
     /// </summary>
     [EnumMember(Value = "EQAL")]
     [IsoId("_aPPZNdp-Ed-ak6NoX_4Aeg_336257301")]
     [Description(@"Equal to.")]
-    EQAL,
+    EqualTo,
     
 }
 

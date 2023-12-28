@@ -20,35 +20,39 @@ public enum DistributionTypeCode
 {
     /// <summary>
     /// Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.
+    /// Encoded/decoded by serializers as "ROLL".
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_aw6i5Np-Ed-ak6NoX_4Aeg_1493072319")]
     [Description(@"Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.")]
-    ROLL,
+    RollingBasis,
     
     /// <summary>
     /// Final payment.
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_vSOBd_mcEeCZMIez125r5g")]
     [Description(@"Final payment.")]
-    FINL,
+    Final,
     
     /// <summary>
     /// Interim payment.
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_2YbPJ_mcEeCZMIez125r5g")]
     [Description(@"Interim payment.")]
-    INTE,
+    Interim,
     
     /// <summary>
     /// Event is ongoing for acceptance on an unsolicited basis.
+    /// Encoded/decoded by serializers as "ONGO".
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_4ukCsCXVEeOxs5BTXTK7og")]
     [Description(@"Event is ongoing for acceptance on an unsolicited basis.")]
-    ONGO,
+    Ongoing,
     
 }
 

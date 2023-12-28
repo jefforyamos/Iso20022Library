@@ -20,35 +20,39 @@ public enum CustodianActionCode
 {
     /// <summary>
     /// Custodian is researching pending issues raised by the validation service.
+    /// Encoded/decoded by serializers as "RSCH".
     /// </summary>
     [EnumMember(Value = "RSCH")]
     [IsoId("_14eFMjL3EeKU9IrkkToqcw_-1836075387")]
     [Description(@"Custodian is researching pending issues raised by the validation service.")]
-    RSCH,
+    Research,
     
     /// <summary>
     /// Custodian is expected to send updated information.
+    /// Encoded/decoded by serializers as "SEND".
     /// </summary>
     [EnumMember(Value = "SEND")]
     [IsoId("_14eFMzL3EeKU9IrkkToqcw_2034977918")]
     [Description(@"Custodian is expected to send updated information.")]
-    SEND,
+    SendInfo,
     
     /// <summary>
     /// Custodian disagrees with the validation service and will take no further action.
+    /// Encoded/decoded by serializers as "DISS".
     /// </summary>
     [EnumMember(Value = "DISS")]
     [IsoId("_14eFNDL3EeKU9IrkkToqcw_1016644254")]
     [Description(@"Custodian disagrees with the validation service and will take no further action.")]
-    DISS,
+    Disagrees,
     
     /// <summary>
     /// No action required by the custodian.
+    /// Encoded/decoded by serializers as "NOAC".
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_14eFNTL3EeKU9IrkkToqcw_-878516849")]
     [Description(@"No action required by the custodian.")]
-    NOAC,
+    NoAction,
     
 }
 

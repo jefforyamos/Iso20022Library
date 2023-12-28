@@ -22,55 +22,61 @@ public enum CCPMemberTypeCode
     /// Futures Commission Merchant.
     /// 
     /// 
+    /// Encoded/decoded by serializers as "FCMC".
     /// </summary>
     [EnumMember(Value = "FCMC")]
     [IsoId("_P0ZikAGeEeutW5-TpeYJhA")]
     [Description(@"Futures Commission Merchant.  ")]
-    FCMC,
+    FuturesCommissionMerchant,
     
     /// <summary>
     /// General Clearing Member.
     /// 
+    /// Encoded/decoded by serializers as "GCMB".
     /// </summary>
     [EnumMember(Value = "GCMB")]
     [IsoId("_clwVMAGeEeutW5-TpeYJhA")]
     [Description(@"General Clearing Member. ")]
-    GCMB,
+    GeneralClearingMember,
     
     /// <summary>
     /// Direct Clearing Member.
     /// 
+    /// Encoded/decoded by serializers as "DCMB".
     /// </summary>
     [EnumMember(Value = "DCMB")]
     [IsoId("_hDGqQAGeEeutW5-TpeYJhA")]
     [Description(@"Direct Clearing Member. ")]
-    DCMB,
+    DirectClearingMember,
     
     /// <summary>
     /// Sponsored Clearing Member.
     ///  
+    /// Encoded/decoded by serializers as "SCMB".
     /// </summary>
     [EnumMember(Value = "SCMB")]
     [IsoId("_rxAXYAGeEeutW5-TpeYJhA")]
     [Description(@"Sponsored Clearing Member.  ")]
-    SCMB,
+    SponsoredClearingMember,
     
     /// <summary>
     /// Agent Clearing Member.
     /// 
+    /// Encoded/decoded by serializers as "ACMB".
     /// </summary>
     [EnumMember(Value = "ACMB")]
     [IsoId("_xBv4QAGeEeutW5-TpeYJhA")]
     [Description(@"Agent Clearing Member. ")]
-    ACMB,
+    AgentClearingMember,
     
     /// <summary>
     /// Clearing House.
+    /// Encoded/decoded by serializers as "CCPX".
     /// </summary>
     [EnumMember(Value = "CCPX")]
     [IsoId("_57SEwAGeEeutW5-TpeYJhA")]
     [Description(@"Clearing House.")]
-    CCPX,
+    ClearingHouse,
     
 }
 

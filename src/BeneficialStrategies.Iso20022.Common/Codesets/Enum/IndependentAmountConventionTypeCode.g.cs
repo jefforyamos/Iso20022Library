@@ -20,27 +20,30 @@ public enum IndependentAmountConventionTypeCode
 {
     /// <summary>
     /// Independent amount is an add on to exposure.
+    /// Encoded/decoded by serializers as "NBTR".
     /// </summary>
     [EnumMember(Value = "NBTR")]
     [IsoId("_Yc8VI9p-Ed-ak6NoX_4Aeg_-1298205045")]
     [Description(@"Independent amount is an add on to exposure.")]
-    NBTR,
+    NettedBeforeThreshold,
     
     /// <summary>
     /// Independent amount is an add on to the credit support amount and forms part of the variation margin requirement.
+    /// Encoded/decoded by serializers as "NATR".
     /// </summary>
     [EnumMember(Value = "NATR")]
     [IsoId("_Yc8VJNp-Ed-ak6NoX_4Aeg_913571949")]
     [Description(@"Independent amount is an add on to the credit support amount and forms part of the variation margin requirement.")]
-    NATR,
+    NettedAfterThreshold,
     
     /// <summary>
     /// Independent amount is treated independently of variation margin for segregation purposes.
+    /// Encoded/decoded by serializers as "SEGR".
     /// </summary>
     [EnumMember(Value = "SEGR")]
     [IsoId("_Yc8VJdp-Ed-ak6NoX_4Aeg_-532240480")]
     [Description(@"Independent amount is treated independently of variation margin for segregation purposes.")]
-    SEGR,
+    Segregated,
     
 }
 

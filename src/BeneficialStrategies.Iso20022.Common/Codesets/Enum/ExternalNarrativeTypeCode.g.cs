@@ -21,59 +21,66 @@ public enum ExternalNarrativeTypeCode
 {
     /// <summary>
     /// Narrative text describing the additional terms and conditions.
+    /// Encoded/decoded by serializers as "ADDI".
     /// </summary>
     [EnumMember(Value = "ADDI")]
     [IsoId("_uPvII_RYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the additional terms and conditions.")]
-    ADDI,
+    AdditionalTermsAndConditions,
     
     /// <summary>
     /// Narrative text describing the charge details.
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_uPvIJvRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the charge details.")]
-    CHAR,
+    ChargeDetails,
     
     /// <summary>
     /// Narrative text describing the drawing details.
+    /// Encoded/decoded by serializers as "DRAW".
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_uP4SEPRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the drawing details.")]
-    DRAW,
+    DrawingDetails,
     
     /// <summary>
     /// Narrative text describing the assignment of proceeds terms and conditions.
+    /// Encoded/decoded by serializers as "PRAS".
     /// </summary>
     [EnumMember(Value = "PRAS")]
     [IsoId("_uP4SE_RYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the assignment of proceeds terms and conditions.")]
-    PRAS,
+    ProceedsAssignable,
     
     /// <summary>
     /// Narrative text describing the terms of effectiveness.
+    /// Encoded/decoded by serializers as "TEFF".
     /// </summary>
     [EnumMember(Value = "TEFF")]
     [IsoId("_uP4SFvRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the terms of effectiveness.")]
-    TEFF,
+    TermsOfEffectiveness,
     
     /// <summary>
     /// Narrative text describing the transfer terms and conditions.
+    /// Encoded/decoded by serializers as "TRNF".
     /// </summary>
     [EnumMember(Value = "TRNF")]
     [IsoId("_uP4SGfRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the transfer terms and conditions.")]
-    TRNF,
+    Transfer,
     
     /// <summary>
     /// Narrative text describing the terms of variation.
+    /// Encoded/decoded by serializers as "TVAR".
     /// </summary>
     [EnumMember(Value = "TVAR")]
     [IsoId("_uP4SHPRYEeuLhpyIdtJzwg")]
     [Description(@"Narrative text describing the terms of variation.")]
-    TVAR,
+    TermsOfVariation,
     
 }
 

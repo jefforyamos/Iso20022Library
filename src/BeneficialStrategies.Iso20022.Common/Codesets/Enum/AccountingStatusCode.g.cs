@@ -20,19 +20,21 @@ public enum AccountingStatusCode
 {
     /// <summary>
     /// Account or party is regarded as domestic for reporting purposes.
+    /// Encoded/decoded by serializers as "YDOM".
     /// </summary>
     [EnumMember(Value = "YDOM")]
     [IsoId("_RfFRsCDEEeWPMvNwVtiMsA")]
     [Description(@"Account or party is regarded as domestic for reporting purposes.")]
-    YDOM,
+    Domestic,
     
     /// <summary>
     /// Account or party is not regarded as domestic for reporting purposes.
+    /// Encoded/decoded by serializers as "NDOM".
     /// </summary>
     [EnumMember(Value = "NDOM")]
     [IsoId("_Y8DZkCDEEeWPMvNwVtiMsA")]
     [Description(@"Account or party is not regarded as domestic for reporting purposes.")]
-    NDOM,
+    NotDomestic,
     
 }
 

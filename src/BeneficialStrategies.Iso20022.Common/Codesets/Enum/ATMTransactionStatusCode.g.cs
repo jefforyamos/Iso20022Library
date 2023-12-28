@@ -20,51 +20,57 @@ public enum ATMTransactionStatusCode
 {
     /// <summary>
     /// Transaction was successfully completed.
+    /// Encoded/decoded by serializers as "SCSS".
     /// </summary>
     [EnumMember(Value = "SCSS")]
     [IsoId("_H6TNcIqSEeSRT5rEzcAHEw")]
     [Description(@"Transaction was successfully completed.")]
-    SCSS,
+    Success,
     
     /// <summary>
     /// Undetermined status, for instance possibly forgotten notes.
+    /// Encoded/decoded by serializers as "DOBT".
     /// </summary>
     [EnumMember(Value = "DOBT")]
     [IsoId("_LT2jMIqSEeSRT5rEzcAHEw")]
     [Description(@"Undetermined status, for instance possibly forgotten notes.")]
-    DOBT,
+    Doubt,
     
     /// <summary>
     /// Transaction failed.
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_NcpbsIqSEeSRT5rEzcAHEw")]
     [Description(@"Transaction failed.")]
-    FAIL,
+    Failure,
     
     /// <summary>
     /// Total presented amount is equal to the amount to dispense.
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_x4MLsIqSEeSRT5rEzcAHEw")]
     [Description(@"Total presented amount is equal to the amount to dispense.")]
-    FULL,
+    Full,
     
     /// <summary>
     /// Total presented amount is lower than the amount to dispense.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_1AKpQIqSEeSRT5rEzcAHEw")]
     [Description(@"Total presented amount is lower than the amount to dispense.")]
-    PART,
+    Partial,
     
     /// <summary>
     /// Total presented amount is equal to zero.
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_29fRkIqSEeSRT5rEzcAHEw")]
     [Description(@"Total presented amount is equal to zero.")]
-    NONE,
+    None,
     
 }
 

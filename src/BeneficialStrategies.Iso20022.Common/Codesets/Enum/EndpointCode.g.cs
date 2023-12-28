@@ -20,35 +20,39 @@ public enum EndpointCode
 {
     /// <summary>
     /// Destination	
+    /// Encoded/decoded by serializers as "DEST".
     /// </summary>
     [EnumMember(Value = "DEST")]
     [IsoId("_QzGoEINnEeuHqfO1LgkE9Q")]
     [Description(@"Destination	")]
-    DEST,
+    Destination,
     
     /// <summary>
     /// Origination
+    /// Encoded/decoded by serializers as "ORIG".
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_VhhfAINnEeuHqfO1LgkE9Q")]
     [Description(@"Origination")]
-    ORIG,
+    Origination,
     
     /// <summary>
     /// Type specified at the national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_bKi9AINnEeuHqfO1LgkE9Q")]
     [Description(@"Type specified at the national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Type specified at a private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_vNbcgINnEeuHqfO1LgkE9Q")]
     [Description(@"Type specified at a private level.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

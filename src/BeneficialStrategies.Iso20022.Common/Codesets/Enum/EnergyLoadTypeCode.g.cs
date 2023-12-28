@@ -21,59 +21,66 @@ public enum EnergyLoadTypeCode
     /// <summary>
     /// Off-Peak.
     /// 
+    /// Encoded/decoded by serializers as "OFFP".
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_0JbZsBVnEeWXLoZC9OIRgg")]
     [Description(@"Off-Peak. ")]
-    OFFP,
+    Off_Peak,
     
     /// <summary>
     /// Hour and block hours.
+    /// Encoded/decoded by serializers as "HABH".
     /// </summary>
     [EnumMember(Value = "HABH")]
     [IsoId("_0NmIABVnEeWXLoZC9OIRgg")]
     [Description(@"Hour and block hours.")]
-    HABH,
+    HourAndBlockHours,
     
     /// <summary>
     /// Shaped.
+    /// Encoded/decoded by serializers as "SHPD".
     /// </summary>
     [EnumMember(Value = "SHPD")]
     [IsoId("_0Rw2UBVnEeWXLoZC9OIRgg")]
     [Description(@"Shaped.")]
-    SHPD,
+    Shaped,
     
     /// <summary>
     /// Gas day.
+    /// Encoded/decoded by serializers as "GASD".
     /// </summary>
     [EnumMember(Value = "GASD")]
     [IsoId("_0Rw2URVnEeWXLoZC9OIRgg")]
     [Description(@"Gas day.")]
-    GASD,
+    GasDay,
     
     /// <summary>
     /// Base load.
+    /// Encoded/decoded by serializers as "BSLD".
     /// </summary>
     [EnumMember(Value = "BSLD")]
     [IsoId("_EmqBIhVoEeWXLoZC9OIRgg")]
     [Description(@"Base load.")]
-    BSLD,
+    BaseLoad,
     
     /// <summary>
     /// Peak load.
+    /// Encoded/decoded by serializers as "PKLD".
     /// </summary>
     [EnumMember(Value = "PKLD")]
     [IsoId("_EmqBIxVoEeWXLoZC9OIRgg")]
     [Description(@"Peak load.")]
-    PKLD,
+    PeakLoad,
     
     /// <summary>
     /// Other.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jP73kBVoEeWXLoZC9OIRgg")]
     [Description(@"Other.")]
-    OTHR,
+    Other,
     
 }
 

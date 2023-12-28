@@ -20,27 +20,30 @@ public enum TransactionStatusCode
 {
     /// <summary>
     /// Transaction has been reversed.
+    /// Encoded/decoded by serializers as "RVSL".
     /// </summary>
     [EnumMember(Value = "RVSL")]
     [IsoId("_YuO5dtp-Ed-ak6NoX_4Aeg_-163376564")]
     [Description(@"Transaction has been reversed.")]
-    RVSL,
+    Reversal,
     
     /// <summary>
     /// Transaction has been rebooked.
+    /// Encoded/decoded by serializers as "REBO".
     /// </summary>
     [EnumMember(Value = "REBO")]
     [IsoId("_YuO5d9p-Ed-ak6NoX_4Aeg_-163376563")]
     [Description(@"Transaction has been rebooked.")]
-    REBO,
+    Rebooked,
     
     /// <summary>
     /// Transaction has been cancelled.
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_YuYqcNp-Ed-ak6NoX_4Aeg_-163376562")]
     [Description(@"Transaction has been cancelled.")]
-    CANC,
+    Cancelled,
     
 }
 

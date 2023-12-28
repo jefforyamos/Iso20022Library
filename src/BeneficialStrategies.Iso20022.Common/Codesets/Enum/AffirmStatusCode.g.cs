@@ -20,83 +20,93 @@ public enum AffirmStatusCode
 {
     /// <summary>
     /// Data was successfully matched.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_HDYCEEStEeSTS-T7FO4CUQ")]
     [Description(@"Data was successfully matched.")]
-    COMP,
+    Compared,
     
     /// <summary>
     /// Format of upload data was right, and system receives successfully.
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_JjXSkEStEeSTS-T7FO4CUQ")]
     [Description(@"Format of upload data was right, and system receives successfully.")]
-    RECE,
+    Received,
     
     /// <summary>
     /// Data was mismatched.
+    /// Encoded/decoded by serializers as "MISM".
     /// </summary>
     [EnumMember(Value = "MISM")]
     [IsoId("_MD9nEEStEeSTS-T7FO4CUQ")]
     [Description(@"Data was mismatched.")]
-    MISM,
+    MisMatched,
     
     /// <summary>
     /// Query time was over system service time.
+    /// Encoded/decoded by serializers as "OUOS".
     /// </summary>
     [EnumMember(Value = "OUOS")]
     [IsoId("_O4ngAEStEeSTS-T7FO4CUQ")]
     [Description(@"Query time was over system service time.")]
-    OUOS,
+    OutOfService,
     
     /// <summary>
     /// Query time was out of range.
+    /// Encoded/decoded by serializers as "OUOR".
     /// </summary>
     [EnumMember(Value = "OUOR")]
     [IsoId("_RA4NAEStEeSTS-T7FO4CUQ")]
     [Description(@"Query time was out of range.")]
-    OUOR,
+    OutOfRange,
     
     /// <summary>
     /// Notfies that the trade confimation was conpleted.
+    /// Encoded/decoded by serializers as "ATCN".
     /// </summary>
     [EnumMember(Value = "ATCN")]
     [IsoId("_UB5uAEStEeSTS-T7FO4CUQ")]
     [Description(@"Notfies that the trade confimation was conpleted.")]
-    ATCN,
+    AckToConfirmCompleteNotification,
     
     /// <summary>
     /// Format of upload data was wrong, and system receives unsuccessfully.
+    /// Encoded/decoded by serializers as "UNRE".
     /// </summary>
     [EnumMember(Value = "UNRE")]
     [IsoId("_XgxBkEStEeSTS-T7FO4CUQ")]
     [Description(@"Format of upload data was wrong, and system receives unsuccessfully.")]
-    UNRE,
+    Unreceived,
     
     /// <summary>
     /// Model has errors.
+    /// Encoded/decoded by serializers as "MISE".
     /// </summary>
     [EnumMember(Value = "MISE")]
     [IsoId("_Y7ViIEStEeSTS-T7FO4CUQ")]
     [Description(@"Model has errors.")]
-    MISE,
+    ModeError,
     
     /// <summary>
     /// Notfies the clearing status changed.
+    /// Encoded/decoded by serializers as "ATSC".
     /// </summary>
     [EnumMember(Value = "ATSC")]
     [IsoId("_bC0MAEStEeSTS-T7FO4CUQ")]
     [Description(@"Notfies the clearing status changed.")]
-    ATSC,
+    AckToSettlementStateChanged,
     
     /// <summary>
     /// Have no trading permissions.
+    /// Encoded/decoded by serializers as "NOTP".
     /// </summary>
     [EnumMember(Value = "NOTP")]
     [IsoId("_duHUoEStEeSTS-T7FO4CUQ")]
     [Description(@"Have no trading permissions.")]
-    NOTP,
+    NoTradingPrivilege,
     
 }
 

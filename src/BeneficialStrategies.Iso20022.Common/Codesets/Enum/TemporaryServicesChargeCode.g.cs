@@ -20,75 +20,84 @@ public enum TemporaryServicesChargeCode
 {
     /// <summary>
     /// Holiday
+    /// Encoded/decoded by serializers as "HOLI".
     /// </summary>
     [EnumMember(Value = "HOLI")]
     [IsoId("_OwYzuvffEei89sMSHxl1ew")]
     [Description(@"Holiday")]
-    HOLI,
+    Holiday,
     
     /// <summary>
     /// On call
+    /// Encoded/decoded by serializers as "ONCL".
     /// </summary>
     [EnumMember(Value = "ONCL")]
     [IsoId("_OwZawvffEei89sMSHxl1ew")]
     [Description(@"On call")]
-    ONCL,
+    OnCall,
     
     /// <summary>
     /// Hazard
+    /// Encoded/decoded by serializers as "HAZD".
     /// </summary>
     [EnumMember(Value = "HAZD")]
     [IsoId("_OwZawfffEei89sMSHxl1ew")]
     [Description(@"Hazard")]
-    HAZD,
+    Hazard,
     
     /// <summary>
     /// Other National
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_OwYzufffEei89sMSHxl1ew")]
     [Description(@"Other National")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other Private
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_OwZawPffEei89sMSHxl1ew")]
     [Description(@"Other Private")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Overtime
+    /// Encoded/decoded by serializers as "OVRT".
     /// </summary>
     [EnumMember(Value = "OVRT")]
     [IsoId("_5B_YIPffEei89sMSHxl1ew")]
     [Description(@"Overtime")]
-    OVRT,
+    Overtime,
     
     /// <summary>
     /// Night
+    /// Encoded/decoded by serializers as "NITE".
     /// </summary>
     [EnumMember(Value = "NITE")]
     [IsoId("_8YVB0PffEei89sMSHxl1ew")]
     [Description(@"Night")]
-    NITE,
+    Night,
     
     /// <summary>
     /// Regular
+    /// Encoded/decoded by serializers as "REGL".
     /// </summary>
     [EnumMember(Value = "REGL")]
     [IsoId("_8a9fEPffEei89sMSHxl1ew")]
     [Description(@"Regular")]
-    REGL,
+    Regular,
     
     /// <summary>
     /// Weekend
+    /// Encoded/decoded by serializers as "WKND".
     /// </summary>
     [EnumMember(Value = "WKND")]
     [IsoId("_8dnxgPffEei89sMSHxl1ew")]
     [Description(@"Weekend")]
-    WKND,
+    Weekend,
     
 }
 

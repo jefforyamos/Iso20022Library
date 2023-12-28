@@ -22,19 +22,21 @@ public enum BrokeredDealCode
     /// Transaction was arranged by a third party broking agent.
     /// 
     /// 
+    /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_WQ54UHvREeWrWYBng3OpVw")]
     [Description(@"Transaction was arranged by a third party broking agent.  ")]
-    BROK,
+    BrokeredTransaction,
     
     /// <summary>
     /// Transaction was arranged directly by the reporting agent.
+    /// Encoded/decoded by serializers as "BILA".
     /// </summary>
     [EnumMember(Value = "BILA")]
     [IsoId("_WXrOsHvREeWrWYBng3OpVw")]
     [Description(@"Transaction was arranged directly by the reporting agent.")]
-    BILA,
+    BilateralTransaction,
     
 }
 

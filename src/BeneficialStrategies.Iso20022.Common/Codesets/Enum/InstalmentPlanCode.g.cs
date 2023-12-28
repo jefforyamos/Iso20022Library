@@ -20,27 +20,30 @@ public enum InstalmentPlanCode
 {
     /// <summary>
     /// The payment is split in several instalments of equal amounts.
+    /// Encoded/decoded by serializers as "EQPM".
     /// </summary>
     [EnumMember(Value = "EQPM")]
     [IsoId("_-LwUkDDgEeO9waS4ina8CA")]
     [Description(@"The payment is split in several instalments of equal amounts.")]
-    EQPM,
+    EqualPayment,
     
     /// <summary>
     /// The payment is split in several instalments of different amounts.
+    /// Encoded/decoded by serializers as "NQPM".
     /// </summary>
     [EnumMember(Value = "NQPM")]
     [IsoId("_CtHm8DDhEeO9waS4ina8CA")]
     [Description(@"The payment is split in several instalments of different amounts.")]
-    NQPM,
+    InequalPayment,
     
     /// <summary>
     /// The first instalment is deferred.
+    /// Encoded/decoded by serializers as "DFRI".
     /// </summary>
     [EnumMember(Value = "DFRI")]
     [IsoId("_gt1ZwDGrEeOVuYdyXoFwuA")]
     [Description(@"The first instalment is deferred.")]
-    DFRI,
+    DeferredInstalment,
     
 }
 

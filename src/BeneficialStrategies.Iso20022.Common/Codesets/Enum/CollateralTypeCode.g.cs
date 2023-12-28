@@ -20,342 +20,384 @@ public enum CollateralTypeCode
 {
     /// <summary>
     /// Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.
+    /// Encoded/decoded by serializers as "LCRE".
     /// </summary>
     [EnumMember(Value = "LCRE")]
     [IsoId("_a_0hl9p-Ed-ak6NoX_4Aeg_353770673")]
     [Description(@"Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.")]
-    LCRE,
+    LetterOfCredit,
     
     /// <summary>
     /// Collateral type is cash.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_a_0hmNp-Ed-ak6NoX_4Aeg_634801681")]
     [Description(@"Collateral type is cash.")]
-    CASH,
+    Cash,
     
     /// <summary>
     /// Collateral type is securities.
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_a_9rgNp-Ed-ak6NoX_4Aeg_635724957")]
     [Description(@"Collateral type is securities.")]
-    SECU,
+    Securities,
     
     /// <summary>
     /// Collateral type are physical entities, for example, airplanes for debt issued by the airline industry.
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_a_9rgdp-Ed-ak6NoX_4Aeg_636647622")]
     [Description(@"Collateral type are physical entities, for example, airplanes for debt issued by the airline industry.")]
-    PHYS,
+    PhysicalEntities,
     
     /// <summary>
     /// Collateral type is an insurance contract.
+    /// Encoded/decoded by serializers as "INSU".
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_a_9rgtp-Ed-ak6NoX_4Aeg_636650588")]
     [Description(@"Collateral type is an insurance contract.")]
-    INSU,
+    Insurance,
     
     /// <summary>
     /// Collateral type is stock certificates.
+    /// Encoded/decoded by serializers as "STCF".
     /// </summary>
     [EnumMember(Value = "STCF")]
     [IsoId("__-SlQNojEeC60axPepSq7g_-190441268")]
     [Description(@"Collateral type is stock certificates.")]
-    STCF,
+    StockCertificate,
     
     /// <summary>
     /// Collateral type is bonds.
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("__-SlQdojEeC60axPepSq7g_-2128498734")]
     [Description(@"Collateral type is bonds.")]
-    BOND,
+    Bond,
     
     /// <summary>
     /// Collateral type is a bank guarantee.
+    /// Encoded/decoded by serializers as "GBBK".
     /// </summary>
     [EnumMember(Value = "GBBK")]
     [IsoId("__-SlQtojEeC60axPepSq7g_1571827888")]
     [Description(@"Collateral type is a bank guarantee.")]
-    GBBK,
+    BankGuarantee,
     
     /// <summary>
     /// Other assets that could be used as collateral.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_a_0hltp-Ed-ak6NoX_4Aeg_239931607")]
     [Description(@"Other assets that could be used as collateral.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Collateral type is commodities.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_0lVtwDIIEear3KYiQI7_2Q")]
     [Description(@"Collateral type is commodities.")]
-    COMM,
+    Commodity,
     
     /// <summary>
     /// Collateral type is automobile.
+    /// Encoded/decoded by serializers as "CARX".
     /// </summary>
     [EnumMember(Value = "CARX")]
     [IsoId("_fU7kACSVEemoiMEiwtMpyw")]
     [Description(@"Collateral type is automobile.")]
-    CARX,
+    Automobile,
     
     /// <summary>
     /// Collateral type is industrial vehicle.
+    /// Encoded/decoded by serializers as "INDV".
     /// </summary>
     [EnumMember(Value = "INDV")]
     [IsoId("_jUBPwCSVEemoiMEiwtMpyw")]
     [Description(@"Collateral type is industrial vehicle.")]
-    INDV,
+    IndustrialVehicle,
     
     /// <summary>
     /// Collateral type is commercial track.
+    /// Encoded/decoded by serializers as "CMTR".
     /// </summary>
     [EnumMember(Value = "CMTR")]
     [IsoId("_xKHc4CSVEemoiMEiwtMpyw")]
     [Description(@"Collateral type is commercial track.")]
-    CMTR,
+    CommercialTruck,
     
     /// <summary>
     /// Collateral type is rail vehicle.
+    /// Encoded/decoded by serializers as "RALV".
     /// </summary>
     [EnumMember(Value = "RALV")]
     [IsoId("_0z4Y4CSVEemoiMEiwtMpyw")]
     [Description(@"Collateral type is rail vehicle.")]
-    RALV,
+    RailVehicle,
     
     /// <summary>
     /// Collateral type is nautical commercial vehicle.
+    /// Encoded/decoded by serializers as "NACM".
     /// </summary>
     [EnumMember(Value = "NACM")]
     [IsoId("_314xUCSVEemoiMEiwtMpyw")]
     [Description(@"Collateral type is nautical commercial vehicle.")]
-    NACM,
+    NauticalCommercialVehicle,
     
     /// <summary>
     /// Collateral type is nautical leisure vehicle.
+    /// Encoded/decoded by serializers as "NALV".
     /// </summary>
     [EnumMember(Value = "NALV")]
     [IsoId("_CGFOwCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is nautical leisure vehicle.")]
-    NALV,
+    NauticalLeisureVehicle,
     
     /// <summary>
     /// Collateral type is aeroplane.
+    /// Encoded/decoded by serializers as "AERO".
     /// </summary>
     [EnumMember(Value = "AERO")]
     [IsoId("_IEa1cCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is aeroplane.")]
-    AERO,
+    Aeroplane,
     
     /// <summary>
     /// Collateral type is machine.
+    /// Encoded/decoded by serializers as "MCHT".
     /// </summary>
     [EnumMember(Value = "MCHT")]
     [IsoId("_K2dfQCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is machine.")]
-    MCHT,
+    MachineTool,
     
     /// <summary>
     /// Collateral type is industrial equipment.
+    /// Encoded/decoded by serializers as "INDE".
     /// </summary>
     [EnumMember(Value = "INDE")]
     [IsoId("_N5r_sCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is industrial equipment.")]
-    INDE,
+    IndustrialEquipment,
     
     /// <summary>
     /// Collateral type is office equipment.
+    /// Encoded/decoded by serializers as "OFEQ".
     /// </summary>
     [EnumMember(Value = "OFEQ")]
     [IsoId("_TAMmgCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is office equipment.")]
-    OFEQ,
+    OfficeEquipment,
     
     /// <summary>
     /// Collateral type is IT equipment.
+    /// Encoded/decoded by serializers as "ITEQ".
     /// </summary>
     [EnumMember(Value = "ITEQ")]
     [IsoId("_YEuQUCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is IT equipment.")]
-    ITEQ,
+    ITEquipment,
     
     /// <summary>
     /// Collateral type is medical equipment.
+    /// Encoded/decoded by serializers as "MDEQ".
     /// </summary>
     [EnumMember(Value = "MDEQ")]
     [IsoId("_bw8qcCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is medical equipment.")]
-    MDEQ,
+    MedicalEquipment,
     
     /// <summary>
     /// Collateral type is energy related equipment.
+    /// Encoded/decoded by serializers as "ENEQ".
     /// </summary>
     [EnumMember(Value = "ENEQ")]
     [IsoId("_fcHUoCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is energy related equipment.")]
-    ENEQ,
+    EnergyRelatedEquipment,
     
     /// <summary>
     /// Collateral type is commercial building.
+    /// Encoded/decoded by serializers as "CBLD".
     /// </summary>
     [EnumMember(Value = "CBLD")]
     [IsoId("_keqogCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is commercial building.")]
-    CBLD,
+    CommercialBuilding,
     
     /// <summary>
     /// Collateral type is residential building.
+    /// Encoded/decoded by serializers as "RBLD".
     /// </summary>
     [EnumMember(Value = "RBLD")]
     [IsoId("_pwz3kCSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is residential building.")]
-    RBLD,
+    ResidentialBuilding,
     
     /// <summary>
     /// Collateral type is industrial building.
+    /// Encoded/decoded by serializers as "IBLD".
     /// </summary>
     [EnumMember(Value = "IBLD")]
     [IsoId("_th0rECSWEemoiMEiwtMpyw")]
     [Description(@"Collateral type is industrial building.")]
-    IBLD,
+    IndustrialBuilding,
     
     /// <summary>
     /// Commercial type is other vehicle.
+    /// Encoded/decoded by serializers as "OTHV".
     /// </summary>
     [EnumMember(Value = "OTHV")]
     [IsoId("_yckt0CSWEemoiMEiwtMpyw")]
     [Description(@"Commercial type is other vehicle.")]
-    OTHV,
+    OtherVehicle,
     
     /// <summary>
     /// Collateral type is other equipment.
+    /// Encoded/decoded by serializers as "OTHE".
     /// </summary>
     [EnumMember(Value = "OTHE")]
     [IsoId("_OSzN0CSXEemoiMEiwtMpyw")]
     [Description(@"Collateral type is other equipment.")]
-    OTHE,
+    OtherEquipment,
     
     /// <summary>
     /// Collateral type is other real estate.
+    /// Encoded/decoded by serializers as "OTRE".
     /// </summary>
     [EnumMember(Value = "OTRE")]
     [IsoId("_v16_MCSXEemoiMEiwtMpyw")]
     [Description(@"Collateral type is other real estate.")]
-    OTRE,
+    OtherRealEstate,
     
     /// <summary>
     /// Collateral type is other goods or inventory.
+    /// Encoded/decoded by serializers as "OTGI".
     /// </summary>
     [EnumMember(Value = "OTGI")]
     [IsoId("_1vmIUCSXEemoiMEiwtMpyw")]
     [Description(@"Collateral type is other goods or inventory.")]
-    OTGI,
+    OtherGoodsOrInventory,
     
     /// <summary>
     /// Collateral type is guarantee.
+    /// Encoded/decoded by serializers as "GUAR".
     /// </summary>
     [EnumMember(Value = "GUAR")]
     [IsoId("_757joCSXEemoiMEiwtMpyw")]
     [Description(@"Collateral type is guarantee.")]
-    GUAR,
+    Guarantee,
     
     /// <summary>
     /// Collateral type is other financial asset.
+    /// Encoded/decoded by serializers as "OTFA".
     /// </summary>
     [EnumMember(Value = "OTFA")]
     [IsoId("_AJCoYCSYEemoiMEiwtMpyw")]
     [Description(@"Collateral type is other financial asset.")]
-    OTFA,
+    OtherFinancialAsset,
     
     /// <summary>
     /// Collateral type is mixed categories due to security over all assets of the obligor.
+    /// Encoded/decoded by serializers as "MIXD".
     /// </summary>
     [EnumMember(Value = "MIXD")]
     [IsoId("_ETTCUCSYEemoiMEiwtMpyw")]
     [Description(@"Collateral type is mixed categories due to security over all assets of the obligor.")]
-    MIXD,
+    MixedCategoriesDueToSecurityOverAllAssetsOfTheObligor,
     
     /// <summary>
     /// Total credit claims.
+    /// Encoded/decoded by serializers as "CCCL".
     /// </summary>
     [EnumMember(Value = "CCCL")]
     [IsoId("_LtWSgALvEeutW5-TpeYJhA")]
     [Description(@"Total credit claims.")]
-    CCCL,
+    TotalCreditClaims,
     
     /// <summary>
     /// Total fixed term deposit used as collateral.
+    /// Encoded/decoded by serializers as "CFTD".
     /// </summary>
     [EnumMember(Value = "CFTD")]
     [IsoId("_Ys1nwALvEeutW5-TpeYJhA")]
     [Description(@"Total fixed term deposit used as collateral.")]
-    CFTD,
+    TotalFixedTermDeposit,
     
     /// <summary>
     /// Total interest for fixed term Deposit used as collateral.
+    /// Encoded/decoded by serializers as "CFTI".
     /// </summary>
     [EnumMember(Value = "CFTI")]
     [IsoId("_l8GeYALvEeutW5-TpeYJhA")]
     [Description(@"Total interest for fixed term Deposit used as collateral.")]
-    CFTI,
+    TotalInterestForFixedTermDeposit,
     
     /// <summary>
     /// Total triparty collateral.
+    /// Encoded/decoded by serializers as "CTRC".
     /// </summary>
     [EnumMember(Value = "CTRC")]
     [IsoId("_yZhoYALvEeutW5-TpeYJhA")]
     [Description(@"Total triparty collateral.")]
-    CTRC,
+    TotalTripartyCollateral,
     
     /// <summary>
     /// Total externally managed collateral for credit claims.
+    /// Encoded/decoded by serializers as "CXCC".
     /// </summary>
     [EnumMember(Value = "CXCC")]
     [IsoId("_5YSxUALvEeutW5-TpeYJhA")]
     [Description(@"Total externally managed collateral for credit claims.")]
-    CXCC,
+    TotalExternallyManagedCollateralForCreditClaim,
     
     /// <summary>
     /// Total externally managed collateral apart from credit claims.
     /// 
+    /// Encoded/decoded by serializers as "CEMC".
     /// </summary>
     [EnumMember(Value = "CEMC")]
     [IsoId("_D2hDsALwEeutW5-TpeYJhA")]
     [Description(@"Total externally managed collateral apart from credit claims. ")]
-    CEMC,
+    TotalExternallyManagedCollateralApartFromCreditClaims,
     
     /// <summary>
     /// Total collateral affected to open market operations.
+    /// Encoded/decoded by serializers as "COMO".
     /// </summary>
     [EnumMember(Value = "COMO")]
     [IsoId("_Op3RgALwEeutW5-TpeYJhA")]
     [Description(@"Total collateral affected to open market operations.")]
-    COMO,
+    TotalCollateralAffectedToOpenMarketOperations,
     
     /// <summary>
     /// Total collateral operations.
     /// 
     /// 
+    /// Encoded/decoded by serializers as "CTCO".
     /// </summary>
     [EnumMember(Value = "CTCO")]
     [IsoId("_9gYyoALwEeutW5-TpeYJhA")]
     [Description(@"Total collateral operations.  ")]
-    CTCO,
+    TotalCollateralOperations,
     
     /// <summary>
     /// Total collateral value after relative credit limit.
+    /// Encoded/decoded by serializers as "CCVR".
     /// </summary>
     [EnumMember(Value = "CCVR")]
     [IsoId("_FLfdIALxEeutW5-TpeYJhA")]
     [Description(@"Total collateral value after relative credit limit.")]
-    CCVR,
+    TotalCollateralValueAfterRelativeCreditLimit,
     
 }
 

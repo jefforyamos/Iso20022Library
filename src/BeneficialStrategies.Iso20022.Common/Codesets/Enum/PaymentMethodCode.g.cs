@@ -20,51 +20,57 @@ public enum PaymentMethodCode
 {
     /// <summary>
     /// Written order to a bank to pay a certain amount of money from one person to another person.
+    /// Encoded/decoded by serializers as "CHK".
     /// </summary>
     [EnumMember(Value = "CHK")]
     [IsoId("_Z0uAYdp-Ed-ak6NoX_4Aeg_2143732977")]
     [Description(@"Written order to a bank to pay a certain amount of money from one person to another person.")]
-    CHK,
+    Cheque,
     
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer.
+    /// Encoded/decoded by serializers as "TRF".
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_Z0uAYtp-Ed-ak6NoX_4Aeg_2143732978")]
     [Description(@"Transfer of an amount of money in the books of the account servicer.")]
-    TRF,
+    CreditTransfer,
     
     /// <summary>
     /// Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.
+    /// Encoded/decoded by serializers as "DD".
     /// </summary>
     [EnumMember(Value = "DD")]
     [IsoId("_Z0uAY9p-Ed-ak6NoX_4Aeg_480922145")]
     [Description(@"Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.")]
-    DD,
+    DirectDebit,
     
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.
+    /// Encoded/decoded by serializers as "TRA".
     /// </summary>
     [EnumMember(Value = "TRA")]
     [IsoId("_Z0uAZNp-Ed-ak6NoX_4Aeg_1896180544")]
     [Description(@"Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.")]
-    TRA,
+    TransferAdvice,
     
     /// <summary>
     /// Direct method.
+    /// Encoded/decoded by serializers as "DIRE".
     /// </summary>
     [EnumMember(Value = "DIRE")]
     [IsoId("_Z0uAZdp-Ed-ak6NoX_4Aeg_-545130742")]
     [Description(@"Direct method.")]
-    DIRE,
+    Direct,
     
     /// <summary>
     /// Classical method.
+    /// Encoded/decoded by serializers as "CLAS".
     /// </summary>
     [EnumMember(Value = "CLAS")]
     [IsoId("_Z0uAZtp-Ed-ak6NoX_4Aeg_-545130741")]
     [Description(@"Classical method.")]
-    CLAS,
+    Classical,
     
 }
 

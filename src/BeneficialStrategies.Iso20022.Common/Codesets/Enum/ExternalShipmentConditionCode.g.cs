@@ -21,27 +21,30 @@ public enum ExternalShipmentConditionCode
 {
     /// <summary>
     /// Goods/service delivered after payment
+    /// Encoded/decoded by serializers as "ADVN".
     /// </summary>
     [EnumMember(Value = "ADVN")]
     [IsoId("_uUDnefRYEeuLhpyIdtJzwg")]
     [Description(@"Goods/service delivered after payment")]
-    ADVN,
+    AdvancePayment,
     
     /// <summary>
     /// Goods/service delivered at the same time as payment.
+    /// Encoded/decoded by serializers as "PMNT".
     /// </summary>
     [EnumMember(Value = "PMNT")]
     [IsoId("_uUDnfPRYEeuLhpyIdtJzwg")]
     [Description(@"Goods/service delivered at the same time as payment.")]
-    PMNT,
+    DeliveryversusPayment,
     
     /// <summary>
     /// Goods/service delivered before payment
+    /// Encoded/decoded by serializers as "TRLN".
     /// </summary>
     [EnumMember(Value = "TRLN")]
     [IsoId("_uUMxYPRYEeuLhpyIdtJzwg")]
     [Description(@"Goods/service delivered before payment")]
-    TRLN,
+    TradeLoan,
     
 }
 

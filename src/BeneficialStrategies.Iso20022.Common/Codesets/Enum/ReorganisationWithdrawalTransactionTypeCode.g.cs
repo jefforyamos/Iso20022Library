@@ -20,27 +20,30 @@ public enum ReorganisationWithdrawalTransactionTypeCode
 {
     /// <summary>
     /// The reorganisation instruction cancellation is a protect withdrawal transaction.
+    /// Encoded/decoded by serializers as "PROW".
     /// </summary>
     [EnumMember(Value = "PROW")]
     [IsoId("_P7H7MMYzEeesocHIuVGr7g")]
     [Description(@"The reorganisation instruction cancellation is a protect withdrawal transaction.")]
-    PROW,
+    ProtectWithdrawalTransaction,
     
     /// <summary>
     /// The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.
+    /// Encoded/decoded by serializers as "PRPW".
     /// </summary>
     [EnumMember(Value = "PRPW")]
     [IsoId("_yM7-kMYzEeesocHIuVGr7g")]
     [Description(@"The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.")]
-    PRPW,
+    WithdrawalProtectOnBehalfOfAnotherParticipant,
     
     /// <summary>
     /// The reorganisation instruction cancellation is a voluntary offer instruction withdrawal transaction.
+    /// Encoded/decoded by serializers as "VOIW".
     /// </summary>
     [EnumMember(Value = "VOIW")]
     [IsoId("_D0o1EMY0EeesocHIuVGr7g")]
     [Description(@"The reorganisation instruction cancellation is a voluntary offer instruction withdrawal transaction.")]
-    VOIW,
+    VoluntaryOfferInstructionWithdrawal,
     
 }
 

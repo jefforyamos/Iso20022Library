@@ -20,19 +20,21 @@ public enum InsuranceCode
 {
     /// <summary>
     /// Life insurance.
+    /// Encoded/decoded by serializers as "LIFE".
     /// </summary>
     [EnumMember(Value = "LIFE")]
     [IsoId("_qztGcBQaEeKebsB9eKJSkA")]
     [Description(@"Life insurance.")]
-    LIFE,
+    LifeInsurance,
     
     /// <summary>
     /// Permanent disability insurance.
+    /// Encoded/decoded by serializers as "PDIS".
     /// </summary>
     [EnumMember(Value = "PDIS")]
     [IsoId("_q9Fr8BQaEeKebsB9eKJSkA")]
     [Description(@"Permanent disability insurance.")]
-    PDIS,
+    PermanentDisabilityInsurance,
     
 }
 

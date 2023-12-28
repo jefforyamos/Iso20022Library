@@ -20,67 +20,75 @@ public enum CRSFormTypeCode
 {
     /// <summary>
     /// Self certification as a separate document.
+    /// Encoded/decoded by serializers as "CER1".
     /// </summary>
     [EnumMember(Value = "CER1")]
     [IsoId("_vycYIENvEeaS-NnwLNvMPg")]
     [Description(@"Self certification as a separate document.")]
-    CER1,
+    SelfCertificationSeparateDocument,
     
     /// <summary>
     /// Self certification as a document included into contract of the account opening.
+    /// Encoded/decoded by serializers as "CER2".
     /// </summary>
     [EnumMember(Value = "CER2")]
     [IsoId("_z6-TwENvEeaS-NnwLNvMPg")]
     [Description(@"Self certification as a document included into contract of the account opening.")]
-    CER2,
+    SelfCertificationWithAccountOpeningContract,
     
     /// <summary>
     /// Certificate of residence.
+    /// Encoded/decoded by serializers as "CER3".
     /// </summary>
     [EnumMember(Value = "CER3")]
     [IsoId("_10rAUENvEeaS-NnwLNvMPg")]
     [Description(@"Certificate of residence.")]
-    CER3,
+    CertificateOfResidence,
     
     /// <summary>
     /// Certificate of Identification issued by a government.
+    /// Encoded/decoded by serializers as "CER4".
     /// </summary>
     [EnumMember(Value = "CER4")]
     [IsoId("_6LeogENvEeaS-NnwLNvMPg")]
     [Description(@"Certificate of Identification issued by a government.")]
-    CER4,
+    CertificateIdentificationGovernment,
     
     /// <summary>
     /// Official documentation issued by a government for the entity.
+    /// Encoded/decoded by serializers as "CER5".
     /// </summary>
     [EnumMember(Value = "CER5")]
     [IsoId("_8ZtaoENvEeaS-NnwLNvMPg")]
     [Description(@"Official documentation issued by a government for the entity.")]
-    CER5,
+    OfficialDocumentGovernmentForEntity,
     
     /// <summary>
     /// Financial statement, third party credit report, bankruptcy filing or a securities regulator report.
+    /// Encoded/decoded by serializers as "CER6".
     /// </summary>
     [EnumMember(Value = "CER6")]
     [IsoId("_-616oENvEeaS-NnwLNvMPg")]
     [Description(@"Financial statement, third party credit report, bankruptcy filing or a securities regulator report.")]
-    CER6,
+    OtherDocumentOrReport,
     
     /// <summary>
     /// Standardised industry coding system for the entity.
+    /// Encoded/decoded by serializers as "CER7".
     /// </summary>
     [EnumMember(Value = "CER7")]
     [IsoId("_CmzPAENwEeaS-NnwLNvMPg")]
     [Description(@"Standardised industry coding system for the entity.")]
-    CER7,
+    Standardised,
     
     /// <summary>
     /// Publicly available information for the entity.
+    /// Encoded/decoded by serializers as "CER8".
     /// </summary>
     [EnumMember(Value = "CER8")]
     [IsoId("_H3fFgENwEeaS-NnwLNvMPg")]
     [Description(@"Publicly available information for the entity.")]
-    CER8,
+    PublicInformationEntity,
     
 }
 

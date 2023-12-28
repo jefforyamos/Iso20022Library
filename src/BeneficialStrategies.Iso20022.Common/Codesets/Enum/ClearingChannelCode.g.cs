@@ -20,35 +20,39 @@ public enum ClearingChannelCode
 {
     /// <summary>
     /// Clearing channel is a real-time gross settlement system.
+    /// Encoded/decoded by serializers as "RTGS".
     /// </summary>
     [EnumMember(Value = "RTGS")]
     [IsoId("_a_X1odp-Ed-ak6NoX_4Aeg_349344962")]
     [Description(@"Clearing channel is a real-time gross settlement system.")]
-    RTGS,
+    RealTimeGrossSettlementSystem,
     
     /// <summary>
     /// Clearing channel is a real-time net settlement system.
+    /// Encoded/decoded by serializers as "RTNS".
     /// </summary>
     [EnumMember(Value = "RTNS")]
     [IsoId("_a_X1otp-Ed-ak6NoX_4Aeg_419533382")]
     [Description(@"Clearing channel is a real-time net settlement system.")]
-    RTNS,
+    RealTimeNetSettlementSystem,
     
     /// <summary>
     /// Clearing channel is a mass payment net settlement system.
+    /// Encoded/decoded by serializers as "MPNS".
     /// </summary>
     [EnumMember(Value = "MPNS")]
     [IsoId("_a_X1o9p-Ed-ak6NoX_4Aeg_496187714")]
     [Description(@"Clearing channel is a mass payment net settlement system.")]
-    MPNS,
+    MassPaymentNetSystem,
     
     /// <summary>
     /// Payment through internal book transfer.
+    /// Encoded/decoded by serializers as "BOOK".
     /// </summary>
     [EnumMember(Value = "BOOK")]
     [IsoId("_a_X1pNp-Ed-ak6NoX_4Aeg_-537955381")]
     [Description(@"Payment through internal book transfer.")]
-    BOOK,
+    BookTransfer,
     
 }
 

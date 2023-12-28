@@ -20,27 +20,30 @@ public enum DisplayMethodCode
 {
     /// <summary>
     /// Indicates that original quantity must be used.
+    /// Encoded/decoded by serializers as "INIT".
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_awUtA9p-Ed-ak6NoX_4Aeg_751651641")]
     [Description(@"Indicates that original quantity must be used.")]
-    INIT,
+    Initial,
     
     /// <summary>
     /// Indicates that Quantity must be refreshed.
+    /// Encoded/decoded by serializers as "NEW1".
     /// </summary>
     [EnumMember(Value = "NEW1")]
     [IsoId("_awUtBNp-Ed-ak6NoX_4Aeg_1093354350")]
     [Description(@"Indicates that Quantity must be refreshed.")]
-    NEW1,
+    New,
     
     /// <summary>
     /// Randomize value.
+    /// Encoded/decoded by serializers as "RAND".
     /// </summary>
     [EnumMember(Value = "RAND")]
     [IsoId("_awUtBdp-Ed-ak6NoX_4Aeg_1226340443")]
     [Description(@"Randomize value.")]
-    RAND,
+    Random,
     
 }
 

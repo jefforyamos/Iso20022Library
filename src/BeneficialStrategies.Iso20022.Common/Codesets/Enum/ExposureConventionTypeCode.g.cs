@@ -20,19 +20,21 @@ public enum ExposureConventionTypeCode
 {
     /// <summary>
     /// Indicates that the exposed amount to party A and B will be netted together for the variation margin calculation, and then two separate variation margin requirements will be determined.
+    /// Encoded/decoded by serializers as "GROS".
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_YczLNNp-Ed-ak6NoX_4Aeg_1466690893")]
     [Description(@"Indicates that the exposed amount to party A and B will be netted together for the variation margin calculation, and then two separate variation margin requirements will be determined.")]
-    GROS,
+    Gross,
     
     /// <summary>
     /// Indicates that the exposed amount to party A and B will be netted together for the variation margin calculation.
+    /// Encoded/decoded by serializers as "NET1".
     /// </summary>
     [EnumMember(Value = "NET1")]
     [IsoId("_YczLNdp-Ed-ak6NoX_4Aeg_1963652229")]
     [Description(@"Indicates that the exposed amount to party A and B will be netted together for the variation margin calculation.")]
-    NET1,
+    Net,
     
 }
 

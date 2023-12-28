@@ -20,35 +20,39 @@ public enum QuantityCode
 {
     /// <summary>
     /// Quantity has not been established.
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ZXgf9Np-Ed-ak6NoX_4Aeg_746966356")]
     [Description(@"Quantity has not been established.")]
-    OPEN,
+    Open,
     
     /// <summary>
     /// Quantity is unknown by the sender or has not been established.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZXgf9dp-Ed-ak6NoX_4Aeg_746966416")]
     [Description(@"Quantity is unknown by the sender or has not been established.")]
-    UKWN,
+    UnknownQuantity,
     
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
+    /// Encoded/decoded by serializers as "QALL".
     /// </summary>
     [EnumMember(Value = "QALL")]
     [IsoId("_ZXgf9tp-Ed-ak6NoX_4Aeg_1023951187")]
     [Description(@"Instruction applies to the entire eligible balance of underlying securities.")]
-    QALL,
+    AllSecurities,
     
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
+    /// Encoded/decoded by serializers as "ANYA".
     /// </summary>
     [EnumMember(Value = "ANYA")]
     [IsoId("_EWP5F_mWEeCcAY_zfcalaA")]
     [Description(@"Instruction applies to the entire eligible balance of underlying securities.")]
-    ANYA,
+    AnyAndAll,
     
 }
 

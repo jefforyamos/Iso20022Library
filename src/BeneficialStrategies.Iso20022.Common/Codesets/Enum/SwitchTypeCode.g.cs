@@ -20,19 +20,21 @@ public enum SwitchTypeCode
 {
     /// <summary>
     /// Indicates a partial switch for an account.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_Tt_zgA2XEeStB9HSJRk0Qw")]
     [Description(@"Indicates a partial switch for an account.")]
-    PART,
+    PartSwitch,
     
     /// <summary>
     /// Indicates a full switch for an account.
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_VwU3oA2XEeStB9HSJRk0Qw")]
     [Description(@"Indicates a full switch for an account.")]
-    FULL,
+    FullSwitch,
     
 }
 

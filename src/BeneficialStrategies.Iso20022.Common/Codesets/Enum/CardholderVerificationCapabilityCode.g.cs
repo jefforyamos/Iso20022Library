@@ -20,195 +20,219 @@ public enum CardholderVerificationCapabilityCode
 {
     /// <summary>
     /// Manual signature verification.
+    /// Encoded/decoded by serializers as "MNSG".
     /// </summary>
     [EnumMember(Value = "MNSG")]
     [IsoId("_TWPA1QEcEeCQm6a_G2yO_w_1195784045")]
     [Description(@"Manual signature verification.")]
-    MNSG,
+    ManualSignature,
     
     /// <summary>
     /// Online PIN (Personal Identification Number).
+    /// Encoded/decoded by serializers as "NPIN".
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_TWPA1gEcEeCQm6a_G2yO_w_-814172813")]
     [Description(@"Online PIN (Personal Identification Number).")]
-    NPIN,
+    OnLinePIN,
     
     /// <summary>
     /// Offline PIN in clear (Personal Identification Number).
+    /// Encoded/decoded by serializers as "FCPN".
     /// </summary>
     [EnumMember(Value = "FCPN")]
     [IsoId("_TWPA1wEcEeCQm6a_G2yO_w_-1449204659")]
     [Description(@"Offline PIN in clear (Personal Identification Number).")]
-    FCPN,
+    OfflinePINClear,
     
     /// <summary>
     /// Offline PIN encrypted (Personal Identification Number).
+    /// Encoded/decoded by serializers as "FEPN".
     /// </summary>
     [EnumMember(Value = "FEPN")]
     [IsoId("_TWPA2AEcEeCQm6a_G2yO_w_986626635")]
     [Description(@"Offline PIN encrypted (Personal Identification Number).")]
-    FEPN,
+    OfflinePINEncrypted,
     
     /// <summary>
     /// Offline digital signature analysis.
+    /// Encoded/decoded by serializers as "FDSG".
     /// </summary>
     [EnumMember(Value = "FDSG")]
     [IsoId("_TWPA2QEcEeCQm6a_G2yO_w_1365064615")]
     [Description(@"Offline digital signature analysis.")]
-    FDSG,
+    OfflineDigitalSignature,
     
     /// <summary>
     /// Offline biometrics.
+    /// Encoded/decoded by serializers as "FBIO".
     /// </summary>
     [EnumMember(Value = "FBIO")]
     [IsoId("_TWPA2gEcEeCQm6a_G2yO_w_2114730991")]
     [Description(@"Offline biometrics.")]
-    FBIO,
+    OfflineBiometrics,
     
     /// <summary>
     /// Other manual verification, for example passport or drivers license.
+    /// Encoded/decoded by serializers as "MNVR".
     /// </summary>
     [EnumMember(Value = "MNVR")]
     [IsoId("_TWPA2wEcEeCQm6a_G2yO_w_-589241705")]
     [Description(@"Other manual verification, for example passport or drivers license.")]
-    MNVR,
+    ManualVerification,
     
     /// <summary>
     /// Offline biographics.
+    /// Encoded/decoded by serializers as "FBIG".
     /// </summary>
     [EnumMember(Value = "FBIG")]
     [IsoId("_TWPA3AEcEeCQm6a_G2yO_w_1155907205")]
     [Description(@"Offline biographics.")]
-    FBIG,
+    OfflineBiographics,
     
     /// <summary>
     /// Account based digital signature.
+    /// Encoded/decoded by serializers as "APKI".
     /// </summary>
     [EnumMember(Value = "APKI")]
     [IsoId("_TWPA3QEcEeCQm6a_G2yO_w_726274838")]
     [Description(@"Account based digital signature.")]
-    APKI,
+    AccountDigitalSignature,
     
     /// <summary>
     /// PKI (Public Key Infrastructure) based digital signature.
+    /// Encoded/decoded by serializers as "PKIS".
     /// </summary>
     [EnumMember(Value = "PKIS")]
     [IsoId("_TWPA3gEcEeCQm6a_G2yO_w_-840693528")]
     [Description(@"PKI (Public Key Infrastructure) based digital signature.")]
-    PKIS,
+    PKISignature,
     
     /// <summary>
     /// Cardholder authentication data.
+    /// Encoded/decoded by serializers as "CHDT".
     /// </summary>
     [EnumMember(Value = "CHDT")]
     [IsoId("_TWPA3wEcEeCQm6a_G2yO_w_517117428")]
     [Description(@"Cardholder authentication data.")]
-    CHDT,
+    CardholderData,
     
     /// <summary>
     /// Three domain secure (three domain secure authentication of the cardholder).
+    /// Encoded/decoded by serializers as "SCEC".
     /// </summary>
     [EnumMember(Value = "SCEC")]
     [IsoId("_TWPA4AEcEeCQm6a_G2yO_w_-872664292")]
     [Description(@"Three domain secure (three domain secure authentication of the cardholder).")]
-    SCEC,
+    SecureElectronicCommerce,
     
     /// <summary>
     /// Unknown cardholder verification capability.
+    /// Encoded/decoded by serializers as "UNKW".
     /// </summary>
     [EnumMember(Value = "UNKW")]
     [IsoId("_fnCJYHr4EeSZrs_hiwNOWA")]
     [Description(@"Unknown cardholder verification capability.")]
-    UNKW,
+    Unknown,
     
     /// <summary>
     /// Personal code of the customer for banking services.
+    /// Encoded/decoded by serializers as "PCOD".
     /// </summary>
     [EnumMember(Value = "PCOD")]
     [IsoId("_lRX7wIn7EeShMpas3885ww")]
     [Description(@"Personal code of the customer for banking services.")]
-    PCOD,
+    PersonalCode,
     
     /// <summary>
     /// No cardholder verification capability.
+    /// Encoded/decoded by serializers as "NOVF".
     /// </summary>
     [EnumMember(Value = "NOVF")]
     [IsoId("_lnLzAC6nEeWc7f-D6ByqMg")]
     [Description(@"No cardholder verification capability.")]
-    NOVF,
+    NoCapabilities,
     
     /// <summary>
     /// Online biometrics.
+    /// Encoded/decoded by serializers as "NBIO".
     /// </summary>
     [EnumMember(Value = "NBIO")]
     [IsoId("_rTICIC6nEeWc7f-D6ByqMg")]
     [Description(@"Online biometrics.")]
-    NBIO,
+    OnLineBiometrics,
     
     /// <summary>
     /// Other cardholder verification capabilities.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_uQkqsC6nEeWc7f-D6ByqMg")]
     [Description(@"Other cardholder verification capabilities.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Other type of cardholder verification defined at national level
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_XnX7FXx8EemHsOqJOzMVfg")]
     [Description(@"Other type of cardholder verification defined at national level")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other type of cardholder verification defined in a private manner.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_XnX7Fnx8EemHsOqJOzMVfg")]
     [Description(@"Other type of cardholder verification defined in a private manner.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Handwritten signature verification
+    /// Encoded/decoded by serializers as "SIGN".
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_XnX7F3x8EemHsOqJOzMVfg")]
     [Description(@"Handwritten signature verification")]
-    SIGN,
+    Signature,
     
     /// <summary>
     /// Cardholder verification capability unspecified.
+    /// Encoded/decoded by serializers as "UNSP".
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_XnX7GHx8EemHsOqJOzMVfg")]
     [Description(@"Cardholder verification capability unspecified.")]
-    UNSP,
+    Unspecified,
     
     /// <summary>
     /// Recognition by voice.
+    /// Encoded/decoded by serializers as "VORN".
     /// </summary>
     [EnumMember(Value = "VORN")]
     [IsoId("_XnX7GXx8EemHsOqJOzMVfg")]
     [Description(@"Recognition by voice.")]
-    VORN,
+    VoiceRecognition,
     
     /// <summary>
     /// Device has no pin entry capability.
+    /// Encoded/decoded by serializers as "NOPN".
     /// </summary>
     [EnumMember(Value = "NOPN")]
     [IsoId("_swD6UJKcEempjNUC7bi_Ng")]
     [Description(@"Device has no pin entry capability.")]
-    NOPN,
+    NoPINEntry,
     
     /// <summary>
     /// Device has no online pin entry capability.
+    /// Encoded/decoded by serializers as "NOOP".
     /// </summary>
     [EnumMember(Value = "NOOP")]
     [IsoId("_EGQOoBqaEeqH1IQNpbVpEw")]
     [Description(@"Device has no online pin entry capability.")]
-    NOOP,
+    NoOnLinePINEntry,
     
 }
 

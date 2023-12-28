@@ -20,60 +20,67 @@ public enum InvestmentNeedCode
 {
     /// <summary>
     /// No specific need.
+    /// Encoded/decoded by serializers as "NSPE".
     /// </summary>
     [EnumMember(Value = "NSPE")]
     [IsoId("_gMLO8DcdEeidBoT_PugKiA")]
     [Description(@"No specific need.")]
-    NSPE,
+    None,
     
     /// <summary>
     /// Investment need is for green investment.
+    /// Encoded/decoded by serializers as "GRIN".
     /// </summary>
     [EnumMember(Value = "GRIN")]
     [IsoId("_h2QLIDcdEeidBoT_PugKiA")]
     [Description(@"Investment need is for green investment.")]
-    GRIN,
+    GreenInvestment,
     
     /// <summary>
     /// Investment need is for ethical investment.
+    /// Encoded/decoded by serializers as "ETHI".
     /// </summary>
     [EnumMember(Value = "ETHI")]
     [IsoId("_oNAR0DcdEeidBoT_PugKiA")]
     [Description(@"Investment need is for ethical investment.")]
-    ETHI,
+    EthicalInvestment,
     
     /// <summary>
     /// Investment need is for Islamic banking.
+    /// Encoded/decoded by serializers as "ISLB".
     /// </summary>
     [EnumMember(Value = "ISLB")]
     [IsoId("_t5M_oDcdEeidBoT_PugKiA")]
     [Description(@"Investment need is for Islamic banking.")]
-    ISLB,
+    IslamicBanking,
     
     /// <summary>
     /// Investment need is for environmental social corporate governance.
     /// 
+    /// Encoded/decoded by serializers as "ESGO".
     /// </summary>
     [EnumMember(Value = "ESGO")]
     [IsoId("_xXxYQDcdEeidBoT_PugKiA")]
     [Description(@"Investment need is for environmental social corporate governance. ")]
-    ESGO,
+    EnvironmentalSocialCorporateGovernance,
     
     /// <summary>
     /// Other specific need.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_3zbNEDcdEeidBoT_PugKiA")]
     [Description(@"Other specific need.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Specific investment need.
+    /// Encoded/decoded by serializers as "YSPE".
     /// </summary>
     [EnumMember(Value = "YSPE")]
     [IsoId("_CY4s4Ol4Eei6w4V2u1HOBw")]
     [Description(@"Specific investment need.")]
-    YSPE,
+    SpecificNeed,
     
 }
 

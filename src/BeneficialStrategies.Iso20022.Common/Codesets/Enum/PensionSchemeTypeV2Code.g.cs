@@ -20,163 +20,183 @@ public enum PensionSchemeTypeV2Code
 {
     /// <summary>
     /// Pension is a group personal pension.
+    /// Encoded/decoded by serializers as "GPPS".
     /// </summary>
     [EnumMember(Value = "GPPS")]
     [IsoId("_BGikxzOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension is a group personal pension.")]
-    GPPS,
+    GroupPersonalPension,
     
     /// <summary>
     /// Pension is a personal pension plan.
+    /// Encoded/decoded by serializers as "PPNS".
     /// </summary>
     [EnumMember(Value = "PPNS")]
     [IsoId("_BGikxjOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension is a personal pension plan.")]
-    PPNS,
+    PersonalPension,
     
     /// <summary>
     /// Pension is a self-invested personal pension plan.
+    /// Encoded/decoded by serializers as "SIPP".
     /// </summary>
     [EnumMember(Value = "SIPP")]
     [IsoId("_BGik0TOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension is a self-invested personal pension plan.")]
-    SIPP,
+    SelfInvestedPersonalPension,
     
     /// <summary>
     /// Pension plan is a group self-invested pension plan.
+    /// Encoded/decoded by serializers as "SIPG".
     /// </summary>
     [EnumMember(Value = "SIPG")]
     [IsoId("_BGikxTOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is a group self-invested pension plan.")]
-    SIPG,
+    GroupSelfInvestedPension,
     
     /// <summary>
     /// Pension is a small self-administered pension scheme.
+    /// Encoded/decoded by serializers as "SSAS".
     /// </summary>
     [EnumMember(Value = "SSAS")]
     [IsoId("_BGikyjOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension is a small self-administered pension scheme.")]
-    SSAS,
+    SmallSelfAdministeredScheme,
     
     /// <summary>
     /// Pension plan is an individual stakeholder pension.
+    /// Encoded/decoded by serializers as "STKI".
     /// </summary>
     [EnumMember(Value = "STKI")]
     [IsoId("_BGikzDOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is an individual stakeholder pension.")]
-    STKI,
+    IndividualStakeholder,
     
     /// <summary>
     /// Pension plan is a group stakeholder pension plan.
+    /// Encoded/decoded by serializers as "STKG".
     /// </summary>
     [EnumMember(Value = "STKG")]
     [IsoId("_BGikzjOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is a group stakeholder pension plan.")]
-    STKG,
+    GroupStakeholder,
     
     /// <summary>
     /// Pension type covered by section 32.
+    /// Encoded/decoded by serializers as "SC32".
     /// </summary>
     [EnumMember(Value = "SC32")]
     [IsoId("_BGik1zOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension type covered by section 32.")]
-    SC32,
+    Section32,
     
     /// <summary>
     /// Pension type covered by section 32A.
+    /// Encoded/decoded by serializers as "S32A".
     /// </summary>
     [EnumMember(Value = "S32A")]
     [IsoId("_BGikzzOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension type covered by section 32A.")]
-    S32A,
+    Section32A,
     
     /// <summary>
     /// Pension plan is a retirement annuity.
+    /// Encoded/decoded by serializers as "REAN".
     /// </summary>
     [EnumMember(Value = "REAN")]
     [IsoId("_BGikyzOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is a retirement annuity.")]
-    REAN,
+    RetirementAnnuity,
     
     /// <summary>
     /// Pension plan is an occupational defined contribution plan.
+    /// Encoded/decoded by serializers as "OCDC".
     /// </summary>
     [EnumMember(Value = "OCDC")]
     [IsoId("_BGik0jOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is an occupational defined contribution plan.")]
-    OCDC,
+    OccupationalDefinedContribution,
     
     /// <summary>
     /// Pension plan is an executive pension plan.
+    /// Encoded/decoded by serializers as "EXPP".
     /// </summary>
     [EnumMember(Value = "EXPP")]
     [IsoId("_BGikyDOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is an executive pension plan.")]
-    EXPP,
+    ExecutivePensionPlan,
     
     /// <summary>
     /// Pension plan is an additional voluntary contribution plan.
+    /// Encoded/decoded by serializers as "AAVC".
     /// </summary>
     [EnumMember(Value = "AAVC")]
     [IsoId("_BGik0DOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is an additional voluntary contribution plan.")]
-    AAVC,
+    AdditionalVoluntaryContribution,
     
     /// <summary>
     /// Pension plan is a free standing additional voluntary contribution plan.
+    /// Encoded/decoded by serializers as "FAVC".
     /// </summary>
     [EnumMember(Value = "FAVC")]
     [IsoId("_BGik1jOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is a free standing additional voluntary contribution plan.")]
-    FAVC,
+    FreeStandingAdditionalVoluntaryContribution,
     
     /// <summary>
     /// Pension plan is a defined benefit plan.
+    /// Encoded/decoded by serializers as "DBEN".
     /// </summary>
     [EnumMember(Value = "DBEN")]
     [IsoId("_BGik1DOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension plan is a defined benefit plan.")]
-    DBEN,
+    DefinedBenefit,
     
     /// <summary>
     /// Pension is an individual pension savings plan with a tax benefit. This is known as an Individual Pension Schema (IPS) in some markets.
+    /// Encoded/decoded by serializers as "IPST".
     /// </summary>
     [EnumMember(Value = "IPST")]
     [IsoId("_BGik0zOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension is an individual pension savings plan with a tax benefit. This is known as an Individual Pension Schema (IPS) in some markets.")]
-    IPST,
+    IndividualPensionWithTaxBenefit,
     
     /// <summary>
     /// Pension is a mandatory occupational pension. This is known as an Obligatory Occupation Pension (OTP) in some markets.
+    /// Encoded/decoded by serializers as "OTPM".
     /// </summary>
     [EnumMember(Value = "OTPM")]
     [IsoId("_BGik1TOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension is a mandatory occupational pension. This is known as an Obligatory Occupation Pension (OTP) in some markets.")]
-    OTPM,
+    MandatoryOccupationalPension,
     
     /// <summary>
     /// Pension is a personal pension account. This is known as Employee Pension Kapital (EPK) in some markets.
+    /// Encoded/decoded by serializers as "EPKA".
     /// </summary>
     [EnumMember(Value = "EPKA")]
     [IsoId("_BGikzTOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension is a personal pension account. This is known as Employee Pension Kapital (EPK) in some markets.")]
-    EPKA,
+    PersonalPensionAccount,
     
     /// <summary>
     /// Pension is a private occupational pension. This is known as an industrial and trade supplementary pension (ITP) in some markets.
+    /// Encoded/decoded by serializers as "ITPO".
     /// </summary>
     [EnumMember(Value = "ITPO")]
     [IsoId("_BGikyTOSEeqKY_RYlDm6Pw")]
     [Description(@"Pension is a private occupational pension. This is known as an industrial and trade supplementary pension (ITP) in some markets.")]
-    ITPO,
+    PrivateOccupationalPension,
     
     /// <summary>
     /// Indicates that the party does not operate the pension wrapper.
+    /// Encoded/decoded by serializers as "NWRP".
     /// </summary>
     [EnumMember(Value = "NWRP")]
     [IsoId("_LnCUoOlpEeuvhrZwLF0fDg")]
     [Description(@"Indicates that the party does not operate the pension wrapper.")]
-    NWRP,
+    NonWrapperPension,
     
 }
 

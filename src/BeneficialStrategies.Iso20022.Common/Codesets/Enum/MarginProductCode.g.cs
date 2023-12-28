@@ -20,19 +20,21 @@ public enum MarginProductCode
 {
     /// <summary>
     /// Specifies that the margin is related to equities.
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_YZq-uNp-Ed-ak6NoX_4Aeg_997889557")]
     [Description(@"Specifies that the margin is related to equities.")]
-    EQUI,
+    Equities,
     
     /// <summary>
     /// Specifies that the margin is related to fixed income.
+    /// Encoded/decoded by serializers as "FIXI".
     /// </summary>
     [EnumMember(Value = "FIXI")]
     [IsoId("_YZ0IoNp-Ed-ak6NoX_4Aeg_-1565139017")]
     [Description(@"Specifies that the margin is related to fixed income.")]
-    FIXI,
+    FixedIncome,
     
 }
 

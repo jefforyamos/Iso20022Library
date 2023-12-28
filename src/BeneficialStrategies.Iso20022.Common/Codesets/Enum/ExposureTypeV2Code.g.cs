@@ -20,367 +20,412 @@ public enum ExposureTypeV2Code
 {
     /// <summary>
     /// Cross currency agreement between two parties (known as counterparties) where one stream of future interest payments is exchanged for another based on a specified principal amount.
+    /// Encoded/decoded by serializers as "CCIR".
     /// </summary>
     [EnumMember(Value = "CCIR")]
     [IsoId("__saLFNojEeC60axPepSq7g_1620556162")]
     [Description(@"Cross currency agreement between two parties (known as counterparties) where one stream of future interest payments is exchanged for another based on a specified principal amount.")]
-    CCIR,
+    CrossCurrencyIRS,
     
     /// <summary>
     /// Any good exchanged during commerce, which includes goods traded on a commodity exchange.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("__sjVANojEeC60axPepSq7g_915441547")]
     [Description(@"Any good exchanged during commerce, which includes goods traded on a commodity exchange.")]
-    COMM,
+    Commodities,
     
     /// <summary>
     /// Swap designed to transfer the credit exposure of fixed income products between parties.
+    /// Encoded/decoded by serializers as "CRDS".
     /// </summary>
     [EnumMember(Value = "CRDS")]
     [IsoId("__sjVAdojEeC60axPepSq7g_-259749478")]
     [Description(@"Swap designed to transfer the credit exposure of fixed income products between parties.")]
-    CRDS,
+    CreditDefaultSwap,
     
     /// <summary>
     /// Combination of various types of trades.
+    /// Encoded/decoded by serializers as "CRPR".
     /// </summary>
     [EnumMember(Value = "CRPR")]
     [IsoId("__sjVAtojEeC60axPepSq7g_1385517957")]
     [Description(@"Combination of various types of trades.")]
-    CRPR,
+    CrossProduct,
     
     /// <summary>
     /// Cash lending/borrowing; letter of credit; signing of master agreement.
+    /// Encoded/decoded by serializers as "CRSP".
     /// </summary>
     [EnumMember(Value = "CRSP")]
     [IsoId("__sjVA9ojEeC60axPepSq7g_-1370660897")]
     [Description(@"Cash lending/borrowing; letter of credit; signing of master agreement.")]
-    CRSP,
+    CreditSupport,
     
     /// <summary>
     /// Opening of a credit line before trading.
+    /// Encoded/decoded by serializers as "CRTL".
     /// </summary>
     [EnumMember(Value = "CRTL")]
     [IsoId("__sjVBNojEeC60axPepSq7g_-2075775512")]
     [Description(@"Opening of a credit line before trading.")]
-    CRTL,
+    CreditLine,
     
     /// <summary>
     /// Trading of equity option (also known as stock options).
+    /// Encoded/decoded by serializers as "EQPT".
     /// </summary>
     [EnumMember(Value = "EQPT")]
     [IsoId("__sjVBdojEeC60axPepSq7g_1044000759")]
     [Description(@"Trading of equity option (also known as stock options).")]
-    EQPT,
+    EquityOption,
     
     /// <summary>
     /// Equity swap trades where the return of an equity is exchanged for either a fixed or a floating rate of interest.
+    /// Encoded/decoded by serializers as "EQUS".
     /// </summary>
     [EnumMember(Value = "EQUS")]
     [IsoId("__sjVBtojEeC60axPepSq7g_-1605699102")]
     [Description(@"Equity swap trades where the return of an equity is exchanged for either a fixed or a floating rate of interest.")]
-    EQUS,
+    EquitySwap,
     
     /// <summary>
     /// Trading of exotic option, for example, a non standard option.
+    /// Encoded/decoded by serializers as "EXPT".
     /// </summary>
     [EnumMember(Value = "EXPT")]
     [IsoId("__stGANojEeC60axPepSq7g_-66910660")]
     [Description(@"Trading of exotic option, for example, a non standard option.")]
-    EXPT,
+    ExoticOption,
     
     /// <summary>
     /// Trading of exchanged traded derivatives in general.
+    /// Encoded/decoded by serializers as "EXTD".
     /// </summary>
     [EnumMember(Value = "EXTD")]
     [IsoId("__stGAdojEeC60axPepSq7g_-772025275")]
     [Description(@"Trading of exchanged traded derivatives in general.")]
-    EXTD,
+    ExchangeTradedDerivatives,
     
     /// <summary>
     /// Trading of fixed income instruments.
+    /// Encoded/decoded by serializers as "FIXI".
     /// </summary>
     [EnumMember(Value = "FIXI")]
     [IsoId("__stGAtojEeC60axPepSq7g_-1947216300")]
     [Description(@"Trading of fixed income instruments.")]
-    FIXI,
+    FixedIncome,
     
     /// <summary>
     /// Forward FX trades.
+    /// Encoded/decoded by serializers as "FORW".
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("__stGA9ojEeC60axPepSq7g_-301948865")]
     [Description(@"Forward FX trades.")]
-    FORW,
+    ForwardForeignExchange,
     
     /// <summary>
     /// FX trades in general.
+    /// Encoded/decoded by serializers as "FORX".
     /// </summary>
     [EnumMember(Value = "FORX")]
     [IsoId("__stGBNojEeC60axPepSq7g_1236839577")]
     [Description(@"FX trades in general.")]
-    FORX,
+    ForeignExchange,
     
     /// <summary>
     /// Agreement to buy or sell a specific amount of a commodity or financial instrument at a particular price on a stipulated future date.
+    /// Encoded/decoded by serializers as "FUTR".
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("__stGBdojEeC60axPepSq7g_-1155741860")]
     [Description(@"Agreement to buy or sell a specific amount of a commodity or financial instrument at a particular price on a stipulated future date.")]
-    FUTR,
+    Futures,
     
     /// <summary>
     /// In support of settlement via an RTGS or other clearing system.
+    /// Encoded/decoded by serializers as "LIQU".
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("__s23ANojEeC60axPepSq7g_1964034411")]
     [Description(@"In support of settlement via an RTGS or other clearing system.")]
-    LIQU,
+    Liquidity,
     
     /// <summary>
     /// A contract that grants the holder the right, but not the obligation, to buy or sell currency at a specified exchange rate during a specified period of time.
+    /// Encoded/decoded by serializers as "OPTN".
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("__s23AdojEeC60axPepSq7g_-685665450")]
     [Description(@"A contract that grants the holder the right, but not the obligation, to buy or sell currency at a specified exchange rate during a specified period of time.")]
-    OPTN,
+    FXOption,
     
     /// <summary>
     /// OTC derivatives trading.
+    /// Encoded/decoded by serializers as "OTCD".
     /// </summary>
     [EnumMember(Value = "OTCD")]
     [IsoId("__s23AtojEeC60axPepSq7g_853122992")]
     [Description(@"OTC derivatives trading.")]
-    OTCD,
+    OTCDerivatives,
     
     /// <summary>
     /// In support of any type of cash settlement.
+    /// Encoded/decoded by serializers as "PAYM".
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("__s23A9ojEeC60axPepSq7g_148008377")]
     [Description(@"In support of any type of cash settlement.")]
-    PAYM,
+    CashSettlement,
     
     /// <summary>
     /// Relates to repurchase agreement trading.
+    /// Encoded/decoded by serializers as "REPO".
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("__s23BNojEeC60axPepSq7g_-1027182648")]
     [Description(@"Relates to repurchase agreement trading.")]
-    REPO,
+    Repo,
     
     /// <summary>
     /// Securities buy sell back.
+    /// Encoded/decoded by serializers as "SBSC".
     /// </summary>
     [EnumMember(Value = "SBSC")]
     [IsoId("__s23BdojEeC60axPepSq7g_618084787")]
     [Description(@"Securities buy sell back.")]
-    SBSC,
+    SecuritiesBuySellSellBuyBack,
     
     /// <summary>
     /// Exotic single currency interest rate swap.
+    /// Encoded/decoded by serializers as "SCIE".
     /// </summary>
     [EnumMember(Value = "SCIE")]
     [IsoId("__s23BtojEeC60axPepSq7g_-2138094067")]
     [Description(@"Exotic single currency interest rate swap.")]
-    SCIE,
+    SingleCurrencyIRSExotic,
     
     /// <summary>
     /// Single currency interest rate swap.
+    /// Encoded/decoded by serializers as "SCIR".
     /// </summary>
     [EnumMember(Value = "SCIR")]
     [IsoId("__tAA8NojEeC60axPepSq7g_1451758614")]
     [Description(@"Single currency interest rate swap.")]
-    SCIR,
+    SingleCurrencyIRS,
     
     /// <summary>
     /// Combination of securities related exposure types.
+    /// Encoded/decoded by serializers as "SCRP".
     /// </summary>
     [EnumMember(Value = "SCRP")]
     [IsoId("__tAA8dojEeC60axPepSq7g_276567589")]
     [Description(@"Combination of securities related exposure types.")]
-    SCRP,
+    SecuritiesCrossProducts,
     
     /// <summary>
     /// Exposure is linked to a securities lending or borrowing activity.
+    /// Encoded/decoded by serializers as "SLEB".
     /// </summary>
     [EnumMember(Value = "SLEB")]
     [IsoId("__tAA8tojEeC60axPepSq7g_1921835024")]
     [Description(@"Exposure is linked to a securities lending or borrowing activity.")]
-    SLEB,
+    SecuritiesLendingAndBorrowing,
     
     /// <summary>
     /// Exposure is linked to a secured loan.
+    /// Encoded/decoded by serializers as "SLOA".
     /// </summary>
     [EnumMember(Value = "SLOA")]
     [IsoId("__tAA89ojEeC60axPepSq7g_-834343830")]
     [Description(@"Exposure is linked to a secured loan.")]
-    SLOA,
+    SecuredLoan,
     
     /// <summary>
     /// Option on interest rate swap.
+    /// Encoded/decoded by serializers as "SWPT".
     /// </summary>
     [EnumMember(Value = "SWPT")]
     [IsoId("__tAA9NojEeC60axPepSq7g_-1539458445")]
     [Description(@"Option on interest rate swap.")]
-    SWPT,
+    Swaption,
     
     /// <summary>
     /// Combination of treasury related exposure types.
+    /// Encoded/decoded by serializers as "TRCP".
     /// </summary>
     [EnumMember(Value = "TRCP")]
     [IsoId("__tAA9dojEeC60axPepSq7g_1580317826")]
     [Description(@"Combination of treasury related exposure types.")]
-    TRCP,
+    TreasuryCrossProduct,
     
     /// <summary>
     /// Any securities traded out beyond 3 days which include treasury notes, Japanese Governement Bonds (JGBs) and Gilts.
+    /// Encoded/decoded by serializers as "BFWD".
     /// </summary>
     [EnumMember(Value = "BFWD")]
     [IsoId("__tAA9tojEeC60axPepSq7g_-1069382035")]
     [Description(@"Any securities traded out beyond 3 days which include treasury notes, Japanese Governement Bonds (JGBs) and Gilts.")]
-    BFWD,
+    BondForward,
     
     /// <summary>
     /// In support of a reverse repurchase agreement transaction.
+    /// Encoded/decoded by serializers as "RVPO".
     /// </summary>
     [EnumMember(Value = "RVPO")]
     [IsoId("__tJx8NojEeC60axPepSq7g_-2066454388")]
     [Description(@"In support of a reverse repurchase agreement transaction.")]
-    RVPO,
+    ReverseRepurchaseAgreement,
     
     /// <summary>
     /// To be announced (TBA) related collateral.
+    /// Encoded/decoded by serializers as "TBAS".
     /// </summary>
     [EnumMember(Value = "TBAS")]
     [IsoId("__tJx8dojEeC60axPepSq7g_1231440555")]
     [Description(@"To be announced (TBA) related collateral.")]
-    TBAS,
+    ToBeAnnounced,
     
     /// <summary>
     /// Exposures related to activity with central banks.
+    /// Encoded/decoded by serializers as "CBCO".
     /// </summary>
     [EnumMember(Value = "CBCO")]
     [IsoId("_NgzTALy2EeivTd4NUfCi2g")]
     [Description(@"Exposures related to activity with central banks.")]
-    CBCO,
+    CentralBankCreditOperations,
     
     /// <summary>
     /// Collateral covering the initial margin requirements for OTC trades cleared through a CCP.
+    /// Encoded/decoded by serializers as "CCPC".
     /// </summary>
     [EnumMember(Value = "CCPC")]
     [IsoId("_pBzXoLy7EeivTd4NUfCi2g")]
     [Description(@"Collateral covering the initial margin requirements for OTC trades cleared through a CCP.")]
-    CCPC,
+    CCPCollateral,
     
     /// <summary>
     /// Short sale exposure.
+    /// Encoded/decoded by serializers as "SHSL".
     /// </summary>
     [EnumMember(Value = "SHSL")]
     [IsoId("_FCEkcLy8EeivTd4NUfCi2g")]
     [Description(@"Short sale exposure.")]
-    SHSL,
+    ShortSale,
     
     /// <summary>
     /// Relates to uncleared derivative margin segregation. This could be for variation or initial margin.
+    /// Encoded/decoded by serializers as "UDMS".
     /// </summary>
     [EnumMember(Value = "UDMS")]
     [IsoId("_wxcnIGeTEeu47f5b1oImTg")]
     [Description(@"Relates to uncleared derivative margin segregation. This could be for variation or initial margin.")]
-    UDMS,
+    UnclearedDerivativeMarginSegregation,
     
     /// <summary>
     /// Trading of equity.
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_eNjtgeMLEeuy-L_xpKAN3w")]
     [Description(@"Trading of equity.")]
-    EQUI,
+    Equity,
     
     /// <summary>
     /// Trading of treasury bonds.
+    /// Encoded/decoded by serializers as "TRBD".
     /// </summary>
     [EnumMember(Value = "TRBD")]
     [IsoId("_tO17YeMLEeuy-L_xpKAN3w")]
     [Description(@"Trading of treasury bonds.")]
-    TRBD,
+    TreasuryBonds,
     
     /// <summary>
     /// Margin lending transaction. 
+    /// Encoded/decoded by serializers as "MGLD".
     /// </summary>
     [EnumMember(Value = "MGLD")]
     [IsoId("_vRK_geMLEeuy-L_xpKAN3w")]
     [Description(@"Margin lending transaction. ")]
-    MGLD,
+    MarginLending,
     
     /// <summary>
     /// Total open market credit operations.
     /// 
     /// 
     /// 
+    /// Encoded/decoded by serializers as "EOMO".
     /// </summary>
     [EnumMember(Value = "EOMO")]
     [IsoId("_zmFKQeMLEeuy-L_xpKAN3w")]
     [Description(@"Total open market credit operations.   ")]
-    EOMO,
+    TotalOpenMarketCreditOperations,
     
     /// <summary>
     /// Total initial margin on outstanding liquidity providing open market operations.
+    /// Encoded/decoded by serializers as "EOIM".
     /// </summary>
     [EnumMember(Value = "EOIM")]
     [IsoId("_1ozP8eMLEeuy-L_xpKAN3w")]
     [Description(@"Total initial margin on outstanding liquidity providing open market operations.")]
-    EOIM,
+    TotalInitialMarginOnOutstandingLiquidity,
     
     /// <summary>
     /// Total open market credit operations interest.
+    /// Encoded/decoded by serializers as "EOMI".
     /// </summary>
     [EnumMember(Value = "EOMI")]
     [IsoId("_3m1C4eMLEeuy-L_xpKAN3w")]
     [Description(@"Total open market credit operations interest.")]
-    EOMI,
+    TotalOpenMarketCreditOperationsInterest,
     
     /// <summary>
     /// Total credit freezing.
+    /// Encoded/decoded by serializers as "ECFR".
     /// </summary>
     [EnumMember(Value = "ECFR")]
     [IsoId("_6R5iAeMLEeuy-L_xpKAN3w")]
     [Description(@"Total credit freezing.")]
-    ECFR,
+    TotalCreditFreezing,
     
     /// <summary>
     /// Total marginal lending.
+    /// Encoded/decoded by serializers as "EMLO".
     /// </summary>
     [EnumMember(Value = "EMLO")]
     [IsoId("_8IkIseMLEeuy-L_xpKAN3w")]
     [Description(@"Total marginal lending.")]
-    EMLO,
+    TotalMarginalLending,
     
     /// <summary>
     /// Total marginal lending interest.
+    /// Encoded/decoded by serializers as "EMLI".
     /// </summary>
     [EnumMember(Value = "EMLI")]
     [IsoId("__QRggeMLEeuy-L_xpKAN3w")]
     [Description(@"Total marginal lending interest.")]
-    EMLI,
+    TotalMarginalLendingInterest,
     
     /// <summary>
     /// Total credit.
     /// 
+    /// Encoded/decoded by serializers as "ECRT".
     /// </summary>
     [EnumMember(Value = "ECRT")]
     [IsoId("_WznPAeMMEeuy-L_xpKAN3w")]
     [Description(@"Total credit. ")]
-    ECRT,
+    TotalCredit,
     
     /// <summary>
     /// Suggested credit line.
+    /// Encoded/decoded by serializers as "ESCL".
     /// </summary>
     [EnumMember(Value = "ESCL")]
     [IsoId("_Yw6CIeMMEeuy-L_xpKAN3w")]
     [Description(@"Suggested credit line.")]
-    ESCL,
+    SuggestedCreditLine,
     
 }
 

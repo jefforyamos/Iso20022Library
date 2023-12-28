@@ -20,35 +20,39 @@ public enum EUCapitalGainCode
 {
     /// <summary>
     /// Capital gain is in the scope of the directive.
+    /// Encoded/decoded by serializers as "EUSI".
     /// </summary>
     [EnumMember(Value = "EUSI")]
     [IsoId("_aiKVMNp-Ed-ak6NoX_4Aeg_-950239779")]
     [Description(@"Capital gain is in the scope of the directive.")]
-    EUSI,
+    CapitalGainInScope,
     
     /// <summary>
     /// Capital gain is out of the scope of the directive.
+    /// Encoded/decoded by serializers as "EUSO".
     /// </summary>
     [EnumMember(Value = "EUSO")]
     [IsoId("_aiKVMdp-Ed-ak6NoX_4Aeg_-910528455")]
     [Description(@"Capital gain is out of the scope of the directive.")]
-    EUSO,
+    CapitalGainOutScope,
     
     /// <summary>
     /// Unknown whether capital gain is in or out of the scope of the directive.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aiKVMtp-Ed-ak6NoX_4Aeg_-895750739")]
     [Description(@"Unknown whether capital gain is in or out of the scope of the directive.")]
-    UKWN,
+    CapitalGainUnknown,
     
     /// <summary>
     /// Another type of EU capital gain.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aiKVM9p-Ed-ak6NoX_4Aeg_-1663687360")]
     [Description(@"Another type of EU capital gain.")]
-    OTHR,
+    Other,
     
 }
 

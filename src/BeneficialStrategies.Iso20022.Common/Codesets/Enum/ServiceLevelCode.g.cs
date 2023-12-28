@@ -20,27 +20,30 @@ public enum ServiceLevelCode
 {
     /// <summary>
     /// Payment must be executed with same day value to the creditor.
+    /// Encoded/decoded by serializers as "SDVA".
     /// </summary>
     [EnumMember(Value = "SDVA")]
     [IsoId("_ZKjCB9p-Ed-ak6NoX_4Aeg_269040383")]
     [Description(@"Payment must be executed with same day value to the creditor.")]
-    SDVA,
+    SameDayValue,
     
     /// <summary>
     /// Payment must be executed following the Single Euro Payments Area scheme.
+    /// Encoded/decoded by serializers as "SEPA".
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_ZKjCCNp-Ed-ak6NoX_4Aeg_354928380")]
     [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
-    SEPA,
+    SingleEuroPaymentsArea,
     
     /// <summary>
     /// Transaction must be processed according to the EBA|Priority Service.
+    /// Encoded/decoded by serializers as "PRPT".
     /// </summary>
     [EnumMember(Value = "PRPT")]
     [IsoId("_ZKsL8Np-Ed-ak6NoX_4Aeg_1356003774")]
     [Description(@"Transaction must be processed according to the EBA|Priority Service.")]
-    PRPT,
+    EBAPriorityService,
     
 }
 

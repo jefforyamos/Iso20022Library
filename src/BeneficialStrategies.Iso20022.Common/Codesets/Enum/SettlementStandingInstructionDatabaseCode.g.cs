@@ -20,27 +20,30 @@ public enum SettlementStandingInstructionDatabaseCode
 {
     /// <summary>
     /// The settlement standing instruction database to be used is the receiver's internal database.
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_ZMVKs9p-Ed-ak6NoX_4Aeg_-390472890")]
     [Description(@"The settlement standing instruction database to be used is the receiver's internal database.")]
-    INTE,
+    InternalDatabase,
     
     /// <summary>
     /// The settlement standing instruction database to be used is the broker's database.
+    /// Encoded/decoded by serializers as "BRKR".
     /// </summary>
     [EnumMember(Value = "BRKR")]
     [IsoId("_ZMVKtNp-Ed-ak6NoX_4Aeg_-1565663915")]
     [Description(@"The settlement standing instruction database to be used is the broker's database.")]
-    BRKR,
+    BrokerDatabase,
     
     /// <summary>
     /// The settlement standing instruction database to be used is the database of the vendor.
+    /// Encoded/decoded by serializers as "VEND".
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_ZMVKtdp-Ed-ak6NoX_4Aeg_2024188766")]
     [Description(@"The settlement standing instruction database to be used is the database of the vendor.")]
-    VEND,
+    VendorDatabase,
     
 }
 

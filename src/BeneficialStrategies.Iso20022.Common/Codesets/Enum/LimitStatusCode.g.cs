@@ -20,35 +20,39 @@ public enum LimitStatusCode
 {
     /// <summary>
     /// Limit is currently in effect.
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_aecS09p-Ed-ak6NoX_4Aeg_231381285")]
     [Description(@"Limit is currently in effect.")]
-    ENAB,
+    Enabled,
     
     /// <summary>
     /// Limit is not currently in effect.
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_aecS1Np-Ed-ak6NoX_4Aeg_231381286")]
     [Description(@"Limit is not currently in effect.")]
-    DISA,
+    Disabled,
     
     /// <summary>
     /// Limit has been deleted or suspended.
+    /// Encoded/decoded by serializers as "DELD".
     /// </summary>
     [EnumMember(Value = "DELD")]
     [IsoId("_aecS1dp-Ed-ak6NoX_4Aeg_231381287")]
     [Description(@"Limit has been deleted or suspended.")]
-    DELD,
+    Deleted,
     
     /// <summary>
     /// Limit has been asked for and is not yet enabled.
+    /// Encoded/decoded by serializers as "REQD".
     /// </summary>
     [EnumMember(Value = "REQD")]
     [IsoId("_aecS1tp-Ed-ak6NoX_4Aeg_231381288")]
     [Description(@"Limit has been asked for and is not yet enabled.")]
-    REQD,
+    Requested,
     
 }
 

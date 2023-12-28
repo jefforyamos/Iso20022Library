@@ -20,19 +20,21 @@ public enum MoveTypeCode
 {
     /// <summary>
     /// Indicates that the peg is static/fixed.
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_aM2zktp-Ed-ak6NoX_4Aeg_1710334276")]
     [Description(@"Indicates that the peg is static/fixed.")]
-    STAT,
+    Static,
     
     /// <summary>
     /// Indicates that peg floats.
+    /// Encoded/decoded by serializers as "FLOA".
     /// </summary>
     [EnumMember(Value = "FLOA")]
     [IsoId("_aM2zk9p-Ed-ak6NoX_4Aeg_1722339290")]
     [Description(@"Indicates that peg floats.")]
-    FLOA,
+    Float,
     
 }
 

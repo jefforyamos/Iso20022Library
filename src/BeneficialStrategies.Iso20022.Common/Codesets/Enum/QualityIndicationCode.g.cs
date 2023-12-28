@@ -20,27 +20,30 @@ public enum QualityIndicationCode
 {
     /// <summary>
     /// Low quality.
+    /// Encoded/decoded by serializers as "LOWE".
     /// </summary>
     [EnumMember(Value = "LOWE")]
     [IsoId("_ZXWu8dp-Ed-ak6NoX_4Aeg_336258089")]
     [Description(@"Low quality.")]
-    LOWE,
+    Low,
     
     /// <summary>
     /// Medium quality.
+    /// Encoded/decoded by serializers as "MEDI".
     /// </summary>
     [EnumMember(Value = "MEDI")]
     [IsoId("_ZXWu8tp-Ed-ak6NoX_4Aeg_336258090")]
     [Description(@"Medium quality.")]
-    MEDI,
+    Medium,
     
     /// <summary>
     /// High quality.
+    /// Encoded/decoded by serializers as "HIGH".
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_ZXWu89p-Ed-ak6NoX_4Aeg_336258099")]
     [Description(@"High quality.")]
-    HIGH,
+    High,
     
 }
 

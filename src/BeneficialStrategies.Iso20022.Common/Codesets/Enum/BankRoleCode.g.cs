@@ -20,35 +20,39 @@ public enum BankRoleCode
 {
     /// <summary>
     /// Bank of the buyer.
+    /// Encoded/decoded by serializers as "BUYB".
     /// </summary>
     [EnumMember(Value = "BUYB")]
     [IsoId("_4OpbANNsEeKdOs2hjJ_3WQ")]
     [Description(@"Bank of the buyer.")]
-    BUYB,
+    BuyersBank,
     
     /// <summary>
     /// Bank of the seller.
+    /// Encoded/decoded by serializers as "SELB".
     /// </summary>
     [EnumMember(Value = "SELB")]
     [IsoId("__ov1ENNsEeKdOs2hjJ_3WQ")]
     [Description(@"Bank of the seller.")]
-    SELB,
+    SellersBank,
     
     /// <summary>
     /// Obligor bank.
+    /// Encoded/decoded by serializers as "OBLB".
     /// </summary>
     [EnumMember(Value = "OBLB")]
     [IsoId("_CXLxQNNtEeKdOs2hjJ_3WQ")]
     [Description(@"Obligor bank.")]
-    OBLB,
+    ObligorBank,
     
     /// <summary>
     /// Recipient bank.
+    /// Encoded/decoded by serializers as "RECB".
     /// </summary>
     [EnumMember(Value = "RECB")]
     [IsoId("_FYWcMNNtEeKdOs2hjJ_3WQ")]
     [Description(@"Recipient bank.")]
-    RECB,
+    RecipientBank,
     
 }
 

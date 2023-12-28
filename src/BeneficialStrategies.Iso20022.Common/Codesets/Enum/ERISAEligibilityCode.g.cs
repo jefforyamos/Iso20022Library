@@ -20,27 +20,30 @@ public enum ERISAEligibilityCode
 {
     /// <summary>
     /// Investor is subject to an ERISA declaration.
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_ah3aQdp-Ed-ak6NoX_4Aeg_-672768064")]
     [Description(@"Investor is subject to an ERISA declaration.")]
-    ELIG,
+    ERISAEligible,
     
     /// <summary>
     /// Investment is not subject to an ERISA declaration.
+    /// Encoded/decoded by serializers as "NELI".
     /// </summary>
     [EnumMember(Value = "NELI")]
     [IsoId("_ah3aQtp-Ed-ak6NoX_4Aeg_-672768034")]
     [Description(@"Investment is not subject to an ERISA declaration.")]
-    NELI,
+    NotERISAEligible,
     
     /// <summary>
     /// Eligibility is unknown at the time the order is sent, and the instructing party will confirm later.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ah3aQ9p-Ed-ak6NoX_4Aeg_-672768003")]
     [Description(@"Eligibility is unknown at the time the order is sent, and the instructing party will confirm later.")]
-    UKWN,
+    ERISAEligibilityUnknown,
     
 }
 

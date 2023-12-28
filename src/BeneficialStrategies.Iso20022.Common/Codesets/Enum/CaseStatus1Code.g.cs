@@ -20,35 +20,39 @@ public enum CaseStatus1Code
 {
     /// <summary>
     /// Case has been closed.
+    /// Encoded/decoded by serializers as "CLOSE".
     /// </summary>
     [EnumMember(Value = "CLOSE")]
     [IsoId("_VnJzwtp-Ed-ak6NoX_4Aeg_-1011019924")]
     [Description(@"Case has been closed.")]
-    CLOSE,
+    Closed,
     
     /// <summary>
     /// Case has been assigned to another party.
+    /// Encoded/decoded by serializers as "ASGN".
     /// </summary>
     [EnumMember(Value = "ASGN")]
     [IsoId("_VnJzw9p-Ed-ak6NoX_4Aeg_-955611187")]
     [Description(@"Case has been assigned to another party.")]
-    ASGN,
+    Assigned,
     
     /// <summary>
     /// Case is currently under investigation.
+    /// Encoded/decoded by serializers as "INVE".
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_VnJzxNp-Ed-ak6NoX_4Aeg_-839246940")]
     [Description(@"Case is currently under investigation.")]
-    INVE,
+    UnderInvestigation,
     
     /// <summary>
     /// Case has never been assigned before.
+    /// Encoded/decoded by serializers as "UKNW".
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_VnJzxdp-Ed-ak6NoX_4Aeg_-692327460")]
     [Description(@"Case has never been assigned before.")]
-    UKNW,
+    Unknown,
     
 }
 

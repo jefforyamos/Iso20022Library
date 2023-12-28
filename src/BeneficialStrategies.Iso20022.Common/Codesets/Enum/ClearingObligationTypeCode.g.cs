@@ -20,27 +20,30 @@ public enum ClearingObligationTypeCode
 {
     /// <summary>
     /// Reported contract does not belong to a class of OTC derivatives that has been declared subject to the clearing obligation.
+    /// Encoded/decoded by serializers as "FLSE".
     /// </summary>
     [EnumMember(Value = "FLSE")]
     [IsoId("_KtZd5w29EeWmAKKPnqYEVQ")]
     [Description(@"Reported contract does not belong to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
-    FLSE,
+    No,
     
     /// <summary>
     /// Reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.
+    /// Encoded/decoded by serializers as "TRUE".
     /// </summary>
     [EnumMember(Value = "TRUE")]
     [IsoId("_KtZd5Q29EeWmAKKPnqYEVQ")]
     [Description(@"Reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
-    TRUE,
+    Yes,
     
     /// <summary>
     /// Unknown whether reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_KtZd5g29EeWmAKKPnqYEVQ")]
     [Description(@"Unknown whether reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
-    UKWN,
+    Unknown,
     
 }
 

@@ -21,83 +21,93 @@ public enum ExternalModelFormIdentificationCode
 {
     /// <summary>
     /// ISP98 model form for standby incorporating annexed form of payment demand with statement.
+    /// Encoded/decoded by serializers as "ISP1".
     /// </summary>
     [EnumMember(Value = "ISP1")]
     [IsoId("_uPScM_RYEeuLhpyIdtJzwg")]
     [Description(@"ISP98 model form for standby incorporating annexed form of payment demand with statement.")]
-    ISP1,
+    ISP98ModelForm1,
     
     /// <summary>
     /// ISP98 model form or standby providing for extension and incorporating annexed form of payment demand with alternative non-extension statement.
+    /// Encoded/decoded by serializers as "ISP2".
     /// </summary>
     [EnumMember(Value = "ISP2")]
     [IsoId("_uPScNvRYEeuLhpyIdtJzwg")]
     [Description(@"ISP98 model form or standby providing for extension and incorporating annexed form of payment demand with alternative non-extension statement.")]
-    ISP2,
+    ISP98ModelForm2,
     
     /// <summary>
     /// ISP98 model form or standby providing for reduction and incorporating annexed form of reduction demand. 
+    /// Encoded/decoded by serializers as "ISP3".
     /// </summary>
     [EnumMember(Value = "ISP3")]
     [IsoId("_uPbmIPRYEeuLhpyIdtJzwg")]
     [Description(@"ISP98 model form or standby providing for reduction and incorporating annexed form of reduction demand. ")]
-    ISP3,
+    ISP98ModelForm3,
     
     /// <summary>
     /// ISP98 model form for standby providing for transfer and incorporating annexed form of transfer demand.
+    /// Encoded/decoded by serializers as "ISP4".
     /// </summary>
     [EnumMember(Value = "ISP4")]
     [IsoId("_uPbmI_RYEeuLhpyIdtJzwg")]
     [Description(@"ISP98 model form for standby providing for transfer and incorporating annexed form of transfer demand.")]
-    ISP4,
+    ISP98ModelForm4,
     
     /// <summary>
     /// ISP98 model form for simplified demand only standby.
+    /// Encoded/decoded by serializers as "ISP5".
     /// </summary>
     [EnumMember(Value = "ISP5")]
     [IsoId("_uPbmJvRYEeuLhpyIdtJzwg")]
     [Description(@"ISP98 model form for simplified demand only standby.")]
-    ISP5,
+    ISP98ModelForm5,
     
     /// <summary>
     /// ISP98 model form for counter standby with annexed form of local bank undertaking.
+    /// Encoded/decoded by serializers as "ISP6".
     /// </summary>
     [EnumMember(Value = "ISP6")]
     [IsoId("_uPbmKfRYEeuLhpyIdtJzwg")]
     [Description(@"ISP98 model form for counter standby with annexed form of local bank undertaking.")]
-    ISP6,
+    ISP98ModelForm6,
     
     /// <summary>
     /// ISP98 model form for standby requiring confirmation.
+    /// Encoded/decoded by serializers as "ISP7".
     /// </summary>
     [EnumMember(Value = "ISP7")]
     [IsoId("_uPlXIPRYEeuLhpyIdtJzwg")]
     [Description(@"ISP98 model form for standby requiring confirmation.")]
-    ISP7,
+    ISP98ModelForm7,
     
     /// <summary>
     /// ISP98 model form for confirmation of standby.
+    /// Encoded/decoded by serializers as "ISP8".
     /// </summary>
     [EnumMember(Value = "ISP8")]
     [IsoId("_uPlXI_RYEeuLhpyIdtJzwg")]
     [Description(@"ISP98 model form for confirmation of standby.")]
-    ISP8,
+    ISP98ModelForm8,
     
     /// <summary>
     /// Model form for demand guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).
+    /// Encoded/decoded by serializers as "UDG1".
     /// </summary>
     [EnumMember(Value = "UDG1")]
     [IsoId("_uPlXJvRYEeuLhpyIdtJzwg")]
     [Description(@"Model form for demand guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).")]
-    UDG1,
+    URDGDemandGuarantee,
     
     /// <summary>
     /// Model form for counter-guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).
+    /// Encoded/decoded by serializers as "UDG2".
     /// </summary>
     [EnumMember(Value = "UDG2")]
     [IsoId("_uPvIIPRYEeuLhpyIdtJzwg")]
     [Description(@"Model form for counter-guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).")]
-    UDG2,
+    URDGCounterGuarantee,
     
 }
 

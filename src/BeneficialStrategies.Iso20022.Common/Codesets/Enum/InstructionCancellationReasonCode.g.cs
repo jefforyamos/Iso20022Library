@@ -20,83 +20,93 @@ public enum InstructionCancellationReasonCode
 {
     /// <summary>
     /// Instruction has been cancelled as per your request.
+    /// Encoded/decoded by serializers as "CANI".
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_aXSh-Np-Ed-ak6NoX_4Aeg_-771235883")]
     [Description(@"Instruction has been cancelled as per your request.")]
-    CANI,
+    CancelledByYourselves,
     
     /// <summary>
     /// Instruction has been cancelled by the settlement system.
+    /// Encoded/decoded by serializers as "CANS".
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_aXSh-dp-Ed-ak6NoX_4Aeg_-770312763")]
     [Description(@"Instruction has been cancelled by the settlement system.")]
-    CANS,
+    CancelledBySystem,
     
     /// <summary>
     /// Instruction has been cancelled by the agent.
+    /// Encoded/decoded by serializers as "CSUB".
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_aXbr4Np-Ed-ak6NoX_4Aeg_-770309481")]
     [Description(@"Instruction has been cancelled by the agent.")]
-    CSUB,
+    CancelledByAgent,
     
     /// <summary>
     /// Instruction has been cancelled by another party than the instructing party, for example, market infrastructure such as a stock exchange.
+    /// Encoded/decoded by serializers as "CANO".
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_aXbr4dp-Ed-ak6NoX_4Aeg_-1704654533")]
     [Description(@"Instruction has been cancelled by another party than the instructing party, for example, market infrastructure such as a stock exchange.")]
-    CANO,
+    CancelledByAnotherParty,
     
     /// <summary>
     /// Original instruction has been cancelled and replaced due to a corporate action.
+    /// Encoded/decoded by serializers as "CANT".
     /// </summary>
     [EnumMember(Value = "CANT")]
     [IsoId("_aXbr4tp-Ed-ak6NoX_4Aeg_1715801321")]
     [Description(@"Original instruction has been cancelled and replaced due to a corporate action.")]
-    CANT,
+    CancelledDueToTransformation,
     
     /// <summary>
     /// Original instruction has been cancelled and replaced to allow a partial or split settlement.
+    /// Encoded/decoded by serializers as "CANZ".
     /// </summary>
     [EnumMember(Value = "CANZ")]
     [IsoId("_aXbr49p-Ed-ak6NoX_4Aeg_2120300731")]
     [Description(@"Original instruction has been cancelled and replaced to allow a partial or split settlement.")]
-    CANZ,
+    CancelledDueToSplitPartialSettlement,
     
     /// <summary>
     /// Instruction has been cancelled due to a corporate action.
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_aXbr5Np-Ed-ak6NoX_4Aeg_-2115560426")]
     [Description(@"Instruction has been cancelled due to a corporate action.")]
-    CORP,
+    CancelledDueToCorporateAction,
     
     /// <summary>
     /// Instruction has been cancelled by the issuer/registrar.
+    /// Encoded/decoded by serializers as "CREG".
     /// </summary>
     [EnumMember(Value = "CREG")]
     [IsoId("_aXbr5dp-Ed-ak6NoX_4Aeg_-2108172228")]
     [Description(@"Instruction has been cancelled by the issuer/registrar.")]
-    CREG,
+    CancelledByIssuerRegistrar,
     
     /// <summary>
     /// Instruction has expired.
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_aXbr5tp-Ed-ak6NoX_4Aeg_-2107248676")]
     [Description(@"Instruction has expired.")]
-    EXPI,
+    Expired,
     
     /// <summary>
     /// Instruction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.
+    /// Encoded/decoded by serializers as "SCEX".
     /// </summary>
     [EnumMember(Value = "SCEX")]
     [IsoId("_aXbr59p-Ed-ak6NoX_4Aeg_-2105401420")]
     [Description(@"Instruction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.")]
-    SCEX,
+    SecuritiesNoLongerEligible,
     
 }
 

@@ -20,171 +20,192 @@ public enum IdentificationCode
 {
     /// <summary>
     /// Identification of customer.
+    /// Encoded/decoded by serializers as "CUID".
     /// </summary>
     [EnumMember(Value = "CUID")]
     [IsoId("_6jmf4MV1Eee3gsS0IxDWIA")]
     [Description(@"Identification of customer.")]
-    CUID,
+    CustomerIdentification,
     
     /// <summary>
     /// Social security number.
+    /// Encoded/decoded by serializers as "SSYN".
     /// </summary>
     [EnumMember(Value = "SSYN")]
     [IsoId("_BbQUMMV2Eee3gsS0IxDWIA")]
     [Description(@"Social security number.")]
-    SSYN,
+    SocialSecurityNumber,
     
     /// <summary>
     /// National identification.
+    /// Encoded/decoded by serializers as "NTID".
     /// </summary>
     [EnumMember(Value = "NTID")]
     [IsoId("_HaG4QMV2Eee3gsS0IxDWIA")]
     [Description(@"National identification.")]
-    NTID,
+    NationalIdentifier,
     
     /// <summary>
     /// Country issuing national identifier.
+    /// Encoded/decoded by serializers as "NICY".
     /// </summary>
     [EnumMember(Value = "NICY")]
     [IsoId("_MYuuYMV2Eee3gsS0IxDWIA")]
     [Description(@"Country issuing national identifier.")]
-    NICY,
+    NationalIdentifierCountry,
     
     /// <summary>
     /// Passport number.
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_Wrq90MV2Eee3gsS0IxDWIA")]
     [Description(@"Passport number.")]
-    PASS,
+    PassportNumber,
     
     /// <summary>
     /// Country issuing passport.
+    /// Encoded/decoded by serializers as "PAIC".
     /// </summary>
     [EnumMember(Value = "PAIC")]
     [IsoId("_fAcQYMV2Eee3gsS0IxDWIA")]
     [Description(@"Country issuing passport.")]
-    PAIC,
+    PassportIssuingCountry,
     
     /// <summary>
     /// Driver licence identification.
+    /// Encoded/decoded by serializers as "DRID".
     /// </summary>
     [EnumMember(Value = "DRID")]
     [IsoId("_pIFOwMV2Eee3gsS0IxDWIA")]
     [Description(@"Driver licence identification.")]
-    DRID,
+    DriverLicenceIdentification,
     
     /// <summary>
     /// Country issuing driver licence.
+    /// Encoded/decoded by serializers as "DRIC".
     /// </summary>
     [EnumMember(Value = "DRIC")]
     [IsoId("_wJVrAMV2Eee3gsS0IxDWIA")]
     [Description(@"Country issuing driver licence.")]
-    DRIC,
+    DriverLicenceIssuingCountry,
     
     /// <summary>
     /// Employee identification.
+    /// Encoded/decoded by serializers as "EEID".
     /// </summary>
     [EnumMember(Value = "EEID")]
     [IsoId("_2WqI4MV2Eee3gsS0IxDWIA")]
     [Description(@"Employee identification.")]
-    EEID,
+    EmployeeIdentification,
     
     /// <summary>
     /// Employer identification.
+    /// Encoded/decoded by serializers as "ERID".
     /// </summary>
     [EnumMember(Value = "ERID")]
     [IsoId("_6-a-MMV2Eee3gsS0IxDWIA")]
     [Description(@"Employer identification.")]
-    ERID,
+    EmployerIdentification,
     
     /// <summary>
     /// Job number.
+    /// Encoded/decoded by serializers as "JBNR".
     /// </summary>
     [EnumMember(Value = "JBNR")]
     [IsoId("_Akw7oMV3Eee3gsS0IxDWIA")]
     [Description(@"Job number.")]
-    JBNR,
+    JobNumber,
     
     /// <summary>
     /// Department.
+    /// Encoded/decoded by serializers as "DEPT".
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_F96xoMV3Eee3gsS0IxDWIA")]
     [Description(@"Department.")]
-    DEPT,
+    Department,
     
     /// <summary>
     /// Alien registration number.
+    /// Encoded/decoded by serializers as "ARNB".
     /// </summary>
     [EnumMember(Value = "ARNB")]
     [IsoId("_IXuhoMV3Eee3gsS0IxDWIA")]
     [Description(@"Alien registration number.")]
-    ARNB,
+    AlienRegistrationNumber,
     
     /// <summary>
     /// Tax identifier.
+    /// Encoded/decoded by serializers as "TXID".
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_NZ-TgMV3Eee3gsS0IxDWIA")]
     [Description(@"Tax identifier.")]
-    TXID,
+    TaxIdentifier,
     
     /// <summary>
     /// Tax country.
+    /// Encoded/decoded by serializers as "TXCY".
     /// </summary>
     [EnumMember(Value = "TXCY")]
     [IsoId("_SQ93oMV3Eee3gsS0IxDWIA")]
     [Description(@"Tax country.")]
-    TXCY,
+    TaxCountry,
     
     /// <summary>
     /// Date and place of birth.
+    /// Encoded/decoded by serializers as "DTPB".
     /// </summary>
     [EnumMember(Value = "DTPB")]
     [IsoId("_WjZ9MMV3Eee3gsS0IxDWIA")]
     [Description(@"Date and place of birth.")]
-    DTPB,
+    DateAndPlaceOfBirth,
     
     /// <summary>
     /// E-mail.
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_e9HaIMV3Eee3gsS0IxDWIA")]
     [Description(@"E-mail.")]
-    EMAL,
+    Email,
     
     /// <summary>
     /// Phone number.
+    /// Encoded/decoded by serializers as "PHNB".
     /// </summary>
     [EnumMember(Value = "PHNB")]
     [IsoId("_ltjzMMV3Eee3gsS0IxDWIA")]
     [Description(@"Phone number.")]
-    PHNB,
+    PhoneNumber,
     
     /// <summary>
     /// Other identification assigned at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_B8kK8AwWEeiHgJ0O2VQ-kg")]
     [Description(@"Other identification assigned at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other identification provided at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_IZRIoAwWEeiHgJ0O2VQ-kg")]
     [Description(@"Other identification provided at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Proxy
+    /// Encoded/decoded by serializers as "PRXY".
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_NxyZIKd3EeuEcqP2FGAFaA")]
     [Description(@"Proxy")]
-    PRXY,
+    Proxy,
     
 }
 

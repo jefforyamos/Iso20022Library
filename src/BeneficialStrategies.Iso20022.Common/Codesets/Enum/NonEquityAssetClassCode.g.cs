@@ -20,115 +20,129 @@ public enum NonEquityAssetClassCode
 {
     /// <summary>
     /// Interest rate derivative.
+    /// Encoded/decoded by serializers as "IRDV".
     /// </summary>
     [EnumMember(Value = "IRDV")]
     [IsoId("_rG2DwHBZEeqTZuDtO9NgaQ")]
     [Description(@"Interest rate derivative.")]
-    IRDV,
+    InterestRateDerivative,
     
     /// <summary>
     /// Equity derivative.
+    /// Encoded/decoded by serializers as "EQDV".
     /// </summary>
     [EnumMember(Value = "EQDV")]
     [IsoId("_vfkXgHBZEeqTZuDtO9NgaQ")]
     [Description(@"Equity derivative.")]
-    EQDV,
+    EquityDerivative,
     
     /// <summary>
     /// Commodity derivative.
+    /// Encoded/decoded by serializers as "COMD".
     /// </summary>
     [EnumMember(Value = "COMD")]
     [IsoId("_17-aQHBZEeqTZuDtO9NgaQ")]
     [Description(@"Commodity derivative.")]
-    COMD,
+    CommodityDerivative,
     
     /// <summary>
     /// Foreign exchange derivative.
+    /// Encoded/decoded by serializers as "FEXD".
     /// </summary>
     [EnumMember(Value = "FEXD")]
     [IsoId("_4iFg4HBZEeqTZuDtO9NgaQ")]
     [Description(@"Foreign exchange derivative.")]
-    FEXD,
+    ForeignExchangeDerivative,
     
     /// <summary>
     /// Credit derivative.
+    /// Encoded/decoded by serializers as "CRDV".
     /// </summary>
     [EnumMember(Value = "CRDV")]
     [IsoId("__v6ZgHBZEeqTZuDtO9NgaQ")]
     [Description(@"Credit derivative.")]
-    CRDV,
+    CreditDerivative,
     
     /// <summary>
     /// C10 derivative.
+    /// Encoded/decoded by serializers as "C10D".
     /// </summary>
     [EnumMember(Value = "C10D")]
     [IsoId("_CVFE8HBaEeqTZuDtO9NgaQ")]
     [Description(@"C10 derivative.")]
-    C10D,
+    C10Derivative,
     
     /// <summary>
     /// Contract for difference.
+    /// Encoded/decoded by serializers as "CFDS".
     /// </summary>
     [EnumMember(Value = "CFDS")]
     [IsoId("_Ev3FUHBaEeqTZuDtO9NgaQ")]
     [Description(@"Contract for difference.")]
-    CFDS,
+    ContractForDifference,
     
     /// <summary>
     /// Emission allowance.
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_G3tioHBaEeqTZuDtO9NgaQ")]
     [Description(@"Emission allowance.")]
-    EMAL,
+    EmissionAllowance,
     
     /// <summary>
     /// Emission allowance derivative.
+    /// Encoded/decoded by serializers as "EADV".
     /// </summary>
     [EnumMember(Value = "EADV")]
     [IsoId("_KNbhQHBaEeqTZuDtO9NgaQ")]
     [Description(@"Emission allowance derivative.")]
-    EADV,
+    EmissionAllowanceDerivative,
     
     /// <summary>
     /// Securitised derivative.
+    /// Encoded/decoded by serializers as "SDRV".
     /// </summary>
     [EnumMember(Value = "SDRV")]
     [IsoId("_Ng75YHBaEeqTZuDtO9NgaQ")]
     [Description(@"Securitised derivative.")]
-    SDRV,
+    SecuritisedDerivative,
     
     /// <summary>
     /// Bond.
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_vN9uEIR5EeqOnqlbcclX_g")]
     [Description(@"Bond.")]
-    BOND,
+    Bond,
     
     /// <summary>
     /// Exchange traded commodities.
+    /// Encoded/decoded by serializers as "ETCS".
     /// </summary>
     [EnumMember(Value = "ETCS")]
     [IsoId("_C1r7kIR6EeqOnqlbcclX_g")]
     [Description(@"Exchange traded commodities.")]
-    ETCS,
+    ExchangeTradedCommodities,
     
     /// <summary>
     /// Exchange traded note.
+    /// Encoded/decoded by serializers as "ETNS".
     /// </summary>
     [EnumMember(Value = "ETNS")]
     [IsoId("_FHQVkIR6EeqOnqlbcclX_g")]
     [Description(@"Exchange traded note.")]
-    ETNS,
+    ExchangeTradedNote,
     
     /// <summary>
     /// Structured finance product.
+    /// Encoded/decoded by serializers as "SFPS".
     /// </summary>
     [EnumMember(Value = "SFPS")]
     [IsoId("_etfI4IR6EeqOnqlbcclX_g")]
     [Description(@"Structured finance product.")]
-    SFPS,
+    StructuredFinanceProduct,
     
 }
 

@@ -20,27 +20,30 @@ public enum TradingMethodCode
 {
     /// <summary>
     /// Trade executed through an electronic trading system.
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_YrGs8dp-Ed-ak6NoX_4Aeg_627416883")]
     [Description(@"Trade executed through an electronic trading system.")]
-    ELEC,
+    Electronic,
     
     /// <summary>
     /// Trade executed over the phone.
+    /// Encoded/decoded by serializers as "PHON".
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_YrGs8tp-Ed-ak6NoX_4Aeg_627416884")]
     [Description(@"Trade executed over the phone.")]
-    PHON,
+    Phone,
     
     /// <summary>
     /// Trade executed through a broker.
+    /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_YrGs89p-Ed-ak6NoX_4Aeg_627416885")]
     [Description(@"Trade executed through a broker.")]
-    BROK,
+    Broker,
     
 }
 

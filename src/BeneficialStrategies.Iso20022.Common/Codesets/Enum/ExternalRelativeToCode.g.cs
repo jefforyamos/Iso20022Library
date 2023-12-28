@@ -21,27 +21,30 @@ public enum ExternalRelativeToCode
 {
     /// <summary>
     /// Percentage rate expressed relative to the value of goods.
+    /// Encoded/decoded by serializers as "GOOD".
     /// </summary>
     [EnumMember(Value = "GOOD")]
     [IsoId("_uQCDEPRYEeuLhpyIdtJzwg")]
     [Description(@"Percentage rate expressed relative to the value of goods.")]
-    GOOD,
+    ValueOfGoods,
     
     /// <summary>
     /// Percentage rate expressed relative to the payment amount.
+    /// Encoded/decoded by serializers as "PAYM".
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_uQCDE_RYEeuLhpyIdtJzwg")]
     [Description(@"Percentage rate expressed relative to the payment amount.")]
-    PAYM,
+    PaymentAmount,
     
     /// <summary>
     /// Percentage rate expressed relative to the undertaking amount.
+    /// Encoded/decoded by serializers as "UNDG".
     /// </summary>
     [EnumMember(Value = "UNDG")]
     [IsoId("_uQCDFvRYEeuLhpyIdtJzwg")]
     [Description(@"Percentage rate expressed relative to the undertaking amount.")]
-    UNDG,
+    UndertakingAmount,
     
 }
 

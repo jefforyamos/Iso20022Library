@@ -21,83 +21,93 @@ public enum ExternalPaymentGroupStatusCode
 {
     /// <summary>
     /// Preceding check of technical validation was successful. Customer profile check was also successful.
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_uW4R8_RYEeuLhpyIdtJzwg")]
     [Description(@"Preceding check of technical validation was successful. Customer profile check was also successful.")]
-    ACCP,
+    AcceptedCustomerProfile,
     
     /// <summary>
     /// Settlement on the creditor's account has been completed.
+    /// Encoded/decoded by serializers as "ACCC".
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_uXCC8PRYEeuLhpyIdtJzwg")]
     [Description(@"Settlement on the creditor's account has been completed.")]
-    ACCC,
+    AcceptedSettlementCompletedCreditorAccount,
     
     /// <summary>
     /// Settlement on the debtor's account has been completed.|Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. |Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement|
+    /// Encoded/decoded by serializers as "ACSC".
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_uXCC8_RYEeuLhpyIdtJzwg")]
     [Description(@"Settlement on the debtor's account has been completed.|Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. |Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement|")]
-    ACSC,
+    AcceptedSettlementCompletedDebitorAccount,
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_uXCC9vRYEeuLhpyIdtJzwg")]
     [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
-    ACSP,
+    AcceptedSettlementInProcess,
     
     /// <summary>
     /// Authentication and syntactical and semantical validation are successful
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_uXCC-fRYEeuLhpyIdtJzwg")]
     [Description(@"Authentication and syntactical and semantical validation are successful")]
-    ACTC,
+    AcceptedTechnicalValidation,
     
     /// <summary>
     /// Instruction is accepted but a change will be made, such as date or remittance not sent.
+    /// Encoded/decoded by serializers as "ACWC".
     /// </summary>
     [EnumMember(Value = "ACWC")]
     [IsoId("_uXLz8PRYEeuLhpyIdtJzwg")]
     [Description(@"Instruction is accepted but a change will be made, such as date or remittance not sent.")]
-    ACWC,
+    AcceptedWithChange,
     
     /// <summary>
     /// A number of transactions have been accepted, whereas another number of transactions have not yet achieved|'accepted' status.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_uXLz8_RYEeuLhpyIdtJzwg")]
     [Description(@"A number of transactions have been accepted, whereas another number of transactions have not yet achieved|'accepted' status.")]
-    PART,
+    PartiallyAccepted,
     
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation is pending. Further checks and status update will be performed.
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_uXU94PRYEeuLhpyIdtJzwg")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation is pending. Further checks and status update will be performed.")]
-    PDNG,
+    Pending,
     
     /// <summary>
     /// Payment initiation has been received by the receiving agent
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_uXU94_RYEeuLhpyIdtJzwg")]
     [Description(@"Payment initiation has been received by the receiving agent")]
-    RCVD,
+    Received,
     
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_uXU95vRYEeuLhpyIdtJzwg")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
-    RJCT,
+    Rejected,
     
 }
 

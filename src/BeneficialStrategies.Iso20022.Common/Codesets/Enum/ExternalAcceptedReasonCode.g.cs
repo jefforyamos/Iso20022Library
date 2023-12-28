@@ -22,27 +22,30 @@ public enum ExternalAcceptedReasonCode
 {
     /// <summary>
     /// Received after the servicer's deadline. Processed on best effort basis
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_uVGJSfRYEeuLhpyIdtJzwg")]
     [Description(@"Received after the servicer's deadline. Processed on best effort basis")]
-    ADEA,
+    AccountServicerDeadlineMissed,
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_uVP6QPRYEeuLhpyIdtJzwg")]
     [Description(@"Instruction was not straight through processing and had to be processed manually")]
-    NSTP,
+    NotStraightThroughProcessing,
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process
+    /// Encoded/decoded by serializers as "SMPG".
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_uVP6Q_RYEeuLhpyIdtJzwg")]
     [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process")]
-    SMPG,
+    MarketPracticeRuleDiscrepency,
     
 }
 

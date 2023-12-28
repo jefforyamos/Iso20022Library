@@ -21,27 +21,30 @@ public enum ExternalLetterTypeCode
 {
     /// <summary>
     /// Document is a letter from the bank.
+    /// Encoded/decoded by serializers as "LFBK".
     /// </summary>
     [EnumMember(Value = "LFBK")]
     [IsoId("_BdblcyqmEeyXnMF3dld6dw")]
     [Description(@"Document is a letter from the bank.")]
-    LFBK,
+    LetterFromBank,
     
     /// <summary>
     /// Document is a letter to the bank.
+    /// Encoded/decoded by serializers as "LTBK".
     /// </summary>
     [EnumMember(Value = "LTBK")]
     [IsoId("_BdbldCqmEeyXnMF3dld6dw")]
     [Description(@"Document is a letter to the bank.")]
-    LTBK,
+    LetterToBank,
     
     /// <summary>
     /// Document is a supporting document.
+    /// Encoded/decoded by serializers as "SUPP".
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_BdbldSqmEeyXnMF3dld6dw")]
     [Description(@"Document is a supporting document.")]
-    SUPP,
+    SupportingDocument,
     
 }
 

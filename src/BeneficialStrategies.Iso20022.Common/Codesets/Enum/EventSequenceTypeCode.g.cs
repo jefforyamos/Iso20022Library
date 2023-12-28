@@ -20,19 +20,21 @@ public enum EventSequenceTypeCode
 {
     /// <summary>
     /// Final event in a series of successive events.
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_LVpPILXIEeiTob_PrFFUxA")]
     [Description(@"Final event in a series of successive events.")]
-    FINL,
+    Final,
     
     /// <summary>
     /// Interim event in a series of successive events.
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_O_xXgLXIEeiTob_PrFFUxA")]
     [Description(@"Interim event in a series of successive events.")]
-    INTE,
+    Interim,
     
 }
 

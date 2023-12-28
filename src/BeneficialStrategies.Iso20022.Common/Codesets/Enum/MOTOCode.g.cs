@@ -20,28 +20,31 @@ public enum MOTOCode
 {
     /// <summary>
     /// Mail order.
+    /// Encoded/decoded by serializers as "MAOR".
     /// </summary>
     [EnumMember(Value = "MAOR")]
     [IsoId("_QZrRMDHLEeyTT91yHXSlSQ")]
     [Description(@"Mail order.")]
-    MAOR,
+    MailOrder,
     
     /// <summary>
     /// Telephone order
+    /// Encoded/decoded by serializers as "TPOR".
     /// </summary>
     [EnumMember(Value = "TPOR")]
     [IsoId("_byF68DHLEeyTT91yHXSlSQ")]
     [Description(@"Telephone order")]
-    TPOR,
+    TelephoneOrder,
     
     /// <summary>
     /// Mail order or telephone order.
     /// 
+    /// Encoded/decoded by serializers as "MOTO".
     /// </summary>
     [EnumMember(Value = "MOTO")]
     [IsoId("_gi3iUDHLEeyTT91yHXSlSQ")]
     [Description(@"Mail order or telephone order. ")]
-    MOTO,
+    MailOrderOrTelephoneOrder,
     
 }
 

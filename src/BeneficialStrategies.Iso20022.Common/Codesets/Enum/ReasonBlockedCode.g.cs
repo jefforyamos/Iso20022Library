@@ -20,59 +20,66 @@ public enum ReasonBlockedCode
 {
     /// <summary>
     /// Account is part of a bankruptcy action.
+    /// Encoded/decoded by serializers as "BKRP".
     /// </summary>
     [EnumMember(Value = "BKRP")]
     [IsoId("_cbdYMC15EeKmpfjBm48yhA_-383720373")]
     [Description(@"Account is part of a bankruptcy action.")]
-    BKRP,
+    Bankruptcy,
     
     /// <summary>
     /// Account has been given as a warranty.
+    /// Encoded/decoded by serializers as "CMNT".
     /// </summary>
     [EnumMember(Value = "CMNT")]
     [IsoId("_cbdYMS15EeKmpfjBm48yhA_1396499968")]
     [Description(@"Account has been given as a warranty.")]
-    CMNT,
+    Commitment,
     
     /// <summary>
     /// Account is confiscated.
+    /// Encoded/decoded by serializers as "CNFS".
     /// </summary>
     [EnumMember(Value = "CNFS")]
     [IsoId("_cbdYMi15EeKmpfjBm48yhA_812451577")]
     [Description(@"Account is confiscated.")]
-    CNFS,
+    Confiscation,
     
     /// <summary>
     /// Account is reserved in contemplation of death.
+    /// Encoded/decoded by serializers as "MORT".
     /// </summary>
     [EnumMember(Value = "MORT")]
     [IsoId("_cbdYMy15EeKmpfjBm48yhA_1444597890")]
     [Description(@"Account is reserved in contemplation of death.")]
-    MORT,
+    MortisCausa,
     
     /// <summary>
     /// Account has been given as pledge.
+    /// Encoded/decoded by serializers as "PLDG".
     /// </summary>
     [EnumMember(Value = "PLDG")]
     [IsoId("_cbdYNC15EeKmpfjBm48yhA_873594713")]
     [Description(@"Account has been given as pledge.")]
-    PLDG,
+    Pledged,
     
     /// <summary>
     /// Account is being reregistered.
+    /// Encoded/decoded by serializers as "TRPE".
     /// </summary>
     [EnumMember(Value = "TRPE")]
     [IsoId("_cbdYNS15EeKmpfjBm48yhA_-1577796035")]
     [Description(@"Account is being reregistered.")]
-    TRPE,
+    Reregistration,
     
     /// <summary>
     /// Account is being transferred.
+    /// Encoded/decoded by serializers as "TRNF".
     /// </summary>
     [EnumMember(Value = "TRNF")]
     [IsoId("_cbmiIC15EeKmpfjBm48yhA_69837250")]
     [Description(@"Account is being transferred.")]
-    TRNF,
+    Transfer,
     
 }
 

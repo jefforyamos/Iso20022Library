@@ -20,187 +20,210 @@ public enum ATMServiceTypeCode
 {
     /// <summary>
     /// Amount and notes values are chosen by the customer.
+    /// Encoded/decoded by serializers as "CHSN".
     /// </summary>
     [EnumMember(Value = "CHSN")]
     [IsoId("_fd3FMIogEeSirOZJBRz_nA")]
     [Description(@"Amount and notes values are chosen by the customer.")]
-    CHSN,
+    ChosenWithdrawal,
     
     /// <summary>
     /// Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.
+    /// Encoded/decoded by serializers as "PATH".
     /// </summary>
     [EnumMember(Value = "PATH")]
     [IsoId("_ikdCsIogEeSirOZJBRz_nA")]
     [Description(@"Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.")]
-    PATH,
+    PreAuthorisedWithdrawal,
     
     /// <summary>
     /// Amount and notes Values are pre-defined by the customer profile.
+    /// Encoded/decoded by serializers as "PRFL".
     /// </summary>
     [EnumMember(Value = "PRFL")]
     [IsoId("_lIKVkIogEeSirOZJBRz_nA")]
     [Description(@"Amount and notes Values are pre-defined by the customer profile.")]
-    PRFL,
+    ProfileWithdrawal,
     
     /// <summary>
     /// Standard withdrawal of items.
+    /// Encoded/decoded by serializers as "STDR".
     /// </summary>
     [EnumMember(Value = "STDR")]
     [IsoId("_nt3MgIogEeSirOZJBRz_nA")]
     [Description(@"Standard withdrawal of items.")]
-    STDR,
+    StandardWithdrawal,
     
     /// <summary>
     /// Withdrawal authorised by a supervisor.
+    /// Encoded/decoded by serializers as "SPRV".
     /// </summary>
     [EnumMember(Value = "SPRV")]
     [IsoId("_qlSsoIogEeSirOZJBRz_nA")]
     [Description(@"Withdrawal authorised by a supervisor.")]
-    SPRV,
+    SupervisedWithdrawal,
     
     /// <summary>
     /// Modification of the card PIN value.
+    /// Encoded/decoded by serializers as "PINC".
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_boN9AIqnEeS4a4abTJTSSw")]
     [Description(@"Modification of the card PIN value.")]
-    PINC,
+    PINChange,
     
     /// <summary>
     /// Resetting of a PIN.
+    /// Encoded/decoded by serializers as "PINR".
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_frzHMIqnEeS4a4abTJTSSw")]
     [Description(@"Resetting of a PIN.")]
-    PINR,
+    PINRecovery,
     
     /// <summary>
     /// Unblock the PIN.
+    /// Encoded/decoded by serializers as "PINU".
     /// </summary>
     [EnumMember(Value = "PINU")]
     [IsoId("_hsZtAIqnEeS4a4abTJTSSw")]
     [Description(@"Unblock the PIN.")]
-    PINU,
+    PINUnblock,
     
     /// <summary>
     /// Ask for account statement information to a related custumer account.
+    /// Encoded/decoded by serializers as "ASTS".
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_vDDg4IquEeSIDtZ76p6McQ")]
     [Description(@"Ask for account statement information to a related custumer account.")]
-    ASTS,
+    AccountStatements,
     
     /// <summary>
     /// Verification of the card.
+    /// Encoded/decoded by serializers as "CDVF".
     /// </summary>
     [EnumMember(Value = "CDVF")]
     [IsoId("_xv8k8IquEeSIDtZ76p6McQ")]
     [Description(@"Verification of the card.")]
-    CDVF,
+    CardVerification,
     
     /// <summary>
     /// Ask for customer profile with eventualy related account information.
+    /// Encoded/decoded by serializers as "CMPF".
     /// </summary>
     [EnumMember(Value = "CMPF")]
     [IsoId("_5oRzIIquEeSIDtZ76p6McQ")]
     [Description(@"Ask for customer profile with eventualy related account information.")]
-    CMPF,
+    CustomerProfile,
     
     /// <summary>
     /// Ask to a DCC service provider to qualify the currency conversion for the card.
+    /// Encoded/decoded by serializers as "DCCS".
     /// </summary>
     [EnumMember(Value = "DCCS")]
     [IsoId("_7ONPIIquEeSIDtZ76p6McQ")]
     [Description(@"Ask to a DCC service provider to qualify the currency conversion for the card.")]
-    DCCS,
+    DynamicCurrencyConversion,
     
     /// <summary>
     /// Ask for exchange rate for the ongoing deposit transaction.
+    /// Encoded/decoded by serializers as "XRTD".
     /// </summary>
     [EnumMember(Value = "XRTD")]
     [IsoId("_9f0scIquEeSIDtZ76p6McQ")]
     [Description(@"Ask for exchange rate for the ongoing deposit transaction.")]
-    XRTD,
+    ExchangeRateDeposit,
     
     /// <summary>
     /// Ask for exchange rate for the ongoing withdrawal transaction.
+    /// Encoded/decoded by serializers as "XRTW".
     /// </summary>
     [EnumMember(Value = "XRTW")]
     [IsoId("_ABibQIqvEeSIDtZ76p6McQ")]
     [Description(@"Ask for exchange rate for the ongoing withdrawal transaction.")]
-    XRTW,
+    ExchangeRateWithdrawal,
     
     /// <summary>
     /// Select the EMV applications allowed by the acquirer.
+    /// Encoded/decoded by serializers as "EMVS".
     /// </summary>
     [EnumMember(Value = "EMVS")]
     [IsoId("_CrHFkIqvEeSIDtZ76p6McQ")]
     [Description(@"Select the EMV applications allowed by the acquirer.")]
-    EMVS,
+    SelectEMVApplication,
     
     /// <summary>
     /// Balance inquiry.
+    /// Encoded/decoded by serializers as "BLCQ".
     /// </summary>
     [EnumMember(Value = "BLCQ")]
     [IsoId("_j4lk0Iq0EeSIDtZ76p6McQ")]
     [Description(@"Balance inquiry.")]
-    BLCQ,
+    BalanceInquiry,
     
     /// <summary>
     /// Deposit of items.
+    /// Encoded/decoded by serializers as "DPST".
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_pbi3EIq0EeSIDtZ76p6McQ")]
     [Description(@"Deposit of items.")]
-    DPST,
+    Deposit,
     
     /// <summary>
     /// Making change between media types.
+    /// Encoded/decoded by serializers as "MCHG".
     /// </summary>
     [EnumMember(Value = "MCHG")]
     [IsoId("_-ywhoK3-EeWL1uap3dNhCQ")]
     [Description(@"Making change between media types.")]
-    MCHG,
+    MakingChange,
     
     /// <summary>
     /// Deposit of media items unverified by the ATM, for instance in an envelope.
+    /// Encoded/decoded by serializers as "DPSN".
     /// </summary>
     [EnumMember(Value = "DPSN")]
     [IsoId("_CHlvcK3_EeWL1uap3dNhCQ")]
     [Description(@"Deposit of media items unverified by the ATM, for instance in an envelope.")]
-    DPSN,
+    NonVerifiedDeposit,
     
     /// <summary>
     /// Deposit of media items verified by the ATM.
+    /// Encoded/decoded by serializers as "DPSV".
     /// </summary>
     [EnumMember(Value = "DPSV")]
     [IsoId("_GccP0K3_EeWL1uap3dNhCQ")]
     [Description(@"Deposit of media items verified by the ATM.")]
-    DPSV,
+    VerifiedDeposit,
     
     /// <summary>
     /// Funds transfer between accounts belonging to the customer in the same bank.
+    /// Encoded/decoded by serializers as "TRFC".
     /// </summary>
     [EnumMember(Value = "TRFC")]
     [IsoId("_4pTgAK4SEeWZgJQOa6iKCQ")]
     [Description(@"Funds transfer between accounts belonging to the customer in the same bank.")]
-    TRFC,
+    CustomerTransfer,
     
     /// <summary>
     /// Funds transfer to another customer.
+    /// Encoded/decoded by serializers as "TRFI".
     /// </summary>
     [EnumMember(Value = "TRFI")]
     [IsoId("_83KAgK4SEeWZgJQOa6iKCQ")]
     [Description(@"Funds transfer to another customer.")]
-    TRFI,
+    InterCustomerTransfer,
     
     /// <summary>
     /// Funds transfer to pay a third party.
+    /// Encoded/decoded by serializers as "TRFP".
     /// </summary>
     [EnumMember(Value = "TRFP")]
     [IsoId("_J3VTcK4tEeWLdt0vLARX2Q")]
     [Description(@"Funds transfer to pay a third party.")]
-    TRFP,
+    Payment,
     
 }
 

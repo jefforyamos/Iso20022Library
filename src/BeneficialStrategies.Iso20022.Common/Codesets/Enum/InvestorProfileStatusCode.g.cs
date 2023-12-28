@@ -20,83 +20,93 @@ public enum InvestorProfileStatusCode
 {
     /// <summary>
     /// Status of the investor profile is in analysis.
+    /// Encoded/decoded by serializers as "ANLY".
     /// </summary>
     [EnumMember(Value = "ANLY")]
     [IsoId("_ibDNICDQEeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is in analysis.")]
-    ANLY,
+    InAnalysis,
     
     /// <summary>
     /// Status of the investor profile is pending approval.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_r8u-wCDQEeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is pending approval.")]
-    PEND,
+    PendingApproval,
     
     /// <summary>
     /// Status of the investor profile is not approved.
+    /// Encoded/decoded by serializers as "NAPP".
     /// </summary>
     [EnumMember(Value = "NAPP")]
     [IsoId("_xjS-oCDQEeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is not approved.")]
-    NAPP,
+    NotApproved,
     
     /// <summary>
     /// Status of the investor profile is in admission.
+    /// Encoded/decoded by serializers as "ADMI".
     /// </summary>
     [EnumMember(Value = "ADMI")]
     [IsoId("_2_lBICDQEeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is in admission.")]
-    ADMI,
+    InAdmission,
     
     /// <summary>
     /// Status of the investor profile is in the process of being enabled.
+    /// Encoded/decoded by serializers as "ENBG".
     /// </summary>
     [EnumMember(Value = "ENBG")]
     [IsoId("_7Rx2ICDQEeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is in the process of being enabled.")]
-    ENBG,
+    Enabling,
     
     /// <summary>
     /// Status of the investor profile is enabled.
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_-6UqICDQEeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is enabled.")]
-    ENAB,
+    Enabled,
     
     /// <summary>
     /// Status of the investor profile is partially suspended.
+    /// Encoded/decoded by serializers as "PSUS".
     /// </summary>
     [EnumMember(Value = "PSUS")]
     [IsoId("_Fkk7oCDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is partially suspended.")]
-    PSUS,
+    PartiallySuspended,
     
     /// <summary>
     /// Status of the investor profile is suspended.
+    /// Encoded/decoded by serializers as "SUPS".
     /// </summary>
     [EnumMember(Value = "SUPS")]
     [IsoId("_JiF6ECDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is suspended.")]
-    SUPS,
+    Suspended,
     
     /// <summary>
     /// Status of the investor profile is in the process of being disabled.
+    /// Encoded/decoded by serializers as "DISG".
     /// </summary>
     [EnumMember(Value = "DISG")]
     [IsoId("_NgzLUCDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is in the process of being disabled.")]
-    DISG,
+    Disabling,
     
     /// <summary>
     /// Status of the investor profile is disabled.
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_jjAeQCDREeWCLu74WLgP4w")]
     [Description(@"Status of the investor profile is disabled.")]
-    DISA,
+    Disabled,
     
 }
 

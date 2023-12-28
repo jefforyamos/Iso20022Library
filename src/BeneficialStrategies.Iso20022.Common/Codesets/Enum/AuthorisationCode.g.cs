@@ -20,35 +20,39 @@ public enum AuthorisationCode
 {
     /// <summary>
     /// Indicates a file has been pre authorised or approved within the originating customer environment and no further approval is required.
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_bjlV8dp-Ed-ak6NoX_4Aeg_-1817309753")]
     [Description(@"Indicates a file has been pre authorised or approved within the originating customer environment and no further approval is required.")]
-    AUTH,
+    PreAuthorisedFile,
     
     /// <summary>
     /// Indicates that a file requires additional file level approval, with the ability to view both the payment information block and supporting customer credit transaction detail.
+    /// Encoded/decoded by serializers as "FDET".
     /// </summary>
     [EnumMember(Value = "FDET")]
     [IsoId("_bjlV8tp-Ed-ak6NoX_4Aeg_-1056326828")]
     [Description(@"Indicates that a file requires additional file level approval, with the ability to view both the payment information block and supporting customer credit transaction detail.")]
-    FDET,
+    FileLevelAuthorisationDetails,
     
     /// <summary>
     /// Indicates that a file requires additional file level approval, with the ability to view only the payment information block level information.
+    /// Encoded/decoded by serializers as "FSUM".
     /// </summary>
     [EnumMember(Value = "FSUM")]
     [IsoId("_bjlV89p-Ed-ak6NoX_4Aeg_-899328936")]
     [Description(@"Indicates that a file requires additional file level approval, with the ability to view only the payment information block level information.")]
-    FSUM,
+    FileLevelAuthorisationSummary,
     
     /// <summary>
     /// Indicates that a file requires all customer transactions to be authorised or approved.
+    /// Encoded/decoded by serializers as "ILEV".
     /// </summary>
     [EnumMember(Value = "ILEV")]
     [IsoId("_bjlV9Np-Ed-ak6NoX_4Aeg_-584409191")]
     [Description(@"Indicates that a file requires all customer transactions to be authorised or approved.")]
-    ILEV,
+    InstructionLevelAuthorisation,
     
 }
 

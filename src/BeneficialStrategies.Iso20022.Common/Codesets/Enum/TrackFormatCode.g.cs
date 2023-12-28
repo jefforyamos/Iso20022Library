@@ -20,51 +20,57 @@ public enum TrackFormatCode
 {
     /// <summary>
     /// ISO card track format - ISO 7813 - ISO 4909.
+    /// Encoded/decoded by serializers as "ISOF".
     /// </summary>
     [EnumMember(Value = "ISOF")]
     [IsoId("_ZVIj8NkWEeiojJsa6FYyew")]
     [Description(@"ISO card track format - ISO 7813 - ISO 4909.")]
-    ISOF,
+    ISOFormat,
     
     /// <summary>
     /// Japanese track format I.
+    /// Encoded/decoded by serializers as "JIS1".
     /// </summary>
     [EnumMember(Value = "JIS1")]
     [IsoId("_c6T64NkWEeiojJsa6FYyew")]
     [Description(@"Japanese track format I.")]
-    JIS1,
+    JISIFormat,
     
     /// <summary>
     /// Japanese track format II.
+    /// Encoded/decoded by serializers as "JIS2".
     /// </summary>
     [EnumMember(Value = "JIS2")]
     [IsoId("_g0ZK0NkWEeiojJsa6FYyew")]
     [Description(@"Japanese track format II.")]
-    JIS2,
+    JISIIFormat,
     
     /// <summary>
     /// American driver license.
+    /// Encoded/decoded by serializers as "AAMV".
     /// </summary>
     [EnumMember(Value = "AAMV")]
     [IsoId("_jnsY4NkWEeiojJsa6FYyew")]
     [Description(@"American driver license.")]
-    AAMV,
+    AAMVAFormat,
     
     /// <summary>
     /// Magnetic Ink Character Recognition, using the CMC-7 font - ISO 1004 Line at the bottom of a check containing the bank account and the check number.
+    /// Encoded/decoded by serializers as "CMC7".
     /// </summary>
     [EnumMember(Value = "CMC7")]
     [IsoId("_mjXf0NkWEeiojJsa6FYyew")]
     [Description(@"Magnetic Ink Character Recognition, using the CMC-7 font - ISO 1004 Line at the bottom of a check containing the bank account and the check number.")]
-    CMC7,
+    CMC7CheckFormat,
     
     /// <summary>
     /// Magnetic Ink Character Recognition, using the E-13B font) Line at the bottom of a check containing the bank account and the check number.
+    /// Encoded/decoded by serializers as "E13B".
     /// </summary>
     [EnumMember(Value = "E13B")]
     [IsoId("_qGWeYNkWEeiojJsa6FYyew")]
     [Description(@"Magnetic Ink Character Recognition, using the E-13B font) Line at the bottom of a check containing the bank account and the check number.")]
-    E13B,
+    E13BCheckFormat,
     
 }
 

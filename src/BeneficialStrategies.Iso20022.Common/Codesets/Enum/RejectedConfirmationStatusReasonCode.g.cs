@@ -20,451 +20,507 @@ public enum RejectedConfirmationStatusReasonCode
 {
     /// <summary>
     /// Investment account information not the same as instructed.
+    /// Encoded/decoded by serializers as "DSAF".
     /// </summary>
     [EnumMember(Value = "DSAF")]
     [IsoId("_ZcRrMNp-Ed-ak6NoX_4Aeg_-1704775209")]
     [Description(@"Investment account information not the same as instructed.")]
-    DSAF,
+    DifferentInvestmentAccountDetails,
     
     /// <summary>
     /// Financial instrument information not the same as instructed.
+    /// Encoded/decoded by serializers as "DFIN".
     /// </summary>
     [EnumMember(Value = "DFIN")]
     [IsoId("_ZcRrMdp-Ed-ak6NoX_4Aeg_-1470199278")]
     [Description(@"Financial instrument information not the same as instructed.")]
-    DFIN,
+    DifferentFinancialInstrumentDetails,
     
     /// <summary>
     /// Beneficiary details is not the same as instructed.
+    /// Encoded/decoded by serializers as "DBEN".
     /// </summary>
     [EnumMember(Value = "DBEN")]
     [IsoId("_ZcRrMtp-Ed-ak6NoX_4Aeg_-1447112316")]
     [Description(@"Beneficiary details is not the same as instructed.")]
-    DBEN,
+    DifferentBeneficiaryDetails,
     
     /// <summary>
     /// Place of trade not the same as instructed.
+    /// Encoded/decoded by serializers as "DPTD".
     /// </summary>
     [EnumMember(Value = "DPTD")]
     [IsoId("_ZcRrM9p-Ed-ak6NoX_4Aeg_-1037990127")]
     [Description(@"Place of trade not the same as instructed.")]
-    DPTD,
+    DifferentPlaceOfTrade,
     
     /// <summary>
     /// Order date time not the same as instructed.
+    /// Encoded/decoded by serializers as "DORD".
     /// </summary>
     [EnumMember(Value = "DORD")]
     [IsoId("_ZcRrNNp-Ed-ak6NoX_4Aeg_-1009361819")]
     [Description(@"Order date time not the same as instructed.")]
-    DORD,
+    DifferentOrderDateTime,
     
     /// <summary>
     /// Cancellation right not the same as instructed.
+    /// Encoded/decoded by serializers as "DCXR".
     /// </summary>
     [EnumMember(Value = "DCXR")]
     [IsoId("_ZcRrNdp-Ed-ak6NoX_4Aeg_-982579260")]
     [Description(@"Cancellation right not the same as instructed.")]
-    DCXR,
+    DifferentCancellationRight,
     
     /// <summary>
     /// Units number information not the same as instructed.
+    /// Encoded/decoded by serializers as "DUNB".
     /// </summary>
     [EnumMember(Value = "DUNB")]
     [IsoId("_ZcRrNtp-Ed-ak6NoX_4Aeg_-968727883")]
     [Description(@"Units number information not the same as instructed.")]
-    DUNB,
+    DifferentUnitsNumber,
     
     /// <summary>
     /// Order type information not the same as instructed.
+    /// Encoded/decoded by serializers as "DORT".
     /// </summary>
     [EnumMember(Value = "DORT")]
     [IsoId("_ZcRrN9p-Ed-ak6NoX_4Aeg_-940096394")]
     [Description(@"Order type information not the same as instructed.")]
-    DORT,
+    DifferentOrderType,
     
     /// <summary>
     /// Rounding information not the same as instructed.
+    /// Encoded/decoded by serializers as "DROU".
     /// </summary>
     [EnumMember(Value = "DROU")]
     [IsoId("_ZcRrONp-Ed-ak6NoX_4Aeg_-924397559")]
     [Description(@"Rounding information not the same as instructed.")]
-    DROU,
+    DifferentRounding,
     
     /// <summary>
     /// Net amount information not the same as instructed.
+    /// Encoded/decoded by serializers as "DNAM".
     /// </summary>
     [EnumMember(Value = "DNAM")]
     [IsoId("_ZcRrOdp-Ed-ak6NoX_4Aeg_-844974273")]
     [Description(@"Net amount information not the same as instructed.")]
-    DNAM,
+    DifferentNetAmount,
     
     /// <summary>
     /// Gross amount information not the same as instructed.
+    /// Encoded/decoded by serializers as "DGAM".
     /// </summary>
     [EnumMember(Value = "DGAM")]
     [IsoId("_ZcRrOtp-Ed-ak6NoX_4Aeg_-837588505")]
     [Description(@"Gross amount information not the same as instructed.")]
-    DGAM,
+    DifferentGrossAmount,
     
     /// <summary>
     /// Holdings redemption rate not the same as instructed.
+    /// Encoded/decoded by serializers as "DHRR".
     /// </summary>
     [EnumMember(Value = "DHRR")]
     [IsoId("_ZcbcMNp-Ed-ak6NoX_4Aeg_-813576507")]
     [Description(@"Holdings redemption rate not the same as instructed.")]
-    DHRR,
+    DifferentHoldingsRedemptionRate,
     
     /// <summary>
     /// Group 1 or 2 units not the same as instructed.
+    /// Encoded/decoded by serializers as "DGRP".
     /// </summary>
     [EnumMember(Value = "DGRP")]
     [IsoId("_ZcbcMdp-Ed-ak6NoX_4Aeg_-584544029")]
     [Description(@"Group 1 or 2 units not the same as instructed.")]
-    DGRP,
+    DifferentGroup1Or2Units,
     
     /// <summary>
     /// Income preference information not the same as instructed.
+    /// Encoded/decoded by serializers as "DINP".
     /// </summary>
     [EnumMember(Value = "DINP")]
     [IsoId("_ZcbcMtp-Ed-ak6NoX_4Aeg_-570689327")]
     [Description(@"Income preference information not the same as instructed.")]
-    DINP,
+    DifferentIncomePreference,
     
     /// <summary>
     /// Letter Intent reference information not the same as instructed.
+    /// Encoded/decoded by serializers as "DLIR".
     /// </summary>
     [EnumMember(Value = "DLIR")]
     [IsoId("_ZcbcM9p-Ed-ak6NoX_4Aeg_-539289250")]
     [Description(@"Letter Intent reference information not the same as instructed.")]
-    DLIR,
+    DifferentLetterIntentReference,
     
     /// <summary>
     /// Accumulation right reference information not the same as instructed.
+    /// Encoded/decoded by serializers as "DARR".
     /// </summary>
     [EnumMember(Value = "DARR")]
     [IsoId("_ZcbcNNp-Ed-ak6NoX_4Aeg_-512506653")]
     [Description(@"Accumulation right reference information not the same as instructed.")]
-    DARR,
+    DifferentAccumulationRightReference,
     
     /// <summary>
     /// Physical delivery indicator information not the same as instructed.
+    /// Encoded/decoded by serializers as "DPDI".
     /// </summary>
     [EnumMember(Value = "DPDI")]
     [IsoId("_ZcbcNdp-Ed-ak6NoX_4Aeg_-494959628")]
     [Description(@"Physical delivery indicator information not the same as instructed.")]
-    DPDI,
+    DifferentPhysicalDeliveryIndicator,
     
     /// <summary>
     /// Requested settlement currency information not the same as instructed.
+    /// Encoded/decoded by serializers as "DRSC".
     /// </summary>
     [EnumMember(Value = "DRSC")]
     [IsoId("_ZcbcNtp-Ed-ak6NoX_4Aeg_-470024511")]
     [Description(@"Requested settlement currency information not the same as instructed.")]
-    DRSC,
+    DifferentRequestedSettlementCurrency,
     
     /// <summary>
     /// Requested NAV currency information not the same as instructed.
+    /// Encoded/decoded by serializers as "DNAV".
     /// </summary>
     [EnumMember(Value = "DNAV")]
     [IsoId("_ZcbcN9p-Ed-ak6NoX_4Aeg_-454326701")]
     [Description(@"Requested NAV currency information not the same as instructed.")]
-    DNAV,
+    DifferentRequestedNAVCurrency,
     
     /// <summary>
     /// Foreign exchange details information not the same as instructed.
+    /// Encoded/decoded by serializers as "DFXD".
     /// </summary>
     [EnumMember(Value = "DFXD")]
     [IsoId("_ZcbcONp-Ed-ak6NoX_4Aeg_-439548555")]
     [Description(@"Foreign exchange details information not the same as instructed.")]
-    DFXD,
+    DifferentForeignExchangeDetails,
     
     /// <summary>
     /// Charge details information not the same as instructed.
+    /// Encoded/decoded by serializers as "DCHD".
     /// </summary>
     [EnumMember(Value = "DCHD")]
     [IsoId("_ZcbcOdp-Ed-ak6NoX_4Aeg_-187430203")]
     [Description(@"Charge details information not the same as instructed.")]
-    DCHD,
+    DifferentChargeDetails,
     
     /// <summary>
     /// Commission details information not the same as instructed.
+    /// Encoded/decoded by serializers as "DXOD".
     /// </summary>
     [EnumMember(Value = "DXOD")]
     [IsoId("_ZckmINp-Ed-ak6NoX_4Aeg_-181888516")]
     [Description(@"Commission details information not the same as instructed.")]
-    DXOD,
+    DifferentCommissionDetails,
     
     /// <summary>
     /// Tax details information not the same as instructed.
+    /// Encoded/decoded by serializers as "DTAD".
     /// </summary>
     [EnumMember(Value = "DTAD")]
     [IsoId("_ZckmIdp-Ed-ak6NoX_4Aeg_-168959552")]
     [Description(@"Tax details information not the same as instructed.")]
-    DTAD,
+    DifferentTaxDetails,
     
     /// <summary>
     /// Physical delivery details information not the same as instructed.
+    /// Encoded/decoded by serializers as "DPDD".
     /// </summary>
     [EnumMember(Value = "DPDD")]
     [IsoId("_ZckmItp-Ed-ak6NoX_4Aeg_-154181972")]
     [Description(@"Physical delivery details information not the same as instructed.")]
-    DPDD,
+    DifferentPhysicalDeliveryDetails,
     
     /// <summary>
     /// Settlement and custody details information not the same as instructed.
+    /// Encoded/decoded by serializers as "DSCA".
     /// </summary>
     [EnumMember(Value = "DSCA")]
     [IsoId("_ZckmI9p-Ed-ak6NoX_4Aeg_-139404972")]
     [Description(@"Settlement and custody details information not the same as instructed.")]
-    DSCA,
+    DifferentSettlementAndCustodyDetails,
     
     /// <summary>
     /// Payment Instrument details information not the same as instructed.
+    /// Encoded/decoded by serializers as "DPID".
     /// </summary>
     [EnumMember(Value = "DPID")]
     [IsoId("_ZckmJNp-Ed-ak6NoX_4Aeg_-124630805")]
     [Description(@"Payment Instrument details information not the same as instructed.")]
-    DPID,
+    DifferentPaymentInstrumentDetails,
     
     /// <summary>
     /// Settlement amount not the same as instructed.
+    /// Encoded/decoded by serializers as "DSAM".
     /// </summary>
     [EnumMember(Value = "DSAM")]
     [IsoId("_ZckmJdp-Ed-ak6NoX_4Aeg_-111698385")]
     [Description(@"Settlement amount not the same as instructed.")]
-    DSAM,
+    DifferentSettlementAmount,
     
     /// <summary>
     /// Settlement date not the same as instructed.
+    /// Encoded/decoded by serializers as "DSDT".
     /// </summary>
     [EnumMember(Value = "DSDT")]
     [IsoId("_ZckmJtp-Ed-ak6NoX_4Aeg_-93228070")]
     [Description(@"Settlement date not the same as instructed.")]
-    DSDT,
+    DifferentSettlementDate,
     
     /// <summary>
     /// Extension information not the same as instructed.
+    /// Encoded/decoded by serializers as "DEXD".
     /// </summary>
     [EnumMember(Value = "DEXD")]
     [IsoId("_ZckmJ9p-Ed-ak6NoX_4Aeg_-81222744")]
     [Description(@"Extension information not the same as instructed.")]
-    DEXD,
+    DifferentExtensionDetails,
     
     /// <summary>
     /// Intermediary information not the same as instructed.
+    /// Encoded/decoded by serializers as "DIMD".
     /// </summary>
     [EnumMember(Value = "DIMD")]
     [IsoId("_ZckmKNp-Ed-ak6NoX_4Aeg_-66447822")]
     [Description(@"Intermediary information not the same as instructed.")]
-    DIMD,
+    DifferentIntermediaryDetails,
     
     /// <summary>
     /// Total redemption amount not the same as instructed.
+    /// Encoded/decoded by serializers as "DTRA".
     /// </summary>
     [EnumMember(Value = "DTRA")]
     [IsoId("_ZckmKdp-Ed-ak6NoX_4Aeg_-55363287")]
     [Description(@"Total redemption amount not the same as instructed.")]
-    DTRA,
+    DifferentTotalRedemptionAmount,
     
     /// <summary>
     /// Total subscription amount not the same as instructed.
+    /// Encoded/decoded by serializers as "DTSA".
     /// </summary>
     [EnumMember(Value = "DTSA")]
     [IsoId("_ZcuXINp-Ed-ak6NoX_4Aeg_-42437390")]
     [Description(@"Total subscription amount not the same as instructed.")]
-    DTSA,
+    DifferentTotalSubscriptionAmount,
     
     /// <summary>
     /// Additional cash in not the same as instructed.
+    /// Encoded/decoded by serializers as "DACI".
     /// </summary>
     [EnumMember(Value = "DACI")]
     [IsoId("_ZcuXIdp-Ed-ak6NoX_4Aeg_-28584376")]
     [Description(@"Additional cash in not the same as instructed.")]
-    DACI,
+    DifferentAdditionalCashIn,
     
     /// <summary>
     /// Resulting cash out not the same as instructed.
+    /// Encoded/decoded by serializers as "DACO".
     /// </summary>
     [EnumMember(Value = "DACO")]
     [IsoId("_ZcuXItp-Ed-ak6NoX_4Aeg_-23964007")]
     [Description(@"Resulting cash out not the same as instructed.")]
-    DACO,
+    DifferentResultingCashOut,
     
     /// <summary>
     /// Percentage of total subscription amount not the same as instructed.
+    /// Encoded/decoded by serializers as "DPSA".
     /// </summary>
     [EnumMember(Value = "DPSA")]
     [IsoId("_ZcuXI9p-Ed-ak6NoX_4Aeg_-10114216")]
     [Description(@"Percentage of total subscription amount not the same as instructed.")]
-    DPSA,
+    DifferentPercentageOfTotalSubscriptionAmount,
     
     /// <summary>
     /// Percentage of total redemption amount not the same as instructed.
+    /// Encoded/decoded by serializers as "DPRA".
     /// </summary>
     [EnumMember(Value = "DPRA")]
     [IsoId("_ZcuXJNp-Ed-ak6NoX_4Aeg_2817621")]
     [Description(@"Percentage of total redemption amount not the same as instructed.")]
-    DPRA,
+    DifferentPercentageOfTotalRedemptionAmount,
     
     /// <summary>
     /// Leg Identification not the same as instructed.
+    /// Encoded/decoded by serializers as "DLID".
     /// </summary>
     [EnumMember(Value = "DLID")]
     [IsoId("_ZcuXJdp-Ed-ak6NoX_4Aeg_17594932")]
     [Description(@"Leg Identification not the same as instructed.")]
-    DLID,
+    DifferentLegIdentification,
     
     /// <summary>
     /// Confirmation is recognised by the Receiver because the message reference is identified, but the order reference is not the same as instructed.
+    /// Encoded/decoded by serializers as "DORF".
     /// </summary>
     [EnumMember(Value = "DORF")]
     [IsoId("_ZcuXJtp-Ed-ak6NoX_4Aeg_30521778")]
     [Description(@"Confirmation is recognised by the Receiver because the message reference is identified, but the order reference is not the same as instructed.")]
-    DORF,
+    DifferentOrderReference,
     
     /// <summary>
     /// Linked reference is not known.
+    /// Encoded/decoded by serializers as "ULNK".
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_ZcuXJ9p-Ed-ak6NoX_4Aeg_44373585")]
     [Description(@"Linked reference is not known.")]
-    ULNK,
+    UnknownLinkagesReference,
     
     /// <summary>
     /// Deal reference is a duplicate of a previously received deal reference.
+    /// Encoded/decoded by serializers as "DREF".
     /// </summary>
     [EnumMember(Value = "DREF")]
     [IsoId("_ZcuXKNp-Ed-ak6NoX_4Aeg_71157658")]
     [Description(@"Deal reference is a duplicate of a previously received deal reference.")]
-    DREF,
+    DuplicateDealReference,
     
     /// <summary>
     /// Receiving agent is not recognised or is invalid.
+    /// Encoded/decoded by serializers as "IVAG".
     /// </summary>
     [EnumMember(Value = "IVAG")]
     [IsoId("_ZcuXKdp-Ed-ak6NoX_4Aeg_348211990")]
     [Description(@"Receiving agent is not recognised or is invalid.")]
-    IVAG,
+    ReceivingAgent,
     
     /// <summary>
     /// Receiver's Custodian is not recognised or is invalid.
+    /// Encoded/decoded by serializers as "IRCU".
     /// </summary>
     [EnumMember(Value = "IRCU")]
     [IsoId("_ZcuXKtp-Ed-ak6NoX_4Aeg_372225025")]
     [Description(@"Receiver's Custodian is not recognised or is invalid.")]
-    IRCU,
+    ReceiversCustodian,
     
     /// <summary>
     /// Receiver's Intermediary is not recognised or is invalid.
+    /// Encoded/decoded by serializers as "IRIN".
     /// </summary>
     [EnumMember(Value = "IRIN")]
     [IsoId("_Zc4IINp-Ed-ak6NoX_4Aeg_385154371")]
     [Description(@"Receiver's Intermediary is not recognised or is invalid.")]
-    IRIN,
+    ReceiversIntermediary,
     
     /// <summary>
     /// Delivering agent is not recognised or is invalid.
+    /// Encoded/decoded by serializers as "ICAG".
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_Zc4IIdp-Ed-ak6NoX_4Aeg_402702197")]
     [Description(@"Delivering agent is not recognised or is invalid.")]
-    ICAG,
+    DeliveringAgent,
     
     /// <summary>
     /// Deliverer's Custodian is not recognised or is invalid.
+    /// Encoded/decoded by serializers as "IDCU".
     /// </summary>
     [EnumMember(Value = "IDCU")]
     [IsoId("_Zc4IItp-Ed-ak6NoX_4Aeg_873698375")]
     [Description(@"Deliverer's Custodian is not recognised or is invalid.")]
-    IDCU,
+    DeliverersCustodian,
     
     /// <summary>
     /// Deliverer's Intermediary is not recognised or is invalid.
+    /// Encoded/decoded by serializers as "IDIN".
     /// </summary>
     [EnumMember(Value = "IDIN")]
     [IsoId("_Zc4II9p-Ed-ak6NoX_4Aeg_-1818037850")]
     [Description(@"Deliverer's Intermediary is not recognised or is invalid.")]
-    IDIN,
+    DeliverersIntermediary,
     
     /// <summary>
     /// Credit transfer details are incorrect.
+    /// Encoded/decoded by serializers as "ICTR".
     /// </summary>
     [EnumMember(Value = "ICTR")]
     [IsoId("_Zc4IJNp-Ed-ak6NoX_4Aeg_-1811574797")]
     [Description(@"Credit transfer details are incorrect.")]
-    ICTR,
+    InvalidCreditTransfer,
     
     /// <summary>
     /// Settlement Amount is invalid.
+    /// Encoded/decoded by serializers as "DMON".
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_Zc4IJdp-Ed-ak6NoX_4Aeg_-1788484295")]
     [Description(@"Settlement Amount is invalid.")]
-    DMON,
+    SettlementAmount,
     
     /// <summary>
     /// Settlement date or transfer date is not recognised or is invalid.
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_Zc4IJtp-Ed-ak6NoX_4Aeg_-1782945488")]
     [Description(@"Settlement date or transfer date is not recognised or is invalid.")]
-    DDAT,
+    SettlementDate,
     
     /// <summary>
     /// Confirmation is not compliant with the service level agreement.
+    /// Encoded/decoded by serializers as "NSLA".
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_Zc4IJ9p-Ed-ak6NoX_4Aeg_-1761704089")]
     [Description(@"Confirmation is not compliant with the service level agreement.")]
-    NSLA,
+    NotCompliantWithSLA,
     
     /// <summary>
     /// EU tax information is missing.
+    /// Encoded/decoded by serializers as "MEUT".
     /// </summary>
     [EnumMember(Value = "MEUT")]
     [IsoId("_Zc4IKNp-Ed-ak6NoX_4Aeg_-1303636761")]
     [Description(@"EU tax information is missing.")]
-    MEUT,
+    MissingEUTaxInformation,
     
     /// <summary>
     /// Commission information is missing.
+    /// Encoded/decoded by serializers as "MCOM".
     /// </summary>
     [EnumMember(Value = "MCOM")]
     [IsoId("_Zc4IKdp-Ed-ak6NoX_4Aeg_-1287012362")]
     [Description(@"Commission information is missing.")]
-    MCOM,
+    MissingCommission,
     
     /// <summary>
     /// Charge information is missing.
+    /// Encoded/decoded by serializers as "MCHA".
     /// </summary>
     [EnumMember(Value = "MCHA")]
     [IsoId("_ZdBSENp-Ed-ak6NoX_4Aeg_-1273161408")]
     [Description(@"Charge information is missing.")]
-    MCHA,
+    MissingCharge,
     
     /// <summary>
     /// Tax information is missing.
+    /// Encoded/decoded by serializers as "MTAX".
     /// </summary>
     [EnumMember(Value = "MTAX")]
     [IsoId("_ZdBSEdp-Ed-ak6NoX_4Aeg_-1267619317")]
     [Description(@"Tax information is missing.")]
-    MTAX,
+    MissingTaxInformation,
     
     /// <summary>
     /// Amendment of order confirmation not allowed.
+    /// Encoded/decoded by serializers as "NATA".
     /// </summary>
     [EnumMember(Value = "NATA")]
     [IsoId("_ZdBSEtp-Ed-ak6NoX_4Aeg_-1246378920")]
     [Description(@"Amendment of order confirmation not allowed.")]
-    NATA,
+    NotAllowedtoAmend,
     
     /// <summary>
     /// Amendment of order confirmation too late.
+    /// Encoded/decoded by serializers as "ALAT".
     /// </summary>
     [EnumMember(Value = "ALAT")]
     [IsoId("_ZdBSE9p-Ed-ak6NoX_4Aeg_-1239914291")]
     [Description(@"Amendment of order confirmation too late.")]
-    ALAT,
+    AmendmentTooLate,
     
 }
 

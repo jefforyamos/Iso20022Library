@@ -20,43 +20,48 @@ public enum AdditionalServiceResultCode
 {
     /// <summary>
     /// The service was performed.
+    /// Encoded/decoded by serializers as "PERF".
     /// </summary>
     [EnumMember(Value = "PERF")]
     [IsoId("_2ed0UJ1JEeublrfU-wN95w")]
     [Description(@"The service was performed.")]
-    PERF,
+    Performed,
     
     /// <summary>
     /// The service was not performed.
+    /// Encoded/decoded by serializers as "NOPF".
     /// </summary>
     [EnumMember(Value = "NOPF")]
     [IsoId("_6ZF20J1JEeublrfU-wN95w")]
     [Description(@"The service was not performed.")]
-    NOPF,
+    NotPerformed,
     
     /// <summary>
     /// The service is not supported and could not be performed.
+    /// Encoded/decoded by serializers as "NOSP".
     /// </summary>
     [EnumMember(Value = "NOSP")]
     [IsoId("_-u4LUJ1JEeublrfU-wN95w")]
     [Description(@"The service is not supported and could not be performed.")]
-    NOSP,
+    NotSupported,
     
     /// <summary>
     /// Other nationally defined code.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_Ea8WQJ1KEeublrfU-wN95w")]
     [Description(@"Other nationally defined code.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other privately defined code.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_HxzkYJ1KEeublrfU-wN95w")]
     [Description(@"Other privately defined code.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

@@ -20,51 +20,57 @@ public enum ReorganisationTransactionTypeCode
 {
     /// <summary>
     /// Reorganisation is a protect transaction type.
+    /// Encoded/decoded by serializers as "PROT".
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_iUhnMMU9EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a protect transaction type.")]
-    PROT,
+    ProtectTransaction,
     
     /// <summary>
     /// Reorganisation is a cover protect transaction type.
+    /// Encoded/decoded by serializers as "COVR".
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_nAV2EMU9EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a cover protect transaction type.")]
-    COVR,
+    CoverProtectTransaction,
     
     /// <summary>
     /// Reorganisation is a cover protect directly to agent transaction type.
+    /// Encoded/decoded by serializers as "COVA".
     /// </summary>
     [EnumMember(Value = "COVA")]
     [IsoId("_6pVO4MU9EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a cover protect directly to agent transaction type.")]
-    COVA,
+    CoverProtectDirectlyToAgentHeaderTransaction,
     
     /// <summary>
     /// Reorganisation is a protect on behalf of another participant transaction type.
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_D2Ui4MU-EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a protect on behalf of another participant transaction type.")]
-    PROP,
+    ProtectOnBehalfOfAnotherParticipantTransaction,
     
     /// <summary>
     /// Reorganisation is a voluntary offer instruction transaction type.
+    /// Encoded/decoded by serializers as "VOIT".
     /// </summary>
     [EnumMember(Value = "VOIT")]
     [IsoId("_MsG30MU-EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a voluntary offer instruction transaction type.")]
-    VOIT,
+    VoluntaryOfferInstructionTransaction,
     
     /// <summary>
     /// Reorganisation is a cover on behalf of another participant transaction type.
+    /// Encoded/decoded by serializers as "COVP".
     /// </summary>
     [EnumMember(Value = "COVP")]
     [IsoId("_WluoUMU-EeeWeZMpNX1JUQ")]
     [Description(@"Reorganisation is a cover on behalf of another participant transaction type.")]
-    COVP,
+    CoverOnBehalfOfAnotherParticipantTransaction,
     
 }
 

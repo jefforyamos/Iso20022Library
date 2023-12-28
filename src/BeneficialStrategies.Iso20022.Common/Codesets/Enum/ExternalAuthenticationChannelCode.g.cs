@@ -21,35 +21,39 @@ public enum ExternalAuthenticationChannelCode
 {
     /// <summary>
     /// Authentication provided through ATM
+    /// Encoded/decoded by serializers as "ATMA".
     /// </summary>
     [EnumMember(Value = "ATMA")]
     [IsoId("_uZHtoPRYEeuLhpyIdtJzwg")]
     [Description(@"Authentication provided through ATM")]
-    ATMA,
+    ATM,
     
     /// <summary>
     /// Authentication provided through Card
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_uZHto_RYEeuLhpyIdtJzwg")]
     [Description(@"Authentication provided through Card")]
-    CARD,
+    Card,
     
     /// <summary>
     /// Authentication provided through Internet Banking
+    /// Encoded/decoded by serializers as "INBA".
     /// </summary>
     [EnumMember(Value = "INBA")]
     [IsoId("_uZHtpvRYEeuLhpyIdtJzwg")]
     [Description(@"Authentication provided through Internet Banking")]
-    INBA,
+    InternetBanking,
     
     /// <summary>
     /// Authentication provided through Mobile
+    /// Encoded/decoded by serializers as "MOBI".
     /// </summary>
     [EnumMember(Value = "MOBI")]
     [IsoId("_uZReoPRYEeuLhpyIdtJzwg")]
     [Description(@"Authentication provided through Mobile")]
-    MOBI,
+    Mobile,
     
 }
 

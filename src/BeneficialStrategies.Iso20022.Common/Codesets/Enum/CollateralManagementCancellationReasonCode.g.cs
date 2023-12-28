@@ -20,19 +20,21 @@ public enum CollateralManagementCancellationReasonCode
 {
     /// <summary>
     /// Cancellation due to message being sent in error.
+    /// Encoded/decoded by serializers as "PRER".
     /// </summary>
     [EnumMember(Value = "PRER")]
     [IsoId("_YbwCUdp-Ed-ak6NoX_4Aeg_577621422")]
     [Description(@"Cancellation due to message being sent in error.")]
-    PRER,
+    ProcessingError,
     
     /// <summary>
     /// Cancellation due to a change in exposure or collateral or independent amount or margin terms. For collateral proposal submitting new/different collateral.
+    /// Encoded/decoded by serializers as "PNSU".
     /// </summary>
     [EnumMember(Value = "PNSU")]
     [IsoId("_YbwCUtp-Ed-ak6NoX_4Aeg_664607008")]
     [Description(@"Cancellation due to a change in exposure or collateral or independent amount or margin terms. For collateral proposal submitting new/different collateral.")]
-    PNSU,
+    PendingNewSubmission,
     
 }
 

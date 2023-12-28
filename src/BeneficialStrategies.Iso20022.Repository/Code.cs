@@ -23,12 +23,19 @@ public class Code : IsoRepoElement
             while (duplicateDetection.Contains(LegalCodeName)) LegalCodeName = $"{OriginalLegalNameCode}{count++}";
         }
         duplicateDetection.Add(LegalCodeName);
+        EnumMemberName = Name.Replace("-", "_").Replace(".", "");
     }
 
-    // public string Definition { get; }
+    /// <summary>
+    /// The name of the actual member that is generated for this record.
+    /// </summary>
+    public string EnumMemberName { get; }
 
     public string RegistrationStatus { get; }
 
+    /// <summary>
+    /// The code used to serialize/deserialize.
+    /// </summary>
     public string CodeName { get; }
 
     /// <summary>

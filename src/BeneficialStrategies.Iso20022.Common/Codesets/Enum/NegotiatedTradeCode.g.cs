@@ -20,27 +20,30 @@ public enum NegotiatedTradeCode
 {
     /// <summary>
     /// Trade is negotiated.
+    /// Encoded/decoded by serializers as "NEGO".
     /// </summary>
     [EnumMember(Value = "NEGO")]
     [IsoId("_aNJuidp-Ed-ak6NoX_4Aeg_1435150328")]
     [Description(@"Trade is negotiated.")]
-    NEGO,
+    Negotiated,
     
     /// <summary>
     /// Trade is not negotiated.
+    /// Encoded/decoded by serializers as "NNGO".
     /// </summary>
     [EnumMember(Value = "NNGO")]
     [IsoId("_aNTfgNp-Ed-ak6NoX_4Aeg_1468396094")]
     [Description(@"Trade is not negotiated.")]
-    NNGO,
+    NotNegotiated,
     
     /// <summary>
     /// Whether the trade is negotiated or not is unknown.
+    /// Encoded/decoded by serializers as "UNKW".
     /// </summary>
     [EnumMember(Value = "UNKW")]
     [IsoId("_aNTfgdp-Ed-ak6NoX_4Aeg_1480402761")]
     [Description(@"Whether the trade is negotiated or not is unknown.")]
-    UNKW,
+    Unknown,
     
 }
 

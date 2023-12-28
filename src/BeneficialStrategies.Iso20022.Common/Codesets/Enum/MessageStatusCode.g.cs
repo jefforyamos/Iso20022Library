@@ -20,83 +20,93 @@ public enum MessageStatusCode
 {
     /// <summary>
     /// Whole message has been accepted.
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_n1aGgNHBEeaokquJJ-K6uA")]
     [Description(@"Whole message has been accepted.")]
-    ACPT,
+    Accepted,
     
     /// <summary>
     /// Message has passed syntactical validation but further validations have not been completed yet.
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_uMYPodHBEeaokquJJ-K6uA")]
     [Description(@"Message has passed syntactical validation but further validations have not been completed yet.")]
-    ACTC,
+    AcceptedTechnicalValidation,
     
     /// <summary>
     /// Message has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_5SxVQdHBEeaokquJJ-K6uA")]
     [Description(@"Message has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.")]
-    PART,
+    PartiallyAccepted,
     
     /// <summary>
     /// Message has been received but not processed yet.
+    /// Encoded/decoded by serializers as "RCVD".
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_72vG0dHBEeaokquJJ-K6uA")]
     [Description(@"Message has been received but not processed yet.")]
-    RCVD,
+    Received,
     
     /// <summary>
     /// Message has been rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_9-UeYdHBEeaokquJJ-K6uA")]
     [Description(@"Message has been rejected.")]
-    RJCT,
+    Rejected,
     
     /// <summary>
     /// Reminder of a non received message.
+    /// Encoded/decoded by serializers as "RMDR".
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_ADeNAdHCEeaokquJJ-K6uA")]
     [Description(@"Reminder of a non received message.")]
-    RMDR,
+    Reminder,
     
     /// <summary>
     /// Message has been accepted with warnings.
+    /// Encoded/decoded by serializers as "WARN".
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_CZx9EdHCEeaokquJJ-K6uA")]
     [Description(@"Message has been accepted with warnings.")]
-    WARN,
+    Warning,
     
     /// <summary>
     /// File containing the report is corrupted.
+    /// Encoded/decoded by serializers as "CRPT".
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_IxXeM-vBEealxoQGKU9EVQ")]
     [Description(@"File containing the report is corrupted.")]
-    CRPT,
+    CorruptedFile,
     
     /// <summary>
     /// File containing the report has an incorrect filename.
+    /// Encoded/decoded by serializers as "INCF".
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_PXYv8evBEealxoQGKU9EVQ")]
     [Description(@"File containing the report has an incorrect filename.")]
-    INCF,
+    IncorrectFilename,
     
     /// <summary>
     /// Message was rejected due to authorisation/permission issues.
+    /// Encoded/decoded by serializers as "NAUT".
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_g4XRYD5-Ee2Z1_pdMHu4SA")]
     [Description(@"Message was rejected due to authorisation/permission issues.")]
-    NAUT,
+    NotAuthorised,
     
 }
 

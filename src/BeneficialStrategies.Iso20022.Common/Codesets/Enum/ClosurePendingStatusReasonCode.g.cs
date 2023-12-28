@@ -20,19 +20,21 @@ public enum ClosurePendingStatusReasonCode
 {
     /// <summary>
     /// Account will be closed when conditions are met.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_OTSsIGCMEeabZtzjEVWYCQ")]
     [Description(@"Account will be closed when conditions are met.")]
-    PEND,
+    PendingConditions,
     
     /// <summary>
     /// Account closing is in process.
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_SQzDgGCMEeabZtzjEVWYCQ")]
     [Description(@"Account closing is in process.")]
-    CLOS,
+    AccountClosingInProcess,
     
 }
 

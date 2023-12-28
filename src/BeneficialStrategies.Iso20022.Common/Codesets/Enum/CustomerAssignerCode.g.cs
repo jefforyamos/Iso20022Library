@@ -20,51 +20,57 @@ public enum CustomerAssignerCode
 {
     /// <summary>
     /// Travel agency assigning an identification.
+    /// Encoded/decoded by serializers as "TRAY".
     /// </summary>
     [EnumMember(Value = "TRAY")]
     [IsoId("_eW7w0FyxEeeve7Je9cXtkQ")]
     [Description(@"Travel agency assigning an identification.")]
-    TRAY,
+    TravelAgency,
     
     /// <summary>
     /// Legal authority assigning an identification.
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_i-GwQFyxEeeve7Je9cXtkQ")]
     [Description(@"Legal authority assigning an identification.")]
-    AUTH,
+    Authority,
     
     /// <summary>
     /// Company for which the customer is on duty.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_2ND4cFyxEeeve7Je9cXtkQ")]
     [Description(@"Company for which the customer is on duty.")]
-    CUST,
+    Customer,
     
     /// <summary>
     /// Company assigning an identification to a customer.
+    /// Encoded/decoded by serializers as "CRCY".
     /// </summary>
     [EnumMember(Value = "CRCY")]
     [IsoId("__X0X0FyxEeeve7Je9cXtkQ")]
     [Description(@"Company assigning an identification to a customer.")]
-    CRCY,
+    Company,
     
     /// <summary>
     /// On file identification.
+    /// Encoded/decoded by serializers as "ONFL".
     /// </summary>
     [EnumMember(Value = "ONFL")]
     [IsoId("_FuHykFyyEeeve7Je9cXtkQ")]
     [Description(@"On file identification.")]
-    ONFL,
+    OnFile,
     
     /// <summary>
     /// Other party assigning an identification.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_JVBAwFyyEeeve7Je9cXtkQ")]
     [Description(@"Other party assigning an identification.")]
-    OTHR,
+    Other,
     
 }
 

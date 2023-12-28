@@ -20,19 +20,21 @@ public enum DisclosureRequestTypeCode
 {
     /// <summary>
     /// New disclosure request.
+    /// Encoded/decoded by serializers as "NEWM".
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_-p6BIEV2EemRx7jyevcLwg")]
     [Description(@"New disclosure request.")]
-    NEWM,
+    New,
     
     /// <summary>
     /// Disclosure request replacing a previously sent request.
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_FetVwEV3EemRx7jyevcLwg")]
     [Description(@"Disclosure request replacing a previously sent request.")]
-    REPL,
+    Replacement,
     
 }
 

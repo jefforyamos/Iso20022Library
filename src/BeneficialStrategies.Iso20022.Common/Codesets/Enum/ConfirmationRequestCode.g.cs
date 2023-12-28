@@ -20,27 +20,30 @@ public enum ConfirmationRequestCode
 {
     /// <summary>
     /// To inquire about the status of the trade confirmation.
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_4Cs50AJhEeS2H9l84F_isg")]
     [Description(@"To inquire about the status of the trade confirmation.")]
-    STAT,
+    Status,
     
     /// <summary>
     /// To confirm the trade.
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_iDFaUAKBEeS2H9l84F_isg")]
     [Description(@"To confirm the trade.")]
-    CONF,
+    Confirmation,
     
     /// <summary>
     /// To reject the confirmation of the trade.
+    /// Encoded/decoded by serializers as "CNRR".
     /// </summary>
     [EnumMember(Value = "CNRR")]
     [IsoId("_kheIUAKBEeS2H9l84F_isg")]
     [Description(@"To reject the confirmation of the trade.")]
-    CNRR,
+    ConfirmationRequestRejected,
     
 }
 

@@ -21,59 +21,66 @@ public enum ExternalUnderlyingTradeTransactionTypeCode
 {
     /// <summary>
     /// Underlying transaction is a contract.
+    /// Encoded/decoded by serializers as "CONT".
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_uQn48PRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a contract.")]
-    CONT,
+    Contract,
     
     /// <summary>
     /// Underlying transaction is a delivery order.
+    /// Encoded/decoded by serializers as "DELV".
     /// </summary>
     [EnumMember(Value = "DELV")]
     [IsoId("_uQn48_RYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a delivery order.")]
-    DELV,
+    DeliveryOrder,
     
     /// <summary>
     /// Underlying transaction is a proforma invoice.
+    /// Encoded/decoded by serializers as "PROF".
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_uQn49vRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a proforma invoice.")]
-    PROF,
+    ProformaInvoice,
     
     /// <summary>
     /// Underlying transaction is a project.
+    /// Encoded/decoded by serializers as "PROJ".
     /// </summary>
     [EnumMember(Value = "PROJ")]
     [IsoId("_uQn4-fRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a project.")]
-    PROJ,
+    Project,
     
     /// <summary>
     /// Underlying transaction is a purchase order.
+    /// Encoded/decoded by serializers as "PUOR".
     /// </summary>
     [EnumMember(Value = "PUOR")]
     [IsoId("_uQxp8PRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a purchase order.")]
-    PUOR,
+    PurchaseOrder,
     
     /// <summary>
     /// Underlying transaction is a quotation.
+    /// Encoded/decoded by serializers as "QUOT".
     /// </summary>
     [EnumMember(Value = "QUOT")]
     [IsoId("_uQxp8_RYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a quotation.")]
-    QUOT,
+    Quotation,
     
     /// <summary>
     /// Underlying transaction is a tender.
+    /// Encoded/decoded by serializers as "TEND".
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_uQxp9vRYEeuLhpyIdtJzwg")]
     [Description(@"Underlying transaction is a tender.")]
-    TEND,
+    Tender,
     
 }
 

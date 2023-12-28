@@ -20,35 +20,39 @@ public enum OnLineCapabilityCode
 {
     /// <summary>
     /// Off-line only capable.
+    /// Encoded/decoded by serializers as "OFLN".
     /// </summary>
     [EnumMember(Value = "OFLN")]
     [IsoId("_TU5kHQEcEeCQm6a_G2yO_w_-1739377471")]
     [Description(@"Off-line only capable.")]
-    OFLN,
+    OffLine,
     
     /// <summary>
     /// On-line only capable.
+    /// Encoded/decoded by serializers as "ONLN".
     /// </summary>
     [EnumMember(Value = "ONLN")]
     [IsoId("_TU5kHgEcEeCQm6a_G2yO_w_-1554375829")]
     [Description(@"On-line only capable.")]
-    ONLN,
+    OnLine,
     
     /// <summary>
     /// Off-line capable with possible on-line requests to the acquirer.
+    /// Encoded/decoded by serializers as "SMON".
     /// </summary>
     [EnumMember(Value = "SMON")]
     [IsoId("_TU5kHwEcEeCQm6a_G2yO_w_-337286150")]
     [Description(@"Off-line capable with possible on-line requests to the acquirer.")]
-    SMON,
+    SemiOffLine,
     
     /// <summary>
     /// Both online and offline
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_83t5MXyJEemHsOqJOzMVfg")]
     [Description(@"Both online and offline")]
-    BOTH,
+    BothOnLineAndOffLine,
     
 }
 

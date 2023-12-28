@@ -20,35 +20,39 @@ public enum PresentationMediumCode
 {
     /// <summary>
     /// Presentation is made on paper.
+    /// Encoded/decoded by serializers as "PAPR".
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_FoZMkHyfEeGWJuGCfvwOsQ")]
     [Description(@"Presentation is made on paper.")]
-    PAPR,
+    Paper,
     
     /// <summary>
     /// Presentation is made electronically.
+    /// Encoded/decoded by serializers as "ELEC".
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_M637sHyfEeGWJuGCfvwOsQ")]
     [Description(@"Presentation is made electronically.")]
-    ELEC,
+    Electronic,
     
     /// <summary>
     /// Presentation is made on paper and/or electronically.
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_TXGYQHyfEeGWJuGCfvwOsQ")]
     [Description(@"Presentation is made on paper and/or electronically.")]
-    BOTH,
+    PaperElectronic,
     
     /// <summary>
     /// Biometric medium.
+    /// Encoded/decoded by serializers as "BIOM".
     /// </summary>
     [EnumMember(Value = "BIOM")]
     [IsoId("_NnSYYXyLEemHsOqJOzMVfg")]
     [Description(@"Biometric medium.")]
-    BIOM,
+    Biometric,
     
 }
 

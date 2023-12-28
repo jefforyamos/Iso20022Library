@@ -20,43 +20,48 @@ public enum ProductCategoryCode
 {
     /// <summary>
     /// Classification of goods as developed by the Customs Cooperation council.
+    /// Encoded/decoded by serializers as "HRTR".
     /// </summary>
     [EnumMember(Value = "HRTR")]
     [IsoId("_ZVRrUdp-Ed-ak6NoX_4Aeg_-1389799071")]
     [Description(@"Classification of goods as developed by the Customs Cooperation council.")]
-    HRTR,
+    HarmonizedTariffCodeName,
     
     /// <summary>
     /// Product identifier used by the retail industry.
+    /// Encoded/decoded by serializers as "QOTA".
     /// </summary>
     [EnumMember(Value = "QOTA")]
     [IsoId("_ZVRrUtp-Ed-ak6NoX_4Aeg_-1360248489")]
     [Description(@"Product identifier used by the retail industry.")]
-    QOTA,
+    QuotaCategory,
     
     /// <summary>
     /// Product Group Code.
+    /// Encoded/decoded by serializers as "PRGP".
     /// </summary>
     [EnumMember(Value = "PRGP")]
     [IsoId("_ZVRrU9p-Ed-ak6NoX_4Aeg_-1330694641")]
     [Description(@"Product Group Code.")]
-    PRGP,
+    ProductGroup,
     
     /// <summary>
     /// Line of business code.
+    /// Encoded/decoded by serializers as "LOBU".
     /// </summary>
     [EnumMember(Value = "LOBU")]
     [IsoId("_ZVRrVNp-Ed-ak6NoX_4Aeg_-1231879023")]
     [Description(@"Line of business code.")]
-    LOBU,
+    LineOfBusiness,
     
     /// <summary>
     /// Code for gender.
+    /// Encoded/decoded by serializers as "GNDR".
     /// </summary>
     [EnumMember(Value = "GNDR")]
     [IsoId("_ZVRrVdp-Ed-ak6NoX_4Aeg_-942816025")]
     [Description(@"Code for gender.")]
-    GNDR,
+    Gender,
     
 }
 

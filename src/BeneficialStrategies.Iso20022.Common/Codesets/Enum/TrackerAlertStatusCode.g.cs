@@ -20,35 +20,39 @@ public enum TrackerAlertStatusCode
 {
     /// <summary>
     /// Tracker notification is a warning.
+    /// Encoded/decoded by serializers as "WARN".
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_T3e7ofrxEemIKt9hrQ9pJw")]
     [Description(@"Tracker notification is a warning.")]
-    WARN,
+    Warning,
     
     /// <summary>
     /// Tracker notification is related to an invalid update.
+    /// Encoded/decoded by serializers as "INVA".
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_hnu_cfrxEemIKt9hrQ9pJw")]
     [Description(@"Tracker notification is related to an invalid update.")]
-    INVA,
+    Invalid,
     
     /// <summary>
     /// Tracker notification is related to a rejected cancellation request.
+    /// Encoded/decoded by serializers as "RJCR".
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_ss0dgfrxEemIKt9hrQ9pJw")]
     [Description(@"Tracker notification is related to a rejected cancellation request.")]
-    RJCR,
+    RejectedCancellationRequest,
     
     /// <summary>
     /// Tracker notification is related to a rejected investigation.
+    /// Encoded/decoded by serializers as "RJIN".
     /// </summary>
     [EnumMember(Value = "RJIN")]
     [IsoId("_-XERsPrxEemIKt9hrQ9pJw")]
     [Description(@"Tracker notification is related to a rejected investigation.")]
-    RJIN,
+    RejectedInvestigation,
     
 }
 

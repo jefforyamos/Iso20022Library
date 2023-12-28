@@ -20,35 +20,39 @@ public enum KeyTypeCode
 {
     /// <summary>
     /// PIN translation key applicable to the issuer
+    /// Encoded/decoded by serializers as "PTKI".
     /// </summary>
     [EnumMember(Value = "PTKI")]
     [IsoId("_uPcTDf8bEeic54G0fOJNMg")]
     [Description(@"PIN translation key applicable to the issuer")]
-    PTKI,
+    PINTranslationKeyIssuer,
     
     /// <summary>
     /// PIN translation key applicable to the acquirer
+    /// Encoded/decoded by serializers as "PTKA".
     /// </summary>
     [EnumMember(Value = "PTKA")]
     [IsoId("_uPcTCv8bEeic54G0fOJNMg")]
     [Description(@"PIN translation key applicable to the acquirer")]
-    PTKA,
+    PINTranslationKeyAcquirer,
     
     /// <summary>
     /// Other national
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_uPcTCf8bEeic54G0fOJNMg")]
     [Description(@"Other national")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other private
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_uPcTDP8bEeic54G0fOJNMg")]
     [Description(@"Other private")]
-    OTHP,
+    OtherPrivate,
     
 }
 

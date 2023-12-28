@@ -20,107 +20,120 @@ public enum SettlementDeniedReasonCode
 {
     /// <summary>
     /// Received after the account servicer's deadline.
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_SKYhE1hcEeS8HfHHd4stCA")]
     [Description(@"Received after the account servicer's deadline.")]
-    ADEA,
+    AccountServicerDeadlineMissed,
     
     /// <summary>
     /// Repo call request was denied since another call already applies.
+    /// Encoded/decoded by serializers as "DCAL".
     /// </summary>
     [EnumMember(Value = "DCAL")]
     [IsoId("_SKYhFlhcEeS8HfHHd4stCA")]
     [Description(@"Repo call request was denied since another call already applies.")]
-    DCAL,
+    CallDeniedSinceAlreadyApplied,
     
     /// <summary>
     /// Request was denied since the instruction has been cancelled.
+    /// Encoded/decoded by serializers as "DCAN".
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_SKYhGFhcEeS8HfHHd4stCA")]
     [Description(@"Request was denied since the instruction has been cancelled.")]
-    DCAN,
+    DeniedSinceCancelled,
     
     /// <summary>
     /// Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.
+    /// Encoded/decoded by serializers as "DFOR".
     /// </summary>
     [EnumMember(Value = "DFOR")]
     [IsoId("_SKYhD1hcEeS8HfHHd4stCA")]
     [Description(@"Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.")]
-    DFOR,
+    DeniedSinceNotAllowed,
     
     /// <summary>
     /// Request was denied because the process of settlement is in progress.
+    /// Encoded/decoded by serializers as "DPRG".
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_SKYhFVhcEeS8HfHHd4stCA")]
     [Description(@"Request was denied because the process of settlement is in progress.")]
-    DPRG,
+    DeniedSinceInProgress,
     
     /// <summary>
     /// Request was denied because the repo was cancelled.
+    /// Encoded/decoded by serializers as "DREP".
     /// </summary>
     [EnumMember(Value = "DREP")]
     [IsoId("_SKYhGVhcEeS8HfHHd4stCA")]
     [Description(@"Request was denied because the repo was cancelled.")]
-    DREP,
+    DeniedSinceRepoEnded,
     
     /// <summary>
     /// Request was denied because the instruction was settled.
+    /// Encoded/decoded by serializers as "DSET".
     /// </summary>
     [EnumMember(Value = "DSET")]
     [IsoId("_SKYhF1hcEeS8HfHHd4stCA")]
     [Description(@"Request was denied because the instruction was settled.")]
-    DSET,
+    DeniedSinceSettled,
     
     /// <summary>
     /// Instruction has been processed and cannot be cancelled.
+    /// Encoded/decoded by serializers as "IPNC".
     /// </summary>
     [EnumMember(Value = "IPNC")]
     [IsoId("_SKYhG1hcEeS8HfHHd4stCA")]
     [Description(@"Instruction has been processed and cannot be cancelled.")]
-    IPNC,
+    InstructionProcessed,
     
     /// <summary>
     /// Received after market deadline.
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_SKYhEVhcEeS8HfHHd4stCA")]
     [Description(@"Received after market deadline.")]
-    LATE,
+    MarketDeadlineMissed,
     
     /// <summary>
     /// Other. See Narrative.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_SKYhElhcEeS8HfHHd4stCA")]
     [Description(@"Other. See Narrative.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Execution is denied due to a process linked to the currency of the transaction.
+    /// Encoded/decoded by serializers as "CDCY".
     /// </summary>
     [EnumMember(Value = "CDCY")]
     [IsoId("_SKYhFFhcEeS8HfHHd4stCA")]
     [Description(@"Execution is denied due to a process linked to the currency of the transaction.")]
-    CDCY,
+    ConditionalCurrency,
     
     /// <summary>
     /// Execution is denied due to the execution of a process of realignment at the issuer CSD.
+    /// Encoded/decoded by serializers as "CDRE".
     /// </summary>
     [EnumMember(Value = "CDRE")]
     [IsoId("_SKYhEFhcEeS8HfHHd4stCA")]
     [Description(@"Execution is denied due to the execution of a process of realignment at the issuer CSD.")]
-    CDRE,
+    ConditionalRealignement,
     
     /// <summary>
     /// Execution is denied due to the execution of a process at the registrar.
+    /// Encoded/decoded by serializers as "CDRG".
     /// </summary>
     [EnumMember(Value = "CDRG")]
     [IsoId("_SKYhGlhcEeS8HfHHd4stCA")]
     [Description(@"Execution is denied due to the execution of a process at the registrar.")]
-    CDRG,
+    ConditionalRegistrar,
     
 }
 

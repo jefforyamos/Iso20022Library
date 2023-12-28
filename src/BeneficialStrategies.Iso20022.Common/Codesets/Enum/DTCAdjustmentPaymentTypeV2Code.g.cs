@@ -20,299 +20,336 @@ public enum DTCAdjustmentPaymentTypeV2Code
 {
     /// <summary>
     /// Adjusted for rights subscription related adjustment.
+    /// Encoded/decoded by serializers as "RRRA".
     /// </summary>
     [EnumMember(Value = "RRRA")]
     [IsoId("_kPhxGnxsEeOCOoRiuJeDeg")]
     [Description(@"Adjusted for rights subscription related adjustment.")]
-    RRRA,
+    AdjustedForRightsSubscription,
     
     /// <summary>
     /// American Depository R issue fee charge adjustment.
+    /// Encoded/decoded by serializers as "RADC".
     /// </summary>
     [EnumMember(Value = "RADC")]
     [IsoId("_kPhxG3xsEeOCOoRiuJeDeg")]
     [Description(@"American Depository R issue fee charge adjustment.")]
-    RADC,
+    ADRIssueFeeCharge,
     
     /// <summary>
     /// ADR issue fee reversal adjustment.
+    /// Encoded/decoded by serializers as "RADR".
     /// </summary>
     [EnumMember(Value = "RADR")]
     [IsoId("_kPhxHHxsEeOCOoRiuJeDeg")]
     [Description(@"ADR issue fee reversal adjustment.")]
-    RADR,
+    ADRIssueFeeReversal,
     
     /// <summary>
     /// Cash in lieu related adjustment.
+    /// Encoded/decoded by serializers as "RCIL".
     /// </summary>
     [EnumMember(Value = "RCIL")]
     [IsoId("_kPhxHXxsEeOCOoRiuJeDeg")]
     [Description(@"Cash in lieu related adjustment.")]
-    RCIL,
+    CashInLieu,
     
     /// <summary>
     /// Claim settlement related adjustment.
+    /// Encoded/decoded by serializers as "RRCL".
     /// </summary>
     [EnumMember(Value = "RRCL")]
     [IsoId("_kPhxHnxsEeOCOoRiuJeDeg")]
     [Description(@"Claim settlement related adjustment.")]
-    RRCL,
+    ClaimSettlement,
     
     /// <summary>
     /// Dividend payment on a DTC custody held security related adjustment.
+    /// Encoded/decoded by serializers as "RCDP".
     /// </summary>
     [EnumMember(Value = "RCDP")]
     [IsoId("_kPhxH3xsEeOCOoRiuJeDeg")]
     [Description(@"Dividend payment on a DTC custody held security related adjustment.")]
-    RCDP,
+    CustodyDividendPayment,
     
     /// <summary>
     /// Custody reorganization deposit related adjustment.
+    /// Encoded/decoded by serializers as "RRCD".
     /// </summary>
     [EnumMember(Value = "RRCD")]
     [IsoId("_kPhxIHxsEeOCOoRiuJeDeg")]
     [Description(@"Custody reorganization deposit related adjustment.")]
-    RRCD,
+    CustodyReorganizationDeposit,
     
     /// <summary>
     /// Dynamic rate change related adjustment.
+    /// Encoded/decoded by serializers as "RRDR".
     /// </summary>
     [EnumMember(Value = "RRDR")]
     [IsoId("_kPhxIXxsEeOCOoRiuJeDeg")]
     [Description(@"Dynamic rate change related adjustment.")]
-    RRDR,
+    DynamicRateChange,
     
     /// <summary>
     /// FAIL (undelivered securities) transaction.
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_kPhxInxsEeOCOoRiuJeDeg")]
     [Description(@"FAIL (undelivered securities) transaction.")]
-    FAIL,
+    FailSettlement,
     
     /// <summary>
     /// Fail tracking tax withholding related adjustment.
+    /// Encoded/decoded by serializers as "TJXF".
     /// </summary>
     [EnumMember(Value = "TJXF")]
     [IsoId("_kPhxI3xsEeOCOoRiuJeDeg")]
     [Description(@"Fail tracking tax withholding related adjustment.")]
-    TJXF,
+    FailTrackingTaxWithholding,
     
     /// <summary>
     /// Intra-day reversal of original tax withholding related adjustment.
+    /// Encoded/decoded by serializers as "TJXV".
     /// </summary>
     [EnumMember(Value = "TJXV")]
     [IsoId("_kPhxJHxsEeOCOoRiuJeDeg")]
     [Description(@"Intra-day reversal of original tax withholding related adjustment.")]
-    TJXV,
+    IntraDayReversalOfOriginalTaxWithholding,
     
     /// <summary>
     /// Last day protect related adjustment.
+    /// Encoded/decoded by serializers as "RRRL".
     /// </summary>
     [EnumMember(Value = "RRRL")]
     [IsoId("_kPhxJXxsEeOCOoRiuJeDeg")]
     [Description(@"Last day protect related adjustment.")]
-    RRRL,
+    LastDayProtect,
     
     /// <summary>
     /// Legal reorganization deposit related adjustment.
+    /// Encoded/decoded by serializers as "RRML".
     /// </summary>
     [EnumMember(Value = "RRML")]
     [IsoId("_kPhxJnxsEeOCOoRiuJeDeg")]
     [Description(@"Legal reorganization deposit related adjustment.")]
-    RRML,
+    LegalReorganizationDeposits,
     
     /// <summary>
     /// Mandatory legal reorganization deposit related adjustment.
+    /// Encoded/decoded by serializers as "RRLR".
     /// </summary>
     [EnumMember(Value = "RRLR")]
     [IsoId("_kPhxJ3xsEeOCOoRiuJeDeg")]
     [Description(@"Mandatory legal reorganization deposit related adjustment.")]
-    RRLR,
+    MandatoryLegalReorgDeposit,
     
     /// <summary>
     /// Mandatory over three year reorganization deposit related adjustment.
+    /// Encoded/decoded by serializers as "RRR3".
     /// </summary>
     [EnumMember(Value = "RRR3")]
     [IsoId("_kPhxKHxsEeOCOoRiuJeDeg")]
     [Description(@"Mandatory over three year reorganization deposit related adjustment.")]
-    RRR3,
+    MandatoryOverThreeYearReorganizationDeposit,
     
     /// <summary>
     /// Mandatory reorganization deposit related adjustment.
+    /// Encoded/decoded by serializers as "RRMD".
     /// </summary>
     [EnumMember(Value = "RRMD")]
     [IsoId("_kPhxKXxsEeOCOoRiuJeDeg")]
     [Description(@"Mandatory reorganization deposit related adjustment.")]
-    RRMD,
+    MandatoryReorganizationDeposit,
     
     /// <summary>
     /// Manual user tax adjustment.
+    /// Encoded/decoded by serializers as "TJXU".
     /// </summary>
     [EnumMember(Value = "TJXU")]
     [IsoId("_kPhxKnxsEeOCOoRiuJeDeg")]
     [Description(@"Manual user tax adjustment.")]
-    TJXU,
+    ManualUserTax,
     
     /// <summary>
     /// Miscellaneous (adjustment) transaction.
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_kPhxK3xsEeOCOoRiuJeDeg")]
     [Description(@"Miscellaneous (adjustment) transaction.")]
-    MISC,
+    MiscellaneousSettlement,
     
     /// <summary>
     /// Original (initial) tax withholding related adjustment.
+    /// Encoded/decoded by serializers as "TJXO".
     /// </summary>
     [EnumMember(Value = "TJXO")]
     [IsoId("_kPhxLHxsEeOCOoRiuJeDeg")]
     [Description(@"Original (initial) tax withholding related adjustment.")]
-    TJXO,
+    OriginalInitialTaxWithholding,
     
     /// <summary>
     /// Original late tax withholding related adjustment.
+    /// Encoded/decoded by serializers as "TJXL".
     /// </summary>
     [EnumMember(Value = "TJXL")]
     [IsoId("_kPhxLXxsEeOCOoRiuJeDeg")]
     [Description(@"Original late tax withholding related adjustment.")]
-    TJXL,
+    OriginalLateTaxWithholding,
     
     /// <summary>
     /// Reserved for new user defined reason codes.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_kPhxLnxsEeOCOoRiuJeDeg")]
     [Description(@"Reserved for new user defined reason codes.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Rate change tax withholding related adjustment.
+    /// Encoded/decoded by serializers as "TJXT".
     /// </summary>
     [EnumMember(Value = "TJXT")]
     [IsoId("_kPhxL3xsEeOCOoRiuJeDeg")]
     [Description(@"Rate change tax withholding related adjustment.")]
-    TJXT,
+    RateChangeTaxWithholding,
     
     /// <summary>
     /// Reclassification tax withholding related adjustment.
+    /// Encoded/decoded by serializers as "TJXD".
     /// </summary>
     [EnumMember(Value = "TJXD")]
     [IsoId("_kPhxMHxsEeOCOoRiuJeDeg")]
     [Description(@"Reclassification tax withholding related adjustment.")]
-    TJXD,
+    ReclassificationTaxWithholding,
     
     /// <summary>
     /// Participant deposited a security within 10 days after a corporate action event has occurred.
+    /// Encoded/decoded by serializers as "RRD1".
     /// </summary>
     [EnumMember(Value = "RRD1")]
     [IsoId("_kPhxMXxsEeOCOoRiuJeDeg")]
     [Description(@"Participant deposited a security within 10 days after a corporate action event has occurred.")]
-    RRD1,
+    ReorganisationDepositPhaseOne,
     
     /// <summary>
     /// Participant deposited a security 10 days after a corporate action event has occurred.
+    /// Encoded/decoded by serializers as "RRD2".
     /// </summary>
     [EnumMember(Value = "RRD2")]
     [IsoId("_kPhxMnxsEeOCOoRiuJeDeg")]
     [Description(@"Participant deposited a security 10 days after a corporate action event has occurred.")]
-    RRD2,
+    ReorgDepositPhaseTwo,
     
     /// <summary>
     /// REPO (repurchase agreement) transaction.
+    /// Encoded/decoded by serializers as "REPO".
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_kPhxM3xsEeOCOoRiuJeDeg")]
     [Description(@"REPO (repurchase agreement) transaction.")]
-    REPO,
+    RepoSettlement,
     
     /// <summary>
     /// Reversal related adjustment.
+    /// Encoded/decoded by serializers as "REVA".
     /// </summary>
     [EnumMember(Value = "REVA")]
     [IsoId("_kPhxNHxsEeOCOoRiuJeDeg")]
     [Description(@"Reversal related adjustment.")]
-    REVA,
+    Reversal,
     
     /// <summary>
     /// Reversal of tax withholding related adjustment.
+    /// Encoded/decoded by serializers as "TJXR".
     /// </summary>
     [EnumMember(Value = "TJXR")]
     [IsoId("_kPhxNXxsEeOCOoRiuJeDeg")]
     [Description(@"Reversal of tax withholding related adjustment.")]
-    TJXR,
+    ReversalOfTaxWithholding,
     
     /// <summary>
     /// Rights protect related adjustment.
+    /// Encoded/decoded by serializers as "RRRI".
     /// </summary>
     [EnumMember(Value = "RRRI")]
     [IsoId("_kPhxNnxsEeOCOoRiuJeDeg")]
     [Description(@"Rights protect related adjustment.")]
-    RRRI,
+    RightsProtect,
     
     /// <summary>
     /// Rights sales related adjustment.
+    /// Encoded/decoded by serializers as "RRRS".
     /// </summary>
     [EnumMember(Value = "RRRS")]
     [IsoId("_kPhxN3xsEeOCOoRiuJeDeg")]
     [Description(@"Rights sales related adjustment.")]
-    RRRS,
+    RightsSales,
     
     /// <summary>
     /// Rights step up related adjustment.
+    /// Encoded/decoded by serializers as "RRRU".
     /// </summary>
     [EnumMember(Value = "RRRU")]
     [IsoId("_kPhxOHxsEeOCOoRiuJeDeg")]
     [Description(@"Rights step up related adjustment.")]
-    RRRU,
+    RightsStepUp,
     
     /// <summary>
     /// Rights subscription related adjustment.
+    /// Encoded/decoded by serializers as "RRRE".
     /// </summary>
     [EnumMember(Value = "RRRE")]
     [IsoId("_kPhxOXxsEeOCOoRiuJeDeg")]
     [Description(@"Rights subscription related adjustment.")]
-    RRRE,
+    RightsSubscription,
     
     /// <summary>
     /// Stock loan transaction.
+    /// Encoded/decoded by serializers as "STOK".
     /// </summary>
     [EnumMember(Value = "STOK")]
     [IsoId("_kPhxOnxsEeOCOoRiuJeDeg")]
     [Description(@"Stock loan transaction.")]
-    STOK,
+    StockLoanSettlement,
     
     /// <summary>
     /// Tax instruction change related adjustment.
+    /// Encoded/decoded by serializers as "TJXI".
     /// </summary>
     [EnumMember(Value = "TJXI")]
     [IsoId("_kPhxO3xsEeOCOoRiuJeDeg")]
     [Description(@"Tax instruction change related adjustment.")]
-    TJXI,
+    TaxInstructionChange,
     
     /// <summary>
     /// Tender offer fraction related adjustment.
+    /// Encoded/decoded by serializers as "RRT2".
     /// </summary>
     [EnumMember(Value = "RRT2")]
     [IsoId("_kPhxPHxsEeOCOoRiuJeDeg")]
     [Description(@"Tender offer fraction related adjustment.")]
-    RRT2,
+    TenderOfferFraction,
     
     /// <summary>
     /// Warrant Participant delete related adjustment.
+    /// Encoded/decoded by serializers as "RRWT".
     /// </summary>
     [EnumMember(Value = "RRWT")]
     [IsoId("_kPhxPXxsEeOCOoRiuJeDeg")]
     [Description(@"Warrant Participant delete related adjustment.")]
-    RRWT,
+    WarrantParticipantDelete,
     
     /// <summary>
     /// Warrant rate change related adjustment.
+    /// Encoded/decoded by serializers as "RRWC".
     /// </summary>
     [EnumMember(Value = "RRWC")]
     [IsoId("_kPhxPnxsEeOCOoRiuJeDeg")]
     [Description(@"Warrant rate change related adjustment.")]
-    RRWC,
+    WarrantRateChange,
     
 }
 

@@ -20,27 +20,30 @@ public enum DrawdownTypeCode
 {
     /// <summary>
     /// Drawdown type is flexi-access.
+    /// Encoded/decoded by serializers as "FLEX".
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_kBqAgFNdEeijdq8ilaxyOA")]
     [Description(@"Drawdown type is flexi-access.")]
-    FLEX,
+    FlexibleAccessDrawdown,
     
     /// <summary>
     /// Drawdown type is capped.
+    /// Encoded/decoded by serializers as "CAPP".
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_oKCLIFNdEeijdq8ilaxyOA")]
     [Description(@"Drawdown type is capped.")]
-    CAPP,
+    CappedIncomeDrawdown,
     
     /// <summary>
     /// Drawdown type is both flexi-access and capped.
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_VwLq4JNwEembCsVG-3f_AA")]
     [Description(@"Drawdown type is both flexi-access and capped.")]
-    BOTH,
+    Both,
     
 }
 

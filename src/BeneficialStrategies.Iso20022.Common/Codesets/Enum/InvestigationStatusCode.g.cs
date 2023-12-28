@@ -20,27 +20,30 @@ public enum InvestigationStatusCode
 {
     /// <summary>
     /// Search for requested data is complete, the data has been found and will be sent using a separate message flow.
+    /// Encoded/decoded by serializers as "FOUN".
     /// </summary>
     [EnumMember(Value = "FOUN")]
     [IsoId("_Ksjbpz_mEeGQnbmlZjr_fQ")]
     [Description(@"Search for requested data is complete, the data has been found and will be sent using a separate message flow.")]
-    FOUN,
+    DataFound,
     
     /// <summary>
     /// Search for requested data is complete, data not found.
+    /// Encoded/decoded by serializers as "NFOU".
     /// </summary>
     [EnumMember(Value = "NFOU")]
     [IsoId("_YnWilz_mEeGQnbmlZjr_fQ")]
     [Description(@"Search for requested data is complete, data not found.")]
-    NFOU,
+    DataNotFound,
     
     /// <summary>
     /// Search for requested data not complete yet.
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_szJtjT_mEeGQnbmlZjr_fQ")]
     [Description(@"Search for requested data not complete yet.")]
-    NOAP,
+    NotApplicable,
     
 }
 

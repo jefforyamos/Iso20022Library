@@ -20,19 +20,21 @@ public enum VoteTypeCode
 {
     /// <summary>
     /// Results of a vote on a proposal is binding.
+    /// Encoded/decoded by serializers as "BNDG".
     /// </summary>
     [EnumMember(Value = "BNDG")]
     [IsoId("_aq1OUK37EemG7MmivSuE5g")]
     [Description(@"Results of a vote on a proposal is binding.")]
-    BNDG,
+    Binding,
     
     /// <summary>
     /// Results of a vote on a proposal is for advice only.
+    /// Encoded/decoded by serializers as "ADVI".
     /// </summary>
     [EnumMember(Value = "ADVI")]
     [IsoId("_qJ910K37EemG7MmivSuE5g")]
     [Description(@"Results of a vote on a proposal is for advice only.")]
-    ADVI,
+    Advisory,
     
 }
 

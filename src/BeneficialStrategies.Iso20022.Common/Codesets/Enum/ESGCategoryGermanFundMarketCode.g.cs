@@ -20,39 +20,43 @@ public enum ESGCategoryGermanFundMarketCode
 {
     /// <summary>
     /// Neutral or has no impact.
+    /// Encoded/decoded by serializers as "NEUT".
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_mxEYsM2sEeuAE-cYsQdwHQ")]
     [Description(@"Neutral or has no impact.")]
-    NEUT,
+    Neutral,
     
     /// <summary>
     /// Product having environmental, social and corporate governance (ESG) characteristics, opportunities or risks according to the "ESG integration enhanced" criteria.
     /// Product integration approach is disclosed and the product manager follows a recognised industry standard (UN PRI).
+    /// Encoded/decoded by serializers as "BASF".
     /// </summary>
     [EnumMember(Value = "BASF")]
     [IsoId("_q7RvUM2sEeuAE-cYsQdwHQ")]
     [Description(@"Product having environmental, social and corporate governance (ESG) characteristics, opportunities or risks according to the ""ESG integration enhanced"" criteria. Product integration approach is disclosed and the product manager follows a recognised industry standard (UN PRI).")]
-    BASF,
+    BasicCategory,
     
     /// <summary>
     /// Product with a dedicated environmental, social and corporate governance (ESG) strategy (pursuant to Article 8 Disclosure Regulation).
+    /// Encoded/decoded by serializers as "ESGF".
     /// </summary>
     [EnumMember(Value = "ESGF")]
     [IsoId("_vk3woM2sEeuAE-cYsQdwHQ")]
     [Description(@"Product with a dedicated environmental, social and corporate governance (ESG) strategy (pursuant to Article 8 Disclosure Regulation).")]
-    ESGF,
+    ESGStrategy,
     
     /// <summary>
     /// Product with impact-related investment (pursuant to Article 9 Disclosure Regulation):
     /// - No serious breach of the United Nations Global Compact (UNGC);
     /// - Relevant for both individual products and those in a portfolio/basket (shares/bonds);
     /// - Product manager follows a recognised industry standard (UN PRI).
+    /// Encoded/decoded by serializers as "IMPF".
     /// </summary>
     [EnumMember(Value = "IMPF")]
     [IsoId("_0MKr4M2sEeuAE-cYsQdwHQ")]
     [Description(@"Product with impact-related investment (pursuant to Article 9 Disclosure Regulation): - No serious breach of the United Nations Global Compact (UNGC); - Relevant for both individual products and those in a portfolio/basket (shares/bonds); - Product manager follows a recognised industry standard (UN PRI).")]
-    IMPF,
+    Impact,
     
 }
 

@@ -21,43 +21,48 @@ public enum ExternalUndertakingDocumentTypeCode
 {
     /// <summary>
     /// Document is a beneficiary statement.
+    /// Encoded/decoded by serializers as "BENS".
     /// </summary>
     [EnumMember(Value = "BENS")]
     [IsoId("_uRYG4PRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a beneficiary statement.")]
-    BENS,
+    BeneficiaryStatement,
     
     /// <summary>
     /// Document is an invoice.
+    /// Encoded/decoded by serializers as "CINV".
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_uRYG4_RYEeuLhpyIdtJzwg")]
     [Description(@"Document is an invoice.")]
-    CINV,
+    CommercialInvoice,
     
     /// <summary>
     /// Document is a claim form.
+    /// Encoded/decoded by serializers as "CLAF".
     /// </summary>
     [EnumMember(Value = "CLAF")]
     [IsoId("_uRYG5vRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a claim form.")]
-    CLAF,
+    ClaimForm,
     
     /// <summary>
     /// Document is an undertaking demand.
+    /// Encoded/decoded by serializers as "DEMD".
     /// </summary>
     [EnumMember(Value = "DEMD")]
     [IsoId("_uRYG6fRYEeuLhpyIdtJzwg")]
     [Description(@"Document is an undertaking demand.")]
-    DEMD,
+    Demand,
     
     /// <summary>
     /// Document is a transfer form.
+    /// Encoded/decoded by serializers as "TRAF".
     /// </summary>
     [EnumMember(Value = "TRAF")]
     [IsoId("_uRYG7PRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a transfer form.")]
-    TRAF,
+    TransferForm,
     
 }
 

@@ -20,35 +20,39 @@ public enum ModificationCode
 {
     /// <summary>
     /// Specifies that the item is added.
+    /// Encoded/decoded by serializers as "ADDD".
     /// </summary>
     [EnumMember(Value = "ADDD")]
     [IsoId("_m-gDEA4SEeKGXqvMN6jpiw")]
     [Description(@"Specifies that the item is added.")]
-    ADDD,
+    Addition,
     
     /// <summary>
     /// Specifies that the item is deleted.
+    /// Encoded/decoded by serializers as "DELE".
     /// </summary>
     [EnumMember(Value = "DELE")]
     [IsoId("_sspRoA4SEeKGXqvMN6jpiw")]
     [Description(@"Specifies that the item is deleted.")]
-    DELE,
+    Deletion,
     
     /// <summary>
     /// Specifies that the item is modified.
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_xaHGUA4SEeKGXqvMN6jpiw")]
     [Description(@"Specifies that the item is modified.")]
-    MODI,
+    Modification,
     
     /// <summary>
     /// Specifies that the item is not changed.
+    /// Encoded/decoded by serializers as "NOCH".
     /// </summary>
     [EnumMember(Value = "NOCH")]
     [IsoId("_0_AwcA4SEeKGXqvMN6jpiw")]
     [Description(@"Specifies that the item is not changed.")]
-    NOCH,
+    NoChange,
     
 }
 

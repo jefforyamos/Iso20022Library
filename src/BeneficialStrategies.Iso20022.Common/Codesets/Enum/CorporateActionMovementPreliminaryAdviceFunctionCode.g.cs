@@ -20,19 +20,21 @@ public enum CorporateActionMovementPreliminaryAdviceFunctionCode
 {
     /// <summary>
     /// Message is an entitlement.
+    /// Encoded/decoded by serializers as "ENTL".
     /// </summary>
     [EnumMember(Value = "ENTL")]
     [IsoId("_u2ONQDQTEe2o-K1dwNg8Gg")]
     [Description(@"Message is an entitlement.")]
-    ENTL,
+    Entitlement,
     
     /// <summary>
     /// Message is a preadvice of movement.
+    /// Encoded/decoded by serializers as "CAPA".
     /// </summary>
     [EnumMember(Value = "CAPA")]
     [IsoId("_2oqO0DQTEe2o-K1dwNg8Gg")]
     [Description(@"Message is a preadvice of movement.")]
-    CAPA,
+    PreadviceOfMovement,
     
 }
 

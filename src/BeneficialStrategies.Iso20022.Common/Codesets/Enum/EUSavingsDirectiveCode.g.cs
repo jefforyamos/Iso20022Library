@@ -20,35 +20,39 @@ public enum EUSavingsDirectiveCode
 {
     /// <summary>
     /// Investment Fund is in the scope of the directive.
+    /// Encoded/decoded by serializers as "EUSI".
     /// </summary>
     [EnumMember(Value = "EUSI")]
     [IsoId("_ai58Etp-Ed-ak6NoX_4Aeg_-1192571141")]
     [Description(@"Investment Fund is in the scope of the directive.")]
-    EUSI,
+    EUSavingsInScope,
     
     /// <summary>
     /// Investment Fund is out of the scope of the directive.
+    /// Encoded/decoded by serializers as "EUSO".
     /// </summary>
     [EnumMember(Value = "EUSO")]
     [IsoId("_ai58E9p-Ed-ak6NoX_4Aeg_-1192571140")]
     [Description(@"Investment Fund is out of the scope of the directive.")]
-    EUSO,
+    EUSavingsOutScope,
     
     /// <summary>
     /// Unknown whether capital gain is in or out of the scope fo the directive.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ai58FNp-Ed-ak6NoX_4Aeg_-1192571119")]
     [Description(@"Unknown whether capital gain is in or out of the scope fo the directive.")]
-    UKWN,
+    EUSavingsUnknown,
     
     /// <summary>
     /// Investment Fund may vary for inclusion in the scope of the directive.
+    /// Encoded/decoded by serializers as "VARI".
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_ai58Fdp-Ed-ak6NoX_4Aeg_339285326")]
     [Description(@"Investment Fund may vary for inclusion in the scope of the directive.")]
-    VARI,
+    EUSavingsVariable,
     
 }
 

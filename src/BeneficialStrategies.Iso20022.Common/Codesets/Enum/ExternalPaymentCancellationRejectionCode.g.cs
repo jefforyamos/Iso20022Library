@@ -21,203 +21,228 @@ public enum ExternalPaymentCancellationRejectionCode
 {
     /// <summary>
     /// Account number specified has been closed on the receiver’s books.
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_ubqEQPRYEeuLhpyIdtJzwg")]
     [Description(@"Account number specified has been closed on the receiver’s books.")]
-    AC04,
+    ClosedAccountNumber,
     
     /// <summary>
     /// Reported when the cancellation request cannot be processed because customer has not yet provided the debit authority on its account.
+    /// Encoded/decoded by serializers as "ADAC".
     /// </summary>
     [EnumMember(Value = "ADAC")]
     [IsoId("_ubqEQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Reported when the cancellation request cannot be processed because customer has not yet provided the debit authority on its account.")]
-    ADAC,
+    AwaitingDebitAuthorityFromCustomer,
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of an agent refuses to cancel.
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_ubqERvRYEeuLhpyIdtJzwg")]
     [Description(@"Reported when the cancellation cannot be accepted because of an agent refuses to cancel.")]
-    AGNT,
+    AgentDecision,
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
+    /// Encoded/decoded by serializers as "AM04".
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_ubqESfRYEeuLhpyIdtJzwg")]
     [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
-    AM04,
+    InsufficientFunds,
     
     /// <summary>
     /// Cancellation not accepted as the transaction has already been returned.
+    /// Encoded/decoded by serializers as "ARDT".
     /// </summary>
     [EnumMember(Value = "ARDT")]
     [IsoId("_ubqETPRYEeuLhpyIdtJzwg")]
     [Description(@"Cancellation not accepted as the transaction has already been returned.")]
-    ARDT,
+    AlreadyReturned,
     
     /// <summary>
     /// Reported when the cancellation request cannot be processed because no reply has been  received yet from the receiver of the request message.
+    /// Encoded/decoded by serializers as "ARPL".
     /// </summary>
     [EnumMember(Value = "ARPL")]
     [IsoId("_ubzOMPRYEeuLhpyIdtJzwg")]
     [Description(@"Reported when the cancellation request cannot be processed because no reply has been  received yet from the receiver of the request message.")]
-    ARPL,
+    AwaitinReply,
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of a customer decision (Creditor).
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_ubzOM_RYEeuLhpyIdtJzwg")]
     [Description(@"Reported when the cancellation cannot be accepted because of a customer decision (Creditor).")]
-    CUST,
+    CustomerDecision,
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of regulatory rules.
+    /// Encoded/decoded by serializers as "LEGL".
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_ub8_MPRYEeuLhpyIdtJzwg")]
     [Description(@"Reported when the cancellation cannot be accepted because of regulatory rules.")]
-    LEGL,
+    LegalDecision,
     
     /// <summary>
     /// Reason is provided as narrative information in the additional reason information.
+    /// Encoded/decoded by serializers as "NARR".
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_ub8_M_RYEeuLhpyIdtJzwg")]
     [Description(@"Reason is provided as narrative information in the additional reason information.")]
-    NARR,
+    Narrative,
     
     /// <summary>
     /// No response from beneficiary (to the cancellation request).
+    /// Encoded/decoded by serializers as "NOAS".
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_ucGJIPRYEeuLhpyIdtJzwg")]
     [Description(@"No response from beneficiary (to the cancellation request).")]
-    NOAS,
+    NoAnswerFromCustomer,
     
     /// <summary>
     /// Original transaction (subject to cancellation) never received.
+    /// Encoded/decoded by serializers as "NOOR".
     /// </summary>
     [EnumMember(Value = "NOOR")]
     [IsoId("_ucGJI_RYEeuLhpyIdtJzwg")]
     [Description(@"Original transaction (subject to cancellation) never received.")]
-    NOOR,
+    NoOriginalTransactionReceived,
     
     /// <summary>
     /// Reported when the cancellation request cannot be accepted because the payment instruction has been passed to the next agent.
+    /// Encoded/decoded by serializers as "PTNA".
     /// </summary>
     [EnumMember(Value = "PTNA")]
     [IsoId("_ucGJJvRYEeuLhpyIdtJzwg")]
     [Description(@"Reported when the cancellation request cannot be accepted because the payment instruction has been passed to the next agent.")]
-    PTNA,
+    PassedToTheNextAgent,
     
     /// <summary>
     /// Reported when authority is required by the Creditor to return the payment.
+    /// Encoded/decoded by serializers as "RQDA".
     /// </summary>
     [EnumMember(Value = "RQDA")]
     [IsoId("_ucGJKfRYEeuLhpyIdtJzwg")]
     [Description(@"Reported when authority is required by the Creditor to return the payment.")]
-    RQDA,
+    RequestingDebitAuthority,
     
     /// <summary>
     /// Reported when the cancellation request cannot be processed because the sequence referred to in the request is not valid.
+    /// Encoded/decoded by serializers as "WSEQ".
     /// </summary>
     [EnumMember(Value = "WSEQ")]
     [IsoId("_ucP6IPRYEeuLhpyIdtJzwg")]
     [Description(@"Reported when the cancellation request cannot be processed because the sequence referred to in the request is not valid.")]
-    WSEQ,
+    WrongSequence,
     
     /// <summary>
     /// Complementing a Pending or Reject Status. Payment cancellation request cannot be accepted until an indemnity agreement is established.
+    /// Encoded/decoded by serializers as "IDMN".
     /// </summary>
     [EnumMember(Value = "IDMN")]
     [IsoId("_frG9IATXEey95qpfbNuEwg")]
     [Description(@"Complementing a Pending or Reject Status. Payment cancellation request cannot be accepted until an indemnity agreement is established.")]
-    IDMN,
+    CancellationIndemnityRequired,
     
     /// <summary>
     /// Request-to-pay has already been cancelled.
+    /// Encoded/decoded by serializers as "ACLR".
     /// </summary>
     [EnumMember(Value = "ACLR")]
     [IsoId("_j3JKMFD-Eey6cYDbEubNXg")]
     [Description(@"Request-to-pay has already been cancelled.")]
-    ACLR,
+    AlreadyCancelledRTP,
     
     /// <summary>
     /// Request-to-pay Expiry Date and Time has already passed.
+    /// Encoded/decoded by serializers as "AEXR".
     /// </summary>
     [EnumMember(Value = "AEXR")]
     [IsoId("_slfaYFD-Eey6cYDbEubNXg")]
     [Description(@"Request-to-pay Expiry Date and Time has already passed.")]
-    AEXR,
+    AlreadyExpiredRTP,
     
     /// <summary>
     /// Request-to-pay has already been refused by the Debtor.
+    /// Encoded/decoded by serializers as "ARFR".
     /// </summary>
     [EnumMember(Value = "ARFR")]
     [IsoId("_yQMTYFD-Eey6cYDbEubNXg")]
     [Description(@"Request-to-pay has already been refused by the Debtor.")]
-    ARFR,
+    AlreadyRefusedRTP,
     
     /// <summary>
     /// Request-to-pay has already been rejected.
+    /// Encoded/decoded by serializers as "ARJR".
     /// </summary>
     [EnumMember(Value = "ARJR")]
     [IsoId("_5mekcFD-Eey6cYDbEubNXg")]
     [Description(@"Request-to-pay has already been rejected.")]
-    ARJR,
+    AlreadyRejectedRTP,
     
     /// <summary>
     /// Payment related to the request-to-pay has already been transmitted for execution.
+    /// Encoded/decoded by serializers as "PATE".
     /// </summary>
     [EnumMember(Value = "PATE")]
     [IsoId("_ELATIFD_Eey6cYDbEubNXg")]
     [Description(@"Payment related to the request-to-pay has already been transmitted for execution.")]
-    PATE,
+    PaymentAlreadyTransmittedExecution,
     
     /// <summary>
     /// Request for cancellation of the request-to-pay has already been rejected.
+    /// Encoded/decoded by serializers as "RCAR".
     /// </summary>
     [EnumMember(Value = "RCAR")]
     [IsoId("_NCAJAFD_Eey6cYDbEubNXg")]
     [Description(@"Request for cancellation of the request-to-pay has already been rejected.")]
-    RCAR,
+    RfCAlreadyRejected,
     
     /// <summary>
     /// Request for cancellation of the request-to-pay has never been received.
+    /// Encoded/decoded by serializers as "RCNR".
     /// </summary>
     [EnumMember(Value = "RCNR")]
     [IsoId("_ZP4bIFD_Eey6cYDbEubNXg")]
     [Description(@"Request for cancellation of the request-to-pay has never been received.")]
-    RCNR,
+    RfCNeverReceived,
     
     /// <summary>
     /// Request for cancellation of the request-to-pay has already been received and processed.
+    /// Encoded/decoded by serializers as "RCPR".
     /// </summary>
     [EnumMember(Value = "RCPR")]
     [IsoId("_lN0z0FD_Eey6cYDbEubNXg")]
     [Description(@"Request for cancellation of the request-to-pay has already been received and processed.")]
-    RCPR,
+    RfCReceivedAndProcessed,
     
     /// <summary>
     /// Regulatory Reason.
+    /// Encoded/decoded by serializers as "RR04".
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_sBF3YFD_Eey6cYDbEubNXg")]
     [Description(@"Regulatory Reason.")]
-    RR04,
+    RegulatoryReason,
     
     /// <summary>
     /// Request-to-pay is unknown.
+    /// Encoded/decoded by serializers as "URTP".
     /// </summary>
     [EnumMember(Value = "URTP")]
     [IsoId("_0ldFIFD_Eey6cYDbEubNXg")]
     [Description(@"Request-to-pay is unknown.")]
-    URTP,
+    UnknownRTP,
     
 }
 

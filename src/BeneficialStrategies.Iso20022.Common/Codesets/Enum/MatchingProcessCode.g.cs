@@ -20,19 +20,21 @@ public enum MatchingProcessCode
 {
     /// <summary>
     /// The referenced transaction is requested to be unmatched.
+    /// Encoded/decoded by serializers as "UNMT".
     /// </summary>
     [EnumMember(Value = "UNMT")]
     [IsoId("_aVDGQdp-Ed-ak6NoX_4Aeg_-796590257")]
     [Description(@"The referenced transaction is requested to be unmatched.")]
-    UNMT,
+    Unmatch,
     
     /// <summary>
     /// Matching process is to be resumed for the referenced transaction.
+    /// Encoded/decoded by serializers as "MTRE".
     /// </summary>
     [EnumMember(Value = "MTRE")]
     [IsoId("_aVDGQtp-Ed-ak6NoX_4Aeg_-704236763")]
     [Description(@"Matching process is to be resumed for the referenced transaction.")]
-    MTRE,
+    ResumeMatching,
     
 }
 

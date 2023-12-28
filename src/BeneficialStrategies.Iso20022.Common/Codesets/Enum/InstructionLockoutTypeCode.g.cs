@@ -20,27 +20,30 @@ public enum InstructionLockoutTypeCode
 {
     /// <summary>
     /// Event is locked out systemically for instruction processing. This relates to conversion or warrant events due to an "out of town" record date on the disbursed security.
+    /// Encoded/decoded by serializers as "SYSL".
     /// </summary>
     [EnumMember(Value = "SYSL")]
     [IsoId("_1hQL8A7wEeuZI5Sr_GAcuA")]
     [Description(@"Event is locked out systemically for instruction processing. This relates to conversion or warrant events due to an ""out of town"" record date on the disbursed security.")]
-    SYSL,
+    SystemicLocked,
     
     /// <summary>
     /// Event is locked out manually for instruction processing.  This relates to conversions, warrants and put events.
+    /// Encoded/decoded by serializers as "MANL".
     /// </summary>
     [EnumMember(Value = "MANL")]
     [IsoId("_EKGEoA7xEeuZI5Sr_GAcuA")]
     [Description(@"Event is locked out manually for instruction processing.  This relates to conversions, warrants and put events.")]
-    MANL,
+    ManualLocked,
     
     /// <summary>
     /// Event is not locked out manually for instruction processing. This relates to conversions, warrants and put events.
+    /// Encoded/decoded by serializers as "NOTL".
     /// </summary>
     [EnumMember(Value = "NOTL")]
     [IsoId("_KYW9sA7xEeuZI5Sr_GAcuA")]
     [Description(@"Event is not locked out manually for instruction processing. This relates to conversions, warrants and put events.")]
-    NOTL,
+    NotLocked,
     
 }
 

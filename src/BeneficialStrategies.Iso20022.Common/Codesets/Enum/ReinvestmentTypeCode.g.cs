@@ -20,43 +20,48 @@ public enum ReinvestmentTypeCode
 {
     /// <summary>
     /// Reinvestment type is registered money market fund that is a public debt constant net asset value money market fund, low volatility net asset value money market fund or variable net asset value money market fund.
+    /// Encoded/decoded by serializers as "MMFT".
     /// </summary>
     [EnumMember(Value = "MMFT")]
     [IsoId("_uUQPYI68EeaxxtxaoOwzAg")]
     [Description(@"Reinvestment type is registered money market fund that is a public debt constant net asset value money market fund, low volatility net asset value money market fund or variable net asset value money market fund.")]
-    MMFT,
+    RegisteredMoneyMarketFund,
     
     /// <summary>
     /// Reinvestment type is a pool of commingled assets.
+    /// Encoded/decoded by serializers as "OCMP".
     /// </summary>
     [EnumMember(Value = "OCMP")]
     [IsoId("_yAyykI68EeaxxtxaoOwzAg")]
     [Description(@"Reinvestment type is a pool of commingled assets.")]
-    OCMP,
+    OtherCommingledPool,
     
     /// <summary>
     /// Reinvestment type is market where repurchase agreements are traded. 
+    /// Encoded/decoded by serializers as "REPM".
     /// </summary>
     [EnumMember(Value = "REPM")]
     [IsoId("_07ZigI68EeaxxtxaoOwzAg")]
     [Description(@"Reinvestment type is market where repurchase agreements are traded. ")]
-    REPM,
+    RepurchaseAgreementMarket,
     
     /// <summary>
     /// Reinvestment type is direct purchase of securities.
+    /// Encoded/decoded by serializers as "SDPU".
     /// </summary>
     [EnumMember(Value = "SDPU")]
     [IsoId("_3fNjEI68EeaxxtxaoOwzAg")]
     [Description(@"Reinvestment type is direct purchase of securities.")]
-    SDPU,
+    SecuritiesDirectPurchase,
     
     /// <summary>
     /// Other type of reinvestment.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_7TWjEI68EeaxxtxaoOwzAg")]
     [Description(@"Other type of reinvestment.")]
-    OTHR,
+    Other,
     
 }
 

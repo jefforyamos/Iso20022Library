@@ -20,131 +20,147 @@ public enum RetailerResultDetailCode
 {
     /// <summary>
     /// The Initiator of the request has sent an Abort message request, which was accepted and processed.
+    /// Encoded/decoded by serializers as "ABRT".
     /// </summary>
     [EnumMember(Value = "ABRT")]
     [IsoId("_UDWqwNxXEeioifFt1dhnJA")]
     [Description(@"The Initiator of the request has sent an Abort message request, which was accepted and processed.")]
-    ABRT,
+    Aborted,
     
     /// <summary>
     /// The system is busy, try later.
+    /// Encoded/decoded by serializers as "BUSY".
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_W_ymsNxXEeioifFt1dhnJA")]
     [Description(@"The system is busy, try later.")]
-    BUSY,
+    Busy,
     
     /// <summary>
     /// The user has aborted the transaction on the PED keyboard, for instance during PIN entering.
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_Z-cwMNxXEeioifFt1dhnJA")]
     [Description(@"The user has aborted the transaction on the PED keyboard, for instance during PIN entering.")]
-    CANC,
+    Cancel,
     
     /// <summary>
     /// Device out of order.
+    /// Encoded/decoded by serializers as "DEVO".
     /// </summary>
     [EnumMember(Value = "DEVO")]
     [IsoId("_csx-sNxXEeioifFt1dhnJA")]
     [Description(@"Device out of order.")]
-    DEVO,
+    DeviceOut,
     
     /// <summary>
     /// If the Input Device request a NotifyCardInputFlag and the Customer enters a card in the card reader without answers to the Input command, the POI abort the Input command processing, and answer a dedicated ErrorCondition value in the Input response message.
+    /// Encoded/decoded by serializers as "ICAR".
     /// </summary>
     [EnumMember(Value = "ICAR")]
     [IsoId("_fAfGsNxXEeioifFt1dhnJA")]
     [Description(@"If the Input Device request a NotifyCardInputFlag and the Customer enters a card in the card reader without answers to the Input command, the POI abort the Input command processing, and answer a dedicated ErrorCondition value in the Input response message.")]
-    ICAR,
+    InsertedCard,
     
     /// <summary>
     /// The transaction is still in progress and then the command cannot be processed.
+    /// Encoded/decoded by serializers as "WIPG".
     /// </summary>
     [EnumMember(Value = "WIPG")]
     [IsoId("_j9RJwNxXEeioifFt1dhnJA")]
     [Description(@"The transaction is still in progress and then the command cannot be processed.")]
-    WIPG,
+    InProgress,
     
     /// <summary>
     /// Not logged in.
+    /// Encoded/decoded by serializers as "LOUT".
     /// </summary>
     [EnumMember(Value = "LOUT")]
     [IsoId("_mtpmsNxXEeioifFt1dhnJA")]
     [Description(@"Not logged in.")]
-    LOUT,
+    LoggedOut,
     
     /// <summary>
     /// A service request is sent during a Service dialogue. A combination of services not possible to provide. During the DeviceInitialisationCardReader message processing, the user has entered a card which has to be protected by the POI, and cannot be processed with this device request from the external, and then the Sale System.
+    /// Encoded/decoded by serializers as "NALW".
     /// </summary>
     [EnumMember(Value = "NALW")]
     [IsoId("_pKI3QNxXEeioifFt1dhnJA")]
     [Description(@"A service request is sent during a Service dialogue. A combination of services not possible to provide. During the DeviceInitialisationCardReader message processing, the user has entered a card which has to be protected by the POI, and cannot be processed with this device request from the external, and then the Sale System.")]
-    NALW,
+    NotAllowed,
     
     /// <summary>
     /// The transaction is not found (e.g. for a reversal or a repeat).
+    /// Encoded/decoded by serializers as "TNFD".
     /// </summary>
     [EnumMember(Value = "TNFD")]
     [IsoId("_vLk1QNxXEeioifFt1dhnJA")]
     [Description(@"The transaction is not found (e.g. for a reversal or a repeat).")]
-    TNFD,
+    NotFound,
     
     /// <summary>
     /// Some sale items are not payable by the card proposed by the Customer.
+    /// Encoded/decoded by serializers as "PAYR".
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_yhzxQNxXEeioifFt1dhnJA")]
     [Description(@"Some sale items are not payable by the card proposed by the Customer.")]
-    PAYR,
+    PaymentRestriction,
     
     /// <summary>
     /// The transaction is refused by the host or by the local rules associated to the card or the POI.
+    /// Encoded/decoded by serializers as "REFU".
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_1R-LwNxXEeioifFt1dhnJA")]
     [Description(@"The transaction is refused by the host or by the local rules associated to the card or the POI.")]
-    REFU,
+    Refusal,
     
     /// <summary>
     /// The hardware is not available (absent, not configured...).
+    /// Encoded/decoded by serializers as "UNVD".
     /// </summary>
     [EnumMember(Value = "UNVD")]
     [IsoId("_4UvZMNxXEeioifFt1dhnJA")]
     [Description(@"The hardware is not available (absent, not configured...).")]
-    UNVD,
+    UnavailableDevice,
     
     /// <summary>
     /// The service is not available (not implemented, not configured, protocol version too old...).
+    /// Encoded/decoded by serializers as "UNVS".
     /// </summary>
     [EnumMember(Value = "UNVS")]
     [IsoId("_7BU7QNxXEeioifFt1dhnJA")]
     [Description(@"The service is not available (not implemented, not configured, protocol version too old...).")]
-    UNVS,
+    UnavailableService,
     
     /// <summary>
     /// The card entered by the Customer cannot be processed by the POI because this card is not configured in the system.
+    /// Encoded/decoded by serializers as "IVCA".
     /// </summary>
     [EnumMember(Value = "IVCA")]
     [IsoId("_9qPeQNxXEeioifFt1dhnJA")]
     [Description(@"The card entered by the Customer cannot be processed by the POI because this card is not configured in the system.")]
-    IVCA,
+    InvalidCard,
     
     /// <summary>
     /// Acquirer or any host is unreachable or has not answered to an online request, so is considered as temporary unavailable. Depending on the Sale context, the request could be repeated (to be compared with "Refusal").
+    /// Encoded/decoded by serializers as "NHOS".
     /// </summary>
     [EnumMember(Value = "NHOS")]
     [IsoId("_Ay0YwNxYEeioifFt1dhnJA")]
     [Description(@"Acquirer or any host is unreachable or has not answered to an online request, so is considered as temporary unavailable. Depending on the Sale context, the request could be repeated (to be compared with ""Refusal"").")]
-    NHOS,
+    UnreachableHost,
     
     /// <summary>
     /// The user has entered the PIN on the PED keyboard and the verification fails.
+    /// Encoded/decoded by serializers as "WPIN".
     /// </summary>
     [EnumMember(Value = "WPIN")]
     [IsoId("_ErTtQNxYEeioifFt1dhnJA")]
     [Description(@"The user has entered the PIN on the PED keyboard and the verification fails.")]
-    WPIN,
+    WrongPIN,
     
 }
 

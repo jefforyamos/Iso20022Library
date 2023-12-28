@@ -20,35 +20,39 @@ public enum ResponseModeV2Code
 {
     /// <summary>
     /// The Response is required at the end of play.
+    /// Encoded/decoded by serializers as "SEND".
     /// </summary>
     [EnumMember(Value = "SEND")]
     [IsoId("_wLmRtFDiEeuzhPLt3qllKA")]
     [Description(@"The Response is required at the end of play.")]
-    SEND,
+    EndOfPlay,
     
     /// <summary>
     /// The Message Response is immediate, after taking into account the request.
+    /// Encoded/decoded by serializers as "IMMD".
     /// </summary>
     [EnumMember(Value = "IMMD")]
     [IsoId("_wLmRtVDiEeuzhPLt3qllKA")]
     [Description(@"The Message Response is immediate, after taking into account the request.")]
-    IMMD,
+    Immediate,
     
     /// <summary>
     /// The Message Response is not required, except in case of error.
+    /// Encoded/decoded by serializers as "NREQ".
     /// </summary>
     [EnumMember(Value = "NREQ")]
     [IsoId("_wLmRtlDiEeuzhPLt3qllKA")]
     [Description(@"The Message Response is not required, except in case of error.")]
-    NREQ,
+    NotRequired,
     
     /// <summary>
     /// The Print Response is required at the end of print.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_wLmRt1DiEeuzhPLt3qllKA")]
     [Description(@"The Print Response is required at the end of print.")]
-    PEND,
+    PrintEnd,
     
 }
 

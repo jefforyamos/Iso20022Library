@@ -20,27 +20,30 @@ public enum OperationCode
 {
     /// <summary>
     /// Indicates a range delimited by two variables.
+    /// Encoded/decoded by serializers as "TILL".
     /// </summary>
     [EnumMember(Value = "TILL")]
     [IsoId("_aPFoMNp-Ed-ak6NoX_4Aeg_336257262")]
     [Description(@"Indicates a range delimited by two variables.")]
-    TILL,
+    Till,
     
     /// <summary>
     /// Indicates either of two variables is valid, but not both.
+    /// Encoded/decoded by serializers as "ORRR".
     /// </summary>
     [EnumMember(Value = "ORRR")]
     [IsoId("_aPFoMdp-Ed-ak6NoX_4Aeg_336257263")]
     [Description(@"Indicates either of two variables is valid, but not both.")]
-    ORRR,
+    Or,
     
     /// <summary>
     /// Indicates that only when both variables are given, the operation is valid.
+    /// Encoded/decoded by serializers as "ANDD".
     /// </summary>
     [EnumMember(Value = "ANDD")]
     [IsoId("_aPFoMtp-Ed-ak6NoX_4Aeg_336257264")]
     [Description(@"Indicates that only when both variables are given, the operation is valid.")]
-    ANDD,
+    And,
     
 }
 

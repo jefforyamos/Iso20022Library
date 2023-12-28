@@ -20,19 +20,21 @@ public enum QuotationTypeCode
 {
     /// <summary>
     /// Quotation is expressed as percentage.
+    /// Encoded/decoded by serializers as "PRCT".
     /// </summary>
     [EnumMember(Value = "PRCT")]
     [IsoId("_p8ndQNK4EeihtcVwfFPNlg")]
     [Description(@"Quotation is expressed as percentage.")]
-    PRCT,
+    Percentage,
     
     /// <summary>
     /// Quotation expressed as a currency and amount.
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_zKp6INK4EeihtcVwfFPNlg")]
     [Description(@"Quotation expressed as a currency and amount.")]
-    ACTU,
+    ActualAmount,
     
 }
 

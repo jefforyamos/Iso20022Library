@@ -20,59 +20,66 @@ public enum CivilStatusCode
 {
     /// <summary>
     /// Person is single.
+    /// Encoded/decoded by serializers as "SING".
     /// </summary>
     [EnumMember(Value = "SING")]
     [IsoId("_L0NugCChEeWJd9HF2tO7BA")]
     [Description(@"Person is single.")]
-    SING,
+    Single,
     
     /// <summary>
     /// Person is married.
+    /// Encoded/decoded by serializers as "MARR".
     /// </summary>
     [EnumMember(Value = "MARR")]
     [IsoId("_POxw4CChEeWJd9HF2tO7BA")]
     [Description(@"Person is married.")]
-    MARR,
+    Married,
     
     /// <summary>
     /// Person is legally divorced.
+    /// Encoded/decoded by serializers as "LDIV".
     /// </summary>
     [EnumMember(Value = "LDIV")]
     [IsoId("_SKFrcCChEeWJd9HF2tO7BA")]
     [Description(@"Person is legally divorced.")]
-    LDIV,
+    LegallyDivorced,
     
     /// <summary>
     /// Person is divorced.
+    /// Encoded/decoded by serializers as "DIVO".
     /// </summary>
     [EnumMember(Value = "DIVO")]
     [IsoId("_WeEpICChEeWJd9HF2tO7BA")]
     [Description(@"Person is divorced.")]
-    DIVO,
+    Divorced,
     
     /// <summary>
     /// Person is a widower.
+    /// Encoded/decoded by serializers as "WIDO".
     /// </summary>
     [EnumMember(Value = "WIDO")]
     [IsoId("_cXFD4CChEeWJd9HF2tO7BA")]
     [Description(@"Person is a widower.")]
-    WIDO,
+    Widow,
     
     /// <summary>
     /// Person is in a stable union.
+    /// Encoded/decoded by serializers as "UNIO".
     /// </summary>
     [EnumMember(Value = "UNIO")]
     [IsoId("_hRvnECChEeWJd9HF2tO7BA")]
     [Description(@"Person is in a stable union.")]
-    UNIO,
+    StableUnion,
     
     /// <summary>
     /// Person is separated.
+    /// Encoded/decoded by serializers as "SEPA".
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_kwBEwCChEeWJd9HF2tO7BA")]
     [Description(@"Person is separated.")]
-    SEPA,
+    Separated,
     
 }
 

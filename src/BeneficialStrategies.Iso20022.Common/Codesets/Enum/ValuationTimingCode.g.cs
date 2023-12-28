@@ -20,27 +20,30 @@ public enum ValuationTimingCode
 {
     /// <summary>
     /// Price valuation is done exceptionally, outside the timeframe specified in the prospectus.
+    /// Encoded/decoded by serializers as "EXCP".
     /// </summary>
     [EnumMember(Value = "EXCP")]
     [IsoId("_Y8_HIdp-Ed-ak6NoX_4Aeg_1401456452")]
     [Description(@"Price valuation is done exceptionally, outside the timeframe specified in the prospectus.")]
-    EXCP,
+    Exceptional,
     
     /// <summary>
     /// Price valuation is done within the timeframe specified in the prospectus.
+    /// Encoded/decoded by serializers as "USUA".
     /// </summary>
     [EnumMember(Value = "USUA")]
     [IsoId("_Y8_HItp-Ed-ak6NoX_4Aeg_1401456453")]
     [Description(@"Price valuation is done within the timeframe specified in the prospectus.")]
-    USUA,
+    Usual,
     
     /// <summary>
     /// Price valuation that is done outside the usual timeframe, but in conformance with a case specified in the prospectus, eg, market closing day.
+    /// Encoded/decoded by serializers as "PATC".
     /// </summary>
     [EnumMember(Value = "PATC")]
     [IsoId("_Y8_HI9p-Ed-ak6NoX_4Aeg_1401456454")]
     [Description(@"Price valuation that is done outside the usual timeframe, but in conformance with a case specified in the prospectus, eg, market closing day.")]
-    PATC,
+    Particular,
     
 }
 

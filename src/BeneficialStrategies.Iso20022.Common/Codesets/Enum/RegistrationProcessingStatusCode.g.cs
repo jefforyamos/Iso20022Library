@@ -20,19 +20,21 @@ public enum RegistrationProcessingStatusCode
 {
     /// <summary>
     /// Registration has been acknowledged/accepted by the issuer/registrar.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZbFYZNp-Ed-ak6NoX_4Aeg_-713352141")]
     [Description(@"Registration has been acknowledged/accepted by the issuer/registrar.")]
-    PACK,
+    AcknowledgedAccepted,
     
     /// <summary>
     /// Registration has been rejected by the issuer/registrar.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_ZbFYZdp-Ed-ak6NoX_4Aeg_-712428249")]
     [Description(@"Registration has been rejected by the issuer/registrar.")]
-    REJT,
+    Rejected,
     
 }
 

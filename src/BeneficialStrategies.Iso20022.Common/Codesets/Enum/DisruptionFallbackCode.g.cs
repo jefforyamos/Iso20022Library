@@ -20,91 +20,102 @@ public enum DisruptionFallbackCode
 {
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "AOCL".
     /// </summary>
     [EnumMember(Value = "AOCL")]
     [IsoId("_awUtB9p-Ed-ak6NoX_4Aeg_627416918")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    AOCL,
+    AssignmentOfClaim,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "CADS".
     /// </summary>
     [EnumMember(Value = "CADS")]
     [IsoId("_awUtCNp-Ed-ak6NoX_4Aeg_627417183")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    CADS,
+    CalculationAgentDeterminationOfSettlementRate,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "DLVS".
     /// </summary>
     [EnumMember(Value = "DLVS")]
     [IsoId("_awd28Np-Ed-ak6NoX_4Aeg_627417184")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    DLVS,
+    DeliverableSubstitute,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "ESCA".
     /// </summary>
     [EnumMember(Value = "ESCA")]
     [IsoId("_awd28dp-Ed-ak6NoX_4Aeg_627417192")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    ESCA,
+    EscrowArrangement,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "FBRP".
     /// </summary>
     [EnumMember(Value = "FBRP")]
     [IsoId("_awd28tp-Ed-ak6NoX_4Aeg_627417193")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    FBRP,
+    FallbackReferencePrice,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "LASG".
     /// </summary>
     [EnumMember(Value = "LASG")]
     [IsoId("_awd289p-Ed-ak6NoX_4Aeg_627417194")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    LASG,
+    LocalAssetSubstituteGross,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "LASN".
     /// </summary>
     [EnumMember(Value = "LASN")]
     [IsoId("_awd29Np-Ed-ak6NoX_4Aeg_627417195")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    LASN,
+    LocalAssetSubstituteNet,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "LCYS".
     /// </summary>
     [EnumMember(Value = "LCYS")]
     [IsoId("_awd29dp-Ed-ak6NoX_4Aeg_627417196")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    LCYS,
+    LocalCurrencySubstitute,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "NFTR".
     /// </summary>
     [EnumMember(Value = "NFTR")]
     [IsoId("_awd29tp-Ed-ak6NoX_4Aeg_627417197")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    NFTR,
+    NoFaultTermination,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "NDLS".
     /// </summary>
     [EnumMember(Value = "NDLS")]
     [IsoId("_awd299p-Ed-ak6NoX_4Aeg_627417206")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    NDLS,
+    NonDeliverableSubstitute,
     
     /// <summary>
     /// As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.
+    /// Encoded/decoded by serializers as "STPP".
     /// </summary>
     [EnumMember(Value = "STPP")]
     [IsoId("_awd2-Np-Ed-ak6NoX_4Aeg_627417207")]
     [Description(@"As per the 1998 FX and Currency Option Definitions published by the International Swaps and Derivatives Association inc., the Emerging Market Traders Association and the Foreign Exchange Committee.")]
-    STPP,
+    SettlementPostponement,
     
 }
 

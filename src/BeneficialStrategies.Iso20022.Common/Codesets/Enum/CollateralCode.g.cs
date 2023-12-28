@@ -20,19 +20,21 @@ public enum CollateralCode
 {
     /// <summary>
     /// Item is used as collateral.
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_Ey4TkCC-EeWPMvNwVtiMsA")]
     [Description(@"Item is used as collateral.")]
-    COLL,
+    Collateral,
     
     /// <summary>
     /// Item is not used as collateral.
+    /// Encoded/decoded by serializers as "NCOL".
     /// </summary>
     [EnumMember(Value = "NCOL")]
     [IsoId("_JkxVQCC-EeWPMvNwVtiMsA")]
     [Description(@"Item is not used as collateral.")]
-    NCOL,
+    NotCollateral,
     
 }
 

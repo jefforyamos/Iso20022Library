@@ -20,75 +20,84 @@ public enum StoredValueTransactionTypeCode
 {
     /// <summary>
     /// Reserve the account (e.g. get an activation code).
+    /// Encoded/decoded by serializers as "RESV".
     /// </summary>
     [EnumMember(Value = "RESV")]
     [IsoId("_UaaHoNuNEeiB5uLfkg9ZJA")]
     [Description(@"Reserve the account (e.g. get an activation code).")]
-    RESV,
+    Reserve,
     
     /// <summary>
     /// Activate the account or the card.
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_WxeFoNuNEeiB5uLfkg9ZJA")]
     [Description(@"Activate the account or the card.")]
-    ACTV,
+    Activate,
     
     /// <summary>
     /// Load the account or the card with money.
+    /// Encoded/decoded by serializers as "LOAD".
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_ZIiDoNuNEeiB5uLfkg9ZJA")]
     [Description(@"Load the account or the card with money.")]
-    LOAD,
+    Load,
     
     /// <summary>
     /// Unload the account.
+    /// Encoded/decoded by serializers as "ULOA".
     /// </summary>
     [EnumMember(Value = "ULOA")]
     [IsoId("_bS8FsNuNEeiB5uLfkg9ZJA")]
     [Description(@"Unload the account.")]
-    ULOA,
+    Unload,
     
     /// <summary>
     /// Reverse an activation or loading.
+    /// Encoded/decoded by serializers as "REVS".
     /// </summary>
     [EnumMember(Value = "REVS")]
     [IsoId("_dsDSINuNEeiB5uLfkg9ZJA")]
     [Description(@"Reverse an activation or loading.")]
-    REVS,
+    Reverse,
     
     /// <summary>
     /// Duplicate the code or number provided by the loading or activation.
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_hbKBINuNEeiB5uLfkg9ZJA")]
     [Description(@"Duplicate the code or number provided by the loading or activation.")]
-    DUPL,
+    Duplicate,
     
     /// <summary>
     /// Deactivate the account or the card.
+    /// Encoded/decoded by serializers as "DCTV".
     /// </summary>
     [EnumMember(Value = "DCTV")]
     [IsoId("_OzYHsIa1EemfPtKsRXC1Ag")]
     [Description(@"Deactivate the account or the card.")]
-    DCTV,
+    Deactivate,
     
     /// <summary>
     /// Open the account.
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_TNdGUIa1EemfPtKsRXC1Ag")]
     [Description(@"Open the account.")]
-    OPEN,
+    OpenAccount,
     
     /// <summary>
     /// Close the account.
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_W6mtgIa1EemfPtKsRXC1Ag")]
     [Description(@"Close the account.")]
-    CLOS,
+    CloseAccount,
     
 }
 

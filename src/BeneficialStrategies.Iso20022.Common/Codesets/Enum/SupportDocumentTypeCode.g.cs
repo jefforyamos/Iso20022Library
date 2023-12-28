@@ -20,27 +20,30 @@ public enum SupportDocumentTypeCode
 {
     /// <summary>
     /// Document is a supporting document.
+    /// Encoded/decoded by serializers as "SUPP".
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_5BhhANnSEeS--7IJLPC9lw")]
     [Description(@"Document is a supporting document.")]
-    SUPP,
+    SupportingDocument,
     
     /// <summary>
     /// Document is a letter from the bank.
+    /// Encoded/decoded by serializers as "LFBK".
     /// </summary>
     [EnumMember(Value = "LFBK")]
     [IsoId("_-KQVYNnSEeS--7IJLPC9lw")]
     [Description(@"Document is a letter from the bank.")]
-    LFBK,
+    LetterFromBank,
     
     /// <summary>
     /// Document is a letter to the bank.
+    /// Encoded/decoded by serializers as "LTBK".
     /// </summary>
     [EnumMember(Value = "LTBK")]
     [IsoId("_C6ACAdnTEeS--7IJLPC9lw")]
     [Description(@"Document is a letter to the bank.")]
-    LTBK,
+    LetterToBank,
     
 }
 

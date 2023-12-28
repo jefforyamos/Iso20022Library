@@ -20,27 +20,30 @@ public enum ReconciliationStatusCode
 {
     /// <summary>
     /// Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
+    /// Encoded/decoded by serializers as "RECO".
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_gOWGUJSQEeyb24yfD-3rmg")]
     [Description(@"Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.")]
-    RECO,
+    Reconciled,
     
     /// <summary>
     /// Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.
+    /// Encoded/decoded by serializers as "NREC".
     /// </summary>
     [EnumMember(Value = "NREC")]
     [IsoId("_kOStsJSQEeyb24yfD-3rmg")]
     [Description(@"Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.")]
-    NREC,
+    NonReconciled,
     
     /// <summary>
     /// Not applicable.
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_tZFoAD5zEe2Z1_pdMHu4SA")]
     [Description(@"Not applicable.")]
-    NOAP,
+    NotApplicable,
     
 }
 

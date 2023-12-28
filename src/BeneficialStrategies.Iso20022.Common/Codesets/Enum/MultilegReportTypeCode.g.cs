@@ -20,27 +20,30 @@ public enum MultilegReportTypeCode
 {
     /// <summary>
     /// Report by multileg security only (do not report legs).
+    /// Encoded/decoded by serializers as "BYSE".
     /// </summary>
     [EnumMember(Value = "BYSE")]
     [IsoId("_aM_9gdp-Ed-ak6NoX_4Aeg_1999620439")]
     [Description(@"Report by multileg security only (do not report legs).")]
-    BYSE,
+    BySecurity,
     
     /// <summary>
     /// Report by multileg security and by instrument legs belonging to the multileg security.
+    /// Encoded/decoded by serializers as "BSBL".
     /// </summary>
     [EnumMember(Value = "BSBL")]
     [IsoId("_aM_9gtp-Ed-ak6NoX_4Aeg_-1983198187")]
     [Description(@"Report by multileg security and by instrument legs belonging to the multileg security.")]
-    BSBL,
+    BySecurityAndLeg,
     
     /// <summary>
     /// Report by instrument legs belonging to the multileg security only (do not report status of multileg security).
+    /// Encoded/decoded by serializers as "BYLE".
     /// </summary>
     [EnumMember(Value = "BYLE")]
     [IsoId("_aM_9g9p-Ed-ak6NoX_4Aeg_-1464179831")]
     [Description(@"Report by instrument legs belonging to the multileg security only (do not report status of multileg security).")]
-    BYLE,
+    ByInstrumentLeg,
     
 }
 

@@ -20,19 +20,21 @@ public enum ChargeTaxBasisCode
 {
     /// <summary>
     /// Charges/tax basis is flat or absolute for the trade being allocated.
+    /// Encoded/decoded by serializers as "FLAT".
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("__1DJstojEeC60axPepSq7g_303938455")]
     [Description(@"Charges/tax basis is flat or absolute for the trade being allocated.")]
-    FLAT,
+    FlatOrAbsolute,
     
     /// <summary>
     /// Charge/tax basis is per unit of financial instrument.
+    /// Encoded/decoded by serializers as "PERU".
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("__1DJs9ojEeC60axPepSq7g_-13293518")]
     [Description(@"Charge/tax basis is per unit of financial instrument.")]
-    PERU,
+    PerUnit,
     
 }
 

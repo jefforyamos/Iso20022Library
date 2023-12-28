@@ -20,187 +20,210 @@ public enum UnderlyingTypeV3Code
 {
     /// <summary>
     /// Underlying is a basket.
+    /// Encoded/decoded by serializers as "BSKT".
     /// </summary>
     [EnumMember(Value = "BSKT")]
     [IsoId("_JuMQjn50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a basket.")]
-    BSKT,
+    Basket,
     
     /// <summary>
     /// Underlying is a bond.
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_JuMQin50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a bond.")]
-    BOND,
+    Bond,
     
     /// <summary>
     /// Underlying is a bond future.
+    /// Encoded/decoded by serializers as "BNDF".
     /// </summary>
     [EnumMember(Value = "BNDF")]
     [IsoId("_JuMQgH50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a bond future.")]
-    BNDF,
+    BondFuture,
     
     /// <summary>
     /// Underlying is a commodity.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_JuMQiH50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a commodity.")]
-    COMM,
+    Commodity,
     
     /// <summary>
     /// Underlying is a currency.
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_JuMQiX50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a currency.")]
-    CURR,
+    Currency,
     
     /// <summary>
     /// Underlying is a dividend index.
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_JuMQhX50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a dividend index.")]
-    DIVI,
+    DividendIndex,
     
     /// <summary>
     /// Underlying is an equity.
+    /// Encoded/decoded by serializers as "EQUI".
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_JuMQhH50EeasY4u9QTizPQ")]
     [Description(@"Underlying is an equity.")]
-    EQUI,
+    Equity,
     
     /// <summary>
     /// Underlying is an exchange traded fund.
+    /// Encoded/decoded by serializers as "ETFS".
     /// </summary>
     [EnumMember(Value = "ETFS")]
     [IsoId("_JuMQeX50EeasY4u9QTizPQ")]
     [Description(@"Underlying is an exchange traded fund.")]
-    ETFS,
+    ExchangeTradedFund,
     
     /// <summary>
     /// Underlying is a future.
+    /// Encoded/decoded by serializers as "FUTR".
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("_JuMQe350EeasY4u9QTizPQ")]
     [Description(@"Underlying is a future.")]
-    FUTR,
+    Future,
     
     /// <summary>
     /// Underlying is a future on equity.
+    /// Encoded/decoded by serializers as "FTEQ".
     /// </summary>
     [EnumMember(Value = "FTEQ")]
     [IsoId("_JuMQfH50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a future on equity.")]
-    FTEQ,
+    FutureOnEquity,
     
     /// <summary>
     /// Underlying is an index.
+    /// Encoded/decoded by serializers as "INDX".
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("_JuMQf350EeasY4u9QTizPQ")]
     [Description(@"Underlying is an index.")]
-    INDX,
+    Index,
     
     /// <summary>
     /// Underlying is interest rate.
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_JuMQfn50EeasY4u9QTizPQ")]
     [Description(@"Underlying is interest rate.")]
-    INTR,
+    InterestRate,
     
     /// <summary>
     /// Underlying is an option.
+    /// Encoded/decoded by serializers as "OPTN".
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_JuMQgX50EeasY4u9QTizPQ")]
     [Description(@"Underlying is an option.")]
-    OPTN,
+    Option,
     
     /// <summary>
     /// Underlying is an option on equity.
+    /// Encoded/decoded by serializers as "OPEQ".
     /// </summary>
     [EnumMember(Value = "OPEQ")]
     [IsoId("_JuMQjH50EeasY4u9QTizPQ")]
     [Description(@"Underlying is an option on equity.")]
-    OPEQ,
+    OptionOnEquity,
     
     /// <summary>
     /// Underlying is of other type.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_JuMQen50EeasY4u9QTizPQ")]
     [Description(@"Underlying is of other type.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Underlying is precious metal.
+    /// Encoded/decoded by serializers as "PRME".
     /// </summary>
     [EnumMember(Value = "PRME")]
     [IsoId("_JuMQg350EeasY4u9QTizPQ")]
     [Description(@"Underlying is precious metal.")]
-    PRME,
+    PreciousMetal,
     
     /// <summary>
     /// Underlying is a share.
+    /// Encoded/decoded by serializers as "SHRS".
     /// </summary>
     [EnumMember(Value = "SHRS")]
     [IsoId("_JuMQjX50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a share.")]
-    SHRS,
+    Share,
     
     /// <summary>
     /// Underlying is a stock dividend.
+    /// Encoded/decoded by serializers as "DVSE".
     /// </summary>
     [EnumMember(Value = "DVSE")]
     [IsoId("_JuMQgn50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a stock dividend.")]
-    DVSE,
+    StockDividend,
     
     /// <summary>
     /// Underlying is a stock index.
+    /// Encoded/decoded by serializers as "STIX".
     /// </summary>
     [EnumMember(Value = "STIX")]
     [IsoId("_JuMQi350EeasY4u9QTizPQ")]
     [Description(@"Underlying is a stock index.")]
-    STIX,
+    StockIndex,
     
     /// <summary>
     /// Underlying is a swap.
+    /// Encoded/decoded by serializers as "SWAP".
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_JuMQhn50EeasY4u9QTizPQ")]
     [Description(@"Underlying is a swap.")]
-    SWAP,
+    Swap,
     
     /// <summary>
     /// Underlying is a volatility index.
+    /// Encoded/decoded by serializers as "VOLI".
     /// </summary>
     [EnumMember(Value = "VOLI")]
     [IsoId("_JuMQh350EeasY4u9QTizPQ")]
     [Description(@"Underlying is a volatility index.")]
-    VOLI,
+    VolatilityIndex,
     
     /// <summary>
     /// Underlying is an interest rate future or a forward rate agreement (FRA).
+    /// Encoded/decoded by serializers as "IFUT".
     /// </summary>
     [EnumMember(Value = "IFUT")]
     [IsoId("_JuMQj350EeasY4u9QTizPQ")]
     [Description(@"Underlying is an interest rate future or a forward rate agreement (FRA).")]
-    IFUT,
+    InterestRateFutureFRA,
     
     /// <summary>
     /// Underlying is an emission allowance.
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_JuMQfX50EeasY4u9QTizPQ")]
     [Description(@"Underlying is an emission allowance.")]
-    EMAL,
+    EmissionAllowance,
     
 }
 

@@ -20,35 +20,39 @@ public enum RepoTerminationOptionCode
 {
     /// <summary>
     /// Evergreen termination option.
+    /// Encoded/decoded by serializers as "EGRN".
     /// </summary>
     [EnumMember(Value = "EGRN")]
     [IsoId("_4WluECyzEea35M2x2c9PXw")]
     [Description(@"Evergreen termination option.")]
-    EGRN,
+    Evergreen,
     
     /// <summary>
     /// Extendable termination option.
+    /// Encoded/decoded by serializers as "ETSB".
     /// </summary>
     [EnumMember(Value = "ETSB")]
     [IsoId("_4raukCyzEea35M2x2c9PXw")]
     [Description(@"Extendable termination option.")]
-    ETSB,
+    Extendable,
     
     /// <summary>
     /// Evergreen and extendable termination option. 
+    /// Encoded/decoded by serializers as "EGAE".
     /// </summary>
     [EnumMember(Value = "EGAE")]
     [IsoId("_5AF-ECyzEea35M2x2c9PXw")]
     [Description(@"Evergreen and extendable termination option. ")]
-    EGAE,
+    EvergreenAndExtendable,
     
     /// <summary>
     /// Search for requested data not complete yet.
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_vuqPINX_EeiqhpuDZKadPg")]
     [Description(@"Search for requested data not complete yet.")]
-    NOAP,
+    NotApplicable,
     
 }
 

@@ -20,19 +20,21 @@ public enum EligibleCode
 {
     /// <summary>
     /// Item is eligible.
+    /// Encoded/decoded by serializers as "ELIG".
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_iJlkUCC9EeWPMvNwVtiMsA")]
     [Description(@"Item is eligible.")]
-    ELIG,
+    Eligible,
     
     /// <summary>
     /// Item is not eligible.
+    /// Encoded/decoded by serializers as "NELI".
     /// </summary>
     [EnumMember(Value = "NELI")]
     [IsoId("_lRvoECC9EeWPMvNwVtiMsA")]
     [Description(@"Item is not eligible.")]
-    NELI,
+    NotEligible,
     
 }
 

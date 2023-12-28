@@ -20,19 +20,21 @@ public enum SideIndicatorCode
 {
     /// <summary>
     /// Clearing broker identification is for the client leg.
+    /// Encoded/decoded by serializers as "CLNT".
     /// </summary>
     [EnumMember(Value = "CLNT")]
     [IsoId("_7nCd0C5SEeK7-OZOLIksSw")]
     [Description(@"Clearing broker identification is for the client leg.")]
-    CLNT,
+    ClientLeg,
     
     /// <summary>
     /// Clearing broker identification is for the Central Counterparty (CCP) leg.
+    /// Encoded/decoded by serializers as "CCPL".
     /// </summary>
     [EnumMember(Value = "CCPL")]
     [IsoId("_DcQGkC5TEeK7-OZOLIksSw")]
     [Description(@"Clearing broker identification is for the Central Counterparty (CCP) leg.")]
-    CCPL,
+    CCPLeg,
     
 }
 

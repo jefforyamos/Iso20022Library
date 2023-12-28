@@ -20,51 +20,57 @@ public enum AuthenticationEntityCode
 {
     /// <summary>
     /// Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.
+    /// Encoded/decoded by serializers as "ICCD".
     /// </summary>
     [EnumMember(Value = "ICCD")]
     [IsoId("_TVyU7QEcEeCQm6a_G2yO_w_-682815782")]
     [Description(@"Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.")]
-    ICCD,
+    ICC,
     
     /// <summary>
     /// Authorisation agent of the issuer.
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_TVyU7gEcEeCQm6a_G2yO_w_-1994710956")]
     [Description(@"Authorisation agent of the issuer.")]
-    AGNT,
+    AuthorisedAgent,
     
     /// <summary>
     /// Merchant (for example signature verification by the attendant).
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TVyU7wEcEeCQm6a_G2yO_w_1584042948")]
     [Description(@"Merchant (for example signature verification by the attendant).")]
-    MERC,
+    Merchant,
     
     /// <summary>
     /// Acquirer of the transaction.
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_kbETQGjoEeSDR-pyia6Xtg")]
     [Description(@"Acquirer of the transaction.")]
-    ACQR,
+    Acquirer,
     
     /// <summary>
     /// Card issuer.
+    /// Encoded/decoded by serializers as "ISSR".
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_m_2kMGjoEeSDR-pyia6Xtg")]
     [Description(@"Card issuer.")]
-    ISSR,
+    Issuer,
     
     /// <summary>
     /// Secure application in the terminal.
+    /// Encoded/decoded by serializers as "TRML".
     /// </summary>
     [EnumMember(Value = "TRML")]
     [IsoId("_sEs-IGjoEeSDR-pyia6Xtg")]
     [Description(@"Secure application in the terminal.")]
-    TRML,
+    Terminal,
     
 }
 

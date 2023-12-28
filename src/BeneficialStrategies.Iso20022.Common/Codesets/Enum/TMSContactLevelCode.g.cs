@@ -20,35 +20,39 @@ public enum TMSContactLevelCode
 {
     /// <summary>
     /// Terminal management system has to be contacted before the next transaction.
+    /// Encoded/decoded by serializers as "CRIT".
     /// </summary>
     [EnumMember(Value = "CRIT")]
     [IsoId("_TVWQAwEcEeCQm6a_G2yO_w_59106587")]
     [Description(@"Terminal management system has to be contacted before the next transaction.")]
-    CRIT,
+    Critical,
     
     /// <summary>
     /// Terminal management system has to be contacted as soon as possible (for example after reconciliation).
+    /// Encoded/decoded by serializers as "ASAP".
     /// </summary>
     [EnumMember(Value = "ASAP")]
     [IsoId("_TVWQBAEcEeCQm6a_G2yO_w_-695643287")]
     [Description(@"Terminal management system has to be contacted as soon as possible (for example after reconciliation).")]
-    ASAP,
+    AsSoonAsPossible,
     
     /// <summary>
     /// Terminal management system has to be contacted at the date and time provided.
+    /// Encoded/decoded by serializers as "DTIM".
     /// </summary>
     [EnumMember(Value = "DTIM")]
     [IsoId("_TVWQBQEcEeCQm6a_G2yO_w_-639992749")]
     [Description(@"Terminal management system has to be contacted at the date and time provided.")]
-    DTIM,
+    DateTime,
     
     /// <summary>
     /// After the end of the customer session.
+    /// Encoded/decoded by serializers as "ENCS".
     /// </summary>
     [EnumMember(Value = "ENCS")]
     [IsoId("_YrKcMIqKEeSRT5rEzcAHEw")]
     [Description(@"After the end of the customer session.")]
-    ENCS,
+    EndCustomerSession,
     
 }
 

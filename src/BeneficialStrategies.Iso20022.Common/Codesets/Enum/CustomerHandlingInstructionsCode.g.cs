@@ -20,83 +20,93 @@ public enum CustomerHandlingInstructionsCode
 {
     /// <summary>
     /// Market or limit order that is to be executed in its entirety as soon as it is submitted; if not so executed, the order is to be cancelled.
+    /// Encoded/decoded by serializers as "FIKI".
     /// </summary>
     [EnumMember(Value = "FIKI")]
     [IsoId("_axqJwNp-Ed-ak6NoX_4Aeg_206077101")]
     [Description(@"Market or limit order that is to be executed in its entirety as soon as it is submitted; if not so executed, the order is to be cancelled.")]
-    FIKI,
+    FillOrKill,
     
     /// <summary>
     /// Market or limit order to be executed in whole or in part as soon as it is submitted; any portion not so executed is to be cancelled.
+    /// Encoded/decoded by serializers as "IOCA".
     /// </summary>
     [EnumMember(Value = "IOCA")]
     [IsoId("_axqJwdp-Ed-ak6NoX_4Aeg_218082984")]
     [Description(@"Market or limit order to be executed in whole or in part as soon as it is submitted; any portion not so executed is to be cancelled.")]
-    IOCA,
+    ImmediateOrCancel,
     
     /// <summary>
     /// Round-lot market or limit-price order that must be executed in its entirety or not at all; unlike Fill or Kill orders, All Or None orders are not treated as canceled if they are not executed as soon as represented in the Trading Crowd.
+    /// Encoded/decoded by serializers as "ALON".
     /// </summary>
     [EnumMember(Value = "ALON")]
     [IsoId("_axqJwtp-Ed-ak6NoX_4Aeg_338140206")]
     [Description(@"Round-lot market or limit-price order that must be executed in its entirety or not at all; unlike Fill or Kill orders, All Or None orders are not treated as canceled if they are not executed as soon as represented in the Trading Crowd.")]
-    ALON,
+    AllOrNone,
     
     /// <summary>
     /// Order to buy (or sell) a financial instrument which specifies the total amount to be bought (or sold) and the amount to be bought (or sold) at specified price variations.
+    /// Encoded/decoded by serializers as "SCAL".
     /// </summary>
     [EnumMember(Value = "SCAL")]
     [IsoId("_axqJw9p-Ed-ak6NoX_4Aeg_405556725")]
     [Description(@"Order to buy (or sell) a financial instrument which specifies the total amount to be bought (or sold) and the amount to be bought (or sold) at specified price variations.")]
-    SCAL,
+    Scale,
     
     /// <summary>
     /// Make the order active until notified.
+    /// Encoded/decoded by serializers as "WORK".
     /// </summary>
     [EnumMember(Value = "WORK")]
     [IsoId("_axqJxNp-Ed-ak6NoX_4Aeg_649365926")]
     [Description(@"Make the order active until notified.")]
-    WORK,
+    Work,
     
     /// <summary>
     /// Add on another order.
+    /// Encoded/decoded by serializers as "ADOO".
     /// </summary>
     [EnumMember(Value = "ADOO")]
     [IsoId("_axqJxdp-Ed-ak6NoX_4Aeg_1265355178")]
     [Description(@"Add on another order.")]
-    ADOO,
+    AddOnOrder,
     
     /// <summary>
     /// Indicates that a position in the underlying is traded for a futures position in the physical commodity markets.
+    /// Encoded/decoded by serializers as "EFPH".
     /// </summary>
     [EnumMember(Value = "EFPH")]
     [IsoId("_axqJxtp-Ed-ak6NoX_4Aeg_1507318655")]
     [Description(@"Indicates that a position in the underlying is traded for a futures position in the physical commodity markets.")]
-    EFPH,
+    ExchangeForPhysicalTransaction,
     
     /// <summary>
     /// Indicates that the order can only hit the imbalance during a call auction. The imbalance is the remaining quantity when other buy and sell orders are matched at the auction clearing price.
+    /// Encoded/decoded by serializers as "IMBO".
     /// </summary>
     [EnumMember(Value = "IMBO")]
     [IsoId("_axqJx9p-Ed-ak6NoX_4Aeg_1533174858")]
     [Description(@"Indicates that the order can only hit the imbalance during a call auction. The imbalance is the remaining quantity when other buy and sell orders are matched at the auction clearing price.")]
-    IMBO,
+    ImbalanceOnly,
     
     /// <summary>
     /// Limit order, where the limit price fluctuates relative to another quantity, such as the last sale, midpoint, opening price, bid, offer, or VWAP (Volume Weighted Average Price).
+    /// Encoded/decoded by serializers as "PGGD".
     /// </summary>
     [EnumMember(Value = "PGGD")]
     [IsoId("_axqJyNp-Ed-ak6NoX_4Aeg_1952453905")]
     [Description(@"Limit order, where the limit price fluctuates relative to another quantity, such as the last sale, midpoint, opening price, bid, offer, or VWAP (Volume Weighted Average Price).")]
-    PGGD,
+    Pegged,
     
     /// <summary>
     /// Indicates an order which may be executed in partials or outside the hours of the exchange or other exchange rules.
+    /// Encoded/decoded by serializers as "NOHE".
     /// </summary>
     [EnumMember(Value = "NOHE")]
     [IsoId("_axqJydp-Ed-ak6NoX_4Aeg_-54293973")]
     [Description(@"Indicates an order which may be executed in partials or outside the hours of the exchange or other exchange rules.")]
-    NOHE,
+    NotHeld,
     
 }
 

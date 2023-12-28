@@ -21,68 +21,76 @@ public enum BondTypeCode
     /// <summary>
     /// Bond of type sovereign bond.
     /// 
+    /// Encoded/decoded by serializers as "EUSB".
     /// </summary>
     [EnumMember(Value = "EUSB")]
     [IsoId("_BKKTQM4mEeSc85GUbgBycw")]
     [Description(@"Bond of type sovereign bond. ")]
-    EUSB,
+    SovereignBond,
     
     /// <summary>
     /// Bond of type non-european sovereign bond.
+    /// Encoded/decoded by serializers as "NESB".
     /// </summary>
     [EnumMember(Value = "NESB")]
     [IsoId("_BX_68M4mEeSc85GUbgBycw")]
     [Description(@"Bond of type non-european sovereign bond.")]
-    NESB,
+    NonEuropeanSovereignBond,
     
     /// <summary>
     /// Bond of type other public bond.
+    /// Encoded/decoded by serializers as "OEPB".
     /// </summary>
     [EnumMember(Value = "OEPB")]
     [IsoId("_BcTzMM4mEeSc85GUbgBycw")]
     [Description(@"Bond of type other public bond.")]
-    OEPB,
+    OtherPublicBond,
     
     /// <summary>
     /// Bond of type convertible bond.
+    /// Encoded/decoded by serializers as "CVTB".
     /// </summary>
     [EnumMember(Value = "CVTB")]
     [IsoId("_Bfb_sM4mEeSc85GUbgBycw")]
     [Description(@"Bond of type convertible bond.")]
-    CVTB,
+    ConvertibleBond,
     
     /// <summary>
     /// Bond of type covered Bond.
+    /// Encoded/decoded by serializers as "CVDB".
     /// </summary>
     [EnumMember(Value = "CVDB")]
     [IsoId("_BhhDUM4mEeSc85GUbgBycw")]
     [Description(@"Bond of type covered Bond.")]
-    CVDB,
+    CoveredBond,
     
     /// <summary>
     /// Bond of type corporate Bond.
     /// 
+    /// Encoded/decoded by serializers as "CRPB".
     /// </summary>
     [EnumMember(Value = "CRPB")]
     [IsoId("_BkWU4M4mEeSc85GUbgBycw")]
     [Description(@"Bond of type corporate Bond. ")]
-    CRPB,
+    CorporateBond,
     
     /// <summary>
     /// Bond of type other non-european public bond.
+    /// Encoded/decoded by serializers as "ONEP".
     /// </summary>
     [EnumMember(Value = "ONEP")]
     [IsoId("_s22aMAkBEeWGouz230Xp5Q")]
     [Description(@"Bond of type other non-european public bond.")]
-    ONEP,
+    OtherNonEuropeanPublicBond,
     
     /// <summary>
     /// Other bond type.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ss_CcED6EeW1yage4PQ__A")]
     [Description(@"Other bond type.")]
-    OTHR,
+    Other,
     
 }
 

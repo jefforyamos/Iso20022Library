@@ -20,43 +20,48 @@ public enum BytePaddingCode
 {
     /// <summary>
     /// Message to encrypt is completed by a byte value containing the total number of added bytes.
+    /// Encoded/decoded by serializers as "LNGT".
     /// </summary>
     [EnumMember(Value = "LNGT")]
     [IsoId("_SKu-AGi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by a byte value containing the total number of added bytes.")]
-    LNGT,
+    LengthPadding,
     
     /// <summary>
     /// Message to encrypt is completed by one bit of value 1, followed by null bits until the encryption block length is reached.
+    /// Encoded/decoded by serializers as "NUL8".
     /// </summary>
     [EnumMember(Value = "NUL8")]
     [IsoId("_XA738Gi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by one bit of value 1, followed by null bits until the encryption block length is reached.")]
-    NUL8,
+    Null80Padding,
     
     /// <summary>
     /// Message to encrypt is completed by null byte values, the last byte containing the total number of added bytes.
+    /// Encoded/decoded by serializers as "NULG".
     /// </summary>
     [EnumMember(Value = "NULG")]
     [IsoId("_bkh-8Gi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by null byte values, the last byte containing the total number of added bytes.")]
-    NULG,
+    NullLengthPadding,
     
     /// <summary>
     /// Message to encrypt is completed by null bytes.
+    /// Encoded/decoded by serializers as "NULL".
     /// </summary>
     [EnumMember(Value = "NULL")]
     [IsoId("_lAGhgGi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by null bytes.")]
-    NULL,
+    NullPadding,
     
     /// <summary>
     /// Message to encrypt is completed by random value, the last byte containing the total number of added bytes.
+    /// Encoded/decoded by serializers as "RAND".
     /// </summary>
     [EnumMember(Value = "RAND")]
     [IsoId("_pMu6AGi9EeS87LmvcA55sg")]
     [Description(@"Message to encrypt is completed by random value, the last byte containing the total number of added bytes.")]
-    RAND,
+    RandomPadding,
     
 }
 

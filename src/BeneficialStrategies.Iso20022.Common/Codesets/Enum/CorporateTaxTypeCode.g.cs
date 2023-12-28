@@ -20,27 +20,30 @@ public enum CorporateTaxTypeCode
 {
     /// <summary>
     /// Corporate
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_tID-oP4zEeix6ug6HlF6IQ")]
     [Description(@"Corporate")]
-    CORP,
+    Corporate,
     
     /// <summary>
     /// Small Business
+    /// Encoded/decoded by serializers as "SMBS".
     /// </summary>
     [EnumMember(Value = "SMBS")]
     [IsoId("_tICJcv4zEeix6ug6HlF6IQ")]
     [Description(@"Small Business")]
-    SMBS,
+    SmallBusiness,
     
     /// <summary>
     /// Other
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_tICJcP4zEeix6ug6HlF6IQ")]
     [Description(@"Other")]
-    OTHR,
+    Other,
     
 }
 

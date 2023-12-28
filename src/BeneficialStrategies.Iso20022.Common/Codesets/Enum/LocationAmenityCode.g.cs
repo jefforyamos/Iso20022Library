@@ -20,147 +20,165 @@ public enum LocationAmenityCode
 {
     /// <summary>
     /// Truck stop with showers available
+    /// Encoded/decoded by serializers as "TSSA".
     /// </summary>
     [EnumMember(Value = "TSSA")]
     [IsoId("_F9xlIfi8EeiJaN6-Lf-c_w")]
     [Description(@"Truck stop with showers available")]
-    TSSA,
+    TruckStopWithShowersAvailable,
     
     /// <summary>
     /// Truck Stop Hotel Available
+    /// Encoded/decoded by serializers as "TSHA".
     /// </summary>
     [EnumMember(Value = "TSHA")]
     [IsoId("_F9xlJ_i8EeiJaN6-Lf-c_w")]
     [Description(@"Truck Stop Hotel Available")]
-    TSHA,
+    TruckStopHotelAvailable,
     
     /// <summary>
     /// Vehicle parking available
+    /// Encoded/decoded by serializers as "VHPA".
     /// </summary>
     [EnumMember(Value = "VHPA")]
     [IsoId("_F9xlI_i8EeiJaN6-Lf-c_w")]
     [Description(@"Vehicle parking available")]
-    VHPA,
+    VehicleParking,
     
     /// <summary>
     /// Marina locations available
+    /// Encoded/decoded by serializers as "MRLA".
     /// </summary>
     [EnumMember(Value = "MRLA")]
     [IsoId("_F9xlKvi8EeiJaN6-Lf-c_w")]
     [Description(@"Marina locations available")]
-    MRLA,
+    MarinaLocationsAvailable,
     
     /// <summary>
     /// Vehicle maintenance/repair bays available
+    /// Encoded/decoded by serializers as "VMRA".
     /// </summary>
     [EnumMember(Value = "VMRA")]
     [IsoId("_F9xlJvi8EeiJaN6-Lf-c_w")]
     [Description(@"Vehicle maintenance/repair bays available")]
-    VMRA,
+    VehicleMaintenanceRepairBaysAvailable,
     
     /// <summary>
     /// Car wash available
+    /// Encoded/decoded by serializers as "CRWA".
     /// </summary>
     [EnumMember(Value = "CRWA")]
     [IsoId("_F9xlJfi8EeiJaN6-Lf-c_w")]
     [Description(@"Car wash available")]
-    CRWA,
+    CarWashAvailable,
     
     /// <summary>
     /// Aviation locations available
+    /// Encoded/decoded by serializers as "AVLA".
     /// </summary>
     [EnumMember(Value = "AVLA")]
     [IsoId("_F9xlKfi8EeiJaN6-Lf-c_w")]
     [Description(@"Aviation locations available")]
-    AVLA,
+    AviationLocationsAvailable,
     
     /// <summary>
     /// Pay-at-pump available
+    /// Encoded/decoded by serializers as "PAPA".
     /// </summary>
     [EnumMember(Value = "PAPA")]
     [IsoId("_F9xlKPi8EeiJaN6-Lf-c_w")]
     [Description(@"Pay-at-pump available")]
-    PAPA,
+    PayAtPumpAvailable,
     
     /// <summary>
     /// Alternative fuel locations available
+    /// Encoded/decoded by serializers as "AFLA".
     /// </summary>
     [EnumMember(Value = "AFLA")]
     [IsoId("_F9xlIvi8EeiJaN6-Lf-c_w")]
     [Description(@"Alternative fuel locations available")]
-    AFLA,
+    AlternativeFuelLocationsAvailable,
     
     /// <summary>
     /// Vehicle scales and weigh services available
+    /// Encoded/decoded by serializers as "VSWA".
     /// </summary>
     [EnumMember(Value = "VSWA")]
     [IsoId("_F9xlIPi8EeiJaN6-Lf-c_w")]
     [Description(@"Vehicle scales and weigh services available")]
-    VSWA,
+    VehicleScalesWeight,
     
     /// <summary>
     /// Other amenities defined at the national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_F9xlK_i8EeiJaN6-Lf-c_w")]
     [Description(@"Other amenities defined at the national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other amenities defined at the private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_F9xlJPi8EeiJaN6-Lf-c_w")]
     [Description(@"Other amenities defined at the private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// 24 hour availability
+    /// Encoded/decoded by serializers as "TFHA".
     /// </summary>
     [EnumMember(Value = "TFHA")]
     [IsoId("_ooVfsPi8EeiJaN6-Lf-c_w")]
     [Description(@"24 hour availability")]
-    TFHA,
+    TwentyFourHourAvailablity,
     
     /// <summary>
     /// 18-wheeler access availability
+    /// Encoded/decoded by serializers as "EWAA".
     /// </summary>
     [EnumMember(Value = "EWAA")]
     [IsoId("_or6_MPi8EeiJaN6-Lf-c_w")]
     [Description(@"18-wheeler access availability")]
-    EWAA,
+    EighteenWheelAccessAvailable,
     
     /// <summary>
     /// Diesel Sites Available
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_ovyykPi8EeiJaN6-Lf-c_w")]
     [Description(@"Diesel Sites Available")]
-    DISA,
+    DieselSitesAvailable,
     
     /// <summary>
     /// Interstate Access and Exit Number information with directions Available
+    /// Encoded/decoded by serializers as "AADA".
     /// </summary>
     [EnumMember(Value = "AADA")]
     [IsoId("_ozhcAPi8EeiJaN6-Lf-c_w")]
     [Description(@"Interstate Access and Exit Number information with directions Available")]
-    AADA,
+    AccessAndDirectionsAvailable,
     
     /// <summary>
     /// Convenience Store Available
+    /// Encoded/decoded by serializers as "CVSA".
     /// </summary>
     [EnumMember(Value = "CVSA")]
     [IsoId("_o3QFcPi8EeiJaN6-Lf-c_w")]
     [Description(@"Convenience Store Available")]
-    CVSA,
+    ConvenienceStoreAvailable,
     
     /// <summary>
     /// Truck Stop Restaurant Available
+    /// Encoded/decoded by serializers as "TSRA".
     /// </summary>
     [EnumMember(Value = "TSRA")]
     [IsoId("_o7aMsPi8EeiJaN6-Lf-c_w")]
     [Description(@"Truck Stop Restaurant Available")]
-    TSRA,
+    TruckStopRestaurantAvailable,
     
 }
 

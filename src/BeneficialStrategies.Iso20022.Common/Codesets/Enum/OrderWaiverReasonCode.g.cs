@@ -20,51 +20,57 @@ public enum OrderWaiverReasonCode
 {
     /// <summary>
     /// Dealing of the trade is outside the normal limit.
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_ZwscB9p-Ed-ak6NoX_4Aeg_-1281455618")]
     [Description(@"Dealing of the trade is outside the normal limit.")]
-    LATE,
+    LateTradeDealing,
     
     /// <summary>
     /// Front end load charge differs from PPM.
+    /// Encoded/decoded by serializers as "FEND".
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_ZwscCNp-Ed-ak6NoX_4Aeg_-791990734")]
     [Description(@"Front end load charge differs from PPM.")]
-    FEND,
+    FrontEndLoadCharge,
     
     /// <summary>
     /// Amount of subscription is below the minimum initial investment amount.
+    /// Encoded/decoded by serializers as "BMIN".
     /// </summary>
     [EnumMember(Value = "BMIN")]
     [IsoId("_Zw1l8Np-Ed-ak6NoX_4Aeg_-307141806")]
     [Description(@"Amount of subscription is below the minimum initial investment amount.")]
-    BMIN,
+    BelowMinimumInvestmentAmount,
     
     /// <summary>
     /// Cut off date has been passed.
+    /// Encoded/decoded by serializers as "CUTO".
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_Zw1l8dp-Ed-ak6NoX_4Aeg_-204631374")]
     [Description(@"Cut off date has been passed.")]
-    CUTO,
+    CutOffDate,
     
     /// <summary>
     /// Standard commission is waived.
+    /// Encoded/decoded by serializers as "COMW".
     /// </summary>
     [EnumMember(Value = "COMW")]
     [IsoId("_Zw1l8tp-Ed-ak6NoX_4Aeg_-1357804984")]
     [Description(@"Standard commission is waived.")]
-    COMW,
+    CommissionWaiver,
     
     /// <summary>
     /// General waiver.
+    /// Encoded/decoded by serializers as "WAIV".
     /// </summary>
     [EnumMember(Value = "WAIV")]
     [IsoId("_ep-90NnYEeSy3ba5KBm7wA")]
     [Description(@"General waiver.")]
-    WAIV,
+    GenericWaiver,
     
 }
 

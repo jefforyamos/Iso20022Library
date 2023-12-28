@@ -20,19 +20,21 @@ public enum BusinessFlowDirectionTypeCode
 {
     /// <summary>
     /// Assets to be delivered.
+    /// Encoded/decoded by serializers as "ADLV".
     /// </summary>
     [EnumMember(Value = "ADLV")]
     [IsoId("_8y4J9_skEeCIi9ZETLBv8g")]
     [Description(@"Assets to be delivered.")]
-    ADLV,
+    AssetstoBeDelivered,
     
     /// <summary>
     /// Assets to be received.
+    /// Encoded/decoded by serializers as "ARCV".
     /// </summary>
     [EnumMember(Value = "ARCV")]
     [IsoId("_CNy6h_slEeCIi9ZETLBv8g")]
     [Description(@"Assets to be received.")]
-    ARCV,
+    AssetsToBeReceived,
     
 }
 

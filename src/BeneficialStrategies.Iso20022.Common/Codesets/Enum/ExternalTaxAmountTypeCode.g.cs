@@ -22,43 +22,48 @@ public enum ExternalTaxAmountTypeCode
 {
     /// <summary>
     /// Tax accessed by city jurisdications within a country.
+    /// Encoded/decoded by serializers as "CITY".
     /// </summary>
     [EnumMember(Value = "CITY")]
     [IsoId("_uMAeufRYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by city jurisdications within a country.")]
-    CITY,
+    CityTax,
     
     /// <summary>
     /// Tax accessed by county jurisdications within a country.
+    /// Encoded/decoded by serializers as "CNTY".
     /// </summary>
     [EnumMember(Value = "CNTY")]
     [IsoId("_uMAevPRYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by county jurisdications within a country.")]
-    CNTY,
+    CountyTax,
     
     /// <summary>
     /// Tax accessed by local jurisdications within a country.
+    /// Encoded/decoded by serializers as "LOCL".
     /// </summary>
     [EnumMember(Value = "LOCL")]
     [IsoId("_uMKPsPRYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by local jurisdications within a country.")]
-    LOCL,
+    LocalTax,
     
     /// <summary>
     /// Tax accessed by province jurisdications within a country.
+    /// Encoded/decoded by serializers as "PROV".
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_uMKPs_RYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by province jurisdications within a country.")]
-    PROV,
+    ProvinceTax,
     
     /// <summary>
     /// Tax accessed by state jurisdications within a country.
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_uMKPtvRYEeuLhpyIdtJzwg")]
     [Description(@"Tax accessed by state jurisdications within a country.")]
-    STAT,
+    StateTax,
     
 }
 

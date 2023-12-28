@@ -20,19 +20,21 @@ public enum FlowDirectionTypeCode
 {
     /// <summary>
     /// Amount of money received.
+    /// Encoded/decoded by serializers as "INCG".
     /// </summary>
     [EnumMember(Value = "INCG")]
     [IsoId("_aq9E1tp-Ed-ak6NoX_4Aeg_124504889")]
     [Description(@"Amount of money received.")]
-    INCG,
+    Incoming,
     
     /// <summary>
     /// Amount of money paid out.
+    /// Encoded/decoded by serializers as "OUTG".
     /// </summary>
     [EnumMember(Value = "OUTG")]
     [IsoId("_aq9E19p-Ed-ak6NoX_4Aeg_124504890")]
     [Description(@"Amount of money paid out.")]
-    OUTG,
+    Outgoing,
     
 }
 

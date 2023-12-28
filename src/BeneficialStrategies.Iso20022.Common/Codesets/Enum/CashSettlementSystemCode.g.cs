@@ -20,59 +20,66 @@ public enum CashSettlementSystemCode
 {
     /// <summary>
     /// Settle money through Bank of Korea Wire.
+    /// Encoded/decoded by serializers as "BOKW".
     /// </summary>
     [EnumMember(Value = "BOKW")]
     [IsoId("_a7WRR9p-Ed-ak6NoX_4Aeg_-901576197")]
     [Description(@"Settle money through Bank of Korea Wire.")]
-    BOKW,
+    BankOfKoreaWire,
     
     /// <summary>
     /// Settle money through cheque.
+    /// Encoded/decoded by serializers as "CHEC".
     /// </summary>
     [EnumMember(Value = "CHEC")]
     [IsoId("_a7WRSNp-Ed-ak6NoX_4Aeg_-901576196")]
     [Description(@"Settle money through cheque.")]
-    CHEC,
+    Cheque,
     
     /// <summary>
     /// Settle money through UK domestic.
+    /// Encoded/decoded by serializers as "GBSC".
     /// </summary>
     [EnumMember(Value = "GBSC")]
     [IsoId("_a7fbMNp-Ed-ak6NoX_4Aeg_-901576180")]
     [Description(@"Settle money through UK domestic.")]
-    GBSC,
+    UKDomestic,
     
     /// <summary>
     /// Settle money through gross settlement system.
+    /// Encoded/decoded by serializers as "GROS".
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_a7fbMdp-Ed-ak6NoX_4Aeg_-901576179")]
     [Description(@"Settle money through gross settlement system.")]
-    GROS,
+    GrossSettlementSystem,
     
     /// <summary>
     /// Settle money through net settlement system.
+    /// Encoded/decoded by serializers as "NETS".
     /// </summary>
     [EnumMember(Value = "NETS")]
     [IsoId("_a7fbMtp-Ed-ak6NoX_4Aeg_-901576162")]
     [Description(@"Settle money through net settlement system.")]
-    NETS,
+    NetSettlementSystem,
     
     /// <summary>
     /// Settle money through CHIPS (US).
+    /// Encoded/decoded by serializers as "USCH".
     /// </summary>
     [EnumMember(Value = "USCH")]
     [IsoId("_a7fbM9p-Ed-ak6NoX_4Aeg_-901576137")]
     [Description(@"Settle money through CHIPS (US).")]
-    USCH,
+    USChips,
     
     /// <summary>
     /// Settle money through Fedwire (US).
+    /// Encoded/decoded by serializers as "USFW".
     /// </summary>
     [EnumMember(Value = "USFW")]
     [IsoId("_a7fbNNp-Ed-ak6NoX_4Aeg_-901576136")]
     [Description(@"Settle money through Fedwire (US).")]
-    USFW,
+    FedWireUS,
     
 }
 

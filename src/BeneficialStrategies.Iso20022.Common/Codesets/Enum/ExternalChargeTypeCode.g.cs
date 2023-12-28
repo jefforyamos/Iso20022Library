@@ -22,35 +22,39 @@ public enum ExternalChargeTypeCode
 {
     /// <summary>
     /// Fee paid to a broker for services provided.
+    /// Encoded/decoded by serializers as "BRKF".
     /// </summary>
     [EnumMember(Value = "BRKF")]
     [IsoId("_uLHG3PRYEeuLhpyIdtJzwg")]
     [Description(@"Fee paid to a broker for services provided.")]
-    BRKF,
+    BrokerageFee,
     
     /// <summary>
     /// Fee paid for processing a batch of transactions.
+    /// Encoded/decoded by serializers as "BTCH".
     /// </summary>
     [EnumMember(Value = "BTCH")]
     [IsoId("_uLQ30PRYEeuLhpyIdtJzwg")]
     [Description(@"Fee paid for processing a batch of transactions.")]
-    BTCH,
+    Batch,
     
     /// <summary>
     /// Fee paid for services provided.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_uLQ30_RYEeuLhpyIdtJzwg")]
     [Description(@"Fee paid for services provided.")]
-    COMM,
+    Commission,
     
     /// <summary>
     /// Summation of individual fees.
+    /// Encoded/decoded by serializers as "SUMM".
     /// </summary>
     [EnumMember(Value = "SUMM")]
     [IsoId("_uLQ31vRYEeuLhpyIdtJzwg")]
     [Description(@"Summation of individual fees.")]
-    SUMM,
+    Summation,
     
 }
 

@@ -20,75 +20,84 @@ public enum BasisPriceTypeCode
 {
     /// <summary>
     /// Closing price at morning session.
+    /// Encoded/decoded by serializers as "MSCP".
     /// </summary>
     [EnumMember(Value = "MSCP")]
     [IsoId("_bdUV4Np-Ed-ak6NoX_4Aeg_335335189")]
     [Description(@"Closing price at morning session.")]
-    MSCP,
+    MorningSessionClosePrice,
     
     /// <summary>
     /// Closing price.
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_bdUV4dp-Ed-ak6NoX_4Aeg_335335446")]
     [Description(@"Closing price.")]
-    CLOS,
+    ClosingPrice,
     
     /// <summary>
     /// Current price.
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_bdUV4tp-Ed-ak6NoX_4Aeg_335335447")]
     [Description(@"Current price.")]
-    CURR,
+    CurrentPrice,
     
     /// <summary>
     /// Price computed after a trading halt.
+    /// Encoded/decoded by serializers as "SPQO".
     /// </summary>
     [EnumMember(Value = "SPQO")]
     [IsoId("_bdUV49p-Ed-ak6NoX_4Aeg_335335448")]
     [Description(@"Price computed after a trading halt.")]
-    SPQO,
+    SpecialQuotation,
     
     /// <summary>
     /// Value weighted average price through the day.
+    /// Encoded/decoded by serializers as "VWPD".
     /// </summary>
     [EnumMember(Value = "VWPD")]
     [IsoId("_bdUV5Np-Ed-ak6NoX_4Aeg_335335449")]
     [Description(@"Value weighted average price through the day.")]
-    VWPD,
+    VWAPDay,
     
     /// <summary>
     /// Value weighted average price through a morning session.
+    /// Encoded/decoded by serializers as "VWPM".
     /// </summary>
     [EnumMember(Value = "VWPM")]
     [IsoId("_bdUV5dp-Ed-ak6NoX_4Aeg_335335450")]
     [Description(@"Value weighted average price through a morning session.")]
-    VWPM,
+    VWAPMorning,
     
     /// <summary>
     /// Value weighted average price through an afternoon session.
+    /// Encoded/decoded by serializers as "VWPA".
     /// </summary>
     [EnumMember(Value = "VWPA")]
     [IsoId("_bdUV5tp-Ed-ak6NoX_4Aeg_335335451")]
     [Description(@"Value weighted average price through an afternoon session.")]
-    VWPA,
+    VWAPAfternoon,
     
     /// <summary>
     /// Exercise price defined on a derivative product.
+    /// Encoded/decoded by serializers as "STIK".
     /// </summary>
     [EnumMember(Value = "STIK")]
     [IsoId("_bdUV59p-Ed-ak6NoX_4Aeg_335335452")]
     [Description(@"Exercise price defined on a derivative product.")]
-    STIK,
+    StrikePrice,
     
     /// <summary>
     /// Price of a trade opening session.
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_bdUV6Np-Ed-ak6NoX_4Aeg_335335453")]
     [Description(@"Price of a trade opening session.")]
-    OPEN,
+    OpenPrice,
     
 }
 

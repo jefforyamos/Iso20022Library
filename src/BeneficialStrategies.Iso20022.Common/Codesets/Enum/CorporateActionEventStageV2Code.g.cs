@@ -20,83 +20,93 @@ public enum CorporateActionEventStageV2Code
 {
     /// <summary>
     /// Approved at the relevant meeting, for example, dividend.
+    /// Encoded/decoded by serializers as "APPD".
     /// </summary>
     [EnumMember(Value = "APPD")]
     [IsoId("_C_ElHiUZEeOxdNEux54C3Q")]
     [Description(@"Approved at the relevant meeting, for example, dividend.")]
-    APPD,
+    Approved,
     
     /// <summary>
     /// Offer is closed for acceptance.
+    /// Encoded/decoded by serializers as "CLDE".
     /// </summary>
     [EnumMember(Value = "CLDE")]
     [IsoId("_C_ElICUZEeOxdNEux54C3Q")]
     [Description(@"Offer is closed for acceptance.")]
-    CLDE,
+    Deactivated,
     
     /// <summary>
     /// Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_C_ElJCUZEeOxdNEux54C3Q")]
     [Description(@"Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.")]
-    FULL,
+    CancellationAndReRun,
     
     /// <summary>
     /// Event/offer conditions have not been met and the event/offer is terminated or lapsed.
+    /// Encoded/decoded by serializers as "LAPS".
     /// </summary>
     [EnumMember(Value = "LAPS")]
     [IsoId("_C_ElHSUZEeOxdNEux54C3Q")]
     [Description(@"Event/offer conditions have not been met and the event/offer is terminated or lapsed.")]
-    LAPS,
+    Lapsed,
     
     /// <summary>
     /// Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_C_ElIyUZEeOxdNEux54C3Q")]
     [Description(@"Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.")]
-    PART,
+    SupplementalCancellationAndReRun,
     
     /// <summary>
     /// Open for acceptance until the next specified deadline in the announcement (if any).
+    /// Encoded/decoded by serializers as "PWAL".
     /// </summary>
     [EnumMember(Value = "PWAL")]
     [IsoId("_C_ElHyUZEeOxdNEux54C3Q")]
     [Description(@"Open for acceptance until the next specified deadline in the announcement (if any).")]
-    PWAL,
+    ActionPeriod,
     
     /// <summary>
     /// A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.
+    /// Encoded/decoded by serializers as "RESC".
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_C_ElIiUZEeOxdNEux54C3Q")]
     [Description(@"A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.")]
-    RESC,
+    SupplementalCancellation,
     
     /// <summary>
     /// Subject to approval at the relevant meeting, for example, dividend.
+    /// Encoded/decoded by serializers as "SUAP".
     /// </summary>
     [EnumMember(Value = "SUAP")]
     [IsoId("_C_ElJSUZEeOxdNEux54C3Q")]
     [Description(@"Subject to approval at the relevant meeting, for example, dividend.")]
-    SUAP,
+    SubjectToApproval,
     
     /// <summary>
     /// The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.
+    /// Encoded/decoded by serializers as "UNAC".
     /// </summary>
     [EnumMember(Value = "UNAC")]
     [IsoId("_C_ElHCUZEeOxdNEux54C3Q")]
     [Description(@"The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.")]
-    UNAC,
+    UnconditionalAsToAcceptance,
     
     /// <summary>
     /// Wholly unconditional; all conditions specified in the offer document have been satisfied.
+    /// Encoded/decoded by serializers as "WHOU".
     /// </summary>
     [EnumMember(Value = "WHOU")]
     [IsoId("_C_ElISUZEeOxdNEux54C3Q")]
     [Description(@"Wholly unconditional; all conditions specified in the offer document have been satisfied.")]
-    WHOU,
+    WhollyUnconditional,
     
 }
 

@@ -20,171 +20,192 @@ public enum CashAccountTypeCode
 {
     /// <summary>
     /// Account used for the payment of cash.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_a3ed59p-Ed-ak6NoX_4Aeg_-1801743163")]
     [Description(@"Account used for the payment of cash.")]
-    CASH,
+    CashPayment,
     
     /// <summary>
     /// Account used for charges if different from the account for payment.
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_a3ed6Np-Ed-ak6NoX_4Aeg_-1784198077")]
     [Description(@"Account used for charges if different from the account for payment.")]
-    CHAR,
+    Charges,
     
     /// <summary>
     /// Account used for commission if different from the account for payment.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_a3ed6dp-Ed-ak6NoX_4Aeg_-1771269963")]
     [Description(@"Account used for commission if different from the account for payment.")]
-    COMM,
+    Commission,
     
     /// <summary>
     /// Account used for taxes if different from the account for payment.
+    /// Encoded/decoded by serializers as "TAXE".
     /// </summary>
     [EnumMember(Value = "TAXE")]
     [IsoId("_a3nn0Np-Ed-ak6NoX_4Aeg_-1525610822")]
     [Description(@"Account used for taxes if different from the account for payment.")]
-    TAXE,
+    Tax,
     
     /// <summary>
     /// Account used for payment of income if different from the current cash account.
+    /// Encoded/decoded by serializers as "CISH".
     /// </summary>
     [EnumMember(Value = "CISH")]
     [IsoId("_a3nn0dp-Ed-ak6NoX_4Aeg_5556843")]
     [Description(@"Account used for payment of income if different from the current cash account.")]
-    CISH,
+    CashIncome,
     
     /// <summary>
     /// Account used for trading if different from the current cash account.
+    /// Encoded/decoded by serializers as "TRAS".
     /// </summary>
     [EnumMember(Value = "TRAS")]
     [IsoId("_a3nn0tp-Ed-ak6NoX_4Aeg_5556844")]
     [Description(@"Account used for trading if different from the current cash account.")]
-    TRAS,
+    CashTrading,
     
     /// <summary>
     /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
+    /// Encoded/decoded by serializers as "SACC".
     /// </summary>
     [EnumMember(Value = "SACC")]
     [IsoId("_a3nn09p-Ed-ak6NoX_4Aeg_5556853")]
     [Description(@"Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.")]
-    SACC,
+    Settlement,
     
     /// <summary>
     /// Account used to post debits and credits when no specific account has been nominated.
+    /// Encoded/decoded by serializers as "CACC".
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_a3nn1Np-Ed-ak6NoX_4Aeg_5556854")]
     [Description(@"Account used to post debits and credits when no specific account has been nominated.")]
-    CACC,
+    Current,
     
     /// <summary>
     /// Account used for savings.
+    /// Encoded/decoded by serializers as "SVGS".
     /// </summary>
     [EnumMember(Value = "SVGS")]
     [IsoId("_a3nn1dp-Ed-ak6NoX_4Aeg_2076628417")]
     [Description(@"Account used for savings.")]
-    SVGS,
+    Savings,
     
     /// <summary>
     /// Account used for overnight deposits.
+    /// Encoded/decoded by serializers as "ONDP".
     /// </summary>
     [EnumMember(Value = "ONDP")]
     [IsoId("_a3nn1tp-Ed-ak6NoX_4Aeg_1132707560")]
     [Description(@"Account used for overnight deposits.")]
-    ONDP,
+    OverNightDeposit,
     
     /// <summary>
     /// Account used for a marginal lending facility.
+    /// Encoded/decoded by serializers as "MGLD".
     /// </summary>
     [EnumMember(Value = "MGLD")]
     [IsoId("_a3nn19p-Ed-ak6NoX_4Aeg_1132707561")]
     [Description(@"Account used for a marginal lending facility.")]
-    MGLD,
+    MarginalLending,
     
     /// <summary>
     /// Account used for non-resident external.
+    /// Encoded/decoded by serializers as "NREX".
     /// </summary>
     [EnumMember(Value = "NREX")]
     [IsoId("_a3nn2Np-Ed-ak6NoX_4Aeg_-2105961045")]
     [Description(@"Account used for non-resident external.")]
-    NREX,
+    NonResidentExternal,
     
     /// <summary>
     /// Account used for money markets if different from the cash account.
+    /// Encoded/decoded by serializers as "MOMA".
     /// </summary>
     [EnumMember(Value = "MOMA")]
     [IsoId("_a3nn2dp-Ed-ak6NoX_4Aeg_-2076408775")]
     [Description(@"Account used for money markets if different from the cash account.")]
-    MOMA,
+    MoneyMarket,
     
     /// <summary>
     /// Account used for loans.
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_a3xY0Np-Ed-ak6NoX_4Aeg_-1843684449")]
     [Description(@"Account used for loans.")]
-    LOAN,
+    Loan,
     
     /// <summary>
     /// Accounts used for salary payments.
+    /// Encoded/decoded by serializers as "SLRY".
     /// </summary>
     [EnumMember(Value = "SLRY")]
     [IsoId("_a3xY0dp-Ed-ak6NoX_4Aeg_-1832601749")]
     [Description(@"Accounts used for salary payments.")]
-    SLRY,
+    Salary,
     
     /// <summary>
     /// Account is used for overdrafts.
+    /// Encoded/decoded by serializers as "ODFT".
     /// </summary>
     [EnumMember(Value = "ODFT")]
     [IsoId("_a3xY0tp-Ed-ak6NoX_4Aeg_-1819672967")]
     [Description(@"Account is used for overdrafts.")]
-    ODFT,
+    Overdraft,
     
     /// <summary>
     /// Account is for the coverage of lending.
+    /// Encoded/decoded by serializers as "LEND".
     /// </summary>
     [EnumMember(Value = "LEND")]
     [IsoId("_bu-5YCCyEeWJd9HF2tO7BA")]
     [Description(@"Account is for the coverage of lending.")]
-    LEND,
+    Lending,
     
     /// <summary>
     /// Account is for collateral.
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_fQOykCCyEeWJd9HF2tO7BA")]
     [Description(@"Account is for collateral.")]
-    COLL,
+    Collateral,
     
     /// <summary>
     /// Account is for financial settlements.
+    /// Encoded/decoded by serializers as "SETT".
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_ikYq8CCyEeWJd9HF2tO7BA")]
     [Description(@"Account is for financial settlements.")]
-    SETT,
+    FinancialSettlement,
     
     /// <summary>
     /// Account is for margin returns.
+    /// Encoded/decoded by serializers as "MARR".
     /// </summary>
     [EnumMember(Value = "MARR")]
     [IsoId("_m1ZNICCyEeWJd9HF2tO7BA")]
     [Description(@"Account is for margin returns.")]
-    MARR,
+    MarginReturn,
     
     /// <summary>
     /// Account is an segregated account.
+    /// Encoded/decoded by serializers as "SEGT".
     /// </summary>
     [EnumMember(Value = "SEGT")]
     [IsoId("_sFVcwCCyEeWJd9HF2tO7BA")]
     [Description(@"Account is an segregated account.")]
-    SEGT,
+    Segregated,
     
 }
 

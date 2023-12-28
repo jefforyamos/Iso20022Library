@@ -21,108 +21,121 @@ public enum LocationCategoryV2Code
     /// <summary>
     /// Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane,
     /// taxi, etc).
+    /// Encoded/decoded by serializers as "ABRD".
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_h8FRTVDdEeu8Rss-tto59A")]
     [Description(@"Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane, taxi, etc).")]
-    ABRD,
+    Aboard,
     
     /// <summary>
     /// Customer home.
+    /// Encoded/decoded by serializers as "HOME".
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_h8FRTlDdEeu8Rss-tto59A")]
     [Description(@"Customer home.")]
-    HOME,
+    Home,
     
     /// <summary>
     /// Indoor terminal.
+    /// Encoded/decoded by serializers as "INDR".
     /// </summary>
     [EnumMember(Value = "INDR")]
     [IsoId("_h8FRT1DdEeu8Rss-tto59A")]
     [Description(@"Indoor terminal.")]
-    INDR,
+    Indoor,
     
     /// <summary>
     /// Terminal incorporated in the pump dispensing petrol.
+    /// Encoded/decoded by serializers as "IPMP".
     /// </summary>
     [EnumMember(Value = "IPMP")]
     [IsoId("_h8FRUFDdEeu8Rss-tto59A")]
     [Description(@"Terminal incorporated in the pump dispensing petrol.")]
-    IPMP,
+    InsidePump,
     
     /// <summary>
     /// Mail order or telephone order.
+    /// Encoded/decoded by serializers as "MOTO".
     /// </summary>
     [EnumMember(Value = "MOTO")]
     [IsoId("_h8FRUVDdEeu8Rss-tto59A")]
     [Description(@"Mail order or telephone order.")]
-    MOTO,
+    MailOrderTelephoneOrder,
     
     /// <summary>
     /// Multiple terminals linked to a unique sale terminal.
+    /// Encoded/decoded by serializers as "MPOI".
     /// </summary>
     [EnumMember(Value = "MPOI")]
     [IsoId("_h8PCQFDdEeu8Rss-tto59A")]
     [Description(@"Multiple terminals linked to a unique sale terminal.")]
-    MPOI,
+    MultiplePOITerminal,
     
     /// <summary>
     /// Outdoor terminal serving several petrol pumps.
+    /// Encoded/decoded by serializers as "MPMP".
     /// </summary>
     [EnumMember(Value = "MPMP")]
     [IsoId("_h8PCQVDdEeu8Rss-tto59A")]
     [Description(@"Outdoor terminal serving several petrol pumps.")]
-    MPMP,
+    MultiplePump,
     
     /// <summary>
     /// Terminal serving multiple sale terminals.
+    /// Encoded/decoded by serializers as "MSLE".
     /// </summary>
     [EnumMember(Value = "MSLE")]
     [IsoId("_h8PCQlDdEeu8Rss-tto59A")]
     [Description(@"Terminal serving multiple sale terminals.")]
-    MSLE,
+    MultipleSaleTerminal,
     
     /// <summary>
     /// Nomadic is used when the merchant is traveling to different locations (e.g fair or
     /// sport events, home delivery, food truck).
+    /// Encoded/decoded by serializers as "NMDC".
     /// </summary>
     [EnumMember(Value = "NMDC")]
     [IsoId("_h8PCQ1DdEeu8Rss-tto59A")]
     [Description(@"Nomadic is used when the merchant is traveling to different locations (e.g fair or sport events, home delivery, food truck).")]
-    NMDC,
+    Nomadic,
     
     /// <summary>
     /// Fixed location, for example in a shop.
+    /// Encoded/decoded by serializers as "FIXD".
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_h8PCRFDdEeu8Rss-tto59A")]
     [Description(@"Fixed location, for example in a shop.")]
-    FIXD,
+    PhysicalShop,
     
     /// <summary>
     /// Terminal linked to a unique sale terminal.
+    /// Encoded/decoded by serializers as "SSLE".
     /// </summary>
     [EnumMember(Value = "SSLE")]
     [IsoId("_h8PCRVDdEeu8Rss-tto59A")]
     [Description(@"Terminal linked to a unique sale terminal.")]
-    SSLE,
+    SingleSaleTerminal,
     
     /// <summary>
     /// Terminal integrated in a vending machine.
+    /// Encoded/decoded by serializers as "VNDG".
     /// </summary>
     [EnumMember(Value = "VNDG")]
     [IsoId("_h8PCRlDdEeu8Rss-tto59A")]
     [Description(@"Terminal integrated in a vending machine.")]
-    VNDG,
+    VendingMachine,
     
     /// <summary>
     /// Virtual Shop is used for any ecommerce solution.
+    /// Encoded/decoded by serializers as "VIRT".
     /// </summary>
     [EnumMember(Value = "VIRT")]
     [IsoId("_h8PCR1DdEeu8Rss-tto59A")]
     [Description(@"Virtual Shop is used for any ecommerce solution.")]
-    VIRT,
+    VirtualShop,
     
 }
 

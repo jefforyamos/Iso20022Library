@@ -20,43 +20,48 @@ public enum ReservationStatusCode
 {
     /// <summary>
     /// Reservation is currently in effect.
+    /// Encoded/decoded by serializers as "ENAB".
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_8J5r96MgEeCJ6YNENx4h-w_-144867037")]
     [Description(@"Reservation is currently in effect.")]
-    ENAB,
+    Enabled,
     
     /// <summary>
     /// Reservation is not currently in effect.|.
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_8J5r-KMgEeCJ6YNENx4h-w_-849981652")]
     [Description(@"Reservation is not currently in effect.|.")]
-    DISA,
+    Disabled,
     
     /// <summary>
     /// Reservation has been deleted or suspended.
+    /// Encoded/decoded by serializers as "DELD".
     /// </summary>
     [EnumMember(Value = "DELD")]
     [IsoId("_8KDc8KMgEeCJ6YNENx4h-w_-2025172677")]
     [Description(@"Reservation has been deleted or suspended.")]
-    DELD,
+    Deleted,
     
     /// <summary>
     /// Reservation has been asked for and is not yet enabled.|.
+    /// Encoded/decoded by serializers as "REQD".
     /// </summary>
     [EnumMember(Value = "REQD")]
     [IsoId("_8KDc8aMgEeCJ6YNENx4h-w_-379905242")]
     [Description(@"Reservation has been asked for and is not yet enabled.|.")]
-    REQD,
+    Requested,
     
     /// <summary>
     /// Reservation is blocked or frozen due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.
+    /// Encoded/decoded by serializers as "BLKD".
     /// </summary>
     [EnumMember(Value = "BLKD")]
     [IsoId("_8KDc8qMgEeCJ6YNENx4h-w_97212700")]
     [Description(@"Reservation is blocked or frozen due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.")]
-    BLKD,
+    Blocked,
     
 }
 

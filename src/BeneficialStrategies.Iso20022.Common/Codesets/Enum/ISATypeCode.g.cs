@@ -20,35 +20,39 @@ public enum ISATypeCode
 {
     /// <summary>
     /// Type of ISA that offers a stocks and shares component only (no cash).
+    /// Encoded/decoded by serializers as "MINE".
     /// </summary>
     [EnumMember(Value = "MINE")]
     [IsoId("_adsE4Np-Ed-ak6NoX_4Aeg_391181286")]
     [Description(@"Type of ISA that offers a stocks and shares component only (no cash).")]
-    MINE,
+    MiniEquity,
     
     /// <summary>
     /// Type of ISA that must offer a stocks and shares component and, optionally, a cash component.
+    /// Encoded/decoded by serializers as "MAXI".
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_adsE4dp-Ed-ak6NoX_4Aeg_421659448")]
     [Description(@"Type of ISA that must offer a stocks and shares component and, optionally, a cash component.")]
-    MAXI,
+    Maxi,
     
     /// <summary>
     /// Type of ISA that offers a cash component only (no stock).
+    /// Encoded/decoded by serializers as "MINC".
     /// </summary>
     [EnumMember(Value = "MINC")]
     [IsoId("_adsE4tp-Ed-ak6NoX_4Aeg_1575662850")]
     [Description(@"Type of ISA that offers a cash component only (no stock).")]
-    MINC,
+    MiniCash,
     
     /// <summary>
     /// Any ISA.
+    /// Encoded/decoded by serializers as "ANYI".
     /// </summary>
     [EnumMember(Value = "ANYI")]
     [IsoId("_adsE49p-Ed-ak6NoX_4Aeg_749358612")]
     [Description(@"Any ISA.")]
-    ANYI,
+    Any,
     
 }
 

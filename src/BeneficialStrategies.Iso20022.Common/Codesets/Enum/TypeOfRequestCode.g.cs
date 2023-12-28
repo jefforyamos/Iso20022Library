@@ -20,19 +20,21 @@ public enum TypeOfRequestCode
 {
     /// <summary>
     /// Request for status.
+    /// Encoded/decoded by serializers as "STAT".
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("__q5pwNvdEeqxGfKJubfhIw")]
     [Description(@"Request for status.")]
-    STAT,
+    Status,
     
     /// <summary>
     /// Request for information.
+    /// Encoded/decoded by serializers as "INFO".
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_BILgENveEeqxGfKJubfhIw")]
     [Description(@"Request for information.")]
-    INFO,
+    Information,
     
 }
 

@@ -20,35 +20,39 @@ public enum GovernanceProcessTypeCode
 {
     /// <summary>
     /// Product governance procedure is pursuant to MiFID II.
+    /// Encoded/decoded by serializers as "AMIF".
     /// </summary>
     [EnumMember(Value = "AMIF")]
     [IsoId("_RLTtAID5Eeiw-daIkkmMqQ")]
     [Description(@"Product governance procedure is pursuant to MiFID II.")]
-    AMIF,
+    PursuantMiFID,
     
     /// <summary>
     /// Product governance procedure is comparable to MiFID II.
+    /// Encoded/decoded by serializers as "BMIF".
     /// </summary>
     [EnumMember(Value = "BMIF")]
     [IsoId("_XyRZ8ID5Eeiw-daIkkmMqQ")]
     [Description(@"Product governance procedure is comparable to MiFID II.")]
-    BMIF,
+    ComparibleMiFID,
     
     /// <summary>
     /// Product governance procedure is not in accordance with MiFID II.
+    /// Encoded/decoded by serializers as "CMIF".
     /// </summary>
     [EnumMember(Value = "CMIF")]
     [IsoId("_ZZhEkID5Eeiw-daIkkmMqQ")]
     [Description(@"Product governance procedure is not in accordance with MiFID II.")]
-    CMIF,
+    NotMiFID,
     
     /// <summary>
     /// No information is requested from the issuer.
+    /// Encoded/decoded by serializers as "NINF".
     /// </summary>
     [EnumMember(Value = "NINF")]
     [IsoId("_bK4UgID5Eeiw-daIkkmMqQ")]
     [Description(@"No information is requested from the issuer.")]
-    NINF,
+    NoInformation,
     
 }
 

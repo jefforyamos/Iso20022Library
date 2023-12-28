@@ -20,43 +20,48 @@ public enum SequenceTypeCode
 {
     /// <summary>
     /// First collection of a series of direct debit instructions.
+    /// Encoded/decoded by serializers as "FRST".
     /// </summary>
     [EnumMember(Value = "FRST")]
     [IsoId("_ZKZRAtp-Ed-ak6NoX_4Aeg_249427417")]
     [Description(@"First collection of a series of direct debit instructions.")]
-    FRST,
+    First,
     
     /// <summary>
     /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
+    /// Encoded/decoded by serializers as "RCUR".
     /// </summary>
     [EnumMember(Value = "RCUR")]
     [IsoId("_ZKZRA9p-Ed-ak6NoX_4Aeg_492312855")]
     [Description(@"Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.")]
-    RCUR,
+    Recurring,
     
     /// <summary>
     /// Final collection of a series of direct debit instructions.
+    /// Encoded/decoded by serializers as "FNAL".
     /// </summary>
     [EnumMember(Value = "FNAL")]
     [IsoId("_ZKZRBNp-Ed-ak6NoX_4Aeg_264204564")]
     [Description(@"Final collection of a series of direct debit instructions.")]
-    FNAL,
+    Final,
     
     /// <summary>
     /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
+    /// Encoded/decoded by serializers as "OOFF".
     /// </summary>
     [EnumMember(Value = "OOFF")]
     [IsoId("_ZKZRBdp-Ed-ak6NoX_4Aeg_567117639")]
     [Description(@"Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.")]
-    OOFF,
+    OneOff,
     
     /// <summary>
     /// Collection used to re-present previously reversed or returned direct debit transactions.
+    /// Encoded/decoded by serializers as "RPRE".
     /// </summary>
     [EnumMember(Value = "RPRE")]
     [IsoId("_t90OIlkyEeGeoaLUQk__nA_1851628055")]
     [Description(@"Collection used to re-present previously reversed or returned direct debit transactions.")]
-    RPRE,
+    Represented,
     
 }
 

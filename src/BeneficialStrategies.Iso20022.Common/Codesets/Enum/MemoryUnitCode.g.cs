@@ -20,59 +20,66 @@ public enum MemoryUnitCode
 {
     /// <summary>
     /// Exa byte.
+    /// Encoded/decoded by serializers as "EXAB".
     /// </summary>
     [EnumMember(Value = "EXAB")]
     [IsoId("_Hr9EwAxzEeKa_56Jbsi1RQ")]
     [Description(@"Exa byte.")]
-    EXAB,
+    ExaByte,
     
     /// <summary>
     /// Peta byte.
+    /// Encoded/decoded by serializers as "PETA".
     /// </summary>
     [EnumMember(Value = "PETA")]
     [IsoId("_R05qsAxzEeKa_56Jbsi1RQ")]
     [Description(@"Peta byte.")]
-    PETA,
+    PetaByte,
     
     /// <summary>
     /// Tera byte.
+    /// Encoded/decoded by serializers as "TERA".
     /// </summary>
     [EnumMember(Value = "TERA")]
     [IsoId("_cCdq4AxzEeKa_56Jbsi1RQ")]
     [Description(@"Tera byte.")]
-    TERA,
+    TeraByte,
     
     /// <summary>
     /// Giga byte.
+    /// Encoded/decoded by serializers as "GIGA".
     /// </summary>
     [EnumMember(Value = "GIGA")]
     [IsoId("_hkizYAxzEeKa_56Jbsi1RQ")]
     [Description(@"Giga byte.")]
-    GIGA,
+    GigaByte,
     
     /// <summary>
     /// Mega byte.
+    /// Encoded/decoded by serializers as "MEGA".
     /// </summary>
     [EnumMember(Value = "MEGA")]
     [IsoId("_lTyFQAxzEeKa_56Jbsi1RQ")]
     [Description(@"Mega byte.")]
-    MEGA,
+    MegaByte,
     
     /// <summary>
     /// Kilo byte.
+    /// Encoded/decoded by serializers as "KILO".
     /// </summary>
     [EnumMember(Value = "KILO")]
     [IsoId("_qWw28AxzEeKa_56Jbsi1RQ")]
     [Description(@"Kilo byte.")]
-    KILO,
+    KiloByte,
     
     /// <summary>
     /// Byte.
+    /// Encoded/decoded by serializers as "BYTE".
     /// </summary>
     [EnumMember(Value = "BYTE")]
     [IsoId("_up_msAxzEeKa_56Jbsi1RQ")]
     [Description(@"Byte.")]
-    BYTE,
+    Byte,
     
 }
 

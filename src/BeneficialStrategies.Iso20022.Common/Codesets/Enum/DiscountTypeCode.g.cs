@@ -20,67 +20,75 @@ public enum DiscountTypeCode
 {
     /// <summary>
     /// Quantity discount.
+    /// Encoded/decoded by serializers as "QUAN".
     /// </summary>
     [EnumMember(Value = "QUAN")]
     [IsoId("_TQ3_twEcEeCQm6a_G2yO_w_-1191559935")]
     [Description(@"Quantity discount.")]
-    QUAN,
+    QuantityDiscount,
     
     /// <summary>
     /// Promotional discount.
+    /// Encoded/decoded by serializers as "PROM".
     /// </summary>
     [EnumMember(Value = "PROM")]
     [IsoId("_TRd1kAEcEeCQm6a_G2yO_w_-1260131804")]
     [Description(@"Promotional discount.")]
-    PROM,
+    PromotionalDiscount,
     
     /// <summary>
     /// Pricing discount.
+    /// Encoded/decoded by serializers as "PRIC".
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_TRd1kQEcEeCQm6a_G2yO_w_-215219395")]
     [Description(@"Pricing discount.")]
-    PRIC,
+    PricingDiscount,
     
     /// <summary>
     /// Special agreement discount.
+    /// Encoded/decoded by serializers as "SPAG".
     /// </summary>
     [EnumMember(Value = "SPAG")]
     [IsoId("_TRd1kgEcEeCQm6a_G2yO_w_2120609041")]
     [Description(@"Special agreement discount.")]
-    SPAG,
+    SpecialAgreementDiscount,
     
     /// <summary>
     /// End-of-range discount.
+    /// Encoded/decoded by serializers as "ENOR".
     /// </summary>
     [EnumMember(Value = "ENOR")]
     [IsoId("_TRd1kwEcEeCQm6a_G2yO_w_-36707206")]
     [Description(@"End-of-range discount.")]
-    ENOR,
+    EndOfRangeDiscount,
     
     /// <summary>
     /// Addition discount based on third-party agreed business promotional activity, i.e., extra 10 percent discount for 15 days).
+    /// Encoded/decoded by serializers as "ADPS".
     /// </summary>
     [EnumMember(Value = "ADPS")]
     [IsoId("_Snf1wBRJEeKd9pI2QZcqvg_1802180027")]
     [Description(@"Addition discount based on third-party agreed business promotional activity, i.e., extra 10 percent discount for 15 days).")]
-    ADPS,
+    AdditionalPromotionalDiscount,
     
     /// <summary>
     /// Discount based on volume purchased.
+    /// Encoded/decoded by serializers as "STDS".
     /// </summary>
     [EnumMember(Value = "STDS")]
     [IsoId("_SqopUBRJEeKd9pI2QZcqvg_608728200")]
     [Description(@"Discount based on volume purchased.")]
-    STDS,
+    StandingDiscount,
     
     /// <summary>
     /// Discount based on terms negotiated for payment within a specified time period, i.e., 2/10 Net 30 (2 percent discount if paid in 10 days; otherwise, net amount is due in 30 days).
+    /// Encoded/decoded by serializers as "TMDS".
     /// </summary>
     [EnumMember(Value = "TMDS")]
     [IsoId("_SqxzQBRJEeKd9pI2QZcqvg_1045823300")]
     [Description(@"Discount based on terms negotiated for payment within a specified time period, i.e., 2/10 Net 30 (2 percent discount if paid in 10 days; otherwise, net amount is due in 30 days).")]
-    TMDS,
+    TermsDiscount,
     
 }
 

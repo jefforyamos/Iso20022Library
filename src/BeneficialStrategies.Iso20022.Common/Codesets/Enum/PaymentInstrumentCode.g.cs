@@ -20,83 +20,93 @@ public enum PaymentInstrumentCode
 {
     /// <summary>
     /// Direct debit instruction in which the debtor and the creditor are financial institutions.
+    /// Encoded/decoded by serializers as "BDT".
     /// </summary>
     [EnumMember(Value = "BDT")]
     [IsoId("_Z0HjeNp-Ed-ak6NoX_4Aeg_-636966190")]
     [Description(@"Direct debit instruction in which the debtor and the creditor are financial institutions.")]
-    BDT,
+    BankDebitTransfer,
     
     /// <summary>
     /// Funds transfer in which the debtor and the creditor are financial institutions.
+    /// Encoded/decoded by serializers as "BCT".
     /// </summary>
     [EnumMember(Value = "BCT")]
     [IsoId("_Z0Hjedp-Ed-ak6NoX_4Aeg_-636966148")]
     [Description(@"Funds transfer in which the debtor and the creditor are financial institutions.")]
-    BCT,
+    BankCreditTransfer,
     
     /// <summary>
     /// Direct debit instruction in which the debtor or the creditor or both are non-financial institutions.
+    /// Encoded/decoded by serializers as "CDT".
     /// </summary>
     [EnumMember(Value = "CDT")]
     [IsoId("_Z0RUcNp-Ed-ak6NoX_4Aeg_-636966130")]
     [Description(@"Direct debit instruction in which the debtor or the creditor or both are non-financial institutions.")]
-    CDT,
+    CustomerDebitTransfer,
     
     /// <summary>
     /// Funds transfer in which the debtor or the creditor or both are non-financial institutions.
+    /// Encoded/decoded by serializers as "CCT".
     /// </summary>
     [EnumMember(Value = "CCT")]
     [IsoId("_Z0RUcdp-Ed-ak6NoX_4Aeg_-636966087")]
     [Description(@"Funds transfer in which the debtor or the creditor or both are non-financial institutions.")]
-    CCT,
+    CustomerCreditTransfer,
     
     /// <summary>
     /// Payment instrument is a cheque. (A written order on which instructions are given to an account holder (a financial institution) to pay a stated sum to a named recipient (the payee)).
+    /// Encoded/decoded by serializers as "CHK".
     /// </summary>
     [EnumMember(Value = "CHK")]
     [IsoId("_Z0RUctp-Ed-ak6NoX_4Aeg_-636966052")]
     [Description(@"Payment instrument is a cheque. (A written order on which instructions are given to an account holder (a financial institution) to pay a stated sum to a named recipient (the payee)).")]
-    CHK,
+    Cheque,
     
     /// <summary>
     /// Transfer that is a movement of cash on the books of the account servicer.
+    /// Encoded/decoded by serializers as "BKT".
     /// </summary>
     [EnumMember(Value = "BKT")]
     [IsoId("_Z0RUc9p-Ed-ak6NoX_4Aeg_-636966034")]
     [Description(@"Transfer that is a movement of cash on the books of the account servicer.")]
-    BKT,
+    BookTransfer,
     
     /// <summary>
     /// Payment instrument is a debit card. (The payment originated using a debit card scheme.).
+    /// Encoded/decoded by serializers as "DCP".
     /// </summary>
     [EnumMember(Value = "DCP")]
     [IsoId("_Z0RUdNp-Ed-ak6NoX_4Aeg_-636965992")]
     [Description(@"Payment instrument is a debit card. (The payment originated using a debit card scheme.).")]
-    DCP,
+    DebitCardPayment,
     
     /// <summary>
     /// Payment instrument is a credit card. (The payment originated using a credit card scheme.).
+    /// Encoded/decoded by serializers as "CCP".
     /// </summary>
     [EnumMember(Value = "CCP")]
     [IsoId("_Z0RUddp-Ed-ak6NoX_4Aeg_-636965732")]
     [Description(@"Payment instrument is a credit card. (The payment originated using a credit card scheme.).")]
-    CCP,
+    CreditCardPayment,
     
     /// <summary>
     /// Entry related to a returned or unpaid item.
+    /// Encoded/decoded by serializers as "RTI".
     /// </summary>
     [EnumMember(Value = "RTI")]
     [IsoId("_Z0RUdtp-Ed-ak6NoX_4Aeg_-636965697")]
     [Description(@"Entry related to a returned or unpaid item.")]
-    RTI,
+    Return,
     
     /// <summary>
     /// Reverse entry that is the result of the cancellation of a previously booked entry.
+    /// Encoded/decoded by serializers as "CAN".
     /// </summary>
     [EnumMember(Value = "CAN")]
     [IsoId("_Z0RUd9p-Ed-ak6NoX_4Aeg_-636965662")]
     [Description(@"Reverse entry that is the result of the cancellation of a previously booked entry.")]
-    CAN,
+    CancellationRequest,
     
 }
 

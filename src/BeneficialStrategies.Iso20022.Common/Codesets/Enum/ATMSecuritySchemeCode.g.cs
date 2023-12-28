@@ -20,78 +20,88 @@ public enum ATMSecuritySchemeCode
 {
     /// <summary>
     /// Application key download protected by a share symmetric key.
+    /// Encoded/decoded by serializers as "APPK".
     /// </summary>
     [EnumMember(Value = "APPK")]
     [IsoId("_2y_BYIr4EeSvuOJS0mmL0g")]
     [Description(@"Application key download protected by a share symmetric key.")]
-    APPK,
+    ApplicationRemoteKeyLoading,
     
     /// <summary>
     /// Key download protected by asymmetric keys authenticated by a certificate.
+    /// Encoded/decoded by serializers as "CERT".
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_64v84Ir4EeSvuOJS0mmL0g")]
     [Description(@"Key download protected by asymmetric keys authenticated by a certificate.")]
-    CERT,
+    CertificateRemoteKeyLoading,
     
     /// <summary>
     /// Key download conform to the German ATM key download security scheme.
+    /// Encoded/decoded by serializers as "DTCH".
     /// </summary>
     [EnumMember(Value = "DTCH")]
     [IsoId("_84iqYIr4EeSvuOJS0mmL0g")]
     [Description(@"Key download conform to the German ATM key download security scheme.")]
-    DTCH,
+    GermanRemoteKeyLoading,
     
     /// <summary>
     /// Key download conform to the French ATM key download security scheme.
+    /// Encoded/decoded by serializers as "FRAN".
     /// </summary>
     [EnumMember(Value = "FRAN")]
     [IsoId("_ADx3UIr5EeSvuOJS0mmL0g")]
     [Description(@"Key download conform to the French ATM key download security scheme.")]
-    FRAN,
+    FrenchRemoteKeyLoading,
     
     /// <summary>
     /// Key download conform to the Luxemburg ATM key download security scheme.
+    /// Encoded/decoded by serializers as "LUXG".
     /// </summary>
     [EnumMember(Value = "LUXG")]
     [IsoId("_B-nMUIr5EeSvuOJS0mmL0g")]
     [Description(@"Key download conform to the Luxemburg ATM key download security scheme.")]
-    LUXG,
+    LuxemburgRemoteKeyLoading,
     
     /// <summary>
     /// Manual key entry on the ATM.
+    /// Encoded/decoded by serializers as "MANU".
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_EboBUIr5EeSvuOJS0mmL0g")]
     [Description(@"Manual key entry on the ATM.")]
-    MANU,
+    ManualKeyEntry,
     
     /// <summary>
     /// Key download protected by asymmetric keys authenticated by a PKI (Public Key Infrastructure).
+    /// Encoded/decoded by serializers as "PKIP".
     /// </summary>
     [EnumMember(Value = "PKIP")]
     [IsoId("_GVshUIr5EeSvuOJS0mmL0g")]
     [Description(@"Key download protected by asymmetric keys authenticated by a PKI (Public Key Infrastructure).")]
-    PKIP,
+    PKIKeyDownload,
     
     /// <summary>
     /// Key download protected by asymmetric keys authenticated by a digital signature.
+    /// Encoded/decoded by serializers as "SIGN".
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_I-nEUIr5EeSvuOJS0mmL0g")]
     [Description(@"Key download protected by asymmetric keys authenticated by a digital signature.")]
-    SIGN,
+    SignatureRemoteKeyLoading,
     
     /// <summary>
     /// No key exchange performed, no security scheme defined.
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_K6-qYIr5EeSvuOJS0mmL0g")]
     [Description(@"No key exchange performed, no security scheme defined.")]
-    NONE,
+    Unitialised,
     
     /// <summary>
     /// ANSI X9 TR34 2012 scheme for the distribution of the symmetric public keys and the initial master key.
+    /// Encoded/decoded by serializers as "TR34".
     /// </summary>
     [EnumMember(Value = "TR34")]
     [IsoId("_NHQnoF2UEeekzJIz1JxYSQ")]

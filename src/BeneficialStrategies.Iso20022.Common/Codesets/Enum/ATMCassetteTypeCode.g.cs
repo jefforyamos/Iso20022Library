@@ -20,51 +20,57 @@ public enum ATMCassetteTypeCode
 {
     /// <summary>
     /// Cassette for deposits.
+    /// Encoded/decoded by serializers as "DPST".
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_ZQDFYIqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for deposits.")]
-    DPST,
+    In,
     
     /// <summary>
     /// Cassette for dispense.
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_cvkgQIqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for dispense.")]
-    DISP,
+    Out,
     
     /// <summary>
     /// Cassette for recycling.
+    /// Encoded/decoded by serializers as "RCYC".
     /// </summary>
     [EnumMember(Value = "RCYC")]
     [IsoId("_fI5vIIqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for recycling.")]
-    RCYC,
+    Recycling,
     
     /// <summary>
     /// Cassette for replenishment.
+    /// Encoded/decoded by serializers as "RPLT".
     /// </summary>
     [EnumMember(Value = "RPLT")]
     [IsoId("_hhCrMIqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for replenishment.")]
-    RPLT,
+    Replenishment,
     
     /// <summary>
     /// Cassette for reject.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_kgFPMIqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for reject.")]
-    RJCT,
+    Reject,
     
     /// <summary>
     /// Cassette for retract.
+    /// Encoded/decoded by serializers as "RTRC".
     /// </summary>
     [EnumMember(Value = "RTRC")]
     [IsoId("_nSTfMIqfEeS4a4abTJTSSw")]
     [Description(@"Cassette for retract.")]
-    RTRC,
+    Retract,
     
 }
 

@@ -22,27 +22,30 @@ public enum ExternalSecuritiesPurposeCode
 {
     /// <summary>
     /// Relates to collateral management.
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_5eZzrPomEe2ClqPWkEN24A")]
     [Description(@"Relates to collateral management.")]
-    COLL,
+    CollateralManagement,
     
     /// <summary>
     /// Relates to securities lending.
+    /// Encoded/decoded by serializers as "SECL".
     /// </summary>
     [EnumMember(Value = "SECL")]
     [IsoId("_5eZztPomEe2ClqPWkEN24A")]
     [Description(@"Relates to securities lending.")]
-    SECL,
+    SecuritiesLending,
     
     /// <summary>
     /// Relates to settlements.
+    /// Encoded/decoded by serializers as "STMT".
     /// </summary>
     [EnumMember(Value = "STMT")]
     [IsoId("_5eZzqfomEe2ClqPWkEN24A")]
     [Description(@"Relates to settlements.")]
-    STMT,
+    Settlements,
     
 }
 

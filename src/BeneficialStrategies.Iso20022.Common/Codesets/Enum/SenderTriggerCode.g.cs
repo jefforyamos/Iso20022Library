@@ -20,36 +20,40 @@ public enum SenderTriggerCode
 {
     /// <summary>
     /// File generated based on a date/time event.
+    /// Encoded/decoded by serializers as "DTTM".
     /// </summary>
     [EnumMember(Value = "DTTM")]
     [IsoId("_jSXz4MmLEeWAGphE2LvqeA")]
     [Description(@"File generated based on a date/time event.")]
-    DTTM,
+    DateTime,
     
     /// <summary>
     /// File generated based on a forced event (file generation has been forced).
+    /// Encoded/decoded by serializers as "FRCD".
     /// </summary>
     [EnumMember(Value = "FRCD")]
     [IsoId("_oAGHQMmLEeWAGphE2LvqeA")]
     [Description(@"File generated based on a forced event (file generation has been forced).")]
-    FRCD,
+    Forced,
     
     /// <summary>
     /// File generated based on a manual event (file has been
     /// generated manually).
+    /// Encoded/decoded by serializers as "MANL".
     /// </summary>
     [EnumMember(Value = "MANL")]
     [IsoId("_qjgfMMmLEeWAGphE2LvqeA")]
     [Description(@"File generated based on a manual event (file has been generated manually).")]
-    MANL,
+    Manual,
     
     /// <summary>
     /// File generated based on a signature event (file has the minimum required signature from the sender).
+    /// Encoded/decoded by serializers as "SFSG".
     /// </summary>
     [EnumMember(Value = "SFSG")]
     [IsoId("_uTR8kMmLEeWAGphE2LvqeA")]
     [Description(@"File generated based on a signature event (file has the minimum required signature from the sender).")]
-    SFSG,
+    SufficientlySigned,
     
 }
 

@@ -20,51 +20,57 @@ public enum RegistrationCode
 {
     /// <summary>
     /// Hold the securities in street name. If there is a standing instruction in place to register on receipt, then this standing instruction is to be ignored.
+    /// Encoded/decoded by serializers as "NREG".
     /// </summary>
     [EnumMember(Value = "NREG")]
     [IsoId("_Za7nZ9p-Ed-ak6NoX_4Aeg_-740425246")]
     [Description(@"Hold the securities in street name. If there is a standing instruction in place to register on receipt, then this standing instruction is to be ignored.")]
-    NREG,
+    StreetName,
     
     /// <summary>
     /// Register on receipt. If there is a standing instruction in place to hold the securities in street name, then this standing instruction is to be ignored.
+    /// Encoded/decoded by serializers as "YREG".
     /// </summary>
     [EnumMember(Value = "YREG")]
     [IsoId("_Za7naNp-Ed-ak6NoX_4Aeg_-740425231")]
     [Description(@"Register on receipt. If there is a standing instruction in place to hold the securities in street name, then this standing instruction is to be ignored.")]
-    YREG,
+    Registered,
     
     /// <summary>
     /// You or your party set the instruction in a hold/frozen/preadvice mode.
+    /// Encoded/decoded by serializers as "PTYH".
     /// </summary>
     [EnumMember(Value = "PTYH")]
     [IsoId("_nAsOUPIrEd-dOvqmSLSz5g")]
     [Description(@"You or your party set the instruction in a hold/frozen/preadvice mode.")]
-    PTYH,
+    PartyHold,
     
     /// <summary>
     /// Central securities depository sets the instruction in a hold/frozen/preadvice mode.
+    /// Encoded/decoded by serializers as "CSDH".
     /// </summary>
     [EnumMember(Value = "CSDH")]
     [IsoId("_ycMBQPIrEd-dOvqmSLSz5g")]
     [Description(@"Central securities depository sets the instruction in a hold/frozen/preadvice mode.")]
-    CSDH,
+    CSDHold,
     
     /// <summary>
     /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.
+    /// Encoded/decoded by serializers as "CDEL".
     /// </summary>
     [EnumMember(Value = "CDEL")]
     [IsoId("_4bcN8PIrEd-dOvqmSLSz5g")]
     [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.")]
-    CDEL,
+    ConditionalDelivery,
     
     /// <summary>
     /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.
+    /// Encoded/decoded by serializers as "CVAL".
     /// </summary>
     [EnumMember(Value = "CVAL")]
     [IsoId("_BmY6kPIsEd-dOvqmSLSz5g")]
     [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.")]
-    CVAL,
+    CSDValidation,
     
 }
 

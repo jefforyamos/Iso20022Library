@@ -20,107 +20,120 @@ public enum InterestRateIndexTenorCode_TO_MERGE
 {
     /// <summary>
     /// Tenor is 1 day.
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_dTDsMI9EEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 1 day.")]
-    DAIL,
+    Day1,
     
     /// <summary>
     /// Tenor is IntraDay.
+    /// Encoded/decoded by serializers as "INDA".
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_h9fbAI9EEeqMo4JxiuZGSw")]
     [Description(@"Tenor is IntraDay.")]
-    INDA,
+    IntraDay,
     
     /// <summary>
     /// Tenor is 1 month.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_mqKlgI9EEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 1 month.")]
-    MNTH,
+    Month1,
     
     /// <summary>
     /// Tenor is 12 months.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_vrs3cI9EEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 12 months.")]
-    YEAR,
+    Month12,
     
     /// <summary>
     /// Tenor is 2 months.
+    /// Encoded/decoded by serializers as "TOMN".
     /// </summary>
     [EnumMember(Value = "TOMN")]
     [IsoId("_34kyQI9EEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 2 months.")]
-    TOMN,
+    Month2,
     
     /// <summary>
     /// Tenor is 3 months.
+    /// Encoded/decoded by serializers as "QUTR".
     /// </summary>
     [EnumMember(Value = "QUTR")]
     [IsoId("_9JZLoI9EEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 3 months.")]
-    QUTR,
+    Month3,
     
     /// <summary>
     /// Tenor is 4 months.
+    /// Encoded/decoded by serializers as "FOMN".
     /// </summary>
     [EnumMember(Value = "FOMN")]
     [IsoId("_KvIBgI9FEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 4 months.")]
-    FOMN,
+    Month4,
     
     /// <summary>
     /// Tenor is 6 months.
+    /// Encoded/decoded by serializers as "SEMI".
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_Q3SSkI9FEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 6 months.")]
-    SEMI,
+    Month6,
     
     /// <summary>
     /// OnDemand
+    /// Encoded/decoded by serializers as "ONDE".
     /// </summary>
     [EnumMember(Value = "ONDE")]
     [IsoId("_YXrh4I9FEeqMo4JxiuZGSw")]
     [Description(@"OnDemand")]
-    ONDE,
+    OnDemand,
     
     /// <summary>
     /// Tenor is other unspecified time unit.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ctSQMI9FEeqMo4JxiuZGSw")]
     [Description(@"Tenor is other unspecified time unit.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Tenor is overnght.
+    /// Encoded/decoded by serializers as "OVNG".
     /// </summary>
     [EnumMember(Value = "OVNG")]
     [IsoId("_tFspEI9FEeqMo4JxiuZGSw")]
     [Description(@"Tenor is overnght.")]
-    OVNG,
+    Overnight,
     
     /// <summary>
     /// Tenor is 1 week.	
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_xlIBwI9FEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 1 week.	")]
-    WEEK,
+    Week1,
     
     /// <summary>
     /// Tenor is 2 weeks.
+    /// Encoded/decoded by serializers as "TOWK".
     /// </summary>
     [EnumMember(Value = "TOWK")]
     [IsoId("_2D9kkI9FEeqMo4JxiuZGSw")]
     [Description(@"Tenor is 2 weeks.")]
-    TOWK,
+    Week2,
     
 }
 

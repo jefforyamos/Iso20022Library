@@ -20,75 +20,84 @@ public enum MessageClassCode
 {
     /// <summary>
     /// Addendum class of messages.
+    /// Encoded/decoded by serializers as "ADDE".
     /// </summary>
     [EnumMember(Value = "ADDE")]
     [IsoId("_5ZRNoBtAEeqrvK3udMUsNQ")]
     [Description(@"Addendum class of messages.")]
-    ADDE,
+    Addendum,
     
     /// <summary>
     /// Amendment class of messages.
+    /// Encoded/decoded by serializers as "AMDT".
     /// </summary>
     [EnumMember(Value = "AMDT")]
     [IsoId("_EOQaMBtBEeqrvK3udMUsNQ")]
     [Description(@"Amendment class of messages.")]
-    AMDT,
+    Amendment,
     
     /// <summary>
     /// Authorisation class of messages.
+    /// Encoded/decoded by serializers as "AUTH".
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_OBMT4BtBEeqrvK3udMUsNQ")]
     [Description(@"Authorisation class of messages.")]
-    AUTH,
+    Authorisation,
     
     /// <summary>
     /// Card management class of messages.
+    /// Encoded/decoded by serializers as "CMGT".
     /// </summary>
     [EnumMember(Value = "CMGT")]
     [IsoId("_d8JUsBtBEeqrvK3udMUsNQ")]
     [Description(@"Card management class of messages.")]
-    CMGT,
+    CardManagement,
     
     /// <summary>
     /// Charge back class of messages.
+    /// Encoded/decoded by serializers as "CBCK".
     /// </summary>
     [EnumMember(Value = "CBCK")]
     [IsoId("_okyuYBtBEeqrvK3udMUsNQ")]
     [Description(@"Charge back class of messages.")]
-    CBCK,
+    ChargeBack,
     
     /// <summary>
     /// Fee collection class of messages.
+    /// Encoded/decoded by serializers as "FEEC".
     /// </summary>
     [EnumMember(Value = "FEEC")]
     [IsoId("_vc3ZcBtBEeqrvK3udMUsNQ")]
     [Description(@"Fee collection class of messages.")]
-    FEEC,
+    FeeCollection,
     
     /// <summary>
     /// Financial class of messages.
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_3EZLgBtBEeqrvK3udMUsNQ")]
     [Description(@"Financial class of messages.")]
-    FINL,
+    Financial,
     
     /// <summary>
     /// Inquiry class of messages.
+    /// Encoded/decoded by serializers as "INQY".
     /// </summary>
     [EnumMember(Value = "INQY")]
     [IsoId("_8m6_8BtBEeqrvK3udMUsNQ")]
     [Description(@"Inquiry class of messages.")]
-    INQY,
+    Inquiry,
     
     /// <summary>
     /// Verification class of messages.
+    /// Encoded/decoded by serializers as "VERI".
     /// </summary>
     [EnumMember(Value = "VERI")]
     [IsoId("_BKOMABtCEeqrvK3udMUsNQ")]
     [Description(@"Verification class of messages.")]
-    VERI,
+    Verification,
     
 }
 

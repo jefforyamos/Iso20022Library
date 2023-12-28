@@ -20,11 +20,12 @@ public enum IssuerTaxabilityCode
 {
     /// <summary>
     /// The cash proceeds are taxable.
+    /// Encoded/decoded by serializers as "TXBL".
     /// </summary>
     [EnumMember(Value = "TXBL")]
     [IsoId("_lj-tN_ouEeCfbIXrKCjG0g")]
     [Description(@"The cash proceeds are taxable.")]
-    TXBL,
+    Taxable,
     
 }
 

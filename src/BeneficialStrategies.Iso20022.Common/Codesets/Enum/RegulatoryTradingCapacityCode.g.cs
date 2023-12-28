@@ -20,27 +20,30 @@ public enum RegulatoryTradingCapacityCode
 {
     /// <summary>
     /// Transaction was carried out as a deal under own account.
+    /// Encoded/decoded by serializers as "DEAL".
     /// </summary>
     [EnumMember(Value = "DEAL")]
     [IsoId("_P5TPcO8bEeSLA89yUYsVSw")]
     [Description(@"Transaction was carried out as a deal under own account.")]
-    DEAL,
+    DealOnOwnAccount,
     
     /// <summary>
     /// Transaction was carried out as a matched principal trading.
+    /// Encoded/decoded by serializers as "MTCH".
     /// </summary>
     [EnumMember(Value = "MTCH")]
     [IsoId("_ktFAYO8bEeSLA89yUYsVSw")]
     [Description(@"Transaction was carried out as a matched principal trading.")]
-    MTCH,
+    MatchedPrincipal,
     
     /// <summary>
     /// Transaction was carried out as an agent.
+    /// Encoded/decoded by serializers as "AOTC".
     /// </summary>
     [EnumMember(Value = "AOTC")]
     [IsoId("_wXAQ4O8bEeSLA89yUYsVSw")]
     [Description(@"Transaction was carried out as an agent.")]
-    AOTC,
+    AnyOtherCapacity,
     
 }
 

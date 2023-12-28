@@ -20,19 +20,21 @@ public enum AdjustmentDirectionCode
 {
     /// <summary>
     /// Adjustment amount must be added to the total amount.
+    /// Encoded/decoded by serializers as "ADDD".
     /// </summary>
     [EnumMember(Value = "ADDD")]
     [IsoId("_bnKOZNp-Ed-ak6NoX_4Aeg_-644239632")]
     [Description(@"Adjustment amount must be added to the total amount.")]
-    ADDD,
+    Added,
     
     /// <summary>
     /// Adjustment amount must be substracted from the total amount.
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_bnKOZdp-Ed-ak6NoX_4Aeg_-614687103")]
     [Description(@"Adjustment amount must be substracted from the total amount.")]
-    SUBS,
+    Substracted,
     
 }
 

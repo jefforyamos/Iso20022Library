@@ -20,27 +20,30 @@ public enum PresentationPartyCode
 {
     /// <summary>
     /// Presentation made exclusively to the confirmer.
+    /// Encoded/decoded by serializers as "EXCN".
     /// </summary>
     [EnumMember(Value = "EXCN")]
     [IsoId("_miKJ0HydEeGWJuGCfvwOsQ")]
     [Description(@"Presentation made exclusively to the confirmer.")]
-    EXCN,
+    ExclusiveConfirmer,
     
     /// <summary>
     /// Presentation made exclusively to the issuer.
+    /// Encoded/decoded by serializers as "EXIS".
     /// </summary>
     [EnumMember(Value = "EXIS")]
     [IsoId("_t0V-AHydEeGWJuGCfvwOsQ")]
     [Description(@"Presentation made exclusively to the issuer.")]
-    EXIS,
+    ExclusiveIssuer,
     
     /// <summary>
     /// Presentation made either to the issuer or other nominated party.
+    /// Encoded/decoded by serializers as "ETHR".
     /// </summary>
     [EnumMember(Value = "ETHR")]
     [IsoId("_3TDUIHydEeGWJuGCfvwOsQ")]
     [Description(@"Presentation made either to the issuer or other nominated party.")]
-    ETHR,
+    IssuerOrOtherNominatatedParty,
     
 }
 

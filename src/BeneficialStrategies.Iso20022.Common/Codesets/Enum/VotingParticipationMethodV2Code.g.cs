@@ -20,51 +20,57 @@ public enum VotingParticipationMethodV2Code
 {
     /// <summary>
     /// Vote participation is via documents sent through physical post / mail.
+    /// Encoded/decoded by serializers as "MAIL".
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_VmIhJhrkEeyhRdHRjakS2w")]
     [Description(@"Vote participation is via documents sent through physical post / mail.")]
-    MAIL,
+    Correspondence,
     
     /// <summary>
     /// Vote participation is through electronic means like dedicated standards messaging or web based voting applications.
+    /// Encoded/decoded by serializers as "EVOT".
     /// </summary>
     [EnumMember(Value = "EVOT")]
     [IsoId("_VmIhJxrkEeyhRdHRjakS2w")]
     [Description(@"Vote participation is through electronic means like dedicated standards messaging or web based voting applications.")]
-    EVOT,
+    ElectronicVoting,
     
     /// <summary>
     /// Vote participation is through physical attendance.
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_VmIhKBrkEeyhRdHRjakS2w")]
     [Description(@"Vote participation is through physical attendance.")]
-    PHYS,
+    InPerson,
     
     /// <summary>
     /// Participation to the meeting is in person but the person is not voting.
+    /// Encoded/decoded by serializers as "PHNV".
     /// </summary>
     [EnumMember(Value = "PHNV")]
     [IsoId("_VmIhKRrkEeyhRdHRjakS2w")]
     [Description(@"Participation to the meeting is in person but the person is not voting.")]
-    PHNV,
+    NotVoting,
     
     /// <summary>
     /// Vote participation is through a proxy person.
+    /// Encoded/decoded by serializers as "PRXY".
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_VmIhKhrkEeyhRdHRjakS2w")]
     [Description(@"Vote participation is through a proxy person.")]
-    PRXY,
+    Proxy,
     
     /// <summary>
     /// Vote participation is through virtual meeting attendance method like multimedia and web based video or audio conferencing. 
+    /// Encoded/decoded by serializers as "VIRT".
     /// </summary>
     [EnumMember(Value = "VIRT")]
     [IsoId("_VmIhKxrkEeyhRdHRjakS2w")]
     [Description(@"Vote participation is through virtual meeting attendance method like multimedia and web based video or audio conferencing. ")]
-    VIRT,
+    Virtual,
     
 }
 

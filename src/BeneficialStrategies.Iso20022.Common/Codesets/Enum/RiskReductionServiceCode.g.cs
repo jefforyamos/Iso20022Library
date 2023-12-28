@@ -20,43 +20,48 @@ public enum RiskReductionServiceCode
 {
     /// <summary>
     /// Portfolio Compression without a third-party service provider.
+    /// Encoded/decoded by serializers as "PWOS".
     /// </summary>
     [EnumMember(Value = "PWOS")]
     [IsoId("_aTUiECi6EeuKKc2MztSwPw")]
     [Description(@"Portfolio Compression without a third-party service provider.")]
-    PWOS,
+    NoThirdPartyPortfolioCompression,
     
     /// <summary>
     /// Portfolio Compression with a third-party service provider or CCP.
+    /// Encoded/decoded by serializers as "PWAS".
     /// </summary>
     [EnumMember(Value = "PWAS")]
     [IsoId("_bNo1QCi6EeuKKc2MztSwPw")]
     [Description(@"Portfolio Compression with a third-party service provider or CCP.")]
-    PWAS,
+    ThirdPartyPortfolioCompression,
     
     /// <summary>
     /// Portfolio rebalancing or margin management.
+    /// Encoded/decoded by serializers as "PRBM".
     /// </summary>
     [EnumMember(Value = "PRBM")]
     [IsoId("_cplO0Ci6EeuKKc2MztSwPw")]
     [Description(@"Portfolio rebalancing or margin management.")]
-    PRBM,
+    PortfolioRebalancing,
     
     /// <summary>
     /// There is no portfolio compression.
+    /// Encoded/decoded by serializers as "NORR".
     /// </summary>
     [EnumMember(Value = "NORR")]
     [IsoId("_eBy-8Ci6EeuKKc2MztSwPw")]
     [Description(@"There is no portfolio compression.")]
-    NORR,
+    NoRiskReduction,
     
     /// <summary>
     /// Other portfolio compression.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_i2NJICi6EeuKKc2MztSwPw")]
     [Description(@"Other portfolio compression.")]
-    OTHR,
+    OtherCompression,
     
 }
 

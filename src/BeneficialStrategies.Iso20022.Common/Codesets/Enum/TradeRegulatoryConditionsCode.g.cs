@@ -20,19 +20,21 @@ public enum TradeRegulatoryConditionsCode
 {
     /// <summary>
     /// Trade was solicited by the executing broker. The broker has suggested to his client to buy/sell financial instruments.
+    /// Encoded/decoded by serializers as "SOLI".
     /// </summary>
     [EnumMember(Value = "SOLI")]
     [IsoId("__yXpI9ojEeC60axPepSq7g_-1107312564")]
     [Description(@"Trade was solicited by the executing broker. The broker has suggested to his client to buy/sell financial instruments.")]
-    SOLI,
+    Solicited,
     
     /// <summary>
     /// Trade was unsolicited. The client acts on its own without advice from the executing broker.
+    /// Encoded/decoded by serializers as "USOL".
     /// </summary>
     [EnumMember(Value = "USOL")]
     [IsoId("__yXpJNojEeC60axPepSq7g_-1334779676")]
     [Description(@"Trade was unsolicited. The client acts on its own without advice from the executing broker.")]
-    USOL,
+    Unsolicited,
     
 }
 

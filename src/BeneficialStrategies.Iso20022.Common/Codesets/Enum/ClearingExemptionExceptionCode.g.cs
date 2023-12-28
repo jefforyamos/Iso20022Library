@@ -20,59 +20,66 @@ public enum ClearingExemptionExceptionCode
 {
     /// <summary>
     /// End user exemption.
+    /// Encoded/decoded by serializers as "ENDU".
     /// </summary>
     [EnumMember(Value = "ENDU")]
     [IsoId("_xGxLIIJTEeuDe9SyRl5qeg")]
     [Description(@"End user exemption.")]
-    ENDU,
+    EndUserException,
     
     /// <summary>
     /// Inter affiliate exemption.
+    /// Encoded/decoded by serializers as "AFFL".
     /// </summary>
     [EnumMember(Value = "AFFL")]
     [IsoId("_0FpXEIJTEeuDe9SyRl5qeg")]
     [Description(@"Inter affiliate exemption.")]
-    AFFL,
+    InterAffiliateExemption,
     
     /// <summary>
     /// Small bank exemption
+    /// Encoded/decoded by serializers as "SMBK".
     /// </summary>
     [EnumMember(Value = "SMBK")]
     [IsoId("_3ErUAIJTEeuDe9SyRl5qeg")]
     [Description(@"Small bank exemption")]
-    SMBK,
+    SmallBankExemption,
     
     /// <summary>
     /// Cooperative exemption.
+    /// Encoded/decoded by serializers as "COOP".
     /// </summary>
     [EnumMember(Value = "COOP")]
     [IsoId("_5E6tcIJTEeuDe9SyRl5qeg")]
     [Description(@"Cooperative exemption.")]
-    COOP,
+    CooperativeExemption,
     
     /// <summary>
     /// No action letter relief.
+    /// Encoded/decoded by serializers as "NOAL".
     /// </summary>
     [EnumMember(Value = "NOAL")]
     [IsoId("_7TvVcIJTEeuDe9SyRl5qeg")]
     [Description(@"No action letter relief.")]
-    NOAL,
+    NoActionLetterRelief,
     
     /// <summary>
     /// No reason.
+    /// Encoded/decoded by serializers as "NORE".
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_-yAzIIJTEeuDe9SyRl5qeg")]
     [Description(@"No reason.")]
-    NORE,
+    NoReason,
     
     /// <summary>
     /// Other.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_A0x8IIJUEeuDe9SyRl5qeg")]
     [Description(@"Other.")]
-    OTHR,
+    Other,
     
 }
 

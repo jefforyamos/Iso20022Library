@@ -20,19 +20,21 @@ public enum StatementSourceCode
 {
     /// <summary>
     /// Accounting.
+    /// Encoded/decoded by serializers as "ACCT".
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_m5hTcPNBEeCuA5Tr22BnwA_699577492")]
     [Description(@"Accounting.")]
-    ACCT,
+    Accounting,
     
     /// <summary>
     /// Custody.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_m5hTcfNBEeCuA5Tr22BnwA_710657512")]
     [Description(@"Custody.")]
-    CUST,
+    Custody,
     
 }
 

@@ -21,83 +21,93 @@ public enum ExternalUndertakingChargeTypeCode
 {
     /// <summary>
     /// Charge related to the issuance of an amendment.
+    /// Encoded/decoded by serializers as "AMND".
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_uQ7a8_RYEeuLhpyIdtJzwg")]
     [Description(@"Charge related to the issuance of an amendment.")]
-    AMND,
+    Amendment,
     
     /// <summary>
     /// Charge related to the processing of a claim.
+    /// Encoded/decoded by serializers as "CLAM".
     /// </summary>
     [EnumMember(Value = "CLAM")]
     [IsoId("_uQ7a9vRYEeuLhpyIdtJzwg")]
     [Description(@"Charge related to the processing of a claim.")]
-    CLAM,
+    Claim,
     
     /// <summary>
     /// Commission charge.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_uQ7a-fRYEeuLhpyIdtJzwg")]
     [Description(@"Commission charge.")]
-    COMM,
+    Commission,
     
     /// <summary>
     /// Charge for confirmation.
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uREk4PRYEeuLhpyIdtJzwg")]
     [Description(@"Charge for confirmation.")]
-    CONF,
+    Confirmation,
     
     /// <summary>
     /// Courier charge.
+    /// Encoded/decoded by serializers as "COUR".
     /// </summary>
     [EnumMember(Value = "COUR")]
     [IsoId("_uREk4_RYEeuLhpyIdtJzwg")]
     [Description(@"Courier charge.")]
-    COUR,
+    Courier,
     
     /// <summary>
     /// Charge related to the issuance of an undertaking.
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_uROV4PRYEeuLhpyIdtJzwg")]
     [Description(@"Charge related to the issuance of an undertaking.")]
-    ISSU,
+    IssuanceCharge,
     
     /// <summary>
     /// Miscellaneous charge.
+    /// Encoded/decoded by serializers as "MISC".
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_uROV4_RYEeuLhpyIdtJzwg")]
     [Description(@"Miscellaneous charge.")]
-    MISC,
+    Miscellaneous,
     
     /// <summary>
     /// Charge related to the payment processing.
+    /// Encoded/decoded by serializers as "PAYM".
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_uROV5vRYEeuLhpyIdtJzwg")]
     [Description(@"Charge related to the payment processing.")]
-    PAYM,
+    Payment,
     
     /// <summary>
     /// Postage charge.
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_uROV6fRYEeuLhpyIdtJzwg")]
     [Description(@"Postage charge.")]
-    POST,
+    Postage,
     
     /// <summary>
     /// Telecommunication charge.
+    /// Encoded/decoded by serializers as "TELE".
     /// </summary>
     [EnumMember(Value = "TELE")]
     [IsoId("_uROV7PRYEeuLhpyIdtJzwg")]
     [Description(@"Telecommunication charge.")]
-    TELE,
+    Telecommunication,
     
 }
 

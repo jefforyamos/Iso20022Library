@@ -20,35 +20,39 @@ public enum CorporateActionStatementTypeCode
 {
     /// <summary>
     /// Statement contains missing instructions.
+    /// Encoded/decoded by serializers as "MISS".
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_bTMJhtp-Ed-ak6NoX_4Aeg_-454336023")]
     [Description(@"Statement contains missing instructions.")]
-    MISS,
+    Missing,
     
     /// <summary>
     /// Statement contains all instructions.
+    /// Encoded/decoded by serializers as "ALLL".
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_bTMJh9p-Ed-ak6NoX_4Aeg_-454335992")]
     [Description(@"Statement contains all instructions.")]
-    ALLL,
+    All,
     
     /// <summary>
     /// Balance information with no instruction details provided.
+    /// Encoded/decoded by serializers as "BALO".
     /// </summary>
     [EnumMember(Value = "BALO")]
     [IsoId("_8PcooLtEEeilsanBGAzy4A")]
     [Description(@"Balance information with no instruction details provided.")]
-    BALO,
+    BalanceOnlyNotification,
     
     /// <summary>
     /// Balance information with instruction details.
+    /// Encoded/decoded by serializers as "BALI".
     /// </summary>
     [EnumMember(Value = "BALI")]
     [IsoId("_NMpwoLtFEeilsanBGAzy4A")]
     [Description(@"Balance information with instruction details.")]
-    BALI,
+    BalanceInformation,
     
 }
 

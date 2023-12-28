@@ -20,51 +20,57 @@ public enum GracePeriodUnitTypeCode
 {
     /// <summary>
     /// Grace period months.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_s_4u-duVEei2qvU6FBLZYA")]
     [Description(@"Grace period months.")]
-    MNTH,
+    Months,
     
     /// <summary>
     /// Grace period payments.
+    /// Encoded/decoded by serializers as "PMTS".
     /// </summary>
     [EnumMember(Value = "PMTS")]
     [IsoId("_s_4u_NuVEei2qvU6FBLZYA")]
     [Description(@"Grace period payments.")]
-    PMTS,
+    Payments,
     
     /// <summary>
     /// Grace period days.
+    /// Encoded/decoded by serializers as "DAYS".
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_s_4u-NuVEei2qvU6FBLZYA")]
     [Description(@"Grace period days.")]
-    DAYS,
+    Days,
     
     /// <summary>
     /// Grace period weeks.
+    /// Encoded/decoded by serializers as "WEKS".
     /// </summary>
     [EnumMember(Value = "WEKS")]
     [IsoId("_s_4u-9uVEei2qvU6FBLZYA")]
     [Description(@"Grace period weeks.")]
-    WEKS,
+    Weeks,
     
     /// <summary>
     /// Other National Grace period.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_s_4u-tuVEei2qvU6FBLZYA")]
     [Description(@"Other National Grace period.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other Private Grace period.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_s_4u_duVEei2qvU6FBLZYA")]
     [Description(@"Other Private Grace period.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

@@ -20,75 +20,84 @@ public enum PaymentCancellationRejectionCode
 {
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of regulatory rules.
+    /// Encoded/decoded by serializers as "LEGL".
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_ZzFBoNp-Ed-ak6NoX_4Aeg_1672949066")]
     [Description(@"Reported when the cancellation cannot be accepted because of regulatory rules.")]
-    LEGL,
+    LegalDecision,
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of an agent refuses to cancel.
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_ZzFBodp-Ed-ak6NoX_4Aeg_2099618581")]
     [Description(@"Reported when the cancellation cannot be accepted because of an agent refuses to cancel.")]
-    AGNT,
+    AgentDecision,
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of a customer decision (Creditor).
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_ZzFBotp-Ed-ak6NoX_4Aeg_-381003570")]
     [Description(@"Reported when the cancellation cannot be accepted because of a customer decision (Creditor).")]
-    CUST,
+    CustomerDecision,
     
     /// <summary>
     /// Cancellation not accepted as the transaction has already been returned.
+    /// Encoded/decoded by serializers as "ARDT".
     /// </summary>
     [EnumMember(Value = "ARDT")]
     [IsoId("_t8eKUFkyEeGeoaLUQk__nA_-529969479")]
     [Description(@"Cancellation not accepted as the transaction has already been returned.")]
-    ARDT,
+    AlreadyReturned,
     
     /// <summary>
     /// No response from beneficiary (to the cancellation request).
+    /// Encoded/decoded by serializers as "NOAS".
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_t8eKUVkyEeGeoaLUQk__nA_315136392")]
     [Description(@"No response from beneficiary (to the cancellation request).")]
-    NOAS,
+    NoAnswerFromCustomer,
     
     /// <summary>
     /// Original transaction (subject to cancellation) never received.
+    /// Encoded/decoded by serializers as "NOOR".
     /// </summary>
     [EnumMember(Value = "NOOR")]
     [IsoId("_t8eKUlkyEeGeoaLUQk__nA_-543482748")]
     [Description(@"Original transaction (subject to cancellation) never received.")]
-    NOOR,
+    NoOriginalTransactionReceived,
     
     /// <summary>
     /// Account number specified has been closed on the receiver’s books.
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_t8eKU1kyEeGeoaLUQk__nA_-475259582")]
     [Description(@"Account number specified has been closed on the receiver’s books.")]
-    AC04,
+    ClosedAccountNumber,
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
+    /// Encoded/decoded by serializers as "AM04".
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_t8eKVFkyEeGeoaLUQk__nA_1892589638")]
     [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
-    AM04,
+    InsufficientFunds,
     
     /// <summary>
     /// Cancellation indemnity is required.
+    /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_YIF-sB09EeiYoZGjIMHr2A")]
     [Description(@"Cancellation indemnity is required.")]
-    INDM,
+    CancellationIndemnityRequired,
     
 }
 

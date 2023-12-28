@@ -20,19 +20,21 @@ public enum DataTypeCode
 {
     /// <summary>
     /// Specified type of data is trading data.
+    /// Encoded/decoded by serializers as "TRDA".
     /// </summary>
     [EnumMember(Value = "TRDA")]
     [IsoId("_I7regEeBEeSzluxs8tdrVw")]
     [Description(@"Specified type of data is trading data.")]
-    TRDA,
+    TradingData,
     
     /// <summary>
     /// Specified type of data is exercise data.
+    /// Encoded/decoded by serializers as "EXDA".
     /// </summary>
     [EnumMember(Value = "EXDA")]
     [IsoId("_NweDMEeBEeSzluxs8tdrVw")]
     [Description(@"Specified type of data is exercise data.")]
-    EXDA,
+    ExerciseData,
     
 }
 

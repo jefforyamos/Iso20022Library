@@ -20,131 +20,147 @@ public enum SideCode
 {
     /// <summary>
     /// Order is buy driven.
+    /// Encoded/decoded by serializers as "BUYI".
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_ZPArRdp-Ed-ak6NoX_4Aeg_336257609")]
     [Description(@"Order is buy driven.")]
-    BUYI,
+    Buy,
     
     /// <summary>
     /// Order is sell driven.
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_ZPArRtp-Ed-ak6NoX_4Aeg_336257610")]
     [Description(@"Order is sell driven.")]
-    SELL,
+    Sell,
     
     /// <summary>
     /// Identifies an order for which a broker wishes to take the other side and cross with the client.
+    /// Encoded/decoded by serializers as "CROS".
     /// </summary>
     [EnumMember(Value = "CROS")]
     [IsoId("_ZPKcQNp-Ed-ak6NoX_4Aeg_336257611")]
     [Description(@"Identifies an order for which a broker wishes to take the other side and cross with the client.")]
-    CROS,
+    Cross,
     
     /// <summary>
     /// Identifies a type of order for which a broker wants to cross with the client in the case a client wants to establish a short position, and sends a Sell Short order to the broker. Many exchanges have tick rules needing to be enforced, and the order getting converted from Sell Short to Cross (instead of Cross Short) could result in an illegal short sell.
+    /// Encoded/decoded by serializers as "CRSH".
     /// </summary>
     [EnumMember(Value = "CRSH")]
     [IsoId("_ZPKcQdp-Ed-ak6NoX_4Aeg_336257612")]
     [Description(@"Identifies a type of order for which a broker wants to cross with the client in the case a client wants to establish a short position, and sends a Sell Short order to the broker. Many exchanges have tick rules needing to be enforced, and the order getting converted from Sell Short to Cross (instead of Cross Short) could result in an illegal short sell.")]
-    CRSH,
+    CrossShort,
     
     /// <summary>
     /// Identifies a type of order for which a broker wants to cross with the client in the case a client wants to establish a short position and is exempt from the uptick restriction. Used as audit trail on exchanges.
+    /// Encoded/decoded by serializers as "CSHE".
     /// </summary>
     [EnumMember(Value = "CSHE")]
     [IsoId("_ZPKcQtp-Ed-ak6NoX_4Aeg_336257620")]
     [Description(@"Identifies a type of order for which a broker wants to cross with the client in the case a client wants to establish a short position and is exempt from the uptick restriction. Used as audit trail on exchanges.")]
-    CSHE,
+    CrossShortExempt,
     
     /// <summary>
     /// Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.
+    /// Encoded/decoded by serializers as "DEFI".
     /// </summary>
     [EnumMember(Value = "DEFI")]
     [IsoId("_ZPKcQ9p-Ed-ak6NoX_4Aeg_336257621")]
     [Description(@"Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.")]
-    DEFI,
+    AsDefined,
     
     /// <summary>
     /// Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.
+    /// Encoded/decoded by serializers as "OPPO".
     /// </summary>
     [EnumMember(Value = "OPPO")]
     [IsoId("_ZPKcRNp-Ed-ak6NoX_4Aeg_336257622")]
     [Description(@"Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.")]
-    OPPO,
+    Opposite,
     
     /// <summary>
     /// The side of the indication of interest is not disclosed.
+    /// Encoded/decoded by serializers as "UNDI".
     /// </summary>
     [EnumMember(Value = "UNDI")]
     [IsoId("_ZPKcRdp-Ed-ak6NoX_4Aeg_461125107")]
     [Description(@"The side of the indication of interest is not disclosed.")]
-    UNDI,
+    Undisclosed,
     
     /// <summary>
     /// Indicates that the side refers to both buys and sells.
+    /// Encoded/decoded by serializers as "TWOS".
     /// </summary>
     [EnumMember(Value = "TWOS")]
     [IsoId("_ZPKcRtp-Ed-ak6NoX_4Aeg_492524716")]
     [Description(@"Indicates that the side refers to both buys and sells.")]
-    TWOS,
+    TwoSided,
     
     /// <summary>
     /// A round-lot market order to buy minus is an order to buy a stated amount of a stock provided that its price is: |- not higher than the last sale if the last sale was a minus or zero minus tick and|- not higher than the last sale minus the minimum fractional change in the stock if the last sale was a plus or zero plus tick.|A limit price order to buy minus also states the highest price at which it can be executed.
+    /// Encoded/decoded by serializers as "BUMI".
     /// </summary>
     [EnumMember(Value = "BUMI")]
     [IsoId("_ZPKcR9p-Ed-ak6NoX_4Aeg_1585715401")]
     [Description(@"A round-lot market order to buy minus is an order to buy a stated amount of a stock provided that its price is: |- not higher than the last sale if the last sale was a minus or zero minus tick and|- not higher than the last sale minus the minimum fractional change in the stock if the last sale was a plus or zero plus tick.|A limit price order to buy minus also states the highest price at which it can be executed.")]
-    BUMI,
+    BuyMinus,
     
     /// <summary>
     /// A round-lot market order to sell plus is an order to sell a stated amount of a stock provided that its price is: |- not lower than the last sale if the last sale was a plus or zero plus tick and|- not lower than the last sale minus the minimum fractional change in the stock if the last sale was a minus or zero minus tick.|A limit-price order to sell plus also states the lowest price at which it can be executed.
+    /// Encoded/decoded by serializers as "SEPL".
     /// </summary>
     [EnumMember(Value = "SEPL")]
     [IsoId("_ZPKcSNp-Ed-ak6NoX_4Aeg_-1707497711")]
     [Description(@"A round-lot market order to sell plus is an order to sell a stated amount of a stock provided that its price is: |- not lower than the last sale if the last sale was a plus or zero plus tick and|- not lower than the last sale minus the minimum fractional change in the stock if the last sale was a minus or zero minus tick.|A limit-price order to sell plus also states the lowest price at which it can be executed.")]
-    SEPL,
+    SellPlus,
     
     /// <summary>
     /// An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.
+    /// Encoded/decoded by serializers as "SESH".
     /// </summary>
     [EnumMember(Value = "SESH")]
     [IsoId("_ZPKcSdp-Ed-ak6NoX_4Aeg_-1491395343")]
     [Description(@"An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.")]
-    SESH,
+    SellShort,
     
     /// <summary>
     /// Short sale exempt from short-sale rules.
+    /// Encoded/decoded by serializers as "SSEX".
     /// </summary>
     [EnumMember(Value = "SSEX")]
     [IsoId("_ZPUNQNp-Ed-ak6NoX_4Aeg_-1167237889")]
     [Description(@"Short sale exempt from short-sale rules.")]
-    SSEX,
+    SellShortExempt,
     
     /// <summary>
     /// Order is to lend securities.
+    /// Encoded/decoded by serializers as "LEND".
     /// </summary>
     [EnumMember(Value = "LEND")]
     [IsoId("__7KYwNojEeC60axPepSq7g_-1786945866")]
     [Description(@"Order is to lend securities.")]
-    LEND,
+    Lend,
     
     /// <summary>
     /// Order is to borrow securities.
+    /// Encoded/decoded by serializers as "BORW".
     /// </summary>
     [EnumMember(Value = "BORW")]
     [IsoId("__7KYwdojEeC60axPepSq7g_-1165220588")]
     [Description(@"Order is to borrow securities.")]
-    BORW,
+    Borrow,
     
     /// <summary>
     /// Exercise of an option contract.
+    /// Encoded/decoded by serializers as "OPEX".
     /// </summary>
     [EnumMember(Value = "OPEX")]
     [IsoId("__7KYwtojEeC60axPepSq7g_967830081")]
     [Description(@"Exercise of an option contract.")]
-    OPEX,
+    OptionExercise,
     
 }
 

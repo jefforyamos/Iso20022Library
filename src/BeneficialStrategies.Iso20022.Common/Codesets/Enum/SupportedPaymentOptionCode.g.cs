@@ -20,35 +20,39 @@ public enum SupportedPaymentOptionCode
 {
     /// <summary>
     /// The entity supports a partial approval of the payment transaction.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_mVwtsDANEeOqioR9srQH1g")]
     [Description(@"The entity supports a partial approval of the payment transaction.")]
-    PART,
+    PartialApproval,
     
     /// <summary>
     /// The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).
+    /// Encoded/decoded by serializers as "MSRV".
     /// </summary>
     [EnumMember(Value = "MSRV")]
     [IsoId("_s2B8wDANEeOqioR9srQH1g")]
     [Description(@"The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).")]
-    MSRV,
+    PaymentApprovalOnly,
     
     /// <summary>
     /// The sender support IssuerInstalment proposals to the Cardholder.
+    /// Encoded/decoded by serializers as "INSI".
     /// </summary>
     [EnumMember(Value = "INSI")]
     [IsoId("_PfI_YE7GEeyGi9JAv6wq7Q")]
     [Description(@"The sender support IssuerInstalment proposals to the Cardholder.")]
-    INSI,
+    IssuerInstalment,
     
     /// <summary>
     /// The sender is able to support Single Tap transaction.
+    /// Encoded/decoded by serializers as "PINQ".
     /// </summary>
     [EnumMember(Value = "PINQ")]
     [IsoId("_UM9ZYE7GEeyGi9JAv6wq7Q")]
     [Description(@"The sender is able to support Single Tap transaction.")]
-    PINQ,
+    PINRequest,
     
 }
 

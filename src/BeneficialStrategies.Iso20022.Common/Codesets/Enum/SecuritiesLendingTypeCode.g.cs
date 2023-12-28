@@ -20,27 +20,30 @@ public enum SecuritiesLendingTypeCode
 {
     /// <summary>
     /// Securities lending contract is new and registered.
+    /// Encoded/decoded by serializers as "NWRG".
     /// </summary>
     [EnumMember(Value = "NWRG")]
     [IsoId("__wR-cNojEeC60axPepSq7g_-1240739325")]
     [Description(@"Securities lending contract is new and registered.")]
-    NWRG,
+    NewRegistration,
     
     /// <summary>
     /// Securities lending contract is renewed.
+    /// Encoded/decoded by serializers as "RENW".
     /// </summary>
     [EnumMember(Value = "RENW")]
     [IsoId("__wR-cdojEeC60axPepSq7g_1485509445")]
     [Description(@"Securities lending contract is renewed.")]
-    RENW,
+    RollOverRenewal,
     
     /// <summary>
     /// Securities lending contract is called back.
+    /// Encoded/decoded by serializers as "CABK".
     /// </summary>
     [EnumMember(Value = "CABK")]
     [IsoId("__wR-ctojEeC60axPepSq7g_-1557239976")]
     [Description(@"Securities lending contract is called back.")]
-    CABK,
+    CallBack,
     
 }
 

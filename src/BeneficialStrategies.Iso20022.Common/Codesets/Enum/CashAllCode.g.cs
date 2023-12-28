@@ -20,19 +20,21 @@ public enum CashAllCode
 {
     /// <summary>
     /// All assets in a portfolio should be liquidated and transferred as cash.
+    /// Encoded/decoded by serializers as "LIQU".
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_GH54Ys4FEeiAhd-njDxLnA")]
     [Description(@"All assets in a portfolio should be liquidated and transferred as cash.")]
-    LIQU,
+    LiquidatedTransferAsCash,
     
     /// <summary>
     /// All assets in a portfolio should not be liquidated and transferred as cash.
+    /// Encoded/decoded by serializers as "NLIQ".
     /// </summary>
     [EnumMember(Value = "NLIQ")]
     [IsoId("_GH54Y84FEeiAhd-njDxLnA")]
     [Description(@"All assets in a portfolio should not be liquidated and transferred as cash.")]
-    NLIQ,
+    NotLiquidatedTransferAsCash,
     
 }
 

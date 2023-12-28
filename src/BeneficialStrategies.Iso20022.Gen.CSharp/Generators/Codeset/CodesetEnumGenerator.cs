@@ -33,11 +33,28 @@ public class CodesetEnumGenerator : Generator<CodeSet>
             "System.Runtime.Serialization");
         WriteNamespace(item, textWriter);
         WriteClassComments(item, textWriter);
-        WriteLines(textWriter, 0,
+        var attributeLines = new List<string>()
+        {
             "[DataContract]",
             "[Serializable]",
             $@"[IsoId(""{item.Id}"")]",
             $@"[Description(@""{item.Definition.FixStringForEnclusionInQuotedAttribute()}"")]",
+        };
+        if( item.DerivedFrom != null )
+        {
+            attributeLines.Add(@$"[DerivedFrom(typeof({item.DerivedFrom.GenNames.Enum}))]");
+        };
+
+        // TODO: Figure out why all the derivations are not being generated.
+        if ( item.Derivations.Length > 0 )
+        {
+            var attribParams = item.Derivations.Select(item => $@"typeof({item.GenNames.Enum})").ToArray();
+            var withCommas = string.Join(",", attribParams);
+            // attributeLines.Add($@"[Derivations({withCommas})]");
+        }
+
+        WriteLines(textWriter, 0, attributeLines.ToArray());
+        WriteLines(textWriter, 0,
             $@"public enum {item.GenNames.Enum}",
             "{"
             );
@@ -49,18 +66,22 @@ public class CodesetEnumGenerator : Generator<CodeSet>
                     $@"ATTENTION: Name was changed from ""{codeItem.OriginalLegalNameCode}"" to ""{codeItem.LegalCodeName}"" due to a name clash in the published ISO specification.",
                     $@"During deserialization, you may see some ambiguity between this and <seealso cref=""{codeItem.OriginalLegalNameCode}""/>",
                 }
-                : Array.Empty<string>();
+                : new string[]
+                {
+                    $@"Encoded/decoded by serializers as ""{codeItem.LegalCodeName}"".",
+                };
 
             var serializationWarning = codeItem.LegalNameCodeWasChangedBecauseNameWasDuplicated
                 ? " // Beware deserialization issues here because of ambiguity"
                 : string.Empty;
 
             WriteClassComments(codeItem, textWriter, 4, additionalComments);
+            
             WriteLines(textWriter, 4,
                 $@"[EnumMember(Value = ""{codeItem.CodeName}"")]{serializationWarning}", 
                 $@"[IsoId(""{codeItem.Id}"")]",
                 $@"[Description(@""{codeItem.Definition.FixStringForEnclusionInQuotedAttribute()}"")]",
-                $@"{codeItem.LegalCodeName},",
+                $@"{codeItem.EnumMemberName},",
                 ""
                 );
         }

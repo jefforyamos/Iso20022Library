@@ -20,91 +20,102 @@ public enum BlockedReasonCode
 {
     /// <summary>
     /// Commitment.
+    /// Encoded/decoded by serializers as "CMMT".
     /// </summary>
     [EnumMember(Value = "CMMT")]
     [IsoId("_qE3NMBHaEeKVqeHljBM1MQ")]
     [Description(@"Commitment.")]
-    CMMT,
+    Commitment,
     
     /// <summary>
     /// Pledged.
+    /// Encoded/decoded by serializers as "PLDG".
     /// </summary>
     [EnumMember(Value = "PLDG")]
     [IsoId("_qTKu8BHaEeKVqeHljBM1MQ")]
     [Description(@"Pledged.")]
-    PLDG,
+    Pledged,
     
     /// <summary>
     /// Confiscation.
+    /// Encoded/decoded by serializers as "CNFS".
     /// </summary>
     [EnumMember(Value = "CNFS")]
     [IsoId("_rQHfYBHaEeKVqeHljBM1MQ")]
     [Description(@"Confiscation.")]
-    CNFS,
+    Confiscation,
     
     /// <summary>
     /// Bankruptcy.
+    /// Encoded/decoded by serializers as "BKRP".
     /// </summary>
     [EnumMember(Value = "BKRP")]
     [IsoId("_rZgE4BHaEeKVqeHljBM1MQ")]
     [Description(@"Bankruptcy.")]
-    BKRP,
+    Bankruptcy,
     
     /// <summary>
     /// Reserved in contemplation of death.
+    /// Encoded/decoded by serializers as "MORT".
     /// </summary>
     [EnumMember(Value = "MORT")]
     [IsoId("_rjV9YBHaEeKVqeHljBM1MQ")]
     [Description(@"Reserved in contemplation of death.")]
-    MORT,
+    MortisCausa,
     
     /// <summary>
     /// Transfer.
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_rs4T4BHaEeKVqeHljBM1MQ")]
     [Description(@"Transfer.")]
-    TRAN,
+    Transfer,
     
     /// <summary>
     /// Reregistration.
+    /// Encoded/decoded by serializers as "TRPE".
     /// </summary>
     [EnumMember(Value = "TRPE")]
     [IsoId("_r1rDgBHaEeKVqeHljBM1MQ")]
     [Description(@"Reregistration.")]
-    TRPE,
+    Reregistration,
     
     /// <summary>
     /// Sanctions are in place.
+    /// Encoded/decoded by serializers as "SANC".
     /// </summary>
     [EnumMember(Value = "SANC")]
     [IsoId("_ZiGRsFsMEeaY86V9afpFqA")]
     [Description(@"Sanctions are in place.")]
-    SANC,
+    Sanctions,
     
     /// <summary>
     /// Pending compliance verification.
+    /// Encoded/decoded by serializers as "PCOM".
     /// </summary>
     [EnumMember(Value = "PCOM")]
     [IsoId("_ZnwNwFsMEeaY86V9afpFqA")]
     [Description(@"Pending compliance verification.")]
-    PCOM,
+    PendingComplianceVerification,
     
     /// <summary>
     /// Account closing is in process.
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_3ES48GBqEeaHEJD5P6-ccw")]
     [Description(@"Account closing is in process.")]
-    CLOS,
+    AccountClosingInProcess,
     
     /// <summary>
     /// Account was pending opening but is now rejected.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_nBWeIGCIEeabZtzjEVWYCQ")]
     [Description(@"Account was pending opening but is now rejected.")]
-    REJT,
+    Rejected,
     
 }
 

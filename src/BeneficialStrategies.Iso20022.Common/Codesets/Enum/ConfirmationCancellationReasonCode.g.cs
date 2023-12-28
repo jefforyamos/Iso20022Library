@@ -20,179 +20,201 @@ public enum ConfirmationCancellationReasonCode
 {
     /// <summary>
     /// Confirmation is cancelled because the back end load amount is incorrect.
+    /// Encoded/decoded by serializers as "BENA".
     /// </summary>
     [EnumMember(Value = "BENA")]
     [IsoId("_kXaoIFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the back end load amount is incorrect.")]
-    BENA,
+    IncorrectBackEndLoadAmount,
     
     /// <summary>
     /// Confirmation is cancelled because it will be replaced.
+    /// Encoded/decoded by serializers as "REPL".
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_kejK4FM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because it will be replaced.")]
-    REPL,
+    ConfirmationReplacement,
     
     /// <summary>
     /// Confirmation is cancelled because the cash has not been received.
+    /// Encoded/decoded by serializers as "CSHN".
     /// </summary>
     [EnumMember(Value = "CSHN")]
     [IsoId("_kjKlIFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the cash has not been received.")]
-    CSHN,
+    CashNotReceived,
     
     /// <summary>
     /// Confirmation is cancelled because the cash amount is incorrect.
+    /// Encoded/decoded by serializers as "CSHW".
     /// </summary>
     [EnumMember(Value = "CSHW")]
     [IsoId("_knoOYFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the cash amount is incorrect.")]
-    CSHW,
+    IncorrectCashAmount,
     
     /// <summary>
     /// Confirmation is cancelled because the settlement date is incorrect.
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_kr8GoFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the settlement date is incorrect.")]
-    DDAT,
+    IncorrectSettlementDate,
     
     /// <summary>
     /// Confirmation is cancelled because the trade date is incorrect.
+    /// Encoded/decoded by serializers as "DDEA".
     /// </summary>
     [EnumMember(Value = "DDEA")]
     [IsoId("_zO_gYFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the trade date is incorrect.")]
-    DDEA,
+    IncorrectTradeDate,
     
     /// <summary>
     /// Confirmation is cancelled because the discount amount is incorrect.
+    /// Encoded/decoded by serializers as "DISA".
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_zVP5YFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the discount amount is incorrect.")]
-    DISA,
+    IncorrectDiscountAmount,
     
     /// <summary>
     /// Confirmation is cancelled because the discount amount has an incorrect currency.
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_zbo1QFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the discount amount has an incorrect currency.")]
-    DISC,
+    IncorrectDiscountAmountCurrency,
     
     /// <summary>
     /// Confirmation is cancelled because the settlement amount is incorrect.
+    /// Encoded/decoded by serializers as "DMON".
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_ziCYMFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the settlement amount is incorrect.")]
-    DMON,
+    IncorrectSettlementAmount,
     
     /// <summary>
     /// Confirmation is cancelled because the financial instrument quantity is incorrect.
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_ziMJMFM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the financial instrument quantity is incorrect.")]
-    DQUA,
+    IncorrectFinancialInstrumentQuantity,
     
     /// <summary>
     /// Confirmation is cancelled because the exchange rate is incorrect.
+    /// Encoded/decoded by serializers as "EXCH".
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("__wnN4FM6EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the exchange rate is incorrect.")]
-    EXCH,
+    IncorrectExchangeRate,
     
     /// <summary>
     /// Confirmation is cancelled because a fee or commission amount is incorrect.
+    /// Encoded/decoded by serializers as "FEEE".
     /// </summary>
     [EnumMember(Value = "FEEE")]
     [IsoId("_ChD8QFM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because a fee or commission amount is incorrect.")]
-    FEEE,
+    IncorrectFeeOrCommission,
     
     /// <summary>
     /// Confirmation is cancelled because the front end load amount is incorrect.
+    /// Encoded/decoded by serializers as "FENA".
     /// </summary>
     [EnumMember(Value = "FENA")]
     [IsoId("_CndfMFM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the front end load amount is incorrect.")]
-    FENA,
+    IncorrectFrontEndLoadAmount,
     
     /// <summary>
     /// Confirmation is cancelled because the gross amount is incorrect.
+    /// Encoded/decoded by serializers as "GROA".
     /// </summary>
     [EnumMember(Value = "GROA")]
     [IsoId("_CuAMEFM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the gross amount is incorrect.")]
-    GROA,
+    IncorrectGrossAmount,
     
     /// <summary>
     /// Confirmation is cancelled because the gross amount has an incorrect currency.
+    /// Encoded/decoded by serializers as "GROC".
     /// </summary>
     [EnumMember(Value = "GROC")]
     [IsoId("_CuAMEVM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the gross amount has an incorrect currency.")]
-    GROC,
+    IncorrectGrossAmountCurrency,
     
     /// <summary>
     /// Confirmation is cancelled because of an incorrect minimum traded quantity or cash amount.
+    /// Encoded/decoded by serializers as "MINI".
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_C0ZvAFM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because of an incorrect minimum traded quantity or cash amount.")]
-    MINI,
+    IncorrectQuantityUnitsOrCash,
     
     /// <summary>
     /// Confirmation is cancelled because the settlement amount has an incorrect currency.
+    /// Encoded/decoded by serializers as "NCRR".
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_PCh4wFM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the settlement amount has an incorrect currency.")]
-    NCRR,
+    IncorrectSettlementAmountCurrency,
     
     /// <summary>
     /// Confirmation is cancelled because the net amount is incorrect.
+    /// Encoded/decoded by serializers as "NETA".
     /// </summary>
     [EnumMember(Value = "NETA")]
     [IsoId("_PJEloFM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the net amount is incorrect.")]
-    NETA,
+    IncorrectNetAmount,
     
     /// <summary>
     /// Confirmation is cancelled because the net amount has an incorrect currency.
+    /// Encoded/decoded by serializers as "NETC".
     /// </summary>
     [EnumMember(Value = "NETC")]
     [IsoId("_PJEloVM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the net amount has an incorrect currency.")]
-    NETC,
+    IncorrectNetAmountCurrency,
     
     /// <summary>
     /// Confirmation is cancelled because of an incorrect operation.
+    /// Encoded/decoded by serializers as "OPER".
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_PPn5kFM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because of an incorrect operation.")]
-    OPER,
+    IncorrectOperation,
     
     /// <summary>
     /// Confirmation contains an invalid business reference.
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_PPn5kVM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation contains an invalid business reference.")]
-    REFE,
+    InvalidReference,
     
     /// <summary>
     /// Confirmation is cancelled because the settlement method is incorrect.
+    /// Encoded/decoded by serializers as "SETS".
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_WKidQFM7EeaOrcVOcDJQkA")]
     [Description(@"Confirmation is cancelled because the settlement method is incorrect.")]
-    SETS,
+    IncorrectSettlementMethod,
     
 }
 

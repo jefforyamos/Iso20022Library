@@ -20,43 +20,48 @@ public enum ATMCommandReasonCode
 {
     /// <summary>
     /// Request the status of or action from the ATM to perform a diagnostic.
+    /// Encoded/decoded by serializers as "DIAG".
     /// </summary>
     [EnumMember(Value = "DIAG")]
     [IsoId("_vsp7cItGEeSxlKlAGYErFg")]
     [Description(@"Request the status of or action from the ATM to perform a diagnostic.")]
-    DIAG,
+    Diagnostic,
     
     /// <summary>
     /// Supervise the ATM.
+    /// Encoded/decoded by serializers as "MONI".
     /// </summary>
     [EnumMember(Value = "MONI")]
     [IsoId("_yRyxsItGEeSxlKlAGYErFg")]
     [Description(@"Supervise the ATM.")]
-    MONI,
+    Monitoring,
     
     /// <summary>
     /// Security error.
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_02Aa4ItGEeSxlKlAGYErFg")]
     [Description(@"Security error.")]
-    SECU,
+    SecurityError,
     
     /// <summary>
     /// Desynchronisation of dialogue between entities.
+    /// Encoded/decoded by serializers as "SYNC".
     /// </summary>
     [EnumMember(Value = "SYNC")]
     [IsoId("_3S6iMItGEeSxlKlAGYErFg")]
     [Description(@"Desynchronisation of dialogue between entities.")]
-    SYNC,
+    Synchronisation,
     
     /// <summary>
     /// Update the ATM.
+    /// Encoded/decoded by serializers as "UPDT".
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_5ZxhAItGEeSxlKlAGYErFg")]
     [Description(@"Update the ATM.")]
-    UPDT,
+    Update,
     
 }
 

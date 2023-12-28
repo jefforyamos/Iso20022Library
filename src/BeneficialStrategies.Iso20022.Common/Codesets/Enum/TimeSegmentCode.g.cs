@@ -20,19 +20,21 @@ public enum TimeSegmentCode
 {
     /// <summary>
     /// Ante meridiem or before noon time period.
+    /// Encoded/decoded by serializers as "AMBN".
     /// </summary>
     [EnumMember(Value = "AMBN")]
     [IsoId("_ZeDJgF1lEeeu75xdwwAXQw")]
     [Description(@"Ante meridiem or before noon time period.")]
-    AMBN,
+    AM,
     
     /// <summary>
     /// Post meridiem or after noon time period.
+    /// Encoded/decoded by serializers as "PMAN".
     /// </summary>
     [EnumMember(Value = "PMAN")]
     [IsoId("_q_p_EF1lEeeu75xdwwAXQw")]
     [Description(@"Post meridiem or after noon time period.")]
-    PMAN,
+    PM,
     
 }
 

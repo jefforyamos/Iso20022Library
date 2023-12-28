@@ -20,67 +20,75 @@ public enum MessageTypeCode
 {
     /// <summary>
     /// Accounting Statement of Holdings (semt 003).
+    /// Encoded/decoded by serializers as "ST03".
     /// </summary>
     [EnumMember(Value = "ST03")]
     [IsoId("_aL9btNp-Ed-ak6NoX_4Aeg_-97453198")]
     [Description(@"Accounting Statement of Holdings (semt 003).")]
-    ST03,
+    AccountingHoldings,
     
     /// <summary>
     /// Custody Statement of Holdings (semt 002).
+    /// Encoded/decoded by serializers as "ST02".
     /// </summary>
     [EnumMember(Value = "ST02")]
     [IsoId("_aL9btdp-Ed-ak6NoX_4Aeg_-72518511")]
     [Description(@"Custody Statement of Holdings (semt 002).")]
-    ST02,
+    CustodyHoldings,
     
     /// <summary>
     /// Statement of Investment Fund Transactions (semt 006).
+    /// Encoded/decoded by serializers as "ST06".
     /// </summary>
     [EnumMember(Value = "ST06")]
     [IsoId("_aL9bttp-Ed-ak6NoX_4Aeg_-59589519")]
     [Description(@"Statement of Investment Fund Transactions (semt 006).")]
-    ST06,
+    InvestmentFundTransactions,
     
     /// <summary>
     /// Fund estimated cash forecast report (camt.040).
+    /// Encoded/decoded by serializers as "CF40".
     /// </summary>
     [EnumMember(Value = "CF40")]
     [IsoId("_aL9bt9p-Ed-ak6NoX_4Aeg_1942126911")]
     [Description(@"Fund estimated cash forecast report (camt.040).")]
-    CF40,
+    Estimated,
     
     /// <summary>
     /// Fund detailed estimated cash forecast Report (042).
+    /// Encoded/decoded by serializers as "CF42".
     /// </summary>
     [EnumMember(Value = "CF42")]
     [IsoId("_aMHMsNp-Ed-ak6NoX_4Aeg_1943046943")]
     [Description(@"Fund detailed estimated cash forecast Report (042).")]
-    CF42,
+    EstimatedDetailed,
     
     /// <summary>
     /// Fund confirmed cash forecast report (camt.041).
+    /// Encoded/decoded by serializers as "CF41".
     /// </summary>
     [EnumMember(Value = "CF41")]
     [IsoId("_aMHMsdp-Ed-ak6NoX_4Aeg_1943046978")]
     [Description(@"Fund confirmed cash forecast report (camt.041).")]
-    CF41,
+    Confirmed,
     
     /// <summary>
     /// Fund detailed confirmed cash forecast report (camt.043).
+    /// Encoded/decoded by serializers as "CF43".
     /// </summary>
     [EnumMember(Value = "CF43")]
     [IsoId("_aMHMstp-Ed-ak6NoX_4Aeg_1943047021")]
     [Description(@"Fund detailed confirmed cash forecast report (camt.043).")]
-    CF43,
+    CornfirmedDetailed,
     
     /// <summary>
     /// Securities Balance Transparency (semt.041).
+    /// Encoded/decoded by serializers as "ST41".
     /// </summary>
     [EnumMember(Value = "ST41")]
     [IsoId("_Xo0oMNnYEeSy3ba5KBm7wA")]
     [Description(@"Securities Balance Transparency (semt.041).")]
-    ST41,
+    Transparency,
     
 }
 

@@ -20,35 +20,39 @@ public enum TransparencyMethodologyCode
 {
     /// <summary>
     /// Estimation for New Equity Instruments.
+    /// Encoded/decoded by serializers as "ESTM".
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_p58NcNQCEeWBZtcpHyzahg")]
     [Description(@"Estimation for New Equity Instruments.")]
-    ESTM,
+    Estimated,
     
     /// <summary>
     /// Calculation based on first Four Weeks of Trading for Equity Instruments.
+    /// Encoded/decoded by serializers as "FFWK".
     /// </summary>
     [EnumMember(Value = "FFWK")]
     [IsoId("_rVzugNQCEeWBZtcpHyzahg")]
     [Description(@"Calculation based on first Four Weeks of Trading for Equity Instruments.")]
-    FFWK,
+    FirstFourWeeks,
     
     /// <summary>
     /// Calculation based on yearly cycle.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_tAZoENQCEeWBZtcpHyzahg")]
     [Description(@"Calculation based on yearly cycle.")]
-    YEAR,
+    Year,
     
     /// <summary>
     /// Results of calculations supporting Systematic Internaliser regime.
+    /// Encoded/decoded by serializers as "SINT".
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("_UE7csHvtEeanCNPcMT7sSg")]
     [Description(@"Results of calculations supporting Systematic Internaliser regime.")]
-    SINT,
+    SystematicInternaliser,
     
 }
 

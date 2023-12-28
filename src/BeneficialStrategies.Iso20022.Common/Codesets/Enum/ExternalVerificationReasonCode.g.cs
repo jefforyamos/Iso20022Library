@@ -21,27 +21,30 @@ public enum ExternalVerificationReasonCode
 {
     /// <summary>
     /// Account number provided in the request is invalid or missing.
+    /// Encoded/decoded by serializers as "AC01".
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_uG8YjPRYEeuLhpyIdtJzwg")]
     [Description(@"Account number provided in the request is invalid or missing.")]
-    AC01,
+    IncorrectAccountNumber,
     
     /// <summary>
     /// Agent identification provided in the request is incorrect
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_uHFicPRYEeuLhpyIdtJzwg")]
     [Description(@"Agent identification provided in the request is incorrect")]
-    AGNT,
+    IncorrectAgent,
     
     /// <summary>
     /// Request is a duplicate of another request
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_uHFic_RYEeuLhpyIdtJzwg")]
     [Description(@"Request is a duplicate of another request")]
-    DUPL,
+    DuplicateRequest,
     
 }
 

@@ -20,51 +20,57 @@ public enum CorporateActionEventStatusCode
 {
     /// <summary>
     /// The CA event is active.
+    /// Encoded/decoded by serializers as "ACTI".
     /// </summary>
     [EnumMember(Value = "ACTI")]
     [IsoId("_bESK1tp-Ed-ak6NoX_4Aeg_-540954264")]
     [Description(@"The CA event is active.")]
-    ACTI,
+    Active,
     
     /// <summary>
     /// The CA event is deactivated. The clients cannot send instruction anymore.
+    /// Encoded/decoded by serializers as "DEAC".
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_bESK19p-Ed-ak6NoX_4Aeg_-540954263")]
     [Description(@"The CA event is deactivated. The clients cannot send instruction anymore.")]
-    DEAC,
+    Deactivated,
     
     /// <summary>
     /// The CA event is expired, no more processing, claims, transformations take place.
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_bESK2Np-Ed-ak6NoX_4Aeg_-540954242")]
     [Description(@"The CA event is expired, no more processing, claims, transformations take place.")]
-    EXPI,
+    Expired,
     
     /// <summary>
     /// The CA event is cancelled.
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bEb70Np-Ed-ak6NoX_4Aeg_-540954233")]
     [Description(@"The CA event is cancelled.")]
-    CANC,
+    Cancelled,
     
     /// <summary>
     /// The CA event is withrawn, ie, cancelled by the market.
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_bEb70dp-Ed-ak6NoX_4Aeg_-540954211")]
     [Description(@"The CA event is withrawn, ie, cancelled by the market.")]
-    WITH,
+    Withdrawn,
     
     /// <summary>
     /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, eg, expired option.
+    /// Encoded/decoded by serializers as "INAC".
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_bEb70tp-Ed-ak6NoX_4Aeg_-1257003871")]
     [Description(@"Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, eg, expired option.")]
-    INAC,
+    Inactive,
     
 }
 

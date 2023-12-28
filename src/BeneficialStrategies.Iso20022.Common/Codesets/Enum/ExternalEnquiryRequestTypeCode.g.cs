@@ -22,51 +22,57 @@ public enum ExternalEnquiryRequestTypeCode
 {
     /// <summary>
     /// Type is an enquiry on the bank's position.
+    /// Encoded/decoded by serializers as "RT11".
     /// </summary>
     [EnumMember(Value = "RT11")]
     [IsoId("_ud444PRYEeuLhpyIdtJzwg")]
     [Description(@"Type is an enquiry on the bank's position.")]
-    RT11,
+    BankPositionEnquiry,
     
     /// <summary>
     /// Type is an enquiry on a specific transaction.
+    /// Encoded/decoded by serializers as "RT12".
     /// </summary>
     [EnumMember(Value = "RT12")]
     [IsoId("_ud444_RYEeuLhpyIdtJzwg")]
     [Description(@"Type is an enquiry on a specific transaction.")]
-    RT12,
+    SpecificTransactionEnquiry,
     
     /// <summary>
     /// Type is an enquiry on a queued transaction.
+    /// Encoded/decoded by serializers as "RT13".
     /// </summary>
     [EnumMember(Value = "RT13")]
     [IsoId("_ueCp4PRYEeuLhpyIdtJzwg")]
     [Description(@"Type is an enquiry on a queued transaction.")]
-    RT13,
+    QueuedTransactionEnquiry,
     
     /// <summary>
     /// Type is an enquiry on a suspicious transaction.
+    /// Encoded/decoded by serializers as "RT14".
     /// </summary>
     [EnumMember(Value = "RT14")]
     [IsoId("_ueCp4_RYEeuLhpyIdtJzwg")]
     [Description(@"Type is an enquiry on a suspicious transaction.")]
-    RT14,
+    SuspiciousTransactionEnquiry,
     
     /// <summary>
     /// Type is an enquiry on the system date and/or time.
+    /// Encoded/decoded by serializers as "RT16".
     /// </summary>
     [EnumMember(Value = "RT16")]
     [IsoId("_ueCp5vRYEeuLhpyIdtJzwg")]
     [Description(@"Type is an enquiry on the system date and/or time.")]
-    RT16,
+    SytemTimeEnquiry,
     
     /// <summary>
     /// Type is an enquiry on pending inward credits.
+    /// Encoded/decoded by serializers as "RT15".
     /// </summary>
     [EnumMember(Value = "RT15")]
     [IsoId("_ueCp6fRYEeuLhpyIdtJzwg")]
     [Description(@"Type is an enquiry on pending inward credits.")]
-    RT15,
+    PendingInwardCreditsEnquiry,
     
 }
 

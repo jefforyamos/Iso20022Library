@@ -20,59 +20,66 @@ public enum TimeUnitCode
 {
     /// <summary>
     /// Time unit is second.
+    /// Encoded/decoded by serializers as "SECO".
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("_YmCmwdp-Ed-ak6NoX_4Aeg_-1938121752")]
     [Description(@"Time unit is second.")]
-    SECO,
+    Second,
     
     /// <summary>
     /// Time unit is minute.
+    /// Encoded/decoded by serializers as "MINU".
     /// </summary>
     [EnumMember(Value = "MINU")]
     [IsoId("_YmCmwtp-Ed-ak6NoX_4Aeg_-1937198231")]
     [Description(@"Time unit is minute.")]
-    MINU,
+    Minute,
     
     /// <summary>
     /// Time unit is hour.
+    /// Encoded/decoded by serializers as "HOUR".
     /// </summary>
     [EnumMember(Value = "HOUR")]
     [IsoId("_YmCmw9p-Ed-ak6NoX_4Aeg_-1936275233")]
     [Description(@"Time unit is hour.")]
-    HOUR,
+    Hour,
     
     /// <summary>
     /// Time unit is calendar day.
+    /// Encoded/decoded by serializers as "DAYC".
     /// </summary>
     [EnumMember(Value = "DAYC")]
     [IsoId("_YmCmxNp-Ed-ak6NoX_4Aeg_-1927962536")]
     [Description(@"Time unit is calendar day.")]
-    DAYC,
+    CalendarDay,
     
     /// <summary>
     /// Time unit is week.
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_YmCmxdp-Ed-ak6NoX_4Aeg_-1927039439")]
     [Description(@"Time unit is week.")]
-    WEEK,
+    Week,
     
     /// <summary>
     /// Time unit is month.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_YmCmxtp-Ed-ak6NoX_4Aeg_-1926116410")]
     [Description(@"Time unit is month.")]
-    MNTH,
+    Month,
     
     /// <summary>
     /// Time unit is year.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_YmCmx9p-Ed-ak6NoX_4Aeg_-1925193661")]
     [Description(@"Time unit is year.")]
-    YEAR,
+    Year,
     
 }
 

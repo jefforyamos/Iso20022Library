@@ -20,91 +20,102 @@ public enum CustomerTypeCode
 {
     /// <summary>
     /// Customer acting on his own as an individual.
+    /// Encoded/decoded by serializers as "INPE".
     /// </summary>
     [EnumMember(Value = "INPE")]
     [IsoId("_s5GxEFzCEeeDqe2giKl0eQ")]
     [Description(@"Customer acting on his own as an individual.")]
-    INPE,
+    IndividualPerson,
     
     /// <summary>
     /// Customer acting on behalf of a corporation  (e.g. in the framework of an employment contract).
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_5QSJIFzCEeeDqe2giKl0eQ")]
     [Description(@"Customer acting on behalf of a corporation  (e.g. in the framework of an employment contract).")]
-    CORP,
+    CorporateCustomer,
     
     /// <summary>
     /// Customer acting on behalf of a government or related entity.
+    /// Encoded/decoded by serializers as "GOVE".
     /// </summary>
     [EnumMember(Value = "GOVE")]
     [IsoId("_Gz77YFzDEeeDqe2giKl0eQ")]
     [Description(@"Customer acting on behalf of a government or related entity.")]
-    GOVE,
+    Government,
     
     /// <summary>
     /// Customer acting in the framework of a commercial contract with a third-party.
+    /// Encoded/decoded by serializers as "COMC".
     /// </summary>
     [EnumMember(Value = "COMC")]
     [IsoId("_cMyvUFzDEeeDqe2giKl0eQ")]
     [Description(@"Customer acting in the framework of a commercial contract with a third-party.")]
-    COMC,
+    Commercial,
     
     /// <summary>
     /// Other type of activity defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_szCv4FzDEeeDqe2giKl0eQ")]
     [Description(@"Other type of activity defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other type of activity defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_xRuhsFzDEeeDqe2giKl0eQ")]
     [Description(@"Other type of activity defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Customer acting as an individual in a group.
+    /// Encoded/decoded by serializers as "INGR".
     /// </summary>
     [EnumMember(Value = "INGR")]
     [IsoId("_sRkccHhMEee6_vnrijrKgg")]
     [Description(@"Customer acting as an individual in a group.")]
-    INGR,
+    IndividualInAGroup,
     
     /// <summary>
     /// Guest travelling in a business group on duty.
+    /// Encoded/decoded by serializers as "COGR".
     /// </summary>
     [EnumMember(Value = "COGR")]
     [IsoId("_TexZwHhjEeeDqfQQWUtugw")]
     [Description(@"Guest travelling in a business group on duty.")]
-    COGR,
+    CorporateGroup,
     
     /// <summary>
     /// Person engaged in a self employment contract.
+    /// Encoded/decoded by serializers as "SELF".
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_w2opMHjzEeeiMfkH-CbtpQ")]
     [Description(@"Person engaged in a self employment contract.")]
-    SELF,
+    SelfEmployed,
     
     /// <summary>
     /// Company
+    /// Encoded/decoded by serializers as "CPNY".
     /// </summary>
     [EnumMember(Value = "CPNY")]
     [IsoId("_jSqEwC7QEemIy6A-26wnAg")]
     [Description(@"Company")]
-    CPNY,
+    Company,
     
     /// <summary>
     /// Consumer
+    /// Encoded/decoded by serializers as "CSMR".
     /// </summary>
     [EnumMember(Value = "CSMR")]
     [IsoId("_jZAkYC7QEemIy6A-26wnAg")]
     [Description(@"Consumer")]
-    CSMR,
+    Consumer,
     
 }
 

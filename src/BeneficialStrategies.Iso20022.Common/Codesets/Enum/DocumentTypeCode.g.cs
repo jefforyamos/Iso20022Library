@@ -20,195 +20,219 @@ public enum DocumentTypeCode
 {
     /// <summary>
     /// Document is an invoice claiming payment for the supply of metered services, for example gas or electricity supplied to a fixed meter.
+    /// Encoded/decoded by serializers as "MSIN".
     /// </summary>
     [EnumMember(Value = "MSIN")]
     [IsoId("_aghWdtp-Ed-ak6NoX_4Aeg_1645796385")]
     [Description(@"Document is an invoice claiming payment for the supply of metered services, for example gas or electricity supplied to a fixed meter.")]
-    MSIN,
+    MeteredServiceInvoice,
     
     /// <summary>
     /// Document is a credit note for the final amount settled for a commercial transaction.
+    /// Encoded/decoded by serializers as "CNFA".
     /// </summary>
     [EnumMember(Value = "CNFA")]
     [IsoId("_aghWd9p-Ed-ak6NoX_4Aeg_1645796403")]
     [Description(@"Document is a credit note for the final amount settled for a commercial transaction.")]
-    CNFA,
+    CreditNoteRelatedToFinancialAdjustment,
     
     /// <summary>
     /// Document is a debit note for the final amount settled for a commercial transaction.
+    /// Encoded/decoded by serializers as "DNFA".
     /// </summary>
     [EnumMember(Value = "DNFA")]
     [IsoId("_aghWeNp-Ed-ak6NoX_4Aeg_1645796445")]
     [Description(@"Document is a debit note for the final amount settled for a commercial transaction.")]
-    DNFA,
+    DebitNoteRelatedToFinancialAdjustment,
     
     /// <summary>
     /// Document is an invoice.
+    /// Encoded/decoded by serializers as "CINV".
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_agrHcNp-Ed-ak6NoX_4Aeg_1645796463")]
     [Description(@"Document is an invoice.")]
-    CINV,
+    CommercialInvoice,
     
     /// <summary>
     /// Document is a credit note.
+    /// Encoded/decoded by serializers as "CREN".
     /// </summary>
     [EnumMember(Value = "CREN")]
     [IsoId("_agrHcdp-Ed-ak6NoX_4Aeg_1645796480")]
     [Description(@"Document is a credit note.")]
-    CREN,
+    CreditNote,
     
     /// <summary>
     /// Document is a debit note.
+    /// Encoded/decoded by serializers as "DEBN".
     /// </summary>
     [EnumMember(Value = "DEBN")]
     [IsoId("_agrHctp-Ed-ak6NoX_4Aeg_1645796715")]
     [Description(@"Document is a debit note.")]
-    DEBN,
+    DebitNote,
     
     /// <summary>
     /// Document is an invoice for the hiring of human resources or renting goods or equipment.
+    /// Encoded/decoded by serializers as "HIRI".
     /// </summary>
     [EnumMember(Value = "HIRI")]
     [IsoId("_agrHc9p-Ed-ak6NoX_4Aeg_1645796740")]
     [Description(@"Document is an invoice for the hiring of human resources or renting goods or equipment.")]
-    HIRI,
+    HireInvoice,
     
     /// <summary>
     /// Document is an invoice issued by the debtor.
+    /// Encoded/decoded by serializers as "SBIN".
     /// </summary>
     [EnumMember(Value = "SBIN")]
     [IsoId("_agrHdNp-Ed-ak6NoX_4Aeg_1645796757")]
     [Description(@"Document is an invoice issued by the debtor.")]
-    SBIN,
+    SelfBilledInvoice,
     
     /// <summary>
     /// Document is a remittance advice sent separately from the current transaction.
+    /// Encoded/decoded by serializers as "RADM".
     /// </summary>
     [EnumMember(Value = "RADM")]
     [IsoId("_agrHddp-Ed-ak6NoX_4Aeg_1645796800")]
     [Description(@"Document is a remittance advice sent separately from the current transaction.")]
-    RADM,
+    RemittanceAdviceMessage,
     
     /// <summary>
     /// Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.
+    /// Encoded/decoded by serializers as "RPIN".
     /// </summary>
     [EnumMember(Value = "RPIN")]
     [IsoId("_agrHdtp-Ed-ak6NoX_4Aeg_1645796817")]
     [Description(@"Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.")]
-    RPIN,
+    RelatedPaymentInstruction,
     
     /// <summary>
     /// Document is an agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.
+    /// Encoded/decoded by serializers as "CMCN".
     /// </summary>
     [EnumMember(Value = "CMCN")]
     [IsoId("_agrHd9p-Ed-ak6NoX_4Aeg_1645796835")]
     [Description(@"Document is an agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.")]
-    CMCN,
+    CommercialContract,
     
     /// <summary>
     /// Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.
+    /// Encoded/decoded by serializers as "FXDR".
     /// </summary>
     [EnumMember(Value = "FXDR")]
     [IsoId("_agrHeNp-Ed-ak6NoX_4Aeg_1646716824")]
     [Description(@"Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.")]
-    FXDR,
+    ForeignExchangeDealReference,
     
     /// <summary>
     /// Document is a statement of the transactions posted to the debtor's account at the supplier.
+    /// Encoded/decoded by serializers as "SOAC".
     /// </summary>
     [EnumMember(Value = "SOAC")]
     [IsoId("_agrHedp-Ed-ak6NoX_4Aeg_1646716884")]
     [Description(@"Document is a statement of the transactions posted to the debtor's account at the supplier.")]
-    SOAC,
+    StatementOfAccount,
     
     /// <summary>
     /// Document is a dispatch advice.
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_agrHetp-Ed-ak6NoX_4Aeg_-1207112892")]
     [Description(@"Document is a dispatch advice.")]
-    DISP,
+    DispatchAdvice,
     
     /// <summary>
     /// Document is a purchase order.
+    /// Encoded/decoded by serializers as "PUOR".
     /// </summary>
     [EnumMember(Value = "PUOR")]
     [IsoId("_ag04cNp-Ed-ak6NoX_4Aeg_550471768")]
     [Description(@"Document is a purchase order.")]
-    PUOR,
+    PurchaseOrder,
     
     /// <summary>
     /// Document is a structured communication reference provided by the creditor to identify the referred transaction.
+    /// Encoded/decoded by serializers as "SCOR".
     /// </summary>
     [EnumMember(Value = "SCOR")]
     [IsoId("_ag04cdp-Ed-ak6NoX_4Aeg_550472217")]
     [Description(@"Document is a structured communication reference provided by the creditor to identify the referred transaction.")]
-    SCOR,
+    StructuredCommunicationReference,
     
     /// <summary>
     /// Document is a shipping notice.
+    /// Encoded/decoded by serializers as "BOLD".
     /// </summary>
     [EnumMember(Value = "BOLD")]
     [IsoId("_ag04ctp-Ed-ak6NoX_4Aeg_-464327282")]
     [Description(@"Document is a shipping notice.")]
-    BOLD,
+    BillOfLading,
     
     /// <summary>
     /// Document is an electronic payment document.
+    /// Encoded/decoded by serializers as "VCHR".
     /// </summary>
     [EnumMember(Value = "VCHR")]
     [IsoId("_ag04c9p-Ed-ak6NoX_4Aeg_-464326980")]
     [Description(@"Document is an electronic payment document.")]
-    VCHR,
+    Voucher,
     
     /// <summary>
     /// Document is a payment that applies to a specific source document.
+    /// Encoded/decoded by serializers as "AROI".
     /// </summary>
     [EnumMember(Value = "AROI")]
     [IsoId("_ag04dNp-Ed-ak6NoX_4Aeg_-464326919")]
     [Description(@"Document is a payment that applies to a specific source document.")]
-    AROI,
+    AccountReceivableOpenItem,
     
     /// <summary>
     /// Document is a transaction identifier as assigned by the Trade Services Utility.
+    /// Encoded/decoded by serializers as "TSUT".
     /// </summary>
     [EnumMember(Value = "TSUT")]
     [IsoId("_ag04ddp-Ed-ak6NoX_4Aeg_-464326858")]
     [Description(@"Document is a transaction identifier as assigned by the Trade Services Utility.")]
-    TSUT,
+    TradeServicesUtilityTransaction,
     
     /// <summary>
     /// When the Sale system print the Cashier copy of the Payment receipt.
+    /// Encoded/decoded by serializers as "HRCP".
     /// </summary>
     [EnumMember(Value = "HRCP")]
     [IsoId("_xxyWAGpTEemFuJNacM8hZA")]
     [Description(@"When the Sale system print the Cashier copy of the Payment receipt.")]
-    HRCP,
+    CashierReceipt,
     
     /// <summary>
     /// When the Sale System requires	the POI system to print the Customer receipt.
+    /// Encoded/decoded by serializers as "CRCP".
     /// </summary>
     [EnumMember(Value = "CRCP")]
     [IsoId("_3nEHUGpTEemFuJNacM8hZA")]
     [Description(@"When the Sale System requires	the POI system to print the Customer receipt.")]
-    CRCP,
+    CustomerReceipt,
     
     /// <summary>
     /// When the POI or the Sale System wants to store a message on the journal printer or electronic journal of the Sale Terminal (it is sometimes a Sale Logging/Journal Printer).
+    /// Encoded/decoded by serializers as "JNRL".
     /// </summary>
     [EnumMember(Value = "JNRL")]
     [IsoId("_Az5qUGpUEemFuJNacM8hZA")]
     [Description(@"When the POI or the Sale System wants to store a message on the journal printer or electronic journal of the Sale Terminal (it is sometimes a Sale Logging/Journal Printer).")]
-    JNRL,
+    Journal,
     
     /// <summary>
     /// When the Sale System requires the POI system to print the Sale receipt.
+    /// Encoded/decoded by serializers as "SRCP".
     /// </summary>
     [EnumMember(Value = "SRCP")]
     [IsoId("_K7gzgGpUEemFuJNacM8hZA")]
     [Description(@"When the Sale System requires the POI system to print the Sale receipt.")]
-    SRCP,
+    SaleReceipt,
     
 }
 

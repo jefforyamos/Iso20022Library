@@ -21,107 +21,120 @@ public enum ExternalChannelCode
 {
     /// <summary>
     /// Delivery by courier.
+    /// Encoded/decoded by serializers as "COUR".
     /// </summary>
     [EnumMember(Value = "COUR")]
     [IsoId("_uOZEXPRYEeuLhpyIdtJzwg")]
     [Description(@"Delivery by courier.")]
-    COUR,
+    Courier,
     
     /// <summary>
     /// Transmission by e-mail.
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_uOi1UPRYEeuLhpyIdtJzwg")]
     [Description(@"Transmission by e-mail.")]
-    EMAL,
+    Email,
     
     /// <summary>
     /// Transmission by fax.
+    /// Encoded/decoded by serializers as "FAXI".
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("_uOi1U_RYEeuLhpyIdtJzwg")]
     [Description(@"Transmission by fax.")]
-    FAXI,
+    Fax,
     
     /// <summary>
     /// Delivery by messenger.
+    /// Encoded/decoded by serializers as "MESS".
     /// </summary>
     [EnumMember(Value = "MESS")]
     [IsoId("_uOi1VvRYEeuLhpyIdtJzwg")]
     [Description(@"Delivery by messenger.")]
-    MESS,
+    Messenger,
     
     /// <summary>
     /// Delivery by postal service.
+    /// Encoded/decoded by serializers as "POST".
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_uOi1WfRYEeuLhpyIdtJzwg")]
     [Description(@"Delivery by postal service.")]
-    POST,
+    Post,
     
     /// <summary>
     /// Delivery by registered mail services.
+    /// Encoded/decoded by serializers as "REGM".
     /// </summary>
     [EnumMember(Value = "REGM")]
     [IsoId("_uOi1XPRYEeuLhpyIdtJzwg")]
     [Description(@"Delivery by registered mail services.")]
-    REGM,
+    RegisteredMail,
     
     /// <summary>
     /// Transfer via secure e-mail.
+    /// Encoded/decoded by serializers as "SEMA".
     /// </summary>
     [EnumMember(Value = "SEMA")]
     [IsoId("_uOsmUPRYEeuLhpyIdtJzwg")]
     [Description(@"Transfer via secure e-mail.")]
-    SEMA,
+    SecureEmail,
     
     /// <summary>
     /// Transmission by SWIFTNet FileAct.
+    /// Encoded/decoded by serializers as "SWFA".
     /// </summary>
     [EnumMember(Value = "SWFA")]
     [IsoId("_uOsmU_RYEeuLhpyIdtJzwg")]
     [Description(@"Transmission by SWIFTNet FileAct.")]
-    SWFA,
+    SWIFTNetFileAct,
     
     /// <summary>
     /// Transmission by SWIFTNet InterAct. 
+    /// Encoded/decoded by serializers as "SWIA".
     /// </summary>
     [EnumMember(Value = "SWIA")]
     [IsoId("_uOsmVvRYEeuLhpyIdtJzwg")]
     [Description(@"Transmission by SWIFTNet InterAct. ")]
-    SWIA,
+    SWIFTNetInterAct,
     
     /// <summary>
     /// Transmission by SWIFT (FIN).
+    /// Encoded/decoded by serializers as "SWMT".
     /// </summary>
     [EnumMember(Value = "SWMT")]
     [IsoId("_uOsmWfRYEeuLhpyIdtJzwg")]
     [Description(@"Transmission by SWIFT (FIN).")]
-    SWMT,
+    SWIFTMT,
     
     /// <summary>
     /// Transmission by SWIFTNet.
+    /// Encoded/decoded by serializers as "SWMX".
     /// </summary>
     [EnumMember(Value = "SWMX")]
     [IsoId("_uO1wQPRYEeuLhpyIdtJzwg")]
     [Description(@"Transmission by SWIFTNet.")]
-    SWMX,
+    SWIFTMX,
     
     /// <summary>
     /// Transmission by telecommunications service.
+    /// Encoded/decoded by serializers as "TELE".
     /// </summary>
     [EnumMember(Value = "TELE")]
     [IsoId("_uO1wQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Transmission by telecommunications service.")]
-    TELE,
+    Telecommunication,
     
     /// <summary>
     /// Available via Web upload/download
+    /// Encoded/decoded by serializers as "WEBM".
     /// </summary>
     [EnumMember(Value = "WEBM")]
     [IsoId("_uO_hQPRYEeuLhpyIdtJzwg")]
     [Description(@"Available via Web upload/download")]
-    WEBM,
+    WebUploadDownload,
     
 }
 

@@ -20,11 +20,12 @@ public enum BestExecutionCode
 {
     /// <summary>
     /// Best execution rules were followed.
+    /// Encoded/decoded by serializers as "BTEX".
     /// </summary>
     [EnumMember(Value = "BTEX")]
     [IsoId("_beXew9p-Ed-ak6NoX_4Aeg_146193560")]
     [Description(@"Best execution rules were followed.")]
-    BTEX,
+    Best,
     
 }
 

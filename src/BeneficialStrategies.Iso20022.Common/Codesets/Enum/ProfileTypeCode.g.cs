@@ -20,35 +20,39 @@ public enum ProfileTypeCode
 {
     /// <summary>
     /// Trading system of federal securities in the retail market directly to the investor. The operation can be performed directly over the Internet.
+    /// Encoded/decoded by serializers as "TREA".
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_-8nQgCDNEeWPMvNwVtiMsA")]
     [Description(@"Trading system of federal securities in the retail market directly to the investor. The operation can be performed directly over the Internet.")]
-    TREA,
+    Treasury,
     
     /// <summary>
     /// Investors operating through algorithms and send orders automatically according to the strategies defined by their managers. Through this access model, the participants of these servers are hosted primarily within the premises of Brazilian Market and significantly reduce the time of submission of offers to trading systems.
+    /// Encoded/decoded by serializers as "HFTR".
     /// </summary>
     [EnumMember(Value = "HFTR")]
     [IsoId("_CCfcUCDOEeWPMvNwVtiMsA")]
     [Description(@"Investors operating through algorithms and send orders automatically according to the strategies defined by their managers. Through this access model, the participants of these servers are hosted primarily within the premises of Brazilian Market and significantly reduce the time of submission of offers to trading systems.")]
-    HFTR,
+    HighFrequencyTrader,
     
     /// <summary>
     /// Agent liquidity, liquidity facilitator, promoter of business, specialist, market maker and liquidity provider are some designations given to those who propose to provide liquidity and minimum reference price for assets previously accredited, factors highlighted in the analysis of efficiency in capital markets.
+    /// Encoded/decoded by serializers as "MAKE".
     /// </summary>
     [EnumMember(Value = "MAKE")]
     [IsoId("_Fz-J4CDOEeWPMvNwVtiMsA")]
     [Description(@"Agent liquidity, liquidity facilitator, promoter of business, specialist, market maker and liquidity provider are some designations given to those who propose to provide liquidity and minimum reference price for assets previously accredited, factors highlighted in the analysis of efficiency in capital markets.")]
-    MAKE,
+    MarketMaker,
     
     /// <summary>
     /// Investor shares that uses defensive operations (hedging), thus avoiding the risk of large swings.
+    /// Encoded/decoded by serializers as "HEDG".
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_PzIhsCDOEeWPMvNwVtiMsA")]
     [Description(@"Investor shares that uses defensive operations (hedging), thus avoiding the risk of large swings.")]
-    HEDG,
+    Hedge,
     
 }
 

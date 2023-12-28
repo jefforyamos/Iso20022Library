@@ -21,43 +21,48 @@ public enum ExternalCreditorEnrolmentAmendmentReasonCode
 {
     /// <summary>
     /// Duplication.
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_uuIUVvRYEeuLhpyIdtJzwg")]
     [Description(@"Duplication.")]
-    AM05,
+    Duplication,
     
     /// <summary>
     /// Reference is not unique.
+    /// Encoded/decoded by serializers as "RF01".
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_uuIUWfRYEeuLhpyIdtJzwg")]
     [Description(@"Reference is not unique.")]
-    RF01,
+    NotUniqueReference,
     
     /// <summary>
     /// Regulatory Reason.
+    /// Encoded/decoded by serializers as "RR04".
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_uuSFUPRYEeuLhpyIdtJzwg")]
     [Description(@"Regulatory Reason.")]
-    RR04,
+    RegulatoryReason,
     
     /// <summary>
     /// Technical rejection.
+    /// Encoded/decoded by serializers as "TRJT".
     /// </summary>
     [EnumMember(Value = "TRJT")]
     [IsoId("_E5wqofDWEemsS_0xy2XRug")]
     [Description(@"Technical rejection.")]
-    TRJT,
+    TechnicalRejection,
     
     /// <summary>
     /// Unknown creditor.
+    /// Encoded/decoded by serializers as "UCRD".
     /// </summary>
     [EnumMember(Value = "UCRD")]
     [IsoId("_Ci0BYPDWEemsS_0xy2XRug")]
     [Description(@"Unknown creditor.")]
-    UCRD,
+    UnknownCreditor,
     
 }
 

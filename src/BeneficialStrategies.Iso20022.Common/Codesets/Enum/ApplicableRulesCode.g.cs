@@ -20,19 +20,21 @@ public enum ApplicableRulesCode
 {
     /// <summary>
     /// Pre A Day rules applies.
+    /// Encoded/decoded by serializers as "YPRE".
     /// </summary>
     [EnumMember(Value = "YPRE")]
     [IsoId("_ALp7oFNfEeijdq8ilaxyOA")]
     [Description(@"Pre A Day rules applies.")]
-    YPRE,
+    PreADay,
     
     /// <summary>
     /// Pre A Day rules do not apply.
+    /// Encoded/decoded by serializers as "NPRE".
     /// </summary>
     [EnumMember(Value = "NPRE")]
     [IsoId("_EeJrkFNfEeijdq8ilaxyOA")]
     [Description(@"Pre A Day rules do not apply.")]
-    NPRE,
+    NotPreADay,
     
 }
 

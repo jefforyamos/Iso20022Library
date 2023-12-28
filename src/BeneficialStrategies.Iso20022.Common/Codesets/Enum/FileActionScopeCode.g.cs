@@ -20,19 +20,21 @@ public enum FileActionScopeCode
 {
     /// <summary>
     /// Action applies to a file
+    /// Encoded/decoded by serializers as "FILE".
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_NFffsN0mEeil7LQldntseg")]
     [Description(@"Action applies to a file")]
-    FILE,
+    File,
     
     /// <summary>
     /// Action applies to a record
+    /// Encoded/decoded by serializers as "RECD".
     /// </summary>
     [EnumMember(Value = "RECD")]
     [IsoId("_NFffsd0mEeil7LQldntseg")]
     [Description(@"Action applies to a record")]
-    RECD,
+    Record,
     
 }
 

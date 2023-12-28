@@ -20,27 +20,30 @@ public enum CopyDuplicateCode
 {
     /// <summary>
     /// Message is being sent as a copy to a party other than the account owner, for information purposes and the message is a duplicate of a message previously sent.
+    /// Encoded/decoded by serializers as "CODU".
     /// </summary>
     [EnumMember(Value = "CODU")]
     [IsoId("_bCWRKNp-Ed-ak6NoX_4Aeg_-683393794")]
     [Description(@"Message is being sent as a copy to a party other than the account owner, for information purposes and the message is a duplicate of a message previously sent.")]
-    CODU,
+    CopyDuplicate,
     
     /// <summary>
     /// Message is being sent as a copy to a party other than the account owner, for information purposes.
+    /// Encoded/decoded by serializers as "COPY".
     /// </summary>
     [EnumMember(Value = "COPY")]
     [IsoId("_bCgCINp-Ed-ak6NoX_4Aeg_-623363428")]
     [Description(@"Message is being sent as a copy to a party other than the account owner, for information purposes.")]
-    COPY,
+    Copy,
     
     /// <summary>
     /// Message is for information/confirmation purposes. It is a duplicate of a message previously sent.
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bCgCIdp-Ed-ak6NoX_4Aeg_-621515903")]
     [Description(@"Message is for information/confirmation purposes. It is a duplicate of a message previously sent.")]
-    DUPL,
+    Duplicate,
     
 }
 

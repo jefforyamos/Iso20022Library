@@ -20,35 +20,39 @@ public enum DeemedRateTypeCode
 {
     /// <summary>
     /// Deemed rate of interest proceeds attributed to the security holder.
+    /// Encoded/decoded by serializers as "DEIT".
     /// </summary>
     [EnumMember(Value = "DEIT")]
     [IsoId("_LmfRwJSlEeeh5JjedkaA_g")]
     [Description(@"Deemed rate of interest proceeds attributed to the security holder.")]
-    DEIT,
+    DeemedInterestProceeds,
     
     /// <summary>
     /// Deemed rate of dividend proceeds attributed to the security holder.
+    /// Encoded/decoded by serializers as "DEDI".
     /// </summary>
     [EnumMember(Value = "DEDI")]
     [IsoId("_Qgj_EJSlEeeh5JjedkaA_g")]
     [Description(@"Deemed rate of dividend proceeds attributed to the security holder.")]
-    DEDI,
+    DeemedDividendProceeds,
     
     /// <summary>
     /// Deemed rate of fund proceeds attributed to the security holder.
+    /// Encoded/decoded by serializers as "DEFP".
     /// </summary>
     [EnumMember(Value = "DEFP")]
     [IsoId("_U-XAEJSlEeeh5JjedkaA_g")]
     [Description(@"Deemed rate of fund proceeds attributed to the security holder.")]
-    DEFP,
+    DeemedFundProceeds,
     
     /// <summary>
     /// Deemed rate of royalties proceeds attributed to the security holder.
+    /// Encoded/decoded by serializers as "DERY".
     /// </summary>
     [EnumMember(Value = "DERY")]
     [IsoId("_cXd7oJSlEeeh5JjedkaA_g")]
     [Description(@"Deemed rate of royalties proceeds attributed to the security holder.")]
-    DERY,
+    DeemedRoyaltiesProceeds,
     
 }
 

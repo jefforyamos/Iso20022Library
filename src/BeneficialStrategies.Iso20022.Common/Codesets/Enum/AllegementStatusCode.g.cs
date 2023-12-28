@@ -20,43 +20,48 @@ public enum AllegementStatusCode
 {
     /// <summary>
     /// Allegement has been cancelled since the previous delta statement. The allegement was cancelled because of a mistake by the sender or because the alleging party cancelled its instruction.
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bopcJNp-Ed-ak6NoX_4Aeg_285994217")]
     [Description(@"Allegement has been cancelled since the previous delta statement. The allegement was cancelled because of a mistake by the sender or because the alleging party cancelled its instruction.")]
-    CANC,
+    Cancelled,
     
     /// <summary>
     /// Allegement has been removed since the previous delta statement. The allegement was removed because the alleged party sent its instruction.
+    /// Encoded/decoded by serializers as "REMO".
     /// </summary>
     [EnumMember(Value = "REMO")]
     [IsoId("_bopcJdp-Ed-ak6NoX_4Aeg_311854439")]
     [Description(@"Allegement has been removed since the previous delta statement. The allegement was removed because the alleged party sent its instruction.")]
-    REMO,
+    Removed,
     
     /// <summary>
     /// Allegement is pending.
+    /// Encoded/decoded by serializers as "PEND".
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_bopcJtp-Ed-ak6NoX_4Aeg_1115315692")]
     [Description(@"Allegement is pending.")]
-    PEND,
+    Pending,
     
     /// <summary>
     /// Allegement has been accepted.
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_UhHdoK3DEeeBVbuVcoH9Nw")]
     [Description(@"Allegement has been accepted.")]
-    ACPT,
+    Accepted,
     
     /// <summary>
     /// Transaction or report has been rejected.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_WkCXoK3DEeeBVbuVcoH9Nw")]
     [Description(@"Transaction or report has been rejected.")]
-    REJT,
+    Rejected,
     
 }
 

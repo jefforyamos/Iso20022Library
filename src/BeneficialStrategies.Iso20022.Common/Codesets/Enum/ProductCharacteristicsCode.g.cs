@@ -20,115 +20,129 @@ public enum ProductCharacteristicsCode
 {
     /// <summary>
     /// Detailed product information as assigned by the buyer.
+    /// Encoded/decoded by serializers as "BISP".
     /// </summary>
     [EnumMember(Value = "BISP")]
     [IsoId("_ZVkmQ9p-Ed-ak6NoX_4Aeg_461860613")]
     [Description(@"Detailed product information as assigned by the buyer.")]
-    BISP,
+    BuyersItemSpecification,
     
     /// <summary>
     /// Unique identifier affixed by manufacturer to a chassis for identification purposes.
+    /// Encoded/decoded by serializers as "CHNR".
     /// </summary>
     [EnumMember(Value = "CHNR")]
     [IsoId("_ZVkmRNp-Ed-ak6NoX_4Aeg_542206889")]
     [Description(@"Unique identifier affixed by manufacturer to a chassis for identification purposes.")]
-    CHNR,
+    ChassisNumber,
     
     /// <summary>
     /// Indication of the product colour.
+    /// Encoded/decoded by serializers as "CLOR".
     /// </summary>
     [EnumMember(Value = "CLOR")]
     [IsoId("_ZVkmRdp-Ed-ak6NoX_4Aeg_834961978")]
     [Description(@"Indication of the product colour.")]
-    CLOR,
+    Colour,
     
     /// <summary>
     /// The total of the volume used for combustion inside the cylinders of an engine. This is expressed in cubic centimetres.
+    /// Encoded/decoded by serializers as "EDSP".
     /// </summary>
     [EnumMember(Value = "EDSP")]
     [IsoId("_ZVkmRtp-Ed-ak6NoX_4Aeg_949480973")]
     [Description(@"The total of the volume used for combustion inside the cylinders of an engine. This is expressed in cubic centimetres.")]
-    EDSP,
+    EngineDisplacement,
     
     /// <summary>
     /// Unique identifier affixed by manufacturer to an engine for identification purposes.
+    /// Encoded/decoded by serializers as "ENNR".
     /// </summary>
     [EnumMember(Value = "ENNR")]
     [IsoId("_ZVkmR9p-Ed-ak6NoX_4Aeg_-1017884541")]
     [Description(@"Unique identifier affixed by manufacturer to an engine for identification purposes.")]
-    ENNR,
+    EngineNumber,
     
     /// <summary>
     /// Identifier of a sub-category of a product such as size, colour, etc.
+    /// Encoded/decoded by serializers as "OPTN".
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_ZVkmSNp-Ed-ak6NoX_4Aeg_-687264519")]
     [Description(@"Identifier of a sub-category of a product such as size, colour, etc.")]
-    OPTN,
+    Option,
     
     /// <summary>
     /// Code assigned to the product describing how it will be stored.
+    /// Encoded/decoded by serializers as "ORCR".
     /// </summary>
     [EnumMember(Value = "ORCR")]
     [IsoId("_ZVkmSdp-Ed-ak6NoX_4Aeg_-559821323")]
     [Description(@"Code assigned to the product describing how it will be stored.")]
-    ORCR,
+    OriginCriterion,
     
     /// <summary>
     /// Percentage by volume.
+    /// Encoded/decoded by serializers as "PCTV".
     /// </summary>
     [EnumMember(Value = "PCTV")]
     [IsoId("_ZVuXQNp-Ed-ak6NoX_4Aeg_-230121438")]
     [Description(@"Percentage by volume.")]
-    PCTV,
+    PercentageByVolume,
     
     /// <summary>
     /// Detailed product information as assigned by the seller.
+    /// Encoded/decoded by serializers as "SISP".
     /// </summary>
     [EnumMember(Value = "SISP")]
     [IsoId("_ZVuXQdp-Ed-ak6NoX_4Aeg_-111911387")]
     [Description(@"Detailed product information as assigned by the seller.")]
-    SISP,
+    SellersItemSpecification,
     
     /// <summary>
     /// Indication of the product size.
+    /// Encoded/decoded by serializers as "SIZE".
     /// </summary>
     [EnumMember(Value = "SIZE")]
     [IsoId("_ZVuXQtp-Ed-ak6NoX_4Aeg_-27873272")]
     [Description(@"Indication of the product size.")]
-    SIZE,
+    Size,
     
     /// <summary>
     /// Range of product sizes.
+    /// Encoded/decoded by serializers as "SZRG".
     /// </summary>
     [EnumMember(Value = "SZRG")]
     [IsoId("_ZVuXQ9p-Ed-ak6NoX_4Aeg_257497938")]
     [Description(@"Range of product sizes.")]
-    SZRG,
+    SizeRange,
     
     /// <summary>
     /// Special remarks about a product.
+    /// Encoded/decoded by serializers as "SPRM".
     /// </summary>
     [EnumMember(Value = "SPRM")]
     [IsoId("_ZVuXRNp-Ed-ak6NoX_4Aeg_357238226")]
     [Description(@"Special remarks about a product.")]
-    SPRM,
+    SpecialRemarks,
     
     /// <summary>
     /// Code assigned to the product describing how it will be stored.
+    /// Encoded/decoded by serializers as "STOR".
     /// </summary>
     [EnumMember(Value = "STOR")]
     [IsoId("_ZVuXRdp-Ed-ak6NoX_4Aeg_699863026")]
     [Description(@"Code assigned to the product describing how it will be stored.")]
-    STOR,
+    StorageCode,
     
     /// <summary>
     /// The identification number which uniquely distinguishes one vehicle from another through the lifespan of the vehicle.
+    /// Encoded/decoded by serializers as "VINR".
     /// </summary>
     [EnumMember(Value = "VINR")]
     [IsoId("_ZVuXRtp-Ed-ak6NoX_4Aeg_770975141")]
     [Description(@"The identification number which uniquely distinguishes one vehicle from another through the lifespan of the vehicle.")]
-    VINR,
+    VehicleIdentificationNumber,
     
 }
 

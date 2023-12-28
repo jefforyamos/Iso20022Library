@@ -20,19 +20,21 @@ public enum TradingCapacity2Code
 {
     /// <summary>
     /// Broker is buying or selling securities for its own account.
+    /// Encoded/decoded by serializers as "PRIN".
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_YZOSydp-Ed-ak6NoX_4Aeg_936150344")]
     [Description(@"Broker is buying or selling securities for its own account.")]
-    PRIN,
+    TradingPrincipal,
     
     /// <summary>
     /// Broker is trading on behalf of another party.
+    /// Encoded/decoded by serializers as "TAGN".
     /// </summary>
     [EnumMember(Value = "TAGN")]
     [IsoId("_YZOSytp-Ed-ak6NoX_4Aeg_936150369")]
     [Description(@"Broker is trading on behalf of another party.")]
-    TAGN,
+    TradingAgent,
     
 }
 

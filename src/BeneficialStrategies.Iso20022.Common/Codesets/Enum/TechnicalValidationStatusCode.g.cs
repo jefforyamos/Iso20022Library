@@ -20,19 +20,21 @@ public enum TechnicalValidationStatusCode
 {
     /// <summary>
     /// Indicates that the request has been correctly received and that the technical validation was successful.
+    /// Encoded/decoded by serializers as "RCCF".
     /// </summary>
     [EnumMember(Value = "RCCF")]
     [IsoId("_Yll61dp-Ed-ak6NoX_4Aeg_1506722144")]
     [Description(@"Indicates that the request has been correctly received and that the technical validation was successful.")]
-    RCCF,
+    ReceptionConfirmation,
     
     /// <summary>
     /// Indicates there was an error in the reception of the request or that the technical validation was not successful.
+    /// Encoded/decoded by serializers as "RCER".
     /// </summary>
     [EnumMember(Value = "RCER")]
     [IsoId("_Yll61tp-Ed-ak6NoX_4Aeg_1529808681")]
     [Description(@"Indicates there was an error in the reception of the request or that the technical validation was not successful.")]
-    RCER,
+    ReceptionError,
     
 }
 

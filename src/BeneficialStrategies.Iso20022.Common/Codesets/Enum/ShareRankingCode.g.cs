@@ -20,19 +20,21 @@ public enum ShareRankingCode
 {
     /// <summary>
     /// Payable on the date specified.
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_ZOtwUNp-Ed-ak6NoX_4Aeg_1834017233")]
     [Description(@"Payable on the date specified.")]
-    DIVI,
+    Dividend,
     
     /// <summary>
     /// Pari Passu. With equal rights as other shares of the company.
+    /// Encoded/decoded by serializers as "PARI".
     /// </summary>
     [EnumMember(Value = "PARI")]
     [IsoId("_ZOtwUdp-Ed-ak6NoX_4Aeg_1889429406")]
     [Description(@"Pari Passu. With equal rights as other shares of the company.")]
-    PARI,
+    PariPassu,
     
 }
 

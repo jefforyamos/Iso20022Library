@@ -20,43 +20,48 @@ public enum DebtInstrumentSeniorityTypeCode
 {
     /// <summary>
     /// Debt that takes priority over other unsecured or otherwise more junior debt owed by the issuer.
+    /// Encoded/decoded by serializers as "SNDB".
     /// </summary>
     [EnumMember(Value = "SNDB")]
     [IsoId("_c5p08M4tEeSc85GUbgBycw")]
     [Description(@"Debt that takes priority over other unsecured or otherwise more junior debt owed by the issuer.")]
-    SNDB,
+    SeniorDebt,
     
     /// <summary>
     /// Subordinated debt or preferred equity instrument that represents a claim on a company's assets which is senior only to that of the common shares.
+    /// Encoded/decoded by serializers as "MZZD".
     /// </summary>
     [EnumMember(Value = "MZZD")]
     [IsoId("_c8oQcM4tEeSc85GUbgBycw")]
     [Description(@"Subordinated debt or preferred equity instrument that represents a claim on a company's assets which is senior only to that of the common shares.")]
-    MZZD,
+    MezzanineDebt,
     
     /// <summary>
     /// Debt owed to an unsecured creditor that can only be paid, in the event of a liquidation, after the claims of secured creditors have been met.
+    /// Encoded/decoded by serializers as "SBOD".
     /// </summary>
     [EnumMember(Value = "SBOD")]
     [IsoId("_dAWS0M4tEeSc85GUbgBycw")]
     [Description(@"Debt owed to an unsecured creditor that can only be paid, in the event of a liquidation, after the claims of secured creditors have been met.")]
-    SBOD,
+    SubordinatedDebt,
     
     /// <summary>
     /// Debt that is either unsecured or has a lower priority than of another debt claim on the same asset or property.
+    /// Encoded/decoded by serializers as "JUND".
     /// </summary>
     [EnumMember(Value = "JUND")]
     [IsoId("_dGAO4M4tEeSc85GUbgBycw")]
     [Description(@"Debt that is either unsecured or has a lower priority than of another debt claim on the same asset or property.")]
-    JUND,
+    JuniorDebt,
     
     /// <summary>
     /// Other type of debts.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VTTZsEEPEeWwF-kIleVYXQ")]
     [Description(@"Other type of debts.")]
-    OTHR,
+    Other,
     
 }
 

@@ -22,35 +22,39 @@ public enum ExternalMandateStatusCode
 {
     /// <summary>
     /// The mandate is active.
+    /// Encoded/decoded by serializers as "ACTV".
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_uYrBs_RYEeuLhpyIdtJzwg")]
     [Description(@"The mandate is active.")]
-    ACTV,
+    Active,
     
     /// <summary>
     /// The mandate is cancelled.
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_uYrBtvRYEeuLhpyIdtJzwg")]
     [Description(@"The mandate is cancelled.")]
-    CANC,
+    Cancelled,
     
     /// <summary>
     /// The mandate has passed the end date.
+    /// Encoded/decoded by serializers as "EXPI".
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_uYrBufRYEeuLhpyIdtJzwg")]
     [Description(@"The mandate has passed the end date.")]
-    EXPI,
+    Expired,
     
     /// <summary>
     /// The mandate is put on hold.
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_uY0ysPRYEeuLhpyIdtJzwg")]
     [Description(@"The mandate is put on hold.")]
-    SUSP,
+    Suspended,
     
 }
 

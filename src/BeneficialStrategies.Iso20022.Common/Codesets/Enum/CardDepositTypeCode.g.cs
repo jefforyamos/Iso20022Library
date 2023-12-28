@@ -20,51 +20,57 @@ public enum CardDepositTypeCode
 {
     /// <summary>
     /// Cash
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_nVa9cNCHEei_pMueJh_zOA")]
     [Description(@"Cash")]
-    CASH,
+    Cash,
     
     /// <summary>
     /// Cheque
+    /// Encoded/decoded by serializers as "CHEC".
     /// </summary>
     [EnumMember(Value = "CHEC")]
     [IsoId("_nVaWYNCHEei_pMueJh_zOA")]
     [Description(@"Cheque")]
-    CHEC,
+    Cheque,
     
     /// <summary>
     /// Envelope
+    /// Encoded/decoded by serializers as "ENVL".
     /// </summary>
     [EnumMember(Value = "ENVL")]
     [IsoId("_nVa9cdCHEei_pMueJh_zOA")]
     [Description(@"Envelope")]
-    ENVL,
+    Envelope,
     
     /// <summary>
     /// Other National
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_nVaWYdCHEei_pMueJh_zOA")]
     [Description(@"Other National")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other Private
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_nVaWYtCHEei_pMueJh_zOA")]
     [Description(@"Other Private")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Card
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_6GwjkBsxEeqrvK3udMUsNQ")]
     [Description(@"Card")]
-    CARD,
+    Card,
     
 }
 

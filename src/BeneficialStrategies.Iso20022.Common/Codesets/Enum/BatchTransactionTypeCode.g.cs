@@ -20,35 +20,39 @@ public enum BatchTransactionTypeCode
 {
     /// <summary>
     /// Debit and credit transactions.
+    /// Encoded/decoded by serializers as "DTCT".
     /// </summary>
     [EnumMember(Value = "DTCT")]
     [IsoId("_KU0vgH1DEeCF8NjrBemJWQ_-2001317413")]
     [Description(@"Debit and credit transactions.")]
-    DTCT,
+    DebitCredit,
     
     /// <summary>
     /// Cancellation of a previous transaction.
+    /// Encoded/decoded by serializers as "CNCL".
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_KU0vgX1DEeCF8NjrBemJWQ_-1823198741")]
     [Description(@"Cancellation of a previous transaction.")]
-    CNCL,
+    Cancellation,
     
     /// <summary>
     /// Failed transactions.
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_KU0vgn1DEeCF8NjrBemJWQ_-2115156479")]
     [Description(@"Failed transactions.")]
-    FAIL,
+    Failed,
     
     /// <summary>
     /// Declined transactions.
+    /// Encoded/decoded by serializers as "DCLN".
     /// </summary>
     [EnumMember(Value = "DCLN")]
     [IsoId("_KU0vg31DEeCF8NjrBemJWQ_1142799055")]
     [Description(@"Declined transactions.")]
-    DCLN,
+    Declined,
     
 }
 

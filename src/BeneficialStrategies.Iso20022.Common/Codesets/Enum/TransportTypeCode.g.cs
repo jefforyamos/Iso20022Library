@@ -20,51 +20,57 @@ public enum TransportTypeCode
 {
     /// <summary>
     /// Rail
+    /// Encoded/decoded by serializers as "RAIL".
     /// </summary>
     [EnumMember(Value = "RAIL")]
     [IsoId("_sf5qiPQDEeihCvvpsmGI2w")]
     [Description(@"Rail")]
-    RAIL,
+    Rail,
     
     /// <summary>
     /// Ship
+    /// Encoded/decoded by serializers as "SHIP".
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_sf5qi_QDEeihCvvpsmGI2w")]
     [Description(@"Ship")]
-    SHIP,
+    Ship,
     
     /// <summary>
     /// Air
+    /// Encoded/decoded by serializers as "AIRR".
     /// </summary>
     [EnumMember(Value = "AIRR")]
     [IsoId("_sf5qjfQDEeihCvvpsmGI2w")]
     [Description(@"Air")]
-    AIRR,
+    Air,
     
     /// <summary>
     /// Bus
+    /// Encoded/decoded by serializers as "BUSS".
     /// </summary>
     [EnumMember(Value = "BUSS")]
     [IsoId("_sf5qivQDEeihCvvpsmGI2w")]
     [Description(@"Bus")]
-    BUSS,
+    Bus,
     
     /// <summary>
     /// Other National
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_sf5qifQDEeihCvvpsmGI2w")]
     [Description(@"Other National")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other Private
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_sf5qjPQDEeihCvvpsmGI2w")]
     [Description(@"Other Private")]
-    OTHP,
+    OtherPrivate,
     
 }
 

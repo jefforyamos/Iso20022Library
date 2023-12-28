@@ -20,35 +20,39 @@ public enum AccountManagementStatusCode
 {
     /// <summary>
     /// The account management instruction has been received and is acknowledged.
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_bqlV1Np-Ed-ak6NoX_4Aeg_1504294962")]
     [Description(@"The account management instruction has been received and is acknowledged.")]
-    RECE,
+    Received,
     
     /// <summary>
     /// The account management instruction has been validated and accepted.
+    /// Encoded/decoded by serializers as "ACCP".
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_bqlV1dp-Ed-ak6NoX_4Aeg_1748103715")]
     [Description(@"The account management instruction has been validated and accepted.")]
-    ACCP,
+    Accepted,
     
     /// <summary>
     /// The account management instruction is being processed and the confirmation will follow.
+    /// Encoded/decoded by serializers as "EXEC".
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_bqlV1tp-Ed-ak6NoX_4Aeg_1760108911")]
     [Description(@"The account management instruction is being processed and the confirmation will follow.")]
-    EXEC,
+    ProcessingOngoing,
     
     /// <summary>
     /// The account management instruction has been sent to the next party, for example, the next intermediary.
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_bqlV19p-Ed-ak6NoX_4Aeg_1773962673")]
     [Description(@"The account management instruction has been sent to the next party, for example, the next intermediary.")]
-    STNP,
+    SentToNextParty,
     
 }
 

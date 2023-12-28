@@ -20,19 +20,21 @@ public enum FundIntentionCode
 {
     /// <summary>
     /// Qualified.
+    /// Encoded/decoded by serializers as "YQUA".
     /// </summary>
     [EnumMember(Value = "YQUA")]
     [IsoId("_4WlzMCDXEeWCLu74WLgP4w")]
     [Description(@"Qualified.")]
-    YQUA,
+    Qualified,
     
     /// <summary>
     /// Not qualified.
+    /// Encoded/decoded by serializers as "NQUA".
     /// </summary>
     [EnumMember(Value = "NQUA")]
     [IsoId("_8clYMCDXEeWCLu74WLgP4w")]
     [Description(@"Not qualified.")]
-    NQUA,
+    NotQualified,
     
 }
 

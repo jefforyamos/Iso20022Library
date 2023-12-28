@@ -21,43 +21,48 @@ public enum ExternalDateFrequencyCode
 {
     /// <summary>
     /// Frequency is monthly.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_uO_hQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Frequency is monthly.")]
-    MNTH,
+    Monthly,
     
     /// <summary>
     /// Frequency is quarterly (every three months).
+    /// Encoded/decoded by serializers as "QUTR".
     /// </summary>
     [EnumMember(Value = "QUTR")]
     [IsoId("_uO_hRvRYEeuLhpyIdtJzwg")]
     [Description(@"Frequency is quarterly (every three months).")]
-    QUTR,
+    Quarterly,
     
     /// <summary>
     /// Frequency is semi-annual (every six months).
+    /// Encoded/decoded by serializers as "SEMI".
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_uO_hSfRYEeuLhpyIdtJzwg")]
     [Description(@"Frequency is semi-annual (every six months).")]
-    SEMI,
+    SemiAnnual,
     
     /// <summary>
     /// Frequency is two-monthly (every two months).
+    /// Encoded/decoded by serializers as "TOMN".
     /// </summary>
     [EnumMember(Value = "TOMN")]
     [IsoId("_uO_hTPRYEeuLhpyIdtJzwg")]
     [Description(@"Frequency is two-monthly (every two months).")]
-    TOMN,
+    TwoMonthly,
     
     /// <summary>
     /// Frequency is annual.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_uPIrMPRYEeuLhpyIdtJzwg")]
     [Description(@"Frequency is annual.")]
-    YEAR,
+    Annual,
     
 }
 

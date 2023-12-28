@@ -17,63 +17,71 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_OTgzMjc5-AOSNFX-8224496")]
 [Description(@"Specifies the type of action concerning registration information. The default value is OPEN.")]
+[DerivedFrom(typeof(AgreementItemActionCode))]
 public enum AgreementItemAction1Code
 {
     /// <summary>
     /// Deactivate agreement item.
+    /// Encoded/decoded by serializers as "DEAC".
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_OTMxOTY3-AOSNFX-0262741")]
     [Description(@"Deactivate agreement item.")]
-    DEAC,
+    Deactivate,
     
     /// <summary>
     /// Hold the agreement item.
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_OTMxOTY2-AOSNFX-0262741")]
     [Description(@"Hold the agreement item.")]
-    HOLD,
+    Hold,
     
     /// <summary>
     /// Modify agreement item information.
+    /// Encoded/decoded by serializers as "MDFY".
     /// </summary>
     [EnumMember(Value = "MDFY")]
     [IsoId("_OTMxOTY1-AOSNFX-0262740")]
     [Description(@"Modify agreement item information.")]
-    MDFY,
+    Modify,
     
     /// <summary>
     /// Reactivate agreement item.
+    /// Encoded/decoded by serializers as "REAC".
     /// </summary>
     [EnumMember(Value = "REAC")]
     [IsoId("_OTMxOTY4-AOSNFX-0262741")]
     [Description(@"Reactivate agreement item.")]
-    REAC,
+    Reactivate,
     
     /// <summary>
     /// Register item as new agreement.
+    /// Encoded/decoded by serializers as "OPEN".
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_OTMxOTY0-AOSNFX-0262740")]
     [Description(@"Register item as new agreement.")]
-    OPEN,
+    Register,
     
     /// <summary>
     /// Send status with full agreement information details.
+    /// Encoded/decoded by serializers as "SYNC".
     /// </summary>
     [EnumMember(Value = "SYNC")]
     [IsoId("_OTMxOTcw-AOSNFX-0262741")]
     [Description(@"Send status with full agreement information details.")]
-    SYNC,
+    Synchronize,
     
     /// <summary>
     /// Verify agreement item information.
+    /// Encoded/decoded by serializers as "VRFY".
     /// </summary>
     [EnumMember(Value = "VRFY")]
     [IsoId("_OTMxOTY5-AOSNFX-0262741")]
     [Description(@"Verify agreement item information.")]
-    VRFY,
+    Verify,
     
 }
 

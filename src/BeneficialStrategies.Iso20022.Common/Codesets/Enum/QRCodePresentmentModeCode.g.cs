@@ -20,35 +20,39 @@ public enum QRCodePresentmentModeCode
 {
     /// <summary>
     /// The consumer presented a QR Code at the point of service for the transaction.
+    /// Encoded/decoded by serializers as "CPMD".
     /// </summary>
     [EnumMember(Value = "CPMD")]
     [IsoId("_Y7sgAMV3Eeua2vd9tJAtHg")]
     [Description(@"The consumer presented a QR Code at the point of service for the transaction.")]
-    CPMD,
+    ConsumerPresented,
     
     /// <summary>
     /// The acceptor presented a QR Code to the consumer for the transaction.
+    /// Encoded/decoded by serializers as "MPMD".
     /// </summary>
     [EnumMember(Value = "MPMD")]
     [IsoId("_fYdIEMV3Eeua2vd9tJAtHg")]
     [Description(@"The acceptor presented a QR Code to the consumer for the transaction.")]
-    MPMD,
+    MerchantPresented,
     
     /// <summary>
     /// Other nationally defined method for QR Code presentment for the transaction.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_uyBTEMV3Eeua2vd9tJAtHg")]
     [Description(@"Other nationally defined method for QR Code presentment for the transaction.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other QR Code presentment mode defined by bilateral agreement.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_1ojtEMV3Eeua2vd9tJAtHg")]
     [Description(@"Other QR Code presentment mode defined by bilateral agreement.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

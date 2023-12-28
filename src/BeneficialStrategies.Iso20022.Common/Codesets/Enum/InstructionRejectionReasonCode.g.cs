@@ -20,1083 +20,1218 @@ public enum InstructionRejectionReasonCode
 {
     /// <summary>
     /// Acknowledgement must be agreed.
+    /// Encoded/decoded by serializers as "ACKA".
     /// </summary>
     [EnumMember(Value = "ACKA")]
     [IsoId("_FXGYEMYNEeexPc-mfUU5zQ")]
     [Description(@"Acknowledgement must be agreed.")]
-    ACKA,
+    AcknowledgementNotAgreed,
     
     /// <summary>
     /// Acknowledgment indicator is missing.
+    /// Encoded/decoded by serializers as "ACKS".
     /// </summary>
     [EnumMember(Value = "ACKS")]
     [IsoId("_0LkJ4MhhEee7W-rN1yqPMg")]
     [Description(@"Acknowledgment indicator is missing.")]
-    ACKS,
+    AcknowledgmentIndicatorMissing,
     
     /// <summary>
     /// Offer is not ATOP eligible.
+    /// Encoded/decoded by serializers as "ATOP".
     /// </summary>
     [EnumMember(Value = "ATOP")]
     [IsoId("_2sGM8MhhEee7W-rN1yqPMg")]
     [Description(@"Offer is not ATOP eligible.")]
-    ATOP,
+    OfferNotATOPEligible,
     
     /// <summary>
     /// Zeroes are required for bid price.
+    /// Encoded/decoded by serializers as "BID0".
     /// </summary>
     [EnumMember(Value = "BID0")]
     [IsoId("_2vqeUMhhEee7W-rN1yqPMg")]
     [Description(@"Zeroes are required for bid price.")]
-    BID0,
+    BidPriceZeroesRequired,
     
     /// <summary>
     /// Bid Price exceeds maximum bid price allowed for the offer.
+    /// Encoded/decoded by serializers as "BIDE".
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_2yfI0MhhEee7W-rN1yqPMg")]
     [Description(@"Bid Price exceeds maximum bid price allowed for the offer.")]
-    BIDE,
+    BidPriceOverMaximumAllowed,
     
     /// <summary>
     /// Bid Price cannot be greater than 9999.99999.
+    /// Encoded/decoded by serializers as "BIDG".
     /// </summary>
     [EnumMember(Value = "BIDG")]
     [IsoId("_20t9cMhhEee7W-rN1yqPMg")]
     [Description(@"Bid Price cannot be greater than 9999.99999.")]
-    BIDG,
+    BidPriceOverflow,
     
     /// <summary>
     /// Bid price is missing or invalid.
+    /// Encoded/decoded by serializers as "BIDI".
     /// </summary>
     [EnumMember(Value = "BIDI")]
     [IsoId("_23sY8MhhEee7W-rN1yqPMg")]
     [Description(@"Bid price is missing or invalid.")]
-    BIDI,
+    BidPriceMissingOrInvalid,
     
     /// <summary>
     /// Bid Price is less than the minimum bid price allowed for the offer.
+    /// Encoded/decoded by serializers as "BIDM".
     /// </summary>
     [EnumMember(Value = "BIDM")]
     [IsoId("_257NkMhhEee7W-rN1yqPMg")]
     [Description(@"Bid Price is less than the minimum bid price allowed for the offer.")]
-    BIDM,
+    BidPriceUnderMinimumAllowed,
     
     /// <summary>
     /// Bond check on master table is not available.
+    /// Encoded/decoded by serializers as "BNDU".
     /// </summary>
     [EnumMember(Value = "BNDU")]
     [IsoId("_28A4QMhhEee7W-rN1yqPMg")]
     [Description(@"Bond check on master table is not available.")]
-    BNDU,
+    BondCheckOnMasterTableNotAvailable,
     
     /// <summary>
     /// Corporate action event identification is invalid.
+    /// Encoded/decoded by serializers as "CAID".
     /// </summary>
     [EnumMember(Value = "CAID")]
     [IsoId("_2-Ps4MhhEee7W-rN1yqPMg")]
     [Description(@"Corporate action event identification is invalid.")]
-    CAID,
+    CorporateActionEventInvalid,
     
     /// <summary>
     /// CUSIP is depository deliver chilled.
+    /// Encoded/decoded by serializers as "CHIL".
     /// </summary>
     [EnumMember(Value = "CHIL")]
     [IsoId("_3AehgMhhEee7W-rN1yqPMg")]
     [Description(@"CUSIP is depository deliver chilled.")]
-    CHIL,
+    CUSIPDepositoryDeliverChilled,
     
     /// <summary>
     /// Condition 1 indicator is must be present.
+    /// Encoded/decoded by serializers as "CN1R".
     /// </summary>
     [EnumMember(Value = "CN1R")]
     [IsoId("_76E8oMiAEee7W-rN1yqPMg")]
     [Description(@"Condition 1 indicator is must be present.")]
-    CN1R,
+    Condition1Required,
     
     /// <summary>
     /// Condition 2 indicator is must be present.
+    /// Encoded/decoded by serializers as "CN2R".
     /// </summary>
     [EnumMember(Value = "CN2R")]
     [IsoId("_Vdr5wMiBEee7W-rN1yqPMg")]
     [Description(@"Condition 2 indicator is must be present.")]
-    CN2R,
+    Condition2Required,
     
     /// <summary>
     /// Condition 3 indicator is must be present.
+    /// Encoded/decoded by serializers as "CN3R".
     /// </summary>
     [EnumMember(Value = "CN3R")]
     [IsoId("_ViAZEMiBEee7W-rN1yqPMg")]
     [Description(@"Condition 3 indicator is must be present.")]
-    CN3R,
+    Condition3Required,
     
     /// <summary>
     /// Condition 4 indicator is must be present.
+    /// Encoded/decoded by serializers as "CN4R".
     /// </summary>
     [EnumMember(Value = "CN4R")]
     [IsoId("_VmBWYMiBEee7W-rN1yqPMg")]
     [Description(@"Condition 4 indicator is must be present.")]
-    CN4R,
+    Condition4Required,
     
     /// <summary>
     /// Condition 5 indicator is must be present.
+    /// Encoded/decoded by serializers as "CN5R".
     /// </summary>
     [EnumMember(Value = "CN5R")]
     [IsoId("_VqMEsMiBEee7W-rN1yqPMg")]
     [Description(@"Condition 5 indicator is must be present.")]
-    CN5R,
+    Condition5Required,
     
     /// <summary>
     /// Condition 6 indicator is must be present.
+    /// Encoded/decoded by serializers as "CN6R".
     /// </summary>
     [EnumMember(Value = "CN6R")]
     [IsoId("_Vuy34MiBEee7W-rN1yqPMg")]
     [Description(@"Condition 6 indicator is must be present.")]
-    CN6R,
+    Condition6Required,
     
     /// <summary>
     /// Condition 1 indicator is invalid. It must be No.
+    /// Encoded/decoded by serializers as "CN1N".
     /// </summary>
     [EnumMember(Value = "CN1N")]
     [IsoId("_z_hrcMiBEee7W-rN1yqPMg")]
     [Description(@"Condition 1 indicator is invalid. It must be No.")]
-    CN1N,
+    Condition1InvalidMustBeNo,
     
     /// <summary>
     /// Condition 2 indicator is invalid. It must be No.
+    /// Encoded/decoded by serializers as "CN2N".
     /// </summary>
     [EnumMember(Value = "CN2N")]
     [IsoId("_E8-rEMiCEee7W-rN1yqPMg")]
     [Description(@"Condition 2 indicator is invalid. It must be No.")]
-    CN2N,
+    Condition2InvalidMustBeNo,
     
     /// <summary>
     /// Condition 3 indicator is invalid. It must be No.
+    /// Encoded/decoded by serializers as "CN3N".
     /// </summary>
     [EnumMember(Value = "CN3N")]
     [IsoId("_FBleQMiCEee7W-rN1yqPMg")]
     [Description(@"Condition 3 indicator is invalid. It must be No.")]
-    CN3N,
+    Condition3InvalidMustBeNo,
     
     /// <summary>
     /// Condition 4 indicator is invalid. It must be No.
+    /// Encoded/decoded by serializers as "CN4N".
     /// </summary>
     [EnumMember(Value = "CN4N")]
     [IsoId("_FFwMkMiCEee7W-rN1yqPMg")]
     [Description(@"Condition 4 indicator is invalid. It must be No.")]
-    CN4N,
+    Condition4InvalidMustBeNo,
     
     /// <summary>
     /// Condition 5 indicator is invalid. It must be No.
+    /// Encoded/decoded by serializers as "CN5N".
     /// </summary>
     [EnumMember(Value = "CN5N")]
     [IsoId("_FJxJ4MiCEee7W-rN1yqPMg")]
     [Description(@"Condition 5 indicator is invalid. It must be No.")]
-    CN5N,
+    Condition5InvalidMustBeNo,
     
     /// <summary>
     /// Condition 6 indicator is invalid. It must be No.
+    /// Encoded/decoded by serializers as "CN6N".
     /// </summary>
     [EnumMember(Value = "CN6N")]
     [IsoId("_FNo9QMiCEee7W-rN1yqPMg")]
     [Description(@"Condition 6 indicator is invalid. It must be No.")]
-    CN6N,
+    Condition6InvalidMustBeNo,
     
     /// <summary>
     /// Condition 1 indicator is invalid. It must be Yes.
+    /// Encoded/decoded by serializers as "CN1Y".
     /// </summary>
     [EnumMember(Value = "CN1Y")]
     [IsoId("_TPyCUMiCEee7W-rN1yqPMg")]
     [Description(@"Condition 1 indicator is invalid. It must be Yes.")]
-    CN1Y,
+    Condition1InvalidMustBeYes,
     
     /// <summary>
     /// Condition 2 indicator is invalid. It must be Yes.
+    /// Encoded/decoded by serializers as "CN2Y".
     /// </summary>
     [EnumMember(Value = "CN2Y")]
     [IsoId("_B6ZmsMiJEee7W-rN1yqPMg")]
     [Description(@"Condition 2 indicator is invalid. It must be Yes.")]
-    CN2Y,
+    Condition2InvalidMustBeYes,
     
     /// <summary>
     /// Condition 3 indicator is invalid. It must be Yes.
+    /// Encoded/decoded by serializers as "CN3Y".
     /// </summary>
     [EnumMember(Value = "CN3Y")]
     [IsoId("_B-3P8MiJEee7W-rN1yqPMg")]
     [Description(@"Condition 3 indicator is invalid. It must be Yes.")]
-    CN3Y,
+    Condition3InvalidMustBeYes,
     
     /// <summary>
     /// Condition 4 indicator is invalid. It must be Yes.
+    /// Encoded/decoded by serializers as "CN4Y".
     /// </summary>
     [EnumMember(Value = "CN4Y")]
     [IsoId("_CC4NQMiJEee7W-rN1yqPMg")]
     [Description(@"Condition 4 indicator is invalid. It must be Yes.")]
-    CN4Y,
+    Condition4InvalidMustBeYes,
     
     /// <summary>
     /// Condition 5 indicator is invalid. It must be Yes.
+    /// Encoded/decoded by serializers as "CN5Y".
     /// </summary>
     [EnumMember(Value = "CN5Y")]
     [IsoId("_CHC7kMiJEee7W-rN1yqPMg")]
     [Description(@"Condition 5 indicator is invalid. It must be Yes.")]
-    CN5Y,
+    Condition5InvalidMustBeYes,
     
     /// <summary>
     /// Condition 6 indicator is invalid. It must be Yes.
+    /// Encoded/decoded by serializers as "CN6Y".
     /// </summary>
     [EnumMember(Value = "CN6Y")]
     [IsoId("_CdgTwMiJEee7W-rN1yqPMg")]
     [Description(@"Condition 6 indicator is invalid. It must be Yes.")]
-    CN6Y,
+    Condition6InvalidMustBeYes,
     
     /// <summary>
     /// Contact name is missing.
+    /// Encoded/decoded by serializers as "CNAM".
     /// </summary>
     [EnumMember(Value = "CNAM")]
     [IsoId("_tW-JcMiJEee7W-rN1yqPMg")]
     [Description(@"Contact name is missing.")]
-    CNAM,
+    ContactNameMissing,
     
     /// <summary>
     /// Contact name is not used with this event.
+    /// Encoded/decoded by serializers as "CNAX".
     /// </summary>
     [EnumMember(Value = "CNAX")]
     [IsoId("_TY5ocMiKEee7W-rN1yqPMg")]
     [Description(@"Contact name is not used with this event.")]
-    CNAX,
+    ContactNameNotUsedWithEvent,
     
     /// <summary>
     /// Contact phone number is missing.
+    /// Encoded/decoded by serializers as "CNPM".
     /// </summary>
     [EnumMember(Value = "CNPM")]
     [IsoId("_UbP2QMiKEee7W-rN1yqPMg")]
     [Description(@"Contact phone number is missing.")]
-    CNPM,
+    ContactPhoneNumberMissing,
     
     /// <summary>
     /// Contact phone number is not used with this event.
+    /// Encoded/decoded by serializers as "CNPX".
     /// </summary>
     [EnumMember(Value = "CNPX")]
     [IsoId("_UftfgMiKEee7W-rN1yqPMg")]
     [Description(@"Contact phone number is not used with this event.")]
-    CNPX,
+    ContactPhoneNumberNotUsedWithEvent,
     
     /// <summary>
     /// Comment area is invalid.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_Uj4N0MiKEee7W-rN1yqPMg")]
     [Description(@"Comment area is invalid.")]
-    COMM,
+    CommentAreaInvalid,
     
     /// <summary>
     /// Conditional quantity zeroes are required.
+    /// Encoded/decoded by serializers as "COQ0".
     /// </summary>
     [EnumMember(Value = "COQ0")]
     [IsoId("_UnwBMMiKEee7W-rN1yqPMg")]
     [Description(@"Conditional quantity zeroes are required.")]
-    COQ0,
+    ConditionalQuantityZeroesRequired,
     
     /// <summary>
     /// Conditional quantity exceeds the transaction quantity.
+    /// Encoded/decoded by serializers as "COQE".
     /// </summary>
     [EnumMember(Value = "COQE")]
     [IsoId("_UsD5cMiKEee7W-rN1yqPMg")]
     [Description(@"Conditional quantity exceeds the transaction quantity.")]
-    COQE,
+    ConditionalQuantityExceedsTransactionQuantity,
     
     /// <summary>
     /// Conditional quantity is missing or invalid.
+    /// Encoded/decoded by serializers as "COQI".
     /// </summary>
     [EnumMember(Value = "COQI")]
     [IsoId("_UsD5cciKEee7W-rN1yqPMg")]
     [Description(@"Conditional quantity is missing or invalid.")]
-    COQI,
+    ConditionalQuantityMissingOrInvalid,
     
     /// <summary>
     /// Conditional quantity cannot be zero.
+    /// Encoded/decoded by serializers as "COQX".
     /// </summary>
     [EnumMember(Value = "COQX")]
     [IsoId("_Uv7s0MiKEee7W-rN1yqPMg")]
     [Description(@"Conditional quantity cannot be zero.")]
-    COQX,
+    ConditionalQuantityCannotBeZero,
     
     /// <summary>
     /// Conditional quantity does not equal the transaction quantity whilst this offer accepts only full conditional quantity.
+    /// Encoded/decoded by serializers as "COTQ".
     /// </summary>
     [EnumMember(Value = "COTQ")]
     [IsoId("_Uzf-MMiKEee7W-rN1yqPMg")]
     [Description(@"Conditional quantity does not equal the transaction quantity whilst this offer accepts only full conditional quantity.")]
-    COTQ,
+    ConditionalQuantityDoesNotEqualTransactionQuantity,
     
     /// <summary>
     /// Cover quantity is greater than the remaining protect quantity.
+    /// Encoded/decoded by serializers as "COVR".
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_U68C8MiKEee7W-rN1yqPMg")]
     [Description(@"Cover quantity is greater than the remaining protect quantity.")]
-    COVR,
+    CoverQuantityGreaterThanProtectQuantity,
     
     /// <summary>
     /// Customer quantities do not add up to total rights quantities.
+    /// Encoded/decoded by serializers as "CQRQ".
     /// </summary>
     [EnumMember(Value = "CQRQ")]
     [IsoId("_U-z2UMiKEee7W-rN1yqPMg")]
     [Description(@"Customer quantities do not add up to total rights quantities.")]
-    CQRQ,
+    CustomerQuantitiesAndTotalRightsQuantitiesMismatch,
     
     /// <summary>
     /// Customer Sequence number is invalid or out of sequence.
+    /// Encoded/decoded by serializers as "CSEQ".
     /// </summary>
     [EnumMember(Value = "CSEQ")]
     [IsoId("_VD3VcMiKEee7W-rN1yqPMg")]
     [Description(@"Customer Sequence number is invalid or out of sequence.")]
-    CSEQ,
+    CustomerSequenceNumberInvalid,
     
     /// <summary>
     /// Customer identification is missing or invalid.
+    /// Encoded/decoded by serializers as "CUID".
     /// </summary>
     [EnumMember(Value = "CUID")]
     [IsoId("_VIevsMiKEee7W-rN1yqPMg")]
     [Description(@"Customer identification is missing or invalid.")]
-    CUID,
+    CustomerIdentificationMissingOrInvalid,
     
     /// <summary>
     /// Target CUSIP or contra CUSIP identification is not DTC eligible.
+    /// Encoded/decoded by serializers as "CUSD".
     /// </summary>
     [EnumMember(Value = "CUSD")]
     [IsoId("_VNiO0MiKEee7W-rN1yqPMg")]
     [Description(@"Target CUSIP or contra CUSIP identification is not DTC eligible.")]
-    CUSD,
+    CUSIPNotDTCEligible,
     
     /// <summary>
     /// Target CUSIP or contra CUSIP identification is missing or invalid.
+    /// Encoded/decoded by serializers as "CUSI".
     /// </summary>
     [EnumMember(Value = "CUSI")]
     [IsoId("_1vqBgMkfEee7W-rN1yqPMg")]
     [Description(@"Target CUSIP or contra CUSIP identification is missing or invalid.")]
-    CUSI,
+    CUSIPMissingOrInvalid,
     
     /// <summary>
     /// Underlying security CUSIP is invalid.
+    /// Encoded/decoded by serializers as "CUSP".
     /// </summary>
     [EnumMember(Value = "CUSP")]
     [IsoId("_1z0v0MkfEee7W-rN1yqPMg")]
     [Description(@"Underlying security CUSIP is invalid.")]
-    CUSP,
+    UnderlyingSecurityCUSIPInvalid,
     
     /// <summary>
     /// Underlying security CUSIP does not match the original.
+    /// Encoded/decoded by serializers as "CUSU".
     /// </summary>
     [EnumMember(Value = "CUSU")]
     [IsoId("_144O8MkfEee7W-rN1yqPMg")]
     [Description(@"Underlying security CUSIP does not match the original.")]
-    CUSU,
+    UnderlyingSecurityCUSIPMismatch,
     
     /// <summary>
     /// Cut-off time check has failed.
+    /// Encoded/decoded by serializers as "CUTC".
     /// </summary>
     [EnumMember(Value = "CUTC")]
     [IsoId("_185MQMkfEee7W-rN1yqPMg")]
     [Description(@"Cut-off time check has failed.")]
-    CUTC,
+    CutoffTimeCheckFailed,
     
     /// <summary>
     /// Cut-off time has passed.
+    /// Encoded/decoded by serializers as "CUTT".
     /// </summary>
     [EnumMember(Value = "CUTT")]
     [IsoId("_2A6woMkfEee7W-rN1yqPMg")]
     [Description(@"Cut-off time has passed.")]
-    CUTT,
+    CutoffTimePassed,
     
     /// <summary>
     /// Entry date must be less than or equal to current date.
+    /// Encoded/decoded by serializers as "ENTL".
     /// </summary>
     [EnumMember(Value = "ENTL")]
     [IsoId("_2E7t8MkfEee7W-rN1yqPMg")]
     [Description(@"Entry date must be less than or equal to current date.")]
-    ENTL,
+    EntryDatePassed,
     
     /// <summary>
     /// Entry Date is invalid.
+    /// Encoded/decoded by serializers as "ENTR".
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_2JZXMMkfEee7W-rN1yqPMg")]
     [Description(@"Entry Date is invalid.")]
-    ENTR,
+    EntryDateInvalid,
     
     /// <summary>
     /// Customer has fractional underlying quantity, adjust quantity.
+    /// Encoded/decoded by serializers as "FRAQ".
     /// </summary>
     [EnumMember(Value = "FRAQ")]
     [IsoId("_2NtPcMkfEee7W-rN1yqPMg")]
     [Description(@"Customer has fractional underlying quantity, adjust quantity.")]
-    FRAQ,
+    FractionalUnderlyingQuantity,
     
     /// <summary>
     /// Transaction type or withdrawal transaction type is invalid.
+    /// Encoded/decoded by serializers as "TRTI".
     /// </summary>
     [EnumMember(Value = "TRTI")]
     [IsoId("_2SnkoMkfEee7W-rN1yqPMg")]
     [Description(@"Transaction type or withdrawal transaction type is invalid.")]
-    TRTI,
+    TransactionTypeInvalid,
     
     /// <summary>
     /// Function is not available at this time. Please check expiration start and end times for the event.
+    /// Encoded/decoded by serializers as "FUNU".
     /// </summary>
     [EnumMember(Value = "FUNU")]
     [IsoId("_2XO-4MkfEee7W-rN1yqPMg")]
     [Description(@"Function is not available at this time. Please check expiration start and end times for the event.")]
-    FUNU,
+    FunctionNotAvailable,
     
     /// <summary>
     /// Offer is already on historical data base.
+    /// Encoded/decoded by serializers as "HIST".
     /// </summary>
     [EnumMember(Value = "HIST")]
     [IsoId("_KBml0MkiEee7W-rN1yqPMg")]
     [Description(@"Offer is already on historical data base.")]
-    HIST,
+    OfferInDatabase,
     
     /// <summary>
     /// Key Information is missing (tenders data).
+    /// Encoded/decoded by serializers as "KEYM".
     /// </summary>
     [EnumMember(Value = "KEYM")]
     [IsoId("_KKFMYMkiEee7W-rN1yqPMg")]
     [Description(@"Key Information is missing (tenders data).")]
-    KEYM,
+    KeyInformationMissing,
     
     /// <summary>
     /// Key data (VOI transaction) cannot be found.
+    /// Encoded/decoded by serializers as "KEYV".
     /// </summary>
     [EnumMember(Value = "KEYV")]
     [IsoId("_KTKP4MkiEee7W-rN1yqPMg")]
     [Description(@"Key data (VOI transaction) cannot be found.")]
-    KEYV,
+    KayDataNotFound,
     
     /// <summary>
     /// Participant has insufficient position.
+    /// Encoded/decoded by serializers as "LACK".
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_KTwFwMkiEee7W-rN1yqPMg")]
     [Description(@"Participant has insufficient position.")]
-    LACK,
+    InsufficientPosition,
     
     /// <summary>
     /// Master tables are not available.
+    /// Encoded/decoded by serializers as "MSTB".
     /// </summary>
     [EnumMember(Value = "MSTB")]
     [IsoId("_K3dPwMkiEee7W-rN1yqPMg")]
     [Description(@"Master tables are not available.")]
-    MSTB,
+    MasterTablesNotAvailable,
     
     /// <summary>
     /// There is no withdrawal privilege on this offer.
+    /// Encoded/decoded by serializers as "NWIT".
     /// </summary>
     [EnumMember(Value = "NWIT")]
     [IsoId("_LXvSUMkiEee7W-rN1yqPMg")]
     [Description(@"There is no withdrawal privilege on this offer.")]
-    NWIT,
+    NoWithdrawalPrivilege,
     
     /// <summary>
     /// Odd lot indicator is missing or invalid.
+    /// Encoded/decoded by serializers as "ODLI".
     /// </summary>
     [EnumMember(Value = "ODLI")]
     [IsoId("_Lgqk0MkiEee7W-rN1yqPMg")]
     [Description(@"Odd lot indicator is missing or invalid.")]
-    ODLI,
+    OddLotIndicatorMissingOrInvalid,
     
     /// <summary>
     /// Cannot submit odd lot indicator 'Yes' for the offer.
+    /// Encoded/decoded by serializers as "ODLY".
     /// </summary>
     [EnumMember(Value = "ODLY")]
     [IsoId("_LyOO4MkiEee7W-rN1yqPMg")]
     [Description(@"Cannot submit odd lot indicator 'Yes' for the offer.")]
-    ODLY,
+    OddLotIndicatorYesInvalid,
     
     /// <summary>
     /// Offer is not eligible for the PUTS function.
+    /// Encoded/decoded by serializers as "OFFP".
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_L6s1cMkiEee7W-rN1yqPMg")]
     [Description(@"Offer is not eligible for the PUTS function.")]
-    OFFP,
+    OfferNotEligibleForPuts,
     
     /// <summary>
     /// The rejection reason is unknown.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_TPGL8MkpEee7W-rN1yqPMg")]
     [Description(@"The rejection reason is unknown.")]
-    OTHR,
+    UnknownErrorCondition,
     
     /// <summary>
     /// Customer oversubscription quantities do not add up to total oversubscription quantity.
+    /// Encoded/decoded by serializers as "OVCU".
     /// </summary>
     [EnumMember(Value = "OVCU")]
     [IsoId("_TebBYMkpEee7W-rN1yqPMg")]
     [Description(@"Customer oversubscription quantities do not add up to total oversubscription quantity.")]
-    OVCU,
+    CustomerAndTotalOversubscriptionQuantitiesMismatch,
     
     /// <summary>
     /// Oversubscription quantity is greater than percentage of underlying shares.
+    /// Encoded/decoded by serializers as "OVRG".
     /// </summary>
     [EnumMember(Value = "OVRG")]
     [IsoId("_TlRQQMkpEee7W-rN1yqPMg")]
     [Description(@"Oversubscription quantity is greater than percentage of underlying shares.")]
-    OVRG,
+    OversubscriptionQuantityExceeded,
     
     /// <summary>
     /// Oversubscription quantity is invalid.
+    /// Encoded/decoded by serializers as "OVRI".
     /// </summary>
     [EnumMember(Value = "OVRI")]
     [IsoId("_b_OIUMkqEee7W-rN1yqPMg")]
     [Description(@"Oversubscription quantity is invalid.")]
-    OVRI,
+    OversubscriptionQuantityInvalid,
     
     /// <summary>
     /// Oversubscription is not allowed.
+    /// Encoded/decoded by serializers as "OVRX".
     /// </summary>
     [EnumMember(Value = "OVRX")]
     [IsoId("_kyU8sMkqEee7W-rN1yqPMg")]
     [Description(@"Oversubscription is not allowed.")]
-    OVRX,
+    OversubscriptionNotAllowed,
     
     /// <summary>
     /// Oversubscription quantity not used with this transaction type.
+    /// Encoded/decoded by serializers as "OVTT".
     /// </summary>
     [EnumMember(Value = "OVTT")]
     [IsoId("_rvGWAMk0Eee7W-rN1yqPMg")]
     [Description(@"Oversubscription quantity not used with this transaction type.")]
-    OVTT,
+    OversubscriptionQuantityNotUsed,
     
     /// <summary>
     /// Participant is DO chilled.
+    /// Encoded/decoded by serializers as "PACH".
     /// </summary>
     [EnumMember(Value = "PACH")]
     [IsoId("_r5zxMMk0Eee7W-rN1yqPMg")]
     [Description(@"Participant is DO chilled.")]
-    PACH,
+    ParticipantDOChilled,
     
     /// <summary>
     /// Participant eligibility check on master table is not available.
+    /// Encoded/decoded by serializers as "PAEC".
     /// </summary>
     [EnumMember(Value = "PAEC")]
     [IsoId("_r7J1AMk0Eee7W-rN1yqPMg")]
     [Description(@"Participant eligibility check on master table is not available.")]
-    PAEC,
+    ParticipantEligibilityCheckNotAvailable,
     
     /// <summary>
     /// Participant does not match participant on Protect ID.
+    /// Encoded/decoded by serializers as "PAPI".
     /// </summary>
     [EnumMember(Value = "PAPI")]
     [IsoId("_sDClsMk0Eee7W-rN1yqPMg")]
     [Description(@"Participant does not match participant on Protect ID.")]
-    PAPI,
+    ParticipantNoMatchOnProtectIdentification,
     
     /// <summary>
     /// Participant is globally locked.
+    /// Encoded/decoded by serializers as "PARL".
     /// </summary>
     [EnumMember(Value = "PARL")]
     [IsoId("_sLORUMk0Eee7W-rN1yqPMg")]
     [Description(@"Participant is globally locked.")]
-    PARL,
+    ParticipantLocked,
     
     /// <summary>
     /// Participant number is invalid.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_sT2B0Mk0Eee7W-rN1yqPMg")]
     [Description(@"Participant number is invalid.")]
-    PART,
+    ParticipantNumberInvalid,
     
     /// <summary>
     /// Participant is not DTC eligible.
+    /// Encoded/decoded by serializers as "PARX".
     /// </summary>
     [EnumMember(Value = "PARX")]
     [IsoId("_sT2B0ck0Eee7W-rN1yqPMg")]
     [Description(@"Participant is not DTC eligible.")]
-    PARX,
+    ParticipantNotEligible,
     
     /// <summary>
     /// Protect date on file must be zero.
+    /// Encoded/decoded by serializers as "PRO0".
     /// </summary>
     [EnumMember(Value = "PRO0")]
     [IsoId("_seHYIMk0Eee7W-rN1yqPMg")]
     [Description(@"Protect date on file must be zero.")]
-    PRO0,
+    ProtectDateZero,
     
     /// <summary>
     /// Current date is greater than protect submission end date.
+    /// Encoded/decoded by serializers as "PROE".
     /// </summary>
     [EnumMember(Value = "PROE")]
     [IsoId("_sl2X0Mk0Eee7W-rN1yqPMg")]
     [Description(@"Current date is greater than protect submission end date.")]
-    PROE,
+    CurrentDatePassedProtectSubmissionEndDate,
     
     /// <summary>
     /// Protect Date invalid or missing.
+    /// Encoded/decoded by serializers as "PROI".
     /// </summary>
     [EnumMember(Value = "PROI")]
     [IsoId("_stcNkMk0Eee7W-rN1yqPMg")]
     [Description(@"Protect Date invalid or missing.")]
-    PROI,
+    ProtectDateInvalidOrMissing,
     
     /// <summary>
     /// Protect date must be less than or equal to current date.
+    /// Encoded/decoded by serializers as "PROL".
     /// </summary>
     [EnumMember(Value = "PROL")]
     [IsoId("_pGGBgMk2Eee7W-rN1yqPMg")]
     [Description(@"Protect date must be less than or equal to current date.")]
-    PROL,
+    ProtectDatePassed,
     
     /// <summary>
     /// Current date is less than protect submission start date.
+    /// Encoded/decoded by serializers as "PROS".
     /// </summary>
     [EnumMember(Value = "PROS")]
     [IsoId("_zPMYcMk2Eee7W-rN1yqPMg")]
     [Description(@"Current date is less than protect submission start date.")]
-    PROS,
+    CurrentDatePrecedesProtectSubmissionStartDate,
     
     /// <summary>
     /// Protect identification is missing or invalid.
+    /// Encoded/decoded by serializers as "PROT".
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_zX958Mk2Eee7W-rN1yqPMg")]
     [Description(@"Protect identification is missing or invalid.")]
-    PROT,
+    ProtectIdentificationMissingOrInvalid,
     
     /// <summary>
     /// Protect identification is not used with this event.
+    /// Encoded/decoded by serializers as "PROX".
     /// </summary>
     [EnumMember(Value = "PROX")]
     [IsoId("_zg5McMk2Eee7W-rN1yqPMg")]
     [Description(@"Protect identification is not used with this event.")]
-    PROX,
+    ProtectIdentificationNotUsed,
     
     /// <summary>
     /// Function is quiesced (not available).
+    /// Encoded/decoded by serializers as "QUIE".
     /// </summary>
     [EnumMember(Value = "QUIE")]
     [IsoId("_zqIA8Mk2Eee7W-rN1yqPMg")]
     [Description(@"Function is quiesced (not available).")]
-    QUIE,
+    FunctionQuiesced,
     
     /// <summary>
     /// Record type is invalid.
+    /// Encoded/decoded by serializers as "RECI".
     /// </summary>
     [EnumMember(Value = "RECI")]
     [IsoId("_z0O_MMk2Eee7W-rN1yqPMg")]
     [Description(@"Record type is invalid.")]
-    RECI,
+    RecordTypeInvalid,
     
     /// <summary>
     /// Rights CUSIP has insufficient position.
+    /// Encoded/decoded by serializers as "RILA".
     /// </summary>
     [EnumMember(Value = "RILA")]
     [IsoId("_AiCqYMk-Eee7W-rN1yqPMg")]
     [Description(@"Rights CUSIP has insufficient position.")]
-    RILA,
+    RightsCUSIPInsufficientPosition,
     
     /// <summary>
     /// Not a good return code from rights position check.
+    /// Encoded/decoded by serializers as "RPCI".
     /// </summary>
     [EnumMember(Value = "RPCI")]
     [IsoId("_Ar3UwMk-Eee7W-rN1yqPMg")]
     [Description(@"Not a good return code from rights position check.")]
-    RPCI,
+    RightsPositionCheckInvalid,
     
     /// <summary>
     /// Rights quantity for this subscription must be divisible by rights.
+    /// Encoded/decoded by serializers as "RQDV".
     /// </summary>
     [EnumMember(Value = "RQDV")]
     [IsoId("_A11JEMk-Eee7W-rN1yqPMg")]
     [Description(@"Rights quantity for this subscription must be divisible by rights.")]
-    RQDV,
+    RightsQuantityDivisibleByRights,
     
     /// <summary>
     /// Rights quantity is invalid.
+    /// Encoded/decoded by serializers as "RQIN".
     /// </summary>
     [EnumMember(Value = "RQIN")]
     [IsoId("_BAZaUMk-Eee7W-rN1yqPMg")]
     [Description(@"Rights quantity is invalid.")]
-    RQIN,
+    RightsQuantityInvalid,
     
     /// <summary>
     /// Rights ratio not found on data base.
+    /// Encoded/decoded by serializers as "RTIO".
     /// </summary>
     [EnumMember(Value = "RTIO")]
     [IsoId("_BCoO8Mk-Eee7W-rN1yqPMg")]
     [Description(@"Rights ratio not found on data base.")]
-    RTIO,
+    RightsRatioNotFound,
     
     /// <summary>
     /// RTS processing is in progress. Submit later.
+    /// Encoded/decoded by serializers as "RTSP".
     /// </summary>
     [EnumMember(Value = "RTSP")]
     [IsoId("_BLjhcMk-Eee7W-rN1yqPMg")]
     [Description(@"RTS processing is in progress. Submit later.")]
-    RTSP,
+    RTSProcessingInProgress,
     
     /// <summary>
     /// Customer Sequence number must be all zero.
+    /// Encoded/decoded by serializers as "SEQ0".
     /// </summary>
     [EnumMember(Value = "SEQ0")]
     [IsoId("_BT4XAMk-Eee7W-rN1yqPMg")]
     [Description(@"Customer Sequence number must be all zero.")]
-    SEQ0,
+    CustomerSequenceNumberAllZero,
     
     /// <summary>
     /// Transaction sequence number is duplicated.
+    /// Encoded/decoded by serializers as "SEQD".
     /// </summary>
     [EnumMember(Value = "SEQD")]
     [IsoId("_BbUbwMk-Eee7W-rN1yqPMg")]
     [Description(@"Transaction sequence number is duplicated.")]
-    SEQD,
+    DuplicateTransactionSequenceNumber,
     
     /// <summary>
     /// Sequence number is missing.
+    /// Encoded/decoded by serializers as "SEQM".
     /// </summary>
     [EnumMember(Value = "SEQM")]
     [IsoId("_BlcBEMk-Eee7W-rN1yqPMg")]
     [Description(@"Sequence number is missing.")]
-    SEQM,
+    SequenceNumberMissing,
     
     /// <summary>
     /// Sequence number is out of sequence.
+    /// Encoded/decoded by serializers as "SEQO".
     /// </summary>
     [EnumMember(Value = "SEQO")]
     [IsoId("_Btd7sMk-Eee7W-rN1yqPMg")]
     [Description(@"Sequence number is out of sequence.")]
-    SEQO,
+    SequenceNumberOutOfSync,
     
     /// <summary>
     /// Customer sequence number must be between 1 and 1 or for PUTS between 9999901 and 9999912.
+    /// Encoded/decoded by serializers as "SEQP".
     /// </summary>
     [EnumMember(Value = "SEQP")]
     [IsoId("_-ikBwMlEEee7W-rN1yqPMg")]
     [Description(@"Customer sequence number must be between 1 and 1 or for PUTS between 9999901 and 9999912.")]
-    SEQP,
+    SequenceNumberInvalidBounds,
     
     /// <summary>
     /// Underlying share quantity is invalid.
+    /// Encoded/decoded by serializers as "SHQI".
     /// </summary>
     [EnumMember(Value = "SHQI")]
     [IsoId("_-srnEMlEEee7W-rN1yqPMg")]
     [Description(@"Underlying share quantity is invalid.")]
-    SHQI,
+    UnderlyingShareQuantityInvalid,
     
     /// <summary>
     /// Underlying share quantity does not match original share quantity.
+    /// Encoded/decoded by serializers as "SHQO".
     /// </summary>
     [EnumMember(Value = "SHQO")]
     [IsoId("_-1m5kMlEEee7W-rN1yqPMg")]
     [Description(@"Underlying share quantity does not match original share quantity.")]
-    SHQO,
+    UnderlyingShareQuantityMismatch,
     
     /// <summary>
     /// Comments are required for solicitation fee.
+    /// Encoded/decoded by serializers as "SOCR".
     /// </summary>
     [EnumMember(Value = "SOCR")]
     [IsoId("_-1m5kclEEee7W-rN1yqPMg")]
     [Description(@"Comments are required for solicitation fee.")]
-    SOCR,
+    SolicitationFeeCommentsRequired,
     
     /// <summary>
     /// Solicitation fee indicator is required.
+    /// Encoded/decoded by serializers as "SOLI".
     /// </summary>
     [EnumMember(Value = "SOLI")]
     [IsoId("_---Q8MlEEee7W-rN1yqPMg")]
     [Description(@"Solicitation fee indicator is required.")]
-    SOLI,
+    SolicitationFeeIndicatorRequired,
     
     /// <summary>
     /// Solicitation fee indicator is not used with this event.
+    /// Encoded/decoded by serializers as "SOLX".
     /// </summary>
     [EnumMember(Value = "SOLX")]
     [IsoId("_qnK_cMlGEee7W-rN1yqPMg")]
     [Description(@"Solicitation fee indicator is not used with this event.")]
-    SOLX,
+    SolicitationFeeIndicatorNotUsed,
     
     /// <summary>
     /// Submission date is not yet reached.
+    /// Encoded/decoded by serializers as "SUBE".
     /// </summary>
     [EnumMember(Value = "SUBE")]
     [IsoId("_qyL8oMlGEee7W-rN1yqPMg")]
     [Description(@"Submission date is not yet reached.")]
-    SUBE,
+    SubmissionDateNotReached,
     
     /// <summary>
     /// Date of submission has passed.
+    /// Encoded/decoded by serializers as "SUBL".
     /// </summary>
     [EnumMember(Value = "SUBL")]
     [IsoId("_q7aKEMlGEee7W-rN1yqPMg")]
     [Description(@"Date of submission has passed.")]
-    SUBL,
+    SubmissionDatePassed,
     
     /// <summary>
     /// Transaction type and event are incompatible.
+    /// Encoded/decoded by serializers as "TNFN".
     /// </summary>
     [EnumMember(Value = "TNFN")]
     [IsoId("_RJiSAMlHEee7W-rN1yqPMg")]
     [Description(@"Transaction type and event are incompatible.")]
-    TNFN,
+    TransactionTypeAndEventIncompatible,
     
     /// <summary>
     /// Transaction Identification is invalid.
+    /// Encoded/decoded by serializers as "TRNI".
     /// </summary>
     [EnumMember(Value = "TRNI")]
     [IsoId("_RSnVgMlHEee7W-rN1yqPMg")]
     [Description(@"Transaction Identification is invalid.")]
-    TRNI,
+    TransactionIdentificationInvalid,
     
     /// <summary>
     /// Transaction type is missing.
+    /// Encoded/decoded by serializers as "TRNM".
     /// </summary>
     [EnumMember(Value = "TRNM")]
     [IsoId("_RbF8EMlHEee7W-rN1yqPMg")]
     [Description(@"Transaction type is missing.")]
-    TRNM,
+    TransactionTypeMissing,
     
     /// <summary>
     /// Transaction sequence number is invalid, not numeric.
+    /// Encoded/decoded by serializers as "TRNS".
     /// </summary>
     [EnumMember(Value = "TRNS")]
     [IsoId("_RbF8EclHEee7W-rN1yqPMg")]
     [Description(@"Transaction sequence number is invalid, not numeric.")]
-    TRNS,
+    TransactionSequenceNumberInvalid,
     
     /// <summary>
     /// Transaction Quantity cannot be zero.
+    /// Encoded/decoded by serializers as "TRQ0".
     /// </summary>
     [EnumMember(Value = "TRQ0")]
     [IsoId("_RknEcMlHEee7W-rN1yqPMg")]
     [Description(@"Transaction Quantity cannot be zero.")]
-    TRQ0,
+    TransactionQuantityCannotBeZero,
     
     /// <summary>
     /// Transaction Quantity is missing or invalid.
+    /// Encoded/decoded by serializers as "TRQI".
     /// </summary>
     [EnumMember(Value = "TRQI")]
     [IsoId("_RrTiUMlHEee7W-rN1yqPMg")]
     [Description(@"Transaction Quantity is missing or invalid.")]
-    TRQI,
+    TransactionQuantityMissingOrInvalid,
     
     /// <summary>
     /// Transaction quantity is less than the transaction minimum.
+    /// Encoded/decoded by serializers as "TRQM".
     /// </summary>
     [EnumMember(Value = "TRQM")]
     [IsoId("_RtsH8MlHEee7W-rN1yqPMg")]
     [Description(@"Transaction quantity is less than the transaction minimum.")]
-    TRQM,
+    TransactionQuantityLessThanTransactionMinimum,
     
     /// <summary>
     /// Provided by protect, enter 0 for transaction quantity.
+    /// Encoded/decoded by serializers as "TRQP".
     /// </summary>
     [EnumMember(Value = "TRQP")]
     [IsoId("_R83MYMlHEee7W-rN1yqPMg")]
     [Description(@"Provided by protect, enter 0 for transaction quantity.")]
-    TRQP,
+    ProvidedByProtect,
     
     /// <summary>
     /// Withdrawal transaction quantity cannot be zero.
+    /// Encoded/decoded by serializers as "WIT0".
     /// </summary>
     [EnumMember(Value = "WIT0")]
     [IsoId("_R_GBAMlHEee7W-rN1yqPMg")]
     [Description(@"Withdrawal transaction quantity cannot be zero.")]
-    WIT0,
+    WithdrawalTransactionQuantityCannotBeZero,
     
     /// <summary>
     /// Error in withdraw occurred.
+    /// Encoded/decoded by serializers as "WITE".
     /// </summary>
     [EnumMember(Value = "WITE")]
     [IsoId("_ewDgIMlJEee7W-rN1yqPMg")]
     [Description(@"Error in withdraw occurred.")]
-    WITE,
+    WithdrawError,
     
     /// <summary>
     /// Withdrawal quantity is greater than VOI / protect quantity.
+    /// Encoded/decoded by serializers as "WITG".
     /// </summary>
     [EnumMember(Value = "WITG")]
     [IsoId("_e7NnQMlJEee7W-rN1yqPMg")]
     [Description(@"Withdrawal quantity is greater than VOI / protect quantity.")]
-    WITG,
+    WithdrawalQuantityGreaterThanProtectQuantity,
     
     /// <summary>
     /// Withdrawal quantity exceeds the remaining quantity.
+    /// Encoded/decoded by serializers as "WITQ".
     /// </summary>
     [EnumMember(Value = "WITQ")]
     [IsoId("_fE4goMlJEee7W-rN1yqPMg")]
     [Description(@"Withdrawal quantity exceeds the remaining quantity.")]
-    WITQ,
+    WithdrawalQuantityExceedsRemainingQuantity,
     
     /// <summary>
     /// Beneficial owner name is missing.
+    /// Encoded/decoded by serializers as "BONM".
     /// </summary>
     [EnumMember(Value = "BONM")]
     [IsoId("_fHRGQMlJEee7W-rN1yqPMg")]
     [Description(@"Beneficial owner name is missing.")]
-    BONM,
+    BeneficialOwnerNameMissing,
     
     /// <summary>
     /// Beneficial owner death date is missing.
+    /// Encoded/decoded by serializers as "BODD".
     /// </summary>
     [EnumMember(Value = "BODD")]
     [IsoId("_fPAF8MlJEee7W-rN1yqPMg")]
     [Description(@"Beneficial owner death date is missing.")]
-    BODD,
+    BeneficialOwnerDeathDateMissing,
     
     /// <summary>
     /// Death certificate details are missing.
+    /// Encoded/decoded by serializers as "BODC".
     /// </summary>
     [EnumMember(Value = "BODC")]
     [IsoId("_fYFJcMlJEee7W-rN1yqPMg")]
     [Description(@"Death certificate details are missing.")]
-    BODC,
+    DeathCertificateMissing,
     
     /// <summary>
     /// Issuing jurisdiction is missing.
+    /// Encoded/decoded by serializers as "BOIJ".
     /// </summary>
     [EnumMember(Value = "BOIJ")]
     [IsoId("_fgZ_AMlJEee7W-rN1yqPMg")]
     [Description(@"Issuing jurisdiction is missing.")]
-    BOIJ,
+    IssuingJurisdictionMissing,
     
     /// <summary>
     /// Certificate number is invalid.
+    /// Encoded/decoded by serializers as "CERN".
     /// </summary>
     [EnumMember(Value = "CERN")]
     [IsoId("_fhJl4MlJEee7W-rN1yqPMg")]
     [Description(@"Certificate number is invalid.")]
-    CERN,
+    CertificateNumberInvalid,
     
     /// <summary>
     /// Certificate sequence number is invalid.
+    /// Encoded/decoded by serializers as "CERS".
     /// </summary>
     [EnumMember(Value = "CERS")]
     [IsoId("_fq-QQMlJEee7W-rN1yqPMg")]
     [Description(@"Certificate sequence number is invalid.")]
-    CERS,
+    CertificateSequenceNumberInvalid,
     
     /// <summary>
     /// Certificate number is missing.
+    /// Encoded/decoded by serializers as "CENM".
     /// </summary>
     [EnumMember(Value = "CENM")]
     [IsoId("_fxz4EMlJEee7W-rN1yqPMg")]
     [Description(@"Certificate number is missing.")]
-    CENM,
+    CertificateNameMissing,
     
     /// <summary>
     /// Adjudication of incompetency acknowledgement indicator is invalid.
+    /// Encoded/decoded by serializers as "ADIN".
     /// </summary>
     [EnumMember(Value = "ADIN")]
     [IsoId("_LSIc8MlLEee7W-rN1yqPMg")]
     [Description(@"Adjudication of incompetency acknowledgement indicator is invalid.")]
-    ADIN,
+    AdjudicationOfIncompetencyAcknowledgementIndicatorInvalid,
     
     /// <summary>
     /// Adjudication of incompetency acknowledgement indicator is missing.
+    /// Encoded/decoded by serializers as "ADIM".
     /// </summary>
     [EnumMember(Value = "ADIM")]
     [IsoId("_LdSkEMlLEee7W-rN1yqPMg")]
     [Description(@"Adjudication of incompetency acknowledgement indicator is missing.")]
-    ADIM,
+    AdjudicationOfIncompetencyAcknowledgmentIndicatorMissing,
     
     /// <summary>
     /// Legal documentation thirty months retention acknowledgement indicator is invalid.
+    /// Encoded/decoded by serializers as "LEGI".
     /// </summary>
     [EnumMember(Value = "LEGI")]
     [IsoId("_Lmp7cMlLEee7W-rN1yqPMg")]
     [Description(@"Legal documentation thirty months retention acknowledgement indicator is invalid.")]
-    LEGI,
+    LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorInvalid,
     
     /// <summary>
     /// Legal documentation thirty Months retention acknowledgement indicator is missing.
+    /// Encoded/decoded by serializers as "LEGM".
     /// </summary>
     [EnumMember(Value = "LEGM")]
     [IsoId("_Lmp7cclLEee7W-rN1yqPMg")]
     [Description(@"Legal documentation thirty Months retention acknowledgement indicator is missing.")]
-    LEGM,
+    LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorMissing,
     
     /// <summary>
     /// Instruction deletion acknowledgement indicator is invalid.
+    /// Encoded/decoded by serializers as "INDI".
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_Lvu-8MlLEee7W-rN1yqPMg")]
     [Description(@"Instruction deletion acknowledgement indicator is invalid.")]
-    INDI,
+    InstructionDeletionAcknowledgementIndicatorInvalid,
     
     /// <summary>
     /// Instruction deletion acknowledgement indicator is missing.
+    /// Encoded/decoded by serializers as "INDM".
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_L3U0sMlLEee7W-rN1yqPMg")]
     [Description(@"Instruction deletion acknowledgement indicator is missing.")]
-    INDM,
+    InstructionDeletionAcknowledgementIndicatorMissing,
     
     /// <summary>
     /// Potential loss acknowledgement indicator is invalid.
+    /// Encoded/decoded by serializers as "POLI".
     /// </summary>
     [EnumMember(Value = "POLI")]
     [IsoId("_L4EbkMlLEee7W-rN1yqPMg")]
     [Description(@"Potential loss acknowledgement indicator is invalid.")]
-    POLI,
+    PotentiaLossAcknowledgementIndicatorInvalid,
     
     /// <summary>
     /// Potential loss acknowledgement indicator is missing.
+    /// Encoded/decoded by serializers as "POLM".
     /// </summary>
     [EnumMember(Value = "POLM")]
     [IsoId("_MBlj8MlLEee7W-rN1yqPMg")]
     [Description(@"Potential loss acknowledgement indicator is missing.")]
-    POLM,
+    PotentiaLossAcknowledgementIndicatorMissing,
     
     /// <summary>
     /// Warrant subscription charge amount is not balancing.
+    /// Encoded/decoded by serializers as "WARC".
     /// </summary>
     [EnumMember(Value = "WARC")]
     [IsoId("_MJeUoMlLEee7W-rN1yqPMg")]
     [Description(@"Warrant subscription charge amount is not balancing.")]
-    WARC,
+    WarrantSubscriptionChargeAmountInvalid,
     
     /// <summary>
     /// There is a summary difference between the core instruction quantity and the extension transaction details.
+    /// Encoded/decoded by serializers as "SUME".
     /// </summary>
     [EnumMember(Value = "SUME")]
     [IsoId("_MJnekMlLEee7W-rN1yqPMg")]
     [Description(@"There is a summary difference between the core instruction quantity and the extension transaction details.")]
-    SUME,
+    CoreInstructionQuantityAndExtensionTransactionDetailsDifference,
     
     /// <summary>
     /// There is summary difference between core oversubscription quantity and extension transaction details.
+    /// Encoded/decoded by serializers as "SUMO".
     /// </summary>
     [EnumMember(Value = "SUMO")]
     [IsoId("_0z2xsMlNEee7W-rN1yqPMg")]
     [Description(@"There is summary difference between core oversubscription quantity and extension transaction details.")]
-    SUMO,
+    CoreInstructionOversubscriptionQuantityAndExtensionTransactionDetailsDifference,
     
     /// <summary>
     /// Withdrawal Transaction type is invalid.
+    /// Encoded/decoded by serializers as "WITI".
     /// </summary>
     [EnumMember(Value = "WITI")]
     [IsoId("_SLeIgMnpEee6kIhZjMqQ2Q")]
     [Description(@"Withdrawal Transaction type is invalid.")]
-    WITI,
+    WithdrawalTransactionTypeInvalid,
     
     /// <summary>
     /// Current date has passed cover protect submission end date.
+    /// Encoded/decoded by serializers as "PROC".
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_9oGDEACoEeqouY-yI_q3qQ")]
     [Description(@"Current date has passed cover protect submission end date.")]
-    PROC,
+    PassedProtectSubmissionEndDate,
     
     /// <summary>
     /// Customer Reference Identification must be populated for each sequence.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_kKw3oACpEeqouY-yI_q3qQ")]
     [Description(@"Customer Reference Identification must be populated for each sequence.")]
-    CUST,
+    CustomerReferenceIdentificationMissingInSequence,
     
 }
 

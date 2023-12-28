@@ -20,27 +20,30 @@ public enum ForeignCurrencyPaymentElectionCode
 {
     /// <summary>
     /// Foreign currency payment is offered.
+    /// Encoded/decoded by serializers as "OFFD".
     /// </summary>
     [EnumMember(Value = "OFFD")]
     [IsoId("_1zjwBTL3EeKU9IrkkToqcw_-225470944")]
     [Description(@"Foreign currency payment is offered.")]
-    OFFD,
+    Offered,
     
     /// <summary>
     /// Foreign currency payment is not offered.
+    /// Encoded/decoded by serializers as "NOFD".
     /// </summary>
     [EnumMember(Value = "NOFD")]
     [IsoId("_1zs58DL3EeKU9IrkkToqcw_123403253")]
     [Description(@"Foreign currency payment is not offered.")]
-    NOFD,
+    NotOffered,
     
     /// <summary>
     /// Foreign currency payment is mandatory.
+    /// Encoded/decoded by serializers as "MAND".
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_1zs58TL3EeKU9IrkkToqcw_325823435")]
     [Description(@"Foreign currency payment is mandatory.")]
-    MAND,
+    Mandatory,
     
 }
 

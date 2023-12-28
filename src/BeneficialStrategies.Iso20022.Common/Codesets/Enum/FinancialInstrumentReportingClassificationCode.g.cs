@@ -20,110 +20,123 @@ public enum FinancialInstrumentReportingClassificationCode
 {
     /// <summary>
     /// Contract is of type securitised derivatives.
+    /// Encoded/decoded by serializers as "SDRV".
     /// </summary>
     [EnumMember(Value = "SDRV")]
     [IsoId("_DSY2QPPREeS_qLctCs2aRQ")]
     [Description(@"Contract is of type securitised derivatives.")]
-    SDRV,
+    SecuritisedDerivative,
     
     /// <summary>
     /// Contract is of type structured finance products (SFPs).
+    /// Encoded/decoded by serializers as "SFPS".
     /// </summary>
     [EnumMember(Value = "SFPS")]
     [IsoId("_HLvGYfPREeS_qLctCs2aRQ")]
     [Description(@"Contract is of type structured finance products (SFPs).")]
-    SFPS,
+    StructuredFinanceProduct,
     
     /// <summary>
     /// Contract is of type bonds.
     /// 
+    /// Encoded/decoded by serializers as "BOND".
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_IBJEYfPREeS_qLctCs2aRQ")]
     [Description(@"Contract is of type bonds. ")]
-    BOND,
+    Bond,
     
     /// <summary>
     /// Contract is of type emission allowances.
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_IYM5gfPREeS_qLctCs2aRQ")]
     [Description(@"Contract is of type emission allowances.")]
-    EMAL,
+    EmissionAllowance,
     
     /// <summary>
     /// Contract is of type contract for difference (CFD).
     /// 
+    /// Encoded/decoded by serializers as "CFDS".
     /// </summary>
     [EnumMember(Value = "CFDS")]
     [IsoId("_K1KEIfPREeS_qLctCs2aRQ")]
     [Description(@"Contract is of type contract for difference (CFD). ")]
-    CFDS,
+    ContractForDifference,
     
     /// <summary>
     /// Contract is of type derivative.
     /// 
+    /// Encoded/decoded by serializers as "DERV".
     /// </summary>
     [EnumMember(Value = "DERV")]
     [IsoId("_LLeSYfPREeS_qLctCs2aRQ")]
     [Description(@"Contract is of type derivative. ")]
-    DERV,
+    Derivative,
     
     /// <summary>
     /// Contract is of type shares.
+    /// Encoded/decoded by serializers as "SHRS".
     /// </summary>
     [EnumMember(Value = "SHRS")]
     [IsoId("_cna1oAjqEeW36pGcc5RpFw")]
     [Description(@"Contract is of type shares.")]
-    SHRS,
+    Share,
     
     /// <summary>
     /// Contract is of type electronic traded funds.
+    /// Encoded/decoded by serializers as "ETFS".
     /// </summary>
     [EnumMember(Value = "ETFS")]
     [IsoId("_hr5cIAjqEeW36pGcc5RpFw")]
     [Description(@"Contract is of type electronic traded funds.")]
-    ETFS,
+    ElectronicTradedFund,
     
     /// <summary>
     /// Contract is of type depositary receipt.
+    /// Encoded/decoded by serializers as "DPRS".
     /// </summary>
     [EnumMember(Value = "DPRS")]
     [IsoId("_oxp94AjqEeW36pGcc5RpFw")]
     [Description(@"Contract is of type depositary receipt.")]
-    DPRS,
+    DepositaryReceipt,
     
     /// <summary>
     /// Contract is of type other equity-like financial instrument.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_zYziwAjqEeW36pGcc5RpFw")]
     [Description(@"Contract is of type other equity-like financial instrument.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Contract is of type certificates.
+    /// Encoded/decoded by serializers as "CRFT".
     /// </summary>
     [EnumMember(Value = "CRFT")]
     [IsoId("_zY9TwAjqEeW36pGcc5RpFw")]
     [Description(@"Contract is of type certificates.")]
-    CRFT,
+    Certificate,
     
     /// <summary>
     /// Contract is of type exchange traded note.
+    /// Encoded/decoded by serializers as "ETNS".
     /// </summary>
     [EnumMember(Value = "ETNS")]
     [IsoId("_2_VMYAnNEeW1sbwBDSZgiA")]
     [Description(@"Contract is of type exchange traded note.")]
-    ETNS,
+    ExchangeTradedNote,
     
     /// <summary>
     /// Contract is of type exchange traded commodities.
+    /// Encoded/decoded by serializers as "ETCS".
     /// </summary>
     [EnumMember(Value = "ETCS")]
     [IsoId("_6zeMYAnNEeW1sbwBDSZgiA")]
     [Description(@"Contract is of type exchange traded commodities.")]
-    ETCS,
+    ExchangeTradedCommodities,
     
 }
 

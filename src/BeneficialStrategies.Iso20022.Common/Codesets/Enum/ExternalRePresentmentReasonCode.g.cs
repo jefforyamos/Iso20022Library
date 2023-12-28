@@ -20,43 +20,48 @@ public enum ExternalRePresentmentReasonCode
 {
     /// <summary>
     /// Amount corrected due to proof of transaction
+    /// Encoded/decoded by serializers as "AMCR".
     /// </summary>
     [EnumMember(Value = "AMCR")]
     [IsoId("_uOP6afRYEeuLhpyIdtJzwg")]
     [Description(@"Amount corrected due to proof of transaction")]
-    AMCR,
+    AmountCorrected,
     
     /// <summary>
     /// Liability Shift to acquirer due to missing card authentication method denied
+    /// Encoded/decoded by serializers as "CLSD".
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_uOZEUPRYEeuLhpyIdtJzwg")]
     [Description(@"Liability Shift to acquirer due to missing card authentication method denied")]
-    CLSD,
+    CardAuthenticationLiabilityShiftDenied,
     
     /// <summary>
     /// Credit previously issued
+    /// Encoded/decoded by serializers as "CRPI".
     /// </summary>
     [EnumMember(Value = "CRPI")]
     [IsoId("_uOZEU_RYEeuLhpyIdtJzwg")]
     [Description(@"Credit previously issued")]
-    CRPI,
+    CreditPreviouslyIssued,
     
     /// <summary>
     /// Original transaction was valid
+    /// Encoded/decoded by serializers as "OTVA".
     /// </summary>
     [EnumMember(Value = "OTVA")]
     [IsoId("_uOZEVvRYEeuLhpyIdtJzwg")]
     [Description(@"Original transaction was valid")]
-    OTVA,
+    OriginalTransactionValid,
     
     /// <summary>
     /// Liability Shift to acquirer due to missing cardholder verification method denied
+    /// Encoded/decoded by serializers as "VLSD".
     /// </summary>
     [EnumMember(Value = "VLSD")]
     [IsoId("_uOZEWfRYEeuLhpyIdtJzwg")]
     [Description(@"Liability Shift to acquirer due to missing cardholder verification method denied")]
-    VLSD,
+    VerificationLiabilityShiftDenied,
     
 }
 

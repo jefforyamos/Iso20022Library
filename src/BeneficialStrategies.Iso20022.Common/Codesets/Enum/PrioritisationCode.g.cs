@@ -20,27 +20,30 @@ public enum PrioritisationCode
 {
     /// <summary>
     /// None of the sides should be prioritised.
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_aKBiBdp-Ed-ak6NoX_4Aeg_335004688")]
     [Description(@"None of the sides should be prioritised.")]
-    NONE,
+    None,
     
     /// <summary>
     /// Buy side is prioritized.
+    /// Encoded/decoded by serializers as "BSPR".
     /// </summary>
     [EnumMember(Value = "BSPR")]
     [IsoId("_aKBiBtp-Ed-ak6NoX_4Aeg_393187379")]
     [Description(@"Buy side is prioritized.")]
-    BSPR,
+    BuySide,
     
     /// <summary>
     /// Sell side is prioritised.
+    /// Encoded/decoded by serializers as "SSPR".
     /// </summary>
     [EnumMember(Value = "SSPR")]
     [IsoId("_aKBiB9p-Ed-ak6NoX_4Aeg_734890661")]
     [Description(@"Sell side is prioritised.")]
-    SSPR,
+    SellSide,
     
 }
 

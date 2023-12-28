@@ -20,43 +20,48 @@ public enum TaxAdvantageTypeCode
 {
     /// <summary>
     /// Tax advantage type is: Concessional Goods and Services Tax.
+    /// Encoded/decoded by serializers as "CGST".
     /// </summary>
     [EnumMember(Value = "CGST")]
     [IsoId("_Eovz4Ff2EeOuDtoQo1qilA")]
     [Description(@"Tax advantage type is: Concessional Goods and Services Tax.")]
-    CGST,
+    ConcessionalGST,
     
     /// <summary>
     /// Tax advantage type is not applicable.
+    /// Encoded/decoded by serializers as "NOAP".
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_IRSn4Ff2EeOuDtoQo1qilA")]
     [Description(@"Tax advantage type is not applicable.")]
-    NOAP,
+    NotApplicable,
     
     /// <summary>
     /// Tax advantage type is not available.
+    /// Encoded/decoded by serializers as "NOAV".
     /// </summary>
     [EnumMember(Value = "NOAV")]
     [IsoId("_LT6EUFf2EeOuDtoQo1qilA")]
     [Description(@"Tax advantage type is not available.")]
-    NOAV,
+    NotAvailable,
     
     /// <summary>
     /// Other type of tax advantage type.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_0G6HUFf3EeOuDtoQo1qilA")]
     [Description(@"Other type of tax advantage type.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Tax advantage type is: pooled development fund Rebta.
+    /// Encoded/decoded by serializers as "PDFR".
     /// </summary>
     [EnumMember(Value = "PDFR")]
     [IsoId("_3b_z0Ff3EeOuDtoQo1qilA")]
     [Description(@"Tax advantage type is: pooled development fund Rebta.")]
-    PDFR,
+    PooledDevelopmentFundRebta,
     
 }
 

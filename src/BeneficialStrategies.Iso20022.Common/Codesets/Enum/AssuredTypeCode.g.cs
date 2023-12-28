@@ -20,35 +20,39 @@ public enum AssuredTypeCode
 {
     /// <summary>
     /// The buyer should be the assured.
+    /// Encoded/decoded by serializers as "BUYE".
     /// </summary>
     [EnumMember(Value = "BUYE")]
     [IsoId("_bjbk8Np-Ed-ak6NoX_4Aeg_1647471499")]
     [Description(@"The buyer should be the assured.")]
-    BUYE,
+    Buyer,
     
     /// <summary>
     /// The seller should be the assured.
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_bjbk8dp-Ed-ak6NoX_4Aeg_1647471558")]
     [Description(@"The seller should be the assured.")]
-    SELL,
+    Seller,
     
     /// <summary>
     /// The buyer's bank should be the assured.
+    /// Encoded/decoded by serializers as "BUBA".
     /// </summary>
     [EnumMember(Value = "BUBA")]
     [IsoId("_bjbk8tp-Ed-ak6NoX_4Aeg_1971625958")]
     [Description(@"The buyer's bank should be the assured.")]
-    BUBA,
+    BuyerBank,
     
     /// <summary>
     /// The seller's bank should be the assured.
+    /// Encoded/decoded by serializers as "SEBA".
     /// </summary>
     [EnumMember(Value = "SEBA")]
     [IsoId("_bjbk89p-Ed-ak6NoX_4Aeg_2001181880")]
     [Description(@"The seller's bank should be the assured.")]
-    SEBA,
+    SellerBank,
     
 }
 

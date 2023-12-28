@@ -21,139 +21,156 @@ public enum ExternalDocumentTypeCode
 {
     /// <summary>
     /// Document is an invoice.
+    /// Encoded/decoded by serializers as "CINV".
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_uHPTc_RYEeuLhpyIdtJzwg")]
     [Description(@"Document is an invoice.")]
-    CINV,
+    CommercialInvoice,
     
     /// <summary>
     /// Document is a credit note for the final amount settled for a commercial transaction.
+    /// Encoded/decoded by serializers as "CNFA".
     /// </summary>
     [EnumMember(Value = "CNFA")]
     [IsoId("_uHPTdvRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a credit note for the final amount settled for a commercial transaction.")]
-    CNFA,
+    CreditNoteRelatedToFinancialAdjustment,
     
     /// <summary>
     /// Document is a contract evidencing an agreement between the seller and buyer for the supply of goods and/or services.
+    /// Encoded/decoded by serializers as "CONT".
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_uHZEcPRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a contract evidencing an agreement between the seller and buyer for the supply of goods and/or services.")]
-    CONT,
+    Contract,
     
     /// <summary>
     /// Document is a credit note.
+    /// Encoded/decoded by serializers as "CREN".
     /// </summary>
     [EnumMember(Value = "CREN")]
     [IsoId("_uHZEc_RYEeuLhpyIdtJzwg")]
     [Description(@"Document is a credit note.")]
-    CREN,
+    CreditNote,
     
     /// <summary>
     /// Document is a debit note.
+    /// Encoded/decoded by serializers as "DEBN".
     /// </summary>
     [EnumMember(Value = "DEBN")]
     [IsoId("_uHZEdvRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a debit note.")]
-    DEBN,
+    DebitNote,
     
     /// <summary>
     /// Document is an advice of despatch of the goods.
+    /// Encoded/decoded by serializers as "DISP".
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_uHZEefRYEeuLhpyIdtJzwg")]
     [Description(@"Document is an advice of despatch of the goods.")]
-    DISP,
+    DispatchAdvice,
     
     /// <summary>
     /// Document is a debit note for the final amount settled for a commercial transaction.
+    /// Encoded/decoded by serializers as "DNFA".
     /// </summary>
     [EnumMember(Value = "DNFA")]
     [IsoId("_uHZEfPRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a debit note for the final amount settled for a commercial transaction.")]
-    DNFA,
+    DebitNoteRelatedToFinancialAdjustment,
     
     /// <summary>
     /// Document is an invoice for the hiring of human resources or renting goods or equipment.
+    /// Encoded/decoded by serializers as "HIRI".
     /// </summary>
     [EnumMember(Value = "HIRI")]
     [IsoId("_uHiOYPRYEeuLhpyIdtJzwg")]
     [Description(@"Document is an invoice for the hiring of human resources or renting goods or equipment.")]
-    HIRI,
+    HireInvoice,
     
     /// <summary>
     /// Document is a signed invoice.
+    /// Encoded/decoded by serializers as "INVS".
     /// </summary>
     [EnumMember(Value = "INVS")]
     [IsoId("_uHiOY_RYEeuLhpyIdtJzwg")]
     [Description(@"Document is a signed invoice.")]
-    INVS,
+    InvoiceSigned,
     
     /// <summary>
     /// Document is an invoice claiming payment for the supply of metered services, eg. Gas or electricity, supplied to a fixed meter.
+    /// Encoded/decoded by serializers as "MSIN".
     /// </summary>
     [EnumMember(Value = "MSIN")]
     [IsoId("_uHiOZvRYEeuLhpyIdtJzwg")]
     [Description(@"Document is an invoice claiming payment for the supply of metered services, eg. Gas or electricity, supplied to a fixed meter.")]
-    MSIN,
+    MeteredServiceInvoice,
     
     /// <summary>
     /// In trade transactions, a pro forma invoice is a document that states a commitment from the seller to sell goods to the buyer at specified prices and terms. It is used to declare the value of the trade. It is not a true invoice, because it is not used to record accounts receivable for the seller and accounts payable for the buyer.
+    /// Encoded/decoded by serializers as "PROF".
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_uHiOafRYEeuLhpyIdtJzwg")]
     [Description(@"In trade transactions, a pro forma invoice is a document that states a commitment from the seller to sell goods to the buyer at specified prices and terms. It is used to declare the value of the trade. It is not a true invoice, because it is not used to record accounts receivable for the seller and accounts payable for the buyer.")]
-    PROF,
+    ProformaInvoice,
     
     /// <summary>
     /// Document is a purchase order.
+    /// Encoded/decoded by serializers as "PUOR".
     /// </summary>
     [EnumMember(Value = "PUOR")]
     [IsoId("_uHiObPRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a purchase order.")]
-    PUOR,
+    PurchaseOrder,
     
     /// <summary>
     /// Document is a quotation setting out the conditions under which the goods and/or services are offered.
+    /// Encoded/decoded by serializers as "QUOT".
     /// </summary>
     [EnumMember(Value = "QUOT")]
     [IsoId("_uHr_YPRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a quotation setting out the conditions under which the goods and/or services are offered.")]
-    QUOT,
+    Quotation,
     
     /// <summary>
     /// Document is a statement of the transactions posted to the debtor's account at the supplier.
+    /// Encoded/decoded by serializers as "SBIN".
     /// </summary>
     [EnumMember(Value = "SBIN")]
     [IsoId("_uHr_Y_RYEeuLhpyIdtJzwg")]
     [Description(@"Document is a statement of the transactions posted to the debtor's account at the supplier.")]
-    SBIN,
+    SelfBilledInvoice,
     
     /// <summary>
     /// Document is a document presented by the seller in support of the procurement of goods and/or services.
+    /// Encoded/decoded by serializers as "SPRR".
     /// </summary>
     [EnumMember(Value = "SPRR")]
     [IsoId("_uH1JUPRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a document presented by the seller in support of the procurement of goods and/or services.")]
-    SPRR,
+    SellerPresentment,
     
     /// <summary>
     /// Document is a timesheet recording times for the provision of services and/or delivery of goods.
+    /// Encoded/decoded by serializers as "TISH".
     /// </summary>
     [EnumMember(Value = "TISH")]
     [IsoId("_uH1JU_RYEeuLhpyIdtJzwg")]
     [Description(@"Document is a timesheet recording times for the provision of services and/or delivery of goods.")]
-    TISH,
+    TimeSheet,
     
     /// <summary>
     /// Document is a usage report indicating the consumption pattern for designated goods and/or services.
+    /// Encoded/decoded by serializers as "USAR".
     /// </summary>
     [EnumMember(Value = "USAR")]
     [IsoId("_uH1JVvRYEeuLhpyIdtJzwg")]
     [Description(@"Document is a usage report indicating the consumption pattern for designated goods and/or services.")]
-    USAR,
+    UsageReport,
     
 }
 

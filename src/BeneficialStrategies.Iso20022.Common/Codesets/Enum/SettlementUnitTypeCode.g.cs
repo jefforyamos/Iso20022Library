@@ -20,19 +20,21 @@ public enum SettlementUnitTypeCode
 {
     /// <summary>
     /// Represent the face amount, for example the principal of a debt instrument.
+    /// Encoded/decoded by serializers as "FAMT".
     /// </summary>
     [EnumMember(Value = "FAMT")]
     [IsoId("_hblKk2liEeGaMcKyqKNRfQ_1606915778")]
     [Description(@"Represent the face amount, for example the principal of a debt instrument.")]
-    FAMT,
+    FaceAmount,
     
     /// <summary>
     /// Represent the unit as a number, for example a number of shares.
+    /// Encoded/decoded by serializers as "UNIT".
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_hblKlGliEeGaMcKyqKNRfQ_1719234918")]
     [Description(@"Represent the unit as a number, for example a number of shares.")]
-    UNIT,
+    Unit,
     
 }
 

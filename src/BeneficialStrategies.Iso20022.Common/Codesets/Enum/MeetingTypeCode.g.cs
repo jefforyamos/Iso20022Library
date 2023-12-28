@@ -20,75 +20,84 @@ public enum MeetingTypeCode
 {
     /// <summary>
     /// Specifies a meeting held periodically to approve the financial statements and elect the board members and the auditors.
+    /// Encoded/decoded by serializers as "AMET".
     /// </summary>
     [EnumMember(Value = "AMET")]
     [IsoId("_aLgvw9p-Ed-ak6NoX_4Aeg_2014713210")]
     [Description(@"Specifies a meeting held periodically to approve the financial statements and elect the board members and the auditors.")]
-    AMET,
+    AnnualGeneralMeeting,
     
     /// <summary>
     /// Specifies a meeting that is not planned in the by laws.
+    /// Encoded/decoded by serializers as "OMET".
     /// </summary>
     [EnumMember(Value = "OMET")]
     [IsoId("_aLgvxNp-Ed-ak6NoX_4Aeg_1555440595")]
     [Description(@"Specifies a meeting that is not planned in the by laws.")]
-    OMET,
+    Ordinary,
     
     /// <summary>
     /// Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.
+    /// Encoded/decoded by serializers as "XMET".
     /// </summary>
     [EnumMember(Value = "XMET")]
     [IsoId("_aLgvxdp-Ed-ak6NoX_4Aeg_-1739813621")]
     [Description(@"Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.")]
-    XMET,
+    Extraordinary,
     
     /// <summary>
     /// Specifies a meeting which contains both ordinary and extraordinary resolutions.
+    /// Encoded/decoded by serializers as "MIXD".
     /// </summary>
     [EnumMember(Value = "MIXD")]
     [IsoId("_aLgvxtp-Ed-ak6NoX_4Aeg_-1820621758")]
     [Description(@"Specifies a meeting which contains both ordinary and extraordinary resolutions.")]
-    MIXD,
+    Mixed,
     
     /// <summary>
     /// Meeting for a class of assets.
+    /// Encoded/decoded by serializers as "CLAS".
     /// </summary>
     [EnumMember(Value = "CLAS")]
     [IsoId("_aLgvx9p-Ed-ak6NoX_4Aeg_-1876676760")]
     [Description(@"Meeting for a class of assets.")]
-    CLAS,
+    ClassMeeting,
     
     /// <summary>
     /// Specifies that the meeting is the result of a legal proceeding.
+    /// Encoded/decoded by serializers as "CORT".
     /// </summary>
     [EnumMember(Value = "CORT")]
     [IsoId("_aLgvyNp-Ed-ak6NoX_4Aeg_-1807410883")]
     [Description(@"Specifies that the meeting is the result of a legal proceeding.")]
-    CORT,
+    CourtMeeting,
     
     /// <summary>
     /// Meeting that takes place as needed that is neither ordinary nor extraordinary.
+    /// Encoded/decoded by serializers as "SPCL".
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("_aLqgwNp-Ed-ak6NoX_4Aeg_-311079659")]
     [Description(@"Meeting that takes place as needed that is neither ordinary nor extraordinary.")]
-    SPCL,
+    Special,
     
     /// <summary>
     /// Includes annual and ordinary meeting. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example approval of dividends, directors, etc. These meetings are always issuer initiated.
+    /// Encoded/decoded by serializers as "GMET".
     /// </summary>
     [EnumMember(Value = "GMET")]
     [IsoId("_aLqgwdp-Ed-ak6NoX_4Aeg_516436244")]
     [Description(@"Includes annual and ordinary meeting. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example approval of dividends, directors, etc. These meetings are always issuer initiated.")]
-    GMET,
+    General,
     
     /// <summary>
     /// Physical meeting of bond holders.
+    /// Encoded/decoded by serializers as "BMET".
     /// </summary>
     [EnumMember(Value = "BMET")]
     [IsoId("_BvKTYFuLEeSmO6RkXg92Lg")]
     [Description(@"Physical meeting of bond holders.")]
-    BMET,
+    BondHolderMeeting,
     
 }
 

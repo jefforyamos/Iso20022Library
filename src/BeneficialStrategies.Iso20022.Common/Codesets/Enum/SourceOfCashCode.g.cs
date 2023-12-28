@@ -20,123 +20,138 @@ public enum SourceOfCashCode
 {
     /// <summary>
     /// Income from a retirement policy.
+    /// Encoded/decoded by serializers as "REPY".
     /// </summary>
     [EnumMember(Value = "REPY")]
     [IsoId("_LMUZIDlFEealR6-8aQ15BA")]
     [Description(@"Income from a retirement policy.")]
-    REPY,
+    RetirementPolicy,
     
     /// <summary>
     /// Income from self-employment.
+    /// Encoded/decoded by serializers as "SELF".
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_LSIGMDlFEealR6-8aQ15BA")]
     [Description(@"Income from self-employment.")]
-    SELF,
+    SelfEmploymentIncome,
     
     /// <summary>
     /// Employee income.
+    /// Encoded/decoded by serializers as "EMIN".
     /// </summary>
     [EnumMember(Value = "EMIN")]
     [IsoId("_LWu5YDlFEealR6-8aQ15BA")]
     [Description(@"Employee income.")]
-    EMIN,
+    EmployeeIncome,
     
     /// <summary>
     /// Income from a savings plan.
+    /// Encoded/decoded by serializers as "SVGS".
     /// </summary>
     [EnumMember(Value = "SVGS")]
     [IsoId("_La5nsDlFEealR6-8aQ15BA")]
     [Description(@"Income from a savings plan.")]
-    SVGS,
+    Savings,
     
     /// <summary>
     /// Income was a cash gift.
+    /// Encoded/decoded by serializers as "GIFT".
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_R35gUDlFEealR6-8aQ15BA")]
     [Description(@"Income was a cash gift.")]
-    GIFT,
+    Gift,
     
     /// <summary>
     /// Cash from an inheritance.
+    /// Encoded/decoded by serializers as "INHE".
     /// </summary>
     [EnumMember(Value = "INHE")]
     [IsoId("_R-J5UDlFEealR6-8aQ15BA")]
     [Description(@"Cash from an inheritance.")]
-    INHE,
+    Inheritance,
     
     /// <summary>
     /// Redemption of an investment fund.
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_UxIXQDlFEealR6-8aQ15BA")]
     [Description(@"Redemption of an investment fund.")]
-    REDM,
+    Redemption,
     
     /// <summary>
     /// Income from a cash win.
+    /// Encoded/decoded by serializers as "WINS".
     /// </summary>
     [EnumMember(Value = "WINS")]
     [IsoId("_U5UC4DlFEealR6-8aQ15BA")]
     [Description(@"Income from a cash win.")]
-    WINS,
+    Winnings,
     
     /// <summary>
     /// Income from the liquidation of an insurance premium.
+    /// Encoded/decoded by serializers as "INLQ".
     /// </summary>
     [EnumMember(Value = "INLQ")]
     [IsoId("_XwwKEDlFEealR6-8aQ15BA")]
     [Description(@"Income from the liquidation of an insurance premium.")]
-    INLQ,
+    InsurancePremiumLiquidation,
     
     /// <summary>
     /// Sale of goods.
+    /// Encoded/decoded by serializers as "SALE".
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_azpTUDlFEealR6-8aQ15BA")]
     [Description(@"Sale of goods.")]
-    SALE,
+    SaleOfGoods,
     
     /// <summary>
     /// Income from the sale of real estate.
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_fy6psDlFEealR6-8aQ15BA")]
     [Description(@"Income from the sale of real estate.")]
-    REST,
+    RealEstateSale,
     
     /// <summary>
     /// Sale and acquisition of a corporation.
+    /// Encoded/decoded by serializers as "SEAQ".
     /// </summary>
     [EnumMember(Value = "SEAQ")]
     [IsoId("_heCHsDlFEealR6-8aQ15BA")]
     [Description(@"Sale and acquisition of a corporation.")]
-    SEAQ,
+    SaleAquisitionCorporation,
     
     /// <summary>
     /// Income is cash proceeds from customers.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_nWlPcDlFEealR6-8aQ15BA")]
     [Description(@"Income is cash proceeds from customers.")]
-    CASH,
+    CashProceeds,
     
     /// <summary>
     /// Income as a result of alimony.
+    /// Encoded/decoded by serializers as "ALMY".
     /// </summary>
     [EnumMember(Value = "ALMY")]
     [IsoId("_poFYADlFEealR6-8aQ15BA")]
     [Description(@"Income as a result of alimony.")]
-    ALMY,
+    Alimony,
     
     /// <summary>
     /// Income is from compensation received.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_puor8DlFEealR6-8aQ15BA")]
     [Description(@"Income is from compensation received.")]
-    COMP,
+    Compensation,
     
 }
 

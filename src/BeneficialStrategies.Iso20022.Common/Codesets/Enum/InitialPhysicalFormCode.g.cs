@@ -20,27 +20,30 @@ public enum InitialPhysicalFormCode
 {
     /// <summary>
     /// Initial Physical Form is GT.
+    /// Encoded/decoded by serializers as "GTGT".
     /// </summary>
     [EnumMember(Value = "GTGT")]
     [IsoId("_hblKmWliEeGaMcKyqKNRfQ_-939155429")]
     [Description(@"Initial Physical Form is GT.")]
-    GTGT,
+    GT,
     
     /// <summary>
     /// Initial Physical Form is GP.
+    /// Encoded/decoded by serializers as "GPGP".
     /// </summary>
     [EnumMember(Value = "GPGP")]
     [IsoId("_hblKmmliEeGaMcKyqKNRfQ_145243167")]
     [Description(@"Initial Physical Form is GP.")]
-    GPGP,
+    GP,
     
     /// <summary>
     /// Initial Physical Form is definitive.
+    /// Encoded/decoded by serializers as "DERN".
     /// </summary>
     [EnumMember(Value = "DERN")]
     [IsoId("_hblKm2liEeGaMcKyqKNRfQ_1943280310")]
     [Description(@"Initial Physical Form is definitive.")]
-    DERN,
+    Definitive,
     
 }
 

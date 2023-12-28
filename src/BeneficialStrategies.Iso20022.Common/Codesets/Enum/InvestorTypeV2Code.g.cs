@@ -20,131 +20,147 @@ public enum InvestorTypeV2Code
 {
     /// <summary>
     /// Investor is both professional and retail.
+    /// Encoded/decoded by serializers as "BOT2".
     /// </summary>
     [EnumMember(Value = "BOT2")]
     [IsoId("_nezffbVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is both professional and retail.")]
-    BOT2,
+    BothProfessionalAndRetail,
     
     /// <summary>
     /// Investor is both professional per se and elective professional.
+    /// Encoded/decoded by serializers as "BOT3".
     /// </summary>
     [EnumMember(Value = "BOT3")]
     [IsoId("_nezffrVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is both professional per se and elective professional.")]
-    BOT3,
+    BothProfessionalPerSeAndElectiveProfessional,
     
     /// <summary>
     /// Investor is an elective professional.
+    /// Encoded/decoded by serializers as "EPRO".
     /// </summary>
     [EnumMember(Value = "EPRO")]
     [IsoId("_nezff7VMEeqkjqDuFVh1-A")]
     [Description(@"Investor is an elective professional.")]
-    EPRO,
+    ElectiveProfessional,
     
     /// <summary>
     /// Investor is eligible to receive income gross, for example, a pension scheme.
+    /// Encoded/decoded by serializers as "GROS".
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_nezfgLVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is eligible to receive income gross, for example, a pension scheme.")]
-    GROS,
+    GrossDistribution,
     
     /// <summary>
     /// Investor is an institutional investor.
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_nezfgbVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is an institutional investor.")]
-    INST,
+    Institutional,
     
     /// <summary>
     /// Investor is neither professional or retail.
+    /// Encoded/decoded by serializers as "NEI1".
     /// </summary>
     [EnumMember(Value = "NEI1")]
     [IsoId("_nezfgrVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is neither professional or retail.")]
-    NEI1,
+    NeitherProfessionalOrRetail,
     
     /// <summary>
     /// Investor is a physical person.
+    /// Encoded/decoded by serializers as "PPER".
     /// </summary>
     [EnumMember(Value = "PPER")]
     [IsoId("_nezfg7VMEeqkjqDuFVh1-A")]
     [Description(@"Investor is a physical person.")]
-    PPER,
+    PhysicalPerson,
     
     /// <summary>
     /// Investor is a professional or institutional investor.
+    /// Encoded/decoded by serializers as "PROF".
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_nezfhLVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is a professional or institutional investor.")]
-    PROF,
+    Professional,
     
     /// <summary>
     /// Investor is professional or professional per se.
+    /// Encoded/decoded by serializers as "PRF2".
     /// </summary>
     [EnumMember(Value = "PRF2")]
     [IsoId("_nezfhbVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is professional or professional per se.")]
-    PRF2,
+    ProfessionalOrPerSe,
     
     /// <summary>
     /// Investor meets the fund entry policy restriction.
+    /// Encoded/decoded by serializers as "QUAL".
     /// </summary>
     [EnumMember(Value = "QUAL")]
     [IsoId("_nezfhrVMEeqkjqDuFVh1-A")]
     [Description(@"Investor meets the fund entry policy restriction.")]
-    QUAL,
+    Qualified,
     
     /// <summary>
     /// Investor is a retail investor.
+    /// Encoded/decoded by serializers as "RETL".
     /// </summary>
     [EnumMember(Value = "RETL")]
     [IsoId("_nezfh7VMEeqkjqDuFVh1-A")]
     [Description(@"Investor is a retail investor.")]
-    RETL,
+    Retail,
     
     /// <summary>
     /// Investor is both an institutional and an individual investor.
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_nezfiLVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is both an institutional and an individual investor.")]
-    BOTH,
+    RetailAndInstitutional,
     
     /// <summary>
     /// Investor is an employee.
+    /// Encoded/decoded by serializers as "STAF".
     /// </summary>
     [EnumMember(Value = "STAF")]
     [IsoId("_nezfibVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is an employee.")]
-    STAF,
+    Staff,
     
     /// <summary>
     /// Investor is neither professional per se or elective professional.
+    /// Encoded/decoded by serializers as "NPRF".
     /// </summary>
     [EnumMember(Value = "NPRF")]
     [IsoId("_qi4UcLVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is neither professional per se or elective professional.")]
-    NPRF,
+    NotProfessionalPerSeElectiveProfessional,
     
     /// <summary>
     /// Investor is professional per se but not elective professional.
+    /// Encoded/decoded by serializers as "PRF3".
     /// </summary>
     [EnumMember(Value = "PRF3")]
     [IsoId("_uCo_4LVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is professional per se but not elective professional.")]
-    PRF3,
+    ProfessionalPerSeNotElectiveProfessional,
     
     /// <summary>
     /// Investor is an elective professional but not professional per se.
+    /// Encoded/decoded by serializers as "PRF4".
     /// </summary>
     [EnumMember(Value = "PRF4")]
     [IsoId("_3bjQALVMEeqkjqDuFVh1-A")]
     [Description(@"Investor is an elective professional but not professional per se.")]
-    PRF4,
+    ElectiveProfessionalNotProfessionalPerSe,
     
 }
 

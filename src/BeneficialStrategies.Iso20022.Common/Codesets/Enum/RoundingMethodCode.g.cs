@@ -20,35 +20,39 @@ public enum RoundingMethodCode
 {
     /// <summary>
     /// Rounds the amount down.
+    /// Encoded/decoded by serializers as "DRDW".
     /// </summary>
     [EnumMember(Value = "DRDW")]
     [IsoId("_YgFIsdp-Ed-ak6NoX_4Aeg_643313436")]
     [Description(@"Rounds the amount down.")]
-    DRDW,
+    Down,
     
     /// <summary>
     /// Rounds the amount up.
+    /// Encoded/decoded by serializers as "DRUP".
     /// </summary>
     [EnumMember(Value = "DRUP")]
     [IsoId("_YgFIstp-Ed-ak6NoX_4Aeg_-239919851")]
     [Description(@"Rounds the amount up.")]
-    DRUP,
+    Up,
     
     /// <summary>
     /// Do not round.
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_YgFIs9p-Ed-ak6NoX_4Aeg_-1503003469")]
     [Description(@"Do not round.")]
-    NONE,
+    None,
     
     /// <summary>
     /// Rounds the amount to the closer integral multiple specified.
+    /// Encoded/decoded by serializers as "CLSR".
     /// </summary>
     [EnumMember(Value = "CLSR")]
     [IsoId("_YgFItNp-Ed-ak6NoX_4Aeg_-1640204487")]
     [Description(@"Rounds the amount to the closer integral multiple specified.")]
-    CLSR,
+    Closer,
     
 }
 

@@ -20,67 +20,75 @@ public enum SecuritiesAccountPurposeTypeCode
 {
     /// <summary>
     /// Account is used when financing is done by the broker.
+    /// Encoded/decoded by serializers as "MARG".
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_Y_Ex0tp-Ed-ak6NoX_4Aeg_1289715496")]
     [Description(@"Account is used when financing is done by the broker.")]
-    MARG,
+    Margin,
     
     /// <summary>
     /// Account is used for short sale orders.
+    /// Encoded/decoded by serializers as "SHOR".
     /// </summary>
     [EnumMember(Value = "SHOR")]
     [IsoId("_Y_Ex09p-Ed-ak6NoX_4Aeg_1289715787")]
     [Description(@"Account is used for short sale orders.")]
-    SHOR,
+    ShortSale,
     
     /// <summary>
     /// Account is located in a financial institution outside the country where the transaction is taking place.
+    /// Encoded/decoded by serializers as "ABRD".
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_Y_Ex1Np-Ed-ak6NoX_4Aeg_1289715822")]
     [Description(@"Account is located in a financial institution outside the country where the transaction is taking place.")]
-    ABRD,
+    Abroad,
     
     /// <summary>
     /// Account and all its related positions are held in one location.
+    /// Encoded/decoded by serializers as "CEND".
     /// </summary>
     [EnumMember(Value = "CEND")]
     [IsoId("_Y_Ex1dp-Ed-ak6NoX_4Aeg_1289715882")]
     [Description(@"Account and all its related positions are held in one location.")]
-    CEND,
+    Centralised,
     
     /// <summary>
     /// Account is used for settlement upon delivery, or a collection on a delivery basis.
+    /// Encoded/decoded by serializers as "DVPA".
     /// </summary>
     [EnumMember(Value = "DVPA")]
     [IsoId("_Y_Ex1tp-Ed-ak6NoX_4Aeg_1289715942")]
     [Description(@"Account is used for settlement upon delivery, or a collection on a delivery basis.")]
-    DVPA,
+    CashDVP,
     
     /// <summary>
     /// Account is used for physical domestic safekeeping.
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_Y_Ex19p-Ed-ak6NoX_4Aeg_1289715977")]
     [Description(@"Account is used for physical domestic safekeeping.")]
-    PHYS,
+    Physical,
     
     /// <summary>
     /// Financial instruments in the safekeeping account are fungible.
+    /// Encoded/decoded by serializers as "FUNG".
     /// </summary>
     [EnumMember(Value = "FUNG")]
     [IsoId("_45NmMdUeEeOz093LM8f3Hw")]
     [Description(@"Financial instruments in the safekeeping account are fungible.")]
-    FUNG,
+    Fungible,
     
     /// <summary>
     /// Financial instruments in the safekeeping account are not fungible.
+    /// Encoded/decoded by serializers as "NFUN".
     /// </summary>
     [EnumMember(Value = "NFUN")]
     [IsoId("_7HTOYdUeEeOz093LM8f3Hw")]
     [Description(@"Financial instruments in the safekeeping account are not fungible.")]
-    NFUN,
+    NonFungible,
     
 }
 

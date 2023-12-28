@@ -20,51 +20,57 @@ public enum TradeMarketCode
 {
     /// <summary>
     /// Transaction is a North American Free Trade Association (NAFTA) transaction, ie, the first and final agent are both located in the NAFTA area.
+    /// Encoded/decoded by serializers as "NFTA".
     /// </summary>
     [EnumMember(Value = "NFTA")]
     [IsoId("_G-kucKcBEeSyQqZ4APDtOA")]
     [Description(@"Transaction is a North American Free Trade Association (NAFTA) transaction, ie, the first and final agent are both located in the NAFTA area.")]
-    NFTA,
+    NAFTA,
     
     /// <summary>
     /// Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
+    /// Encoded/decoded by serializers as "INTL".
     /// </summary>
     [EnumMember(Value = "INTL")]
     [IsoId("_9ABlMKcBEeSyQqZ4APDtOA")]
     [Description(@"Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.")]
-    INTL,
+    International,
     
     /// <summary>
     /// Transaction is between a French Overseas Departments and Territories (Dom/Tom) and some country in the European Union (France included).
+    /// Encoded/decoded by serializers as "FRDT".
     /// </summary>
     [EnumMember(Value = "FRDT")]
     [IsoId("_UnHLQKcCEeSyQqZ4APDtOA")]
     [Description(@"Transaction is between a French Overseas Departments and Territories (Dom/Tom) and some country in the European Union (France included).")]
-    FRDT,
+    FrenchDomTom,
     
     /// <summary>
     /// Transaction is a credit transfer in Euro with its country of origin and country of destination within the European Union. Origin and destination countries may be one and the same country.
+    /// Encoded/decoded by serializers as "EUDM".
     /// </summary>
     [EnumMember(Value = "EUDM")]
     [IsoId("_hB8UQKcCEeSyQqZ4APDtOA")]
     [Description(@"Transaction is a credit transfer in Euro with its country of origin and country of destination within the European Union. Origin and destination countries may be one and the same country.")]
-    EUDM,
+    EuroDomestic,
     
     /// <summary>
     /// Transaction has an origin and a destination in the same country and is made in the currency of that country.
+    /// Encoded/decoded by serializers as "DMST".
     /// </summary>
     [EnumMember(Value = "DMST")]
     [IsoId("_l1fi0KcCEeSyQqZ4APDtOA")]
     [Description(@"Transaction has an origin and a destination in the same country and is made in the currency of that country.")]
-    DMST,
+    Domestic,
     
     /// <summary>
     /// Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
+    /// Encoded/decoded by serializers as "FRGN".
     /// </summary>
     [EnumMember(Value = "FRGN")]
     [IsoId("_nbNsAJhxEeumhIk_Pv20Lg")]
     [Description(@"Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.")]
-    FRGN,
+    Foreign,
     
 }
 

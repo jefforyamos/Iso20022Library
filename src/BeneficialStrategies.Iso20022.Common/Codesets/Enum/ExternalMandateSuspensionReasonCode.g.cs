@@ -22,51 +22,57 @@ public enum ExternalMandateSuspensionReasonCode
 {
     /// <summary>
     /// Mandate suspended due to amendment of the contract.
+    /// Encoded/decoded by serializers as "CTAM".
     /// </summary>
     [EnumMember(Value = "CTAM")]
     [IsoId("_uY0ys_RYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended due to amendment of the contract.")]
-    CTAM,
+    ContractAmended,
     
     /// <summary>
     /// Mandate suspended due to cancellation of the contract, requested by the debtor.
+    /// Encoded/decoded by serializers as "CTCA".
     /// </summary>
     [EnumMember(Value = "CTCA")]
     [IsoId("_uY98oPRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended due to cancellation of the contract, requested by the debtor.")]
-    CTCA,
+    ContractCancellationInitiatedByDebtor,
     
     /// <summary>
     /// Mandate suspended due to the contract that expired.
+    /// Encoded/decoded by serializers as "CTEX".
     /// </summary>
     [EnumMember(Value = "CTEX")]
     [IsoId("_uY98o_RYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended due to the contract that expired.")]
-    CTEX,
+    ContractExpired,
     
     /// <summary>
     /// Mandate suspended as final collection took place.
+    /// Encoded/decoded by serializers as "MCFC".
     /// </summary>
     [EnumMember(Value = "MCFC")]
     [IsoId("_uY98pvRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended as final collection took place.")]
-    MCFC,
+    MandateSuspendedFinalCollection,
     
     /// <summary>
     /// Mandate suspended as the once off collection took place.
+    /// Encoded/decoded by serializers as "MCOC".
     /// </summary>
     [EnumMember(Value = "MCOC")]
     [IsoId("_uY98qfRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended as the once off collection took place.")]
-    MCOC,
+    MandateSuspendedOnceOffCollection,
     
     /// <summary>
     /// Mandate suspended after 7 consecutive unsuccessful collections.
+    /// Encoded/decoded by serializers as "MSUC".
     /// </summary>
     [EnumMember(Value = "MSUC")]
     [IsoId("_uY98rPRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate suspended after 7 consecutive unsuccessful collections.")]
-    MSUC,
+    MandateSuspended7ConsecutiveUnsuccessfulCollections,
     
 }
 

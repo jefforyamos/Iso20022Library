@@ -20,51 +20,57 @@ public enum NonFinancialRequestTypeCode
 {
     /// <summary>
     /// According to several parameters of a transaction, an Intermediary Agent helps an Acceptor to identify the more relevant Acquirer to process the transaction.
+    /// Encoded/decoded by serializers as "ACQR".
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_aagdEC_qEeugIJ3Gvoevmg")]
     [Description(@"According to several parameters of a transaction, an Intermediary Agent helps an Acceptor to identify the more relevant Acquirer to process the transaction.")]
-    ACQR,
+    AcquirerSelection,
     
     /// <summary>
     /// The Intermediary Agent or Acquirer helps the Acceptor to assess the risk management of the transaction.
+    /// Encoded/decoded by serializers as "RISK".
     /// </summary>
     [EnumMember(Value = "RISK")]
     [IsoId("_uMxGoC_qEeugIJ3Gvoevmg")]
     [Description(@"The Intermediary Agent or Acquirer helps the Acceptor to assess the risk management of the transaction.")]
-    RISK,
+    RiskManagement,
     
     /// <summary>
     /// The Intermediary Agent or Acquirer provides the token to use to process the transaction.
+    /// Encoded/decoded by serializers as "TOKN".
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_Kq8-gC_rEeugIJ3Gvoevmg")]
     [Description(@"The Intermediary Agent or Acquirer provides the token to use to process the transaction.")]
-    TOKN,
+    TokenRequest,
     
     /// <summary>
     /// The Intermediary Agent or Acquirer provides the PaymentAccountReference to use to process the transaction.
+    /// Encoded/decoded by serializers as "PARQ".
     /// </summary>
     [EnumMember(Value = "PARQ")]
     [IsoId("_Tp0-AC_rEeugIJ3Gvoevmg")]
     [Description(@"The Intermediary Agent or Acquirer provides the PaymentAccountReference to use to process the transaction.")]
-    PARQ,
+    ParRequest,
     
     /// <summary>
     /// Request to receive acquirer instalment plans.
+    /// Encoded/decoded by serializers as "INSM".
     /// </summary>
     [EnumMember(Value = "INSM")]
     [IsoId("_4VqPsHC6Ee2bmOA3bkVsMg")]
     [Description(@"Request to receive acquirer instalment plans.")]
-    INSM,
+    InstalmentPlanRequest,
     
     /// <summary>
     /// Indicates a request which implies to receive additional information.
+    /// Encoded/decoded by serializers as "ADDR".
     /// </summary>
     [EnumMember(Value = "ADDR")]
     [IsoId("_8T9RQHC6Ee2bmOA3bkVsMg")]
     [Description(@"Indicates a request which implies to receive additional information.")]
-    ADDR,
+    AdditionalRequest,
     
 }
 

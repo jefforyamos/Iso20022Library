@@ -20,70 +20,78 @@ public enum BusinessProcessTypeCode
 {
     /// <summary>
     /// Specifies the processing of a transaction in a central matching utility model.
+    /// Encoded/decoded by serializers as "ISUP".
     /// </summary>
     [EnumMember(Value = "ISUP")]
     [IsoId("__0wOxNojEeC60axPepSq7g_1792633552")]
     [Description(@"Specifies the processing of a transaction in a central matching utility model.")]
-    ISUP,
+    TripartiteCentralMatching,
     
     /// <summary>
     /// Specifies the processing of a transaction in a local matching model.
+    /// Encoded/decoded by serializers as "NISP".
     /// </summary>
     [EnumMember(Value = "NISP")]
     [IsoId("__0wOxdojEeC60axPepSq7g_1734197860")]
     [Description(@"Specifies the processing of a transaction in a local matching model.")]
-    NISP,
+    NotCoveredByInvestmentInstructions,
     
     /// <summary>
     /// Transaction notice results from an agreement made out of a trading platform between two members (broker and intermediary) of an authorised entity.
+    /// Encoded/decoded by serializers as "PRAC".
     /// </summary>
     [EnumMember(Value = "PRAC")]
     [IsoId("__0wOxtojEeC60axPepSq7g_-803464023")]
     [Description(@"Transaction notice results from an agreement made out of a trading platform between two members (broker and intermediary) of an authorised entity.")]
-    PRAC,
+    PreAccepted,
     
     /// <summary>
     /// Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice:
     /// o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’;
     /// o The broker will have to specify the original transaction notice reference;
     /// o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.
+    /// Encoded/decoded by serializers as "RSAL".
     /// </summary>
     [EnumMember(Value = "RSAL")]
     [IsoId("__05YsNojEeC60axPepSq7g_-1597663913")]
     [Description(@"Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice: o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’; o The broker will have to specify the original transaction notice reference; o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.")]
-    RSAL,
+    Reversal,
     
     /// <summary>
     /// Specifies the processing of a transaction in a own account trade type model.
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("__05YsdojEeC60axPepSq7g_-128588028")]
     [Description(@"Specifies the processing of a transaction in a own account trade type model.")]
-    PROP,
+    OwnAccountTradeType,
     
     /// <summary>
     /// Specifies the processing of a transaction in a through type model.
+    /// Encoded/decoded by serializers as "THRU".
     /// </summary>
     [EnumMember(Value = "THRU")]
     [IsoId("__05YstojEeC60axPepSq7g_-33504831")]
     [Description(@"Specifies the processing of a transaction in a through type model.")]
-    THRU,
+    ThroughType,
     
     /// <summary>
     /// Specifies the processing of a transaction in a billateral central matching model.
+    /// Encoded/decoded by serializers as "IDEL".
     /// </summary>
     [EnumMember(Value = "IDEL")]
     [IsoId("__05Ys9ojEeC60axPepSq7g_-1939625461")]
     [Description(@"Specifies the processing of a transaction in a billateral central matching model.")]
-    IDEL,
+    BillateralCentralMatching,
     
     /// <summary>
     /// Specifies the processing of a transaction in a duplex type model.
+    /// Encoded/decoded by serializers as "DPLX".
     /// </summary>
     [EnumMember(Value = "DPLX")]
     [IsoId("__05YtNojEeC60axPepSq7g_1029292248")]
     [Description(@"Specifies the processing of a transaction in a duplex type model.")]
-    DPLX,
+    DuplexType,
     
 }
 

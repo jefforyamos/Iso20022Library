@@ -20,19 +20,21 @@ public enum CorporateActionStatementReportingTypeCode
 {
     /// <summary>
     /// The reporting is for a single event and for multiple accounts.
+    /// Encoded/decoded by serializers as "MASE".
     /// </summary>
     [EnumMember(Value = "MASE")]
     [IsoId("_bTMJgNp-Ed-ak6NoX_4Aeg_358501091")]
     [Description(@"The reporting is for a single event and for multiple accounts.")]
-    MASE,
+    MultipleAccounts,
     
     /// <summary>
     /// The reporting is for multiple events for a single account.
+    /// Encoded/decoded by serializers as "SAME".
     /// </summary>
     [EnumMember(Value = "SAME")]
     [IsoId("_bTMJgdp-Ed-ak6NoX_4Aeg_761162779")]
     [Description(@"The reporting is for multiple events for a single account.")]
-    SAME,
+    MultipleEvents,
     
 }
 

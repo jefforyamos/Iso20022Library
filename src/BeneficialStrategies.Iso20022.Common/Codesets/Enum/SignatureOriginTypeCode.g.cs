@@ -20,35 +20,39 @@ public enum SignatureOriginTypeCode
 {
     /// <summary>
     /// Signature is provided for the contract validation of the file.
+    /// Encoded/decoded by serializers as "CTRC".
     /// </summary>
     [EnumMember(Value = "CTRC")]
     [IsoId("_suYoQMnAEeWI4cSIO9foRA")]
     [Description(@"Signature is provided for the contract validation of the file.")]
-    CTRC,
+    Contract,
     
     /// <summary>
     /// Signature is provided for the technical validation of the file.
+    /// Encoded/decoded by serializers as "TECH".
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_szS9cMnAEeWI4cSIO9foRA")]
     [Description(@"Signature is provided for the technical validation of the file.")]
-    TECH,
+    Technical,
     
     /// <summary>
     /// Signature is provided for the value validation of the file.
+    /// Encoded/decoded by serializers as "VLUE".
     /// </summary>
     [EnumMember(Value = "VLUE")]
     [IsoId("_rX9A0MnAEeWI4cSIO9foRA")]
     [Description(@"Signature is provided for the value validation of the file.")]
-    VLUE,
+    Value,
     
     /// <summary>
     /// Signature is provided for the bank validation of the file.
+    /// Encoded/decoded by serializers as "BANK".
     /// </summary>
     [EnumMember(Value = "BANK")]
     [IsoId("_s4NSoMnAEeWI4cSIO9foRA")]
     [Description(@"Signature is provided for the bank validation of the file.")]
-    BANK,
+    Bank,
     
 }
 

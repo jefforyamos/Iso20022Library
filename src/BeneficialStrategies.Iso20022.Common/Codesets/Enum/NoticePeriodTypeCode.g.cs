@@ -20,51 +20,57 @@ public enum NoticePeriodTypeCode
 {
     /// <summary>
     /// The notice period is expressed in banking working days.
+    /// Encoded/decoded by serializers as "BKWD".
     /// </summary>
     [EnumMember(Value = "BKWD")]
     [IsoId("_aNwLcdp-Ed-ak6NoX_4Aeg_-1131461794")]
     [Description(@"The notice period is expressed in banking working days.")]
-    BKWD,
+    BankWorkingDay,
     
     /// <summary>
     /// The notice period is expressed in calendar days.
+    /// Encoded/decoded by serializers as "DAYC".
     /// </summary>
     [EnumMember(Value = "DAYC")]
     [IsoId("_aNwLctp-Ed-ak6NoX_4Aeg_-852557806")]
     [Description(@"The notice period is expressed in calendar days.")]
-    DAYC,
+    CalendarDay,
     
     /// <summary>
     /// The notice period is expressed in months.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_aNwLc9p-Ed-ak6NoX_4Aeg_-833163063")]
     [Description(@"The notice period is expressed in months.")]
-    MNTH,
+    Month,
     
     /// <summary>
     /// The notice period is expressed in weeks.
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_aNwLdNp-Ed-ak6NoX_4Aeg_-816539570")]
     [Description(@"The notice period is expressed in weeks.")]
-    WEEK,
+    Week,
     
     /// <summary>
     /// The notice period is expressed in working days.
+    /// Encoded/decoded by serializers as "WOKD".
     /// </summary>
     [EnumMember(Value = "WOKD")]
     [IsoId("_aNwLddp-Ed-ak6NoX_4Aeg_-792530041")]
     [Description(@"The notice period is expressed in working days.")]
-    WOKD,
+    WorkingDay,
     
     /// <summary>
     /// The notice period is expressed in years.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_aNwLdtp-Ed-ak6NoX_4Aeg_-774982225")]
     [Description(@"The notice period is expressed in years.")]
-    YEAR,
+    Year,
     
 }
 

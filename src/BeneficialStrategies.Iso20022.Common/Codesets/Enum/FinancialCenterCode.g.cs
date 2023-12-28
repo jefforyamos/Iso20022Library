@@ -20,459 +20,516 @@ public enum FinancialCenterCode
 {
     /// <summary>
     /// Code for Brussels.
+    /// Encoded/decoded by serializers as "BEBR".
     /// </summary>
     [EnumMember(Value = "BEBR")]
     [IsoId("_aoHzQdp-Ed-ak6NoX_4Aeg_627416510")]
     [Description(@"Code for Brussels.")]
-    BEBR,
+    Brussels,
     
     /// <summary>
     /// Code for Buenos Aires.
+    /// Encoded/decoded by serializers as "ARBA".
     /// </summary>
     [EnumMember(Value = "ARBA")]
     [IsoId("_aoHzQtp-Ed-ak6NoX_4Aeg_627416511")]
     [Description(@"Code for Buenos Aires.")]
-    ARBA,
+    BuenosAires,
     
     /// <summary>
     /// Code for Vienna.
+    /// Encoded/decoded by serializers as "ATVI".
     /// </summary>
     [EnumMember(Value = "ATVI")]
     [IsoId("_aoHzQ9p-Ed-ak6NoX_4Aeg_627416512")]
     [Description(@"Code for Vienna.")]
-    ATVI,
+    Vienna,
     
     /// <summary>
     /// Code for Melbourne.
+    /// Encoded/decoded by serializers as "AUME".
     /// </summary>
     [EnumMember(Value = "AUME")]
     [IsoId("_aoHzRNp-Ed-ak6NoX_4Aeg_627416513")]
     [Description(@"Code for Melbourne.")]
-    AUME,
+    Melbourne,
     
     /// <summary>
     /// Code for Sydney.
+    /// Encoded/decoded by serializers as "AUSY".
     /// </summary>
     [EnumMember(Value = "AUSY")]
     [IsoId("_aoHzRdp-Ed-ak6NoX_4Aeg_627416514")]
     [Description(@"Code for Sydney.")]
-    AUSY,
+    Sydney,
     
     /// <summary>
     /// Code for Sao Paulo.
+    /// Encoded/decoded by serializers as "BRSP".
     /// </summary>
     [EnumMember(Value = "BRSP")]
     [IsoId("_aoHzRtp-Ed-ak6NoX_4Aeg_627416515")]
     [Description(@"Code for Sao Paulo.")]
-    BRSP,
+    SaoPaulo,
     
     /// <summary>
     /// Code for Montreal.
+    /// Encoded/decoded by serializers as "CAMO".
     /// </summary>
     [EnumMember(Value = "CAMO")]
     [IsoId("_aoHzR9p-Ed-ak6NoX_4Aeg_627416741")]
     [Description(@"Code for Montreal.")]
-    CAMO,
+    Montreal,
     
     /// <summary>
     /// Code for Toronto.
+    /// Encoded/decoded by serializers as "CATO".
     /// </summary>
     [EnumMember(Value = "CATO")]
     [IsoId("_aoHzSNp-Ed-ak6NoX_4Aeg_627416742")]
     [Description(@"Code for Toronto.")]
-    CATO,
+    Toronto,
     
     /// <summary>
     /// Code for Geneva.
+    /// Encoded/decoded by serializers as "CHGE".
     /// </summary>
     [EnumMember(Value = "CHGE")]
     [IsoId("_aoHzSdp-Ed-ak6NoX_4Aeg_627416743")]
     [Description(@"Code for Geneva.")]
-    CHGE,
+    Geneva,
     
     /// <summary>
     /// Code for Bratislava.
+    /// Encoded/decoded by serializers as "SKBR".
     /// </summary>
     [EnumMember(Value = "SKBR")]
     [IsoId("_aoRkQNp-Ed-ak6NoX_4Aeg_627416744")]
     [Description(@"Code for Bratislava.")]
-    SKBR,
+    Bratislava,
     
     /// <summary>
     /// Code for Santiago.
+    /// Encoded/decoded by serializers as "CLSA".
     /// </summary>
     [EnumMember(Value = "CLSA")]
     [IsoId("_aoRkQdp-Ed-ak6NoX_4Aeg_627416745")]
     [Description(@"Code for Santiago.")]
-    CLSA,
+    Santiago,
     
     /// <summary>
     /// Code for Beijing.
+    /// Encoded/decoded by serializers as "CNBE".
     /// </summary>
     [EnumMember(Value = "CNBE")]
     [IsoId("_aoRkQtp-Ed-ak6NoX_4Aeg_627416746")]
     [Description(@"Code for Beijing.")]
-    CNBE,
+    Beijing,
     
     /// <summary>
     /// Code for Prague.
+    /// Encoded/decoded by serializers as "CZPR".
     /// </summary>
     [EnumMember(Value = "CZPR")]
     [IsoId("_aoRkQ9p-Ed-ak6NoX_4Aeg_627416747")]
     [Description(@"Code for Prague.")]
-    CZPR,
+    Prague,
     
     /// <summary>
     /// Code for Frankfurt.
+    /// Encoded/decoded by serializers as "DEFR".
     /// </summary>
     [EnumMember(Value = "DEFR")]
     [IsoId("_aoRkRNp-Ed-ak6NoX_4Aeg_627416748")]
     [Description(@"Code for Frankfurt.")]
-    DEFR,
+    Frankfurt,
     
     /// <summary>
     /// Code for Copenhagen.
+    /// Encoded/decoded by serializers as "DKCO".
     /// </summary>
     [EnumMember(Value = "DKCO")]
     [IsoId("_aoRkRdp-Ed-ak6NoX_4Aeg_627416749")]
     [Description(@"Code for Copenhagen.")]
-    DKCO,
+    Copenhagen,
     
     /// <summary>
     /// Code for Tallinn.
+    /// Encoded/decoded by serializers as "EETA".
     /// </summary>
     [EnumMember(Value = "EETA")]
     [IsoId("_aoRkRtp-Ed-ak6NoX_4Aeg_627416750")]
     [Description(@"Code for Tallinn.")]
-    EETA,
+    Tallinn,
     
     /// <summary>
     /// Code for Madrid.
+    /// Encoded/decoded by serializers as "ESMA".
     /// </summary>
     [EnumMember(Value = "ESMA")]
     [IsoId("_aoRkR9p-Ed-ak6NoX_4Aeg_627416758")]
     [Description(@"Code for Madrid.")]
-    ESMA,
+    Madrid,
     
     /// <summary>
     /// Code for Helsinki.
+    /// Encoded/decoded by serializers as "FIHE".
     /// </summary>
     [EnumMember(Value = "FIHE")]
     [IsoId("_aoRkSNp-Ed-ak6NoX_4Aeg_627416759")]
     [Description(@"Code for Helsinki.")]
-    FIHE,
+    Helsinki,
     
     /// <summary>
     /// Code for Paris.
+    /// Encoded/decoded by serializers as "FRPA".
     /// </summary>
     [EnumMember(Value = "FRPA")]
     [IsoId("_aoauMNp-Ed-ak6NoX_4Aeg_627416760")]
     [Description(@"Code for Paris.")]
-    FRPA,
+    Paris,
     
     /// <summary>
     /// Code for London.
+    /// Encoded/decoded by serializers as "GBLO".
     /// </summary>
     [EnumMember(Value = "GBLO")]
     [IsoId("_aoauMdp-Ed-ak6NoX_4Aeg_627416761")]
     [Description(@"Code for London.")]
-    GBLO,
+    London,
     
     /// <summary>
     /// Code for Athens.
+    /// Encoded/decoded by serializers as "GRAT".
     /// </summary>
     [EnumMember(Value = "GRAT")]
     [IsoId("_aoauMtp-Ed-ak6NoX_4Aeg_627416762")]
     [Description(@"Code for Athens.")]
-    GRAT,
+    Athens,
     
     /// <summary>
     /// Code for Hong Kong.
+    /// Encoded/decoded by serializers as "HKHK".
     /// </summary>
     [EnumMember(Value = "HKHK")]
     [IsoId("_aoauM9p-Ed-ak6NoX_4Aeg_627416763")]
     [Description(@"Code for Hong Kong.")]
-    HKHK,
+    HongKong,
     
     /// <summary>
     /// Code for Budapest.
+    /// Encoded/decoded by serializers as "HUBU".
     /// </summary>
     [EnumMember(Value = "HUBU")]
     [IsoId("_aoauNNp-Ed-ak6NoX_4Aeg_627416772")]
     [Description(@"Code for Budapest.")]
-    HUBU,
+    Budapest,
     
     /// <summary>
     /// Code for Jakarta.
+    /// Encoded/decoded by serializers as "IDJA".
     /// </summary>
     [EnumMember(Value = "IDJA")]
     [IsoId("_aoauNdp-Ed-ak6NoX_4Aeg_627416773")]
     [Description(@"Code for Jakarta.")]
-    IDJA,
+    Jakarta,
     
     /// <summary>
     /// Code for Dublin.
+    /// Encoded/decoded by serializers as "IEDU".
     /// </summary>
     [EnumMember(Value = "IEDU")]
     [IsoId("_aoauNtp-Ed-ak6NoX_4Aeg_627416774")]
     [Description(@"Code for Dublin.")]
-    IEDU,
+    Dublin,
     
     /// <summary>
     /// Code for Tel Aviv.
+    /// Encoded/decoded by serializers as "ILTA".
     /// </summary>
     [EnumMember(Value = "ILTA")]
     [IsoId("_aoauN9p-Ed-ak6NoX_4Aeg_627416775")]
     [Description(@"Code for Tel Aviv.")]
-    ILTA,
+    TelAviv,
     
     /// <summary>
     /// Code for Milan.
+    /// Encoded/decoded by serializers as "ITMI".
     /// </summary>
     [EnumMember(Value = "ITMI")]
     [IsoId("_aoauONp-Ed-ak6NoX_4Aeg_627416776")]
     [Description(@"Code for Milan.")]
-    ITMI,
+    Milan,
     
     /// <summary>
     /// Code for Rome.
+    /// Encoded/decoded by serializers as "ITRO".
     /// </summary>
     [EnumMember(Value = "ITRO")]
     [IsoId("_aoauOdp-Ed-ak6NoX_4Aeg_627416777")]
     [Description(@"Code for Rome.")]
-    ITRO,
+    Rome,
     
     /// <summary>
     /// Code for Tokyo.
+    /// Encoded/decoded by serializers as "JPTO".
     /// </summary>
     [EnumMember(Value = "JPTO")]
     [IsoId("_aokfMNp-Ed-ak6NoX_4Aeg_627416778")]
     [Description(@"Code for Tokyo.")]
-    JPTO,
+    Tokyo,
     
     /// <summary>
     /// Code for Seoul.
+    /// Encoded/decoded by serializers as "KRSE".
     /// </summary>
     [EnumMember(Value = "KRSE")]
     [IsoId("_aokfMdp-Ed-ak6NoX_4Aeg_627416779")]
     [Description(@"Code for Seoul.")]
-    KRSE,
+    Seoul,
     
     /// <summary>
     /// Code for Beirut.
+    /// Encoded/decoded by serializers as "LBBE".
     /// </summary>
     [EnumMember(Value = "LBBE")]
     [IsoId("_aokfMtp-Ed-ak6NoX_4Aeg_627416780")]
     [Description(@"Code for Beirut.")]
-    LBBE,
+    Beirut,
     
     /// <summary>
     /// Code for Luxembourg.
+    /// Encoded/decoded by serializers as "LULU".
     /// </summary>
     [EnumMember(Value = "LULU")]
     [IsoId("_aokfM9p-Ed-ak6NoX_4Aeg_627416781")]
     [Description(@"Code for Luxembourg.")]
-    LULU,
+    Luxembourg,
     
     /// <summary>
     /// Code for Kuala Lumpur.
+    /// Encoded/decoded by serializers as "MYKL".
     /// </summary>
     [EnumMember(Value = "MYKL")]
     [IsoId("_aokfNNp-Ed-ak6NoX_4Aeg_627416789")]
     [Description(@"Code for Kuala Lumpur.")]
-    MYKL,
+    KualaLumpur,
     
     /// <summary>
     /// Code for Mexico City.
+    /// Encoded/decoded by serializers as "MXMC".
     /// </summary>
     [EnumMember(Value = "MXMC")]
     [IsoId("_aokfNdp-Ed-ak6NoX_4Aeg_627416790")]
     [Description(@"Code for Mexico City.")]
-    MXMC,
+    MexicoCity,
     
     /// <summary>
     /// Code for Amsterdam.
+    /// Encoded/decoded by serializers as "NLAM".
     /// </summary>
     [EnumMember(Value = "NLAM")]
     [IsoId("_aokfNtp-Ed-ak6NoX_4Aeg_627416791")]
     [Description(@"Code for Amsterdam.")]
-    NLAM,
+    Amsterdam,
     
     /// <summary>
     /// Code for Oslo.
+    /// Encoded/decoded by serializers as "NOOS".
     /// </summary>
     [EnumMember(Value = "NOOS")]
     [IsoId("_aokfN9p-Ed-ak6NoX_4Aeg_627416792")]
     [Description(@"Code for Oslo.")]
-    NOOS,
+    Oslo,
     
     /// <summary>
     /// Code for New York Fed.
+    /// Encoded/decoded by serializers as "NYFD".
     /// </summary>
     [EnumMember(Value = "NYFD")]
     [IsoId("_aokfONp-Ed-ak6NoX_4Aeg_627416793")]
     [Description(@"Code for New York Fed.")]
-    NYFD,
+    NewYorkFed,
     
     /// <summary>
     /// Code for New York Stock Exchange.
+    /// Encoded/decoded by serializers as "NYSE".
     /// </summary>
     [EnumMember(Value = "NYSE")]
     [IsoId("_aokfOdp-Ed-ak6NoX_4Aeg_627416794")]
     [Description(@"Code for New York Stock Exchange.")]
-    NYSE,
+    NewYorkStockExchange,
     
     /// <summary>
     /// Code for Auckland.
+    /// Encoded/decoded by serializers as "NZAU".
     /// </summary>
     [EnumMember(Value = "NZAU")]
     [IsoId("_aouQMNp-Ed-ak6NoX_4Aeg_627416803")]
     [Description(@"Code for Auckland.")]
-    NZAU,
+    Auckland,
     
     /// <summary>
     /// Code for Wellington.
+    /// Encoded/decoded by serializers as "NZWE".
     /// </summary>
     [EnumMember(Value = "NZWE")]
     [IsoId("_aouQMdp-Ed-ak6NoX_4Aeg_627416804")]
     [Description(@"Code for Wellington.")]
-    NZWE,
+    Wellington,
     
     /// <summary>
     /// Code for Panama City.
+    /// Encoded/decoded by serializers as "PAPC".
     /// </summary>
     [EnumMember(Value = "PAPC")]
     [IsoId("_aouQMtp-Ed-ak6NoX_4Aeg_627416805")]
     [Description(@"Code for Panama City.")]
-    PAPC,
+    PanamaCity,
     
     /// <summary>
     /// Code for Manila.
+    /// Encoded/decoded by serializers as "PHMA".
     /// </summary>
     [EnumMember(Value = "PHMA")]
     [IsoId("_aouQM9p-Ed-ak6NoX_4Aeg_627416806")]
     [Description(@"Code for Manila.")]
-    PHMA,
+    Manila,
     
     /// <summary>
     /// Code for Warsaw.
+    /// Encoded/decoded by serializers as "PLWA".
     /// </summary>
     [EnumMember(Value = "PLWA")]
     [IsoId("_aouQNNp-Ed-ak6NoX_4Aeg_627416807")]
     [Description(@"Code for Warsaw.")]
-    PLWA,
+    Warsaw,
     
     /// <summary>
     /// Code for Lisbon.
+    /// Encoded/decoded by serializers as "PTLI".
     /// </summary>
     [EnumMember(Value = "PTLI")]
     [IsoId("_aouQNdp-Ed-ak6NoX_4Aeg_627416808")]
     [Description(@"Code for Lisbon.")]
-    PTLI,
+    Lisbon,
     
     /// <summary>
     /// Code for Moscow.
+    /// Encoded/decoded by serializers as "RUMO".
     /// </summary>
     [EnumMember(Value = "RUMO")]
     [IsoId("_aouQNtp-Ed-ak6NoX_4Aeg_627416809")]
     [Description(@"Code for Moscow.")]
-    RUMO,
+    Moscow,
     
     /// <summary>
     /// Code for Riyadh.
+    /// Encoded/decoded by serializers as "SARI".
     /// </summary>
     [EnumMember(Value = "SARI")]
     [IsoId("_aouQN9p-Ed-ak6NoX_4Aeg_627416810")]
     [Description(@"Code for Riyadh.")]
-    SARI,
+    Riyadh,
     
     /// <summary>
     /// Code for Stockholm.
+    /// Encoded/decoded by serializers as "SEST".
     /// </summary>
     [EnumMember(Value = "SEST")]
     [IsoId("_aouQONp-Ed-ak6NoX_4Aeg_627416811")]
     [Description(@"Code for Stockholm.")]
-    SEST,
+    Stockholm,
     
     /// <summary>
     /// Code for Singapore.
+    /// Encoded/decoded by serializers as "SGSI".
     /// </summary>
     [EnumMember(Value = "SGSI")]
     [IsoId("_aouQOdp-Ed-ak6NoX_4Aeg_627416812")]
     [Description(@"Code for Singapore.")]
-    SGSI,
+    Singapore,
     
     /// <summary>
     /// Code for Bangkok.
+    /// Encoded/decoded by serializers as "THBA".
     /// </summary>
     [EnumMember(Value = "THBA")]
     [IsoId("_ao3aINp-Ed-ak6NoX_4Aeg_627416820")]
     [Description(@"Code for Bangkok.")]
-    THBA,
+    Bangkok,
     
     /// <summary>
     /// Code for Taipei.
+    /// Encoded/decoded by serializers as "TWTA".
     /// </summary>
     [EnumMember(Value = "TWTA")]
     [IsoId("_ao3aIdp-Ed-ak6NoX_4Aeg_627416821")]
     [Description(@"Code for Taipei.")]
-    TWTA,
+    Taipei,
     
     /// <summary>
     /// Code for Ankara.
+    /// Encoded/decoded by serializers as "TRAN".
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_ao3aItp-Ed-ak6NoX_4Aeg_627416822")]
     [Description(@"Code for Ankara.")]
-    TRAN,
+    Ankara,
     
     /// <summary>
     /// Code for Chicago.
+    /// Encoded/decoded by serializers as "USCH".
     /// </summary>
     [EnumMember(Value = "USCH")]
     [IsoId("_ao3aI9p-Ed-ak6NoX_4Aeg_627416823")]
     [Description(@"Code for Chicago.")]
-    USCH,
+    Chicago,
     
     /// <summary>
     /// Code for Los Angeles.
+    /// Encoded/decoded by serializers as "USLA".
     /// </summary>
     [EnumMember(Value = "USLA")]
     [IsoId("_ao3aJNp-Ed-ak6NoX_4Aeg_627416824")]
     [Description(@"Code for Los Angeles.")]
-    USLA,
+    LosAngeles,
     
     /// <summary>
     /// Code for U.S. Government Securities.
+    /// Encoded/decoded by serializers as "USGS".
     /// </summary>
     [EnumMember(Value = "USGS")]
     [IsoId("_ao3aJdp-Ed-ak6NoX_4Aeg_627416825")]
     [Description(@"Code for U.S. Government Securities.")]
-    USGS,
+    USGovernmentSecurities,
     
     /// <summary>
     /// Code for New York.
+    /// Encoded/decoded by serializers as "USNY".
     /// </summary>
     [EnumMember(Value = "USNY")]
     [IsoId("_ao3aJtp-Ed-ak6NoX_4Aeg_627416834")]
     [Description(@"Code for New York.")]
-    USNY,
+    NewYork,
     
     /// <summary>
     /// Code for Johannesburg.
+    /// Encoded/decoded by serializers as "ZAJO".
     /// </summary>
     [EnumMember(Value = "ZAJO")]
     [IsoId("_ao3aJ9p-Ed-ak6NoX_4Aeg_627416835")]
     [Description(@"Code for Johannesburg.")]
-    ZAJO,
+    Johannesburg,
     
     /// <summary>
     /// Code for Zurich.
+    /// Encoded/decoded by serializers as "CHZU".
     /// </summary>
     [EnumMember(Value = "CHZU")]
     [IsoId("_ao3aKNp-Ed-ak6NoX_4Aeg_627416836")]
     [Description(@"Code for Zurich.")]
-    CHZU,
+    Zurich,
     
 }
 

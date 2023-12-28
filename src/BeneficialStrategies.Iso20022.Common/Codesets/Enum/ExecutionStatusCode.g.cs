@@ -20,19 +20,21 @@ public enum ExecutionStatusCode
 {
     /// <summary>
     /// Transaction which has been initiated and has not yet closed.
+    /// Encoded/decoded by serializers as "INTD".
     /// </summary>
     [EnumMember(Value = "INTD")]
     [IsoId("_9-YvcMX0EeiSF9q-coWegA")]
     [Description(@"Transaction which has been initiated and has not yet closed.")]
-    INTD,
+    Initiated,
     
     /// <summary>
     /// Pending Initiation.
+    /// Encoded/decoded by serializers as "PINT".
     /// </summary>
     [EnumMember(Value = "PINT")]
     [IsoId("_CeKtcMX1EeiSF9q-coWegA")]
     [Description(@"Pending Initiation.")]
-    PINT,
+    PendingInitiation,
     
 }
 

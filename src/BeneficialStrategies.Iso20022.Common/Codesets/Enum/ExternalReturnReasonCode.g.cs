@@ -21,838 +21,942 @@ public enum ExternalReturnReasonCode
 {
     /// <summary>
     /// Format of the account number specified is not correct
+    /// Encoded/decoded by serializers as "AC01".
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_t4yAufRYEeuLhpyIdtJzwg")]
     [Description(@"Format of the account number specified is not correct")]
-    AC01,
+    IncorrectAccountNumber,
     
     /// <summary>
     /// Wrong IBAN in SCT
+    /// Encoded/decoded by serializers as "AC03".
     /// </summary>
     [EnumMember(Value = "AC03")]
     [IsoId("_t4yAvPRYEeuLhpyIdtJzwg")]
     [Description(@"Wrong IBAN in SCT")]
-    AC03,
+    InvalidCreditorAccountNumber,
     
     /// <summary>
     /// Account number specified has been closed on the bank of account's books
+    /// Encoded/decoded by serializers as "AC04".
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_t47xsPRYEeuLhpyIdtJzwg")]
     [Description(@"Account number specified has been closed on the bank of account's books")]
-    AC04,
+    ClosedAccountNumber,
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
+    /// Encoded/decoded by serializers as "AC06".
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_t47xs_RYEeuLhpyIdtJzwg")]
     [Description(@"Account specified is blocked, prohibiting posting of transactions against it.")]
-    AC06,
+    BlockedAccount,
     
     /// <summary>
     /// Debtor account type is missing or invalid
+    /// Encoded/decoded by serializers as "AC13".
     /// </summary>
     [EnumMember(Value = "AC13")]
     [IsoId("_t47xtvRYEeuLhpyIdtJzwg")]
     [Description(@"Debtor account type is missing or invalid")]
-    AC13,
+    InvalidDebtorAccountType,
     
     /// <summary>
     /// An agent in the payment chain is invalid.
+    /// Encoded/decoded by serializers as "AC14".
     /// </summary>
     [EnumMember(Value = "AC14")]
     [IsoId("_t47xufRYEeuLhpyIdtJzwg")]
     [Description(@"An agent in the payment chain is invalid.")]
-    AC14,
+    InvalidAgent,
     
     /// <summary>
     /// Account details have changed.
+    /// Encoded/decoded by serializers as "AC15".
     /// </summary>
     [EnumMember(Value = "AC15")]
     [IsoId("_t47xvPRYEeuLhpyIdtJzwg")]
     [Description(@"Account details have changed.")]
-    AC15,
+    AccountDetailsChanged,
     
     /// <summary>
     /// Account is in sequestration.
+    /// Encoded/decoded by serializers as "AC16".
     /// </summary>
     [EnumMember(Value = "AC16")]
     [IsoId("_t5FisPRYEeuLhpyIdtJzwg")]
     [Description(@"Account is in sequestration.")]
-    AC16,
+    AccountInSequestration,
     
     /// <summary>
     /// Account is in liquidation.
+    /// Encoded/decoded by serializers as "AC17".
     /// </summary>
     [EnumMember(Value = "AC17")]
     [IsoId("_t5Fis_RYEeuLhpyIdtJzwg")]
     [Description(@"Account is in liquidation.")]
-    AC17,
+    AccountInLiquidation,
     
     /// <summary>
     /// Transaction forbidden on this type of account (formerly NoAgreement)
+    /// Encoded/decoded by serializers as "AG01".
     /// </summary>
     [EnumMember(Value = "AG01")]
     [IsoId("_t5OsoPRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction forbidden on this type of account (formerly NoAgreement)")]
-    AG01,
+    TransactionForbidden,
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver
+    /// Encoded/decoded by serializers as "AG02".
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_t5Oso_RYEeuLhpyIdtJzwg")]
     [Description(@"Bank Operation code specified in the message is not valid for receiver")]
-    AG02,
+    InvalidBankOperationCode,
     
     /// <summary>
     /// Specified message amount is equal to zero
+    /// Encoded/decoded by serializers as "AM01".
     /// </summary>
     [EnumMember(Value = "AM01")]
     [IsoId("_t5YdoPRYEeuLhpyIdtJzwg")]
     [Description(@"Specified message amount is equal to zero")]
-    AM01,
+    ZeroAmount,
     
     /// <summary>
     /// Specific transaction/message amount is greater than allowed maximum
+    /// Encoded/decoded by serializers as "AM02".
     /// </summary>
     [EnumMember(Value = "AM02")]
     [IsoId("_t5Ydo_RYEeuLhpyIdtJzwg")]
     [Description(@"Specific transaction/message amount is greater than allowed maximum")]
-    AM02,
+    NotAllowedAmount,
     
     /// <summary>
     /// Specified message amount is an non processable currency outside of existing agreement
+    /// Encoded/decoded by serializers as "AM03".
     /// </summary>
     [EnumMember(Value = "AM03")]
     [IsoId("_t5iOoPRYEeuLhpyIdtJzwg")]
     [Description(@"Specified message amount is an non processable currency outside of existing agreement")]
-    AM03,
+    NotAllowedCurrency,
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
+    /// Encoded/decoded by serializers as "AM04".
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_t5iOo_RYEeuLhpyIdtJzwg")]
     [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
-    AM04,
+    InsufficientFunds,
     
     /// <summary>
     /// Duplication
+    /// Encoded/decoded by serializers as "AM05".
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_t5iOpvRYEeuLhpyIdtJzwg")]
     [Description(@"Duplication")]
-    AM05,
+    Duplication,
     
     /// <summary>
     /// Specified transaction amount is less than agreed minimum.
+    /// Encoded/decoded by serializers as "AM06".
     /// </summary>
     [EnumMember(Value = "AM06")]
     [IsoId("_t5iOqfRYEeuLhpyIdtJzwg")]
     [Description(@"Specified transaction amount is less than agreed minimum.")]
-    AM06,
+    TooLowAmount,
     
     /// <summary>
     /// Amount specified in message has been blocked by regulatory authorities.
+    /// Encoded/decoded by serializers as "AM07".
     /// </summary>
     [EnumMember(Value = "AM07")]
     [IsoId("_t5rYkPRYEeuLhpyIdtJzwg")]
     [Description(@"Amount specified in message has been blocked by regulatory authorities.")]
-    AM07,
+    BlockedAmount,
     
     /// <summary>
     /// Amount received is not the amount agreed or expected
+    /// Encoded/decoded by serializers as "AM09".
     /// </summary>
     [EnumMember(Value = "AM09")]
     [IsoId("_t5rYk_RYEeuLhpyIdtJzwg")]
     [Description(@"Amount received is not the amount agreed or expected")]
-    AM09,
+    WrongAmount,
     
     /// <summary>
     /// Sum of instructed amounts does not equal the control sum.
+    /// Encoded/decoded by serializers as "AM10".
     /// </summary>
     [EnumMember(Value = "AM10")]
     [IsoId("_t5rYlvRYEeuLhpyIdtJzwg")]
     [Description(@"Sum of instructed amounts does not equal the control sum.")]
-    AM10,
+    InvalidControlSum,
     
     /// <summary>
     /// Already returned original SCT
+    /// Encoded/decoded by serializers as "ARDT".
     /// </summary>
     [EnumMember(Value = "ARDT")]
     [IsoId("_t5rYmfRYEeuLhpyIdtJzwg")]
     [Description(@"Already returned original SCT")]
-    ARDT,
+    AlreadyReturnedTransaction,
     
     /// <summary>
     /// Identification of end customer is not consistent with associated account number, organisation ID or private ID.
+    /// Encoded/decoded by serializers as "BE01".
     /// </summary>
     [EnumMember(Value = "BE01")]
     [IsoId("_t51JkPRYEeuLhpyIdtJzwg")]
     [Description(@"Identification of end customer is not consistent with associated account number, organisation ID or private ID.")]
-    BE01,
+    InconsistenWithEndCustomer,
     
     /// <summary>
     /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
+    /// Encoded/decoded by serializers as "BE04".
     /// </summary>
     [EnumMember(Value = "BE04")]
     [IsoId("_t51Jk_RYEeuLhpyIdtJzwg")]
     [Description(@"Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).")]
-    BE04,
+    MissingCreditorAddress,
     
     /// <summary>
     /// Party who initiated the message is not recognised by the end customer
+    /// Encoded/decoded by serializers as "BE05".
     /// </summary>
     [EnumMember(Value = "BE05")]
     [IsoId("_t5-6kPRYEeuLhpyIdtJzwg")]
     [Description(@"Party who initiated the message is not recognised by the end customer")]
-    BE05,
+    UnrecognisedInitiatingParty,
     
     /// <summary>
     /// End customer specified is not known at associated Sort/National Bank Code or does no longer exist in the books
+    /// Encoded/decoded by serializers as "BE06".
     /// </summary>
     [EnumMember(Value = "BE06")]
     [IsoId("_t5-6k_RYEeuLhpyIdtJzwg")]
     [Description(@"End customer specified is not known at associated Sort/National Bank Code or does no longer exist in the books")]
-    BE06,
+    UnknownEndCustomer,
     
     /// <summary>
     /// Specification of debtor's address, which is required for payment, is missing/not correct.
+    /// Encoded/decoded by serializers as "BE07".
     /// </summary>
     [EnumMember(Value = "BE07")]
     [IsoId("_t5-6lvRYEeuLhpyIdtJzwg")]
     [Description(@"Specification of debtor's address, which is required for payment, is missing/not correct.")]
-    BE07,
+    MissingDebtorAddress,
     
     /// <summary>
     /// Returned as a result of a bank error.
+    /// Encoded/decoded by serializers as "BE08".
     /// </summary>
     [EnumMember(Value = "BE08")]
     [IsoId("_t5-6mfRYEeuLhpyIdtJzwg")]
     [Description(@"Returned as a result of a bank error.")]
-    BE08,
+    BankError,
     
     /// <summary>
     /// Authorisation is cancelled.
+    /// Encoded/decoded by serializers as "CN01".
     /// </summary>
     [EnumMember(Value = "CN01")]
     [IsoId("_t5-6nPRYEeuLhpyIdtJzwg")]
     [Description(@"Authorisation is cancelled.")]
-    CN01,
+    AuthorisationCancelled,
     
     /// <summary>
     /// Creditor bank is not registered under this BIC in the CSM
+    /// Encoded/decoded by serializers as "CNOR".
     /// </summary>
     [EnumMember(Value = "CNOR")]
     [IsoId("_t6IEgPRYEeuLhpyIdtJzwg")]
     [Description(@"Creditor bank is not registered under this BIC in the CSM")]
-    CNOR,
+    CreditorBankIsNotRegistered,
     
     /// <summary>
     /// Cash not picked up by Creditor or cash could not be delivered to Creditor
+    /// Encoded/decoded by serializers as "CNPC".
     /// </summary>
     [EnumMember(Value = "CNPC")]
     [IsoId("_t6R1gPRYEeuLhpyIdtJzwg")]
     [Description(@"Cash not picked up by Creditor or cash could not be delivered to Creditor")]
-    CNPC,
+    CashNotPickedUp,
     
     /// <summary>
     /// Currency of the payment is incorrect
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_t6R1g_RYEeuLhpyIdtJzwg")]
     [Description(@"Currency of the payment is incorrect")]
-    CURR,
+    IncorrectCurrency,
     
     /// <summary>
     /// Cancellation requested by the Debtor
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_t6R1hvRYEeuLhpyIdtJzwg")]
     [Description(@"Cancellation requested by the Debtor")]
-    CUST,
+    RequestedByCustomer,
     
     /// <summary>
     /// Debtor bank is not registered under this BIC in the CSM
+    /// Encoded/decoded by serializers as "DNOR".
     /// </summary>
     [EnumMember(Value = "DNOR")]
     [IsoId("_t6bmgPRYEeuLhpyIdtJzwg")]
     [Description(@"Debtor bank is not registered under this BIC in the CSM")]
-    DNOR,
+    DebtorBankIsNotRegistered,
     
     /// <summary>
     /// Return following technical problems resulting in erroneous transaction.
+    /// Encoded/decoded by serializers as "DS28".
     /// </summary>
     [EnumMember(Value = "DS28")]
     [IsoId("_t6bmg_RYEeuLhpyIdtJzwg")]
     [Description(@"Return following technical problems resulting in erroneous transaction.")]
-    DS28,
+    ReturnForTechnicalReason,
     
     /// <summary>
     /// Invalid date (eg, wrong settlement date)
+    /// Encoded/decoded by serializers as "DT01".
     /// </summary>
     [EnumMember(Value = "DT01")]
     [IsoId("_t6kwcPRYEeuLhpyIdtJzwg")]
     [Description(@"Invalid date (eg, wrong settlement date)")]
-    DT01,
+    InvalidDate,
     
     /// <summary>
     /// Cheque has been issued but not deposited and is considered expired.
+    /// Encoded/decoded by serializers as "DT02".
     /// </summary>
     [EnumMember(Value = "DT02")]
     [IsoId("_t6kwc_RYEeuLhpyIdtJzwg")]
     [Description(@"Cheque has been issued but not deposited and is considered expired.")]
-    DT02,
+    ChequeExpired,
     
     /// <summary>
     /// Correspondent bank not possible.
+    /// Encoded/decoded by serializers as "ED01".
     /// </summary>
     [EnumMember(Value = "ED01")]
     [IsoId("_t6uhcPRYEeuLhpyIdtJzwg")]
     [Description(@"Correspondent bank not possible.")]
-    ED01,
+    CorrespondentBankNotPossible,
     
     /// <summary>
     /// Balance of payments complementary info is requested
+    /// Encoded/decoded by serializers as "ED03".
     /// </summary>
     [EnumMember(Value = "ED03")]
     [IsoId("_t6uhc_RYEeuLhpyIdtJzwg")]
     [Description(@"Balance of payments complementary info is requested")]
-    ED03,
+    BalanceInfoRequest,
     
     /// <summary>
     /// Settlement of the transaction has failed.
+    /// Encoded/decoded by serializers as "ED05".
     /// </summary>
     [EnumMember(Value = "ED05")]
     [IsoId("_t6uhdvRYEeuLhpyIdtJzwg")]
     [Description(@"Settlement of the transaction has failed.")]
-    ED05,
+    SettlementFailed,
     
     /// <summary>
     /// The card payment is fraudulent and was not processed with EMV technology for an EMV card. 
+    /// Encoded/decoded by serializers as "EMVL".
     /// </summary>
     [EnumMember(Value = "EMVL")]
     [IsoId("_t6uhefRYEeuLhpyIdtJzwg")]
     [Description(@"The card payment is fraudulent and was not processed with EMV technology for an EMV card. ")]
-    EMVL,
+    EMVLiabilityShift,
     
     /// <summary>
     /// The Extended Remittance Information (ERI) option is not supported.
+    /// Encoded/decoded by serializers as "ERIN".
     /// </summary>
     [EnumMember(Value = "ERIN")]
     [IsoId("_t6uhfPRYEeuLhpyIdtJzwg")]
     [Description(@"The Extended Remittance Information (ERI) option is not supported.")]
-    ERIN,
+    ERIOptionNotSupported,
     
     /// <summary>
     /// Local Instrument code is missing or invalid
+    /// Encoded/decoded by serializers as "FF05".
     /// </summary>
     [EnumMember(Value = "FF05")]
     [IsoId("_t63rYPRYEeuLhpyIdtJzwg")]
     [Description(@"Local Instrument code is missing or invalid")]
-    FF05,
+    InvalidLocalInstrumentCode,
     
     /// <summary>
     /// Return following a cancellation request
+    /// Encoded/decoded by serializers as "FOCR".
     /// </summary>
     [EnumMember(Value = "FOCR")]
     [IsoId("_t63rY_RYEeuLhpyIdtJzwg")]
     [Description(@"Return following a cancellation request")]
-    FOCR,
+    FollowingCancellationRequest,
     
     /// <summary>
     /// Returned as a result of fraud.
+    /// Encoded/decoded by serializers as "FR01".
     /// </summary>
     [EnumMember(Value = "FR01")]
     [IsoId("_t7BcYPRYEeuLhpyIdtJzwg")]
     [Description(@"Returned as a result of fraud.")]
-    FR01,
+    Fraud,
     
     /// <summary>
     /// Final response/tracking is recalled as mandate is cancelled.
+    /// Encoded/decoded by serializers as "FRTR".
     /// </summary>
     [EnumMember(Value = "FRTR")]
     [IsoId("_t7BcY_RYEeuLhpyIdtJzwg")]
     [Description(@"Final response/tracking is recalled as mandate is cancelled.")]
-    FRTR,
+    FinalResponseMandateCancelled,
     
     /// <summary>
     /// No Mandate
+    /// Encoded/decoded by serializers as "MD01".
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_t7BcZvRYEeuLhpyIdtJzwg")]
     [Description(@"No Mandate")]
-    MD01,
+    NoMandate,
     
     /// <summary>
     /// Mandate related information data required by the scheme is missing.
+    /// Encoded/decoded by serializers as "MD02".
     /// </summary>
     [EnumMember(Value = "MD02")]
     [IsoId("_t7LNYPRYEeuLhpyIdtJzwg")]
     [Description(@"Mandate related information data required by the scheme is missing.")]
-    MD02,
+    MissingMandatoryInformationInMandate,
     
     /// <summary>
     /// Return of funds requested by end customer
+    /// Encoded/decoded by serializers as "MD06".
     /// </summary>
     [EnumMember(Value = "MD06")]
     [IsoId("_t7LNY_RYEeuLhpyIdtJzwg")]
     [Description(@"Return of funds requested by end customer")]
-    MD06,
+    RefundRequestByEndCustomer,
     
     /// <summary>
     /// End customer is deceased.
+    /// Encoded/decoded by serializers as "MD07".
     /// </summary>
     [EnumMember(Value = "MD07")]
     [IsoId("_t7UXUPRYEeuLhpyIdtJzwg")]
     [Description(@"End customer is deceased.")]
-    MD07,
+    EndCustomerDeceased,
     
     /// <summary>
     /// Reason has not been specified by end customer
+    /// Encoded/decoded by serializers as "MS02".
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_t7UXU_RYEeuLhpyIdtJzwg")]
     [Description(@"Reason has not been specified by end customer")]
-    MS02,
+    NotSpecifiedReasonCustomerGenerated,
     
     /// <summary>
     /// Reason has not been specified by agent.
+    /// Encoded/decoded by serializers as "MS03".
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_t7UXVvRYEeuLhpyIdtJzwg")]
     [Description(@"Reason has not been specified by agent.")]
-    MS03,
+    NotSpecifiedReasonAgentGenerated,
     
     /// <summary>
     /// Reason is provided as narrative information in the additional reason information.
+    /// Encoded/decoded by serializers as "NARR".
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_t7eIUPRYEeuLhpyIdtJzwg")]
     [Description(@"Reason is provided as narrative information in the additional reason information.")]
-    NARR,
+    Narrative,
     
     /// <summary>
     /// No response from Beneficiary
+    /// Encoded/decoded by serializers as "NOAS".
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_t7eIU_RYEeuLhpyIdtJzwg")]
     [Description(@"No response from Beneficiary")]
-    NOAS,
+    NoAnswerFromCustomer,
     
     /// <summary>
     /// Customer account is not compliant with regulatory requirements, for example FICA (in South Africa) or any other regulatory requirements which render an account inactive for certain processing.
+    /// Encoded/decoded by serializers as "NOCM".
     /// </summary>
     [EnumMember(Value = "NOCM")]
     [IsoId("_t7eIVvRYEeuLhpyIdtJzwg")]
     [Description(@"Customer account is not compliant with regulatory requirements, for example FICA (in South Africa) or any other regulatory requirements which render an account inactive for certain processing.")]
-    NOCM,
+    NotCompliant,
     
     /// <summary>
     /// Original SCT never received
+    /// Encoded/decoded by serializers as "NOOR".
     /// </summary>
     [EnumMember(Value = "NOOR")]
     [IsoId("_t7eIWfRYEeuLhpyIdtJzwg")]
     [Description(@"Original SCT never received")]
-    NOOR,
+    NoOriginalTransactionReceived,
     
     /// <summary>
     /// The card payment is fraudulent (lost and stolen fraud) and was processed as EMV transaction without PIN verification.
+    /// Encoded/decoded by serializers as "PINL".
     /// </summary>
     [EnumMember(Value = "PINL")]
     [IsoId("_t7eIXPRYEeuLhpyIdtJzwg")]
     [Description(@"The card payment is fraudulent (lost and stolen fraud) and was processed as EMV transaction without PIN verification.")]
-    PINL,
+    PINLiabilityShift,
     
     /// <summary>
     /// Bank Identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
+    /// Encoded/decoded by serializers as "RC01".
     /// </summary>
     [EnumMember(Value = "RC01")]
     [IsoId("_t7n5UPRYEeuLhpyIdtJzwg")]
     [Description(@"Bank Identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).")]
-    RC01,
+    BankIdentifierIncorrect,
     
     /// <summary>
     /// Incorrrect BIC of the beneficiary Bank in the SCTR
+    /// Encoded/decoded by serializers as "RC07".
     /// </summary>
     [EnumMember(Value = "RC07")]
     [IsoId("_t7n5U_RYEeuLhpyIdtJzwg")]
     [Description(@"Incorrrect BIC of the beneficiary Bank in the SCTR")]
-    RC07,
+    InvalidCreditorBICIdentifier,
     
     /// <summary>
     /// Transaction reference is not unique within the message.
+    /// Encoded/decoded by serializers as "RF01".
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_t7n5VvRYEeuLhpyIdtJzwg")]
     [Description(@"Transaction reference is not unique within the message.")]
-    RF01,
+    NotUniqueTransactionReference,
     
     /// <summary>
     /// Specification of the debtor’s account or unique identification needed for reasons of regulatory requirements is insufficient or missing
+    /// Encoded/decoded by serializers as "RR01".
     /// </summary>
     [EnumMember(Value = "RR01")]
     [IsoId("_t7n5WfRYEeuLhpyIdtJzwg")]
     [Description(@"Specification of the debtor’s account or unique identification needed for reasons of regulatory requirements is insufficient or missing")]
-    RR01,
+    MissingDebtorAccountOrIdentification,
     
     /// <summary>
     /// Specification of the debtor’s name and/or address needed for regulatory requirements is insufficient or missing.
+    /// Encoded/decoded by serializers as "RR02".
     /// </summary>
     [EnumMember(Value = "RR02")]
     [IsoId("_t7xDQPRYEeuLhpyIdtJzwg")]
     [Description(@"Specification of the debtor’s name and/or address needed for regulatory requirements is insufficient or missing.")]
-    RR02,
+    MissingDebtorNameOrAddress,
     
     /// <summary>
     /// Specification of the creditor’s name and/or address needed for regulatory requirements is insufficient or missing.
+    /// Encoded/decoded by serializers as "RR03".
     /// </summary>
     [EnumMember(Value = "RR03")]
     [IsoId("_t7xDQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Specification of the creditor’s name and/or address needed for regulatory requirements is insufficient or missing.")]
-    RR03,
+    MissingCreditorNameOrAddress,
     
     /// <summary>
     /// Regulatory Reason
+    /// Encoded/decoded by serializers as "RR04".
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_t7xDRvRYEeuLhpyIdtJzwg")]
     [Description(@"Regulatory Reason")]
-    RR04,
+    RegulatoryReason,
     
     /// <summary>
     /// Return following investigation request and no remediation possible.
+    /// Encoded/decoded by serializers as "RUTA".
     /// </summary>
     [EnumMember(Value = "RUTA")]
     [IsoId("_t760QPRYEeuLhpyIdtJzwg")]
     [Description(@"Return following investigation request and no remediation possible.")]
-    RUTA,
+    ReturnUponUnableToApply,
     
     /// <summary>
     /// Due to specific service offered by the Debtor Agent
+    /// Encoded/decoded by serializers as "SL01".
     /// </summary>
     [EnumMember(Value = "SL01")]
     [IsoId("_t760Q_RYEeuLhpyIdtJzwg")]
     [Description(@"Due to specific service offered by the Debtor Agent")]
-    SL01,
+    SpecificServiceOfferedByDebtorAgent,
     
     /// <summary>
     /// Due to specific service offered by the Creditor Agent
+    /// Encoded/decoded by serializers as "SL02".
     /// </summary>
     [EnumMember(Value = "SL02")]
     [IsoId("_t760RvRYEeuLhpyIdtJzwg")]
     [Description(@"Due to specific service offered by the Creditor Agent")]
-    SL02,
+    SpecificServiceOfferedByCreditorAgent,
     
     /// <summary>
     /// Whitelisting service offered by the Debtor Agent; Debtor has not included the Creditor on its “Whitelist” (yet). In the Whitelist the Debtor may list all allowed Creditors to debit Debtor bank account.
+    /// Encoded/decoded by serializers as "SL11".
     /// </summary>
     [EnumMember(Value = "SL11")]
     [IsoId("_t760SfRYEeuLhpyIdtJzwg")]
     [Description(@"Whitelisting service offered by the Debtor Agent; Debtor has not included the Creditor on its “Whitelist” (yet). In the Whitelist the Debtor may list all allowed Creditors to debit Debtor bank account.")]
-    SL11,
+    CreditorNotOnWhitelistOfDebtor,
     
     /// <summary>
     /// Blacklisting service offered by the Debtor Agent; Debtor included the Creditor on his “Blacklist”. In the Blacklist the Debtor may list all Creditors not allowed to debit Debtor bank account.
+    /// Encoded/decoded by serializers as "SL12".
     /// </summary>
     [EnumMember(Value = "SL12")]
     [IsoId("_t8ElQPRYEeuLhpyIdtJzwg")]
     [Description(@"Blacklisting service offered by the Debtor Agent; Debtor included the Creditor on his “Blacklist”. In the Blacklist the Debtor may list all Creditors not allowed to debit Debtor bank account.")]
-    SL12,
+    CreditorOnBlacklistOfDebtor,
     
     /// <summary>
     /// Due to Maximum allowed Direct Debit Transactions per period service offered by the Debtor Agent.
+    /// Encoded/decoded by serializers as "SL13".
     /// </summary>
     [EnumMember(Value = "SL13")]
     [IsoId("_t8ElQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Due to Maximum allowed Direct Debit Transactions per period service offered by the Debtor Agent.")]
-    SL13,
+    MaximumNumberOfDirectDebitTransactionsExceeded,
     
     /// <summary>
     /// Due to Maximum allowed Direct Debit Transaction amount service offered by the Debtor Agent.
+    /// Encoded/decoded by serializers as "SL14".
     /// </summary>
     [EnumMember(Value = "SL14")]
     [IsoId("_t8ElRvRYEeuLhpyIdtJzwg")]
     [Description(@"Due to Maximum allowed Direct Debit Transaction amount service offered by the Debtor Agent.")]
-    SL14,
+    MaximumDirectDebitTransactionAmountExceeded,
     
     /// <summary>
     /// Payment is stopped by account holder.
+    /// Encoded/decoded by serializers as "SP01".
     /// </summary>
     [EnumMember(Value = "SP01")]
     [IsoId("_t8NvMPRYEeuLhpyIdtJzwg")]
     [Description(@"Payment is stopped by account holder.")]
-    SP01,
+    PaymentStopped,
     
     /// <summary>
     /// Previously stopped by means of a stop payment advise.
+    /// Encoded/decoded by serializers as "SP02".
     /// </summary>
     [EnumMember(Value = "SP02")]
     [IsoId("_t8NvM_RYEeuLhpyIdtJzwg")]
     [Description(@"Previously stopped by means of a stop payment advise.")]
-    SP02,
+    PreviouslyStopped,
     
     /// <summary>
     /// The card payment is returned since a cash amount rendered was not correct or goods or a service was not rendered to the customer, e.g. in an e-commerce situation.
+    /// Encoded/decoded by serializers as "SVNR".
     /// </summary>
     [EnumMember(Value = "SVNR")]
     [IsoId("_t8W5IPRYEeuLhpyIdtJzwg")]
     [Description(@"The card payment is returned since a cash amount rendered was not correct or goods or a service was not rendered to the customer, e.g. in an e-commerce situation.")]
-    SVNR,
+    ServiceNotRendered,
     
     /// <summary>
     /// Associated message was received after agreed processing cut-off time.
+    /// Encoded/decoded by serializers as "TM01".
     /// </summary>
     [EnumMember(Value = "TM01")]
     [IsoId("_t8W5I_RYEeuLhpyIdtJzwg")]
     [Description(@"Associated message was received after agreed processing cut-off time.")]
-    TM01,
+    CutOffTime,
     
     /// <summary>
     /// Return following direct debit being removed from tracking process.
+    /// Encoded/decoded by serializers as "TRAC".
     /// </summary>
     [EnumMember(Value = "TRAC")]
     [IsoId("_t8W5JvRYEeuLhpyIdtJzwg")]
     [Description(@"Return following direct debit being removed from tracking process.")]
-    TRAC,
+    RemovedFromTracking,
     
     /// <summary>
     /// Payment is not justified.
+    /// Encoded/decoded by serializers as "UPAY".
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_t8W5KfRYEeuLhpyIdtJzwg")]
     [Description(@"Payment is not justified.")]
-    UPAY,
+    UnduePayment,
     
     /// <summary>
     /// Debtor account number invalid or missing.
+    /// Encoded/decoded by serializers as "AC02".
     /// </summary>
     [EnumMember(Value = "AC02")]
     [IsoId("_pATTgAQqEey95qpfbNuEwg")]
     [Description(@"Debtor account number invalid or missing.")]
-    AC02,
+    InvalidDebtorAccountNumber,
     
     /// <summary>
     /// Creditor account number closed.
+    /// Encoded/decoded by serializers as "AC07".
     /// </summary>
     [EnumMember(Value = "AC07")]
     [IsoId("_y0OEoAQqEey95qpfbNuEwg")]
     [Description(@"Creditor account number closed.")]
-    AC07,
+    ClosedCreditorAccountNumber,
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
+    /// Encoded/decoded by serializers as "AGNT".
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_6tOoQAQqEey95qpfbNuEwg")]
     [Description(@"Agent in the payment workflow is incorrect.")]
-    AGNT,
+    IncorrectAgent,
     
     /// <summary>
     /// Debtor account cannot be debited for a generic reason.
     /// Usage: Code value may be used in general purposes and as a replacement for AM04 if debtor bank does not reveal its customer's insufficient funds for privacy reasons.
+    /// Encoded/decoded by serializers as "AG07".
     /// </summary>
     [EnumMember(Value = "AG07")]
     [IsoId("_BKveQAQrEey95qpfbNuEwg")]
     [Description(@"Debtor account cannot be debited for a generic reason. Usage: Code value may be used in general purposes and as a replacement for AM04 if debtor bank does not reveal its customer's insufficient funds for privacy reasons.")]
-    AG07,
+    UnsuccesfulDirectDebit,
     
     /// <summary>
     /// Debtor country code is missing or invalid.
+    /// Encoded/decoded by serializers as "BE10".
     /// </summary>
     [EnumMember(Value = "BE10")]
     [IsoId("_L76h0AQrEey95qpfbNuEwg")]
     [Description(@"Debtor country code is missing or invalid.")]
-    BE10,
+    InvalidDebtorCountry,
     
     /// <summary>
     /// Creditor country code is missing or invalid.
+    /// Encoded/decoded by serializers as "BE11".
     /// </summary>
     [EnumMember(Value = "BE11")]
     [IsoId("_SOZMgAQrEey95qpfbNuEwg")]
     [Description(@"Creditor country code is missing or invalid.")]
-    BE11,
+    InvalidCreditorCountry,
     
     /// <summary>
     /// Debtor or Ultimate Debtor identification code missing or invalid.
+    /// Encoded/decoded by serializers as "BE16".
     /// </summary>
     [EnumMember(Value = "BE16")]
     [IsoId("_j05o0AQuEey95qpfbNuEwg")]
     [Description(@"Debtor or Ultimate Debtor identification code missing or invalid.")]
-    BE16,
+    InvalidDebtorIdentificationCode,
     
     /// <summary>
     /// Creditor or Ultimate Creditor identification code missing or invalid.
+    /// Encoded/decoded by serializers as "BE17".
     /// </summary>
     [EnumMember(Value = "BE17")]
     [IsoId("_xDcGsAQuEey95qpfbNuEwg")]
     [Description(@"Creditor or Ultimate Creditor identification code missing or invalid.")]
-    BE17,
+    InvalidCreditorIdentificationCode,
     
     /// <summary>
     /// Payment Type Information is missing or invalid.
     /// Generic usage if cannot specify Service Level or Local Instrument code.
+    /// Encoded/decoded by serializers as "FF03".
     /// </summary>
     [EnumMember(Value = "FF03")]
     [IsoId("_4ZH60AQuEey95qpfbNuEwg")]
     [Description(@"Payment Type Information is missing or invalid. Generic usage if cannot specify Service Level or Local Instrument code.")]
-    FF03,
+    InvalidPaymentTypeInformation,
     
     /// <summary>
     /// Service Level code is missing or invalid.
+    /// Encoded/decoded by serializers as "FF04".
     /// </summary>
     [EnumMember(Value = "FF04")]
     [IsoId("_HqWpMAQvEey95qpfbNuEwg")]
     [Description(@"Service Level code is missing or invalid.")]
-    FF04,
+    InvalidServiceLevelCode,
     
     /// <summary>
     /// Category Purpose code is missing or invalid.
+    /// Encoded/decoded by serializers as "FF06".
     /// </summary>
     [EnumMember(Value = "FF06")]
     [IsoId("_QhCWAAQvEey95qpfbNuEwg")]
     [Description(@"Category Purpose code is missing or invalid.")]
-    FF06,
+    InvalidCategoryPurposeCode,
     
     /// <summary>
     /// Purpose is missing or invalid.
+    /// Encoded/decoded by serializers as "FF07".
     /// </summary>
     [EnumMember(Value = "FF07")]
     [IsoId("_YMLcwAQvEey95qpfbNuEwg")]
     [Description(@"Purpose is missing or invalid.")]
-    FF07,
+    InvalidPurpose,
     
     /// <summary>
     /// In a FIToFI Customer Credit Transfer: Credit to the creditor’s account is pending, status Originator is waiting for funds provided via a cover. Update will follow from the Status Originator.
+    /// Encoded/decoded by serializers as "G004".
     /// </summary>
     [EnumMember(Value = "G004")]
     [IsoId("_d_0PUAQvEey95qpfbNuEwg")]
     [Description(@"In a FIToFI Customer Credit Transfer: Credit to the creditor’s account is pending, status Originator is waiting for funds provided via a cover. Update will follow from the Status Originator.")]
-    G004,
+    CreditPendingFunds,
     
     /// <summary>
     /// Creditor or creditor's agent should not have collected the direct debit.
+    /// Encoded/decoded by serializers as "MD05".
     /// </summary>
     [EnumMember(Value = "MD05")]
     [IsoId("_nDLGMAQvEey95qpfbNuEwg")]
     [Description(@"Creditor or creditor's agent should not have collected the direct debit.")]
-    MD05,
+    CollectionNotDue,
     
     /// <summary>
     /// ClearingSystemMemberidentifier is invalid or missing.
     /// Generic usage if cannot specify between debit or credit account.
+    /// Encoded/decoded by serializers as "RC08".
     /// </summary>
     [EnumMember(Value = "RC08")]
     [IsoId("_tieE4AQvEey95qpfbNuEwg")]
     [Description(@"ClearingSystemMemberidentifier is invalid or missing. Generic usage if cannot specify between debit or credit account.")]
-    RC08,
+    InvalidClearingSystemMemberIdentifier,
     
     /// <summary>
     /// Intermediary Agent is invalid or missing.
+    /// Encoded/decoded by serializers as "RC11".
     /// </summary>
     [EnumMember(Value = "RC11")]
     [IsoId("_AHll4AQwEey95qpfbNuEwg")]
     [Description(@"Intermediary Agent is invalid or missing.")]
-    RC11,
+    InvalidIntermediaryAgent,
     
     /// <summary>
     /// Regulatory or Central Bank Reporting information missing, incomplete or invalid.
+    /// Encoded/decoded by serializers as "RR05".
     /// </summary>
     [EnumMember(Value = "RR05")]
     [IsoId("_G6s4cAQwEey95qpfbNuEwg")]
     [Description(@"Regulatory or Central Bank Reporting information missing, incomplete or invalid.")]
-    RR05,
+    RegulatoryInformationInvalid,
     
     /// <summary>
     /// Tax information missing, incomplete or invalid.
+    /// Encoded/decoded by serializers as "RR06".
     /// </summary>
     [EnumMember(Value = "RR06")]
     [IsoId("_O0cb4AQwEey95qpfbNuEwg")]
     [Description(@"Tax information missing, incomplete or invalid.")]
-    RR06,
+    TaxInformationInvalid,
     
     /// <summary>
     /// Remittance information structure does not comply with rules for payment type.
+    /// Encoded/decoded by serializers as "RR07".
     /// </summary>
     [EnumMember(Value = "RR07")]
     [IsoId("_VViKUAQwEey95qpfbNuEwg")]
     [Description(@"Remittance information structure does not comply with rules for payment type.")]
-    RR07,
+    RemittanceInformationInvalid,
     
     /// <summary>
     /// Remittance information truncated to comply with rules for payment type.
+    /// Encoded/decoded by serializers as "RR08".
     /// </summary>
     [EnumMember(Value = "RR08")]
     [IsoId("_eAmdAAQwEey95qpfbNuEwg")]
     [Description(@"Remittance information truncated to comply with rules for payment type.")]
-    RR08,
+    RemittanceInformationTruncated,
     
     /// <summary>
     /// Structured creditor reference invalid or missing.
+    /// Encoded/decoded by serializers as "RR09".
     /// </summary>
     [EnumMember(Value = "RR09")]
     [IsoId("_lt1OcAQwEey95qpfbNuEwg")]
     [Description(@"Structured creditor reference invalid or missing.")]
-    RR09,
+    InvalidStructuredCreditorReference,
     
     /// <summary>
     /// Invalid or missing identification of a bank proprietary service.
+    /// Encoded/decoded by serializers as "RR11".
     /// </summary>
     [EnumMember(Value = "RR11")]
     [IsoId("_rlC5cAQwEey95qpfbNuEwg")]
     [Description(@"Invalid or missing identification of a bank proprietary service.")]
-    RR11,
+    InvalidDebtorAgentServiceIdentification,
     
     /// <summary>
     /// Invalid or missing identification required within a particular country or payment type.
+    /// Encoded/decoded by serializers as "RR12".
     /// </summary>
     [EnumMember(Value = "RR12")]
     [IsoId("_1sMvoAQwEey95qpfbNuEwg")]
     [Description(@"Invalid or missing identification required within a particular country or payment type.")]
-    RR12,
+    InvalidPartyIdentification,
     
     /// <summary>
     /// Return of Covering Settlement due to the underlying Credit Transfer details not being received.
+    /// Encoded/decoded by serializers as "DC04".
     /// </summary>
     [EnumMember(Value = "DC04")]
     [IsoId("_YHJOIOAdEey0k8vo1GQhqQ")]
     [Description(@"Return of Covering Settlement due to the underlying Credit Transfer details not being received.")]
-    DC04,
+    NoCustomerCreditTransferReceived,
     
     /// <summary>
     /// Creditor bank identifier is invalid or missing.
+    /// Encoded/decoded by serializers as "RC04".
     /// </summary>
     [EnumMember(Value = "RC04")]
     [IsoId("_UfcykMloEe2OhfSCsNFang")]
     [Description(@"Creditor bank identifier is invalid or missing.")]
-    RC04,
+    InvalidCreditorBankIdentifier,
     
     /// <summary>
     /// Future date not supported.
+    /// Encoded/decoded by serializers as "DT04".
     /// </summary>
     [EnumMember(Value = "DT04")]
     [IsoId("_UkqpwMloEe2OhfSCsNFang")]
     [Description(@"Future date not supported.")]
-    DT04,
+    FutureDateNotSupported,
     
     /// <summary>
     /// Payment is a duplicate of another payment.
+    /// Encoded/decoded by serializers as "DUPL".
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_g7nYUMloEe2OhfSCsNFang")]
     [Description(@"Payment is a duplicate of another payment.")]
-    DUPL,
+    DuplicatePayment,
     
     /// <summary>
     /// Debtor bank identifier is invalid or missing.
+    /// Encoded/decoded by serializers as "RC03".
     /// </summary>
     [EnumMember(Value = "RC03")]
     [IsoId("_tLkHAMloEe2OhfSCsNFang")]
     [Description(@"Debtor bank identifier is invalid or missing.")]
-    RC03,
+    InvalidDebtorBankIdentifier,
     
 }
 

@@ -21,44 +21,49 @@ public enum GoodAndServiceDeliveryScheduleCode
     /// <summary>
     /// Same day delivery.
     /// 
+    /// Encoded/decoded by serializers as "SDDL".
     /// </summary>
     [EnumMember(Value = "SDDL")]
     [IsoId("_qfb5gD5KEeyHI64WSlzTlg")]
     [Description(@"Same day delivery. ")]
-    SDDL,
+    SameDayDelivery,
     
     /// <summary>
     /// Overnight delivery.
+    /// Encoded/decoded by serializers as "ONDL".
     /// </summary>
     [EnumMember(Value = "ONDL")]
     [IsoId("_qn5R8D5KEeyHI64WSlzTlg")]
     [Description(@"Overnight delivery.")]
-    ONDL,
+    OvernightDelivery,
     
     /// <summary>
     /// Two days or more delivery.
+    /// Encoded/decoded by serializers as "TDDL".
     /// </summary>
     [EnumMember(Value = "TDDL")]
     [IsoId("_qw9uYD5KEeyHI64WSlzTlg")]
     [Description(@"Two days or more delivery.")]
-    TDDL,
+    TwoDaysOrMoreDelivery,
     
     /// <summary>
     /// Other delivery schedule defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_q7pUYD5KEeyHI64WSlzTlg")]
     [Description(@"Other delivery schedule defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Other delivery schedule defined at national level.
     /// 
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_rMSYcD5KEeyHI64WSlzTlg")]
     [Description(@"Other delivery schedule defined at national level. ")]
-    OTHN,
+    OtherNational,
     
 }
 

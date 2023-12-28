@@ -20,35 +20,39 @@ public enum ServiceRequestStatusCode
 {
     /// <summary>
     /// Authentication, syntactical and semantical validation are successful.
+    /// Encoded/decoded by serializers as "ACTC".
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_eXhhefF5EemQ7oqCO5NTQw")]
     [Description(@"Authentication, syntactical and semantical validation are successful.")]
-    ACTC,
+    AcceptedTechnicalValidation,
     
     /// <summary>
     /// Service request has been rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_eXhhgfF5EemQ7oqCO5NTQw")]
     [Description(@"Service request has been rejected.")]
-    RJCT,
+    Rejected,
     
     /// <summary>
     /// Service request is pending.
+    /// Encoded/decoded by serializers as "PDNG".
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_eXhhc_F5EemQ7oqCO5NTQw")]
     [Description(@"Service request is pending.")]
-    PDNG,
+    Pending,
     
     /// <summary>
     /// Service request is accepted.
+    /// Encoded/decoded by serializers as "ACPT".
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_eXhhgPF5EemQ7oqCO5NTQw")]
     [Description(@"Service request is accepted.")]
-    ACPT,
+    Accepted,
     
 }
 

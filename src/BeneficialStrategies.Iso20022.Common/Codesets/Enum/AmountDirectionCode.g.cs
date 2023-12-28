@@ -20,35 +20,39 @@ public enum AmountDirectionCode
 {
     /// <summary>
     /// Operation is a decrease.
+    /// Encoded/decoded by serializers as "DBIT".
     /// </summary>
     [EnumMember(Value = "DBIT")]
     [IsoId("_boymFtp-Ed-ak6NoX_4Aeg_-1454013233")]
     [Description(@"Operation is a decrease.")]
-    DBIT,
+    Debit,
     
     /// <summary>
     /// Operation is an increase.
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_boymF9p-Ed-ak6NoX_4Aeg_-1454013216")]
     [Description(@"Operation is an increase.")]
-    CRDT,
+    Credit,
     
     /// <summary>
     /// Credit entry used to reverse a previously booked debit entry.
+    /// Encoded/decoded by serializers as "RVDB".
     /// </summary>
     [EnumMember(Value = "RVDB")]
     [IsoId("_boymGNp-Ed-ak6NoX_4Aeg_-1454013198")]
     [Description(@"Credit entry used to reverse a previously booked debit entry.")]
-    RVDB,
+    ReversalDebit,
     
     /// <summary>
     /// Debit entry used to reverse a previously booked credit entry.
+    /// Encoded/decoded by serializers as "RVCD".
     /// </summary>
     [EnumMember(Value = "RVCD")]
     [IsoId("_bo8XENp-Ed-ak6NoX_4Aeg_-1454013156")]
     [Description(@"Debit entry used to reverse a previously booked credit entry.")]
-    RVCD,
+    ReversalCredit,
     
 }
 

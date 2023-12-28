@@ -20,44 +20,49 @@ public enum QueryOrderStatusCode
 {
     /// <summary>
     /// Query for orders which are not confirmed by a party.
+    /// Encoded/decoded by serializers as "QUCO".
     /// </summary>
     [EnumMember(Value = "QUCO")]
     [IsoId("_HiymcA2NEeSwB74WgTbh4Q")]
     [Description(@"Query for orders which are not confirmed by a party.")]
-    QUCO,
+    QueryUnconfirmedOrder,
     
     /// <summary>
     /// Query for all orders.
     /// 
+    /// Encoded/decoded by serializers as "QUAO".
     /// </summary>
     [EnumMember(Value = "QUAO")]
     [IsoId("_KJzE8A2NEeSwB74WgTbh4Q")]
     [Description(@"Query for all orders. ")]
-    QUAO,
+    QueryAllOrders,
     
     /// <summary>
     /// Query for orders have been partially executed.
+    /// Encoded/decoded by serializers as "QPEO".
     /// </summary>
     [EnumMember(Value = "QPEO")]
     [IsoId("_nTiX0A4oEeSvVsudrRLaVg")]
     [Description(@"Query for orders have been partially executed.")]
-    QPEO,
+    QueryPartiallyExecutedOrder,
     
     /// <summary>
     /// Query for orders have been completely executed.
+    /// Encoded/decoded by serializers as "QFEO".
     /// </summary>
     [EnumMember(Value = "QFEO")]
     [IsoId("_B0iKQA4pEeSvVsudrRLaVg")]
     [Description(@"Query for orders have been completely executed.")]
-    QFEO,
+    QueryFullyExecutedOrder,
     
     /// <summary>
     /// Query for all orders for a party.
+    /// Encoded/decoded by serializers as "QOFP".
     /// </summary>
     [EnumMember(Value = "QOFP")]
     [IsoId("_7Rxz0B0OEeStecMDdGBmFg")]
     [Description(@"Query for all orders for a party.")]
-    QOFP,
+    QueryOrdersForTheParty,
     
 }
 

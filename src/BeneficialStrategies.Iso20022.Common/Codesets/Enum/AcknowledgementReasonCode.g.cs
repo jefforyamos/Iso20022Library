@@ -20,83 +20,93 @@ public enum AcknowledgementReasonCode
 {
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_bpZDB9p-Ed-ak6NoX_4Aeg_309491001")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    ADEA,
+    AccountServicerDeadlineMissed,
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
+    /// Encoded/decoded by serializers as "SMPG".
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_bpZDCNp-Ed-ak6NoX_4Aeg_-865700024")]
     [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.")]
-    SMPG,
+    MarketPracticeRuleDiscrepency,
     
     /// <summary>
     /// Instruction was received after market deadline.
+    /// Encoded/decoded by serializers as "LATE".
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_bpi0ANp-Ed-ak6NoX_4Aeg_-1570814639")]
     [Description(@"Instruction was received after market deadline.")]
-    LATE,
+    MarketDeadlineMissed,
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
+    /// Encoded/decoded by serializers as "NSTP".
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_bpi0Adp-Ed-ak6NoX_4Aeg_74452796")]
     [Description(@"Instruction was not straight through processing and had to be processed manually.")]
-    NSTP,
+    NotStraightThroughProcessing,
     
     /// <summary>
     /// Instruction registration is accepted but the registration is not in full, that is, not with voting rights.
+    /// Encoded/decoded by serializers as "RQWV".
     /// </summary>
     [EnumMember(Value = "RQWV")]
     [IsoId("_bpi0Atp-Ed-ak6NoX_4Aeg_1613241238")]
     [Description(@"Instruction registration is accepted but the registration is not in full, that is, not with voting rights.")]
-    RQWV,
+    AcceptedWithoutVotingRights,
     
     /// <summary>
     /// Other. See Narrative.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bpi0A9p-Ed-ak6NoX_4Aeg_-39849136")]
     [Description(@"Other. See Narrative.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Execution is conditional to the execution of a process linked to the currency of the transaction.
+    /// Encoded/decoded by serializers as "CDCY".
     /// </summary>
     [EnumMember(Value = "CDCY")]
     [IsoId("_bpi0BNp-Ed-ak6NoX_4Aeg_277271")]
     [Description(@"Execution is conditional to the execution of a process linked to the currency of the transaction.")]
-    CDCY,
+    ConditionalCurrency,
     
     /// <summary>
     /// Execution is conditional to the execution of a process at the registrar.
+    /// Encoded/decoded by serializers as "CDRG".
     /// </summary>
     [EnumMember(Value = "CDRG")]
     [IsoId("_bpi0Bdp-Ed-ak6NoX_4Aeg_-732594298")]
     [Description(@"Execution is conditional to the execution of a process at the registrar.")]
-    CDRG,
+    ConditionalRegistrar,
     
     /// <summary>
     /// Execution is conditional to the execution of a process of realignment at the issuer CSD.
+    /// Encoded/decoded by serializers as "CDRE".
     /// </summary>
     [EnumMember(Value = "CDRE")]
     [IsoId("_bpi0Btp-Ed-ak6NoX_4Aeg_1822773303")]
     [Description(@"Execution is conditional to the execution of a process of realignment at the issuer CSD.")]
-    CDRE,
+    ConditionalRealignement,
     
     /// <summary>
     /// See narrative field for reason.
+    /// Encoded/decoded by serializers as "NARR".
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_-23l4Cz1EeOsiuMH68so7Q")]
     [Description(@"See narrative field for reason.")]
-    NARR,
+    NarrativeReason,
     
 }
 

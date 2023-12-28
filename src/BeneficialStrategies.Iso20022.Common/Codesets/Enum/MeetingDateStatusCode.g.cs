@@ -20,35 +20,39 @@ public enum MeetingDateStatusCode
 {
     /// <summary>
     /// Meeting date is tentative.
+    /// Encoded/decoded by serializers as "TNTA".
     /// </summary>
     [EnumMember(Value = "TNTA")]
     [IsoId("_aVWBN9p-Ed-ak6NoX_4Aeg_-471354872")]
     [Description(@"Meeting date is tentative.")]
-    TNTA,
+    Tentative,
     
     /// <summary>
     /// Meeting date is confirmed.
+    /// Encoded/decoded by serializers as "CNFR".
     /// </summary>
     [EnumMember(Value = "CNFR")]
     [IsoId("_aVWBONp-Ed-ak6NoX_4Aeg_-66852936")]
     [Description(@"Meeting date is confirmed.")]
-    CNFR,
+    Confirmed,
     
     /// <summary>
     /// Meeting date has been cancelled.
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_aVfyMNp-Ed-ak6NoX_4Aeg_564891")]
     [Description(@"Meeting date has been cancelled.")]
-    CANC,
+    Cancelled,
     
     /// <summary>
     /// Meeting could not take place as the quorum was not reached.
+    /// Encoded/decoded by serializers as "NOQO".
     /// </summary>
     [EnumMember(Value = "NOQO")]
     [IsoId("_aVfyMdp-Ed-ak6NoX_4Aeg_2083943406")]
     [Description(@"Meeting could not take place as the quorum was not reached.")]
-    NOQO,
+    NoQuorum,
     
 }
 

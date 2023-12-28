@@ -20,115 +20,129 @@ public enum LodgingActivityCode
 {
     /// <summary>
     /// Apartment residence.
+    /// Encoded/decoded by serializers as "APTM".
     /// </summary>
     [EnumMember(Value = "APTM")]
     [IsoId("_ZdiY0GMbEeexSYCBvAp_qA")]
     [Description(@"Apartment residence.")]
-    APTM,
+    Apartment,
     
     /// <summary>
     /// Bed and breakfast or related lodging.
+    /// Encoded/decoded by serializers as "BEBR".
     /// </summary>
     [EnumMember(Value = "BEBR")]
     [IsoId("_e4lFMGMbEeexSYCBvAp_qA")]
     [Description(@"Bed and breakfast or related lodging.")]
-    BEBR,
+    BedAndBreakfast,
     
     /// <summary>
     /// Cruise line lodging.
+    /// Encoded/decoded by serializers as "CRUI".
     /// </summary>
     [EnumMember(Value = "CRUI")]
     [IsoId("_ngUXEGMbEeexSYCBvAp_qA")]
     [Description(@"Cruise line lodging.")]
-    CRUI,
+    Cruise,
     
     /// <summary>
     /// Hotel or related lodging.
+    /// Encoded/decoded by serializers as "HOTL".
     /// </summary>
     [EnumMember(Value = "HOTL")]
     [IsoId("_twxogGMbEeexSYCBvAp_qA")]
     [Description(@"Hotel or related lodging.")]
-    HOTL,
+    Hotel,
     
     /// <summary>
     /// Motel or related lodging.
+    /// Encoded/decoded by serializers as "MOTL".
     /// </summary>
     [EnumMember(Value = "MOTL")]
     [IsoId("_xJkJQGMbEeexSYCBvAp_qA")]
     [Description(@"Motel or related lodging.")]
-    MOTL,
+    Motel,
     
     /// <summary>
     /// Hostel or related lodging.
+    /// Encoded/decoded by serializers as "HOST".
     /// </summary>
     [EnumMember(Value = "HOST")]
     [IsoId("_05ILQGMbEeexSYCBvAp_qA")]
     [Description(@"Hostel or related lodging.")]
-    HOST,
+    Hostel,
     
     /// <summary>
     /// Cottage and related lodging.
+    /// Encoded/decoded by serializers as "COTT".
     /// </summary>
     [EnumMember(Value = "COTT")]
     [IsoId("_NBeEQGMcEeexSYCBvAp_qA")]
     [Description(@"Cottage and related lodging.")]
-    COTT,
+    Cottage,
     
     /// <summary>
     /// Lodge or related lodging.
+    /// Encoded/decoded by serializers as "LODG".
     /// </summary>
     [EnumMember(Value = "LODG")]
     [IsoId("_P_ulIGMcEeexSYCBvAp_qA")]
     [Description(@"Lodge or related lodging.")]
-    LODG,
+    Lodge,
     
     /// <summary>
     /// Room and board or related lodging.
+    /// Encoded/decoded by serializers as "ROAB".
     /// </summary>
     [EnumMember(Value = "ROAB")]
     [IsoId("_TzZEAGMcEeexSYCBvAp_qA")]
     [Description(@"Room and board or related lodging.")]
-    ROAB,
+    RoomAndBoard,
     
     /// <summary>
     /// Tourist shelter and related lodging.
+    /// Encoded/decoded by serializers as "TOSH".
     /// </summary>
     [EnumMember(Value = "TOSH")]
     [IsoId("_bDIBIGMcEeexSYCBvAp_qA")]
     [Description(@"Tourist shelter and related lodging.")]
-    TOSH,
+    TouristShelter,
     
     /// <summary>
     /// An individual offering lodging facilities.
+    /// Encoded/decoded by serializers as "HOME".
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_hN3sIGMcEeexSYCBvAp_qA")]
     [Description(@"An individual offering lodging facilities.")]
-    HOME,
+    Home,
     
     /// <summary>
     /// Other type of lodging defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_oDoDAGMcEeexSYCBvAp_qA")]
     [Description(@"Other type of lodging defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other type of lodging defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_vHtJwGMcEeexSYCBvAp_qA")]
     [Description(@"Other type of lodging defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Resort or related lodging.
+    /// Encoded/decoded by serializers as "RESO".
     /// </summary>
     [EnumMember(Value = "RESO")]
     [IsoId("_1laNAGMcEeexSYCBvAp_qA")]
     [Description(@"Resort or related lodging.")]
-    RESO,
+    Resort,
     
 }
 

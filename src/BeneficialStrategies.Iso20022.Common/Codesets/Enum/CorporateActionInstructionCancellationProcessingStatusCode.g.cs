@@ -20,35 +20,39 @@ public enum CorporateActionInstructionCancellationProcessingStatusCode
 {
     /// <summary>
     /// Cancellation request has been completed.
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_bKZZ4Np-Ed-ak6NoX_4Aeg_110983323")]
     [Description(@"Cancellation request has been completed.")]
-    CAND,
+    CancellationCompleted,
     
     /// <summary>
     /// Cancellation request is pending. It is not known at this time whether cancellation can be affected.
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_bKZZ4dp-Ed-ak6NoX_4Aeg_267505134")]
     [Description(@"Cancellation request is pending. It is not known at this time whether cancellation can be affected.")]
-    CANP,
+    PendingCancellation,
     
     /// <summary>
     /// Cancellation request has been accepted for further processing.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bKZZ4tp-Ed-ak6NoX_4Aeg_-2125470476")]
     [Description(@"Cancellation request has been accepted for further processing.")]
-    PACK,
+    Accepted,
     
     /// <summary>
     /// Cancellation request has been rejected for further processing due to system (data) reasons.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_bKZZ49p-Ed-ak6NoX_4Aeg_499155660")]
     [Description(@"Cancellation request has been rejected for further processing due to system (data) reasons.")]
-    REJT,
+    Rejected,
     
 }
 

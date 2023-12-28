@@ -20,27 +20,30 @@ public enum ResidenceTypeCode
 {
     /// <summary>
     /// Residence is domestic.
+    /// Encoded/decoded by serializers as "DMST".
     /// </summary>
     [EnumMember(Value = "DMST")]
     [IsoId("_AyErkGjNEeiRg5NzP0jkQg")]
     [Description(@"Residence is domestic.")]
-    DMST,
+    Domestic,
     
     /// <summary>
     /// Residence is foreign.
+    /// Encoded/decoded by serializers as "FRGN".
     /// </summary>
     [EnumMember(Value = "FRGN")]
     [IsoId("_CC7PcGjNEeiRg5NzP0jkQg")]
     [Description(@"Residence is foreign.")]
-    FRGN,
+    Foreign,
     
     /// <summary>
     /// Residence is mixed
+    /// Encoded/decoded by serializers as "MXED".
     /// </summary>
     [EnumMember(Value = "MXED")]
     [IsoId("_DKcRIGjNEeiRg5NzP0jkQg")]
     [Description(@"Residence is mixed")]
-    MXED,
+    Mixed,
     
 }
 

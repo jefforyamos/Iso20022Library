@@ -21,203 +21,228 @@ public enum ExternalRejectedReasonCode
 {
     /// <summary>
     /// Received after the servicer's deadline
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_uVsmM_RYEeuLhpyIdtJzwg")]
     [Description(@"Received after the servicer's deadline")]
-    ADEA,
+    ServicerDeadlineMissed,
     
     /// <summary>
     /// Date is not a business day
+    /// Encoded/decoded by serializers as "BDAY".
     /// </summary>
     [EnumMember(Value = "BDAY")]
     [IsoId("_uVsmNvRYEeuLhpyIdtJzwg")]
     [Description(@"Date is not a business day")]
-    BDAY,
+    NotBusinessDay,
     
     /// <summary>
     /// Unrecognised or invalid client
+    /// Encoded/decoded by serializers as "CTRC".
     /// </summary>
     [EnumMember(Value = "CTRC")]
     [IsoId("_uVsmOfRYEeuLhpyIdtJzwg")]
     [Description(@"Unrecognised or invalid client")]
-    CTRC,
+    ClosingTransaction,
     
     /// <summary>
     /// Request has been rejected because the instruction process is in progress or has been processed
+    /// Encoded/decoded by serializers as "DPRG".
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_uV1wIPRYEeuLhpyIdtJzwg")]
     [Description(@"Request has been rejected because the instruction process is in progress or has been processed")]
-    DPRG,
+    RejectedSinceInProgress,
     
     /// <summary>
     /// Some message details specified in the instruction/request are inconsistent with those that expected
+    /// Encoded/decoded by serializers as "INDT".
     /// </summary>
     [EnumMember(Value = "INDT")]
     [IsoId("_uV1wI_RYEeuLhpyIdtJzwg")]
     [Description(@"Some message details specified in the instruction/request are inconsistent with those that expected")]
-    INDT,
+    InvalidDetails,
     
     /// <summary>
     /// The request cannot be executed. The message requested is not valid
+    /// Encoded/decoded by serializers as "MISM".
     /// </summary>
     [EnumMember(Value = "MISM")]
     [IsoId("_uV1wJvRYEeuLhpyIdtJzwg")]
     [Description(@"The request cannot be executed. The message requested is not valid")]
-    MISM,
+    InvalidRequest,
     
     /// <summary>
     /// Permission to be processed is not granted
+    /// Encoded/decoded by serializers as "NAUT".
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_uV1wKfRYEeuLhpyIdtJzwg")]
     [Description(@"Permission to be processed is not granted")]
-    NAUT,
+    NotAuthorised,
     
     /// <summary>
     /// Referred instrument does not exist
+    /// Encoded/decoded by serializers as "NINS".
     /// </summary>
     [EnumMember(Value = "NINS")]
     [IsoId("_uV_hIPRYEeuLhpyIdtJzwg")]
     [Description(@"Referred instrument does not exist")]
-    NINS,
+    NoInstrument,
     
     /// <summary>
     /// Client has no access to the service
+    /// Encoded/decoded by serializers as "NOAC".
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_uV_hI_RYEeuLhpyIdtJzwg")]
     [Description(@"Client has no access to the service")]
-    NOAC,
+    NoAccessToService,
     
     /// <summary>
     /// Unrecognised or invalid effective date/time
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_uV_hJvRYEeuLhpyIdtJzwg")]
     [Description(@"Unrecognised or invalid effective date/time")]
-    TERM,
+    ClosingDateTimeRejection,
     
     /// <summary>
     /// Process a Batch Removal Instruction with an incorrect Batch Concurrent Sequence.
+    /// Encoded/decoded by serializers as "AB12".
     /// </summary>
     [EnumMember(Value = "AB12")]
     [IsoId("_IDy6UATnEey95qpfbNuEwg")]
     [Description(@"Process a Batch Removal Instruction with an incorrect Batch Concurrent Sequence.")]
-    AB12,
+    InvalidConcurrentBatchSettlementInstructionSequenceNumber,
     
     /// <summary>
     /// Process a Batch Removal Instruction with an incorrect "Original Creation Date and Time" for the batch.
+    /// Encoded/decoded by serializers as "DT07".
     /// </summary>
     [EnumMember(Value = "DT07")]
     [IsoId("_WvddgATnEey95qpfbNuEwg")]
     [Description(@"Process a Batch Removal Instruction with an incorrect ""Original Creation Date and Time"" for the batch.")]
-    DT07,
+    InvalidCreationDate,
     
     /// <summary>
     /// Invalid routing code send by participant to settlement operator.
+    /// Encoded/decoded by serializers as "AB13".
     /// </summary>
     [EnumMember(Value = "AB13")]
     [IsoId("_hL7cYATnEey95qpfbNuEwg")]
     [Description(@"Invalid routing code send by participant to settlement operator.")]
-    AB13,
+    InvalidRoutingCodeUtilised,
     
     /// <summary>
     /// Settlement Instruction with invalid account number or specific settlement type.
+    /// Encoded/decoded by serializers as "AB15".
     /// </summary>
     [EnumMember(Value = "AB15")]
     [IsoId("_8bzuEATnEey95qpfbNuEwg")]
     [Description(@"Settlement Instruction with invalid account number or specific settlement type.")]
-    AB15,
+    InvalidAccountNumberForSettlementType,
     
     /// <summary>
     /// Processing interbank batch settlement instruction with invalid agreement number for settlement type.
+    /// Encoded/decoded by serializers as "AB21".
     /// </summary>
     [EnumMember(Value = "AB21")]
     [IsoId("_HN4JgAToEey95qpfbNuEwg")]
     [Description(@"Processing interbank batch settlement instruction with invalid agreement number for settlement type.")]
-    AB21,
+    InvalidSettlementAgreementNumberSpecified,
     
     /// <summary>
     /// Warning messages that is send to participants when settlement account must be funded.
+    /// Encoded/decoded by serializers as "NOFR".
     /// </summary>
     [EnumMember(Value = "NOFR")]
     [IsoId("_UWBEcAToEey95qpfbNuEwg")]
     [Description(@"Warning messages that is send to participants when settlement account must be funded.")]
-    NOFR,
+    OutstandingFundingForSettlement,
     
     /// <summary>
     /// Acknowledgement of settlement batch received from PSO for settlement.
+    /// Encoded/decoded by serializers as "ASBR".
     /// </summary>
     [EnumMember(Value = "ASBR")]
     [IsoId("_iiYcgAToEey95qpfbNuEwg")]
     [Description(@"Acknowledgement of settlement batch received from PSO for settlement.")]
-    ASBR,
+    AcknowledgementOfSettlementBatchReceived,
     
     /// <summary>
     /// Settlement batch removal notification due to batch not funded at window closure by participants.
+    /// Encoded/decoded by serializers as "SBRN".
     /// </summary>
     [EnumMember(Value = "SBRN")]
     [IsoId("_vKelcAToEey95qpfbNuEwg")]
     [Description(@"Settlement batch removal notification due to batch not funded at window closure by participants.")]
-    SBRN,
+    SettlementBatchRemovalNotification,
     
     /// <summary>
     /// Invalid batch Settlement Instruction received.
+    /// Encoded/decoded by serializers as "AB26".
     /// </summary>
     [EnumMember(Value = "AB26")]
     [IsoId("_4KQj4AToEey95qpfbNuEwg")]
     [Description(@"Invalid batch Settlement Instruction received.")]
-    AB26,
+    InvalidBatchSettlementInstruction,
     
     /// <summary>
     /// Originator of the instruction is not an active participant in RTGS.
+    /// Encoded/decoded by serializers as "RC13".
     /// </summary>
     [EnumMember(Value = "RC13")]
     [IsoId("_D5kqsATpEey95qpfbNuEwg")]
     [Description(@"Originator of the instruction is not an active participant in RTGS.")]
-    RC13,
+    ParticipantNotAnActiveMemberOfRTGS,
     
     /// <summary>
     /// Participant is in BCP no settlement instruction for CLS.
+    /// Encoded/decoded by serializers as "RC14".
     /// </summary>
     [EnumMember(Value = "RC14")]
     [IsoId("_Q7clkATpEey95qpfbNuEwg")]
     [Description(@"Participant is in BCP no settlement instruction for CLS.")]
-    RC14,
+    ParticipantInBCPNoCLSInstructionsAllowed,
     
     /// <summary>
     /// Participant is not an active member of a specific settlement type.
+    /// Encoded/decoded by serializers as "RC15".
     /// </summary>
     [EnumMember(Value = "RC15")]
     [IsoId("_fdkyQATpEey95qpfbNuEwg")]
     [Description(@"Participant is not an active member of a specific settlement type.")]
-    RC15,
+    ParticipantNotActiveMemberSettlementType,
     
     /// <summary>
     /// Originator of the instruction is not an active participant in SADC RTGS.
+    /// Encoded/decoded by serializers as "RC16".
     /// </summary>
     [EnumMember(Value = "RC16")]
     [IsoId("_zN7-YATpEey95qpfbNuEwg")]
     [Description(@"Originator of the instruction is not an active participant in SADC RTGS.")]
-    RC16,
+    ParticipantNotActiveMemberOfSADCRTGS,
     
     /// <summary>
     /// Invalid settlement window for settlement instruction.
+    /// Encoded/decoded by serializers as "ISWS".
     /// </summary>
     [EnumMember(Value = "ISWS")]
     [IsoId("_7i9IkATpEey95qpfbNuEwg")]
     [Description(@"Invalid settlement window for settlement instruction.")]
-    ISWS,
+    InvalidSettlementWindow,
     
     /// <summary>
     /// Missing ISIN on settlement instruction.
+    /// Encoded/decoded by serializers as "MISN".
     /// </summary>
     [EnumMember(Value = "MISN")]
     [IsoId("_IojF0ATqEey95qpfbNuEwg")]
     [Description(@"Missing ISIN on settlement instruction.")]
-    MISN,
+    MissingISIN,
     
 }
 

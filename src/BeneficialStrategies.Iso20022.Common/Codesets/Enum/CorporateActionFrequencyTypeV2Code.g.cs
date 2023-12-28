@@ -20,51 +20,57 @@ public enum CorporateActionFrequencyTypeV2Code
 {
     /// <summary>
     /// Payment of a dividend, less amounts already paid through interim dividends.
+    /// Encoded/decoded by serializers as "FINL".
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_OR5uuCXeEeO8J8_akw9vuw")]
     [Description(@"Payment of a dividend, less amounts already paid through interim dividends.")]
-    FINL,
+    Final,
     
     /// <summary>
     /// Dividend declared and paid before annual earnings have been determined.
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_OR5utyXeEeO8J8_akw9vuw")]
     [Description(@"Dividend declared and paid before annual earnings have been determined.")]
-    INTE,
+    Interim,
     
     /// <summary>
     /// Dividend paid at regular interval, for example, quarterly.
+    /// Encoded/decoded by serializers as "REGR".
     /// </summary>
     [EnumMember(Value = "REGR")]
     [IsoId("_OR5uuSXeEeO8J8_akw9vuw")]
     [Description(@"Dividend paid at regular interval, for example, quarterly.")]
-    REGR,
+    Regular,
     
     /// <summary>
     /// Dividend in addition to the regular dividend being paid by the company.
+    /// Encoded/decoded by serializers as "SPEC".
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_OR5uuiXeEeO8J8_akw9vuw")]
     [Description(@"Dividend in addition to the regular dividend being paid by the company.")]
-    SPEC,
+    Special,
     
     /// <summary>
     /// Reinvestment of cash distributed.
+    /// Encoded/decoded by serializers as "REIN".
     /// </summary>
     [EnumMember(Value = "REIN")]
     [IsoId("_OR5uuyXeEeO8J8_akw9vuw")]
     [Description(@"Reinvestment of cash distributed.")]
-    REIN,
+    Reinvestment,
     
     /// <summary>
     /// Special Dividend with reinvestment component.
+    /// Encoded/decoded by serializers as "SPRE".
     /// </summary>
     [EnumMember(Value = "SPRE")]
     [IsoId("_N5sKsaFUEeSK_vfd3NHBGg")]
     [Description(@"Special Dividend with reinvestment component.")]
-    SPRE,
+    SpecialDividendWithReinvestment,
     
 }
 

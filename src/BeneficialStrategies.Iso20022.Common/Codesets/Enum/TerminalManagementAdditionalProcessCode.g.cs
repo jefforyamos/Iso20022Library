@@ -20,27 +20,30 @@ public enum TerminalManagementAdditionalProcessCode
 {
     /// <summary>
     /// Manual confirmation of the merchant before the terminal management action.
+    /// Encoded/decoded by serializers as "MANC".
     /// </summary>
     [EnumMember(Value = "MANC")]
     [IsoId("_KUh0k31DEeCF8NjrBemJWQ_1927674034")]
     [Description(@"Manual confirmation of the merchant before the terminal management action.")]
-    MANC,
+    ManualConfirmation,
     
     /// <summary>
     /// Acquirer reconciliation to be performed before the terminal management action.
+    /// Encoded/decoded by serializers as "RCNC".
     /// </summary>
     [EnumMember(Value = "RCNC")]
     [IsoId("_KUh0lH1DEeCF8NjrBemJWQ_-2075335524")]
     [Description(@"Acquirer reconciliation to be performed before the terminal management action.")]
-    RCNC,
+    Reconciliation,
     
     /// <summary>
     /// Restart the system after performing the terminal management action.
+    /// Encoded/decoded by serializers as "RSRT".
     /// </summary>
     [EnumMember(Value = "RSRT")]
     [IsoId("_KUh0lX1DEeCF8NjrBemJWQ_-765156131")]
     [Description(@"Restart the system after performing the terminal management action.")]
-    RSRT,
+    RestartSystem,
     
 }
 

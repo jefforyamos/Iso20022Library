@@ -20,43 +20,48 @@ public enum LoyaltyHandlingCode
 {
     /// <summary>
     /// No loyalty card to read and loyalty transaction to process. 	Any attempt to enter a pure loyalty card is rejected.
+    /// Encoded/decoded by serializers as "DENY".
     /// </summary>
     [EnumMember(Value = "DENY")]
     [IsoId("_CyxIENt4EeiXqq0XHEoNUA")]
     [Description(@"No loyalty card to read and loyalty transaction to process. 	Any attempt to enter a pure loyalty card is rejected.")]
-    DENY,
+    Forbidden,
     
     /// <summary>
     /// The loyalty transaction is already processed, no loyalty card or loyalty transaction to process.
+    /// Encoded/decoded by serializers as "PRCS".
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_FzfHENt4EeiXqq0XHEoNUA")]
     [Description(@"The loyalty transaction is already processed, no loyalty card or loyalty transaction to process.")]
-    PRCS,
+    Processed,
     
     /// <summary>
     /// The loyalty is accepted, but the POI has not to require or ask a loyalty card. The loyalty is involved by the payment card (e.g. an hybrid or linked card). 
+    /// Encoded/decoded by serializers as "ALLO".
     /// </summary>
     [EnumMember(Value = "ALLO")]
     [IsoId("_I950oNt4EeiXqq0XHEoNUA")]
     [Description(@"The loyalty is accepted, but the POI has not to require or ask a loyalty card. The loyalty is involved by the payment card (e.g. an hybrid or linked card). ")]
-    ALLO,
+    Allowed,
     
     /// <summary>
     /// The loyalty is accepted, and the POI has to ask a loyalty card. If the Customer does not enter a loyalty card, no loyalty transaction is realised.
+    /// Encoded/decoded by serializers as "PROP".
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_MThFkNt4EeiXqq0XHEoNUA")]
     [Description(@"The loyalty is accepted, and the POI has to ask a loyalty card. If the Customer does not enter a loyalty card, no loyalty transaction is realised.")]
-    PROP,
+    Proposed,
     
     /// <summary>
     /// The loyalty is required, and the POI refuses the processing 	of the message request if the cardholder does not enter a loyalty card.
+    /// Encoded/decoded by serializers as "REQU".
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_PYggkNt4EeiXqq0XHEoNUA")]
     [Description(@"The loyalty is required, and the POI refuses the processing 	of the message request if the cardholder does not enter a loyalty card.")]
-    REQU,
+    Required,
     
 }
 

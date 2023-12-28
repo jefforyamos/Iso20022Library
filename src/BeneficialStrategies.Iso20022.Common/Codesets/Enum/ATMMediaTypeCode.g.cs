@@ -20,115 +20,129 @@ public enum ATMMediaTypeCode
 {
     /// <summary>
     /// Card media.
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_n4p_cIqdEeS4a4abTJTSSw")]
     [Description(@"Card media.")]
-    CARD,
+    Cards,
     
     /// <summary>
     /// Coin media.
+    /// Encoded/decoded by serializers as "COIN".
     /// </summary>
     [EnumMember(Value = "COIN")]
     [IsoId("_sCQ5IIqdEeS4a4abTJTSSw")]
     [Description(@"Coin media.")]
-    COIN,
+    Coins,
     
     /// <summary>
     /// Non fixed value of the media, for instance gold, silver.
+    /// Encoded/decoded by serializers as "CMDT".
     /// </summary>
     [EnumMember(Value = "CMDT")]
     [IsoId("_vGNyUIqdEeS4a4abTJTSSw")]
     [Description(@"Non fixed value of the media, for instance gold, silver.")]
-    CMDT,
+    Commodity,
     
     /// <summary>
     /// Coupon media.
+    /// Encoded/decoded by serializers as "CPNS".
     /// </summary>
     [EnumMember(Value = "CPNS")]
     [IsoId("_x3PvgIqdEeS4a4abTJTSSw")]
     [Description(@"Coupon media.")]
-    CPNS,
+    Coupons,
     
     /// <summary>
     /// Bank note media.
+    /// Encoded/decoded by serializers as "NOTE".
     /// </summary>
     [EnumMember(Value = "NOTE")]
     [IsoId("_1EcEQIqdEeS4a4abTJTSSw")]
     [Description(@"Bank note media.")]
-    NOTE,
+    Notes,
     
     /// <summary>
     /// Stamp media.
+    /// Encoded/decoded by serializers as "STMP".
     /// </summary>
     [EnumMember(Value = "STMP")]
     [IsoId("_3K2XIIqdEeS4a4abTJTSSw")]
     [Description(@"Stamp media.")]
-    STMP,
+    Stamps,
     
     /// <summary>
     /// Undetermined medias.
+    /// Encoded/decoded by serializers as "UDTM".
     /// </summary>
     [EnumMember(Value = "UDTM")]
     [IsoId("_6X7XIIqdEeS4a4abTJTSSw")]
     [Description(@"Undetermined medias.")]
-    UDTM,
+    Undetermined,
     
     /// <summary>
     /// Check media.
+    /// Encoded/decoded by serializers as "CHCK".
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_jCUjwK4CEeWL1uap3dNhCQ")]
     [Description(@"Check media.")]
-    CHCK,
+    Check,
     
     /// <summary>
     /// Detected counterfeit media.
+    /// Encoded/decoded by serializers as "CNTR".
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_Ae4IYK4DEeWL1uap3dNhCQ")]
     [Description(@"Detected counterfeit media.")]
-    CNTR,
+    Counterfeit,
     
     /// <summary>
     /// Fit media.
+    /// Encoded/decoded by serializers as "FITN".
     /// </summary>
     [EnumMember(Value = "FITN")]
     [IsoId("_C75kcK4DEeWL1uap3dNhCQ")]
     [Description(@"Fit media.")]
-    FITN,
+    Fit,
     
     /// <summary>
     /// Fit or unfit media, if fitness cannot be determined.
+    /// Encoded/decoded by serializers as "FITU".
     /// </summary>
     [EnumMember(Value = "FITU")]
     [IsoId("_Fva08K4DEeWL1uap3dNhCQ")]
     [Description(@"Fit or unfit media, if fitness cannot be determined.")]
-    FITU,
+    FitAndUnfit,
     
     /// <summary>
     /// Suspect media.
+    /// Encoded/decoded by serializers as "SPCT".
     /// </summary>
     [EnumMember(Value = "SPCT")]
     [IsoId("_IwagwK4DEeWL1uap3dNhCQ")]
     [Description(@"Suspect media.")]
-    SPCT,
+    Suspect,
     
     /// <summary>
     /// Unfit media (unacceptable quality).
+    /// Encoded/decoded by serializers as "UNFT".
     /// </summary>
     [EnumMember(Value = "UNFT")]
     [IsoId("_LGBGMK4DEeWL1uap3dNhCQ")]
     [Description(@"Unfit media (unacceptable quality).")]
-    UNFT,
+    Unfit,
     
     /// <summary>
     /// Unrecognised media.
+    /// Encoded/decoded by serializers as "UNRG".
     /// </summary>
     [EnumMember(Value = "UNRG")]
     [IsoId("_PKQ-wK4DEeWL1uap3dNhCQ")]
     [Description(@"Unrecognised media.")]
-    UNRG,
+    Unrecognised,
     
 }
 

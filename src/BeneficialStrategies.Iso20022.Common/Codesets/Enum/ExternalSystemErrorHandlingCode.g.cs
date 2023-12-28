@@ -21,27 +21,30 @@ public enum ExternalSystemErrorHandlingCode
 {
     /// <summary>
     /// Specifies the error code when the data requested are not yet available.
+    /// Encoded/decoded by serializers as "X020".
     /// </summary>
     [EnumMember(Value = "X020")]
     [IsoId("_uhBFY_RYEeuLhpyIdtJzwg")]
     [Description(@"Specifies the error code when the data requested are not yet available.")]
-    X020,
+    DataNotYetAvailable,
     
     /// <summary>
     /// Specifies the error code when the data requested generates a message size that exceed the processing capacity.
+    /// Encoded/decoded by serializers as "X030".
     /// </summary>
     [EnumMember(Value = "X030")]
     [IsoId("_uhBFZvRYEeuLhpyIdtJzwg")]
     [Description(@"Specifies the error code when the data requested generates a message size that exceed the processing capacity.")]
-    X030,
+    MessageSizeLimitExceeded,
     
     /// <summary>
     /// Specifies the error code when the data requested have not been found.
+    /// Encoded/decoded by serializers as "X050".
     /// </summary>
     [EnumMember(Value = "X050")]
     [IsoId("_uhK2YPRYEeuLhpyIdtJzwg")]
     [Description(@"Specifies the error code when the data requested have not been found.")]
-    X050,
+    DataNotAvailable,
     
 }
 

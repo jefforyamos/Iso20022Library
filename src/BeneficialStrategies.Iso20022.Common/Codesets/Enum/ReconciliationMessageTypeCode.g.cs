@@ -20,347 +20,390 @@ public enum ReconciliationMessageTypeCode
 {
     /// <summary>
     /// Batch Transfer Response
+    /// Encoded/decoded by serializers as "BATR".
     /// </summary>
     [EnumMember(Value = "BATR")]
     [IsoId("_E0TvmMyyEeiqqJhU2tqK8A")]
     [Description(@"Batch Transfer Response")]
-    BATR,
+    BatchTransferResponse,
     
     /// <summary>
     /// Card Management Response
+    /// Encoded/decoded by serializers as "CAMR".
     /// </summary>
     [EnumMember(Value = "CAMR")]
     [IsoId("_E0TvmcyyEeiqqJhU2tqK8A")]
     [Description(@"Card Management Response")]
-    CAMR,
+    CardManagementResponse,
     
     /// <summary>
     /// Batch Transfer Initiation
+    /// Encoded/decoded by serializers as "BATI".
     /// </summary>
     [EnumMember(Value = "BATI")]
     [IsoId("_E0TvncyyEeiqqJhU2tqK8A")]
     [Description(@"Batch Transfer Initiation")]
-    BATI,
+    BatchTransferInitiation,
     
     /// <summary>
     /// Card Management Initiation
+    /// Encoded/decoded by serializers as "CAMI".
     /// </summary>
     [EnumMember(Value = "CAMI")]
     [IsoId("_E0Tvm8yyEeiqqJhU2tqK8A")]
     [Description(@"Card Management Initiation")]
-    CAMI,
+    CardManagementInitiation,
     
     /// <summary>
     /// Amendment
+    /// Encoded/decoded by serializers as "AMDT".
     /// </summary>
     [EnumMember(Value = "AMDT")]
     [IsoId("_hBsMYM5UEeiEmaZryQQ14Q")]
     [Description(@"Amendment")]
-    AMDT,
+    Amendment,
     
     /// <summary>
     /// Authorisation Initiation
+    /// Encoded/decoded by serializers as "ATHI".
     /// </summary>
     [EnumMember(Value = "ATHI")]
     [IsoId("_zETdQM5UEeiEmaZryQQ14Q")]
     [Description(@"Authorisation Initiation")]
-    ATHI,
+    AuthorisationInitiation,
     
     /// <summary>
     /// Authorisation Response
+    /// Encoded/decoded by serializers as "ATHR".
     /// </summary>
     [EnumMember(Value = "ATHR")]
     [IsoId("_4DPccM5UEeiEmaZryQQ14Q")]
     [Description(@"Authorisation Response")]
-    ATHR,
+    AuthorisationResponse,
     
     /// <summary>
     /// Batch Management Initiation
+    /// Encoded/decoded by serializers as "BAMI".
     /// </summary>
     [EnumMember(Value = "BAMI")]
     [IsoId("_Ik87QM5VEeiEmaZryQQ14Q")]
     [Description(@"Batch Management Initiation")]
-    BAMI,
+    BatchManagementInitiation,
     
     /// <summary>
     /// Batch Management Response
+    /// Encoded/decoded by serializers as "BAMR".
     /// </summary>
     [EnumMember(Value = "BAMR")]
     [IsoId("_IvFHoM5VEeiEmaZryQQ14Q")]
     [Description(@"Batch Management Response")]
-    BAMR,
+    BatchManagementResponse,
     
     /// <summary>
     /// Chargeback Initiation
+    /// Encoded/decoded by serializers as "CGBI".
     /// </summary>
     [EnumMember(Value = "CGBI")]
     [IsoId("_r5PvUM5VEeiEmaZryQQ14Q")]
     [Description(@"Chargeback Initiation")]
-    CGBI,
+    ChargebackInitiation,
     
     /// <summary>
     /// Chargeback Response
+    /// Encoded/decoded by serializers as "CGBR".
     /// </summary>
     [EnumMember(Value = "CGBR")]
     [IsoId("_vcl6QM5VEeiEmaZryQQ14Q")]
     [Description(@"Chargeback Response")]
-    CGBR,
+    ChargebackResponse,
     
     /// <summary>
     /// Error
+    /// Encoded/decoded by serializers as "EROR".
     /// </summary>
     [EnumMember(Value = "EROR")]
     [IsoId("_2v5IwM5VEeiEmaZryQQ14Q")]
     [Description(@"Error")]
-    EROR,
+    Error,
     
     /// <summary>
     /// Fee Collection Initiation
+    /// Encoded/decoded by serializers as "FECI".
     /// </summary>
     [EnumMember(Value = "FECI")]
     [IsoId("_26Rz0M5VEeiEmaZryQQ14Q")]
     [Description(@"Fee Collection Initiation")]
-    FECI,
+    FeeCollectionInitiation,
     
     /// <summary>
     /// Fee Collection Response
+    /// Encoded/decoded by serializers as "FECR".
     /// </summary>
     [EnumMember(Value = "FECR")]
     [IsoId("_6j4-0M5VEeiEmaZryQQ14Q")]
     [Description(@"Fee Collection Response")]
-    FECR,
+    FeeCollectionResponse,
     
     /// <summary>
     /// File Action Initiation
+    /// Encoded/decoded by serializers as "FIAI".
     /// </summary>
     [EnumMember(Value = "FIAI")]
     [IsoId("_Au5vkM5WEeiEmaZryQQ14Q")]
     [Description(@"File Action Initiation")]
-    FIAI,
+    FileActionInitiation,
     
     /// <summary>
     /// File Action Response
+    /// Encoded/decoded by serializers as "FIAR".
     /// </summary>
     [EnumMember(Value = "FIAR")]
     [IsoId("_A0VpMM5WEeiEmaZryQQ14Q")]
     [Description(@"File Action Response")]
-    FIAR,
+    FileActionResponse,
     
     /// <summary>
     /// Inquiry Initiation
+    /// Encoded/decoded by serializers as "INQI".
     /// </summary>
     [EnumMember(Value = "INQI")]
     [IsoId("_GwcbQM5WEeiEmaZryQQ14Q")]
     [Description(@"Inquiry Initiation")]
-    INQI,
+    InquiryInitiation,
     
     /// <summary>
     /// Inquiry Response
+    /// Encoded/decoded by serializers as "INQR".
     /// </summary>
     [EnumMember(Value = "INQR")]
     [IsoId("_GzV-QM5WEeiEmaZryQQ14Q")]
     [Description(@"Inquiry Response")]
-    INQR,
+    InquiryResponse,
     
     /// <summary>
     /// Fraud Reporting Initiation
+    /// Encoded/decoded by serializers as "FRRI".
     /// </summary>
     [EnumMember(Value = "FRRI")]
     [IsoId("_G8470M5WEeiEmaZryQQ14Q")]
     [Description(@"Fraud Reporting Initiation")]
-    FRRI,
+    FraudReportingInitiation,
     
     /// <summary>
     /// Fraud Reporting Response
+    /// Encoded/decoded by serializers as "FRRR".
     /// </summary>
     [EnumMember(Value = "FRRR")]
     [IsoId("_IzKg8M5WEeiEmaZryQQ14Q")]
     [Description(@"Fraud Reporting Response")]
-    FRRR,
+    FraudReportingResponse,
     
     /// <summary>
     /// Fraud Disposition Initiation
+    /// Encoded/decoded by serializers as "FRDI".
     /// </summary>
     [EnumMember(Value = "FRDI")]
     [IsoId("_I9x1gM5WEeiEmaZryQQ14Q")]
     [Description(@"Fraud Disposition Initiation")]
-    FRDI,
+    FraudDispositionInitiation,
     
     /// <summary>
     /// Fraud Disposition Response
+    /// Encoded/decoded by serializers as "FRDR".
     /// </summary>
     [EnumMember(Value = "FRDR")]
     [IsoId("_Jn6XoM5WEeiEmaZryQQ14Q")]
     [Description(@"Fraud Disposition Response")]
-    FRDR,
+    FraudDispositionResponse,
     
     /// <summary>
     /// Financial Initiation
+    /// Encoded/decoded by serializers as "FINI".
     /// </summary>
     [EnumMember(Value = "FINI")]
     [IsoId("_Juqf4M5WEeiEmaZryQQ14Q")]
     [Description(@"Financial Initiation")]
-    FINI,
+    FinancialInitiation,
     
     /// <summary>
     /// Financial Response
+    /// Encoded/decoded by serializers as "FINR".
     /// </summary>
     [EnumMember(Value = "FINR")]
     [IsoId("_J6J-MM5WEeiEmaZryQQ14Q")]
     [Description(@"Financial Response")]
-    FINR,
+    FinancialResponse,
     
     /// <summary>
     /// Key Exchange Initiation
+    /// Encoded/decoded by serializers as "KYEI".
     /// </summary>
     [EnumMember(Value = "KYEI")]
     [IsoId("_sZHFsM5WEeiEmaZryQQ14Q")]
     [Description(@"Key Exchange Initiation")]
-    KYEI,
+    KeyExchangeInitiation,
     
     /// <summary>
     /// Key Exchange Response
+    /// Encoded/decoded by serializers as "KYER".
     /// </summary>
     [EnumMember(Value = "KYER")]
     [IsoId("_sb7wMM5WEeiEmaZryQQ14Q")]
     [Description(@"Key Exchange Response")]
-    KYER,
+    KeyExchangeResponse,
     
     /// <summary>
     /// Verification Initiation.
+    /// Encoded/decoded by serializers as "VERI".
     /// </summary>
     [EnumMember(Value = "VERI")]
     [IsoId("_5Sd9wM5WEeiEmaZryQQ14Q")]
     [Description(@"Verification Initiation.")]
-    VERI,
+    VerificationInitiation,
     
     /// <summary>
     /// Verification Response
+    /// Encoded/decoded by serializers as "VERR".
     /// </summary>
     [EnumMember(Value = "VERR")]
     [IsoId("_5Sek0M5WEeiEmaZryQQ14Q")]
     [Description(@"Verification Response")]
-    VERR,
+    VerificationResponse,
     
     /// <summary>
     /// Settlement Reporting Initiation
+    /// Encoded/decoded by serializers as "SERI".
     /// </summary>
     [EnumMember(Value = "SERI")]
     [IsoId("_5St1YM5WEeiEmaZryQQ14Q")]
     [Description(@"Settlement Reporting Initiation")]
-    SERI,
+    SettlementReportingInitiation,
     
     /// <summary>
     /// Settlement Reporting Response
+    /// Encoded/decoded by serializers as "SERR".
     /// </summary>
     [EnumMember(Value = "SERR")]
     [IsoId("_5Vy-kM5WEeiEmaZryQQ14Q")]
     [Description(@"Settlement Reporting Response")]
-    SERR,
+    SettlementReportingResponse,
     
     /// <summary>
     /// Reversal Initiation
+    /// Encoded/decoded by serializers as "REVI".
     /// </summary>
     [EnumMember(Value = "REVI")]
     [IsoId("_5VzloM5WEeiEmaZryQQ14Q")]
     [Description(@"Reversal Initiation")]
-    REVI,
+    ReversalInitiation,
     
     /// <summary>
     /// Reversal Response
+    /// Encoded/decoded by serializers as "REVR".
     /// </summary>
     [EnumMember(Value = "REVR")]
     [IsoId("_5YftQM5WEeiEmaZryQQ14Q")]
     [Description(@"Reversal Response")]
-    REVR,
+    ReversalResponse,
     
     /// <summary>
     /// Retrieval Response
+    /// Encoded/decoded by serializers as "RTRI".
     /// </summary>
     [EnumMember(Value = "RTRI")]
     [IsoId("_5YftQc5WEeiEmaZryQQ14Q")]
     [Description(@"Retrieval Response")]
-    RTRI,
+    RetrievalResponse,
     
     /// <summary>
     /// Retrieval Request
+    /// Encoded/decoded by serializers as "RTRR".
     /// </summary>
     [EnumMember(Value = "RTRR")]
     [IsoId("_5a6vIM5WEeiEmaZryQQ14Q")]
     [Description(@"Retrieval Request")]
-    RTRR,
+    RetrievalRequest,
     
     /// <summary>
     /// Retrieval Fulfilment Initiation
+    /// Encoded/decoded by serializers as "RTFI".
     /// </summary>
     [EnumMember(Value = "RTFI")]
     [IsoId("_5a7WMM5WEeiEmaZryQQ14Q")]
     [Description(@"Retrieval Fulfilment Initiation")]
-    RTFI,
+    RetrievalFulfilmentInitiation,
     
     /// <summary>
     /// Retrieval Fulfilment Response
+    /// Encoded/decoded by serializers as "RTFR".
     /// </summary>
     [EnumMember(Value = "RTFR")]
     [IsoId("_5d81AM5WEeiEmaZryQQ14Q")]
     [Description(@"Retrieval Fulfilment Response")]
-    RTFR,
+    RetrievalFulfilmentResponse,
     
     /// <summary>
     /// Reconciliation Initiation
+    /// Encoded/decoded by serializers as "RECI".
     /// </summary>
     [EnumMember(Value = "RECI")]
     [IsoId("_5gS-YM5WEeiEmaZryQQ14Q")]
     [Description(@"Reconciliation Initiation")]
-    RECI,
+    ReconciliationInitiation,
     
     /// <summary>
     /// Reconciliation Response
+    /// Encoded/decoded by serializers as "RECR".
     /// </summary>
     [EnumMember(Value = "RECR")]
     [IsoId("_5inSkM5WEeiEmaZryQQ14Q")]
     [Description(@"Reconciliation Response")]
-    RECR,
+    ReconciliationResponse,
     
     /// <summary>
     /// Network Management Initiation.
+    /// Encoded/decoded by serializers as "NWMI".
     /// </summary>
     [EnumMember(Value = "NWMI")]
     [IsoId("_5in5oM5WEeiEmaZryQQ14Q")]
     [Description(@"Network Management Initiation.")]
-    NWMI,
+    NetworkManagementInitiation,
     
     /// <summary>
     /// Network Management Response
+    /// Encoded/decoded by serializers as "NWMR".
     /// </summary>
     [EnumMember(Value = "NWMR")]
     [IsoId("_5k_4MM5WEeiEmaZryQQ14Q")]
     [Description(@"Network Management Response")]
-    NWMR,
+    NetworkManagementResponse,
     
     /// <summary>
     /// Addendum initiation
+    /// Encoded/decoded by serializers as "ADDI".
     /// </summary>
     [EnumMember(Value = "ADDI")]
     [IsoId("_PnU-wBqSEeqH1IQNpbVpEw")]
     [Description(@"Addendum initiation")]
-    ADDI,
+    AddendumInitiation,
     
     /// <summary>
     /// Addendum response
+    /// Encoded/decoded by serializers as "ADDR".
     /// </summary>
     [EnumMember(Value = "ADDR")]
     [IsoId("_eQKQYBqSEeqH1IQNpbVpEw")]
     [Description(@"Addendum response")]
-    ADDR,
+    AddendumResponse,
     
     /// <summary>
     /// Retrieval Initiation Message
+    /// Encoded/decoded by serializers as "RTVI".
     /// </summary>
     [EnumMember(Value = "RTVI")]
     [IsoId("_k7ul0C3iEeyg-aG5nXcnfg")]
     [Description(@"Retrieval Initiation Message")]
-    RTVI,
+    RetrievalInitiation,
     
 }
 

@@ -20,27 +20,30 @@ public enum SubscriptionRequestCode
 {
     /// <summary>
     /// Specifies that the request is to subscribe to snapshots.
+    /// Encoded/decoded by serializers as "SNAP".
     /// </summary>
     [EnumMember(Value = "SNAP")]
     [IsoId("_ZQzbANp-Ed-ak6NoX_4Aeg_336259529")]
     [Description(@"Specifies that the request is to subscribe to snapshots.")]
-    SNAP,
+    Snapshot,
     
     /// <summary>
     /// Specifies that the request is to subscribe to snapshots and updates.
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_ZQzbAdp-Ed-ak6NoX_4Aeg_336259530")]
     [Description(@"Specifies that the request is to subscribe to snapshots and updates.")]
-    SUBS,
+    Subscribe,
     
     /// <summary>
     /// Specifies that the request is to disable the previous snapshot subscription and to update the request (unsubscribe).
+    /// Encoded/decoded by serializers as "UNSU".
     /// </summary>
     [EnumMember(Value = "UNSU")]
     [IsoId("_ZQzbAtp-Ed-ak6NoX_4Aeg_336259531")]
     [Description(@"Specifies that the request is to disable the previous snapshot subscription and to update the request (unsubscribe).")]
-    UNSU,
+    Unsubscribe,
     
 }
 

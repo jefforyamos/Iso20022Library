@@ -22,155 +22,174 @@ public enum ExternalMarketAreaCode
 {
     /// <summary>
     /// Any market area.
+    /// Encoded/decoded by serializers as "ANYY".
     /// </summary>
     [EnumMember(Value = "ANYY")]
     [IsoId("_-ctnEPouEe2ClqPWkEN24A")]
     [Description(@"Any market area.")]
-    ANYY,
+    Any,
     
     /// <summary>
     /// Bank to bank cash movements.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_-ctnFfouEe2ClqPWkEN24A")]
     [Description(@"Bank to bank cash movements.")]
-    CASH,
+    Cash,
     
     /// <summary>
     /// Collections.
+    /// Encoded/decoded by serializers as "COLL".
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_-ctnGvouEe2ClqPWkEN24A")]
     [Description(@"Collections.")]
-    COLL,
+    Collections,
     
     /// <summary>
     /// Precious metals and other commodities such as palm oil.
+    /// Encoded/decoded by serializers as "COMM".
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_-ctnJfouEe2ClqPWkEN24A")]
     [Description(@"Precious metals and other commodities such as palm oil.")]
-    COMM,
+    Commodities,
     
     /// <summary>
     /// Payment in which one of the parties is not a financial institution.
+    /// Encoded/decoded by serializers as "COPA".
     /// </summary>
     [EnumMember(Value = "COPA")]
     [IsoId("_-ctnEvouEe2ClqPWkEN24A")]
     [Description(@"Payment in which one of the parties is not a financial institution.")]
-    COPA,
+    CommercialPayments,
     
     /// <summary>
     /// Futures contracts, options, forward contracts, swaps, etc...
+    /// Encoded/decoded by serializers as "DERI".
     /// </summary>
     [EnumMember(Value = "DERI")]
     [IsoId("_-ctnF_ouEe2ClqPWkEN24A")]
     [Description(@"Futures contracts, options, forward contracts, swaps, etc...")]
-    DERI,
+    Derivatives,
     
     /// <summary>
     /// Documentary credits.
+    /// Encoded/decoded by serializers as "DOCC".
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_-ctnIfouEe2ClqPWkEN24A")]
     [Description(@"Documentary credits.")]
-    DOCC,
+    DocumentaryCredits,
     
     /// <summary>
     /// Foreign exchange.
+    /// Encoded/decoded by serializers as "FOEX".
     /// </summary>
     [EnumMember(Value = "FOEX")]
     [IsoId("_-ctnIvouEe2ClqPWkEN24A")]
     [Description(@"Foreign exchange.")]
-    FOEX,
+    ForeignExchange,
     
     /// <summary>
     /// Guarantees.
+    /// Encoded/decoded by serializers as "GUAR".
     /// </summary>
     [EnumMember(Value = "GUAR")]
     [IsoId("_-ctnGfouEe2ClqPWkEN24A")]
     [Description(@"Guarantees.")]
-    GUAR,
+    Guarantees,
     
     /// <summary>
     /// Letters of credit.
+    /// Encoded/decoded by serializers as "LETT".
     /// </summary>
     [EnumMember(Value = "LETT")]
     [IsoId("_-ctnH_ouEe2ClqPWkEN24A")]
     [Description(@"Letters of credit.")]
-    LETT,
+    LettersOfCredit,
     
     /// <summary>
     /// Loans and deposits.
+    /// Encoded/decoded by serializers as "LOAN".
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_-ctnEfouEe2ClqPWkEN24A")]
     [Description(@"Loans and deposits.")]
-    LOAN,
+    Loans,
     
     /// <summary>
     /// Money markets.
+    /// Encoded/decoded by serializers as "MMKT".
     /// </summary>
     [EnumMember(Value = "MMKT")]
     [IsoId("_-ctnIPouEe2ClqPWkEN24A")]
     [Description(@"Money markets.")]
-    MMKT,
+    MoneyMarkets,
     
     /// <summary>
     /// FX forward trade for which only balance is settled.
+    /// Encoded/decoded by serializers as "NDLF".
     /// </summary>
     [EnumMember(Value = "NDLF")]
     [IsoId("_-ctnHfouEe2ClqPWkEN24A")]
     [Description(@"FX forward trade for which only balance is settled.")]
-    NDLF,
+    NonDeliverableForward,
     
     /// <summary>
     /// Offshore settlement.
+    /// Encoded/decoded by serializers as "OFFS".
     /// </summary>
     [EnumMember(Value = "OFFS")]
     [IsoId("_-ctnFvouEe2ClqPWkEN24A")]
     [Description(@"Offshore settlement.")]
-    OFFS,
+    Offshore,
     
     /// <summary>
     /// Onshore settlement.
+    /// Encoded/decoded by serializers as "ONSH".
     /// </summary>
     [EnumMember(Value = "ONSH")]
     [IsoId("_-ctnFPouEe2ClqPWkEN24A")]
     [Description(@"Onshore settlement.")]
-    ONSH,
+    Onshore,
     
     /// <summary>
     /// FX Options, swap options, etc...
+    /// Encoded/decoded by serializers as "OPTI".
     /// </summary>
     [EnumMember(Value = "OPTI")]
     [IsoId("_-ctnJPouEe2ClqPWkEN24A")]
     [Description(@"FX Options, swap options, etc...")]
-    OPTI,
+    Options,
     
     /// <summary>
     /// Bonds, equities, futures...
+    /// Encoded/decoded by serializers as "SECU".
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_-ctnHvouEe2ClqPWkEN24A")]
     [Description(@"Bonds, equities, futures...")]
-    SECU,
+    Securities,
     
     /// <summary>
     /// Documentary credits, collections, guarantees, letters of credit.
+    /// Encoded/decoded by serializers as "TFIN".
     /// </summary>
     [EnumMember(Value = "TFIN")]
     [IsoId("_-ctnHPouEe2ClqPWkEN24A")]
     [Description(@"Documentary credits, collections, guarantees, letters of credit.")]
-    TFIN,
+    TradeFinance,
     
     /// <summary>
     /// Cash management activities.
+    /// Encoded/decoded by serializers as "TREA".
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_-ctnE_ouEe2ClqPWkEN24A")]
     [Description(@"Cash management activities.")]
-    TREA,
+    Treasury,
     
 }
 

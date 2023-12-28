@@ -20,19 +20,21 @@ public enum OtherAmountTypeCode
 {
     /// <summary>
     /// Interest on the interest.
+    /// Encoded/decoded by serializers as "SINT".
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("_r-7mIK53Eee6Q7mFsDuJBA")]
     [Description(@"Interest on the interest.")]
-    SINT,
+    SettlementInterest,
     
     /// <summary>
     /// Interest that was pre-paid.
+    /// Encoded/decoded by serializers as "PINT".
     /// </summary>
     [EnumMember(Value = "PINT")]
     [IsoId("_sD17UK53Eee6Q7mFsDuJBA")]
     [Description(@"Interest that was pre-paid.")]
-    PINT,
+    PrepaidInterest,
     
 }
 

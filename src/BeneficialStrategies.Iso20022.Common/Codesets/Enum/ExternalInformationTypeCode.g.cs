@@ -21,51 +21,57 @@ public enum ExternalInformationTypeCode
 {
     /// <summary>
     /// Instructions used to ease automatic request processing.
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_uIbmQPRYEeuLhpyIdtJzwg")]
     [Description(@"Instructions used to ease automatic request processing.")]
-    INST,
+    ProcessingInstructions,
     
     /// <summary>
     /// Additional information not otherwise specified.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_uIbmQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Additional information not otherwise specified.")]
-    OTHR,
+    OtherInformation,
     
     /// <summary>
     /// Instructions used to ease automatic request relay.
+    /// Encoded/decoded by serializers as "RELY".
     /// </summary>
     [EnumMember(Value = "RELY")]
     [IsoId("_uIbmRvRYEeuLhpyIdtJzwg")]
     [Description(@"Instructions used to ease automatic request relay.")]
-    RELY,
+    RelayInstructions,
     
     /// <summary>
     /// Additional shipping information not otherwise specified.
+    /// Encoded/decoded by serializers as "SHPG".
     /// </summary>
     [EnumMember(Value = "SHPG")]
     [IsoId("_uIlXQPRYEeuLhpyIdtJzwg")]
     [Description(@"Additional shipping information not otherwise specified.")]
-    SHPG,
+    ShippingInformation,
     
     /// <summary>
     /// Information concerning the letters, numbers or other symbols placed on the outside of cargo to facilitate identification.
+    /// Encoded/decoded by serializers as "SHPM".
     /// </summary>
     [EnumMember(Value = "SHPM")]
     [IsoId("_uIlXQ_RYEeuLhpyIdtJzwg")]
     [Description(@"Information concerning the letters, numbers or other symbols placed on the outside of cargo to facilitate identification.")]
-    SHPM,
+    ShippingMarks,
     
     /// <summary>
     /// Information concerning the domicile location of the seller.
+    /// Encoded/decoded by serializers as "SLDC".
     /// </summary>
     [EnumMember(Value = "SLDC")]
     [IsoId("_uIlXRvRYEeuLhpyIdtJzwg")]
     [Description(@"Information concerning the domicile location of the seller.")]
-    SLDC,
+    SellerDomicileLocation,
     
 }
 

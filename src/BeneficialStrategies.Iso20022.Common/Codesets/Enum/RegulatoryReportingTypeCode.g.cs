@@ -20,27 +20,30 @@ public enum RegulatoryReportingTypeCode
 {
     /// <summary>
     /// Regulatory information applies to the credit side.
+    /// Encoded/decoded by serializers as "CRED".
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_ZbPJY9p-Ed-ak6NoX_4Aeg_314621931")]
     [Description(@"Regulatory information applies to the credit side.")]
-    CRED,
+    Credit,
     
     /// <summary>
     /// Regulatory information applies to the debit side.
+    /// Encoded/decoded by serializers as "DEBT".
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_ZbPJZNp-Ed-ak6NoX_4Aeg_413436419")]
     [Description(@"Regulatory information applies to the debit side.")]
-    DEBT,
+    Debit,
     
     /// <summary>
     /// Regulatory information applies to both credit and debit sides.
+    /// Encoded/decoded by serializers as "BOTH".
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_ZbPJZdp-Ed-ak6NoX_4Aeg_-1707234472")]
     [Description(@"Regulatory information applies to both credit and debit sides.")]
-    BOTH,
+    Both,
     
 }
 

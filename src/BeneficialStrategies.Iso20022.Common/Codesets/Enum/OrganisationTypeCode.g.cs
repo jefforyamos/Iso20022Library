@@ -20,35 +20,39 @@ public enum OrganisationTypeCode
 {
     /// <summary>
     /// Organisation is a public company.
+    /// Encoded/decoded by serializers as "PUBL".
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_EUp3kCCfEeWJd9HF2tO7BA")]
     [Description(@"Organisation is a public company.")]
-    PUBL,
+    Public,
     
     /// <summary>
     /// Organisation is a private association.
+    /// Encoded/decoded by serializers as "PRIV".
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_HN4ugCCfEeWJd9HF2tO7BA")]
     [Description(@"Organisation is a private association.")]
-    PRIV,
+    PrivateAssociation,
     
     /// <summary>
     /// Organisation is an investment fund.
+    /// Encoded/decoded by serializers as "IFUN".
     /// </summary>
     [EnumMember(Value = "IFUN")]
     [IsoId("_J_0qoCCfEeWJd9HF2tO7BA")]
     [Description(@"Organisation is an investment fund.")]
-    IFUN,
+    InvestmentFund,
     
     /// <summary>
     /// Organisation is a public fund.
+    /// Encoded/decoded by serializers as "PFUN".
     /// </summary>
     [EnumMember(Value = "PFUN")]
     [IsoId("_O5S7ACCfEeWJd9HF2tO7BA")]
     [Description(@"Organisation is a public fund.")]
-    PFUN,
+    PublicFund,
     
 }
 

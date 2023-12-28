@@ -20,27 +20,30 @@ public enum TriggerActionCode
 {
     /// <summary>
     /// Trigger action is activate.
+    /// Encoded/decoded by serializers as "ACTI".
     /// </summary>
     [EnumMember(Value = "ACTI")]
     [IsoId("_Yv34M9p-Ed-ak6NoX_4Aeg_-556071238")]
     [Description(@"Trigger action is activate.")]
-    ACTI,
+    Activate,
     
     /// <summary>
     /// Trigger action is modify.
+    /// Encoded/decoded by serializers as "MODI".
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_Yv34NNp-Ed-ak6NoX_4Aeg_-531138136")]
     [Description(@"Trigger action is modify.")]
-    MODI,
+    Modify,
     
     /// <summary>
     /// Trigger action is cancel.
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_Yv34Ndp-Ed-ak6NoX_4Aeg_-527443091")]
     [Description(@"Trigger action is cancel.")]
-    CANC,
+    Cancel,
     
 }
 

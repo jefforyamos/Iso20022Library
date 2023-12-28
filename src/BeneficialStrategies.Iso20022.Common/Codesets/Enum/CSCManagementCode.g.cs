@@ -20,35 +20,39 @@ public enum CSCManagementCode
 {
     /// <summary>
     /// Card security code present.
+    /// Encoded/decoded by serializers as "PRST".
     /// </summary>
     [EnumMember(Value = "PRST")]
     [IsoId("_TWii4gEcEeCQm6a_G2yO_w_-86583445")]
     [Description(@"Card security code present.")]
-    PRST,
+    CSCPresent,
     
     /// <summary>
     /// Card security code by-passed or not provided by the merchant.
+    /// Encoded/decoded by serializers as "BYPS".
     /// </summary>
     [EnumMember(Value = "BYPS")]
     [IsoId("_TWrswAEcEeCQm6a_G2yO_w_-1184407427")]
     [Description(@"Card security code by-passed or not provided by the merchant.")]
-    BYPS,
+    CSCByPass,
     
     /// <summary>
     /// Card security code unreadable.
+    /// Encoded/decoded by serializers as "UNRD".
     /// </summary>
     [EnumMember(Value = "UNRD")]
     [IsoId("_TWrswQEcEeCQm6a_G2yO_w_-1151247658")]
     [Description(@"Card security code unreadable.")]
-    UNRD,
+    CSCUnread,
     
     /// <summary>
     /// No card security code imprint.
+    /// Encoded/decoded by serializers as "NCSC".
     /// </summary>
     [EnumMember(Value = "NCSC")]
     [IsoId("_TWrswgEcEeCQm6a_G2yO_w_1063680011")]
     [Description(@"No card security code imprint.")]
-    NCSC,
+    NoCSC,
     
 }
 

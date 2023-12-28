@@ -20,6 +20,7 @@ public enum DateModeCode
 {
     /// <summary>
     /// Beginning of day.
+    /// Encoded/decoded by serializers as "BODY".
     /// </summary>
     [EnumMember(Value = "BODY")]
     [IsoId("_rQlwYFuREeSmO6RkXg92Lg")]
@@ -28,6 +29,7 @@ public enum DateModeCode
     
     /// <summary>
     /// End of day.
+    /// Encoded/decoded by serializers as "EODY".
     /// </summary>
     [EnumMember(Value = "EODY")]
     [IsoId("_1HlDoFuREeSmO6RkXg92Lg")]

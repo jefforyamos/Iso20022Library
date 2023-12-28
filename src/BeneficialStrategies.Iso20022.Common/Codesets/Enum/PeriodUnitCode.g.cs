@@ -20,99 +20,111 @@ public enum PeriodUnitCode
 {
     /// <summary>
     /// Counted in days.
+    /// Encoded/decoded by serializers as "DAYS".
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_XFiY0BfkEeS1K9gYCN87fQ")]
     [Description(@"Counted in days.")]
-    DAYS,
+    Days,
     
     /// <summary>
     /// Counted in weeks.
+    /// Encoded/decoded by serializers as "WEEK".
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_YU35wBfkEeS1K9gYCN87fQ")]
     [Description(@"Counted in weeks.")]
-    WEEK,
+    Weeks,
     
     /// <summary>
     /// Counted in months.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ZaYwUBfkEeS1K9gYCN87fQ")]
     [Description(@"Counted in months.")]
-    MNTH,
+    Months,
     
     /// <summary>
     /// Counted in some other unit.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_b9rzgBfkEeS1K9gYCN87fQ")]
     [Description(@"Counted in some other unit.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Counted in years.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_c6HmkBfkEeS1K9gYCN87fQ")]
     [Description(@"Counted in years.")]
-    YEAR,
+    Years,
     
     /// <summary>
     /// Extra Days
+    /// Encoded/decoded by serializers as "EXDY".
     /// </summary>
     [EnumMember(Value = "EXDY")]
     [IsoId("__zIsB3yKEemHsOqJOzMVfg")]
     [Description(@"Extra Days")]
-    EXDY,
+    ExtraDays,
     
     /// <summary>
     /// Half days
+    /// Encoded/decoded by serializers as "HFDA".
     /// </summary>
     [EnumMember(Value = "HFDA")]
     [IsoId("__zIsCHyKEemHsOqJOzMVfg")]
     [Description(@"Half days")]
-    HFDA,
+    HalfDays,
     
     /// <summary>
     /// Period unit expressed in hours.
+    /// Encoded/decoded by serializers as "HOUR".
     /// </summary>
     [EnumMember(Value = "HOUR")]
     [IsoId("__zIsCXyKEemHsOqJOzMVfg")]
     [Description(@"Period unit expressed in hours.")]
-    HOUR,
+    Hours,
     
     /// <summary>
     /// Period unit expressed in minutes
+    /// Encoded/decoded by serializers as "MINU".
     /// </summary>
     [EnumMember(Value = "MINU")]
     [IsoId("__zIsCnyKEemHsOqJOzMVfg")]
     [Description(@"Period unit expressed in minutes")]
-    MINU,
+    Minutes,
     
     /// <summary>
     /// Other National
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("__zIsC3yKEemHsOqJOzMVfg")]
     [Description(@"Other National")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other Private
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("__zIsDHyKEemHsOqJOzMVfg")]
     [Description(@"Other Private")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Period unit expressed in seconds.
+    /// Encoded/decoded by serializers as "SECO".
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("__zIsDXyKEemHsOqJOzMVfg")]
     [Description(@"Period unit expressed in seconds.")]
-    SECO,
+    Seconds,
     
 }
 

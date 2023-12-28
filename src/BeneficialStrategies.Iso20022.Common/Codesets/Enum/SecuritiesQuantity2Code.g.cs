@@ -16,15 +16,17 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZBS2UDFxEeGKkIZzgd38VA")]
 [Description(@"TSE/JASDEC codes for unknown number of shares to be purchased.")]
+[DerivedFrom(typeof(SecuritiesQuantityTypeCode))]
 public enum SecuritiesQuantity2Code
 {
     /// <summary>
     /// ??
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_bLRaljFxEeGKkIZzgd38VA")]
     [Description(@"??")]
-    UKWN,
+    Unknown,
     
 }
 

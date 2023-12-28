@@ -20,43 +20,48 @@ public enum CaseStatusCode
 {
     /// <summary>
     /// Case has been closed.
+    /// Encoded/decoded by serializers as "CLSD".
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_a2uP9dp-Ed-ak6NoX_4Aeg_-1002966531")]
     [Description(@"Case has been closed.")]
-    CLSD,
+    Closed,
     
     /// <summary>
     /// Case has been assigned to another party.
+    /// Encoded/decoded by serializers as "ASGN".
     /// </summary>
     [EnumMember(Value = "ASGN")]
     [IsoId("_a2uP9tp-Ed-ak6NoX_4Aeg_-1002966514")]
     [Description(@"Case has been assigned to another party.")]
-    ASGN,
+    Assigned,
     
     /// <summary>
     /// Case is currently under investigation.
+    /// Encoded/decoded by serializers as "INVE".
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_a2uP99p-Ed-ak6NoX_4Aeg_-1002966497")]
     [Description(@"Case is currently under investigation.")]
-    INVE,
+    UnderInvestigation,
     
     /// <summary>
     /// Case has never been assigned before.
+    /// Encoded/decoded by serializers as "UKNW".
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_a2uP-Np-Ed-ak6NoX_4Aeg_-1002966479")]
     [Description(@"Case has never been assigned before.")]
-    UKNW,
+    Unknown,
     
     /// <summary>
     /// Investigation is taking too long.
+    /// Encoded/decoded by serializers as "ODUE".
     /// </summary>
     [EnumMember(Value = "ODUE")]
     [IsoId("_a24A8Np-Ed-ak6NoX_4Aeg_-960484981")]
     [Description(@"Investigation is taking too long.")]
-    ODUE,
+    Overdue,
     
 }
 

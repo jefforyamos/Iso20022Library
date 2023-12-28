@@ -20,163 +20,183 @@ public enum PersonIdentificationTypeCode
 {
     /// <summary>
     /// Number assigned by a passport authority to a passport.
+    /// Encoded/decoded by serializers as "PASS".
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_aG5Vhdp-Ed-ak6NoX_4Aeg_1218140653")]
     [Description(@"Number assigned by a passport authority to a passport.")]
-    PASS,
+    PassportNumber,
     
     /// <summary>
     /// Account issued by the Central Provident Fund Board (Singapore).
+    /// Encoded/decoded by serializers as "CPFA".
     /// </summary>
     [EnumMember(Value = "CPFA")]
     [IsoId("_aG5Vhtp-Ed-ak6NoX_4Aeg_1230147055")]
     [Description(@"Account issued by the Central Provident Fund Board (Singapore).")]
-    CPFA,
+    CPFAccountNumber,
     
     /// <summary>
     /// Supplementary retirement scheme account number.
+    /// Encoded/decoded by serializers as "SRSA".
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_aG5Vh9p-Ed-ak6NoX_4Aeg_1248616162")]
     [Description(@"Supplementary retirement scheme account number.")]
-    SRSA,
+    SRSAccountNumber,
     
     /// <summary>
     /// National registration identification number. In Singapore this is known as the NRIC.
+    /// Encoded/decoded by serializers as "NRIN".
     /// </summary>
     [EnumMember(Value = "NRIN")]
     [IsoId("_aG5ViNp-Ed-ak6NoX_4Aeg_1273549056")]
     [Description(@"National registration identification number. In Singapore this is known as the NRIC.")]
-    NRIN,
+    NationalRegistrationIdentificationNumber,
     
     /// <summary>
     /// Another type of identification type.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aHCfcNp-Ed-ak6NoX_4Aeg_1286479435")]
     [Description(@"Another type of identification type.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
+    /// Encoded/decoded by serializers as "DRLC".
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_aHCfcdp-Ed-ak6NoX_4Aeg_89548299")]
     [Description(@"Number assigned by a license authority to a driver's license.")]
-    DRLC,
+    DriversLicenseNumber,
     
     /// <summary>
     /// Number assigned by a social security agency.
+    /// Encoded/decoded by serializers as "SOCS".
     /// </summary>
     [EnumMember(Value = "SOCS")]
     [IsoId("_aHCfctp-Ed-ak6NoX_4Aeg_89548317")]
     [Description(@"Number assigned by a social security agency.")]
-    SOCS,
+    SocialSecurityNumber,
     
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
+    /// Encoded/decoded by serializers as "AREG".
     /// </summary>
     [EnumMember(Value = "AREG")]
     [IsoId("_aHCfc9p-Ed-ak6NoX_4Aeg_89548334")]
     [Description(@"Number assigned by a government agency to identify foreign nationals.")]
-    AREG,
+    AlienRegistrationNumber,
     
     /// <summary>
     /// Number assigned by a national authority to an identity card.
+    /// Encoded/decoded by serializers as "IDCD".
     /// </summary>
     [EnumMember(Value = "IDCD")]
     [IsoId("_aHCfdNp-Ed-ak6NoX_4Aeg_95089905")]
     [Description(@"Number assigned by a national authority to an identity card.")]
-    IDCD,
+    IdentityCardNumber,
     
     /// <summary>
     /// Number assigned to an employer by a registration authority.
+    /// Encoded/decoded by serializers as "EMID".
     /// </summary>
     [EnumMember(Value = "EMID")]
     [IsoId("_aHCfddp-Ed-ak6NoX_4Aeg_95089922")]
     [Description(@"Number assigned to an employer by a registration authority.")]
-    EMID,
+    EmployerIdentificationNumber,
     
     /// <summary>
     /// Driver number, assigned by the fleet manager.
+    /// Encoded/decoded by serializers as "DRVR".
     /// </summary>
     [EnumMember(Value = "DRVR")]
     [IsoId("_TZESYAEcEeCQm6a_G2yO_w_883476316")]
     [Description(@"Driver number, assigned by the fleet manager.")]
-    DRVR,
+    DriverNumber,
     
     /// <summary>
     /// Employee number assigned by the company.
+    /// Encoded/decoded by serializers as "EEID".
     /// </summary>
     [EnumMember(Value = "EEID")]
     [IsoId("_TZESYQEcEeCQm6a_G2yO_w_1815250358")]
     [Description(@"Employee number assigned by the company.")]
-    EEID,
+    EmployeeNumber,
     
     /// <summary>
     /// Gun license number as assigned by a gun licensing authority.
+    /// Encoded/decoded by serializers as "GUNL".
     /// </summary>
     [EnumMember(Value = "GUNL")]
     [IsoId("_dhJyUFASEeKdE_ZuDLMHLA_1124149451")]
     [Description(@"Gun license number as assigned by a gun licensing authority.")]
-    GUNL,
+    GunLicenseNumber,
     
     /// <summary>
     /// Post office card number as assigned by a national post office.
+    /// Encoded/decoded by serializers as "POCD".
     /// </summary>
     [EnumMember(Value = "POCD")]
     [IsoId("_dhTjUFASEeKdE_ZuDLMHLA_-2120692470")]
     [Description(@"Post office card number as assigned by a national post office.")]
-    POCD,
+    PostOfficeCardNumber,
     
     /// <summary>
     /// Temporary tax processing number (used in the domestic adoption of a child).
+    /// Encoded/decoded by serializers as "ATIN".
     /// </summary>
     [EnumMember(Value = "ATIN")]
     [IsoId("_xpyHoGXEEeSrv8256XoCZg")]
     [Description(@"Temporary tax processing number (used in the domestic adoption of a child).")]
-    ATIN,
+    AdoptionTaxpayerIdentificationNumber,
     
     /// <summary>
     /// Tax processing number.
+    /// Encoded/decoded by serializers as "ITIN".
     /// </summary>
     [EnumMember(Value = "ITIN")]
     [IsoId("_x1FYsGXEEeSrv8256XoCZg")]
     [Description(@"Tax processing number.")]
-    ITIN,
+    IndividualTaxpayerIdentificationNumber,
     
     /// <summary>
     /// Generic tax identification number.
+    /// Encoded/decoded by serializers as "GTIN".
     /// </summary>
     [EnumMember(Value = "GTIN")]
     [IsoId("_x6ljwGXEEeSrv8256XoCZg")]
     [Description(@"Generic tax identification number.")]
-    GTIN,
+    GenericTaxIdentificationNumber,
     
     /// <summary>
     /// Global intermediary tax identification number.
+    /// Encoded/decoded by serializers as "GIIN".
     /// </summary>
     [EnumMember(Value = "GIIN")]
     [IsoId("_IyzkQCCnEeWJd9HF2tO7BA")]
     [Description(@"Global intermediary tax identification number.")]
-    GIIN,
+    GlobalIntermediaryIdentificationNumber,
     
     /// <summary>
     /// Number that identifies the type of investor registered at a securities and exchange commission.
+    /// Encoded/decoded by serializers as "NINV".
     /// </summary>
     [EnumMember(Value = "NINV")]
     [IsoId("_a3p-ECDZEeWCLu74WLgP4w")]
     [Description(@"Number that identifies the type of investor registered at a securities and exchange commission.")]
-    NINV,
+    NonResidentInvestor,
     
     /// <summary>
     /// Number, typically assigned by a government to describe ownership, administrative and authoritative relations.
+    /// Encoded/decoded by serializers as "INCL".
     /// </summary>
     [EnumMember(Value = "INCL")]
     [IsoId("_kfymsCMuEeWw25nezi_B1g")]
     [Description(@"Number, typically assigned by a government to describe ownership, administrative and authoritative relations.")]
-    INCL,
+    IndustryClassification,
     
 }
 

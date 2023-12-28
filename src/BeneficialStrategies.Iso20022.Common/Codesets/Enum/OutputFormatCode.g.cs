@@ -20,110 +20,124 @@ public enum OutputFormatCode
 {
     /// <summary>
     /// Text without format attributes.
+    /// Encoded/decoded by serializers as "TEXT".
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_yWkVMHr5EeSZrs_hiwNOWA")]
     [Description(@"Text without format attributes.")]
-    TEXT,
+    SimpleText,
     
     /// <summary>
     /// Predefined configured messages, identified by a reference.
+    /// Encoded/decoded by serializers as "MREF".
     /// </summary>
     [EnumMember(Value = "MREF")]
     [IsoId("_2CqzgHr5EeSZrs_hiwNOWA")]
     [Description(@"Predefined configured messages, identified by a reference.")]
-    MREF,
+    MessageReference,
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
+    /// Encoded/decoded by serializers as "HTML".
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_4w1C4Hr5EeSZrs_hiwNOWA")]
     [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
-    HTML,
+    XHTML,
     
     /// <summary>
     /// Screen to display identified by a reference.
+    /// Encoded/decoded by serializers as "SREF".
     /// </summary>
     [EnumMember(Value = "SREF")]
     [IsoId("_aR8PAM4xEeSiNPH-YrkZ3A")]
     [Description(@"Screen to display identified by a reference.")]
-    SREF,
+    ScreenReference,
     
     /// <summary>
     /// Barcode to output in several possible format.
+    /// Encoded/decoded by serializers as "BARC".
     /// </summary>
     [EnumMember(Value = "BARC")]
     [IsoId("_XlImcGpUEemFuJNacM8hZA")]
     [Description(@"Barcode to output in several possible format.")]
-    BARC,
+    Barcode,
     
     /// <summary>
     /// A text to display as a menu before requesting an input.
+    /// Encoded/decoded by serializers as "MENT".
     /// </summary>
     [EnumMember(Value = "MENT")]
     [IsoId("_d3t-0GpUEemFuJNacM8hZA")]
     [Description(@"A text to display as a menu before requesting an input.")]
-    MENT,
+    MenuEntry,
     
     /// <summary>
     /// File name and location identification for stored messages or data.
+    /// Encoded/decoded by serializers as "FLNM".
     /// </summary>
     [EnumMember(Value = "FLNM")]
     [IsoId("_JtYkFnyKEemHsOqJOzMVfg")]
     [Description(@"File name and location identification for stored messages or data.")]
-    FLNM,
+    FileName,
     
     /// <summary>
     /// Multi-media messaging service
+    /// Encoded/decoded by serializers as "MMSI".
     /// </summary>
     [EnumMember(Value = "MMSI")]
     [IsoId("_JtYkF3yKEemHsOqJOzMVfg")]
     [Description(@"Multi-media messaging service")]
-    MMSI,
+    MultiMediaMessaging,
     
     /// <summary>
     /// Other type of output of message defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_JtYkGHyKEemHsOqJOzMVfg")]
     [Description(@"Other type of output of message defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other type of output format defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_JtYkGXyKEemHsOqJOzMVfg")]
     [Description(@"Other type of output format defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Short message service
+    /// Encoded/decoded by serializers as "SMSI".
     /// </summary>
     [EnumMember(Value = "SMSI")]
     [IsoId("_JtYkGnyKEemHsOqJOzMVfg")]
     [Description(@"Short message service")]
-    SMSI,
+    ShortMessageService,
     
     /// <summary>
     /// Uniform Resource Locator (URL) reference for the message.
+    /// Encoded/decoded by serializers as "URLI".
     /// </summary>
     [EnumMember(Value = "URLI")]
     [IsoId("_JtYkG3yKEemHsOqJOzMVfg")]
     [Description(@"Uniform Resource Locator (URL) reference for the message.")]
-    URLI,
+    UniformResourceLocator,
     
     /// <summary>
     /// A formatted print line.
+    /// Encoded/decoded by serializers as "PLIN".
     /// </summary>
     [EnumMember(Value = "PLIN")]
     [IsoId("_nbH5gMlSEeuJ35KoBRZFOg")]
     [Description(@"A formatted print line.")]
-    PLIN,
+    PrintLine,
     
     /// <summary>
     /// Java Syntax Object Notation format.
+    /// Encoded/decoded by serializers as "JSON".
     /// </summary>
     [EnumMember(Value = "JSON")]
     [IsoId("_1NF0kMlSEeuJ35KoBRZFOg")]
@@ -132,30 +146,34 @@ public enum OutputFormatCode
     
     /// <summary>
     /// eXtensible Markup Language format.
+    /// Encoded/decoded by serializers as "XMLF".
     /// </summary>
     [EnumMember(Value = "XMLF")]
     [IsoId("_8nMOoMlSEeuJ35KoBRZFOg")]
     [Description(@"eXtensible Markup Language format.")]
-    XMLF,
+    XML,
     
     /// <summary>
     /// Electronic data interchange for administration, commerce and transport.
+    /// Encoded/decoded by serializers as "EDIF".
     /// </summary>
     [EnumMember(Value = "EDIF")]
     [IsoId("_MV-bsMlTEeuJ35KoBRZFOg")]
     [Description(@"Electronic data interchange for administration, commerce and transport.")]
-    EDIF,
+    EDIFACT,
     
     /// <summary>
     /// Comma separated value format.
+    /// Encoded/decoded by serializers as "CSVF".
     /// </summary>
     [EnumMember(Value = "CSVF")]
     [IsoId("_YZZKQMlTEeuJ35KoBRZFOg")]
     [Description(@"Comma separated value format.")]
-    CSVF,
+    CSV,
     
     /// <summary>
     /// Joint Photographic Experts Group format.
+    /// Encoded/decoded by serializers as "JPEG".
     /// </summary>
     [EnumMember(Value = "JPEG")]
     [IsoId("_dkt_oMlTEeuJ35KoBRZFOg")]
@@ -164,27 +182,30 @@ public enum OutputFormatCode
     
     /// <summary>
     /// Portable Document Format.
+    /// Encoded/decoded by serializers as "PDFF".
     /// </summary>
     [EnumMember(Value = "PDFF")]
     [IsoId("_xskesMlTEeuJ35KoBRZFOg")]
     [Description(@"Portable Document Format.")]
-    PDFF,
+    PDF,
     
     /// <summary>
     /// Portable Network Graphics format.
+    /// Encoded/decoded by serializers as "PNGF".
     /// </summary>
     [EnumMember(Value = "PNGF")]
     [IsoId("_3DW9MMlTEeuJ35KoBRZFOg")]
     [Description(@"Portable Network Graphics format.")]
-    PNGF,
+    PNG,
     
     /// <summary>
     /// Scalable vector graphic format.
+    /// Encoded/decoded by serializers as "SVGF".
     /// </summary>
     [EnumMember(Value = "SVGF")]
     [IsoId("_BhESMMlUEeuJ35KoBRZFOg")]
     [Description(@"Scalable vector graphic format.")]
-    SVGF,
+    SVG,
     
 }
 

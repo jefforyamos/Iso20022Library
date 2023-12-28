@@ -20,51 +20,57 @@ public enum NonTradingDayReasonCode
 {
     /// <summary>
     /// Other reasons a day is a non-trading day e.g. technical fault, company specific non-trading day not known in advance.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_DG_-MGw5EeWD9e8QDBgUOw")]
     [Description(@"Other reasons a day is a non-trading day e.g. technical fault, company specific non-trading day not known in advance.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// The date is a full day trading holiday with no trades performed.
+    /// Encoded/decoded by serializers as "THOL".
     /// </summary>
     [EnumMember(Value = "THOL")]
     [IsoId("_EzKlEGw5EeWD9e8QDBgUOw")]
     [Description(@"The date is a full day trading holiday with no trades performed.")]
-    THOL,
+    TradingHoliday,
     
     /// <summary>
     /// Trading venue was open for an amount of time, up to half the day.
+    /// Encoded/decoded by serializers as "HALF".
     /// </summary>
     [EnumMember(Value = "HALF")]
     [IsoId("_LNwp8Gw5EeWD9e8QDBgUOw")]
     [Description(@"Trading venue was open for an amount of time, up to half the day.")]
-    HALF,
+    HalfDay,
     
     /// <summary>
     /// Date is a bank holiday.
+    /// Encoded/decoded by serializers as "BHOL".
     /// </summary>
     [EnumMember(Value = "BHOL")]
     [IsoId("_AEFxYGw6EeWD9e8QDBgUOw")]
     [Description(@"Date is a bank holiday.")]
-    BHOL,
+    BankHoliday,
     
     /// <summary>
     /// Date is a public holiday.
+    /// Encoded/decoded by serializers as "PHOL".
     /// </summary>
     [EnumMember(Value = "PHOL")]
     [IsoId("_B2sXcGw6EeWD9e8QDBgUOw")]
     [Description(@"Date is a public holiday.")]
-    PHOL,
+    PublicHoliday,
     
     /// <summary>
     /// Date being reported falls during the weekend.
+    /// Encoded/decoded by serializers as "WKND".
     /// </summary>
     [EnumMember(Value = "WKND")]
     [IsoId("_DhnoMGw6EeWD9e8QDBgUOw")]
     [Description(@"Date being reported falls during the weekend.")]
-    WKND,
+    Weekend,
     
 }
 

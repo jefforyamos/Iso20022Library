@@ -20,19 +20,21 @@ public enum AllOtherCashCode
 {
     /// <summary>
     /// Remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
+    /// Encoded/decoded by serializers as "LIQU".
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_up8yUCYHEeWJkOUkQWu90g")]
     [Description(@"Remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.")]
-    LIQU,
+    LiquidatedTransferAsCash,
     
     /// <summary>
     /// Remaining assets in a portfolio not listed for transfer should not be liquidated and transferred as cash.
+    /// Encoded/decoded by serializers as "NLIQ".
     /// </summary>
     [EnumMember(Value = "NLIQ")]
     [IsoId("_3ycA0CYHEeWJkOUkQWu90g")]
     [Description(@"Remaining assets in a portfolio not listed for transfer should not be liquidated and transferred as cash.")]
-    NLIQ,
+    NotLiquidatedTransferAsCash,
     
 }
 

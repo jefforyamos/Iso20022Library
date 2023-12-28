@@ -20,51 +20,57 @@ public enum TimeFrameCode
 {
     /// <summary>
     /// Less than one year.
+    /// Encoded/decoded by serializers as "VSHT".
     /// </summary>
     [EnumMember(Value = "VSHT")]
     [IsoId("_M-z3oDccEeidBoT_PugKiA")]
     [Description(@"Less than one year.")]
-    VSHT,
+    VeryShortTerm,
     
     /// <summary>
     /// Greater than or equal to one year.
+    /// Encoded/decoded by serializers as "SHOR".
     /// </summary>
     [EnumMember(Value = "SHOR")]
     [IsoId("_REf6oDccEeidBoT_PugKiA")]
     [Description(@"Greater than or equal to one year.")]
-    SHOR,
+    ShortTerm,
     
     /// <summary>
     /// Greater than or equal to three years.
+    /// Encoded/decoded by serializers as "MEDM".
     /// </summary>
     [EnumMember(Value = "MEDM")]
     [IsoId("_WWEh8DccEeidBoT_PugKiA")]
     [Description(@"Greater than or equal to three years.")]
-    MEDM,
+    MediumTerm,
     
     /// <summary>
     /// Greater than five years.
+    /// Encoded/decoded by serializers as "LONG".
     /// </summary>
     [EnumMember(Value = "LONG")]
     [IsoId("_ZR0hYDccEeidBoT_PugKiA")]
     [Description(@"Greater than five years.")]
-    LONG,
+    LongTerm,
     
     /// <summary>
     /// Time frame is neutral.
+    /// Encoded/decoded by serializers as "NEUT".
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_bgDTgDccEeidBoT_PugKiA")]
     [Description(@"Time frame is neutral.")]
-    NEUT,
+    Neutral,
     
     /// <summary>
     /// Hold to maturity.
+    /// Encoded/decoded by serializers as "HOLD".
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_3DJ9wIELEeiw-daIkkmMqQ")]
     [Description(@"Hold to maturity.")]
-    HOLD,
+    Hold,
     
 }
 

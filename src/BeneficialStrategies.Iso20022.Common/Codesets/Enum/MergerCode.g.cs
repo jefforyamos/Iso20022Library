@@ -20,19 +20,21 @@ public enum MergerCode
 {
     /// <summary>
     /// The merger regulatory condition is unknown.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_98CTsFOzEeGs_NnqHXQZkw")]
     [Description(@"The merger regulatory condition is unknown.")]
-    UKWN,
+    MergerClassificationIsUnknown,
     
     /// <summary>
     /// The merger regulatory condition is: no general shareholders meeting at discontinued company or subsidiary to be acquired.
+    /// Encoded/decoded by serializers as "OMIT".
     /// </summary>
     [EnumMember(Value = "OMIT")]
     [IsoId("__x6QMFOzEeGs_NnqHXQZkw")]
     [Description(@"The merger regulatory condition is: no general shareholders meeting at discontinued company or subsidiary to be acquired.")]
-    OMIT,
+    NoGeneralShareholdersMeeting,
     
 }
 

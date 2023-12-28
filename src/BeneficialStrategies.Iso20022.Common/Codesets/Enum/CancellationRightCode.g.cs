@@ -20,43 +20,48 @@ public enum CancellationRightCode
 {
     /// <summary>
     /// Investor is entitled to a "cooling off" period with cancellation rights under compliance rules.
+    /// Encoded/decoded by serializers as "VALI".
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_bYs7otp-Ed-ak6NoX_4Aeg_-1019449689")]
     [Description(@"Investor is entitled to a ""cooling off"" period with cancellation rights under compliance rules.")]
-    VALI,
+    Entitled,
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.
+    /// Encoded/decoded by serializers as "NOXO".
     /// </summary>
     [EnumMember(Value = "NOXO")]
     [IsoId("_bYs7o9p-Ed-ak6NoX_4Aeg_-1019449688")]
     [Description(@"Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.")]
-    NOXO,
+    ExecutionOnly,
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.
+    /// Encoded/decoded by serializers as "NOWA".
     /// </summary>
     [EnumMember(Value = "NOWA")]
     [IsoId("_bYs7pNp-Ed-ak6NoX_4Aeg_-1019449680")]
     [Description(@"Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.")]
-    NOWA,
+    WaiverAgreement,
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.
+    /// Encoded/decoded by serializers as "NOIN".
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_bYs7pdp-Ed-ak6NoX_4Aeg_-1019449679")]
     [Description(@"Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.")]
-    NOIN,
+    Institutional,
     
     /// <summary>
     /// Another type of cancellation right.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bYs7ptp-Ed-ak6NoX_4Aeg_567211443")]
     [Description(@"Another type of cancellation right.")]
-    OTHR,
+    Other,
     
 }
 

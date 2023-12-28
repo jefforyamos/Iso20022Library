@@ -20,35 +20,39 @@ public enum PartyNatureTypeCode
 {
     /// <summary>
     /// Issuer is a financial institution.
+    /// Encoded/decoded by serializers as "FIIN".
     /// </summary>
     [EnumMember(Value = "FIIN")]
     [IsoId("_gkuAcM2IEeS6sY79p-9Zxw")]
     [Description(@"Issuer is a financial institution.")]
-    FIIN,
+    FinancialInstitution,
     
     /// <summary>
     /// Issuer is a non-financial institution.
+    /// Encoded/decoded by serializers as "NFIN".
     /// </summary>
     [EnumMember(Value = "NFIN")]
     [IsoId("_oiP3sM2IEeS6sY79p-9Zxw")]
     [Description(@"Issuer is a non-financial institution.")]
-    NFIN,
+    NonFinancialInstitution,
     
     /// <summary>
     /// Issuer is a central counterparty.
+    /// Encoded/decoded by serializers as "CCPS".
     /// </summary>
     [EnumMember(Value = "CCPS")]
     [IsoId("_X_ZnsB3dEeWTa7N6lo4ufA")]
     [Description(@"Issuer is a central counterparty.")]
-    CCPS,
+    CentralCounterparty,
     
     /// <summary>
     /// Other type of issuer.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bZM1EB3dEeWTa7N6lo4ufA")]
     [Description(@"Other type of issuer.")]
-    OTHR,
+    Other,
     
 }
 

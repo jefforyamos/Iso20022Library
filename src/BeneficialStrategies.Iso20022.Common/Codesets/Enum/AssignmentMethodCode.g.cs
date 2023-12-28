@@ -20,19 +20,21 @@ public enum AssignmentMethodCode
 {
     /// <summary>
     /// Assignment was conducted randomly.
+    /// Encoded/decoded by serializers as "RAND".
     /// </summary>
     [EnumMember(Value = "RAND")]
     [IsoId("_bfaAldp-Ed-ak6NoX_4Aeg_-1677400986")]
     [Description(@"Assignment was conducted randomly.")]
-    RAND,
+    Random,
     
     /// <summary>
     /// Assignment was conducted on a prorata basis.
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_bfaAltp-Ed-ak6NoX_4Aeg_-1652467505")]
     [Description(@"Assignment was conducted on a prorata basis.")]
-    PROR,
+    Prorata,
     
 }
 

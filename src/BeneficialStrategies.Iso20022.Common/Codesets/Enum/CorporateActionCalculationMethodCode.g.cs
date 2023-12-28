@@ -20,35 +20,39 @@ public enum CorporateActionCalculationMethodCode
 {
     /// <summary>
     /// Pro-rata for drawings.
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_bCgCKNp-Ed-ak6NoX_4Aeg_833244970")]
     [Description(@"Pro-rata for drawings.")]
-    PROR,
+    ProRata,
     
     /// <summary>
     /// Lottery for drawings.
+    /// Encoded/decoded by serializers as "LOTT".
     /// </summary>
     [EnumMember(Value = "LOTT")]
     [IsoId("_bCpMENp-Ed-ak6NoX_4Aeg_882190885")]
     [Description(@"Lottery for drawings.")]
-    LOTT,
+    Lottery,
     
     /// <summary>
     /// Reduction of nominal for partial redemption.
+    /// Encoded/decoded by serializers as "NOMI".
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_bCpMEdp-Ed-ak6NoX_4Aeg_1221120970")]
     [Description(@"Reduction of nominal for partial redemption.")]
-    NOMI,
+    NominalReduction,
     
     /// <summary>
     /// Without reduction of nominal (via pool factor) for partial redemption.
+    /// Encoded/decoded by serializers as "NNOM".
     /// </summary>
     [EnumMember(Value = "NNOM")]
     [IsoId("_bCpMEtp-Ed-ak6NoX_4Aeg_-766558628")]
     [Description(@"Without reduction of nominal (via pool factor) for partial redemption.")]
-    NNOM,
+    NoNominalReduction,
     
 }
 

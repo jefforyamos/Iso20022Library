@@ -20,35 +20,39 @@ public enum TargetMarketCode
 {
     /// <summary>
     /// No, is not applicable.
+    /// Encoded/decoded by serializers as "NSCO".
     /// </summary>
     [EnumMember(Value = "NSCO")]
     [IsoId("_wXbtwNdcEeibyvRfU9vJ7w")]
     [Description(@"No, is not applicable.")]
-    NSCO,
+    NotInScope,
     
     /// <summary>
     /// Yes, is applicable.
+    /// Encoded/decoded by serializers as "YSCO".
     /// </summary>
     [EnumMember(Value = "YSCO")]
     [IsoId("_1WaJMNdcEeibyvRfU9vJ7w")]
     [Description(@"Yes, is applicable.")]
-    YSCO,
+    InScope,
     
     /// <summary>
     /// Neutral or has no impact.
+    /// Encoded/decoded by serializers as "NEUT".
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_4Qq64NdcEeibyvRfU9vJ7w")]
     [Description(@"Neutral or has no impact.")]
-    NEUT,
+    Neutral,
     
     /// <summary>
     /// Not known whether applicable.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_-6d5YNdcEeibyvRfU9vJ7w")]
     [Description(@"Not known whether applicable.")]
-    UKWN,
+    Unknown,
     
 }
 

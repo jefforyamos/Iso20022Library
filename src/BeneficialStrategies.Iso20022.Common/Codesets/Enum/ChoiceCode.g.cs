@@ -20,19 +20,21 @@ public enum ChoiceCode
 {
     /// <summary>
     /// Separation is optional.
+    /// Encoded/decoded by serializers as "OPTI".
     /// </summary>
     [EnumMember(Value = "OPTI")]
     [IsoId("_a_OEodp-Ed-ak6NoX_4Aeg_-736182104")]
     [Description(@"Separation is optional.")]
-    OPTI,
+    Optional,
     
     /// <summary>
     /// Separation is mandatory.
+    /// Encoded/decoded by serializers as "MAND".
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_a_OEotp-Ed-ak6NoX_4Aeg_-698318667")]
     [Description(@"Separation is mandatory.")]
-    MAND,
+    Mandatory,
     
 }
 

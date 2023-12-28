@@ -20,38 +20,43 @@ public enum POICommunicationTypeCode
 {
     /// <summary>
     /// Communication with a host from an USB port.
+    /// Encoded/decoded by serializers as "USBH".
     /// </summary>
     [EnumMember(Value = "USBH")]
     [IsoId("_a0S8sAx1EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a host from an USB port.")]
-    USBH,
+    USBHost,
     
     /// <summary>
     /// Communication with a USB stick or any USB device.
+    /// Encoded/decoded by serializers as "USBD".
     /// </summary>
     [EnumMember(Value = "USBD")]
     [IsoId("_e8XlUAx1EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a USB stick or any USB device.")]
-    USBD,
+    USBDevice,
     
     /// <summary>
     /// Ethernet port to communicate.
+    /// Encoded/decoded by serializers as "ETHR".
     /// </summary>
     [EnumMember(Value = "ETHR")]
     [IsoId("_kXApEAx1EeKa_56Jbsi1RQ")]
     [Description(@"Ethernet port to communicate.")]
-    ETHR,
+    Ethernet,
     
     /// <summary>
     /// Wifi communication with another component.
+    /// Encoded/decoded by serializers as "WIFI".
     /// </summary>
     [EnumMember(Value = "WIFI")]
     [IsoId("_outCEAx1EeKa_56Jbsi1RQ")]
     [Description(@"Wifi communication with another component.")]
-    WIFI,
+    Wifi,
     
     /// <summary>
     /// Communication with a host using Public Switching Telephone Network.
+    /// Encoded/decoded by serializers as "PSTN".
     /// </summary>
     [EnumMember(Value = "PSTN")]
     [IsoId("_swFM0Ax1EeKa_56Jbsi1RQ")]
@@ -60,22 +65,25 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Communication with a host using Bluetooth.
+    /// Encoded/decoded by serializers as "BLTH".
     /// </summary>
     [EnumMember(Value = "BLTH")]
     [IsoId("_wfdBkAx1EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a host using Bluetooth.")]
-    BLTH,
+    Bluetooth,
     
     /// <summary>
     /// Communication with a host using GSM.
+    /// Encoded/decoded by serializers as "GSMF".
     /// </summary>
     [EnumMember(Value = "GSMF")]
     [IsoId("_0HsTkAx1EeKa_56Jbsi1RQ")]
     [Description(@"Communication with a host using GSM.")]
-    GSMF,
+    GSM,
     
     /// <summary>
     /// Communication with a host using GPRS.
+    /// Encoded/decoded by serializers as "GPRS".
     /// </summary>
     [EnumMember(Value = "GPRS")]
     [IsoId("_4W6GAAx1EeKa_56Jbsi1RQ")]
@@ -84,43 +92,48 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Serial port to communicate.
+    /// Encoded/decoded by serializers as "RS23".
     /// </summary>
     [EnumMember(Value = "RS23")]
     [IsoId("_8DAkUAx1EeKa_56Jbsi1RQ")]
     [Description(@"Serial port to communicate.")]
-    RS23,
+    RS232,
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 2G technology (e.g EDGE or PDC).
+    /// Encoded/decoded by serializers as "WT2G".
     /// </summary>
     [EnumMember(Value = "WT2G")]
     [IsoId("_Z0jxULCYEeapjPTKZHuM2w")]
     [Description(@"Includes all communication technologies which can be qualified as being part of the 2G technology (e.g EDGE or PDC).")]
-    WT2G,
+    WirelessTechnology2G,
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 3G technology.
+    /// Encoded/decoded by serializers as "WT3G".
     /// </summary>
     [EnumMember(Value = "WT3G")]
     [IsoId("_pQgh8LCYEeapjPTKZHuM2w")]
     [Description(@"Includes all communication technologies which can be qualified as being part of the 3G technology.")]
-    WT3G,
+    WirelessTechnology3G,
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 4G technology.
+    /// Encoded/decoded by serializers as "WT4G".
     /// </summary>
     [EnumMember(Value = "WT4G")]
     [IsoId("_t2jgALCYEeapjPTKZHuM2w")]
     [Description(@"Includes all communication technologies which can be qualified as being part of the 4G technology.")]
-    WT4G,
+    WirelessTechnology4G,
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 5G technology.
+    /// Encoded/decoded by serializers as "WT5G".
     /// </summary>
     [EnumMember(Value = "WT5G")]
     [IsoId("_wwPp8LCYEeapjPTKZHuM2w")]
     [Description(@"Includes all communication technologies which can be qualified as being part of the 5G technology.")]
-    WT5G,
+    WirelessTechnology5G,
     
 }
 

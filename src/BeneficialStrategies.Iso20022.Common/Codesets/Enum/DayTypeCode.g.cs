@@ -20,19 +20,21 @@ public enum DayTypeCode
 {
     /// <summary>
     /// Elapsed calendar days.
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_ay2cltp-Ed-ak6NoX_4Aeg_1179808198")]
     [Description(@"Elapsed calendar days.")]
-    ACTU,
+    ElapsedCalendarDays,
     
     /// <summary>
     /// Elapsed business days.
+    /// Encoded/decoded by serializers as "BUSE".
     /// </summary>
     [EnumMember(Value = "BUSE")]
     [IsoId("_ay2cl9p-Ed-ak6NoX_4Aeg_1296170343")]
     [Description(@"Elapsed business days.")]
-    BUSE,
+    ElapsedBusinessDays,
     
 }
 

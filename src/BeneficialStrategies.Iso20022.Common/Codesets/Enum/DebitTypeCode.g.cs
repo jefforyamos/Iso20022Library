@@ -20,19 +20,21 @@ public enum DebitTypeCode
 {
     /// <summary>
     /// Debit is performed as a global debit for all instructions in the file.
+    /// Encoded/decoded by serializers as "GLBL".
     /// </summary>
     [EnumMember(Value = "GLBL")]
     [IsoId("_NBtqsMmKEeWAGphE2LvqeA")]
     [Description(@"Debit is performed as a global debit for all instructions in the file.")]
-    GLBL,
+    Global,
     
     /// <summary>
     /// Debit is performed as an individual single debit for each instruction in the file.
+    /// Encoded/decoded by serializers as "SNGL".
     /// </summary>
     [EnumMember(Value = "SNGL")]
     [IsoId("_P6wUYMmKEeWAGphE2LvqeA")]
     [Description(@"Debit is performed as an individual single debit for each instruction in the file.")]
-    SNGL,
+    Single,
     
 }
 

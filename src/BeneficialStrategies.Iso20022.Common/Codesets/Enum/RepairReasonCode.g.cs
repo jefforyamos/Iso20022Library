@@ -20,355 +20,399 @@ public enum RepairReasonCode
 {
     /// <summary>
     /// Unrecognised or invalid processing batch, that is, daytime/realtime while only possible to settle in overnight batch.
+    /// Encoded/decoded by serializers as "BATC".
     /// </summary>
     [EnumMember(Value = "BATC")]
     [IsoId("_Zu5sSNp-Ed-ak6NoX_4Aeg_-965197741")]
     [Description(@"Unrecognised or invalid processing batch, that is, daytime/realtime while only possible to settle in overnight batch.")]
-    BATC,
+    ProcessingBatch,
     
     /// <summary>
     /// Unrecognised or invalid transaction call delay.
+    /// Encoded/decoded by serializers as "CADE".
     /// </summary>
     [EnumMember(Value = "CADE")]
     [IsoId("_Zu5sSdp-Ed-ak6NoX_4Aeg_-964273788")]
     [Description(@"Unrecognised or invalid transaction call delay.")]
-    CADE,
+    TransactionCallDelay,
     
     /// <summary>
     /// Corporate action pending on the financial instrument instructed.
+    /// Encoded/decoded by serializers as "CAEV".
     /// </summary>
     [EnumMember(Value = "CAEV")]
     [IsoId("_ZvDdQNp-Ed-ak6NoX_4Aeg_-963350638")]
     [Description(@"Corporate action pending on the financial instrument instructed.")]
-    CAEV,
+    CorporateAction,
     
     /// <summary>
     /// Unrecognised or invalid cash account.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_ZvDdQdp-Ed-ak6NoX_4Aeg_-953191968")]
     [Description(@"Unrecognised or invalid cash account.")]
-    CASH,
+    CashAccount,
     
     /// <summary>
     /// Impossible standing arrangements override instruction for the cash settlement system.
+    /// Encoded/decoded by serializers as "CASY".
     /// </summary>
     [EnumMember(Value = "CASY")]
     [IsoId("_ZvDdQtp-Ed-ak6NoX_4Aeg_-952267985")]
     [Description(@"Impossible standing arrangements override instruction for the cash settlement system.")]
-    CASY,
+    ImpossibleCashSettlementSystem,
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
+    /// Encoded/decoded by serializers as "DDAT".
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_ZvDdQ9p-Ed-ak6NoX_4Aeg_-951344063")]
     [Description(@"Unrecognised or invalid settlement date.")]
-    DDAT,
+    SettlementDate,
     
     /// <summary>
     /// Unrecognised or invalid deal price.
+    /// Encoded/decoded by serializers as "DDEA".
     /// </summary>
     [EnumMember(Value = "DDEA")]
     [IsoId("_ZvDdRNp-Ed-ak6NoX_4Aeg_-950420820")]
     [Description(@"Unrecognised or invalid deal price.")]
-    DDEA,
+    DealPrice,
     
     /// <summary>
     /// Unrecognised or invalid place of settlement.
+    /// Encoded/decoded by serializers as "DEPT".
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_ZvDdRdp-Ed-ak6NoX_4Aeg_-949497514")]
     [Description(@"Unrecognised or invalid place of settlement.")]
-    DEPT,
+    PlaceOfSettlement,
     
     /// <summary>
     /// Unrecognised or invalid settlement amount.
+    /// Encoded/decoded by serializers as "DMON".
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_ZvDdRtp-Ed-ak6NoX_4Aeg_-941185279")]
     [Description(@"Unrecognised or invalid settlement amount.")]
-    DMON,
+    SettlementAmount,
     
     /// <summary>
     /// Unrecognised or invalid settlement quantity.
+    /// Encoded/decoded by serializers as "DQUA".
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_ZvDdR9p-Ed-ak6NoX_4Aeg_-940261811")]
     [Description(@"Unrecognised or invalid settlement quantity.")]
-    DQUA,
+    Quantity,
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
+    /// Encoded/decoded by serializers as "DSEC".
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_ZvDdSNp-Ed-ak6NoX_4Aeg_-939338660")]
     [Description(@"Unrecognised or invalid financial instrument identification.")]
-    DSEC,
+    Security,
     
     /// <summary>
     /// Unrecognised or invalid trade date.
+    /// Encoded/decoded by serializers as "DTRD".
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_ZvDdSdp-Ed-ak6NoX_4Aeg_-938415292")]
     [Description(@"Unrecognised or invalid trade date.")]
-    DTRD,
+    TradeDate,
     
     /// <summary>
     /// Unrecognised or invalid forfeit amount.
+    /// Encoded/decoded by serializers as "FORF".
     /// </summary>
     [EnumMember(Value = "FORF")]
     [IsoId("_ZvMnMNp-Ed-ak6NoX_4Aeg_-937492142")]
     [Description(@"Unrecognised or invalid forfeit amount.")]
-    FORF,
+    ForfeitAmount,
     
     /// <summary>
     /// Unrecognised or invalid receiving or delivering agent.
+    /// Encoded/decoded by serializers as "ICAG".
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_ZvMnMdp-Ed-ak6NoX_4Aeg_-936568128")]
     [Description(@"Unrecognised or invalid receiving or delivering agent.")]
-    ICAG,
+    Agent,
     
     /// <summary>
     /// Unrecognised or invalid receiving or delivering custodian.
+    /// Encoded/decoded by serializers as "ICUS".
     /// </summary>
     [EnumMember(Value = "ICUS")]
     [IsoId("_ZvMnMtp-Ed-ak6NoX_4Aeg_-935644175")]
     [Description(@"Unrecognised or invalid receiving or delivering custodian.")]
-    ICUS,
+    ReceivingOrDeliveringCustodian,
     
     /// <summary>
     /// Unrecognised or invalid buyer or seller.
+    /// Encoded/decoded by serializers as "IEXE".
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_ZvMnM9p-Ed-ak6NoX_4Aeg_-933799529")]
     [Description(@"Unrecognised or invalid buyer or seller.")]
-    IEXE,
+    BuyerorSeller,
     
     /// <summary>
     /// Unrecognised, invalid or missing common reference.
+    /// Encoded/decoded by serializers as "IIND".
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_ZvMnNNp-Ed-ak6NoX_4Aeg_-932876462")]
     [Description(@"Unrecognised, invalid or missing common reference.")]
-    IIND,
+    CommonReference,
     
     /// <summary>
     /// Unrecognised or invalid letter of guarantee indicator instructed.
+    /// Encoded/decoded by serializers as "LEOG".
     /// </summary>
     [EnumMember(Value = "LEOG")]
     [IsoId("_ZvMnNdp-Ed-ak6NoX_4Aeg_-925488695")]
     [Description(@"Unrecognised or invalid letter of guarantee indicator instructed.")]
-    LEOG,
+    LetterOfGuaranteeIndicator,
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
+    /// Encoded/decoded by serializers as "MINO".
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_ZvMnNtp-Ed-ak6NoX_4Aeg_-924565296")]
     [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
-    MINO,
+    MinimumSettlementQuantity,
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
+    /// Encoded/decoded by serializers as "MUNO".
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_ZvMnN9p-Ed-ak6NoX_4Aeg_-923641806")]
     [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
-    MUNO,
+    MultipleSettlementQuantity,
     
     /// <summary>
     /// Unrecognised or invalid settlement amount currency.
+    /// Encoded/decoded by serializers as "NCRR".
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_ZvMnONp-Ed-ak6NoX_4Aeg_-923638318")]
     [Description(@"Unrecognised or invalid settlement amount currency.")]
-    NCRR,
+    SettlementAmountCurrency,
     
     /// <summary>
     /// Physical settlement is impossible for the instructed financial instrument.
+    /// Encoded/decoded by serializers as "PHYS".
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_ZvMnOdp-Ed-ak6NoX_4Aeg_-921794703")]
     [Description(@"Physical settlement is impossible for the instructed financial instrument.")]
-    PHYS,
+    PhysicalSettlementImpossible,
     
     /// <summary>
     /// Unrecognised or invalid place of trade.
+    /// Encoded/decoded by serializers as "PLCE".
     /// </summary>
     [EnumMember(Value = "PLCE")]
     [IsoId("_ZvMnOtp-Ed-ak6NoX_4Aeg_-920871212")]
     [Description(@"Unrecognised or invalid place of trade.")]
-    PLCE,
+    PlaceOfTrade,
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
+    /// Encoded/decoded by serializers as "REFE".
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_ZvWYMNp-Ed-ak6NoX_4Aeg_-912559584")]
     [Description(@"Instruction has a reference identical to another previously received instruction.")]
-    REFE,
+    Reference,
     
     /// <summary>
     /// Unrecognised or invalid termination transaction amount.
+    /// Encoded/decoded by serializers as "REPA".
     /// </summary>
     [EnumMember(Value = "REPA")]
     [IsoId("_ZvWYMdp-Ed-ak6NoX_4Aeg_-911635387")]
     [Description(@"Unrecognised or invalid termination transaction amount.")]
-    REPA,
+    TerminationTransactionAmount,
     
     /// <summary>
     /// Unrecognised or invalid repurchase rate.
+    /// Encoded/decoded by serializers as "REPO".
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_ZvWYMtp-Ed-ak6NoX_4Aeg_-910711866")]
     [Description(@"Unrecognised or invalid repurchase rate.")]
-    REPO,
+    RepurchaseRate,
     
     /// <summary>
     /// Unrecognised or invalid premium amount.
+    /// Encoded/decoded by serializers as "REPP".
     /// </summary>
     [EnumMember(Value = "REPP")]
     [IsoId("_ZvWYM9p-Ed-ak6NoX_4Aeg_-909788005")]
     [Description(@"Unrecognised or invalid premium amount.")]
-    REPP,
+    PremiumAmount,
     
     /// <summary>
     /// Unrecognised or invalid repurchase rate type.
+    /// Encoded/decoded by serializers as "RERT".
     /// </summary>
     [EnumMember(Value = "RERT")]
     [IsoId("_ZvWYNNp-Ed-ak6NoX_4Aeg_-908863877")]
     [Description(@"Unrecognised or invalid repurchase rate type.")]
-    RERT,
+    RepurchaseRateType,
     
     /// <summary>
     /// Unrecognised or invalid spread rate.
+    /// Encoded/decoded by serializers as "RSPR".
     /// </summary>
     [EnumMember(Value = "RSPR")]
     [IsoId("_ZvWYNdp-Ed-ak6NoX_4Aeg_-907939962")]
     [Description(@"Unrecognised or invalid spread rate.")]
-    RSPR,
+    SpreadRate,
     
     /// <summary>
     /// Impossible to use the RTGS system instructed (NRTG or YRTG).
+    /// Encoded/decoded by serializers as "RTGS".
     /// </summary>
     [EnumMember(Value = "RTGS")]
     [IsoId("_ZvWYNtp-Ed-ak6NoX_4Aeg_-907016410")]
     [Description(@"Impossible to use the RTGS system instructed (NRTG or YRTG).")]
-    RTGS,
+    ImpossibleToUseTheRTGSSystemInstructed,
     
     /// <summary>
     /// Unrecognised or invalid message sender's safekeeping account.
+    /// Encoded/decoded by serializers as "SAFE".
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_ZvWYN9p-Ed-ak6NoX_4Aeg_-904245324")]
     [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
-    SAFE,
+    SafekeepingAccount,
     
     /// <summary>
     /// Unrecognised or invalid settlement transaction type.
+    /// Encoded/decoded by serializers as "SETR".
     /// </summary>
     [EnumMember(Value = "SETR")]
     [IsoId("_ZvWYONp-Ed-ak6NoX_4Aeg_-895010114")]
     [Description(@"Unrecognised or invalid settlement transaction type.")]
-    SETR,
+    SettlementTransaction,
     
     /// <summary>
     /// Unrecognised or invalid settlement system/method instructed.
+    /// Encoded/decoded by serializers as "SETS".
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_ZvWYOdp-Ed-ak6NoX_4Aeg_-893165521")]
     [Description(@"Unrecognised or invalid settlement system/method instructed.")]
-    SETS,
+    SettlementSystemMethod,
     
     /// <summary>
     /// Unrecognised or invalid closing date/time.
+    /// Encoded/decoded by serializers as "TERM".
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_ZvWYOtp-Ed-ak6NoX_4Aeg_-892239673")]
     [Description(@"Unrecognised or invalid closing date/time.")]
-    TERM,
+    ClosingDateTime,
     
     /// <summary>
     /// Unrecognised or invalid tax status of the securities instructed.
+    /// Encoded/decoded by serializers as "TXST".
     /// </summary>
     [EnumMember(Value = "TXST")]
     [IsoId("_ZvgJMNp-Ed-ak6NoX_4Aeg_-883006851")]
     [Description(@"Unrecognised or invalid tax status of the securities instructed.")]
-    TXST,
+    TaxStatus,
     
     /// <summary>
     /// Unrecognised or invalid variable rate support (repurchase agreement).
+    /// Encoded/decoded by serializers as "VASU".
     /// </summary>
     [EnumMember(Value = "VASU")]
     [IsoId("_ZvgJMdp-Ed-ak6NoX_4Aeg_-882082138")]
     [Description(@"Unrecognised or invalid variable rate support (repurchase agreement).")]
-    VASU,
+    VariableRateSupport,
     
     /// <summary>
     /// Received after the account servicer's deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as "ADEA".
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_ZvgJMtp-Ed-ak6NoX_4Aeg_-1814110963")]
     [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
-    ADEA,
+    AccountServicerDeadlineMissed,
     
     /// <summary>
     /// Unrecognised or invalid type of order.
+    /// Encoded/decoded by serializers as "BUSE".
     /// </summary>
     [EnumMember(Value = "BUSE")]
     [IsoId("_ZvgJM9p-Ed-ak6NoX_4Aeg_982700249")]
     [Description(@"Unrecognised or invalid type of order.")]
-    BUSE,
+    TypeOfOrderRepair,
     
     /// <summary>
     /// Unrecognized or invalid commercialization contract.
+    /// Encoded/decoded by serializers as "COMC".
     /// </summary>
     [EnumMember(Value = "COMC")]
     [IsoId("_ZvgJNNp-Ed-ak6NoX_4Aeg_983624695")]
     [Description(@"Unrecognized or invalid commercialization contract.")]
-    COMC,
+    CommercializationContractRepair,
     
     /// <summary>
     /// Unrecognised or invalid fee or commission.
+    /// Encoded/decoded by serializers as "FEEE".
     /// </summary>
     [EnumMember(Value = "FEEE")]
     [IsoId("_ZvgJNdp-Ed-ak6NoX_4Aeg_985470381")]
     [Description(@"Unrecognised or invalid fee or commission.")]
-    FEEE,
+    FeeCommissionRepair,
     
     /// <summary>
     /// Unrecognised or invalid service level agreement preagreed narrative information.
+    /// Encoded/decoded by serializers as "INNA".
     /// </summary>
     [EnumMember(Value = "INNA")]
     [IsoId("_ZvgJNtp-Ed-ak6NoX_4Aeg_1012254360")]
     [Description(@"Unrecognised or invalid service level agreement preagreed narrative information.")]
-    INNA,
+    NarrativeInformationRepair,
     
     /// <summary>
     /// Cancellation request is in repair since more than one instruction match to the cancellation criteria.
+    /// Encoded/decoded by serializers as "NRGM".
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_ZvgJN9p-Ed-ak6NoX_4Aeg_1013177511")]
     [Description(@"Cancellation request is in repair since more than one instruction match to the cancellation criteria.")]
-    NRGM,
+    NoMatch,
     
     /// <summary>
     /// Cancellation request is in repair since the instruction could not be found.
+    /// Encoded/decoded by serializers as "NRGN".
     /// </summary>
     [EnumMember(Value = "NRGN")]
     [IsoId("_ZvgJONp-Ed-ak6NoX_4Aeg_1015023144")]
     [Description(@"Cancellation request is in repair since the instruction could not be found.")]
-    NRGN,
+    NotFound,
     
     /// <summary>
     /// Message was not recognised. Unknown linked reference.
+    /// Encoded/decoded by serializers as "ULNK".
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_ZvgJOdp-Ed-ak6NoX_4Aeg_1586684343")]
     [Description(@"Message was not recognised. Unknown linked reference.")]
-    ULNK,
+    Unknown,
     
 }
 

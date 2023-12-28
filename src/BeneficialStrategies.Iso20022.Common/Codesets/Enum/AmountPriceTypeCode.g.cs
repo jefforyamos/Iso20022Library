@@ -20,35 +20,39 @@ public enum AmountPriceTypeCode
 {
     /// <summary>
     /// Price expressed as a currency and amount per unit or per share.
+    /// Encoded/decoded by serializers as "ACTU".
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_beqZttp-Ed-ak6NoX_4Aeg_907150846")]
     [Description(@"Price expressed as a currency and amount per unit or per share.")]
-    ACTU,
+    ActualAmount,
     
     /// <summary>
     /// Price expressed as a discount amount.
+    /// Encoded/decoded by serializers as "DISC".
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_beqZt9p-Ed-ak6NoX_4Aeg_907150854")]
     [Description(@"Price expressed as a discount amount.")]
-    DISC,
+    Discount,
     
     /// <summary>
     /// Price expressed as an amount of money per lot.
+    /// Encoded/decoded by serializers as "PLOT".
     /// </summary>
     [EnumMember(Value = "PLOT")]
     [IsoId("_beqZuNp-Ed-ak6NoX_4Aeg_907150877")]
     [Description(@"Price expressed as an amount of money per lot.")]
-    PLOT,
+    Lot,
     
     /// <summary>
     /// Price expressed as a premium.
+    /// Encoded/decoded by serializers as "PREM".
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_be0KsNp-Ed-ak6NoX_4Aeg_907150885")]
     [Description(@"Price expressed as a premium.")]
-    PREM,
+    Premium,
     
 }
 

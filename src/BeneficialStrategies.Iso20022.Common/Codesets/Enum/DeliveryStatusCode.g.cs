@@ -20,19 +20,21 @@ public enum DeliveryStatusCode
 {
     /// <summary>
     /// Delivery failed.
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_RtLqkA2pEeWH49U6bkyMaA")]
     [Description(@"Delivery failed.")]
-    FAIL,
+    Failure,
     
     /// <summary>
     /// Delivery succeeded.
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_ulsG8A2pEeWH49U6bkyMaA")]
     [Description(@"Delivery succeeded.")]
-    SUCC,
+    Success,
     
 }
 

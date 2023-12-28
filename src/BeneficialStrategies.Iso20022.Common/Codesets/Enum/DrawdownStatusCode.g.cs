@@ -20,27 +20,30 @@ public enum DrawdownStatusCode
 {
     /// <summary>
     /// Pension is not in drawdown.
+    /// Encoded/decoded by serializers as "NONE".
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_0F5KIFKiEeiSDqv62fL07g")]
     [Description(@"Pension is not in drawdown.")]
-    NONE,
+    None,
     
     /// <summary>
     /// Pension is in partial drawdown.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_3fsXgFKiEeiSDqv62fL07g")]
     [Description(@"Pension is in partial drawdown.")]
-    PART,
+    Partial,
     
     /// <summary>
     /// Pension is fully in drawdown.
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_5jNucFKiEeiSDqv62fL07g")]
     [Description(@"Pension is fully in drawdown.")]
-    FULL,
+    Full,
     
 }
 

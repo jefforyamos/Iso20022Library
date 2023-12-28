@@ -20,91 +20,102 @@ public enum CurrencyConversionResponseCode
 {
     /// <summary>
     /// The card acceptor has not been recognised.
+    /// Encoded/decoded by serializers as "IMER".
     /// </summary>
     [EnumMember(Value = "IMER")]
     [IsoId("_zUhj4EerEeODR7vDcYOqmg")]
     [Description(@"The card acceptor has not been recognised.")]
-    IMER,
+    InvalidMerchant,
     
     /// <summary>
     /// The card is not valid for dynamic currency conversion.
+    /// Encoded/decoded by serializers as "ICRD".
     /// </summary>
     [EnumMember(Value = "ICRD")]
     [IsoId("_6P2XQEerEeODR7vDcYOqmg")]
     [Description(@"The card is not valid for dynamic currency conversion.")]
-    ICRD,
+    InvalidCard,
     
     /// <summary>
     /// Dynamic currency conversion service cannot be offered for this card product.
+    /// Encoded/decoded by serializers as "IPRD".
     /// </summary>
     [EnumMember(Value = "IPRD")]
     [IsoId("_-SjXsEerEeODR7vDcYOqmg")]
     [Description(@"Dynamic currency conversion service cannot be offered for this card product.")]
-    IPRD,
+    InvalidProduct,
     
     /// <summary>
     /// Exchange rates are not available.
+    /// Encoded/decoded by serializers as "IRAT".
     /// </summary>
     [EnumMember(Value = "IRAT")]
     [IsoId("_GG0lQEesEeODR7vDcYOqmg")]
     [Description(@"Exchange rates are not available.")]
-    IRAT,
+    NoRate,
     
     /// <summary>
     /// Dynamic currency conversion may be offered to the cardholder.
+    /// Encoded/decoded by serializers as "ODCC".
     /// </summary>
     [EnumMember(Value = "ODCC")]
     [IsoId("_NRrCYEesEeODR7vDcYOqmg")]
     [Description(@"Dynamic currency conversion may be offered to the cardholder.")]
-    ODCC,
+    Allowed,
     
     /// <summary>
     /// Transaction authorised with dynamic currency conversion.
+    /// Encoded/decoded by serializers as "DCCA".
     /// </summary>
     [EnumMember(Value = "DCCA")]
     [IsoId("_Q23ncEesEeODR7vDcYOqmg")]
     [Description(@"Transaction authorised with dynamic currency conversion.")]
-    DCCA,
+    Assumed,
     
     /// <summary>
     /// Dynamic currency conversion is not available for other reason.
+    /// Encoded/decoded by serializers as "NDCC".
     /// </summary>
     [EnumMember(Value = "NDCC")]
     [IsoId("_U82lYEesEeODR7vDcYOqmg")]
     [Description(@"Dynamic currency conversion is not available for other reason.")]
-    NDCC,
+    NotAvailable,
     
     /// <summary>
     /// The ATM is not valid for dynamic currency conversion.
+    /// Encoded/decoded by serializers as "IATM".
     /// </summary>
     [EnumMember(Value = "IATM")]
     [IsoId("_Iv0o4K4ZEeW_TaP-ygI0SQ")]
     [Description(@"The ATM is not valid for dynamic currency conversion.")]
-    IATM,
+    InvalidATM,
     
     /// <summary>
     /// The ATM manager is not valid for dynamic currency conversion.
+    /// Encoded/decoded by serializers as "IAMG".
     /// </summary>
     [EnumMember(Value = "IAMG")]
     [IsoId("_MDR9sK4ZEeW_TaP-ygI0SQ")]
     [Description(@"The ATM manager is not valid for dynamic currency conversion.")]
-    IAMG,
+    InvalidATMManager,
     
     /// <summary>
     /// Conversion accepted for the requested amount exclusively.
+    /// Encoded/decoded by serializers as "REST".
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_Ft9aEK_VEeaepNKtQMrGAQ")]
     [Description(@"Conversion accepted for the requested amount exclusively.")]
-    REST,
+    Restriction,
     
     /// <summary>
     /// Conversion accepted for a range of amounts.
+    /// Encoded/decoded by serializers as "CATG".
     /// </summary>
     [EnumMember(Value = "CATG")]
     [IsoId("_LJ43QK_VEeaepNKtQMrGAQ")]
     [Description(@"Conversion accepted for a range of amounts.")]
-    CATG,
+    Catalogue,
     
 }
 

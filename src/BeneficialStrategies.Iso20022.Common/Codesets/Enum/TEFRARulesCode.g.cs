@@ -20,19 +20,21 @@ public enum TEFRARulesCode
 {
     /// <summary>
     /// Indicates that the security is issued under the TEFRA rule C.
+    /// Encoded/decoded by serializers as "RULC".
     /// </summary>
     [EnumMember(Value = "RULC")]
     [IsoId("_Yg95h9p-Ed-ak6NoX_4Aeg_-698951025")]
     [Description(@"Indicates that the security is issued under the TEFRA rule C.")]
-    RULC,
+    C,
     
     /// <summary>
     /// Indicates that the security is issued under the TEFRA rule D.
+    /// Encoded/decoded by serializers as "RULD".
     /// </summary>
     [EnumMember(Value = "RULD")]
     [IsoId("_Yg95iNp-Ed-ak6NoX_4Aeg_1946839088")]
     [Description(@"Indicates that the security is issued under the TEFRA rule D.")]
-    RULD,
+    D,
     
 }
 

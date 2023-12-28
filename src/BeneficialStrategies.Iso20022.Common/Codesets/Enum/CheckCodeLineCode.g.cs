@@ -20,6 +20,7 @@ public enum CheckCodeLineCode
 {
     /// <summary>
     /// Magnetic ink character digitally encoded with 7 sticks.
+    /// Encoded/decoded by serializers as "CMC7".
     /// </summary>
     [EnumMember(Value = "CMC7")]
     [IsoId("_O9mmUK4EEeWL1uap3dNhCQ")]
@@ -28,6 +29,7 @@ public enum CheckCodeLineCode
     
     /// <summary>
     /// Magnetic ink character recognition., conform to ISO 1004.
+    /// Encoded/decoded by serializers as "E13B".
     /// </summary>
     [EnumMember(Value = "E13B")]
     [IsoId("_RxecIK4EEeWL1uap3dNhCQ")]
@@ -36,6 +38,7 @@ public enum CheckCodeLineCode
     
     /// <summary>
     /// Optical character recognition font A, conform to ANSI X3.17: 1981.
+    /// Encoded/decoded by serializers as "OCRA".
     /// </summary>
     [EnumMember(Value = "OCRA")]
     [IsoId("_UH3rwK4EEeWL1uap3dNhCQ")]
@@ -44,6 +47,7 @@ public enum CheckCodeLineCode
     
     /// <summary>
     /// Optical character recognition font B, conform to ANSI X3.49: 1975.
+    /// Encoded/decoded by serializers as "OCRB".
     /// </summary>
     [EnumMember(Value = "OCRB")]
     [IsoId("_Wpt9cK4EEeWL1uap3dNhCQ")]
@@ -52,11 +56,12 @@ public enum CheckCodeLineCode
     
     /// <summary>
     /// Default optical character recognition used.
+    /// Encoded/decoded by serializers as "OCRF".
     /// </summary>
     [EnumMember(Value = "OCRF")]
     [IsoId("_ZSIxMK4EEeWL1uap3dNhCQ")]
     [Description(@"Default optical character recognition used.")]
-    OCRF,
+    OCRDefault,
     
 }
 

@@ -20,67 +20,75 @@ public enum SettlementAdviceTypeCode
 {
     /// <summary>
     /// Settlement advice related to an undertaking issuance.
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_3zXEgHygEeGWJuGCfvwOsQ")]
     [Description(@"Settlement advice related to an undertaking issuance.")]
-    ISSU,
+    UndertakingIssuance,
     
     /// <summary>
     /// Settlement advice related to a claim for payment.
+    /// Encoded/decoded by serializers as "CLAM".
     /// </summary>
     [EnumMember(Value = "CLAM")]
     [IsoId("_4cpSEHygEeGWJuGCfvwOsQ")]
     [Description(@"Settlement advice related to a claim for payment.")]
-    CLAM,
+    PaymentClaim,
     
     /// <summary>
     /// Settlement advice related to an undertaking amendment.
+    /// Encoded/decoded by serializers as "AMND".
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_KKCg4HyhEeGWJuGCfvwOsQ")]
     [Description(@"Settlement advice related to an undertaking amendment.")]
-    AMND,
+    UndertakingAmendment,
     
     /// <summary>
     /// Settlement advice related to an undertaking termination.
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_R6UmUHyhEeGWJuGCfvwOsQ")]
     [Description(@"Settlement advice related to an undertaking termination.")]
-    CLOS,
+    Termination,
     
     /// <summary>
     /// Settlement advice related to a manual booking of charges.
+    /// Encoded/decoded by serializers as "MCHG".
     /// </summary>
     [EnumMember(Value = "MCHG")]
     [IsoId("_cCLAEHyhEeGWJuGCfvwOsQ")]
     [Description(@"Settlement advice related to a manual booking of charges.")]
-    MCHG,
+    ManualChargesBooking,
     
     /// <summary>
     /// Settlement advice related to an automatic booking of charges.
+    /// Encoded/decoded by serializers as "ACHG".
     /// </summary>
     [EnumMember(Value = "ACHG")]
     [IsoId("_j1SXEHyhEeGWJuGCfvwOsQ")]
     [Description(@"Settlement advice related to an automatic booking of charges.")]
-    ACHG,
+    AutomaticChargesBooking,
     
     /// <summary>
     /// Settlement advice related to a refund.
+    /// Encoded/decoded by serializers as "REFD".
     /// </summary>
     [EnumMember(Value = "REFD")]
     [IsoId("_sgvEQHyhEeGWJuGCfvwOsQ")]
     [Description(@"Settlement advice related to a refund.")]
-    REFD,
+    Refund,
     
     /// <summary>
     /// Settlement advice related to correspondent bank charges.
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_yKlosHyhEeGWJuGCfvwOsQ")]
     [Description(@"Settlement advice related to correspondent bank charges.")]
-    CORP,
+    CorrespondentBankCharges,
     
 }
 

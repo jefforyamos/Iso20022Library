@@ -20,6 +20,7 @@ public enum PINFormatCode
 {
     /// <summary>
     /// PIN diversified with the card account number, conforming to the standard ISO 9564-2.
+    /// Encoded/decoded by serializers as "ISO0".
     /// </summary>
     [EnumMember(Value = "ISO0")]
     [IsoId("_TVCuDAEcEeCQm6a_G2yO_w_-410325828")]
@@ -28,6 +29,7 @@ public enum PINFormatCode
     
     /// <summary>
     /// PIN completed with random padding characters, conforming to the standard ISO 9564-2.
+    /// Encoded/decoded by serializers as "ISO1".
     /// </summary>
     [EnumMember(Value = "ISO1")]
     [IsoId("_TVCuDQEcEeCQm6a_G2yO_w_-354675290")]
@@ -36,6 +38,7 @@ public enum PINFormatCode
     
     /// <summary>
     /// PIN without diversification characters, conforming to the standard ISO 9564-2.
+    /// Encoded/decoded by serializers as "ISO2".
     /// </summary>
     [EnumMember(Value = "ISO2")]
     [IsoId("_TVCuDgEcEeCQm6a_G2yO_w_-365774067")]
@@ -44,6 +47,7 @@ public enum PINFormatCode
     
     /// <summary>
     /// PIN diversified with the card account number and random characters, conforming to the standard ISO 9564-2.
+    /// Encoded/decoded by serializers as "ISO3".
     /// </summary>
     [EnumMember(Value = "ISO3")]
     [IsoId("_TVCuDwEcEeCQm6a_G2yO_w_-453395369")]
@@ -52,6 +56,7 @@ public enum PINFormatCode
     
     /// <summary>
     /// PIN format used with AES encryption, conforming to the new ISO SC2 format.
+    /// Encoded/decoded by serializers as "ISO4".
     /// </summary>
     [EnumMember(Value = "ISO4")]
     [IsoId("_sPjUEL4pEeKkGaJ0UrThyA_441850847")]
@@ -60,6 +65,7 @@ public enum PINFormatCode
     
     /// <summary>
     /// Alternative PIN format used with AES encryption, conforming to the new ISO SC2 format.
+    /// Encoded/decoded by serializers as "ISO5".
     /// </summary>
     [EnumMember(Value = "ISO5")]
     [IsoId("_GvGPgC_tEeO4w-IWHJMI9g")]
@@ -68,46 +74,52 @@ public enum PINFormatCode
     
     /// <summary>
     /// ANSI 0 PIN block format.
+    /// Encoded/decoded by serializers as "ANSI".
     /// </summary>
     [EnumMember(Value = "ANSI")]
     [IsoId("_05VhkIobEeSirOZJBRz_nA")]
     [Description(@"ANSI 0 PIN block format.")]
-    ANSI,
+    ANSI0,
     
     /// <summary>
     /// Italian Bancomat PIN block format.
+    /// Encoded/decoded by serializers as "BNCM".
     /// </summary>
     [EnumMember(Value = "BNCM")]
     [IsoId("_3ye48IobEeSirOZJBRz_nA")]
     [Description(@"Italian Bancomat PIN block format.")]
-    BNCM,
+    Bancomat,
     
     /// <summary>
     /// Banksys PIN block format.
+    /// Encoded/decoded by serializers as "BKSY".
     /// </summary>
     [EnumMember(Value = "BKSY")]
     [IsoId("_6Cw5gIobEeSirOZJBRz_nA")]
     [Description(@"Banksys PIN block format.")]
-    BKSY,
+    Banksys,
     
     /// <summary>
     /// Diebold PIN block format.
+    /// Encoded/decoded by serializers as "DBLD".
     /// </summary>
     [EnumMember(Value = "DBLD")]
     [IsoId("_9vLg4IobEeSirOZJBRz_nA")]
     [Description(@"Diebold PIN block format.")]
-    DBLD,
+    Diebold,
     
     /// <summary>
     /// Diebold CO PIN block format.
+    /// Encoded/decoded by serializers as "DBLC".
     /// </summary>
     [EnumMember(Value = "DBLC")]
     [IsoId("_AibEkIocEeSirOZJBRz_nA")]
     [Description(@"Diebold CO PIN block format.")]
-    DBLC,
+    DieboldCO,
     
     /// <summary>
     /// ECI2 PIN block format.
+    /// Encoded/decoded by serializers as "ECI2".
     /// </summary>
     [EnumMember(Value = "ECI2")]
     [IsoId("_DghNYIocEeSirOZJBRz_nA")]
@@ -116,6 +128,7 @@ public enum PINFormatCode
     
     /// <summary>
     /// ECI3 PIN block format.
+    /// Encoded/decoded by serializers as "ECI3".
     /// </summary>
     [EnumMember(Value = "ECI3")]
     [IsoId("_IsgKEIocEeSirOZJBRz_nA")]
@@ -124,35 +137,39 @@ public enum PINFormatCode
     
     /// <summary>
     /// EMV ISO2 PIN block format encrypted with the EMV RSA cryptographic key for the PIN.
+    /// Encoded/decoded by serializers as "EMVS".
     /// </summary>
     [EnumMember(Value = "EMVS")]
     [IsoId("_Lbff4IocEeSirOZJBRz_nA")]
     [Description(@"EMV ISO2 PIN block format encrypted with the EMV RSA cryptographic key for the PIN.")]
-    EMVS,
+    EMVRSA,
     
     /// <summary>
     /// IBM 3624 PIN block format.
+    /// Encoded/decoded by serializers as "IBM3".
     /// </summary>
     [EnumMember(Value = "IBM3")]
     [IsoId("_PZV1gIocEeSirOZJBRz_nA")]
     [Description(@"IBM 3624 PIN block format.")]
-    IBM3,
+    IBM3624,
     
     /// <summary>
     /// VISA2 PIN block format.
+    /// Encoded/decoded by serializers as "VIS2".
     /// </summary>
     [EnumMember(Value = "VIS2")]
     [IsoId("_R_qXgIocEeSirOZJBRz_nA")]
     [Description(@"VISA2 PIN block format.")]
-    VIS2,
+    VISA2,
     
     /// <summary>
     /// VISA3 PIN block format.
+    /// Encoded/decoded by serializers as "VIS3".
     /// </summary>
     [EnumMember(Value = "VIS3")]
     [IsoId("_UlIk8IocEeSirOZJBRz_nA")]
     [Description(@"VISA3 PIN block format.")]
-    VIS3,
+    VISA3,
     
 }
 

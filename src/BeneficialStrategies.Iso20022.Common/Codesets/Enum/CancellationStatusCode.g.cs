@@ -20,59 +20,66 @@ public enum CancellationStatusCode
 {
     /// <summary>
     /// Cancellation instruction/request has been sent to the next party, that is, the next intermediary.
+    /// Encoded/decoded by serializers as "STNP".
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_a0VqVNp-Ed-ak6NoX_4Aeg_1086756710")]
     [Description(@"Cancellation instruction/request has been sent to the next party, that is, the next intermediary.")]
-    STNP,
+    SentToNextParty,
     
     /// <summary>
     /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
+    /// Encoded/decoded by serializers as "PACK".
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_a0VqVdp-Ed-ak6NoX_4Aeg_1230826484")]
     [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
-    PACK,
+    Accepted,
     
     /// <summary>
     /// Cancellation instruction / request is pending. It is not known at this time whether cancellation can be effected.
+    /// Encoded/decoded by serializers as "CANP".
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_a0VqVtp-Ed-ak6NoX_4Aeg_1301014139")]
     [Description(@"Cancellation instruction / request is pending. It is not known at this time whether cancellation can be effected.")]
-    CANP,
+    Pending,
     
     /// <summary>
     /// Cancellation instruction / request has been accepted and processed, the cancellation is complete.
+    /// Encoded/decoded by serializers as "CAND".
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_a0VqV9p-Ed-ak6NoX_4Aeg_-57487758")]
     [Description(@"Cancellation instruction / request has been accepted and processed, the cancellation is complete.")]
-    CAND,
+    Complete,
     
     /// <summary>
     /// Cancellation instruction / request has been rejected / denied for further processing.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_a0VqWNp-Ed-ak6NoX_4Aeg_1717519571")]
     [Description(@"Cancellation instruction / request has been rejected / denied for further processing.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Cancellation instruction / request has been received by issuer or registrar.
+    /// Encoded/decoded by serializers as "RCIS".
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_a0fbUNp-Ed-ak6NoX_4Aeg_1947831859")]
     [Description(@"Cancellation instruction / request has been received by issuer or registrar.")]
-    RCIS,
+    ReceivedByIssuerOrRegistrar,
     
     /// <summary>
     /// Cancellation instruction/request has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_K7nvMJM7EemKz5EOjv82iQ")]
     [Description(@"Cancellation instruction/request has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.")]
-    RECE,
+    Received,
     
 }
 

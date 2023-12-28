@@ -20,27 +20,30 @@ public enum PINRequestTypeCode
 {
     /// <summary>
     /// The Cardholder enters the PIN and the POI verifies it.
+    /// Encoded/decoded by serializers as "PIAV".
     /// </summary>
     [EnumMember(Value = "PIAV")]
     [IsoId("_L2uhMN7AEeiwsev40qZGEQ")]
     [Description(@"The Cardholder enters the PIN and the POI verifies it.")]
-    PIAV,
+    PINAcquisitionVerification,
     
     /// <summary>
     /// The Sale System send a previous keyed PIN and the POI verifies it.
+    /// Encoded/decoded by serializers as "PIVO".
     /// </summary>
     [EnumMember(Value = "PIVO")]
     [IsoId("_OC4PsN7AEeiwsev40qZGEQ")]
     [Description(@"The Sale System send a previous keyed PIN and the POI verifies it.")]
-    PIVO,
+    PINVerifyOnly,
     
     /// <summary>
     /// The cardholder enters the PIN, the POI enciphers the PIN Block and provides it as a result to the Sale System.
+    /// Encoded/decoded by serializers as "PIAE".
     /// </summary>
     [EnumMember(Value = "PIAE")]
     [IsoId("_QmJdsN7AEeiwsev40qZGEQ")]
     [Description(@"The cardholder enters the PIN, the POI enciphers the PIN Block and provides it as a result to the Sale System.")]
-    PIAE,
+    PINAcquisitionEncryption,
     
 }
 

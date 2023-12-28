@@ -20,91 +20,102 @@ public enum RoundingDirectionCode
 {
     /// <summary>
     /// Pre-allocate shares only if fully dealt.
+    /// Encoded/decoded by serializers as "FULL".
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_Y-LZ9dp-Ed-ak6NoX_4Aeg_1751583430")]
     [Description(@"Pre-allocate shares only if fully dealt.")]
-    FULL,
+    Full,
     
     /// <summary>
     /// No fractional shares are allowed.
+    /// Encoded/decoded by serializers as "NOFR".
     /// </summary>
     [EnumMember(Value = "NOFR")]
     [IsoId("_Y-LZ9tp-Ed-ak6NoX_4Aeg_1751583431")]
     [Description(@"No fractional shares are allowed.")]
-    NOFR,
+    NoFraction,
     
     /// <summary>
     /// In case of a partial fill, pro-rate the allocations.
+    /// Encoded/decoded by serializers as "PROR".
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_Y-LZ99p-Ed-ak6NoX_4Aeg_1751583432")]
     [Description(@"In case of a partial fill, pro-rate the allocations.")]
-    PROR,
+    ProRate,
     
     /// <summary>
     /// Round up to the nearest whole number.
+    /// Encoded/decoded by serializers as "RDUP".
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_Y-LZ-Np-Ed-ak6NoX_4Aeg_1751583433")]
     [Description(@"Round up to the nearest whole number.")]
-    RDUP,
+    RoundUp,
     
     /// <summary>
     /// Round down to the nearest whole number.
+    /// Encoded/decoded by serializers as "RDWN".
     /// </summary>
     [EnumMember(Value = "RDWN")]
     [IsoId("_Y-Uj4Np-Ed-ak6NoX_4Aeg_1751583434")]
     [Description(@"Round down to the nearest whole number.")]
-    RDWN,
+    RoundDown,
     
     /// <summary>
     /// Round up or down to the nearest whole number.
+    /// Encoded/decoded by serializers as "STAN".
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_Y-Uj4dp-Ed-ak6NoX_4Aeg_2066033829")]
     [Description(@"Round up or down to the nearest whole number.")]
-    STAN,
+    RoundToNearest,
     
     /// <summary>
     /// Do not round.
+    /// Encoded/decoded by serializers as "DIST".
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_Y-Uj4tp-Ed-ak6NoX_4Aeg_2066033830")]
     [Description(@"Do not round.")]
-    DIST,
+    IssueFraction,
     
     /// <summary>
     /// Do not pro-rate; discuss first.
+    /// Encoded/decoded by serializers as "TALK".
     /// </summary>
     [EnumMember(Value = "TALK")]
     [IsoId("_Y-Uj49p-Ed-ak6NoX_4Aeg_-1000435685")]
     [Description(@"Do not pro-rate; discuss first.")]
-    TALK,
+    DiscussFirst,
     
     /// <summary>
     /// Pre-allocate according to the amounts shown in a linked allocation instruction.
+    /// Encoded/decoded by serializers as "SPEC".
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_Y-Uj5Np-Ed-ak6NoX_4Aeg_979483854")]
     [Description(@"Pre-allocate according to the amounts shown in a linked allocation instruction.")]
-    SPEC,
+    Specific,
     
     /// <summary>
     /// Indicates that if the fraction is greater than or equal to 0.5 of the value should be rounded up; otherwise rounded down.
+    /// Encoded/decoded by serializers as "SSTD".
     /// </summary>
     [EnumMember(Value = "SSTD")]
     [IsoId("_Y-Uj5dp-Ed-ak6NoX_4Aeg_-1928673858")]
     [Description(@"Indicates that if the fraction is greater than or equal to 0.5 of the value should be rounded up; otherwise rounded down.")]
-    SSTD,
+    Standard,
     
     /// <summary>
     /// Indicates that fractional value should be retained; no rounding.
+    /// Encoded/decoded by serializers as "RETA".
     /// </summary>
     [EnumMember(Value = "RETA")]
     [IsoId("_Y-Uj5tp-Ed-ak6NoX_4Aeg_-1928673766")]
     [Description(@"Indicates that fractional value should be retained; no rounding.")]
-    RETA,
+    Retain,
     
 }
 

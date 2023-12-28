@@ -20,163 +20,183 @@ public enum ResponseCode
 {
     /// <summary>
     /// Service is declined.
+    /// Encoded/decoded by serializers as "DECL".
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_TVMfEQEcEeCQm6a_G2yO_w_-587786230")]
     [Description(@"Service is declined.")]
-    DECL,
+    Declined,
     
     /// <summary>
     /// Service has been successfuly provided.
+    /// Encoded/decoded by serializers as "APPR".
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_TVMfEgEcEeCQm6a_G2yO_w_-1484977108")]
     [Description(@"Service has been successfuly provided.")]
-    APPR,
+    Approved,
     
     /// <summary>
     /// Service has been partialy provided.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_TVWQAAEcEeCQm6a_G2yO_w_652071159")]
     [Description(@"Service has been partialy provided.")]
-    PART,
+    PartialApproved,
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
+    /// Encoded/decoded by serializers as "TECH".
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_TVWQAQEcEeCQm6a_G2yO_w_1120878574")]
     [Description(@"Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).")]
-    TECH,
+    TechnicalError,
     
     /// <summary>
     /// Further action required to complete the transaction, for instance a referral.
+    /// Encoded/decoded by serializers as "FRTH".
     /// </summary>
     [EnumMember(Value = "FRTH")]
     [IsoId("_cjP3wHuGEeSZrqGdHyoIrw")]
     [Description(@"Further action required to complete the transaction, for instance a referral.")]
-    FRTH,
+    FurtherAction,
     
     /// <summary>
     /// Advice message could not be processed.
+    /// Encoded/decoded by serializers as "UNPR".
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_fW3O4HuGEeSZrqGdHyoIrw")]
     [Description(@"Advice message could not be processed.")]
-    UNPR,
+    NotProcessed,
     
     /// <summary>
     /// Advice message is processed.
+    /// Encoded/decoded by serializers as "PRCS".
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_iO0TcHuGEeSZrqGdHyoIrw")]
     [Description(@"Advice message is processed.")]
-    PRCS,
+    Processed,
     
     /// <summary>
     /// Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.
+    /// Encoded/decoded by serializers as "FAIL".
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_m3eIEGpUEemFuJNacM8hZA")]
     [Description(@"Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.")]
-    FAIL,
+    Failure,
     
     /// <summary>
     /// Processing OK. Information related to the result of the processing is contained in other parts of the response message.
+    /// Encoded/decoded by serializers as "SUCC".
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_uKnlkGpUEemFuJNacM8hZA")]
     [Description(@"Processing OK. Information related to the result of the processing is contained in other parts of the response message.")]
-    SUCC,
+    Success,
     
     /// <summary>
     /// Procesing of the service is deferred.
+    /// Encoded/decoded by serializers as "DFRD".
     /// </summary>
     [EnumMember(Value = "DFRD")]
     [IsoId("_maOtmXyLEemHsOqJOzMVfg")]
     [Description(@"Procesing of the service is deferred.")]
-    DFRD,
+    Deferred,
     
     /// <summary>
     /// Request is still in progress.
+    /// Encoded/decoded by serializers as "INPS".
     /// </summary>
     [EnumMember(Value = "INPS")]
     [IsoId("_maOtmnyLEemHsOqJOzMVfg")]
     [Description(@"Request is still in progress.")]
-    INPS,
+    InProgress,
     
     /// <summary>
     /// Validate the data that couold be verified.
+    /// Encoded/decoded by serializers as "NRTD".
     /// </summary>
     [EnumMember(Value = "NRTD")]
     [IsoId("_maOtm3yLEemHsOqJOzMVfg")]
     [Description(@"Validate the data that couold be verified.")]
-    NRTD,
+    NoReasonToDecline,
     
     /// <summary>
     /// Other type of processing result defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_maOtnHyLEemHsOqJOzMVfg")]
     [Description(@"Other type of processing result defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other type of processing result defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_maOtnXyLEemHsOqJOzMVfg")]
     [Description(@"Other type of processing result defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Other type of result.
+    /// Encoded/decoded by serializers as "OTRD".
     /// </summary>
     [EnumMember(Value = "OTRD")]
     [IsoId("_maOtnnyLEemHsOqJOzMVfg")]
     [Description(@"Other type of result.")]
-    OTRD,
+    OtherResult,
     
     /// <summary>
     /// Processing of the service has been partially performed.
+    /// Encoded/decoded by serializers as "PPRC".
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_maOtn3yLEemHsOqJOzMVfg")]
     [Description(@"Processing of the service has been partially performed.")]
-    PPRC,
+    PartiallyProcessed,
     
     /// <summary>
     /// Service was rejected.
+    /// Encoded/decoded by serializers as "REJT".
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_maOtoHyLEemHsOqJOzMVfg")]
     [Description(@"Service was rejected.")]
-    REJT,
+    Rejected,
     
     /// <summary>
     /// Service is under review.
+    /// Encoded/decoded by serializers as "UNRV".
     /// </summary>
     [EnumMember(Value = "UNRV")]
     [IsoId("_maOtoXyLEemHsOqJOzMVfg")]
     [Description(@"Service is under review.")]
-    UNRV,
+    UnderReview,
     
     /// <summary>
     /// Transaction has been received but hasn't been processed.
+    /// Encoded/decoded by serializers as "SUSP".
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_v2JPUA1PEeqjM-rxn3HuXQ")]
     [Description(@"Transaction has been received but hasn't been processed.")]
-    SUSP,
+    Suspended,
     
     /// <summary>
     /// An additional Response Code, mainly a functional one, should be considered to identify the outcome of the request.
+    /// Encoded/decoded by serializers as "WARN".
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_ubWUEC8MEeu125Ip9zFcsQ")]
     [Description(@"An additional Response Code, mainly a functional one, should be considered to identify the outcome of the request.")]
-    WARN,
+    Warning,
     
 }
 

@@ -20,19 +20,21 @@ public enum MarketIdentificationCode
 {
     /// <summary>
     /// Market segment code.
+    /// Encoded/decoded by serializers as "SGMT".
     /// </summary>
     [EnumMember(Value = "SGMT")]
     [IsoId("_rMH-EMObEeWiEtRBUJSIaA")]
     [Description(@"Market segment code.")]
-    SGMT,
+    Segment,
     
     /// <summary>
     /// Market operating code.
+    /// Encoded/decoded by serializers as "OPRT".
     /// </summary>
     [EnumMember(Value = "OPRT")]
     [IsoId("_tbGXEMObEeWiEtRBUJSIaA")]
     [Description(@"Market operating code.")]
-    OPRT,
+    Operating,
     
 }
 

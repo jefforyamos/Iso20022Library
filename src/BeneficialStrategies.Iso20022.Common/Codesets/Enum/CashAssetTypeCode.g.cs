@@ -20,19 +20,21 @@ public enum CashAssetTypeCode
 {
     /// <summary>
     /// Cash is attributed to a cash investment.
+    /// Encoded/decoded by serializers as "CSH1".
     /// </summary>
     [EnumMember(Value = "CSH1")]
     [IsoId("_ikEq8EyIEeir2sRRVd9XhA")]
     [Description(@"Cash is attributed to a cash investment.")]
-    CSH1,
+    CashInvestment,
     
     /// <summary>
     /// Cash is cash in the holding not yet invested.
+    /// Encoded/decoded by serializers as "CSH2".
     /// </summary>
     [EnumMember(Value = "CSH2")]
     [IsoId("_lv5GsEyIEeir2sRRVd9XhA")]
     [Description(@"Cash is cash in the holding not yet invested.")]
-    CSH2,
+    CashInHolding,
     
 }
 

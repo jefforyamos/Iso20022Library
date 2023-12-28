@@ -1,5 +1,7 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Immutable;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Repository;
@@ -69,8 +71,25 @@ public class DataDictionary : IsoRepoElement
                     break;
             }
         }
-        CodeSets = codeSets.ToArray();
+        CodeSets = codeSets.ToImmutableArray();
+
+        var lookupById = CodeSets.ToDictionary(item => item.Id);
+
+        foreach(CodeSet parentCodeSet in CodeSets.Where(cs => cs.DerivationItems.Length > 0))
+        {
+            var list = new List<CodeSet>();
+            foreach(var childItemId in parentCodeSet.DerivationItems)
+            {
+                var childCodeSet = lookupById.ContainsKey(childItemId) ? lookupById[childItemId] : null;
+                if ( childCodeSet is not null)
+                {
+                    childCodeSet.DerivedFrom = parentCodeSet;
+                    list.Add(childCodeSet);
+                }
+            }
+            parentCodeSet.Derivations = list.ToArray();
+        }
     }
 
-    public CodeSet[] CodeSets { get; }
+    public ImmutableArray<CodeSet> CodeSets { get; }
 }

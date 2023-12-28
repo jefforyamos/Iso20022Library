@@ -20,51 +20,57 @@ public enum AccountChoiceMethodCode
 {
     /// <summary>
     /// Account selected in an account list.
+    /// Encoded/decoded by serializers as "ACSL".
     /// </summary>
     [EnumMember(Value = "ACSL")]
     [IsoId("_L62-QHs7EeSTS7uHCe8FPQ")]
     [Description(@"Account selected in an account list.")]
-    ACSL,
+    AccountSelected,
     
     /// <summary>
     /// Account identification is entered by the customer.
+    /// Encoded/decoded by serializers as "ENTR".
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_OzfYQHs7EeSTS7uHCe8FPQ")]
     [Description(@"Account identification is entered by the customer.")]
-    ENTR,
+    Entered,
     
     /// <summary>
     /// Account is selected according to the configuration.
+    /// Encoded/decoded by serializers as "IMAC".
     /// </summary>
     [EnumMember(Value = "IMAC")]
     [IsoId("_Q_G7QHs7EeSTS7uHCe8FPQ")]
     [Description(@"Account is selected according to the configuration.")]
-    IMAC,
+    ImplicitAccount,
     
     /// <summary>
     /// Type of account is selected according to the configuration.
+    /// Encoded/decoded by serializers as "IMPL".
     /// </summary>
     [EnumMember(Value = "IMPL")]
     [IsoId("_T4HvwHs7EeSTS7uHCe8FPQ")]
     [Description(@"Type of account is selected according to the configuration.")]
-    IMPL,
+    ImplicitType,
     
     /// <summary>
     /// Type of account selected in a list.
+    /// Encoded/decoded by serializers as "TPSL".
     /// </summary>
     [EnumMember(Value = "TPSL")]
     [IsoId("_WnguMHs7EeSTS7uHCe8FPQ")]
     [Description(@"Type of account selected in a list.")]
-    TPSL,
+    TypeSelected,
     
     /// <summary>
     /// Account is not selected by the customer or a profile, but by the issuer.
+    /// Encoded/decoded by serializers as "NOSL".
     /// </summary>
     [EnumMember(Value = "NOSL")]
     [IsoId("_aLRv4Hs7EeSTS7uHCe8FPQ")]
     [Description(@"Account is not selected by the customer or a profile, but by the issuer.")]
-    NOSL,
+    NoSelection,
     
 }
 

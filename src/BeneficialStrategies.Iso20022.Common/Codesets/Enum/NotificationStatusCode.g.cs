@@ -20,43 +20,48 @@ public enum NotificationStatusCode
 {
     /// <summary>
     /// The notification contains all the details.
+    /// Encoded/decoded by serializers as "COMP".
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aN5VZtp-Ed-ak6NoX_4Aeg_-2057646880")]
     [Description(@"The notification contains all the details.")]
-    COMP,
+    Complete,
     
     /// <summary>
     /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
+    /// Encoded/decoded by serializers as "PREC".
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_aN5VZ9p-Ed-ak6NoX_4Aeg_-1569105629")]
     [Description(@"Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.")]
-    PREC,
+    PreliminaryEventConfirmed,
     
     /// <summary>
     /// Notification may not contain complete details as the occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
+    /// Encoded/decoded by serializers as "PREU".
     /// </summary>
     [EnumMember(Value = "PREU")]
     [IsoId("_aN5VaNp-Ed-ak6NoX_4Aeg_-313114775")]
     [Description(@"Notification may not contain complete details as the occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.")]
-    PREU,
+    PreliminaryEventUnconfirmed,
     
     /// <summary>
     /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
+    /// Encoded/decoded by serializers as "ECON".
     /// </summary>
     [EnumMember(Value = "ECON")]
     [IsoId("_aODGYNp-Ed-ak6NoX_4Aeg_373949805")]
     [Description(@"Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.")]
-    ECON,
+    EventConfirmed,
     
     /// <summary>
     /// The occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
+    /// Encoded/decoded by serializers as "EUNC".
     /// </summary>
     [EnumMember(Value = "EUNC")]
     [IsoId("_aODGYdp-Ed-ak6NoX_4Aeg_377642934")]
     [Description(@"The occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.")]
-    EUNC,
+    EventUnconfirmed,
     
 }
 

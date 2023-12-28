@@ -20,59 +20,66 @@ public enum AssetPriceTypeCode
 {
     /// <summary>
     /// Argus / Mc Closkey price.
+    /// Encoded/decoded by serializers as "ARGM".
     /// </summary>
     [EnumMember(Value = "ARGM")]
     [IsoId("_N3C1EBsTEeWhp-Wous5jzA")]
     [Description(@"Argus / Mc Closkey price.")]
-    ARGM,
+    ArgusMcCloskey,
     
     /// <summary>
     /// Baltic price.
+    /// Encoded/decoded by serializers as "BLTC".
     /// </summary>
     [EnumMember(Value = "BLTC")]
     [IsoId("_N-VI0BsTEeWhp-Wous5jzA")]
     [Description(@"Baltic price.")]
-    BLTC,
+    Baltic,
     
     /// <summary>
     /// Exchange price.
+    /// Encoded/decoded by serializers as "EXOF".
     /// </summary>
     [EnumMember(Value = "EXOF")]
     [IsoId("_OARCgBsTEeWhp-Wous5jzA")]
     [Description(@"Exchange price.")]
-    EXOF,
+    Exchange,
     
     /// <summary>
     /// Global coal price.
+    /// Encoded/decoded by serializers as "GBCL".
     /// </summary>
     [EnumMember(Value = "GBCL")]
     [IsoId("_OCDLMBsTEeWhp-Wous5jzA")]
     [Description(@"Global coal price.")]
-    GBCL,
+    GlobalCoal,
     
     /// <summary>
     /// IHS Mc Closkey price.
+    /// Encoded/decoded by serializers as "IHSM".
     /// </summary>
     [EnumMember(Value = "IHSM")]
     [IsoId("_OD_E4BsTEeWhp-Wous5jzA")]
     [Description(@"IHS Mc Closkey price.")]
-    IHSM,
+    IHSMcCloskey,
     
     /// <summary>
     /// Platts price.
+    /// Encoded/decoded by serializers as "PLAT".
     /// </summary>
     [EnumMember(Value = "PLAT")]
     [IsoId("_OFnckBsTEeWhp-Wous5jzA")]
     [Description(@"Platts price.")]
-    PLAT,
+    Platts,
     
     /// <summary>
     /// Other price.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_OHjWQBsTEeWhp-Wous5jzA")]
     [Description(@"Other price.")]
-    OTHR,
+    Other,
     
 }
 

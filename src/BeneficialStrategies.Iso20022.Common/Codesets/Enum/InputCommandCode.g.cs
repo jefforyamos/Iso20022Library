@@ -20,91 +20,102 @@ public enum InputCommandCode
 {
     /// <summary>
     /// Wait for a key pressed on the Terminal, to be able to read the message displayed on the Terminal.
+    /// Encoded/decoded by serializers as "GAKY".
     /// </summary>
     [EnumMember(Value = "GAKY")]
     [IsoId("_mrXKsN6nEeiwsev40qZGEQ")]
     [Description(@"Wait for a key pressed on the Terminal, to be able to read the message displayed on the Terminal.")]
-    GAKY,
+    GetAnyKey,
     
     /// <summary>
     /// Wait for a confirmation Yes (Y) or No (N) on the Sale System. Wait for a confirmation (Valid or Cancel button) on the POI Terminal. The result of the command is a Boolean: True or False.
+    /// Encoded/decoded by serializers as "GCNF".
     /// </summary>
     [EnumMember(Value = "GCNF")]
     [IsoId("_pVzXsN6nEeiwsev40qZGEQ")]
     [Description(@"Wait for a confirmation Yes (Y) or No (N) on the Sale System. Wait for a confirmation (Valid or Cancel button) on the POI Terminal. The result of the command is a Boolean: True or False.")]
-    GCNF,
+    GetConfirmation,
     
     /// <summary>
     /// Wait for a confirmation Yes (Y) or No (N) of the Site Manager on the Sale System.
+    /// Encoded/decoded by serializers as "SITE".
     /// </summary>
     [EnumMember(Value = "SITE")]
     [IsoId("_s944sN6nEeiwsev40qZGEQ")]
     [Description(@"Wait for a confirmation Yes (Y) or No (N) of the Site Manager on the Sale System.")]
-    SITE,
+    SiteManager,
     
     /// <summary>
     /// Wait for a string of alphanumeric characters.
+    /// Encoded/decoded by serializers as "TXSG".
     /// </summary>
     [EnumMember(Value = "TXSG")]
     [IsoId("_vvbMMN6nEeiwsev40qZGEQ")]
     [Description(@"Wait for a string of alphanumeric characters.")]
-    TXSG,
+    TextString,
     
     /// <summary>
     /// Wait for a string of digit characters.
+    /// Encoded/decoded by serializers as "DGSG".
     /// </summary>
     [EnumMember(Value = "DGSG")]
     [IsoId("_x6DQsN6nEeiwsev40qZGEQ")]
     [Description(@"Wait for a string of digit characters.")]
-    DGSG,
+    DigitString,
     
     /// <summary>
     /// Wait for a string of digit characters with a decimal point, the length range could be specified.
+    /// Encoded/decoded by serializers as "DCSG".
     /// </summary>
     [EnumMember(Value = "DCSG")]
     [IsoId("_0N_CMN6nEeiwsev40qZGEQ")]
     [Description(@"Wait for a string of digit characters with a decimal point, the length range could be specified.")]
-    DCSG,
+    DecimalString,
     
     /// <summary>
     /// Wait for a function key pressed on the Terminal: From POI, Valid, Clear, Correct, Generic Function key number. From Sale, Generic Function key.
+    /// Encoded/decoded by serializers as "GFKY".
     /// </summary>
     [EnumMember(Value = "GFKY")]
     [IsoId("_288i0N6nEeiwsev40qZGEQ")]
     [Description(@"Wait for a function key pressed on the Terminal: From POI, Valid, Clear, Correct, Generic Function key number. From Sale, Generic Function key.")]
-    GFKY,
+    GetFunctionKey,
     
     /// <summary>
     /// To choose an entry among a list of entries (all of them are not necessary selectable). The OutputFormat has to be MenuEntry.
+    /// Encoded/decoded by serializers as "GMNE".
     /// </summary>
     [EnumMember(Value = "GMNE")]
     [IsoId("_6XNDMN6nEeiwsev40qZGEQ")]
     [Description(@"To choose an entry among a list of entries (all of them are not necessary selectable). The OutputFormat has to be MenuEntry.")]
-    GMNE,
+    GetMenuEntry,
     
     /// <summary>
     /// Request to enter a password with masked characters while typing the password.
+    /// Encoded/decoded by serializers as "PSWD".
     /// </summary>
     [EnumMember(Value = "PSWD")]
     [IsoId("_9Gc3sN6nEeiwsev40qZGEQ")]
     [Description(@"Request to enter a password with masked characters while typing the password.")]
-    PSWD,
+    Password,
     
     /// <summary>
     /// Wait for a XHTML data.
+    /// Encoded/decoded by serializers as "HTML".
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("__gt6sN6nEeiwsev40qZGEQ")]
     [Description(@"Wait for a XHTML data.")]
-    HTML,
+    XHTMLText,
     
     /// <summary>
     /// Request to wait for signature.
+    /// Encoded/decoded by serializers as "SIGN".
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_jDqpoO2tEei-V5h0ja04AA")]
     [Description(@"Request to wait for signature.")]
-    SIGN,
+    Signature,
     
 }
 

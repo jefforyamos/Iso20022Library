@@ -20,43 +20,48 @@ public enum ChargeBearerCode
 {
     /// <summary>
     /// All transaction charges are to be borne by the debtor.
+    /// Encoded/decoded by serializers as "OUR".
     /// </summary>
     [EnumMember(Value = "OUR")]
     [IsoId("_a8F4I9p-Ed-ak6NoX_4Aeg_268292445")]
     [Description(@"All transaction charges are to be borne by the debtor.")]
-    OUR,
+    BorneByDebtor,
     
     /// <summary>
     /// All transaction charges are to be borne by the creditor.
+    /// Encoded/decoded by serializers as "BEN".
     /// </summary>
     [EnumMember(Value = "BEN")]
     [IsoId("_a8F4JNp-Ed-ak6NoX_4Aeg_272908720")]
     [Description(@"All transaction charges are to be borne by the creditor.")]
-    BEN,
+    BorneByCreditor,
     
     /// <summary>
     /// Under the credit transfer scenario, transaction charges on the sender's side are to be borne by the debtor; transaction charges on the receiver's side are to be borne by the creditor.
+    /// Encoded/decoded by serializers as "SHA".
     /// </summary>
     [EnumMember(Value = "SHA")]
     [IsoId("_a8F4Jdp-Ed-ak6NoX_4Aeg_283991933")]
     [Description(@"Under the credit transfer scenario, transaction charges on the sender's side are to be borne by the debtor; transaction charges on the receiver's side are to be borne by the creditor.")]
-    SHA,
+    Shared,
     
     /// <summary>
     /// All charges are to be borne by the investor.
+    /// Encoded/decoded by serializers as "INVR".
     /// </summary>
     [EnumMember(Value = "INVR")]
     [IsoId("_a8F4Jtp-Ed-ak6NoX_4Aeg_180265057")]
     [Description(@"All charges are to be borne by the investor.")]
-    INVR,
+    Investor,
     
     /// <summary>
     /// All charges are to be borne by the intermediary.
+    /// Encoded/decoded by serializers as "INTR".
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_a8F4J9p-Ed-ak6NoX_4Aeg_180265058")]
     [Description(@"All charges are to be borne by the intermediary.")]
-    INTR,
+    Intermediary,
     
 }
 

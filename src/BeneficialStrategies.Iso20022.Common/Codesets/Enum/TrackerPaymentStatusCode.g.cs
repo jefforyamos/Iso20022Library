@@ -20,27 +20,30 @@ public enum TrackerPaymentStatusCode
 {
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
+    /// Encoded/decoded by serializers as "RJCT".
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_GV3RUPpPEemXaqBx8S4XSg")]
     [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
-    RJCT,
+    Rejected,
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
+    /// Encoded/decoded by serializers as "ACSP".
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_GV3RU_pPEemXaqBx8S4XSg")]
     [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
-    ACSP,
+    AcceptedSettlementInProcess,
     
     /// <summary>
     /// Settlement on the creditor's account has been completed. 
+    /// Encoded/decoded by serializers as "ACCC".
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_GV2qXPpPEemXaqBx8S4XSg")]
     [Description(@"Settlement on the creditor's account has been completed. ")]
-    ACCC,
+    AcceptedCreditSettlementCompleted,
     
 }
 

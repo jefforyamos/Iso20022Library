@@ -20,43 +20,48 @@ public enum PaymentInstrumentTypeCode
 {
     /// <summary>
     /// Payment card (credit or debit).
+    /// Encoded/decoded by serializers as "CARD".
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_SadrQNxgEeioifFt1dhnJA")]
     [Description(@"Payment card (credit or debit).")]
-    CARD,
+    Card,
     
     /// <summary>
     /// Paper check.
+    /// Encoded/decoded by serializers as "CHCK".
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_UlszwNxgEeioifFt1dhnJA")]
     [Description(@"Paper check.")]
-    CHCK,
+    Check,
     
     /// <summary>
     /// Account accessed by a stored value instrument such as a card or a certificate.
+    /// Encoded/decoded by serializers as "SVAC".
     /// </summary>
     [EnumMember(Value = "SVAC")]
     [IsoId("_Wh6BwNxgEeioifFt1dhnJA")]
     [Description(@"Account accessed by a stored value instrument such as a card or a certificate.")]
-    SVAC,
+    StoredValueAccount,
     
     /// <summary>
     /// Cash managed by a cash handling system.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aoljQNxgEeioifFt1dhnJA")]
     [Description(@"Cash managed by a cash handling system.")]
-    CASH,
+    Cash,
     
     /// <summary>
     /// Account using loyalty processing.
+    /// Encoded/decoded by serializers as "LOYT".
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_ci9lQNxgEeioifFt1dhnJA")]
     [Description(@"Account using loyalty processing.")]
-    LOYT,
+    LoyaltyAccount,
     
 }
 

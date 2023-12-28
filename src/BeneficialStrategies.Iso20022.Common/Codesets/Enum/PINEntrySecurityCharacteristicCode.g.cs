@@ -20,35 +20,39 @@ public enum PINEntrySecurityCharacteristicCode
 {
     /// <summary>
     /// PIN entry is protected via a secure hardware solution.
+    /// Encoded/decoded by serializers as "SECH".
     /// </summary>
     [EnumMember(Value = "SECH")]
     [IsoId("_ZexIcKH3EeuiuNcvKhXmNQ")]
     [Description(@"PIN entry is protected via a secure hardware solution.")]
-    SECH,
+    SecureHardware,
     
     /// <summary>
     /// PIN entry is protected via an approved software solution.
+    /// Encoded/decoded by serializers as "SECS".
     /// </summary>
     [EnumMember(Value = "SECS")]
     [IsoId("_tKYXcKH3EeuiuNcvKhXmNQ")]
     [Description(@"PIN entry is protected via an approved software solution.")]
-    SECS,
+    SecureSoftware,
     
     /// <summary>
     /// Other nationally assigned code.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_AsLjIKH4EeuiuNcvKhXmNQ")]
     [Description(@"Other nationally assigned code.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other privately assigned code.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_FOFBAKH4EeuiuNcvKhXmNQ")]
     [Description(@"Other privately assigned code.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

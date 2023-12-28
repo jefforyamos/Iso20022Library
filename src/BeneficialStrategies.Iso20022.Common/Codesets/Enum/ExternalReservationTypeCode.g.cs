@@ -21,51 +21,57 @@ public enum ExternalReservationTypeCode
 {
     /// <summary>
     /// Amount blocked or frozen due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.
+    /// Encoded/decoded by serializers as "BLKD".
     /// </summary>
     [EnumMember(Value = "BLKD")]
     [IsoId("_ut1ZYPRYEeuLhpyIdtJzwg")]
     [Description(@"Amount blocked or frozen due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.")]
-    BLKD,
+    Blocked,
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively or executing cash withdrawals.
+    /// Encoded/decoded by serializers as "CARE".
     /// </summary>
     [EnumMember(Value = "CARE")]
     [IsoId("_ut1ZY_RYEeuLhpyIdtJzwg")]
     [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively or executing cash withdrawals.")]
-    CARE,
+    CashReservation,
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing highly urgent payments.
+    /// Encoded/decoded by serializers as "HPAR".
     /// </summary>
     [EnumMember(Value = "HPAR")]
     [IsoId("_ut1ZZvRYEeuLhpyIdtJzwg")]
     [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing highly urgent payments.")]
-    HPAR,
+    HighlyUrgentPaymentReservation,
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for the settlement of the multilateral cash balance stemming from the Net Security Settlement System.
+    /// Encoded/decoded by serializers as "NSSR".
     /// </summary>
     [EnumMember(Value = "NSSR")]
     [IsoId("_ut_KYPRYEeuLhpyIdtJzwg")]
     [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for the settlement of the multilateral cash balance stemming from the Net Security Settlement System.")]
-    NSSR,
+    NetSSSReservation,
     
     /// <summary>
     /// Amount above which funds will be destined for investment.
+    /// Encoded/decoded by serializers as "THRE".
     /// </summary>
     [EnumMember(Value = "THRE")]
     [IsoId("_uuIUUPRYEeuLhpyIdtJzwg")]
     [Description(@"Amount above which funds will be destined for investment.")]
-    THRE,
+    ThresholdForInvestment,
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing critical payments called urgent payments.
+    /// Encoded/decoded by serializers as "UPAR".
     /// </summary>
     [EnumMember(Value = "UPAR")]
     [IsoId("_uuIUU_RYEeuLhpyIdtJzwg")]
     [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing critical payments called urgent payments.")]
-    UPAR,
+    UrgentPaymentReservation,
     
 }
 

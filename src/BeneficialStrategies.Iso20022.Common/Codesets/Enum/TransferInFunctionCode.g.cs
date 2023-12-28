@@ -20,35 +20,39 @@ public enum TransferInFunctionCode
 {
     /// <summary>
     /// The transfer-in is an advice and request, that is, the message is used to inform the receiver to expect an unsolicited transfer in confirmation and to request account information for the transfer.
+    /// Encoded/decoded by serializers as "ADRE".
     /// </summary>
     [EnumMember(Value = "ADRE")]
     [IsoId("_kBA5QCVNEeWI0orciOKunQ")]
     [Description(@"The transfer-in is an advice and request, that is, the message is used to inform the receiver to expect an unsolicited transfer in confirmation and to request account information for the transfer.")]
-    ADRE,
+    AdviceAndRequest,
     
     /// <summary>
     /// The transfer-in is an instruction.
+    /// Encoded/decoded by serializers as "INST".
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_Fq0hcCVOEeWI0orciOKunQ")]
     [Description(@"The transfer-in is an instruction.")]
-    INST,
+    Instruction,
     
     /// <summary>
     /// The transfer-in provides advice about account information for a transfer.
+    /// Encoded/decoded by serializers as "ADVI".
     /// </summary>
     [EnumMember(Value = "ADVI")]
     [IsoId("_KOaocCVOEeWI0orciOKunQ")]
     [Description(@"The transfer-in provides advice about account information for a transfer.")]
-    ADVI,
+    Advice,
     
     /// <summary>
     /// The transfer-in is a confirmation (rather than an advice).
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_X8MAACVOEeWI0orciOKunQ")]
     [Description(@"The transfer-in is a confirmation (rather than an advice).")]
-    CONF,
+    Confirmation,
     
 }
 

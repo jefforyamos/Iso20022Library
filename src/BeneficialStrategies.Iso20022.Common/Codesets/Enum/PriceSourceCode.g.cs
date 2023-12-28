@@ -20,35 +20,39 @@ public enum PriceSourceCode
 {
     /// <summary>
     /// Source of price quotation is a fund, eg, transfer agent, fund itself.
+    /// Encoded/decoded by serializers as "FUND".
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_aJIKJNp-Ed-ak6NoX_4Aeg_-1823324851")]
     [Description(@"Source of price quotation is a fund, eg, transfer agent, fund itself.")]
-    FUND,
+    Fund,
     
     /// <summary>
     /// Source of price quotation is a theoretical value based on the market yield.
+    /// Encoded/decoded by serializers as "THEO".
     /// </summary>
     [EnumMember(Value = "THEO")]
     [IsoId("_aJIKJdp-Ed-ak6NoX_4Aeg_-1823324834")]
     [Description(@"Source of price quotation is a theoretical value based on the market yield.")]
-    THEO,
+    Theoretical,
     
     /// <summary>
     /// Source of price quotation is an external vendor.
+    /// Encoded/decoded by serializers as "VEND".
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_aJIKJtp-Ed-ak6NoX_4Aeg_-1823324816")]
     [Description(@"Source of price quotation is an external vendor.")]
-    VEND,
+    Vendor,
     
     /// <summary>
     /// Source of price quotation is a stock exchange.
+    /// Encoded/decoded by serializers as "EXCH".
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_5_16kKB6EeOEyO7fCl8lLA")]
     [Description(@"Source of price quotation is a stock exchange.")]
-    EXCH,
+    StockExchange,
     
 }
 

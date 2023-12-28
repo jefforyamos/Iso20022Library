@@ -20,43 +20,48 @@ public enum SettledStatusReasonCode
 {
     /// <summary>
     /// Units are partially settled.
+    /// Encoded/decoded by serializers as "UPST".
     /// </summary>
     [EnumMember(Value = "UPST")]
     [IsoId("_ZKsL9tp-Ed-ak6NoX_4Aeg_606549659")]
     [Description(@"Units are partially settled.")]
-    UPST,
+    UnitsPartiallySettled,
     
     /// <summary>
     /// Cash is partially settled.
+    /// Encoded/decoded by serializers as "CPST".
     /// </summary>
     [EnumMember(Value = "CPST")]
     [IsoId("_ZKsL99p-Ed-ak6NoX_4Aeg_606549702")]
     [Description(@"Cash is partially settled.")]
-    CPST,
+    CashPartiallySettled,
     
     /// <summary>
     /// Units and cash are both partially settled.
+    /// Encoded/decoded by serializers as "UCPS".
     /// </summary>
     [EnumMember(Value = "UCPS")]
     [IsoId("_ZKsL-Np-Ed-ak6NoX_4Aeg_606549719")]
     [Description(@"Units and cash are both partially settled.")]
-    UCPS,
+    UnitsCashPartiallySettled,
     
     /// <summary>
     /// Redemption has been gated, all settlement will be done at the same price.
+    /// Encoded/decoded by serializers as "GAT1".
     /// </summary>
     [EnumMember(Value = "GAT1")]
     [IsoId("_1jZr8EgWEea9YuSvQGoi-w")]
     [Description(@"Redemption has been gated, all settlement will be done at the same price.")]
-    GAT1,
+    GatedOneNAV,
     
     /// <summary>
     /// Redemption has been gated. Multiple redemptions and multiple prices will be required.
+    /// Encoded/decoded by serializers as "GATM".
     /// </summary>
     [EnumMember(Value = "GATM")]
     [IsoId("_4wRQkEgWEea9YuSvQGoi-w")]
     [Description(@"Redemption has been gated. Multiple redemptions and multiple prices will be required.")]
-    GATM,
+    GatedMultipleNAV,
     
 }
 

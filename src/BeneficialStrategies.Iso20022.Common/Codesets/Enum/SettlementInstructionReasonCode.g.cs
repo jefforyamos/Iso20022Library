@@ -20,115 +20,129 @@ public enum SettlementInstructionReasonCode
 {
     /// <summary>
     /// Settlement of subscriptions or subscription legs of a switch transaction.
+    /// Encoded/decoded by serializers as "SUBS".
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_qkmRgCCsEeWJd9HF2tO7BA")]
     [Description(@"Settlement of subscriptions or subscription legs of a switch transaction.")]
-    SUBS,
+    Subscription,
     
     /// <summary>
     /// Settlement of investments to a savings plan.
+    /// Encoded/decoded by serializers as "SAVP".
     /// </summary>
     [EnumMember(Value = "SAVP")]
     [IsoId("_wVIFsCCsEeWJd9HF2tO7BA")]
     [Description(@"Settlement of investments to a savings plan.")]
-    SAVP,
+    InvestmentSavingsPlan,
     
     /// <summary>
     /// Settlement of withdrawals from a savings plan.
+    /// Encoded/decoded by serializers as "WTHP".
     /// </summary>
     [EnumMember(Value = "WTHP")]
     [IsoId("_8heGwCCsEeWJd9HF2tO7BA")]
     [Description(@"Settlement of withdrawals from a savings plan.")]
-    WTHP,
+    WithdrawalSavingsPlan,
     
     /// <summary>
     /// Settlement of investments to a savings plan and withdrawals from a savings plan.
+    /// Encoded/decoded by serializers as "SAVE".
     /// </summary>
     [EnumMember(Value = "SAVE")]
     [IsoId("_FjoDwCCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of investments to a savings plan and withdrawals from a savings plan.")]
-    SAVE,
+    SavingsPlan,
     
     /// <summary>
     /// Settlement of securities purchases.
+    /// Encoded/decoded by serializers as "BUYI".
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_MUt9ECCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of securities purchases.")]
-    BUYI,
+    SecuritiesPurchase,
     
     /// <summary>
     /// Settlement of charges.
+    /// Encoded/decoded by serializers as "CHAR".
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_PfzZACCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of charges.")]
-    CHAR,
+    Charges,
     
     /// <summary>
     /// Settlement of all debit amounts.
+    /// Encoded/decoded by serializers as "CSHO".
     /// </summary>
     [EnumMember(Value = "CSHO")]
     [IsoId("_TlzlECCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of all debit amounts.")]
-    CSHO,
+    AllDebits,
     
     /// <summary>
     /// Settlement of redemptions or redemption legs of a switch transaction.
+    /// Encoded/decoded by serializers as "REDM".
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_W0wNUCCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of redemptions or redemption legs of a switch transaction.")]
-    REDM,
+    Redemption,
     
     /// <summary>
     /// Settlement of securities sales.
+    /// Encoded/decoded by serializers as "SELL".
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_gGFOwCCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of securities sales.")]
-    SELL,
+    SecuritiesSale,
     
     /// <summary>
     /// Settlement of interest.
+    /// Encoded/decoded by serializers as "INTE".
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_l2nC8CCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of interest.")]
-    INTE,
+    Interest,
     
     /// <summary>
     /// Settlement of dividends.
+    /// Encoded/decoded by serializers as "DIVI".
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_n4yWECCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of dividends.")]
-    DIVI,
+    Dividend,
     
     /// <summary>
     /// Settlement of all credit amounts.
+    /// Encoded/decoded by serializers as "CSHI".
     /// </summary>
     [EnumMember(Value = "CSHI")]
     [IsoId("_qgA3ACCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of all credit amounts.")]
-    CSHI,
+    AllCredits,
     
     /// <summary>
     /// Settlement of all credit and debit amounts.
+    /// Encoded/decoded by serializers as "ALLL".
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_t5X_gCCtEeWJd9HF2tO7BA")]
     [Description(@"Settlement of all credit and debit amounts.")]
-    ALLL,
+    AllCreditsAndDebits,
     
     /// <summary>
     /// Settlement of corporate actions.
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_52lTgFxlEeW0RaYpOo325g")]
     [Description(@"Settlement of corporate actions.")]
-    CORP,
+    CorporateAction,
     
 }
 

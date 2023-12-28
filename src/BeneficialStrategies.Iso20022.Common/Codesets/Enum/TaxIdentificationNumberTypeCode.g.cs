@@ -20,19 +20,21 @@ public enum TaxIdentificationNumberTypeCode
 {
     /// <summary>
     /// Tax identification number.
+    /// Encoded/decoded by serializers as "GTIN".
     /// </summary>
     [EnumMember(Value = "GTIN")]
     [IsoId("_WVR24AhJEeSUPbC7DbLJpQ")]
     [Description(@"Tax identification number.")]
-    GTIN,
+    TaxIdentificationNumber,
     
     /// <summary>
     /// Global intermediary tax identification number.
+    /// Encoded/decoded by serializers as "GIIN".
     /// </summary>
     [EnumMember(Value = "GIIN")]
     [IsoId("_abk94AhJEeSUPbC7DbLJpQ")]
     [Description(@"Global intermediary tax identification number.")]
-    GIIN,
+    GlobalIntermediaryIdentificationNumber,
     
 }
 

@@ -20,19 +20,21 @@ public enum AmountUnitCode
 {
     /// <summary>
     /// The amount is expressed in point.
+    /// Encoded/decoded by serializers as "POIN".
     /// </summary>
     [EnumMember(Value = "POIN")]
     [IsoId("_bvF9YNtlEeipuvJHTHIw9A")]
     [Description(@"The amount is expressed in point.")]
-    POIN,
+    Point,
     
     /// <summary>
     /// The amount is expressed in a monetary value in a currency.
+    /// Encoded/decoded by serializers as "MONE".
     /// </summary>
     [EnumMember(Value = "MONE")]
     [IsoId("_eaRKMNtlEeipuvJHTHIw9A")]
     [Description(@"The amount is expressed in a monetary value in a currency.")]
-    MONE,
+    Monetary,
     
 }
 

@@ -20,43 +20,48 @@ public enum IssuanceTypeCode
 {
     /// <summary>
     /// Undertaking issued direct to the beneficiary.
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_okhB0H4LEeG05p8M2uqofg")]
     [Description(@"Undertaking issued direct to the beneficiary.")]
-    ISSU,
+    UndertakingIssuedDirect,
     
     /// <summary>
     /// Undertaking issued to the beneficiary via an advising party.
+    /// Encoded/decoded by serializers as "ISAD".
     /// </summary>
     [EnumMember(Value = "ISAD")]
     [IsoId("_2S0k4H4LEeG05p8M2uqofg")]
     [Description(@"Undertaking issued to the beneficiary via an advising party.")]
-    ISAD,
+    UndertakingViaAdvisingParty,
     
     /// <summary>
     /// Undertaking issued to the beneficiary via a confirming party.
+    /// Encoded/decoded by serializers as "ISCO".
     /// </summary>
     [EnumMember(Value = "ISCO")]
     [IsoId("_-OEkMH4LEeG05p8M2uqofg")]
     [Description(@"Undertaking issued to the beneficiary via a confirming party.")]
-    ISCO,
+    UndertakingIssuedViaConfirmingParty,
     
     /// <summary>
     /// Counter-undertaking issued to a correspondent with a request to issue a local undertaking.
+    /// Encoded/decoded by serializers as "CRQL".
     /// </summary>
     [EnumMember(Value = "CRQL")]
     [IsoId("_HetpIH4MEeG05p8M2uqofg")]
     [Description(@"Counter-undertaking issued to a correspondent with a request to issue a local undertaking.")]
-    CRQL,
+    CounterUndertakingRequestForLocalUndertaking,
     
     /// <summary>
     /// Counter-undertaking issued to a correspondent with a request to issue another counter-undertaking.
+    /// Encoded/decoded by serializers as "CRQC".
     /// </summary>
     [EnumMember(Value = "CRQC")]
     [IsoId("_cyhlAH4MEeG05p8M2uqofg")]
     [Description(@"Counter-undertaking issued to a correspondent with a request to issue another counter-undertaking.")]
-    CRQC,
+    CounterUndertakingRequestForCounterUndertaking,
     
 }
 

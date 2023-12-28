@@ -20,19 +20,21 @@ public enum NoticeTypeCode
 {
     /// <summary>
     /// Notice is universal.
+    /// Encoded/decoded by serializers as "UNVL".
     /// </summary>
     [EnumMember(Value = "UNVL")]
     [IsoId("_1oOpxDL3EeKU9IrkkToqcw_529250699")]
     [Description(@"Notice is universal.")]
-    UNVL,
+    Universal,
     
     /// <summary>
     /// Notice is specific to the securities registered in DTC's (The Depository Trust Company) nominee name.
+    /// Encoded/decoded by serializers as "CEDE".
     /// </summary>
     [EnumMember(Value = "CEDE")]
     [IsoId("_1oOpxTL3EeKU9IrkkToqcw_1017030316")]
     [Description(@"Notice is specific to the securities registered in DTC's (The Depository Trust Company) nominee name.")]
-    CEDE,
+    CedeAndCo,
     
 }
 

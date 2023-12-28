@@ -20,40 +20,45 @@ public enum BenchmarkCurveNameCode
 {
     /// <summary>
     /// Benchmark curve used for municipals based on the best credit rating for municipal market debt.
+    /// Encoded/decoded by serializers as "MAAA".
     /// </summary>
     [EnumMember(Value = "MAAA")]
     [IsoId("_bdeG4dp-Ed-ak6NoX_4Aeg_335335497")]
     [Description(@"Benchmark curve used for municipals based on the best credit rating for municipal market debt.")]
-    MAAA,
+    MuniAAA,
     
     /// <summary>
     /// Portion of a synthetic curve that is composed of Eurodollar or Treasury or similar Futures and Swap rates. The term usually begins at 3 months to 2 years for the futures strip component with the Swaps filling in the points to 10 years and beyond.
+    /// Encoded/decoded by serializers as "FUSW".
     /// </summary>
     [EnumMember(Value = "FUSW")]
     [IsoId("_bdeG4tp-Ed-ak6NoX_4Aeg_335335498")]
     [Description(@"Portion of a synthetic curve that is composed of Eurodollar or Treasury or similar Futures and Swap rates. The term usually begins at 3 months to 2 years for the futures strip component with the Swaps filling in the points to 10 years and beyond.")]
-    FUSW,
+    FutureSWAP,
     
     /// <summary>
     /// Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.
     /// 
     /// London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.
+    /// Encoded/decoded by serializers as "LIBI".
     /// </summary>
     [EnumMember(Value = "LIBI")]
     [IsoId("_bdeG49p-Ed-ak6NoX_4Aeg_335335499")]
     [Description(@"Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.  London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.")]
-    LIBI,
+    LIBID,
     
     /// <summary>
     /// London Interbank Offered Rate, the interest rate that major international banks in London charge each other for borrowing.
+    /// Encoded/decoded by serializers as "LIBO".
     /// </summary>
     [EnumMember(Value = "LIBO")]
     [IsoId("_bdeG5Np-Ed-ak6NoX_4Aeg_335335508")]
     [Description(@"London Interbank Offered Rate, the interest rate that major international banks in London charge each other for borrowing.")]
-    LIBO,
+    LIBOR,
     
     /// <summary>
     /// In curve construction, Swap is the long portion of the curve constituting about 3 years to 30 years term.||The exchange of one security, currency or interest rate for another to change the maturity (bonds), or quality of issues (stocks or bonds), or because investment objectives have changed.
+    /// Encoded/decoded by serializers as "SWAP".
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_bdeG5dp-Ed-ak6NoX_4Aeg_335335509")]
@@ -62,94 +67,106 @@ public enum BenchmarkCurveNameCode
     
     /// <summary>
     /// Treasury benchmark that comes in three types: the yield curve, the par curve, and the spot curve. All curves also have a constituent time series.
+    /// Encoded/decoded by serializers as "TREA".
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_bdn34Np-Ed-ak6NoX_4Aeg_335335510")]
     [Description(@"Treasury benchmark that comes in three types: the yield curve, the par curve, and the spot curve. All curves also have a constituent time series.")]
-    TREA,
+    Treasury,
     
     /// <summary>
     /// Euro Interbank Offer Rate is the rate at which Euro inter-bank term deposits within the Euro zone are offered by one prime bank to another prime bank.
+    /// Encoded/decoded by serializers as "EURI".
     /// </summary>
     [EnumMember(Value = "EURI")]
     [IsoId("_bdn34dp-Ed-ak6NoX_4Aeg_335335511")]
     [Description(@"Euro Interbank Offer Rate is the rate at which Euro inter-bank term deposits within the Euro zone are offered by one prime bank to another prime bank.")]
-    EURI,
+    Euribor,
     
     /// <summary>
     /// Pfandbriefe security is a collateralised bullet bond backed by either mortgage loans or loans to the public sector. Pfandbriefe differ from traditional asset-backed securities in significant ways. The most important difference is that Pfandbriefe carry no pre-payment risk since they remain on the balance sheet of the issuing institution. Therefore, their spreads over sovereign bonds are attributable to liquidity and credit quality alone. New indices have been created and existing indices have been modified in response to the growing importance of the Pfandbriefe market. The Deutsche Borse has three synthetic indices called REX, JEX, and PEX. The Pfandbriefe curve is used as a reference for credit as well as mortgage market.
+    /// Encoded/decoded by serializers as "PFAN".
     /// </summary>
     [EnumMember(Value = "PFAN")]
     [IsoId("_bdn34tp-Ed-ak6NoX_4Aeg_335335512")]
     [Description(@"Pfandbriefe security is a collateralised bullet bond backed by either mortgage loans or loans to the public sector. Pfandbriefe differ from traditional asset-backed securities in significant ways. The most important difference is that Pfandbriefe carry no pre-payment risk since they remain on the balance sheet of the issuing institution. Therefore, their spreads over sovereign bonds are attributable to liquidity and credit quality alone. New indices have been created and existing indices have been modified in response to the growing importance of the Pfandbriefe market. The Deutsche Borse has three synthetic indices called REX, JEX, and PEX. The Pfandbriefe curve is used as a reference for credit as well as mortgage market.")]
-    PFAN,
+    Pfandbriefe,
     
     /// <summary>
     /// Euro OverNight Index Average rate.
+    /// Encoded/decoded by serializers as "EONA".
     /// </summary>
     [EnumMember(Value = "EONA")]
     [IsoId("_d3iw0M4-EeSc85GUbgBycw")]
     [Description(@"Euro OverNight Index Average rate.")]
-    EONA,
+    EONIA,
     
     /// <summary>
     /// Euro OverNight Index Average swap rate.
+    /// Encoded/decoded by serializers as "EONS".
     /// </summary>
     [EnumMember(Value = "EONS")]
     [IsoId("_hj4fsM4-EeSc85GUbgBycw")]
     [Description(@"Euro OverNight Index Average swap rate.")]
-    EONS,
+    EONIASwaps,
     
     /// <summary>
     /// Rate for the eurodollars, time deposits denominated in U.S. dollars at banks outside the United States, and thus are not under the jurisdiction of the Federal Reserve.
+    /// Encoded/decoded by serializers as "EUUS".
     /// </summary>
     [EnumMember(Value = "EUUS")]
     [IsoId("_jLsyEM4-EeSc85GUbgBycw")]
     [Description(@"Rate for the eurodollars, time deposits denominated in U.S. dollars at banks outside the United States, and thus are not under the jurisdiction of the Federal Reserve.")]
-    EUUS,
+    EURODOLLAR,
     
     /// <summary>
     /// Swiss Franc LIBOR rate.
+    /// Encoded/decoded by serializers as "EUCH".
     /// </summary>
     [EnumMember(Value = "EUCH")]
     [IsoId("_rmRxsM4-EeSc85GUbgBycw")]
     [Description(@"Swiss Franc LIBOR rate.")]
-    EUCH,
+    EuroSwiss,
     
     /// <summary>
     /// Tokyo Interbank Offered Rate.
+    /// Encoded/decoded by serializers as "TIBO".
     /// </summary>
     [EnumMember(Value = "TIBO")]
     [IsoId("_wRFT8M4-EeSc85GUbgBycw")]
     [Description(@"Tokyo Interbank Offered Rate.")]
-    TIBO,
+    TIBOR,
     
     /// <summary>
     /// Worldwide common reference rate value for fixed interest rate swap rates, as defined by the International Swaps and Derivatives Association (ISDA).
+    /// Encoded/decoded by serializers as "ISDA".
     /// </summary>
     [EnumMember(Value = "ISDA")]
     [IsoId("_zG2AIM4-EeSc85GUbgBycw")]
     [Description(@"Worldwide common reference rate value for fixed interest rate swap rates, as defined by the International Swaps and Derivatives Association (ISDA).")]
-    ISDA,
+    ISDAFIX,
     
     /// <summary>
     /// GCF Repo Index, the Depository Trust & Clearing Corporation (DTCC) general collateral finance repurchase agreements index.
+    /// Encoded/decoded by serializers as "GCFR".
     /// </summary>
     [EnumMember(Value = "GCFR")]
     [IsoId("_0xCREM4-EeSc85GUbgBycw")]
     [Description(@"GCF Repo Index, the Depository Trust & Clearing Corporation (DTCC) general collateral finance repurchase agreements index.")]
-    GCFR,
+    GCFRepo,
     
     /// <summary>
     /// Stockholm Interbank Offered Rate.
+    /// Encoded/decoded by serializers as "STBO".
     /// </summary>
     [EnumMember(Value = "STBO")]
     [IsoId("_b9M7cAnQEeW1sbwBDSZgiA")]
     [Description(@"Stockholm Interbank Offered Rate.")]
-    STBO,
+    STIBOR,
     
     /// <summary>
     /// Australian Financial Markets Association (AFMA) Bank-Bill Reference Rate (BBSW).
+    /// Encoded/decoded by serializers as "BBSW".
     /// </summary>
     [EnumMember(Value = "BBSW")]
     [IsoId("_3YRwgAnQEeW1sbwBDSZgiA")]
@@ -158,22 +175,25 @@ public enum BenchmarkCurveNameCode
     
     /// <summary>
     /// Johannesburg Interbank Agreed Rate.
+    /// Encoded/decoded by serializers as "JIBA".
     /// </summary>
     [EnumMember(Value = "JIBA")]
     [IsoId("_F_USYAnREeW1sbwBDSZgiA")]
     [Description(@"Johannesburg Interbank Agreed Rate.")]
-    JIBA,
+    JIBAR,
     
     /// <summary>
     /// Budapest Interbank Offered Rate.
+    /// Encoded/decoded by serializers as "BUBO".
     /// </summary>
     [EnumMember(Value = "BUBO")]
     [IsoId("_PNpqMAnREeW1sbwBDSZgiA")]
     [Description(@"Budapest Interbank Offered Rate.")]
-    BUBO,
+    BUBOR,
     
     /// <summary>
     /// Canadian Dollar Offered Rate.
+    /// Encoded/decoded by serializers as "CDOR".
     /// </summary>
     [EnumMember(Value = "CDOR")]
     [IsoId("_UbyjAAnREeW1sbwBDSZgiA")]
@@ -182,62 +202,70 @@ public enum BenchmarkCurveNameCode
     
     /// <summary>
     /// Copenhagen Interbank Offered Rate.
+    /// Encoded/decoded by serializers as "CIBO".
     /// </summary>
     [EnumMember(Value = "CIBO")]
     [IsoId("_cp2woAnREeW1sbwBDSZgiA")]
     [Description(@"Copenhagen Interbank Offered Rate.")]
-    CIBO,
+    CIBOR,
     
     /// <summary>
     /// Moscow Prime Offered Rate.
+    /// Encoded/decoded by serializers as "MOSP".
     /// </summary>
     [EnumMember(Value = "MOSP")]
     [IsoId("_KY1a4AnSEeW1sbwBDSZgiA")]
     [Description(@"Moscow Prime Offered Rate.")]
-    MOSP,
+    MOSPRIM,
     
     /// <summary>
     /// Norwegian Interbank Offered Rate.
+    /// Encoded/decoded by serializers as "NIBO".
     /// </summary>
     [EnumMember(Value = "NIBO")]
     [IsoId("_TwZAIAnSEeW1sbwBDSZgiA")]
     [Description(@"Norwegian Interbank Offered Rate.")]
-    NIBO,
+    NIBOR,
     
     /// <summary>
     /// Czech Fixing of Interest Rates on Interbank Deposits.
+    /// Encoded/decoded by serializers as "PRBO".
     /// </summary>
     [EnumMember(Value = "PRBO")]
     [IsoId("_ju6SUAnSEeW1sbwBDSZgiA")]
     [Description(@"Czech Fixing of Interest Rates on Interbank Deposits.")]
-    PRBO,
+    PRIBOR,
     
     /// <summary>
     /// Tel Aviv Interbank Offered Rate.
+    /// Encoded/decoded by serializers as "TLBO".
     /// </summary>
     [EnumMember(Value = "TLBO")]
     [IsoId("_sI41AAnSEeW1sbwBDSZgiA")]
     [Description(@"Tel Aviv Interbank Offered Rate.")]
-    TLBO,
+    TELBOR,
     
     /// <summary>
     /// Warsaw Interbank Offered Rate.
+    /// Encoded/decoded by serializers as "WIBO".
     /// </summary>
     [EnumMember(Value = "WIBO")]
     [IsoId("_xpCD0AnSEeW1sbwBDSZgiA")]
     [Description(@"Warsaw Interbank Offered Rate.")]
-    WIBO,
+    WIBOR,
     
     /// <summary>
     /// Euro Short Term Rate
+    /// Encoded/decoded by serializers as "ESTR".
     /// </summary>
     [EnumMember(Value = "ESTR")]
     [IsoId("_p4CtkKx1Eem81-uIvTF5rQ")]
     [Description(@"Euro Short Term Rate")]
-    ESTR,
+    ESTER,
     
     /// <summary>
     /// Secured Overnight Financing Rate.
+    /// Encoded/decoded by serializers as "SOFR".
     /// </summary>
     [EnumMember(Value = "SOFR")]
     [IsoId("_M8bqoLUMEemybd4mhF9NIA")]
@@ -246,83 +274,93 @@ public enum BenchmarkCurveNameCode
     
     /// <summary>
     /// Sterling Over Night Index Average.
+    /// Encoded/decoded by serializers as "SONA".
     /// </summary>
     [EnumMember(Value = "SONA")]
     [IsoId("_RDUAcLUMEemybd4mhF9NIA")]
     [Description(@"Sterling Over Night Index Average.")]
-    SONA,
+    SONIA,
     
     /// <summary>
     /// RBA Cash Rate Target  (RBATCTR).
+    /// Encoded/decoded by serializers as "RCTR".
     /// </summary>
     [EnumMember(Value = "RCTR")]
     [IsoId("_34JggONvEeqVwOG0fcjVKA")]
     [Description(@"RBA Cash Rate Target  (RBATCTR).")]
-    RCTR,
+    RBATCTR,
     
     /// <summary>
     /// Canadian Overnight Repo Rate Average (CAONREPO). 
+    /// Encoded/decoded by serializers as "CORA".
     /// </summary>
     [EnumMember(Value = "CORA")]
     [IsoId("_BzRF0ONwEeqVwOG0fcjVKA")]
     [Description(@"Canadian Overnight Repo Rate Average (CAONREPO). ")]
-    CORA,
+    CORRA,
     
     /// <summary>
     /// Bank of Canada Overnight Lending Rate (CABROVER).
+    /// Encoded/decoded by serializers as "BCOL".
     /// </summary>
     [EnumMember(Value = "BCOL")]
     [IsoId("_PIVCcONwEeqVwOG0fcjVKA")]
     [Description(@"Bank of Canada Overnight Lending Rate (CABROVER).")]
-    BCOL,
+    CABROVER,
     
     /// <summary>
     /// Hong Kong Interbank Offered Rate (HIHD01M).
+    /// Encoded/decoded by serializers as "HKIO".
     /// </summary>
     [EnumMember(Value = "HKIO")]
     [IsoId("_X1VO0ONwEeqVwOG0fcjVKA")]
     [Description(@"Hong Kong Interbank Offered Rate (HIHD01M).")]
-    HKIO,
+    HIBOR,
     
     /// <summary>
     /// Bank of Japan Uncollateralized Overnight Call Rate (MUTSCALM).
+    /// Encoded/decoded by serializers as "BJUO".
     /// </summary>
     [EnumMember(Value = "BJUO")]
     [IsoId("_ihi54ONwEeqVwOG0fcjVKA")]
     [Description(@"Bank of Japan Uncollateralized Overnight Call Rate (MUTSCALM).")]
-    BJUO,
+    MUTSCALM,
     
     /// <summary>
     /// Euroyen Tokyo Interbank Offered Rate (EUYN03M).
+    /// Encoded/decoded by serializers as "ETIO".
     /// </summary>
     [EnumMember(Value = "ETIO")]
     [IsoId("_4RBeEONwEeqVwOG0fcjVKA")]
     [Description(@"Euroyen Tokyo Interbank Offered Rate (EUYN03M).")]
-    ETIO,
+    JBATIBOR,
     
     /// <summary>
     /// Effective Federal Funds Rate (FEDL01).
+    /// Encoded/decoded by serializers as "EFFR".
     /// </summary>
     [EnumMember(Value = "EFFR")]
     [IsoId("_BY9S8ONxEeqVwOG0fcjVKA")]
     [Description(@"Effective Federal Funds Rate (FEDL01).")]
-    EFFR,
+    FEDL01,
     
     /// <summary>
     /// Overnight Bank Funding Rate (OBFR01).
+    /// Encoded/decoded by serializers as "OBFR".
     /// </summary>
     [EnumMember(Value = "OBFR")]
     [IsoId("_HuDz0ONxEeqVwOG0fcjVKA")]
     [Description(@"Overnight Bank Funding Rate (OBFR01).")]
-    OBFR,
+    OBFR01,
     
     /// <summary>
     /// Czech National Bank Reference Interest Rate
+    /// Encoded/decoded by serializers as "CZNA".
     /// </summary>
     [EnumMember(Value = "CZNA")]
     [IsoId("_hjmQwCjFEeuKKc2MztSwPw")]
     [Description(@"Czech National Bank Reference Interest Rate")]
-    CZNA,
+    Czeonia,
     
 }
 

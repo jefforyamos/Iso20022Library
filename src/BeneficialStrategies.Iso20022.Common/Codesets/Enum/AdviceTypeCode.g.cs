@@ -20,19 +20,21 @@ public enum AdviceTypeCode
 {
     /// <summary>
     /// Advice with transaction details is requested.
+    /// Encoded/decoded by serializers as "ADWD".
     /// </summary>
     [EnumMember(Value = "ADWD")]
     [IsoId("_FeuGANomEembTrt_WixjyQ")]
     [Description(@"Advice with transaction details is requested.")]
-    ADWD,
+    AdviceWithDetails,
     
     /// <summary>
     /// Advice without  transaction details is requested.
+    /// Encoded/decoded by serializers as "ADND".
     /// </summary>
     [EnumMember(Value = "ADND")]
     [IsoId("_F4QAUNomEembTrt_WixjyQ")]
     [Description(@"Advice without  transaction details is requested.")]
-    ADND,
+    AdviceWithoutDetails,
     
 }
 

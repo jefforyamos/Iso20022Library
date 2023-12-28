@@ -20,6 +20,7 @@ public enum DeviceIdentificationTypeCode
 {
     /// <summary>
     /// International Mobile Equipment Identity.
+    /// Encoded/decoded by serializers as "IMEI".
     /// </summary>
     [EnumMember(Value = "IMEI")]
     [IsoId("_VFsVMJfMEeuqNYk2TG3bTg")]
@@ -28,35 +29,39 @@ public enum DeviceIdentificationTypeCode
     
     /// <summary>
     /// Device serial number.
+    /// Encoded/decoded by serializers as "SENU".
     /// </summary>
     [EnumMember(Value = "SENU")]
     [IsoId("_mqqAwJfMEeuqNYk2TG3bTg")]
     [Description(@"Device serial number.")]
-    SENU,
+    SerialNumber,
     
     /// <summary>
     /// Secure element ID.
+    /// Encoded/decoded by serializers as "SEID".
     /// </summary>
     [EnumMember(Value = "SEID")]
     [IsoId("_Fh1JQJfNEeuqNYk2TG3bTg")]
     [Description(@"Secure element ID.")]
-    SEID,
+    SecureElementIdentification,
     
     /// <summary>
     /// Other nationally assigned code.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_MVjf0JfNEeuqNYk2TG3bTg")]
     [Description(@"Other nationally assigned code.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other privately assigned code.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_YTPZ0JfNEeuqNYk2TG3bTg")]
     [Description(@"Other privately assigned code.")]
-    OTHP,
+    OtherPrivate,
     
 }
 

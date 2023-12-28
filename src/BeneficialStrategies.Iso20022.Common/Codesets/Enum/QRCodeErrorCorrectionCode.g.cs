@@ -20,35 +20,39 @@ public enum QRCodeErrorCorrectionCode
 {
     /// <summary>
     /// Reed-Solomon error correction  7%
+    /// Encoded/decoded by serializers as "L007".
     /// </summary>
     [EnumMember(Value = "L007")]
     [IsoId("_-CY0YNuaEeiB5uLfkg9ZJA")]
     [Description(@"Reed-Solomon error correction  7%")]
-    L007,
+    ErrorCorrection7Percent,
     
     /// <summary>
     /// Reed-Solomon error correction 15%
+    /// Encoded/decoded by serializers as "M015".
     /// </summary>
     [EnumMember(Value = "M015")]
     [IsoId("_C9HB8NubEeiB5uLfkg9ZJA")]
     [Description(@"Reed-Solomon error correction 15%")]
-    M015,
+    ErrorCorrection15Percent,
     
     /// <summary>
     /// Reed-Solomon error correction 25%
+    /// Encoded/decoded by serializers as "Q025".
     /// </summary>
     [EnumMember(Value = "Q025")]
     [IsoId("_F43BYNubEeiB5uLfkg9ZJA")]
     [Description(@"Reed-Solomon error correction 25%")]
-    Q025,
+    ErrorCorrection25Percent,
     
     /// <summary>
     /// Reed-Solomon error correction 30%
+    /// Encoded/decoded by serializers as "H030".
     /// </summary>
     [EnumMember(Value = "H030")]
     [IsoId("_IqPj4NubEeiB5uLfkg9ZJA")]
     [Description(@"Reed-Solomon error correction 30%")]
-    H030,
+    ErrorCorrection30Percent,
     
 }
 

@@ -20,235 +20,264 @@ public enum FundingSourceTypeCode
 {
     /// <summary>
     /// Default account.
+    /// Encoded/decoded by serializers as "DFLT".
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_LeQrP9woEeeiWo5KG3eipw")]
     [Description(@"Default account.")]
-    DFLT,
+    Default,
     
     /// <summary>
     /// Savings account.
+    /// Encoded/decoded by serializers as "SVNG".
     /// </summary>
     [EnumMember(Value = "SVNG")]
     [IsoId("_LeQrPtwoEeeiWo5KG3eipw")]
     [Description(@"Savings account.")]
-    SVNG,
+    Savings,
     
     /// <summary>
     /// Checking account.
+    /// Encoded/decoded by serializers as "CHCK".
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_LeQrTdwoEeeiWo5KG3eipw")]
     [Description(@"Checking account.")]
-    CHCK,
+    Checking,
     
     /// <summary>
     /// Credit card account.
+    /// Encoded/decoded by serializers as "CRDT".
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_LeQrU9woEeeiWo5KG3eipw")]
     [Description(@"Credit card account.")]
-    CRDT,
+    CreditCard,
     
     /// <summary>
     /// Universal account.
+    /// Encoded/decoded by serializers as "UVRL".
     /// </summary>
     [EnumMember(Value = "UVRL")]
     [IsoId("_LeQrT9woEeeiWo5KG3eipw")]
     [Description(@"Universal account.")]
-    UVRL,
+    Universal,
     
     /// <summary>
     /// Investment account.
+    /// Encoded/decoded by serializers as "INVS".
     /// </summary>
     [EnumMember(Value = "INVS")]
     [IsoId("_LeQrSdwoEeeiWo5KG3eipw")]
     [Description(@"Investment account.")]
-    INVS,
+    Investment,
     
     /// <summary>
     /// Electronic purse card account.
+    /// Encoded/decoded by serializers as "EPRS".
     /// </summary>
     [EnumMember(Value = "EPRS")]
     [IsoId("_LeQrRdwoEeeiWo5KG3eipw")]
     [Description(@"Electronic purse card account.")]
-    EPRS,
+    EpurseCard,
     
     /// <summary>
     /// Certificate of deposit saving account.
+    /// Encoded/decoded by serializers as "CTDP".
     /// </summary>
     [EnumMember(Value = "CTDP")]
     [IsoId("_LeQrSNwoEeeiWo5KG3eipw")]
     [Description(@"Certificate of deposit saving account.")]
-    CTDP,
+    CertificateOfDeposit,
     
     /// <summary>
     /// Current account.
+    /// Encoded/decoded by serializers as "CURR".
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_LeQrVtwoEeeiWo5KG3eipw")]
     [Description(@"Current account.")]
-    CURR,
+    Current,
     
     /// <summary>
     /// Debit card account.
+    /// Encoded/decoded by serializers as "CDBT".
     /// </summary>
     [EnumMember(Value = "CDBT")]
     [IsoId("_LeQrUtwoEeeiWo5KG3eipw")]
     [Description(@"Debit card account.")]
-    CDBT,
+    DebitCard,
     
     /// <summary>
     /// Home equity loan credit account.
+    /// Encoded/decoded by serializers as "HEQL".
     /// </summary>
     [EnumMember(Value = "HEQL")]
     [IsoId("_LeQrV9woEeeiWo5KG3eipw")]
     [Description(@"Home equity loan credit account.")]
-    HEQL,
+    HomeEquityLoan,
     
     /// <summary>
     /// Instalment loan credit account.
+    /// Encoded/decoded by serializers as "ISTL".
     /// </summary>
     [EnumMember(Value = "ISTL")]
     [IsoId("_LeQrUNwoEeeiWo5KG3eipw")]
     [Description(@"Instalment loan credit account.")]
-    ISTL,
+    InstalmentLoan,
     
     /// <summary>
     /// Line of credit account.
+    /// Encoded/decoded by serializers as "LCDT".
     /// </summary>
     [EnumMember(Value = "LCDT")]
     [IsoId("_LeQrS9woEeeiWo5KG3eipw")]
     [Description(@"Line of credit account.")]
-    LCDT,
+    LineOfCredit,
     
     /// <summary>
     /// Mobile Station Integrated Services Digital Network Number (MSISDN).
+    /// Encoded/decoded by serializers as "MBNW".
     /// </summary>
     [EnumMember(Value = "MBNW")]
     [IsoId("_LeQrQtwoEeeiWo5KG3eipw")]
     [Description(@"Mobile Station Integrated Services Digital Network Number (MSISDN).")]
-    MBNW,
+    MobilePhoneAccount,
     
     /// <summary>
     /// Money market saving account.
+    /// Encoded/decoded by serializers as "MNMK".
     /// </summary>
     [EnumMember(Value = "MNMK")]
     [IsoId("_LeQrRNwoEeeiWo5KG3eipw")]
     [Description(@"Money market saving account.")]
-    MNMK,
+    MoneyMarket,
     
     /// <summary>
     /// Money market checking account.
+    /// Encoded/decoded by serializers as "MNMC".
     /// </summary>
     [EnumMember(Value = "MNMC")]
     [IsoId("_LeQrQdwoEeeiWo5KG3eipw")]
     [Description(@"Money market checking account.")]
-    MNMC,
+    MoneyMarketChecking,
     
     /// <summary>
     /// Mortgage loan credit account.
+    /// Encoded/decoded by serializers as "MTGL".
     /// </summary>
     [EnumMember(Value = "MTGL")]
     [IsoId("_LeQrR9woEeeiWo5KG3eipw")]
     [Description(@"Mortgage loan credit account.")]
-    MTGL,
+    MortgageLoan,
     
     /// <summary>
     /// Retirement account.
+    /// Encoded/decoded by serializers as "RTRM".
     /// </summary>
     [EnumMember(Value = "RTRM")]
     [IsoId("_LeQrVdwoEeeiWo5KG3eipw")]
     [Description(@"Retirement account.")]
-    RTRM,
+    RetirementAccount,
     
     /// <summary>
     /// Revolving loan account.
+    /// Encoded/decoded by serializers as "RVLV".
     /// </summary>
     [EnumMember(Value = "RVLV")]
     [IsoId("_LeQrTtwoEeeiWo5KG3eipw")]
     [Description(@"Revolving loan account.")]
-    RVLV,
+    RevolvingLoanAccount,
     
     /// <summary>
     /// Stock or bond investment account.
+    /// Encoded/decoded by serializers as "STBD".
     /// </summary>
     [EnumMember(Value = "STBD")]
     [IsoId("_LeQrVNwoEeeiWo5KG3eipw")]
     [Description(@"Stock or bond investment account.")]
-    STBD,
+    StockOrBond,
     
     /// <summary>
     /// Pre-paid account.
+    /// Encoded/decoded by serializers as "PRPD".
     /// </summary>
     [EnumMember(Value = "PRPD")]
     [IsoId("_LeQrPdwoEeeiWo5KG3eipw")]
     [Description(@"Pre-paid account.")]
-    PRPD,
+    PrePaid,
     
     /// <summary>
     /// Fleet card account.
+    /// Encoded/decoded by serializers as "FLTC".
     /// </summary>
     [EnumMember(Value = "FLTC")]
     [IsoId("_LeQrStwoEeeiWo5KG3eipw")]
     [Description(@"Fleet card account.")]
-    FLTC,
+    FleetCard,
     
     /// <summary>
     /// Cash as a source type  to perform the transaction.
+    /// Encoded/decoded by serializers as "CASH".
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_LeQrRtwoEeeiWo5KG3eipw")]
     [Description(@"Cash as a source type  to perform the transaction.")]
-    CASH,
+    Cash,
     
     /// <summary>
     /// Account for debiting funds.
+    /// Encoded/decoded by serializers as "DBAC".
     /// </summary>
     [EnumMember(Value = "DBAC")]
     [IsoId("_LeQrTNwoEeeiWo5KG3eipw")]
     [Description(@"Account for debiting funds.")]
-    DBAC,
+    DebitAccount,
     
     /// <summary>
     /// Account for crediting funds.
+    /// Encoded/decoded by serializers as "CRAC".
     /// </summary>
     [EnumMember(Value = "CRAC")]
     [IsoId("_LeQrQNwoEeeiWo5KG3eipw")]
     [Description(@"Account for crediting funds.")]
-    CRAC,
+    CreditAccount,
     
     /// <summary>
     /// Other type of account defined at national level.
+    /// Encoded/decoded by serializers as "OTHN".
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_LeQrUdwoEeeiWo5KG3eipw")]
     [Description(@"Other type of account defined at national level.")]
-    OTHN,
+    OtherNational,
     
     /// <summary>
     /// Other type of account defined at private level.
+    /// Encoded/decoded by serializers as "OTHP".
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_LeQrQ9woEeeiWo5KG3eipw")]
     [Description(@"Other type of account defined at private level.")]
-    OTHP,
+    OtherPrivate,
     
     /// <summary>
     /// Cheque
+    /// Encoded/decoded by serializers as "CHQE".
     /// </summary>
     [EnumMember(Value = "CHQE")]
     [IsoId("_hsPJMNwoEeeiWo5KG3eipw")]
     [Description(@"Cheque")]
-    CHQE,
+    Cheque,
     
     /// <summary>
     /// Loyalty points converted into cash
+    /// Encoded/decoded by serializers as "LOYL".
     /// </summary>
     [EnumMember(Value = "LOYL")]
     [IsoId("_odBggNwoEeeiWo5KG3eipw")]
     [Description(@"Loyalty points converted into cash")]
-    LOYL,
+    Loyaly,
     
 }
 

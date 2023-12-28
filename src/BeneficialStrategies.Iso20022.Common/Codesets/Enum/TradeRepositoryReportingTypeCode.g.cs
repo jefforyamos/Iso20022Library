@@ -20,19 +20,21 @@ public enum TradeRepositoryReportingTypeCode
 {
     /// <summary>
     /// Only one counterparty to the transaction has reported to the same trade repository.
+    /// Encoded/decoded by serializers as "SWOS".
     /// </summary>
     [EnumMember(Value = "SWOS")]
     [IsoId("_iPyr0NIFEeiG-o-KpBT4-g")]
     [Description(@"Only one counterparty to the transaction has reported to the same trade repository.")]
-    SWOS,
+    SingleSided,
     
     /// <summary>
     ///  Both counterparties to the transaction have reported to the same trade repository.
+    /// Encoded/decoded by serializers as "TWOS".
     /// </summary>
     [EnumMember(Value = "TWOS")]
     [IsoId("_jlMYgNIFEeiG-o-KpBT4-g")]
     [Description(@" Both counterparties to the transaction have reported to the same trade repository.")]
-    TWOS,
+    DualSided,
     
 }
 

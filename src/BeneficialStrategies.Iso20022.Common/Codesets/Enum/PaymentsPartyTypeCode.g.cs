@@ -20,35 +20,39 @@ public enum PaymentsPartyTypeCode
 {
     /// <summary>
     /// Debtor agent, creditor agent or financial institution between debtor agent and creditor agent.
+    /// Encoded/decoded by serializers as "ALPA".
     /// </summary>
     [EnumMember(Value = "ALPA")]
     [IsoId("_LWHZUKHHEeagRbKvRt3LnA")]
     [Description(@"Debtor agent, creditor agent or financial institution between debtor agent and creditor agent.")]
-    ALPA,
+    AllPaymentsParties,
     
     /// <summary>
     /// Debtor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
+    /// Encoded/decoded by serializers as "DADE".
     /// </summary>
     [EnumMember(Value = "DADE")]
     [IsoId("_uLQHgFyYEeewBcMu1EH_Gg")]
     [Description(@"Debtor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
-    DADE,
+    DebtorAgentOrDebtor,
     
     /// <summary>
     /// Creditor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
+    /// Encoded/decoded by serializers as "CACR".
     /// </summary>
     [EnumMember(Value = "CACR")]
     [IsoId("_1m_gUFyYEeewBcMu1EH_Gg")]
     [Description(@"Creditor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
-    CACR,
+    CreditorAgentOrCreditor,
     
     /// <summary>
     /// Intermediary agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
+    /// Encoded/decoded by serializers as "INAG".
     /// </summary>
     [EnumMember(Value = "INAG")]
     [IsoId("_4ya6gFyYEeewBcMu1EH_Gg")]
     [Description(@"Intermediary agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
-    INAG,
+    IntermediaryAgent,
     
 }
 

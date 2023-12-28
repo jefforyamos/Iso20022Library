@@ -20,19 +20,21 @@ public enum InterestRejectionReasonCode
 {
     /// <summary>
     /// Indicates whether the interest request is rejected due a value date difference.
+    /// Encoded/decoded by serializers as "VADA".
     /// </summary>
     [EnumMember(Value = "VADA")]
     [IsoId("_YbKMddp-Ed-ak6NoX_4Aeg_1161500013")]
     [Description(@"Indicates whether the interest request is rejected due a value date difference.")]
-    VADA,
+    ValueDate,
     
     /// <summary>
     /// Indicates whether the interest request is rejected due an interest amount difference.
+    /// Encoded/decoded by serializers as "DIAM".
     /// </summary>
     [EnumMember(Value = "DIAM")]
     [IsoId("_YbKMdtp-Ed-ak6NoX_4Aeg_1346924017")]
     [Description(@"Indicates whether the interest request is rejected due an interest amount difference.")]
-    DIAM,
+    DisputeAmount,
     
 }
 

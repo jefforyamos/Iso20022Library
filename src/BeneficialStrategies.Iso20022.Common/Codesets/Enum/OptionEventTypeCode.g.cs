@@ -20,51 +20,57 @@ public enum OptionEventTypeCode
 {
     /// <summary>
     /// Notice of a close out of the position.
+    /// Encoded/decoded by serializers as "CLST".
     /// </summary>
     [EnumMember(Value = "CLST")]
     [IsoId("_Vg3rEMR0EeOg-a7zWL_U0A")]
     [Description(@"Notice of a close out of the position.")]
-    CLST,
+    CloseOut,
     
     /// <summary>
     /// First confirmation.
+    /// Encoded/decoded by serializers as "CONF".
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_ZDT3EMR0EeOg-a7zWL_U0A")]
     [Description(@"First confirmation.")]
-    CONF,
+    FirstConfirmation,
     
     /// <summary>
     /// Notice of a knock-in. The option has a specified spot level, which, if touched during the knock-in period, triggers the option into existence. Prior to that level being touched, no option exists.
+    /// Encoded/decoded by serializers as "KNIN".
     /// </summary>
     [EnumMember(Value = "KNIN")]
     [IsoId("_cBSrIMR0EeOg-a7zWL_U0A")]
     [Description(@"Notice of a knock-in. The option has a specified spot level, which, if touched during the knock-in period, triggers the option into existence. Prior to that level being touched, no option exists.")]
-    KNIN,
+    KnockIn,
     
     /// <summary>
     /// Notice of a knock-out. The option has a specified spot level, which, if touched during the knock-out period, terminates the option.
+    /// Encoded/decoded by serializers as "KNOC".
     /// </summary>
     [EnumMember(Value = "KNOC")]
     [IsoId("_g95IAsR0EeOg-a7zWL_U0A")]
     [Description(@"Notice of a knock-out. The option has a specified spot level, which, if touched during the knock-out period, terminates the option.")]
-    KNOC,
+    KnockOut,
     
     /// <summary>
     /// Another type of event.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_4GD9cMR0EeOg-a7zWL_U0A")]
     [Description(@"Another type of event.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Notice of a trigger hit.
+    /// Encoded/decoded by serializers as "TRIG".
     /// </summary>
     [EnumMember(Value = "TRIG")]
     [IsoId("_7rek8MR0EeOg-a7zWL_U0A")]
     [Description(@"Notice of a trigger hit.")]
-    TRIG,
+    Trigger,
     
 }
 

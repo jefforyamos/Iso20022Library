@@ -20,19 +20,21 @@ public enum DisclosureRequestCancellationReasonCode
 {
     /// <summary>
     /// The cancellation of the disclosure request is due to a processsing error.
+    /// Encoded/decoded by serializers as "PROC".
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_ZKixwEV4EemRx7jyevcLwg")]
     [Description(@"The cancellation of the disclosure request is due to a processsing error.")]
-    PROC,
+    Processing,
     
     /// <summary>
     /// The cancellation of the discolure request is due to the withdrawal of the request  by the issuer.
+    /// Encoded/decoded by serializers as "WITH".
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_30joAEV4EemRx7jyevcLwg")]
     [Description(@"The cancellation of the discolure request is due to the withdrawal of the request  by the issuer.")]
-    WITH,
+    Withdrawal,
     
 }
 

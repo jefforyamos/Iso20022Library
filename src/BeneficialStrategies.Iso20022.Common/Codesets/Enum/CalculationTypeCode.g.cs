@@ -20,699 +20,786 @@ public enum CalculationTypeCode
 {
     /// <summary>
     /// Measure of change in duration (linear measure of changes in bond price in reaction to interest rate changes) of a bond as interest rate changes over time.
+    /// Encoded/decoded by serializers as "CNVX".
     /// </summary>
     [EnumMember(Value = "CNVX")]
     [IsoId("_bWBbEdp-Ed-ak6NoX_4Aeg_-1231865744")]
     [Description(@"Measure of change in duration (linear measure of changes in bond price in reaction to interest rate changes) of a bond as interest rate changes over time.")]
-    CNVX,
+    Convexity,
     
     /// <summary>
     /// A statistical measure of the dispersion of returns for a given security or market index. Volatility can either be measured by using the standard deviation or variance between returns from that same security or market index.
+    /// Encoded/decoded by serializers as "VOLA".
     /// </summary>
     [EnumMember(Value = "VOLA")]
     [IsoId("_bWBbEtp-Ed-ak6NoX_4Aeg_-1231865714")]
     [Description(@"A statistical measure of the dispersion of returns for a given security or market index. Volatility can either be measured by using the standard deviation or variance between returns from that same security or market index.")]
-    VOLA,
+    Volatility,
     
     /// <summary>
     /// Excess return on an investment attributed to an investment managers performance.
+    /// Encoded/decoded by serializers as "ALFA".
     /// </summary>
     [EnumMember(Value = "ALFA")]
     [IsoId("_bWBbE9p-Ed-ak6NoX_4Aeg_-1231865713")]
     [Description(@"Excess return on an investment attributed to an investment managers performance.")]
-    ALFA,
+    Alpha,
     
     /// <summary>
     /// Volatility of an instrument relative to a particular market set of instruments.
+    /// Encoded/decoded by serializers as "BETA".
     /// </summary>
     [EnumMember(Value = "BETA")]
     [IsoId("_bWBbFNp-Ed-ak6NoX_4Aeg_-1231865712")]
     [Description(@"Volatility of an instrument relative to a particular market set of instruments.")]
-    BETA,
+    Beta,
     
     /// <summary>
     /// First order (linear) sensitivity to changes in an underlying security price.
+    /// Encoded/decoded by serializers as "DLTA".
     /// </summary>
     [EnumMember(Value = "DLTA")]
     [IsoId("_bWBbFdp-Ed-ak6NoX_4Aeg_-1231865466")]
     [Description(@"First order (linear) sensitivity to changes in an underlying security price.")]
-    DLTA,
+    Delta,
     
     /// <summary>
     /// Second order (quadratic) sensitivity to changes in an underlying security price.
+    /// Encoded/decoded by serializers as "GAMA".
     /// </summary>
     [EnumMember(Value = "GAMA")]
     [IsoId("_bWBbFtp-Ed-ak6NoX_4Aeg_-1231865465")]
     [Description(@"Second order (quadratic) sensitivity to changes in an underlying security price.")]
-    GAMA,
+    Gamma,
     
     /// <summary>
     /// Third order sensitivity to changes in an underlying security price.
+    /// Encoded/decoded by serializers as "SPID".
     /// </summary>
     [EnumMember(Value = "SPID")]
     [IsoId("_bWBbF9p-Ed-ak6NoX_4Aeg_-1231865464")]
     [Description(@"Third order sensitivity to changes in an underlying security price.")]
-    SPID,
+    Speed,
     
     /// <summary>
     /// First order (linear) sensitivity to changes in the risk free rate of return.
+    /// Encoded/decoded by serializers as "RHOO".
     /// </summary>
     [EnumMember(Value = "RHOO")]
     [IsoId("_bWBbGNp-Ed-ak6NoX_4Aeg_-1231865436")]
     [Description(@"First order (linear) sensitivity to changes in the risk free rate of return.")]
-    RHOO,
+    Rho,
     
     /// <summary>
     /// First order (linear) sensitivity to the passage of time.
+    /// Encoded/decoded by serializers as "TETA".
     /// </summary>
     [EnumMember(Value = "TETA")]
     [IsoId("_bWKlANp-Ed-ak6NoX_4Aeg_-1231865435")]
     [Description(@"First order (linear) sensitivity to the passage of time.")]
-    TETA,
+    Theta,
     
     /// <summary>
     /// First order (linear) sensitivity to changes in implied volatility of an underlying security. Sometimes called kappa or tau.
+    /// Encoded/decoded by serializers as "VEGA".
     /// </summary>
     [EnumMember(Value = "VEGA")]
     [IsoId("_bWKlAdp-Ed-ak6NoX_4Aeg_-1231865434")]
     [Description(@"First order (linear) sensitivity to changes in implied volatility of an underlying security. Sometimes called kappa or tau.")]
-    VEGA,
+    Vega,
     
     /// <summary>
     /// A ratio used to determine a stock's value while taking into account earnings growth.
+    /// Encoded/decoded by serializers as "PRER".
     /// </summary>
     [EnumMember(Value = "PRER")]
     [IsoId("_bWKlAtp-Ed-ak6NoX_4Aeg_-1231865405")]
     [Description(@"A ratio used to determine a stock's value while taking into account earnings growth.")]
-    PRER,
+    PriceEarningRatio,
     
     /// <summary>
     /// Percent change in option value per change in underlying price.
+    /// Encoded/decoded by serializers as "LMDA".
     /// </summary>
     [EnumMember(Value = "LMDA")]
     [IsoId("_bWKlA9p-Ed-ak6NoX_4Aeg_-1231865404")]
     [Description(@"Percent change in option value per change in underlying price.")]
-    LMDA,
+    Lambda,
     
     /// <summary>
     /// Second order (quadratic) sensitivity to changes in implied volatility in an underlying security price. Also called Volga.
+    /// Encoded/decoded by serializers as "VGAM".
     /// </summary>
     [EnumMember(Value = "VGAM")]
     [IsoId("_bWKlBNp-Ed-ak6NoX_4Aeg_-1231865403")]
     [Description(@"Second order (quadratic) sensitivity to changes in implied volatility in an underlying security price. Also called Volga.")]
-    VGAM,
+    VegaGamma,
     
     /// <summary>
     /// Sensitivity of delta to a change in volatility.
+    /// Encoded/decoded by serializers as "VANA".
     /// </summary>
     [EnumMember(Value = "VANA")]
     [IsoId("_bWKlBdp-Ed-ak6NoX_4Aeg_-1231865382")]
     [Description(@"Sensitivity of delta to a change in volatility.")]
-    VANA,
+    Vanna,
     
     /// <summary>
     /// Measures time decay of Delta.
+    /// Encoded/decoded by serializers as "DEDE".
     /// </summary>
     [EnumMember(Value = "DEDE")]
     [IsoId("_bWKlBtp-Ed-ak6NoX_4Aeg_-1231865374")]
     [Description(@"Measures time decay of Delta.")]
-    DEDE,
+    DeltaDecay,
     
     /// <summary>
     /// Sensitivity of Delta Decay to underlying price.
+    /// Encoded/decoded by serializers as "COLR".
     /// </summary>
     [EnumMember(Value = "COLR")]
     [IsoId("_bWKlB9p-Ed-ak6NoX_4Aeg_-1231865373")]
     [Description(@"Sensitivity of Delta Decay to underlying price.")]
-    COLR,
+    Color,
     
     /// <summary>
     /// A ratio used to compare a stock's market value to its book value. It is calculated by dividing the current closing price of the stock by the latest quarter's book value per share.
+    /// Encoded/decoded by serializers as "PRBR".
     /// </summary>
     [EnumMember(Value = "PRBR")]
     [IsoId("_bWKlCNp-Ed-ak6NoX_4Aeg_-1231865351")]
     [Description(@"A ratio used to compare a stock's market value to its book value. It is calculated by dividing the current closing price of the stock by the latest quarter's book value per share.")]
-    PRBR,
+    PriceBookRatio,
     
     /// <summary>
     /// A ratio for valuing a stock relative to its own past performance, other companies or the market itself. Price to sales is calculated by dividing a stock's current price by its revenue per share for the trailing 12 months.
+    /// Encoded/decoded by serializers as "PRSR".
     /// </summary>
     [EnumMember(Value = "PRSR")]
     [IsoId("_bWKlCdp-Ed-ak6NoX_4Aeg_-1231865343")]
     [Description(@"A ratio for valuing a stock relative to its own past performance, other companies or the market itself. Price to sales is calculated by dividing a stock's current price by its revenue per share for the trailing 12 months.")]
-    PRSR,
+    PriceSalesRatio,
     
     /// <summary>
     /// The portion of a company's profit allocated to each outstanding share of common stock. EPS serves as an indicator of a company's profitability.
+    /// Encoded/decoded by serializers as "EAPS".
     /// </summary>
     [EnumMember(Value = "EAPS")]
     [IsoId("_bWUWANp-Ed-ak6NoX_4Aeg_-1231865342")]
     [Description(@"The portion of a company's profit allocated to each outstanding share of common stock. EPS serves as an indicator of a company's profitability.")]
-    EAPS,
+    EarningPerShare,
     
     /// <summary>
     /// Percent Change in EPS Trailing Twelve Months.
+    /// Encoded/decoded by serializers as "EPPC".
     /// </summary>
     [EnumMember(Value = "EPPC")]
     [IsoId("_bWUWAdp-Ed-ak6NoX_4Aeg_-1231865341")]
     [Description(@"Percent Change in EPS Trailing Twelve Months.")]
-    EPPC,
+    EPSPercentChange,
     
     /// <summary>
     /// Net income as percent of sales.
+    /// Encoded/decoded by serializers as "NISR".
     /// </summary>
     [EnumMember(Value = "NISR")]
     [IsoId("_bWUWAtp-Ed-ak6NoX_4Aeg_-1231865320")]
     [Description(@"Net income as percent of sales.")]
-    NISR,
+    NetIncomeSalesRatio,
     
     /// <summary>
     /// A ratio used to determine a stock's value while taking into account earnings growth.
+    /// Encoded/decoded by serializers as "PREG".
     /// </summary>
     [EnumMember(Value = "PREG")]
     [IsoId("_bWUWA9p-Ed-ak6NoX_4Aeg_-1231865312")]
     [Description(@"A ratio used to determine a stock's value while taking into account earnings growth.")]
-    PREG,
+    PriceEarningsGrowth,
     
     /// <summary>
     /// The current assets minus the inventory and the result is divided by the liabilities.|(Current Assets - Inventory)/Liabilities.
+    /// Encoded/decoded by serializers as "QIKR".
     /// </summary>
     [EnumMember(Value = "QIKR")]
     [IsoId("_bWUWBNp-Ed-ak6NoX_4Aeg_-1231865311")]
     [Description(@"The current assets minus the inventory and the result is divided by the liabilities.|(Current Assets - Inventory)/Liabilities.")]
-    QIKR,
+    QuickRatio,
     
     /// <summary>
     /// The current assets are divided by the current liabilities.
+    /// Encoded/decoded by serializers as "CURA".
     /// </summary>
     [EnumMember(Value = "CURA")]
     [IsoId("_bWUWBdp-Ed-ak6NoX_4Aeg_-1231865042")]
     [Description(@"The current assets are divided by the current liabilities.")]
-    CURA,
+    CurrentRatio,
     
     /// <summary>
     /// Dividends per Share divided by EPS.
+    /// Encoded/decoded by serializers as "DIPR".
     /// </summary>
     [EnumMember(Value = "DIPR")]
     [IsoId("_bWUWBtp-Ed-ak6NoX_4Aeg_-1231865041")]
     [Description(@"Dividends per Share divided by EPS.")]
-    DIPR,
+    DividendPayoutRatio,
     
     /// <summary>
     /// Total Liabilities divided by the shareholder equity.
+    /// Encoded/decoded by serializers as "DEQR".
     /// </summary>
     [EnumMember(Value = "DEQR")]
     [IsoId("_bWUWB9p-Ed-ak6NoX_4Aeg_-1231865033")]
     [Description(@"Total Liabilities divided by the shareholder equity.")]
-    DEQR,
+    DebtEquityRatio,
     
     /// <summary>
     /// A measure of a corporation's profitability that reveals how much profit a company generates with the money shareholders have invested. .
+    /// Encoded/decoded by serializers as "RTOE".
     /// </summary>
     [EnumMember(Value = "RTOE")]
     [IsoId("_bWUWCNp-Ed-ak6NoX_4Aeg_-1231865011")]
     [Description(@"A measure of a corporation's profitability that reveals how much profit a company generates with the money shareholders have invested. .")]
-    RTOE,
+    ReturnOnEquity,
     
     /// <summary>
     /// An indicator of how profitable a company is relative to its total assets. Return On Assets gives an idea as to how efficient management is at using its assets to generate earnings. Calculated by dividing a company's annual earnings by its total assets, Return On Assets is displayed as a percentage.
+    /// Encoded/decoded by serializers as "RTOA".
     /// </summary>
     [EnumMember(Value = "RTOA")]
     [IsoId("_bWUWCdp-Ed-ak6NoX_4Aeg_-1231865010")]
     [Description(@"An indicator of how profitable a company is relative to its total assets. Return On Assets gives an idea as to how efficient management is at using its assets to generate earnings. Calculated by dividing a company's annual earnings by its total assets, Return On Assets is displayed as a percentage.")]
-    RTOA,
+    ReturnOnAssets,
     
     /// <summary>
     /// Return on investment.
+    /// Encoded/decoded by serializers as "REOI".
     /// </summary>
     [EnumMember(Value = "REOI")]
     [IsoId("_bWeHANp-Ed-ak6NoX_4Aeg_-1231865002")]
     [Description(@"Return on investment.")]
-    REOI,
+    ReturnOnInvestment,
     
     /// <summary>
     /// Important ratio that looks at a company's sales in relation to the number of employees they have.
+    /// Encoded/decoded by serializers as "SAEM".
     /// </summary>
     [EnumMember(Value = "SAEM")]
     [IsoId("_bWeHAdp-Ed-ak6NoX_4Aeg_-1231864980")]
     [Description(@"Important ratio that looks at a company's sales in relation to the number of employees they have.")]
-    SAEM,
+    SalesEmployee,
     
     /// <summary>
     /// Balance sheet account that represents the value of all assets that are reasonably expected to be converted into cash within one year in the normal course of business. Current assets include cash, accounts receivable, inventory, marketable securities, prepaid expenses and other liquid assets that can be readily converted to cash.
+    /// Encoded/decoded by serializers as "CUAS".
     /// </summary>
     [EnumMember(Value = "CUAS")]
     [IsoId("_bWeHAtp-Ed-ak6NoX_4Aeg_-1231864979")]
     [Description(@"Balance sheet account that represents the value of all assets that are reasonably expected to be converted into cash within one year in the normal course of business. Current assets include cash, accounts receivable, inventory, marketable securities, prepaid expenses and other liquid assets that can be readily converted to cash.")]
-    CUAS,
+    CurrentAssets,
     
     /// <summary>
     /// Loans and financial obligations lasting over one year.
+    /// Encoded/decoded by serializers as "LTDB".
     /// </summary>
     [EnumMember(Value = "LTDB")]
     [IsoId("_bWeHA9p-Ed-ak6NoX_4Aeg_-1231864971")]
     [Description(@"Loans and financial obligations lasting over one year.")]
-    LTDB,
+    LongTermDebt,
     
     /// <summary>
     /// Company's debts or obligations that are due within one year. Current liabilities appear on the company's balance sheet and include short term debt, accounts payable, accrued liabilities and other debts.
+    /// Encoded/decoded by serializers as "CULI".
     /// </summary>
     [EnumMember(Value = "CULI")]
     [IsoId("_bWeHBNp-Ed-ak6NoX_4Aeg_-1231864950")]
     [Description(@"Company's debts or obligations that are due within one year. Current liabilities appear on the company's balance sheet and include short term debt, accounts payable, accrued liabilities and other debts.")]
-    CULI,
+    CurrentLiabilities,
     
     /// <summary>
     /// Amount of sales.
+    /// Encoded/decoded by serializers as "SARE".
     /// </summary>
     [EnumMember(Value = "SARE")]
     [IsoId("_bWeHBdp-Ed-ak6NoX_4Aeg_-1231864949")]
     [Description(@"Amount of sales.")]
-    SARE,
+    SalesRevenue,
     
     /// <summary>
     /// Financial metric used to assess a firm's financial health by revealing the proportion of money left over from revenues after accounting for the cost of goods sold. Gross profit margin serves as the source for paying additional expenses and future savings.
+    /// Encoded/decoded by serializers as "SAMA".
     /// </summary>
     [EnumMember(Value = "SAMA")]
     [IsoId("_bWeHBtp-Ed-ak6NoX_4Aeg_-1231864948")]
     [Description(@"Financial metric used to assess a firm's financial health by revealing the proportion of money left over from revenues after accounting for the cost of goods sold. Gross profit margin serves as the source for paying additional expenses and future savings.")]
-    SAMA,
+    SalesMargin,
     
     /// <summary>
     /// Last twelve months or calendar year.
+    /// Encoded/decoded by serializers as "FUAR".
     /// </summary>
     [EnumMember(Value = "FUAR")]
     [IsoId("_bWeHB9p-Ed-ak6NoX_4Aeg_-1231864919")]
     [Description(@"Last twelve months or calendar year.")]
-    FUAR,
+    FundAnnualReturn,
     
     /// <summary>
     /// Requires timeframe - generally from inception or in 3, 5, and 10 year periods.
+    /// Encoded/decoded by serializers as "FUCR".
     /// </summary>
     [EnumMember(Value = "FUCR")]
     [IsoId("_bWeHCNp-Ed-ak6NoX_4Aeg_-1231864918")]
     [Description(@"Requires timeframe - generally from inception or in 3, 5, and 10 year periods.")]
-    FUCR,
+    FundCumReturn,
     
     /// <summary>
     /// Portfolio volatility as a percentage.
+    /// Encoded/decoded by serializers as "FUSD".
     /// </summary>
     [EnumMember(Value = "FUSD")]
     [IsoId("_bWeHCdp-Ed-ak6NoX_4Aeg_-1231864917")]
     [Description(@"Portfolio volatility as a percentage.")]
-    FUSD,
+    FundStandardDeviation,
     
     /// <summary>
     /// Variance between the fund annual return and a benchmark.
+    /// Encoded/decoded by serializers as "FEAR".
     /// </summary>
     [EnumMember(Value = "FEAR")]
     [IsoId("_bWeHCtp-Ed-ak6NoX_4Aeg_-1231864889")]
     [Description(@"Variance between the fund annual return and a benchmark.")]
-    FEAR,
+    FundBenchExcessAnnualReturn,
     
     /// <summary>
     /// Requires timeframe - generally from inception or in 3, 5, and 10 year periods.
+    /// Encoded/decoded by serializers as "FECR".
     /// </summary>
     [EnumMember(Value = "FECR")]
     [IsoId("_bWnQ8Np-Ed-ak6NoX_4Aeg_-1231864888")]
     [Description(@"Requires timeframe - generally from inception or in 3, 5, and 10 year periods.")]
-    FECR,
+    FundBenchExcessCumReturn,
     
     /// <summary>
     /// Volatility of fund excess return.
+    /// Encoded/decoded by serializers as "FBTE".
     /// </summary>
     [EnumMember(Value = "FBTE")]
     [IsoId("_bWnQ8dp-Ed-ak6NoX_4Aeg_-1231864887")]
     [Description(@"Volatility of fund excess return.")]
-    FBTE,
+    FundBenchTrackingError,
     
     /// <summary>
     /// Portfolio volatility as a percentage.
+    /// Encoded/decoded by serializers as "FPSD".
     /// </summary>
     [EnumMember(Value = "FPSD")]
     [IsoId("_bWnQ8tp-Ed-ak6NoX_4Aeg_-1231864858")]
     [Description(@"Portfolio volatility as a percentage.")]
-    FPSD,
+    FundPortfolioStandardDeviation,
     
     /// <summary>
     /// Last twelve months or calendar year.
+    /// Encoded/decoded by serializers as "FBAR".
     /// </summary>
     [EnumMember(Value = "FBAR")]
     [IsoId("_bWnQ89p-Ed-ak6NoX_4Aeg_-1231864857")]
     [Description(@"Last twelve months or calendar year.")]
-    FBAR,
+    FundBenchAnnualReturn,
     
     /// <summary>
     /// Requires timeframe - generally from inception or in 3, 5, and 10 year periods.
+    /// Encoded/decoded by serializers as "FBCR".
     /// </summary>
     [EnumMember(Value = "FBCR")]
     [IsoId("_bWnQ9Np-Ed-ak6NoX_4Aeg_-1231864856")]
     [Description(@"Requires timeframe - generally from inception or in 3, 5, and 10 year periods.")]
-    FBCR,
+    FundBenchCumReturn,
     
     /// <summary>
     /// Life of the bond to next probable call.
+    /// Encoded/decoded by serializers as "LNPC".
     /// </summary>
     [EnumMember(Value = "LNPC")]
     [IsoId("_bWnQ9dp-Ed-ak6NoX_4Aeg_1599249320")]
     [Description(@"Life of the bond to next probable call.")]
-    LNPC,
+    LifeToNextProbableCall,
     
     /// <summary>
     /// Weighted average time to redemption of an amortising bond using relative redemption cash flows as weights.
+    /// Encoded/decoded by serializers as "AVGL".
     /// </summary>
     [EnumMember(Value = "AVGL")]
     [IsoId("_bWnQ9tp-Ed-ak6NoX_4Aeg_-1098877955")]
     [Description(@"Weighted average time to redemption of an amortising bond using relative redemption cash flows as weights.")]
-    AVGL,
+    AverageLife,
     
     /// <summary>
     /// Weighted-average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price.
+    /// Encoded/decoded by serializers as "MADU".
     /// </summary>
     [EnumMember(Value = "MADU")]
     [IsoId("_bWnQ99p-Ed-ak6NoX_4Aeg_-1069324206")]
     [Description(@"Weighted-average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price.")]
-    MADU,
+    MacaulyDuration,
     
     /// <summary>
     /// Formula that expresses the measurable change in the value of a security in response to a change in interest rates.
+    /// Encoded/decoded by serializers as "MODU".
     /// </summary>
     [EnumMember(Value = "MODU")]
     [IsoId("_bWnQ-Np-Ed-ak6NoX_4Aeg_-1059167316")]
     [Description(@"Formula that expresses the measurable change in the value of a security in response to a change in interest rates.")]
-    MODU,
+    ModifiedDuration,
     
     /// <summary>
     /// Measurement of how long, in years, it takes for the price of a bond to be repaid by its internal cash flows.
+    /// Encoded/decoded by serializers as "DURA".
     /// </summary>
     [EnumMember(Value = "DURA")]
     [IsoId("_bWnQ-dp-Ed-ak6NoX_4Aeg_-1049006373")]
     [Description(@"Measurement of how long, in years, it takes for the price of a bond to be repaid by its internal cash flows.")]
-    DURA,
+    Duration,
     
     /// <summary>
     /// Yield is the annual rate of return for any investment and is expressed as a percentage.
+    /// Encoded/decoded by serializers as "YIEL".
     /// </summary>
     [EnumMember(Value = "YIEL")]
     [IsoId("_bWxB8Np-Ed-ak6NoX_4Aeg_-1040697443")]
     [Description(@"Yield is the annual rate of return for any investment and is expressed as a percentage.")]
-    YIEL,
+    Yield,
     
     /// <summary>
     /// Internal rate of return an investor would achieve if he or she purchased that bond at its current dirty price, and held it to maturity, assuming all coupon and principal payments are received as scheduled.
+    /// Encoded/decoded by serializers as "YTMA".
     /// </summary>
     [EnumMember(Value = "YTMA")]
     [IsoId("_bWxB8dp-Ed-ak6NoX_4Aeg_-1031460976")]
     [Description(@"Internal rate of return an investor would achieve if he or she purchased that bond at its current dirty price, and held it to maturity, assuming all coupon and principal payments are received as scheduled.")]
-    YTMA,
+    YieldToMaturity,
     
     /// <summary>
     /// The ratio of the interest payment amount to the clean price.
+    /// Encoded/decoded by serializers as "CUYI".
     /// </summary>
     [EnumMember(Value = "CUYI")]
     [IsoId("_bWxB8tp-Ed-ak6NoX_4Aeg_-1028688911")]
     [Description(@"The ratio of the interest payment amount to the clean price.")]
-    CUYI,
+    CurrentYield,
     
     /// <summary>
     /// Yield quoted for a discount instrument. This is the ratio of the discount to the face value, divided by the period to maturity as a fraction of a year.
+    /// Encoded/decoded by serializers as "DIYI".
     /// </summary>
     [EnumMember(Value = "DIYI")]
     [IsoId("_bWxB89p-Ed-ak6NoX_4Aeg_-817205884")]
     [Description(@"Yield quoted for a discount instrument. This is the ratio of the discount to the face value, divided by the period to maturity as a fraction of a year.")]
-    DIYI,
+    DiscountYield,
     
     /// <summary>
     /// Dividend related to the price.
+    /// Encoded/decoded by serializers as "DIRY".
     /// </summary>
     [EnumMember(Value = "DIRY")]
     [IsoId("_bWxB9Np-Ed-ak6NoX_4Aeg_-814434220")]
     [Description(@"Dividend related to the price.")]
-    DIRY,
+    DirectYield,
     
     /// <summary>
     /// Yield of a bond to the next possible call date.
+    /// Encoded/decoded by serializers as "YTNC".
     /// </summary>
     [EnumMember(Value = "YTNC")]
     [IsoId("_bWxB9dp-Ed-ak6NoX_4Aeg_-811663811")]
     [Description(@"Yield of a bond to the next possible call date.")]
-    YTNC,
+    YieldToNextCall,
     
     /// <summary>
     /// The yield achieved by substituting a bond's average life for the issue's final maturity date.
+    /// Encoded/decoded by serializers as "YTAL".
     /// </summary>
     [EnumMember(Value = "YTAL")]
     [IsoId("_bWxB9tp-Ed-ak6NoX_4Aeg_-802429116")]
     [Description(@"The yield achieved by substituting a bond's average life for the issue's final maturity date.")]
-    YTAL,
+    YieldToAverageLife,
     
     /// <summary>
     /// Calculation for restating semi-annual, quarterly, or monthly discount-bond or note yields into an annual yield.
+    /// Encoded/decoded by serializers as "BEQY".
     /// </summary>
     [EnumMember(Value = "BEQY")]
     [IsoId("_bWxB99p-Ed-ak6NoX_4Aeg_-799656597")]
     [Description(@"Calculation for restating semi-annual, quarterly, or monthly discount-bond or note yields into an annual yield.")]
-    BEQY,
+    BondEquivalentYield,
     
     /// <summary>
     /// The yield on the bond net of any tax consequences from holding the bond. The discount on municipal securities can be subject to both capital gains taxes and ordinary income taxes. Calculated from dollar price.
+    /// Encoded/decoded by serializers as "AFTX".
     /// </summary>
     [EnumMember(Value = "AFTX")]
     [IsoId("_bWxB-Np-Ed-ak6NoX_4Aeg_-60929298")]
     [Description(@"The yield on the bond net of any tax consequences from holding the bond. The discount on municipal securities can be subject to both capital gains taxes and ordinary income taxes. Calculated from dollar price.")]
-    AFTX,
+    AfterTax,
     
     /// <summary>
     /// The annual interest or dividend income an investment earns, expressed as a percentage of the investment's total value.
+    /// Encoded/decoded by serializers as "ANNU".
     /// </summary>
     [EnumMember(Value = "ANNU")]
     [IsoId("_bWxB-dp-Ed-ak6NoX_4Aeg_-60928883")]
     [Description(@"The annual interest or dividend income an investment earns, expressed as a percentage of the investment's total value.")]
-    ANNU,
+    Annual,
     
     /// <summary>
     /// The yield of the bond offered on the issue date.
+    /// Encoded/decoded by serializers as "ISSU".
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_bW6L4Np-Ed-ak6NoX_4Aeg_-60928728")]
     [Description(@"The yield of the bond offered on the issue date.")]
-    ISSU,
+    AtIssue,
     
     /// <summary>
     /// The yield of a security calculated by using its book value instead of the current market price. This term is typically used in the US domestic market.
+    /// Encoded/decoded by serializers as "BOOK".
     /// </summary>
     [EnumMember(Value = "BOOK")]
     [IsoId("_bW6L4dp-Ed-ak6NoX_4Aeg_-20701157")]
     [Description(@"The yield of a security calculated by using its book value instead of the current market price. This term is typically used in the US domestic market.")]
-    BOOK,
+    Book,
     
     /// <summary>
     /// The yield achieved by substituting a bond's average maturity for the issue's final maturity date.
+    /// Encoded/decoded by serializers as "AVMA".
     /// </summary>
     [EnumMember(Value = "AVMA")]
     [IsoId("_bW6L4tp-Ed-ak6NoX_4Aeg_315462865")]
     [Description(@"The yield achieved by substituting a bond's average maturity for the issue's final maturity date.")]
-    AVMA,
+    ToAverageMaturity,
     
     /// <summary>
     /// The change in the yield since the previous day's closing yield.
+    /// Encoded/decoded by serializers as "CHCL".
     /// </summary>
     [EnumMember(Value = "CHCL")]
     [IsoId("_bW6L49p-Ed-ak6NoX_4Aeg_333933404")]
     [Description(@"The change in the yield since the previous day's closing yield.")]
-    CHCL,
+    ChangeSinceClose,
     
     /// <summary>
     /// The yield of a bond based on the closing price.
+    /// Encoded/decoded by serializers as "CLOS".
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_bW6L5Np-Ed-ak6NoX_4Aeg_523254033")]
     [Description(@"The yield of a bond based on the closing price.")]
-    CLOS,
+    Closing,
     
     /// <summary>
     /// The yield of certain Japanese bonds based on its price. Certain Japanese bonds have irregular first or last coupons, and the yield is calculated compound for these irregular periods.
+    /// Encoded/decoded by serializers as "CMPD".
     /// </summary>
     [EnumMember(Value = "CMPD")]
     [IsoId("_bW6L5dp-Ed-ak6NoX_4Aeg_523254248")]
     [Description(@"The yield of certain Japanese bonds based on its price. Certain Japanese bonds have irregular first or last coupons, and the yield is calculated compound for these irregular periods.")]
-    CMPD,
+    Compound,
     
     /// <summary>
     /// Yield calculated using the price including accrued interest, where coupon dates are moved from holidays and weekends to the next trading day.
+    /// Encoded/decoded by serializers as "TRGR".
     /// </summary>
     [EnumMember(Value = "TRGR")]
     [IsoId("_bW6L5tp-Ed-ak6NoX_4Aeg_747669804")]
     [Description(@"Yield calculated using the price including accrued interest, where coupon dates are moved from holidays and weekends to the next trading day.")]
-    TRGR,
+    TrueGross,
     
     /// <summary>
     /// Ask yield based on semi-annual coupons compounding in all periods and actual/actual calendar.
+    /// Encoded/decoded by serializers as "GVEQ".
     /// </summary>
     [EnumMember(Value = "GVEQ")]
     [IsoId("_bW6L59p-Ed-ak6NoX_4Aeg_747670211")]
     [Description(@"Ask yield based on semi-annual coupons compounding in all periods and actual/actual calendar.")]
-    GVEQ,
+    GovernmentEquivalent,
     
     /// <summary>
     /// Based on price, the return an investor would require on a normal bond that would make the real return equal to that of the inflation-indexed bond, assuming a constant inflation rate.
+    /// Encoded/decoded by serializers as "FLAS".
     /// </summary>
     [EnumMember(Value = "FLAS")]
     [IsoId("_bW6L6Np-Ed-ak6NoX_4Aeg_747670632")]
     [Description(@"Based on price, the return an investor would require on a normal bond that would make the real return equal to that of the inflation-indexed bond, assuming a constant inflation rate.")]
-    FLAS,
+    InflationAssumption,
     
     /// <summary>
     /// Inverse Floater Bond Yield - Inverse floater semi-annual bond equivalent rate.
+    /// Encoded/decoded by serializers as "NVFL".
     /// </summary>
     [EnumMember(Value = "NVFL")]
     [IsoId("_bW6L6dp-Ed-ak6NoX_4Aeg_747670769")]
     [Description(@"Inverse Floater Bond Yield - Inverse floater semi-annual bond equivalent rate.")]
-    NVFL,
+    InverseFloater,
     
     /// <summary>
     /// Most Recent Closing Yield - The last available yield stored in history, computed using price.
+    /// Encoded/decoded by serializers as "LSCL".
     /// </summary>
     [EnumMember(Value = "LSCL")]
     [IsoId("_bXD84Np-Ed-ak6NoX_4Aeg_747670848")]
     [Description(@"Most Recent Closing Yield - The last available yield stored in history, computed using price.")]
-    LSCL,
+    LastClose,
     
     /// <summary>
     /// Closing Yield Most Recent Month - The yield of a bond based on the closing price as of the most recent month's end.
+    /// Encoded/decoded by serializers as "LSMT".
     /// </summary>
     [EnumMember(Value = "LSMT")]
     [IsoId("_bXD84dp-Ed-ak6NoX_4Aeg_747671125")]
     [Description(@"Closing Yield Most Recent Month - The yield of a bond based on the closing price as of the most recent month's end.")]
-    LSMT,
+    LastMonth,
     
     /// <summary>
     /// Closing Yield Most Recent Quarter - The yield of a bond based on the closing price as of the most recent quarter's end.
+    /// Encoded/decoded by serializers as "LSQR".
     /// </summary>
     [EnumMember(Value = "LSQR")]
     [IsoId("_bXD84tp-Ed-ak6NoX_4Aeg_747671202")]
     [Description(@"Closing Yield Most Recent Quarter - The yield of a bond based on the closing price as of the most recent quarter's end.")]
-    LSQR,
+    LastQuarter,
     
     /// <summary>
     /// Closing Yield Most Recent Year - The yield of a bond based on the closing price as of the most recent year's end.
+    /// Encoded/decoded by serializers as "LSYR".
     /// </summary>
     [EnumMember(Value = "LSYR")]
     [IsoId("_bXD849p-Ed-ak6NoX_4Aeg_748591234")]
     [Description(@"Closing Yield Most Recent Year - The yield of a bond based on the closing price as of the most recent year's end.")]
-    LSYR,
+    LastYear,
     
     /// <summary>
     /// The yield assuming only mandatory sinks are taken. This results in a lower paydown of debt; the yield is then calculated to the final payment date.
+    /// Encoded/decoded by serializers as "LGAL".
     /// </summary>
     [EnumMember(Value = "LGAL")]
     [IsoId("_bXD85Np-Ed-ak6NoX_4Aeg_-583391276")]
     [Description(@"The yield assuming only mandatory sinks are taken. This results in a lower paydown of debt; the yield is then calculated to the final payment date.")]
-    LGAL,
+    LongestAverageLife,
     
     /// <summary>
     /// An adjustment in the valuation of a securities portfolio to reflect the current market values of the respective securities in the portfolio.
+    /// Encoded/decoded by serializers as "MARK".
     /// </summary>
     [EnumMember(Value = "MARK")]
     [IsoId("_bXD85dp-Ed-ak6NoX_4Aeg_-339579654")]
     [Description(@"An adjustment in the valuation of a securities portfolio to reflect the current market values of the respective securities in the portfolio.")]
-    MARK,
+    MarkToMarket,
     
     /// <summary>
     /// Yield To Next Refund (Sinking Fund Bonds) - Yield assuming all bonds are redeemed at the next refund date at the redemption price.
+    /// Encoded/decoded by serializers as "NXRF".
     /// </summary>
     [EnumMember(Value = "NXRF")]
     [IsoId("_bXD85tp-Ed-ak6NoX_4Aeg_-313720664")]
     [Description(@"Yield To Next Refund (Sinking Fund Bonds) - Yield assuming all bonds are redeemed at the next refund date at the redemption price.")]
-    NXRF,
+    ToNextRefund,
     
     /// <summary>
     /// The average yield of the respective securities in the portfolio.
+    /// Encoded/decoded by serializers as "PNAV".
     /// </summary>
     [EnumMember(Value = "PNAV")]
     [IsoId("_bXD859p-Ed-ak6NoX_4Aeg_-313720232")]
     [Description(@"The average yield of the respective securities in the portfolio.")]
-    PNAV,
+    OpenAverage,
     
     /// <summary>
     /// The yield to the date at which the bond holder can next put the bond to the issuer.
+    /// Encoded/decoded by serializers as "NXPT".
     /// </summary>
     [EnumMember(Value = "NXPT")]
     [IsoId("_bXD86Np-Ed-ak6NoX_4Aeg_-312800045")]
     [Description(@"The yield to the date at which the bond holder can next put the bond to the issuer.")]
-    NXPT,
+    ToNextPut,
     
     /// <summary>
     /// The yield of a bond based on the closing price 1 day ago.
+    /// Encoded/decoded by serializers as "PRCL".
     /// </summary>
     [EnumMember(Value = "PRCL")]
     [IsoId("_bXD86dp-Ed-ak6NoX_4Aeg_-312799975")]
     [Description(@"The yield of a bond based on the closing price 1 day ago.")]
-    PRCL,
+    PreviousClose,
     
     /// <summary>
     /// The CD equivalent yield when the remaining time to maturity is less than two years.
+    /// Encoded/decoded by serializers as "PRYL".
     /// </summary>
     [EnumMember(Value = "PRYL")]
     [IsoId("_bXNt4Np-Ed-ak6NoX_4Aeg_-312799890")]
     [Description(@"The CD equivalent yield when the remaining time to maturity is less than two years.")]
-    PRYL,
+    Proceeds,
     
     /// <summary>
     /// The yield of a bond whose coupon payments are reinvested semi-annually.
+    /// Encoded/decoded by serializers as "SEMI".
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_bXNt4dp-Ed-ak6NoX_4Aeg_-312799603")]
     [Description(@"The yield of a bond whose coupon payments are reinvested semi-annually.")]
-    SEMI,
+    SemiAnnual,
     
     /// <summary>
     /// The yield assuming that all sinks (mandatory and voluntary) are taken at par. This results in a faster paydown of debt; the yield is then calculated to the shortest average life date.
+    /// Encoded/decoded by serializers as "SHLF".
     /// </summary>
     [EnumMember(Value = "SHLF")]
     [IsoId("_bXNt4tp-Ed-ak6NoX_4Aeg_-312799518")]
     [Description(@"The yield assuming that all sinks (mandatory and voluntary) are taken at par. This results in a faster paydown of debt; the yield is then calculated to the shortest average life date.")]
-    SHLF,
+    ShortestAverageLife,
     
     /// <summary>
     /// The yield of a bond assuming no reinvestment of coupon payments. (Act/360 day count).
+    /// Encoded/decoded by serializers as "SPLL".
     /// </summary>
     [EnumMember(Value = "SPLL")]
     [IsoId("_bXNt49p-Ed-ak6NoX_4Aeg_-297097177")]
     [Description(@"The yield of a bond assuming no reinvestment of coupon payments. (Act/360 day count).")]
-    SPLL,
+    Simple,
     
     /// <summary>
     /// The after tax yield grossed up by the maximum federal tax rate of 39.6%. For comparison to taxable yields.
+    /// Encoded/decoded by serializers as "TXQV".
     /// </summary>
     [EnumMember(Value = "TXQV")]
     [IsoId("_bXNt5Np-Ed-ak6NoX_4Aeg_-296176791")]
     [Description(@"The after tax yield grossed up by the maximum federal tax rate of 39.6%. For comparison to taxable yields.")]
-    TXQV,
+    TaxEquivalent,
     
     /// <summary>
     /// The yield on a Municipal bond to its mandatory tender date.
+    /// Encoded/decoded by serializers as "TTDT".
     /// </summary>
     [EnumMember(Value = "TTDT")]
     [IsoId("_bXNt5dp-Ed-ak6NoX_4Aeg_-296176619")]
     [Description(@"The yield on a Municipal bond to its mandatory tender date.")]
-    TTDT,
+    ToTenderDate,
     
     /// <summary>
     /// The yield calculated with coupon dates moved from a weekend or holiday to the next valid settlement date.
+    /// Encoded/decoded by serializers as "TRYL".
     /// </summary>
     [EnumMember(Value = "TRYL")]
     [IsoId("_bXNt5tp-Ed-ak6NoX_4Aeg_-296176194")]
     [Description(@"The yield calculated with coupon dates moved from a weekend or holiday to the next valid settlement date.")]
-    TRYL,
+    True,
     
     /// <summary>
     /// The lowest yield to all possible redemption date scenarios.
+    /// Encoded/decoded by serializers as "WRST".
     /// </summary>
     [EnumMember(Value = "WRST")]
     [IsoId("_bXNt59p-Ed-ak6NoX_4Aeg_-153029049")]
     [Description(@"The lowest yield to all possible redemption date scenarios.")]
-    WRST,
+    ToWorstConvention,
     
 }
 

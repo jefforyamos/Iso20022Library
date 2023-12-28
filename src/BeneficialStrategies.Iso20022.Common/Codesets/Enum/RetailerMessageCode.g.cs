@@ -20,139 +20,156 @@ public enum RetailerMessageCode
 {
     /// <summary>
     /// Request a financial service like payment, reversal, loyalty, Balance Inquiry, etc.
+    /// Encoded/decoded by serializers as "SFSQ".
     /// </summary>
     [EnumMember(Value = "SFSQ")]
     [IsoId("_luQYYNj4EeiojJsa6FYyew")]
     [Description(@"Request a financial service like payment, reversal, loyalty, Balance Inquiry, etc.")]
-    SFSQ,
+    SaleFinancialServiceRequest,
     
     /// <summary>
     /// Response to a financial service request.
+    /// Encoded/decoded by serializers as "SFSP".
     /// </summary>
     [EnumMember(Value = "SFSP")]
     [IsoId("_pY2a0Nj4EeiojJsa6FYyew")]
     [Description(@"Response to a financial service request.")]
-    SFSP,
+    SaleFinancialServiceResponse,
     
     /// <summary>
     /// Request a reconciliation (different types) between Sale System and POI System.
+    /// Encoded/decoded by serializers as "SFRQ".
     /// </summary>
     [EnumMember(Value = "SFRQ")]
     [IsoId("_ssIJcNj4EeiojJsa6FYyew")]
     [Description(@"Request a reconciliation (different types) between Sale System and POI System.")]
-    SFRQ,
+    SaleFinancialReconciliationRequest,
     
     /// <summary>
     /// Response to a Reconciliation Request.
+    /// Encoded/decoded by serializers as "SFRP".
     /// </summary>
     [EnumMember(Value = "SFRP")]
     [IsoId("_vKg3cNj4EeiojJsa6FYyew")]
     [Description(@"Response to a Reconciliation Request.")]
-    SFRP,
+    SaleFinancialReconciliationResponse,
     
     /// <summary>
     /// Request the management of a session: login, logout and diagnosis services. Initiated by the Sale system.
+    /// Encoded/decoded by serializers as "SASQ".
     /// </summary>
     [EnumMember(Value = "SASQ")]
     [IsoId("_yZLL0Nj4EeiojJsa6FYyew")]
     [Description(@"Request the management of a session: login, logout and diagnosis services. Initiated by the Sale system.")]
-    SASQ,
+    SessionManagementRequest,
     
     /// <summary>
     /// Response to a session management request to initiate/terminate a session.
+    /// Encoded/decoded by serializers as "SASP".
     /// </summary>
     [EnumMember(Value = "SASP")]
     [IsoId("_1kvI4Nj4EeiojJsa6FYyew")]
     [Description(@"Response to a session management request to initiate/terminate a session.")]
-    SASP,
+    SessionManagementResponse,
     
     /// <summary>
     /// To select and start customised administrative services provided by the POI, using a "menu" for an interactive or software interface, initiated by the Sale system.
+    /// Encoded/decoded by serializers as "SAAQ".
     /// </summary>
     [EnumMember(Value = "SAAQ")]
     [IsoId("_6Ere8Nj4EeiojJsa6FYyew")]
     [Description(@"To select and start customised administrative services provided by the POI, using a ""menu"" for an interactive or software interface, initiated by the Sale system.")]
-    SAAQ,
+    AdminRequest,
     
     /// <summary>
     /// Response to the Admin request.
+    /// Encoded/decoded by serializers as "SAAP".
     /// </summary>
     [EnumMember(Value = "SAAP")]
     [IsoId("__kmrUNj4EeiojJsa6FYyew")]
     [Description(@"Response to the Admin request.")]
-    SAAP,
+    AdminResponse,
     
     /// <summary>
     /// To request, by the Sale System, a report on a list of transactions on the POI system, or the status of a transaction.
+    /// Encoded/decoded by serializers as "SARQ".
     /// </summary>
     [EnumMember(Value = "SARQ")]
     [IsoId("_CsCWUNj5EeiojJsa6FYyew")]
     [Description(@"To request, by the Sale System, a report on a list of transactions on the POI system, or the status of a transaction.")]
-    SARQ,
+    ReportRequest,
     
     /// <summary>
     /// Response to a Report request.
+    /// Encoded/decoded by serializers as "SARP".
     /// </summary>
     [EnumMember(Value = "SARP")]
     [IsoId("_FwMq4Nj5EeiojJsa6FYyew")]
     [Description(@"Response to a Report request.")]
-    SARP,
+    ReportResponse,
     
     /// <summary>
     /// Abort the current process or the last request.
+    /// Encoded/decoded by serializers as "SSAB".
     /// </summary>
     [EnumMember(Value = "SSAB")]
     [IsoId("_JLdQ0Nj5EeiojJsa6FYyew")]
     [Description(@"Abort the current process or the last request.")]
-    SSAB,
+    Abort,
     
     /// <summary>
     /// Notify the other party of an event that occurs on its side.
+    /// Encoded/decoded by serializers as "SSEN".
     /// </summary>
     [EnumMember(Value = "SSEN")]
     [IsoId("_MJgWUNj5EeiojJsa6FYyew")]
     [Description(@"Notify the other party of an event that occurs on its side.")]
-    SSEN,
+    EventNotification,
     
     /// <summary>
     /// Reject a previous received message, for technical or functional reasons.
+    /// Encoded/decoded by serializers as "SSRJ".
     /// </summary>
     [EnumMember(Value = "SSRJ")]
     [IsoId("_Qd6x0Nj5EeiojJsa6FYyew")]
     [Description(@"Reject a previous received message, for technical or functional reasons.")]
-    SSRJ,
+    Rejection,
     
     /// <summary>
     /// Request the status of a previous message for which the Sale system has no response.
+    /// Encoded/decoded by serializers as "SSMQ".
     /// </summary>
     [EnumMember(Value = "SSMQ")]
     [IsoId("_TBfh0Nj5EeiojJsa6FYyew")]
     [Description(@"Request the status of a previous message for which the Sale system has no response.")]
-    SSMQ,
+    MessageStatusRequest,
     
     /// <summary>
     /// Response to a Message Status request.
+    /// Encoded/decoded by serializers as "SSMR".
     /// </summary>
     [EnumMember(Value = "SSMR")]
     [IsoId("_W2xxUNj5EeiojJsa6FYyew")]
     [Description(@"Response to a Message Status request.")]
-    SSMR,
+    MessageStatusResponse,
     
     /// <summary>
     /// Request one or several functions of the device, from user Interface or payment peripherals on the POI system or on the Sale system. Functions can be Display, Input, Print, play sound, Card reader capabilities or Transmit a message.
+    /// Encoded/decoded by serializers as "SDDR".
     /// </summary>
     [EnumMember(Value = "SDDR")]
     [IsoId("_baS_0Nj5EeiojJsa6FYyew")]
     [Description(@"Request one or several functions of the device, from user Interface or payment peripherals on the POI system or on the Sale system. Functions can be Display, Input, Print, play sound, Card reader capabilities or Transmit a message.")]
-    SDDR,
+    DeviceRequest,
     
     /// <summary>
     /// Response to a Device request.
+    /// Encoded/decoded by serializers as "SDDP".
     /// </summary>
     [EnumMember(Value = "SDDP")]
     [IsoId("_hOsAUNj5EeiojJsa6FYyew")]
     [Description(@"Response to a Device request.")]
-    SDDP,
+    DeviceResponse,
     
 }
 

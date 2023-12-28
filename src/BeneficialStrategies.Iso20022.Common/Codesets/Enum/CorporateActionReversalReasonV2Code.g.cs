@@ -20,75 +20,84 @@ public enum CorporateActionReversalReasonV2Code
 {
     /// <summary>
     /// Difference in day count basis.
+    /// Encoded/decoded by serializers as "DCBD".
     /// </summary>
     [EnumMember(Value = "DCBD")]
     [IsoId("_DUt1SzQVEe2o-K1dwNg8Gg")]
     [Description(@"Difference in day count basis.")]
-    DCBD,
+    DayCountBasisDifference,
     
     /// <summary>
     /// Value date is incorrect.
+    /// Encoded/decoded by serializers as "IVAD".
     /// </summary>
     [EnumMember(Value = "IVAD")]
     [IsoId("_DUt1UDQVEe2o-K1dwNg8Gg")]
     [Description(@"Value date is incorrect.")]
-    IVAD,
+    IncorrectValueDate,
     
     /// <summary>
     /// Entitlement date is incorrect.
+    /// Encoded/decoded by serializers as "IRED".
     /// </summary>
     [EnumMember(Value = "IRED")]
     [IsoId("_DUt1TDQVEe2o-K1dwNg8Gg")]
     [Description(@"Entitlement date is incorrect.")]
-    IRED,
+    IncorrectEntitlementDate,
     
     /// <summary>
     /// Price is incorrect.
+    /// Encoded/decoded by serializers as "IPRI".
     /// </summary>
     [EnumMember(Value = "IPRI")]
     [IsoId("_DUt1TzQVEe2o-K1dwNg8Gg")]
     [Description(@"Price is incorrect.")]
-    IPRI,
+    IncorrectPrice,
     
     /// <summary>
     /// Payment is not due.
+    /// Encoded/decoded by serializers as "UPAY".
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_DUt1TTQVEe2o-K1dwNg8Gg")]
     [Description(@"Payment is not due.")]
-    UPAY,
+    UnduePayment,
     
     /// <summary>
     /// Event level tax rate is incorrect.
+    /// Encoded/decoded by serializers as "IETR".
     /// </summary>
     [EnumMember(Value = "IETR")]
     [IsoId("_DUt1UTQVEe2o-K1dwNg8Gg")]
     [Description(@"Event level tax rate is incorrect.")]
-    IETR,
+    IncorrectEventLevelTaxRate,
     
     /// <summary>
     /// Funds have not been received.
+    /// Encoded/decoded by serializers as "FNRC".
     /// </summary>
     [EnumMember(Value = "FNRC")]
     [IsoId("_DUt1TjQVEe2o-K1dwNg8Gg")]
     [Description(@"Funds have not been received.")]
-    FNRC,
+    FundsNotReceived,
     
     /// <summary>
     /// Payment will occur outside of clearing system.
+    /// Encoded/decoded by serializers as "POCS".
     /// </summary>
     [EnumMember(Value = "POCS")]
     [IsoId("_DUt1UjQVEe2o-K1dwNg8Gg")]
     [Description(@"Payment will occur outside of clearing system.")]
-    POCS,
+    PaymentOutsideClearingSystem,
     
     /// <summary>
     /// Payment currency is incorrect.
+    /// Encoded/decoded by serializers as "IPCU".
     /// </summary>
     [EnumMember(Value = "IPCU")]
     [IsoId("_DUt1UzQVEe2o-K1dwNg8Gg")]
     [Description(@"Payment currency is incorrect.")]
-    IPCU,
+    IncorrectPaymentCurrency,
     
 }
 

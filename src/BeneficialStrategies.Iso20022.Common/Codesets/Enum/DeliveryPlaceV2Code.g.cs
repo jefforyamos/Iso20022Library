@@ -20,43 +20,48 @@ public enum DeliveryPlaceV2Code
 {
     /// <summary>
     /// Card needs to be mailed to employer's address.
+    /// Encoded/decoded by serializers as "EMPL".
     /// </summary>
     [EnumMember(Value = "EMPL")]
     [IsoId("_iSfctw1eEeu_4e16J8D_UA")]
     [Description(@"Card needs to be mailed to employer's address.")]
-    EMPL,
+    Employer,
     
     /// <summary>
     /// Card needs to be mailed to the individual specified in PersonDetail.
+    /// Encoded/decoded by serializers as "INDI".
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_iSfcuQ1eEeu_4e16J8D_UA")]
     [Description(@"Card needs to be mailed to the individual specified in PersonDetail.")]
-    INDI,
+    Individual,
     
     /// <summary>
     /// Card needs to be available at the entrance of the meeting.
+    /// Encoded/decoded by serializers as "ENTR".
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_iSfcuA1eEeu_4e16J8D_UA")]
     [Description(@"Card needs to be available at the entrance of the meeting.")]
-    ENTR,
+    MeetingEntrance,
     
     /// <summary>
     /// Cards needs to be send to another specified address.
+    /// Encoded/decoded by serializers as "OADR".
     /// </summary>
     [EnumMember(Value = "OADR")]
     [IsoId("_iSfcuw1eEeu_4e16J8D_UA")]
     [Description(@"Cards needs to be send to another specified address.")]
-    OADR,
+    OtherAddress,
     
     /// <summary>
     /// Card needs to be sent via e-mail.
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_iSfcug1eEeu_4e16J8D_UA")]
     [Description(@"Card needs to be sent via e-mail.")]
-    EMAL,
+    Email,
     
 }
 

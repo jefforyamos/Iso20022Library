@@ -20,43 +20,48 @@ public enum TransactionEnvironmentCode
 {
     /// <summary>
     /// Merchant environment.
+    /// Encoded/decoded by serializers as "MERC".
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TVWQDAEcEeCQm6a_G2yO_w_-194113759")]
     [Description(@"Merchant environment.")]
-    MERC,
+    Merchant,
     
     /// <summary>
     /// Private environment.
+    /// Encoded/decoded by serializers as "PRIV".
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_TVWQDQEcEeCQm6a_G2yO_w_1617784466")]
     [Description(@"Private environment.")]
-    PRIV,
+    Private,
     
     /// <summary>
     /// Public environment.
+    /// Encoded/decoded by serializers as "PUBL".
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_TVWQDgEcEeCQm6a_G2yO_w_-226084523")]
     [Description(@"Public environment.")]
-    PUBL,
+    Public,
     
     /// <summary>
     /// Bank environment.
+    /// Encoded/decoded by serializers as "BRCH".
     /// </summary>
     [EnumMember(Value = "BRCH")]
     [IsoId("_qPp6oHsIEeSR68OJvMfxJQ")]
     [Description(@"Bank environment.")]
-    BRCH,
+    Branch,
     
     /// <summary>
     /// Other environments, for instance a mall or an airport.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ttxAQHsIEeSR68OJvMfxJQ")]
     [Description(@"Other environments, for instance a mall or an airport.")]
-    OTHR,
+    Other,
     
 }
 

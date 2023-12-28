@@ -20,67 +20,75 @@ public enum TradeCounterpartyTypeCode
 {
     /// <summary>
     /// Specifies that party to the transaction is a Reporting Counterparty.
+    /// Encoded/decoded by serializers as "REPC".
     /// </summary>
     [EnumMember(Value = "REPC")]
     [IsoId("_AgatECR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Reporting Counterparty.")]
-    REPC,
+    ReportingCounterparty,
     
     /// <summary>
     /// Specifies that party to the transaction is an Other Counterparty.
+    /// Encoded/decoded by serializers as "OTHC".
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_DLsnkCR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is an Other Counterparty.")]
-    OTHC,
+    OtherCounterparty,
     
     /// <summary>
     /// Specifies that party to the transaction is a Broker.
+    /// Encoded/decoded by serializers as "BROK".
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_OnUWUCR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Broker.")]
-    BROK,
+    Broker,
     
     /// <summary>
     /// Specifies that party to the transaction is a Submitting Agent.
+    /// Encoded/decoded by serializers as "SBMA".
     /// </summary>
     [EnumMember(Value = "SBMA")]
     [IsoId("_QITn8CR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Submitting Agent.")]
-    SBMA,
+    SubmittingAgent,
     
     /// <summary>
     /// Specifies that party to the transaction is a Clearing Member.
+    /// Encoded/decoded by serializers as "CLEM".
     /// </summary>
     [EnumMember(Value = "CLEM")]
     [IsoId("_R-ftgCR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Clearing Member.")]
-    CLEM,
+    ClearingMember,
     
     /// <summary>
     /// Specifies that party to the transaction is a Beneficiary.
+    /// Encoded/decoded by serializers as "BENE".
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_T-wVECR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is a Beneficiary.")]
-    BENE,
+    Beneficiary,
     
     /// <summary>
     /// Specifies that party to the transaction is an Executing Agent.
+    /// Encoded/decoded by serializers as "EXEA".
     /// </summary>
     [EnumMember(Value = "EXEA")]
     [IsoId("_WtZFkCR8Ee2VuKUpJ7HXPg")]
     [Description(@"Specifies that party to the transaction is an Executing Agent.")]
-    EXEA,
+    ExecutingAgent,
     
     /// <summary>
     /// Specifies that party to the transaction is an Entity Responsible For Report.
+    /// Encoded/decoded by serializers as "ERFR".
     /// </summary>
     [EnumMember(Value = "ERFR")]
     [IsoId("_xA_40CxqEe2xAdY9t5fB3g")]
     [Description(@"Specifies that party to the transaction is an Entity Responsible For Report.")]
-    ERFR,
+    EntityResponsibleForReport,
     
 }
 

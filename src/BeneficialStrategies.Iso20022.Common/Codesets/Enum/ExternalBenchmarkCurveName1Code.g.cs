@@ -18,18 +18,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 [Serializable]
 [IsoId("_ZJ3hsDNnEe2UWZuK9pqFtg")]
 [Description(@"Specifies the external benchmark curve name code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
+[DerivedFrom(typeof(ExternalBenchmarkCurveNameCode))]
 public enum ExternalBenchmarkCurveName1Code
 {
     /// <summary>
     /// Singapore Dollar Swap Offer Rate.
+    /// Encoded/decoded by serializers as "SSOR".
     /// </summary>
     [EnumMember(Value = "SSOR")]
     [IsoId("_14atAnDBEe2dGpElQLuRLQ")]
     [Description(@"Singapore Dollar Swap Offer Rate.")]
-    SSOR,
+    SOR,
     
     /// <summary>
     /// Singapore Overnight Rate Average
+    /// Encoded/decoded by serializers as "SORA".
     /// </summary>
     [EnumMember(Value = "SORA")]
     [IsoId("_14atA3DBEe2dGpElQLuRLQ")]

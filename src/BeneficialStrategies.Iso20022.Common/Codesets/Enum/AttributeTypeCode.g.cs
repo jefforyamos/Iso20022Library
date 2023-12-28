@@ -20,59 +20,66 @@ public enum AttributeTypeCode
 {
     /// <summary>
     /// Common name of the attribute (ASN.1 Object Identifier: id-at-commonName).
+    /// Encoded/decoded by serializers as "CNAT".
     /// </summary>
     [EnumMember(Value = "CNAT")]
     [IsoId("_TVyU5wEcEeCQm6a_G2yO_w_1569239356")]
     [Description(@"Common name of the attribute (ASN.1 Object Identifier: id-at-commonName).")]
-    CNAT,
+    CommonName,
     
     /// <summary>
     /// Locality of the attribute (ASN.1 Object Identifier: id-at-localityName).
+    /// Encoded/decoded by serializers as "LATT".
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_TVyU6AEcEeCQm6a_G2yO_w_672048478")]
     [Description(@"Locality of the attribute (ASN.1 Object Identifier: id-at-localityName).")]
-    LATT,
+    Locality,
     
     /// <summary>
     /// Organization name of the attribute (ASN.1 Object Identifier: id-at-organizationName).
+    /// Encoded/decoded by serializers as "OATT".
     /// </summary>
     [EnumMember(Value = "OATT")]
     [IsoId("_TVyU6QEcEeCQm6a_G2yO_w_-706634465")]
     [Description(@"Organization name of the attribute (ASN.1 Object Identifier: id-at-organizationName).")]
-    OATT,
+    OrganisationName,
     
     /// <summary>
     /// Organization unit name of the attribute (ASN.1 Object Identifier: id-at-organizationalUnitName).
+    /// Encoded/decoded by serializers as "OUAT".
     /// </summary>
     [EnumMember(Value = "OUAT")]
     [IsoId("_TVyU6gEcEeCQm6a_G2yO_w_1301568158")]
     [Description(@"Organization unit name of the attribute (ASN.1 Object Identifier: id-at-organizationalUnitName).")]
-    OUAT,
+    OrganisationUnitName,
     
     /// <summary>
     /// Country name of the attribute (ASN.1 Object Identifier: id-at-countryName).
+    /// Encoded/decoded by serializers as "CATT".
     /// </summary>
     [EnumMember(Value = "CATT")]
     [IsoId("_TVyU6wEcEeCQm6a_G2yO_w_-856607476")]
     [Description(@"Country name of the attribute (ASN.1 Object Identifier: id-at-countryName).")]
-    CATT,
+    CountryName,
     
     /// <summary>
     /// Email address of the certificate subject.
+    /// Encoded/decoded by serializers as "EMAL".
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_n4c38I4TEeW6h7rGyYlyTg")]
     [Description(@"Email address of the certificate subject.")]
-    EMAL,
+    EmailAddress,
     
     /// <summary>
     /// Password by which an entity may request certificate revocation.
+    /// Encoded/decoded by serializers as "CHLG".
     /// </summary>
     [EnumMember(Value = "CHLG")]
     [IsoId("_q2GU0I4TEeW6h7rGyYlyTg")]
     [Description(@"Password by which an entity may request certificate revocation.")]
-    CHLG,
+    ChallengePassword,
     
 }
 

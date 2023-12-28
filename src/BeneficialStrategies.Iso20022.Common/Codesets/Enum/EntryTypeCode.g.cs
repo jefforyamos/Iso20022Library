@@ -21,20 +21,22 @@ public enum EntryTypeCode
     /// <summary>
     /// Financial Instruments  or amount are to be received in Party A's account.
     /// 
+    /// Encoded/decoded by serializers as "RECE".
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_B6l14HvJEemW9qhOy0scyg")]
     [Description(@"Financial Instruments  or amount are to be received in Party A's account. ")]
-    RECE,
+    Received,
     
     /// <summary>
     /// Financial Instruments or amount are to be delivered out of Party A's account.
     /// 
+    /// Encoded/decoded by serializers as "DELI".
     /// </summary>
     [EnumMember(Value = "DELI")]
     [IsoId("_QhB60HvJEemW9qhOy0scyg")]
     [Description(@"Financial Instruments or amount are to be delivered out of Party A's account. ")]
-    DELI,
+    Delivered,
     
 }
 

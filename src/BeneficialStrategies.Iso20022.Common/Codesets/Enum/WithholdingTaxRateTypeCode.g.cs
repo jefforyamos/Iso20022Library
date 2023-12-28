@@ -20,27 +20,30 @@ public enum WithholdingTaxRateTypeCode
 {
     /// <summary>
     /// Withholding tax related to income subject to FATCA (Foreign Account Tax Compliance Act).
+    /// Encoded/decoded by serializers as "FTCA".
     /// </summary>
     [EnumMember(Value = "FTCA")]
     [IsoId("_xdqgoCeFEeOXAt_43VmZGw")]
     [Description(@"Withholding tax related to income subject to FATCA (Foreign Account Tax Compliance Act).")]
-    FTCA,
+    FATCATax,
     
     /// <summary>
     /// Withholding tax related to income subject to NRA (Non Resident Alien).
+    /// Encoded/decoded by serializers as "NRAT".
     /// </summary>
     [EnumMember(Value = "NRAT")]
     [IsoId("_3gCSwCeFEeOXAt_43VmZGw")]
     [Description(@"Withholding tax related to income subject to NRA (Non Resident Alien).")]
-    NRAT,
+    NRATax,
     
     /// <summary>
     /// Withholding tax related to payments subject to back up withholding.
+    /// Encoded/decoded by serializers as "BWIT".
     /// </summary>
     [EnumMember(Value = "BWIT")]
     [IsoId("_-AKX4CeFEeOXAt_43VmZGw")]
     [Description(@"Withholding tax related to payments subject to back up withholding.")]
-    BWIT,
+    BackUpWithholding,
     
 }
 

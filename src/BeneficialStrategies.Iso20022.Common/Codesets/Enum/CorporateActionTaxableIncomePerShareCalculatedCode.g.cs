@@ -20,27 +20,30 @@ public enum CorporateActionTaxableIncomePerShareCalculatedCode
 {
     /// <summary>
     /// Fund is calculating the taxable income per dividend/taxable income per share.
+    /// Encoded/decoded by serializers as "TDIY".
     /// </summary>
     [EnumMember(Value = "TDIY")]
     [IsoId("_bTVTddp-Ed-ak6NoX_4Aeg_1953385011")]
     [Description(@"Fund is calculating the taxable income per dividend/taxable income per share.")]
-    TDIY,
+    Calculated,
     
     /// <summary>
     /// Fund is not calculating the taxable income per dividend/taxable income per share.
+    /// Encoded/decoded by serializers as "TDIN".
     /// </summary>
     [EnumMember(Value = "TDIN")]
     [IsoId("_bTfEcNp-Ed-ak6NoX_4Aeg_1953385027")]
     [Description(@"Fund is not calculating the taxable income per dividend/taxable income per share.")]
-    TDIN,
+    NotCalculated,
     
     /// <summary>
     /// Unknown whether the fund is calculating the taxable income per dividend/taxable income per share.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_bTfEcdp-Ed-ak6NoX_4Aeg_1953385028")]
     [Description(@"Unknown whether the fund is calculating the taxable income per dividend/taxable income per share.")]
-    UKWN,
+    Unknown,
     
 }
 

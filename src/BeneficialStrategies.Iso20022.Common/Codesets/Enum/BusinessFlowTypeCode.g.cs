@@ -20,27 +20,30 @@ public enum BusinessFlowTypeCode
 {
     /// <summary>
     /// Single leg process initiated by the delivering party.
+    /// Encoded/decoded by serializers as "SLDP".
     /// </summary>
     [EnumMember(Value = "SLDP")]
     [IsoId("_HgklF_sMEeCZF5_uug7xyA")]
     [Description(@"Single leg process initiated by the delivering party.")]
-    SLDP,
+    SingleLegDeliveringParty,
     
     /// <summary>
     /// Single leg process initiated by the receiving party.
+    /// Encoded/decoded by serializers as "SLRP".
     /// </summary>
     [EnumMember(Value = "SLRP")]
     [IsoId("_SCRpR_sMEeCZF5_uug7xyA")]
     [Description(@"Single leg process initiated by the receiving party.")]
-    SLRP,
+    SingleLegReceivingParty,
     
     /// <summary>
     /// Double leg process.
+    /// Encoded/decoded by serializers as "DLPR".
     /// </summary>
     [EnumMember(Value = "DLPR")]
     [IsoId("_ZA4aJ_sMEeCZF5_uug7xyA")]
     [Description(@"Double leg process.")]
-    DLPR,
+    DoubleLegProcess,
     
 }
 

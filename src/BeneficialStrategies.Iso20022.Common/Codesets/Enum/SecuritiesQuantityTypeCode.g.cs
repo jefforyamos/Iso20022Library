@@ -20,27 +20,30 @@ public enum SecuritiesQuantityTypeCode
 {
     /// <summary>
     /// No Maximum / Minimum number provided.
+    /// Encoded/decoded by serializers as "SQNO".
     /// </summary>
     [EnumMember(Value = "SQNO")]
     [IsoId("_QXSwEDFwEeGKkIZzgd38VA")]
     [Description(@"No Maximum / Minimum number provided.")]
-    SQNO,
+    No,
     
     /// <summary>
     /// Maximum / Minimum number provided.
+    /// Encoded/decoded by serializers as "SQYS".
     /// </summary>
     [EnumMember(Value = "SQYS")]
     [IsoId("_3HRA0DFwEeGKkIZzgd38VA")]
     [Description(@"Maximum / Minimum number provided.")]
-    SQYS,
+    Yes,
     
     /// <summary>
     /// Maximum / Minimum number is unknown or not decided.
+    /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_AQa9sDFxEeGKkIZzgd38VA")]
     [Description(@"Maximum / Minimum number is unknown or not decided.")]
-    UKWN,
+    Unknown,
     
 }
 

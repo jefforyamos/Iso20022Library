@@ -20,27 +20,30 @@ public enum ProrationTypeCode
 {
     /// <summary>
     /// Pro ration is not decided.
+    /// Encoded/decoded by serializers as "PRND".
     /// </summary>
     [EnumMember(Value = "PRND")]
     [IsoId("_330GQDFrEeGKkIZzgd38VA")]
     [Description(@"Pro ration is not decided.")]
-    PRND,
+    NotDecided,
     
     /// <summary>
     /// Pro ration is not established.
+    /// Encoded/decoded by serializers as "PRNE".
     /// </summary>
     [EnumMember(Value = "PRNE")]
     [IsoId("_LGBnkDFsEeGKkIZzgd38VA")]
     [Description(@"Pro ration is not established.")]
-    PRNE,
+    NotEstablished,
     
     /// <summary>
     /// Pro ration is not used.
+    /// Encoded/decoded by serializers as "PRNU".
     /// </summary>
     [EnumMember(Value = "PRNU")]
     [IsoId("_Xg_9YDVEEeGIoujPqYSZDw")]
     [Description(@"Pro ration is not used.")]
-    PRNU,
+    NotUsed,
     
 }
 

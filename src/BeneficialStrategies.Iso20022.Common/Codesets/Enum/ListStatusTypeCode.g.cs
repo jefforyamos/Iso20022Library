@@ -20,51 +20,57 @@ public enum ListStatusTypeCode
 {
     /// <summary>
     /// Status is an acknowledgement of the ListOrder.
+    /// Encoded/decoded by serializers as "ACKN".
     /// </summary>
     [EnumMember(Value = "ACKN")]
     [IsoId("_afe0pNp-Ed-ak6NoX_4Aeg_-113022536")]
     [Description(@"Status is an acknowledgement of the ListOrder.")]
-    ACKN,
+    Acknowledgement,
     
     /// <summary>
     /// Status is a response to a previously sent StatusRequest.
+    /// Encoded/decoded by serializers as "RESP".
     /// </summary>
     [EnumMember(Value = "RESP")]
     [IsoId("_afe0pdp-Ed-ak6NoX_4Aeg_435548983")]
     [Description(@"Status is a response to a previously sent StatusRequest.")]
-    RESP,
+    Response,
     
     /// <summary>
     /// Status indicates that the ListOrder has been executed.
+    /// Encoded/decoded by serializers as "ADON".
     /// </summary>
     [EnumMember(Value = "ADON")]
     [IsoId("_afe0ptp-Ed-ak6NoX_4Aeg_-1600157522")]
     [Description(@"Status indicates that the ListOrder has been executed.")]
-    ADON,
+    AllDone,
     
     /// <summary>
     /// Status indicates that any of the individual orders of the ListOrder have a status that requires something to be done.
+    /// Encoded/decoded by serializers as "ALER".
     /// </summary>
     [EnumMember(Value = "ALER")]
     [IsoId("_afe0p9p-Ed-ak6NoX_4Aeg_-1492105658")]
     [Description(@"Status indicates that any of the individual orders of the ListOrder have a status that requires something to be done.")]
-    ALER,
+    Alert,
     
     /// <summary>
     /// Status indicates that the Execution has started.
+    /// Encoded/decoded by serializers as "EXST".
     /// </summary>
     [EnumMember(Value = "EXST")]
     [IsoId("_afe0qNp-Ed-ak6NoX_4Aeg_-1372044609")]
     [Description(@"Status indicates that the Execution has started.")]
-    EXST,
+    ExecutionStarted,
     
     /// <summary>
     /// Status indicated that time limit for the order has expired.
+    /// Encoded/decoded by serializers as "TIME".
     /// </summary>
     [EnumMember(Value = "TIME")]
     [IsoId("_afoloNp-Ed-ak6NoX_4Aeg_286598761")]
     [Description(@"Status indicated that time limit for the order has expired.")]
-    TIME,
+    Timed,
     
 }
 

@@ -20,171 +20,192 @@ public enum AccountOwnershipTypeCode
 {
     /// <summary>
     /// Two or more individuals own shares of the same account. Upon the death of one of the account owners, the entire account ownership is passed onto the surviving owners.
+    /// Encoded/decoded by serializers as "JOIN".
     /// </summary>
     [EnumMember(Value = "JOIN")]
     [IsoId("_brLLsdp-Ed-ak6NoX_4Aeg_-1582732153")]
     [Description(@"Two or more individuals own shares of the same account. Upon the death of one of the account owners, the entire account ownership is passed onto the surviving owners.")]
-    JOIN,
+    JointAccountWithSurvivorshipRights,
     
     /// <summary>
     /// Two or more individuals of legal age own shares of the same account. Upon the death of one of the account owners, the respective percentage of the ownership is transferred to the deceased's estate.
+    /// Encoded/decoded by serializers as "COMO".
     /// </summary>
     [EnumMember(Value = "COMO")]
     [IsoId("_brLLstp-Ed-ak6NoX_4Aeg_-1582732152")]
     [Description(@"Two or more individuals of legal age own shares of the same account. Upon the death of one of the account owners, the respective percentage of the ownership is transferred to the deceased's estate.")]
-    COMO,
+    JointAccountInCommon,
     
     /// <summary>
     /// Minor's account, registered in the minor's name. Since the minor cannot legally own property, the custodian of the account maintains control of the account.
+    /// Encoded/decoded by serializers as "CUST".
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_brLLs9p-Ed-ak6NoX_4Aeg_-1582732151")]
     [Description(@"Minor's account, registered in the minor's name. Since the minor cannot legally own property, the custodian of the account maintains control of the account.")]
-    CUST,
+    CustodialAccount,
     
     /// <summary>
     /// Account has only one individual owner.
+    /// Encoded/decoded by serializers as "SIGL".
     /// </summary>
     [EnumMember(Value = "SIGL")]
     [IsoId("_brLLtNp-Ed-ak6NoX_4Aeg_-1582732150")]
     [Description(@"Account has only one individual owner.")]
-    SIGL,
+    SingleOwnerAccount,
     
     /// <summary>
     /// Two or more individuals of legal age own shares of the same account.
+    /// Encoded/decoded by serializers as "JOIT".
     /// </summary>
     [EnumMember(Value = "JOIT")]
     [IsoId("_brLLtdp-Ed-ak6NoX_4Aeg_312463497")]
     [Description(@"Two or more individuals of legal age own shares of the same account.")]
-    JOIT,
+    JointAccount,
     
     /// <summary>
     /// Account owner is a corporate.
+    /// Encoded/decoded by serializers as "CORP".
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_brLLttp-Ed-ak6NoX_4Aeg_641236913")]
     [Description(@"Account owner is a corporate.")]
-    CORP,
+    Corporation,
     
     /// <summary>
     /// Account owner is a contractual business organisation in which two or more individuals agree to pool their funds to manage and operate a business.
+    /// Encoded/decoded by serializers as "PART".
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_brLLt9p-Ed-ak6NoX_4Aeg_660630019")]
     [Description(@"Account owner is a contractual business organisation in which two or more individuals agree to pool their funds to manage and operate a business.")]
-    PART,
+    FormalPartnership,
     
     /// <summary>
     /// Account owner is an organisation which is engaged as a trustee for individuals or businesses in the administration of services such as stock transfer, registration, trust funds.
+    /// Encoded/decoded by serializers as "TRUS".
     /// </summary>
     [EnumMember(Value = "TRUS")]
     [IsoId("_brLLuNp-Ed-ak6NoX_4Aeg_689260466")]
     [Description(@"Account owner is an organisation which is engaged as a trustee for individuals or businesses in the administration of services such as stock transfer, registration, trust funds.")]
-    TRUS,
+    FormalTrust,
     
     /// <summary>
     /// Account owner is a person or firm into whose name securities or other properties are transferred in order to facilitate transactions whilst leaving the customer as the actual owner.
+    /// Encoded/decoded by serializers as "NOMI".
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_brU8sNp-Ed-ak6NoX_4Aeg_1647872307")]
     [Description(@"Account owner is a person or firm into whose name securities or other properties are transferred in order to facilitate transactions whilst leaving the customer as the actual owner.")]
-    NOMI,
+    Nominee,
     
     /// <summary>
     /// Account owner is an association that is given tax-free status due to the nature of their activities such as charity organisation.
+    /// Encoded/decoded by serializers as "NFPO".
     /// </summary>
     [EnumMember(Value = "NFPO")]
     [IsoId("_brU8sdp-Ed-ak6NoX_4Aeg_1671883451")]
     [Description(@"Account owner is an association that is given tax-free status due to the nature of their activities such as charity organisation.")]
-    NFPO,
+    NonProfitOrganisation,
     
     /// <summary>
     /// Account owner is another type of non individual organisation.
+    /// Encoded/decoded by serializers as "ONIS".
     /// </summary>
     [EnumMember(Value = "ONIS")]
     [IsoId("_brU8stp-Ed-ak6NoX_4Aeg_1833434537")]
     [Description(@"Account owner is another type of non individual organisation.")]
-    ONIS,
+    OtherNonIndividual,
     
     /// <summary>
     /// Account owner is an entity located in the European Union which can be considered neither as a legal entity (for example, company, corporate), nor as an individual person, nor as a UCITS (Undertakings for Collective Investment of Transferable Securities) fund.
+    /// Encoded/decoded by serializers as "EURE".
     /// </summary>
     [EnumMember(Value = "EURE")]
     [IsoId("_brU8s9p-Ed-ak6NoX_4Aeg_1469402090")]
     [Description(@"Account owner is an entity located in the European Union which can be considered neither as a legal entity (for example, company, corporate), nor as an individual person, nor as a UCITS (Undertakings for Collective Investment of Transferable Securities) fund.")]
-    EURE,
+    EUResidualEntity,
     
     /// <summary>
     /// Account owner is a government organisation.
+    /// Encoded/decoded by serializers as "GOVO".
     /// </summary>
     [EnumMember(Value = "GOVO")]
     [IsoId("_brU8tNp-Ed-ak6NoX_4Aeg_1553769901")]
     [Description(@"Account owner is a government organisation.")]
-    GOVO,
+    GovernmentOrganisation,
     
     /// <summary>
     /// Account is for a limited liability company.
+    /// Encoded/decoded by serializers as "LLCO".
     /// </summary>
     [EnumMember(Value = "LLCO")]
     [IsoId("_brU8tdp-Ed-ak6NoX_4Aeg_-1469860903")]
     [Description(@"Account is for a limited liability company.")]
-    LLCO,
+    LimitedLiabilityCompany,
     
     /// <summary>
     /// Account is for a registered investment company.
+    /// Encoded/decoded by serializers as "RGIC".
     /// </summary>
     [EnumMember(Value = "RGIC")]
     [IsoId("_brU8ttp-Ed-ak6NoX_4Aeg_-1469860471")]
     [Description(@"Account is for a registered investment company.")]
-    RGIC,
+    RegisteredInvestmentCompany,
     
     /// <summary>
     /// Entrepreneurial account.
+    /// Encoded/decoded by serializers as "ENTR".
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_FI4hUL-GEeWfsa741pI6WA")]
     [Description(@"Entrepreneurial account.")]
-    ENTR,
+    Entrepreneurial,
     
     /// <summary>
     /// Account owner is an unincorporated partnership or is of sole proprietorship.
+    /// Encoded/decoded by serializers as "UNCO".
     /// </summary>
     [EnumMember(Value = "UNCO")]
     [IsoId("_FO-iQL-GEeWfsa741pI6WA")]
     [Description(@"Account owner is an unincorporated partnership or is of sole proprietorship.")]
-    UNCO,
+    Unincorporated,
     
     /// <summary>
     /// Account owner is a limited partnership or is of sole proprietorship.
+    /// Encoded/decoded by serializers as "LIPA".
     /// </summary>
     [EnumMember(Value = "LIPA")]
     [IsoId("_FoICEL-GEeWfsa741pI6WA")]
     [Description(@"Account owner is a limited partnership or is of sole proprietorship.")]
-    LIPA,
+    LimitedPartnership,
     
     /// <summary>
     /// A person has bare ownership on the asset.
+    /// Encoded/decoded by serializers as "BOWN".
     /// </summary>
     [EnumMember(Value = "BOWN")]
     [IsoId("_MP7lA5NiEem9mu_a5rvrBw")]
     [Description(@"A person has bare ownership on the asset.")]
-    BOWN,
+    BareOwner,
     
     /// <summary>
     /// A person has full ownership on the asset. 
+    /// Encoded/decoded by serializers as "OWNR".
     /// </summary>
     [EnumMember(Value = "OWNR")]
     [IsoId("_MP7lBJNiEem9mu_a5rvrBw")]
     [Description(@"A person has full ownership on the asset. ")]
-    OWNR,
+    Owner,
     
     /// <summary>
     /// The person is ...
+    /// Encoded/decoded by serializers as "USUF".
     /// </summary>
     [EnumMember(Value = "USUF")]
     [IsoId("_MP7lBZNiEem9mu_a5rvrBw")]
     [Description(@"The person is ...")]
-    USUF,
+    Usufructuary,
     
 }
 

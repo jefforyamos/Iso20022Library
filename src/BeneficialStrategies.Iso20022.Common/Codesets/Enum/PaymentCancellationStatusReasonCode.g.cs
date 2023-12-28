@@ -20,43 +20,48 @@ public enum PaymentCancellationStatusReasonCode
 {
     /// <summary>
     /// Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.
+    /// Encoded/decoded by serializers as "S003".
     /// </summary>
     [EnumMember(Value = "S003")]
     [IsoId("_eKFIkB04EeiYoZGjIMHr2A")]
     [Description(@"Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.")]
-    S003,
+    ForwardedToAgent,
     
     /// <summary>
     /// Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.
+    /// Encoded/decoded by serializers as "S004".
     /// </summary>
     [EnumMember(Value = "S004")]
     [IsoId("_g-vokR04EeiYoZGjIMHr2A")]
     [Description(@"Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.")]
-    S004,
+    DeliveryAcknowledgementReceived,
     
     /// <summary>
     /// Payment instruction stopped because the UETR was cancelled.
+    /// Encoded/decoded by serializers as "S002".
     /// </summary>
     [EnumMember(Value = "S002")]
     [IsoId("_Nk17gD4wEei1cqDe0mKAOg")]
     [Description(@"Payment instruction stopped because the UETR was cancelled.")]
-    S002,
+    PaymentStopped,
     
     /// <summary>
     /// Stop and recall request sent to the tracking system.
+    /// Encoded/decoded by serializers as "S000".
     /// </summary>
     [EnumMember(Value = "S000")]
     [IsoId("_zr5ksIEkEei51tn2YGQhvg")]
     [Description(@"Stop and recall request sent to the tracking system.")]
-    S000,
+    SentToTrackingSystem,
     
     /// <summary>
     /// Stop and recall request added to cancellation list.
+    /// Encoded/decoded by serializers as "S001".
     /// </summary>
     [EnumMember(Value = "S001")]
     [IsoId("_EDHqwIElEei51tn2YGQhvg")]
     [Description(@"Stop and recall request added to cancellation list.")]
-    S001,
+    AddedToCancellationList,
     
 }
 

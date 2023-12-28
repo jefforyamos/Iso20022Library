@@ -20,43 +20,48 @@ public enum EmbeddedTypeCode
 {
     /// <summary>
     /// Option must be early terminated.
+    /// Encoded/decoded by serializers as "MDET".
     /// </summary>
     [EnumMember(Value = "MDET")]
     [IsoId("_2RrmEIcPEeu4rpsqTt37Pg")]
     [Description(@"Option must be early terminated.")]
-    MDET,
+    MandatoryEarlyTermination,
     
     /// <summary>
     /// Option can be early terminated.
+    /// Encoded/decoded by serializers as "OPET".
     /// </summary>
     [EnumMember(Value = "OPET")]
     [IsoId("_5nedMIcPEeu4rpsqTt37Pg")]
     [Description(@"Option can be early terminated.")]
-    OPET,
+    OptionalEarlyTermination,
     
     /// <summary>
     /// Option can be cancelled.
+    /// Encoded/decoded by serializers as "CANC".
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_9zaSIIcPEeu4rpsqTt37Pg")]
     [Description(@"Option can be cancelled.")]
-    CANC,
+    Cancellable,
     
     /// <summary>
     /// Option can be extended.
+    /// Encoded/decoded by serializers as "EXTD".
     /// </summary>
     [EnumMember(Value = "EXTD")]
     [IsoId("_BeLTsIcQEeu4rpsqTt37Pg")]
     [Description(@"Option can be extended.")]
-    EXTD,
+    Extendible,
     
     /// <summary>
     /// Option type is other.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_DZqI8IcQEeu4rpsqTt37Pg")]
     [Description(@"Option type is other.")]
-    OTHR,
+    Other,
     
 }
 

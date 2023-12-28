@@ -20,43 +20,48 @@ public enum CalculationBasisCode
 {
     /// <summary>
     /// Average basis.
+    /// Encoded/decoded by serializers as "AVER".
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("_bVa-Idp-Ed-ak6NoX_4Aeg_-1432837646")]
     [Description(@"Average basis.")]
-    AVER,
+    Average,
     
     /// <summary>
     /// Daily basis.
+    /// Encoded/decoded by serializers as "DAIL".
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_bVa-Itp-Ed-ak6NoX_4Aeg_-1432837628")]
     [Description(@"Daily basis.")]
-    DAIL,
+    Daily,
     
     /// <summary>
     /// Another type of calculation basis.
+    /// Encoded/decoded by serializers as "OTHR".
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bVa-I9p-Ed-ak6NoX_4Aeg_-797941073")]
     [Description(@"Another type of calculation basis.")]
-    OTHR,
+    Other,
     
     /// <summary>
     /// Monthly basis.
+    /// Encoded/decoded by serializers as "MNTH".
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_bVa-JNp-Ed-ak6NoX_4Aeg_-1394980831")]
     [Description(@"Monthly basis.")]
-    MNTH,
+    Monthly,
     
     /// <summary>
     /// Yearly basis.
+    /// Encoded/decoded by serializers as "YEAR".
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_bVa-Jdp-Ed-ak6NoX_4Aeg_-1394980754")]
     [Description(@"Yearly basis.")]
-    YEAR,
+    Annual,
     
 }
 
