@@ -9,7 +9,7 @@ public class CodesetEnumGenerator : Generator<CodeSet>
 {
     public CodesetEnumGenerator()
         : base(repo => repo.DataDictionary.CodeSets
-        //.Where(cs => !cs.IsExternal)
+        .Where(cs => !cs.IsExternal)
         .Where(GlobalCodesetFilter)
         )
     {
@@ -45,12 +45,19 @@ public class CodesetEnumGenerator : Generator<CodeSet>
             attributeLines.Add(@$"[DerivedFrom(typeof({item.DerivedFrom.GenNames.Enum}))]");
         };
 
-        // TODO: Figure out why all the derivations are not being generated.
         if ( item.Derivations.Length > 0 )
         {
-            var attribParams = item.Derivations.Select(item => $@"typeof({item.GenNames.Enum})").ToArray();
+            var attribParams = item.Derivations
+                .Where( d => !d.IsExternal)
+                .Select(item => $@"typeof({item.GenNames.Enum})").ToArray();
             var withCommas = string.Join(",", attribParams);
             attributeLines.Add($@"[Derivations({withCommas})]");
+            // Comments only for those that don't get generated
+            var attribMentions = item.Derivations
+                .Where(d => d.IsExternal)
+                .Select(item => item.Name).ToArray();
+            var mentionsWithCommas = string.Join(",", attribMentions);
+            attributeLines.Add($@"// External derivations that should be provided by the proper interface are: {mentionsWithCommas}");
         }
 
         WriteLines(textWriter, 0, attributeLines.ToArray());
