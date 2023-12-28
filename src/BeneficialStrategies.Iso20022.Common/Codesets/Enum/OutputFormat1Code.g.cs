@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OutputFormat1Code
 {
     /// <summary>
-    /// ??
+    /// Predefined configured messages, identified by a reference.
     /// Encoded/decoded by serializers as "MessageReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MREF")]
     [IsoId("_-Q8cgXr5EeSZrs_hiwNOWA")]
-    [Description(@"??")]
+    [Description(@"Predefined configured messages, identified by a reference.")]
     MessageReference,
     
     /// <summary>
-    /// ??
+    /// Text without format attributes.
     /// Encoded/decoded by serializers as "SimpleText".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEXT")]
     [IsoId("_-m43UXr5EeSZrs_hiwNOWA")]
-    [Description(@"??")]
+    [Description(@"Text without format attributes.")]
     SimpleText,
     
     /// <summary>
-    /// ??
+    /// XHTML document which includes a subset of the XHTML output tag.
     /// Encoded/decoded by serializers as "XHTML".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HTML")]
     [IsoId("_-sGugXr5EeSZrs_hiwNOWA")]
-    [Description(@"??")]
+    [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
     XHTML,
     
 }

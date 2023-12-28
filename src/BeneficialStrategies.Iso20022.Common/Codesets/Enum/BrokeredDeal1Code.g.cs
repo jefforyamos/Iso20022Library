@@ -20,21 +20,23 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BrokeredDeal1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction was arranged directly by the reporting agent.
     /// Encoded/decoded by serializers as "BilateralTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BILA")]
     [IsoId("_kvdzoXvREeWrWYBng3OpVw")]
-    [Description(@"??")]
+    [Description(@"Transaction was arranged directly by the reporting agent.")]
     BilateralTransaction,
     
     /// <summary>
-    /// ??
+    /// Transaction was arranged by a third party broking agent.
+    /// 
+    /// 
     /// Encoded/decoded by serializers as "BrokeredTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BROK")]
     [IsoId("_k2VQoXvREeWrWYBng3OpVw")]
-    [Description(@"??")]
+    [Description(@"Transaction was arranged by a third party broking agent.  ")]
     BrokeredTransaction,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DisplayMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that original quantity must be used.
     /// Encoded/decoded by serializers as "Initial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INIT")]
     [IsoId("_awK8CNp-Ed-ak6NoX_4Aeg_1639154433")]
-    [Description(@"??")]
+    [Description(@"Indicates that original quantity must be used.")]
     Initial,
     
     /// <summary>
-    /// ??
+    /// Indicates that Quantity must be refreshed.
     /// Encoded/decoded by serializers as "New".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEW1")]
     [IsoId("_awUtANp-Ed-ak6NoX_4Aeg_1639154468")]
-    [Description(@"??")]
+    [Description(@"Indicates that Quantity must be refreshed.")]
     New,
     
     /// <summary>
-    /// ??
+    /// Randomize value.
     /// Encoded/decoded by serializers as "Random".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RAND")]
     [IsoId("_awUtAdp-Ed-ak6NoX_4Aeg_1639154503")]
-    [Description(@"??")]
+    [Description(@"Randomize value.")]
     Random,
     
 }

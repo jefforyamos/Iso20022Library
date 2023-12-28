@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TriggerPriceType1Code
 {
     /// <summary>
-    /// ??
+    /// Trigger is compared to best offer.
     /// Encoded/decoded by serializers as "BestOffer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEOF")]
     [IsoId("_Yv34N9p-Ed-ak6NoX_4Aeg_-319323277")]
-    [Description(@"??")]
+    [Description(@"Trigger is compared to best offer.")]
     BestOffer,
     
     /// <summary>
-    /// ??
+    /// Trigger is compared to last trade.
     /// Encoded/decoded by serializers as "LastTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATR")]
     [IsoId("_YwBCINp-Ed-ak6NoX_4Aeg_-319323259")]
-    [Description(@"??")]
+    [Description(@"Trigger is compared to last trade.")]
     LastTrade,
     
     /// <summary>
-    /// ??
+    /// Trigger is compared to best bid.
     /// Encoded/decoded by serializers as "BestBid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEBI")]
     [IsoId("_YwBCIdp-Ed-ak6NoX_4Aeg_-319323258")]
-    [Description(@"??")]
+    [Description(@"Trigger is compared to best bid.")]
     BestBid,
     
     /// <summary>
-    /// ??
+    /// Trigger is compared to best bid or last trade.
     /// Encoded/decoded by serializers as "BestBidOrLastTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BBLT")]
     [IsoId("_YwBCItp-Ed-ak6NoX_4Aeg_-319323234")]
-    [Description(@"??")]
+    [Description(@"Trigger is compared to best bid or last trade.")]
     BestBidOrLastTrade,
     
     /// <summary>
-    /// ??
+    /// Trigger is compared to best offer or last trade.
     /// Encoded/decoded by serializers as "BestOfferOrLastTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOLT")]
     [IsoId("_YwBCI9p-Ed-ak6NoX_4Aeg_-319323217")]
-    [Description(@"??")]
+    [Description(@"Trigger is compared to best offer or last trade.")]
     BestOfferOrLastTrade,
     
     /// <summary>
-    /// ??
+    /// Trigger is compared to best mid.
     /// Encoded/decoded by serializers as "BestMid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEMI")]
     [IsoId("_YwBCJNp-Ed-ak6NoX_4Aeg_-319323199")]
-    [Description(@"??")]
+    [Description(@"Trigger is compared to best mid.")]
     BestMid,
     
 }

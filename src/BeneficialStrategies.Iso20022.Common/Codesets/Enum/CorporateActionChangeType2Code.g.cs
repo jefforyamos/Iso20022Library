@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionChangeType2Code
 {
     /// <summary>
-    /// ??
+    /// Change from bearer into registered form.
     /// Encoded/decoded by serializers as "BearToRegistered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BERE")]
     [IsoId("_bC8uFdp-Ed-ak6NoX_4Aeg_-1895645691")]
-    [Description(@"??")]
+    [Description(@"Change from bearer into registered form.")]
     BearToRegistered,
     
     /// <summary>
-    /// ??
+    /// Change of all instruments into certificates.
     /// Encoded/decoded by serializers as "Certificates".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_bC8uFtp-Ed-ak6NoX_4Aeg_-1895645690")]
-    [Description(@"??")]
+    [Description(@"Change of all instruments into certificates.")]
     Certificates,
     
     /// <summary>
-    /// ??
+    /// Change from dematerialised into physical form.
     /// Encoded/decoded by serializers as "DematerialisedToPhysical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPH")]
     [IsoId("_bC8uF9p-Ed-ak6NoX_4Aeg_-1895645689")]
-    [Description(@"??")]
+    [Description(@"Change from dematerialised into physical form.")]
     DematerialisedToPhysical,
     
     /// <summary>
-    /// ??
+    /// Change from global permanent to physical form.
     /// Encoded/decoded by serializers as "GlobalPermanentToPhysical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GPPH")]
     [IsoId("_bC8uGNp-Ed-ak6NoX_4Aeg_-1895645674")]
-    [Description(@"??")]
+    [Description(@"Change from global permanent to physical form.")]
     GlobalPermanentToPhysical,
     
     /// <summary>
-    /// ??
+    /// Change from global temporary to global permanent form.
     /// Encoded/decoded by serializers as "GlobalTemporaryToGlobalPermanent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GTGP")]
     [IsoId("_bC8uGdp-Ed-ak6NoX_4Aeg_-1895645673")]
-    [Description(@"??")]
+    [Description(@"Change from global temporary to global permanent form.")]
     GlobalTemporaryToGlobalPermanent,
     
     /// <summary>
-    /// ??
+    /// Change from global temporary to physical form.
     /// Encoded/decoded by serializers as "GlobalTemporaryToPhysical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GTPH")]
     [IsoId("_bDF4ANp-Ed-ak6NoX_4Aeg_-1895645656")]
-    [Description(@"??")]
+    [Description(@"Change from global temporary to physical form.")]
     GlobalTemporaryToPhysical,
     
     /// <summary>
-    /// ??
+    /// The issuing company changes its name. CA event shows the change from old name to new name and may involve surrendering physical shares with the old name to the registrar.
     /// Encoded/decoded by serializers as "Name".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAME")]
     [IsoId("_bDF4Adp-Ed-ak6NoX_4Aeg_-1895645655")]
-    [Description(@"??")]
+    [Description(@"The issuing company changes its name. CA event shows the change from old name to new name and may involve surrendering physical shares with the old name to the registrar.")]
     Name,
     
     /// <summary>
-    /// ??
+    /// Change from physical into dematerialised form.
     /// Encoded/decoded by serializers as "PhysicalToDematerialised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHDE")]
     [IsoId("_bDF4Atp-Ed-ak6NoX_4Aeg_-1895645639")]
-    [Description(@"??")]
+    [Description(@"Change from physical into dematerialised form.")]
     PhysicalToDematerialised,
     
     /// <summary>
-    /// ??
+    /// Change from registered into bearer form.
     /// Encoded/decoded by serializers as "RegisteredToBearer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REBE")]
     [IsoId("_bDF4A9p-Ed-ak6NoX_4Aeg_-1895645621")]
-    [Description(@"??")]
+    [Description(@"Change from registered into bearer form.")]
     RegisteredToBearer,
     
     /// <summary>
-    /// ??
+    /// Change in the terms of the security.
     /// Encoded/decoded by serializers as "Terms".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERM")]
     [IsoId("_bDF4BNp-Ed-ak6NoX_4Aeg_-1895645613")]
-    [Description(@"??")]
+    [Description(@"Change in the terms of the security.")]
     Terms,
     
 }

@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Frequency13Code
 {
     /// <summary>
-    /// ??
+    /// Event takes place every day.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_smU1IVfREeqqKf65rDYWYw")]
-    [Description(@"??")]
+    [Description(@"Event takes place every day.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Event takes place once a week.
     /// Encoded/decoded by serializers as "Weekly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_tV8UMVfREeqqKf65rDYWYw")]
-    [Description(@"??")]
+    [Description(@"Event takes place once a week.")]
     Weekly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every month or once a month.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_t7Ir8VfREeqqKf65rDYWYw")]
-    [Description(@"??")]
+    [Description(@"Event takes place every month or once a month.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every year or once a year.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_vAULUVfREeqqKf65rDYWYw")]
-    [Description(@"??")]
+    [Description(@"Event takes place every year or once a year.")]
     Annual,
     
     /// <summary>
-    /// ??
+    /// Event takes place on request or as necessary.
     /// Encoded/decoded by serializers as "Adhoc".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADHO")]
     [IsoId("_vg5I0VfREeqqKf65rDYWYw")]
-    [Description(@"??")]
+    [Description(@"Event takes place on request or as necessary.")]
     Adhoc,
     
     /// <summary>
-    /// ??
+    /// Event occurs on expiry of a financial contract.
     /// Encoded/decoded by serializers as "OnExpiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_v_1uoVfREeqqKf65rDYWYw")]
-    [Description(@"??")]
+    [Description(@"Event occurs on expiry of a financial contract.")]
     OnExpiry,
     
     /// <summary>
-    /// ??
+    /// Event takes place every six months or two times a year.
     /// Encoded/decoded by serializers as "SemiAnnual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIAN")]
     [IsoId("_dvI9UZjeEeqkLZLH6DK3UQ")]
-    [Description(@"??")]
+    [Description(@"Event takes place every six months or two times a year.")]
     SemiAnnual,
     
     /// <summary>
-    /// ??
+    /// Event takes place every three months or four times a year.
     /// Encoded/decoded by serializers as "Quarterly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QURT")]
     [IsoId("_ePuh4ZjeEeqkLZLH6DK3UQ")]
-    [Description(@"??")]
+    [Description(@"Event takes place every three months or four times a year.")]
     Quarterly,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NonFinancialResponseRisk1Code
 {
     /// <summary>
-    /// ??
+    /// A decline of the transaction is expected by the POI to manage risk.
     /// Encoded/decoded by serializers as "Decline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_8f_F4S_wEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"A decline of the transaction is expected by the POI to manage risk.")]
     Decline,
     
     /// <summary>
-    /// ??
+    /// The POI is able to assess the risk by himself.
     /// Encoded/decoded by serializers as "LocallyManaged".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCHG")]
     [IsoId("_8ja0YS_wEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"The POI is able to assess the risk by himself.")]
     LocallyManaged,
     
     /// <summary>
-    /// ??
+    /// An authorisation is expected from the POI to manage risk.
     /// Encoded/decoded by serializers as "RequestOnline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONLN")]
     [IsoId("_8oNNwS_wEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"An authorisation is expected from the POI to manage risk.")]
     RequestOnline,
     
 }

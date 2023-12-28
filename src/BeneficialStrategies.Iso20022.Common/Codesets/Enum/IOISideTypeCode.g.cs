@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IOISideTypeCode
 {
     /// <summary>
-    /// ??
+    /// Order is buy driven.
     /// Encoded/decoded by serializers as "Buy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYI")]
     [IsoId("_adZJ89p-Ed-ak6NoX_4Aeg_336256306")]
-    [Description(@"??")]
+    [Description(@"Order is buy driven.")]
     Buy,
     
     /// <summary>
-    /// ??
+    /// Order is sell driven.
     /// Encoded/decoded by serializers as "Sell".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_adZJ9Np-Ed-ak6NoX_4Aeg_336256307")]
-    [Description(@"??")]
+    [Description(@"Order is sell driven.")]
     Sell,
     
     /// <summary>
-    /// ??
+    /// The side of the indication of interest is not disclosed.
     /// Encoded/decoded by serializers as "Undisclosed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNDI")]
     [IsoId("_adZJ9dp-Ed-ak6NoX_4Aeg_336256308")]
-    [Description(@"??")]
+    [Description(@"The side of the indication of interest is not disclosed.")]
     Undisclosed,
     
     /// <summary>
-    /// ??
+    /// Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.
     /// Encoded/decoded by serializers as "AsDefined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFI")]
     [IsoId("_adZJ9tp-Ed-ak6NoX_4Aeg_336256309")]
-    [Description(@"??")]
+    [Description(@"Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.")]
     AsDefined,
     
     /// <summary>
-    /// ??
+    /// Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.
     /// Encoded/decoded by serializers as "Opposite".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPPO")]
     [IsoId("_adZJ99p-Ed-ak6NoX_4Aeg_336256310")]
-    [Description(@"??")]
+    [Description(@"Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.")]
     Opposite,
     
 }

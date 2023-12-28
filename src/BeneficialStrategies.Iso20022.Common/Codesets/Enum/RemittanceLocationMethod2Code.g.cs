@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RemittanceLocationMethod2Code
 {
     /// <summary>
-    /// ??
+    /// Remittance advice information must be faxed.
     /// Encoded/decoded by serializers as "Fax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAXI")]
     [IsoId("_ZsX8tdp-Ed-ak6NoX_4Aeg_-517543060")]
-    [Description(@"??")]
+    [Description(@"Remittance advice information must be faxed.")]
     Fax,
     
     /// <summary>
-    /// ??
+    /// Remittance advice information must be sent through Electronic Data Interchange (EDI).
     /// Encoded/decoded by serializers as "ElectronicDataInterchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDIC")]
     [IsoId("_ZsX8ttp-Ed-ak6NoX_4Aeg_-517543029")]
-    [Description(@"??")]
+    [Description(@"Remittance advice information must be sent through Electronic Data Interchange (EDI).")]
     ElectronicDataInterchange,
     
     /// <summary>
-    /// ??
+    /// Remittance advice information needs to be sent to a Uniform Resource Identifier (URI). URI is a compact string of characters that uniquely identify an abstract or physical resource. URI's are the super-set of identifiers, such as URLs, email addresses, ftp sites, etc, and as such, provide the syntax for all of the identification schemes.
     /// Encoded/decoded by serializers as "UniformResourceIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URID")]
     [IsoId("_ZsX8t9p-Ed-ak6NoX_4Aeg_-517543028")]
-    [Description(@"??")]
+    [Description(@"Remittance advice information needs to be sent to a Uniform Resource Identifier (URI). URI is a compact string of characters that uniquely identify an abstract or physical resource. URI's are the super-set of identifiers, such as URLs, email addresses, ftp sites, etc, and as such, provide the syntax for all of the identification schemes.")]
     UniformResourceIdentifier,
     
     /// <summary>
-    /// ??
+    /// Remittance advice information must be sent through e-mail.
     /// Encoded/decoded by serializers as "EMail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_ZsX8uNp-Ed-ak6NoX_4Aeg_-517542998")]
-    [Description(@"??")]
+    [Description(@"Remittance advice information must be sent through e-mail.")]
     EMail,
     
     /// <summary>
-    /// ??
+    /// Remittance advice information must be sent through postal services.
     /// Encoded/decoded by serializers as "Post".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_ZsX8udp-Ed-ak6NoX_4Aeg_-517542968")]
-    [Description(@"??")]
+    [Description(@"Remittance advice information must be sent through postal services.")]
     Post,
     
     /// <summary>
-    /// ??
+    /// Remittance advice information must be sent through by phone as a short message service (SMS).
     /// Encoded/decoded by serializers as "SMS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMSM")]
     [IsoId("_ZshGoNp-Ed-ak6NoX_4Aeg_-333762381")]
-    [Description(@"??")]
+    [Description(@"Remittance advice information must be sent through by phone as a short message service (SMS).")]
     SMS,
     
 }

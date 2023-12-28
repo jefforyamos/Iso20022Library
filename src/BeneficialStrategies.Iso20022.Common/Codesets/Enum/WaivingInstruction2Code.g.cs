@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum WaivingInstruction2Code
 {
     /// <summary>
-    /// ??
+    /// Form of commission waived is cash.
     /// Encoded/decoded by serializers as "WaiveInCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WICA")]
     [IsoId("_Vg5axtp-Ed-ak6NoX_4Aeg_-646298105")]
-    [Description(@"??")]
+    [Description(@"Form of commission waived is cash.")]
     WaiveInCash,
     
     /// <summary>
-    /// ??
+    /// Form of commission waived is additional units of a financial instrument.
     /// Encoded/decoded by serializers as "WaiveInUnits".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIUN")]
     [IsoId("_Vg5ax9p-Ed-ak6NoX_4Aeg_-633369743")]
-    [Description(@"??")]
+    [Description(@"Form of commission waived is additional units of a financial instrument.")]
     WaiveInUnits,
     
     /// <summary>
-    /// ??
+    /// Another type of commission waiving.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Vg5ayNp-Ed-ak6NoX_4Aeg_-312488315")]
-    [Description(@"??")]
+    [Description(@"Another type of commission waiving.")]
     Other,
     
 }

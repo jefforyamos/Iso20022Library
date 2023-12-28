@@ -21,66 +21,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalNarrativeType1Code
 {
     /// <summary>
-    /// ??
+    /// Narrative text describing the additional terms and conditions.
     /// Encoded/decoded by serializers as "AdditionalTermsAndConditions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDI")]
     [IsoId("_uPvIJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Narrative text describing the additional terms and conditions.")]
     AdditionalTermsAndConditions,
     
     /// <summary>
-    /// ??
+    /// Narrative text describing the charge details.
     /// Encoded/decoded by serializers as "ChargeDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_uPvIKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Narrative text describing the charge details.")]
     ChargeDetails,
     
     /// <summary>
-    /// ??
+    /// Narrative text describing the drawing details.
     /// Encoded/decoded by serializers as "DrawingDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRAW")]
     [IsoId("_uP4SEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Narrative text describing the drawing details.")]
     DrawingDetails,
     
     /// <summary>
-    /// ??
+    /// Narrative text describing the assignment of proceeds terms and conditions.
     /// Encoded/decoded by serializers as "ProceedsAssignable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAS")]
     [IsoId("_uP4SFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Narrative text describing the assignment of proceeds terms and conditions.")]
     ProceedsAssignable,
     
     /// <summary>
-    /// ??
+    /// Narrative text describing the terms of effectiveness.
     /// Encoded/decoded by serializers as "TermsOfEffectiveness".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEFF")]
     [IsoId("_uP4SGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Narrative text describing the terms of effectiveness.")]
     TermsOfEffectiveness,
     
     /// <summary>
-    /// ??
+    /// Narrative text describing the transfer terms and conditions.
     /// Encoded/decoded by serializers as "Transfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRNF")]
     [IsoId("_uP4SG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Narrative text describing the transfer terms and conditions.")]
     Transfer,
     
     /// <summary>
-    /// ??
+    /// Narrative text describing the terms of variation.
     /// Encoded/decoded by serializers as "TermsOfVariation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TVAR")]
     [IsoId("_uP4SHvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Narrative text describing the terms of variation.")]
     TermsOfVariation,
     
 }

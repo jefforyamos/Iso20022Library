@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionEnvironment2Code
 {
     /// <summary>
-    /// ??
+    /// Private environment.
     /// Encoded/decoded by serializers as "Private".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIV")]
     [IsoId("_d7rAgXsIEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Private environment.")]
     Private,
     
     /// <summary>
-    /// ??
+    /// Public environment.
     /// Encoded/decoded by serializers as "Public".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUBL")]
     [IsoId("_eDeRoXsIEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Public environment.")]
     Public,
     
 }

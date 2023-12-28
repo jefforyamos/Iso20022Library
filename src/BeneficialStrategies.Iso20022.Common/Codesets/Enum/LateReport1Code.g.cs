@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LateReport1Code
 {
     /// <summary>
-    /// ??
+    /// The confirmation is late.
     /// Encoded/decoded by serializers as "Late".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAT1")]
     [IsoId("_adsE6dp-Ed-ak6NoX_4Aeg_-1032043364")]
-    [Description(@"??")]
+    [Description(@"The confirmation is late.")]
     Late,
     
     /// <summary>
-    /// ??
+    /// The confirmation is late because the trade was executed as a number of partials.
     /// Encoded/decoded by serializers as "LateBecausePartial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAT2")]
     [IsoId("_adsE6tp-Ed-ak6NoX_4Aeg_-1032043339")]
-    [Description(@"??")]
+    [Description(@"The confirmation is late because the trade was executed as a number of partials.")]
     LateBecausePartial,
     
 }

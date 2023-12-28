@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RetailerService8Code
 {
     /// <summary>
-    /// ??
+    /// One System requests the other to display a message for cashier or customer.
     /// Encoded/decoded by serializers as "DeviceDisplayRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDYQ")]
     [IsoId("_ew3rQd6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One System requests the other to display a message for cashier or customer.")]
     DeviceDisplayRequest,
     
     /// <summary>
-    /// ??
+    /// One system requests to the other System to get data input. 
     /// Encoded/decoded by serializers as "DeviceInputRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DINQ")]
     [IsoId("_fZRvEd6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system requests to the other System to get data input. ")]
     DeviceInputRequest,
     
     /// <summary>
-    /// ??
+    /// One system requests to the other System to print data.
     /// Encoded/decoded by serializers as "DevicePrintRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRQ")]
     [IsoId("_gIio0d6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system requests to the other System to print data.")]
     DevicePrintRequest,
     
     /// <summary>
-    /// ??
+    /// One system requests to the Other System to play a sound.
     /// Encoded/decoded by serializers as "DevicePlaySoundRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSOQ")]
     [IsoId("_gqGdwd6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system requests to the Other System to play a sound.")]
     DevicePlaySoundRequest,
     
     /// <summary>
-    /// ??
+    /// One system requests to the Other System to securely get data input (e.g. for PIN).
     /// Encoded/decoded by serializers as "DeviceSecureInputRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSIQ")]
     [IsoId("_h1pD0d6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system requests to the Other System to securely get data input (e.g. for PIN).")]
     DeviceSecureInputRequest,
     
     /// <summary>
-    /// ??
+    /// Service to send parameters to use when card reader initializes a new communication with the card.
     /// Encoded/decoded by serializers as "DeviceInitialisationCardReaderRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCIQ")]
     [IsoId("_iiMAwd6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Service to send parameters to use when card reader initializes a new communication with the card.")]
     DeviceInitialisationCardReaderRequest,
     
     /// <summary>
-    /// ??
+    /// A service to send commands to a card.
     /// Encoded/decoded by serializers as "DeviceSendApplicationProtocolDataUnitCardReaderRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAQ")]
     [IsoId("_jc7Ksd6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"A service to send commands to a card.")]
     DeviceSendApplicationProtocolDataUnitCardReaderRequest,
     
     /// <summary>
-    /// ??
+    /// The Sale system requests to the POI System to power off the card reader.
     /// Encoded/decoded by serializers as "DevicePowerOffCardReaderRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCPQ")]
     [IsoId("_kPFncd6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Sale system requests to the POI System to power off the card reader.")]
     DevicePowerOffCardReaderRequest,
     
     /// <summary>
-    /// ??
+    /// The Sale system requests to the POI System to transmit a message (for instance to a mobile server).
     /// Encoded/decoded by serializers as "DeviceTransmissionMessageRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCOQ")]
     [IsoId("_lsuqId6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Sale system requests to the POI System to transmit a message (for instance to a mobile server).")]
     DeviceTransmissionMessageRequest,
     
     /// <summary>
-    /// ??
+    /// One system sends a notification to the POI System to update a input request.
     /// Encoded/decoded by serializers as "DeviceInputNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DINO")]
     [IsoId("_mcmA0d6lEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system sends a notification to the POI System to update a input request.")]
     DeviceInputNotification,
     
 }

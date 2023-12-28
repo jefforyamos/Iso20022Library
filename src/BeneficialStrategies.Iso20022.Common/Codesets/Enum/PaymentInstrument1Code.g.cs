@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentInstrument1Code
 {
     /// <summary>
-    /// ??
+    /// Direct debit instruction in which the debtor and the creditor are financial institutions.
     /// Encoded/decoded by serializers as "BankDebitTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BDT")]
     [IsoId("_zcHKoQ93EeGeV5vP7Mvdig_1028186806")]
-    [Description(@"??")]
+    [Description(@"Direct debit instruction in which the debtor and the creditor are financial institutions.")]
     BankDebitTransfer,
     
     /// <summary>
-    /// ??
+    /// Funds transfer in which the debtor and the creditor are financial institutions.
     /// Encoded/decoded by serializers as "BankCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCT")]
     [IsoId("_zcHKog93EeGeV5vP7Mvdig_914347740")]
-    [Description(@"??")]
+    [Description(@"Funds transfer in which the debtor and the creditor are financial institutions.")]
     BankCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Direct debit instruction in which the debtor or the creditor or both are non-financial institutions.
     /// Encoded/decoded by serializers as "CustomerDebitTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDT")]
     [IsoId("_zcHKow93EeGeV5vP7Mvdig_1788951959")]
-    [Description(@"??")]
+    [Description(@"Direct debit instruction in which the debtor or the creditor or both are non-financial institutions.")]
     CustomerDebitTransfer,
     
     /// <summary>
-    /// ??
+    /// Funds transfer in which the debtor or the creditor or both are non-financial institutions.
     /// Encoded/decoded by serializers as "CustomerCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCT")]
     [IsoId("_zcHKpA93EeGeV5vP7Mvdig_2114069466")]
-    [Description(@"??")]
+    [Description(@"Funds transfer in which the debtor or the creditor or both are non-financial institutions.")]
     CustomerCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Payment instrument is a cheque. (A written order on which instructions are given to an account holder (a financial institution) to pay a stated sum to a named recipient (the payee)).
     /// Encoded/decoded by serializers as "Cheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHK")]
     [IsoId("_zcHKpQ93EeGeV5vP7Mvdig_-221004899")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a cheque. (A written order on which instructions are given to an account holder (a financial institution) to pay a stated sum to a named recipient (the payee)).")]
     Cheque,
     
     /// <summary>
-    /// ??
+    /// Transfer that is a movement of cash on the books of the account servicer.
     /// Encoded/decoded by serializers as "BookTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKT")]
     [IsoId("_zcHKpg93EeGeV5vP7Mvdig_104112608")]
-    [Description(@"??")]
+    [Description(@"Transfer that is a movement of cash on the books of the account servicer.")]
     BookTransfer,
     
     /// <summary>
-    /// ??
+    /// Payment instrument is a debit card. (The payment originated using a debit card scheme.).
     /// Encoded/decoded by serializers as "DebitCardPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCP")]
     [IsoId("_zcQUkA93EeGeV5vP7Mvdig_1182132946")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a debit card. (The payment originated using a debit card scheme.).")]
     DebitCardPayment,
     
     /// <summary>
-    /// ??
+    /// Payment instrument is a credit card. (The payment originated using a credit card scheme.).
     /// Encoded/decoded by serializers as "CreditCardPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCP")]
     [IsoId("_zcQUkQ93EeGeV5vP7Mvdig_-2061701278")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a credit card. (The payment originated using a credit card scheme.).")]
     CreditCardPayment,
     
     /// <summary>
-    /// ??
+    /// Entry related to a returned or unpaid item.
     /// Encoded/decoded by serializers as "Return".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTI")]
     [IsoId("_zcQUkg93EeGeV5vP7Mvdig_2119426952")]
-    [Description(@"??")]
+    [Description(@"Entry related to a returned or unpaid item.")]
     Return,
     
     /// <summary>
-    /// ??
+    /// Reverse entry that is the result of the cancellation of a previously booked entry.
     /// Encoded/decoded by serializers as "CancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAN")]
     [IsoId("_zcQUkw93EeGeV5vP7Mvdig_389397029")]
-    [Description(@"??")]
+    [Description(@"Reverse entry that is the result of the cancellation of a previously booked entry.")]
     CancellationRequest,
     
 }

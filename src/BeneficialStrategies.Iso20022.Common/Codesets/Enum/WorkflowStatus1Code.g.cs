@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum WorkflowStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Level details are complete. All required data is populated and verified.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_1pRyozL3EeKU9IrkkToqcw_-758053791")]
-    [Description(@"??")]
+    [Description(@"Level details are complete. All required data is populated and verified.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Level details are incomplete due to conflicting details from 2 or more sources.
     /// Encoded/decoded by serializers as "Conflict".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNFL")]
     [IsoId("_1pRypDL3EeKU9IrkkToqcw_-1512803665")]
-    [Description(@"??")]
+    [Description(@"Level details are incomplete due to conflicting details from 2 or more sources.")]
     Conflict,
     
     /// <summary>
-    /// ??
+    /// Level details are complete pending a condition.
     /// Encoded/decoded by serializers as "ConditionallyComplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COND")]
     [IsoId("_1pRypTL3EeKU9IrkkToqcw_-1626642731")]
-    [Description(@"??")]
+    [Description(@"Level details are complete pending a condition.")]
     ConditionallyComplete,
     
     /// <summary>
-    /// ??
+    /// Level details are incomplete.
     /// Encoded/decoded by serializers as "Incomplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCO")]
     [IsoId("_1pa8kDL3EeKU9IrkkToqcw_-752038512")]
-    [Description(@"??")]
+    [Description(@"Level details are incomplete.")]
     Incomplete,
     
     /// <summary>
-    /// ??
+    /// Level has been deleted, cancelled/deactivated/invalidated by the source or due to error processing error.
     /// Encoded/decoded by serializers as "Deleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLTD")]
     [IsoId("_1pa8kTL3EeKU9IrkkToqcw_-1069815173")]
-    [Description(@"??")]
+    [Description(@"Level has been deleted, cancelled/deactivated/invalidated by the source or due to error processing error.")]
     Deleted,
     
 }

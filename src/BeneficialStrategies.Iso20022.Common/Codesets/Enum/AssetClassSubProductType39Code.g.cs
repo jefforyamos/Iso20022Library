@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType39Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type ammonia.
     /// Encoded/decoded by serializers as "Ammonia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMMO")]
     [IsoId("_OjQNoVr3EeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type ammonia.")]
     Ammonia,
     
 }

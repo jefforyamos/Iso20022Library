@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType4Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type freight.
     /// Encoded/decoded by serializers as "Freight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRGT")]
     [IsoId("_w4AMgQnzEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type freight.")]
     Freight,
     
 }

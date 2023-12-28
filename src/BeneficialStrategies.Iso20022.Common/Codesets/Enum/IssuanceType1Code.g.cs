@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IssuanceType1Code
 {
     /// <summary>
-    /// ??
+    /// Counter-undertaking issued to a correspondent with a request to issue a local undertaking.
     /// Encoded/decoded by serializers as "CounterUndertakingRequestForLocalUndertaking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRQL")]
     [IsoId("_6Joo9n4MEeG05p8M2uqofg")]
-    [Description(@"??")]
+    [Description(@"Counter-undertaking issued to a correspondent with a request to issue a local undertaking.")]
     CounterUndertakingRequestForLocalUndertaking,
     
     /// <summary>
-    /// ??
+    /// Counter-undertaking issued to a correspondent with a request to issue another counter-undertaking.
     /// Encoded/decoded by serializers as "CounterUndertakingRequestForCounterUndertaking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRQC")]
     [IsoId("_6S3ddn4MEeG05p8M2uqofg")]
-    [Description(@"??")]
+    [Description(@"Counter-undertaking issued to a correspondent with a request to issue another counter-undertaking.")]
     CounterUndertakingRequestForCounterUndertaking,
     
     /// <summary>
-    /// ??
+    /// Undertaking issued direct to the beneficiary.
     /// Encoded/decoded by serializers as "UndertakingIssuedDirect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("_6ZlJdn4MEeG05p8M2uqofg")]
-    [Description(@"??")]
+    [Description(@"Undertaking issued direct to the beneficiary.")]
     UndertakingIssuedDirect,
     
     /// <summary>
-    /// ??
+    /// Undertaking issued to the beneficiary via a confirming party.
     /// Encoded/decoded by serializers as "UndertakingIssuedViaConfirmingParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISCO")]
     [IsoId("_6ihDBn4MEeG05p8M2uqofg")]
-    [Description(@"??")]
+    [Description(@"Undertaking issued to the beneficiary via a confirming party.")]
     UndertakingIssuedViaConfirmingParty,
     
     /// <summary>
-    /// ??
+    /// Undertaking issued to the beneficiary via an advising party.
     /// Encoded/decoded by serializers as "UndertakingViaAdvisingParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISAD")]
     [IsoId("_6qt8xn4MEeG05p8M2uqofg")]
-    [Description(@"??")]
+    [Description(@"Undertaking issued to the beneficiary via an advising party.")]
     UndertakingViaAdvisingParty,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QuoteResponseType1Code
 {
     /// <summary>
-    /// ??
+    /// Acceptance by a party of the conditions of a quote.
     /// Encoded/decoded by serializers as "HitLift".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HILI")]
     [IsoId("_ZX9L6Np-Ed-ak6NoX_4Aeg_-1103387160")]
-    [Description(@"??")]
+    [Description(@"Acceptance by a party of the conditions of a quote.")]
     HitLift,
     
     /// <summary>
-    /// ??
+    /// Rejection of the conditions of a quote and proposition of new quote details.
     /// Encoded/decoded by serializers as "CounterQuote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COUN")]
     [IsoId("_ZYG84Np-Ed-ak6NoX_4Aeg_-1103386770")]
-    [Description(@"??")]
+    [Description(@"Rejection of the conditions of a quote and proposition of new quote details.")]
     CounterQuote,
     
     /// <summary>
-    /// ??
+    /// Rejection of the conditions of a quote due to its expiry.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_ZYG84dp-Ed-ak6NoX_4Aeg_-1103386727")]
-    [Description(@"??")]
+    [Description(@"Rejection of the conditions of a quote due to its expiry.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// Purchase of a contract to offset a previously established short position.
     /// Encoded/decoded by serializers as "Cover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVE")]
     [IsoId("_ZYG84tp-Ed-ak6NoX_4Aeg_-1103386436")]
-    [Description(@"??")]
+    [Description(@"Purchase of a contract to offset a previously established short position.")]
     Cover,
     
     /// <summary>
-    /// ??
+    /// Trade completed with a third party, counter-party.
     /// Encoded/decoded by serializers as "DoneAway".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DONE")]
     [IsoId("_ZYG849p-Ed-ak6NoX_4Aeg_-1103386401")]
-    [Description(@"??")]
+    [Description(@"Trade completed with a third party, counter-party.")]
     DoneAway,
     
     /// <summary>
-    /// ??
+    /// Rejection of the conditions of a quote because the offer is being declined.
     /// Encoded/decoded by serializers as "Pass".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_ZYG85Np-Ed-ak6NoX_4Aeg_-1103386359")]
-    [Description(@"??")]
+    [Description(@"Rejection of the conditions of a quote because the offer is being declined.")]
     Pass,
     
 }

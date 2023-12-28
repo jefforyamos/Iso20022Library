@@ -20,1047 +20,1049 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AddendumTaxType1Code
 {
     /// <summary>
-    /// ??
+    /// Total of all applicable taxes
     /// Encoded/decoded by serializers as "TotalTaxes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOTL")]
     [IsoId("_sm_u4fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Total of all applicable taxes")]
     TotalTaxes,
     
     /// <summary>
-    /// ??
+    /// Tax is an alternative minimum tax.
     /// Encoded/decoded by serializers as "AlternativeMinimumTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALMI")]
     [IsoId("_tXU_ofMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax is an alternative minimum tax.")]
     AlternativeMinimumTax,
     
     /// <summary>
-    /// ??
+    /// Assessment
     /// Encoded/decoded by serializers as "Assessment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASNT")]
     [IsoId("_teySgfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Assessment")]
     Assessment,
     
     /// <summary>
-    /// ??
+    /// Tax imposed on non-American Indian businesses for the privilege of conducting business on an American Indian Reservation
     /// Encoded/decoded by serializers as "BusinessPrivilegeTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BPTX")]
     [IsoId("_tia1UfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax imposed on non-American Indian businesses for the privilege of conducting business on an American Indian Reservation")]
     BusinessPrivilegeTax,
     
     /// <summary>
-    /// ??
+    /// Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.
     /// Encoded/decoded by serializers as "CapitalGainTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KAPA")]
     [IsoId("_tl3K4fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.")]
     CapitalGainTax,
     
     /// <summary>
-    /// ??
+    /// Tax recovery is due to capital loss.
     /// Encoded/decoded by serializers as "CapitalLossCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NKAP")]
     [IsoId("_tpNZ0fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax recovery is due to capital loss.")]
     CapitalLossCredit,
     
     /// <summary>
-    /// ??
+    /// Levied by a city government against the periodic fee paid by a customer in return for the right to use the property of another party.
     /// Encoded/decoded by serializers as "CityRentalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTX")]
     [IsoId("_tsrkkfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Levied by a city government against the periodic fee paid by a customer in return for the right to use the property of another party.")]
     CityRentalTax,
     
     /// <summary>
-    /// ??
+    /// Sales tax imposed by a city
     /// Encoded/decoded by serializers as "CitySalesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSTX")]
     [IsoId("_twDosfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Sales tax imposed by a city")]
     CitySalesTax,
     
     /// <summary>
-    /// ??
+    /// Service tax imposed by a city
     /// Encoded/decoded by serializers as "CityTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CITX")]
     [IsoId("_tztZofMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Service tax imposed by a city")]
     CityTax,
     
     /// <summary>
-    /// ??
+    /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
     /// Encoded/decoded by serializers as "ConsumptionTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAX")]
     [IsoId("_t3OAofMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
     ConsumptionTax,
     
     /// <summary>
-    /// ??
+    /// Service tax imposed by a County or Parish
     /// Encoded/decoded by serializers as "CountyParishSalesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPST")]
     [IsoId("_t6mr0fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Service tax imposed by a County or Parish")]
     CountyParishSalesTax,
     
     /// <summary>
-    /// ??
+    /// Levied by a county government against the periodic fee paid by a customer in return for the right to use the property of another party.
     /// Encoded/decoded by serializers as "CountyRentalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORT")]
     [IsoId("_t-GrwfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Levied by a county government against the periodic fee paid by a customer in return for the right to use the property of another party.")]
     CountyRentalTax,
     
     /// <summary>
-    /// ??
+    /// Service tax levied by a county
     /// Encoded/decoded by serializers as "CountyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COTX")]
     [IsoId("_uBeI0fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Service tax levied by a county")]
     CountyTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on imports or exports by a country's customs authority. 
     /// Encoded/decoded by serializers as "CustomsTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_uE20AfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on imports or exports by a country's customs authority. ")]
     CustomsTax,
     
     /// <summary>
-    /// ??
+    /// Default Labour Tax
     /// Encoded/decoded by serializers as "DefaultLabourTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLTX")]
     [IsoId("_uIL00fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Default Labour Tax")]
     DefaultLabourTax,
     
     /// <summary>
-    /// ??
+    /// A tax levied on goods that typically though not exclusively transit across a geographic border. 
     /// Encoded/decoded by serializers as "Duty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUTY")]
     [IsoId("_uLgOkfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"A tax levied on goods that typically though not exclusively transit across a geographic border. ")]
     Duty,
     
     /// <summary>
-    /// ??
+    /// Tax levied by a city to recover the cost of providing telephone emergency assistance service (for example, 112, 911, 999).
     /// Encoded/decoded by serializers as "EmergencyAssistanceCityTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMIT")]
     [IsoId("_uPFuEfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by a city to recover the cost of providing telephone emergency assistance service (for example, 112, 911, 999).")]
     EmergencyAssistanceCityTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied by a county to recover the cost of providing telephone emergency assistance service (for example, 112, 911, 999).
     /// Encoded/decoded by serializers as "EmergencyAssistanceCountyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMUT")]
     [IsoId("_uSoxUfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by a county to recover the cost of providing telephone emergency assistance service (for example, 112, 911, 999).")]
     EmergencyAssistanceCountyTax,
     
     /// <summary>
-    /// ??
+    /// Usage tax levied to recover the cost of telephone emergency assistance service (for example, 112, 911, 999).
     /// Encoded/decoded by serializers as "EmergencyAssistanceExciseTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMET")]
     [IsoId("_uWLNgfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Usage tax levied to recover the cost of telephone emergency assistance service (for example, 112, 911, 999).")]
     EmergencyAssistanceExciseTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied by a state to recover the cost of providing telephone emergency assistance service (for example, 112, 911, 999).
     /// Encoded/decoded by serializers as "EmergencyAssistanceStateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMST")]
     [IsoId("_uZtCofMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by a state to recover the cost of providing telephone emergency assistance service (for example, 112, 911, 999).")]
     EmergencyAssistanceStateTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied to recover the cost of providing telephone emergency assistance service (for example,112, 911, 999).
     /// Encoded/decoded by serializers as "EmergencyAssistanceTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMRT")]
     [IsoId("_udYBsfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied to recover the cost of providing telephone emergency assistance service (for example,112, 911, 999).")]
     EmergencyAssistanceTax,
     
     /// <summary>
-    /// ??
+    /// Tax applied to the utility and petroleum industries. 
     /// Encoded/decoded by serializers as "EnergyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENTX")]
     [IsoId("_ug6d4fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax applied to the utility and petroleum industries. ")]
     EnergyTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied by a state to recover the cost of providing enhanced telephone emergency assistance services (for example, 112, 911, 999) such as automatic call identification.
     /// Encoded/decoded by serializers as "EnhancedEmergencyAssistanceStateExciseTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESET")]
     [IsoId("_ukgkcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by a state to recover the cost of providing enhanced telephone emergency assistance services (for example, 112, 911, 999) such as automatic call identification.")]
     EnhancedEmergencyAssistanceStateExciseTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on activities which are considered to have negative impacts on an environment. 
     /// Encoded/decoded by serializers as "EnvironmentalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENVT")]
     [IsoId("_uoBygfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on activities which are considered to have negative impacts on an environment. ")]
     EnvironmentalTax,
     
     /// <summary>
-    /// ??
+    /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// Encoded/decoded by serializers as "Equalisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUL")]
     [IsoId("_urrjcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.")]
     Equalisation,
     
     /// <summary>
-    /// ??
+    /// Equipment Tax
     /// Encoded/decoded by serializers as "EquipmentTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQTX")]
     [IsoId("_uvQb4fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Equipment Tax")]
     EquipmentTax,
     
     /// <summary>
-    /// ??
+    /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
     /// Encoded/decoded by serializers as "EUTaxRetention".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUTR")]
     [IsoId("_uy17YfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
     EUTaxRetention,
     
     /// <summary>
-    /// ??
+    /// Executing broker's commission amount.
     /// Encoded/decoded by serializers as "ExecutingBrokerCommission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXEC")]
     [IsoId("_u2S4AfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Executing broker's commission amount.")]
     ExecutingBrokerCommission,
     
     /// <summary>
-    /// ??
+    /// Excise tax levied by a federal government.
     /// Encoded/decoded by serializers as "FederalExciseTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEXT")]
     [IsoId("_u51UMfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Excise tax levied by a federal government.")]
     FederalExciseTax,
     
     /// <summary>
-    /// ??
+    /// Federal or National Sales Tax.
     /// Encoded/decoded by serializers as "FederalNationalSalesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNST")]
     [IsoId("_u9UGAfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Federal or National Sales Tax.")]
     FederalNationalSalesTax,
     
     /// <summary>
-    /// ??
+    /// Usage tax levied by federal (US and Canadian) government.
     /// Encoded/decoded by serializers as "FederalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FETX")]
     [IsoId("_wh3pAfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Usage tax levied by federal (US and Canadian) government.")]
     FederalTax,
     
     /// <summary>
-    /// ??
+    /// Federal Value-Added Tax (GST).
     /// Encoded/decoded by serializers as "FederalValueAddedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FVAT")]
     [IsoId("_wppsAfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Federal Value-Added Tax (GST).")]
     FederalValueAddedTax,
     
     /// <summary>
-    /// ??
+    /// Federal Value-Added Tax (GST) on Services
     /// Encoded/decoded by serializers as "FederalValueAddedTaxOnServices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FVTS")]
     [IsoId("_wtBJEfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Federal Value-Added Tax (GST) on Services")]
     FederalValueAddedTaxOnServices,
     
     /// <summary>
-    /// ??
+    /// USA Federal Insurance Contributions Act tax levied to assist in the funding of Medicare.
     /// Encoded/decoded by serializers as "FICAMedicareTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIMT")]
     [IsoId("_wwbpcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"USA Federal Insurance Contributions Act tax levied to assist in the funding of Medicare.")]
     FICAMedicareTax,
     
     /// <summary>
-    /// ??
+    /// USA Federal Insurance Contributions Act tax levied to assist in the funding of social security.
     /// Encoded/decoded by serializers as "FICASocialSecurityTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSST")]
     [IsoId("_wzzGgfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"USA Federal Insurance Contributions Act tax levied to assist in the funding of social security.")]
     FICASocialSecurityTax,
     
     /// <summary>
-    /// ??
+    /// USA Federal Insurance Contributions Act tax.
     /// Encoded/decoded by serializers as "FICATax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FICA")]
     [IsoId("_w3RRQfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"USA Federal Insurance Contributions Act tax.")]
     FICATax,
     
     /// <summary>
-    /// ??
+    /// Tax levied by a municipality, on certain types of businesses for the right to exist as a legal entity and conduct business in a particular jurisdiction. 
     /// Encoded/decoded by serializers as "FranchiseTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRTX")]
     [IsoId("_w6wqIfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by a municipality, on certain types of businesses for the right to exist as a legal entity and conduct business in a particular jurisdiction. ")]
     FranchiseTax,
     
     /// <summary>
-    /// ??
+    /// Fuel Spill Tax.
     /// Encoded/decoded by serializers as "FuelSpillTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSTX")]
     [IsoId("_w-Fq8fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Fuel Spill Tax.")]
     FuelSpillTax,
     
     /// <summary>
-    /// ??
+    /// USA federal tax levied on certain types of businesses to provide funding for cleanup of hazardous waste sites. 
     /// Encoded/decoded by serializers as "FuelSuperFundTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSFT")]
     [IsoId("_xBiAgfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"USA federal tax levied on certain types of businesses to provide funding for cleanup of hazardous waste sites. ")]
     FuelSuperFundTax,
     
     /// <summary>
-    /// ??
+    /// Value Added Tax calculated at the full tax rate.
     /// Encoded/decoded by serializers as "FullVAT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUVT")]
     [IsoId("_xE4PcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Value Added Tax calculated at the full tax rate.")]
     FullVAT,
     
     /// <summary>
-    /// ??
+    /// Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.
     /// Encoded/decoded by serializers as "GiftTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIFT")]
     [IsoId("_xIVzIfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.")]
     GiftTax,
     
     /// <summary>
-    /// ??
+    /// Goods and Services Tax - Canadian value-added tax.
     /// Encoded/decoded by serializers as "GoodsAndServicesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GCAT")]
     [IsoId("_xL3oQfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Goods and Services Tax - Canadian value-added tax.")]
     GoodsAndServicesTax,
     
     /// <summary>
-    /// ??
+    /// Gross Receipts Tax.
     /// Encoded/decoded by serializers as "GrossReceiptsTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRTX")]
     [IsoId("_xPTWwfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Gross Receipts Tax.")]
     GrossReceiptsTax,
     
     /// <summary>
-    /// ??
+    /// Value Added Tax calculated at the half tax rate.
     /// Encoded/decoded by serializers as "HalfVAT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HVAT")]
     [IsoId("_xS2aAfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Value Added Tax calculated at the half tax rate.")]
     HalfVAT,
     
     /// <summary>
-    /// ??
+    /// Tax assessed to assist the handicapped.
     /// Encoded/decoded by serializers as "HandicapTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HATX")]
     [IsoId("_xWbScfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax assessed to assist the handicapped.")]
     HandicapTax,
     
     /// <summary>
-    /// ??
+    /// Harmonized Sales Tax (HST).
     /// Encoded/decoded by serializers as "HarmonizedSalesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HSTX")]
     [IsoId("_xZ7SYfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Harmonized Sales Tax (HST).")]
     HarmonizedSalesTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on entities that produce, store, treat, transport or otherwise manage hazardous wastes and materials.
     /// Encoded/decoded by serializers as "HazardousWasteTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HWTX")]
     [IsoId("_xdWZ0fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on entities that produce, store, treat, transport or otherwise manage hazardous wastes and materials.")]
     HazardousWasteTax,
     
     /// <summary>
-    /// ??
+    /// Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.
     /// Encoded/decoded by serializers as "InheritanceTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INHT")]
     [IsoId("_xgzWcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.")]
     InheritanceTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on the sum of all earnings/revenues accrued since the last dividend distribution.
     /// Encoded/decoded by serializers as "InterimProfitTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPO")]
     [IsoId("_xkWZsfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on the sum of all earnings/revenues accrued since the last dividend distribution.")]
     InterimProfitTax,
     
     /// <summary>
-    /// ??
+    /// Labour by Trade Tax
     /// Encoded/decoded by serializers as "LabourByTradeTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTTX")]
     [IsoId("_xn9uYfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Labour by Trade Tax")]
     LabourByTradeTax,
     
     /// <summary>
-    /// ??
+    /// Federal tax levied in the USA to fund the clean-up activities associated with leaking underground storage tanks.
     /// Encoded/decoded by serializers as "LeakyUndergroundStorageTankTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLST")]
     [IsoId("_xrarAfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Federal tax levied in the USA to fund the clean-up activities associated with leaking underground storage tanks.")]
     LeakyUndergroundStorageTankTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied by a government agency for the granting of a license to conduct an activity, such as driving a car, operating a business, selling liquor, hunting, or practicing certain vocations.
     /// Encoded/decoded by serializers as "LicenseTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LITX")]
     [IsoId("_xu1LYfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by a government agency for the granting of a license to conduct an activity, such as driving a car, operating a business, selling liquor, hunting, or practicing certain vocations.")]
     LicenseTax,
     
     /// <summary>
-    /// ??
+    /// Local broker's commission amount.
     /// Encoded/decoded by serializers as "LocalBrokerCommission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCO")]
     [IsoId("_xySIAfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Local broker's commission amount.")]
     LocalBrokerCommission,
     
     /// <summary>
-    /// ??
+    /// All applicable sales taxes levied by taxing authorities below the state level. Used only for sales tax. 
     /// Encoded/decoded by serializers as "LocalSalesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LSTX")]
     [IsoId("_x1w50fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"All applicable sales taxes levied by taxing authorities below the state level. Used only for sales tax. ")]
     LocalSalesTax,
     
     /// <summary>
-    /// ??
+    /// Service tax levied by a local government or taxation agency. Not a sales tax. 
     /// Encoded/decoded by serializers as "LocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCL")]
     [IsoId("_x5XAYfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Service tax levied by a local government or taxation agency. Not a sales tax. ")]
     LocalTax,
     
     /// <summary>
-    /// ??
+    /// Ad valorem tax levied on products or services that are deemed to be non-essential or unneeded.
     /// Encoded/decoded by serializers as "LuxuryTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LUTX")]
     [IsoId("_x8zV8fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Ad valorem tax levied on products or services that are deemed to be non-essential or unneeded.")]
     LuxuryTax,
     
     /// <summary>
-    /// ??
+    /// Material Tax
     /// Encoded/decoded by serializers as "MaterialTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MATX")]
     [IsoId("_yAPrgfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Material Tax")]
     MaterialTax,
     
     /// <summary>
-    /// ??
+    /// Metropolitan Transit Tax
     /// Encoded/decoded by serializers as "MetropolitanTransitTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "METX")]
     [IsoId("_yD2ZIfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Metropolitan Transit Tax")]
     MetropolitanTransitTax,
     
     /// <summary>
-    /// ??
+    /// Minimum Tax
     /// Encoded/decoded by serializers as "MinimumTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MITX")]
     [IsoId("_yHZcYfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Minimum Tax")]
     MinimumTax,
     
     /// <summary>
-    /// ??
+    /// Service tax imposed by a municipality.
     /// Encoded/decoded by serializers as "MunicipalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUTX")]
     [IsoId("_yK-U0fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Service tax imposed by a municipality.")]
     MunicipalTax,
     
     /// <summary>
-    /// ??
+    /// Mutually Defined
     /// Encoded/decoded by serializers as "MutuallyDefinedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUDE")]
     [IsoId("_yOaqYfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Mutually Defined")]
     MutuallyDefinedTax,
     
     /// <summary>
-    /// ??
+    /// Tax is a country, national, or federal tax usually levied by the custodian.
     /// Encoded/decoded by serializers as "NationalFederalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COUN")]
     [IsoId("_yR5cMfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax is a country, national, or federal tax usually levied by the custodian.")]
     NationalFederalTax,
     
     /// <summary>
-    /// ??
+    /// Tax is a national tax.
     /// Encoded/decoded by serializers as "NationalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NATI")]
     [IsoId("_yVZcIfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax is a national tax.")]
     NationalTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied for the privelage of occupying space for home or rental for a fixed period of time, as determined by a taxing authority. 
+    /// 
     /// Encoded/decoded by serializers as "OccupancyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCTX")]
     [IsoId("_yZAJwfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied for the privelage of occupying space for home or rental for a fixed period of time, as determined by a taxing authority.  ")]
     OccupancyTax,
     
     /// <summary>
-    /// ??
+    /// Type of gross receipts tax imposed for the privilege of carrying on a business, trade or profession.
+    /// 
     /// Encoded/decoded by serializers as "OccupationalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTX")]
     [IsoId("_ycil8fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Type of gross receipts tax imposed for the privilege of carrying on a business, trade or profession. ")]
     OccupationalTax,
     
     /// <summary>
-    /// ??
+    /// Other type of tax not elsewhere classified.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ygIsgfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Other type of tax not elsewhere classified.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Other national use defined value
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_yjqhofMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Other national use defined value")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other private use defined value
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_ynGQIfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Other private use defined value")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other taxes
     /// Encoded/decoded by serializers as "OtherTaxes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTTX")]
     [IsoId("_yqilsfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Other taxes")]
     OtherTaxes,
     
     /// <summary>
-    /// ??
+    /// Tax levied on a payment.
     /// Encoded/decoded by serializers as "PaymentLevyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEVY")]
     [IsoId("_yuFB4fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on a payment.")]
     PaymentLevyTax,
     
     /// <summary>
-    /// ??
+    /// Post-threshold Tax
     /// Encoded/decoded by serializers as "PostThresholdTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POTX")]
     [IsoId("_yxpTQPMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Post-threshold Tax")]
     PostThresholdTax,
     
     /// <summary>
-    /// ??
+    /// Pre-threshold tax
     /// Encoded/decoded by serializers as "PreThresholdTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRTX")]
     [IsoId("_y1OLsfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Pre-threshold tax")]
     PreThresholdTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on products and services
     /// Encoded/decoded by serializers as "ProductAndServicesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSTX")]
     [IsoId("_y4sWcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on products and services")]
     ProductAndServicesTax,
     
     /// <summary>
-    /// ??
+    /// Ad valorem property tax levied on real or personal property by local government units such as counties, municipalities, school districts, and special taxing districts.
     /// Encoded/decoded by serializers as "PropertyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPTX")]
     [IsoId("_y8Qn0fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Ad valorem property tax levied on real or personal property by local government units such as counties, municipalities, school districts, and special taxing districts.")]
     PropertyTax,
     
     /// <summary>
-    /// ??
+    /// Provincial tax
     /// Encoded/decoded by serializers as "ProvincialTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROV")]
     [IsoId("_y_uykfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Provincial tax")]
     ProvincialTax,
     
     /// <summary>
-    /// ??
+    /// Canadian tax levied to fund public care and education. 
     /// Encoded/decoded by serializers as "PublicHealthAndEducationTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHET")]
     [IsoId("_zDMWQfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Canadian tax levied to fund public care and education. ")]
     PublicHealthAndEducationTax,
     
     /// <summary>
-    /// ??
+    /// Quebec Sales Tax (QST)
     /// Encoded/decoded by serializers as "QuebecSalesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUST")]
     [IsoId("_zGwnofMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Quebec Sales Tax (QST)")]
     QuebecSalesTax,
     
     /// <summary>
-    /// ??
+    /// Room City
     /// Encoded/decoded by serializers as "RoomCity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROCI")]
     [IsoId("_zKNkQfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Room City")]
     RoomCity,
     
     /// <summary>
-    /// ??
+    /// Room Country Subdivision1
     /// Encoded/decoded by serializers as "RoomCountrySubdivision1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCSB")]
     [IsoId("_zNuLQfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Room Country Subdivision1")]
     RoomCountrySubdivision1,
     
     /// <summary>
-    /// ??
+    /// Room Country Subdivision2
     /// Encoded/decoded by serializers as "RoomCountrySubdivision2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCSD")]
     [IsoId("_zSJ_UfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Room Country Subdivision2")]
     RoomCountrySubdivision2,
     
     /// <summary>
-    /// ??
+    /// Room Tax
     /// Encoded/decoded by serializers as "RoomTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROTX")]
     [IsoId("_zVws8fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Room Tax")]
     RoomTax,
     
     /// <summary>
-    /// ??
+    /// Room VAT
     /// Encoded/decoded by serializers as "RoomVAT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVAT")]
     [IsoId("_zZO3sfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Room VAT")]
     RoomVAT,
     
     /// <summary>
-    /// ??
+    /// Room Visitor
     /// Encoded/decoded by serializers as "RoomVisitor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROVI")]
     [IsoId("_zc2zcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Room Visitor")]
     RoomVisitor,
     
     /// <summary>
-    /// ??
+    /// Tax levied for the use of equipment and service provided
     /// Encoded/decoded by serializers as "SalesAndUseTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAUT")]
     [IsoId("_zgfWQfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied for the use of equipment and service provided")]
     SalesAndUseTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied by taxing authority for schools
     /// Encoded/decoded by serializers as "SchoolTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCTX")]
     [IsoId("_zj6dsfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by taxing authority for schools")]
     SchoolTax,
     
     /// <summary>
-    /// ??
+    /// Secondary Percentage Tax
     /// Encoded/decoded by serializers as "SecondaryPercentageTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPTX")]
     [IsoId("_znWMMfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Secondary Percentage Tax")]
     SecondaryPercentageTax,
     
     /// <summary>
-    /// ??
+    /// Stadium Tax
     /// Encoded/decoded by serializers as "StadiumTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STTA")]
     [IsoId("_zq4oYfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Stadium Tax")]
     StadiumTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on certain types of documents and transactions.
     /// Encoded/decoded by serializers as "StampDuty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAM")]
     [IsoId("_zuYBQfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on certain types of documents and transactions.")]
     StampDuty,
     
     /// <summary>
-    /// ??
+    /// State and Local Sales Tax
     /// Encoded/decoded by serializers as "StateAndLocalSalesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLST")]
     [IsoId("_zx6dcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"State and Local Sales Tax")]
     StateAndLocalSalesTax,
     
     /// <summary>
-    /// ??
+    /// State and local tax levies, exclusive of state and local sales tax. 
     /// Encoded/decoded by serializers as "StateAndLocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLTX")]
     [IsoId("_z1hyIfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"State and local tax levies, exclusive of state and local sales tax. ")]
     StateAndLocalTax,
     
     /// <summary>
-    /// ??
+    /// Usage tax imposed by state or provincial government authorities.
     /// Encoded/decoded by serializers as "StateExciseTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETX")]
     [IsoId("_z5GqkfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Usage tax imposed by state or provincial government authorities.")]
     StateExciseTax,
     
     /// <summary>
-    /// ??
+    /// Sales tax levied by a State or Province that excludes sales or excise taxes.
     /// Encoded/decoded by serializers as "StateOrProvincialTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STPT")]
     [IsoId("_z8k1UfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Sales tax levied by a State or Province that excludes sales or excise taxes.")]
     StateOrProvincialTax,
     
     /// <summary>
-    /// ??
+    /// State or Provincial tax on services
     /// Encoded/decoded by serializers as "StateOrProvincialTaxOnServices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPTS")]
     [IsoId("_0ABx8fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"State or Provincial tax on services")]
     StateOrProvincialTaxOnServices,
     
     /// <summary>
-    /// ??
+    /// State or Provincial Fuel Tax
     /// Encoded/decoded by serializers as "StateProvincialFuelTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPFT")]
     [IsoId("_0DlcQfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"State or Provincial Fuel Tax")]
     StateProvincialFuelTax,
     
     /// <summary>
-    /// ??
+    /// State or Provincial Tax on Goods
     /// Encoded/decoded by serializers as "StateProvincialTaxOnGoods".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPTG")]
     [IsoId("_0G_VkfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"State or Provincial Tax on Goods")]
     StateProvincialTaxOnGoods,
     
     /// <summary>
-    /// ??
+    /// Tax levied by a state government against a periodic fee paid by a customer in return for the right to use the property of another party.
     /// Encoded/decoded by serializers as "StateRentalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRTX")]
     [IsoId("_0Kk1EfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by a state government against a periodic fee paid by a customer in return for the right to use the property of another party.")]
     StateRentalTax,
     
     /// <summary>
-    /// ??
+    /// State Sales Tax
     /// Encoded/decoded by serializers as "StateSalesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSTX")]
     [IsoId("_0OGDIfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"State Sales Tax")]
     StateSalesTax,
     
     /// <summary>
-    /// ??
+    /// State tax.
     /// Encoded/decoded by serializers as "StateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAT")]
     [IsoId("_0RlcAfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"State tax.")]
     StateTax,
     
     /// <summary>
-    /// ??
+    /// State Tax on Specific Labour
     /// Encoded/decoded by serializers as "StateTaxOnSpecificLabour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STSL")]
     [IsoId("_0VEN0fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"State Tax on Specific Labour")]
     StateTaxOnSpecificLabour,
     
     /// <summary>
-    /// ??
+    /// Tax levied by a stock exchange.
     /// Encoded/decoded by serializers as "StockExchangeTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEX")]
     [IsoId("_0YmqAfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied by a stock exchange.")]
     StockExchangeTax,
     
     /// <summary>
-    /// ??
+    /// Surtax
     /// Encoded/decoded by serializers as "Surtax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUTX")]
     [IsoId("_0cGC4fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Surtax")]
     Surtax,
     
     /// <summary>
-    /// ??
+    /// Direct reduction of an individual's tax liability.
     /// Encoded/decoded by serializers as "TaxCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTAX")]
     [IsoId("_0fnQ8fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Direct reduction of an individual's tax liability.")]
     TaxCredit,
     
     /// <summary>
-    /// ??
+    /// Excise tax levied to recover the cost of providing Telecommunications Device for the Deaf (TDD) Equipment. 
     /// Encoded/decoded by serializers as "TDDServiceExciseTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TDDT")]
     [IsoId("_0jH38fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Excise tax levied to recover the cost of providing Telecommunications Device for the Deaf (TDD) Equipment. ")]
     TDDServiceExciseTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on telecommunications companies for the right to provide services. May be a usage or excise tax.
     /// Encoded/decoded by serializers as "TelecommunicationsTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELT")]
     [IsoId("_0nEj0fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on telecommunications companies for the right to provide services. May be a usage or excise tax.")]
     TelecommunicationsTax,
     
     /// <summary>
-    /// ??
+    /// Threshold Tax
     /// Encoded/decoded by serializers as "ThresholdTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THTX")]
     [IsoId("_0qiukfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Threshold Tax")]
     ThresholdTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on a transaction.
     /// Encoded/decoded by serializers as "TransactionTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAX")]
     [IsoId("_1t1XkfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on a transaction.")]
     TransactionTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on a transfer.
     /// Encoded/decoded by serializers as "TransferTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_1zkMIfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on a transfer.")]
     TransferTax,
     
     /// <summary>
-    /// ??
+    /// Unspecified tax type
     /// Encoded/decoded by serializers as "Unspecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_1283UfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Unspecified tax type")]
     Unspecified,
     
     /// <summary>
-    /// ??
+    /// Tax levied on consumers by a city or county for the use of natural gas. 
     /// Encoded/decoded by serializers as "UtilityUsersTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UUTX")]
     [IsoId("_16hvwfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied on consumers by a city or county for the use of natural gas. ")]
     UtilityUsersTax,
     
     /// <summary>
-    /// ??
+    /// Value added tax
     /// Encoded/decoded by serializers as "ValueAddedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATA")]
     [IsoId("_2NiLUfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Value added tax")]
     ValueAddedTax,
     
     /// <summary>
-    /// ??
+    /// Tax for which a zero rate applies.
     /// Encoded/decoded by serializers as "ValueAddedTaxOfZeroRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATB")]
     [IsoId("_2Q_H8fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax for which a zero rate applies.")]
     ValueAddedTaxOfZeroRate,
     
     /// <summary>
-    /// ??
+    /// Tax levied only when the value of assets or categories of assets owned by an entity are above a given limit as defined by the tax authority. Wealth tax is not linked to income.
     /// Encoded/decoded by serializers as "WealthTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTAX")]
     [IsoId("_2ovgofMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Tax levied only when the value of assets or categories of assets owned by an entity are above a given limit as defined by the tax authority. Wealth tax is not linked to income.")]
     WealthTax,
     
     /// <summary>
-    /// ??
+    /// Well Service
     /// Encoded/decoded by serializers as "WellService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WESV")]
     [IsoId("_2sJZ8fMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Well Service")]
     WellService,
     
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfForeignTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITF")]
     [IsoId("_3BafUfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfForeignTax,
     
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfLocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITL")]
     [IsoId("_3EzxkfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfLocalTax,
     
     /// <summary>
-    /// ??
+    /// Income tax withheld or deducted from the amount due to the recipient, and paid to the government by the payer rather than the recipient. May apply to salaries, interest, and other types of proceeds. 
     /// Encoded/decoded by serializers as "WithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_3ITKcfMwEei4qfiLgRIZBA")]
-    [Description(@"??")]
+    [Description(@"Income tax withheld or deducted from the amount due to the recipient, and paid to the government by the payer rather than the recipient. May apply to salaries, interest, and other types of proceeds. ")]
     WithholdingTax,
     
 }

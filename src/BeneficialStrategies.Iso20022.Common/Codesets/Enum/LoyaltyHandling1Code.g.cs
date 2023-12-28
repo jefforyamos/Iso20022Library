@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LoyaltyHandling1Code
 {
     /// <summary>
-    /// ??
+    /// The loyalty is accepted, but the POI has not to require or ask a loyalty card. The loyalty is involved by the payment card (e.g. an hybrid or linked card). 
     /// Encoded/decoded by serializers as "Allowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLO")]
     [IsoId("_WKvCUdt4EeiXqq0XHEoNUA")]
-    [Description(@"??")]
+    [Description(@"The loyalty is accepted, but the POI has not to require or ask a loyalty card. The loyalty is involved by the payment card (e.g. an hybrid or linked card). ")]
     Allowed,
     
     /// <summary>
-    /// ??
+    /// No loyalty card to read and loyalty transaction to process. 	Any attempt to enter a pure loyalty card is rejected.
     /// Encoded/decoded by serializers as "Forbidden".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DENY")]
     [IsoId("_WO5Jkdt4EeiXqq0XHEoNUA")]
-    [Description(@"??")]
+    [Description(@"No loyalty card to read and loyalty transaction to process. 	Any attempt to enter a pure loyalty card is rejected.")]
     Forbidden,
     
     /// <summary>
-    /// ??
+    /// The loyalty transaction is already processed, no loyalty card or loyalty transaction to process.
     /// Encoded/decoded by serializers as "Processed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCS")]
     [IsoId("_WS0nUdt4EeiXqq0XHEoNUA")]
-    [Description(@"??")]
+    [Description(@"The loyalty transaction is already processed, no loyalty card or loyalty transaction to process.")]
     Processed,
     
     /// <summary>
-    /// ??
+    /// The loyalty is accepted, and the POI has to ask a loyalty card. If the Customer does not enter a loyalty card, no loyalty transaction is realised.
     /// Encoded/decoded by serializers as "Proposed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("_WW-Hgdt4EeiXqq0XHEoNUA")]
-    [Description(@"??")]
+    [Description(@"The loyalty is accepted, and the POI has to ask a loyalty card. If the Customer does not enter a loyalty card, no loyalty transaction is realised.")]
     Proposed,
     
     /// <summary>
-    /// ??
+    /// The loyalty is required, and the POI refuses the processing 	of the message request if the cardholder does not enter a loyalty card.
     /// Encoded/decoded by serializers as "Required".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_WbW4Qdt4EeiXqq0XHEoNUA")]
-    [Description(@"??")]
+    [Description(@"The loyalty is required, and the POI refuses the processing 	of the message request if the cardholder does not enter a loyalty card.")]
     Required,
     
 }

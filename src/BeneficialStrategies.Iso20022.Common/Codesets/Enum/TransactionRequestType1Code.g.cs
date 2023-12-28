@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionRequestType1Code
 {
     /// <summary>
-    /// ??
+    /// Request is the date and time related to the original transaction numlber.
     /// Encoded/decoded by serializers as "DateTimeTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTTX")]
     [IsoId("_X0PrNmKDEeGByYwyG-c4ow")]
-    [Description(@"??")]
+    [Description(@"Request is the date and time related to the original transaction numlber.")]
     DateTimeTransaction,
     
     /// <summary>
-    /// ??
+    /// Request is the original receipt.
     /// Encoded/decoded by serializers as "OriginalReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OREC")]
     [IsoId("_X43shmKDEeGByYwyG-c4ow")]
-    [Description(@"??")]
+    [Description(@"Request is the original receipt.")]
     OriginalReceipt,
     
 }

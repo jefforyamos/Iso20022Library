@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GoodsAndServices1Code
 {
     /// <summary>
-    /// ??
+    /// Electronic goods and services.
     /// Encoded/decoded by serializers as "Electronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_cGi64VHiEeeJoafcMZup1w")]
-    [Description(@"??")]
+    [Description(@"Electronic goods and services.")]
     Electronic,
     
     /// <summary>
-    /// ??
+    /// Physical goods or services.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_cTo7sVHiEeeJoafcMZup1w")]
-    [Description(@"??")]
+    [Description(@"Physical goods or services.")]
     Physical,
     
     /// <summary>
-    /// ??
+    /// Electronic and physical goods and services.
     /// Encoded/decoded by serializers as "ElectronicAndPhysical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELPH")]
     [IsoId("_cjQsEVHiEeeJoafcMZup1w")]
-    [Description(@"??")]
+    [Description(@"Electronic and physical goods and services.")]
     ElectronicAndPhysical,
     
 }

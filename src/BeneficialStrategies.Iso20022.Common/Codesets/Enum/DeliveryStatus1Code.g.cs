@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeliveryStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Delivery failed.
     /// Encoded/decoded by serializers as "Failure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("__4RCAQ2pEeWH49U6bkyMaA")]
-    [Description(@"??")]
+    [Description(@"Delivery failed.")]
     Failure,
     
     /// <summary>
-    /// ??
+    /// Delivery succeeded.
     /// Encoded/decoded by serializers as "Success".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("___tGww2pEeWH49U6bkyMaA")]
-    [Description(@"??")]
+    [Description(@"Delivery succeeded.")]
     Success,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AgentRole2Code
 {
     /// <summary>
-    /// ??
+    /// The System Paying Agent (SPA) is the party within the CSD that is responsible for the distribution of cash and security proceeds related to a specific distribution to other CSD Parties.
     /// Encoded/decoded by serializers as "SystemPayingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPAY")]
     [IsoId("_boWhMNp-Ed-ak6NoX_4Aeg_211645175")]
-    [Description(@"??")]
+    [Description(@"The System Paying Agent (SPA) is the party within the CSD that is responsible for the distribution of cash and security proceeds related to a specific distribution to other CSD Parties.")]
     SystemPayingAgent,
     
     /// <summary>
-    /// ??
+    /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
     /// Encoded/decoded by serializers as "CoDomicile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CODO")]
     [IsoId("_boWhMdp-Ed-ak6NoX_4Aeg_211645184")]
-    [Description(@"??")]
+    [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     CoDomicile,
     
     /// <summary>
-    /// ??
+    /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
     /// Encoded/decoded by serializers as "IssuerAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISAG")]
     [IsoId("_boWhMtp-Ed-ak6NoX_4Aeg_211645206")]
-    [Description(@"??")]
+    [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     IssuerAgent,
     
     /// <summary>
-    /// ??
+    /// Party/agent responsible for maintaining the register of a security.
     /// Encoded/decoded by serializers as "Registrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGR")]
     [IsoId("_bofrINp-Ed-ak6NoX_4Aeg_-1642045238")]
-    [Description(@"??")]
+    [Description(@"Party/agent responsible for maintaining the register of a security.")]
     Registrar,
     
     /// <summary>
-    /// ??
+    /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
     /// Encoded/decoded by serializers as "PayingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYA")]
     [IsoId("_bofrIdp-Ed-ak6NoX_4Aeg_-69287984")]
-    [Description(@"??")]
+    [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     PayingAgent,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NotificationType2Code
 {
     /// <summary>
-    /// ??
+    /// New notification.
     /// Encoded/decoded by serializers as "New".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWM")]
     [IsoId("_sC4o8a7wEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"New notification.")]
     New,
     
     /// <summary>
-    /// ??
+    /// Notification replacing a previously sent notification.
     /// Encoded/decoded by serializers as "Replacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPL")]
     [IsoId("_sP-pwq7wEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Notification replacing a previously sent notification.")]
     Replacement,
     
 }

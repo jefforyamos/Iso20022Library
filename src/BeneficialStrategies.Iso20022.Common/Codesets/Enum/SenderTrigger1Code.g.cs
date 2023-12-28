@@ -20,39 +20,40 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SenderTrigger1Code
 {
     /// <summary>
-    /// ??
+    /// File generated based on a date/time event.
     /// Encoded/decoded by serializers as "DateTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTTM")]
     [IsoId("_sdhbYcm4EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"File generated based on a date/time event.")]
     DateTime,
     
     /// <summary>
-    /// ??
+    /// File generated based on a manual event (file has been
+    /// generated manually).
     /// Encoded/decoded by serializers as "Manual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANL")]
     [IsoId("_sx6XAcm4EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"File generated based on a manual event (file has been generated manually).")]
     Manual,
     
     /// <summary>
-    /// ??
+    /// File generated based on a signature event (file has the minimum required signature from the sender).
     /// Encoded/decoded by serializers as "SufficientlySigned".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFSG")]
     [IsoId("_s8U3Qsm4EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"File generated based on a signature event (file has the minimum required signature from the sender).")]
     SufficientlySigned,
     
     /// <summary>
-    /// ??
+    /// File generated based on a forced event (file generation has been forced).
     /// Encoded/decoded by serializers as "Forced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRCD")]
     [IsoId("_s9gjAcm4EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"File generated based on a forced event (file generation has been forced).")]
     Forced,
     
 }

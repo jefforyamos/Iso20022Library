@@ -20,183 +20,183 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardTransactionRiskReason1Code
 {
     /// <summary>
-    /// ??
+    /// Suspicious approve or decline pattern.
     /// Encoded/decoded by serializers as "ApproveDeclinePattern".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APDP")]
     [IsoId("_CN5foXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious approve or decline pattern.")]
     ApproveDeclinePattern,
     
     /// <summary>
-    /// ??
+    /// Suspicious sequence of approve and decline messages.
     /// Encoded/decoded by serializers as "ApproveDeclineSequence".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APDL")]
     [IsoId("_CTaRwXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious sequence of approve and decline messages.")]
     ApproveDeclineSequence,
     
     /// <summary>
-    /// ??
+    /// Suspicious authorization activity.
     /// Encoded/decoded by serializers as "AuthorizationActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATHA")]
     [IsoId("_CYxS4XsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious authorization activity.")]
     AuthorizationActivity,
     
     /// <summary>
-    /// ??
+    /// Compromised card.
     /// Encoded/decoded by serializers as "CompromisedCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDC")]
     [IsoId("_CfEvMXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Compromised card.")]
     CompromisedCard,
     
     /// <summary>
-    /// ??
+    /// Suspicious electronic commerce activity.
     /// Encoded/decoded by serializers as "EcommerceActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECMA")]
     [IsoId("_CkcXYXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious electronic commerce activity.")]
     EcommerceActivity,
     
     /// <summary>
-    /// ??
+    /// Expiry date mismatch.
     /// Encoded/decoded by serializers as "ExpiryDateMismatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCD")]
     [IsoId("_CsC0MXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Expiry date mismatch.")]
     ExpiryDateMismatch,
     
     /// <summary>
-    /// ??
+    /// Suspicious foreign activity.
     /// Encoded/decoded by serializers as "ForeignActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FGNA")]
     [IsoId("_CxZ1UXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious foreign activity.")]
     ForeignActivity,
     
     /// <summary>
-    /// ??
+    /// Suspicious geographic activity.
     /// Encoded/decoded by serializers as "GeographicActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GEOA")]
     [IsoId("_C2xdgXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious geographic activity.")]
     GeographicActivity,
     
     /// <summary>
-    /// ??
+    /// High Risk MCC (Merchant Category Code).
     /// Encoded/decoded by serializers as "HighRiskMCC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCCH")]
     [IsoId("_C84FgXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"High Risk MCC (Merchant Category Code).")]
     HighRiskMCC,
     
     /// <summary>
-    /// ??
+    /// Suspicious manual card data entry mode.
     /// Encoded/decoded by serializers as "ManualEntryActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYA")]
     [IsoId("_DFhEIXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious manual card data entry mode.")]
     ManualEntryActivity,
     
     /// <summary>
-    /// ??
+    /// Suspicious MCC (Merchant Category Code) activity.
     /// Encoded/decoded by serializers as "MerchantCategoryActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCCA")]
     [IsoId("_DK4sUXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious MCC (Merchant Category Code) activity.")]
     MerchantCategoryActivity,
     
     /// <summary>
-    /// ??
+    /// Suspicious amount.
     /// Encoded/decoded by serializers as "SuspiciousAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMNT")]
     [IsoId("_DQchwXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious amount.")]
     SuspiciousAmount,
     
     /// <summary>
-    /// ??
+    /// Suspicious fraudulent cardholder.
     /// Encoded/decoded by serializers as "SuspiciousFraudulentCardholder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDF")]
     [IsoId("_DYylcXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious fraudulent cardholder.")]
     SuspiciousFraudulentCardholder,
     
     /// <summary>
-    /// ??
+    /// Suspicious fraudulent merchant.
     /// Encoded/decoded by serializers as "SuspiciousFraudulentMerchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRCF")]
     [IsoId("_DeoHsXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious fraudulent merchant.")]
     SuspiciousFraudulentMerchant,
     
     /// <summary>
-    /// ??
+    /// Suspicious transaction cumulated amount at merchant.
     /// Encoded/decoded by serializers as "TransactionCumulativeAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXCA")]
     [IsoId("_DkI50XsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious transaction cumulated amount at merchant.")]
     TransactionCumulativeAmount,
     
     /// <summary>
-    /// ??
+    /// Suspicious transaction number at merchant.
     /// Encoded/decoded by serializers as "TransactionNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXNB")]
     [IsoId("_DpgiAXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious transaction number at merchant.")]
     TransactionNumber,
     
     /// <summary>
-    /// ??
+    /// Suspicious transaction time.
     /// Encoded/decoded by serializers as "TransactionTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXTM")]
     [IsoId("_Du3jIXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious transaction time.")]
     TransactionTime,
     
     /// <summary>
-    /// ??
+    /// Suspicious transaction time interval.
     /// Encoded/decoded by serializers as "TransactionTimeIinterval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMIN")]
     [IsoId("_D01BMXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious transaction time interval.")]
     TransactionTimeIinterval,
     
     /// <summary>
-    /// ??
+    /// Suspicious transaction type.
     /// Encoded/decoded by serializers as "TransactionType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXTP")]
     [IsoId("_D9E-QXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious transaction type.")]
     TransactionType,
     
     /// <summary>
-    /// ??
+    /// Suspicious unattended terminal activity.
     /// Encoded/decoded by serializers as "UnattendedActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UATA")]
     [IsoId("_ECb_YXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Suspicious unattended terminal activity.")]
     UnattendedActivity,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionType10Code
 {
     /// <summary>
-    /// ??
+    /// Activate device or service.
     /// Encoded/decoded by serializers as "Activate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_MS5GAU0uEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Activate device or service.")]
     Activate,
     
     /// <summary>
-    /// ??
+    /// Deactivate device or service.
     /// Encoded/decoded by serializers as "Deactivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEAC")]
     [IsoId("_NWZxck0uEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Deactivate device or service.")]
     Deactivate,
     
     /// <summary>
-    /// ??
+    /// Message to display, print or log.
     /// Encoded/decoded by serializers as "DisplayMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_OQieck0uEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Message to display, print or log.")]
     DisplayMessage,
     
     /// <summary>
-    /// ??
+    /// Update a data file.
     /// Encoded/decoded by serializers as "FileUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUPD")]
     [IsoId("_PDBEQk0uEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Update a data file.")]
     FileUpdate,
     
     /// <summary>
-    /// ??
+    /// Print a message.
     /// Encoded/decoded by serializers as "PrintMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRNT")]
     [IsoId("_QG8mck0uEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Print a message.")]
     PrintMessage,
     
     /// <summary>
-    /// ??
+    /// Send a message.
     /// Encoded/decoded by serializers as "SendMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNDM")]
     [IsoId("_QxFvok0uEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Send a message.")]
     SendMessage,
     
 }

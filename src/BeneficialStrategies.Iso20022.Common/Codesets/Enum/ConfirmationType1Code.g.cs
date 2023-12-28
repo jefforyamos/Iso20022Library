@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ConfirmationType1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the message is an actual confirmation of the execution of a transfer request.
     /// Encoded/decoded by serializers as "Actual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTL")]
     [IsoId("_Vi1UcNp-Ed-ak6NoX_4Aeg_1120574018")]
-    [Description(@"??")]
+    [Description(@"Specifies that the message is an actual confirmation of the execution of a transfer request.")]
     Actual,
     
     /// <summary>
-    /// ??
+    /// Specifies that the confirmation is an intention to execute a transfer instruction for the listed assets.
     /// Encoded/decoded by serializers as "Intent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTT")]
     [IsoId("_Vi1Ucdp-Ed-ak6NoX_4Aeg_1120574036")]
-    [Description(@"??")]
+    [Description(@"Specifies that the confirmation is an intention to execute a transfer instruction for the listed assets.")]
     Intent,
     
 }

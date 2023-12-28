@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LevelOfControl1Code
 {
     /// <summary>
-    /// ??
+    /// Transactions are permitted on the account.
     /// Encoded/decoded by serializers as "Transactions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_mhS8sSDDEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Transactions are permitted on the account.")]
     Transactions,
     
     /// <summary>
-    /// ??
+    /// Account may be viewed only.
     /// Encoded/decoded by serializers as "View".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VIEW")]
     [IsoId("_mpeoUSDDEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Account may be viewed only.")]
     View,
     
 }

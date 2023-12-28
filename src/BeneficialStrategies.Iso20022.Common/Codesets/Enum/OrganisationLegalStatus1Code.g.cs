@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrganisationLegalStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Charitable incorporated organisation (CIO)
     /// Encoded/decoded by serializers as "CharitableIncorporatedOrganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CIOC")]
     [IsoId("_TbNnwX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Charitable incorporated organisation (CIO)")]
     CharitableIncorporatedOrganisation,
     
     /// <summary>
-    /// ??
+    /// Charity
     /// Encoded/decoded by serializers as "Charity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_Ti8ncX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Charity")]
     Charity,
     
     /// <summary>
-    /// ??
+    /// Community Interest Company (CIC)
     /// Encoded/decoded by serializers as "CommunityInterestCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CICC")]
     [IsoId("_To5ecX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Community Interest Company (CIC)")]
     CommunityInterestCompany,
     
     /// <summary>
-    /// ??
+    /// General partnership
     /// Encoded/decoded by serializers as "GeneralPartnership".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENP")]
     [IsoId("_T0zMcX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"General partnership")]
     GeneralPartnership,
     
     /// <summary>
-    /// ??
+    /// For example a co-operative, which does include Ltd. or charity.
     /// Encoded/decoded by serializers as "IndustrialAndProvidentSociety".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IAPS")]
     [IsoId("_T7fqUX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"For example a co-operative, which does include Ltd. or charity.")]
     IndustrialAndProvidentSociety,
     
     /// <summary>
-    /// ??
+    /// Limited liability partnership (LLP)
     /// Encoded/decoded by serializers as "LimitedLiabilityPartnership".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LLPP")]
     [IsoId("_UDE5AX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Limited liability partnership (LLP)")]
     LimitedLiabilityPartnership,
     
     /// <summary>
-    /// ??
+    /// Private company limited by guarantee (Ltd.)
     /// Encoded/decoded by serializers as "PrivateCompanyLimitedByGuarantee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCLG")]
     [IsoId("_UI4mEX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Private company limited by guarantee (Ltd.)")]
     PrivateCompanyLimitedByGuarantee,
     
     /// <summary>
-    /// ??
+    /// Limited partnership (LP)
     /// Encoded/decoded by serializers as "LimitedPartnership".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIMP")]
     [IsoId("_UUCtMX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Limited partnership (LP)")]
     LimitedPartnership,
     
     /// <summary>
-    /// ??
+    /// Private company limited by shares (Ltd.)
     /// Encoded/decoded by serializers as "PrivateCompanyLimitedByShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCLS")]
     [IsoId("_UkQTcX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Private company limited by shares (Ltd.)")]
     PrivateCompanyLimitedByShares,
     
     /// <summary>
-    /// ??
+    /// Public limited company (Plc.)
     /// Encoded/decoded by serializers as "PublicLimitedCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCLC")]
     [IsoId("_UqW7cX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Public limited company (Plc.)")]
     PublicLimitedCompany,
     
     /// <summary>
-    /// ??
+    /// Sole proprietorship/Sole trader
     /// Encoded/decoded by serializers as "SoleProprietorship".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOLE")]
     [IsoId("_UxWUQX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Sole proprietorship/Sole trader")]
     SoleProprietorship,
     
     /// <summary>
-    /// ??
+    /// Unlimited company
     /// Encoded/decoded by serializers as "UnlimitedCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNLC")]
     [IsoId("_U3JaQX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Unlimited company")]
     UnlimitedCompany,
     
     /// <summary>
-    /// ??
+    /// Unlimited trust
     /// Encoded/decoded by serializers as "UnlimitedTrust".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNLT")]
     [IsoId("_U89HUX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Unlimited trust")]
     UnlimitedTrust,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AutoRouting1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates the Designated Order Turnaround system: computerized order routing system (used at the New York Stock Exchange) is to be used.
     /// Encoded/decoded by serializers as "DOTSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDOT")]
     [IsoId("_bj4Q5dp-Ed-ak6NoX_4Aeg_1094266206")]
-    [Description(@"??")]
+    [Description(@"Indicates the Designated Order Turnaround system: computerized order routing system (used at the New York Stock Exchange) is to be used.")]
     DOTSystem,
     
     /// <summary>
-    /// ??
+    /// Indicates the evolution of the DOT system, a Designated Order Turnaround system: computerized order routing system (used at the New York Stock Exchange) is to be used.
     /// Encoded/decoded by serializers as "SuperDOTSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDOT")]
     [IsoId("_bj4Q5tp-Ed-ak6NoX_4Aeg_1094266241")]
-    [Description(@"??")]
+    [Description(@"Indicates the evolution of the DOT system, a Designated Order Turnaround system: computerized order routing system (used at the New York Stock Exchange) is to be used.")]
     SuperDOTSystem,
     
 }

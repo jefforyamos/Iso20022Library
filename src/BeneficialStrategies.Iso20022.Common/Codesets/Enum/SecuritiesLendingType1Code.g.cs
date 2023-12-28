@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesLendingType1Code
 {
     /// <summary>
-    /// ??
+    /// Securities lending contract is new and registered.
     /// Encoded/decoded by serializers as "NewRegistration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NWRG")]
     [IsoId("__wINctojEeC60axPepSq7g_-1300895809")]
-    [Description(@"??")]
+    [Description(@"Securities lending contract is new and registered.")]
     NewRegistration,
     
     /// <summary>
-    /// ??
+    /// Securities lending contract is renewed.
     /// Encoded/decoded by serializers as "RollOverRenewal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RENW")]
     [IsoId("__wINc9ojEeC60axPepSq7g_166252954")]
-    [Description(@"??")]
+    [Description(@"Securities lending contract is renewed.")]
     RollOverRenewal,
     
     /// <summary>
-    /// ??
+    /// Securities lending contract is called back.
     /// Encoded/decoded by serializers as "CallBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CABK")]
     [IsoId("__wINdNojEeC60axPepSq7g_-1719429399")]
-    [Description(@"??")]
+    [Description(@"Securities lending contract is called back.")]
     CallBack,
     
 }

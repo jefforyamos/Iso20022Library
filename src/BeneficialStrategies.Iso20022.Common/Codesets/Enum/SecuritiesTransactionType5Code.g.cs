@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesTransactionType5Code
 {
     /// <summary>
-    /// ??
+    /// Relates to the settlement of a trade.
     /// Encoded/decoded by serializers as "Trade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_ZIwSQdp-Ed-ak6NoX_4Aeg_2040871426")]
-    [Description(@"??")]
+    [Description(@"Relates to the settlement of a trade.")]
     Trade,
     
 }

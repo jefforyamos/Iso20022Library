@@ -20,156 +20,156 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum KeyUsage1Code
 {
     /// <summary>
-    /// ??
+    /// Key may encrypt.
     /// Encoded/decoded by serializers as "Encryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENCR")]
     [IsoId("_KSJO8X1DEeCF8NjrBemJWQ_952269426")]
-    [Description(@"??")]
+    [Description(@"Key may encrypt.")]
     Encryption,
     
     /// <summary>
-    /// ??
+    /// Key may decrypt.
     /// Encoded/decoded by serializers as "Decryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCPT")]
     [IsoId("_KSJO8n1DEeCF8NjrBemJWQ_119194564")]
-    [Description(@"??")]
+    [Description(@"Key may decrypt.")]
     Decryption,
     
     /// <summary>
-    /// ??
+    /// Key may encrypt data.
     /// Encoded/decoded by serializers as "DataEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DENC")]
     [IsoId("_KSJO831DEeCF8NjrBemJWQ_1538814257")]
-    [Description(@"??")]
+    [Description(@"Key may encrypt data.")]
     DataEncryption,
     
     /// <summary>
-    /// ??
+    /// Key may decrypt data.
     /// Encoded/decoded by serializers as "DataDecryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDEC")]
     [IsoId("_KSJO9H1DEeCF8NjrBemJWQ_-1258974949")]
-    [Description(@"??")]
+    [Description(@"Key may decrypt data.")]
     DataDecryption,
     
     /// <summary>
-    /// ??
+    /// Key may encrypt information before translation.
     /// Encoded/decoded by serializers as "TranslateInput".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRNI")]
     [IsoId("_KSJO9X1DEeCF8NjrBemJWQ_1013497304")]
-    [Description(@"??")]
+    [Description(@"Key may encrypt information before translation.")]
     TranslateInput,
     
     /// <summary>
-    /// ??
+    /// Key may encrypt information after translation.
     /// Encoded/decoded by serializers as "TranslateOutput".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRNX")]
     [IsoId("_KSJO9n1DEeCF8NjrBemJWQ_940936689")]
-    [Description(@"??")]
+    [Description(@"Key may encrypt information after translation.")]
     TranslateOutput,
     
     /// <summary>
-    /// ??
+    /// Key may generate message authentication codes (MAC).
     /// Encoded/decoded by serializers as "MessageAuthenticationCodeGeneration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACG")]
     [IsoId("_KSJO931DEeCF8NjrBemJWQ_1560885913")]
-    [Description(@"??")]
+    [Description(@"Key may generate message authentication codes (MAC).")]
     MessageAuthenticationCodeGeneration,
     
     /// <summary>
-    /// ??
+    /// Key may verify message authentication codes (MAC).
     /// Encoded/decoded by serializers as "MessageAuthenticationCodeVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACV")]
     [IsoId("_KSJO-H1DEeCF8NjrBemJWQ_584260954")]
-    [Description(@"??")]
+    [Description(@"Key may verify message authentication codes (MAC).")]
     MessageAuthenticationCodeVerification,
     
     /// <summary>
-    /// ??
+    /// Key may generate digital signatures.
     /// Encoded/decoded by serializers as "SignatureGeneration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGG")]
     [IsoId("_KSJO-X1DEeCF8NjrBemJWQ_-918308253")]
-    [Description(@"??")]
+    [Description(@"Key may generate digital signatures.")]
     SignatureGeneration,
     
     /// <summary>
-    /// ??
+    /// Key may verify digital signatures.
     /// Encoded/decoded by serializers as "SignatureVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUGV")]
     [IsoId("_KSSY4H1DEeCF8NjrBemJWQ_951000548")]
-    [Description(@"??")]
+    [Description(@"Key may verify digital signatures.")]
     SignatureVerification,
     
     /// <summary>
-    /// ??
+    /// Key may encrypt personal identification numbers (PIN).
     /// Encoded/decoded by serializers as "PINEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINE")]
     [IsoId("_KSSY4X1DEeCF8NjrBemJWQ_-1604204545")]
-    [Description(@"??")]
+    [Description(@"Key may encrypt personal identification numbers (PIN).")]
     PINEncryption,
     
     /// <summary>
-    /// ??
+    /// Key may decrypt personal identification numbers (PIN).
     /// Encoded/decoded by serializers as "PINDecryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PIND")]
     [IsoId("_KSSY4n1DEeCF8NjrBemJWQ_-108961006")]
-    [Description(@"??")]
+    [Description(@"Key may decrypt personal identification numbers (PIN).")]
     PINDecryption,
     
     /// <summary>
-    /// ??
+    /// Key may verify personal identification numbers (PIN).
     /// Encoded/decoded by serializers as "PINVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINV")]
     [IsoId("_KSSY431DEeCF8NjrBemJWQ_596427236")]
-    [Description(@"??")]
+    [Description(@"Key may verify personal identification numbers (PIN).")]
     PINVerification,
     
     /// <summary>
-    /// ??
+    /// Key may generate keys.
     /// Encoded/decoded by serializers as "KeyGeneration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYG")]
     [IsoId("_KSSY5H1DEeCF8NjrBemJWQ_1055922580")]
-    [Description(@"??")]
+    [Description(@"Key may generate keys.")]
     KeyGeneration,
     
     /// <summary>
-    /// ??
+    /// Key may import keys.
     /// Encoded/decoded by serializers as "KeyImport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYI")]
     [IsoId("_KSSY5X1DEeCF8NjrBemJWQ_-1633900113")]
-    [Description(@"??")]
+    [Description(@"Key may import keys.")]
     KeyImport,
     
     /// <summary>
-    /// ??
+    /// Key may export keys.
     /// Encoded/decoded by serializers as "KeyExport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYX")]
     [IsoId("_KSSY5n1DEeCF8NjrBemJWQ_-204001317")]
-    [Description(@"??")]
+    [Description(@"Key may export keys.")]
     KeyExport,
     
     /// <summary>
-    /// ??
+    /// Key may derive keys.
     /// Encoded/decoded by serializers as "KeyDerivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYD")]
     [IsoId("_KSSY531DEeCF8NjrBemJWQ_1499653549")]
-    [Description(@"??")]
+    [Description(@"Key may derive keys.")]
     KeyDerivation,
     
 }

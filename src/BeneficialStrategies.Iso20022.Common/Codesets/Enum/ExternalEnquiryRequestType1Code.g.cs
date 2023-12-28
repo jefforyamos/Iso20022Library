@@ -22,57 +22,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalEnquiryRequestType1Code
 {
     /// <summary>
-    /// ??
+    /// Type is an enquiry on the bank's position.
     /// Encoded/decoded by serializers as "BankPositionEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT11")]
     [IsoId("_ud444vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on the bank's position.")]
     BankPositionEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on a specific transaction.
     /// Encoded/decoded by serializers as "SpecificTransactionEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT12")]
     [IsoId("_ud445fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on a specific transaction.")]
     SpecificTransactionEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on a queued transaction.
     /// Encoded/decoded by serializers as "QueuedTransactionEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT13")]
     [IsoId("_ueCp4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on a queued transaction.")]
     QueuedTransactionEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on a suspicious transaction.
     /// Encoded/decoded by serializers as "SuspiciousTransactionEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT14")]
     [IsoId("_ueCp5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on a suspicious transaction.")]
     SuspiciousTransactionEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on the system date and/or time.
     /// Encoded/decoded by serializers as "SytemTimeEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT16")]
     [IsoId("_ueCp6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on the system date and/or time.")]
     SytemTimeEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on pending inward credits.
     /// Encoded/decoded by serializers as "PendingInwardCreditsEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT15")]
     [IsoId("_ueCp6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on pending inward credits.")]
     PendingInwardCreditsEnquiry,
     
 }

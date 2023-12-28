@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CreditDebit3Code
 {
     /// <summary>
-    /// ??
+    /// Operation is an increase.
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_s9EFxzzcEeWg1_uD_bF5Og")]
-    [Description(@"??")]
+    [Description(@"Operation is an increase.")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Operation is a decrease.
     /// Encoded/decoded by serializers as "Debit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBIT")]
     [IsoId("_s9EFyDzcEeWg1_uD_bF5Og")]
-    [Description(@"??")]
+    [Description(@"Operation is a decrease.")]
     Debit,
     
 }

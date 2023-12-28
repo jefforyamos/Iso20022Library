@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm2Code
 {
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES128CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EA2C")]
     [IsoId("__POBwQh8EeKDkNjo3DGPNA")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     AES128CBC,
     
     /// <summary>
-    /// ??
+    /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
     /// Encoded/decoded by serializers as "DES112CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "E3DC")]
     [IsoId("__b3Wowh8EeKDkNjo3DGPNA")]
-    [Description(@"??")]
+    [Description(@"Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).")]
     DES112CBC,
     
     /// <summary>
-    /// ??
+    /// DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2004, Annex A, and ISO/DIS 13492-2006. - (ASN.1 Object Identifier: id-dukpt-wrap).
     /// Encoded/decoded by serializers as "DUKPT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DKPT")]
     [IsoId("__qS0MQh8EeKDkNjo3DGPNA")]
-    [Description(@"??")]
+    [Description(@"DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2004, Annex A, and ISO/DIS 13492-2006. - (ASN.1 Object Identifier: id-dukpt-wrap).")]
     DUKPT,
     
     /// <summary>
-    /// ??
+    /// DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2009 Annex A.
     /// Encoded/decoded by serializers as "DUKPT2009".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DKP9")]
     [IsoId("__yxawQh8EeKDkNjo3DGPNA")]
-    [Description(@"??")]
+    [Description(@"DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2009 Annex A.")]
     DUKPT2009,
     
     /// <summary>
-    /// ??
+    /// UKPT (Unique Key Per Transaction) or Master Session Key key encryption - (ASN.1 Object Identifier: id-ukpt-wrap).
     /// Encoded/decoded by serializers as "UKPT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKPT")]
     [IsoId("_AD4Y4wh9EeKDkNjo3DGPNA")]
-    [Description(@"??")]
+    [Description(@"UKPT (Unique Key Per Transaction) or Master Session Key key encryption - (ASN.1 Object Identifier: id-ukpt-wrap).")]
     UKPT,
     
     /// <summary>
-    /// ??
+    /// UKPT (Unique Key Per Transaction) or Master Session Key key encryption, using Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "UKPTwithAES128".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKA1")]
     [IsoId("_ANtDQQh9EeKDkNjo3DGPNA")]
-    [Description(@"??")]
+    [Description(@"UKPT (Unique Key Per Transaction) or Master Session Key key encryption, using Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     UKPTwithAES128,
     
 }

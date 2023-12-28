@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type grain oil seeds.
     /// Encoded/decoded by serializers as "GrainOilSeeds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GROS")]
     [IsoId("_LOvsMQnzEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type grain oil seeds.")]
     GrainOilSeeds,
     
 }

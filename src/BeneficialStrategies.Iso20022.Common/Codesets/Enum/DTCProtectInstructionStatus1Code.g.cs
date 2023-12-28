@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCProtectInstructionStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction pending release or delete from approval function.
     /// Encoded/decoded by serializers as "PendingApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENA")]
     [IsoId("_MS-eUZIdEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction pending release or delete from approval function.")]
     PendingApproval,
     
     /// <summary>
-    /// ??
+    /// Client instruction withdrawn for events with withdrawal privilege.
     /// Encoded/decoded by serializers as "Withdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_McjREZIdEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Client instruction withdrawn for events with withdrawal privilege.")]
     Withdrawn,
     
     /// <summary>
-    /// ??
+    /// Protect instruction has been fully covered.
     /// Encoded/decoded by serializers as "FullyCovered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVR")]
     [IsoId("_MoTOEZIdEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Protect instruction has been fully covered.")]
     FullyCovered,
     
     /// <summary>
-    /// ??
+    /// Protect instruction has expired.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_NdphsZIdEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Protect instruction has expired.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// Protect instruction which has not been fully covered. Will include partial covers.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_N2nbUZIdEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Protect instruction which has not been fully covered. Will include partial covers.")]
     Open,
     
 }

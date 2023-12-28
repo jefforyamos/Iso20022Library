@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Know Your Customer (KYC) document is missing.
     /// Encoded/decoded by serializers as "KnowYourCustomerDocumentMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KYCM")]
     [IsoId("_A7j9MWBkEeaR1OOiVxm3Gg")]
-    [Description(@"??")]
+    [Description(@"Know Your Customer (KYC) document is missing.")]
     KnowYourCustomerDocumentMissing,
     
     /// <summary>
-    /// ??
+    /// FATCA reporting date is missing.
     /// Encoded/decoded by serializers as "FATCAReportingDateMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRDM")]
     [IsoId("_BLoZgWBkEeaR1OOiVxm3Gg")]
-    [Description(@"??")]
+    [Description(@"FATCA reporting date is missing.")]
     FATCAReportingDateMissing,
     
     /// <summary>
-    /// ??
+    /// Rights holder information is missing.
     /// Encoded/decoded by serializers as "RightsHolderMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RIGH")]
     [IsoId("_BXiHgWBkEeaR1OOiVxm3Gg")]
-    [Description(@"??")]
+    [Description(@"Rights holder information is missing.")]
     RightsHolderMissing,
     
     /// <summary>
-    /// ??
+    /// Authorisation is required.
     /// Encoded/decoded by serializers as "Authorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATHR")]
     [IsoId("_P9cBIWCJEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Authorisation is required.")]
     Authorisation,
     
     /// <summary>
-    /// ??
+    /// Authorisation is provided but the account change is still pending.
     /// Encoded/decoded by serializers as "AuthorisedButPending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATHP")]
     [IsoId("_QHG6gWCJEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Authorisation is provided but the account change is still pending.")]
     AuthorisedButPending,
     
     /// <summary>
-    /// ??
+    /// Modification to the account data is in process.
     /// Encoded/decoded by serializers as "ModificationInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_QVFsIWCJEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Modification to the account data is in process.")]
     ModificationInProcess,
     
 }

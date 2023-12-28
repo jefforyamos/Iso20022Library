@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProductCharacteristics1Code
 {
     /// <summary>
-    /// ??
+    /// Detailed product information as assigned by the buyer.
     /// Encoded/decoded by serializers as "BuyersItemSpecification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BISP")]
     [IsoId("_ZVRrV9p-Ed-ak6NoX_4Aeg_1337126065")]
-    [Description(@"??")]
+    [Description(@"Detailed product information as assigned by the buyer.")]
     BuyersItemSpecification,
     
     /// <summary>
-    /// ??
+    /// Unique identifier affixed by manufacturer to a chassis for identification purposes.
     /// Encoded/decoded by serializers as "ChassisNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHNR")]
     [IsoId("_ZVRrWNp-Ed-ak6NoX_4Aeg_1337126747")]
-    [Description(@"??")]
+    [Description(@"Unique identifier affixed by manufacturer to a chassis for identification purposes.")]
     ChassisNumber,
     
     /// <summary>
-    /// ??
+    /// Indication of the product colour.
     /// Encoded/decoded by serializers as "Colour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOR")]
     [IsoId("_ZVa1QNp-Ed-ak6NoX_4Aeg_1337127090")]
-    [Description(@"??")]
+    [Description(@"Indication of the product colour.")]
     Colour,
     
     /// <summary>
-    /// ??
+    /// The total of the volume used for combustion inside the cylinders of an engine. This is expressed in cubic centimetres.
     /// Encoded/decoded by serializers as "EngineDisplacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDSP")]
     [IsoId("_ZVa1Qdp-Ed-ak6NoX_4Aeg_1337127305")]
-    [Description(@"??")]
+    [Description(@"The total of the volume used for combustion inside the cylinders of an engine. This is expressed in cubic centimetres.")]
     EngineDisplacement,
     
     /// <summary>
-    /// ??
+    /// Unique identifier affixed by manufacturer to an engine for identification purposes.
     /// Encoded/decoded by serializers as "EngineNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENNR")]
     [IsoId("_ZVa1Qtp-Ed-ak6NoX_4Aeg_1337127600")]
-    [Description(@"??")]
+    [Description(@"Unique identifier affixed by manufacturer to an engine for identification purposes.")]
     EngineNumber,
     
     /// <summary>
-    /// ??
+    /// Identifier of a sub-category of a product such as size, colour, etc.
     /// Encoded/decoded by serializers as "Option".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTN")]
     [IsoId("_ZVa1Q9p-Ed-ak6NoX_4Aeg_1338047709")]
-    [Description(@"??")]
+    [Description(@"Identifier of a sub-category of a product such as size, colour, etc.")]
     Option,
     
     /// <summary>
-    /// ??
+    /// Code assigned to the product describing how it will be stored.
     /// Encoded/decoded by serializers as "OriginCriterion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORCR")]
     [IsoId("_ZVa1RNp-Ed-ak6NoX_4Aeg_1338047822")]
-    [Description(@"??")]
+    [Description(@"Code assigned to the product describing how it will be stored.")]
     OriginCriterion,
     
     /// <summary>
-    /// ??
+    /// Percentage by volume.
     /// Encoded/decoded by serializers as "PercentageByVolume".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCTV")]
     [IsoId("_ZVa1Rdp-Ed-ak6NoX_4Aeg_1338048194")]
-    [Description(@"??")]
+    [Description(@"Percentage by volume.")]
     PercentageByVolume,
     
     /// <summary>
-    /// ??
+    /// Detailed product information as assigned by the seller.
     /// Encoded/decoded by serializers as "SellersItemSpecification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SISP")]
     [IsoId("_ZVa1Rtp-Ed-ak6NoX_4Aeg_1338048615")]
-    [Description(@"??")]
+    [Description(@"Detailed product information as assigned by the seller.")]
     SellersItemSpecification,
     
     /// <summary>
-    /// ??
+    /// Indication of the product size.
     /// Encoded/decoded by serializers as "Size".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIZE")]
     [IsoId("_ZVa1R9p-Ed-ak6NoX_4Aeg_1338048890")]
-    [Description(@"??")]
+    [Description(@"Indication of the product size.")]
     Size,
     
     /// <summary>
-    /// ??
+    /// Range of product sizes.
     /// Encoded/decoded by serializers as "SizeRange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SZRG")]
     [IsoId("_ZVa1SNp-Ed-ak6NoX_4Aeg_1338049587")]
-    [Description(@"??")]
+    [Description(@"Range of product sizes.")]
     SizeRange,
     
     /// <summary>
-    /// ??
+    /// Special remarks about a product.
     /// Encoded/decoded by serializers as "SpecialRemarks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRM")]
     [IsoId("_ZVa1Sdp-Ed-ak6NoX_4Aeg_1338050227")]
-    [Description(@"??")]
+    [Description(@"Special remarks about a product.")]
     SpecialRemarks,
     
     /// <summary>
-    /// ??
+    /// Code assigned to the product describing how it will be stored.
     /// Encoded/decoded by serializers as "StorageCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOR")]
     [IsoId("_ZVkmQNp-Ed-ak6NoX_4Aeg_1338050578")]
-    [Description(@"??")]
+    [Description(@"Code assigned to the product describing how it will be stored.")]
     StorageCode,
     
     /// <summary>
-    /// ??
+    /// The identification number which uniquely distinguishes one vehicle from another through the lifespan of the vehicle.
     /// Encoded/decoded by serializers as "VehicleIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VINR")]
     [IsoId("_ZVkmQdp-Ed-ak6NoX_4Aeg_1338051148")]
-    [Description(@"??")]
+    [Description(@"The identification number which uniquely distinguishes one vehicle from another through the lifespan of the vehicle.")]
     VehicleIdentificationNumber,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMOperation1Code
 {
     /// <summary>
-    /// ??
+    /// Adjust logical counters of the cassette.
     /// Encoded/decoded by serializers as "Adjust".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADJU")]
     [IsoId("_EHHP0ehBEeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Adjust logical counters of the cassette.")]
     Adjust,
     
     /// <summary>
-    /// ??
+    /// Add physically media to cassette.
     /// Encoded/decoded by serializers as "InsertMedia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSR")]
     [IsoId("_EQDwc-hBEeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Add physically media to cassette.")]
     InsertMedia,
     
     /// <summary>
-    /// ??
+    /// Loading cassette.
     /// Encoded/decoded by serializers as "Loading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOAD")]
     [IsoId("_ERi-MehBEeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Loading cassette.")]
     Loading,
     
     /// <summary>
-    /// ??
+    /// Substract physically media from cassette.
     /// Encoded/decoded by serializers as "RemoveMedia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REMV")]
     [IsoId("_EZ5B4ehBEeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Substract physically media from cassette.")]
     RemoveMedia,
     
     /// <summary>
-    /// ??
+    /// Unloading cassette.
     /// Encoded/decoded by serializers as "Unloading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNLD")]
     [IsoId("_Ei-sc-hBEeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Unloading cassette.")]
     Unloading,
     
 }

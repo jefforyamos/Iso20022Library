@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount3Code
 {
     /// <summary>
-    /// ??
+    /// Cash-back amount.
     /// Encoded/decoded by serializers as "Cashback".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHB")]
     [IsoId("_Y_iR4PwLEeGHDMP28rpT3g_-1513006654")]
-    [Description(@"??")]
+    [Description(@"Cash-back amount.")]
     Cashback,
     
     /// <summary>
-    /// ??
+    /// Gratuity amount.
     /// Encoded/decoded by serializers as "Gratuity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRTY")]
     [IsoId("_Y_iR4fwLEeGHDMP28rpT3g_-1804964392")]
-    [Description(@"??")]
+    [Description(@"Gratuity amount.")]
     Gratuity,
     
     /// <summary>
-    /// ??
+    /// Service fee.
     /// Encoded/decoded by serializers as "ServiceFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRVF")]
     [IsoId("_Y_iR4vwLEeGHDMP28rpT3g_748675924")]
-    [Description(@"??")]
+    [Description(@"Service fee.")]
     ServiceFee,
     
     /// <summary>
-    /// ??
+    /// Interchange fee.
     /// Encoded/decoded by serializers as "InterchangeFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTC")]
     [IsoId("_Y_iR4_wLEeGHDMP28rpT3g_1117249163")]
-    [Description(@"??")]
+    [Description(@"Interchange fee.")]
     InterchangeFee,
     
     /// <summary>
-    /// ??
+    /// Original amount authorised during the real-time authorisation process.
     /// Encoded/decoded by serializers as "Original".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORIG")]
     [IsoId("_Y_iR5PwLEeGHDMP28rpT3g_1606769617")]
-    [Description(@"??")]
+    [Description(@"Original amount authorised during the real-time authorisation process.")]
     Original,
     
     /// <summary>
-    /// ??
+    /// Extra fee for a purchase or a withdrawal.
     /// Encoded/decoded by serializers as "Surcharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRCH")]
     [IsoId("_Y_iR5fwLEeGHDMP28rpT3g_1784888289")]
-    [Description(@"??")]
+    [Description(@"Extra fee for a purchase or a withdrawal.")]
     Surcharge,
     
 }

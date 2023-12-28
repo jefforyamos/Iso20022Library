@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnderlyingIdentification1Code
 {
     /// <summary>
-    /// ??
+    /// Unknown (not available) underlying identification code.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_wlDTEXZWEeWM6LeFwEMTgg")]
-    [Description(@"??")]
+    [Description(@"Unknown (not available) underlying identification code.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Basket of indexes identification code.
     /// Encoded/decoded by serializers as "Basket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSKT")]
     [IsoId("_5NIMEea4EeW1iL_FRZt8bg")]
-    [Description(@"??")]
+    [Description(@"Basket of indexes identification code.")]
     Basket,
     
     /// <summary>
-    /// ??
+    /// Index identification code.
     /// Encoded/decoded by serializers as "Index".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDX")]
     [IsoId("_5X_YQea4EeW1iL_FRZt8bg")]
-    [Description(@"??")]
+    [Description(@"Index identification code.")]
     Index,
     
 }

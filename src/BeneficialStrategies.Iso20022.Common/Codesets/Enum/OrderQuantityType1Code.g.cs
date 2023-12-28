@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderQuantityType1Code
 {
     /// <summary>
-    /// ??
+    /// Order is placed by unit.
     /// Encoded/decoded by serializers as "Unit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIT")]
     [IsoId("_ViiZgtp-Ed-ak6NoX_4Aeg_-278477005")]
-    [Description(@"??")]
+    [Description(@"Order is placed by unit.")]
     Unit,
     
     /// <summary>
-    /// ??
+    /// Order is placed by amount of money.
     /// Encoded/decoded by serializers as "Amount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_ViiZg9p-Ed-ak6NoX_4Aeg_-278476987")]
-    [Description(@"??")]
+    [Description(@"Order is placed by amount of money.")]
     Amount,
     
     /// <summary>
-    /// ??
+    /// Transaction is another type of transaction.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ViiZhNp-Ed-ak6NoX_4Aeg_-278476962")]
-    [Description(@"??")]
+    [Description(@"Transaction is another type of transaction.")]
     Other,
     
 }

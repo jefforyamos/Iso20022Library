@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DisabledReason2Code
 {
     /// <summary>
-    /// ??
+    /// Account closing is in process.
     /// Encoded/decoded by serializers as "AccountClosingInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("_EtddUWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Account closing is in process.")]
     AccountClosingInProcess,
     
     /// <summary>
-    /// ??
+    /// Bankruptcy.
     /// Encoded/decoded by serializers as "Bankruptcy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKRP")]
     [IsoId("_Ex7GkWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Bankruptcy.")]
     Bankruptcy,
     
     /// <summary>
-    /// ??
+    /// Commitment.
     /// Encoded/decoded by serializers as "Commitment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMMT")]
     [IsoId("_E3bRoWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Commitment.")]
     Commitment,
     
     /// <summary>
-    /// ??
+    /// Confiscation.
     /// Encoded/decoded by serializers as "Confiscation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNFS")]
     [IsoId("_E8ySwWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Confiscation.")]
     Confiscation,
     
     /// <summary>
-    /// ??
+    /// Reserved in contemplation of death.
     /// Encoded/decoded by serializers as "MortisCausa".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MORT")]
     [IsoId("_FBi28WBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Reserved in contemplation of death.")]
     MortisCausa,
     
     /// <summary>
-    /// ??
+    /// Pending compliance verification.
     /// Encoded/decoded by serializers as "PendingComplianceVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCOM")]
     [IsoId("_FGdMIWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Pending compliance verification.")]
     PendingComplianceVerification,
     
     /// <summary>
-    /// ??
+    /// Pledged.
     /// Encoded/decoded by serializers as "Pledged".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLDG")]
     [IsoId("_FMHIMWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Pledged.")]
     Pledged,
     
     /// <summary>
-    /// ??
+    /// Reregistration.
     /// Encoded/decoded by serializers as "Reregistration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPE")]
     [IsoId("_FSW6IWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Reregistration.")]
     Reregistration,
     
     /// <summary>
-    /// ??
+    /// Sanctions are in place.
     /// Encoded/decoded by serializers as "Sanctions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SANC")]
     [IsoId("_FW-UYWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Sanctions are in place.")]
     Sanctions,
     
     /// <summary>
-    /// ??
+    /// Transfer.
     /// Encoded/decoded by serializers as "Transfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_FbSMoWBrEeaHEJD5P6-ccw")]
-    [Description(@"??")]
+    [Description(@"Transfer.")]
     Transfer,
     
     /// <summary>
-    /// ??
+    /// Account was pending opening but is now rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_voHfoWCIEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Account was pending opening but is now rejected.")]
     Rejected,
     
 }

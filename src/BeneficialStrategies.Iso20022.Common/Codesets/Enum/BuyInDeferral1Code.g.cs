@@ -20,21 +20,22 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BuyInDeferral1Code
 {
     /// <summary>
-    /// ??
+    /// Buy-in is deferred.
+    /// 
     /// Encoded/decoded by serializers as "BuyInDeferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFY")]
     [IsoId("_L555sZwWEeqtp-LOti013g")]
-    [Description(@"??")]
+    [Description(@"Buy-in is deferred. ")]
     BuyInDeferred,
     
     /// <summary>
-    /// ??
+    /// Buy-in is not deferred.
     /// Encoded/decoded by serializers as "BuyInNotDeferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFN")]
     [IsoId("_L-gs4ZwWEeqtp-LOti013g")]
-    [Description(@"??")]
+    [Description(@"Buy-in is not deferred.")]
     BuyInNotDeferred,
     
 }

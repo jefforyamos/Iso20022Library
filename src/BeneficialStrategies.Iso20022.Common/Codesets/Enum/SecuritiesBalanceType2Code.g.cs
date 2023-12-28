@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesBalanceType2Code
 {
     /// <summary>
-    /// ??
+    /// Balance of tax-exempt securities.
     /// Encoded/decoded by serializers as "TaxExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLEN")]
     [IsoId("_ZBdXctp-Ed-ak6NoX_4Aeg_-1506908875")]
-    [Description(@"??")]
+    [Description(@"Balance of tax-exempt securities.")]
     TaxExempt,
     
     /// <summary>
-    /// ??
+    /// Balance of taxable securities.
     /// Encoded/decoded by serializers as "NonTaxExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRT")]
     [IsoId("_ZBdXc9p-Ed-ak6NoX_4Aeg_-1263096881")]
-    [Description(@"??")]
+    [Description(@"Balance of taxable securities.")]
     NonTaxExempt,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that are registered (in the name of a nominee or of the beneficial owner).
     /// Encoded/decoded by serializers as "Registered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMI")]
     [IsoId("_ZBdXdNp-Ed-ak6NoX_4Aeg_-1164280659")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that are registered (in the name of a nominee or of the beneficial owner).")]
     Registered,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that is unclassified, ie, is not identified with one of the existing sub-balance types.
     /// Encoded/decoded by serializers as "Unclassified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ZBdXddp-Ed-ak6NoX_4Aeg_-829968446")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that is unclassified, ie, is not identified with one of the existing sub-balance types.")]
     Unclassified,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that remain registered in the name of the prior beneficial owner of securities.
     /// Encoded/decoded by serializers as "StreetPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPOS")]
     [IsoId("_ZBdXdtp-Ed-ak6NoX_4Aeg_1361939833")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that remain registered in the name of the prior beneficial owner of securities.")]
     StreetPosition,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that could not be registered due to foreign ownership limitation.
     /// Encoded/decoded by serializers as "Unregistered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRG")]
     [IsoId("_ZBdXd9p-Ed-ak6NoX_4Aeg_1680553649")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that could not be registered due to foreign ownership limitation.")]
     Unregistered,
     
 }

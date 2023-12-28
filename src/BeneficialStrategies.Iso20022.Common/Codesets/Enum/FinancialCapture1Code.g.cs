@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FinancialCapture1Code
 {
     /// <summary>
-    /// ??
+    /// Financial capture of the transaction is performed by the acquirer during the authorisation exchange.
     /// Encoded/decoded by serializers as "Authorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_KR_d8X1DEeCF8NjrBemJWQ_-344306152")]
-    [Description(@"??")]
+    [Description(@"Financial capture of the transaction is performed by the acquirer during the authorisation exchange.")]
     Authorisation,
     
     /// <summary>
-    /// ??
+    /// Financial capture of the transaction is performed by the acquirer during the completion exchange.
     /// Encoded/decoded by serializers as "Completion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_KR_d8n1DEeCF8NjrBemJWQ_1190732522")]
-    [Description(@"??")]
+    [Description(@"Financial capture of the transaction is performed by the acquirer during the completion exchange.")]
     Completion,
     
     /// <summary>
-    /// ??
+    /// Financial capture of the transaction is performed by the acquirer at the reception of a batch transfer.
     /// Encoded/decoded by serializers as "Batch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTCH")]
     [IsoId("_KR_d831DEeCF8NjrBemJWQ_-1673145279")]
-    [Description(@"??")]
+    [Description(@"Financial capture of the transaction is performed by the acquirer at the reception of a batch transfer.")]
     Batch,
     
 }

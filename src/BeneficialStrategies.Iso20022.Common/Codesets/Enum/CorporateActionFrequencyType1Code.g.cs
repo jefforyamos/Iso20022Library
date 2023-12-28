@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionFrequencyType1Code
 {
     /// <summary>
-    /// ??
+    /// Payment of a dividend, less amounts already paid through interim dividends.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_bJ8t-Np-Ed-ak6NoX_4Aeg_1457749703")]
-    [Description(@"??")]
+    [Description(@"Payment of a dividend, less amounts already paid through interim dividends.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// Dividend declared and paid before annual earnings have been determined.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_bKGe8Np-Ed-ak6NoX_4Aeg_1457749980")]
-    [Description(@"??")]
+    [Description(@"Dividend declared and paid before annual earnings have been determined.")]
     Interim,
     
     /// <summary>
-    /// ??
+    /// Dividend paid at regular interval, for example, quarterly.
     /// Encoded/decoded by serializers as "Regular".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGR")]
     [IsoId("_bKGe8dp-Ed-ak6NoX_4Aeg_1457749981")]
-    [Description(@"??")]
+    [Description(@"Dividend paid at regular interval, for example, quarterly.")]
     Regular,
     
     /// <summary>
-    /// ??
+    /// Dividend in addition to the regular dividend being paid by the company.
     /// Encoded/decoded by serializers as "Special".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEC")]
     [IsoId("_bKGe8tp-Ed-ak6NoX_4Aeg_1457749982")]
-    [Description(@"??")]
+    [Description(@"Dividend in addition to the regular dividend being paid by the company.")]
     Special,
     
 }

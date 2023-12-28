@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EUSavingsDirective1Code
 {
     /// <summary>
-    /// ??
+    /// Investment Fund is in the scope of the directive.
     /// Encoded/decoded by serializers as "EUSavingsInScope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUSI")]
     [IsoId("_aiUGNNp-Ed-ak6NoX_4Aeg_796430025")]
-    [Description(@"??")]
+    [Description(@"Investment Fund is in the scope of the directive.")]
     EUSavingsInScope,
     
     /// <summary>
-    /// ??
+    /// Investment Fund is out of the scope of the directive.
     /// Encoded/decoded by serializers as "EUSavingsOutScope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUSO")]
     [IsoId("_aiUGNdp-Ed-ak6NoX_4Aeg_796430056")]
-    [Description(@"??")]
+    [Description(@"Investment Fund is out of the scope of the directive.")]
     EUSavingsOutScope,
     
     /// <summary>
-    /// ??
+    /// Investment Fund may vary for inclusion in the scope of the directive.
     /// Encoded/decoded by serializers as "EUSavingsVariable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VARI")]
     [IsoId("_ai58ENp-Ed-ak6NoX_4Aeg_796430057")]
-    [Description(@"??")]
+    [Description(@"Investment Fund may vary for inclusion in the scope of the directive.")]
     EUSavingsVariable,
     
 }

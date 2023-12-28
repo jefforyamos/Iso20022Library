@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfRequest1Code
 {
     /// <summary>
-    /// ??
+    /// Request for information.
     /// Encoded/decoded by serializers as "Information".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFO")]
     [IsoId("_GYj0kdveEeqxGfKJubfhIw")]
-    [Description(@"??")]
+    [Description(@"Request for information.")]
     Information,
     
     /// <summary>
-    /// ??
+    /// Request for status.
     /// Encoded/decoded by serializers as "Status".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAT")]
     [IsoId("_GhCbIdveEeqxGfKJubfhIw")]
-    [Description(@"??")]
+    [Description(@"Request for status.")]
     Status,
     
 }

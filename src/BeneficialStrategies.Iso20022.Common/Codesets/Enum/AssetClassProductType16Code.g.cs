@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType16Code
 {
     /// <summary>
-    /// ??
+    /// Index type of commodities.
     /// Encoded/decoded by serializers as "Index".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDX")]
     [IsoId("_aDo5gU7KEe2PGo0mhYCh1g")]
-    [Description(@"??")]
+    [Description(@"Index type of commodities.")]
     Index,
     
 }

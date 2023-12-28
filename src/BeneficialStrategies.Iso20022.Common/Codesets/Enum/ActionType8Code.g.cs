@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionType8Code
 {
     /// <summary>
-    /// ??
+    /// Approve the transaction.
     /// Encoded/decoded by serializers as "Approve".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPV")]
     [IsoId("_MHVkAUrCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Approve the transaction.")]
     Approve,
     
     /// <summary>
-    /// ??
+    /// Block the card.
     /// Encoded/decoded by serializers as "BlockCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCK")]
     [IsoId("_M_48okrCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Block the card.")]
     BlockCard,
     
     /// <summary>
-    /// ??
+    /// Capture the card.
     /// Encoded/decoded by serializers as "CaptureCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTR")]
     [IsoId("_NkoockrCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Capture the card.")]
     CaptureCard,
     
     /// <summary>
-    /// ??
+    /// Decline the transaction.
     /// Encoded/decoded by serializers as "Decline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCLN")]
     [IsoId("_OFsHEkrCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Decline the transaction.")]
     Decline,
     
     /// <summary>
-    /// ??
+    /// Additional identification required (passport, ID card, etc.).
     /// Encoded/decoded by serializers as "IdentificationRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQID")]
     [IsoId("_Orj0QkrCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Additional identification required (passport, ID card, etc.).")]
     IdentificationRequired,
     
     /// <summary>
-    /// ??
+    /// No reason for declining the transaction.
     /// Encoded/decoded by serializers as "NoReasonForDecline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDCL")]
     [IsoId("_PjFSIkrCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"No reason for declining the transaction.")]
     NoReasonForDecline,
     
     /// <summary>
-    /// ??
+    /// Referral has to be performed.
     /// Encoded/decoded by serializers as "Referral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFRL")]
     [IsoId("_QmCj8krCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Referral has to be performed.")]
     Referral,
     
     /// <summary>
-    /// ??
+    /// Other action defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_RLezUkrCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Other action defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other action defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_RWsk0krCEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Other action defined at private level")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Further authentication required (e.g. one-time password)
     /// Encoded/decoded by serializers as "StepUpAuthentication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STUA")]
     [IsoId("_3eqrceChEee9RadpHmUgYw")]
-    [Description(@"??")]
+    [Description(@"Further authentication required (e.g. one-time password)")]
     StepUpAuthentication,
     
 }

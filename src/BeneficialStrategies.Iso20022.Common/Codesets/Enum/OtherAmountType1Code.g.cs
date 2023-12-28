@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OtherAmountType1Code
 {
     /// <summary>
-    /// ??
+    /// Interest that was pre-paid.
     /// Encoded/decoded by serializers as "PrepaidInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINT")]
     [IsoId("_19nc0a53Eee6Q7mFsDuJBA")]
-    [Description(@"??")]
+    [Description(@"Interest that was pre-paid.")]
     PrepaidInterest,
     
     /// <summary>
-    /// ??
+    /// Interest on the interest.
     /// Encoded/decoded by serializers as "SettlementInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SINT")]
     [IsoId("_2CFGEa53Eee6Q7mFsDuJBA")]
-    [Description(@"??")]
+    [Description(@"Interest on the interest.")]
     SettlementInterest,
     
 }

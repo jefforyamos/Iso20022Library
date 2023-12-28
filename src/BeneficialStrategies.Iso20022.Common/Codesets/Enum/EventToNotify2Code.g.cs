@@ -20,183 +20,183 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventToNotify2Code
 {
     /// <summary>
-    /// ??
+    /// One or several device request has been sent by the POI during the processing of a service requested by the Sale System. The processing is cancelled by the Customer or stopped by the POI. If the device response is not received by the POI, an event is sent to inform the Sale to abort internally these device requests.
     /// Encoded/decoded by serializers as "Abort".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABRT")]
     [IsoId("_CidngQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"One or several device request has been sent by the POI during the processing of a service requested by the Sale System. The processing is cancelled by the Customer or stopped by the POI. If the device response is not received by the POI, an event is sent to inform the Sale to abort internally these device requests.")]
     Abort,
     
     /// <summary>
-    /// ??
+    /// Begin of POI Maintenance.
     /// Encoded/decoded by serializers as "BeginMaintenance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIB")]
     [IsoId("_Cidngw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Begin of POI Maintenance.")]
     BeginMaintenance,
     
     /// <summary>
-    /// ??
+    /// A card is inserted in the card reader (see Input request and NotifyCardInputFlag).
     /// Encoded/decoded by serializers as "CardInserted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDI")]
     [IsoId("_CidnhQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"A card is inserted in the card reader (see Input request and NotifyCardInputFlag).")]
     CardInserted,
     
     /// <summary>
-    /// ??
+    /// An Abort request has been sent to abort a message which is already completed.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_Cidnhw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"An Abort request has been sent to abort a message which is already completed.")]
     Completed,
     
     /// <summary>
-    /// ??
+    /// A card is removed from the card reader.
     /// Encoded/decoded by serializers as "CardRemoved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDR")]
     [IsoId("_CidniQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"A card is removed from the card reader.")]
     CardRemoved,
     
     /// <summary>
-    /// ??
+    /// The customer has selected a different language on the POI.
     /// Encoded/decoded by serializers as "CustomerLanguage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUSL")]
     [IsoId("_Cidniw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"The customer has selected a different language on the POI.")]
     CustomerLanguage,
     
     /// <summary>
-    /// ??
+    /// End of POI Maintenance.
     /// Encoded/decoded by serializers as "EndMaintenance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIE")]
     [IsoId("_CidnjQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"End of POI Maintenance.")]
     EndMaintenance,
     
     /// <summary>
-    /// ??
+    /// The POI Terminal or the POI System is now ready to work.
     /// Encoded/decoded by serializers as "Initialised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INIT")]
     [IsoId("_Cidnjw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"The POI Terminal or the POI System is now ready to work.")]
     Initialised,
     
     /// <summary>
-    /// ??
+    /// The customer has pressed a specific key on the POI.
     /// Encoded/decoded by serializers as "KeyPressed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYP")]
     [IsoId("_CidnkQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"The customer has pressed a specific key on the POI.")]
     KeyPressed,
     
     /// <summary>
-    /// ??
+    /// Maintenance required by the POI.
     /// Encoded/decoded by serializers as "MaintenanceRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIR")]
     [IsoId("_Cidnkw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Maintenance required by the POI.")]
     MaintenanceRequired,
     
     /// <summary>
-    /// ??
+    /// The POI Terminal or the POI System cannot work.
     /// Encoded/decoded by serializers as "OutOfOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OODR")]
     [IsoId("_CidnlQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"The POI Terminal or the POI System cannot work.")]
     OutOfOrder,
     
     /// <summary>
-    /// ??
+    /// The POI has performed, or want to perform an automatic administrative process, e.g. the reports at the end of day.
     /// Encoded/decoded by serializers as "SaleAdmin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SADM")]
     [IsoId("_Cidnlw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"The POI has performed, or want to perform an automatic administrative process, e.g. the reports at the end of day.")]
     SaleAdmin,
     
     /// <summary>
-    /// ??
+    /// A POI terminal requests the payment of the transaction identified by the content of EventDetails in the Event notification.
     /// Encoded/decoded by serializers as "SaleWakeUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWUP")]
     [IsoId("_CidnmQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"A POI terminal requests the payment of the transaction identified by the content of EventDetails in the Event notification.")]
     SaleWakeUp,
     
     /// <summary>
-    /// ??
+    /// Problem of security.
     /// Encoded/decoded by serializers as "SecurityAlarm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECA")]
     [IsoId("_Cidnmw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Problem of security.")]
     SecurityAlarm,
     
     /// <summary>
-    /// ??
+    /// The POI Terminal or the POI System is shutting down.
     /// Encoded/decoded by serializers as "Shutdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHUT")]
     [IsoId("_CidnnQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"The POI Terminal or the POI System is shutting down.")]
     Shutdown,
     
     /// <summary>
-    /// ??
+    /// When the Customer assistance is stopped, because the Customer has completed its input.
     /// Encoded/decoded by serializers as "StopAssistance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SASS")]
     [IsoId("_Cidnnw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"When the Customer assistance is stopped, because the Customer has completed its input.")]
     StopAssistance,
     
     /// <summary>
-    /// ??
+    /// A disconnection occurred.
     /// Encoded/decoded by serializers as "Disconnected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_CidnoQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"A disconnection occurred.")]
     Disconnected,
     
     /// <summary>
-    /// ??
+    /// Connection has been set up.
     /// Encoded/decoded by serializers as "Connected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTN")]
     [IsoId("_Cidnow0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Connection has been set up.")]
     Connected,
     
     /// <summary>
-    /// ??
+    /// Transaction has been processed and approved by the POI.
     /// Encoded/decoded by serializers as "TransactionApproved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TNOK")]
     [IsoId("_U3cawQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Transaction has been processed and approved by the POI.")]
     TransactionApproved,
     
     /// <summary>
-    /// ??
+    /// Transaction has been processed but has been declined.
     /// Encoded/decoded by serializers as "TransactionDeclined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TNKO")]
     [IsoId("_U9zhcQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Transaction has been processed but has been declined.")]
     TransactionDeclined,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QuoteType1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates the type of quote is an indicative quote. ||An indicative quote is used to inform a counterparty of a market. An indicative quote does not result directly in a trade.
     /// Encoded/decoded by serializers as "Indicative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDI")]
     [IsoId("_ZY2jw9p-Ed-ak6NoX_4Aeg_2117046401")]
-    [Description(@"??")]
+    [Description(@"Indicates the type of quote is an indicative quote. ||An indicative quote is used to inform a counterparty of a market. An indicative quote does not result directly in a trade.")]
     Indicative,
     
     /// <summary>
-    /// ??
+    /// Indicates the type of quote is a tradeable quote. |A tradeable quote is submitted to a market and will result directly in a trade against other orders and quotes in a market.
     /// Encoded/decoded by serializers as "Tradeable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_ZY2jxNp-Ed-ak6NoX_4Aeg_2117046443")]
-    [Description(@"??")]
+    [Description(@"Indicates the type of quote is a tradeable quote. |A tradeable quote is submitted to a market and will result directly in a trade against other orders and quotes in a market.")]
     Tradeable,
     
     /// <summary>
-    /// ??
+    /// Indicates the type of quote is a restricted tradeable quote. |A restricted tradeable quote is submitted to a market and within a certain restriction (possibly based upon price or quantity) will automatically trade against orders. Order that do not comply with restrictions are sent to the quote issuer who can choose to accept or decline the order.
     /// Encoded/decoded by serializers as "RestrictedTradeable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REST")]
     [IsoId("_ZY2jxdp-Ed-ak6NoX_4Aeg_2117046678")]
-    [Description(@"??")]
+    [Description(@"Indicates the type of quote is a restricted tradeable quote. |A restricted tradeable quote is submitted to a market and within a certain restriction (possibly based upon price or quantity) will automatically trade against orders. Order that do not comply with restrictions are sent to the quote issuer who can choose to accept or decline the order.")]
     RestrictedTradeable,
     
     /// <summary>
-    /// ??
+    /// Indicates the type of quote is a counter quote.
     /// Encoded/decoded by serializers as "Counter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COUN")]
     [IsoId("_ZY2jxtp-Ed-ak6NoX_4Aeg_2117046713")]
-    [Description(@"??")]
+    [Description(@"Indicates the type of quote is a counter quote.")]
     Counter,
     
 }

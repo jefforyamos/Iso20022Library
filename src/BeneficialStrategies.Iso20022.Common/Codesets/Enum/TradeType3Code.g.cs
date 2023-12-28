@@ -20,219 +20,219 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeType3Code
 {
     /// <summary>
-    /// ??
+    /// A basket trade, i.e. a unit of 15 or more financial instruments used in program trading.
     /// Encoded/decoded by serializers as "Basket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSKT")]
     [IsoId("__ygzENojEeC60axPepSq7g_729173022")]
-    [Description(@"??")]
+    [Description(@"A basket trade, i.e. a unit of 15 or more financial instruments used in program trading.")]
     Basket,
     
     /// <summary>
-    /// ??
+    /// A trade of a predetermined set of financial instruments.
     /// Encoded/decoded by serializers as "Index".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDX")]
     [IsoId("__ygzEdojEeC60axPepSq7g_-979794862")]
-    [Description(@"??")]
+    [Description(@"A trade of a predetermined set of financial instruments.")]
     Index,
     
     /// <summary>
-    /// ??
+    /// Transaction is an Initial Public Offer (IPO) order.
     /// Encoded/decoded by serializers as "IPO".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOO")]
     [IsoId("__ygzEtojEeC60axPepSq7g_-1817983282")]
-    [Description(@"??")]
+    [Description(@"Transaction is an Initial Public Offer (IPO) order.")]
     IPO,
     
     /// <summary>
-    /// ??
+    /// A trade of a predetermined set of financial instruments.
     /// Encoded/decoded by serializers as "List".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIST")]
     [IsoId("__yqkENojEeC60axPepSq7g_-1863028149")]
-    [Description(@"??")]
+    [Description(@"A trade of a predetermined set of financial instruments.")]
     List,
     
     /// <summary>
-    /// ??
+    /// A pre-allocated trade.
     /// Encoded/decoded by serializers as "PreAllocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAL")]
     [IsoId("__yqkEdojEeC60axPepSq7g_1471303445")]
-    [Description(@"??")]
+    [Description(@"A pre-allocated trade.")]
     PreAllocation,
     
     /// <summary>
-    /// ??
+    /// A program trade, i.e. a computer-driven trade of buying and selling of baskets of 15 or more financial instruments by index arbitrage specialists or institutional traders.
     /// Encoded/decoded by serializers as "Program".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROG")]
     [IsoId("__yqkEtojEeC60axPepSq7g_-2062898698")]
-    [Description(@"??")]
+    [Description(@"A program trade, i.e. a computer-driven trade of buying and selling of baskets of 15 or more financial instruments by index arbitrage specialists or institutional traders.")]
     Program,
     
     /// <summary>
-    /// ??
+    /// An executed order.
     /// Encoded/decoded by serializers as "Trade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("__yqkE9ojEeC60axPepSq7g_1348835311")]
-    [Description(@"??")]
+    [Description(@"An executed order.")]
     Trade,
     
     /// <summary>
-    /// ??
+    /// A trade from a broker to another broker.
     /// Encoded/decoded by serializers as "BrokerToBroker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRBR")]
     [IsoId("__yqkFNojEeC60axPepSq7g_1914291937")]
-    [Description(@"??")]
+    [Description(@"A trade from a broker to another broker.")]
     BrokerToBroker,
     
     /// <summary>
-    /// ??
+    /// Trade involving risk.
     /// Encoded/decoded by serializers as "RiskTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RISK")]
     [IsoId("__yqkFdojEeC60axPepSq7g_222111740")]
-    [Description(@"??")]
+    [Description(@"Trade involving risk.")]
     RiskTrade,
     
     /// <summary>
-    /// ??
+    /// Trade whose price is guaranteed as the weighted average of the trade prices on a specific day.
     /// Encoded/decoded by serializers as "VWAPGuarantee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VWAP")]
     [IsoId("__yqkFtojEeC60axPepSq7g_-1359538318")]
-    [Description(@"??")]
+    [Description(@"Trade whose price is guaranteed as the weighted average of the trade prices on a specific day.")]
     VWAPGuarantee,
     
     /// <summary>
-    /// ??
+    /// Trade in which an agent intermediates between a buyer and a seller.
     /// Encoded/decoded by serializers as "Agency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGEN")]
     [IsoId("__y0VENojEeC60axPepSq7g_2052195691")]
-    [Description(@"??")]
+    [Description(@"Trade in which an agent intermediates between a buyer and a seller.")]
     Agency,
     
     /// <summary>
-    /// ??
+    /// Trade which is guaranteed to be finalized.
     /// Encoded/decoded by serializers as "GuaranteedClose".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GUAR")]
     [IsoId("__y0VEdojEeC60axPepSq7g_665100232")]
-    [Description(@"??")]
+    [Description(@"Trade which is guaranteed to be finalized.")]
     GuaranteedClose,
     
     /// <summary>
-    /// ??
+    /// Transaction relates to employee trade reporting.
     /// Encoded/decoded by serializers as "EmployeeTradeReporting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMTR")]
     [IsoId("__y0VEtojEeC60axPepSq7g_1587263542")]
-    [Description(@"??")]
+    [Description(@"Transaction relates to employee trade reporting.")]
     EmployeeTradeReporting,
     
     /// <summary>
-    /// ??
+    /// Relates to the issuance of a security such as an equity or a depositary receipt.
     /// Encoded/decoded by serializers as "Issuance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("__y0VE9ojEeC60axPepSq7g_-1050760413")]
-    [Description(@"??")]
+    [Description(@"Relates to the issuance of a security such as an equity or a depositary receipt.")]
     Issuance,
     
     /// <summary>
-    /// ??
+    /// The trade is a Bond start.
     /// Encoded/decoded by serializers as "BondStart".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOST")]
     [IsoId("__y0VFNojEeC60axPepSq7g_594507022")]
-    [Description(@"??")]
+    [Description(@"The trade is a Bond start.")]
     BondStart,
     
     /// <summary>
-    /// ??
+    /// The trade is a Bond end.
     /// Encoded/decoded by serializers as "BondEnd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOEN")]
     [IsoId("__y0VFdojEeC60axPepSq7g_1428180849")]
-    [Description(@"??")]
+    [Description(@"The trade is a Bond end.")]
     BondEnd,
     
     /// <summary>
-    /// ??
+    /// Indicates that the trade is a Lending and borrowing.
     /// Encoded/decoded by serializers as "LendingAndBorrowing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LABO")]
     [IsoId("__y0VFtojEeC60axPepSq7g_252989824")]
-    [Description(@"??")]
+    [Description(@"Indicates that the trade is a Lending and borrowing.")]
     LendingAndBorrowing,
     
     /// <summary>
-    /// ??
+    /// The trade is a Bond repricing.
     /// Encoded/decoded by serializers as "BondRepricing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BORE")]
     [IsoId("__y9fANojEeC60axPepSq7g_-857921595")]
-    [Description(@"??")]
+    [Description(@"The trade is a Bond repricing.")]
     BondRepricing,
     
     /// <summary>
-    /// ??
+    /// Indicates that the trade is a Offering issue trade.
     /// Encoded/decoded by serializers as "OfferingIssuingTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFIT")]
     [IsoId("__y9fAdojEeC60axPepSq7g_-1563036210")]
-    [Description(@"??")]
+    [Description(@"Indicates that the trade is a Offering issue trade.")]
     OfferingIssuingTrade,
     
     /// <summary>
-    /// ??
+    /// The trade is a Bond substitution.
     /// Encoded/decoded by serializers as "BondSubstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOSU")]
     [IsoId("__y9fAtojEeC60axPepSq7g_1556740061")]
-    [Description(@"??")]
+    [Description(@"The trade is a Bond substitution.")]
     BondSubstitution,
     
     /// <summary>
-    /// ??
+    /// The security will be bought back in the future.
     /// Encoded/decoded by serializers as "FutureBuyBackTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FBBT")]
     [IsoId("__y9fA9ojEeC60axPepSq7g_932775317")]
-    [Description(@"??")]
+    [Description(@"The security will be bought back in the future.")]
     FutureBuyBackTrade,
     
     /// <summary>
-    /// ??
+    /// Indicates that the trade is a Option contract trade.
     /// Encoded/decoded by serializers as "Options".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTN")]
     [IsoId("__y9fBNojEeC60axPepSq7g_-577397526")]
-    [Description(@"??")]
+    [Description(@"Indicates that the trade is a Option contract trade.")]
     Options,
     
     /// <summary>
-    /// ??
+    /// Indicates that the trade is a Futures option contract trade.
     /// Encoded/decoded by serializers as "FuturesOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUOP")]
     [IsoId("__y9fBdojEeC60axPepSq7g_1067869909")]
-    [Description(@"??")]
+    [Description(@"Indicates that the trade is a Futures option contract trade.")]
     FuturesOption,
     
     /// <summary>
-    /// ??
+    /// Indicates that the trade is a Futures contract trade.
     /// Encoded/decoded by serializers as "Futures".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUTR")]
     [IsoId("__y9fBtojEeC60axPepSq7g_-1688308945")]
-    [Description(@"??")]
+    [Description(@"Indicates that the trade is a Futures contract trade.")]
     Futures,
     
 }

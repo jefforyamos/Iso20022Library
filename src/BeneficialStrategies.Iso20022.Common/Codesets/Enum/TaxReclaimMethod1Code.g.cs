@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxReclaimMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Invoice printed and given to purchaser and then used for tax reclaim
     /// Encoded/decoded by serializers as "InvoicePrintedPrimary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPP")]
     [IsoId("_8RyWcTEuEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Invoice printed and given to purchaser and then used for tax reclaim")]
     InvoicePrintedPrimary,
     
     /// <summary>
-    /// ??
+    /// Invoice printed but treated as supplemental because electronic copy is used for tax reclaim
     /// Encoded/decoded by serializers as "InvoicePrintedSupplimental".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPS")]
     [IsoId("_8lwbUTEuEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Invoice printed but treated as supplemental because electronic copy is used for tax reclaim")]
     InvoicePrintedSupplimental,
     
     /// <summary>
-    /// ??
+    /// Printed invoice suppressed because electronic master version is used for tax reclaim
     /// Encoded/decoded by serializers as "InvoiceSuppressed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_866zATEuEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Printed invoice suppressed because electronic master version is used for tax reclaim")]
     InvoiceSuppressed,
     
     /// <summary>
-    /// ??
+    /// Other tax reclaim method not elsewhere specified
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_9QYFoTEuEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other tax reclaim method not elsewhere specified")]
     Other,
     
 }

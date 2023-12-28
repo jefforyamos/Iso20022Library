@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Component is activated and in operation.
     /// Encoded/decoded by serializers as "InOperation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPER")]
     [IsoId("_EcoHQYtDEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Component is activated and in operation.")]
     InOperation,
     
     /// <summary>
-    /// ??
+    /// Component has been stopped.
     /// Encoded/decoded by serializers as "Stopped".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOP")]
     [IsoId("_Esa2wYtDEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Component has been stopped.")]
     Stopped,
     
     /// <summary>
-    /// ??
+    /// Component has been loaded, but not yet activated.
     /// Encoded/decoded by serializers as "WaitingActivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WACT")]
     [IsoId("_Ey1AwYtDEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Component has been loaded, but not yet activated.")]
     WaitingActivation,
     
 }

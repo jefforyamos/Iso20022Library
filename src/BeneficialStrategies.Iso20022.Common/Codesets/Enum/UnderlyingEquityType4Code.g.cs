@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnderlyingEquityType4Code
 {
     /// <summary>
-    /// ??
+    /// Underlying is a stock index.
     /// Encoded/decoded by serializers as "StockIndex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STIX")]
     [IsoId("_u5AjUWlOEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Underlying is a stock index.")]
     StockIndex,
     
     /// <summary>
-    /// ??
+    /// Underlying is a dividend index.
     /// Encoded/decoded by serializers as "DividendIndex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_vggBIWlOEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Underlying is a dividend index.")]
     DividendIndex,
     
     /// <summary>
-    /// ??
+    /// Underlying is of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_v6xiUWlOEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Underlying is of other type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Underlying is a volatility index.
     /// Encoded/decoded by serializers as "VolatilityIndex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VOLI")]
     [IsoId("_wUg4AWlOEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Underlying is a volatility index.")]
     VolatilityIndex,
     
 }

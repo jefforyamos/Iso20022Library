@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderCancellationStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Order cancellation request has been sent to the next party, eg, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_9vuJodcPEeaX5rvhR0a-OQ")]
-    [Description(@"??")]
+    [Description(@"Order cancellation request has been sent to the next party, eg, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Status of the order cancellation request is received, that is, technical validation of the message is ok, and the message is now at the receiving side.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_95Dr0dcPEeaX5rvhR0a-OQ")]
-    [Description(@"??")]
+    [Description(@"Status of the order cancellation request is received, that is, technical validation of the message is ok, and the message is now at the receiving side.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Order cancellation request is pending, The order cancellation request has been received but this does not indicate the order has been cancelled.
     /// Encoded/decoded by serializers as "CancellationPending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_-BQlkdcPEeaX5rvhR0a-OQ")]
-    [Description(@"??")]
+    [Description(@"Order cancellation request is pending, The order cancellation request has been received but this does not indicate the order has been cancelled.")]
     CancellationPending,
     
     /// <summary>
-    /// ??
+    /// Status of the order cancellation request is completed. The cancellation request has been accepted and processed; the order has been cancelled.
     /// Encoded/decoded by serializers as "CancellationCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_-JLLcdcPEeaX5rvhR0a-OQ")]
-    [Description(@"??")]
+    [Description(@"Status of the order cancellation request is completed. The cancellation request has been accepted and processed; the order has been cancelled.")]
     CancellationCompleted,
     
 }

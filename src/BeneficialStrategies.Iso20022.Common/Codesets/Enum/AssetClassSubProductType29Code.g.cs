@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType29Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type carbon related.
     /// Encoded/decoded by serializers as "CarbonRelated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRBR")]
     [IsoId("_ePRMoVrNEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type carbon related.")]
     CarbonRelated,
     
 }

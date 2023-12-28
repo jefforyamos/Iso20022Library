@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Endpoint1Code
 {
     /// <summary>
-    /// ??
+    /// Destination	
     /// Encoded/decoded by serializers as "Destination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEST")]
     [IsoId("_lMjYAYNoEeuHqfO1LgkE9Q")]
-    [Description(@"??")]
+    [Description(@"Destination	")]
     Destination,
     
     /// <summary>
-    /// ??
+    /// Origination
     /// Encoded/decoded by serializers as "Origination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORIG")]
     [IsoId("_lVDzwYNoEeuHqfO1LgkE9Q")]
-    [Description(@"??")]
+    [Description(@"Origination")]
     Origination,
     
     /// <summary>
-    /// ??
+    /// Type specified at a private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_m5vSkYNoEeuHqfO1LgkE9Q")]
-    [Description(@"??")]
+    [Description(@"Type specified at a private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Type specified at the national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_nJ4nYoNoEeuHqfO1LgkE9Q")]
-    [Description(@"??")]
+    [Description(@"Type specified at the national level.")]
     OtherNational,
     
 }

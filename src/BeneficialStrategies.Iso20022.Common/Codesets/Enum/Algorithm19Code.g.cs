@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm19Code
 {
     /// <summary>
-    /// ??
+    /// Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).
     /// Encoded/decoded by serializers as "SHA256WithRSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERS2")]
     [IsoId("_8tjagdtkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).")]
     SHA256WithRSA,
     
     /// <summary>
-    /// ??
+    /// The DEPRECATED Signature algorithms with RSA (PKCS #1 version 2.1), using SHA-1 digest algorithm - (ASN.1 Object Identifier: sha1WithRSAEncryption).
     /// Encoded/decoded by serializers as "SHA1WithRSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERS1")]
     [IsoId("_8tjag9tkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"The DEPRECATED Signature algorithms with RSA (PKCS #1 version 2.1), using SHA-1 digest algorithm - (ASN.1 Object Identifier: sha1WithRSAEncryption).")]
     SHA1WithRSA,
     
     /// <summary>
-    /// ??
+    /// Signature algorithm with Appendix, Probabilistic Signature Scheme (PKCS #1 version 2.1), - (ASN.1 Object Identifier: id-RSASSA-PSS).
     /// Encoded/decoded by serializers as "RSASSA_PSS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPSS")]
     [IsoId("_8tjahdtkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Signature algorithm with Appendix, Probabilistic Signature Scheme (PKCS #1 version 2.1), - (ASN.1 Object Identifier: id-RSASSA-PSS).")]
     RSASSA_PSS,
     
     /// <summary>
-    /// ??
+    /// Fifth Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
     /// Encoded/decoded by serializers as "EllipticCryptographicCurveFifthAlgortihm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECC5")]
     [IsoId("_AqfxMdtlEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Fifth Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.")]
     EllipticCryptographicCurveFifthAlgortihm,
     
     /// <summary>
-    /// ??
+    /// First Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
     /// Encoded/decoded by serializers as "EllipticCryptographicCurveFirstAlgorithm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECC1")]
     [IsoId("_AvuPcdtlEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"First Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.")]
     EllipticCryptographicCurveFirstAlgorithm,
     
     /// <summary>
-    /// ??
+    /// Fourth Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
     /// Encoded/decoded by serializers as "EllipticCryptographicCurveFourthAlgorithm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECC4")]
     [IsoId("_A0_J8dtlEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Fourth Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.")]
     EllipticCryptographicCurveFourthAlgorithm,
     
     /// <summary>
-    /// ??
+    /// Second Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
     /// Encoded/decoded by serializers as "EllipticCryptographicCurveSecondAlgorithm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECC2")]
     [IsoId("_A5yxcdtlEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Second Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.")]
     EllipticCryptographicCurveSecondAlgorithm,
     
     /// <summary>
-    /// ??
+    /// Third Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
     /// Encoded/decoded by serializers as "EllipticCryptographicCurveThirdAlgorithm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECC3")]
     [IsoId("_A_gX4dtlEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Third Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.")]
     EllipticCryptographicCurveThirdAlgorithm,
     
     /// <summary>
-    /// ??
+    /// Signature algorithms with RSA, using SHA3-256 digest algorithm. (ASN.1 Object Identifier: id-rsassa-pkcs1-v1-5-with-sha3-256).
     /// Encoded/decoded by serializers as "SHA3_256WithRSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERS3")]
     [IsoId("_C3GLoNtlEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Signature algorithms with RSA, using SHA3-256 digest algorithm. (ASN.1 Object Identifier: id-rsassa-pkcs1-v1-5-with-sha3-256).")]
     SHA3_256WithRSA,
     
     /// <summary>
-    /// ??
+    /// Elliptic Curve Signature with the Curve P-256 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).
     /// Encoded/decoded by serializers as "SignatureWithEllipticCurveP_256".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECP2")]
     [IsoId("_ZZURwd6OEeeCre2qFaLC2A")]
-    [Description(@"??")]
+    [Description(@"Elliptic Curve Signature with the Curve P-256 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).")]
     SignatureWithEllipticCurveP_256,
     
     /// <summary>
-    /// ??
+    /// Elliptic Curve Signature with the Curve P-384 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).
     /// Encoded/decoded by serializers as "SignatureWithEllipticCurveP_384".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECP3")]
     [IsoId("_ZeXJ0d6OEeeCre2qFaLC2A")]
-    [Description(@"??")]
+    [Description(@"Elliptic Curve Signature with the Curve P-384 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).")]
     SignatureWithEllipticCurveP_384,
     
     /// <summary>
-    /// ??
+    /// Elliptic Curve Signature with the Curve P-512 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).
     /// Encoded/decoded by serializers as "SignatureWithEllipticCurveP_512".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECP5")]
     [IsoId("_ZkqmId6OEeeCre2qFaLC2A")]
-    [Description(@"??")]
+    [Description(@"Elliptic Curve Signature with the Curve P-512 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).")]
     SignatureWithEllipticCurveP_512,
     
 }

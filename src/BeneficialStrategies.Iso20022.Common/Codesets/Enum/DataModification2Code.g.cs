@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataModification2Code
 {
     /// <summary>
-    /// ??
+    /// Insert a new set of data.
     /// Encoded/decoded by serializers as "InsertNewDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSE")]
     [IsoId("_ax9Etdp-Ed-ak6NoX_4Aeg_-1011150674")]
-    [Description(@"??")]
+    [Description(@"Insert a new set of data.")]
     InsertNewDataSet,
     
     /// <summary>
-    /// ??
+    /// Delete an existing set of data.
     /// Encoded/decoded by serializers as "DeleteDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELT")]
     [IsoId("_ax9Ettp-Ed-ak6NoX_4Aeg_-1011150656")]
-    [Description(@"??")]
+    [Description(@"Delete an existing set of data.")]
     DeleteDataSet,
     
 }

@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCAdjustmentPaymentType5Code
 {
     /// <summary>
-    /// ??
+    /// Custody reorganisation deposit related adjustment.
     /// Encoded/decoded by serializers as "CustodyReorganisationDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRCD")]
     [IsoId("_TORTwcMOEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Custody reorganisation deposit related adjustment.")]
     CustodyReorganisationDeposit,
     
     /// <summary>
-    /// ??
+    /// Dynamic rate change related adjustment.
     /// Encoded/decoded by serializers as "DynamicRateChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRDR")]
     [IsoId("_TToU4cMOEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Dynamic rate change related adjustment.")]
     DynamicRateChange,
     
     /// <summary>
-    /// ??
+    /// FAIL (undelivered securities) transaction.
     /// Encoded/decoded by serializers as "FailSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_TZRp4cMOEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"FAIL (undelivered securities) transaction.")]
     FailSettlement,
     
     /// <summary>
-    /// ??
+    /// Miscellaneous (adjustment) transaction.
     /// Encoded/decoded by serializers as "MiscellaneousSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISC")]
     [IsoId("_UoufkcMOEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Miscellaneous (adjustment) transaction.")]
     MiscellaneousSettlement,
     
     /// <summary>
-    /// ??
+    /// Participant deposited a security within 10 days after a corporate action event has occurred.
     /// Encoded/decoded by serializers as "ReorganisationDepositPhaseOne".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRD1")]
     [IsoId("_VArFgcMOEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Participant deposited a security within 10 days after a corporate action event has occurred.")]
     ReorganisationDepositPhaseOne,
     
     /// <summary>
-    /// ??
+    /// Participant deposited a security 10 days after a corporate action event has occurred.
     /// Encoded/decoded by serializers as "ReorganisationDepositPhaseTwo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRD2")]
     [IsoId("_W_lCMcMOEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Participant deposited a security 10 days after a corporate action event has occurred.")]
     ReorganisationDepositPhaseTwo,
     
     /// <summary>
-    /// ??
+    /// REPO (repurchase agreement) transaction.
     /// Encoded/decoded by serializers as "RepoSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPO")]
     [IsoId("_XGIWIcMOEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"REPO (repurchase agreement) transaction.")]
     RepoSettlement,
     
     /// <summary>
-    /// ??
+    /// Stock loan transaction.
     /// Encoded/decoded by serializers as "StockLoanSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOK")]
     [IsoId("_ckyXMcMOEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Stock loan transaction.")]
     StockLoanSettlement,
     
 }

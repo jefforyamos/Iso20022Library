@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatementStructure1Code
 {
     /// <summary>
-    /// ??
+    /// Statement is sorted by status.
     /// Encoded/decoded by serializers as "Statuses".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAT")]
     [IsoId("_ZQD0J9p-Ed-ak6NoX_4Aeg_-1906483117")]
-    [Description(@"??")]
+    [Description(@"Statement is sorted by status.")]
     Statuses,
     
     /// <summary>
-    /// ??
+    /// Statement is sorted by transaction.
     /// Encoded/decoded by serializers as "Transactions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_ZQD0KNp-Ed-ak6NoX_4Aeg_-1906483092")]
-    [Description(@"??")]
+    [Description(@"Statement is sorted by transaction.")]
     Transactions,
     
 }

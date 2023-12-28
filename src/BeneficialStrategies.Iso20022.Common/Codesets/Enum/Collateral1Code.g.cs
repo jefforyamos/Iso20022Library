@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Collateral1Code
 {
     /// <summary>
-    /// ??
+    /// Item is used as collateral.
     /// Encoded/decoded by serializers as "Collateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_QHQx4SC-EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Item is used as collateral.")]
     Collateral,
     
     /// <summary>
-    /// ??
+    /// Item is not used as collateral.
     /// Encoded/decoded by serializers as "NotCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCOL")]
     [IsoId("_QPdEkSC-EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Item is not used as collateral.")]
     NotCollateral,
     
 }

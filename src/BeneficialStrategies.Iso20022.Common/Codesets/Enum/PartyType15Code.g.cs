@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType15Code
 {
     /// <summary>
-    /// ??
+    /// Configuration to apply to a subset of the whole POI system.
     /// Encoded/decoded by serializers as "POIGroup".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PGRP")]
     [IsoId("_jtF7gY33EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Configuration to apply to a subset of the whole POI system.")]
     POIGroup,
     
     /// <summary>
-    /// ??
+    /// Configuration to apply to the whole POI system.
     /// Encoded/decoded by serializers as "POISystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSYS")]
     [IsoId("_j2B1EY33EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Configuration to apply to the whole POI system.")]
     POISystem,
     
     /// <summary>
-    /// ??
+    /// Configuration to apply to a single POI terminal.
     /// Encoded/decoded by serializers as "SinglePOI".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSNG")]
     [IsoId("_kCQTMY33EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Configuration to apply to a single POI terminal.")]
     SinglePOI,
     
 }

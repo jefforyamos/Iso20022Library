@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RefreshTime1Code
 {
     /// <summary>
-    /// ??
+    /// After each fill.
     /// Encoded/decoded by serializers as "Immediate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMME")]
     [IsoId("_Zayddtp-Ed-ak6NoX_4Aeg_820053979")]
-    [Description(@"??")]
+    [Description(@"After each fill.")]
     Immediate,
     
     /// <summary>
-    /// ??
+    /// When quantity to be displayed equals 0.
     /// Encoded/decoded by serializers as "Exhaust".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXHA")]
     [IsoId("_Zaydd9p-Ed-ak6NoX_4Aeg_820054304")]
-    [Description(@"??")]
+    [Description(@"When quantity to be displayed equals 0.")]
     Exhaust,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SoundFormat1Code
 {
     /// <summary>
-    /// ??
+    /// Reference of a preloaded text to play.
     /// Encoded/decoded by serializers as "MessageRef".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSGR")]
     [IsoId("_OeHPod6_Eeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Reference of a preloaded text to play.")]
     MessageRef,
     
     /// <summary>
-    /// ??
+    /// Preloaded sound File.
     /// Encoded/decoded by serializers as "SoundRef".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNDR")]
     [IsoId("_OhkMQd6_Eeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Preloaded sound File.")]
     SoundRef,
     
     /// <summary>
-    /// ??
+    /// Text to play.
     /// Encoded/decoded by serializers as "Text".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEXT")]
     [IsoId("_OlZjYd6_Eeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Text to play.")]
     Text,
     
 }

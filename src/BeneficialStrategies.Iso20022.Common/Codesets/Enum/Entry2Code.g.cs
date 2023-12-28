@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Entry2Code
 {
     /// <summary>
-    /// ??
+    /// Trial pay-in schedule.
     /// Encoded/decoded by serializers as "Trial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRIA")]
     [IsoId("_ahQ9Vdp-Ed-ak6NoX_4Aeg_-218020347")]
-    [Description(@"??")]
+    [Description(@"Trial pay-in schedule.")]
     Trial,
     
     /// <summary>
-    /// ??
+    /// Official pay-in schedule.
     /// Encoded/decoded by serializers as "Official".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFI")]
     [IsoId("_ahQ9Vtp-Ed-ak6NoX_4Aeg_-214324853")]
-    [Description(@"??")]
+    [Description(@"Official pay-in schedule.")]
     Official,
     
     /// <summary>
-    /// ??
+    /// Pay-in schedule on request.
     /// Encoded/decoded by serializers as "Requested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_ahQ9V9p-Ed-ak6NoX_4Aeg_-203241624")]
-    [Description(@"??")]
+    [Description(@"Pay-in schedule on request.")]
     Requested,
     
 }

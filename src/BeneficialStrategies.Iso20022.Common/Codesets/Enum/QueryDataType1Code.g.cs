@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QueryDataType1Code
 {
     /// <summary>
-    /// ??
+    /// Query for tading data of foreign exchange.
     /// Encoded/decoded by serializers as "QueryForeignExchangeTradingData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QFXT")]
     [IsoId("__WMRUaa_EeSxuMLA5o46jQ")]
-    [Description(@"??")]
+    [Description(@"Query for tading data of foreign exchange.")]
     QueryForeignExchangeTradingData,
     
     /// <summary>
-    /// ??
+    /// Query for tading data of option.
     /// Encoded/decoded by serializers as "QueryOptionTradingData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QOTD")]
     [IsoId("__bscYaa_EeSxuMLA5o46jQ")]
-    [Description(@"??")]
+    [Description(@"Query for tading data of option.")]
     QueryOptionTradingData,
     
 }

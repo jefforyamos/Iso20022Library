@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BookingUnit1Code
 {
     /// <summary>
-    /// ??
+    /// Each partial execution is a bookable unit.
     /// Encoded/decoded by serializers as "EachPartial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EACP")]
     [IsoId("_VuwQk9p-Ed-ak6NoX_4Aeg_-1874118380")]
-    [Description(@"??")]
+    [Description(@"Each partial execution is a bookable unit.")]
     EachPartial,
     
     /// <summary>
-    /// ??
+    /// Aggregate partial executions on this order, and book one trade per order.
     /// Encoded/decoded by serializers as "AggregatePartial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGGP")]
     [IsoId("_VuwQlNp-Ed-ak6NoX_4Aeg_-1871346287")]
-    [Description(@"??")]
+    [Description(@"Aggregate partial executions on this order, and book one trade per order.")]
     AggregatePartial,
     
     /// <summary>
-    /// ??
+    /// Aggregate executions for this symbol, side and settlement date.
     /// Encoded/decoded by serializers as "AggregateExecutions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGGE")]
     [IsoId("_VuwQldp-Ed-ak6NoX_4Aeg_-1861189086")]
-    [Description(@"??")]
+    [Description(@"Aggregate executions for this symbol, side and settlement date.")]
     AggregateExecutions,
     
 }

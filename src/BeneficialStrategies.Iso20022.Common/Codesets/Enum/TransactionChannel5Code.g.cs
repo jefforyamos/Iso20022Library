@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionChannel5Code
 {
     /// <summary>
-    /// ??
+    /// Mail order.
     /// Encoded/decoded by serializers as "MailOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIL")]
     [IsoId("_ImxrUbDHEeaW-9Sj0pzN5A")]
-    [Description(@"??")]
+    [Description(@"Mail order.")]
     MailOrder,
     
     /// <summary>
-    /// ??
+    /// Telephone order.
     /// Encoded/decoded by serializers as "TelephoneOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TLPH")]
     [IsoId("_ImxrU7DHEeaW-9Sj0pzN5A")]
-    [Description(@"??")]
+    [Description(@"Telephone order.")]
     TelephoneOrder,
     
     /// <summary>
-    /// ??
+    /// Electronic commerce.
     /// Encoded/decoded by serializers as "ElectronicCommerce".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECOM")]
     [IsoId("_ImxrVbDHEeaW-9Sj0pzN5A")]
-    [Description(@"??")]
+    [Description(@"Electronic commerce.")]
     ElectronicCommerce,
     
     /// <summary>
-    /// ??
+    /// Payment on television.
     /// Encoded/decoded by serializers as "TelevisionPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TVPY")]
     [IsoId("_ImxrV7DHEeaW-9Sj0pzN5A")]
-    [Description(@"??")]
+    [Description(@"Payment on television.")]
     TelevisionPayment,
     
     /// <summary>
-    /// ??
+    /// Electronic commerce with cardholder authentication.
     /// Encoded/decoded by serializers as "SecuredElectronicCommerce".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECM")]
     [IsoId("_ImxrWbDHEeaW-9Sj0pzN5A")]
-    [Description(@"??")]
+    [Description(@"Electronic commerce with cardholder authentication.")]
     SecuredElectronicCommerce,
     
     /// <summary>
-    /// ??
+    /// Payment performed through a cardholder mobile device.
     /// Encoded/decoded by serializers as "MobilePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOBL")]
     [IsoId("_ImxrW7DHEeaW-9Sj0pzN5A")]
-    [Description(@"??")]
+    [Description(@"Payment performed through a cardholder mobile device.")]
     MobilePayment,
     
     /// <summary>
-    /// ??
+    /// Payment performed through a merchant mobile device.
     /// Encoded/decoded by serializers as "MobilePOS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPOS")]
     [IsoId("_KbWnUbDHEeaW-9Sj0pzN5A")]
-    [Description(@"??")]
+    [Description(@"Payment performed through a merchant mobile device.")]
     MobilePOS,
     
 }

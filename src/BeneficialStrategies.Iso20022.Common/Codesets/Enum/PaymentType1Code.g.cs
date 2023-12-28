@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentType1Code
 {
     /// <summary>
-    /// ??
+    /// Payment has an origin in one country, a destination in another, and is made in the currency of either the origin or destination country.
     /// Encoded/decoded by serializers as "CrossBorderPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBS")]
     [IsoId("_Vl9g-Np-Ed-ak6NoX_4Aeg_193012472")]
-    [Description(@"??")]
+    [Description(@"Payment has an origin in one country, a destination in another, and is made in the currency of either the origin or destination country.")]
     CrossBorderPayment,
     
     /// <summary>
-    /// ??
+    /// Payment is made under the recovery procedure to move liquidity to/from the settlement account of a member according to the specifications of the system.
     /// Encoded/decoded by serializers as "BackUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCK")]
     [IsoId("_Vl9g-dp-Ed-ak6NoX_4Aeg_193012515")]
-    [Description(@"??")]
+    [Description(@"Payment is made under the recovery procedure to move liquidity to/from the settlement account of a member according to the specifications of the system.")]
     BackUp,
     
     /// <summary>
-    /// ??
+    /// Payment is linked to CLS activities.
     /// Encoded/decoded by serializers as "CLSPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLS")]
     [IsoId("_VmHR8Np-Ed-ak6NoX_4Aeg_193012532")]
-    [Description(@"??")]
+    [Description(@"Payment is linked to CLS activities.")]
     CLSPayment,
     
     /// <summary>
-    /// ??
+    /// Payment is made to settle an operation made with the central bank.
     /// Encoded/decoded by serializers as "CentralBankOperation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTR")]
     [IsoId("_VmHR8dp-Ed-ak6NoX_4Aeg_193012575")]
-    [Description(@"??")]
+    [Description(@"Payment is made to settle an operation made with the central bank.")]
     CentralBankOperation,
     
     /// <summary>
-    /// ??
+    /// Transaction is a high value payment that has an origin in one country and a destination in another country and is made in the currency of either the origin or destination country.
     /// Encoded/decoded by serializers as "CrossBorderHighValuePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBH")]
     [IsoId("_VmHR8tp-Ed-ak6NoX_4Aeg_193012592")]
-    [Description(@"??")]
+    [Description(@"Transaction is a high value payment that has an origin in one country and a destination in another country and is made in the currency of either the origin or destination country.")]
     CrossBorderHighValuePayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a priority payment that has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
     /// Encoded/decoded by serializers as "CrossBorderPriorityPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBP")]
     [IsoId("_VmHR89p-Ed-ak6NoX_4Aeg_193012627")]
-    [Description(@"??")]
+    [Description(@"Transaction is a priority payment that has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.")]
     CrossBorderPriorityPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment that is processed whenever liquidity is available on the settlement account of a member of the RTGSPlus system.
     /// Encoded/decoded by serializers as "ExpressPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXP")]
     [IsoId("_VmHR9Np-Ed-ak6NoX_4Aeg_193012887")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment that is processed whenever liquidity is available on the settlement account of a member of the RTGSPlus system.")]
     ExpressPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a high value payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.
     /// Encoded/decoded by serializers as "ThirdCurrencyHighValuePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TCH")]
     [IsoId("_VmHR9dp-Ed-ak6NoX_4Aeg_193012922")]
-    [Description(@"??")]
+    [Description(@"Transaction is a high value payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.")]
     ThirdCurrencyHighValuePayment,
     
     /// <summary>
-    /// ??
+    /// Payment is made to transfer liquidity to/from the settlement account of a member, to/from the current account held at the central institution or any other institution.
     /// Encoded/decoded by serializers as "LiquidityTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIQ")]
     [IsoId("_VmHR9tp-Ed-ak6NoX_4Aeg_193012947")]
-    [Description(@"??")]
+    [Description(@"Payment is made to transfer liquidity to/from the settlement account of a member, to/from the current account held at the central institution or any other institution.")]
     LiquidityTransfer,
     
     /// <summary>
-    /// ??
+    /// Transaction is a priority payment that has an origin and a destination in the same country and is made in the currency of that country.
     /// Encoded/decoded by serializers as "DomesticPriorityPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPP")]
     [IsoId("_VmHR99p-Ed-ak6NoX_4Aeg_193012982")]
-    [Description(@"??")]
+    [Description(@"Transaction is a priority payment that has an origin and a destination in the same country and is made in the currency of that country.")]
     DomesticPriorityPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a high value payment that has an origin and a destination in the same country and is made in the currency of that country.
     /// Encoded/decoded by serializers as "DomesticHighValuePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPH")]
     [IsoId("_VmHR-Np-Ed-ak6NoX_4Aeg_193013017")]
-    [Description(@"??")]
+    [Description(@"Transaction is a high value payment that has an origin and a destination in the same country and is made in the currency of that country.")]
     DomesticHighValuePayment,
     
     /// <summary>
-    /// ??
+    /// Payment has an origin and a destination in the same country, and is made in the currency of that country.
     /// Encoded/decoded by serializers as "DomesticPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPS")]
     [IsoId("_VmHR-dp-Ed-ak6NoX_4Aeg_193013325")]
-    [Description(@"??")]
+    [Description(@"Payment has an origin and a destination in the same country, and is made in the currency of that country.")]
     DomesticPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.
     /// Encoded/decoded by serializers as "ThirdCurrencyPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TCS")]
     [IsoId("_VmQb4Np-Ed-ak6NoX_4Aeg_193013367")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.")]
     ThirdCurrencyPayment,
     
     /// <summary>
-    /// ??
+    /// Payment is made in a third currency to the origin and destination countries. The origin and destination countries may be the same country.
     /// Encoded/decoded by serializers as "ThirdCurrencyPriorityPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TCP")]
     [IsoId("_VmQb4dp-Ed-ak6NoX_4Aeg_193013402")]
-    [Description(@"??")]
+    [Description(@"Payment is made in a third currency to the origin and destination countries. The origin and destination countries may be the same country.")]
     ThirdCurrencyPriorityPayment,
     
 }

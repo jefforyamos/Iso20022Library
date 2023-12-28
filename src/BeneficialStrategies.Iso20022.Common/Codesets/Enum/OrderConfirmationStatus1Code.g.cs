@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderConfirmationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Order confirmation or order confirmation cancellation instruction or order confirmation amendment has been sent to the next party, eg, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_aQ4X8dp-Ed-ak6NoX_4Aeg_-1681562215")]
-    [Description(@"??")]
+    [Description(@"Order confirmation or order confirmation cancellation instruction or order confirmation amendment has been sent to the next party, eg, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Communication problems with the next party.
     /// Encoded/decoded by serializers as "CommunicationProblemNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPNP")]
     [IsoId("_aQ4X8tp-Ed-ak6NoX_4Aeg_1277403271")]
-    [Description(@"??")]
+    [Description(@"Communication problems with the next party.")]
     CommunicationProblemNextParty,
     
     /// <summary>
-    /// ??
+    /// Order confirmation or order confirmation amendment is accepted.
     /// Encoded/decoded by serializers as "ConfirmationAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAC")]
     [IsoId("_aQ4X89p-Ed-ak6NoX_4Aeg_-1681562310")]
-    [Description(@"??")]
+    [Description(@"Order confirmation or order confirmation amendment is accepted.")]
     ConfirmationAccepted,
     
     /// <summary>
-    /// ??
+    /// Order confirmation or order confirmation amendment is received, ie, technical validation of the message is ok, and the message is now at the receiving side.
     /// Encoded/decoded by serializers as "ConfirmationReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CREC")]
     [IsoId("_aQ4X9Np-Ed-ak6NoX_4Aeg_-1681562275")]
-    [Description(@"??")]
+    [Description(@"Order confirmation or order confirmation amendment is received, ie, technical validation of the message is ok, and the message is now at the receiving side.")]
     ConfirmationReceived,
     
 }

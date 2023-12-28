@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionIndividualStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Authentication and syntactical and semantical validation are successful.
     /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_YsAE0dp-Ed-ak6NoX_4Aeg_-1770836908")]
-    [Description(@"??")]
+    [Description(@"Authentication and syntactical and semantical validation are successful.")]
     AcceptedTechnicalValidation,
     
     /// <summary>
-    /// ??
+    /// Payment initiation or individual transaction included in the payment initiation has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_YsAE0tp-Ed-ak6NoX_4Aeg_-1770836879")]
-    [Description(@"??")]
+    [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Payment initiation or individual transaction included in the payment initiation is pending.  Further checks and status update will be performed.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_YsAE09p-Ed-ak6NoX_4Aeg_-1770836878")]
-    [Description(@"??")]
+    [Description(@"Payment initiation or individual transaction included in the payment initiation is pending.  Further checks and status update will be performed.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Preceding check of technical validation was successful. Customer profile check was also successful.
     /// Encoded/decoded by serializers as "AcceptedCustomerProfile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_YsAE1Np-Ed-ak6NoX_4Aeg_-1770836856")]
-    [Description(@"??")]
+    [Description(@"Preceding check of technical validation was successful. Customer profile check was also successful.")]
     AcceptedCustomerProfile,
     
     /// <summary>
-    /// ??
+    /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
     /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSP")]
     [IsoId("_YsAE1dp-Ed-ak6NoX_4Aeg_-1770836825")]
-    [Description(@"??")]
+    [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
     AcceptedSettlementInProcess,
     
     /// <summary>
-    /// ??
+    /// Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement
     /// Encoded/decoded by serializers as "AcceptedSettlementCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSC")]
     [IsoId("_YsAE1tp-Ed-ak6NoX_4Aeg_-1770836817")]
-    [Description(@"??")]
+    [Description(@"Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement")]
     AcceptedSettlementCompleted,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but a change will be made, such as date or remittance not sent.
     /// Encoded/decoded by serializers as "AcceptedWithChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACWC")]
     [IsoId("_YsAE19p-Ed-ak6NoX_4Aeg_-1770836786")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but a change will be made, such as date or remittance not sent.")]
     AcceptedWithChange,
     
 }

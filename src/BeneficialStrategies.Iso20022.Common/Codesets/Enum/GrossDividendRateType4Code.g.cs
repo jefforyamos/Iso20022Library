@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GrossDividendRateType4Code
 {
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which capital is distributed.
     /// Encoded/decoded by serializers as "CapitalPortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPO")]
     [IsoId("_ghpRZpb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which capital is distributed.")]
     CapitalPortion,
     
     /// <summary>
-    /// ??
+    /// Rate resulting from a fully franked dividend paid by a company; the rate includes tax credit for companies that have made sufficient tax payments during the fiscal period.
     /// Encoded/decoded by serializers as "FullyFranked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLFR")]
     [IsoId("_ghpRZZb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate resulting from a fully franked dividend paid by a company; the rate includes tax credit for companies that have made sufficient tax payments during the fiscal period.")]
     FullyFranked,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which income is distributed.
     /// Encoded/decoded by serializers as "IncomePortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCO")]
     [IsoId("_ghpRZ5b7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which income is distributed.")]
     IncomePortion,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which interest is paid.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_ghpRX5b7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which interest is paid.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Long term capital gain.
     /// Encoded/decoded by serializers as "LongTermCapitalGain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTCG")]
     [IsoId("_ghpRXpb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Long term capital gain.")]
     LongTermCapitalGain,
     
     /// <summary>
-    /// ??
+    /// Rate of income distribution originated by real estate investment.
     /// Encoded/decoded by serializers as "RealEstatePropertyIncomePortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REES")]
     [IsoId("_ghpRYZb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate of income distribution originated by real estate investment.")]
     RealEstatePropertyIncomePortion,
     
     /// <summary>
-    /// ??
+    /// Short term capital gain.
     /// Encoded/decoded by serializers as "ShortTermCapitalGain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STCG")]
     [IsoId("_ghpRY5b7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Short term capital gain.")]
     ShortTermCapitalGain,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which other income is paid.
     /// Encoded/decoded by serializers as "SundryOrOtherIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOIC")]
     [IsoId("_ghpRaZb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which other income is paid.")]
     SundryOrOtherIncome,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which tax is charged.
     /// Encoded/decoded by serializers as "TaxablePortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXBL")]
     [IsoId("_ghpRZJb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which tax is charged.")]
     TaxablePortion,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which tax is deferred.
     /// Encoded/decoded by serializers as "TaxDeferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXDF")]
     [IsoId("_ghpRYJb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which tax is deferred.")]
     TaxDeferred,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security which is not taxable.
     /// Encoded/decoded by serializers as "TaxFree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXFR")]
     [IsoId("_ghpRaJb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security which is not taxable.")]
     TaxFree,
     
     /// <summary>
-    /// ??
+    /// Rate resulting from an unfranked dividend paid by a company; the rate does not include tax credit and is subject to withholding tax.
     /// Encoded/decoded by serializers as "Unfranked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNFR")]
     [IsoId("_ghpRYpb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate resulting from an unfranked dividend paid by a company; the rate does not include tax credit and is subject to withholding tax.")]
     Unfranked,
     
     /// <summary>
-    /// ??
+    /// Rate relating to a conduit foreign income type.
     /// Encoded/decoded by serializers as "ConduitForeignIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDFI")]
     [IsoId("_luUKgZb7Eee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Rate relating to a conduit foreign income type.")]
     ConduitForeignIncome,
     
 }

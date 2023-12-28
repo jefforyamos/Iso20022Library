@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IncomePreference2Code
 {
     /// <summary>
-    /// ??
+    /// Distribution in cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_ril1cSFJEeWgV9SQSyaAog")]
-    [Description(@"??")]
+    [Description(@"Distribution in cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Distribution in securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_ryQpISFJEeWgV9SQSyaAog")]
-    [Description(@"??")]
+    [Description(@"Distribution in securities.")]
     Securities,
     
 }

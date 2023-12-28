@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType10Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type emission.
     /// Encoded/decoded by serializers as "Emission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMIS")]
     [IsoId("_XZ6MEQn0EeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type emission.")]
     Emission,
     
 }

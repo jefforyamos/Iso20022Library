@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NewSecuritiesIssuanceType5Code
 {
     /// <summary>
-    /// ??
+    /// Funds have been placed in escrow by a trustee or agent to ensure payment on a portion of the outstanding balance of the original security on maturity date. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
     /// Encoded/decoded by serializers as "DefeasedSecurityIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFE")]
     [IsoId("_59TO8WKZEeWR9ZSfjmHwUA")]
-    [Description(@"??")]
+    [Description(@"Funds have been placed in escrow by a trustee or agent to ensure payment on a portion of the outstanding balance of the original security on maturity date. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
     DefeasedSecurityIndicator,
     
     /// <summary>
-    /// ??
+    /// Securities proceeds are not new issues.
     /// Encoded/decoded by serializers as "ExistingIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXIS")]
     [IsoId("_59TO82KZEeWR9ZSfjmHwUA")]
-    [Description(@"??")]
+    [Description(@"Securities proceeds are not new issues.")]
     ExistingIssue,
     
     /// <summary>
-    /// ??
+    /// Securities proceeds are newly issued.
     /// Encoded/decoded by serializers as "NewIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEIS")]
     [IsoId("_59TO9WKZEeWR9ZSfjmHwUA")]
-    [Description(@"??")]
+    [Description(@"Securities proceeds are newly issued.")]
     NewIssue,
     
     /// <summary>
-    /// ??
+    /// Funds will not be guaranteed at maturity by the issuer or paying agent for this newly issued non-defeased security. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
     /// Encoded/decoded by serializers as "NonDefeasedSecurityIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDEF")]
     [IsoId("_59TO92KZEeWR9ZSfjmHwUA")]
-    [Description(@"??")]
+    [Description(@"Funds will not be guaranteed at maturity by the issuer or paying agent for this newly issued non-defeased security. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
     NonDefeasedSecurityIndicator,
     
     /// <summary>
-    /// ??
+    /// Not known whether the securities proceeds are newly issued or not.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_59TO-WKZEeWR9ZSfjmHwUA")]
-    [Description(@"??")]
+    [Description(@"Not known whether the securities proceeds are newly issued or not.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// New Security issued that has not been refunded and the maturity date of the original underlying security is unchanged. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
     /// Encoded/decoded by serializers as "NonRefundedSecurityIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREF")]
     [IsoId("_QnFfQWKaEeWR9ZSfjmHwUA")]
-    [Description(@"??")]
+    [Description(@"New Security issued that has not been refunded and the maturity date of the original underlying security is unchanged. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
     NonRefundedSecurityIndicator,
     
     /// <summary>
-    /// ??
+    /// New security issued that has been refunded to an earlier maturity date. Applicable only in the frame of a partial defeasance PDEF corporate action event.
     /// Encoded/decoded by serializers as "RefundedSecurityIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFU")]
     [IsoId("_xauNEWKdEeWR9ZSfjmHwUA")]
-    [Description(@"??")]
+    [Description(@"New security issued that has been refunded to an earlier maturity date. Applicable only in the frame of a partial defeasance PDEF corporate action event.")]
     RefundedSecurityIndicator,
     
 }

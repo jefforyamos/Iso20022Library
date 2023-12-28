@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SubscriptionChargeApplicationType1Code
 {
     /// <summary>
-    /// ??
+    /// Charges are accumulated and charged later.
     /// Encoded/decoded by serializers as "Accumulated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCU")]
     [IsoId("_10dH5jL3EeKU9IrkkToqcw_800343679")]
-    [Description(@"??")]
+    [Description(@"Charges are accumulated and charged later.")]
     Accumulated,
     
     /// <summary>
-    /// ??
+    /// Charges are charged when instructed.
     /// Encoded/decoded by serializers as "Immediate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMDT")]
     [IsoId("_10mR0DL3EeKU9IrkkToqcw_-2027474854")]
-    [Description(@"??")]
+    [Description(@"Charges are charged when instructed.")]
     Immediate,
     
 }

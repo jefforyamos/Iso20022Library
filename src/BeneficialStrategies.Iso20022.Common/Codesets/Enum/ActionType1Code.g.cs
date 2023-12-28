@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionType1Code
 {
     /// <summary>
-    /// ??
+    /// Message to display, print or log.
     /// Encoded/decoded by serializers as "DisplayMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_TR6hgwEcEeCQm6a_G2yO_w_707859768")]
-    [Description(@"??")]
+    [Description(@"Message to display, print or log.")]
     DisplayMessage,
     
     /// <summary>
-    /// ??
+    /// Print a message.
     /// Encoded/decoded by serializers as "PrintMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRNT")]
     [IsoId("_TR6hhAEcEeCQm6a_G2yO_w_-1829270022")]
-    [Description(@"??")]
+    [Description(@"Print a message.")]
     PrintMessage,
     
     /// <summary>
-    /// ??
+    /// Referral has to be performed.
     /// Encoded/decoded by serializers as "Referral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFRL")]
     [IsoId("_TR6hhQEcEeCQm6a_G2yO_w_107955151")]
-    [Description(@"??")]
+    [Description(@"Referral has to be performed.")]
     Referral,
     
     /// <summary>
-    /// ??
+    /// Capture the card.
     /// Encoded/decoded by serializers as "CaptureCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTR")]
     [IsoId("_TR6hhgEcEeCQm6a_G2yO_w_-1550000880")]
-    [Description(@"??")]
+    [Description(@"Capture the card.")]
     CaptureCard,
     
     /// <summary>
-    /// ??
+    /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
     /// Encoded/decoded by serializers as "PINRetry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINR")]
     [IsoId("_TR6hhwEcEeCQm6a_G2yO_w_1672961357")]
-    [Description(@"??")]
+    [Description(@"PIN (Personal Identification Number) is wrong, retry a PIN verification.")]
     PINRetry,
     
     /// <summary>
-    /// ??
+    /// Last PIN (Personal Identification Number) try.
     /// Encoded/decoded by serializers as "PINLastTry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINL")]
     [IsoId("_TR6hiAEcEeCQm6a_G2yO_w_-684780766")]
-    [Description(@"??")]
+    [Description(@"Last PIN (Personal Identification Number) try.")]
     PINLastTry,
     
     /// <summary>
-    /// ??
+    /// Request additional data through a displayed text and request confirmation by an attendant.
     /// Encoded/decoded by serializers as "RequestData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQDT")]
     [IsoId("_TR6hiQEcEeCQm6a_G2yO_w_1355184696")]
-    [Description(@"??")]
+    [Description(@"Request additional data through a displayed text and request confirmation by an attendant.")]
     RequestData,
     
     /// <summary>
-    /// ??
+    /// Server busy, try later.
     /// Encoded/decoded by serializers as "Busy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSY")]
     [IsoId("_TR6higEcEeCQm6a_G2yO_w_-1002557427")]
-    [Description(@"??")]
+    [Description(@"Server busy, try later.")]
     Busy,
     
     /// <summary>
-    /// ??
+    /// Additional identification required (passport, ID card, etc.).
     /// Encoded/decoded by serializers as "IdentificationRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQID")]
     [IsoId("_TR6hiwEcEeCQm6a_G2yO_w_2115949849")]
-    [Description(@"??")]
+    [Description(@"Additional identification required (passport, ID card, etc.).")]
     IdentificationRequired,
     
 }

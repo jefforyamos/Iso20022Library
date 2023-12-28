@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectedStatusReason4Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been received after the cut-off time.
     /// Encoded/decoded by serializers as "CutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUTO")]
     [IsoId("_ViiZhtp-Ed-ak6NoX_4Aeg_-640387122")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received after the cut-off time.")]
     CutOffTime,
     
     /// <summary>
-    /// ??
+    /// Instructing party is not allowed to request a cancellation.
     /// Encoded/decoded by serializers as "NotAllowedToCancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NALC")]
     [IsoId("_ViiZh9p-Ed-ak6NoX_4Aeg_-640386732")]
-    [Description(@"??")]
+    [Description(@"Instructing party is not allowed to request a cancellation.")]
     NotAllowedToCancel,
     
     /// <summary>
-    /// ??
+    /// Instruction is not compliant with the service level agreement.
     /// Encoded/decoded by serializers as "NotCompliantWithSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSLA")]
     [IsoId("_ViiZiNp-Ed-ak6NoX_4Aeg_-640386347")]
-    [Description(@"??")]
+    [Description(@"Instruction is not compliant with the service level agreement.")]
     NotCompliantWithSLA,
     
     /// <summary>
-    /// ??
+    /// Legally impossible to cancel.
     /// Encoded/decoded by serializers as "LegallyImpossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEGL")]
     [IsoId("_VirjcNp-Ed-ak6NoX_4Aeg_-640386174")]
-    [Description(@"??")]
+    [Description(@"Legally impossible to cancel.")]
     LegallyImpossible,
     
     /// <summary>
-    /// ??
+    /// Another reason for the status rejected.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Virjcdp-Ed-ak6NoX_4Aeg_277257123")]
-    [Description(@"??")]
+    [Description(@"Another reason for the status rejected.")]
     Other,
     
 }

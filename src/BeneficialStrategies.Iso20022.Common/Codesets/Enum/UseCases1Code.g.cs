@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UseCases1Code
 {
     /// <summary>
-    /// ??
+    /// Code indicating the opening of an account.
     /// Encoded/decoded by serializers as "Opening".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_Yatgh9p-Ed-ak6NoX_4Aeg_-2048866565")]
-    [Description(@"??")]
+    [Description(@"Code indicating the opening of an account.")]
     Opening,
     
     /// <summary>
-    /// ??
+    /// Code indicating the maintenance of an account.
     /// Encoded/decoded by serializers as "Maintenance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTN")]
     [IsoId("_YatgiNp-Ed-ak6NoX_4Aeg_-2048866534")]
-    [Description(@"??")]
+    [Description(@"Code indicating the maintenance of an account.")]
     Maintenance,
     
     /// <summary>
-    /// ??
+    /// Code indicating the closing of an account.
     /// Encoded/decoded by serializers as "Closing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSG")]
     [IsoId("_Yatgidp-Ed-ak6NoX_4Aeg_-2048866503")]
-    [Description(@"??")]
+    [Description(@"Code indicating the closing of an account.")]
     Closing,
     
     /// <summary>
-    /// ??
+    /// Code indicating the view of an account.
     /// Encoded/decoded by serializers as "View".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VIEW")]
     [IsoId("_Ya3RgNp-Ed-ak6NoX_4Aeg_-2048866473")]
-    [Description(@"??")]
+    [Description(@"Code indicating the view of an account.")]
     View,
     
 }

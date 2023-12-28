@@ -20,21 +20,22 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralDirection1Code
 {
     /// <summary>
-    /// ??
+    /// Collateral is due to party A.
+    /// 
     /// Encoded/decoded by serializers as "CollateralDueToPartyA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDPA")]
     [IsoId("_x_VEQQMyEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Collateral is due to party A. ")]
     CollateralDueToPartyA,
     
     /// <summary>
-    /// ??
+    /// Collateral is due to party B.
     /// Encoded/decoded by serializers as "CollateralDueToPartyB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDPB")]
     [IsoId("_yKB4YgMyEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Collateral is due to party B.")]
     CollateralDueToPartyB,
     
 }

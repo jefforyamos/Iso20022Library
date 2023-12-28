@@ -22,174 +22,174 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalMarketArea1Code
 {
     /// <summary>
-    /// ??
+    /// Any market area.
     /// Encoded/decoded by serializers as "Any".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANYY")]
     [IsoId("_uUMxZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Any market area.")]
     Any,
     
     /// <summary>
-    /// ??
+    /// Bank to bank cash movements.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_uUMxaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank to bank cash movements.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Collections.
     /// Encoded/decoded by serializers as "Collections".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_uUMxa_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Collections.")]
     Collections,
     
     /// <summary>
-    /// ??
+    /// Precious metals and other commodities such as palm oil.
     /// Encoded/decoded by serializers as "Commodities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_uUWiYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Precious metals and other commodities such as palm oil.")]
     Commodities,
     
     /// <summary>
-    /// ??
+    /// Payment in which one of the parties is not a financial institution.
     /// Encoded/decoded by serializers as "CommercialPayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COPA")]
     [IsoId("_uUWiZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment in which one of the parties is not a financial institution.")]
     CommercialPayments,
     
     /// <summary>
-    /// ??
+    /// Futures contracts, options, forward contracts, swaps, etc...
     /// Encoded/decoded by serializers as "Derivatives".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERI")]
     [IsoId("_uUgTYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Futures contracts, options, forward contracts, swaps, etc...")]
     Derivatives,
     
     /// <summary>
-    /// ??
+    /// Documentary credits.
     /// Encoded/decoded by serializers as "DocumentaryCredits".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_uUgTZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Documentary credits.")]
     DocumentaryCredits,
     
     /// <summary>
-    /// ??
+    /// Foreign exchange.
     /// Encoded/decoded by serializers as "ForeignExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FOEX")]
     [IsoId("_uUgTaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Foreign exchange.")]
     ForeignExchange,
     
     /// <summary>
-    /// ??
+    /// Guarantees.
     /// Encoded/decoded by serializers as "Guarantees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GUAR")]
     [IsoId("_uUgTa_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Guarantees.")]
     Guarantees,
     
     /// <summary>
-    /// ??
+    /// Letters of credit.
     /// Encoded/decoded by serializers as "LettersOfCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LETT")]
     [IsoId("_uUpdUvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Letters of credit.")]
     LettersOfCredit,
     
     /// <summary>
-    /// ??
+    /// Loans and deposits.
     /// Encoded/decoded by serializers as "Loans".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOAN")]
     [IsoId("_uUpdVfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Loans and deposits.")]
     Loans,
     
     /// <summary>
-    /// ??
+    /// Money markets.
     /// Encoded/decoded by serializers as "MoneyMarkets".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMKT")]
     [IsoId("_uUpdWPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Money markets.")]
     MoneyMarkets,
     
     /// <summary>
-    /// ??
+    /// FX forward trade for which only balance is settled.
     /// Encoded/decoded by serializers as "NonDeliverableForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDLF")]
     [IsoId("_uUpdW_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FX forward trade for which only balance is settled.")]
     NonDeliverableForward,
     
     /// <summary>
-    /// ??
+    /// Offshore settlement.
     /// Encoded/decoded by serializers as "Offshore".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFS")]
     [IsoId("_uUpdXvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Offshore settlement.")]
     Offshore,
     
     /// <summary>
-    /// ??
+    /// Onshore settlement.
     /// Encoded/decoded by serializers as "Onshore".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONSH")]
     [IsoId("_uUzOUvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Onshore settlement.")]
     Onshore,
     
     /// <summary>
-    /// ??
+    /// FX Options, swap options, etc...
     /// Encoded/decoded by serializers as "Options".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTI")]
     [IsoId("_uUzOVfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FX Options, swap options, etc...")]
     Options,
     
     /// <summary>
-    /// ??
+    /// Bonds, equities, futures...
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_uUzOWPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bonds, equities, futures...")]
     Securities,
     
     /// <summary>
-    /// ??
+    /// Documentary credits, collections, guarantees, letters of credit.
     /// Encoded/decoded by serializers as "TradeFinance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFIN")]
     [IsoId("_uUzOW_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Documentary credits, collections, guarantees, letters of credit.")]
     TradeFinance,
     
     /// <summary>
-    /// ??
+    /// Cash management activities.
     /// Encoded/decoded by serializers as "Treasury".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TREA")]
     [IsoId("_uU8YQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash management activities.")]
     Treasury,
     
 }

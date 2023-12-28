@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateType1Code
 {
     /// <summary>
-    /// ??
+    /// Rate is fixed.
     /// Encoded/decoded by serializers as "Fixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXE")]
     [IsoId("_ZZJetdp-Ed-ak6NoX_4Aeg_570159113")]
-    [Description(@"??")]
+    [Description(@"Rate is fixed.")]
     Fixed,
     
     /// <summary>
-    /// ??
+    /// No specific repurchase rate applies to the transaction Repo, only a forfeit.
     /// Encoded/decoded by serializers as "Forfeit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORF")]
     [IsoId("_ZZJettp-Ed-ak6NoX_4Aeg_570159130")]
-    [Description(@"??")]
+    [Description(@"No specific repurchase rate applies to the transaction Repo, only a forfeit.")]
     Forfeit,
     
     /// <summary>
-    /// ??
+    /// Rate is variable.
     /// Encoded/decoded by serializers as "Variable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VARI")]
     [IsoId("_ZZJet9p-Ed-ak6NoX_4Aeg_570159131")]
-    [Description(@"??")]
+    [Description(@"Rate is variable.")]
     Variable,
     
 }

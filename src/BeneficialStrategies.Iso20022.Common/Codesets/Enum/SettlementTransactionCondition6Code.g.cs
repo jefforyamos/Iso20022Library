@@ -20,201 +20,201 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementTransactionCondition6Code
 {
     /// <summary>
-    /// ??
+    /// Transfer of ownership of the asset to another party during the closing of an option.
     /// Encoded/decoded by serializers as "Assignement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASGN")]
     [IsoId("_q6nXAmtdEeCY4-KZ9JEyUQ_-532387656")]
-    [Description(@"??")]
+    [Description(@"Transfer of ownership of the asset to another party during the closing of an option.")]
     Assignement,
     
     /// <summary>
-    /// ??
+    /// Transaction is a buy to cover.
     /// Encoded/decoded by serializers as "BuytoCover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUTC")]
     [IsoId("_q6nXA2tdEeCY4-KZ9JEyUQ_-1529460009")]
-    [Description(@"??")]
+    [Description(@"Transaction is a buy to cover.")]
     BuytoCover,
     
     /// <summary>
-    /// ??
+    /// Tax-exempt financial instruments are to be settled.
     /// Encoded/decoded by serializers as "Clean".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLEN")]
     [IsoId("_q6nXBGtdEeCY4-KZ9JEyUQ_1570405019")]
-    [Description(@"??")]
+    [Description(@"Tax-exempt financial instruments are to be settled.")]
     Clean,
     
     /// <summary>
-    /// ??
+    /// Taxable financial instruments are to be settled.
     /// Encoded/decoded by serializers as "Dirty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRT")]
     [IsoId("_q6nXBWtdEeCY4-KZ9JEyUQ_1559306242")]
-    [Description(@"??")]
+    [Description(@"Taxable financial instruments are to be settled.")]
     Dirty,
     
     /// <summary>
-    /// ??
+    /// Matching receipt instruction not required (only for concerned international or national central securities depositories).
     /// Encoded/decoded by serializers as "DeliveryWithoutMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLWM")]
     [IsoId("_q6nXBmtdEeCY4-KZ9JEyUQ_562233889")]
-    [Description(@"??")]
+    [Description(@"Matching receipt instruction not required (only for concerned international or national central securities depositories).")]
     DeliveryWithoutMatching,
     
     /// <summary>
-    /// ??
+    /// Settlement transactions relates to drawn securities.
     /// Encoded/decoded by serializers as "Drawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRAW")]
     [IsoId("_q6wg8GtdEeCY4-KZ9JEyUQ_-132873955")]
-    [Description(@"??")]
+    [Description(@"Settlement transactions relates to drawn securities.")]
     Drawn,
     
     /// <summary>
-    /// ??
+    /// Settlement transaction relates to options, futures or derivatives that are exercised.
     /// Encoded/decoded by serializers as "Exercised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXER")]
     [IsoId("_q6wg8WtdEeCY4-KZ9JEyUQ_321213314")]
-    [Description(@"??")]
+    [Description(@"Settlement transaction relates to options, futures or derivatives that are exercised.")]
     Exercised,
     
     /// <summary>
-    /// ??
+    /// Delivery will be made free of payment but a clean payment order will be sent.
     /// Encoded/decoded by serializers as "FreeCleanSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRCL")]
     [IsoId("_q6wg8mtdEeCY4-KZ9JEyUQ_-675859039")]
-    [Description(@"??")]
+    [Description(@"Delivery will be made free of payment but a clean payment order will be sent.")]
     FreeCleanSettlement,
     
     /// <summary>
-    /// ??
+    /// Settlement transaction relates to options, futures or derivatives that are expired worthless.
     /// Encoded/decoded by serializers as "KnockedOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KNOC")]
     [IsoId("_q7W94GtdEeCY4-KZ9JEyUQ_310114537")]
-    [Description(@"??")]
+    [Description(@"Settlement transaction relates to options, futures or derivatives that are expired worthless.")]
     KnockedOut,
     
     /// <summary>
-    /// ??
+    /// Securities are to be physically settled.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_q7W94WtdEeCY4-KZ9JEyUQ_1232277847")]
-    [Description(@"??")]
+    [Description(@"Securities are to be physically settled.")]
     Physical,
     
     /// <summary>
-    /// ??
+    /// Relates to transaction on a security that is not eligible at the Central Security Depository (CSD) but for which the payment will be enacted by the central securities depository.
     /// Encoded/decoded by serializers as "Residual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESI")]
     [IsoId("_q7W94mtdEeCY4-KZ9JEyUQ_235205494")]
-    [Description(@"??")]
+    [Description(@"Relates to transaction on a security that is not eligible at the Central Security Depository (CSD) but for which the payment will be enacted by the central securities depository.")]
     Residual,
     
     /// <summary>
-    /// ??
+    /// Account is used for short sale orders.
     /// Encoded/decoded by serializers as "ShortSell".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHOR")]
     [IsoId("_q7W942tdEeCY4-KZ9JEyUQ_-482621380")]
-    [Description(@"??")]
+    [Description(@"Account is used for short sale orders.")]
     ShortSell,
     
     /// <summary>
-    /// ??
+    /// Settlement transactions to be settled with special delivery.
     /// Encoded/decoded by serializers as "SpecialDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPDL")]
     [IsoId("_q7W95GtdEeCY4-KZ9JEyUQ_-157503873")]
-    [Description(@"??")]
+    [Description(@"Settlement transactions to be settled with special delivery.")]
     SpecialDelivery,
     
     /// <summary>
-    /// ??
+    /// Money and financial instruments settle in different locations.
     /// Encoded/decoded by serializers as "SplitSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPST")]
     [IsoId("_q7gu4GtdEeCY4-KZ9JEyUQ_-1154576226")]
-    [Description(@"??")]
+    [Description(@"Money and financial instruments settle in different locations.")]
     SplitSettlement,
     
     /// <summary>
-    /// ??
+    /// Settlement transaction relates to options, futures or derivatives that have expired.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_q7gu4WtdEeCY4-KZ9JEyUQ_1450643237")]
-    [Description(@"??")]
+    [Description(@"Settlement transaction relates to options, futures or derivatives that have expired.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// Position to cover the pending sale will be available by contractual settlement date (accounting information).
     /// Encoded/decoded by serializers as "PendingSale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENS")]
     [IsoId("_q7gu4mtdEeCY4-KZ9JEyUQ_1439544460")]
-    [Description(@"??")]
+    [Description(@"Position to cover the pending sale will be available by contractual settlement date (accounting information).")]
     PendingSale,
     
     /// <summary>
-    /// ??
+    /// Delivery cannot be performed until money is received.
     /// Encoded/decoded by serializers as "Unexposed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNEX")]
     [IsoId("_q7gu42tdEeCY4-KZ9JEyUQ_442472107")]
-    [Description(@"??")]
+    [Description(@"Delivery cannot be performed until money is received.")]
     Unexposed,
     
     /// <summary>
-    /// ??
+    /// Securities are not be delivered but segregated following triparty collateral transaction.
     /// Encoded/decoded by serializers as "TripartySegregation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRIP")]
     [IsoId("_q7gu5GtdEeCY4-KZ9JEyUQ_1893631729")]
-    [Description(@"??")]
+    [Description(@"Securities are not be delivered but segregated following triparty collateral transaction.")]
     TripartySegregation,
     
     /// <summary>
-    /// ??
+    /// No market claim should be automatically generated.
     /// Encoded/decoded by serializers as "NoAutomaticMarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMC")]
     [IsoId("_q7gu5WtdEeCY4-KZ9JEyUQ_-1815388541")]
-    [Description(@"??")]
+    [Description(@"No market claim should be automatically generated.")]
     NoAutomaticMarketClaim,
     
     /// <summary>
-    /// ??
+    /// Transaction resulting from a transformation.
     /// Encoded/decoded by serializers as "Transformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_q7gu5mtdEeCY4-KZ9JEyUQ_1482506402")]
-    [Description(@"??")]
+    [Description(@"Transaction resulting from a transformation.")]
     Transformation,
     
     /// <summary>
-    /// ??
+    /// Collateral position is available for other purposes (for example, onwards delivery).
     /// Encoded/decoded by serializers as "Rehypothecation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RHYP")]
     [IsoId("_q7p40GtdEeCY4-KZ9JEyUQ_-1339988173")]
-    [Description(@"??")]
+    [Description(@"Collateral position is available for other purposes (for example, onwards delivery).")]
     Rehypothecation,
     
     /// <summary>
-    /// ??
+    /// Settlement is on a bilaterally accepted transaction that is to be accepted beyond the regular settlement deadline.
     /// Encoded/decoded by serializers as "AcceptAfterRegularSettlementDeadline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_q7p40WtdEeCY4-KZ9JEyUQ_-1209997474")]
-    [Description(@"??")]
+    [Description(@"Settlement is on a bilaterally accepted transaction that is to be accepted beyond the regular settlement deadline.")]
     AcceptAfterRegularSettlementDeadline,
     
 }

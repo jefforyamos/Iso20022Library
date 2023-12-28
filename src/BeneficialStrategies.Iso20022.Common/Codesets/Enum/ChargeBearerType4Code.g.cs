@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeBearerType4Code
 {
     /// <summary>
-    /// ??
+    /// All transaction charges are to be borne by the debtor.
     /// Encoded/decoded by serializers as "BorneByDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBT")]
     [IsoId("_XaGi4fWfEemtd4wHZYvFUQ")]
-    [Description(@"??")]
+    [Description(@"All transaction charges are to be borne by the debtor.")]
     BorneByDebtor,
     
     /// <summary>
-    /// ??
+    /// All transaction charges are to be borne by the creditor.
     /// Encoded/decoded by serializers as "BorneByCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRED")]
     [IsoId("_XaGi4_WfEemtd4wHZYvFUQ")]
-    [Description(@"??")]
+    [Description(@"All transaction charges are to be borne by the creditor.")]
     BorneByCreditor,
     
     /// <summary>
-    /// ??
+    /// In a credit transfer context, means that transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor. In a direct debit context, means that transaction charges on the sender side are to be borne by the creditor, transaction charges on the receiver side are to be borne by the debtor.
     /// Encoded/decoded by serializers as "Shared".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHAR")]
     [IsoId("_XaGi5fWfEemtd4wHZYvFUQ")]
-    [Description(@"??")]
+    [Description(@"In a credit transfer context, means that transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor. In a direct debit context, means that transaction charges on the sender side are to be borne by the creditor, transaction charges on the receiver side are to be borne by the debtor.")]
     Shared,
     
 }

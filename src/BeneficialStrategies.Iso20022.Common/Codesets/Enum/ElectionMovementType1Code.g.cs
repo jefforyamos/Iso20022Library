@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ElectionMovementType1Code
 {
     /// <summary>
-    /// ??
+    /// Election results in a change of balance type that transfers control of the securities rather than the securities themselves.
     /// Encoded/decoded by serializers as "Restricted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REST")]
     [IsoId("_ag04d9p-Ed-ak6NoX_4Aeg_1964804967")]
-    [Description(@"??")]
+    [Description(@"Election results in a change of balance type that transfers control of the securities rather than the securities themselves.")]
     Restricted,
     
     /// <summary>
-    /// ??
+    /// Direct movement of resource, that is, cash or security that is directly credited to the paying agent account.
     /// Encoded/decoded by serializers as "Direct".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRCT")]
     [IsoId("_ag04eNp-Ed-ak6NoX_4Aeg_1964804975")]
-    [Description(@"??")]
+    [Description(@"Direct movement of resource, that is, cash or security that is directly credited to the paying agent account.")]
     Direct,
     
 }

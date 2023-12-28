@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartialSettlement2Code
 {
     /// <summary>
-    /// ??
+    /// Confirmation is for partial settlement. Part of the transaction remains unsettled.
     /// Encoded/decoded by serializers as "PartialSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAIN")]
     [IsoId("_POj5gUAuEeGeCKosDOIVvQ_-493303667")]
-    [Description(@"??")]
+    [Description(@"Confirmation is for partial settlement. Part of the transaction remains unsettled.")]
     PartialSettlement,
     
     /// <summary>
-    /// ??
+    /// Confirmation is for partial settlement. No additional settlement will take place.
     /// Encoded/decoded by serializers as "PartiallyConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARC")]
     [IsoId("_POtDcEAuEeGeCKosDOIVvQ_-607142733")]
-    [Description(@"??")]
+    [Description(@"Confirmation is for partial settlement. No additional settlement will take place.")]
     PartiallyConfirmed,
     
 }

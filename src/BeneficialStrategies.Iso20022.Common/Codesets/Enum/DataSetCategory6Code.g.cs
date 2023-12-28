@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetCategory6Code
 {
     /// <summary>
-    /// ??
+    /// Configuration parameters of the payment acquirer protocol.
     /// Encoded/decoded by serializers as "AcquirerProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQP")]
     [IsoId("_6LDXMWp8EeSojYXQbRlLzA")]
-    [Description(@"??")]
+    [Description(@"Configuration parameters of the payment acquirer protocol.")]
     AcquirerProtocolParameters,
     
     /// <summary>
-    /// ??
+    /// Payment application specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "ApplicationParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_6ZgC42p8EeSojYXQbRlLzA")]
-    [Description(@"??")]
+    [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
     ApplicationParameters,
     
     /// <summary>
-    /// ??
+    /// Creation of a subset of the configuration parameters of an application.
     /// Encoded/decoded by serializers as "ApplicationParametersSubsetCreation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APSB")]
     [IsoId("_6jo2U2p8EeSojYXQbRlLzA")]
-    [Description(@"??")]
+    [Description(@"Creation of a subset of the configuration parameters of an application.")]
     ApplicationParametersSubsetCreation,
     
     /// <summary>
-    /// ??
+    /// Download of cryptographic keys with the related information.
     /// Encoded/decoded by serializers as "KeyDownload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDWL")]
     [IsoId("_7TeX02p8EeSojYXQbRlLzA")]
-    [Description(@"??")]
+    [Description(@"Download of cryptographic keys with the related information.")]
     KeyDownload,
     
     /// <summary>
-    /// ??
+    /// Activate, deactivate or revoke loaded cryptographic keys.
     /// Encoded/decoded by serializers as "KeyManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KMGT")]
     [IsoId("_7b0bg2p8EeSojYXQbRlLzA")]
-    [Description(@"??")]
+    [Description(@"Activate, deactivate or revoke loaded cryptographic keys.")]
     KeyManagement,
     
     /// <summary>
-    /// ??
+    /// Reporting on activity, status and error of a point of interaction.
     /// Encoded/decoded by serializers as "Reporting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPRT")]
     [IsoId("_-PTPwWp8EeSojYXQbRlLzA")]
-    [Description(@"??")]
+    [Description(@"Reporting on activity, status and error of a point of interaction.")]
     Reporting,
     
     /// <summary>
-    /// ??
+    /// Software module.
     /// Encoded/decoded by serializers as "SoftwareModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPK")]
     [IsoId("_-mGmM2p8EeSojYXQbRlLzA")]
-    [Description(@"??")]
+    [Description(@"Software module.")]
     SoftwareModule,
     
     /// <summary>
-    /// ??
+    /// Configuration parameters for the TMS protocol.
     /// Encoded/decoded by serializers as "TMSProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMSP")]
     [IsoId("_AyxSE2p9EeSojYXQbRlLzA")]
-    [Description(@"??")]
+    [Description(@"Configuration parameters for the TMS protocol.")]
     TMSProtocolParameters,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_lLgEYXcPEeSrj6VUY5LyCg")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
     /// Encoded/decoded by serializers as "TerminalParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPR")]
     [IsoId("_mynMIXcPEeSrj6VUY5LyCg")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
     TerminalParameters,
     
 }

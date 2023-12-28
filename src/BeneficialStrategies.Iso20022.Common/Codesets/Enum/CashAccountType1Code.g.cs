@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashAccountType1Code
 {
     /// <summary>
-    /// ??
+    /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
     /// Encoded/decoded by serializers as "Settlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SACC")]
     [IsoId("_a24A8tp-Ed-ak6NoX_4Aeg_2050502103")]
-    [Description(@"??")]
+    [Description(@"Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.")]
     Settlement,
     
     /// <summary>
-    /// ??
+    /// Account used to post debits and credits when no specific account has been nominated.
     /// Encoded/decoded by serializers as "Current".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACC")]
     [IsoId("_a24A89p-Ed-ak6NoX_4Aeg_2050502104")]
-    [Description(@"??")]
+    [Description(@"Account used to post debits and credits when no specific account has been nominated.")]
     Current,
     
     /// <summary>
-    /// ??
+    /// Account used for savings.
     /// Encoded/decoded by serializers as "Savings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVGS")]
     [IsoId("_a24A9Np-Ed-ak6NoX_4Aeg_2050502105")]
-    [Description(@"??")]
+    [Description(@"Account used for savings.")]
     Savings,
     
 }

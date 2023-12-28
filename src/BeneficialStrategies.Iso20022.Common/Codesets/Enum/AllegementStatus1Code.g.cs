@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AllegementStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Allegement has been cancelled since the previous delta statement. The allegement was cancelled because of a mistake by the sender or because the alleging party cancelled its instruction.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_bopcIdp-Ed-ak6NoX_4Aeg_611999120")]
-    [Description(@"??")]
+    [Description(@"Allegement has been cancelled since the previous delta statement. The allegement was cancelled because of a mistake by the sender or because the alleging party cancelled its instruction.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Allegement has been removed since the previous delta statement. The allegement was removed because the alleged party sent its instruction.
     /// Encoded/decoded by serializers as "Removed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REMO")]
     [IsoId("_bopcItp-Ed-ak6NoX_4Aeg_611999162")]
-    [Description(@"??")]
+    [Description(@"Allegement has been removed since the previous delta statement. The allegement was removed because the alleged party sent its instruction.")]
     Removed,
     
 }

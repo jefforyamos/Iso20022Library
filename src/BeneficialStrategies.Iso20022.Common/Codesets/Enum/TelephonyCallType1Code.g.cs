@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TelephonyCallType1Code
 {
     /// <summary>
-    /// ??
+    /// Voice mail
     /// Encoded/decoded by serializers as "VoiceMail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VCML")]
     [IsoId("_caQHsTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Voice mail")]
     VoiceMail,
     
     /// <summary>
-    /// ??
+    /// Toll free phone call
     /// Encoded/decoded by serializers as "TollFreeCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFPC")]
     [IsoId("_cuX9kTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Toll free phone call")]
     TollFreeCall,
     
     /// <summary>
-    /// ??
+    /// Page
     /// Encoded/decoded by serializers as "Page".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAGE")]
     [IsoId("_c1-aYTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Page")]
     Page,
     
     /// <summary>
-    /// ??
+    /// Outgoing phone call
     /// Encoded/decoded by serializers as "OutgoingCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OGPC")]
     [IsoId("_dFeO8TEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Outgoing phone call")]
     OutgoingCall,
     
     /// <summary>
-    /// ??
+    /// Other private
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_dGXm0TEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other private")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other national
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_degaATEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other national")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of call not elsewhere classified. 
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTCL")]
     [IsoId("_dhMhoTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other type of call not elsewhere classified. ")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Incoming phone call
     /// Encoded/decoded by serializers as "IncomingCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICPC")]
     [IsoId("_d28vMTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Incoming phone call")]
     IncomingCall,
     
 }

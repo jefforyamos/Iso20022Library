@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateType1Code
 {
     /// <summary>
-    /// ??
+    /// Date is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_ayQmuNp-Ed-ak6NoX_4Aeg_-6438361")]
-    [Description(@"??")]
+    [Description(@"Date is unknown by the sender or has not been established.")]
     Unknown,
     
 }

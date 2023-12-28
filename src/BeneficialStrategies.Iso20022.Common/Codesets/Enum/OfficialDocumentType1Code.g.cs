@@ -20,138 +20,138 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OfficialDocumentType1Code
 {
     /// <summary>
-    /// ??
+    /// Number assigned by a government agency to identify foreign nationals.
     /// Encoded/decoded by serializers as "AlienRegistration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARNU")]
     [IsoId("_AFCNoXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a government agency to identify foreign nationals.")]
     AlienRegistration,
     
     /// <summary>
-    /// ??
+    /// Travel authorisation assigned by a government agency (e.g. ESTA, etc.)
     /// Encoded/decoded by serializers as "Authorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_AQG1MXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Travel authorisation assigned by a government agency (e.g. ESTA, etc.)")]
     Authorisation,
     
     /// <summary>
-    /// ??
+    /// Diplomatic passport or travel document.
     /// Encoded/decoded by serializers as "Diplomatic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIPL")]
     [IsoId("_Ac2QsXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Diplomatic passport or travel document.")]
     Diplomatic,
     
     /// <summary>
-    /// ??
+    /// Driving license.
     /// Encoded/decoded by serializers as "DrivingLicense".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVLC")]
     [IsoId("_AoA-4XhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Driving license.")]
     DrivingLicense,
     
     /// <summary>
-    /// ??
+    /// Europol-issued travel or related document.
     /// Encoded/decoded by serializers as "Europol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EURO")]
     [IsoId("_A2ZZIXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Europol-issued travel or related document.")]
     Europol,
     
     /// <summary>
-    /// ??
+    /// Identity card.
     /// Encoded/decoded by serializers as "IdentityCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDEN")]
     [IsoId("_BC7ZQXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Identity card.")]
     IdentityCard,
     
     /// <summary>
-    /// ??
+    /// Internal travel document.
     /// Encoded/decoded by serializers as "Internal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_BOUJ4XhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Internal travel document.")]
     Internal,
     
     /// <summary>
-    /// ??
+    /// Interpol-issued travel or related document 
     /// Encoded/decoded by serializers as "Interpol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPO")]
     [IsoId("_BZ3SkXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Interpol-issued travel or related document ")]
     Interpol,
     
     /// <summary>
-    /// ??
+    /// Emergency travel or related document.
     /// Encoded/decoded by serializers as "Laissezpasser".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LZPR")]
     [IsoId("_Bmbu8XhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Emergency travel or related document.")]
     Laissezpasser,
     
     /// <summary>
-    /// ??
+    /// Other type of official document defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_CPItsXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Other type of official document defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of official document defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_CdkyUXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Other type of official document defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Passport.
     /// Encoded/decoded by serializers as "Passport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_Cvr2AXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Passport.")]
     Passport,
     
     /// <summary>
-    /// ??
+    /// Visa issued by a government or related authority.
     /// Encoded/decoded by serializers as "PassportVisa".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VISA")]
     [IsoId("_C96fQXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Visa issued by a government or related authority.")]
     PassportVisa,
     
     /// <summary>
-    /// ??
+    /// Permit.
     /// Encoded/decoded by serializers as "Permit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PERM")]
     [IsoId("_DNYeoXhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Permit.")]
     Permit,
     
     /// <summary>
-    /// ??
+    /// Travel or related document issued to refugees.
     /// Encoded/decoded by serializers as "Refugee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFU")]
     [IsoId("_D9yn4XhSEee6_vnrijrKgg")]
-    [Description(@"??")]
+    [Description(@"Travel or related document issued to refugees.")]
     Refugee,
     
 }

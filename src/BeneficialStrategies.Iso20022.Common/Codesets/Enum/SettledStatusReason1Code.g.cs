@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettledStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Units are partially settled.
     /// Encoded/decoded by serializers as "UnitsPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPST")]
     [IsoId("_ZKsL8tp-Ed-ak6NoX_4Aeg_514877099")]
-    [Description(@"??")]
+    [Description(@"Units are partially settled.")]
     UnitsPartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Cash is partially settled.
     /// Encoded/decoded by serializers as "CashPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPST")]
     [IsoId("_ZKsL89p-Ed-ak6NoX_4Aeg_514877159")]
-    [Description(@"??")]
+    [Description(@"Cash is partially settled.")]
     CashPartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Units and cash are both partially settled.
     /// Encoded/decoded by serializers as "UnitsCashPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCPS")]
     [IsoId("_ZKsL9Np-Ed-ak6NoX_4Aeg_514878209")]
-    [Description(@"??")]
+    [Description(@"Units and cash are both partially settled.")]
     UnitsCashPartiallySettled,
     
 }

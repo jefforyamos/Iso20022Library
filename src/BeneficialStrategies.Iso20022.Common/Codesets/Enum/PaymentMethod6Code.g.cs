@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentMethod6Code
 {
     /// <summary>
-    /// ??
+    /// Direct method.
     /// Encoded/decoded by serializers as "Direct".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRE")]
     [IsoId("_Z0kPZ9p-Ed-ak6NoX_4Aeg_1534180343")]
-    [Description(@"??")]
+    [Description(@"Direct method.")]
     Direct,
     
     /// <summary>
-    /// ??
+    /// Classical method.
     /// Encoded/decoded by serializers as "Classical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAS")]
     [IsoId("_Z0kPaNp-Ed-ak6NoX_4Aeg_1534180372")]
-    [Description(@"??")]
+    [Description(@"Classical method.")]
     Classical,
     
 }

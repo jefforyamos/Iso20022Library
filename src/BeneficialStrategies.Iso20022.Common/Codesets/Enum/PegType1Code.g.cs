@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PegType1Code
 {
     /// <summary>
-    /// ??
+    /// Order pegged against a fixed amount (local best bid or offer, at time of order).
     /// Encoded/decoded by serializers as "Fixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXE")]
     [IsoId("_Z9p5-Np-Ed-ak6NoX_4Aeg_307440399")]
-    [Description(@"??")]
+    [Description(@"Order pegged against a fixed amount (local best bid or offer, at time of order).")]
     Fixed,
     
     /// <summary>
-    /// ??
+    /// Order pegged against the last price.
     /// Encoded/decoded by serializers as "Last".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAST")]
     [IsoId("_Z9p5-dp-Ed-ak6NoX_4Aeg_307440417")]
-    [Description(@"??")]
+    [Description(@"Order pegged against the last price.")]
     Last,
     
     /// <summary>
-    /// ??
+    /// Order pegged against the current market price. Relative to the offering if buying and relative to the bid if selling.
     /// Encoded/decoded by serializers as "Market".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARK")]
     [IsoId("_Z9zq8Np-Ed-ak6NoX_4Aeg_307440434")]
-    [Description(@"??")]
+    [Description(@"Order pegged against the current market price. Relative to the offering if buying and relative to the bid if selling.")]
     Market,
     
     /// <summary>
-    /// ??
+    /// Order pegged against the mid price, which is the average between the offer and bid prices.
     /// Encoded/decoded by serializers as "MidPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIDP")]
     [IsoId("_Z9zq8dp-Ed-ak6NoX_4Aeg_307440452")]
-    [Description(@"??")]
+    [Description(@"Order pegged against the mid price, which is the average between the offer and bid prices.")]
     MidPrice,
     
     /// <summary>
-    /// ??
+    /// Order pegged against the opening price.
     /// Encoded/decoded by serializers as "Opening".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_Z9zq8tp-Ed-ak6NoX_4Aeg_307440477")]
-    [Description(@"??")]
+    [Description(@"Order pegged against the opening price.")]
     Opening,
     
     /// <summary>
-    /// ??
+    /// Order pegged against the primary market where the financial instrument is traded. It is relative to the offering if buying and relative to the bid if selling.
     /// Encoded/decoded by serializers as "Primary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIM")]
     [IsoId("_Z9zq89p-Ed-ak6NoX_4Aeg_307440494")]
-    [Description(@"??")]
+    [Description(@"Order pegged against the primary market where the financial instrument is traded. It is relative to the offering if buying and relative to the bid if selling.")]
     Primary,
     
     /// <summary>
-    /// ??
+    /// Order pegged against the volume weighted average price for the day.
     /// Encoded/decoded by serializers as "VolumeWeightAveragePrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VWAP")]
     [IsoId("_Z9zq9Np-Ed-ak6NoX_4Aeg_307440512")]
-    [Description(@"??")]
+    [Description(@"Order pegged against the volume weighted average price for the day.")]
     VolumeWeightAveragePrice,
     
 }

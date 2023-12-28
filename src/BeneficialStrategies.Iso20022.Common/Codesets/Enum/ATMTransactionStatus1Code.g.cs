@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMTransactionStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Undetermined status, for instance possibly forgotten notes.
     /// Encoded/decoded by serializers as "Doubt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOBT")]
     [IsoId("_VAzJoYqSEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Undetermined status, for instance possibly forgotten notes.")]
     Doubt,
     
     /// <summary>
-    /// ??
+    /// Transaction failed.
     /// Encoded/decoded by serializers as "Failure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_VE0uAYqSEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Transaction failed.")]
     Failure,
     
     /// <summary>
-    /// ??
+    /// Transaction was successfully completed.
     /// Encoded/decoded by serializers as "Success".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCSS")]
     [IsoId("_VMHo04qSEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Transaction was successfully completed.")]
     Success,
     
 }

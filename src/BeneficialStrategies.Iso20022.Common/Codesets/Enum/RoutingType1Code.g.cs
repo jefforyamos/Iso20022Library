@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RoutingType1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that routing is allowed.
     /// Encoded/decoded by serializers as "Allowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLO")]
     [IsoId("_Y-Uj6Np-Ed-ak6NoX_4Aeg_1903962381")]
-    [Description(@"??")]
+    [Description(@"Indicates that routing is allowed.")]
     Allowed,
     
     /// <summary>
-    /// ??
+    /// Indicates that routing is blocked.
     /// Encoded/decoded by serializers as "Blocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLOC")]
     [IsoId("_Y-Uj6dp-Ed-ak6NoX_4Aeg_1903962382")]
-    [Description(@"??")]
+    [Description(@"Indicates that routing is blocked.")]
     Blocked,
     
 }

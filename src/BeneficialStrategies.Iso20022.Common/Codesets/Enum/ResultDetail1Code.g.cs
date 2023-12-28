@@ -20,795 +20,795 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResultDetail1Code
 {
     /// <summary>
-    /// ??
+    /// Account of the cardholder or the customer is not found.
     /// Encoded/decoded by serializers as "AccountNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTF")]
     [IsoId("_xHmTUXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Account of the cardholder or the customer is not found.")]
     AccountNotFound,
     
     /// <summary>
-    /// ??
+    /// Acquirer is not supported.
     /// Encoded/decoded by serializers as "AcquirerNotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQS")]
     [IsoId("_xNHFcXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Acquirer is not supported.")]
     AcquirerNotSupported,
     
     /// <summary>
-    /// ??
+    /// Error on AML (Anti Money Laundering) validation.
     /// Encoded/decoded by serializers as "AMLValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMLV")]
     [IsoId("_xSeGkXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Error on AML (Anti Money Laundering) validation.")]
     AMLValidation,
     
     /// <summary>
-    /// ??
+    /// Amount not found.
     /// Encoded/decoded by serializers as "AmountNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTA")]
     [IsoId("_xX1uwXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Amount not found.")]
     AmountNotFound,
     
     /// <summary>
-    /// ??
+    /// Bank not found.
     /// Encoded/decoded by serializers as "BankNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BANK")]
     [IsoId("_xdWg4XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Bank not found.")]
     BankNotFound,
     
     /// <summary>
-    /// ??
+    /// Card error, for instance invalid ARQC (Authorisation ReQuest Cryptogram).
     /// Encoded/decoded by serializers as "CardError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDR")]
     [IsoId("_xitiAXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Card error, for instance invalid ARQC (Authorisation ReQuest Cryptogram).")]
     CardError,
     
     /// <summary>
-    /// ??
+    /// Identification of the card is invalid.
     /// Encoded/decoded by serializers as "CardVerificationFailed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDF")]
     [IsoId("_xpHsAXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Identification of the card is invalid.")]
     CardVerificationFailed,
     
     /// <summary>
-    /// ??
+    /// Cashback is not permitted.
     /// Encoded/decoded by serializers as "CasbackNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHI")]
     [IsoId("_xufUMXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Cashback is not permitted.")]
     CasbackNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Cashback amount is higher than permitted.
     /// Encoded/decoded by serializers as "CashbackAmountExceeded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHE")]
     [IsoId("_x1VjEXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Cashback amount is higher than permitted.")]
     CashbackAmountExceeded,
     
     /// <summary>
-    /// ??
+    /// Account is no more usable for the transaction.
     /// Encoded/decoded by serializers as "ClosedAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_x6tLQXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Account is no more usable for the transaction.")]
     ClosedAccount,
     
     /// <summary>
-    /// ??
+    /// Cutover is in progress, transaction could not be processed.
     /// Encoded/decoded by serializers as "CutoverInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTVG")]
     [IsoId("_yAN9YXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Cutover is in progress, transaction could not be processed.")]
     CutoverInProcess,
     
     /// <summary>
-    /// ??
+    /// Database access error.
     /// Encoded/decoded by serializers as "DatabaseError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBER")]
     [IsoId("_yFuvgXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Database access error.")]
     DatabaseError,
     
     /// <summary>
-    /// ??
+    /// Transaction fees are disputed by the issuer.
     /// Encoded/decoded by serializers as "DisputedFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEES")]
     [IsoId("_yLGXsXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction fees are disputed by the issuer.")]
     DisputedFees,
     
     /// <summary>
-    /// ??
+    /// Validity period of the transaction is exceeded.
     /// Encoded/decoded by serializers as "ExceededTransactionLifeCycle".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXNL")]
     [IsoId("_yQnJ0XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Validity period of the transaction is exceeded.")]
     ExceededTransactionLifeCycle,
     
     /// <summary>
-    /// ??
+    /// Card has expired.
     /// Encoded/decoded by serializers as "ExpiredCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDX")]
     [IsoId("_yZG-gXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Card has expired.")]
     ExpiredCard,
     
     /// <summary>
-    /// ??
+    /// Invalid format of the message or its content.
     /// Encoded/decoded by serializers as "FormatError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FMTR")]
     [IsoId("_yg2lQXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Invalid format of the message or its content.")]
     FormatError,
     
     /// <summary>
-    /// ??
+    /// From account status error.
     /// Encoded/decoded by serializers as "FromAccountError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACEF")]
     [IsoId("_ynagQXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"From account status error.")]
     FromAccountError,
     
     /// <summary>
-    /// ??
+    /// Original request is in progress.
     /// Encoded/decoded by serializers as "InProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXNG")]
     [IsoId("_yuHlMXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Original request is in progress.")]
     InProgress,
     
     /// <summary>
-    /// ??
+    /// Account balance is not sufficient.
     /// Encoded/decoded by serializers as "InsufficientFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNDI")]
     [IsoId("_yzoXUXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Account balance is not sufficient.")]
     InsufficientFunds,
     
     /// <summary>
-    /// ??
+    /// Issuer denies the acceptor.
     /// Encoded/decoded by serializers as "InvalidAcceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPI")]
     [IsoId("_y6ChUXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Issuer denies the acceptor.")]
     InvalidAcceptor,
     
     /// <summary>
-    /// ??
+    /// Requested amount is outside the card limits, or the currency is invalid.
     /// Encoded/decoded by serializers as "InvalidAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTI")]
     [IsoId("_zAJJUXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Requested amount is outside the card limits, or the currency is invalid.")]
     InvalidAmount,
     
     /// <summary>
-    /// ??
+    /// Identification of the cardholder or the customer does not match.
     /// Encoded/decoded by serializers as "InvalidCardholderIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHDI")]
     [IsoId("_zGQYYXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Identification of the cardholder or the customer does not match.")]
     InvalidCardholderIdentification,
     
     /// <summary>
-    /// ??
+    /// Identification of the card is invalid.
     /// Encoded/decoded by serializers as "InvalidCardNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDI")]
     [IsoId("_zNQYQXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Identification of the card is invalid.")]
     InvalidCardNumber,
     
     /// <summary>
-    /// ??
+    /// Digital certificate cannot be authenticated, is expired or revoked.
     /// Encoded/decoded by serializers as "InvalidCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTFV")]
     [IsoId("_zZCKcXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Digital certificate cannot be authenticated, is expired or revoked.")]
     InvalidCertificate,
     
     /// <summary>
-    /// ??
+    /// Process not permitted to the acceptor (for example fall back).
     /// Encoded/decoded by serializers as "NotPermittedToAcceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPRA")]
     [IsoId("_0LZbgXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Process not permitted to the acceptor (for example fall back).")]
     NotPermittedToAcceptor,
     
     /// <summary>
-    /// ??
+    /// PIN could not be validated.
     /// Encoded/decoded by serializers as "NotAbleToValidatePIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINA")]
     [IsoId("_0UCaIXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"PIN could not be validated.")]
     NotAbleToValidatePIN,
     
     /// <summary>
-    /// ??
+    /// Transaction is processed, but liability is not accepted.
     /// Encoded/decoded by serializers as "NoLiabilityAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LBLU")]
     [IsoId("_0Z_4MXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction is processed, but liability is not accepted.")]
     NoLiabilityAccepted,
     
     /// <summary>
-    /// ??
+    /// No card file record.
     /// Encoded/decoded by serializers as "NoCardRecord".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDA")]
     [IsoId("_0fXgYXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"No card file record.")]
     NoCardRecord,
     
     /// <summary>
-    /// ??
+    /// New PIN is invalid (PIN change).
     /// Encoded/decoded by serializers as "NewPINInvalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINN")]
     [IsoId("_0lLNcXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"New PIN is invalid (PIN change).")]
     NewPINInvalid,
     
     /// <summary>
-    /// ??
+    /// MAC key error.
     /// Encoded/decoded by serializers as "MACKeyError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACK")]
     [IsoId("_0qr_kXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"MAC key error.")]
     MACKeyError,
     
     /// <summary>
-    /// ??
+    /// MAC error.
     /// Encoded/decoded by serializers as "MACError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACR")]
     [IsoId("_0wDnwXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"MAC error.")]
     MACError,
     
     /// <summary>
-    /// ??
+    /// Card has been declared lost.
     /// Encoded/decoded by serializers as "LostCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDL")]
     [IsoId("_01uK4XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Card has been declared lost.")]
     LostCard,
     
     /// <summary>
-    /// ??
+    /// Transaction is processed and liability is accepted.
     /// Encoded/decoded by serializers as "LiabilityAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LBLA")]
     [IsoId("_096dkXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction is processed and liability is accepted.")]
     LiabilityAccepted,
     
     /// <summary>
-    /// ??
+    /// Transaction could not be processed as Issuer is unavailable.
     /// Encoded/decoded by serializers as "IssuerUnavailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("_1EK2kXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction could not be processed as Issuer is unavailable.")]
     IssuerUnavailable,
     
     /// <summary>
-    /// ??
+    /// Transaction could not be processed as Issuer times out.
     /// Encoded/decoded by serializers as "IssuerTimeOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISST")]
     [IsoId("_1JiewXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction could not be processed as Issuer times out.")]
     IssuerTimeOut,
     
     /// <summary>
-    /// ??
+    /// Transaction could not be processed as Issuer is signed off.
     /// Encoded/decoded by serializers as "IssuerSignedOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSO")]
     [IsoId("_1PDQ4XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction could not be processed as Issuer is signed off.")]
     IssuerSignedOff,
     
     /// <summary>
-    /// ??
+    /// Issuer is not found.
     /// Encoded/decoded by serializers as "IssuerNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSF")]
     [IsoId("_1UkDAXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Issuer is not found.")]
     IssuerNotFound,
     
     /// <summary>
-    /// ??
+    /// Issuer is inoperative.
     /// Encoded/decoded by serializers as "IssuerInoperative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSP")]
     [IsoId("_1btz4XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Issuer is inoperative.")]
     IssuerInoperative,
     
     /// <summary>
-    /// ??
+    /// Date time of the transaction is invalid.
     /// Encoded/decoded by serializers as "InvalidTransactionDateTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DATI")]
     [IsoId("_1h-M4XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Date time of the transaction is invalid.")]
     InvalidTransactionDateTime,
     
     /// <summary>
-    /// ??
+    /// Transaction is invalid.
     /// Encoded/decoded by serializers as "InvalidTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXNV")]
     [IsoId("_1nV1EXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction is invalid.")]
     InvalidTransaction,
     
     /// <summary>
-    /// ??
+    /// Identification of the token provider or the token requestor is invalid.
     /// Encoded/decoded by serializers as "InvalidTokenIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKID")]
     [IsoId("_1s2nMXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Identification of the token provider or the token requestor is invalid.")]
     InvalidTokenIdentification,
     
     /// <summary>
-    /// ??
+    /// Token cannot be used to surrogate a PAN (Primary Account Number).
     /// Encoded/decoded by serializers as "InvalidToken".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKKO")]
     [IsoId("_1yhKUXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Token cannot be used to surrogate a PAN (Primary Account Number).")]
     InvalidToken,
     
     /// <summary>
-    /// ??
+    /// Security code validation fails.
     /// Encoded/decoded by serializers as "InvalidSecurityCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSCV")]
     [IsoId("_134LcXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Security code validation fails.")]
     InvalidSecurityCode,
     
     /// <summary>
-    /// ??
+    /// PIN is invalid.
     /// Encoded/decoded by serializers as "InvalidPIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINV")]
     [IsoId("_19Y9kXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"PIN is invalid.")]
     InvalidPIN,
     
     /// <summary>
-    /// ??
+    /// Original amount is invalid.
     /// Encoded/decoded by serializers as "InvalidOriginalAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTO")]
     [IsoId("_2C5vsXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Original amount is invalid.")]
     InvalidOriginalAmount,
     
     /// <summary>
-    /// ??
+    /// Transaction not permitted to the cardholder or the customer.
     /// Encoded/decoded by serializers as "NotPermittedToCardholder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPRC")]
     [IsoId("_2qsIcXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction not permitted to the cardholder or the customer.")]
     NotPermittedToCardholder,
     
     /// <summary>
-    /// ??
+    /// Transaction has been processed offline by the terminal.
     /// Encoded/decoded by serializers as "OffLineProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFL")]
     [IsoId("_2w9IgXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction has been processed offline by the terminal.")]
     OffLineProcess,
     
     /// <summary>
-    /// ??
+    /// Transaction has been processed offline after referral.
     /// Encoded/decoded by serializers as "OffLineProcessAfterReferral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONLP")]
     [IsoId("_22w1kXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction has been processed offline after referral.")]
     OffLineProcessAfterReferral,
     
     /// <summary>
-    /// ??
+    /// Original is found, but transaction does not match.
     /// Encoded/decoded by serializers as "OriginalDoesNotMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXNM")]
     [IsoId("_28RnsXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Original is found, but transaction does not match.")]
     OriginalDoesNotMatch,
     
     /// <summary>
-    /// ??
+    /// Other error.
     /// Encoded/decoded by serializers as "OtherError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_3BpP4XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Other error.")]
     OtherError,
     
     /// <summary>
-    /// ??
+    /// Out of balance.
     /// Encoded/decoded by serializers as "OutOfBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BALO")]
     [IsoId("_3HKCAXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Out of balance.")]
     OutOfBalance,
     
     /// <summary>
-    /// ??
+    /// Message is out of sequence.
     /// Encoded/decoded by serializers as "OutOfSequence".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEQO")]
     [IsoId("_3MhDIXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Message is out of sequence.")]
     OutOfSequence,
     
     /// <summary>
-    /// ??
+    /// Amount of payment transactions exceeds card limit.
     /// Encoded/decoded by serializers as "PaymentAmountLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTL")]
     [IsoId("_3R4rUXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Amount of payment transactions exceeds card limit.")]
     PaymentAmountLimit,
     
     /// <summary>
-    /// ??
+    /// Number of payment transactions exceeds card limit.
     /// Encoded/decoded by serializers as "PaymentNumberLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMBL")]
     [IsoId("_3XsYYXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Number of payment transactions exceeds card limit.")]
     PaymentNumberLimit,
     
     /// <summary>
-    /// ??
+    /// Cardholder must change the PIN to be able to perform the transaction.
     /// Encoded/decoded by serializers as "PINChangeRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINC")]
     [IsoId("_3f5SIXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Cardholder must change the PIN to be able to perform the transaction.")]
     PINChangeRequired,
     
     /// <summary>
-    /// ??
+    /// Additional information are required to verify the PIN.
     /// Encoded/decoded by serializers as "PINDataRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PIND")]
     [IsoId("_3lQTQXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Additional information are required to verify the PIN.")]
     PINDataRequired,
     
     /// <summary>
-    /// ??
+    /// Decrypted PIN block is invalid.
     /// Encoded/decoded by serializers as "PINEncryptionError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINE")]
     [IsoId("_3qxFYXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Decrypted PIN block is invalid.")]
     PINEncryptionError,
     
     /// <summary>
-    /// ??
+    /// PIN length or PIN key is invalid.
     /// Encoded/decoded by serializers as "PINSecurityError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINS")]
     [IsoId("_3wujcXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"PIN length or PIN key is invalid.")]
     PINSecurityError,
     
     /// <summary>
-    /// ??
+    /// Last attempt of the PIN verification fails.
     /// Encoded/decoded by serializers as "PINTriesExceeded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINX")]
     [IsoId("_32sBgXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Last attempt of the PIN verification fails.")]
     PINTriesExceeded,
     
     /// <summary>
-    /// ??
+    /// Store and forward queue maximum exceeded.
     /// Encoded/decoded by serializers as "QueueMaximumExceeded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QMAX")]
     [IsoId("_38DpsXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Store and forward queue maximum exceeded.")]
     QueueMaximumExceeded,
     
     /// <summary>
-    /// ??
+    /// Recurring Error on Data.
     /// Encoded/decoded by serializers as "RecurringDataError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECD")]
     [IsoId("_4Bkb0XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Recurring Error on Data.")]
     RecurringDataError,
     
     /// <summary>
-    /// ??
+    /// Requested service not allowed by the card.
     /// Encoded/decoded by serializers as "RestrictedCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_4Hrq4XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Requested service not allowed by the card.")]
     RestrictedCard,
     
     /// <summary>
-    /// ??
+    /// Security violation, for instance invalid ARPC (Authorisation ResPonse Cryptogram).
     /// Encoded/decoded by serializers as "SecurityViolation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECV")]
     [IsoId("_4OO-0XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Security violation, for instance invalid ARPC (Authorisation ResPonse Cryptogram).")]
     SecurityViolation,
     
     /// <summary>
-    /// ??
+    /// Security software or hardware error.
     /// Encoded/decoded by serializers as "SoftwareOrHardwareError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFWE")]
     [IsoId("_4TmnAXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Security software or hardware error.")]
     SoftwareOrHardwareError,
     
     /// <summary>
-    /// ??
+    /// Special card conditions not respected.
     /// Encoded/decoded by serializers as "SpecialConditions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCC")]
     [IsoId("_4aAJ8XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Special card conditions not respected.")]
     SpecialConditions,
     
     /// <summary>
-    /// ??
+    /// Other card used for the original transaction.
     /// Encoded/decoded by serializers as "WrongCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDW")]
     [IsoId("_5LeqMXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Other card used for the original transaction.")]
     WrongCard,
     
     /// <summary>
-    /// ??
+    /// Number of withdrawal transactions exceeds card limit.
     /// Encoded/decoded by serializers as "WithdrawalNumberLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMBW")]
     [IsoId("_5SVgIXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Number of withdrawal transactions exceeds card limit.")]
     WithdrawalNumberLimit,
     
     /// <summary>
-    /// ??
+    /// Amount of withdrawal transactions exceeds card limit.
     /// Encoded/decoded by serializers as "WithdrawalAmountLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTW")]
     [IsoId("_5XshQXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Amount of withdrawal transactions exceeds card limit.")]
     WithdrawalAmountLimit,
     
     /// <summary>
-    /// ??
+    /// Vendor not found.
     /// Encoded/decoded by serializers as "VendorNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VNDF")]
     [IsoId("_5dNTYXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Vendor not found.")]
     VendorNotFound,
     
     /// <summary>
-    /// ??
+    /// Vendor format has an error.
     /// Encoded/decoded by serializers as "VendorFormatError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VNDR")]
     [IsoId("_5ik7kXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Vendor format has an error.")]
     VendorFormatError,
     
     /// <summary>
-    /// ??
+    /// Requested service not supported.
     /// Encoded/decoded by serializers as "UnsupportedService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVSU")]
     [IsoId("_5oFtsXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Requested service not supported.")]
     UnsupportedService,
     
     /// <summary>
-    /// ??
+    /// Card is not active yet.
     /// Encoded/decoded by serializers as "UneffectiveCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDU")]
     [IsoId("_5tdV4XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Card is not active yet.")]
     UneffectiveCard,
     
     /// <summary>
-    /// ??
+    /// Communication keys are not available.
     /// Encoded/decoded by serializers as "UnavailablecommunicationKey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMKY")]
     [IsoId("_5y-IAXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Communication keys are not available.")]
     UnavailablecommunicationKey,
     
     /// <summary>
-    /// ??
+    /// Currency is unacceptable for the Issuer or the processor.
     /// Encoded/decoded by serializers as "UnacceptableCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNBC")]
     [IsoId("_54VJIXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Currency is unacceptable for the Issuer or the processor.")]
     UnacceptableCurrency,
     
     /// <summary>
-    /// ??
+    /// Transaction cannot be processed offline.
     /// Encoded/decoded by serializers as "UnableToProcessOffLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNBP")]
     [IsoId("_5917QXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction cannot be processed offline.")]
     UnableToProcessOffLine,
     
     /// <summary>
-    /// ??
+    /// Transaction cannot be processed online by the terminal.
     /// Encoded/decoded by serializers as "UnableToGoOnLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNBO")]
     [IsoId("_6DWtYXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction cannot be processed online by the terminal.")]
     UnableToGoOnLine,
     
     /// <summary>
-    /// ??
+    /// Transaction could not be processed as original is not found.
     /// Encoded/decoded by serializers as "UnableToFindOriginal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORGF")]
     [IsoId("_6IuVkXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction could not be processed as original is not found.")]
     UnableToFindOriginal,
     
     /// <summary>
-    /// ??
+    /// Transaction identification already used for another transaction.
     /// Encoded/decoded by serializers as "TransactionDuplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXND")]
     [IsoId("_6OFWsXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction identification already used for another transaction.")]
     TransactionDuplicate,
     
     /// <summary>
-    /// ??
+    /// Transaction did not complete at the terminal.
     /// Encoded/decoded by serializers as "TransactionDidNotComplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXNU")]
     [IsoId("_6U8MoXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Transaction did not complete at the terminal.")]
     TransactionDidNotComplete,
     
     /// <summary>
-    /// ??
+    /// Totals are not available.
     /// Encoded/decoded by serializers as "TotalsNotAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTLV")]
     [IsoId("_6ac-wXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Totals are not available.")]
     TotalsNotAvailable,
     
     /// <summary>
-    /// ??
+    /// To account status error.
     /// Encoded/decoded by serializers as "ToAccountError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTT")]
     [IsoId("_6f0m8XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"To account status error.")]
     ToAccountError,
     
     /// <summary>
-    /// ??
+    /// System Malfunction.
     /// Encoded/decoded by serializers as "SystemMalfunction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYSM")]
     [IsoId("_6lVZEXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"System Malfunction.")]
     SystemMalfunction,
     
     /// <summary>
-    /// ??
+    /// Processing temporary not available.
     /// Encoded/decoded by serializers as "SystemInoperative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYSP")]
     [IsoId("_6rS3IXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Processing temporary not available.")]
     SystemInoperative,
     
     /// <summary>
-    /// ??
+    /// Fraudulent transaction is suspected by the issuer or the processor.
     /// Encoded/decoded by serializers as "SuspectedFraud".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRDS")]
     [IsoId("_6yJtEXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction is suspected by the issuer or the processor.")]
     SuspectedFraud,
     
     /// <summary>
-    /// ??
+    /// Counterfeit card suspected by the issuer or the processor.
     /// Encoded/decoded by serializers as "SuspectedCounterfeitCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTC")]
     [IsoId("_65AjAXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Counterfeit card suspected by the issuer or the processor.")]
     SuspectedCounterfeitCard,
     
     /// <summary>
-    /// ??
+    /// Surcharging is not permitted.
     /// Encoded/decoded by serializers as "SurchargeNotPermitted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRCH")]
     [IsoId("_6_aF8XuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Surcharging is not permitted.")]
     SurchargeNotPermitted,
     
     /// <summary>
-    /// ??
+    /// Card has been declared stolen.
     /// Encoded/decoded by serializers as "StolenCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDS")]
     [IsoId("_7ExuIXuLEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Card has been declared stolen.")]
     StolenCard,
     
     /// <summary>
-    /// ??
+    /// Message is acknowledged only without processing the service, for instance the reconciliation is not performed, acknowledged only.
     /// Encoded/decoded by serializers as "AcknowledgementOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACKO")]
     [IsoId("_Nev6wYO-EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Message is acknowledged only without processing the service, for instance the reconciliation is not performed, acknowledged only.")]
     AcknowledgementOnly,
     
 }

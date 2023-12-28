@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesSettlementStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction is pending. Settlement at the instructed settlement date is still possible.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_ZFx2xtp-Ed-ak6NoX_4Aeg_1558336292")]
-    [Description(@"??")]
+    [Description(@"Instruction is pending. Settlement at the instructed settlement date is still possible.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Instruction is failing. Settlement at the instructed settlement date is no longer possible.
     /// Encoded/decoded by serializers as "Failing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENF")]
     [IsoId("_ZFx2x9p-Ed-ak6NoX_4Aeg_1570340511")]
-    [Description(@"??")]
+    [Description(@"Instruction is failing. Settlement at the instructed settlement date is no longer possible.")]
     Failing,
     
 }

@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccrualPeriodType1Code
 {
     /// <summary>
-    /// ??
+    /// Long first payment period is applicable.
     /// Encoded/decoded by serializers as "LongFirstPaymentPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LONG")]
     [IsoId("_10Ab8TL3EeKU9IrkkToqcw_151248487")]
-    [Description(@"??")]
+    [Description(@"Long first payment period is applicable.")]
     LongFirstPaymentPeriod,
     
     /// <summary>
-    /// ??
+    /// Regular first payment period is applicable.
     /// Encoded/decoded by serializers as "FirstRegularPaymentPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREG")]
     [IsoId("_10Ab8jL3EeKU9IrkkToqcw_476365994")]
-    [Description(@"??")]
+    [Description(@"Regular first payment period is applicable.")]
     FirstRegularPaymentPeriod,
     
     /// <summary>
-    /// ??
+    /// Short first payment period is applicable.
     /// Encoded/decoded by serializers as "ShortFirstPaymentperiod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHRT")]
     [IsoId("_10Ab8zL3EeKU9IrkkToqcw_-455570526")]
-    [Description(@"??")]
+    [Description(@"Short first payment period is applicable.")]
     ShortFirstPaymentperiod,
     
     /// <summary>
-    /// ??
+    /// First year of payment is applicable.
     /// Encoded/decoded by serializers as "FirstYearOfPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_10Ab9DL3EeKU9IrkkToqcw_-1483257")]
-    [Description(@"??")]
+    [Description(@"First year of payment is applicable.")]
     FirstYearOfPayment,
     
     /// <summary>
-    /// ??
+    /// Extra long payment period is applicable.
     /// Encoded/decoded by serializers as "ExtraLongPaymentPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XLNG")]
     [IsoId("_10Ab9TL3EeKU9IrkkToqcw_584463769")]
-    [Description(@"??")]
+    [Description(@"Extra long payment period is applicable.")]
     ExtraLongPaymentPeriod,
     
     /// <summary>
-    /// ??
+    /// Default payment period is applicable.
     /// Encoded/decoded by serializers as "DefaultPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_10Ab9jL3EeKU9IrkkToqcw_2051612532")]
-    [Description(@"??")]
+    [Description(@"Default payment period is applicable.")]
     DefaultPeriod,
     
     /// <summary>
-    /// ??
+    /// Payment has not been done.
     /// Encoded/decoded by serializers as "PaymentOmitted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OMIT")]
     [IsoId("_10Jl4DL3EeKU9IrkkToqcw_-794219174")]
-    [Description(@"??")]
+    [Description(@"Payment has not been done.")]
     PaymentOmitted,
     
 }

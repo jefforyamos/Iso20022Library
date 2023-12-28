@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalRePresentmentReason1Code
 {
     /// <summary>
-    /// ??
+    /// Amount corrected due to proof of transaction
     /// Encoded/decoded by serializers as "AmountCorrected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMCR")]
     [IsoId("_uOP6a_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Amount corrected due to proof of transaction")]
     AmountCorrected,
     
     /// <summary>
-    /// ??
+    /// Liability Shift to acquirer due to missing card authentication method denied
     /// Encoded/decoded by serializers as "CardAuthenticationLiabilityShiftDenied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSD")]
     [IsoId("_uOZEUvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Liability Shift to acquirer due to missing card authentication method denied")]
     CardAuthenticationLiabilityShiftDenied,
     
     /// <summary>
-    /// ??
+    /// Credit previously issued
     /// Encoded/decoded by serializers as "CreditPreviouslyIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPI")]
     [IsoId("_uOZEVfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Credit previously issued")]
     CreditPreviouslyIssued,
     
     /// <summary>
-    /// ??
+    /// Original transaction was valid
     /// Encoded/decoded by serializers as "OriginalTransactionValid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTVA")]
     [IsoId("_uOZEWPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Original transaction was valid")]
     OriginalTransactionValid,
     
     /// <summary>
-    /// ??
+    /// Liability Shift to acquirer due to missing cardholder verification method denied
     /// Encoded/decoded by serializers as "VerificationLiabilityShiftDenied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VLSD")]
     [IsoId("_uOZEW_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Liability Shift to acquirer due to missing cardholder verification method denied")]
     VerificationLiabilityShiftDenied,
     
 }

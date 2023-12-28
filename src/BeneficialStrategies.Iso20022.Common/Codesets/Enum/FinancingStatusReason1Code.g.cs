@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FinancingStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation request message was received after the end of the financing process previously activated.
     /// Encoded/decoded by serializers as "CancellationRequestOutOfTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CA01")]
     [IsoId("_aqNd99p-Ed-ak6NoX_4Aeg_241885771")]
-    [Description(@"??")]
+    [Description(@"Cancellation request message was received after the end of the financing process previously activated.")]
     CancellationRequestOutOfTime,
     
     /// <summary>
-    /// ??
+    /// Cancellation request does not match with an invoice financing request received previously.
     /// Encoded/decoded by serializers as "NoMatchingFinancingRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CA02")]
     [IsoId("_aqNd-Np-Ed-ak6NoX_4Aeg_241886042")]
-    [Description(@"??")]
+    [Description(@"Cancellation request does not match with an invoice financing request received previously.")]
     NoMatchingFinancingRequest,
     
     /// <summary>
-    /// ??
+    /// Format of the account number specified is not correct.
     /// Encoded/decoded by serializers as "IncorrectAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC01")]
     [IsoId("_aqXO8Np-Ed-ak6NoX_4Aeg_241886073")]
-    [Description(@"??")]
+    [Description(@"Format of the account number specified is not correct.")]
     IncorrectAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account number specified has been closed on the Receiver's books.
     /// Encoded/decoded by serializers as "ClosedAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC04")]
     [IsoId("_aqXO8dp-Ed-ak6NoX_4Aeg_241886134")]
-    [Description(@"??")]
+    [Description(@"Account number specified has been closed on the Receiver's books.")]
     ClosedAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account specified is blocked, prohibiting posting of transactions against it.
     /// Encoded/decoded by serializers as "BlockedAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC06")]
     [IsoId("_aqXO8tp-Ed-ak6NoX_4Aeg_241886195")]
-    [Description(@"??")]
+    [Description(@"Account specified is blocked, prohibiting posting of transactions against it.")]
     BlockedAccount,
     
     /// <summary>
-    /// ??
+    /// Party who sent the request message is not recognised by the first agent.
     /// Encoded/decoded by serializers as "UnrecognisedFinancingRequestor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BE08")]
     [IsoId("_aqXO89p-Ed-ak6NoX_4Aeg_241886505")]
-    [Description(@"??")]
+    [Description(@"Party who sent the request message is not recognised by the first agent.")]
     UnrecognisedFinancingRequestor,
     
     /// <summary>
-    /// ??
+    /// Party who forwarded the request message is not recognised by the first agent.
     /// Encoded/decoded by serializers as "UnrecognisedIntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BE09")]
     [IsoId("_aqXO9Np-Ed-ak6NoX_4Aeg_241886535")]
-    [Description(@"??")]
+    [Description(@"Party who forwarded the request message is not recognised by the first agent.")]
     UnrecognisedIntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Financing Requestor is expected to send requests through a different Intermediary Agent.
     /// Encoded/decoded by serializers as "UnexpectedIntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BE10")]
     [IsoId("_aqXO9dp-Ed-ak6NoX_4Aeg_241886596")]
-    [Description(@"??")]
+    [Description(@"Financing Requestor is expected to send requests through a different Intermediary Agent.")]
     UnexpectedIntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Party is not recognised by the first agent.
     /// Encoded/decoded by serializers as "UnrecognisedParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BE11")]
     [IsoId("_aqXO9tp-Ed-ak6NoX_4Aeg_241886627")]
-    [Description(@"??")]
+    [Description(@"Party is not recognised by the first agent.")]
     UnrecognisedParty,
     
     /// <summary>
-    /// ??
+    /// PaymentDueDate is occurring before the request message creation date.
     /// Encoded/decoded by serializers as "InvalidPaymentDueDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DT02")]
     [IsoId("_aqXO99p-Ed-ak6NoX_4Aeg_241886658")]
-    [Description(@"??")]
+    [Description(@"PaymentDueDate is occurring before the request message creation date.")]
     InvalidPaymentDueDate,
     
     /// <summary>
-    /// ??
+    /// Request message received appears to have been duplicated.
     /// Encoded/decoded by serializers as "DuplicatedRequestMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ID01")]
     [IsoId("_aqXO-Np-Ed-ak6NoX_4Aeg_241886688")]
-    [Description(@"??")]
+    [Description(@"Request message received appears to have been duplicated.")]
     DuplicatedRequestMessage,
     
     /// <summary>
-    /// ??
+    /// Request message received appears to have a wrong identification.
     /// Encoded/decoded by serializers as "WrongIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ID02")]
     [IsoId("_aqXO-dp-Ed-ak6NoX_4Aeg_241886719")]
-    [Description(@"??")]
+    [Description(@"Request message received appears to have a wrong identification.")]
     WrongIdentification,
     
     /// <summary>
-    /// ??
+    /// Document number is invalid.
     /// Encoded/decoded by serializers as "InvalidDocumentNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ID03")]
     [IsoId("_aqgY4Np-Ed-ak6NoX_4Aeg_241886997")]
-    [Description(@"??")]
+    [Description(@"Document number is invalid.")]
     InvalidDocumentNumber,
     
     /// <summary>
-    /// ??
+    /// Information bilateral agreed as mandatory is missing.
     /// Encoded/decoded by serializers as "MissingMandatoryInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MI01")]
     [IsoId("_aqgY4dp-Ed-ak6NoX_4Aeg_241887028")]
-    [Description(@"??")]
+    [Description(@"Information bilateral agreed as mandatory is missing.")]
     MissingMandatoryInformation,
     
     /// <summary>
-    /// ??
+    /// Reason is provided as narrative information in the additional reason information.
     /// Encoded/decoded by serializers as "Narrative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NA01")]
     [IsoId("_aqgY4tp-Ed-ak6NoX_4Aeg_241887058")]
-    [Description(@"??")]
+    [Description(@"Reason is provided as narrative information in the additional reason information.")]
     Narrative,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was correctly received but the financing process has already been initiated.
     /// Encoded/decoded by serializers as "FinancingProcessAlreadyInitiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CA03")]
     [IsoId("_aqgY49p-Ed-ak6NoX_4Aeg_-1043988701")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was correctly received but the financing process has already been initiated.")]
     FinancingProcessAlreadyInitiated,
     
 }

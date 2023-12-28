@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AcknowledgementReason7Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was not straight through processing and had to be processed manually.
     /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTP")]
     [IsoId("_D0GuMSqAEeO3oOoGGWHH4A")]
-    [Description(@"??")]
+    [Description(@"Instruction was not straight through processing and had to be processed manually.")]
     NotStraightThroughProcessing,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_D7GHASqAEeO3oOoGGWHH4A")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
 }

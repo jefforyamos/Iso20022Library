@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SequenceType2Code
 {
     /// <summary>
-    /// ??
+    /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
     /// Encoded/decoded by serializers as "Recurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCUR")]
     [IsoId("_ZKPgCNp-Ed-ak6NoX_4Aeg_868377522")]
-    [Description(@"??")]
+    [Description(@"Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.")]
     Recurring,
     
     /// <summary>
-    /// ??
+    /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
     /// Encoded/decoded by serializers as "OneOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OOFF")]
     [IsoId("_ZKZRANp-Ed-ak6NoX_4Aeg_868377553")]
-    [Description(@"??")]
+    [Description(@"Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.")]
     OneOff,
     
 }

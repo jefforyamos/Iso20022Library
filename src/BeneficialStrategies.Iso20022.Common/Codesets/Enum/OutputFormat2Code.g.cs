@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OutputFormat2Code
 {
     /// <summary>
-    /// ??
+    /// Predefined configured messages, identified by a reference.
     /// Encoded/decoded by serializers as "MessageReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MREF")]
     [IsoId("_lPN6AYqHEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Predefined configured messages, identified by a reference.")]
     MessageReference,
     
     /// <summary>
-    /// ??
+    /// Screen to display identified by a reference.
     /// Encoded/decoded by serializers as "ScreenReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SREF")]
     [IsoId("_lUIPMYqHEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Screen to display identified by a reference.")]
     ScreenReference,
     
     /// <summary>
-    /// ??
+    /// Text without format attributes.
     /// Encoded/decoded by serializers as "SimpleText".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEXT")]
     [IsoId("_lY5acYqHEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Text without format attributes.")]
     SimpleText,
     
     /// <summary>
-    /// ??
+    /// XHTML document which includes a subset of the XHTML output tag.
     /// Encoded/decoded by serializers as "XHTML".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HTML")]
     [IsoId("_ld0WsYqHEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
     XHTML,
     
 }

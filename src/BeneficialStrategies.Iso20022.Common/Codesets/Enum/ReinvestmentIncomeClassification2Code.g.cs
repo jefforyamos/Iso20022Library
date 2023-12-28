@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReinvestmentIncomeClassification2Code
 {
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as capital gains.
     /// Encoded/decoded by serializers as "CapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPG")]
     [IsoId("_ZGVDQXngEeO2o_OAyvnbZw")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as capital gains.")]
     CapitalGains,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as cash dividend.
     /// Encoded/decoded by serializers as "CashDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVCA")]
     [IsoId("_aOY3gHngEeO2o_OAyvnbZw")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as cash dividend.")]
     CashDividend,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as special cash dividend.
     /// Encoded/decoded by serializers as "CashDividendSpecial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDPS")]
     [IsoId("_akEMkXngEeO2o_OAyvnbZw")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as special cash dividend.")]
     CashDividendSpecial,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as interest.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_byd5YXngEeO2o_OAyvnbZw")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as interest.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as long term capital gains.
     /// Encoded/decoded by serializers as "LongTermCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTCG")]
     [IsoId("_b8HkoXngEeO2o_OAyvnbZw")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as long term capital gains.")]
     LongTermCapitalGains,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as principal.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPL")]
     [IsoId("_cDn60XngEeO2o_OAyvnbZw")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as principal.")]
     Principal,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as return of capital.
     /// Encoded/decoded by serializers as "ReturnOfCapital".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROCA")]
     [IsoId("_cJHe0XngEeO2o_OAyvnbZw")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as return of capital.")]
     ReturnOfCapital,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as short term capital gains.
     /// Encoded/decoded by serializers as "ShortTermCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STCG")]
     [IsoId("_cOV9EXngEeO2o_OAyvnbZw")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as short term capital gains.")]
     ShortTermCapitalGains,
     
 }

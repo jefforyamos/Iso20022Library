@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReceiveDelivery1Code
 {
     /// <summary>
-    /// ??
+    /// Financial instruments will be debited from the safekeeping account.
     /// Encoded/decoded by serializers as "Delivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELI")]
     [IsoId("_Zafihdp-Ed-ak6NoX_4Aeg_-99264763")]
-    [Description(@"??")]
+    [Description(@"Financial instruments will be debited from the safekeeping account.")]
     Delivery,
     
     /// <summary>
-    /// ??
+    /// Financial instruments will be credited to the safekeeping account.
     /// Encoded/decoded by serializers as "Receive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_Zafihtp-Ed-ak6NoX_4Aeg_-69712465")]
-    [Description(@"??")]
+    [Description(@"Financial instruments will be credited to the safekeeping account.")]
     Receive,
     
 }

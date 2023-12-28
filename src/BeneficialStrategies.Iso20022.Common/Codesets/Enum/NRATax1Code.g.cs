@@ -20,417 +20,417 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NRATax1Code
 {
     /// <summary>
-    /// ??
+    /// Tax category for domestic source income dividends.
     /// Encoded/decoded by serializers as "DomesticIncomeDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T011")]
     [IsoId("_12-3czL3EeKU9IrkkToqcw_921269712")]
-    [Description(@"??")]
+    [Description(@"Tax category for domestic source income dividends.")]
     DomesticIncomeDividend,
     
     /// <summary>
-    /// ??
+    /// Tax category for foreign source income dividends.
     /// Encoded/decoded by serializers as "ForeignIncomeDividends".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T012")]
     [IsoId("_12-3dDL3EeKU9IrkkToqcw_-1906548821")]
-    [Description(@"??")]
+    [Description(@"Tax category for foreign source income dividends.")]
     ForeignIncomeDividends,
     
     /// <summary>
-    /// ??
+    /// Tax category for non taxable domestic dividends.
     /// Encoded/decoded by serializers as "DividendsDomesticNonTaxable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T013")]
     [IsoId("_12-3dTL3EeKU9IrkkToqcw_1999290050")]
-    [Description(@"??")]
+    [Description(@"Tax category for non taxable domestic dividends.")]
     DividendsDomesticNonTaxable,
     
     /// <summary>
-    /// ??
+    /// Tax category for fully exempt dividends on municipal type mutual funds.
     /// Encoded/decoded by serializers as "DividendsFullyExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T014")]
     [IsoId("_12-3djL3EeKU9IrkkToqcw_1988191273")]
-    [Description(@"??")]
+    [Description(@"Tax category for fully exempt dividends on municipal type mutual funds.")]
     DividendsFullyExempt,
     
     /// <summary>
-    /// ??
+    /// Tax category for federal taxable state exempt dividends.
     /// Encoded/decoded by serializers as "DividendsFederalTaxableStateExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T015")]
     [IsoId("_13IocDL3EeKU9IrkkToqcw_-10666808")]
-    [Description(@"??")]
+    [Description(@"Tax category for federal taxable state exempt dividends.")]
     DividendsFederalTaxableStateExempt,
     
     /// <summary>
-    /// ??
+    /// Tax category for Return Of Capital proceeds.
     /// Encoded/decoded by serializers as "ReturnOfCapital".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T019")]
     [IsoId("_13IocTL3EeKU9IrkkToqcw_1456481955")]
-    [Description(@"??")]
+    [Description(@"Tax category for Return Of Capital proceeds.")]
     ReturnOfCapital,
     
     /// <summary>
-    /// ??
+    /// Tax category for Long Term Capital Gains proceeds.
     /// Encoded/decoded by serializers as "LongTermCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T021")]
     [IsoId("_13IocjL3EeKU9IrkkToqcw_-21765585")]
-    [Description(@"??")]
+    [Description(@"Tax category for Long Term Capital Gains proceeds.")]
     LongTermCapitalGains,
     
     /// <summary>
-    /// ??
+    /// Tax category for Short Term Capital Gains proceeds.
     /// Encoded/decoded by serializers as "ShortTermCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T022")]
     [IsoId("_13IoczL3EeKU9IrkkToqcw_1445383178")]
-    [Description(@"??")]
+    [Description(@"Tax category for Short Term Capital Gains proceeds.")]
     ShortTermCapitalGains,
     
     /// <summary>
-    /// ??
+    /// Tax category for FIRPTA eligible (REITS).
     /// Encoded/decoded by serializers as "FIRPTAEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T023")]
     [IsoId("_13IodDL3EeKU9IrkkToqcw_432321684")]
-    [Description(@"??")]
+    [Description(@"Tax category for FIRPTA eligible (REITS).")]
     FIRPTAEligible,
     
     /// <summary>
-    /// ??
+    /// Tax category for REIT (Capital Gain Distributions).
     /// Encoded/decoded by serializers as "REITCapitalGainDistributions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T025")]
     [IsoId("_13IodTL3EeKU9IrkkToqcw_1899470447")]
-    [Description(@"??")]
+    [Description(@"Tax category for REIT (Capital Gain Distributions).")]
     REITCapitalGainDistributions,
     
     /// <summary>
-    /// ??
+    /// Tax category for limited publicly traded partnership.
     /// Encoded/decoded by serializers as "LimitedPubliclyTradedPartnership".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T026")]
     [IsoId("_13IodjL3EeKU9IrkkToqcw_1790132640")]
-    [Description(@"??")]
+    [Description(@"Tax category for limited publicly traded partnership.")]
     LimitedPubliclyTradedPartnership,
     
     /// <summary>
-    /// ??
+    /// Tax category for substitute dividend payments.
     /// Encoded/decoded by serializers as "SubstituteDividendPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T027")]
     [IsoId("_13RyYDL3EeKU9IrkkToqcw_-1037685893")]
-    [Description(@"??")]
+    [Description(@"Tax category for substitute dividend payments.")]
     SubstituteDividendPayment,
     
     /// <summary>
-    /// ??
+    /// Tax category for short term capital gain distributions.
     /// Encoded/decoded by serializers as "CapitalGainDistributionShortTermRICs".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T029")]
     [IsoId("_13RyYTL3EeKU9IrkkToqcw_1274814360")]
-    [Description(@"??")]
+    [Description(@"Tax category for short term capital gain distributions.")]
     CapitalGainDistributionShortTermRICs,
     
     /// <summary>
-    /// ??
+    /// Tax category for dividend or capital gains distribution due to a corporate action.
     /// Encoded/decoded by serializers as "CorporateActionDividendCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T302")]
     [IsoId("_13RyYjL3EeKU9IrkkToqcw_-1553004173")]
-    [Description(@"??")]
+    [Description(@"Tax category for dividend or capital gains distribution due to a corporate action.")]
     CorporateActionDividendCapitalGains,
     
     /// <summary>
-    /// ??
+    /// Tax category for U.S. source ordinary interest proceeds.
     /// Encoded/decoded by serializers as "USSourceOrdinaryInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T041")]
     [IsoId("_13RyYzL3EeKU9IrkkToqcw_1728901629")]
-    [Description(@"??")]
+    [Description(@"Tax category for U.S. source ordinary interest proceeds.")]
     USSourceOrdinaryInterest,
     
     /// <summary>
-    /// ??
+    /// Tax category for foreign bond interest proceeds.
     /// Encoded/decoded by serializers as "ForeignBondInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T042")]
     [IsoId("_13RyZDL3EeKU9IrkkToqcw_1717802852")]
-    [Description(@"??")]
+    [Description(@"Tax category for foreign bond interest proceeds.")]
     ForeignBondInterest,
     
     /// <summary>
-    /// ??
+    /// Tax category for all state and territorial municipal interest proceeds.
     /// Encoded/decoded by serializers as "AllStateAndTerritorialMunicipalInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T043")]
     [IsoId("_13RyZTL3EeKU9IrkkToqcw_-1110015681")]
-    [Description(@"??")]
+    [Description(@"Tax category for all state and territorial municipal interest proceeds.")]
     AllStateAndTerritorialMunicipalInterest,
     
     /// <summary>
-    /// ??
+    /// Tax category for all municipal bonds that are subject to federal tax proceeds.
     /// Encoded/decoded by serializers as "AllMunicipalBondsSubjectToFederalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T044")]
     [IsoId("_13RyZjL3EeKU9IrkkToqcw_679094124")]
-    [Description(@"??")]
+    [Description(@"Tax category for all municipal bonds that are subject to federal tax proceeds.")]
     AllMunicipalBondsSubjectToFederalTax,
     
     /// <summary>
-    /// ??
+    /// Tax category for U.S. government interest on contracts Notes & mortgages proceeds.
     /// Encoded/decoded by serializers as "USGovernmentInterestOnContractsNotesAndMortgages".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T045")]
     [IsoId("_13bjYDL3EeKU9IrkkToqcw_2146242887")]
-    [Description(@"??")]
+    [Description(@"Tax category for U.S. government interest on contracts Notes & mortgages proceeds.")]
     USGovernmentInterestOnContractsNotesAndMortgages,
     
     /// <summary>
-    /// ??
+    /// Tax category for U.S. government interest on GNMA 1 & 2 proceeds.
     /// Encoded/decoded by serializers as "USGovernmentInterestOnGNMA1And2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T046")]
     [IsoId("_13bjYTL3EeKU9IrkkToqcw_44062278")]
-    [Description(@"??")]
+    [Description(@"Tax category for U.S. government interest on GNMA 1 & 2 proceeds.")]
     USGovernmentInterestOnGNMA1And2,
     
     /// <summary>
-    /// ??
+    /// Tax category for interest on collateralized mortgage obligations proceeds.
     /// Encoded/decoded by serializers as "InterestOnCollatralizedMortgageObligations".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T047")]
     [IsoId("_13bjYjL3EeKU9IrkkToqcw_1511211041")]
-    [Description(@"??")]
+    [Description(@"Tax category for interest on collateralized mortgage obligations proceeds.")]
     InterestOnCollatralizedMortgageObligations,
     
     /// <summary>
-    /// ??
+    /// Tax category for interests on certificates of deposits proceeds.
     /// Encoded/decoded by serializers as "InterestOnCertificatesOfDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T048")]
     [IsoId("_13bjYzL3EeKU9IrkkToqcw_1122082616")]
-    [Description(@"??")]
+    [Description(@"Tax category for interests on certificates of deposits proceeds.")]
     InterestOnCertificatesOfDeposit,
     
     /// <summary>
-    /// ??
+    /// Tax category for U.S. government interest proceeds.
     /// Encoded/decoded by serializers as "USGovernmentInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T049")]
     [IsoId("_13bjZDL3EeKU9IrkkToqcw_-1705735917")]
-    [Description(@"??")]
+    [Description(@"Tax category for U.S. government interest proceeds.")]
     USGovernmentInterest,
     
     /// <summary>
-    /// ??
+    /// Tax Category for US government interest on Notes and Bills.
     /// Encoded/decoded by serializers as "USGovernmentInterestOnNotesAndBills".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T050")]
     [IsoId("_13bjZTL3EeKU9IrkkToqcw_1084096573")]
-    [Description(@"??")]
+    [Description(@"Tax Category for US government interest on Notes and Bills.")]
     USGovernmentInterestOnNotesAndBills,
     
     /// <summary>
-    /// ??
+    /// Tax category for principal pay downs proceeds.
     /// Encoded/decoded by serializers as "PrincipalPaydowns".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T051")]
     [IsoId("_13lUYDL3EeKU9IrkkToqcw_-1743721960")]
-    [Description(@"??")]
+    [Description(@"Tax category for principal pay downs proceeds.")]
     PrincipalPaydowns,
     
     /// <summary>
-    /// ??
+    /// Tax category for Short Term Interest (less than 183 days) proceeds.
     /// Encoded/decoded by serializers as "ShortTermInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T052")]
     [IsoId("_13lUYTL3EeKU9IrkkToqcw_329346699")]
-    [Description(@"??")]
+    [Description(@"Tax category for Short Term Interest (less than 183 days) proceeds.")]
     ShortTermInterest,
     
     /// <summary>
-    /// ??
+    /// Tax category for U.S. Government Interest (longer that 183 days) proceeds.
     /// Encoded/decoded by serializers as "USGovernmentInterestLongerThan183Days".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T053")]
     [IsoId("_13lUYjL3EeKU9IrkkToqcw_1796495462")]
-    [Description(@"??")]
+    [Description(@"Tax category for U.S. Government Interest (longer that 183 days) proceeds.")]
     USGovernmentInterestLongerThan183Days,
     
     /// <summary>
-    /// ??
+    /// Tax category for interest substitute payment.
     /// Encoded/decoded by serializers as "InterestSubstitutePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T054")]
     [IsoId("_13lUYzL3EeKU9IrkkToqcw_1090111852")]
-    [Description(@"??")]
+    [Description(@"Tax category for interest substitute payment.")]
     InterestSubstitutePayment,
     
     /// <summary>
-    /// ??
+    /// Tax category for other substitute payment that cannot be categorised.
     /// Encoded/decoded by serializers as "OtherSusbtitutePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T055")]
     [IsoId("_13lUZDL3EeKU9IrkkToqcw_-1737706681")]
-    [Description(@"??")]
+    [Description(@"Tax category for other substitute payment that cannot be categorised.")]
     OtherSusbtitutePayment,
     
     /// <summary>
-    /// ??
+    /// Tax category for NRA withholding tax.
     /// Encoded/decoded by serializers as "NRAWithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T061")]
     [IsoId("_13lUZTL3EeKU9IrkkToqcw_-1835165283")]
-    [Description(@"??")]
+    [Description(@"Tax category for NRA withholding tax.")]
     NRAWithholdingTax,
     
     /// <summary>
-    /// ??
+    /// Tax category for federal backup dividends proceeds.
     /// Encoded/decoded by serializers as "FederalBackUpDividends".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T062")]
     [IsoId("_13lUZjL3EeKU9IrkkToqcw_-368016520")]
-    [Description(@"??")]
+    [Description(@"Tax category for federal backup dividends proceeds.")]
     FederalBackUpDividends,
     
     /// <summary>
-    /// ??
+    /// Tax category for federal backup interest proceeds.
     /// Encoded/decoded by serializers as "FederalBackUpInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T063")]
     [IsoId("_13lUZzL3EeKU9IrkkToqcw_767621816")]
-    [Description(@"??")]
+    [Description(@"Tax category for federal backup interest proceeds.")]
     FederalBackUpInterest,
     
     /// <summary>
-    /// ??
+    /// Tax category for foreign tax withheld at source dividends proceeds.
     /// Encoded/decoded by serializers as "ForeignTaxWithheldAtSourceDividends".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T064")]
     [IsoId("_13ueUDL3EeKU9IrkkToqcw_-2060196717")]
-    [Description(@"??")]
+    [Description(@"Tax category for foreign tax withheld at source dividends proceeds.")]
     ForeignTaxWithheldAtSourceDividends,
     
     /// <summary>
-    /// ??
+    /// Tax category for foreign tax withheld at source interest proceeds.
     /// Encoded/decoded by serializers as "ForeignTaxWithheldAtSourceInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T065")]
     [IsoId("_13ueUTL3EeKU9IrkkToqcw_756523039")]
-    [Description(@"??")]
+    [Description(@"Tax category for foreign tax withheld at source interest proceeds.")]
     ForeignTaxWithheldAtSourceInterest,
     
     /// <summary>
-    /// ??
+    /// Tax category for custody issues.
     /// Encoded/decoded by serializers as "CustodyIssues".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T070")]
     [IsoId("_14CAUDL3EeKU9IrkkToqcw_-2071295494")]
-    [Description(@"??")]
+    [Description(@"Tax category for custody issues.")]
     CustodyIssues,
     
     /// <summary>
-    /// ??
+    /// Tax category for interest on balances proceeds.
     /// Encoded/decoded by serializers as "InterestOnBalances".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T071")]
     [IsoId("_14LKQDL3EeKU9IrkkToqcw_1807656111")]
-    [Description(@"??")]
+    [Description(@"Tax category for interest on balances proceeds.")]
     InterestOnBalances,
     
     /// <summary>
-    /// ??
+    /// Tax category for interest on series E or H bonds proceeds.
     /// Encoded/decoded by serializers as "InterestOnSeriesEOrHBonds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T072")]
     [IsoId("_14LKQTL3EeKU9IrkkToqcw_-1020162422")]
-    [Description(@"??")]
+    [Description(@"Tax category for interest on series E or H bonds proceeds.")]
     InterestOnSeriesEOrHBonds,
     
     /// <summary>
-    /// ??
+    /// Tax category for royalty payments proceeds.
     /// Encoded/decoded by serializers as "RoyaltyPayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T073")]
     [IsoId("_14LKQjL3EeKU9IrkkToqcw_-36212878")]
-    [Description(@"??")]
+    [Description(@"Tax category for royalty payments proceeds.")]
     RoyaltyPayments,
     
     /// <summary>
-    /// ??
+    /// Tax category for other taxable income proceeds.
     /// Encoded/decoded by serializers as "OtherTaxableIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T074")]
     [IsoId("_14LKQzL3EeKU9IrkkToqcw_1430935885")]
-    [Description(@"??")]
+    [Description(@"Tax category for other taxable income proceeds.")]
     OtherTaxableIncome,
     
     /// <summary>
-    /// ??
+    /// Tax category for other non-taxable income proceeds.
     /// Encoded/decoded by serializers as "OtherNonTaxableIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T075")]
     [IsoId("_14LKRDL3EeKU9IrkkToqcw_417874391")]
-    [Description(@"??")]
+    [Description(@"Tax category for other non-taxable income proceeds.")]
     OtherNonTaxableIncome,
     
     /// <summary>
-    /// ??
+    /// Tax category for miscellaneous payments proceeds.
     /// Encoded/decoded by serializers as "MiscellaneousPayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T076")]
     [IsoId("_14U7QDL3EeKU9IrkkToqcw_1885023154")]
-    [Description(@"??")]
+    [Description(@"Tax category for miscellaneous payments proceeds.")]
     MiscellaneousPayments,
     
     /// <summary>
-    /// ??
+    /// Tax category for Cash-in-Lieu of fractional shares proceeds.
     /// Encoded/decoded by serializers as "CashInLieuOfFractionalShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T024")]
     [IsoId("_14U7QTL3EeKU9IrkkToqcw_742991898")]
-    [Description(@"??")]
+    [Description(@"Tax category for Cash-in-Lieu of fractional shares proceeds.")]
     CashInLieuOfFractionalShares,
     
     /// <summary>
-    /// ??
+    /// Tax category for stock split proceeds.
     /// Encoded/decoded by serializers as "StockSplit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T077")]
     [IsoId("_14U7QjL3EeKU9IrkkToqcw_-2084826635")]
-    [Description(@"??")]
+    [Description(@"Tax category for stock split proceeds.")]
     StockSplit,
     
     /// <summary>
-    /// ??
+    /// Tax category for stock dividend proceeds.
     /// Encoded/decoded by serializers as "StockDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T078")]
     [IsoId("_14U7QzL3EeKU9IrkkToqcw_-631933114")]
-    [Description(@"??")]
+    [Description(@"Tax category for stock dividend proceeds.")]
     StockDividend,
     
     /// <summary>
-    /// ??
+    /// Tax category for cash on increased shares proceeds.
     /// Encoded/decoded by serializers as "CashOnIncreasedShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T079")]
     [IsoId("_14U7RDL3EeKU9IrkkToqcw_835215649")]
-    [Description(@"??")]
+    [Description(@"Tax category for cash on increased shares proceeds.")]
     CashOnIncreasedShares,
     
     /// <summary>
-    /// ??
+    /// Tax category for spin off proceeds.
     /// Encoded/decoded by serializers as "SpinOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T080")]
     [IsoId("_14eFMDL3EeKU9IrkkToqcw_-1266964960")]
-    [Description(@"??")]
+    [Description(@"Tax category for spin off proceeds.")]
     SpinOff,
     
 }

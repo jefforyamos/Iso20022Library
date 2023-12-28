@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType22Code
 {
     /// <summary>
-    /// ??
+    /// Holder of a payment card.
     /// Encoded/decoded by serializers as "Cardholder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDH")]
     [IsoId("_SVzEQU9KEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Holder of a payment card.")]
     Cardholder,
     
     /// <summary>
-    /// ??
+    /// Merchant providing goods and service in the card payment transaction.
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_ToYGcU9KEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Merchant providing goods and service in the card payment transaction.")]
     Merchant,
     
     /// <summary>
-    /// ??
+    /// Other card payment entity type defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_VDFw8U9KEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Other card payment entity type defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other card payment entity type defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_VQLxwU9KEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Other card payment entity type defined at private level")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_jNLu4ZmKEee_M7tURHTZTQ")]
-    [Description(@"??")]
+    [Description(@"Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.")]
     Agent,
     
 }

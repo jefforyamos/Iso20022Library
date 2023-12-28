@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MemoryUnit1Code
 {
     /// <summary>
-    /// ??
+    /// Byte.
     /// Encoded/decoded by serializers as "Byte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BYTE")]
     [IsoId("_1rmBMQxzEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Byte.")]
     Byte,
     
     /// <summary>
-    /// ??
+    /// Exa byte.
     /// Encoded/decoded by serializers as "ExaByte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXAB")]
     [IsoId("_1yuj8wxzEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Exa byte.")]
     ExaByte,
     
     /// <summary>
-    /// ??
+    /// Giga byte.
     /// Encoded/decoded by serializers as "GigaByte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIGA")]
     [IsoId("_17gsgwxzEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Giga byte.")]
     GigaByte,
     
     /// <summary>
-    /// ??
+    /// Kilo byte.
     /// Encoded/decoded by serializers as "KiloByte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KILO")]
     [IsoId("_2AkLowxzEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Kilo byte.")]
     KiloByte,
     
     /// <summary>
-    /// ??
+    /// Mega byte.
     /// Encoded/decoded by serializers as "MegaByte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEGA")]
     [IsoId("_2HQpgQxzEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Mega byte.")]
     MegaByte,
     
     /// <summary>
-    /// ??
+    /// Peta byte.
     /// Encoded/decoded by serializers as "PetaByte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PETA")]
     [IsoId("_2O_pMQxzEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Peta byte.")]
     PetaByte,
     
     /// <summary>
-    /// ??
+    /// Tera byte.
     /// Encoded/decoded by serializers as "TeraByte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERA")]
     [IsoId("_2fgxcQxzEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Tera byte.")]
     TeraByte,
     
 }

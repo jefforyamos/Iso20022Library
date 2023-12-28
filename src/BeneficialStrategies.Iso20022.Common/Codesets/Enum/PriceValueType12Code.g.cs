@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceValueType12Code
 {
     /// <summary>
-    /// ??
+    /// Price expressed as a number of percentage points below par, for example, a discount price of 2.0% equals a price of 98 when par is 100.
     /// Encoded/decoded by serializers as "Discount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_HwDYgQydEeuG8M5giQ2e0w")]
-    [Description(@"??")]
+    [Description(@"Price expressed as a number of percentage points below par, for example, a discount price of 2.0% equals a price of 98 when par is 100.")]
     Discount,
     
     /// <summary>
-    /// ??
+    /// Price is the face amount.
     /// Encoded/decoded by serializers as "Par".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARV")]
     [IsoId("_H7XQoQydEeuG8M5giQ2e0w")]
-    [Description(@"??")]
+    [Description(@"Price is the face amount.")]
     Par,
     
     /// <summary>
-    /// ??
+    /// Price expressed as a number of percentage points above par, for example, a premium price of 2.0% equals a price of 102 when par is 100.
     /// Encoded/decoded by serializers as "Premium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREM")]
     [IsoId("_I1Yo4QydEeuG8M5giQ2e0w")]
-    [Description(@"??")]
+    [Description(@"Price expressed as a number of percentage points above par, for example, a premium price of 2.0% equals a price of 102 when par is 100.")]
     Premium,
     
     /// <summary>
-    /// ??
+    /// Price must be interpreted as a negative amount of currency per unit or per share.
     /// Encoded/decoded by serializers as "NegativeActualAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEGA")]
     [IsoId("_JUe_sQydEeuG8M5giQ2e0w")]
-    [Description(@"??")]
+    [Description(@"Price must be interpreted as a negative amount of currency per unit or per share.")]
     NegativeActualAmount,
     
 }

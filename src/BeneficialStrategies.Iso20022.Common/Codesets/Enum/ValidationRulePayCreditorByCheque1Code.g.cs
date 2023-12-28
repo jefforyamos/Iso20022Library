@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRulePayCreditorByCheque1Code
 {
     /// <summary>
-    /// ??
+    /// Pay creditor by cheque.
     /// Encoded/decoded by serializers as "PayCreditorByCheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHQB")]
     [IsoId("_XJzf0SAcEeuxStysDTgLiw")]
-    [Description(@"??")]
+    [Description(@"Pay creditor by cheque.")]
     PayCreditorByCheque,
     
 }

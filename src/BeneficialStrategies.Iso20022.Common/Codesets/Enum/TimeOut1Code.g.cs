@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TimeOut1Code
 {
     /// <summary>
-    /// ??
+    /// Reason for time-out is the reaching of latest shipment date.
     /// Encoded/decoded by serializers as "LatestShipmentDateDue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LSDD")]
     [IsoId("_VrxOCNp-Ed-ak6NoX_4Aeg_1511821876")]
-    [Description(@"??")]
+    [Description(@"Reason for time-out is the reaching of latest shipment date.")]
     LatestShipmentDateDue,
     
     /// <summary>
-    /// ??
+    /// Reason for time-out is the lack of action from the user side.
     /// Encoded/decoded by serializers as "NoAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NACT")]
     [IsoId("_Vr6_ANp-Ed-ak6NoX_4Aeg_1511821877")]
-    [Description(@"??")]
+    [Description(@"Reason for time-out is the lack of action from the user side.")]
     NoAction,
     
 }

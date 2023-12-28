@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMServiceType2Code
 {
     /// <summary>
-    /// ??
+    /// Amount and notes values are chosen by the customer.
     /// Encoded/decoded by serializers as "ChosenWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHSN")]
     [IsoId("_w4CJsYqnEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Amount and notes values are chosen by the customer.")]
     ChosenWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Modification of the card PIN value.
     /// Encoded/decoded by serializers as "PINChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINC")]
     [IsoId("_w8NfEYqnEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Modification of the card PIN value.")]
     PINChange,
     
     /// <summary>
-    /// ??
+    /// Resetting of a PIN.
     /// Encoded/decoded by serializers as "PINRecovery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINR")]
     [IsoId("_xDhA84qnEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Resetting of a PIN.")]
     PINRecovery,
     
     /// <summary>
-    /// ??
+    /// Unblock the PIN.
     /// Encoded/decoded by serializers as "PINUnblock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINU")]
     [IsoId("_xH-qM4qnEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Unblock the PIN.")]
     PINUnblock,
     
     /// <summary>
-    /// ??
+    /// Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.
     /// Encoded/decoded by serializers as "PreAuthorisedWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PATH")]
     [IsoId("_xMJ_kYqnEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.")]
     PreAuthorisedWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Amount and notes Values are pre-defined by the customer profile.
     /// Encoded/decoded by serializers as "ProfileWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRFL")]
     [IsoId("_xV1gA4qnEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Amount and notes Values are pre-defined by the customer profile.")]
     ProfileWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Standard withdrawal of items.
     /// Encoded/decoded by serializers as "StandardWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STDR")]
     [IsoId("_xaKmY4qnEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Standard withdrawal of items.")]
     StandardWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Withdrawal authorised by a supervisor.
     /// Encoded/decoded by serializers as "SupervisedWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRV")]
     [IsoId("_xhwcI4qnEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Withdrawal authorised by a supervisor.")]
     SupervisedWithdrawal,
     
 }

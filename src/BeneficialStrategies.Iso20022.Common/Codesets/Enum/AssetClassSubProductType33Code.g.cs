@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType33Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type construction.
     /// Encoded/decoded by serializers as "Construction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSTR")]
     [IsoId("_yRs7A1rfEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type construction.")]
     Construction,
     
 }

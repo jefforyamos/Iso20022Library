@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxationBasis3Code
 {
     /// <summary>
-    /// ??
+    /// Charge/tax basis is a lump sum.
     /// Encoded/decoded by serializers as "Flat".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLAT")]
     [IsoId("_Vg5awtp-Ed-ak6NoX_4Aeg_1288355632")]
-    [Description(@"??")]
+    [Description(@"Charge/tax basis is a lump sum.")]
     Flat,
     
     /// <summary>
-    /// ??
+    /// Charges/tax basis is per unit of financial instrument.
     /// Encoded/decoded by serializers as "PerUnit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PERU")]
     [IsoId("_Vg5aw9p-Ed-ak6NoX_4Aeg_1297589258")]
-    [Description(@"??")]
+    [Description(@"Charges/tax basis is per unit of financial instrument.")]
     PerUnit,
     
     /// <summary>
-    /// ??
+    /// Another type of taxation basis.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Vg5axNp-Ed-ak6NoX_4Aeg_1301284529")]
-    [Description(@"??")]
+    [Description(@"Another type of taxation basis.")]
     Other,
     
 }

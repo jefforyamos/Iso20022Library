@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeConfirmationType1Code
 {
     /// <summary>
-    /// ??
+    /// Electronically confirmed.
     /// Encoded/decoded by serializers as "ElectronicallyConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECNF")]
     [IsoId("_5vcZ4Q26EeWmAKKPnqYEVQ")]
-    [Description(@"??")]
+    [Description(@"Electronically confirmed.")]
     ElectronicallyConfirmed,
     
     /// <summary>
-    /// ??
+    /// Non-electronically confirmed.
     /// Encoded/decoded by serializers as "NonElectronicallyConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YCNF")]
     [IsoId("_5-dtUQ26EeWmAKKPnqYEVQ")]
-    [Description(@"??")]
+    [Description(@"Non-electronically confirmed.")]
     NonElectronicallyConfirmed,
     
 }

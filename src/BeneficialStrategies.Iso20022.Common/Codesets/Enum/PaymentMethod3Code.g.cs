@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentMethod3Code
 {
     /// <summary>
-    /// ??
+    /// Written order to a bank to pay a certain amount of money from one person to another person.
     /// Encoded/decoded by serializers as "Cheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHK")]
     [IsoId("_Z0aeY9p-Ed-ak6NoX_4Aeg_1931781357")]
-    [Description(@"??")]
+    [Description(@"Written order to a bank to pay a certain amount of money from one person to another person.")]
     Cheque,
     
     /// <summary>
-    /// ??
+    /// Transfer of an amount of money in the books of the account servicer.
     /// Encoded/decoded by serializers as "CreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRF")]
     [IsoId("_Z0aeZNp-Ed-ak6NoX_4Aeg_1931781374")]
-    [Description(@"??")]
+    [Description(@"Transfer of an amount of money in the books of the account servicer.")]
     CreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.
     /// Encoded/decoded by serializers as "TransferAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRA")]
     [IsoId("_Z0kPYNp-Ed-ak6NoX_4Aeg_1931781417")]
-    [Description(@"??")]
+    [Description(@"Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.")]
     TransferAdvice,
     
 }

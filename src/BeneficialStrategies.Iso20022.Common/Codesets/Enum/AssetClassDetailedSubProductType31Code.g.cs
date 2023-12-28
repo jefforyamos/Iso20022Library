@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType31Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type GASPOOL.
     /// Encoded/decoded by serializers as "GasPool".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GASP")]
     [IsoId("_sTWoAbv3EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type GASPOOL.")]
     GasPool,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type liquid natural gas.
     /// Encoded/decoded by serializers as "LNG".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LNGG")]
     [IsoId("_sTWoA7v3EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type liquid natural gas.")]
     LNG,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type NCG (NetConnect Germany).
     /// Encoded/decoded by serializers as "NCG".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCGG")]
     [IsoId("_sTWoBbv3EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type NCG (NetConnect Germany).")]
     NCG,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type TTF (Dutch Title Transfer Facility).
     /// Encoded/decoded by serializers as "TTF".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTFG")]
     [IsoId("_sTWoB7v3EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type TTF (Dutch Title Transfer Facility).")]
     TTF,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type NBP (National Balancing Point).
     /// Encoded/decoded by serializers as "NBP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBPG")]
     [IsoId("_sTWoCbv3EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type NBP (National Balancing Point).")]
     NBP,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ubxtEbv3EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
 }

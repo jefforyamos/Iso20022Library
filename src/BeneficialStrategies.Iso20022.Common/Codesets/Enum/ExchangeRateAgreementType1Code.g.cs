@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExchangeRateAgreementType1Code
 {
     /// <summary>
-    /// ??
+    /// Forward contract exchange rate type.
     /// Encoded/decoded by serializers as "ForwardContract".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWCT")]
     [IsoId("_Dq8h8YZ7EeuSbct6WWD-Ng")]
-    [Description(@"??")]
+    [Description(@"Forward contract exchange rate type.")]
     ForwardContract,
     
     /// <summary>
-    /// ??
+    /// Normal exchange rate agreement type.
     /// Encoded/decoded by serializers as "Normal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORM")]
     [IsoId("_EVLKsYZ7EeuSbct6WWD-Ng")]
-    [Description(@"??")]
+    [Description(@"Normal exchange rate agreement type.")]
     Normal,
     
     /// <summary>
-    /// ??
+    /// Other exchange rate agreement type defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_EdpKMYZ7EeuSbct6WWD-Ng")]
-    [Description(@"??")]
+    [Description(@"Other exchange rate agreement type defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other exchange rate agreement type that is privately defined.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_FBk9sYZ7EeuSbct6WWD-Ng")]
-    [Description(@"??")]
+    [Description(@"Other exchange rate agreement type that is privately defined.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Spot agreement exchange rate type.
     /// Encoded/decoded by serializers as "Spot".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPOT")]
     [IsoId("_FClDQYZ7EeuSbct6WWD-Ng")]
-    [Description(@"??")]
+    [Description(@"Spot agreement exchange rate type.")]
     Spot,
     
 }

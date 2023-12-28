@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancelledStatusReason16Code
 {
     /// <summary>
-    /// ??
+    /// Transaction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.
     /// Encoded/decoded by serializers as "SecuritiesNoLongerEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCEX")]
     [IsoId("_Nxq3oeNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Transaction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.")]
     SecuritiesNoLongerEligible,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_N1-v4eNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.
     /// Encoded/decoded by serializers as "EndOfLife".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CXLR")]
     [IsoId("_OEaNceNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.")]
     EndOfLife,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled because a buy-in has been initiated.
     /// Encoded/decoded by serializers as "CancelledDueToBuyIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BYIY")]
     [IsoId("_O0UAYeNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled because a buy-in has been initiated.")]
     CancelledDueToBuyIn,
     
     /// <summary>
-    /// ??
+    /// Instruction is cancelled by a Third party.
     /// Encoded/decoded by serializers as "CancelledByThirdParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTHP")]
     [IsoId("_Ry5RYeNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Instruction is cancelled by a Third party.")]
     CancelledByThirdParty,
     
     /// <summary>
-    /// ??
+    /// Original transaction has been cancelled and replaced to allow a partial or split settlement.
     /// Encoded/decoded by serializers as "CancelledSplitPartialSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANZ")]
     [IsoId("_Zpc98eNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Original transaction has been cancelled and replaced to allow a partial or split settlement.")]
     CancelledSplitPartialSettlement,
     
     /// <summary>
-    /// ??
+    /// Original transaction has been cancelled and replaced due to a corporate action.
     /// Encoded/decoded by serializers as "CancelledDueToTransformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANT")]
     [IsoId("_aNv90eNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Original transaction has been cancelled and replaced due to a corporate action.")]
     CancelledDueToTransformation,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the agent due to an event deadline extension.
     /// Encoded/decoded by serializers as "CancelledByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSUB")]
     [IsoId("_bURhAeNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the agent due to an event deadline extension.")]
     CancelledByAgent,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the system.
     /// Encoded/decoded by serializers as "CancelledBySystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANS")]
     [IsoId("_b8IyQeNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the system.")]
     CancelledBySystem,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by yourself.
     /// Encoded/decoded by serializers as "CancelledByYourself".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANI")]
     [IsoId("_c5ImAeNlEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by yourself.")]
     CancelledByYourself,
     
     /// <summary>
-    /// ??
+    /// Transaction has been cancelled due to a corporate action.
     /// Encoded/decoded by serializers as "CancelledDueToCorporateAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("_owhK0eQBEeifxbo8DBFfuw")]
-    [Description(@"??")]
+    [Description(@"Transaction has been cancelled due to a corporate action.")]
     CancelledDueToCorporateAction,
     
 }

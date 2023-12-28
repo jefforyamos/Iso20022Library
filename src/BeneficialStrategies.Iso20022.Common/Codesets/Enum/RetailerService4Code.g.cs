@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RetailerService4Code
 {
     /// <summary>
-    /// ??
+    /// The Sale System requests a login to the POI System.
     /// Encoded/decoded by serializers as "AdministrativeSessionManagementLoginRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMIQ")]
     [IsoId("_vHX7Qd6HEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Sale System requests a login to the POI System.")]
     AdministrativeSessionManagementLoginRequest,
     
     /// <summary>
-    /// ??
+    /// The Sale System requests a logout to the POI System.
     /// Encoded/decoded by serializers as "AdministrativeSessionManagementLogoutRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMOQ")]
     [IsoId("_vWt-0d6HEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Sale System requests a logout to the POI System.")]
     AdministrativeSessionManagementLogoutRequest,
     
     /// <summary>
-    /// ??
+    /// The Sale System requests a session diagnosis to the POI System.
     /// Encoded/decoded by serializers as "AdministrativeSessionManagementDiagnosisRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMDQ")]
     [IsoId("_vzpycd6HEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Sale System requests a session diagnosis to the POI System.")]
     AdministrativeSessionManagementDiagnosisRequest,
     
 }

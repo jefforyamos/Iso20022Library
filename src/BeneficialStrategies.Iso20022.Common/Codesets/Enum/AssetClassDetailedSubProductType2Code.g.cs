@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType2Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type robusta coffee.
     /// Encoded/decoded by serializers as "RobustaCoffee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROBU")]
     [IsoId("_PV51sQ2fEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type robusta coffee.")]
     RobustaCoffee,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type cocoa.
     /// Encoded/decoded by serializers as "Cocoa".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCOA")]
     [IsoId("_P_aswQ2fEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type cocoa.")]
     Cocoa,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type raw sugar.
     /// Encoded/decoded by serializers as "RawSugar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRWN")]
     [IsoId("_RqOowQ2fEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type raw sugar.")]
     RawSugar,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type white sugar.
     /// Encoded/decoded by serializers as "WhiteSugar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHSG")]
     [IsoId("_S_xfYQ2fEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type white sugar.")]
     WhiteSugar,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_iQv5oQ2gEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
 }

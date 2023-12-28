@@ -20,201 +20,201 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount20Code
 {
     /// <summary>
-    /// ??
+    /// Transaction amount that has been authorised.
     /// Encoded/decoded by serializers as "AuthorisedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTH")]
     [IsoId("_Sxu9gZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Transaction amount that has been authorised.")]
     AuthorisedAmount,
     
     /// <summary>
-    /// ??
+    /// Baggage related fees
     /// Encoded/decoded by serializers as "Baggage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BAGG")]
     [IsoId("_S5tNwZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Baggage related fees")]
     Baggage,
     
     /// <summary>
-    /// ??
+    /// Cargo Amount.
     /// Encoded/decoded by serializers as "Cargo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARG")]
     [IsoId("_TWZw0JJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Cargo Amount.")]
     Cargo,
     
     /// <summary>
-    /// ??
+    /// Amount that has been charged to card account
     /// Encoded/decoded by serializers as "ChargedToCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHTC")]
     [IsoId("_VjHgAZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Amount that has been charged to card account")]
     ChargedToCard,
     
     /// <summary>
-    /// ??
+    /// Amount for club fee.
     /// Encoded/decoded by serializers as "ClubFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLUB")]
     [IsoId("_V9Cb4ZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Amount for club fee.")]
     ClubFee,
     
     /// <summary>
-    /// ??
+    /// Duty free amount
     /// Encoded/decoded by serializers as "DutyFree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUTY")]
     [IsoId("_ZKsDoZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Duty free amount")]
     DutyFree,
     
     /// <summary>
-    /// ??
+    /// Fee for exchanging a ticket (modifying an itinerary)
     /// Encoded/decoded by serializers as "ExchangeTicket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTK")]
     [IsoId("_ZVflcZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Fee for exchanging a ticket (modifying an itinerary)")]
     ExchangeTicket,
     
     /// <summary>
-    /// ??
+    /// Fee for exchanging a ticket (modifying an itinerary)
     /// Encoded/decoded by serializers as "ExchangeTicketFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTF")]
     [IsoId("_Zdu7cZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Fee for exchanging a ticket (modifying an itinerary)")]
     ExchangeTicketFee,
     
     /// <summary>
-    /// ??
+    /// Extra charges (for example,  minibar, etc.)
     /// Encoded/decoded by serializers as "Extra".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTR")]
     [IsoId("_Zs9qQZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Extra charges (for example,  minibar, etc.)")]
     Extra,
     
     /// <summary>
-    /// ??
+    /// Amount of fare
     /// Encoded/decoded by serializers as "Fare".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FARE")]
     [IsoId("_Z8tWcZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Amount of fare")]
     Fare,
     
     /// <summary>
-    /// ??
+    /// Amount of food and beverages
     /// Encoded/decoded by serializers as "FoodBeverage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDBV")]
     [IsoId("_aPyqgZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Amount of food and beverages")]
     FoodBeverage,
     
     /// <summary>
-    /// ??
+    /// Insurance charges 
     /// Encoded/decoded by serializers as "Insurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_cSosAZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Insurance charges ")]
     Insurance,
     
     /// <summary>
-    /// ??
+    /// Miscellaneous charges not elsewhere defined
     /// Encoded/decoded by serializers as "Miscellaneous".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISC")]
     [IsoId("_dpgYUZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Miscellaneous charges not elsewhere defined")]
     Miscellaneous,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_erNF4ZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_e4zdAZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Pet carrier.
     /// Encoded/decoded by serializers as "PetCarrier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PETC")]
     [IsoId("_fG0D0ZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Pet carrier.")]
     PetCarrier,
     
     /// <summary>
-    /// ??
+    /// Phone charges
     /// Encoded/decoded by serializers as "Phone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHNE")]
     [IsoId("_fPznwZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Phone charges")]
     Phone,
     
     /// <summary>
-    /// ??
+    /// Amount of prepayment
     /// Encoded/decoded by serializers as "Prepayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPY")]
     [IsoId("_ffnlYZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Amount of prepayment")]
     Prepayment,
     
     /// <summary>
-    /// ??
+    /// Total amount of charges
     /// Encoded/decoded by serializers as "Total".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOTL")]
     [IsoId("_hCefQZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Total amount of charges")]
     Total,
     
     /// <summary>
-    /// ??
+    /// Tour order amount.
     /// Encoded/decoded by serializers as "TourOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOUR")]
     [IsoId("_hUNvgZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Tour order amount.")]
     TourOrder,
     
     /// <summary>
-    /// ??
+    /// Amount for an upgrade.
     /// Encoded/decoded by serializers as "Upgrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPGD")]
     [IsoId("_inEegZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Amount for an upgrade.")]
     Upgrade,
     
     /// <summary>
-    /// ??
+    /// Ticket delivery amount.
     /// Encoded/decoded by serializers as "TicketDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKDL")]
     [IsoId("_onjaQZJFEeuuktRxxQZoNQ")]
-    [Description(@"??")]
+    [Description(@"Ticket delivery amount.")]
     TicketDelivery,
     
 }

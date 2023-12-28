@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MaturityRedemptionType1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the type of redemption at maturity is final.
     /// Encoded/decoded by serializers as "FinalRedemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRED")]
     [IsoId("_hbcAp2liEeGaMcKyqKNRfQ_-716525947")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of redemption at maturity is final.")]
     FinalRedemption,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of redemption at maturity is partial without reduction.
     /// Encoded/decoded by serializers as "PartialRedemptionWithoutReduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRNR")]
     [IsoId("_hbcAqGliEeGaMcKyqKNRfQ_750622816")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of redemption at maturity is partial without reduction.")]
     PartialRedemptionWithoutReduction,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of redemption at maturity is partial with reduction.
     /// Encoded/decoded by serializers as "PartialRedemptionWithReduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRWR")]
     [IsoId("_hbcAqWliEeGaMcKyqKNRfQ_641285009")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of redemption at maturity is partial with reduction.")]
     PartialRedemptionWithReduction,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of redemption at maturity is drawing at random.
     /// Encoded/decoded by serializers as "DrawingAtRandom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RNDM")]
     [IsoId("_hbcAqmliEeGaMcKyqKNRfQ_2108433772")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of redemption at maturity is drawing at random.")]
     DrawingAtRandom,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of redemption at maturity is drawing pro-rata.
     /// Encoded/decoded by serializers as "DrawingProRata".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRRA")]
     [IsoId("_hbcAq2liEeGaMcKyqKNRfQ_178204958")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of redemption at maturity is drawing pro-rata.")]
     DrawingProRata,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of redemption at maturity is call.
     /// Encoded/decoded by serializers as "Call".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALL")]
     [IsoId("_hbcArGliEeGaMcKyqKNRfQ_938970111")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of redemption at maturity is call.")]
     Call,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of redemption at maturity is put.
     /// Encoded/decoded by serializers as "Put".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUUT")]
     [IsoId("_hbcArWliEeGaMcKyqKNRfQ_-1888848422")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of redemption at maturity is put.")]
     Put,
     
 }

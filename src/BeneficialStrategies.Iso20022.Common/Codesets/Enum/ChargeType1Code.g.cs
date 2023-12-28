@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType1Code
 {
     /// <summary>
-    /// ??
+    /// Fee paid to a broker for services provided.
     /// Encoded/decoded by serializers as "BrokerageFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRKF")]
     [IsoId("_a9SK8tp-Ed-ak6NoX_4Aeg_1912147156")]
-    [Description(@"??")]
+    [Description(@"Fee paid to a broker for services provided.")]
     BrokerageFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid for services provided.
     /// Encoded/decoded by serializers as "Commission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_a9SK89p-Ed-ak6NoX_4Aeg_1922304879")]
-    [Description(@"??")]
+    [Description(@"Fee paid for services provided.")]
     Commission,
     
 }

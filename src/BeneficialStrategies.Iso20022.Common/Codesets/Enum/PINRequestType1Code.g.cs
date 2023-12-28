@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PINRequestType1Code
 {
     /// <summary>
-    /// ??
+    /// The cardholder enters the PIN, the POI enciphers the PIN Block and provides it as a result to the Sale System.
     /// Encoded/decoded by serializers as "PINAcquisitionEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PIAE")]
     [IsoId("_WYR0Yd7AEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The cardholder enters the PIN, the POI enciphers the PIN Block and provides it as a result to the Sale System.")]
     PINAcquisitionEncryption,
     
     /// <summary>
-    /// ??
+    /// The Cardholder enters the PIN and the POI verifies it.
     /// Encoded/decoded by serializers as "PINAcquisitionVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PIAV")]
     [IsoId("_WbNMkd7AEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Cardholder enters the PIN and the POI verifies it.")]
     PINAcquisitionVerification,
     
     /// <summary>
-    /// ??
+    /// The Sale System send a previous keyed PIN and the POI verifies it.
     /// Encoded/decoded by serializers as "PINVerifyOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PIVO")]
     [IsoId("_WfOw8d7AEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Sale System send a previous keyed PIN and the POI verifies it.")]
     PINVerifyOnly,
     
 }

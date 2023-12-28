@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdditionalBusinessProcess4Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a claim on the associated corporate action event.
     /// Encoded/decoded by serializers as "ClaimOrCompensation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAI")]
     [IsoId("_V_8rhwFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"Relates to a claim on the associated corporate action event.")]
     ClaimOrCompensation,
     
     /// <summary>
-    /// ??
+    /// Relates to a tax refund from the authorities on the associated corporate action event.
     /// Encoded/decoded by serializers as "TaxRefund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXR")]
     [IsoId("_V_8riwFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
     TaxRefund,
     
     /// <summary>
-    /// ??
+    /// Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).
     /// Encoded/decoded by serializers as "AutomaticMarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACLA")]
     [IsoId("_XHoFSgFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).")]
     AutomaticMarketClaim,
     
     /// <summary>
-    /// ??
+    /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).
     /// Encoded/decoded by serializers as "SubjectToTransformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATXF")]
     [IsoId("_XoQtIgFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).")]
     SubjectToTransformation,
     
     /// <summary>
-    /// ??
+    /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.
     /// Encoded/decoded by serializers as "CancelUnderlyingTrades".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTR")]
     [IsoId("_YP578gFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.")]
     CancelUnderlyingTrades,
     
     /// <summary>
-    /// ??
+    /// Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).
     /// Encoded/decoded by serializers as "Consent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONS")]
     [IsoId("_Y-ijkgFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).")]
     Consent,
     
     /// <summary>
-    /// ??
+    /// Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).
     /// Encoded/decoded by serializers as "NoAutomaticMarketClaimsAndTransformations".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAMC")]
     [IsoId("_Zcpb6gFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).")]
     NoAutomaticMarketClaimsAndTransformations,
     
     /// <summary>
-    /// ??
+    /// Issuer only allows a single option to be selected per designated holding.
     /// Encoded/decoded by serializers as "NoSplitElection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPLE")]
     [IsoId("_Z4EMmgFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"Issuer only allows a single option to be selected per designated holding.")]
     NoSplitElection,
     
     /// <summary>
-    /// ??
+    /// Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.
     /// Encoded/decoded by serializers as "SchemeOrPlanOfArrangement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCHM")]
     [IsoId("_afjqYgFpEeGXDp73SgCmsg")]
-    [Description(@"??")]
+    [Description(@"Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.")]
     SchemeOrPlanOfArrangement,
     
 }

@@ -20,246 +20,246 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingProcessingReason4Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_BYbMowpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.
     /// Encoded/decoded by serializers as "AwaitingSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAIS")]
     [IsoId("_BYbMngpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.")]
     AwaitingSecurities,
     
     /// <summary>
-    /// ??
+    /// Awaiting documents or endorsements from you.
     /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromYou".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCY")]
     [IsoId("_BYbMkApKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Awaiting documents or endorsements from you.")]
     AwaitingDocumentsOrEndorsementsFromYou,
     
     /// <summary>
-    /// ??
+    /// A foreign exchange instruction from you is missing.
     /// Encoded/decoded by serializers as "NoForeignExchangeInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOFX")]
     [IsoId("_BYbMogpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"A foreign exchange instruction from you is missing.")]
     NoForeignExchangeInstruction,
     
     /// <summary>
-    /// ??
+    /// Your account is blocked, no instruction can settle over the account.
     /// Encoded/decoded by serializers as "AccountBlocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLOC")]
     [IsoId("_BYbMlApKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Your account is blocked, no instruction can settle over the account.")]
     AccountBlocked,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
     /// Encoded/decoded by serializers as "MultipleSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUNO")]
     [IsoId("_BYbMiwpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
     MultipleSettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Settlement cannot be executed; financial instruments are in global form.
     /// Encoded/decoded by serializers as "GlobalFormSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GLOB")]
     [IsoId("_BYbMmApKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Settlement cannot be executed; financial instruments are in global form.")]
     GlobalFormSecurities,
     
     /// <summary>
-    /// ??
+    /// Insufficient collateral in your account to execute the instruction.
     /// Encoded/decoded by serializers as "CollateralShortage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YCOL")]
     [IsoId("_BYbMlQpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Insufficient collateral in your account to execute the instruction.")]
     CollateralShortage,
     
     /// <summary>
-    /// ??
+    /// Financial instruments are not deliverable as they are pledged as collateral.
     /// Encoded/decoded by serializers as "SecuritiesPledgedAsCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_BYbMnQpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Financial instruments are not deliverable as they are pledged as collateral.")]
     SecuritiesPledgedAsCollateral,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.
     /// Encoded/decoded by serializers as "MaximumForeignLimitReached".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLIM")]
     [IsoId("_BYbMnApKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.")]
     MaximumForeignLimitReached,
     
     /// <summary>
-    /// ??
+    /// Next process is launched. No processing pending problems to be reported.
     /// Encoded/decoded by serializers as "NextProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEXT")]
     [IsoId("_BYbMkQpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Next process is launched. No processing pending problems to be reported.")]
     NextProcess,
     
     /// <summary>
-    /// ??
+    /// Insufficient financial instruments in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_BYbMjApKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Insufficient financial instruments in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Financial instruments are out on loan.
     /// Encoded/decoded by serializers as "SecuritiesLoanedOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LALO")]
     [IsoId("_BYbMlgpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Financial instruments are out on loan.")]
     SecuritiesLoanedOut,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in your account.
     /// Encoded/decoded by serializers as "InsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_BYbMmwpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in your account.")]
     InsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
     /// Encoded/decoded by serializers as "MinimumSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINO")]
     [IsoId("_BYbMkgpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
     MinimumSettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_BYbMjgpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.
     /// Encoded/decoded by serializers as "UnavailableDeliverableDenominatedQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DENO")]
     [IsoId("_BYbMmQpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.")]
     UnavailableDeliverableDenominatedQuantity,
     
     /// <summary>
-    /// ??
+    /// Central bank liquidity is insufficient.
     /// Encoded/decoded by serializers as "InsufficientCentralBankLiquidity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIQU")]
     [IsoId("_BYbMoApKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Central bank liquidity is insufficient.")]
     InsufficientCentralBankLiquidity,
     
     /// <summary>
-    /// ??
+    /// Certificate number error.
     /// Encoded/decoded by serializers as "WrongCertificatesNumbers".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_BYbMkwpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Certificate number error.")]
     WrongCertificatesNumbers,
     
     /// <summary>
-    /// ??
+    /// Central securities depository sets the instruction in a hold/frozen/preadvice mode.
     /// Encoded/decoded by serializers as "CSDHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDH")]
     [IsoId("_BYbMoQpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Central securities depository sets the instruction in a hold/frozen/preadvice mode.")]
     CSDHold,
     
     /// <summary>
-    /// ??
+    /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.
     /// Encoded/decoded by serializers as "CSDValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CVAL")]
     [IsoId("_BYbMlwpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.")]
     CSDValidation,
     
     /// <summary>
-    /// ??
+    /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.
     /// Encoded/decoded by serializers as "ConditionalDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDEL")]
     [IsoId("_BYbMjQpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.")]
     ConditionalDelivery,
     
     /// <summary>
-    /// ??
+    /// Instruction is in a hold/frozen/preadvice mode. Market infrastructure platform is awaiting release.
     /// Encoded/decoded by serializers as "ConditionalDeliveryAwaitingRelease".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDLR")]
     [IsoId("_BYbMjwpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Instruction is in a hold/frozen/preadvice mode. Market infrastructure platform is awaiting release.")]
     ConditionalDeliveryAwaitingRelease,
     
     /// <summary>
-    /// ??
+    /// Awaiting cancellation of one of the party.
     /// Encoded/decoded by serializers as "ConditionalDeliveryAwaitingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDAC")]
     [IsoId("_BYbMmgpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Awaiting cancellation of one of the party.")]
     ConditionalDeliveryAwaitingCancellation,
     
     /// <summary>
-    /// ??
+    /// Not all the instructions part of a pool have been received.
     /// Encoded/decoded by serializers as "IncompleteNumberCount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INBC")]
     [IsoId("_BYbMnwpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Not all the instructions part of a pool have been received.")]
     IncompleteNumberCount,
     
     /// <summary>
-    /// ??
+    /// Your instruction is a preadvice, that is, for matching only.
     /// Encoded/decoded by serializers as "YourInstructionOnHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREA")]
     [IsoId("_GT-gcQpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Your instruction is a preadvice, that is, for matching only.")]
     YourInstructionOnHold,
     
     /// <summary>
-    /// ??
+    /// Transaction was put on hold/frozen by the system.
     /// Encoded/decoded by serializers as "SystemOnHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRSY")]
     [IsoId("_LRduIQpKEeup4r-PFG2T5Q")]
-    [Description(@"??")]
+    [Description(@"Transaction was put on hold/frozen by the system.")]
     SystemOnHold,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DerivativeExerciseStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Derivative is exercised.
     /// Encoded/decoded by serializers as "Exercised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXEC")]
     [IsoId("_ULyikYAxEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Derivative is exercised.")]
     Exercised,
     
     /// <summary>
-    /// ??
+    /// Derivative is expired and will not be exercised.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_UQXgkYAxEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Derivative is expired and will not be exercised.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// Derivative is not exercised.
     /// Encoded/decoded by serializers as "Valid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALI")]
     [IsoId("_UU6CUYAxEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Derivative is not exercised.")]
     Valid,
     
 }

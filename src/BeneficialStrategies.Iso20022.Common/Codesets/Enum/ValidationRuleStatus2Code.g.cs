@@ -22,66 +22,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Accepted technical validation.
     /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_nXe9cSAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Accepted technical validation.")]
     AcceptedTechnicalValidation,
     
     /// <summary>
-    /// ??
+    /// Accepted customer profile.
     /// Encoded/decoded by serializers as "AcceptedCustomerProfile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_nXe9cyAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Accepted customer profile.")]
     AcceptedCustomerProfile,
     
     /// <summary>
-    /// ??
+    /// Accepted settlement in process.
     /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSP")]
     [IsoId("_nXe9dSAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Accepted settlement in process.")]
     AcceptedSettlementInProcess,
     
     /// <summary>
-    /// ??
+    /// Accepted settlement completed.
     /// Encoded/decoded by serializers as "AcceptedSettlementCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSC")]
     [IsoId("_nXe9dyAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Accepted settlement completed.")]
     AcceptedSettlementCompleted,
     
     /// <summary>
-    /// ??
+    /// Accepted cancellation request.
     /// Encoded/decoded by serializers as "AcceptedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCR")]
     [IsoId("_nXe9eSAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Accepted cancellation request.")]
     AcceptedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Accepted with change.
     /// Encoded/decoded by serializers as "AcceptedWithChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACWC")]
     [IsoId("_nXe9eyAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Accepted with change.")]
     AcceptedWithChange,
     
     /// <summary>
-    /// ??
+    /// Pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_nXe9fSAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Pending.")]
     Pending,
     
 }

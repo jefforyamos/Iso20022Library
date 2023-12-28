@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarketType3Code
 {
     /// <summary>
-    /// ??
+    /// The place is a primary market.
     /// Encoded/decoded by serializers as "PrimaryMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIM")]
     [IsoId("_aUmaUNp-Ed-ak6NoX_4Aeg_1045181672")]
-    [Description(@"??")]
+    [Description(@"The place is a primary market.")]
     PrimaryMarket,
     
     /// <summary>
-    /// ??
+    /// The place is a secondary market.
     /// Encoded/decoded by serializers as "SecondaryMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECM")]
     [IsoId("_aUmaUdp-Ed-ak6NoX_4Aeg_1045181697")]
-    [Description(@"??")]
+    [Description(@"The place is a secondary market.")]
     SecondaryMarket,
     
     /// <summary>
-    /// ??
+    /// The place is over the counter.
     /// Encoded/decoded by serializers as "OverTheCounter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTCO")]
     [IsoId("_aUmaUtp-Ed-ak6NoX_4Aeg_1045181733")]
-    [Description(@"??")]
+    [Description(@"The place is over the counter.")]
     OverTheCounter,
     
     /// <summary>
-    /// ??
+    /// The place is a stock exchange.
     /// Encoded/decoded by serializers as "StockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCH")]
     [IsoId("_aUmaU9p-Ed-ak6NoX_4Aeg_1045181750")]
-    [Description(@"??")]
+    [Description(@"The place is a stock exchange.")]
     StockExchange,
     
 }

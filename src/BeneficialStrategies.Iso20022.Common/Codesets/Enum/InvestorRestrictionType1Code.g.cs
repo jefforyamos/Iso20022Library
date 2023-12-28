@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestorRestrictionType1Code
 {
     /// <summary>
-    /// ??
+    /// Restriction applies to a legal resident.
     /// Encoded/decoded by serializers as "LegalResident".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LERE")]
     [IsoId("_harytWliEeGaMcKyqKNRfQ_1492655760")]
-    [Description(@"??")]
+    [Description(@"Restriction applies to a legal resident.")]
     LegalResident,
     
     /// <summary>
-    /// ??
+    /// Restriction applies to a citizen.
     /// Encoded/decoded by serializers as "Citizen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CITI")]
     [IsoId("_harytmliEeGaMcKyqKNRfQ_-1044474030")]
-    [Description(@"??")]
+    [Description(@"Restriction applies to a citizen.")]
     Citizen,
     
     /// <summary>
-    /// ??
+    /// Restriction applies to an individual.
     /// Encoded/decoded by serializers as "Individual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDV")]
     [IsoId("_haryt2liEeGaMcKyqKNRfQ_1166734162")]
-    [Description(@"??")]
+    [Description(@"Restriction applies to an individual.")]
     Individual,
     
 }

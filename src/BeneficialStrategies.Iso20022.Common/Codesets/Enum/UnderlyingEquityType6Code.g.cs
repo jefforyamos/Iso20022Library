@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnderlyingEquityType6Code
 {
     /// <summary>
-    /// ??
+    /// Underlying is a basket.
     /// Encoded/decoded by serializers as "Basket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSKT")]
     [IsoId("_kVvNUYHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is a basket.")]
     Basket,
     
     /// <summary>
-    /// ??
+    /// Underlying is a dividend index.
     /// Encoded/decoded by serializers as "DividendIndex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_khfKUYHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is a dividend index.")]
     DividendIndex,
     
     /// <summary>
-    /// ??
+    /// Underlying is an exchange traded fund.
     /// Encoded/decoded by serializers as "ExchangeTradedFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETFS")]
     [IsoId("_k8RB0YHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is an exchange traded fund.")]
     ExchangeTradedFund,
     
     /// <summary>
-    /// ??
+    /// Underlying is of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_lhw7kYHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is of other type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Underlying is a share.
     /// Encoded/decoded by serializers as "Share".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHRS")]
     [IsoId("_l3es4YHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is a share.")]
     Share,
     
     /// <summary>
-    /// ??
+    /// Underlying is a stock dividend.
     /// Encoded/decoded by serializers as "StockDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVSE")]
     [IsoId("_mUMeEYHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is a stock dividend.")]
     StockDividend,
     
     /// <summary>
-    /// ??
+    /// Underlying is a stock index.
     /// Encoded/decoded by serializers as "StockIndex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STIX")]
     [IsoId("_mnPV4YHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is a stock index.")]
     StockIndex,
     
     /// <summary>
-    /// ??
+    /// Underlying is a volatility index.
     /// Encoded/decoded by serializers as "VolatilityIndex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VOLI")]
     [IsoId("_mysX8YHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is a volatility index.")]
     VolatilityIndex,
     
 }

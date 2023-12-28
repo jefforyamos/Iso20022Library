@@ -20,156 +20,156 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType6Code
 {
     /// <summary>
-    /// ??
+    /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
     /// Encoded/decoded by serializers as "BackEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEND")]
     [IsoId("_VlqmAdp-Ed-ak6NoX_4Aeg_1245099661")]
-    [Description(@"??")]
+    [Description(@"Sales charge paid by the investor when redeeming an investment such as an investment fund.")]
     BackEndLoad,
     
     /// <summary>
-    /// ??
+    /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
     /// Encoded/decoded by serializers as "FrontEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEND")]
     [IsoId("_VlqmAtp-Ed-ak6NoX_4Aeg_1245100437")]
-    [Description(@"??")]
+    [Description(@"Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.")]
     FrontEndLoad,
     
     /// <summary>
-    /// ??
+    /// In investment funds, charge related to a switch transaction.
     /// Encoded/decoded by serializers as "Switch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIT")]
     [IsoId("_VlqmA9p-Ed-ak6NoX_4Aeg_1245100455")]
-    [Description(@"??")]
+    [Description(@"In investment funds, charge related to a switch transaction.")]
     Switch,
     
     /// <summary>
-    /// ??
+    /// In investment funds, a charge payable by the investor covering bid-offer spreads and dealing charges for the underlying investments. The dilution levy is paid to the fund for the benefit of other unit holders.
     /// Encoded/decoded by serializers as "DilutionLevy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLEV")]
     [IsoId("_VlqmBNp-Ed-ak6NoX_4Aeg_1245100497")]
-    [Description(@"??")]
+    [Description(@"In investment funds, a charge payable by the investor covering bid-offer spreads and dealing charges for the underlying investments. The dilution levy is paid to the fund for the benefit of other unit holders.")]
     DilutionLevy,
     
     /// <summary>
-    /// ??
+    /// Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
     /// Encoded/decoded by serializers as "Discount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_VlqmBdp-Ed-ak6NoX_4Aeg_1245100515")]
-    [Description(@"??")]
+    [Description(@"Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.")]
     Discount,
     
     /// <summary>
-    /// ??
+    /// Fee charged to the investor for early redemption of the fund.
     /// Encoded/decoded by serializers as "Penalty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENA")]
     [IsoId("_VlqmBtp-Ed-ak6NoX_4Aeg_1260797609")]
-    [Description(@"??")]
+    [Description(@"Fee charged to the investor for early redemption of the fund.")]
     Penalty,
     
     /// <summary>
-    /// ??
+    /// Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.
     /// Encoded/decoded by serializers as "ManagementFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANF")]
     [IsoId("_VlqmB9p-Ed-ak6NoX_4Aeg_1675459316")]
-    [Description(@"??")]
+    [Description(@"Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.")]
     ManagementFee,
     
     /// <summary>
-    /// ??
+    /// Charge paid for the postage.
     /// Encoded/decoded by serializers as "PostageCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_VlqmCNp-Ed-ak6NoX_4Aeg_1706860958")]
-    [Description(@"??")]
+    [Description(@"Charge paid for the postage.")]
     PostageCharge,
     
     /// <summary>
-    /// ??
+    /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
     /// Encoded/decoded by serializers as "RegulatoryFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGF")]
     [IsoId("_VlqmCdp-Ed-ak6NoX_4Aeg_1760424834")]
-    [Description(@"??")]
+    [Description(@"Fee charged by a regulatory authority, eg, Securities and Exchange fees.")]
     RegulatoryFee,
     
     /// <summary>
-    /// ??
+    /// Charge for shipping, including the insurance of securities.
     /// Encoded/decoded by serializers as "ShippingCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHIP")]
     [IsoId("_Vlzv8Np-Ed-ak6NoX_4Aeg_1860165643")]
-    [Description(@"??")]
+    [Description(@"Charge for shipping, including the insurance of securities.")]
     ShippingCharge,
     
     /// <summary>
-    /// ??
+    /// Fee paid for the provision of financial services.
     /// Encoded/decoded by serializers as "ServiceProvisionFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_Vlzv8dp-Ed-ak6NoX_4Aeg_2119673574")]
-    [Description(@"??")]
+    [Description(@"Fee paid for the provision of financial services.")]
     ServiceProvisionFee,
     
     /// <summary>
-    /// ??
+    /// Another type of charge.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Vlzv8tp-Ed-ak6NoX_4Aeg_-1186201355")]
-    [Description(@"??")]
+    [Description(@"Another type of charge.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Deferred sales charge.
     /// Encoded/decoded by serializers as "ContingencyDeferredSalesCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDSC")]
     [IsoId("_Vlzv89p-Ed-ak6NoX_4Aeg_177837095")]
-    [Description(@"??")]
+    [Description(@"Deferred sales charge.")]
     ContingencyDeferredSalesCharge,
     
     /// <summary>
-    /// ??
+    /// The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
     /// Encoded/decoded by serializers as "Equalisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUL")]
     [IsoId("_Vlzv9Np-Ed-ak6NoX_4Aeg_338690890")]
-    [Description(@"??")]
+    [Description(@"The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.")]
     Equalisation,
     
     /// <summary>
-    /// ??
+    /// In investment funds, the charge of the correspondent bank for transferring money.
     /// Encoded/decoded by serializers as "CorrespondentBankCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBCH")]
     [IsoId("_Vlzv9dp-Ed-ak6NoX_4Aeg_-953190669")]
-    [Description(@"??")]
+    [Description(@"In investment funds, the charge of the correspondent bank for transferring money.")]
     CorrespondentBankCharge,
     
     /// <summary>
-    /// ??
+    /// In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
     /// Encoded/decoded by serializers as "Premium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREM")]
     [IsoId("_Vlzv9tp-Ed-ak6NoX_4Aeg_-953190332")]
-    [Description(@"??")]
+    [Description(@"In investment funds, pre-arranged addition to the trade amount based on the published net asset value.")]
     Premium,
     
     /// <summary>
-    /// ??
+    /// Charge paid at the time of the first subscription.
     /// Encoded/decoded by serializers as "Initial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INIT")]
     [IsoId("_Vlzv99p-Ed-ak6NoX_4Aeg_-953189971")]
-    [Description(@"??")]
+    [Description(@"Charge paid at the time of the first subscription.")]
     Initial,
     
 }

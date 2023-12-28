@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfPrice8Code
 {
     /// <summary>
-    /// ??
+    /// True offer price.
     /// Encoded/decoded by serializers as "Actual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTU")]
     [IsoId("_Vgl4xdp-Ed-ak6NoX_4Aeg_-1170213422")]
-    [Description(@"??")]
+    [Description(@"True offer price.")]
     Actual,
     
 }

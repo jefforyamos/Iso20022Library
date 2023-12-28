@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LegalRestrictions1Code
 {
     /// <summary>
-    /// ??
+    /// Ownership or transfer of an unregistered security issued, pursuant to US legal restrictions 144A.
     /// Encoded/decoded by serializers as "USLegal144A".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USLE")]
     [IsoId("_ad_m4Np-Ed-ak6NoX_4Aeg_-481845169")]
-    [Description(@"??")]
+    [Description(@"Ownership or transfer of an unregistered security issued, pursuant to US legal restrictions 144A.")]
     USLegal144A,
     
     /// <summary>
-    /// ??
+    /// Ownership or transfer of a security that is not subject to restrictions.
     /// Encoded/decoded by serializers as "NoRestrictions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORE")]
     [IsoId("_ad_m4dp-Ed-ak6NoX_4Aeg_-234340489")]
-    [Description(@"??")]
+    [Description(@"Ownership or transfer of a security that is not subject to restrictions.")]
     NoRestrictions,
     
     /// <summary>
-    /// ??
+    /// Ownership or transfer of a security that is subject to restrictions, and not pursuant to 144A.
     /// Encoded/decoded by serializers as "Restrictions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REST")]
     [IsoId("_ad_m4tp-Ed-ak6NoX_4Aeg_-8075812")]
-    [Description(@"??")]
+    [Description(@"Ownership or transfer of a security that is subject to restrictions, and not pursuant to 144A.")]
     Restrictions,
     
 }

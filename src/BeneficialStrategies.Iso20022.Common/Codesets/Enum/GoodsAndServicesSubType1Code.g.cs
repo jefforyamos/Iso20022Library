@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GoodsAndServicesSubType1Code
 {
     /// <summary>
-    /// ??
+    /// Sub type applied is cryptocurrency.
     /// Encoded/decoded by serializers as "CryptoCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCU")]
     [IsoId("_lrDJIOkEEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Sub type applied is cryptocurrency.")]
     CryptoCurrency,
     
     /// <summary>
-    /// ??
+    /// Sub type applied is foreign exchange.
     /// Encoded/decoded by serializers as "ForeignExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORX")]
     [IsoId("_lz3G4ukEEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Sub type applied is foreign exchange.")]
     ForeignExchange,
     
     /// <summary>
-    /// ??
+    /// Other sub type of goods and service at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_l-pakukEEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Other sub type of goods and service at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other sub type of goods and service at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_mGXzMukEEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Other sub type of goods and service at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Sub type applied is securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECS")]
     [IsoId("_mOIoEukEEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Sub type applied is securities.")]
     Securities,
     
 }

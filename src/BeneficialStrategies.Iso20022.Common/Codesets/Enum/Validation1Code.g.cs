@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Validation1Code
 {
     /// <summary>
-    /// ??
+    /// Validation of the signature is successful.
     /// Encoded/decoded by serializers as "ValidationSuccessful".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OKAY")]
     [IsoId("_-T5V8smKEeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Validation of the signature is successful.")]
     ValidationSuccessful,
     
     /// <summary>
-    /// ??
+    /// Validation of the signature is unknown or not yet executed.
     /// Encoded/decoded by serializers as "ValidationUnkonwn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_-VFBscmKEeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Validation of the signature is unknown or not yet executed.")]
     ValidationUnkonwn,
     
     /// <summary>
-    /// ??
+    /// Validation of the signature has failed.
     /// Encoded/decoded by serializers as "ValidationFailed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTOK")]
     [IsoId("_UqKgocnIEeWI4cSIO9foRA")]
-    [Description(@"??")]
+    [Description(@"Validation of the signature has failed.")]
     ValidationFailed,
     
 }

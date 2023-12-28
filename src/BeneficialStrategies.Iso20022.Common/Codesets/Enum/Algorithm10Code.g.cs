@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm10Code
 {
     /// <summary>
-    /// ??
+    /// Retail CBC (Chaining Block Cypher) MAC (Message Authentication Code) (cf. ISO 9807, ANSI X9.19) - (ASN.1 Object Identifier: id-retail-cbc-mac).
     /// Encoded/decoded by serializers as "RetailCBCMAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACC")]
     [IsoId("_K3kEITF2EeO118ZQJgaQSQ")]
-    [Description(@"??")]
+    [Description(@"Retail CBC (Chaining Block Cypher) MAC (Message Authentication Code) (cf. ISO 9807, ANSI X9.19) - (ASN.1 Object Identifier: id-retail-cbc-mac).")]
     RetailCBCMAC,
     
     /// <summary>
-    /// ??
+    /// Retail-CBC-MAC with SHA-256 (Secure HAsh standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-256).
     /// Encoded/decoded by serializers as "RetailSHA256MAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCCS")]
     [IsoId("_K3kEIzF2EeO118ZQJgaQSQ")]
-    [Description(@"??")]
+    [Description(@"Retail-CBC-MAC with SHA-256 (Secure HAsh standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-256).")]
     RetailSHA256MAC,
     
     /// <summary>
-    /// ??
+    /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.
     /// Encoded/decoded by serializers as "SHA256CMACwithAES128".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMA1")]
     [IsoId("_K3kEJTF2EeO118ZQJgaQSQ")]
-    [Description(@"??")]
+    [Description(@"CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.")]
     SHA256CMACwithAES128,
     
 }

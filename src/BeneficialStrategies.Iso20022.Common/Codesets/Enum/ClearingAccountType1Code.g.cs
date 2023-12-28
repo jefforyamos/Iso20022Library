@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClearingAccountType1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to register trades executed for either the clearing member or its subsidiaries.
     /// Encoded/decoded by serializers as "House".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOUS")]
     [IsoId("_YZXcvNp-Ed-ak6NoX_4Aeg_-1776867324")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to register trades executed for either the clearing member or its subsidiaries.")]
     House,
     
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to register trades executed for the clearing member's customers.
     /// Encoded/decoded by serializers as "Client".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLIE")]
     [IsoId("_YZhNsNp-Ed-ak6NoX_4Aeg_-2094643985")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to register trades executed for the clearing member's customers.")]
     Client,
     
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to register trades executed for liquidity providers (also known as market maker) activities.
     /// Encoded/decoded by serializers as "LiquidityProvider".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIPR")]
     [IsoId("_YZhNsdp-Ed-ak6NoX_4Aeg_2086484245")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to register trades executed for liquidity providers (also known as market maker) activities.")]
     LiquidityProvider,
     
 }

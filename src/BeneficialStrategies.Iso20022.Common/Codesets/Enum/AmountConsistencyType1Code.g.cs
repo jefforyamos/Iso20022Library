@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AmountConsistencyType1Code
 {
     /// <summary>
-    /// ??
+    /// Amount information matches the reference data record.
     /// Encoded/decoded by serializers as "ConsistentAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONS")]
     [IsoId("_TnhrIQStEeusZ4O-nsxv_w")]
-    [Description(@"??")]
+    [Description(@"Amount information matches the reference data record.")]
     ConsistentAmount,
     
     /// <summary>
-    /// ??
+    /// Amount information does not match the reference data record.
     /// Encoded/decoded by serializers as "InconsistentAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICNS")]
     [IsoId("_TtTjAQStEeusZ4O-nsxv_w")]
-    [Description(@"??")]
+    [Description(@"Amount information does not match the reference data record.")]
     InconsistentAmount,
     
     /// <summary>
-    /// ??
+    /// Charges amount information does not match the reference data record.
     /// Encoded/decoded by serializers as "InconsistentChargesAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICGA")]
     [IsoId("_TxnbQQStEeusZ4O-nsxv_w")]
-    [Description(@"??")]
+    [Description(@"Charges amount information does not match the reference data record.")]
     InconsistentChargesAmount,
     
     /// <summary>
-    /// ??
+    /// Amount information confirmed to the creditor does not match the reference data record.
     /// Encoded/decoded by serializers as "InconsistentConfirmedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICFA")]
     [IsoId("_T26K8QStEeusZ4O-nsxv_w")]
-    [Description(@"??")]
+    [Description(@"Amount information confirmed to the creditor does not match the reference data record.")]
     InconsistentConfirmedAmount,
     
     /// <summary>
-    /// ??
+    /// Interbank settlement amount information does not match the reference data record.
     /// Encoded/decoded by serializers as "InconsistentInterbankSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IISA")]
     [IsoId("_T8DJoQStEeusZ4O-nsxv_w")]
-    [Description(@"??")]
+    [Description(@"Interbank settlement amount information does not match the reference data record.")]
     InconsistentInterbankSettlementAmount,
     
 }

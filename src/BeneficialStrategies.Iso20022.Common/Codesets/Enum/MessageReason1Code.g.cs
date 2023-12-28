@@ -21,354 +21,354 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageReason1Code
 {
     /// <summary>
-    /// ??
+    /// Stand-in processing at the acquirer's option.
     /// Encoded/decoded by serializers as "AcquirerStandin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTD")]
     [IsoId("_-hPuQXs5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Stand-in processing at the acquirer's option.")]
     AcquirerStandin,
     
     /// <summary>
-    /// ??
+    /// Amount inconsistent between request and response.
     /// Encoded/decoded by serializers as "AmountInconsistency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMNT")]
     [IsoId("_-q29Q3s5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Amount inconsistent between request and response.")]
     AmountInconsistency,
     
     /// <summary>
-    /// ??
+    /// Card acceptor forced to be online.
     /// Encoded/decoded by serializers as "CardAcceptorSuspicious".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASPC")]
     [IsoId("_-0uD43s5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Card acceptor forced to be online.")]
     CardAcceptorSuspicious,
     
     /// <summary>
-    /// ??
+    /// Integrated circuit card declines the transaction after the authorisation.
     /// Encoded/decoded by serializers as "CardDeclined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCL")]
     [IsoId("_-6bDQXs5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Integrated circuit card declines the transaction after the authorisation.")]
     CardDeclined,
     
     /// <summary>
-    /// ??
+    /// Transaction performed offline by the card.
     /// Encoded/decoded by serializers as "CardProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COFF")]
     [IsoId("__AIps3s5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Transaction performed offline by the card.")]
     CardProcessed,
     
     /// <summary>
-    /// ??
+    /// Random online decided by the card.
     /// Encoded/decoded by serializers as "CardRandomSelection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRND")]
     [IsoId("__GJyIXs5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Random online decided by the card.")]
     CardRandomSelection,
     
     /// <summary>
-    /// ??
+    /// Card left by the cardholder.
     /// Encoded/decoded by serializers as "CardRetained".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTN")]
     [IsoId("__TOk03s5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Card left by the cardholder.")]
     CardRetained,
     
     /// <summary>
-    /// ??
+    /// Card cannot process offline the transaction.
     /// Encoded/decoded by serializers as "CardUnableToProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUNB")]
     [IsoId("__U2VcXs5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Card cannot process offline the transaction.")]
     CardUnableToProcess,
     
     /// <summary>
-    /// ??
+    /// Customer cancellation, for example removing the chip card after sending the authorisation, but before the end of the transaction.
     /// Encoded/decoded by serializers as "CustomerCancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAN")]
     [IsoId("__bwOs3s5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Customer cancellation, for example removing the chip card after sending the authorisation, but before the end of the transaction.")]
     CustomerCancel,
     
     /// <summary>
-    /// ??
+    /// Deactivated key must be replaced.
     /// Encoded/decoded by serializers as "DeactivatedKey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDAC")]
     [IsoId("__j4P8Xs5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Deactivated key must be replaced.")]
     DeactivatedKey,
     
     /// <summary>
-    /// ??
+    /// Response message was invalid (for example a problem of format or security).
     /// Encoded/decoded by serializers as "ErrorInResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERRP")]
     [IsoId("__p4KQXs5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Response message was invalid (for example a problem of format or security).")]
     ErrorInResponse,
     
     /// <summary>
-    /// ??
+    /// Transaction above or under the floor limit.
     /// Encoded/decoded by serializers as "FloorLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLRL")]
     [IsoId("__yzcw3s5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Transaction above or under the floor limit.")]
     FloorLimit,
     
     /// <summary>
-    /// ??
+    /// Verification of the key has failed.
     /// Encoded/decoded by serializers as "InvalidVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KINV")]
     [IsoId("__-uY4Xs5EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Verification of the key has failed.")]
     InvalidVerification,
     
     /// <summary>
-    /// ??
+    /// Issuer signed off.
     /// Encoded/decoded by serializers as "IssuerSignedOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISGN")]
     [IsoId("_AHprY3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Issuer signed off.")]
     IssuerSignedOff,
     
     /// <summary>
-    /// ??
+    /// Stand-in processing at the issuer's option.
     /// Encoded/decoded by serializers as "IssuerStandin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISTD")]
     [IsoId("_AMjZgXs6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Stand-in processing at the issuer's option.")]
     IssuerStandin,
     
     /// <summary>
-    /// ??
+    /// Issuer timed out on request.
     /// Encoded/decoded by serializers as "IssuerTimeout".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITIM")]
     [IsoId("_AWtbE3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Issuer timed out on request.")]
     IssuerTimeout,
     
     /// <summary>
-    /// ??
+    /// Issuer unavailable.
     /// Encoded/decoded by serializers as "IssuerUnavailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IUNV")]
     [IsoId("_Ahxbk3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Issuer unavailable.")]
     IssuerUnavailable,
     
     /// <summary>
-    /// ??
+    /// End of key life cycle.
     /// Encoded/decoded by serializers as "LifeCycleEnd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENDK")]
     [IsoId("_At-rk3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"End of key life cycle.")]
     LifeCycleEnd,
     
     /// <summary>
-    /// ??
+    /// Suspected malfunction (for example card reader defect, or printer out of order).
     /// Encoded/decoded by serializers as "Malfunction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLFC")]
     [IsoId("_AzzmwXs6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Suspected malfunction (for example card reader defect, or printer out of order).")]
     Malfunction,
     
     /// <summary>
-    /// ??
+    /// Offline authorisation declined the transaction.
     /// Encoded/decoded by serializers as "OfflineDeclined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDCL")]
     [IsoId("_A-l6cns6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Offline authorisation declined the transaction.")]
     OfflineDeclined,
     
     /// <summary>
-    /// ??
+    /// Online authorisation declined the transaction.
     /// Encoded/decoded by serializers as "OnLineDeclined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDCL")]
     [IsoId("_BKqnk3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Online authorisation declined the transaction.")]
     OnLineDeclined,
     
     /// <summary>
-    /// ??
+    /// Forced online by card acceptor, terminal, card, or the issuer.
     /// Encoded/decoded by serializers as "OnlineForced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORC")]
     [IsoId("_BVjo83s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Forced online by card acceptor, terminal, card, or the issuer.")]
     OnlineForced,
     
     /// <summary>
-    /// ??
+    /// Keys not synchronised.
     /// Encoded/decoded by serializers as "OutOfSynchronisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KSYN")]
     [IsoId("_BgSSQ3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Keys not synchronised.")]
     OutOfSynchronisation,
     
     /// <summary>
-    /// ??
+    /// Cardholder did not take the presented items.
     /// Encoded/decoded by serializers as "UncompleteDispense".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UDSP")]
     [IsoId("_B9Kbg3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Cardholder did not take the presented items.")]
     UncompleteDispense,
     
     /// <summary>
-    /// ??
+    /// Unable to send the message.
     /// Encoded/decoded by serializers as "UnableToSend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USND")]
     [IsoId("_CI7moXs6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Unable to send the message.")]
     UnableToSend,
     
     /// <summary>
-    /// ??
+    /// Card acceptor device unable to complete transaction after the authorisation response (for example, the written signature invalid).
     /// Encoded/decoded by serializers as "UnableToComplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCMP")]
     [IsoId("_CPs9AXs6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Card acceptor device unable to complete transaction after the authorisation response (for example, the written signature invalid).")]
     UnableToComplete,
     
     /// <summary>
-    /// ??
+    /// Response to the authorisation received too late.
     /// Encoded/decoded by serializers as "TooLateResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_CbbE03s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Response to the authorisation received too late.")]
     TooLateResponse,
     
     /// <summary>
-    /// ??
+    /// Waiting for response from the receiver, or no response was received (for example connection release before receiving the response).
     /// Encoded/decoded by serializers as "TimeOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIMO")]
     [IsoId("_CjifA3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Waiting for response from the receiver, or no response was received (for example connection release before receiving the response).")]
     TimeOut,
     
     /// <summary>
-    /// ??
+    /// Terminal cannot process offline the transaction.
     /// Encoded/decoded by serializers as "TerminalUnableToProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TUNB")]
     [IsoId("_CpeH4Xs6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Terminal cannot process offline the transaction.")]
     TerminalUnableToProcess,
     
     /// <summary>
-    /// ??
+    /// Random online decided by the terminal.
     /// Encoded/decoded by serializers as "TerminalRandomSelection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRND")]
     [IsoId("_CwhyIXs6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Random online decided by the terminal.")]
     TerminalRandomSelection,
     
     /// <summary>
-    /// ??
+    /// Transaction performed offline by the terminal.
     /// Encoded/decoded by serializers as "TerminalProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOFF")]
     [IsoId("_C7azg3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Transaction performed offline by the terminal.")]
     TerminalProcessed,
     
     /// <summary>
-    /// ??
+    /// Card transaction failed because the merchant suspected a fraud.
     /// Encoded/decoded by serializers as "SuspectedFraud".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_DHaoI3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Card transaction failed because the merchant suspected a fraud.")]
     SuspectedFraud,
     
     /// <summary>
-    /// ??
+    /// Security reasons.
     /// Encoded/decoded by serializers as "SecurityReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KSEC")]
     [IsoId("_DSNi4ns6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Security reasons.")]
     SecurityReason,
     
     /// <summary>
-    /// ??
+    /// Receiver unavailable.
     /// Encoded/decoded by serializers as "ReceiverUnavailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RUNV")]
     [IsoId("_DZVekns6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Receiver unavailable.")]
     ReceiverUnavailable,
     
     /// <summary>
-    /// ??
+    /// Receiver timed out on request.
     /// Encoded/decoded by serializers as "ReceiverTimeout".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTIM")]
     [IsoId("_DgQl8Xs6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Receiver timed out on request.")]
     ReceiverTimeout,
     
     /// <summary>
-    /// ??
+    /// Stand-in processing at the receiver's option.
     /// Encoded/decoded by serializers as "ReceiverStandin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSTD")]
     [IsoId("_DrFV43s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Stand-in processing at the receiver's option.")]
     ReceiverStandin,
     
     /// <summary>
-    /// ??
+    /// Receiver signed off.
     /// Encoded/decoded by serializers as "ReceiverSignedOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSGN")]
     [IsoId("_DxITgXs6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Receiver signed off.")]
     ReceiverSignedOff,
     
     /// <summary>
-    /// ??
+    /// Partial reversal.
     /// Encoded/decoded by serializers as "PartiallyCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_D9DPo3s6EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Partial reversal.")]
     PartiallyCompleted,
     
     /// <summary>
-    /// ??
+    /// Inconsistency between the items deposited and their declared value.
     /// Encoded/decoded by serializers as "InconsistentDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDPS")]
     [IsoId("_5XbO8X1dEemWqr5azFRqdA")]
-    [Description(@"??")]
+    [Description(@"Inconsistency between the items deposited and their declared value.")]
     InconsistentDeposit,
     
 }

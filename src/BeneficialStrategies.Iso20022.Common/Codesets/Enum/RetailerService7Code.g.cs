@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RetailerService7Code
 {
     /// <summary>
-    /// ??
+    /// The POI System responds to a transaction report request.
     /// Encoded/decoded by serializers as "AdministrativeReportTransactionResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPTP")]
     [IsoId("_c4lHMd6VEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI System responds to a transaction report request.")]
     AdministrativeReportTransactionResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System responds to a totals figures request.
     /// Encoded/decoded by serializers as "AdministrativeReportGetTotalsResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPAP")]
     [IsoId("_dKVlkd6VEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI System responds to a totals figures request.")]
     AdministrativeReportGetTotalsResponse,
     
 }

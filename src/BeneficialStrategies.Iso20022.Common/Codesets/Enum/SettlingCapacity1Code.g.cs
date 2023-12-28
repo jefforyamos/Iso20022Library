@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlingCapacity1Code
 {
     /// <summary>
-    /// ??
+    /// Settlement party is a custodian. It receives/delivers the securities and carries out custodial duties.
     /// Encoded/decoded by serializers as "SettlingCustodian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_ZOa1Ztp-Ed-ak6NoX_4Aeg_-1857712848")]
-    [Description(@"??")]
+    [Description(@"Settlement party is a custodian. It receives/delivers the securities and carries out custodial duties.")]
     SettlingCustodian,
     
     /// <summary>
-    /// ??
+    /// Settlement party is trading and settling transactions in financial instruments on behalf of its client(s).
     /// Encoded/decoded by serializers as "SettlingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAGE")]
     [IsoId("_ZOa1Z9p-Ed-ak6NoX_4Aeg_593301523")]
-    [Description(@"??")]
+    [Description(@"Settlement party is trading and settling transactions in financial instruments on behalf of its client(s).")]
     SettlingAgent,
     
     /// <summary>
-    /// ??
+    /// Settlement party is settling its own trades.
     /// Encoded/decoded by serializers as "SettlingPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRI")]
     [IsoId("_ZOkmYNp-Ed-ak6NoX_4Aeg_723532069")]
-    [Description(@"??")]
+    [Description(@"Settlement party is settling its own trades.")]
     SettlingPrincipal,
     
 }

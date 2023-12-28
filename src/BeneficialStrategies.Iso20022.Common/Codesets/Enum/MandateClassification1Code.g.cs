@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MandateClassification1Code
 {
     /// <summary>
-    /// ??
+    /// Direct debit amount is fixed.
     /// Encoded/decoded by serializers as "Fixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXE")]
     [IsoId("_nHOmAWVREeacpJ-gG9kyUQ")]
-    [Description(@"??")]
+    [Description(@"Direct debit amount is fixed.")]
     Fixed,
     
     /// <summary>
-    /// ??
+    /// Direct debit amount is based on usage.
     /// Encoded/decoded by serializers as "UsageBased".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USGB")]
     [IsoId("_nMlnIWVREeacpJ-gG9kyUQ")]
-    [Description(@"??")]
+    [Description(@"Direct debit amount is based on usage.")]
     UsageBased,
     
     /// <summary>
-    /// ??
+    /// Direct debit amount is variable.
     /// Encoded/decoded by serializers as "Variable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VARI")]
     [IsoId("_nVz0kWVREeacpJ-gG9kyUQ")]
-    [Description(@"??")]
+    [Description(@"Direct debit amount is variable.")]
     Variable,
     
 }

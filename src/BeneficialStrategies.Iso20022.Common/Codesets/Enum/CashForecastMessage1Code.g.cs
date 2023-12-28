@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashForecastMessage1Code
 {
     /// <summary>
-    /// ??
+    /// Fund estimated cash forecast report (camt.040).
     /// Encoded/decoded by serializers as "Estimated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CF40")]
     [IsoId("_a65lUdp-Ed-ak6NoX_4Aeg_1040652616")]
-    [Description(@"??")]
+    [Description(@"Fund estimated cash forecast report (camt.040).")]
     Estimated,
     
     /// <summary>
-    /// ??
+    /// Fund detailed estimated cash forecast Report (042).
     /// Encoded/decoded by serializers as "EstimatedDetailed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CF42")]
     [IsoId("_a65lUtp-Ed-ak6NoX_4Aeg_-1588280260")]
-    [Description(@"??")]
+    [Description(@"Fund detailed estimated cash forecast Report (042).")]
     EstimatedDetailed,
     
     /// <summary>
-    /// ??
+    /// Fund confirmed cash forecast report (camt.041).
     /// Encoded/decoded by serializers as "Confirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CF41")]
     [IsoId("_a65lU9p-Ed-ak6NoX_4Aeg_-1557804493")]
-    [Description(@"??")]
+    [Description(@"Fund confirmed cash forecast report (camt.041).")]
     Confirmed,
     
     /// <summary>
-    /// ??
+    /// Fund detailed confirmed cash forecast report (camt.043).
     /// Encoded/decoded by serializers as "CornfirmedDetailed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CF43")]
     [IsoId("_a65lVNp-Ed-ak6NoX_4Aeg_-1535641166")]
-    [Description(@"??")]
+    [Description(@"Fund detailed confirmed cash forecast report (camt.043).")]
     CornfirmedDetailed,
     
 }

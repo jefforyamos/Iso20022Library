@@ -20,309 +20,309 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalAgreementType1Code
 {
     /// <summary>
-    /// ??
+    /// Australian Masters Securities Lending Agreement (AMSLA).
     /// Encoded/decoded by serializers as "AustralianMastersSecuritiesLendingAgreementAMSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUSL")]
     [IsoId("_usWLovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Australian Masters Securities Lending Agreement (AMSLA).")]
     AustralianMastersSecuritiesLendingAgreementAMSLA,
     
     /// <summary>
-    /// ??
+    /// Bilateral agreement.
     /// Encoded/decoded by serializers as "BilateralAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIAG")]
     [IsoId("_usWLpfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bilateral agreement.")]
     BilateralAgreement,
     
     /// <summary>
-    /// ??
+    /// Investment Industry Regulatory Organization of Canada (IIROC) Repurchase/Reverse Repurchase Transaction Agreement.
     /// Encoded/decoded by serializers as "InvestmentIndustryRegulatoryOrganizationofCanadaIIROCRepurchaseReverseRepurchaseTransactionAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARA")]
     [IsoId("_usfVkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Investment Industry Regulatory Organization of Canada (IIROC) Repurchase/Reverse Repurchase Transaction Agreement.")]
     InvestmentIndustryRegulatoryOrganizationofCanadaIIROCRepurchaseReverseRepurchaseTransactionAgreement,
     
     /// <summary>
-    /// ??
+    /// FIA-ISDA Cleared Derivatives Execution Agreement.
     /// Encoded/decoded by serializers as "FIAISDAClearedDerivativesExecutionAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDEA")]
     [IsoId("_usfVlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FIA-ISDA Cleared Derivatives Execution Agreement.")]
     FIAISDAClearedDerivativesExecutionAgreement,
     
     /// <summary>
-    /// ??
+    /// Swiss Master Agreement.
     /// Encoded/decoded by serializers as "SwissMasterAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHMA")]
     [IsoId("_usfVmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Swiss Master Agreement.")]
     SwissMasterAgreement,
     
     /// <summary>
-    /// ??
+    /// Swiss Master Repurchase Agreement.
     /// Encoded/decoded by serializers as "SwissMasterRepurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHRA")]
     [IsoId("_uspGkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Swiss Master Repurchase Agreement.")]
     SwissMasterRepurchaseAgreement,
     
     /// <summary>
-    /// ??
+    /// Contrato Marco de Operaciones Financieras.
     /// Encoded/decoded by serializers as "ContratoMarcoDeOperacionesFinancieras".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMOP")]
     [IsoId("_uspGlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Contrato Marco de Operaciones Financieras.")]
     ContratoMarcoDeOperacionesFinancieras,
     
     /// <summary>
-    /// ??
+    /// China Bond Repurchase Master Agreement.
     /// Encoded/decoded by serializers as "ChinaBondRepurchaseMasterAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNBR")]
     [IsoId("_uspGmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"China Bond Repurchase Master Agreement.")]
     ChinaBondRepurchaseMasterAgreement,
     
     /// <summary>
-    /// ??
+    /// CSD bilateral agreement.
     /// Encoded/decoded by serializers as "CSDBilateralAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDA")]
     [IsoId("_usy3kvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CSD bilateral agreement.")]
     CSDBilateralAgreement,
     
     /// <summary>
-    /// ??
+    /// German Master Agreement.
     /// Encoded/decoded by serializers as "GermanMasterAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEMA")]
     [IsoId("_usy3lfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"German Master Agreement.")]
     GermanMasterAgreement,
     
     /// <summary>
-    /// ??
+    /// Deutscher Rahmenvertrag für Wertpapierdarlehen.
     /// Encoded/decoded by serializers as "DeutscherRahmenvertragfurWertpapierdarlehen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERD")]
     [IsoId("_usy3mPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Deutscher Rahmenvertrag für Wertpapierdarlehen.")]
     DeutscherRahmenvertragfurWertpapierdarlehen,
     
     /// <summary>
-    /// ??
+    /// Deutscher Rahmenvertrag für Wertpapierpensionsgeschäfte .
     /// Encoded/decoded by serializers as "DeutscherRahmenvertragfurWertpapierpensionsgeschafte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERP")]
     [IsoId("_usy3m_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Deutscher Rahmenvertrag für Wertpapierpensionsgeschäfte .")]
     DeutscherRahmenvertragfurWertpapierpensionsgeschafte,
     
     /// <summary>
-    /// ??
+    /// Deutscher Rahmenvertrag für Finanztermingeschäfte (DRV).
     /// Encoded/decoded by serializers as "DeutscherRahmenvertragfurFinanztermingeschafteDRV".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERV")]
     [IsoId("_us8BgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Deutscher Rahmenvertrag für Finanztermingeschäfte (DRV).")]
     DeutscherRahmenvertragfurFinanztermingeschafteDRV,
     
     /// <summary>
-    /// ??
+    /// EFET Master Agreement.
     /// Encoded/decoded by serializers as "EFETMasterAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EFMA")]
     [IsoId("_us8BhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"EFET Master Agreement.")]
     EFETMasterAgreement,
     
     /// <summary>
-    /// ??
+    /// Contrato Marco de compraventa y Reporto de valores.
     /// Encoded/decoded by serializers as "ContratoMarcoDeCompraventaYReportoDeValores".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESRA")]
     [IsoId("_us8BiPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Contrato Marco de compraventa y Reporto de valores.")]
     ContratoMarcoDeCompraventaYReportoDeValores,
     
     /// <summary>
-    /// ??
+    /// European Master Agreement.
     /// Encoded/decoded by serializers as "EuropeanMasterAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUMA")]
     [IsoId("_us8Bi_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"European Master Agreement.")]
     EuropeanMasterAgreement,
     
     /// <summary>
-    /// ??
+    /// FBF Master Agreement related to transactions on forward financial instruments.
     /// Encoded/decoded by serializers as "FBFMasterAgreementRelatedToTransactionsOnForwardFinancialInstruments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FMAT")]
     [IsoId("_utFygvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FBF Master Agreement related to transactions on forward financial instruments.")]
     FBFMasterAgreementRelatedToTransactionsOnForwardFinancialInstruments,
     
     /// <summary>
-    /// ??
+    /// FOA Professional Client Agreement.
     /// Encoded/decoded by serializers as "FOAProfessionalClientAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FPCA")]
     [IsoId("_utFyhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FOA Professional Client Agreement.")]
     FOAProfessionalClientAgreement,
     
     /// <summary>
-    /// ??
+    /// Convention-Cadre Relative aux Operations de Pensions Livrees.
     /// Encoded/decoded by serializers as "ConventionCadreRelativeauxOperationsdePensionsLivrees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRFB")]
     [IsoId("_utFyiPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Convention-Cadre Relative aux Operations de Pensions Livrees.")]
     ConventionCadreRelativeauxOperationsdePensionsLivrees,
     
     /// <summary>
-    /// ??
+    /// Gilt Edged Stock Lending Agreement (GESLA).
     /// Encoded/decoded by serializers as "GiltEdgedStockLendingAgreementGESLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GESL")]
     [IsoId("_utFyi_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Gilt Edged Stock Lending Agreement (GESLA).")]
     GiltEdgedStockLendingAgreementGESLA,
     
     /// <summary>
-    /// ??
+    /// Global Master Repurchase Agreement.
     /// Encoded/decoded by serializers as "GlobalMasterRepurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GMRA")]
     [IsoId("_utFyjvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Global Master Repurchase Agreement.")]
     GlobalMasterRepurchaseAgreement,
     
     /// <summary>
-    /// ??
+    /// Global Master Securities Lending Agreement.
     /// Encoded/decoded by serializers as "GlobalMasterSecuritiesLendingAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GMSL")]
     [IsoId("_utO8cvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Global Master Securities Lending Agreement.")]
     GlobalMasterSecuritiesLendingAgreement,
     
     /// <summary>
-    /// ??
+    /// Islamic Derivative Master Agreement.
     /// Encoded/decoded by serializers as "IslamicDerivativeMasterAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDMA")]
     [IsoId("_utO8dfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Islamic Derivative Master Agreement.")]
     IslamicDerivativeMasterAgreement,
     
     /// <summary>
-    /// ??
+    /// International Swaps and Derivatives Association Agreement.
     /// Encoded/decoded by serializers as "InternationalSwapsAndDerivativesAssociationAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISDA")]
     [IsoId("_utYtcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"International Swaps and Derivatives Association Agreement.")]
     InternationalSwapsAndDerivativesAssociationAgreement,
     
     /// <summary>
-    /// ??
+    /// Japanese Master Agreement on Lending Transaction of Bonds.
     /// Encoded/decoded by serializers as "JapaneseMasterAgreementonLendingTransactionOfBonds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JPBL")]
     [IsoId("_utYtdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Japanese Master Agreement on Lending Transaction of Bonds.")]
     JapaneseMasterAgreementonLendingTransactionOfBonds,
     
     /// <summary>
-    /// ??
+    /// Japanese Master Agreement on the Transaction with Repurchase Agreement of the Bonds.
     /// Encoded/decoded by serializers as "JapaneseMasterAgreementontheTransactionwithRepurchaseAgreementOfTheBonds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JPBR")]
     [IsoId("_utYtePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Japanese Master Agreement on the Transaction with Repurchase Agreement of the Bonds.")]
     JapaneseMasterAgreementontheTransactionwithRepurchaseAgreementOfTheBonds,
     
     /// <summary>
-    /// ??
+    /// Japanese Master Agreement on the Borrowing and Lending Transactions of Share Certificates.
     /// Encoded/decoded by serializers as "JapaneseMasterAgreementOnTheBorrowingAndLendingTransactionsofShareCertificates".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JPSL")]
     [IsoId("_utYte_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Japanese Master Agreement on the Borrowing and Lending Transactions of Share Certificates.")]
     JapaneseMasterAgreementOnTheBorrowingAndLendingTransactionsofShareCertificates,
     
     /// <summary>
-    /// ??
+    /// Korea Financial Investment Association (KOFIA) Standard Repurchase Agreement.
     /// Encoded/decoded by serializers as "KoreaFinancialInvestmentAssociationKOFIAStandardRepurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KRRA")]
     [IsoId("_utYtfvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Korea Financial Investment Association (KOFIA) Standard Repurchase Agreement.")]
     KoreaFinancialInvestmentAssociationKOFIAStandardRepurchaseAgreement,
     
     /// <summary>
-    /// ??
+    /// Korean Securities Lending Agreement (KOSLA).
     /// Encoded/decoded by serializers as "KoreanSecuritiesLendingAgreementKOSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KRSL")]
     [IsoId("_utiecvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Korean Securities Lending Agreement (KOSLA).")]
     KoreanSecuritiesLendingAgreementKOSLA,
     
     /// <summary>
-    /// ??
+    /// Master Equity and Fixed Interest Stock Lending Agreement (MEFISLA).
     /// Encoded/decoded by serializers as "MasterEquityandFixedInterestStockLendingAgreementMEFISLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEFI")]
     [IsoId("_utiedfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Master Equity and Fixed Interest Stock Lending Agreement (MEFISLA).")]
     MasterEquityandFixedInterestStockLendingAgreementMEFISLA,
     
     /// <summary>
-    /// ??
+    /// Master Repurchase Agreement.
     /// Encoded/decoded by serializers as "MasterRepurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRAA")]
     [IsoId("_utroYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Master Repurchase Agreement.")]
     MasterRepurchaseAgreement,
     
     /// <summary>
-    /// ??
+    /// Master Securities Loan Agreement.
     /// Encoded/decoded by serializers as "MasterSecuritiesLoanAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSLA")]
     [IsoId("_utroZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Master Securities Loan Agreement.")]
     MasterSecuritiesLoanAgreement,
     
     /// <summary>
-    /// ??
+    /// Overseas Securities Lending Agreement.
     /// Encoded/decoded by serializers as "OverseasSecuritiesLendingAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OSLA")]
     [IsoId("_utroaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Overseas Securities Lending Agreement.")]
     OverseasSecuritiesLendingAgreement,
     
     /// <summary>
-    /// ??
+    /// Other type of master agreement.
     /// Encoded/decoded by serializers as "OtherTypeOfMasterAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_utroa_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Other type of master agreement.")]
     OtherTypeOfMasterAgreement,
     
 }

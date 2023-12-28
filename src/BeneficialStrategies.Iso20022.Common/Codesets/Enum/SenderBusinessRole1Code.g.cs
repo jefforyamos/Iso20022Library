@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SenderBusinessRole1Code
 {
     /// <summary>
-    /// ??
+    /// Sender is the owner of the safekeeping account. The sender is disclosing the breakdown of the underlying owners of sender’s holdings with the receiver.
     /// Encoded/decoded by serializers as "AccountOwner".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AOWN")]
     [IsoId("_sECakVV0Eea1MPROA61PoQ")]
-    [Description(@"??")]
+    [Description(@"Sender is the owner of the safekeeping account. The sender is disclosing the breakdown of the underlying owners of sender’s holdings with the receiver.")]
     AccountOwner,
     
     /// <summary>
-    /// ??
+    /// Sender is the account servicer of an account owned by the receiver.
     /// Encoded/decoded by serializers as "AccountServicer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASER")]
     [IsoId("_sNkKAVV0Eea1MPROA61PoQ")]
-    [Description(@"??")]
+    [Description(@"Sender is the account servicer of an account owned by the receiver.")]
     AccountServicer,
     
 }

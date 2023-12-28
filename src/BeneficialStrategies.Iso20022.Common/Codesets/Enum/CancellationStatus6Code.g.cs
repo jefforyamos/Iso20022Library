@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationStatus6Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_RaR74bLQEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been accepted and processed, the cancellation is complete.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_RaR75bLQEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been accepted and processed, the cancellation is complete.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been received by issuer or registrar.
     /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIS")]
     [IsoId("_RaR757LQEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been received by issuer or registrar.")]
     ReceivedByIssuerOrRegistrar,
     
 }

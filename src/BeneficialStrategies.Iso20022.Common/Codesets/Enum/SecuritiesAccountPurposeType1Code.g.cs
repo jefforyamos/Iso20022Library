@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesAccountPurposeType1Code
 {
     /// <summary>
-    /// ??
+    /// Account is used when financing is done by the broker.
     /// Encoded/decoded by serializers as "Margin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARG")]
     [IsoId("_Y-7A1dp-Ed-ak6NoX_4Aeg_-1554401442")]
-    [Description(@"??")]
+    [Description(@"Account is used when financing is done by the broker.")]
     Margin,
     
     /// <summary>
-    /// ??
+    /// Account is used for short sale orders.
     /// Encoded/decoded by serializers as "ShortSale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHOR")]
     [IsoId("_Y-7A1tp-Ed-ak6NoX_4Aeg_-1554401407")]
-    [Description(@"??")]
+    [Description(@"Account is used for short sale orders.")]
     ShortSale,
     
     /// <summary>
-    /// ??
+    /// Account is located in a financial institution outside the country where the transaction is taking place.
     /// Encoded/decoded by serializers as "Abroad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABRD")]
     [IsoId("_Y-7A19p-Ed-ak6NoX_4Aeg_-1554401365")]
-    [Description(@"??")]
+    [Description(@"Account is located in a financial institution outside the country where the transaction is taking place.")]
     Abroad,
     
     /// <summary>
-    /// ??
+    /// Account and all its related positions are held in one location.
     /// Encoded/decoded by serializers as "Centralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CEND")]
     [IsoId("_Y-7A2Np-Ed-ak6NoX_4Aeg_-1554401347")]
-    [Description(@"??")]
+    [Description(@"Account and all its related positions are held in one location.")]
     Centralised,
     
     /// <summary>
-    /// ??
+    /// Account is used for settlement upon delivery, or a collection on a delivery basis.
     /// Encoded/decoded by serializers as "CashDVP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVPA")]
     [IsoId("_Y-7A2dp-Ed-ak6NoX_4Aeg_-1554401304")]
-    [Description(@"??")]
+    [Description(@"Account is used for settlement upon delivery, or a collection on a delivery basis.")]
     CashDVP,
     
     /// <summary>
-    /// ??
+    /// Account is used for physical domestic safekeeping.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_Y_Ex0Np-Ed-ak6NoX_4Aeg_-1554401286")]
-    [Description(@"??")]
+    [Description(@"Account is used for physical domestic safekeeping.")]
     Physical,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PutType1Code
 {
     /// <summary>
-    /// ??
+    /// Type of execution of the put feature is mandatory.
     /// Encoded/decoded by serializers as "Mandatory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAND")]
     [IsoId("_ha1ju2liEeGaMcKyqKNRfQ_126631193")]
-    [Description(@"??")]
+    [Description(@"Type of execution of the put feature is mandatory.")]
     Mandatory,
     
     /// <summary>
-    /// ??
+    /// Type of execution of the put feature is optional.
     /// Encoded/decoded by serializers as "Optional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTI")]
     [IsoId("_ha1jvGliEeGaMcKyqKNRfQ_-1580269150")]
-    [Description(@"??")]
+    [Description(@"Type of execution of the put feature is optional.")]
     Optional,
     
     /// <summary>
-    /// ??
+    /// Type of execution of the put feature could be optional or mandatory.
     /// Encoded/decoded by serializers as "Both".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWOS")]
     [IsoId("_ha1jvWliEeGaMcKyqKNRfQ_-113120387")]
-    [Description(@"??")]
+    [Description(@"Type of execution of the put feature could be optional or mandatory.")]
     Both,
     
 }

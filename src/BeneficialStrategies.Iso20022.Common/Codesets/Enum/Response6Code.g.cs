@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response6Code
 {
     /// <summary>
-    /// ??
+    /// Advice message could not be processed.
     /// Encoded/decoded by serializers as "NotProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNPR")]
     [IsoId("_Q-D1YlAzEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Advice message could not be processed.")]
     NotProcessed,
     
     /// <summary>
-    /// ??
+    /// Processing of the service has been partially performed.
     /// Encoded/decoded by serializers as "PartiallyProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPRC")]
     [IsoId("_SUWS4lAzEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Processing of the service has been partially performed.")]
     PartiallyProcessed,
     
     /// <summary>
-    /// ??
+    /// Advice message is processed.
     /// Encoded/decoded by serializers as "Processed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCS")]
     [IsoId("_SoIxklAzEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Advice message is processed.")]
     Processed,
     
     /// <summary>
-    /// ??
+    /// Service was rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_S7UzUlAzEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Service was rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Other type of processing result defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_lroQoVAzEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Other type of processing result defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other type of processing result defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_l31golAzEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Other type of processing result defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
     /// Encoded/decoded by serializers as "TechnicalError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TECH")]
     [IsoId("_PewkAaY6Eeiva6IOmhpVHw")]
-    [Description(@"??")]
+    [Description(@"Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).")]
     TechnicalError,
     
     /// <summary>
-    /// ??
+    /// Service is under review.
     /// Encoded/decoded by serializers as "UnderReview".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRV")]
     [IsoId("_hEBh8WqEEemXfKijhrqa-Q")]
-    [Description(@"??")]
+    [Description(@"Service is under review.")]
     UnderReview,
     
 }

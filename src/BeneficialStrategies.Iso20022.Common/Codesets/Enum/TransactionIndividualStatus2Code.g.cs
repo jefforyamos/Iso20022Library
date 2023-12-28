@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionIndividualStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Payment initiation or individual transaction included in the payment initiation has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_Yr2T2Np-Ed-ak6NoX_4Aeg_916455781")]
-    [Description(@"??")]
+    [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
     Rejected,
     
 }

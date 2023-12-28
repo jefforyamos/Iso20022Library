@@ -22,2946 +22,2946 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalPurpose1Code
 {
     /// <summary>
-    /// ??
+    /// Delayed draw funding. Certain issuers may utilize delayed draw loans whereby the lender is committed to fund cash|within a specified period once a call is made by the issuer. The lender receives a fee for entering into such a|commitment
     /// Encoded/decoded by serializers as "BankLoanDelayedDrawFunding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKDF")]
     [IsoId("_tst6pfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Delayed draw funding. Certain issuers may utilize delayed draw loans whereby the lender is committed to fund cash|within a specified period once a call is made by the issuer. The lender receives a fee for entering into such a|commitment")]
     BankLoanDelayedDrawFunding,
     
     /// <summary>
-    /// ??
+    /// Bank loan fees. Cash activity related to specific bank loan fees, including (a) agent / assignment fees; (b) amendment fees; (c) commitment fees; (d) consent fees; (e) cost of carry fees; (f) delayed compensation fees; (g)|facility fees; (h) fronting fees; (i) funding fees; (j) letter of credit assignment fees
     /// Encoded/decoded by serializers as "BankLoanFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKFE")]
     [IsoId("_tst6qPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank loan fees. Cash activity related to specific bank loan fees, including (a) agent / assignment fees; (b) amendment fees; (c) commitment fees; (d) consent fees; (e) cost of carry fees; (f) delayed compensation fees; (g)|facility fees; (h) fronting fees; (i) funding fees; (j) letter of credit assignment fees")]
     BankLoanFees,
     
     /// <summary>
-    /// ??
+    /// Bank loan funding memo. Net cash movement for the loan contract final notification when sent separately from the|loan contract final notification instruction.
     /// Encoded/decoded by serializers as "BankLoanFundingMemo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKFM")]
     [IsoId("_tst6q_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank loan funding memo. Net cash movement for the loan contract final notification when sent separately from the|loan contract final notification instruction.")]
     BankLoanFundingMemo,
     
     /// <summary>
-    /// ??
+    /// Accrued interest payments. Specific to bank loans.
     /// Encoded/decoded by serializers as "BankLoanAccruedInterestPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKIP")]
     [IsoId("_ts3EkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Accrued interest payments. Specific to bank loans.")]
     BankLoanAccruedInterestPayment,
     
     /// <summary>
-    /// ??
+    /// Principal paydowns. Specific to bank loans
     /// Encoded/decoded by serializers as "BankLoanPrincipalPaydown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKPP")]
     [IsoId("_ts3ElfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Principal paydowns. Specific to bank loans")]
     BankLoanPrincipalPaydown,
     
     /// <summary>
-    /// ??
+    /// A Service that is settling money for a bulk of card transactions, while referring to a specific transaction file or other information like terminal ID, card acceptor ID or other transaction details.
     /// Encoded/decoded by serializers as "CardBulkClearing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBLK")]
     [IsoId("_ts3EmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A Service that is settling money for a bulk of card transactions, while referring to a specific transaction file or other information like terminal ID, card acceptor ID or other transaction details.")]
     CardBulkClearing,
     
     /// <summary>
-    /// ??
+    /// Purchase of Goods and Services with additional Cash disbursement at the POI (Cashback)
     /// Encoded/decoded by serializers as "CardPaymentWithCashBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCB")]
     [IsoId("_ts3Em_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Purchase of Goods and Services with additional Cash disbursement at the POI (Cashback)")]
     CardPaymentWithCashBack,
     
     /// <summary>
-    /// ??
+    /// ATM Cash Withdrawal in an unattended or Cash Advance in an attended environment (POI or bank counter)
     /// Encoded/decoded by serializers as "CashDisbursementCashSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCD")]
     [IsoId("_ts3EnvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ATM Cash Withdrawal in an unattended or Cash Advance in an attended environment (POI or bank counter)")]
     CashDisbursementCashSettlement,
     
     /// <summary>
-    /// ??
+    /// ATM Cash Withdrawal in an unattended or Cash Advance in an attended environment (POI or bank counter) with surcharging.
     /// Encoded/decoded by serializers as "CashDisbursementWithSurcharging".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCS")]
     [IsoId("_ttA1kvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ATM Cash Withdrawal in an unattended or Cash Advance in an attended environment (POI or bank counter) with surcharging.")]
     CashDisbursementWithSurcharging,
     
     /// <summary>
-    /// ??
+    /// A combined service which enables the card acceptor to perform an authorisation for a temporary amount and a completion for the final amount within a limited time frame. Deferred Payment is only available in the unattended environment.|Examples where this service is widely used are unattended petrol pumps and phone booths
     /// Encoded/decoded by serializers as "CardDeferredPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDDP")]
     [IsoId("_ttA1lfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A combined service which enables the card acceptor to perform an authorisation for a temporary amount and a completion for the final amount within a limited time frame. Deferred Payment is only available in the unattended environment.|Examples where this service is widely used are unattended petrol pumps and phone booths")]
     CardDeferredPayment,
     
     /// <summary>
-    /// ??
+    /// A service which allows the card acceptor to effect a credit to a cardholder' account. Unlike a Merchant Refund, an Original Credit is not preceded by a card payment. This service is used for example for crediting winnings from gaming.
     /// Encoded/decoded by serializers as "OriginalCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDOC")]
     [IsoId("_ttA1mPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A service which allows the card acceptor to effect a credit to a cardholder' account. Unlike a Merchant Refund, an Original Credit is not preceded by a card payment. This service is used for example for crediting winnings from gaming.")]
     OriginalCredit,
     
     /// <summary>
-    /// ??
+    /// Purchase of Goods which are equivalent to cash like coupons in casinos.
     /// Encoded/decoded by serializers as "QuasiCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDQC")]
     [IsoId("_ttA1m_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Purchase of Goods which are equivalent to cash like coupons in casinos.")]
     QuasiCash,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a Service that is first reserving money from a card account and then is loading an e-purse application by this amount.
     /// Encoded/decoded by serializers as "EPurseTopUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETUP")]
     [IsoId("_ttKmkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a Service that is first reserving money from a card account and then is loading an e-purse application by this amount.")]
     EPurseTopUp,
     
     /// <summary>
-    /// ??
+    /// A Service that is settling card transaction related fees between two parties.
     /// Encoded/decoded by serializers as "FeeCollection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCOL")]
     [IsoId("_ttKmlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A Service that is settling card transaction related fees between two parties.")]
     FeeCollection,
     
     /// <summary>
-    /// ??
+    /// A Service that is first reserving money from a card account and then is loading a prepaid mobile phone amount by this amount.
     /// Encoded/decoded by serializers as "MobileTopUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTUP")]
     [IsoId("_ttKmmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A Service that is first reserving money from a card account and then is loading a prepaid mobile phone amount by this amount.")]
     MobileTopUp,
     
     /// <summary>
-    /// ??
+    /// Transaction moves funds between 2 accounts of same account holder at the same bank.
     /// Encoded/decoded by serializers as "AccountManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_ttKmm_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction moves funds between 2 accounts of same account holder at the same bank.")]
     AccountManagement,
     
     /// <summary>
-    /// ??
+    /// Transaction is a general cash management instruction.
     /// Encoded/decoded by serializers as "CashManagementTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_ttKmnvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a general cash management instruction.")]
     CashManagementTransfer,
     
     /// <summary>
-    /// ??
+    /// Transaction is a collection of funds initiated via a credit transfer or direct debit.
     /// Encoded/decoded by serializers as "CollectionPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_ttTwgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a collection of funds initiated via a credit transfer or direct debit.")]
     CollectionPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to cash disbursement.
     /// Encoded/decoded by serializers as "CashDisbursementCashManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDB")]
     [IsoId("_ttTwhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to cash disbursement.")]
     CashDisbursementCashManagement,
     
     /// <summary>
-    /// ??
+    /// Transaction is releted to a payment of deposit.
     /// Encoded/decoded by serializers as "Deposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPT")]
     [IsoId("_ttTwiPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is releted to a payment of deposit.")]
     Deposit,
     
     /// <summary>
-    /// ??
+    /// Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
     /// Encoded/decoded by serializers as "IntraCompanyPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTC")]
     [IsoId("_ttTwi_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.")]
     IntraCompanyPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment between two accounts belonging to the same party (intra-party payment), where party is a natural person (identified by a private ID, not organisation ID).
     /// Encoded/decoded by serializers as "IntraPartyPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTP")]
     [IsoId("_ttdhgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment between two accounts belonging to the same party (intra-party payment), where party is a natural person (identified by a private ID, not organisation ID).")]
     IntraPartyPayment,
     
     /// <summary>
-    /// ??
+    /// Bank initiated account transfer to support zero target balance management, pooling or sweeping.
     /// Encoded/decoded by serializers as "LiquidityManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIMA")]
     [IsoId("_ttdhhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank initiated account transfer to support zero target balance management, pooling or sweeping.")]
     LiquidityManagement,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a netting operation.
     /// Encoded/decoded by serializers as "Netting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETT")]
     [IsoId("_ttdhiPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a netting operation.")]
     Netting,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to any securities traded out beyond 3 days which include treasury notes, JGBs and Gilts.
     /// Encoded/decoded by serializers as "BondForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BFWD")]
     [IsoId("_ttdhi_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to any securities traded out beyond 3 days which include treasury notes, JGBs and Gilts.")]
     BondForward,
     
     /// <summary>
-    /// ??
+    /// Cash Collateral related to a Cross Currency Interest Rate Swap, indicating the exchange of fixed interest payments in one currency for those in another.
     /// Encoded/decoded by serializers as "CrossCurrencyIRS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCIR")]
     [IsoId("_ttdhjvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash Collateral related to a Cross Currency Interest Rate Swap, indicating the exchange of fixed interest payments in one currency for those in another.")]
     CrossCurrencyIRS,
     
     /// <summary>
-    /// ??
+    /// Cash Collateral associated with an ISDA or Central Clearing Agreement that is covering the initial margin requirements for OTC trades clearing through a CCP. 
     /// Encoded/decoded by serializers as "CCPClearedInitialMargin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPC")]
     [IsoId("_ttmrcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash Collateral associated with an ISDA or Central Clearing Agreement that is covering the initial margin requirements for OTC trades clearing through a CCP. ")]
     CCPClearedInitialMargin,
     
     /// <summary>
-    /// ??
+    /// Cash Collateral associated with an ISDA or Central Clearing Agreement that is covering the variation margin requirements for OTC trades clearing through a CCP. 
     /// Encoded/decoded by serializers as "CCPClearedVariationMargin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPM")]
     [IsoId("_ttmrdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash Collateral associated with an ISDA or Central Clearing Agreement that is covering the variation margin requirements for OTC trades clearing through a CCP. ")]
     CCPClearedVariationMargin,
     
     /// <summary>
-    /// ??
+    /// CCP Segregated initial margin: Initial margin on OTC Derivatives cleared through a CCP that requires segregation
     /// Encoded/decoded by serializers as "CCPClearedInitialMarginSegregatedCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCSM")]
     [IsoId("_ttmrePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CCP Segregated initial margin: Initial margin on OTC Derivatives cleared through a CCP that requires segregation")]
     CCPClearedInitialMarginSegregatedCash,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to trading of credit default swap.
     /// Encoded/decoded by serializers as "CreditDefaultSwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDS")]
     [IsoId("_ttwccvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to trading of credit default swap.")]
     CreditDefaultSwap,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to a combination of various types of trades.
     /// Encoded/decoded by serializers as "CrossProduct".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPR")]
     [IsoId("_ttwcdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to a combination of various types of trades.")]
     CrossProduct,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to cash lending/borrowing; letter of Credit; signing of master agreement.
     /// Encoded/decoded by serializers as "CreditSupport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRSP")]
     [IsoId("_ttwcePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to cash lending/borrowing; letter of Credit; signing of master agreement.")]
     CreditSupport,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to opening of a credit line before trading.
     /// Encoded/decoded by serializers as "CreditLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTL")]
     [IsoId("_ttwce_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to opening of a credit line before trading.")]
     CreditLine,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to trading of equity option (Also known as stock options).
     /// Encoded/decoded by serializers as "EquityOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQPT")]
     [IsoId("_ttwcfvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to trading of equity option (Also known as stock options).")]
     EquityOption,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to equity swap trades where the return of an equity is exchanged for either a fixed or a floating rate of interest.
     /// Encoded/decoded by serializers as "EquitySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUS")]
     [IsoId("_tt6NcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to equity swap trades where the return of an equity is exchanged for either a fixed or a floating rate of interest.")]
     EquitySwap,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to trading of an exotic option for example a non-standard option.
     /// Encoded/decoded by serializers as "ExoticOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPT")]
     [IsoId("_tt6NdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to trading of an exotic option for example a non-standard option.")]
     ExoticOption,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to trading of exchanged traded derivatives in general (Opposite to Over the Counter (OTC)).
     /// Encoded/decoded by serializers as "ExchangeTradedDerivatives".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTD")]
     [IsoId("_tt6NePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to trading of exchanged traded derivatives in general (Opposite to Over the Counter (OTC)).")]
     ExchangeTradedDerivatives,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to a fixed income instrument
     /// Encoded/decoded by serializers as "FixedIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXI")]
     [IsoId("_tt6Ne_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to a fixed income instrument")]
     FixedIncome,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payment against a Master Forward Agreement (MFA) where the cash is held in a segregated account and is not available for use by the client. Includes any instruments with a forward settling date such TBAs, repurchase agreements and bond forwards
     /// Encoded/decoded by serializers as "ForwardBrokerOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWBC")]
     [IsoId("_tuD-cvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payment against a Master Forward Agreement (MFA) where the cash is held in a segregated account and is not available for use by the client. Includes any instruments with a forward settling date such TBAs, repurchase agreements and bond forwards")]
     ForwardBrokerOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payment against a Master Forward Agreement (MFA) where the cash is owned and may be used by the client when returned. Includes any instruments with a forward settling date such TBAs, repurchase agreements and bond forwards
     /// Encoded/decoded by serializers as "ForwardClientOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWCC")]
     [IsoId("_tuD-dfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payment against a Master Forward Agreement (MFA) where the cash is owned and may be used by the client when returned. Includes any instruments with a forward settling date such TBAs, repurchase agreements and bond forwards")]
     ForwardClientOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Any cash payment related to the collateral for a Master Agreement forward, which is segregated, and not available for use by the client. Example master agreement forwards include TBA, repo and Bond Forwards.
     /// Encoded/decoded by serializers as "ForwardBrokerOwnedCashCollateralSegregated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWSB")]
     [IsoId("_tuD-ePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Any cash payment related to the collateral for a Master Agreement forward, which is segregated, and not available for use by the client. Example master agreement forwards include TBA, repo and Bond Forwards.")]
     ForwardBrokerOwnedCashCollateralSegregated,
     
     /// <summary>
-    /// ??
+    /// Any cash payment related to the collateral for a Master agreement forward, which is owned by the client and is available for use by the client when it is returned to them from the segregated account. Example master agreement forwards include TBA, repo and Bond Forwards.
     /// Encoded/decoded by serializers as "ForwardClientOwnedSegregatedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWSC")]
     [IsoId("_tuD-e_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Any cash payment related to the collateral for a Master agreement forward, which is owned by the client and is available for use by the client when it is returned to them from the segregated account. Example master agreement forwards include TBA, repo and Bond Forwards.")]
     ForwardClientOwnedSegregatedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Daily margin on listed derivatives – not segregated as collateral associated with an FCM agreement. Examples|include listed futures and options margin payments; premiums for listed options not covered in the MT54X message
     /// Encoded/decoded by serializers as "DailyMarginOnListedDerivatives".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARG")]
     [IsoId("_tuD-fvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Daily margin on listed derivatives – not segregated as collateral associated with an FCM agreement. Examples|include listed futures and options margin payments; premiums for listed options not covered in the MT54X message")]
     DailyMarginOnListedDerivatives,
     
     /// <summary>
-    /// ??
+    /// MBS Broker Owned Segregated (40Act/Dodd Frank) Cash Collateral - Any cash payment related to the collateral for a Mortgage Back Security, which is segregated, and not available for use by the client.
     /// Encoded/decoded by serializers as "MBSBrokerOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MBSB")]
     [IsoId("_tuNIYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"MBS Broker Owned Segregated (40Act/Dodd Frank) Cash Collateral - Any cash payment related to the collateral for a Mortgage Back Security, which is segregated, and not available for use by the client.")]
     MBSBrokerOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// MBS Client Owned Cash Segregated (40Act/Dodd Frank) Cash Collateral - Any cash payment related to the collateral for a Mortgage Back Security, which is owned by the client and is available for use by the client when it is returned to them from the segregated account
     /// Encoded/decoded by serializers as "MBSClientOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MBSC")]
     [IsoId("_tuNIZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"MBS Client Owned Cash Segregated (40Act/Dodd Frank) Cash Collateral - Any cash payment related to the collateral for a Mortgage Back Security, which is owned by the client and is available for use by the client when it is returned to them from the segregated account")]
     MBSClientOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Initial futures margin. Where such payment is owned by the client and is available for use by them on return
     /// Encoded/decoded by serializers as "FuturesInitialMargin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGCC")]
     [IsoId("_tuNIaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Initial futures margin. Where such payment is owned by the client and is available for use by them on return")]
     FuturesInitialMargin,
     
     /// <summary>
-    /// ??
+    /// Margin Client Owned Segregated Cash Collateral - Any cash payment related to the collateral for initial futures margin, which is owned by the client and is available for use by the client when it is returned to them from the segregated account.
     /// Encoded/decoded by serializers as "FuturesInitialMarginClientOwnedSegregatedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGSC")]
     [IsoId("_tuNIa_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Margin Client Owned Segregated Cash Collateral - Any cash payment related to the collateral for initial futures margin, which is owned by the client and is available for use by the client when it is returned to them from the segregated account.")]
     FuturesInitialMarginClientOwnedSegregatedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Client owned collateral identified as eligible for OCC pledging
     /// Encoded/decoded by serializers as "ClientOwnedOCCPledgedCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCCC")]
     [IsoId("_tuW5YvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Client owned collateral identified as eligible for OCC pledging")]
     ClientOwnedOCCPledgedCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payment for OTC options associated with an FCM agreement. Where such payment is segregated and not available for use by the client
     /// Encoded/decoded by serializers as "OTCOptionBrokerOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPBC")]
     [IsoId("_tuW5ZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payment for OTC options associated with an FCM agreement. Where such payment is segregated and not available for use by the client")]
     OTCOptionBrokerOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payment for OTC options associated with an FCM agreement. Where such payment is not segregated and is available for use by the client upon return
     /// Encoded/decoded by serializers as "OTCOptionClientOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPCC")]
     [IsoId("_tuW5aPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payment for OTC options associated with an FCM agreement. Where such payment is not segregated and is available for use by the client upon return")]
     OTCOptionClientOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Option Broker Owned Segregated Cash Collateral - Any cash payment related to the collateral for an OTC option, which is segregated, and not available for use by the client.
     /// Encoded/decoded by serializers as "OTCOptionBrokerOwnedSegregatedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPSB")]
     [IsoId("_tuW5a_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Option Broker Owned Segregated Cash Collateral - Any cash payment related to the collateral for an OTC option, which is segregated, and not available for use by the client.")]
     OTCOptionBrokerOwnedSegregatedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Option Client Owned Cash Segregated Cash Collateral - Any cash payment related to the collateral for an OTC option, which is owned by the client and is available for use by the client when it is returned to them from the segregated account
     /// Encoded/decoded by serializers as "OTCOptionClientOwnedCashSegregatedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPSC")]
     [IsoId("_tuW5bvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Option Client Owned Cash Segregated Cash Collateral - Any cash payment related to the collateral for an OTC option, which is owned by the client and is available for use by the client when it is returned to them from the segregated account")]
     OTCOptionClientOwnedCashSegregatedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to trading of option on Foreign Exchange.
     /// Encoded/decoded by serializers as "FXOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTN")]
     [IsoId("_tugqYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to trading of option on Foreign Exchange.")]
     FXOption,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to Over-the-counter (OTC) Derivatives in general for example contracts which are traded and privately negotiated.
     /// Encoded/decoded by serializers as "OTCDerivatives".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTCD")]
     [IsoId("_tugqZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to Over-the-counter (OTC) Derivatives in general for example contracts which are traded and privately negotiated.")]
     OTCDerivatives,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to a repurchase agreement transaction.
     /// Encoded/decoded by serializers as "RepurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPO")]
     [IsoId("_tugqaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to a repurchase agreement transaction.")]
     RepurchaseAgreement,
     
     /// <summary>
-    /// ??
+    /// Bi-lateral repo broker owned collateral associated with a repo master agreement – GMRA or MRA Master Repo|Agreements
     /// Encoded/decoded by serializers as "BilateralRepoBrokerOwnedCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPBC")]
     [IsoId("_tugqa_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bi-lateral repo broker owned collateral associated with a repo master agreement – GMRA or MRA Master Repo|Agreements")]
     BilateralRepoBrokerOwnedCollateral,
     
     /// <summary>
-    /// ??
+    /// Repo client owned collateral associated with a repo master agreement – GMRA or MRA Master Repo Agreements
     /// Encoded/decoded by serializers as "RepoClientOwnedCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPCC")]
     [IsoId("_tugqbvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Repo client owned collateral associated with a repo master agreement – GMRA or MRA Master Repo Agreements")]
     RepoClientOwnedCollateral,
     
     /// <summary>
-    /// ??
+    /// Bi-lateral repo broker owned segregated cash collateral associated with a repo master agreement
     /// Encoded/decoded by serializers as "BilateralRepoBrokerOwnedSegregatedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPSB")]
     [IsoId("_tup0UvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bi-lateral repo broker owned segregated cash collateral associated with a repo master agreement")]
     BilateralRepoBrokerOwnedSegregatedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Repo client owned segregated collateral associated with a repo master agreement
     /// Encoded/decoded by serializers as "BilateralRepoClientOwnedSegregatedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPSC")]
     [IsoId("_tup0VfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Repo client owned segregated collateral associated with a repo master agreement")]
     BilateralRepoClientOwnedSegregatedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to a reverse repurchase agreement transaction.
     /// Encoded/decoded by serializers as "ReverseRepurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVPO")]
     [IsoId("_tup0WPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to a reverse repurchase agreement transaction.")]
     ReverseRepurchaseAgreement,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to a Securities Buy Sell Sell Buy Back
     /// Encoded/decoded by serializers as "SecuritiesBuySellSellBuyBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBSC")]
     [IsoId("_tup0W_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to a Securities Buy Sell Sell Buy Back")]
     SecuritiesBuySellSellBuyBack,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to Exotic single currency interest rate swap.
     /// Encoded/decoded by serializers as "SingleCurrencyIRSExotic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCIE")]
     [IsoId("_tup0XvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to Exotic single currency interest rate swap.")]
     SingleCurrencyIRSExotic,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to Single Currency Interest Rate Swap.
     /// Encoded/decoded by serializers as "SingleCurrencyIRS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCIR")]
     [IsoId("_tuzlUvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to Single Currency Interest Rate Swap.")]
     SingleCurrencyIRS,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to Combination of securities-related exposure types.
     /// Encoded/decoded by serializers as "SecuritiesCrossProducts".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRP")]
     [IsoId("_tuzlVfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to Combination of securities-related exposure types.")]
     SecuritiesCrossProducts,
     
     /// <summary>
-    /// ??
+    /// Short Sale broker owned collateral associated with a prime broker agreement
     /// Encoded/decoded by serializers as "BrokerOwnedCollateralShortSale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHBC")]
     [IsoId("_tuzlWPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Short Sale broker owned collateral associated with a prime broker agreement")]
     BrokerOwnedCollateralShortSale,
     
     /// <summary>
-    /// ??
+    /// Short Sale client owned collateral associated with a prime brokerage agreement
     /// Encoded/decoded by serializers as "ClientOwnedCollateralShortSale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHCC")]
     [IsoId("_tuzlW_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Short Sale client owned collateral associated with a prime brokerage agreement")]
     ClientOwnedCollateralShortSale,
     
     /// <summary>
-    /// ??
+    /// Cash Collateral related to a Short Sell
     /// Encoded/decoded by serializers as "ShortSell".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHSL")]
     [IsoId("_tuzlXvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash Collateral related to a Short Sell")]
     ShortSell,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to Securities lending and borrowing.
     /// Encoded/decoded by serializers as "SecuritiesLendingAndBorrowing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLEB")]
     [IsoId("_tu8vQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to Securities lending and borrowing.")]
     SecuritiesLendingAndBorrowing,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to a Secured loan.
     /// Encoded/decoded by serializers as "SecuredLoan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLOA")]
     [IsoId("_tu8vRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to a Secured loan.")]
     SecuredLoan,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payment for swaps associated with an ISDA agreement. . Where such payment is segregated and|not available for use by the client. Includes any cash collateral payments made under the terms of a CSA agreement|for instruments such as swaps and FX forwards.
     /// Encoded/decoded by serializers as "SwapBrokerOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWBC")]
     [IsoId("_tu8vSPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payment for swaps associated with an ISDA agreement. . Where such payment is segregated and|not available for use by the client. Includes any cash collateral payments made under the terms of a CSA agreement|for instruments such as swaps and FX forwards.")]
     SwapBrokerOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payment for swaps associated with an ISDA agreement. Where such payment is not segregated and|is available for use by the client upon return. Includes any cash collateral payments made under the terms of a CSA|agreement for instruments such as swaps and FX forwards.
     /// Encoded/decoded by serializers as "SwapClientOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWCC")]
     [IsoId("_tu8vS_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payment for swaps associated with an ISDA agreement. Where such payment is not segregated and|is available for use by the client upon return. Includes any cash collateral payments made under the terms of a CSA|agreement for instruments such as swaps and FX forwards.")]
     SwapClientOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to an option on interest rate swap.
     /// Encoded/decoded by serializers as "Swaption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPT")]
     [IsoId("_tvGgQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to an option on interest rate swap.")]
     Swaption,
     
     /// <summary>
-    /// ??
+    /// Swaps Broker Owned Segregated Cash Collateral - Any cash payment related to the collateral for Swap margin ,|which is segregated, and not available for use by the client. This includes any collateral identified in a CSA|agreement such as Swap or FX Forward collateral.
     /// Encoded/decoded by serializers as "SwapsBrokerOwnedSegregatedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWSB")]
     [IsoId("_tvGgRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Swaps Broker Owned Segregated Cash Collateral - Any cash payment related to the collateral for Swap margin ,|which is segregated, and not available for use by the client. This includes any collateral identified in a CSA|agreement such as Swap or FX Forward collateral.")]
     SwapsBrokerOwnedSegregatedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Swaps Client Owned Segregated Cash Collateral - Any cash payment related to the collateral for Swap margin,|which is owned by the client and is available for use by the client when returned from the segregated account. This|includes any collateral identified in a CSA agreement such as Swap or FX Forward collateral.
     /// Encoded/decoded by serializers as "SwapsClientOwnedSegregatedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWSC")]
     [IsoId("_tvGgSPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Swaps Client Owned Segregated Cash Collateral - Any cash payment related to the collateral for Swap margin,|which is owned by the client and is available for use by the client when returned from the segregated account. This|includes any collateral identified in a CSA agreement such as Swap or FX Forward collateral.")]
     SwapsClientOwnedSegregatedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to a To Be Announced (TBA)
     /// Encoded/decoded by serializers as "ToBeAnnounced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBAS")]
     [IsoId("_tvGgS_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to a To Be Announced (TBA)")]
     ToBeAnnounced,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payment (segregated) for TBA securities associated with a TBA Master Agreement. Where such payment is segregated and not available for use by the client.
     /// Encoded/decoded by serializers as "TBABrokerOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBBC")]
     [IsoId("_tvGgTvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payment (segregated) for TBA securities associated with a TBA Master Agreement. Where such payment is segregated and not available for use by the client.")]
     TBABrokerOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payment (for use by client)for TBA securities associated with a TBA Master Agreement. Where such payment is not segregated and is available for use by the client upon return.
     /// Encoded/decoded by serializers as "TBAClientOwnedCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBCC")]
     [IsoId("_tvPqMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payment (for use by client)for TBA securities associated with a TBA Master Agreement. Where such payment is not segregated and is available for use by the client upon return.")]
     TBAClientOwnedCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral related to a combination of treasury-related exposure types.
     /// Encoded/decoded by serializers as "TreasuryCrossProduct".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRCP")]
     [IsoId("_tvPqNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral related to a combination of treasury-related exposure types.")]
     TreasuryCrossProduct,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to the agricultural domain.
     /// Encoded/decoded by serializers as "AgriculturalTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGRT")]
     [IsoId("_tvPqOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to the agricultural domain.")]
     AgriculturalTransfer,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment associated with an Account Receivable Entry
     /// Encoded/decoded by serializers as "AccountsReceivablesEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AREN")]
     [IsoId("_tvPqO_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment associated with an Account Receivable Entry")]
     AccountsReceivablesEntry,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of business expenses.
     /// Encoded/decoded by serializers as "BusinessExpenses".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEXP")]
     [IsoId("_tvPqPvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of business expenses.")]
     BusinessExpenses,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment associated with a Back Office Conversion Entry
     /// Encoded/decoded by serializers as "BackOfficeConversionEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOCE")]
     [IsoId("_tvZbMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment associated with a Back Office Conversion Entry")]
     BackOfficeConversionEntry,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit)
     /// Encoded/decoded by serializers as "CommercialPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMC")]
     [IsoId("_tvZbNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit)")]
     CommercialPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of copyright.
     /// Encoded/decoded by serializers as "Copyright".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPYR")]
     [IsoId("_tvZbOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of copyright.")]
     Copyright,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to purchase and sale of goods.
     /// Encoded/decoded by serializers as "PurchaseSaleOfGoods".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GDDS")]
     [IsoId("_tvjMMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to purchase and sale of goods.")]
     PurchaseSaleOfGoods,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to purchase and sale of goods and services.
     /// Encoded/decoded by serializers as "PurchaseSaleOfGoodsAndServices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GDSV")]
     [IsoId("_tvjMNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to purchase and sale of goods and services.")]
     PurchaseSaleOfGoodsAndServices,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to purchase and sale of goods and services with cash back.
     /// Encoded/decoded by serializers as "PurchaseSaleOfGoodsAndServicesWithCashBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GSCB")]
     [IsoId("_tvjMOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to purchase and sale of goods and services with cash back.")]
     PurchaseSaleOfGoodsAndServicesWithCashBack,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of a license fee.
     /// Encoded/decoded by serializers as "LicenseFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LICF")]
     [IsoId("_tvjMO_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of a license fee.")]
     LicenseFee,
     
     /// <summary>
-    /// ??
+    /// A service which enables a user to use an app on its mobile to pay a merchant or other business payees by initiating a payment message. Within this context, the account information or an alias of the payee might be transported through different channels to the app, for example QR Code, NFC, Bluetooth, other Networks.
     /// Encoded/decoded by serializers as "MobileP2BPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MP2B")]
     [IsoId("_tvjMPvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A service which enables a user to use an app on its mobile to pay a merchant or other business payees by initiating a payment message. Within this context, the account information or an alias of the payee might be transported through different channels to the app, for example QR Code, NFC, Bluetooth, other Networks.")]
     MobileP2BPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment associated with a Point of Purchase Entry.
     /// Encoded/decoded by serializers as "PointOfPurchaseEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POPE")]
     [IsoId("_tvsWIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment associated with a Point of Purchase Entry.")]
     PointOfPurchaseEntry,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of royalties.
     /// Encoded/decoded by serializers as "Royalties".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROYA")]
     [IsoId("_tvsWJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of royalties.")]
     Royalties,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to purchase and sale of services.
     /// Encoded/decoded by serializers as "PurchaseSaleOfServices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCVE")]
     [IsoId("_tvsWKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to purchase and sale of services.")]
     PurchaseSaleOfServices,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to service charges charged by a service provider.
     /// Encoded/decoded by serializers as "ServiceCharges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SERV")]
     [IsoId("_tv2HIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to service charges charged by a service provider.")]
     ServiceCharges,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of information or entertainment services either in printed or electronic form.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_tv2HJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of information or entertainment services either in printed or electronic form.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment to a supplier.
     /// Encoded/decoded by serializers as "SupplierPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUPP")]
     [IsoId("_tv2HKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment to a supplier.")]
     SupplierPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a trade services operation.
     /// Encoded/decoded by serializers as "Commercial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_tv2HK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a trade services operation.")]
     Commercial,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for charity reasons.
     /// Encoded/decoded by serializers as "CharityPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_tv_REvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for charity reasons.")]
     CharityPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.
     /// Encoded/decoded by serializers as "ConsumerThirdPartyConsolidatedPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMT")]
     [IsoId("_tv_RFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.")]
     ConsumerThirdPartyConsolidatedPayment,
     
     /// <summary>
-    /// ??
+    /// A service which enables a user to use an app on its mobile to initiate moving funds from his/her bank account to another person’s bank account while not using the account number  but an alias information like an MSISDN as account addressing information in his/her app.
     /// Encoded/decoded by serializers as "MobileP2PPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MP2P")]
     [IsoId("_tv_RGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A service which enables a user to use an app on its mobile to initiate moving funds from his/her bank account to another person’s bank account while not using the account number  but an alias information like an MSISDN as account addressing information in his/her app.")]
     MobileP2PPayment,
     
     /// <summary>
-    /// ??
+    /// E-Commerce payment with payment guarantee of the issuing bank.
     /// Encoded/decoded by serializers as "GuaranteedEPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECPG")]
     [IsoId("_tv_RG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"E-Commerce payment with payment guarantee of the issuing bank.")]
     GuaranteedEPayment,
     
     /// <summary>
-    /// ??
+    /// E-Commerce payment return.
     /// Encoded/decoded by serializers as "EPaymentReturn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECPR")]
     [IsoId("_tv_RHvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"E-Commerce payment return.")]
     EPaymentReturn,
     
     /// <summary>
-    /// ??
+    /// E-Commerce payment without payment guarantee of the issuing bank.
     /// Encoded/decoded by serializers as "NonGuaranteedEPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECPU")]
     [IsoId("_twJCEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"E-Commerce payment without payment guarantee of the issuing bank.")]
     NonGuaranteedEPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to ePayment.
     /// Encoded/decoded by serializers as "Epayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPAY")]
     [IsoId("_twJCFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to ePayment.")]
     Epayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment of car loan principal payment.
     /// Encoded/decoded by serializers as "CarLoanPrincipalRepayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLPR")]
     [IsoId("_twJCGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment of car loan principal payment.")]
     CarLoanPrincipalRepayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to the payment of a compensation relating to interest loss/value date adjustment and can include fees.
     /// Encoded/decoded by serializers as "CompensationPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_twJCG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to the payment of a compensation relating to interest loss/value date adjustment and can include fees.")]
     CompensationPayment,
     
     /// <summary>
-    /// ??
+    /// Collection of funds initiated via a debit transfer.
     /// Encoded/decoded by serializers as "DebitCollectionPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBTC")]
     [IsoId("_twSzEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Collection of funds initiated via a debit transfer.")]
     DebitCollectionPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of government insurance.
     /// Encoded/decoded by serializers as "GovernmentInsurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOVI")]
     [IsoId("_twSzFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of government insurance.")]
     GovernmentInsurance,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of property loan.
     /// Encoded/decoded by serializers as "PropertyLoanRepayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HLRP")]
     [IsoId("_twSzGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of property loan.")]
     PropertyLoanRepayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to the settlement of a property loan.
     /// Encoded/decoded by serializers as "PropertyLoanSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HLST")]
     [IsoId("_twSzG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to the settlement of a property loan.")]
     PropertyLoanSettlement,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment of car insurance premium.
     /// Encoded/decoded by serializers as "InsurancePremiumCar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPC")]
     [IsoId("_twSzHvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment of car insurance premium.")]
     InsurancePremiumCar,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to an insurance premium refund.
     /// Encoded/decoded by serializers as "InsurancePremiumRefund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPR")]
     [IsoId("_twckEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to an insurance premium refund.")]
     InsurancePremiumRefund,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to the payment of an insurance claim.
     /// Encoded/decoded by serializers as "PaymentOfInsuranceClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSC")]
     [IsoId("_twckFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to the payment of an insurance claim.")]
     PaymentOfInsuranceClaim,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of an insurance premium.
     /// Encoded/decoded by serializers as "InsurancePremium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_twckGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of an insurance premium.")]
     InsurancePremium,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of interest.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_twluAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of interest.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment of labor insurance.
     /// Encoded/decoded by serializers as "LaborInsurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LBRI")]
     [IsoId("_twluBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment of labor insurance.")]
     LaborInsurance,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment of life insurance.
     /// Encoded/decoded by serializers as "LifeInsurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIFI")]
     [IsoId("_twluCPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment of life insurance.")]
     LifeInsurance,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to transfer of loan to borrower.
     /// Encoded/decoded by serializers as "Loan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOAN")]
     [IsoId("_twluC_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to transfer of loan to borrower.")]
     Loan,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to repayment of loan to lender.
     /// Encoded/decoded by serializers as "LoanRepayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOAR")]
     [IsoId("_twluDvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to repayment of loan to lender.")]
     LoanRepayment,
     
     /// <summary>
-    /// ??
+    /// Payment based on enforcement orders except those arising from judicial alimony decrees.
     /// Encoded/decoded by serializers as "PaymentBasedOnEnforcementOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENO")]
     [IsoId("_twvfAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment based on enforcement orders except those arising from judicial alimony decrees.")]
     PaymentBasedOnEnforcementOrder,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment of property insurance.
     /// Encoded/decoded by serializers as "PropertyInsurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPTI")]
     [IsoId("_twvfBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment of property insurance.")]
     PropertyInsurance,
     
     /// <summary>
-    /// ??
+    /// Transaction is for general rental/lease.
     /// Encoded/decoded by serializers as "RentalLeaseGeneral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RELG")]
     [IsoId("_twvfCPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is for general rental/lease.")]
     RentalLeaseGeneral,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of a recurring installment made at regular intervals.
     /// Encoded/decoded by serializers as "RecurringInstallmentPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RINP")]
     [IsoId("_twvfC_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of a recurring installment made at regular intervals.")]
     RecurringInstallmentPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of a trust fund.
     /// Encoded/decoded by serializers as "TrustFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRFD")]
     [IsoId("_twvfDvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of a trust fund.")]
     TrustFund,
     
     /// <summary>
-    /// ??
+    /// FX trades with a value date in the future.
     /// Encoded/decoded by serializers as "ForwardForeignExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORW")]
     [IsoId("_tw4o8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FX trades with a value date in the future.")]
     ForwardForeignExchange,
     
     /// <summary>
-    /// ??
+    /// FX netting if cash is moved by separate wire instead of within the closing FX instruction
     /// Encoded/decoded by serializers as "ForeignExchangeRelatedNetting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FXNT")]
     [IsoId("_tw4o9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FX netting if cash is moved by separate wire instead of within the closing FX instruction")]
     ForeignExchangeRelatedNetting,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment associated with administrative management.
     /// Encoded/decoded by serializers as "AdministrativeManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADMG")]
     [IsoId("_tw4o-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment associated with administrative management.")]
     AdministrativeManagement,
     
     /// <summary>
-    /// ??
+    /// Transaction is an advance payment.
     /// Encoded/decoded by serializers as "AdvancePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVA")]
     [IsoId("_tw4o-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is an advance payment.")]
     AdvancePayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a domestic bearer cheque.
     /// Encoded/decoded by serializers as "BearerChequeDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCDM")]
     [IsoId("_tw4o_vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a domestic bearer cheque.")]
     BearerChequeDomestic,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a foreign bearer cheque.
     /// Encoded/decoded by serializers as "BearerChequeForeign".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCFG")]
     [IsoId("_txCZ8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a foreign bearer cheque.")]
     BearerChequeForeign,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment associated with building maintenance.
     /// Encoded/decoded by serializers as "BuildingMaintenance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLDM")]
     [IsoId("_txCZ9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment associated with building maintenance.")]
     BuildingMaintenance,
     
     /// <summary>
-    /// ??
+    /// Bond Forward pair-off cash net movement
     /// Encoded/decoded by serializers as "BondForwardNetting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BNET")]
     [IsoId("_txCZ-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bond Forward pair-off cash net movement")]
     BondForwardNetting,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to capital building fringe fortune, ie capital building in general
     /// Encoded/decoded by serializers as "CapitalBuilding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBFF")]
     [IsoId("_txMK8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to capital building fringe fortune, ie capital building in general")]
     CapitalBuilding,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to capital building fringe fortune for retirement
     /// Encoded/decoded by serializers as "CapitalBuildingRetirement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBFR")]
     [IsoId("_txMK9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to capital building fringe fortune for retirement")]
     CapitalBuildingRetirement,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of credit card account.
     /// Encoded/decoded by serializers as "CreditCardPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCRD")]
     [IsoId("_txMK-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of credit card account.")]
     CreditCardPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of credit card bill.
     /// Encoded/decoded by serializers as "CreditCardBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDBL")]
     [IsoId("_txMK-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of credit card bill.")]
     CreditCardBill,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of cancellation fee.
     /// Encoded/decoded by serializers as "CancellationFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFEE")]
     [IsoId("_txMK_vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of cancellation fee.")]
     CancellationFee,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a direct debit where the mandate was generated by using data from a payment card at the point of sale.
     /// Encoded/decoded by serializers as "CardGeneratedDirectDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CGDD")]
     [IsoId("_txVU4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a direct debit where the mandate was generated by using data from a payment card at the point of sale.")]
     CardGeneratedDirectDebit,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to settlement of a trade, e.g. a foreign exchange deal or a securities transaction.
     /// Encoded/decoded by serializers as "TradeSettlementPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORT")]
     [IsoId("_txVU5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to settlement of a trade, e.g. a foreign exchange deal or a securities transaction.")]
     TradeSettlementPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to payment of costs.
     /// Encoded/decoded by serializers as "Costs".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COST")]
     [IsoId("_txVU6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to payment of costs.")]
     Costs,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to carpark charges.
     /// Encoded/decoded by serializers as "CarparkCharges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPKC")]
     [IsoId("_txfF4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to carpark charges.")]
     CarparkCharges,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a debit card payment.
     /// Encoded/decoded by serializers as "DebitCardPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCRD")]
     [IsoId("_txfF5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a debit card payment.")]
     DebitCardPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a disbursement due to a specific type of printed order for a payment of a  specified sum, issued by a bank or a post office (Zahlungsanweisung zur Verrechnung)
     /// Encoded/decoded by serializers as "PrintedOrderDisbursement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSMT")]
     [IsoId("_txfF6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a disbursement due to a specific type of printed order for a payment of a  specified sum, issued by a bank or a post office (Zahlungsanweisung zur Verrechnung)")]
     PrintedOrderDisbursement,
     
     /// <summary>
-    /// ??
+    /// Code used to pre-advise the account servicer of a forthcoming deliver against payment instruction.
     /// Encoded/decoded by serializers as "DeliverAgainstPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVPM")]
     [IsoId("_txfF6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Code used to pre-advise the account servicer of a forthcoming deliver against payment instruction.")]
     DeliverAgainstPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of study/tuition fees.
     /// Encoded/decoded by serializers as "Education".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDUC")]
     [IsoId("_txfF7vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of study/tuition fees.")]
     Education,
     
     /// <summary>
-    /// ??
+    /// Payment related to a factor update
     /// Encoded/decoded by serializers as "FactorUpdateRelatedPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FACT")]
     [IsoId("_txo24vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment related to a factor update")]
     FactorUpdateRelatedPayment,
     
     /// <summary>
-    /// ??
+    /// Financial aid by State authorities for abolition of consequences of natural disasters.
     /// Encoded/decoded by serializers as "FinancialAidInCaseOfNaturalDisaster".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAND")]
     [IsoId("_txo25fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Financial aid by State authorities for abolition of consequences of natural disasters.")]
     FinancialAidInCaseOfNaturalDisaster,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment for late fees & charges. E.g Credit card charges
     /// Encoded/decoded by serializers as "LatePaymentOfFeesAndCharges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCPM")]
     [IsoId("_txo26PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment for late fees & charges. E.g Credit card charges")]
     LatePaymentOfFeesAndCharges,
     
     /// <summary>
-    /// ??
+    /// Payment of fees/charges.
     /// Encoded/decoded by serializers as "PaymentOfFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEES")]
     [IsoId("_txo26_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment of fees/charges.")]
     PaymentOfFees,
     
     /// <summary>
-    /// ??
+    /// Payment with no commercial or statutory purpose.
     /// Encoded/decoded by serializers as "Gift".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIFT")]
     [IsoId("_txo27vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment with no commercial or statutory purpose.")]
     Gift,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment to or from a government department.
     /// Encoded/decoded by serializers as "GovernmentPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOVT")]
     [IsoId("_txyA0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment to or from a government department.")]
     GovernmentPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is reimbursement of credit card payment.
     /// Encoded/decoded by serializers as "IrrevocableCreditCardPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCP")]
     [IsoId("_txyA1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is reimbursement of credit card payment.")]
     IrrevocableCreditCardPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is reimbursement of debit card payment.
     /// Encoded/decoded by serializers as "IrrevocableDebitCardPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDCP")]
     [IsoId("_txyA2PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is reimbursement of debit card payment.")]
     IrrevocableDebitCardPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment for an installment/hire-purchase agreement.
     /// Encoded/decoded by serializers as "InstalmentHirePurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IHRP")]
     [IsoId("_txyA2_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment for an installment/hire-purchase agreement.")]
     InstalmentHirePurchaseAgreement,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of an installment.
     /// Encoded/decoded by serializers as "Installment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSM")]
     [IsoId("_txyA3vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of an installment.")]
     Installment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment for invoices.
     /// Encoded/decoded by serializers as "InvoicePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IVPT")]
     [IsoId("_tx7x0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment for invoices.")]
     InvoicePayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a domestic multi-currency cheque
     /// Encoded/decoded by serializers as "MultiCurrenyChequeDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCDM")]
     [IsoId("_tx7x1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a domestic multi-currency cheque")]
     MultiCurrenyChequeDomestic,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a foreign multi-currency cheque
     /// Encoded/decoded by serializers as "MultiCurrenyChequeForeign".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCFG")]
     [IsoId("_tyE7wvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a foreign multi-currency cheque")]
     MultiCurrenyChequeForeign,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment for multiple service types.
     /// Encoded/decoded by serializers as "MultipleServiceTypes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSVC")]
     [IsoId("_tyE7xfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment for multiple service types.")]
     MultipleServiceTypes,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment for type of services not specified elsewhere.
     /// Encoded/decoded by serializers as "NotOtherwiseSpecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOWS")]
     [IsoId("_tyE7yPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment for type of services not specified elsewhere.")]
     NotOtherwiseSpecified,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a domestic order cheque
     /// Encoded/decoded by serializers as "OrderChequeDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCDM")]
     [IsoId("_tyE7y_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a domestic order cheque")]
     OrderChequeDomestic,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a foreign order cheque
     /// Encoded/decoded by serializers as "OrderChequeForeign".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCFG")]
     [IsoId("_tyE7zvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a foreign order cheque")]
     OrderChequeForeign,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of opening fee.
     /// Encoded/decoded by serializers as "OpeningFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFEE")]
     [IsoId("_tyOswvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of opening fee.")]
     OpeningFee,
     
     /// <summary>
-    /// ??
+    /// Other payment purpose.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_tyOsxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Other payment purpose.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a pre-authorized debit origination
     /// Encoded/decoded by serializers as "PreauthorizedDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PADD")]
     [IsoId("_tyYdwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a pre-authorized debit origination")]
     PreauthorizedDebit,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to payment terms specifications
     /// Encoded/decoded by serializers as "PaymentTerms".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTSP")]
     [IsoId("_tyYdxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to payment terms specifications")]
     PaymentTerms,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment associated with a re-presented check entry
     /// Encoded/decoded by serializers as "RepresentedCheckEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCKE")]
     [IsoId("_tyhnsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment associated with a re-presented check entry")]
     RepresentedCheckEntry,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of receipt.
     /// Encoded/decoded by serializers as "ReceiptPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCPT")]
     [IsoId("_tyhntfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of receipt.")]
     ReceiptPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a rebate.
     /// Encoded/decoded by serializers as "Rebate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REBT")]
     [IsoId("_tyhnuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a rebate.")]
     Rebate,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a refund.
     /// Encoded/decoded by serializers as "Refund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFU")]
     [IsoId("_tyhnu_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a refund.")]
     Refund,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of rent.
     /// Encoded/decoded by serializers as "Rent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RENT")]
     [IsoId("_tyrYsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of rent.")]
     Rent,
     
     /// <summary>
-    /// ??
+    /// Transaction is for account overdraft repayment
     /// Encoded/decoded by serializers as "AccountOverdraftRepayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REOD")]
     [IsoId("_tyrYtfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is for account overdraft repayment")]
     AccountOverdraftRepayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a reimbursement of a previous erroneous transaction.
     /// Encoded/decoded by serializers as "ReimbursementOfAPreviousErroneousTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RIMB")]
     [IsoId("_ty1JsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a reimbursement of a previous erroneous transaction.")]
     ReimbursementOfAPreviousErroneousTransaction,
     
     /// <summary>
-    /// ??
+    /// Bi-lateral repo interest net/bulk payment at rollover/pair-off or other closing scenarios where applicable
     /// Encoded/decoded by serializers as "BilateralRepoInternetNetting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPNT")]
     [IsoId("_ty1JtfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bi-lateral repo interest net/bulk payment at rollover/pair-off or other closing scenarios where applicable")]
     BilateralRepoInternetNetting,
     
     /// <summary>
-    /// ??
+    /// Cash payment resulting from a Round Robin
     /// Encoded/decoded by serializers as "RoundRobin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRBN")]
     [IsoId("_ty1JuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash payment resulting from a Round Robin")]
     RoundRobin,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a reimbursement for commercial reasons of a correctly received credit transfer.
     /// Encoded/decoded by serializers as "ReimbursementReceivedCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRCT")]
     [IsoId("_ty-TovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a reimbursement for commercial reasons of a correctly received credit transfer.")]
     ReimbursementReceivedCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a Request to Pay.
     /// Encoded/decoded by serializers as "RelatedRequestToPay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRTP")]
     [IsoId("_ty-TpfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a Request to Pay.")]
     RelatedRequestToPay,
     
     /// <summary>
-    /// ??
+    /// Code used to pre-advise the account servicer of a forthcoming receive against payment instruction.
     /// Encoded/decoded by serializers as "ReceiveAgainstPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVPM")]
     [IsoId("_tzIEovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Code used to pre-advise the account servicer of a forthcoming receive against payment instruction.")]
     ReceiveAgainstPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of a well formatted payment slip.
     /// Encoded/decoded by serializers as "PaymentSlipInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLPI")]
     [IsoId("_tzIEpfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of a well formatted payment slip.")]
     PaymentSlipInstruction,
     
     /// <summary>
-    /// ??
+    /// Split payments. To be used when cash and security movements for a security trade settlement are instructed|separately.
     /// Encoded/decoded by serializers as "SplitPayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLT")]
     [IsoId("_tzIEqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Split payments. To be used when cash and security movements for a security trade settlement are instructed|separately.")]
     SplitPayments,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of study/tuition costs.
     /// Encoded/decoded by serializers as "Study".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STDY")]
     [IsoId("_tzIEq_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of study/tuition costs.")]
     Study,
     
     /// <summary>
-    /// ??
+    /// TBA pair-off cash wire net movement
     /// Encoded/decoded by serializers as "TBAPairOffNetting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBAN")]
     [IsoId("_tzROkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"TBA pair-off cash wire net movement")]
     TBAPairOffNetting,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of telecommunications related bill.
     /// Encoded/decoded by serializers as "TelecommunicationsBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBIL")]
     [IsoId("_tzROlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of telecommunications related bill.")]
     TelecommunicationsBill,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment associated with charges levied by a town council.
     /// Encoded/decoded by serializers as "TownCouncilServiceCharges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TCSC")]
     [IsoId("_tzROmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment associated with charges levied by a town council.")]
     TownCouncilServiceCharges,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment initiated via telephone.
     /// Encoded/decoded by serializers as "TelephoneInitiatedTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELI")]
     [IsoId("_tzROm_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment initiated via telephone.")]
     TelephoneInitiatedTransaction,
     
     /// <summary>
-    /// ??
+    /// Cash payment resulting from a TMPG Claim
     /// Encoded/decoded by serializers as "TMPGClaimPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMPG")]
     [IsoId("_tzROnvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash payment resulting from a TMPG Claim")]
     TMPGClaimPayment,
     
     /// <summary>
-    /// ??
+    /// Tri-Party Repo related interest
     /// Encoded/decoded by serializers as "TriPartyRepoInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TPRI")]
     [IsoId("_tza_kvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tri-Party Repo related interest")]
     TriPartyRepoInterest,
     
     /// <summary>
-    /// ??
+    /// Tri-party Repo related net gain/loss cash movement
     /// Encoded/decoded by serializers as "TriPartyRepoNetting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TPRP")]
     [IsoId("_tza_lfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tri-party Repo related net gain/loss cash movement")]
     TriPartyRepoNetting,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of a beneficiary prefilled payment slip where beneficiary to payer information is truncated.
     /// Encoded/decoded by serializers as "TruncatedPaymentSlip".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRNC")]
     [IsoId("_tzkwkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of a beneficiary prefilled payment slip where beneficiary to payer information is truncated.")]
     TruncatedPaymentSlip,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a travellers cheque
     /// Encoded/decoded by serializers as "TravellerCheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRVC")]
     [IsoId("_tzkwlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a travellers cheque")]
     TravellerCheque,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment initiated via internet.
     /// Encoded/decoded by serializers as "InternetInitiatedTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEBI")]
     [IsoId("_tzkwmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment initiated via internet.")]
     InternetInitiatedTransaction,
     
     /// <summary>
-    /// ??
+    /// Transaction in which the amount is available to the payee immediately.
     /// Encoded/decoded by serializers as "InstantPayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPAY")]
     [IsoId("_tzkwm_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction in which the amount is available to the payee immediately.")]
     InstantPayments,
     
     /// <summary>
-    /// ??
+    /// Transaction in which the Return of the amount is fully returned.
     /// Encoded/decoded by serializers as "InstantPaymentsCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPCA")]
     [IsoId("_tzt6gvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction in which the Return of the amount is fully returned.")]
     InstantPaymentsCancellation,
     
     /// <summary>
-    /// ??
+    /// Transaction in which the amount is available to the payee immediately, done for donations, with sending the address data of the payer.
     /// Encoded/decoded by serializers as "InstantPaymentsForDonations".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPDO")]
     [IsoId("_tzt6hfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction in which the amount is available to the payee immediately, done for donations, with sending the address data of the payer.")]
     InstantPaymentsForDonations,
     
     /// <summary>
-    /// ??
+    /// Transaction in which the amount is available to the payee immediately, done in E-commerce, without sending the address data of the payer.
     /// Encoded/decoded by serializers as "InstantPaymentsInECommerceWithoutAddressData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPEA")]
     [IsoId("_tzt6iPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction in which the amount is available to the payee immediately, done in E-commerce, without sending the address data of the payer.")]
     InstantPaymentsInECommerceWithoutAddressData,
     
     /// <summary>
-    /// ??
+    /// Transaction in which the amount is available to the payee immediately, done in E-commerce, with sending the address data of the payer.
     /// Encoded/decoded by serializers as "InstantPaymentsInECommerceWithAddressData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPEC")]
     [IsoId("_tzt6i_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction in which the amount is available to the payee immediately, done in E-commerce, with sending the address data of the payer.")]
     InstantPaymentsInECommerceWithAddressData,
     
     /// <summary>
-    /// ??
+    /// Transaction in which the amount is available to the payee immediately, done in E-commerce.
     /// Encoded/decoded by serializers as "InstantPaymentsInECommerce".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPEW")]
     [IsoId("_tzt6jvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction in which the amount is available to the payee immediately, done in E-commerce.")]
     InstantPaymentsInECommerce,
     
     /// <summary>
-    /// ??
+    /// Transaction in which the amount is available to the payee immediately, done at POS.
     /// Encoded/decoded by serializers as "InstantPaymentsAtPOS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPPS")]
     [IsoId("_tz3rgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction in which the amount is available to the payee immediately, done at POS.")]
     InstantPaymentsAtPOS,
     
     /// <summary>
-    /// ??
+    /// Transaction in which the Return of the amount is fully or partial returned.
     /// Encoded/decoded by serializers as "InstantPaymentsReturn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPRT")]
     [IsoId("_tz3rhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction in which the Return of the amount is fully or partial returned.")]
     InstantPaymentsReturn,
     
     /// <summary>
-    /// ??
+    /// Transaction is made via an unattending vending machine by using 2-factor-authentification.
     /// Encoded/decoded by serializers as "InstantPaymentsUnattendedVendingMachineWith2FA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPU2")]
     [IsoId("_tz3riPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is made via an unattending vending machine by using 2-factor-authentification.")]
     InstantPaymentsUnattendedVendingMachineWith2FA,
     
     /// <summary>
-    /// ??
+    /// Transaction is made via an unattending vending machine by without using 2-factor-authentification.
     /// Encoded/decoded by serializers as "InstantPaymentsUnattendedVendingMachineWithout2FA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPUW")]
     [IsoId("_tz3ri_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is made via an unattending vending machine by without using 2-factor-authentification.")]
     InstantPaymentsUnattendedVendingMachineWithout2FA,
     
     /// <summary>
-    /// ??
+    /// Transaction settles annuity related to credit, insurance, investments, other.n
     /// Encoded/decoded by serializers as "Annuity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANNI")]
     [IsoId("_tz3rjvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction settles annuity related to credit, insurance, investments, other.n")]
     Annuity,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of custodian account management fee where custodian bank and current account servicing bank coincide
     /// Encoded/decoded by serializers as "CustodianManagementFeeInhouse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAFI")]
     [IsoId("_t0BcgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of custodian account management fee where custodian bank and current account servicing bank coincide")]
     CustodianManagementFeeInhouse,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of capital falling due where custodian bank and current account servicing bank coincide
     /// Encoded/decoded by serializers as "CapitalFallingDueInhouse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFDI")]
     [IsoId("_t0BchfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of capital falling due where custodian bank and current account servicing bank coincide")]
     CapitalFallingDueInhouse,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of commodities.
     /// Encoded/decoded by serializers as "CommodityTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMDT")]
     [IsoId("_t0KmcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of commodities.")]
     CommodityTransfer,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a derivatives transaction
     /// Encoded/decoded by serializers as "Derivatives".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERI")]
     [IsoId("_t0KmdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a derivatives transaction")]
     Derivatives,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of dividends.
     /// Encoded/decoded by serializers as "Dividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVD")]
     [IsoId("_t0KmePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of dividends.")]
     Dividend,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a foreign exchange operation.
     /// Encoded/decoded by serializers as "ForeignExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREX")]
     [IsoId("_t0Kme_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a foreign exchange operation.")]
     ForeignExchange,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a hedging operation.
     /// Encoded/decoded by serializers as "Hedging".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HEDG")]
     [IsoId("_t0UXcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a hedging operation.")]
     Hedging,
     
     /// <summary>
-    /// ??
+    /// Transaction is for the payment of mutual funds, investment products and shares
     /// Encoded/decoded by serializers as "InvestmentAndSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVS")]
     [IsoId("_t0UXdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is for the payment of mutual funds, investment products and shares")]
     InvestmentAndSecurities,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a precious metal operation.
     /// Encoded/decoded by serializers as "PreciousMetal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRME")]
     [IsoId("_t0dhYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a precious metal operation.")]
     PreciousMetal,
     
     /// <summary>
-    /// ??
+    /// Transfer to savings/retirement account.
     /// Encoded/decoded by serializers as "Savings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAVG")]
     [IsoId("_t0dhZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transfer to savings/retirement account.")]
     Savings,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_t0dhaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of securities.")]
     Securities,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of a purchase of securities where custodian bank and current account servicing bank coincide
     /// Encoded/decoded by serializers as "SecuritiesPurchaseInhouse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEPI")]
     [IsoId("_t0nSYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of a purchase of securities where custodian bank and current account servicing bank coincide")]
     SecuritiesPurchaseInhouse,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to treasury operations.
     /// Encoded/decoded by serializers as "TreasuryPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TREA")]
     [IsoId("_t0nSZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to treasury operations.")]
     TreasuryPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is purchase of Unit Trust
     /// Encoded/decoded by serializers as "UnitTrustPurchase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIT")]
     [IsoId("_t0nSaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is purchase of Unit Trust")]
     UnitTrustPurchase,
     
     /// <summary>
-    /// ??
+    /// Cash associated with a netting of futures payments. Refer to CCPM codeword for netting of initial and variation margin through a CCP
     /// Encoded/decoded by serializers as "FuturesNettingPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNET")]
     [IsoId("_t0nSa_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash associated with a netting of futures payments. Refer to CCPM codeword for netting of initial and variation margin through a CCP")]
     FuturesNettingPayment,
     
     /// <summary>
-    /// ??
+    /// Cash related to futures trading activity.
     /// Encoded/decoded by serializers as "Futures".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUTR")]
     [IsoId("_t0xDYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash related to futures trading activity.")]
     Futures,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for anesthesia services.
     /// Encoded/decoded by serializers as "AnesthesiaServices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANTS")]
     [IsoId("_t0xDZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for anesthesia services.")]
     AnesthesiaServices,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for convalescence care facility services.
     /// Encoded/decoded by serializers as "ConvalescentCareFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CVCF")]
     [IsoId("_t0xDaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for convalescence care facility services.")]
     ConvalescentCareFacility,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment is for use of durable medical equipment.
     /// Encoded/decoded by serializers as "DurableMedicaleEquipment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DMEQ")]
     [IsoId("_t0xDa_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment is for use of durable medical equipment.")]
     DurableMedicaleEquipment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for dental services.
     /// Encoded/decoded by serializers as "DentalServices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DNTS")]
     [IsoId("_t0xDbvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for dental services.")]
     DentalServices,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for home health care services.
     /// Encoded/decoded by serializers as "HomeHealthCare".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HLTC")]
     [IsoId("_t06NUvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for home health care services.")]
     HomeHealthCare,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment of health insurance.
     /// Encoded/decoded by serializers as "HealthInsurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HLTI")]
     [IsoId("_t06NVfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment of health insurance.")]
     HealthInsurance,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for hospital care services.
     /// Encoded/decoded by serializers as "HospitalCare".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HSPC")]
     [IsoId("_t06NWPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for hospital care services.")]
     HospitalCare,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for intermediate care facility services.
     /// Encoded/decoded by serializers as "IntermediateCareFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICRF")]
     [IsoId("_t1D-UvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for intermediate care facility services.")]
     IntermediateCareFacility,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for long-term care facility services.
     /// Encoded/decoded by serializers as "LongTermCareFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTCF")]
     [IsoId("_t1D-VfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for long-term care facility services.")]
     LongTermCareFacility,
     
     /// <summary>
-    /// ??
+    /// Transaction is contribution to medical aid fund.
     /// Encoded/decoded by serializers as "MedicalAidFundContribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAFC")]
     [IsoId("_t1NvUvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is contribution to medical aid fund.")]
     MedicalAidFundContribution,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a medical aid refund.
     /// Encoded/decoded by serializers as "MedicalAidRefund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARF")]
     [IsoId("_t1NvVfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a medical aid refund.")]
     MedicalAidRefund,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for medical care services.
     /// Encoded/decoded by serializers as "MedicalServices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDCS")]
     [IsoId("_t1NvWPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for medical care services.")]
     MedicalServices,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for vision care services.
     /// Encoded/decoded by serializers as "VisionCare".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VIEW")]
     [IsoId("_t1W5QvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for vision care services.")]
     VisionCare,
     
     /// <summary>
-    /// ??
+    /// Payment related to a credit default event
     /// Encoded/decoded by serializers as "CreditDefaultEventPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDEP")]
     [IsoId("_t1W5RfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment related to a credit default event")]
     CreditDefaultEventPayment,
     
     /// <summary>
-    /// ??
+    /// Final payments for a swap contract
     /// Encoded/decoded by serializers as "SwapContractFinalPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWFP")]
     [IsoId("_t1W5SPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Final payments for a swap contract")]
     SwapContractFinalPayment,
     
     /// <summary>
-    /// ??
+    /// Partial payment for a swap contract
     /// Encoded/decoded by serializers as "SwapContractPartialPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPP")]
     [IsoId("_t1W5S_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Partial payment for a swap contract")]
     SwapContractPartialPayment,
     
     /// <summary>
-    /// ??
+    /// Reset payment for a swap contract
     /// Encoded/decoded by serializers as "SwapContractResetPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWRS")]
     [IsoId("_t1W5TvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Reset payment for a swap contract")]
     SwapContractResetPayment,
     
     /// <summary>
-    /// ??
+    /// Upfront payment for a swap contract
     /// Encoded/decoded by serializers as "SwapContractUpfrontPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWUF")]
     [IsoId("_t1gqQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Upfront payment for a swap contract")]
     SwapContractUpfrontPayment,
     
     /// <summary>
-    /// ??
+    /// Payments for donation, sponsorship, advisory, intellectual and other copyright services.
     /// Encoded/decoded by serializers as "AdvisoryDonationCopyrightServices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADCS")]
     [IsoId("_t1gqRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payments for donation, sponsorship, advisory, intellectual and other copyright services.")]
     AdvisoryDonationCopyrightServices,
     
     /// <summary>
-    /// ??
+    /// Payment concerning active employment policy.
     /// Encoded/decoded by serializers as "ActiveEmploymentPolicy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AEMP")]
     [IsoId("_t1gqSPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment concerning active employment policy.")]
     ActiveEmploymentPolicy,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of allowances.
     /// Encoded/decoded by serializers as "Allowance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLW")]
     [IsoId("_t1gqS_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of allowances.")]
     Allowance,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of alimony.
     /// Encoded/decoded by serializers as "AlimonyPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALMY")]
     [IsoId("_t1p0MvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of alimony.")]
     AlimonyPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment made as incentive to encourage parents to have more children
     /// Encoded/decoded by serializers as "BabyBonusScheme".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BBSC")]
     [IsoId("_t1p0NfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment made as incentive to encourage parents to have more children")]
     BabyBonusScheme,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment made to assist parent/guardian to maintain child.
     /// Encoded/decoded by serializers as "ChildBenefit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BECH")]
     [IsoId("_t1p0OPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment made to assist parent/guardian to maintain child.")]
     ChildBenefit,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment to a person who is unemployed/disabled.
     /// Encoded/decoded by serializers as "UnemploymentDisabilityBenefit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BENE")]
     [IsoId("_t1p0O_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment to a person who is unemployed/disabled.")]
     UnemploymentDisabilityBenefit,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to payment of a bonus.
     /// Encoded/decoded by serializers as "BonusPayment.".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BONU")]
     [IsoId("_t1zlMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to payment of a bonus.")]
     BonusPayment,
     
     /// <summary>
-    /// ??
+    /// Payments made by Government institute related to cash compensation, helplessness, disability. These payments are made by the Government institution as a social benefit in addition to regularly paid salary or pension.
     /// Encoded/decoded by serializers as "CashCompensationHelplessnessDisability".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCHD")]
     [IsoId("_t1zlNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payments made by Government institute related to cash compensation, helplessness, disability. These payments are made by the Government institution as a social benefit in addition to regularly paid salary or pension.")]
     CashCompensationHelplessnessDisability,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment of commission.
     /// Encoded/decoded by serializers as "Commission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_t1zlOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment of commission.")]
     Commission,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment by a company to a bank for financing social loans to employees.
     /// Encoded/decoded by serializers as "CompanySocialLoanPaymentToBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSLP")]
     [IsoId("_t1zlO_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment by a company to a bank for financing social loans to employees.")]
     CompanySocialLoanPaymentToBank,
     
     /// <summary>
-    /// ??
+    /// Compensation to unemployed persons during insolvency procedures.
     /// Encoded/decoded by serializers as "GuaranteeFundRightsPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GFRP")]
     [IsoId("_t19WMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Compensation to unemployed persons during insolvency procedures.")]
     GuaranteeFundRightsPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment to category A Austrian government employees.
     /// Encoded/decoded by serializers as "AustrianGovernmentEmployeesCategoryA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GVEA")]
     [IsoId("_t19WNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment to category A Austrian government employees.")]
     AustrianGovernmentEmployeesCategoryA,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment to category B Austrian government employees.
     /// Encoded/decoded by serializers as "AustrianGovernmentEmployeesCategoryB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GVEB")]
     [IsoId("_t19WOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment to category B Austrian government employees.")]
     AustrianGovernmentEmployeesCategoryB,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment to category C Austrian government employees.
     /// Encoded/decoded by serializers as "AustrianGovernmentEmployeesCategoryC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GVEC")]
     [IsoId("_t19WO_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment to category C Austrian government employees.")]
     AustrianGovernmentEmployeesCategoryC,
     
     /// <summary>
-    /// ??
+    /// Transaction is payment to category D Austrian government employees.
     /// Encoded/decoded by serializers as "AustrianGovernmentEmployeesCategoryD".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GVED")]
     [IsoId("_t2GgIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is payment to category D Austrian government employees.")]
     AustrianGovernmentEmployeesCategoryD,
     
     /// <summary>
-    /// ??
+    /// Payment to victims of war violence and to disabled soldiers.
     /// Encoded/decoded by serializers as "GovermentWarLegislationTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GWLT")]
     [IsoId("_t2GgJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment to victims of war violence and to disabled soldiers.")]
     GovermentWarLegislationTransfer,
     
     /// <summary>
-    /// ??
+    /// Transaction is a contribution by an employer to the housing expenditures (purchase, construction, renovation) of the employees within a tax free fringe benefit system 
     /// Encoded/decoded by serializers as "HousingRelatedContribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HREC")]
     [IsoId("_t2GgKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a contribution by an employer to the housing expenditures (purchase, construction, renovation) of the employees within a tax free fringe benefit system ")]
     HousingRelatedContribution,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to the payment of payroll.
     /// Encoded/decoded by serializers as "Payroll".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYR")]
     [IsoId("_t2GgK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to the payment of payroll.")]
     Payroll,
     
     /// <summary>
-    /// ??
+    /// Transaction is contribution to pension fund.
     /// Encoded/decoded by serializers as "PensionFundContribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEFC")]
     [IsoId("_t2GgLvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is contribution to pension fund.")]
     PensionFundContribution,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of pension.
     /// Encoded/decoded by serializers as "PensionPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENS")]
     [IsoId("_t2QRIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of pension.")]
     PensionPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of a price.
     /// Encoded/decoded by serializers as "PricePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCP")]
     [IsoId("_t2QRJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of a price.")]
     PricePayment,
     
     /// <summary>
-    /// ??
+    /// Benefit for the duration of occupational rehabilitation.
     /// Encoded/decoded by serializers as "RehabilitationSupport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RHBS")]
     [IsoId("_t2ZbEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Benefit for the duration of occupational rehabilitation.")]
     RehabilitationSupport,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of salaries.
     /// Encoded/decoded by serializers as "SalaryPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SALA")]
     [IsoId("_t2ZbFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of salaries.")]
     SalaryPayment,
     
     /// <summary>
-    /// ??
+    /// Salary or pension payment for more months in one amount or a delayed payment of salaries or pensions.
     /// Encoded/decoded by serializers as "SalaryPensionSumPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPSP")]
     [IsoId("_t2jMEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Salary or pension payment for more months in one amount or a delayed payment of salaries or pensions.")]
     SalaryPensionSumPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a social security benefit, ie payment made by a government to support individuals.
     /// Encoded/decoded by serializers as "SocialSecurityBenefit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSBE")]
     [IsoId("_t2jMFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a social security benefit, ie payment made by a government to support individuals.")]
     SocialSecurityBenefit,
     
     /// <summary>
-    /// ??
+    /// Net payment related to a buy-in. When an investment manager is bought in on a sell trade that fails due to a failed securities lending recall, the IM may seize the underlying collateral to pay for the buy-in. Any difference between the value of the collateral and the sell proceeds would be paid or received under this code
     /// Encoded/decoded by serializers as "LendingBuyInNetting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LBIN")]
     [IsoId("_t2jMGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Net payment related to a buy-in. When an investment manager is bought in on a sell trade that fails due to a failed securities lending recall, the IM may seize the underlying collateral to pay for the buy-in. Any difference between the value of the collateral and the sell proceeds would be paid or received under this code")]
     LendingBuyInNetting,
     
     /// <summary>
-    /// ??
+    /// Free movement of cash collateral. Cash collateral paid by the borrower is done separately from the delivery of the shares at loan opening or return of collateral done separately from return of the loaned security. Note: common when the currency of the security is different the currency of the cash collateral.
     /// Encoded/decoded by serializers as "LendingCashCollateralFreeMovement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LCOL")]
     [IsoId("_t2s9EvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Free movement of cash collateral. Cash collateral paid by the borrower is done separately from the delivery of the shares at loan opening or return of collateral done separately from return of the loaned security. Note: common when the currency of the security is different the currency of the cash collateral.")]
     LendingCashCollateralFreeMovement,
     
     /// <summary>
-    /// ??
+    /// Fee payments, other than rebates, for securities lending. Includes (a) exclusive fees; (b) transaction fees; (c)|custodian fees; (d) minimum balance fees
     /// Encoded/decoded by serializers as "LendingFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LFEE")]
     [IsoId("_t2s9FfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Fee payments, other than rebates, for securities lending. Includes (a) exclusive fees; (b) transaction fees; (c)|custodian fees; (d) minimum balance fees")]
     LendingFees,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payments resulting from the marked-to-market of a portfolio of loaned equity securities
     /// Encoded/decoded by serializers as "LendingEquityMarkedToMarketCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LMEQ")]
     [IsoId("_t2s9GPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payments resulting from the marked-to-market of a portfolio of loaned equity securities")]
     LendingEquityMarkedToMarketCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payments resulting from the marked-to-market of a portfolio of loaned fixed income securities
     /// Encoded/decoded by serializers as "LendingFixedIncomeMarkedToMarketCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LMFI")]
     [IsoId("_t2s9G_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payments resulting from the marked-to-market of a portfolio of loaned fixed income securities")]
     LendingFixedIncomeMarkedToMarketCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Cash collateral payments resulting from the marked-to-market of a portfolio of loaned securities where the instrument|types are not specified
     /// Encoded/decoded by serializers as "LendingUnspecifiedTypeOfMarkedToMarketCashCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LMRK")]
     [IsoId("_t2s9HvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash collateral payments resulting from the marked-to-market of a portfolio of loaned securities where the instrument|types are not specified")]
     LendingUnspecifiedTypeOfMarkedToMarketCashCollateral,
     
     /// <summary>
-    /// ??
+    /// Securities lending rebate payments
     /// Encoded/decoded by serializers as "LendingRebatePayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LREB")]
     [IsoId("_t22HAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Securities lending rebate payments")]
     LendingRebatePayments,
     
     /// <summary>
-    /// ??
+    /// Revenue payments made by the lending agent to the client
     /// Encoded/decoded by serializers as "LendingRevenuePayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LREV")]
     [IsoId("_t22HBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Revenue payments made by the lending agent to the client")]
     LendingRevenuePayments,
     
     /// <summary>
-    /// ??
+    /// Payments made by a borrower to a lending agent to satisfy claims made by the investment manager related to sell fails from late loan recall deliveries
     /// Encoded/decoded by serializers as "LendingClaimPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LSFL")]
     [IsoId("_t22HCPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payments made by a borrower to a lending agent to satisfy claims made by the investment manager related to sell fails from late loan recall deliveries")]
     LendingClaimPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of estate tax.
     /// Encoded/decoded by serializers as "EstateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTX")]
     [IsoId("_t22HC_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of estate tax.")]
     EstateTax,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of Foreign Worker Levy
     /// Encoded/decoded by serializers as "ForeignWorkerLevy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWLV")]
     [IsoId("_t2_4AvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of Foreign Worker Levy")]
     ForeignWorkerLevy,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of Goods & Services Tax
     /// Encoded/decoded by serializers as "GoodsServicesTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GSTX")]
     [IsoId("_t2_4BfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of Goods & Services Tax")]
     GoodsServicesTax,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of housing tax.
     /// Encoded/decoded by serializers as "HousingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HSTX")]
     [IsoId("_t2_4CPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of housing tax.")]
     HousingTax,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of income tax.
     /// Encoded/decoded by serializers as "IncomeTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTX")]
     [IsoId("_t2_4C_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of income tax.")]
     IncomeTax,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of net income tax.
     /// Encoded/decoded by serializers as "NetIncomeTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NITX")]
     [IsoId("_t2_4DvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of net income tax.")]
     NetIncomeTax,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of property tax.
     /// Encoded/decoded by serializers as "PropertyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTXP")]
     [IsoId("_t3JB8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of property tax.")]
     PropertyTax,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of road tax.
     /// Encoded/decoded by serializers as "RoadTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDTX")]
     [IsoId("_t3JB9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of road tax.")]
     RoadTax,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of taxes.
     /// Encoded/decoded by serializers as "TaxPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXS")]
     [IsoId("_t3Sy8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of taxes.")]
     TaxPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of value added tax.
     /// Encoded/decoded by serializers as "ValueAddedTaxPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATX")]
     [IsoId("_t3Sy9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of value added tax.")]
     ValueAddedTaxPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of withholding tax.
     /// Encoded/decoded by serializers as "WithHolding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHLD")]
     [IsoId("_t3Sy-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of withholding tax.")]
     WithHolding,
     
     /// <summary>
-    /// ??
+    /// Transaction is the refund of a tax payment or obligation.
     /// Encoded/decoded by serializers as "TaxRefund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXR")]
     [IsoId("_t3Sy-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is the refund of a tax payment or obligation.")]
     TaxRefund,
     
     /// <summary>
-    /// ??
+    /// US mutual fund trailer fee (12b-1) payment
     /// Encoded/decoded by serializers as "TrailerFeePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "B112")]
     [IsoId("_t3Sy_vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"US mutual fund trailer fee (12b-1) payment")]
     TrailerFeePayment,
     
     /// <summary>
-    /// ??
+    /// US mutual fund trailer fee (12b-1) rebate payment
     /// Encoded/decoded by serializers as "TrailerFeeRebate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BR12")]
     [IsoId("_t3cj8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"US mutual fund trailer fee (12b-1) rebate payment")]
     TrailerFeeRebate,
     
     /// <summary>
-    /// ??
+    /// Any non-US mutual fund trailer fee (retrocession) payment (use ISIN to determine onshore versus offshore designation)
     /// Encoded/decoded by serializers as "NonUSMutualFundTrailerFeePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TLRF")]
     [IsoId("_t3cj9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Any non-US mutual fund trailer fee (retrocession) payment (use ISIN to determine onshore versus offshore designation)")]
     NonUSMutualFundTrailerFeePayment,
     
     /// <summary>
-    /// ??
+    /// Any non-US mutual fund trailer fee (retrocession) rebate payment (use ISIN to determine onshore versus offshore designation)
     /// Encoded/decoded by serializers as "NonUSMutualFundTrailerFeeRebatePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TLRR")]
     [IsoId("_t3cj-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Any non-US mutual fund trailer fee (retrocession) rebate payment (use ISIN to determine onshore versus offshore designation)")]
     NonUSMutualFundTrailerFeeRebatePayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for air transport related business.
     /// Encoded/decoded by serializers as "Air".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIRB")]
     [IsoId("_t3cj-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for air transport related business.")]
     Air,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for bus transport related business.
     /// Encoded/decoded by serializers as "Bus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSB")]
     [IsoId("_t3lt4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for bus transport related business.")]
     Bus,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for ferry related business.
     /// Encoded/decoded by serializers as "Ferry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FERB")]
     [IsoId("_t3lt5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for ferry related business.")]
     Ferry,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment for railway transport related business.
     /// Encoded/decoded by serializers as "Railway".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RLWY")]
     [IsoId("_t3ve4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment for railway transport related business.")]
     Railway,
     
     /// <summary>
-    /// ??
+    /// Transaction is for the payment to top-up pre-paid card and electronic road pricing for the purpose of transportation
     /// Encoded/decoded by serializers as "RoadPricing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPT")]
     [IsoId("_t3ve5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is for the payment to top-up pre-paid card and electronic road pricing for the purpose of transportation")]
     RoadPricing,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of cable TV bill.
     /// Encoded/decoded by serializers as "CableTVBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBTV")]
     [IsoId("_t3ve6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of cable TV bill.")]
     CableTVBill,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of electricity bill.
     /// Encoded/decoded by serializers as "ElectricityBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_t35P4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of electricity bill.")]
     ElectricityBill,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a utility operation.
     /// Encoded/decoded by serializers as "Energies".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENRG")]
     [IsoId("_t35P5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a utility operation.")]
     Energies,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of gas bill.
     /// Encoded/decoded by serializers as "GasBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GASB")]
     [IsoId("_t35P6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of gas bill.")]
     GasBill,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of network charges.
     /// Encoded/decoded by serializers as "NetworkCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NWCH")]
     [IsoId("_t4DA4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of network charges.")]
     NetworkCharge,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of network communication.
     /// Encoded/decoded by serializers as "NetworkCommunication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NWCM")]
     [IsoId("_t4MK0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of network communication.")]
     NetworkCommunication,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of other telecom related bill.
     /// Encoded/decoded by serializers as "OtherTelecomRelatedBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTLC")]
     [IsoId("_t4V70vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of other telecom related bill.")]
     OtherTelecomRelatedBill,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of telephone bill.
     /// Encoded/decoded by serializers as "TelephoneBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHON")]
     [IsoId("_t4V71fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of telephone bill.")]
     TelephoneBill,
     
     /// <summary>
-    /// ??
+    /// Transaction is for the payment to common utility provider that provide gas, water and/or electricity.
     /// Encoded/decoded by serializers as "Utilities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UBIL")]
     [IsoId("_t4fFwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is for the payment to common utility provider that provide gas, water and/or electricity.")]
     Utilities,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment of water bill.
     /// Encoded/decoded by serializers as "WaterBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTER")]
     [IsoId("_t4fFxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment of water bill.")]
     WaterBill,
     
     /// <summary>
-    /// ??
+    /// Securities Lending-Settlement of Bond transaction.
     /// Encoded/decoded by serializers as "Bonds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOND")]
     [IsoId("_kI13gQQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Securities Lending-Settlement of Bond transaction.")]
     Bonds,
     
     /// <summary>
-    /// ??
+    /// Securities Lending-Settlement of Corporate Actions: Bonds transactions.
     /// Encoded/decoded by serializers as "CorporateActions_Bonds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CABD")]
     [IsoId("_lDjMQQQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Securities Lending-Settlement of Corporate Actions: Bonds transactions.")]
     CorporateActions_Bonds,
     
     /// <summary>
-    /// ??
+    /// Securities Lending-Settlement of Corporate Actions: Equities transactions.
     /// Encoded/decoded by serializers as "CorporateActions_Equities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAEQ")]
     [IsoId("_lMo20QQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Securities Lending-Settlement of Corporate Actions: Equities transactions.")]
     CorporateActions_Equities,
     
     /// <summary>
-    /// ??
+    /// Card Settlement-Settlement of Credit Card transactions.
     /// Encoded/decoded by serializers as "CreditCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBCR")]
     [IsoId("_lXXgIQQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Card Settlement-Settlement of Credit Card transactions.")]
     CreditCard,
     
     /// <summary>
-    /// ??
+    /// Card Settlement-Settlement of Debit Card transactions.
     /// Encoded/decoded by serializers as "DebitCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBCR")]
     [IsoId("_lsO84QQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Card Settlement-Settlement of Debit Card transactions.")]
     DebitCard,
     
     /// <summary>
-    /// ??
+    /// Card Settlement-Settlement of Diners transactions.
     /// Encoded/decoded by serializers as "Diners".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DICL")]
     [IsoId("_mCuxUQQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Card Settlement-Settlement of Diners transactions.")]
     Diners,
     
     /// <summary>
-    /// ??
+    /// Securities Lending-Settlement of Equities transactions.
     /// Encoded/decoded by serializers as "Equities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQTS")]
     [IsoId("_mffl0QQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Securities Lending-Settlement of Equities transactions.")]
     Equities,
     
     /// <summary>
-    /// ??
+    /// Card Settlement-Settlement of Fleet transactions.
     /// Encoded/decoded by serializers as "FleetCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLCR")]
     [IsoId("_m0gMgQQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Card Settlement-Settlement of Fleet transactions.")]
     FleetCard,
     
     /// <summary>
-    /// ??
+    /// Utilities-Settlement of Low value Credit transactions.
     /// Encoded/decoded by serializers as "LowValueCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EFTC")]
     [IsoId("_nryZ0QQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Utilities-Settlement of Low value Credit transactions.")]
     LowValueCredit,
     
     /// <summary>
-    /// ??
+    /// Utilities-Settlement of Low value Debit transactions.
     /// Encoded/decoded by serializers as "LowValueDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EFTD")]
     [IsoId("_n29vEQQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Utilities-Settlement of Low value Debit transactions.")]
     LowValueDebit,
     
     /// <summary>
-    /// ??
+    /// Securities Lending-ettlement of Money Market PCH.
     /// Encoded/decoded by serializers as "MoneyMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOMA")]
     [IsoId("_oCSOQQQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Securities Lending-ettlement of Money Market PCH.")]
     MoneyMarket,
     
     /// <summary>
-    /// ??
+    /// Instant Payments-Settlement of Rapid Payment Instruction (RPI) transactions.
     /// Encoded/decoded by serializers as "RapidPaymentInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RAPI")]
     [IsoId("_orHv4QQ5Eey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Instant Payments-Settlement of Rapid Payment Instruction (RPI) transactions.")]
     RapidPaymentInstruction,
     
     /// <summary>
-    /// ??
+    /// General-Payments towards a purchase or winnings received from gambling, betting or other wagering activities.
     /// Encoded/decoded by serializers as "GamblingOrWageringPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAMB")]
     [IsoId("_CWArYQTXEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"General-Payments towards a purchase or winnings received from gambling, betting or other wagering activities.")]
     GamblingOrWageringPayment,
     
     /// <summary>
-    /// ??
+    /// General-Payment towards a purchase or winnings received from lottery activities.
     /// Encoded/decoded by serializers as "LotteryPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOTT")]
     [IsoId("_DyZJ0QTXEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"General-Payment towards a purchase or winnings received from lottery activities.")]
     LotteryPayment,
     
     /// <summary>
-    /// ??
+    /// Card Settlement-Settlement of AMEX transactions.
     /// Encoded/decoded by serializers as "Amex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMEX")]
     [IsoId("_xQYWUQZ6EeyDDbdCShcrUQ")]
-    [Description(@"??")]
+    [Description(@"Card Settlement-Settlement of AMEX transactions.")]
     Amex,
     
     /// <summary>
-    /// ??
+    /// Card Settlement-Settlement of ATM transactions.
     /// Encoded/decoded by serializers as "ATM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SASW")]
     [IsoId("_xkMqMQZ6EeyDDbdCShcrUQ")]
-    [Description(@"??")]
+    [Description(@"Card Settlement-Settlement of ATM transactions.")]
     ATM,
     
     /// <summary>
-    /// ??
+    /// Utilities-Settlement of Authenticated Collections transactions.
     /// Encoded/decoded by serializers as "AuthenticatedCollections".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUCO")]
     [IsoId("_x-30AQZ6EeyDDbdCShcrUQ")]
-    [Description(@"??")]
+    [Description(@"Utilities-Settlement of Authenticated Collections transactions.")]
     AuthenticatedCollections,
     
     /// <summary>
-    /// ??
+    /// Final payment to complete the purchase of a property.
     /// Encoded/decoded by serializers as "PropertyCompletionPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCOM")]
     [IsoId("_UqjFgRxLEeylJ55yLxtujQ")]
-    [Description(@"??")]
+    [Description(@"Final payment to complete the purchase of a property.")]
     PropertyCompletionPayment,
     
     /// <summary>
-    /// ??
+    /// Payment of the deposit required towards purchase of a property.
     /// Encoded/decoded by serializers as "PropertyDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDEP")]
     [IsoId("_VAmOARxLEeylJ55yLxtujQ")]
-    [Description(@"??")]
+    [Description(@"Payment of the deposit required towards purchase of a property.")]
     PropertyDeposit,
     
     /// <summary>
-    /// ??
+    /// Payment of funds from a lender as part of the issuance of a property loan.
     /// Encoded/decoded by serializers as "PropertyLoanDisbursement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLDS")]
     [IsoId("_VPgMsRxLEeylJ55yLxtujQ")]
-    [Description(@"??")]
+    [Description(@"Payment of funds from a lender as part of the issuance of a property loan.")]
     PropertyLoanDisbursement,
     
     /// <summary>
-    /// ??
+    /// Transfer or extension of a property financing arrangement to a new deal or loan provider, without change of ownership of property.
     /// Encoded/decoded by serializers as "PropertyLoanRefinancing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLRF")]
     [IsoId("_VetGURxLEeylJ55yLxtujQ")]
-    [Description(@"??")]
+    [Description(@"Transfer or extension of a property financing arrangement to a new deal or loan provider, without change of ownership of property.")]
     PropertyLoanRefinancing,
     
     /// <summary>
-    /// ??
+    /// Salary and Benefits-Allowance from government to support family.
     /// Encoded/decoded by serializers as "GovernmentFamilyAllowance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAFA")]
     [IsoId("_1pgzQY5BEeyANo-d7JlQ1A")]
-    [Description(@"??")]
+    [Description(@"Salary and Benefits-Allowance from government to support family.")]
     GovernmentFamilyAllowance,
     
     /// <summary>
-    /// ??
+    /// Salary and Benefits-Allowance from government to individuals to support payments of housing.
     /// Encoded/decoded by serializers as "GovernmentHousingAllowance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAHO")]
     [IsoId("_16M6oY5BEeyANo-d7JlQ1A")]
-    [Description(@"??")]
+    [Description(@"Salary and Benefits-Allowance from government to individuals to support payments of housing.")]
     GovernmentHousingAllowance,
     
     /// <summary>
-    /// ??
+    /// Cash penalties related to securities transaction, including CSDR Settlement Discipline Regime.
     /// Encoded/decoded by serializers as "CashPenalties".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPEN")]
     [IsoId("_FxtDseAkEey0k8vo1GQhqQ")]
-    [Description(@"??")]
+    [Description(@"Cash penalties related to securities transaction, including CSDR Settlement Discipline Regime.")]
     CashPenalties,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment concerning dependent support, for example child support or support for a person substantially financially dependent on the support provider.
     /// Encoded/decoded by serializers as "DependentSupportPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPD")]
     [IsoId("_-MDecslmEe2OhfSCsNFang")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment concerning dependent support, for example child support or support for a person substantially financially dependent on the support provider.")]
     DependentSupportPayment,
     
     /// <summary>
-    /// ??
+    /// Retail payment including e-commerce and online shopping.
     /// Encoded/decoded by serializers as "RetailPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETL")]
     [IsoId("_b2dR0slnEe2OhfSCsNFang")]
-    [Description(@"??")]
+    [Description(@"Retail payment including e-commerce and online shopping.")]
     RetailPayment,
     
 }

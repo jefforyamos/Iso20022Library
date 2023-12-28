@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMCommand5Code
 {
     /// <summary>
-    /// ??
+    /// Provide the ATM counters, resetting those that are applicable.
     /// Encoded/decoded by serializers as "ATMBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABAL")]
     [IsoId("_mQuCga47EeWRfYPBaeOY8w")]
-    [Description(@"??")]
+    [Description(@"Provide the ATM counters, resetting those that are applicable.")]
     ATMBalance,
     
     /// <summary>
-    /// ??
+    /// Request the value of the ATM counters.
     /// Encoded/decoded by serializers as "CountersInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCNT")]
     [IsoId("_mQuCg647EeWRfYPBaeOY8w")]
-    [Description(@"??")]
+    [Description(@"Request the value of the ATM counters.")]
     CountersInquiry,
     
     /// <summary>
-    /// ??
+    /// Provide the value of the ATM counters, no reinitialisation of the counters.
     /// Encoded/decoded by serializers as "CountersReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPTC")]
     [IsoId("_p8M1wa47EeWRfYPBaeOY8w")]
-    [Description(@"??")]
+    [Description(@"Provide the value of the ATM counters, no reinitialisation of the counters.")]
     CountersReport,
     
 }

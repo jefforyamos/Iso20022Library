@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CertificateType1Code
 {
     /// <summary>
-    /// ??
+    /// Certification of due formation and organisation.
     /// Encoded/decoded by serializers as "DueFormationAndOrganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFOR")]
     [IsoId("_a7pMMdp-Ed-ak6NoX_4Aeg_-767017088")]
-    [Description(@"??")]
+    [Description(@"Certification of due formation and organisation.")]
     DueFormationAndOrganisation,
     
     /// <summary>
-    /// ??
+    /// Certificate of good standing.
     /// Encoded/decoded by serializers as "GoodStanding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOST")]
     [IsoId("_a7pMMtp-Ed-ak6NoX_4Aeg_-767017064")]
-    [Description(@"??")]
+    [Description(@"Certificate of good standing.")]
     GoodStanding,
     
     /// <summary>
-    /// ??
+    /// Letter of reference.
     /// Encoded/decoded by serializers as "LetterOfReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LREF")]
     [IsoId("_a7pMM9p-Ed-ak6NoX_4Aeg_-767017029")]
-    [Description(@"??")]
+    [Description(@"Letter of reference.")]
     LetterOfReference,
     
     /// <summary>
-    /// ??
+    /// Anti-money laundering certification form.
     /// Encoded/decoded by serializers as "AntiMoneyLaundering".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMLC")]
     [IsoId("_a7pMNNp-Ed-ak6NoX_4Aeg_-767017012")]
-    [Description(@"??")]
+    [Description(@"Anti-money laundering certification form.")]
     AntiMoneyLaundering,
     
     /// <summary>
-    /// ??
+    /// Certification of incumbency.
     /// Encoded/decoded by serializers as "Incumbency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCU")]
     [IsoId("_a7pMNdp-Ed-ak6NoX_4Aeg_-767016994")]
-    [Description(@"??")]
+    [Description(@"Certification of incumbency.")]
     Incumbency,
     
     /// <summary>
-    /// ??
+    /// Government issued form of picture identification - passport.
     /// Encoded/decoded by serializers as "Passport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_a7pMNtp-Ed-ak6NoX_4Aeg_-767016969")]
-    [Description(@"??")]
+    [Description(@"Government issued form of picture identification - passport.")]
     Passport,
     
     /// <summary>
-    /// ??
+    /// Government issued form of picture identification - driving license.
     /// Encoded/decoded by serializers as "DrivingLicense".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVLC")]
     [IsoId("_a7pMN9p-Ed-ak6NoX_4Aeg_-767016934")]
-    [Description(@"??")]
+    [Description(@"Government issued form of picture identification - driving license.")]
     DrivingLicense,
     
     /// <summary>
-    /// ??
+    /// Government issued form of picture identification - identity card.
     /// Encoded/decoded by serializers as "IdentityCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDEN")]
     [IsoId("_a7pMONp-Ed-ak6NoX_4Aeg_-767016661")]
-    [Description(@"??")]
+    [Description(@"Government issued form of picture identification - identity card.")]
     IdentityCard,
     
     /// <summary>
-    /// ??
+    /// Proof of the address, such as a utility bill.
     /// Encoded/decoded by serializers as "ProofOfAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAD")]
     [IsoId("_a7pMOdp-Ed-ak6NoX_4Aeg_-767016644")]
-    [Description(@"??")]
+    [Description(@"Proof of the address, such as a utility bill.")]
     ProofOfAddress,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PlanOwner1Code
 {
     /// <summary>
-    /// ??
+    /// Plan owner is an acceptor.
     /// Encoded/decoded by serializers as "Acceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_WpL9cTEuEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Plan owner is an acceptor.")]
     Acceptor,
     
     /// <summary>
-    /// ??
+    /// Plan owner is an acquirer.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_XMzn4TEuEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Plan owner is an acquirer.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Plan owner is an issuer.
     /// Encoded/decoded by serializers as "Issuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSR")]
     [IsoId("_XNs_wTEuEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Plan owner is an issuer.")]
     Issuer,
     
     /// <summary>
-    /// ??
+    /// plan owner type is other national.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_Xc55YTEuEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"plan owner type is other national.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// plan owner type is other private.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_v8IiMTFLEemqWbBf8xprQQ")]
-    [Description(@"??")]
+    [Description(@"plan owner type is other private.")]
     OtherPrivate,
     
 }

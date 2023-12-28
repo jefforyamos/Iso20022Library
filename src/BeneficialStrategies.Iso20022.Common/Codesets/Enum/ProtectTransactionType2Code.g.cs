@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProtectTransactionType2Code
 {
     /// <summary>
-    /// ??
+    /// Reorganisation is a protect transaction type.
     /// Encoded/decoded by serializers as "ProtectTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROT")]
     [IsoId("_KQ81YbpREeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a protect transaction type.")]
     ProtectTransaction,
     
     /// <summary>
-    /// ??
+    /// Reorganisation is a cover on behalf of another participant transaction type.
     /// Encoded/decoded by serializers as "CoverOnBehalfOfAnotherParticipantTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVP")]
     [IsoId("_OAUqIrpREeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a cover on behalf of another participant transaction type.")]
     CoverOnBehalfOfAnotherParticipantTransaction,
     
     /// <summary>
-    /// ??
+    /// Reorganisation is a cover protect transaction type.
     /// Encoded/decoded by serializers as "CoverProtectTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVR")]
     [IsoId("_ZfkUobpREeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a cover protect transaction type.")]
     CoverProtectTransaction,
     
 }

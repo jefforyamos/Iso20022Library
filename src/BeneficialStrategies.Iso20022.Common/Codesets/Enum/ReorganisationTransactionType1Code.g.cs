@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReorganisationTransactionType1Code
 {
     /// <summary>
-    /// ??
+    /// Reorganisation is a cover on behalf of another participant transaction type.
     /// Encoded/decoded by serializers as "CoverOnBehalfOfAnotherParticipantTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVP")]
     [IsoId("_am1Q0cU_EeeWeZMpNX1JUQ")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a cover on behalf of another participant transaction type.")]
     CoverOnBehalfOfAnotherParticipantTransaction,
     
     /// <summary>
-    /// ??
+    /// Reorganisation is a cover protect directly to agent transaction type.
     /// Encoded/decoded by serializers as "CoverProtectDirectlyToAgentHeaderTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVA")]
     [IsoId("_arcrEcU_EeeWeZMpNX1JUQ")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a cover protect directly to agent transaction type.")]
     CoverProtectDirectlyToAgentHeaderTransaction,
     
     /// <summary>
-    /// ??
+    /// Reorganisation is a cover protect transaction type.
     /// Encoded/decoded by serializers as "CoverProtectTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVR")]
     [IsoId("_avnZYcU_EeeWeZMpNX1JUQ")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a cover protect transaction type.")]
     CoverProtectTransaction,
     
     /// <summary>
-    /// ??
+    /// Reorganisation is a protect on behalf of another participant transaction type.
     /// Encoded/decoded by serializers as "ProtectOnBehalfOfAnotherParticipantTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("_azyHscU_EeeWeZMpNX1JUQ")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a protect on behalf of another participant transaction type.")]
     ProtectOnBehalfOfAnotherParticipantTransaction,
     
     /// <summary>
-    /// ??
+    /// Reorganisation is a protect transaction type.
     /// Encoded/decoded by serializers as "ProtectTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROT")]
     [IsoId("_a3zFAcU_EeeWeZMpNX1JUQ")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a protect transaction type.")]
     ProtectTransaction,
     
     /// <summary>
-    /// ??
+    /// Reorganisation is a voluntary offer instruction transaction type.
     /// Encoded/decoded by serializers as "VoluntaryOfferInstructionTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VOIT")]
     [IsoId("_a8taMcU_EeeWeZMpNX1JUQ")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a voluntary offer instruction transaction type.")]
     VoluntaryOfferInstructionTransaction,
     
 }

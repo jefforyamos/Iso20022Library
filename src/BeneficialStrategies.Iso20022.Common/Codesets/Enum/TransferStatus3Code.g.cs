@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction is fully executed and the confirmation is sent.
     /// Encoded/decoded by serializers as "AlreadyExecuted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COSE")]
     [IsoId("_tuKvABwfEeOIveEnnb_1-A")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction is fully executed and the confirmation is sent.")]
     AlreadyExecuted,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction is matched.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACH")]
     [IsoId("_uABUARwfEeOIveEnnb_1-A")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction is matched.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_uwqt0RwfEeOIveEnnb_1-A")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction has been acknowledged / accepted for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction is settled.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_ve8JERwfEeOIveEnnb_1-A")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction is settled.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_wFUzoRwfEeOIveEnnb_1-A")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Instruction has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_wkHocRwfEeOIveEnnb_1-A")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.")]
     Received,
     
 }

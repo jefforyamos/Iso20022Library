@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrganisationType1Code
 {
     /// <summary>
-    /// ??
+    /// Organisation is an investment fund.
     /// Encoded/decoded by serializers as "InvestmentFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IFUN")]
     [IsoId("_jvGFMSCfEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Organisation is an investment fund.")]
     InvestmentFund,
     
     /// <summary>
-    /// ??
+    /// Organisation is a private association.
     /// Encoded/decoded by serializers as "PrivateAssociation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIV")]
     [IsoId("_j2YY8SCfEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Organisation is a private association.")]
     PrivateAssociation,
     
     /// <summary>
-    /// ??
+    /// Organisation is a public company.
     /// Encoded/decoded by serializers as "Public".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUBL")]
     [IsoId("_j9rTwSCfEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Organisation is a public company.")]
     Public,
     
     /// <summary>
-    /// ??
+    /// Organisation is a public fund.
     /// Encoded/decoded by serializers as "PublicFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PFUN")]
     [IsoId("_kFHYgSCfEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Organisation is a public fund.")]
     PublicFund,
     
 }

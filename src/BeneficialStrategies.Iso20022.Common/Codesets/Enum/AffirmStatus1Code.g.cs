@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AffirmStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Notfies that the trade confimation was conpleted.
     /// Encoded/decoded by serializers as "AckToConfirmCompleteNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATCN")]
     [IsoId("_Nub5sXOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Notfies that the trade confimation was conpleted.")]
     AckToConfirmCompleteNotification,
     
     /// <summary>
-    /// ??
+    /// Notfies the clearing status changed.
     /// Encoded/decoded by serializers as "AckToSettlementStateChanged".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATSC")]
     [IsoId("_N0344XOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Notfies the clearing status changed.")]
     AckToSettlementStateChanged,
     
     /// <summary>
-    /// ??
+    /// Data was successfully matched.
     /// Encoded/decoded by serializers as "Compared".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_N7VGMXOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Data was successfully matched.")]
     Compared,
     
     /// <summary>
-    /// ??
+    /// Data was mismatched.
     /// Encoded/decoded by serializers as "MisMatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISM")]
     [IsoId("_OBfYkXOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Data was mismatched.")]
     MisMatched,
     
     /// <summary>
-    /// ??
+    /// Model has errors.
     /// Encoded/decoded by serializers as "ModeError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISE")]
     [IsoId("_OHzb8XOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Model has errors.")]
     ModeError,
     
     /// <summary>
-    /// ??
+    /// Have no trading permissions.
     /// Encoded/decoded by serializers as "NoTradingPrivilege".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTP")]
     [IsoId("_OOAxoXOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Have no trading permissions.")]
     NoTradingPrivilege,
     
     /// <summary>
-    /// ??
+    /// Query time was out of range.
     /// Encoded/decoded by serializers as "OutOfRange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OUOR")]
     [IsoId("_OUS_0XOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Query time was out of range.")]
     OutOfRange,
     
     /// <summary>
-    /// ??
+    /// Query time was over system service time.
     /// Encoded/decoded by serializers as "OutOfService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OUOS")]
     [IsoId("_OaqGgXOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Query time was over system service time.")]
     OutOfService,
     
     /// <summary>
-    /// ??
+    /// Format of upload data was right, and system receives successfully.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_OhAmIXOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Format of upload data was right, and system receives successfully.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Format of upload data was wrong, and system receives unsuccessfully.
     /// Encoded/decoded by serializers as "Unreceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRE")]
     [IsoId("_OnPxAXOxEeSG-OV0nXMl5w")]
-    [Description(@"??")]
+    [Description(@"Format of upload data was wrong, and system receives unsuccessfully.")]
     Unreceived,
     
 }

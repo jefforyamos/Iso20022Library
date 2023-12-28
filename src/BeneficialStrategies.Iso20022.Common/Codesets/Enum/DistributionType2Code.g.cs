@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DistributionType2Code
 {
     /// <summary>
-    /// ??
+    /// Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.
     /// Encoded/decoded by serializers as "RollingBasis".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLL")]
     [IsoId("_hyWl1wCpEeGbSb1IG15gpQ")]
-    [Description(@"??")]
+    [Description(@"Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.")]
     RollingBasis,
     
     /// <summary>
-    /// ??
+    /// Interim payment.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_iKy7BgCpEeGbSb1IG15gpQ")]
-    [Description(@"??")]
+    [Description(@"Interim payment.")]
     Interim,
     
     /// <summary>
-    /// ??
+    /// Final payment.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_iN7HhgCpEeGbSb1IG15gpQ")]
-    [Description(@"??")]
+    [Description(@"Final payment.")]
     Final,
     
 }

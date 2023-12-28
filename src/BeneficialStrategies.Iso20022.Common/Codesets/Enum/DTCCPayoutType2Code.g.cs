@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCCPayoutType2Code
 {
     /// <summary>
-    /// ??
+    /// Payout consisting of securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_1rW2RjL3EeKU9IrkkToqcw_-1192138921")]
-    [Description(@"??")]
+    [Description(@"Payout consisting of securities.")]
     Securities,
     
 }

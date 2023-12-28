@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DrawdownEventType1Code
 {
     /// <summary>
-    /// ??
+    /// Event is a drawdown.
     /// Encoded/decoded by serializers as "Drawdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRAW")]
     [IsoId("_eBVDgVNiEeijdq8ilaxyOA")]
-    [Description(@"??")]
+    [Description(@"Event is a drawdown.")]
     Drawdown,
     
     /// <summary>
-    /// ??
+    /// Event is an uncrystallised funds pension lump sum (UFPLS).
     /// Encoded/decoded by serializers as "UncrystallisedFundsPensionLumpSum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UFPL")]
     [IsoId("_eGiToVNiEeijdq8ilaxyOA")]
-    [Description(@"??")]
+    [Description(@"Event is an uncrystallised funds pension lump sum (UFPLS).")]
     UncrystallisedFundsPensionLumpSum,
     
 }

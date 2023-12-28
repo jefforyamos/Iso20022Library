@@ -20,84 +20,87 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FinancialPartySectorType1Code
 {
     /// <summary>
-    /// ??
+    /// Alternative investment fund managed by an alternative investment fund manager (AIFM).
     /// Encoded/decoded by serializers as "AlternativeInvestmentFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIFD")]
     [IsoId("__Xky0RQXEeWSI-Fz8Zwg6g")]
-    [Description(@"??")]
+    [Description(@"Alternative investment fund managed by an alternative investment fund manager (AIFM).")]
     AlternativeInvestmentFund,
     
     /// <summary>
-    /// ??
+    /// Assurance undertaking.
+    /// 
     /// Encoded/decoded by serializers as "AssuranceUndertaking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASSU")]
     [IsoId("__e6w8RQXEeWSI-Fz8Zwg6g")]
-    [Description(@"??")]
+    [Description(@"Assurance undertaking. ")]
     AssuranceUndertaking,
     
     /// <summary>
-    /// ??
+    /// Credit institution that takes deposits or other repayable funds from the public and grants credits for its own account.
+    /// 
     /// Encoded/decoded by serializers as "CreditInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDTI")]
     [IsoId("__ko-cRQXEeWSI-Fz8Zwg6g")]
-    [Description(@"??")]
+    [Description(@"Credit institution that takes deposits or other repayable funds from the public and grants credits for its own account. ")]
     CreditInstitution,
     
     /// <summary>
-    /// ??
+    /// Insurance undertaking.
     /// Encoded/decoded by serializers as "InsuranceUndertaking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INUN")]
     [IsoId("__q1tERQXEeWSI-Fz8Zwg6g")]
-    [Description(@"??")]
+    [Description(@"Insurance undertaking.")]
     InsuranceUndertaking,
     
     /// <summary>
-    /// ??
+    /// Investment firm.
+    /// 
     /// Encoded/decoded by serializers as "InvestmentFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVF")]
     [IsoId("__zzb0RQXEeWSI-Fz8Zwg6g")]
-    [Description(@"??")]
+    [Description(@"Investment firm. ")]
     InvestmentFirm,
     
     /// <summary>
-    /// ??
+    /// Institution for occupational retirement provision established for the purpose of providing retirement benefits in the context of an occupational activity.
     /// Encoded/decoded by serializers as "OccupationalRetirementProvisionInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORPI")]
     [IsoId("__6AKcRQXEeWSI-Fz8Zwg6g")]
-    [Description(@"??")]
+    [Description(@"Institution for occupational retirement provision established for the purpose of providing retirement benefits in the context of an occupational activity.")]
     OccupationalRetirementProvisionInstitution,
     
     /// <summary>
-    /// ??
+    /// Reinsurance undertaking performing the activity of accepting risks ceded by an insurance undertaking or by another reinsurance undertaking.
     /// Encoded/decoded by serializers as "ReinsuranceUndertaking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REIN")]
     [IsoId("_AAAr0RQYEeWSI-Fz8Zwg6g")]
-    [Description(@"??")]
+    [Description(@"Reinsurance undertaking performing the activity of accepting risks ceded by an insurance undertaking or by another reinsurance undertaking.")]
     ReinsuranceUndertaking,
     
     /// <summary>
-    /// ??
+    /// Undertaking for collective investment in transferable securities (UCITS) and its management company.
     /// Encoded/decoded by serializers as "UCITSManagementCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCIT")]
     [IsoId("_AFu5URQYEeWSI-Fz8Zwg6g")]
-    [Description(@"??")]
+    [Description(@"Undertaking for collective investment in transferable securities (UCITS) and its management company.")]
     UCITSManagementCompany,
     
     /// <summary>
-    /// ??
+    /// Other type of financial institution.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_FpJ3cQFeEeaDfK-zDSyB6A")]
-    [Description(@"??")]
+    [Description(@"Other type of financial institution.")]
     Other,
     
 }

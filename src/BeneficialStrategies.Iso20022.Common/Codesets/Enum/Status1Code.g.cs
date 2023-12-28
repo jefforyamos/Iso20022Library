@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Status1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been accepted and is validated for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_Vp1UUdp-Ed-ak6NoX_4Aeg_-1876044207")]
-    [Description(@"??")]
+    [Description(@"Instruction has been accepted and is validated for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Processing has been completed.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_Vp1UUtp-Ed-ak6NoX_4Aeg_-1876043852")]
-    [Description(@"??")]
+    [Description(@"Processing has been completed.")]
     Completed,
     
     /// <summary>
-    /// ??
+    /// No instruction has been received (to be used in a reminder).
     /// Encoded/decoded by serializers as "NotReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOIN")]
     [IsoId("_Vp1UU9p-Ed-ak6NoX_4Aeg_-1876043722")]
-    [Description(@"??")]
+    [Description(@"No instruction has been received (to be used in a reminder).")]
     NotReceived,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_Vp1UVNp-Ed-ak6NoX_4Aeg_-1876043379")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Instruction has been received by Issuer.
     /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIS")]
     [IsoId("_Vp1UVdp-Ed-ak6NoX_4Aeg_-1566097325")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received by Issuer.")]
     ReceivedByIssuerOrRegistrar,
     
 }

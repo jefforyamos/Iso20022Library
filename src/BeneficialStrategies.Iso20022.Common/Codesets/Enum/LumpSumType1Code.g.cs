@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LumpSumType1Code
 {
     /// <summary>
-    /// ??
+    /// Lump sum is a death benefit lump sum.
     /// Encoded/decoded by serializers as "DeathBenefit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEAB")]
     [IsoId("_ULDvsbKeEeiXL6Ccd-oU8g")]
-    [Description(@"??")]
+    [Description(@"Lump sum is a death benefit lump sum.")]
     DeathBenefit,
     
     /// <summary>
-    /// ??
+    /// Lump sum is a pension commencement lump sum.
     /// Encoded/decoded by serializers as "PensionCommencement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCLS")]
     [IsoId("_UQQ_0bKeEeiXL6Ccd-oU8g")]
-    [Description(@"??")]
+    [Description(@"Lump sum is a pension commencement lump sum.")]
     PensionCommencement,
     
     /// <summary>
-    /// ??
+    /// Lump sum is an uncrystallised fund pension lump sum.
     /// Encoded/decoded by serializers as "Uncrystallised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UFPL")]
     [IsoId("_UVKt8bKeEeiXL6Ccd-oU8g")]
-    [Description(@"??")]
+    [Description(@"Lump sum is an uncrystallised fund pension lump sum.")]
     Uncrystallised,
     
 }

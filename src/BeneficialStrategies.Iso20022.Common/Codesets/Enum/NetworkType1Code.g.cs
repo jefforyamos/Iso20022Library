@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NetworkType1Code
 {
     /// <summary>
-    /// ??
+    /// Protocol of an IP network.
     /// Encoded/decoded by serializers as "InternetProtocol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPNW")]
     [IsoId("_pr02YWpVEeSR-ZWLvO-1dg")]
-    [Description(@"??")]
+    [Description(@"Protocol of an IP network.")]
     InternetProtocol,
     
     /// <summary>
-    /// ??
+    /// Protocol of a Public Switched Telephone Network (PSTN).
     /// Encoded/decoded by serializers as "PublicTelephone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSTN")]
     [IsoId("_pyrsUWpVEeSR-ZWLvO-1dg")]
-    [Description(@"??")]
+    [Description(@"Protocol of a Public Switched Telephone Network (PSTN).")]
     PublicTelephone,
     
 }

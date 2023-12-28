@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType33Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type dry bulk carrier.
     /// Encoded/decoded by serializers as "DryBulkCarrier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBCR")]
     [IsoId("_Gov8gbv6EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type dry bulk carrier.")]
     DryBulkCarrier,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Ktu04bv6EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
 }

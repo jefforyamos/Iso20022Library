@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LegalRestrictions2Code
 {
     /// <summary>
-    /// ??
+    /// Investors outside this jurisdiction can purchase this security, for example, a Reg S security can only be held by an investor outside the US.
     /// Encoded/decoded by serializers as "JurisdictionOwnership".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JURO")]
     [IsoId("_haryvmliEeGaMcKyqKNRfQ_-1957716437")]
-    [Description(@"??")]
+    [Description(@"Investors outside this jurisdiction can purchase this security, for example, a Reg S security can only be held by an investor outside the US.")]
     JurisdictionOwnership,
     
     /// <summary>
-    /// ??
+    /// Only investors qualified by the issuer in this jurisdiction may purchase this security.
     /// Encoded/decoded by serializers as "PrivatePlacements".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPLA")]
     [IsoId("_haryv2liEeGaMcKyqKNRfQ_-599905481")]
-    [Description(@"??")]
+    [Description(@"Only investors qualified by the issuer in this jurisdiction may purchase this security.")]
     PrivatePlacements,
     
     /// <summary>
-    /// ??
+    /// Only investors qualified by the regulator in this jurisdiction may purchase this security.
     /// Encoded/decoded by serializers as "AccreditedInvestor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACRI")]
     [IsoId("_harywGliEeGaMcKyqKNRfQ_867243282")]
-    [Description(@"??")]
+    [Description(@"Only investors qualified by the regulator in this jurisdiction may purchase this security.")]
     AccreditedInvestor,
     
     /// <summary>
-    /// ??
+    /// Issuer defines whether the security may be purchased with borrowed money (US and Japan).
     /// Encoded/decoded by serializers as "Margin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARG")]
     [IsoId("_harywWliEeGaMcKyqKNRfQ_1851192826")]
-    [Description(@"??")]
+    [Description(@"Issuer defines whether the security may be purchased with borrowed money (US and Japan).")]
     Margin,
     
     /// <summary>
-    /// ??
+    /// Privileges, for example, voting rights, of holding the security may be restricted by the issuer.
     /// Encoded/decoded by serializers as "Privilege".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIV")]
     [IsoId("_harywmliEeGaMcKyqKNRfQ_-976625707")]
-    [Description(@"??")]
+    [Description(@"Privileges, for example, voting rights, of holding the security may be restricted by the issuer.")]
     Privilege,
     
 }

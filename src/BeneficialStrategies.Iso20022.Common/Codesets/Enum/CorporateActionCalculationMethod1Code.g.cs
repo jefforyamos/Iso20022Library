@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionCalculationMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Pro-rata for drawings.
     /// Encoded/decoded by serializers as "ProRata".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROR")]
     [IsoId("_bCgCI9p-Ed-ak6NoX_4Aeg_-666370477")]
-    [Description(@"??")]
+    [Description(@"Pro-rata for drawings.")]
     ProRata,
     
     /// <summary>
-    /// ??
+    /// Lottery for drawings.
     /// Encoded/decoded by serializers as "Lottery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOTT")]
     [IsoId("_bCgCJNp-Ed-ak6NoX_4Aeg_-666370476")]
-    [Description(@"??")]
+    [Description(@"Lottery for drawings.")]
     Lottery,
     
     /// <summary>
-    /// ??
+    /// Reduction of nominal for partial redemption.
     /// Encoded/decoded by serializers as "NominalReduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMI")]
     [IsoId("_bCgCJdp-Ed-ak6NoX_4Aeg_-666370467")]
-    [Description(@"??")]
+    [Description(@"Reduction of nominal for partial redemption.")]
     NominalReduction,
     
     /// <summary>
-    /// ??
+    /// Without reduction of nominal (via pool factor) for partial redemption.
     /// Encoded/decoded by serializers as "NoNominalReduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NNOM")]
     [IsoId("_bCgCJtp-Ed-ak6NoX_4Aeg_-666370446")]
-    [Description(@"??")]
+    [Description(@"Without reduction of nominal (via pool factor) for partial redemption.")]
     NoNominalReduction,
     
 }

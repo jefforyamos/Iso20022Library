@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason52Code
 {
     /// <summary>
-    /// ??
+    /// Disclosure request identification is invalid or unknown.
     /// Encoded/decoded by serializers as "InvalidDisclosureRequestIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDRI")]
     [IsoId("_v9mNMcAWEembi_x1QDJfxw")]
-    [Description(@"??")]
+    [Description(@"Disclosure request identification is invalid or unknown.")]
     InvalidDisclosureRequestIdentification,
     
     /// <summary>
-    /// ??
+    /// Disclosure response identification is invalid or unknown.
     /// Encoded/decoded by serializers as "InvalidDisclosureResponseIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDRJ")]
     [IsoId("_wFLb4cAWEembi_x1QDJfxw")]
-    [Description(@"??")]
+    [Description(@"Disclosure response identification is invalid or unknown.")]
     InvalidDisclosureResponseIdentification,
     
     /// <summary>
-    /// ??
+    /// Service for which the information was sent is not offered.
     /// Encoded/decoded by serializers as "ServiceNotOffered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVNO")]
     [IsoId("_2dH1YcAWEembi_x1QDJfxw")]
-    [Description(@"??")]
+    [Description(@"Service for which the information was sent is not offered.")]
     ServiceNotOffered,
     
 }

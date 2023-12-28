@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentMethod7Code
 {
     /// <summary>
-    /// ??
+    /// Written order to a bank to pay a certain amount of money from one person to another person.
     /// Encoded/decoded by serializers as "Cheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHK")]
     [IsoId("_YbT9ddp-Ed-ak6NoX_4Aeg_-1320976702")]
-    [Description(@"??")]
+    [Description(@"Written order to a bank to pay a certain amount of money from one person to another person.")]
     Cheque,
     
     /// <summary>
-    /// ??
+    /// Transfer of an amount of money in the books of the account servicer.
     /// Encoded/decoded by serializers as "CreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRF")]
     [IsoId("_YbT9dtp-Ed-ak6NoX_4Aeg_-2113712619")]
-    [Description(@"??")]
+    [Description(@"Transfer of an amount of money in the books of the account servicer.")]
     CreditTransfer,
     
 }

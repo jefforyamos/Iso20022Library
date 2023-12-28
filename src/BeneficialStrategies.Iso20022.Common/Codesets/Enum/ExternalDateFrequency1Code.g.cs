@@ -21,48 +21,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalDateFrequency1Code
 {
     /// <summary>
-    /// ??
+    /// Frequency is monthly.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_uO_hRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Frequency is monthly.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Frequency is quarterly (every three months).
     /// Encoded/decoded by serializers as "Quarterly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUTR")]
     [IsoId("_uO_hSPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Frequency is quarterly (every three months).")]
     Quarterly,
     
     /// <summary>
-    /// ??
+    /// Frequency is semi-annual (every six months).
     /// Encoded/decoded by serializers as "SemiAnnual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEMI")]
     [IsoId("_uO_hS_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Frequency is semi-annual (every six months).")]
     SemiAnnual,
     
     /// <summary>
-    /// ??
+    /// Frequency is two-monthly (every two months).
     /// Encoded/decoded by serializers as "TwoMonthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOMN")]
     [IsoId("_uO_hTvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Frequency is two-monthly (every two months).")]
     TwoMonthly,
     
     /// <summary>
-    /// ??
+    /// Frequency is annual.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_uPIrMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Frequency is annual.")]
     Annual,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType2Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type energy.
     /// Encoded/decoded by serializers as "Energy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRGY")]
     [IsoId("_fVAFQQnyEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type energy.")]
     Energy,
     
 }

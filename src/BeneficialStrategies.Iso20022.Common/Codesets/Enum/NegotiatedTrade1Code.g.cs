@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NegotiatedTrade1Code
 {
     /// <summary>
-    /// ??
+    /// Trade is negotiated.
     /// Encoded/decoded by serializers as "Negotiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEGO")]
     [IsoId("_aNJuhdp-Ed-ak6NoX_4Aeg_1840573471")]
-    [Description(@"??")]
+    [Description(@"Trade is negotiated.")]
     Negotiated,
     
     /// <summary>
-    /// ??
+    /// Trade is not negotiated.
     /// Encoded/decoded by serializers as "NotNegotiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NNGO")]
     [IsoId("_aNJuhtp-Ed-ak6NoX_4Aeg_1840573506")]
-    [Description(@"??")]
+    [Description(@"Trade is not negotiated.")]
     NotNegotiated,
     
     /// <summary>
-    /// ??
+    /// Whether the trade is negotiated or not is unknown.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNKW")]
     [IsoId("_aNJuh9p-Ed-ak6NoX_4Aeg_1840573524")]
-    [Description(@"??")]
+    [Description(@"Whether the trade is negotiated or not is unknown.")]
     Unknown,
     
 }

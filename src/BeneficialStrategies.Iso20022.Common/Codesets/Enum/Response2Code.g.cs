@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response2Code
 {
     /// <summary>
-    /// ??
+    /// Service has been successfuly provided.
     /// Encoded/decoded by serializers as "Approved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_-2kqIWqHEeS8RZDTbvnB_A")]
-    [Description(@"??")]
+    [Description(@"Service has been successfuly provided.")]
     Approved,
     
     /// <summary>
-    /// ??
+    /// Service is declined.
     /// Encoded/decoded by serializers as "Declined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("__G0Fk2qHEeS8RZDTbvnB_A")]
-    [Description(@"??")]
+    [Description(@"Service is declined.")]
     Declined,
     
 }

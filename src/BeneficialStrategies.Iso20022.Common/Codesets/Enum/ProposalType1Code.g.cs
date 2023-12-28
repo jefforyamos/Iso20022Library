@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProposalType1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies this is an initial proposal.
     /// Encoded/decoded by serializers as "Initial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INIT")]
     [IsoId("_YdGGJNp-Ed-ak6NoX_4Aeg_-733247113")]
-    [Description(@"??")]
+    [Description(@"Specifies this is an initial proposal.")]
     Initial,
     
     /// <summary>
-    /// ??
+    /// Specifies this is a counter proposal.
     /// Encoded/decoded by serializers as "Counter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COUN")]
     [IsoId("_YdGGJdp-Ed-ak6NoX_4Aeg_698103565")]
-    [Description(@"??")]
+    [Description(@"Specifies this is a counter proposal.")]
     Counter,
     
 }

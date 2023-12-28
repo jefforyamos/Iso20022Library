@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UserInterface8Code
 {
     /// <summary>
-    /// ??
+    /// Interface used in case of disputes or chargebacks.
     /// Encoded/decoded by serializers as "Dispute".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSPU")]
     [IsoId("_sHJJoX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Interface used in case of disputes or chargebacks.")]
     Dispute,
     
     /// <summary>
-    /// ??
+    /// File used to store the message.
     /// Encoded/decoded by serializers as "File".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FILE")]
     [IsoId("_sHJJo30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"File used to store the message.")]
     File,
     
     /// <summary>
-    /// ??
+    /// Information dedicated to a log file.
     /// Encoded/decoded by serializers as "Log".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOGF")]
     [IsoId("_sHJJpX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Information dedicated to a log file.")]
     Log,
     
     /// <summary>
-    /// ??
+    /// Other type of interface defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_sHJJp30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of interface defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other type of interface defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_sHJJqX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of interface defined at national level.")]
     OtherNational,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PositionEffect2Code
 {
     /// <summary>
-    /// ??
+    /// Position after the trade the position should be open.
     /// Encoded/decoded by serializers as "OpenPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("__viXldojEeC60axPepSq7g_-1942211273")]
-    [Description(@"??")]
+    [Description(@"Position after the trade the position should be open.")]
     OpenPosition,
     
     /// <summary>
-    /// ??
+    /// Position after the trade the position should be closed.
     /// Encoded/decoded by serializers as "ClosePosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("__viXltojEeC60axPepSq7g_-2056050339")]
-    [Description(@"??")]
+    [Description(@"Position after the trade the position should be closed.")]
     ClosePosition,
     
     /// <summary>
-    /// ??
+    /// Results in a position obtained in a security previously held, sold and repurchased.
     /// Encoded/decoded by serializers as "Rolled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLL")]
     [IsoId("__vrhgNojEeC60axPepSq7g_-686072263")]
-    [Description(@"??")]
+    [Description(@"Results in a position obtained in a security previously held, sold and repurchased.")]
     Rolled,
     
     /// <summary>
-    /// ??
+    /// First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.
     /// Encoded/decoded by serializers as "Fifo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIFO")]
     [IsoId("__vrhgdojEeC60axPepSq7g_-100125237")]
-    [Description(@"??")]
+    [Description(@"First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.")]
     Fifo,
     
     /// <summary>
-    /// ??
+    /// Trade relates to a closure of an account.
     /// Encoded/decoded by serializers as "CloseAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOA")]
     [IsoId("__vrhgtojEeC60axPepSq7g_1367023526")]
-    [Description(@"??")]
+    [Description(@"Trade relates to a closure of an account.")]
     CloseAccount,
     
 }

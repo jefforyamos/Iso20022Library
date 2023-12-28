@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LinkageType1Code
 {
     /// <summary>
-    /// ??
+    /// Request is to link the referenced transactions.
     /// Encoded/decoded by serializers as "Link".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LINK")]
     [IsoId("_ae4Xt9p-Ed-ak6NoX_4Aeg_-2003821118")]
-    [Description(@"??")]
+    [Description(@"Request is to link the referenced transactions.")]
     Link,
     
     /// <summary>
-    /// ??
+    /// Request is to unlink the referenced transactions.
     /// Encoded/decoded by serializers as "Unlink".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNLK")]
     [IsoId("_ae4XuNp-Ed-ak6NoX_4Aeg_-2003821117")]
-    [Description(@"??")]
+    [Description(@"Request is to unlink the referenced transactions.")]
     Unlink,
     
     /// <summary>
-    /// ??
+    /// Request is to soft link the referenced transactions.
     /// Encoded/decoded by serializers as "Soft".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFT")]
     [IsoId("_ae4Xudp-Ed-ak6NoX_4Aeg_-2003821101")]
-    [Description(@"??")]
+    [Description(@"Request is to soft link the referenced transactions.")]
     Soft,
     
 }

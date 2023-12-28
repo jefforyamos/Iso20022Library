@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetType1Code
 {
     /// <summary>
-    /// ??
+    /// Data set is a baseline.
     /// Encoded/decoded by serializers as "Baseline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BASE")]
     [IsoId("_VrxOBNp-Ed-ak6NoX_4Aeg_2126617722")]
-    [Description(@"??")]
+    [Description(@"Data set is a baseline.")]
     Baseline,
     
     /// <summary>
-    /// ??
+    /// Data set is a transport data set.
     /// Encoded/decoded by serializers as "TransportDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRDS")]
     [IsoId("_VrxOBdp-Ed-ak6NoX_4Aeg_2126617739")]
-    [Description(@"??")]
+    [Description(@"Data set is a transport data set.")]
     TransportDataSet,
     
     /// <summary>
-    /// ??
+    /// Data set is a commercial data set.
     /// Encoded/decoded by serializers as "CommercialDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CODS")]
     [IsoId("_VrxOBtp-Ed-ak6NoX_4Aeg_2126617757")]
-    [Description(@"??")]
+    [Description(@"Data set is a commercial data set.")]
     CommercialDataSet,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdministrativeType1Code
 {
     /// <summary>
-    /// ??
+    /// Other administrative type defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_6oeIMTNKEeylu6lH-gut-A")]
-    [Description(@"??")]
+    [Description(@"Other administrative type defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other administrative type defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_6tdV4TNKEeylu6lH-gut-A")]
-    [Description(@"??")]
+    [Description(@"Other administrative type defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Text message.
     /// Encoded/decoded by serializers as "TextMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEXT")]
     [IsoId("_6zMxgTNKEeylu6lH-gut-A")]
-    [Description(@"??")]
+    [Description(@"Text message.")]
     TextMessage,
     
 }

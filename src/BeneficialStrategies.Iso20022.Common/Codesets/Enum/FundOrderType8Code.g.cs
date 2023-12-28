@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundOrderType8Code
 {
     /// <summary>
-    /// ??
+    /// Investment fund order is part of a bed and breakfast transaction.
     /// Encoded/decoded by serializers as "BedAndBreakfast".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEDB")]
     [IsoId("_3gJ28UcuEeam48hW0M8V2Q")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is part of a bed and breakfast transaction.")]
     BedAndBreakfast,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is related to an investment plan (only applicable to a subscription).
     /// Encoded/decoded by serializers as "InvestmentPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVP")]
     [IsoId("_4NYJUUcuEeam48hW0M8V2Q")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is related to an investment plan (only applicable to a subscription).")]
     InvestmentPlan,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is executed with specific pre-advice conditions.
     /// Encoded/decoded by serializers as "PreAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREA")]
     [IsoId("_4wpOcUcuEeam48hW0M8V2Q")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is executed with specific pre-advice conditions.")]
     PreAdvice,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a regular savings plan (only applicable to a subscription).
     /// Encoded/decoded by serializers as "RegularSavingsPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RGSV")]
     [IsoId("_5Pu-MUcuEeam48hW0M8V2Q")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a regular savings plan (only applicable to a subscription).")]
     RegularSavingsPlan,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is paying extra money into to an existing plan (only applicable to a subscription).
     /// Encoded/decoded by serializers as "RegularSavingsPlanUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RGSU")]
     [IsoId("_5c-I8UcuEeam48hW0M8V2Q")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is paying extra money into to an existing plan (only applicable to a subscription).")]
     RegularSavingsPlanUpdate,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a dividend reinvestment (only applicable to a subscription).
     /// Encoded/decoded by serializers as "ReinvestmentOfDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDIV")]
     [IsoId("_6Bkq0UcuEeam48hW0M8V2Q")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a dividend reinvestment (only applicable to a subscription).")]
     ReinvestmentOfDividend,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a staff order.
     /// Encoded/decoded by serializers as "StaffOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAF")]
     [IsoId("_6fxpwUcuEeam48hW0M8V2Q")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a staff order.")]
     StaffOrder,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is for a withdrawal investment plan (only applicable to a redemption).
     /// Encoded/decoded by serializers as "Withdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIDP")]
     [IsoId("_7D7fsUcuEeam48hW0M8V2Q")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is for a withdrawal investment plan (only applicable to a redemption).")]
     Withdrawal,
     
 }

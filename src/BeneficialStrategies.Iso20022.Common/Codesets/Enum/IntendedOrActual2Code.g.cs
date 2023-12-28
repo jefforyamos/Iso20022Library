@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IntendedOrActual2Code
 {
     /// <summary>
-    /// ??
+    /// Ex ante (intended).
     /// Encoded/decoded by serializers as "ExAnte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANTE")]
     [IsoId("_bTCWIYppEeidFfW6ExBZOw")]
-    [Description(@"??")]
+    [Description(@"Ex ante (intended).")]
     ExAnte,
     
     /// <summary>
-    /// ??
+    /// Ex post (actual).
     /// Encoded/decoded by serializers as "ExPost".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_bYjIQYppEeidFfW6ExBZOw")]
-    [Description(@"??")]
+    [Description(@"Ex post (actual).")]
     ExPost,
     
 }

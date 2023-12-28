@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NotionalOrUnitBased1Code
 {
     /// <summary>
-    /// ??
+    /// Basis of a financial instrument is unit.
     /// Encoded/decoded by serializers as "Unit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIT")]
     [IsoId("_1AhQoZ9WEeqxTNfi5y7ywQ")]
-    [Description(@"??")]
+    [Description(@"Basis of a financial instrument is unit.")]
     Unit,
     
     /// <summary>
-    /// ??
+    /// Basis of a financial instrument is notional.
     /// Encoded/decoded by serializers as "Notional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTI")]
     [IsoId("_1G6zkZ9WEeqxTNfi5y7ywQ")]
-    [Description(@"??")]
+    [Description(@"Basis of a financial instrument is notional.")]
     Notional,
     
 }

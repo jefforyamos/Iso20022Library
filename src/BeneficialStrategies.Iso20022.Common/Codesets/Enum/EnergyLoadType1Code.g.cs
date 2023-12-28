@@ -20,66 +20,67 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EnergyLoadType1Code
 {
     /// <summary>
-    /// ??
+    /// Base load.
     /// Encoded/decoded by serializers as "BaseLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSLD")]
     [IsoId("_rT4f4RVoEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Base load.")]
     BaseLoad,
     
     /// <summary>
-    /// ??
+    /// Gas day.
     /// Encoded/decoded by serializers as "GasDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GASD")]
     [IsoId("_rf7X0RVoEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Gas day.")]
     GasDay,
     
     /// <summary>
-    /// ??
+    /// Hour and block hours.
     /// Encoded/decoded by serializers as "HourAndBlockHours".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HABH")]
     [IsoId("_rsRxwRVoEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Hour and block hours.")]
     HourAndBlockHours,
     
     /// <summary>
-    /// ??
+    /// Off-Peak.
+    /// 
     /// Encoded/decoded by serializers as "Off_Peak".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFP")]
     [IsoId("_r4VQwRVoEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Off-Peak. ")]
     Off_Peak,
     
     /// <summary>
-    /// ??
+    /// Other.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_sEYIsRVoEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Other.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Peak load.
     /// Encoded/decoded by serializers as "PeakLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PKLD")]
     [IsoId("_sQbnsRVoEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Peak load.")]
     PeakLoad,
     
     /// <summary>
-    /// ??
+    /// Shaped.
     /// Encoded/decoded by serializers as "Shaped".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHPD")]
     [IsoId("_scVVsRVoEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Shaped.")]
     Shaped,
     
 }

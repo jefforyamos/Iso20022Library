@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum POICommunicationType1Code
 {
     /// <summary>
-    /// ??
+    /// Communication with a host using Bluetooth.
     /// Encoded/decoded by serializers as "Bluetooth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLTH")]
     [IsoId("_EUWIYQx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Communication with a host using Bluetooth.")]
     Bluetooth,
     
     /// <summary>
-    /// ??
+    /// Ethernet port to communicate.
     /// Encoded/decoded by serializers as "Ethernet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETHR")]
     [IsoId("_EaJOYQx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Ethernet port to communicate.")]
     Ethernet,
     
     /// <summary>
-    /// ??
+    /// Communication with a host using GPRS.
     /// Encoded/decoded by serializers as "GPRS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GPRS")]
     [IsoId("_Eixl8Qx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Communication with a host using GPRS.")]
     GPRS,
     
     /// <summary>
-    /// ??
+    /// Communication with a host using GSM.
     /// Encoded/decoded by serializers as "GSM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GSMF")]
     [IsoId("_En1FEQx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Communication with a host using GSM.")]
     GSM,
     
     /// <summary>
-    /// ??
+    /// Communication with a host using Public Switching Telephone Network.
     /// Encoded/decoded by serializers as "PSTN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSTN")]
     [IsoId("_Et7tEQx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Communication with a host using Public Switching Telephone Network.")]
     PSTN,
     
     /// <summary>
-    /// ??
+    /// Serial port to communicate.
     /// Encoded/decoded by serializers as "RS232".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RS23")]
     [IsoId("_EzSuMwx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Serial port to communicate.")]
     RS232,
     
     /// <summary>
-    /// ??
+    /// Communication with a USB stick or any USB device.
     /// Encoded/decoded by serializers as "USBDevice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USBD")]
     [IsoId("_E76esQx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Communication with a USB stick or any USB device.")]
     USBDevice,
     
     /// <summary>
-    /// ??
+    /// Communication with a host from an USB port.
     /// Encoded/decoded by serializers as "USBHost".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USBH")]
     [IsoId("_FDWjcQx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Communication with a host from an USB port.")]
     USBHost,
     
     /// <summary>
-    /// ??
+    /// Wifi communication with another component.
     /// Encoded/decoded by serializers as "Wifi".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIFI")]
     [IsoId("_FJdLcQx2EeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Wifi communication with another component.")]
     Wifi,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentCancellationStatusReason2Code
 {
     /// <summary>
-    /// ??
+    /// Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.
     /// Encoded/decoded by serializers as "DeliveryAcknowledgementReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S004")]
     [IsoId("_N0SKMYEiEei51tn2YGQhvg")]
-    [Description(@"??")]
+    [Description(@"Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.")]
     DeliveryAcknowledgementReceived,
     
     /// <summary>
-    /// ??
+    /// Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.
     /// Encoded/decoded by serializers as "ForwardedToAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S003")]
     [IsoId("_N45kcYEiEei51tn2YGQhvg")]
-    [Description(@"??")]
+    [Description(@"Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.")]
     ForwardedToAgent,
     
     /// <summary>
-    /// ??
+    /// Payment instruction stopped because the UETR was cancelled.
     /// Encoded/decoded by serializers as "PaymentStopped".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S002")]
     [IsoId("_OJj2oYEiEei51tn2YGQhvg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction stopped because the UETR was cancelled.")]
     PaymentStopped,
     
     /// <summary>
-    /// ??
+    /// Stop and recall request sent to the tracking system.
     /// Encoded/decoded by serializers as "SentToTrackingSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S000")]
     [IsoId("_ZnnG8YElEei51tn2YGQhvg")]
-    [Description(@"??")]
+    [Description(@"Stop and recall request sent to the tracking system.")]
     SentToTrackingSystem,
     
     /// <summary>
-    /// ??
+    /// Stop and recall request added to cancellation list.
     /// Encoded/decoded by serializers as "AddedToCancellationList".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S001")]
     [IsoId("_Zvf3oYElEei51tn2YGQhvg")]
-    [Description(@"??")]
+    [Description(@"Stop and recall request added to cancellation list.")]
     AddedToCancellationList,
     
 }

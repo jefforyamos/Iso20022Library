@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateBasis1Code
 {
     /// <summary>
-    /// ??
+    /// Rate is reported in days.
     /// Encoded/decoded by serializers as "Days".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAYS")]
     [IsoId("_Oxb24c5KEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Rate is reported in days.")]
     Days,
     
     /// <summary>
-    /// ??
+    /// Rate is reported in months.
     /// Encoded/decoded by serializers as "Months".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_O4WXMc5KEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Rate is reported in months.")]
     Months,
     
     /// <summary>
-    /// ??
+    /// Rate is reported in weeks.
     /// Encoded/decoded by serializers as "Weeks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_O9mqoc5KEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Rate is reported in weeks.")]
     Weeks,
     
     /// <summary>
-    /// ??
+    /// Rate is reported in years.
     /// Encoded/decoded by serializers as "Years".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_PCi1Ac5KEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Rate is reported in years.")]
     Years,
     
 }

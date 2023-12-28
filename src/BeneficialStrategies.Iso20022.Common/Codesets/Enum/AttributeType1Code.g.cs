@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AttributeType1Code
 {
     /// <summary>
-    /// ??
+    /// Common name of the attribute (ASN.1 Object Identifier: id-at-commonName).
     /// Encoded/decoded by serializers as "CommonName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNAT")]
     [IsoId("_TSESiAEcEeCQm6a_G2yO_w_399531534")]
-    [Description(@"??")]
+    [Description(@"Common name of the attribute (ASN.1 Object Identifier: id-at-commonName).")]
     CommonName,
     
     /// <summary>
-    /// ??
+    /// Locality of the attribute (ASN.1 Object Identifier: id-at-localityName).
     /// Encoded/decoded by serializers as "Locality".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATT")]
     [IsoId("_TSESiQEcEeCQm6a_G2yO_w_807359888")]
-    [Description(@"??")]
+    [Description(@"Locality of the attribute (ASN.1 Object Identifier: id-at-localityName).")]
     Locality,
     
     /// <summary>
-    /// ??
+    /// Organization name of the attribute (ASN.1 Object Identifier: id-at-organizationName).
     /// Encoded/decoded by serializers as "OrganisationName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OATT")]
     [IsoId("_TSESigEcEeCQm6a_G2yO_w_-1550382235")]
-    [Description(@"??")]
+    [Description(@"Organization name of the attribute (ASN.1 Object Identifier: id-at-organizationName).")]
     OrganisationName,
     
     /// <summary>
-    /// ??
+    /// Organization unit name of the attribute (ASN.1 Object Identifier: id-at-organizationalUnitName).
     /// Encoded/decoded by serializers as "OrganisationUnitName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OUAT")]
     [IsoId("_TSESiwEcEeCQm6a_G2yO_w_-2013772510")]
-    [Description(@"??")]
+    [Description(@"Organization unit name of the attribute (ASN.1 Object Identifier: id-at-organizationalUnitName).")]
     OrganisationUnitName,
     
     /// <summary>
-    /// ??
+    /// Country name of the attribute (ASN.1 Object Identifier: id-at-countryName).
     /// Encoded/decoded by serializers as "CountryName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CATT")]
     [IsoId("_TSESjAEcEeCQm6a_G2yO_w_189442098")]
-    [Description(@"??")]
+    [Description(@"Country name of the attribute (ASN.1 Object Identifier: id-at-countryName).")]
     CountryName,
     
 }

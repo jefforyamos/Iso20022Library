@@ -22,21 +22,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVD")]
     [IsoId("_itZM4SAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Received.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_K2H4QSE7EeuIZ4Hf6difAw")]
-    [Description(@"??")]
+    [Description(@"Rejected.")]
     Rejected,
     
 }

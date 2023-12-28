@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalManagementAction3Code
 {
     /// <summary>
-    /// ??
+    /// Request to create or add the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Create".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CREA")]
     [IsoId("_r33vIY34EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Request to create or add the element identified inside the message exchange.")]
     Create,
     
     /// <summary>
-    /// ??
+    /// Request to delete the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Delete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELT")]
     [IsoId("_sBQUoY34EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Request to delete the element identified inside the message exchange.")]
     Delete,
     
     /// <summary>
-    /// ??
+    /// Request to update the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Update".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDT")]
     [IsoId("_sMIu8Y34EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Request to update the element identified inside the message exchange.")]
     Update,
     
 }

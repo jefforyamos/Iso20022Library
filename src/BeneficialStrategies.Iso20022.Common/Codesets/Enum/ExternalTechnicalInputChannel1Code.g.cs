@@ -21,39 +21,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalTechnicalInputChannel1Code
 {
     /// <summary>
-    /// ??
+    /// Technical Input Channel is fax or facsimile
     /// Encoded/decoded by serializers as "Fax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAXI")]
     [IsoId("_uG8YgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Technical Input Channel is fax or facsimile")]
     Fax,
     
     /// <summary>
-    /// ??
+    /// Technical Input Channel is paper
     /// Encoded/decoded by serializers as "Paper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAPR")]
     [IsoId("_uG8YhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Technical Input Channel is paper")]
     Paper,
     
     /// <summary>
-    /// ??
+    /// Technical Input Channel is tape
     /// Encoded/decoded by serializers as "Tape".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAPE")]
     [IsoId("_uG8YiPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Technical Input Channel is tape")]
     Tape,
     
     /// <summary>
-    /// ??
+    /// Technical Input Channel is internet
     /// Encoded/decoded by serializers as "Internet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEBI")]
     [IsoId("_uG8Yi_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Technical Input Channel is internet")]
     Internet,
     
 }

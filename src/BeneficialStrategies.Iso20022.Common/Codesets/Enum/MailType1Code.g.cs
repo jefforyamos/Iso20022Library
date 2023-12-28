@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MailType1Code
 {
     /// <summary>
-    /// ??
+    /// Air mail.
     /// Encoded/decoded by serializers as "AirMail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIRM")]
     [IsoId("_jWjjASCXEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Air mail.")]
     AirMail,
     
     /// <summary>
-    /// ??
+    /// Ordinary mail.
     /// Encoded/decoded by serializers as "OrdinaryMail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORDM")]
     [IsoId("_jdi70SCXEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Ordinary mail.")]
     OrdinaryMail,
     
     /// <summary>
-    /// ??
+    /// Registered Mail.
     /// Encoded/decoded by serializers as "RegisteredMail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGM")]
     [IsoId("_jkZKsSCXEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Registered Mail.")]
     RegisteredMail,
     
 }

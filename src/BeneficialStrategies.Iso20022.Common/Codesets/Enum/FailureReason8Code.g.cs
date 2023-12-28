@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FailureReason8Code
 {
     /// <summary>
-    /// ??
+    /// Card has been retained by the ATM or the terminal.
     /// Encoded/decoded by serializers as "CardRetained".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRT")]
     [IsoId("_tLl-Ya5FEeWCgYcWSNgX5g")]
-    [Description(@"??")]
+    [Description(@"Card has been retained by the ATM or the terminal.")]
     CardRetained,
     
     /// <summary>
-    /// ??
+    /// ATM manager has requested to capture the card.
     /// Encoded/decoded by serializers as "CardCaptured".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCP")]
     [IsoId("_tV4i065FEeWCgYcWSNgX5g")]
-    [Description(@"??")]
+    [Description(@"ATM manager has requested to capture the card.")]
     CardCaptured,
     
     /// <summary>
-    /// ??
+    /// Customer cancellation, for example removing the card before the end of the transaction.
     /// Encoded/decoded by serializers as "CustomerCancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUCL")]
     [IsoId("_th8o465FEeWCgYcWSNgX5g")]
-    [Description(@"??")]
+    [Description(@"Customer cancellation, for example removing the card before the end of the transaction.")]
     CustomerCancel,
     
     /// <summary>
-    /// ??
+    /// Customer has left the card in the ATM or a motorised card reader.
     /// Encoded/decoded by serializers as "ForgottenCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDFG")]
     [IsoId("_uU69865FEeWCgYcWSNgX5g")]
-    [Description(@"??")]
+    [Description(@"Customer has left the card in the ATM or a motorised card reader.")]
     ForgottenCard,
     
     /// <summary>
-    /// ??
+    /// Suspected malfunction.
     /// Encoded/decoded by serializers as "Malfunction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MALF")]
     [IsoId("_upyas65FEeWCgYcWSNgX5g")]
-    [Description(@"??")]
+    [Description(@"Suspected malfunction.")]
     Malfunction,
     
     /// <summary>
-    /// ??
+    /// Security error has occurred in the authorisation response message sent by the acquirer.
     /// Encoded/decoded by serializers as "SecurityError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_vc0aI65FEeWCgYcWSNgX5g")]
-    [Description(@"??")]
+    [Description(@"Security error has occurred in the authorisation response message sent by the acquirer.")]
     SecurityError,
     
     /// <summary>
-    /// ??
+    /// Card payment transaction fails because the merchant suspect a fraud.
     /// Encoded/decoded by serializers as "SuspectedFraud".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFRD")]
     [IsoId("_vomMU65FEeWCgYcWSNgX5g")]
-    [Description(@"??")]
+    [Description(@"Card payment transaction fails because the merchant suspect a fraud.")]
     SuspectedFraud,
     
     /// <summary>
-    /// ??
+    /// Unable to capture the card as requested.
     /// Encoded/decoded by serializers as "UnableToCapture".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCPT")]
     [IsoId("_wAJJo65FEeWCgYcWSNgX5g")]
-    [Description(@"??")]
+    [Description(@"Unable to capture the card as requested.")]
     UnableToCapture,
     
 }

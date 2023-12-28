@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Status8Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the agent, for example, due to an event deadline extension.
     /// Encoded/decoded by serializers as "CancelledBySubcustodian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSUB")]
     [IsoId("_T6q-oa-nEemJ1NnLPsTFaw")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the agent, for example, due to an event deadline extension.")]
     CancelledBySubcustodian,
     
     /// <summary>
-    /// ??
+    /// Instruction has been accepted and is validated for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_T6q-o6-nEemJ1NnLPsTFaw")]
-    [Description(@"??")]
+    [Description(@"Instruction has been accepted and is validated for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_T6q-pa-nEemJ1NnLPsTFaw")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Instruction has been received by Issuer.
     /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIS")]
     [IsoId("_T6q-q6-nEemJ1NnLPsTFaw")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received by Issuer.")]
     ReceivedByIssuerOrRegistrar,
     
     /// <summary>
-    /// ??
+    /// Standing instruction is applied.
     /// Encoded/decoded by serializers as "StandingInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STIN")]
     [IsoId("_T6q-ra-nEemJ1NnLPsTFaw")]
-    [Description(@"??")]
+    [Description(@"Standing instruction is applied.")]
     StandingInstruction,
     
     /// <summary>
-    /// ??
+    /// Accepted and sent along the chain.
     /// Encoded/decoded by serializers as "Forwarded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRWD")]
     [IsoId("_OS6H0bUsEem2T48lBgJbww")]
-    [Description(@"??")]
+    [Description(@"Accepted and sent along the chain.")]
     Forwarded,
     
 }

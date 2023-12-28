@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Registration2Code
 {
     /// <summary>
-    /// ??
+    /// You or your party set the instruction in a hold/frozen/preadvice mode.
     /// Encoded/decoded by serializers as "PartyHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTYH")]
     [IsoId("_q5kOJGtdEeCY4-KZ9JEyUQ_105432583")]
-    [Description(@"??")]
+    [Description(@"You or your party set the instruction in a hold/frozen/preadvice mode.")]
     PartyHold,
     
     /// <summary>
-    /// ??
+    /// Central securities depository sets the instruction in a hold/frozen/preadvice mode.
     /// Encoded/decoded by serializers as "CSDHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDH")]
     [IsoId("_q5kOJWtdEeCY4-KZ9JEyUQ_-891639770")]
-    [Description(@"??")]
+    [Description(@"Central securities depository sets the instruction in a hold/frozen/preadvice mode.")]
     CSDHold,
     
     /// <summary>
-    /// ??
+    /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.
     /// Encoded/decoded by serializers as "ConditionalDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDEL")]
     [IsoId("_q5kOJmtdEeCY4-KZ9JEyUQ_-914504853")]
-    [Description(@"??")]
+    [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.")]
     ConditionalDelivery,
     
     /// <summary>
-    /// ??
+    /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.
     /// Encoded/decoded by serializers as "CSDValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CVAL")]
     [IsoId("_q5t_IGtdEeCY4-KZ9JEyUQ_7658457")]
-    [Description(@"??")]
+    [Description(@"Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.")]
     CSDValidation,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdjustmentDirection1Code
 {
     /// <summary>
-    /// ??
+    /// Adjustment amount must be added to the total amount.
     /// Encoded/decoded by serializers as "Added".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDD")]
     [IsoId("_bnKOYdp-Ed-ak6NoX_4Aeg_-512177233")]
-    [Description(@"??")]
+    [Description(@"Adjustment amount must be added to the total amount.")]
     Added,
     
     /// <summary>
-    /// ??
+    /// Adjustment amount must be substracted from the total amount.
     /// Encoded/decoded by serializers as "Substracted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_bnKOYtp-Ed-ak6NoX_4Aeg_-512177198")]
-    [Description(@"??")]
+    [Description(@"Adjustment amount must be substracted from the total amount.")]
     Substracted,
     
 }

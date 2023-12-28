@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CurrencyConversionResponse1Code
 {
     /// <summary>
-    /// ??
+    /// Dynamic currency conversion may be offered to the cardholder.
     /// Encoded/decoded by serializers as "Allowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ODCC")]
     [IsoId("_iDXIoUesEeODR7vDcYOqmg")]
-    [Description(@"??")]
+    [Description(@"Dynamic currency conversion may be offered to the cardholder.")]
     Allowed,
     
     /// <summary>
-    /// ??
+    /// Transaction authorised with dynamic currency conversion.
     /// Encoded/decoded by serializers as "Assumed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCA")]
     [IsoId("_iK9lc0esEeODR7vDcYOqmg")]
-    [Description(@"??")]
+    [Description(@"Transaction authorised with dynamic currency conversion.")]
     Assumed,
     
     /// <summary>
-    /// ??
+    /// The card is not valid for dynamic currency conversion.
     /// Encoded/decoded by serializers as "InvalidCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICRD")]
     [IsoId("_iOrn0UesEeODR7vDcYOqmg")]
-    [Description(@"??")]
+    [Description(@"The card is not valid for dynamic currency conversion.")]
     InvalidCard,
     
     /// <summary>
-    /// ??
+    /// The card acceptor has not been recognised.
     /// Encoded/decoded by serializers as "InvalidMerchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMER")]
     [IsoId("_iYN-U0esEeODR7vDcYOqmg")]
-    [Description(@"??")]
+    [Description(@"The card acceptor has not been recognised.")]
     InvalidMerchant,
     
     /// <summary>
-    /// ??
+    /// Dynamic currency conversion service cannot be offered for this card product.
     /// Encoded/decoded by serializers as "InvalidProduct".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPRD")]
     [IsoId("_ib8nwUesEeODR7vDcYOqmg")]
-    [Description(@"??")]
+    [Description(@"Dynamic currency conversion service cannot be offered for this card product.")]
     InvalidProduct,
     
     /// <summary>
-    /// ??
+    /// Exchange rates are not available.
     /// Encoded/decoded by serializers as "NoRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IRAT")]
     [IsoId("_iipss0esEeODR7vDcYOqmg")]
-    [Description(@"??")]
+    [Description(@"Exchange rates are not available.")]
     NoRate,
     
     /// <summary>
-    /// ??
+    /// Dynamic currency conversion is not available for other reason.
     /// Encoded/decoded by serializers as "NotAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDCC")]
     [IsoId("_ipWxo0esEeODR7vDcYOqmg")]
-    [Description(@"??")]
+    [Description(@"Dynamic currency conversion is not available for other reason.")]
     NotAvailable,
     
 }

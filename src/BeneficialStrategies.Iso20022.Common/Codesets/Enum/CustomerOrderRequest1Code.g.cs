@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustomerOrderRequest1Code
 {
     /// <summary>
-    /// ??
+    /// All types of CustomerOrder should be listed, some are open others closed.
     /// Encoded/decoded by serializers as "Both".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_TzXFkd6JEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"All types of CustomerOrder should be listed, some are open others closed.")]
     Both,
     
     /// <summary>
-    /// ??
+    /// Completed customer orders.
     /// Encoded/decoded by serializers as "Closed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSD")]
     [IsoId("_T3Kngd6JEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Completed customer orders.")]
     Closed,
     
     /// <summary>
-    /// ??
+    /// Customer order not completed.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_T64C0d6JEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Customer order not completed.")]
     Open,
     
 }

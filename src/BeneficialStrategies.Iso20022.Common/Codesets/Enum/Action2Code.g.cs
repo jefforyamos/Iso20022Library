@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Action2Code
 {
     /// <summary>
-    /// ??
+    /// Request to submit a twin baseline.
     /// Encoded/decoded by serializers as "SubmitTwin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBTW")]
     [IsoId("_bp1u8Np-Ed-ak6NoX_4Aeg_-339875060")]
-    [Description(@"??")]
+    [Description(@"Request to submit a twin baseline.")]
     SubmitTwin,
     
     /// <summary>
-    /// ??
+    /// Request to resubmit a twin baseline.
     /// Encoded/decoded by serializers as "ReSubmitTwin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSTW")]
     [IsoId("_bp1u8dp-Ed-ak6NoX_4Aeg_-339875035")]
-    [Description(@"??")]
+    [Description(@"Request to resubmit a twin baseline.")]
     ReSubmitTwin,
     
     /// <summary>
-    /// ??
+    /// Request to resubmit a baseline.
     /// Encoded/decoded by serializers as "ReSubmitBaseline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSBS")]
     [IsoId("_bp1u8tp-Ed-ak6NoX_4Aeg_-339875018")]
-    [Description(@"??")]
+    [Description(@"Request to resubmit a baseline.")]
     ReSubmitBaseline,
     
     /// <summary>
-    /// ??
+    /// Request to accept or reject mismatched data set(s).
     /// Encoded/decoded by serializers as "AcceptOrRejectDataSetMisMatches".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARDM")]
     [IsoId("_bp1u89p-Ed-ak6NoX_4Aeg_-339875000")]
-    [Description(@"??")]
+    [Description(@"Request to accept or reject mismatched data set(s).")]
     AcceptOrRejectDataSetMisMatches,
     
     /// <summary>
-    /// ??
+    /// Request to accept or reject a request for a change of status of the baseline.
     /// Encoded/decoded by serializers as "AcceptOrRejectChangeOfStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARCS")]
     [IsoId("_bp1u9Np-Ed-ak6NoX_4Aeg_-339874965")]
-    [Description(@"??")]
+    [Description(@"Request to accept or reject a request for a change of status of the baseline.")]
     AcceptOrRejectChangeOfStatus,
     
     /// <summary>
-    /// ??
+    /// Request to accept or reject a request for an extension of the period of validity of the status of the baseline.
     /// Encoded/decoded by serializers as "AcceptOrRejectExtensionOfStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARES")]
     [IsoId("_bp1u9dp-Ed-ak6NoX_4Aeg_-339874940")]
-    [Description(@"??")]
+    [Description(@"Request to accept or reject a request for an extension of the period of validity of the status of the baseline.")]
     AcceptOrRejectExtensionOfStatus,
     
     /// <summary>
-    /// ??
+    /// Request to wait until the baseline is established.
     /// Encoded/decoded by serializers as "WaitForBaselineEstablished".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WAIT")]
     [IsoId("_bp1u9tp-Ed-ak6NoX_4Aeg_-339874923")]
-    [Description(@"??")]
+    [Description(@"Request to wait until the baseline is established.")]
     WaitForBaselineEstablished,
     
     /// <summary>
-    /// ??
+    /// Request to update and resend.
     /// Encoded/decoded by serializers as "UpdateAndResend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDT")]
     [IsoId("_bp1u99p-Ed-ak6NoX_4Aeg_-339874905")]
-    [Description(@"??")]
+    [Description(@"Request to update and resend.")]
     UpdateAndResend,
     
     /// <summary>
-    /// ??
+    /// Request to submit data set(s).
     /// Encoded/decoded by serializers as "SubmitDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBDS")]
     [IsoId("_bp1u-Np-Ed-ak6NoX_4Aeg_-339874615")]
-    [Description(@"??")]
+    [Description(@"Request to submit data set(s).")]
     SubmitDataSet,
     
     /// <summary>
-    /// ??
+    /// Request to accept or reject a request for a baseline amendment.
     /// Encoded/decoded by serializers as "AcceptOrRejectBaselineAmendment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARBA")]
     [IsoId("_bp1u-dp-Ed-ak6NoX_4Aeg_-339874597")]
-    [Description(@"??")]
+    [Description(@"Request to accept or reject a request for a baseline amendment.")]
     AcceptOrRejectBaselineAmendment,
     
     /// <summary>
-    /// ??
+    /// Request to accept or reject a baseline and the role contained in it for the financial institution.
     /// Encoded/decoded by serializers as "AcceptOrRejectBaselineAndRole".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARRO")]
     [IsoId("_bp-44Np-Ed-ak6NoX_4Aeg_-1348151246")]
-    [Description(@"??")]
+    [Description(@"Request to accept or reject a baseline and the role contained in it for the financial institution.")]
     AcceptOrRejectBaselineAndRole,
     
     /// <summary>
-    /// ??
+    /// Request to check invoice number because it was not found.
     /// Encoded/decoded by serializers as "CheckInvoiceReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINR")]
     [IsoId("_bp-44dp-Ed-ak6NoX_4Aeg_82175680")]
-    [Description(@"??")]
+    [Description(@"Request to check invoice number because it was not found.")]
     CheckInvoiceReference,
     
 }

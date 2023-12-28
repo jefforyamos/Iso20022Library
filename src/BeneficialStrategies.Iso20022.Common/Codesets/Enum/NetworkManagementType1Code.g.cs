@@ -21,129 +21,130 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NetworkManagementType1Code
 {
     /// <summary>
-    /// ??
+    /// Detects whether communication at application level is still active.
     /// Encoded/decoded by serializers as "EchoTest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECTS")]
     [IsoId("_93b3clWQEeeiG_nL4vgKnQ")]
-    [Description(@"??")]
+    [Description(@"Detects whether communication at application level is still active.")]
     EchoTest,
     
     /// <summary>
-    /// ??
+    /// Enable receipt of store and forward advice and notification messages.
     /// Encoded/decoded by serializers as "EnableStoreAndForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESFW")]
     [IsoId("_-CvIglWQEeeiG_nL4vgKnQ")]
-    [Description(@"??")]
+    [Description(@"Enable receipt of store and forward advice and notification messages.")]
     EnableStoreAndForward,
     
     /// <summary>
-    /// ??
+    /// Other type of communication management service defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_-MaB4lWQEeeiG_nL4vgKnQ")]
-    [Description(@"??")]
+    [Description(@"Other type of communication management service defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of network management service defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_-ZDWwlWQEeeiG_nL4vgKnQ")]
-    [Description(@"??")]
+    [Description(@"Other type of network management service defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Terminate communication at application level.
     /// Encoded/decoded by serializers as "SignOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGNF")]
     [IsoId("_-iRkMlWQEeeiG_nL4vgKnQ")]
-    [Description(@"??")]
+    [Description(@"Terminate communication at application level.")]
     SignOff,
     
     /// <summary>
-    /// ??
+    /// Establish communication at application level.
     /// Encoded/decoded by serializers as "SignOn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGNN")]
     [IsoId("_-uCIQlWQEeeiG_nL4vgKnQ")]
-    [Description(@"??")]
+    [Description(@"Establish communication at application level.")]
     SignOn,
     
     /// <summary>
-    /// ??
+    /// Disable receipt of store and forward advice and notification messages.
     /// Encoded/decoded by serializers as "DisableStoreAndForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSFW")]
     [IsoId("_eArUkaDEEeihutZpWtx1zA")]
-    [Description(@"??")]
+    [Description(@"Disable receipt of store and forward advice and notification messages.")]
     DisableStoreAndForward,
     
     /// <summary>
-    /// ??
+    /// System condition/target system unavailable
+    /// 
     /// Encoded/decoded by serializers as "TargetSystemUnavailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TSUN")]
     [IsoId("_UTDiccWUEeiCfKAZkk6ZAQ")]
-    [Description(@"??")]
+    [Description(@"System condition/target system unavailable ")]
     TargetSystemUnavailable,
     
     /// <summary>
-    /// ??
+    /// System condition/message originator's system in backup.
     /// Encoded/decoded by serializers as "MessageOriginatorSystemInBackup".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOSB")]
     [IsoId("_UaSy4cWUEeiCfKAZkk6ZAQ")]
-    [Description(@"??")]
+    [Description(@"System condition/message originator's system in backup.")]
     MessageOriginatorSystemInBackup,
     
     /// <summary>
-    /// ??
+    /// System condition/special instruction
     /// Encoded/decoded by serializers as "SpecialInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPIN")]
     [IsoId("_UeFGscWUEeiCfKAZkk6ZAQ")]
-    [Description(@"??")]
+    [Description(@"System condition/special instruction")]
     SpecialInstruction,
     
     /// <summary>
-    /// ??
+    /// System condition/initiate alternate routing
     /// Encoded/decoded by serializers as "InitiateAlternateRouting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IART")]
     [IsoId("_UjLCEcWUEeiCfKAZkk6ZAQ")]
-    [Description(@"??")]
+    [Description(@"System condition/initiate alternate routing")]
     InitiateAlternateRouting,
     
     /// <summary>
-    /// ??
+    /// Clock synchronization
     /// Encoded/decoded by serializers as "SynchronizeClock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYCL")]
     [IsoId("_UuN0ccWUEeiCfKAZkk6ZAQ")]
-    [Description(@"??")]
+    [Description(@"Clock synchronization")]
     SynchronizeClock,
     
     /// <summary>
-    /// ??
+    /// Disable the receipt of recurring billing.
     /// Encoded/decoded by serializers as "DisableRecurringBilling".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRBI")]
     [IsoId("_majMEekHEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Disable the receipt of recurring billing.")]
     DisableRecurringBilling,
     
     /// <summary>
-    /// ??
+    /// Enable the receipt of recurring billing.
     /// Encoded/decoded by serializers as "EnableRecurringBilling".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERBI")]
     [IsoId("_mmAOIukHEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Enable the receipt of recurring billing.")]
     EnableRecurringBilling,
     
 }

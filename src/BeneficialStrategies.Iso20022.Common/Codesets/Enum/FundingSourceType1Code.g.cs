@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundingSourceType1Code
 {
     /// <summary>
-    /// ??
+    /// Type of a funding source is cash collateral from securities lending. 
     /// Encoded/decoded by serializers as "CashCollateralFromSecuritiesLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECL")]
     [IsoId("_9FUuIVXJEeeUQbJN-rt4dg")]
-    [Description(@"??")]
+    [Description(@"Type of a funding source is cash collateral from securities lending. ")]
     CashCollateralFromSecuritiesLending,
     
     /// <summary>
-    /// ??
+    /// Type of a funding source is free credits. 
     /// Encoded/decoded by serializers as "FreeCredits".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREE")]
     [IsoId("_9KwnwVXJEeeUQbJN-rt4dg")]
-    [Description(@"??")]
+    [Description(@"Type of a funding source is free credits. ")]
     FreeCredits,
     
     /// <summary>
-    /// ??
+    /// Other type of a funding source.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_9PbsYVXJEeeUQbJN-rt4dg")]
-    [Description(@"??")]
+    [Description(@"Other type of a funding source.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Type of a funding source is proceeds from broker short sales. 
     /// Encoded/decoded by serializers as "ProceedsFromBrokerShortSales".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSHS")]
     [IsoId("_9UZE4VXJEeeUQbJN-rt4dg")]
-    [Description(@"??")]
+    [Description(@"Type of a funding source is proceeds from broker short sales. ")]
     ProceedsFromBrokerShortSales,
     
     /// <summary>
-    /// ??
+    /// Type of a funding source is proceeds from customer short sales. 
     /// Encoded/decoded by serializers as "ProceedsFromCustomerShortSales".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHS")]
     [IsoId("_9Zu34VXJEeeUQbJN-rt4dg")]
-    [Description(@"??")]
+    [Description(@"Type of a funding source is proceeds from customer short sales. ")]
     ProceedsFromCustomerShortSales,
     
     /// <summary>
-    /// ??
+    /// Type of a funding source is repo or buy sell back.
     /// Encoded/decoded by serializers as "RepoOrBSB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPO")]
     [IsoId("_9eBiAVXJEeeUQbJN-rt4dg")]
-    [Description(@"??")]
+    [Description(@"Type of a funding source is repo or buy sell back.")]
     RepoOrBSB,
     
     /// <summary>
-    /// ??
+    /// Type of a funding source is unsecured borrowing. 
     /// Encoded/decoded by serializers as "UnsecuredBorrowing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UBOR")]
     [IsoId("_9j12IVXJEeeUQbJN-rt4dg")]
-    [Description(@"??")]
+    [Description(@"Type of a funding source is unsecured borrowing. ")]
     UnsecuredBorrowing,
     
 }

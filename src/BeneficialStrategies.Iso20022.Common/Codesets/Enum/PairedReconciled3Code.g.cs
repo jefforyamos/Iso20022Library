@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PairedReconciled3Code
 {
     /// <summary>
-    /// ??
+    /// Collateral associated with the loan(s) matched.
     /// Encoded/decoded by serializers as "CollateralReconciled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRC")]
     [IsoId("_ByvJoZiDEeumhIk_Pv20Lg")]
-    [Description(@"??")]
+    [Description(@"Collateral associated with the loan(s) matched.")]
     CollateralReconciled,
     
     /// <summary>
-    /// ??
+    /// Loan paired and matched.
     /// Encoded/decoded by serializers as "LoanReconciled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LNRC")]
     [IsoId("_CKSG8ZiDEeumhIk_Pv20Lg")]
-    [Description(@"??")]
+    [Description(@"Loan paired and matched.")]
     LoanReconciled,
     
     /// <summary>
-    /// ??
+    /// Loan is paired, but not reconciled.
     /// Encoded/decoded by serializers as "Paired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARD")]
     [IsoId("_CarTYZiDEeumhIk_Pv20Lg")]
-    [Description(@"??")]
+    [Description(@"Loan is paired, but not reconciled.")]
     Paired,
     
     /// <summary>
-    /// ??
+    /// Both loan and collateral matched.
     /// Encoded/decoded by serializers as "Reconciled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECO")]
     [IsoId("_Cg7sYZiDEeumhIk_Pv20Lg")]
-    [Description(@"??")]
+    [Description(@"Both loan and collateral matched.")]
     Reconciled,
     
     /// <summary>
-    /// ??
+    /// Loan is unpaired.
     /// Encoded/decoded by serializers as "Unpaired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNPR")]
     [IsoId("_CoYYMZiDEeumhIk_Pv20Lg")]
-    [Description(@"??")]
+    [Description(@"Loan is unpaired.")]
     Unpaired,
     
 }

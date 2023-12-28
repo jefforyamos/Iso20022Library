@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustomerAssigner1Code
 {
     /// <summary>
-    /// ??
+    /// Legal authority assigning an identification.
     /// Encoded/decoded by serializers as "Authority".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_Vb-ykVyyEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Legal authority assigning an identification.")]
     Authority,
     
     /// <summary>
-    /// ??
+    /// Company assigning an identification to a customer.
     /// Encoded/decoded by serializers as "Company".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCY")]
     [IsoId("_Vnk-klyyEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Company assigning an identification to a customer.")]
     Company,
     
     /// <summary>
-    /// ??
+    /// Company for which the customer is on duty.
     /// Encoded/decoded by serializers as "Customer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_V-C90VyyEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Company for which the customer is on duty.")]
     Customer,
     
     /// <summary>
-    /// ??
+    /// On file identification.
     /// Encoded/decoded by serializers as "OnFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONFL")]
     [IsoId("_WMVRclyyEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"On file identification.")]
     OnFile,
     
     /// <summary>
-    /// ??
+    /// Other party assigning an identification.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_WZHwQlyyEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Other party assigning an identification.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Travel agency assigning an identification.
     /// Encoded/decoded by serializers as "TravelAgency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAY")]
     [IsoId("_WkujUlyyEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Travel agency assigning an identification.")]
     TravelAgency,
     
 }

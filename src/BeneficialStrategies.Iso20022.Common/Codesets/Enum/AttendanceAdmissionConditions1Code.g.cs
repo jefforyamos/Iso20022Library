@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AttendanceAdmissionConditions1Code
 {
     /// <summary>
-    /// ??
+    /// Any attendee must be a shareholder themselves.
     /// Encoded/decoded by serializers as "AllowedForShareholder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MASH")]
     [IsoId("_K2sjMa4nEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Any attendee must be a shareholder themselves.")]
     AllowedForShareholder,
     
     /// <summary>
-    /// ??
+    /// Attendees acting on behalf of registered holder must have a valid power of attorney (POA) and/or proof of holding.
     /// Encoded/decoded by serializers as "AllowedOnBehalf".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAPO")]
     [IsoId("_K75zUa4nEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Attendees acting on behalf of registered holder must have a valid power of attorney (POA) and/or proof of holding.")]
     AllowedOnBehalf,
     
     /// <summary>
-    /// ??
+    /// Attendees will be placed on a attendee list and must bring photographic identification with them.
     /// Encoded/decoded by serializers as "AllowedWithAttendeeList".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAAL")]
     [IsoId("_LDN8Qq4nEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Attendees will be placed on a attendee list and must bring photographic identification with them.")]
     AllowedWithAttendeeList,
     
     /// <summary>
-    /// ??
+    /// Attendees will be placed on a attendee list or issued with a letter of representation, and must bring photographic identification with them.
     /// Encoded/decoded by serializers as "AllowedWithLetterOfRepresentation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MALR")]
     [IsoId("_LFdX8a4nEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Attendees will be placed on a attendee list or issued with a letter of representation, and must bring photographic identification with them.")]
     AllowedWithLetterOfRepresentation,
     
     /// <summary>
-    /// ??
+    /// Attendees must request proof of holding and register for attendance directly with Issuer.
     /// Encoded/decoded by serializers as "AllowedWithProof".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAHI")]
     [IsoId("_LIcaga4nEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Attendees must request proof of holding and register for attendance directly with Issuer.")]
     AllowedWithProof,
     
     /// <summary>
-    /// ??
+    /// Attendees will be issued an admission ticket and must bring photographic identification with them.
     /// Encoded/decoded by serializers as "AllowedWithTicket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MATK")]
     [IsoId("_LN7-ga4nEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Attendees will be issued an admission ticket and must bring photographic identification with them.")]
     AllowedWithTicket,
     
     /// <summary>
-    /// ??
+    /// Meeting attendance is not possible.
     /// Encoded/decoded by serializers as "NotPossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANP")]
     [IsoId("_LSYZoa4nEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Meeting attendance is not possible.")]
     NotPossible,
     
 }

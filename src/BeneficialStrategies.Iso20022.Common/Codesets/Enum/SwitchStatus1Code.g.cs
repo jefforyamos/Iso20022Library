@@ -20,84 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SwitchStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Account switch is accepted.
+    /// 
+    /// Usage: Accepted status should be used when account switch service receives and validates an information response request accepting the switch.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_RnBGQX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Account switch is accepted.  Usage: Accepted status should be used when account switch service receives and validates an information response request accepting the switch.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Account balance transfer is requested.
+    /// 
+    /// Usage: Balance transfer requested status should be used when account switch service receives and validates a request balance transfer request.
     /// Encoded/decoded by serializers as "BalanceTransferRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTRQ")]
     [IsoId("_RshRUX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Account balance transfer is requested.  Usage: Balance transfer requested status should be used when account switch service receives and validates a request balance transfer request.")]
     BalanceTransferRequested,
     
     /// <summary>
-    /// ??
+    /// Balance transfer responded.
+    /// 
+    /// Usage: Balance transfer responded staus should be used when the account switch service receives and validates an acknowledge balance transfer request.
     /// Encoded/decoded by serializers as "BalanceTransferResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTRS")]
     [IsoId("_RyUXUX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Balance transfer responded.  Usage: Balance transfer responded staus should be used when the account switch service receives and validates an acknowledge balance transfer request.")]
     BalanceTransferResponse,
     
     /// <summary>
-    /// ??
+    /// Account switch is completed.
+    /// 
+    /// Usage: Completed status should be used when account switch service receives and validates a notify account switch complete request.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_R3FikX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Account switch is completed.  Usage: Completed status should be used when account switch service receives and validates a notify account switch complete request.")]
     Completed,
     
     /// <summary>
-    /// ??
+    /// Request for redirection. 
+    /// 
+    /// Usage: Redirection status should be used when the account switch service receives and validates the first redirection request.
     /// Encoded/decoded by serializers as "Redirection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDT")]
     [IsoId("_SAmq8X6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Request for redirection.   Usage: Redirection status should be used when the account switch service receives and validates the first redirection request.")]
     Redirection,
     
     /// <summary>
-    /// ??
+    /// Redirection ended at the end of the redirection period. 
+    /// 
+    /// Usage: Indicates the cessation of account redirection by a particular service.
     /// Encoded/decoded by serializers as "RedirectionEnded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDE")]
     [IsoId("_SGtS8X6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Redirection ended at the end of the redirection period.   Usage: Indicates the cessation of account redirection by a particular service.")]
     RedirectionEnded,
     
     /// <summary>
-    /// ??
+    /// Account switch is rejected. 
+    /// 
+    /// Usage: Rejected status should be used when account switch service receives and validates an information response request rejecting the account switch.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_SMWn8X6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Account switch is rejected.   Usage: Rejected status should be used when account switch service receives and validates an information response request rejecting the account switch.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Information is requested for the account switch. 
+    /// 
+    /// Usage: Requested status should be used when the account switch service receives and validates an information request.
     /// Encoded/decoded by serializers as "Requested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_SVbrcX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Information is requested for the account switch.   Usage: Requested status should be used when the account switch service receives and validates an information request.")]
     Requested,
     
     /// <summary>
-    /// ??
+    /// Account switch is terminated. 
+    /// 
+    /// Usage: Terminated status should be used when the account switch service receives and validates a terminate switch request.
     /// Encoded/decoded by serializers as "Termination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMTN")]
     [IsoId("_SayskX6rEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Account switch is terminated.   Usage: Terminated status should be used when the account switch service receives and validates a terminate switch request.")]
     Termination,
     
 }

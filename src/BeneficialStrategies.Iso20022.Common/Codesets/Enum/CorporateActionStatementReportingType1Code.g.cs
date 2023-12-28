@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionStatementReportingType1Code
 {
     /// <summary>
-    /// ??
+    /// The reporting is for a single event and for multiple accounts.
     /// Encoded/decoded by serializers as "MultipleAccounts".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MASE")]
     [IsoId("_bTCYhtp-Ed-ak6NoX_4Aeg_-1322387625")]
-    [Description(@"??")]
+    [Description(@"The reporting is for a single event and for multiple accounts.")]
     MultipleAccounts,
     
     /// <summary>
-    /// ??
+    /// The reporting is for multiple events for a single account.
     /// Encoded/decoded by serializers as "MultipleEvents".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAME")]
     [IsoId("_bTCYh9p-Ed-ak6NoX_4Aeg_144761138")]
-    [Description(@"??")]
+    [Description(@"The reporting is for multiple events for a single account.")]
     MultipleEvents,
     
 }

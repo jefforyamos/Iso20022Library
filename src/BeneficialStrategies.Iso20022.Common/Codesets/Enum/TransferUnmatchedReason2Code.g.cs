@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferUnmatchedReason2Code
 {
     /// <summary>
-    /// ??
+    /// No potential match has been found.
     /// Encoded/decoded by serializers as "NoMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMIS")]
     [IsoId("_Yvk9Rdp-Ed-ak6NoX_4Aeg_1880322038")]
-    [Description(@"??")]
+    [Description(@"No potential match has been found.")]
     NoMatch,
     
     /// <summary>
-    /// ??
+    /// Counterparty has cancelled the transaction/instruction.
     /// Encoded/decoded by serializers as "CounterpartyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPCA")]
     [IsoId("_Yvk9Rtp-Ed-ak6NoX_4Aeg_1880322073")]
-    [Description(@"??")]
+    [Description(@"Counterparty has cancelled the transaction/instruction.")]
     CounterpartyCancelled,
     
     /// <summary>
-    /// ??
+    /// Direction of transaction does not match: delivery instead of receipt or vice versa.
     /// Encoded/decoded by serializers as "TransactionDirection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELN")]
     [IsoId("_Yvk9R9p-Ed-ak6NoX_4Aeg_1880322133")]
-    [Description(@"??")]
+    [Description(@"Direction of transaction does not match: delivery instead of receipt or vice versa.")]
     TransactionDirection,
     
     /// <summary>
-    /// ??
+    /// Financial instrument identification does not match or a financial instrument attribute differs.
     /// Encoded/decoded by serializers as "FinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_YvuHMNp-Ed-ak6NoX_4Aeg_1880322393")]
-    [Description(@"??")]
+    [Description(@"Financial instrument identification does not match or a financial instrument attribute differs.")]
     FinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// Settlement does not match: counterparty's instruction is for physical settlement, your instruction is not, or vice versa.
     /// Encoded/decoded by serializers as "PhysicalSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_YvuHMdp-Ed-ak6NoX_4Aeg_1880322471")]
-    [Description(@"??")]
+    [Description(@"Settlement does not match: counterparty's instruction is for physical settlement, your instruction is not, or vice versa.")]
     PhysicalSettlement,
     
     /// <summary>
-    /// ??
+    /// Instruction has not been matched: it is a possible duplicate instruction.
     /// Encoded/decoded by serializers as "Duplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PODU")]
     [IsoId("_YvuHMtp-Ed-ak6NoX_4Aeg_1880322524")]
-    [Description(@"??")]
+    [Description(@"Instruction has not been matched: it is a possible duplicate instruction.")]
     Duplicate,
     
     /// <summary>
-    /// ??
+    /// Place of settlement does not match.
     /// Encoded/decoded by serializers as "SettlementPlace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPT")]
     [IsoId("_YvuHM9p-Ed-ak6NoX_4Aeg_1880322566")]
-    [Description(@"??")]
+    [Description(@"Place of settlement does not match.")]
     SettlementPlace,
     
     /// <summary>
-    /// ??
+    /// Settlement date or transfer date does not match.
     /// Encoded/decoded by serializers as "SettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDAT")]
     [IsoId("_YvuHNNp-Ed-ak6NoX_4Aeg_1880322874")]
-    [Description(@"??")]
+    [Description(@"Settlement date or transfer date does not match.")]
     SettlementDate,
     
     /// <summary>
-    /// ??
+    /// Financial instrument quantity does not match.
     /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_YvuHNdp-Ed-ak6NoX_4Aeg_1880322927")]
-    [Description(@"??")]
+    [Description(@"Financial instrument quantity does not match.")]
     FinancialInstrumentQuantity,
     
 }

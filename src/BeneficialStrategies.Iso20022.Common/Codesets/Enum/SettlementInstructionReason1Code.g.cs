@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementInstructionReason1Code
 {
     /// <summary>
-    /// ??
+    /// Settlement of all credit amounts.
     /// Encoded/decoded by serializers as "AllCredits".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHI")]
     [IsoId("_-R0NkSCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of all credit amounts.")]
     AllCredits,
     
     /// <summary>
-    /// ??
+    /// Settlement of all credit and debit amounts.
     /// Encoded/decoded by serializers as "AllCreditsAndDebits".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLL")]
     [IsoId("_-ZjNQSCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of all credit and debit amounts.")]
     AllCreditsAndDebits,
     
     /// <summary>
-    /// ??
+    /// Settlement of all debit amounts.
     /// Encoded/decoded by serializers as "AllDebits".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHO")]
     [IsoId("_-hlu8SCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of all debit amounts.")]
     AllDebits,
     
     /// <summary>
-    /// ??
+    /// Settlement of charges.
     /// Encoded/decoded by serializers as "Charges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_-pnpkSCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of charges.")]
     Charges,
     
     /// <summary>
-    /// ??
+    /// Settlement of dividends.
     /// Encoded/decoded by serializers as "Dividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_-xDuUSCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of dividends.")]
     Dividend,
     
     /// <summary>
-    /// ??
+    /// Settlement of interest.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_-5PZ8SCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of interest.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Settlement of investments to a savings plan.
     /// Encoded/decoded by serializers as "InvestmentSavingsPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAVP")]
     [IsoId("__A1PsSCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of investments to a savings plan.")]
     InvestmentSavingsPlan,
     
     /// <summary>
-    /// ??
+    /// Settlement of redemptions or redemption legs of a switch transaction.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("__IaeYSCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of redemptions or redemption legs of a switch transaction.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Settlement of investments to a savings plan and withdrawals from a savings plan.
     /// Encoded/decoded by serializers as "SavingsPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAVE")]
     [IsoId("__P2jISCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of investments to a savings plan and withdrawals from a savings plan.")]
     SavingsPlan,
     
     /// <summary>
-    /// ??
+    /// Settlement of securities purchases.
     /// Encoded/decoded by serializers as "SecuritiesPurchase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYI")]
     [IsoId("__XcY4SCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of securities purchases.")]
     SecuritiesPurchase,
     
     /// <summary>
-    /// ??
+    /// Settlement of securities sales.
     /// Encoded/decoded by serializers as "SecuritiesSale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("__fVJkSCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of securities sales.")]
     SecuritiesSale,
     
     /// <summary>
-    /// ??
+    /// Settlement of subscriptions or subscription legs of a switch transaction.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("__mxOUSCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of subscriptions or subscription legs of a switch transaction.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Settlement of withdrawals from a savings plan.
     /// Encoded/decoded by serializers as "WithdrawalSavingsPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHP")]
     [IsoId("__up_ASCtEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Settlement of withdrawals from a savings plan.")]
     WithdrawalSavingsPlan,
     
     /// <summary>
-    /// ??
+    /// Settlement of corporate actions.
     /// Encoded/decoded by serializers as "CorporateAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("_AuSyMVxmEeW0RaYpOo325g")]
-    [Description(@"??")]
+    [Description(@"Settlement of corporate actions.")]
     CorporateAction,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EUCapitalGain2Code
 {
     /// <summary>
-    /// ??
+    /// Capital gain is in the scope of the directive.
     /// Encoded/decoded by serializers as "CapitalGainInScope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUSI")]
     [IsoId("_aiBLRNp-Ed-ak6NoX_4Aeg_1764162246")]
-    [Description(@"??")]
+    [Description(@"Capital gain is in the scope of the directive.")]
     CapitalGainInScope,
     
     /// <summary>
-    /// ??
+    /// Capital gain is out of the scope of the directive.
     /// Encoded/decoded by serializers as "CapitalGainOutScope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUSO")]
     [IsoId("_aiBLRdp-Ed-ak6NoX_4Aeg_1764162306")]
-    [Description(@"??")]
+    [Description(@"Capital gain is out of the scope of the directive.")]
     CapitalGainOutScope,
     
     /// <summary>
-    /// ??
+    /// Unknown whether capital gain is in or out of the scope of the directive.
     /// Encoded/decoded by serializers as "CapitalGainUnknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_aiBLRtp-Ed-ak6NoX_4Aeg_1764162323")]
-    [Description(@"??")]
+    [Description(@"Unknown whether capital gain is in or out of the scope of the directive.")]
     CapitalGainUnknown,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestigationExecutionConfirmation4Code
 {
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation has been partially executed.
     /// Encoded/decoded by serializers as "PartiallyExecutedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PECR")]
     [IsoId("_abdQQNp-Ed-ak6NoX_4Aeg_-698006802")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation has been partially executed.")]
     PartiallyExecutedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation has been rejected.
     /// Encoded/decoded by serializers as "RejectedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCR")]
     [IsoId("_abdQQdp-Ed-ak6NoX_4Aeg_-698006801")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation has been rejected.")]
     RejectedCancellationRequest,
     
 }

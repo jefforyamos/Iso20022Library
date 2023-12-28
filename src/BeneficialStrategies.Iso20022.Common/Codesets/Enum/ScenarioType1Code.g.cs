@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ScenarioType1Code
 {
     /// <summary>
-    /// ??
+    /// Scenario that replays an event that occurred in the past, including antithetic historical scenarios.
     /// Encoded/decoded by serializers as "Historical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIST")]
     [IsoId("_WJzxkassEeayv9XxdmMwKQ")]
-    [Description(@"??")]
+    [Description(@"Scenario that replays an event that occurred in the past, including antithetic historical scenarios.")]
     Historical,
     
     /// <summary>
-    /// ??
+    /// Scenario that is defined by a hypothetical or theoretical event that may happen in the future.
     /// Encoded/decoded by serializers as "Hypothetical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HYPT")]
     [IsoId("_WN-f4assEeayv9XxdmMwKQ")]
-    [Description(@"??")]
+    [Description(@"Scenario that is defined by a hypothetical or theoretical event that may happen in the future.")]
     Hypothetical,
     
 }

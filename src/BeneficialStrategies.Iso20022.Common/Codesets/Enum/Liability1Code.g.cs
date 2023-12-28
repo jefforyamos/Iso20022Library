@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Liability1Code
 {
     /// <summary>
-    /// ??
+    /// Investor is responsible.
     /// Encoded/decoded by serializers as "Investor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVE")]
     [IsoId("_Bm3FsSDNEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Investor is responsible.")]
     Investor,
     
     /// <summary>
-    /// ??
+    /// Broker is responsible.
     /// Encoded/decoded by serializers as "Broker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BROK")]
     [IsoId("_D6Zo4Ta2EeWxoIK_IhudJg")]
-    [Description(@"??")]
+    [Description(@"Broker is responsible.")]
     Broker,
     
 }

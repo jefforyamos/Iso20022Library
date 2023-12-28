@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalCreditorAgentInstruction1Code
 {
     /// <summary>
-    /// ??
+    /// (Ultimate) creditor must be paid by cheque.
     /// Encoded/decoded by serializers as "PayCreditorByCheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHQB")]
     [IsoId("_uwEOAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"(Ultimate) creditor must be paid by cheque.")]
     PayCreditorByCheque,
     
     /// <summary>
-    /// ??
+    /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.
     /// Encoded/decoded by serializers as "HoldCashForCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_uwEOBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.")]
     HoldCashForCreditor,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact (ultimate) creditor/claimant by phone.
     /// Encoded/decoded by serializers as "PhoneBeneficiary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHOB")]
     [IsoId("_uwEOCPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact (ultimate) creditor/claimant by phone.")]
     PhoneBeneficiary,
     
     /// <summary>
-    /// ??
+    /// Indicates that a payer token is requested/used.
     /// Encoded/decoded by serializers as "PayerTokenRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRTK")]
     [IsoId("_uwN_AvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Indicates that a payer token is requested/used.")]
     PayerTokenRequested,
     
     /// <summary>
-    /// ??
+    /// Further information regarding the intended recipient. 
     /// Encoded/decoded by serializers as "ReceiverCustomerInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECI")]
     [IsoId("_uwN_BfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Further information regarding the intended recipient. ")]
     ReceiverCustomerInformation,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
     /// Encoded/decoded by serializers as "Telecom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELB")]
     [IsoId("_uwN_CPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.")]
     Telecom,
     
     /// <summary>
-    /// ??
+    /// Token found with counterparty mismatch. 
     /// Encoded/decoded by serializers as "TokenCounterpartyMismatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKCM")]
     [IsoId("_uwN_C_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Token found with counterparty mismatch. ")]
     TokenCounterpartyMismatch,
     
     /// <summary>
-    /// ??
+    /// Single Use Token already used. 
     /// Encoded/decoded by serializers as "TokenSingleUse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKSG")]
     [IsoId("_uwXwAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Single Use Token already used. ")]
     TokenSingleUse,
     
     /// <summary>
-    /// ??
+    /// Token found with suspended status.
     /// Encoded/decoded by serializers as "TokenSuspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKSP")]
     [IsoId("_uwXwBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Token found with suspended status.")]
     TokenSuspended,
     
     /// <summary>
-    /// ??
+    /// Token found with value limit rule violation. 
     /// Encoded/decoded by serializers as "TokenValueLimitExceeded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKVE")]
     [IsoId("_uwXwCPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Token found with value limit rule violation. ")]
     TokenValueLimitExceeded,
     
     /// <summary>
-    /// ??
+    /// Token expired. 
     /// Encoded/decoded by serializers as "TokenExpired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKXP")]
     [IsoId("_uwXwC_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Token expired. ")]
     TokenExpired,
     
     /// <summary>
-    /// ??
+    /// Token information.
     /// Encoded/decoded by serializers as "Token".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOKN")]
     [IsoId("_uwg58vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Token information.")]
     Token,
     
     /// <summary>
-    /// ??
+    /// Additional validation information to be used in conjunction with the token.
     /// Encoded/decoded by serializers as "TokenValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VLTK")]
     [IsoId("_uwg59fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Additional validation information to be used in conjunction with the token.")]
     TokenValidation,
     
 }

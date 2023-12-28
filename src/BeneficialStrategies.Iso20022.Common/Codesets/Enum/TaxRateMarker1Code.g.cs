@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxRateMarker1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies the amount quoted less life assurance premium rate income tax.
     /// Encoded/decoded by serializers as "AmountQuotedLessLifeAssurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALPR")]
     [IsoId("_z5l70Q2YEeSNWNtJlXOAhg")]
-    [Description(@"??")]
+    [Description(@"Specifies the amount quoted less life assurance premium rate income tax.")]
     AmountQuotedLessLifeAssurance,
     
     /// <summary>
-    /// ??
+    /// Specifies the amount quoted less standard rate income tax.
     /// Encoded/decoded by serializers as "AmountQuotedLessStandardRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALIT")]
     [IsoId("_z-DlEQ2YEeSNWNtJlXOAhg")]
-    [Description(@"??")]
+    [Description(@"Specifies the amount quoted less standard rate income tax.")]
     AmountQuotedLessStandardRate,
     
     /// <summary>
-    /// ??
+    /// Specifies an amount before the deduction of tax.
     /// Encoded/decoded by serializers as "GrossAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRSS")]
     [IsoId("_0Cq_UQ2YEeSNWNtJlXOAhg")]
-    [Description(@"??")]
+    [Description(@"Specifies an amount before the deduction of tax.")]
     GrossAmount,
     
 }

@@ -21,93 +21,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalAgentInstruction1Code
 {
     /// <summary>
-    /// ??
+    /// (Ultimate) creditor must be paid by cheque. 
     /// Encoded/decoded by serializers as "PayCreditorByCheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHQB")]
     [IsoId("_uaUAe_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"(Ultimate) creditor must be paid by cheque. ")]
     PayCreditorByCheque,
     
     /// <summary>
-    /// ??
+    /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification. 
     /// Encoded/decoded by serializers as "HoldCashForCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_uaUAfvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification. ")]
     HoldCashForCreditor,
     
     /// <summary>
-    /// ??
+    /// Additional Information to an inquiry reason must be provided. 
     /// Encoded/decoded by serializers as "InquiryReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INQR")]
     [IsoId("_uadxcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Additional Information to an inquiry reason must be provided. ")]
     InquiryReason,
     
     /// <summary>
-    /// ??
+    /// (Ultimate) creditor to be paid only after verification of identity. 
     /// Encoded/decoded by serializers as "PayTheBeneficiary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PBEN")]
     [IsoId("_uadxdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"(Ultimate) creditor to be paid only after verification of identity. ")]
     PayTheBeneficiary,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact next agent by phone. 
     /// Encoded/decoded by serializers as "PhoneNextAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHOA")]
     [IsoId("_uam7YvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact next agent by phone. ")]
     PhoneNextAgent,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact (ultimate) creditor/claimant by phone. 
     /// Encoded/decoded by serializers as "PhoneBeneficiary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHOB")]
     [IsoId("_uam7ZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact (ultimate) creditor/claimant by phone. ")]
     PhoneBeneficiary,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact next agent by the most efficient means of telecommunication. 
     /// Encoded/decoded by serializers as "TelecomNextAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELA")]
     [IsoId("_uawsYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact next agent by the most efficient means of telecommunication. ")]
     TelecomNextAgent,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication. 
     /// Encoded/decoded by serializers as "Telecom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELB")]
     [IsoId("_uawsZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication. ")]
     Telecom,
     
     /// <summary>
-    /// ??
+    /// Payment instruction will be valid and eligible for execution from the date and time stipulated. 
     /// Encoded/decoded by serializers as "TimeFrom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFRO")]
     [IsoId("_uawsaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction will be valid and eligible for execution from the date and time stipulated. ")]
     TimeFrom,
     
     /// <summary>
-    /// ??
+    /// Payment instruction is valid and eligible for execution until the date and time stipulated. Otherwise, the payment instruction will be rejected. 
     /// Encoded/decoded by serializers as "TimeTill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTIL")]
     [IsoId("_ua6dYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction is valid and eligible for execution until the date and time stipulated. Otherwise, the payment instruction will be rejected. ")]
     TimeTill,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LiquidityIndicatorType1Code
 {
     /// <summary>
-    /// ??
+    /// Computation is on the average value of the price of a security over a period of five days.
     /// Encoded/decoded by serializers as "FiveDayMovingAverage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIVE")]
     [IsoId("_afCItdp-Ed-ak6NoX_4Aeg_1985065189")]
-    [Description(@"??")]
+    [Description(@"Computation is on the average value of the price of a security over a period of five days.")]
     FiveDayMovingAverage,
     
     /// <summary>
-    /// ??
+    /// Computation is on the average value of the price of a security over a period of 20 days.
     /// Encoded/decoded by serializers as "TwentyDayMovingAverage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWEN")]
     [IsoId("_afCIttp-Ed-ak6NoX_4Aeg_1985065206")]
-    [Description(@"??")]
+    [Description(@"Computation is on the average value of the price of a security over a period of 20 days.")]
     TwentyDayMovingAverage,
     
     /// <summary>
-    /// ??
+    /// Computation is on the standard market conditions and volume.
     /// Encoded/decoded by serializers as "NormalMarketSize".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORM")]
     [IsoId("_afCIt9p-Ed-ak6NoX_4Aeg_1985065379")]
-    [Description(@"??")]
+    [Description(@"Computation is on the standard market conditions and volume.")]
     NormalMarketSize,
     
 }

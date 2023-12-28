@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxWithholdingMethod2Code
 {
     /// <summary>
-    /// ??
+    /// Withholding tax is applied to a corporate.
     /// Encoded/decoded by serializers as "WithholdingCorporateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHCO")]
     [IsoId("_hagHQRKtEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Withholding tax is applied to a corporate.")]
     WithholdingCorporateTax,
     
     /// <summary>
-    /// ??
+    /// Tax information is reported to the tax authorities and therefore not withheld at source.
     /// Encoded/decoded by serializers as "ReportTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPT")]
     [IsoId("_hkCdwRKtEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Tax information is reported to the tax authorities and therefore not withheld at source.")]
     ReportTax,
     
     /// <summary>
-    /// ??
+    /// Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.
     /// Encoded/decoded by serializers as "TaxCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTF")]
     [IsoId("_hsYhcRKtEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.")]
     TaxCertificate,
     
     /// <summary>
-    /// ??
+    /// Tax is withheld at source.
     /// Encoded/decoded by serializers as "WithholdTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHD")]
     [IsoId("_h1CHIRKtEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Tax is withheld at source.")]
     WithholdTax,
     
     /// <summary>
-    /// ??
+    /// Tax is withheld at source and the tax information is also reported to the tax authorities.
     /// Encoded/decoded by serializers as "WithholdTaxAndReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTRE")]
     [IsoId("_h-kdoRKtEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Tax is withheld at source and the tax information is also reported to the tax authorities.")]
     WithholdTaxAndReport,
     
 }

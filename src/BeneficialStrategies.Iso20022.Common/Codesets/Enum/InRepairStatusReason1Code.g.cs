@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InRepairStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Order has been accepted and centralised before the cut off, but with different sales agreement than the one provided in the order.
     /// Encoded/decoded by serializers as "CommercialAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMA")]
     [IsoId("_aWsFBtp-Ed-ak6NoX_4Aeg_2109635082")]
-    [Description(@"??")]
+    [Description(@"Order has been accepted and centralised before the cut off, but with different sales agreement than the one provided in the order.")]
     CommercialAgreement,
     
 }

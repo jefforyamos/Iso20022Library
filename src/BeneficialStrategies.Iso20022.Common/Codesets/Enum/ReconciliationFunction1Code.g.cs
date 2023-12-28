@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReconciliationFunction1Code
 {
     /// <summary>
-    /// ??
+    /// Inquiry for reconciliation totals
     /// Encoded/decoded by serializers as "Inquire".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INQR")]
     [IsoId("_sqvgYS7OEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Inquiry for reconciliation totals")]
     Inquire,
     
     /// <summary>
-    /// ??
+    /// Initiation of a cutover. 
     /// Encoded/decoded by serializers as "InitiateCutover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCU")]
     [IsoId("_tIhokS7OEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Initiation of a cutover. ")]
     InitiateCutover,
     
     /// <summary>
-    /// ??
+    /// Convey reconciliation totals
     /// Encoded/decoded by serializers as "Convey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNVY")]
     [IsoId("_tOg70S7OEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Convey reconciliation totals")]
     Convey,
     
 }

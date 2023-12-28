@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NotAvailable1Code
 {
     /// <summary>
-    /// ??
+    /// Not available (N/A).
     /// Encoded/decoded by serializers as "NotAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTAV")]
     [IsoId("_n4ZWsRvaEeWeg9zOuV6DZQ")]
-    [Description(@"??")]
+    [Description(@"Not available (N/A).")]
     NotAvailable,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestigationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Search for requested data is complete, the data has been found and will be sent using a separate message flow.
     /// Encoded/decoded by serializers as "DataFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FOUN")]
     [IsoId("_xZMG1llIEeGYqvgbBHXAZw")]
-    [Description(@"??")]
+    [Description(@"Search for requested data is complete, the data has been found and will be sent using a separate message flow.")]
     DataFound,
     
     /// <summary>
-    /// ??
+    /// Search for requested data is complete, data not found.
     /// Encoded/decoded by serializers as "DataNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFOU")]
     [IsoId("_xeGcBllIEeGYqvgbBHXAZw")]
-    [Description(@"??")]
+    [Description(@"Search for requested data is complete, data not found.")]
     DataNotFound,
     
     /// <summary>
-    /// ??
+    /// Search for requested data not complete yet.
     /// Encoded/decoded by serializers as "NotApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAP")]
     [IsoId("_xj6wJllIEeGYqvgbBHXAZw")]
-    [Description(@"??")]
+    [Description(@"Search for requested data not complete yet.")]
     NotApplicable,
     
 }

@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstructionCancellationReason2Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled as per your request.
     /// Encoded/decoded by serializers as "CancelledByYourselves".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANI")]
     [IsoId("_aXIw9dp-Ed-ak6NoX_4Aeg_-1158791466")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled as per your request.")]
     CancelledByYourselves,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the settlement system.
     /// Encoded/decoded by serializers as "CancelledBySystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANS")]
     [IsoId("_aXIw9tp-Ed-ak6NoX_4Aeg_-1158791438")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the settlement system.")]
     CancelledBySystem,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the agent.
     /// Encoded/decoded by serializers as "CancelledByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSUB")]
     [IsoId("_aXIw99p-Ed-ak6NoX_4Aeg_-1158791437")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the agent.")]
     CancelledByAgent,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by another party than the instructing party, for example, market infrastructure such as a stock exchange.
     /// Encoded/decoded by serializers as "CancelledByAnotherParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANO")]
     [IsoId("_aXSh8Np-Ed-ak6NoX_4Aeg_-1158791190")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by another party than the instructing party, for example, market infrastructure such as a stock exchange.")]
     CancelledByAnotherParty,
     
     /// <summary>
-    /// ??
+    /// Original instruction has been cancelled and replaced due to a corporate action.
     /// Encoded/decoded by serializers as "CancelledDueToTransformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANT")]
     [IsoId("_aXSh8dp-Ed-ak6NoX_4Aeg_-1158791189")]
-    [Description(@"??")]
+    [Description(@"Original instruction has been cancelled and replaced due to a corporate action.")]
     CancelledDueToTransformation,
     
     /// <summary>
-    /// ??
+    /// Original instruction has been cancelled and replaced to allow a partial or split settlement.
     /// Encoded/decoded by serializers as "CancelledDueToSplitPartialSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANZ")]
     [IsoId("_aXSh8tp-Ed-ak6NoX_4Aeg_-1158791160")]
-    [Description(@"??")]
+    [Description(@"Original instruction has been cancelled and replaced to allow a partial or split settlement.")]
     CancelledDueToSplitPartialSettlement,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled due to a corporate action.
     /// Encoded/decoded by serializers as "CancelledDueToCorporateAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("_aXSh89p-Ed-ak6NoX_4Aeg_-1158791159")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled due to a corporate action.")]
     CancelledDueToCorporateAction,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the issuer/registrar.
     /// Encoded/decoded by serializers as "CancelledByIssuerRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CREG")]
     [IsoId("_aXSh9Np-Ed-ak6NoX_4Aeg_-1158791158")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the issuer/registrar.")]
     CancelledByIssuerRegistrar,
     
     /// <summary>
-    /// ??
+    /// Instruction has expired.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_aXSh9dp-Ed-ak6NoX_4Aeg_-1158791129")]
-    [Description(@"??")]
+    [Description(@"Instruction has expired.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.
     /// Encoded/decoded by serializers as "SecuritiesNoLongerEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCEX")]
     [IsoId("_aXSh9tp-Ed-ak6NoX_4Aeg_-1158791098")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.")]
     SecuritiesNoLongerEligible,
     
 }

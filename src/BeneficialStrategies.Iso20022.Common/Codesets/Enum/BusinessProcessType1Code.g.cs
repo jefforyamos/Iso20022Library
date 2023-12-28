@@ -20,75 +20,78 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BusinessProcessType1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies the processing of a transaction in a central matching utility model.
     /// Encoded/decoded by serializers as "TripartiteCentralMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISUP")]
     [IsoId("__0mdwdojEeC60axPepSq7g_1532057379")]
-    [Description(@"??")]
+    [Description(@"Specifies the processing of a transaction in a central matching utility model.")]
     TripartiteCentralMatching,
     
     /// <summary>
-    /// ??
+    /// Specifies the processing of a transaction in a local matching model.
     /// Encoded/decoded by serializers as "NotCoveredByInvestmentInstructions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NISP")]
     [IsoId("__0mdwtojEeC60axPepSq7g_1520958602")]
-    [Description(@"??")]
+    [Description(@"Specifies the processing of a transaction in a local matching model.")]
     NotCoveredByInvestmentInstructions,
     
     /// <summary>
-    /// ??
+    /// Transaction notice results from an agreement made out of a trading platform between two members (broker and intermediary) of an authorised entity.
     /// Encoded/decoded by serializers as "PreAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAC")]
     [IsoId("__0mdw9ojEeC60axPepSq7g_394185007")]
-    [Description(@"??")]
+    [Description(@"Transaction notice results from an agreement made out of a trading platform between two members (broker and intermediary) of an authorised entity.")]
     PreAccepted,
     
     /// <summary>
-    /// ??
+    /// Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice:
+    /// o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’;
+    /// o The broker will have to specify the original transaction notice reference;
+    /// o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.
     /// Encoded/decoded by serializers as "Reversal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSAL")]
     [IsoId("__0mdxNojEeC60axPepSq7g_-1697522113")]
-    [Description(@"??")]
+    [Description(@"Transaction notice reverses a previously sent and agreed transaction notice. If the reversal transaction notice is stated to serve as invoice: o Fees and taxes contained in the transaction notice are considered as being in debit of the broker’s account and in credit of the intermediary’s account: it is a ‘credit invoice’; o The broker will have to specify the original transaction notice reference; o The reversal transaction notice will have the same direction (buy, sell) as the original transaction notice.")]
     Reversal,
     
     /// <summary>
-    /// ??
+    /// Specifies the processing of a transaction in a own account trade type model.
     /// Encoded/decoded by serializers as "OwnAccountTradeType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("__0mdxdojEeC60axPepSq7g_-73630408")]
-    [Description(@"??")]
+    [Description(@"Specifies the processing of a transaction in a own account trade type model.")]
     OwnAccountTradeType,
     
     /// <summary>
-    /// ??
+    /// Specifies the processing of a transaction in a through type model.
     /// Encoded/decoded by serializers as "ThroughType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THRU")]
     [IsoId("__0wOwNojEeC60axPepSq7g_1409712494")]
-    [Description(@"??")]
+    [Description(@"Specifies the processing of a transaction in a through type model.")]
     ThroughType,
     
     /// <summary>
-    /// ??
+    /// Specifies the processing of a transaction in a billateral central matching model.
     /// Encoded/decoded by serializers as "BillateralCentralMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDEL")]
     [IsoId("__0wOwdojEeC60axPepSq7g_-1661996260")]
-    [Description(@"??")]
+    [Description(@"Specifies the processing of a transaction in a billateral central matching model.")]
     BillateralCentralMatching,
     
     /// <summary>
-    /// ??
+    /// Specifies the processing of a transaction in a duplex type model.
     /// Encoded/decoded by serializers as "DuplexType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPLX")]
     [IsoId("__0wOwtojEeC60axPepSq7g_1051589305")]
-    [Description(@"??")]
+    [Description(@"Specifies the processing of a transaction in a duplex type model.")]
     DuplexType,
     
 }

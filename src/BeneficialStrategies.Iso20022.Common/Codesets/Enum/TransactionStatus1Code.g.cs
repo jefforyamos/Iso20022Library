@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction has been reversed.
     /// Encoded/decoded by serializers as "Reversal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVSL")]
     [IsoId("_zdmYYA93EeGeV5vP7Mvdig_-1941849246")]
-    [Description(@"??")]
+    [Description(@"Transaction has been reversed.")]
     Reversal,
     
     /// <summary>
-    /// ??
+    /// Transaction has been rebooked.
     /// Encoded/decoded by serializers as "Rebooked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REBO")]
     [IsoId("_zdmYYQ93EeGeV5vP7Mvdig_-595137067")]
-    [Description(@"??")]
+    [Description(@"Transaction has been rebooked.")]
     Rebooked,
     
     /// <summary>
-    /// ??
+    /// Transaction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_zdmYYg93EeGeV5vP7Mvdig_880282350")]
-    [Description(@"??")]
+    [Description(@"Transaction has been cancelled.")]
     Cancelled,
     
 }

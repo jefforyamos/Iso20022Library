@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType6Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type GASPOOL.
     /// Encoded/decoded by serializers as "GasPool".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GASP")]
     [IsoId("_2-AL0Q2gEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type GASPOOL.")]
     GasPool,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type liquid natural gas.
     /// Encoded/decoded by serializers as "LNG".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LNGG")]
     [IsoId("_3U63AQ2gEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type liquid natural gas.")]
     LNG,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type NCG (NetConnect Germany).
     /// Encoded/decoded by serializers as "NCG".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCGG")]
     [IsoId("_4n7-EQ2gEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type NCG (NetConnect Germany).")]
     NCG,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type TTF (Dutch Title Transfer Facility).
     /// Encoded/decoded by serializers as "TTF".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTFG")]
     [IsoId("_6EUcgQ2gEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type TTF (Dutch Title Transfer Facility).")]
     TTF,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type NBP (National Balancing Point).
     /// Encoded/decoded by serializers as "NBP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBPG")]
     [IsoId("_rv5EkVrDEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type NBP (National Balancing Point).")]
     NBP,
     
 }

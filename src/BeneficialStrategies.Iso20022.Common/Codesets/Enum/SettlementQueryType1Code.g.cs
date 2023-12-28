@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementQueryType1Code
 {
     /// <summary>
-    /// ??
+    /// Queries settlement instructions based on criteria excluding statuses.
     /// Encoded/decoded by serializers as "Instruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_j4AIYe5NEeCisYr99QEiWA_-1731179192")]
-    [Description(@"??")]
+    [Description(@"Queries settlement instructions based on criteria excluding statuses.")]
     Instruction,
     
     /// <summary>
-    /// ??
+    /// Queries settlement instructions based on criteria that includes statuses.
     /// Encoded/decoded by serializers as "Status".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STTS")]
     [IsoId("_j4AIYu5NEeCisYr99QEiWA_-1742277969")]
-    [Description(@"??")]
+    [Description(@"Queries settlement instructions based on criteria that includes statuses.")]
     Status,
     
     /// <summary>
-    /// ??
+    /// Queries settlement instructions based on criteria that includes statuses during a period.
     /// Encoded/decoded by serializers as "StatusPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STPD")]
     [IsoId("_j4AIY-5NEeCisYr99QEiWA_-820114659")]
-    [Description(@"??")]
+    [Description(@"Queries settlement instructions based on criteria that includes statuses during a period.")]
     StatusPeriod,
     
 }

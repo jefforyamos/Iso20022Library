@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IdentificationType2Code
 {
     /// <summary>
-    /// ??
+    /// CDC is an abbreviation of China Central Depository & Clearing Co, Ltd, an entity undertake functions of centralized depository and settlement for inter-bank bond market in China.
     /// Encoded/decoded by serializers as "CDC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCO")]
     [IsoId("_w-exMYA5EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"CDC is an abbreviation of China Central Depository & Clearing Co, Ltd, an entity undertake functions of centralized depository and settlement for inter-bank bond market in China.")]
     CDC,
     
     /// <summary>
-    /// ??
+    /// CFETS is an abbreviation of China Foreign Exchange Trade System, which is a sub-institution of the PBC. Its main functions include: providing systems for FX trading, RMB lending, bond trading and exchange rate and interest rate derivatives trading; organizing FX trading, RMB lending, bond trading, and exchange rate and interest rate derivatives trading; providing clearing, information, risk management, and surveillance services on interbank markets; and engaging in other businesses authorized by the PBC.
     /// Encoded/decoded by serializers as "CFETS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFET")]
     [IsoId("_xEboMYA5EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"CFETS is an abbreviation of China Foreign Exchange Trade System, which is a sub-institution of the PBC. Its main functions include: providing systems for FX trading, RMB lending, bond trading and exchange rate and interest rate derivatives trading; organizing FX trading, RMB lending, bond trading, and exchange rate and interest rate derivatives trading; providing clearing, information, risk management, and surveillance services on interbank markets; and engaging in other businesses authorized by the PBC.")]
     CFETS,
     
     /// <summary>
-    /// ??
+    /// RIC Code is an abbreviation of Reuters Instrument Code. RIC as encoding rule which has been wildly adopted in FX market and defines information including trading category, tenor, trade instrument and so on.
     /// Encoded/decoded by serializers as "RICCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RICC")]
     [IsoId("_yjMFMYA5EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"RIC Code is an abbreviation of Reuters Instrument Code. RIC as encoding rule which has been wildly adopted in FX market and defines information including trading category, tenor, trade instrument and so on.")]
     RICCode,
     
     /// <summary>
-    /// ??
+    /// User defined code.
     /// Encoded/decoded by serializers as "UserDefined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USDE")]
     [IsoId("_yoKr0YA5EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"User defined code.")]
     UserDefined,
     
 }

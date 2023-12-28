@@ -21,30 +21,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalRelativeTo1Code
 {
     /// <summary>
-    /// ??
+    /// Percentage rate expressed relative to the value of goods.
     /// Encoded/decoded by serializers as "ValueOfGoods".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOOD")]
     [IsoId("_uQCDEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Percentage rate expressed relative to the value of goods.")]
     ValueOfGoods,
     
     /// <summary>
-    /// ??
+    /// Percentage rate expressed relative to the payment amount.
     /// Encoded/decoded by serializers as "PaymentAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYM")]
     [IsoId("_uQCDFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Percentage rate expressed relative to the payment amount.")]
     PaymentAmount,
     
     /// <summary>
-    /// ??
+    /// Percentage rate expressed relative to the undertaking amount.
     /// Encoded/decoded by serializers as "UndertakingAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNDG")]
     [IsoId("_uQCDGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Percentage rate expressed relative to the undertaking amount.")]
     UndertakingAmount,
     
 }

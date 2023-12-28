@@ -22,75 +22,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalRatesAndTenors1Code
 {
     /// <summary>
-    /// ??
+    /// Euro interbank offered rate (3 months, 6 months and other tenors).
     /// Encoded/decoded by serializers as "Euribor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EURI")]
     [IsoId("_9lCmAQTyEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Euro interbank offered rate (3 months, 6 months and other tenors).")]
     Euribor,
     
     /// <summary>
-    /// ??
+    /// Euro Overnight Index Swap (ESTROIS) 1 day, 1 week, other tenors.
     /// Encoded/decoded by serializers as "EuroOvernightIndexSwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESOI")]
     [IsoId("_9rTmEQTyEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Euro Overnight Index Swap (ESTROIS) 1 day, 1 week, other tenors.")]
     EuroOvernightIndexSwap,
     
     /// <summary>
-    /// ??
+    /// Euro short-term rate.
     /// Encoded/decoded by serializers as "EuroShortTermRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTR")]
     [IsoId("_9w0YMQTyEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Euro short-term rate.")]
     EuroShortTermRate,
     
     /// <summary>
-    /// ??
+    /// Pound sterling London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.
     /// Encoded/decoded by serializers as "GBPLibor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBPO")]
     [IsoId("_97sLcQTyEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Pound sterling London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.")]
     GBPLibor,
     
     /// <summary>
-    /// ??
+    /// Other floating rates and tenors.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_-FiD8QTyEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Other floating rates and tenors.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Secured overnight financing rate (1 months, 3 months, other tenors).
     /// Encoded/decoded by serializers as "SecuredOvernightFinancingRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFR")]
     [IsoId("_-KcZIQTyEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Secured overnight financing rate (1 months, 3 months, other tenors).")]
     SecuredOvernightFinancingRate,
     
     /// <summary>
-    /// ??
+    /// US dollar overnight index swap (1 day, 1 week, other tenors), USDOIS.
     /// Encoded/decoded by serializers as "USDOvernightIndexSwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USOI")]
     [IsoId("_-P9LQQTyEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"US dollar overnight index swap (1 day, 1 week, other tenors), USDOIS.")]
     USDOvernightIndexSwap,
     
     /// <summary>
-    /// ??
+    /// US dollar London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.
     /// Encoded/decoded by serializers as "USDLibor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USPO")]
     [IsoId("_-U4HgQTyEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"US dollar London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.")]
     USDLibor,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderOriginatorEligibility1Code
 {
     /// <summary>
-    /// ??
+    /// Eligible counterparty - MiFID classification of counterparty. Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules defined under MiFID.
     /// Encoded/decoded by serializers as "Eligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELIG")]
     [IsoId("_aRLS4Np-Ed-ak6NoX_4Aeg_668089351")]
-    [Description(@"??")]
+    [Description(@"Eligible counterparty - MiFID classification of counterparty. Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules defined under MiFID.")]
     Eligible,
     
     /// <summary>
-    /// ??
+    /// Retail client - MiFID classification of counterparty. Retail customers are the least sophisticated level of investor.
     /// Encoded/decoded by serializers as "Retail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETL")]
     [IsoId("_aRLS4dp-Ed-ak6NoX_4Aeg_679171670")]
-    [Description(@"??")]
+    [Description(@"Retail client - MiFID classification of counterparty. Retail customers are the least sophisticated level of investor.")]
     Retail,
     
     /// <summary>
-    /// ??
+    /// Professional client - MiFID classification of counterparty. Professional customers are, for example, investment firms, credit institutions, insurance companies.
     /// Encoded/decoded by serializers as "Professional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROF")]
     [IsoId("_aRLS4tp-Ed-ak6NoX_4Aeg_709649144")]
-    [Description(@"??")]
+    [Description(@"Professional client - MiFID classification of counterparty. Professional customers are, for example, investment firms, credit institutions, insurance companies.")]
     Professional,
     
 }

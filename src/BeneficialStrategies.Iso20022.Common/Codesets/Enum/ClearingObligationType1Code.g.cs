@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClearingObligationType1Code
 {
     /// <summary>
-    /// ??
+    /// Reported contract does not belong to a class of OTC derivatives that has been declared subject to the clearing obligation.
     /// Encoded/decoded by serializers as "No".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLSE")]
     [IsoId("_wq36sQ29EeWmAKKPnqYEVQ")]
-    [Description(@"??")]
+    [Description(@"Reported contract does not belong to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
     No,
     
     /// <summary>
-    /// ??
+    /// Unknown whether reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_wwOUwQ29EeWmAKKPnqYEVQ")]
-    [Description(@"??")]
+    [Description(@"Unknown whether reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.
     /// Encoded/decoded by serializers as "Yes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRUE")]
     [IsoId("_w0r-AQ29EeWmAKKPnqYEVQ")]
-    [Description(@"??")]
+    [Description(@"Reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation.")]
     Yes,
     
 }

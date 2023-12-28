@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarketType1Code
 {
     /// <summary>
-    /// ??
+    /// The place is a primary market.
     /// Encoded/decoded by serializers as "PrimaryMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIM")]
     [IsoId("_aUTfZdp-Ed-ak6NoX_4Aeg_2050094305")]
-    [Description(@"??")]
+    [Description(@"The place is a primary market.")]
     PrimaryMarket,
     
     /// <summary>
-    /// ??
+    /// The place is a secondary market.
     /// Encoded/decoded by serializers as "SecondaryMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECM")]
     [IsoId("_aUTfZtp-Ed-ak6NoX_4Aeg_2051015336")]
-    [Description(@"??")]
+    [Description(@"The place is a secondary market.")]
     SecondaryMarket,
     
     /// <summary>
-    /// ??
+    /// The place is a third market.
     /// Encoded/decoded by serializers as "ThirdMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THIM")]
     [IsoId("_aUTfZ9p-Ed-ak6NoX_4Aeg_-1860687416")]
-    [Description(@"??")]
+    [Description(@"The place is a third market.")]
     ThirdMarket,
     
     /// <summary>
-    /// ??
+    /// The place is a fourth market.
     /// Encoded/decoded by serializers as "FourthMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FOUM")]
     [IsoId("_aUdQYNp-Ed-ak6NoX_4Aeg_-1831136197")]
-    [Description(@"??")]
+    [Description(@"The place is a fourth market.")]
     FourthMarket,
     
 }

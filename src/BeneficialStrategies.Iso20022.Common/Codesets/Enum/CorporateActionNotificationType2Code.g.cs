@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionNotificationType2Code
 {
     /// <summary>
-    /// ??
+    /// Notification sent to void a previously sent notification due to the withdrawal of the event by the issuer.
     /// Encoded/decoded by serializers as "Withrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_bLJAwdp-Ed-ak6NoX_4Aeg_746682216")]
-    [Description(@"??")]
+    [Description(@"Notification sent to void a previously sent notification due to the withdrawal of the event by the issuer.")]
     Withrawal,
     
     /// <summary>
-    /// ??
+    /// Notification requesting the cancellation of a previously sent notification.
     /// Encoded/decoded by serializers as "Cancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_bLJAwtp-Ed-ak6NoX_4Aeg_746682237")]
-    [Description(@"??")]
+    [Description(@"Notification requesting the cancellation of a previously sent notification.")]
     Cancellation,
     
 }

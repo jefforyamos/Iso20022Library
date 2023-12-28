@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReorganisationWithdrawalTransactionType1Code
 {
     /// <summary>
-    /// ??
+    /// The reorganisation instruction cancellation is a protect withdrawal transaction.
     /// Encoded/decoded by serializers as "ProtectWithdrawalTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROW")]
     [IsoId("_lB3O8cY0EeesocHIuVGr7g")]
-    [Description(@"??")]
+    [Description(@"The reorganisation instruction cancellation is a protect withdrawal transaction.")]
     ProtectWithdrawalTransaction,
     
     /// <summary>
-    /// ??
+    /// The reorganisation instruction cancellation is a voluntary offer instruction withdrawal transaction.
     /// Encoded/decoded by serializers as "VoluntaryOfferInstructionWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VOIW")]
     [IsoId("_lHqU8cY0EeesocHIuVGr7g")]
-    [Description(@"??")]
+    [Description(@"The reorganisation instruction cancellation is a voluntary offer instruction withdrawal transaction.")]
     VoluntaryOfferInstructionWithdrawal,
     
     /// <summary>
-    /// ??
+    /// The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.
     /// Encoded/decoded by serializers as "WithdrawalProtectOnBehalfOfAnotherParticipant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPW")]
     [IsoId("_lNURAcY0EeesocHIuVGr7g")]
-    [Description(@"??")]
+    [Description(@"The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.")]
     WithdrawalProtectOnBehalfOfAnotherParticipant,
     
 }

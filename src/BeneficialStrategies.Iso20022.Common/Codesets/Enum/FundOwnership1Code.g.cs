@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundOwnership1Code
 {
     /// <summary>
-    /// ??
+    /// All shares owned.
     /// Encoded/decoded by serializers as "AllOwned".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YALL")]
     [IsoId("_cYpsMSDYEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"All shares owned.")]
     AllOwned,
     
     /// <summary>
-    /// ??
+    /// Not all shares owned.
     /// Encoded/decoded by serializers as "NotAllOwned".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NALL")]
     [IsoId("_cfy2ASDYEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Not all shares owned.")]
     NotAllOwned,
     
 }

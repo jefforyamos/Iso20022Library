@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementConditionModificationProcessingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been acknowledged/accepted for further processing by the account servicer.
     /// Encoded/decoded by serializers as "AcknowledgedAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_ZK188dp-Ed-ak6NoX_4Aeg_-1146323136")]
-    [Description(@"??")]
+    [Description(@"Instruction has been acknowledged/accepted for further processing by the account servicer.")]
     AcknowledgedAccepted,
     
     /// <summary>
-    /// ??
+    /// Instruction has been rejected for further processing.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_ZK188tp-Ed-ak6NoX_4Aeg_-1146323114")]
-    [Description(@"??")]
+    [Description(@"Instruction has been rejected for further processing.")]
     Rejected,
     
 }

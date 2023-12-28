@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FATCAFormType1Code
 {
     /// <summary>
-    /// ??
+    /// Certificate of foreign intermediary (also known as IRS form W-8IMY).
     /// Encoded/decoded by serializers as "CertificateForeignIntermediary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CER5")]
     [IsoId("_nSQl4QjMEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Certificate of foreign intermediary (also known as IRS form W-8IMY).")]
     CertificateForeignIntermediary,
     
     /// <summary>
-    /// ??
+    /// Certificate of foreign person's claim that income is effectively connected with the conduct of a trade or business in the United States (also known as IRS form W-8BEN-E).
     /// Encoded/decoded by serializers as "CertificateForeignPersonsClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CER7")]
     [IsoId("_nc-BEQjMEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Certificate of foreign person's claim that income is effectively connected with the conduct of a trade or business in the United States (also known as IRS form W-8BEN-E).")]
     CertificateForeignPersonsClaim,
     
     /// <summary>
-    /// ??
+    /// Certificate of foreign status of beneficial owner (also known as IRS form W-8BEN).
     /// Encoded/decoded by serializers as "CertificateForeignStatusBeneficialOwner".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CER1")]
     [IsoId("_nfphoQjMEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Certificate of foreign status of beneficial owner (also known as IRS form W-8BEN).")]
     CertificateForeignStatusBeneficialOwner,
     
     /// <summary>
-    /// ??
+    /// Certificate of loss of nationality.
     /// Encoded/decoded by serializers as "CertificateLossNationality".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CER2")]
     [IsoId("_ntVYUQjMEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Certificate of loss of nationality.")]
     CertificateLossNationality,
     
     /// <summary>
-    /// ??
+    /// Self certification.
     /// Encoded/decoded by serializers as "SelfCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CER3")]
     [IsoId("_nwKC0QjMEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Self certification.")]
     SelfCertification,
     
     /// <summary>
-    /// ??
+    /// Self certificate of loss of nationality (also known as IRS form I-407).
     /// Encoded/decoded by serializers as "SelfCertificationLossNationality".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CER4")]
     [IsoId("_n4ffcQjMEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Self certificate of loss of nationality (also known as IRS form I-407).")]
     SelfCertificationLossNationality,
     
     /// <summary>
-    /// ??
+    /// Form is a request for taxpayer identification number and certification (also known as IRS form W9).
     /// Encoded/decoded by serializers as "TaxpayerIdentificationNumberRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CER6")]
     [IsoId("_oA08EQjMEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Form is a request for taxpayer identification number and certification (also known as IRS form W9).")]
     TaxpayerIdentificationNumberRequest,
     
 }

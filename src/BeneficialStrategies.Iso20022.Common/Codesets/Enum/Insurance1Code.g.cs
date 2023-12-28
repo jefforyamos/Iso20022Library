@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Insurance1Code
 {
     /// <summary>
-    /// ??
+    /// Life insurance.
     /// Encoded/decoded by serializers as "LifeInsurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIFE")]
     [IsoId("_OdMHYRQbEeKebsB9eKJSkA")]
-    [Description(@"??")]
+    [Description(@"Life insurance.")]
     LifeInsurance,
     
     /// <summary>
-    /// ??
+    /// Permanent disability insurance.
     /// Encoded/decoded by serializers as "PermanentDisabilityInsurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDIS")]
     [IsoId("_Ombi8RQbEeKebsB9eKJSkA")]
-    [Description(@"??")]
+    [Description(@"Permanent disability insurance.")]
     PermanentDisabilityInsurance,
     
 }

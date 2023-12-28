@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AddressType2Code
 {
     /// <summary>
-    /// ??
+    /// Address is the complete postal address.
     /// Encoded/decoded by serializers as "Postal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDR")]
     [IsoId("_bm2sYdp-Ed-ak6NoX_4Aeg_878577717")]
-    [Description(@"??")]
+    [Description(@"Address is the complete postal address.")]
     Postal,
     
     /// <summary>
-    /// ??
+    /// Address is a postal office (PO) box.
     /// Encoded/decoded by serializers as "POBox".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PBOX")]
     [IsoId("_bm2sYtp-Ed-ak6NoX_4Aeg_878578132")]
-    [Description(@"??")]
+    [Description(@"Address is a postal office (PO) box.")]
     POBox,
     
     /// <summary>
-    /// ??
+    /// Address is the home address.
     /// Encoded/decoded by serializers as "Residential".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOME")]
     [IsoId("_bm2sY9p-Ed-ak6NoX_4Aeg_2106193409")]
-    [Description(@"??")]
+    [Description(@"Address is the home address.")]
     Residential,
     
     /// <summary>
-    /// ??
+    /// Address is the business address.
     /// Encoded/decoded by serializers as "Business".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIZZ")]
     [IsoId("_bm2sZNp-Ed-ak6NoX_4Aeg_2106193529")]
-    [Description(@"??")]
+    [Description(@"Address is the business address.")]
     Business,
     
     /// <summary>
-    /// ??
+    /// Address is the address to which mail is sent.
     /// Encoded/decoded by serializers as "MailTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLTO")]
     [IsoId("_bm2sZdp-Ed-ak6NoX_4Aeg_2106193606")]
-    [Description(@"??")]
+    [Description(@"Address is the address to which mail is sent.")]
     MailTo,
     
     /// <summary>
-    /// ??
+    /// Address is the address to which delivery is to take place.
     /// Encoded/decoded by serializers as "DeliveryTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLVY")]
     [IsoId("_bm2sZtp-Ed-ak6NoX_4Aeg_2106193624")]
-    [Description(@"??")]
+    [Description(@"Address is the address to which delivery is to take place.")]
     DeliveryTo,
     
 }

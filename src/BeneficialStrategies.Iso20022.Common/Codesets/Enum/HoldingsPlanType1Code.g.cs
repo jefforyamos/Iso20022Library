@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum HoldingsPlanType1Code
 {
     /// <summary>
-    /// ??
+    /// Holding to be transferred belongs to an investment plan.
     /// Encoded/decoded by serializers as "InvestmentPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVP")]
     [IsoId("_HrnWjv81EeC-e_lDNJKWcg")]
-    [Description(@"??")]
+    [Description(@"Holding to be transferred belongs to an investment plan.")]
     InvestmentPlan,
     
     /// <summary>
-    /// ??
+    /// Holding to be transferred belongs to a switch plan.
     /// Encoded/decoded by serializers as "SwitchPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIP")]
     [IsoId("_H1dPBv81EeC-e_lDNJKWcg")]
-    [Description(@"??")]
+    [Description(@"Holding to be transferred belongs to a switch plan.")]
     SwitchPlan,
     
     /// <summary>
-    /// ??
+    /// Holding to be transferred belongs to a withdrawal plan.
     /// Encoded/decoded by serializers as "WithdrawalPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLAR")]
     [IsoId("_H5LRbv81EeC-e_lDNJKWcg")]
-    [Description(@"??")]
+    [Description(@"Holding to be transferred belongs to a withdrawal plan.")]
     WithdrawalPlan,
     
 }

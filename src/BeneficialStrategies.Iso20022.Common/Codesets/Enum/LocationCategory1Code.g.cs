@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LocationCategory1Code
 {
     /// <summary>
-    /// ??
+    /// Mail order or telephone order.
     /// Encoded/decoded by serializers as "MailOrderTelephoneOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOTO")]
     [IsoId("_TTQlVgEcEeCQm6a_G2yO_w_121640327")]
-    [Description(@"??")]
+    [Description(@"Mail order or telephone order.")]
     MailOrderTelephoneOrder,
     
     /// <summary>
-    /// ??
+    /// Customer home.
     /// Encoded/decoded by serializers as "Home".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOME")]
     [IsoId("_TTQlVwEcEeCQm6a_G2yO_w_-2133361507")]
-    [Description(@"??")]
+    [Description(@"Customer home.")]
     Home,
     
     /// <summary>
-    /// ??
+    /// Aboard a bus, train, ship, airplane, taxi, etc.
     /// Encoded/decoded by serializers as "Aboard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABRD")]
     [IsoId("_4fqPEVDhEeuJG-g6zrGRtg")]
-    [Description(@"??")]
+    [Description(@"Aboard a bus, train, ship, airplane, taxi, etc.")]
     Aboard,
     
     /// <summary>
-    /// ??
+    /// Fixed location, for example in a shop.
     /// Encoded/decoded by serializers as "Fixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXD")]
     [IsoId("_4tFAAVDhEeuJG-g6zrGRtg")]
-    [Description(@"??")]
+    [Description(@"Fixed location, for example in a shop.")]
     Fixed,
     
     /// <summary>
-    /// ??
+    /// Nomadic location.
     /// Encoded/decoded by serializers as "Nomadic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMDC")]
     [IsoId("_6UozsVDhEeuJG-g6zrGRtg")]
-    [Description(@"??")]
+    [Description(@"Nomadic location.")]
     Nomadic,
     
 }

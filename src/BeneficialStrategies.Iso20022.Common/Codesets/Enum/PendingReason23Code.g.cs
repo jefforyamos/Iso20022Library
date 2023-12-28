@@ -20,156 +20,156 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason23Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_AL0OQBnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_AL0OORnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Pending receipt of beneficiary owner details.
     /// Encoded/decoded by serializers as "PendingBeneficiaryOwnerDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_AL0ONxnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Pending receipt of beneficiary owner details.")]
     PendingBeneficiaryOwnerDetails,
     
     /// <summary>
-    /// ??
+    /// Awaiting receipt of adequate certification.
     /// Encoded/decoded by serializers as "MissingCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCER")]
     [IsoId("_AL0ONhnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Awaiting receipt of adequate certification.")]
     MissingCertification,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in your account.
     /// Encoded/decoded by serializers as "InsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_AL0OOhnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in your account.")]
     InsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Insufficient financial instruments in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_AL0OPhnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Insufficient financial instruments in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_AL0ONBnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Quantity of financial instruments does not match.
     /// Encoded/decoded by serializers as "QuantityDisagreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_AL0OQRnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Quantity of financial instruments does not match.")]
     QuantityDisagreement,
     
     /// <summary>
-    /// ??
+    /// The instruction is pending receipt of securities, for example, from a purchase or loan.
     /// Encoded/decoded by serializers as "PendingReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENR")]
     [IsoId("_AL0OMhnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"The instruction is pending receipt of securities, for example, from a purchase or loan.")]
     PendingReceipt,
     
     /// <summary>
-    /// ??
+    /// Certificate number error.
     /// Encoded/decoded by serializers as "WrongCertificatesNumbers".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_AL0OPRnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Certificate number error.")]
     WrongCertificatesNumbers,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed cash amount.
     /// Encoded/decoded by serializers as "DisagreementOnCashAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQCS")]
     [IsoId("_AL0OOBnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed cash amount.")]
     DisagreementOnCashAmount,
     
     /// <summary>
-    /// ??
+    /// Tax rate provided is incorrect. It falls outside the acceptable values for that investment country.
     /// Encoded/decoded by serializers as "IncorrectTaxRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAX")]
     [IsoId("_AL0OOxnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Tax rate provided is incorrect. It falls outside the acceptable values for that investment country.")]
     IncorrectTaxRate,
     
     /// <summary>
-    /// ??
+    /// Tax rate is not consistent with the documentation in place.
     /// Encoded/decoded by serializers as "InconsistentTaxRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTAX")]
     [IsoId("_AL0OMxnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Tax rate is not consistent with the documentation in place.")]
     InconsistentTaxRate,
     
     /// <summary>
-    /// ??
+    /// Tax rate is missing.
     /// Encoded/decoded by serializers as "MissingTaxRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTAX")]
     [IsoId("_AL0OPxnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Tax rate is missing.")]
     MissingTaxRate,
     
     /// <summary>
-    /// ??
+    /// System is not available. Instruction is sent outside of business hours.
     /// Encoded/decoded by serializers as "SystemNotAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNAV")]
     [IsoId("_AL0ONRnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"System is not available. Instruction is sent outside of business hours.")]
     SystemNotAvailable,
     
     /// <summary>
-    /// ??
+    /// Instruction is submitted before instruction start date.
     /// Encoded/decoded by serializers as "BeforeInstructionPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSTR")]
     [IsoId("_AL0OPBnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction is submitted before instruction start date.")]
     BeforeInstructionPeriod,
     
     /// <summary>
-    /// ??
+    /// Required paperwork is invalid, incomplete or missing.
     /// Encoded/decoded by serializers as "InvalidPaperwork".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPAW")]
     [IsoId("_FtREgRnzEeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Required paperwork is invalid, incomplete or missing.")]
     InvalidPaperwork,
     
 }

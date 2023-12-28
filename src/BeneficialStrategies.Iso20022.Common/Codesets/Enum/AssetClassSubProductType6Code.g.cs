@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType6Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type electricity.
     /// Encoded/decoded by serializers as "Electricity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_61phYQnzEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type electricity.")]
     Electricity,
     
 }

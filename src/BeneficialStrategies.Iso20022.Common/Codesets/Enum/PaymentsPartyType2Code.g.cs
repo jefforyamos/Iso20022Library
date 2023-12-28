@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentsPartyType2Code
 {
     /// <summary>
-    /// ??
+    /// Creditor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
     /// Encoded/decoded by serializers as "CreditorAgentOrCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACR")]
     [IsoId("_IKhF4VyZEeewBcMu1EH_Gg")]
-    [Description(@"??")]
+    [Description(@"Creditor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
     CreditorAgentOrCreditor,
     
     /// <summary>
-    /// ??
+    /// Debtor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
     /// Encoded/decoded by serializers as "DebtorAgentOrDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DADE")]
     [IsoId("_IRPY8VyZEeewBcMu1EH_Gg")]
-    [Description(@"??")]
+    [Description(@"Debtor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
     DebtorAgentOrDebtor,
     
     /// <summary>
-    /// ??
+    /// Intermediary agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
     /// Encoded/decoded by serializers as "IntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INAG")]
     [IsoId("_IWyAQVyZEeewBcMu1EH_Gg")]
-    [Description(@"??")]
+    [Description(@"Intermediary agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.")]
     IntermediaryAgent,
     
 }

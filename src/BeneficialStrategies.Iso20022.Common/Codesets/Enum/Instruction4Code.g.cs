@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Instruction4Code
 {
     /// <summary>
-    /// ??
+    /// Please advise/contact next agent by phone.
     /// Encoded/decoded by serializers as "PhoneNextAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHOA")]
     [IsoId("_aW-_89p-Ed-ak6NoX_4Aeg_-1285879464")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact next agent by phone.")]
     PhoneNextAgent,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact next agent by the most efficient means of telecommunication.
     /// Encoded/decoded by serializers as "TelecomNextAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELA")]
     [IsoId("_aW-_9Np-Ed-ak6NoX_4Aeg_-1285879404")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact next agent by the most efficient means of telecommunication.")]
     TelecomNextAgent,
     
 }

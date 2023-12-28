@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Frequency14Code
 {
     /// <summary>
-    /// ??
+    /// Event takes place every day.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_xwMF8c2FEeq8rujJR5QTKA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every day.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Event takes place once a week.
     /// Encoded/decoded by serializers as "Weekly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_xwMF-c2FEeq8rujJR5QTKA")]
-    [Description(@"??")]
+    [Description(@"Event takes place once a week.")]
     Weekly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every month or once a month.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_xwMGB82FEeq8rujJR5QTKA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every month or once a month.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Event takes place on request or as necessary.
     /// Encoded/decoded by serializers as "Adhoc".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADHO")]
     [IsoId("_xwMGI82FEeq8rujJR5QTKA")]
-    [Description(@"??")]
+    [Description(@"Event takes place on request or as necessary.")]
     Adhoc,
     
 }

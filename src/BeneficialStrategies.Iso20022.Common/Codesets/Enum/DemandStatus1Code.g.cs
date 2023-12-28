@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DemandStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Extend undertaking expiry date.
     /// Encoded/decoded by serializers as "Extend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTD")]
     [IsoId("_wyDoAdryEeGuxusC7C-WeA")]
-    [Description(@"??")]
+    [Description(@"Extend undertaking expiry date.")]
     Extend,
     
     /// <summary>
-    /// ??
+    /// Pay undertaking demand.
     /// Encoded/decoded by serializers as "PAY".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYD")]
     [IsoId("_w7l-gdryEeGuxusC7C-WeA")]
-    [Description(@"??")]
+    [Description(@"Pay undertaking demand.")]
     PAY,
     
 }

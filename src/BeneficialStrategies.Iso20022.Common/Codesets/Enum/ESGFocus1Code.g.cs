@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ESGFocus1Code
 {
     /// <summary>
-    /// ??
+    /// Main focus will be environmental.
     /// Encoded/decoded by serializers as "Environmental".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENVR")]
     [IsoId("_RHqrsdA7EeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Main focus will be environmental.")]
     Environmental,
     
     /// <summary>
-    /// ??
+    /// Main focus will be governance.
     /// Encoded/decoded by serializers as "Governance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOVR")]
     [IsoId("_RN7EsdA7EeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Main focus will be governance.")]
     Governance,
     
     /// <summary>
-    /// ??
+    /// Main focus will be social.
     /// Encoded/decoded by serializers as "Social".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOCL")]
     [IsoId("_RW2-QdA7EeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Main focus will be social.")]
     Social,
     
 }

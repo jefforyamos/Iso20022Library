@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Unrealised1Code
 {
     /// <summary>
-    /// ??
+    /// Unrealised gain.
     /// Encoded/decoded by serializers as "Gain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAIN")]
     [IsoId("_m59_YfNBEeCuA5Tr22BnwA_1098512688")]
-    [Description(@"??")]
+    [Description(@"Unrealised gain.")]
     Gain,
     
     /// <summary>
-    /// ??
+    /// Unrealised loss.
     /// Encoded/decoded by serializers as "Loss".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOSS")]
     [IsoId("_m59_YvNBEeCuA5Tr22BnwA_-1551187173")]
-    [Description(@"??")]
+    [Description(@"Unrealised loss.")]
     Loss,
     
 }

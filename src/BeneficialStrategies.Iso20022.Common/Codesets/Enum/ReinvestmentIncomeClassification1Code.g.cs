@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReinvestmentIncomeClassification1Code
 {
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as cash dividend.
     /// Encoded/decoded by serializers as "CashDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVCA")]
     [IsoId("_1qxAYjL3EeKU9IrkkToqcw_-926958499")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as cash dividend.")]
     CashDividend,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as cash dividend on increased shares.
     /// Encoded/decoded by serializers as "CashDividendOnIncreasedShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDIS")]
     [IsoId("_1qxAYzL3EeKU9IrkkToqcw_-1040797565")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as cash dividend on increased shares.")]
     CashDividendOnIncreasedShares,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as cash dividend at the unfavourable rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.
     /// Encoded/decoded by serializers as "CashDividendTaxUnfavorable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDUN")]
     [IsoId("_1qxAZDL3EeKU9IrkkToqcw_430852457")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as cash dividend at the unfavourable rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.")]
     CashDividendTaxUnfavorable,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as cash dividend at the favourable rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.
     /// Encoded/decoded by serializers as "CashDividendTaxFavorable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDFV")]
     [IsoId("_1qxAZTL3EeKU9IrkkToqcw_-84465823")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as cash dividend at the favourable rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.")]
     CashDividendTaxFavorable,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as cash dividend at the exempt rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.
     /// Encoded/decoded by serializers as "CashDividendTaxExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDEX")]
     [IsoId("_1qxAZjL3EeKU9IrkkToqcw_-198304889")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as cash dividend at the exempt rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.")]
     CashDividendTaxExempt,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as special cash dividend.
     /// Encoded/decoded by serializers as "CashDividendSpecial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDPS")]
     [IsoId("_1q6xYDL3EeKU9IrkkToqcw_369621446")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as special cash dividend.")]
     CashDividendSpecial,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as interest.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_1q6xYTL3EeKU9IrkkToqcw_358522669")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as interest.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as principal.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPL")]
     [IsoId("_1q6xYjL3EeKU9IrkkToqcw_244683603")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as principal.")]
     Principal,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as capital gains.
     /// Encoded/decoded by serializers as "CapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPG")]
     [IsoId("_1q6xYzL3EeKU9IrkkToqcw_-1640335412")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as capital gains.")]
     CapitalGains,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as long term capital gains.
     /// Encoded/decoded by serializers as "LongTermCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTCG")]
     [IsoId("_1q6xZDL3EeKU9IrkkToqcw_-1754174478")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as long term capital gains.")]
     LongTermCapitalGains,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as short term capital gains.
     /// Encoded/decoded by serializers as "ShortTermCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STCG")]
     [IsoId("_1q6xZTL3EeKU9IrkkToqcw_-1315217905")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as short term capital gains.")]
     ShortTermCapitalGains,
     
     /// <summary>
-    /// ??
+    /// Cash proceeds being reinvested is classified as return of capital.
     /// Encoded/decoded by serializers as "ReturnOfCapital".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROCA")]
     [IsoId("_1q6xZjL3EeKU9IrkkToqcw_-237197567")]
-    [Description(@"??")]
+    [Description(@"Cash proceeds being reinvested is classified as return of capital.")]
     ReturnOfCapital,
     
 }

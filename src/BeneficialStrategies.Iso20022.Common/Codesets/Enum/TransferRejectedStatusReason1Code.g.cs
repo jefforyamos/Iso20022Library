@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferRejectedStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Cash settlement date is not recognised or is invalid.
     /// Encoded/decoded by serializers as "SettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDAT")]
     [IsoId("_VjusU9p-Ed-ak6NoX_4Aeg_456943894")]
-    [Description(@"??")]
+    [Description(@"Cash settlement date is not recognised or is invalid.")]
     SettlementDate,
     
     /// <summary>
-    /// ??
+    /// Place of settlement is not recognised or is invalid.
     /// Encoded/decoded by serializers as "SettlementPlace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPT")]
     [IsoId("_VjusVNp-Ed-ak6NoX_4Aeg_456944361")]
-    [Description(@"??")]
+    [Description(@"Place of settlement is not recognised or is invalid.")]
     SettlementPlace,
     
     /// <summary>
-    /// ??
+    /// Identification of the security is not recognised or is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_VjusVdp-Ed-ak6NoX_4Aeg_464330688")]
-    [Description(@"??")]
+    [Description(@"Identification of the security is not recognised or is invalid.")]
     FinancialInstrumentIdentification,
     
     /// <summary>
-    /// ??
+    /// There are not enough securities in the account to process the instruction.
     /// Encoded/decoded by serializers as "NotEnoughFinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_VjusVtp-Ed-ak6NoX_4Aeg_465253262")]
-    [Description(@"??")]
+    [Description(@"There are not enough securities in the account to process the instruction.")]
     NotEnoughFinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// One or several settlement parties are not recognised or are invalid.
     /// Encoded/decoded by serializers as "SettlementParties".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISTP")]
     [IsoId("_VjusV9p-Ed-ak6NoX_4Aeg_464331073")]
-    [Description(@"??")]
+    [Description(@"One or several settlement parties are not recognised or are invalid.")]
     SettlementParties,
     
     /// <summary>
-    /// ??
+    /// Certificate number is not recognised or is invalid.
     /// Encoded/decoded by serializers as "CertificateNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICTN")]
     [IsoId("_VjusWNp-Ed-ak6NoX_4Aeg_464331540")]
-    [Description(@"??")]
+    [Description(@"Certificate number is not recognised or is invalid.")]
     CertificateNumber,
     
     /// <summary>
-    /// ??
+    /// Investment account identification is not recognised or is invalid.
     /// Encoded/decoded by serializers as "InvestmentAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_VjusWdp-Ed-ak6NoX_4Aeg_464331952")]
-    [Description(@"??")]
+    [Description(@"Investment account identification is not recognised or is invalid.")]
     InvestmentAccount,
     
     /// <summary>
-    /// ??
+    /// Acquisition date is not recognised or is invalid.
     /// Encoded/decoded by serializers as "AcquisitionDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IAQD")]
     [IsoId("_Vj32QNp-Ed-ak6NoX_4Aeg_464332479")]
-    [Description(@"??")]
+    [Description(@"Acquisition date is not recognised or is invalid.")]
     AcquisitionDate,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked due to a corporate action.
     /// Encoded/decoded by serializers as "AccountBlockedForCorporateAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCA")]
     [IsoId("_Vj32Qdp-Ed-ak6NoX_4Aeg_465252718")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked due to a corporate action.")]
     AccountBlockedForCorporateAction,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
     /// Encoded/decoded by serializers as "AccountBlockedMissingDocuments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_Vj32Qtp-Ed-ak6NoX_4Aeg_465253150")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.")]
     AccountBlockedMissingDocuments,
     
     /// <summary>
-    /// ??
+    /// Identification of the security and the security name are not the same.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentificationAndName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDNA")]
     [IsoId("_Vj32Q9p-Ed-ak6NoX_4Aeg_465253768")]
-    [Description(@"??")]
+    [Description(@"Identification of the security and the security name are not the same.")]
     FinancialInstrumentIdentificationAndName,
     
     /// <summary>
-    /// ??
+    /// Order contains physical delivery details but the fund can not be physically delivered.
     /// Encoded/decoded by serializers as "PhysicalDeliveryImpossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLVY")]
     [IsoId("_Vj32RNp-Ed-ak6NoX_4Aeg_465253803")]
-    [Description(@"??")]
+    [Description(@"Order contains physical delivery details but the fund can not be physically delivered.")]
     PhysicalDeliveryImpossible,
     
     /// <summary>
-    /// ??
+    /// Legally impossible to cancel.
     /// Encoded/decoded by serializers as "LegallyImpossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEGL")]
     [IsoId("_Vj32Rdp-Ed-ak6NoX_4Aeg_466176266")]
-    [Description(@"??")]
+    [Description(@"Legally impossible to cancel.")]
     LegallyImpossible,
     
     /// <summary>
-    /// ??
+    /// Instruction is not compliant with the service level agreement.
     /// Encoded/decoded by serializers as "NotCompliantWithSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSLA")]
     [IsoId("_Vj32Rtp-Ed-ak6NoX_4Aeg_1361236867")]
-    [Description(@"??")]
+    [Description(@"Instruction is not compliant with the service level agreement.")]
     NotCompliantWithSLA,
     
     /// <summary>
-    /// ??
+    /// Another reason for the status rejected.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Vj32R9p-Ed-ak6NoX_4Aeg_4303597")]
-    [Description(@"??")]
+    [Description(@"Another reason for the status rejected.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Financial instrument quantity is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_Vj32SNp-Ed-ak6NoX_4Aeg_-902559429")]
-    [Description(@"??")]
+    [Description(@"Financial instrument quantity is invalid.")]
     FinancialInstrumentQuantity,
     
 }

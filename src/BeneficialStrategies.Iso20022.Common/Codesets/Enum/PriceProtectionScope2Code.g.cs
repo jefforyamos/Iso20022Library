@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceProtectionScope2Code
 {
     /// <summary>
-    /// ??
+    /// Price protection is local (for example, Exchange, ECN, ATS).
     /// Encoded/decoded by serializers as "Local".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCA")]
     [IsoId("_aI1PMtp-Ed-ak6NoX_4Aeg_-40654570")]
-    [Description(@"??")]
+    [Description(@"Price protection is local (for example, Exchange, ECN, ATS).")]
     Local,
     
     /// <summary>
-    /// ??
+    /// Price protection is national (across all national markets).
     /// Encoded/decoded by serializers as "National".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NATI")]
     [IsoId("_aI1PM9p-Ed-ak6NoX_4Aeg_-40654240")]
-    [Description(@"??")]
+    [Description(@"Price protection is national (across all national markets).")]
     National,
     
     /// <summary>
-    /// ??
+    /// Price protection is global (across all markets).
     /// Encoded/decoded by serializers as "Global".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GLOB")]
     [IsoId("_aI1PNNp-Ed-ak6NoX_4Aeg_-40654239")]
-    [Description(@"??")]
+    [Description(@"Price protection is global (across all markets).")]
     Global,
     
     /// <summary>
-    /// ??
+    /// Price protection is national (across all national markets) excluding local price protection.
     /// Encoded/decoded by serializers as "NationalExcludingLocal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAEL")]
     [IsoId("_aI1PNdp-Ed-ak6NoX_4Aeg_-40654215")]
-    [Description(@"??")]
+    [Description(@"Price protection is national (across all national markets) excluding local price protection.")]
     NationalExcludingLocal,
     
 }

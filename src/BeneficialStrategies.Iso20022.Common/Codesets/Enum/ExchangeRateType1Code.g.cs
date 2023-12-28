@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExchangeRateType1Code
 {
     /// <summary>
-    /// ??
+    /// Exchange rate applied is the spot rate.
     /// Encoded/decoded by serializers as "Spot".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPOT")]
     [IsoId("_ak11wNp-Ed-ak6NoX_4Aeg_-75535808")]
-    [Description(@"??")]
+    [Description(@"Exchange rate applied is the spot rate.")]
     Spot,
     
     /// <summary>
-    /// ??
+    /// Exchange rate applied is the market rate at the time of the sale.
     /// Encoded/decoded by serializers as "Sale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SALE")]
     [IsoId("_ak11wdp-Ed-ak6NoX_4Aeg_-75535501")]
-    [Description(@"??")]
+    [Description(@"Exchange rate applied is the market rate at the time of the sale.")]
     Sale,
     
     /// <summary>
-    /// ??
+    /// Exchange rate applied is the rate agreed between the parties.
     /// Encoded/decoded by serializers as "Agreed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGRD")]
     [IsoId("_ak11wtp-Ed-ak6NoX_4Aeg_-75535484")]
-    [Description(@"??")]
+    [Description(@"Exchange rate applied is the rate agreed between the parties.")]
     Agreed,
     
 }

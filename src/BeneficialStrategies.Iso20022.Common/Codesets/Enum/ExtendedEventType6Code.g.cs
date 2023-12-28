@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExtendedEventType6Code
 {
     /// <summary>
-    /// ??
+    /// Security, usually a form of a derivative, for which the agent or issuer has decided to terminate the derivative based on a change to the underlying security(ies) or a change in strategy. Distinguishes from Mandatory Exchange, Exchange Offer event types mapped to the same ISO event type code.
     /// Encoded/decoded by serializers as "Termination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMTN")]
     [IsoId("_4GDgob_pEeeb2ZBoAlSG1Q")]
-    [Description(@"??")]
+    [Description(@"Security, usually a form of a derivative, for which the agent or issuer has decided to terminate the derivative based on a change to the underlying security(ies) or a change in strategy. Distinguishes from Mandatory Exchange, Exchange Offer event types mapped to the same ISO event type code.")]
     Termination,
     
     /// <summary>
-    /// ??
+    /// Final distribution of principal due on a security, typically Collateralised Mortgage Obligations.
     /// Encoded/decoded by serializers as "FinalPaydown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FPAY")]
     [IsoId("_4GDgo7_pEeeb2ZBoAlSG1Q")]
-    [Description(@"??")]
+    [Description(@"Final distribution of principal due on a security, typically Collateralised Mortgage Obligations.")]
     FinalPaydown,
     
     /// <summary>
-    /// ??
+    /// Feature of a security that allows an issuer to make a payment to the security holder. This event will be used for securities subject to redemptions other than those categorised as full and partial calls (for example early Certificate of Deposit redemptions).
     /// Encoded/decoded by serializers as "CertificateOfDepositEarlyRedemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRD")]
     [IsoId("_4GDgpb_pEeeb2ZBoAlSG1Q")]
-    [Description(@"??")]
+    [Description(@"Feature of a security that allows an issuer to make a payment to the security holder. This event will be used for securities subject to redemptions other than those categorised as full and partial calls (for example early Certificate of Deposit redemptions).")]
     CertificateOfDepositEarlyRedemption,
     
     /// <summary>
-    /// ??
+    /// Event is a redemption of warrant.
     /// Encoded/decoded by serializers as "RedemptionOfWarrant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDW")]
     [IsoId("_BkJywb_qEeeb2ZBoAlSG1Q")]
-    [Description(@"??")]
+    [Description(@"Event is a redemption of warrant.")]
     RedemptionOfWarrant,
     
 }

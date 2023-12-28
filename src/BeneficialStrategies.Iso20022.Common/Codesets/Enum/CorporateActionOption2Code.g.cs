@@ -20,219 +20,219 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionOption2Code
 {
     /// <summary>
-    /// ??
+    /// Vote expressed as abstain. In this case, the issuing company will add the number of shares to the quorum of the meeting.|If the voting right is not executed, it will not be added to the quorum. In this case, code NOAC should be used.
     /// Encoded/decoded by serializers as "Abstain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABST")]
     [IsoId("_bLSxwtp-Ed-ak6NoX_4Aeg_-1814969879")]
-    [Description(@"??")]
+    [Description(@"Vote expressed as abstain. In this case, the issuing company will add the number of shares to the quorum of the meeting.|If the voting right is not executed, it will not be added to the quorum. In this case, code NOAC should be used.")]
     Abstain,
     
     /// <summary>
-    /// ??
+    /// Vote against management.
     /// Encoded/decoded by serializers as "VoteAgainstManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMGT")]
     [IsoId("_bLSxw9p-Ed-ak6NoX_4Aeg_-1785415647")]
-    [Description(@"??")]
+    [Description(@"Vote against management.")]
     VoteAgainstManagement,
     
     /// <summary>
-    /// ??
+    /// Receive equities from the share premium reserve of the company and considered as a capital distribution rather than a disbursement of income with different tax implications (typically found in Australia).
     /// Encoded/decoded by serializers as "BonusSharePlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSPL")]
     [IsoId("_bLSxxNp-Ed-ak6NoX_4Aeg_-241036368")]
-    [Description(@"??")]
+    [Description(@"Receive equities from the share premium reserve of the company and considered as a capital distribution rather than a disbursement of income with different tax implications (typically found in Australia).")]
     BonusSharePlan,
     
     /// <summary>
-    /// ??
+    /// Buy additional securities to round up position.
     /// Encoded/decoded by serializers as "BuyUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYA")]
     [IsoId("_bLSxxdp-Ed-ak6NoX_4Aeg_-241036350")]
-    [Description(@"??")]
+    [Description(@"Buy additional securities to round up position.")]
     BuyUp,
     
     /// <summary>
-    /// ??
+    /// Option to choose between different security and cash options.
     /// Encoded/decoded by serializers as "CashAndSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASE")]
     [IsoId("_bLSxxtp-Ed-ak6NoX_4Aeg_-241036325")]
-    [Description(@"??")]
+    [Description(@"Option to choose between different security and cash options.")]
     CashAndSecurity,
     
     /// <summary>
-    /// ??
+    /// Option to choose cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_bLSxx9p-Ed-ak6NoX_4Aeg_-241036308")]
-    [Description(@"??")]
+    [Description(@"Option to choose cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Vote to consent to change the terms of the securities agreement and to exchange securities.
     /// Encoded/decoded by serializers as "ConsentAndExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CEXC")]
     [IsoId("_bLSxyNp-Ed-ak6NoX_4Aeg_-241036307")]
-    [Description(@"??")]
+    [Description(@"Vote to consent to change the terms of the securities agreement and to exchange securities.")]
     ConsentAndExchange,
     
     /// <summary>
-    /// ??
+    /// Vote not to approve the event or proposal.
     /// Encoded/decoded by serializers as "ConsentDenied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONN")]
     [IsoId("_bLb7sNp-Ed-ak6NoX_4Aeg_-241036289")]
-    [Description(@"??")]
+    [Description(@"Vote not to approve the event or proposal.")]
     ConsentDenied,
     
     /// <summary>
-    /// ??
+    /// Vote to approve the event or proposal.
     /// Encoded/decoded by serializers as "ConsentGranted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONY")]
     [IsoId("_bLb7sdp-Ed-ak6NoX_4Aeg_-241036264")]
-    [Description(@"??")]
+    [Description(@"Vote to approve the event or proposal.")]
     ConsentGranted,
     
     /// <summary>
-    /// ??
+    /// Vote to consent to change the terms of the securities agreement and to tender securities for cash.
     /// Encoded/decoded by serializers as "ConsentAndTender".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTEN")]
     [IsoId("_bLb7stp-Ed-ak6NoX_4Aeg_-241036290")]
-    [Description(@"??")]
+    [Description(@"Vote to consent to change the terms of the securities agreement and to tender securities for cash.")]
     ConsentAndTender,
     
     /// <summary>
-    /// ??
+    /// Exercise intermediate securities or warrants.
     /// Encoded/decoded by serializers as "Exercise".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXER")]
     [IsoId("_bLb7s9p-Ed-ak6NoX_4Aeg_-241035947")]
-    [Description(@"??")]
+    [Description(@"Exercise intermediate securities or warrants.")]
     Exercise,
     
     /// <summary>
-    /// ??
+    /// Allow event or entitled security to expire.
     /// Encoded/decoded by serializers as "Lapse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAPS")]
     [IsoId("_bLb7tNp-Ed-ak6NoX_4Aeg_-241035922")]
-    [Description(@"??")]
+    [Description(@"Allow event or entitled security to expire.")]
     Lapse,
     
     /// <summary>
-    /// ??
+    /// Vote with management.
     /// Encoded/decoded by serializers as "VoteWithManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNGT")]
     [IsoId("_bLb7tdp-Ed-ak6NoX_4Aeg_-1445560057")]
-    [Description(@"??")]
+    [Description(@"Vote with management.")]
     VoteWithManagement,
     
     /// <summary>
-    /// ??
+    /// Option that allows a holder to elect to retain their holding, for example, a putable bond.
     /// Encoded/decoded by serializers as "Retain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPUT")]
     [IsoId("_bLb7ttp-Ed-ak6NoX_4Aeg_-241035887")]
-    [Description(@"??")]
+    [Description(@"Option that allows a holder to elect to retain their holding, for example, a putable bond.")]
     Retain,
     
     /// <summary>
-    /// ??
+    /// Option for the account owner not to take part in the event. This would include opt-out for class actions and lodging of dissenters' rights.
     /// Encoded/decoded by serializers as "NoAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAC")]
     [IsoId("_bLb7t9p-Ed-ak6NoX_4Aeg_-241035886")]
-    [Description(@"??")]
+    [Description(@"Option for the account owner not to take part in the event. This would include opt-out for class actions and lodging of dissenters' rights.")]
     NoAction,
     
     /// <summary>
-    /// ??
+    /// Account owner is a non-qualified investor.
     /// Encoded/decoded by serializers as "NonQualifiedInvestor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOQU")]
     [IsoId("_bLb7uNp-Ed-ak6NoX_4Aeg_-1403079419")]
-    [Description(@"??")]
+    [Description(@"Account owner is a non-qualified investor.")]
     NonQualifiedInvestor,
     
     /// <summary>
-    /// ??
+    /// In a remarketing of variable notes, the margin that shareholders can propose in respect of the next interest period.
     /// Encoded/decoded by serializers as "ProposedRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFR")]
     [IsoId("_bLb7udp-Ed-ak6NoX_4Aeg_-241035870")]
-    [Description(@"??")]
+    [Description(@"In a remarketing of variable notes, the margin that shareholders can propose in respect of the next interest period.")]
     ProposedRate,
     
     /// <summary>
-    /// ??
+    /// Generic corporate action option to be used in case that no other specific code is appropriate.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_bLlssNp-Ed-ak6NoX_4Aeg_-1375370972")]
-    [Description(@"??")]
+    [Description(@"Generic corporate action option to be used in case that no other specific code is appropriate.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Subscribe to more equities than underlying securities position allows.
     /// Encoded/decoded by serializers as "Oversubscribe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OVER")]
     [IsoId("_bLlssdp-Ed-ak6NoX_4Aeg_-241035827")]
-    [Description(@"??")]
+    [Description(@"Subscribe to more equities than underlying securities position allows.")]
     Oversubscribe,
     
     /// <summary>
-    /// ??
+    /// Issue a proxy card in case of voting.
     /// Encoded/decoded by serializers as "ProxyCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROX")]
     [IsoId("_bLlsstp-Ed-ak6NoX_4Aeg_-1129715659")]
-    [Description(@"??")]
+    [Description(@"Issue a proxy card in case of voting.")]
     ProxyCard,
     
     /// <summary>
-    /// ??
+    /// Account owner is a qualified investor.
     /// Encoded/decoded by serializers as "QualifiedInvestor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QINV")]
     [IsoId("_bLlss9p-Ed-ak6NoX_4Aeg_-1114939861")]
-    [Description(@"??")]
+    [Description(@"Account owner is a qualified investor.")]
     QualifiedInvestor,
     
     /// <summary>
-    /// ??
+    /// Distribution of securities to holders.
     /// Encoded/decoded by serializers as "Security".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_bLlstNp-Ed-ak6NoX_4Aeg_-241035394")]
-    [Description(@"??")]
+    [Description(@"Distribution of securities to holders.")]
     Security,
     
     /// <summary>
-    /// ??
+    /// Sell the intermediate securities.
     /// Encoded/decoded by serializers as "SellEntitlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLLE")]
     [IsoId("_bLlstdp-Ed-ak6NoX_4Aeg_-241035282")]
-    [Description(@"??")]
+    [Description(@"Sell the intermediate securities.")]
     SellEntitlement,
     
     /// <summary>
-    /// ??
+    /// Option to give a split instruction, for example, a split voting instruction on a meeting.
     /// Encoded/decoded by serializers as "SplitInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLI")]
     [IsoId("_bLlsttp-Ed-ak6NoX_4Aeg_-1075228909")]
-    [Description(@"??")]
+    [Description(@"Option to give a split instruction, for example, a split voting instruction on a meeting.")]
     SplitInstruction,
     
 }

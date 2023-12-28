@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GeneralInvestmentAccountType1Code
 {
     /// <summary>
-    /// ??
+    /// General shares or equity savings account.
     /// Encoded/decoded by serializers as "ShareSavingsAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUI")]
     [IsoId("_dqv2cV2dEeiFXdiLi_Nf4A")]
-    [Description(@"??")]
+    [Description(@"General shares or equity savings account.")]
     ShareSavingsAccount,
     
 }

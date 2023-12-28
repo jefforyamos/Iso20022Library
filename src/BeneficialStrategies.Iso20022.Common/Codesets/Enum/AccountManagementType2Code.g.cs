@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountManagementType2Code
 {
     /// <summary>
-    /// ??
+    /// Refers to an account opening instruction message.
     /// Encoded/decoded by serializers as "AccountOpening".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCO")]
     [IsoId("_bqvG09p-Ed-ak6NoX_4Aeg_-845396171")]
-    [Description(@"??")]
+    [Description(@"Refers to an account opening instruction message.")]
     AccountOpening,
     
     /// <summary>
-    /// ??
+    /// Refers to an account modification instruction message.
     /// Encoded/decoded by serializers as "AccountModification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCM")]
     [IsoId("_bqvG1Np-Ed-ak6NoX_4Aeg_-845395920")]
-    [Description(@"??")]
+    [Description(@"Refers to an account modification instruction message.")]
     AccountModification,
     
     /// <summary>
-    /// ??
+    /// Refers to a get account details message.
     /// Encoded/decoded by serializers as "GetAccountDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GACC")]
     [IsoId("_bqvG1dp-Ed-ak6NoX_4Aeg_-784440543")]
-    [Description(@"??")]
+    [Description(@"Refers to a get account details message.")]
     GetAccountDetails,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type agricultural.
     /// Encoded/decoded by serializers as "Agricultural".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGRI")]
     [IsoId("_eBGNYQnyEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type agricultural.")]
     Agricultural,
     
 }

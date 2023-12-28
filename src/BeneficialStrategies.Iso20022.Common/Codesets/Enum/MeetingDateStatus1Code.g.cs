@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MeetingDateStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Meeting date is tentative.
     /// Encoded/decoded by serializers as "Tentative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TNTA")]
     [IsoId("_aVWBMtp-Ed-ak6NoX_4Aeg_1034907041")]
-    [Description(@"??")]
+    [Description(@"Meeting date is tentative.")]
     Tentative,
     
     /// <summary>
-    /// ??
+    /// Meeting date is confirmed.
     /// Encoded/decoded by serializers as "Confirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNFR")]
     [IsoId("_aVWBM9p-Ed-ak6NoX_4Aeg_1049683942")]
-    [Description(@"??")]
+    [Description(@"Meeting date is confirmed.")]
     Confirmed,
     
     /// <summary>
-    /// ??
+    /// Meeting date has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_aVWBNNp-Ed-ak6NoX_4Aeg_1064459735")]
-    [Description(@"??")]
+    [Description(@"Meeting date has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Meeting could not take place as the quorum was not reached.
     /// Encoded/decoded by serializers as "NoQuorum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOQO")]
     [IsoId("_aVWBNdp-Ed-ak6NoX_4Aeg_-1791743871")]
-    [Description(@"??")]
+    [Description(@"Meeting could not take place as the quorum was not reached.")]
     NoQuorum,
     
 }

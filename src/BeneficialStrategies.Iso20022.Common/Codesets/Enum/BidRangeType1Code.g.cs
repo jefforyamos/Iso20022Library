@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BidRangeType1Code
 {
     /// <summary>
-    /// ??
+    /// All values (including minimum and maximum prices) are divisible by the bid interval.
     /// Encoded/decoded by serializers as "Divisible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_IuYsUe3NEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"All values (including minimum and maximum prices) are divisible by the bid interval.")]
     Divisible,
     
     /// <summary>
-    /// ??
+    /// No values within the bid range are divisible by the bid interval including the minimum and maximum prices.  Each value between the minimum and maximum prices is incremented by the bid interval.
     /// Encoded/decoded by serializers as "Incremental".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCR")]
     [IsoId("_Iy9DQe3NEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"No values within the bid range are divisible by the bid interval including the minimum and maximum prices.  Each value between the minimum and maximum prices is incremented by the bid interval.")]
     Incremental,
     
     /// <summary>
-    /// ??
+    /// Minimum and maximum prices are not divisible by the bid interval.  All successive values between the minimum and maximum prices are in multiples of the bid interval.
     /// Encoded/decoded by serializers as "InMultiple".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MULT")]
     [IsoId("_I3mSse3NEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Minimum and maximum prices are not divisible by the bid interval.  All successive values between the minimum and maximum prices are in multiples of the bid interval.")]
     InMultiple,
     
 }

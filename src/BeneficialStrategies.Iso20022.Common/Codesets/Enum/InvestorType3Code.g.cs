@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestorType3Code
 {
     /// <summary>
-    /// ??
+    /// Investor is a retail investor.
     /// Encoded/decoded by serializers as "Retail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETL")]
     [IsoId("_KSbzAddkEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Investor is a retail investor.")]
     Retail,
     
     /// <summary>
-    /// ??
+    /// Investor is professional or professional per se.
     /// Encoded/decoded by serializers as "ProfessionalOrPerSe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRF2")]
     [IsoId("_LvkfYddkEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Investor is professional or professional per se.")]
     ProfessionalOrPerSe,
     
     /// <summary>
-    /// ??
+    /// Investor is neither professional or retail.
     /// Encoded/decoded by serializers as "NeitherProfessionalOrRetail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEI1")]
     [IsoId("_Mq77cddkEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Investor is neither professional or retail.")]
     NeitherProfessionalOrRetail,
     
     /// <summary>
-    /// ??
+    /// Investor is both professional and retail.
     /// Encoded/decoded by serializers as "BothProfessionalAndRetail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOT2")]
     [IsoId("_NgC-gddkEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Investor is both professional and retail.")]
     BothProfessionalAndRetail,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MoneyMarketTransactionType1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is a borrowing.
     /// Encoded/decoded by serializers as "CashBorrowing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BORR")]
     [IsoId("_IwD5oZfsEeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a borrowing.")]
     CashBorrowing,
     
     /// <summary>
-    /// ??
+    /// Transaction is a lending.
     /// Encoded/decoded by serializers as "CashLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEND")]
     [IsoId("_I4gD8ZfsEeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a lending.")]
     CashLending,
     
 }

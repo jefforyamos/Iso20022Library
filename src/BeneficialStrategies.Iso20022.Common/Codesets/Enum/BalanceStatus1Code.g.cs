@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BalanceStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Balance corresponding to the pending transactions.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_bkLL0Np-Ed-ak6NoX_4Aeg_992302531")]
-    [Description(@"??")]
+    [Description(@"Balance corresponding to the pending transactions.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Final status of a transaction when the associated transfer of cash has been successfully processed.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLD")]
     [IsoId("_bkLL0dp-Ed-ak6NoX_4Aeg_992302584")]
-    [Description(@"??")]
+    [Description(@"Final status of a transaction when the associated transfer of cash has been successfully processed.")]
     Settled,
     
 }

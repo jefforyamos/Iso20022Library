@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementConditionModificationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been acknowledged/accepted by the account servicer.
     /// Encoded/decoded by serializers as "AcknowledgedAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_ZK189Np-Ed-ak6NoX_4Aeg_-858187374")]
-    [Description(@"??")]
+    [Description(@"Instruction has been acknowledged/accepted by the account servicer.")]
     AcknowledgedAccepted,
     
     /// <summary>
-    /// ??
+    /// Instruction has been rejected for further processing.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_ZK189dp-Ed-ak6NoX_4Aeg_794440134")]
-    [Description(@"??")]
+    [Description(@"Instruction has been rejected for further processing.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Modification is pending. At this time, it is unknown whether the modification can be affected.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODP")]
     [IsoId("_ZK189tp-Ed-ak6NoX_4Aeg_1133726791")]
-    [Description(@"??")]
+    [Description(@"Modification is pending. At this time, it is unknown whether the modification can be affected.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Modification Request will not be executed.
     /// Encoded/decoded by serializers as "Denied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEND")]
     [IsoId("_ZK1899p-Ed-ak6NoX_4Aeg_-155303300")]
-    [Description(@"??")]
+    [Description(@"Modification Request will not be executed.")]
     Denied,
     
     /// <summary>
-    /// ??
+    /// Modification has been completed.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODC")]
     [IsoId("_ZK18-Np-Ed-ak6NoX_4Aeg_-974256981")]
-    [Description(@"??")]
+    [Description(@"Modification has been completed.")]
     Completed,
     
 }

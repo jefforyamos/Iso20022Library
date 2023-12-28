@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashPaymentStatus2Code
 {
     /// <summary>
-    /// ??
+    /// The payment is awaiting settlement.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_a7DWVdp-Ed-ak6NoX_4Aeg_1461915330")]
-    [Description(@"??")]
+    [Description(@"The payment is awaiting settlement.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// The payment has been settled or stopped.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_a7DWVtp-Ed-ak6NoX_4Aeg_1461915331")]
-    [Description(@"??")]
+    [Description(@"The payment has been settled or stopped.")]
     Final,
     
 }

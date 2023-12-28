@@ -20,120 +20,123 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralType8Code
 {
     /// <summary>
-    /// ??
+    /// Total collateral affected to open market operations.
     /// Encoded/decoded by serializers as "TotalCollateralAffectedToOpenMarketOperations".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMO")]
     [IsoId("_bzLRIQLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total collateral affected to open market operations.")]
     TotalCollateralAffectedToOpenMarketOperations,
     
     /// <summary>
-    /// ??
+    /// Total credit claims.
     /// Encoded/decoded by serializers as "TotalCreditClaims".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCCL")]
     [IsoId("_b6Ua8gLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total credit claims.")]
     TotalCreditClaims,
     
     /// <summary>
-    /// ??
+    /// Total externally managed collateral apart from credit claims.
+    /// 
     /// Encoded/decoded by serializers as "TotalExternallyManagedCollateralApartFromCreditClaims".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CEMC")]
     [IsoId("_cD_UUgLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total externally managed collateral apart from credit claims. ")]
     TotalExternallyManagedCollateralApartFromCreditClaims,
     
     /// <summary>
-    /// ??
+    /// Total externally managed collateral for credit claims.
     /// Encoded/decoded by serializers as "TotalExternallyManagedCollateralForCreditClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CXCC")]
     [IsoId("_cMUw8gLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total externally managed collateral for credit claims.")]
     TotalExternallyManagedCollateralForCreditClaim,
     
     /// <summary>
-    /// ??
+    /// Total fixed term deposit used as collateral.
     /// Encoded/decoded by serializers as "TotalFixedTermDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFTD")]
     [IsoId("_cjO1EgLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total fixed term deposit used as collateral.")]
     TotalFixedTermDeposit,
     
     /// <summary>
-    /// ??
+    /// Total interest for fixed term Deposit used as collateral.
     /// Encoded/decoded by serializers as "TotalInterestForFixedTermDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFTI")]
     [IsoId("_csdCggLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total interest for fixed term Deposit used as collateral.")]
     TotalInterestForFixedTermDeposit,
     
     /// <summary>
-    /// ??
+    /// Total triparty collateral.
     /// Encoded/decoded by serializers as "TotalTripartyCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTRC")]
     [IsoId("_czAWcgLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total triparty collateral.")]
     TotalTripartyCollateral,
     
     /// <summary>
-    /// ??
+    /// Collateral type is cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_qeiSUQLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Collateral type is cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.
     /// Encoded/decoded by serializers as "LetterOfCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LCRE")]
     [IsoId("_q7sIYgLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.")]
     LetterOfCredit,
     
     /// <summary>
-    /// ??
+    /// Other assets that could be used as collateral.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_rZcbYgLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Other assets that could be used as collateral.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Collateral type is securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_r0h04gLwEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Collateral type is securities.")]
     Securities,
     
     /// <summary>
-    /// ??
+    /// Total collateral operations.
+    /// 
+    /// 
     /// Encoded/decoded by serializers as "TotalCollateralOperations".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTCO")]
     [IsoId("_XI6sAQLxEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total collateral operations.  ")]
     TotalCollateralOperations,
     
     /// <summary>
-    /// ??
+    /// Total collateral value after relative credit limit.
     /// Encoded/decoded by serializers as "TotalCollateralValueAfterRelativeCreditLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCVR")]
     [IsoId("_XR_IcgLxEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Total collateral value after relative credit limit.")]
     TotalCollateralValueAfterRelativeCreditLimit,
     
 }

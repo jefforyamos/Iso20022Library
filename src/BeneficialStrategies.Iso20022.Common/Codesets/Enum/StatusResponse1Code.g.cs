@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatusResponse1Code
 {
     /// <summary>
-    /// ??
+    /// Response not provided yet.
     /// Encoded/decoded by serializers as "NoResponseYet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRES")]
     [IsoId("_tNlTBj2yEeGXQ7zxoAIFpQ")]
-    [Description(@"??")]
+    [Description(@"Response not provided yet.")]
     NoResponseYet,
     
     /// <summary>
-    /// ??
+    /// Response is partially provided.
     /// Encoded/decoded by serializers as "PartialResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_tTP2Jj2yEeGXQ7zxoAIFpQ")]
-    [Description(@"??")]
+    [Description(@"Response is partially provided.")]
     PartialResponse,
     
     /// <summary>
-    /// ??
+    /// Response is complete.
     /// Encoded/decoded by serializers as "CompleteResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_tZXFNj2yEeGXQ7zxoAIFpQ")]
-    [Description(@"??")]
+    [Description(@"Response is complete.")]
     CompleteResponse,
     
 }

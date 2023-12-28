@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PresentmentType1Code
 {
     /// <summary>
-    /// ??
+    /// Full information of the presented e-invoice should be presented to the debtor.
     /// Encoded/decoded by serializers as "Full".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_rJ0lgUWeEempSe_3C1a9EQ")]
-    [Description(@"??")]
+    [Description(@"Full information of the presented e-invoice should be presented to the debtor.")]
     Full,
     
     /// <summary>
-    /// ??
+    /// Only information necessary to initiate the payment should be presented to the debtor.
     /// Encoded/decoded by serializers as "RequiredPaymentData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYD")]
     [IsoId("_rPjaEUWeEempSe_3C1a9EQ")]
-    [Description(@"??")]
+    [Description(@"Only information necessary to initiate the payment should be presented to the debtor.")]
     RequiredPaymentData,
     
 }

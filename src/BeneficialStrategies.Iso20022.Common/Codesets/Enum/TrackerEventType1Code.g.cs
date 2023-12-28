@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TrackerEventType1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates a cover payment.
     /// Encoded/decoded by serializers as "CoverPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COPT")]
     [IsoId("_itKQkYaTEeiMm4lwapNmDA")]
-    [Description(@"??")]
+    [Description(@"Indicates a cover payment.")]
     CoverPayment,
     
     /// <summary>
-    /// ??
+    /// Indicates a customer credit transfer payment.
     /// Encoded/decoded by serializers as "CustomerCreditTransferPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTPT")]
     [IsoId("_i4nSoYaTEeiMm4lwapNmDA")]
-    [Description(@"??")]
+    [Description(@"Indicates a customer credit transfer payment.")]
     CustomerCreditTransferPayment,
     
     /// <summary>
-    /// ??
+    /// Indicates a cancellation request related to a credit transfer payment.
     /// Encoded/decoded by serializers as "CreditTransferPaymentCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTCA")]
     [IsoId("_jAWSUYaTEeiMm4lwapNmDA")]
-    [Description(@"??")]
+    [Description(@"Indicates a cancellation request related to a credit transfer payment.")]
     CreditTransferPaymentCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Indicates the tracking status of a cancellation request related to a credit transfer payment.
     /// Encoded/decoded by serializers as "CreditTransferPaymentCancellationRequestTrackingStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTTS")]
     [IsoId("_jIh98YaTEeiMm4lwapNmDA")]
-    [Description(@"??")]
+    [Description(@"Indicates the tracking status of a cancellation request related to a credit transfer payment.")]
     CreditTransferPaymentCancellationRequestTrackingStatus,
     
     /// <summary>
-    /// ??
+    /// Indicates a cancellation response related to a credit transfer payment.
     /// Encoded/decoded by serializers as "CreditTransferPaymentCancellationResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTCR")]
     [IsoId("_jPrHwYaTEeiMm4lwapNmDA")]
-    [Description(@"??")]
+    [Description(@"Indicates a cancellation response related to a credit transfer payment.")]
     CreditTransferPaymentCancellationResponse,
     
     /// <summary>
-    /// ??
+    /// Indicates a cover payment status update.
     /// Encoded/decoded by serializers as "StatusUpdateCoverPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COSU")]
     [IsoId("_jWN0oYaTEeiMm4lwapNmDA")]
-    [Description(@"??")]
+    [Description(@"Indicates a cover payment status update.")]
     StatusUpdateCoverPayment,
     
     /// <summary>
-    /// ??
+    /// Indicates a customer credit transfer payment status update.
     /// Encoded/decoded by serializers as "StatusUpdateCustomerCreditTransferPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTSU")]
     [IsoId("_jdzqYYaTEeiMm4lwapNmDA")]
-    [Description(@"??")]
+    [Description(@"Indicates a customer credit transfer payment status update.")]
     StatusUpdateCustomerCreditTransferPayment,
     
 }

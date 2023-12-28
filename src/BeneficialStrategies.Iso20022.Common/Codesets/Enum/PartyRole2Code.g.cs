@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyRole2Code
 {
     /// <summary>
-    /// ??
+    /// Party that act as an wholesaler of funds.
     /// Encoded/decoded by serializers as "Distributor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIST")]
     [IsoId("_nbvCcY6VEemzmeK8_tPygg")]
-    [Description(@"??")]
+    [Description(@"Party that act as an wholesaler of funds.")]
     Distributor,
     
     /// <summary>
-    /// ??
+    /// Party that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// Encoded/decoded by serializers as "LegalGuardian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LGRD")]
     [IsoId("_nzPjgo6VEemzmeK8_tPygg")]
-    [Description(@"??")]
+    [Description(@"Party that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.")]
     LegalGuardian,
     
     /// <summary>
-    /// ??
+    /// Party that is authorised to take investment decisions on behalf of the shareholder.
     /// Encoded/decoded by serializers as "DecisionMaker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECM")]
     [IsoId("_pQEt4o6VEemzmeK8_tPygg")]
-    [Description(@"??")]
+    [Description(@"Party that is authorised to take investment decisions on behalf of the shareholder.")]
     DecisionMaker,
     
 }

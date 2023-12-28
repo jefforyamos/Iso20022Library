@@ -20,579 +20,579 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnmatchedReason4Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("__q6WQtojEeC60axPepSq7g_1722219878")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Transaction call delay does not match.
     /// Encoded/decoded by serializers as "RepurchaseCallDelay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADE")]
     [IsoId("__q6WQ9ojEeC60axPepSq7g_1087188032")]
-    [Description(@"??")]
+    [Description(@"Transaction call delay does not match.")]
     RepurchaseCallDelay,
     
     /// <summary>
-    /// ??
+    /// Charges amount does not match.
     /// Encoded/decoded by serializers as "ChargesAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("__q6WRNojEeC60axPepSq7g_973348966")]
-    [Description(@"??")]
+    [Description(@"Charges amount does not match.")]
     ChargesAmount,
     
     /// <summary>
-    /// ??
+    /// A matching instruction from your counterparty could not be found.
     /// Encoded/decoded by serializers as "NoMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMIS")]
     [IsoId("__q6WRdojEeC60axPepSq7g_-2129758926")]
-    [Description(@"??")]
+    [Description(@"A matching instruction from your counterparty could not be found.")]
     NoMatch,
     
     /// <summary>
-    /// ??
+    /// Counterparty cancelled their instruction.
     /// Encoded/decoded by serializers as "CounterpartyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPCA")]
     [IsoId("__q6WRtojEeC60axPepSq7g_2051369304")]
-    [Description(@"??")]
+    [Description(@"Counterparty cancelled their instruction.")]
     CounterpartyCancelled,
     
     /// <summary>
-    /// ??
+    /// Settlement date/time does not match.
     /// Encoded/decoded by serializers as "SettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDAT")]
     [IsoId("__rEHQNojEeC60axPepSq7g_-1543811900")]
-    [Description(@"??")]
+    [Description(@"Settlement date/time does not match.")]
     SettlementDate,
     
     /// <summary>
-    /// ??
+    /// Deal price does not match.
     /// Encoded/decoded by serializers as "DealPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDEA")]
     [IsoId("__rEHQdojEeC60axPepSq7g_-1657650966")]
-    [Description(@"??")]
+    [Description(@"Deal price does not match.")]
     DealPrice,
     
     /// <summary>
-    /// ??
+    /// Deal amount does not match.
     /// Encoded/decoded by serializers as "TransactionDealAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEAL")]
     [IsoId("__rEHQtojEeC60axPepSq7g_1372472453")]
-    [Description(@"??")]
+    [Description(@"Deal amount does not match.")]
     TransactionDealAmount,
     
     /// <summary>
-    /// ??
+    /// Direction of the trade does not match. Counterparty expects a delivery from you, not a receipt or vice versa.
     /// Encoded/decoded by serializers as "TransactionDirection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELN")]
     [IsoId("__rEHQ9ojEeC60axPepSq7g_1361373676")]
-    [Description(@"??")]
+    [Description(@"Direction of the trade does not match. Counterparty expects a delivery from you, not a receipt or vice versa.")]
     TransactionDirection,
     
     /// <summary>
-    /// ??
+    /// Depository does not match.
     /// Encoded/decoded by serializers as "ReceivingDeliveringDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPT")]
     [IsoId("__rEHRNojEeC60axPepSq7g_1247534610")]
-    [Description(@"??")]
+    [Description(@"Depository does not match.")]
     ReceivingDeliveringDepository,
     
     /// <summary>
-    /// ??
+    /// Settlement amount does not match.
     /// Encoded/decoded by serializers as "SettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DMON")]
     [IsoId("__rEHRdojEeC60axPepSq7g_2122138829")]
-    [Description(@"??")]
+    [Description(@"Settlement amount does not match.")]
     SettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Quantity of financial instruments does not match.
     /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("__rEHRtojEeC60axPepSq7g_2008299763")]
-    [Description(@"??")]
+    [Description(@"Quantity of financial instruments does not match.")]
     FinancialInstrumentQuantity,
     
     /// <summary>
-    /// ??
+    /// Financial instrument identification does not match, for example, ISIN, financial instrument attributes differs.
     /// Encoded/decoded by serializers as "FinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("__rN4QNojEeC60axPepSq7g_1810747570")]
-    [Description(@"??")]
+    [Description(@"Financial instrument identification does not match, for example, ISIN, financial instrument attributes differs.")]
     FinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// Trade date does not match.
     /// Encoded/decoded by serializers as "TradeDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTRD")]
     [IsoId("__rN4QdojEeC60axPepSq7g_1696908504")]
-    [Description(@"??")]
+    [Description(@"Trade date does not match.")]
     TradeDate,
     
     /// <summary>
-    /// ??
+    /// Executing broker's commission does not match.
     /// Encoded/decoded by serializers as "ExecutionBrokerCommission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXEC")]
     [IsoId("__rN4QtojEeC60axPepSq7g_1799648793")]
-    [Description(@"??")]
+    [Description(@"Executing broker's commission does not match.")]
     ExecutionBrokerCommission,
     
     /// <summary>
-    /// ??
+    /// Forfeit amount does not match.
     /// Encoded/decoded by serializers as "ForfeitRepurchaseAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORF")]
     [IsoId("__rN4Q9ojEeC60axPepSq7g_-1444185431")]
-    [Description(@"??")]
+    [Description(@"Forfeit amount does not match.")]
     ForfeitRepurchaseAmount,
     
     /// <summary>
-    /// ??
+    /// Your instruction was too late for matching.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("__rN4RNojEeC60axPepSq7g_-1558024497")]
-    [Description(@"??")]
+    [Description(@"Your instruction was too late for matching.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Counterparty is for settlement through letter of guarantee, your instruction is not, or vice versa.
     /// Encoded/decoded by serializers as "LetterOfGuarantee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEOG")]
     [IsoId("__rN4RdojEeC60axPepSq7g_-435536579")]
-    [Description(@"??")]
+    [Description(@"Counterparty is for settlement through letter of guarantee, your instruction is not, or vice versa.")]
     LetterOfGuarantee,
     
     /// <summary>
-    /// ??
+    /// Corresponding matching record has been cancelled.
     /// Encoded/decoded by serializers as "MatchingRecordCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCAN")]
     [IsoId("__rXCMNojEeC60axPepSq7g_-549375645")]
-    [Description(@"??")]
+    [Description(@"Corresponding matching record has been cancelled.")]
     MatchingRecordCancelled,
     
     /// <summary>
-    /// ??
+    /// See narrative field for the reason.
     /// Encoded/decoded by serializers as "NarrativeReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NARR")]
     [IsoId("__rXCMdojEeC60axPepSq7g_-605712320")]
-    [Description(@"??")]
+    [Description(@"See narrative field for the reason.")]
     NarrativeReason,
     
     /// <summary>
-    /// ??
+    /// Counterparty's instruction is physical settlement, your instruction is not, or vice versa.
     /// Encoded/decoded by serializers as "PhysicalSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("__rXCMtojEeC60axPepSq7g_-719551386")]
-    [Description(@"??")]
+    [Description(@"Counterparty's instruction is physical settlement, your instruction is not, or vice versa.")]
     PhysicalSettlement,
     
     /// <summary>
-    /// ??
+    /// Place of trade does not match.
     /// Encoded/decoded by serializers as "PlaceOfTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLCE")]
     [IsoId("__rXCM9ojEeC60axPepSq7g_-1240744166")]
-    [Description(@"??")]
+    [Description(@"Place of trade does not match.")]
     PlaceOfTrade,
     
     /// <summary>
-    /// ??
+    /// Instruction has not been matched. It is a possible duplicate instruction.
     /// Encoded/decoded by serializers as "PossibleDuplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PODU")]
     [IsoId("__rXCNNojEeC60axPepSq7g_-1354583232")]
-    [Description(@"??")]
+    [Description(@"Instruction has not been matched. It is a possible duplicate instruction.")]
     PossibleDuplicate,
     
     /// <summary>
-    /// ??
+    /// Termination transaction amount does not match.
     /// Encoded/decoded by serializers as "RepurchaseAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPA")]
     [IsoId("__rXCNdojEeC60axPepSq7g_1679298118")]
-    [Description(@"??")]
+    [Description(@"Termination transaction amount does not match.")]
     RepurchaseAmount,
     
     /// <summary>
-    /// ??
+    /// Repurchase rate does not match.
     /// Encoded/decoded by serializers as "RepurchaseRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPO")]
     [IsoId("__rXCNtojEeC60axPepSq7g_1668199341")]
-    [Description(@"??")]
+    [Description(@"Repurchase rate does not match.")]
     RepurchaseRate,
     
     /// <summary>
-    /// ??
+    /// Premium amount does not match.
     /// Encoded/decoded by serializers as "RepurchasePremiumAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPP")]
     [IsoId("__rgzMNojEeC60axPepSq7g_1554360275")]
-    [Description(@"??")]
+    [Description(@"Premium amount does not match.")]
     RepurchasePremiumAmount,
     
     /// <summary>
-    /// ??
+    /// Repurchase rate type does not match.
     /// Encoded/decoded by serializers as "RepurchaseRateType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RERT")]
     [IsoId("__rgzMdojEeC60axPepSq7g_2122286610")]
-    [Description(@"??")]
+    [Description(@"Repurchase rate type does not match.")]
     RepurchaseRateType,
     
     /// <summary>
-    /// ??
+    /// Spread rate does not match.
     /// Encoded/decoded by serializers as "RepurchaseSpreadRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSPR")]
     [IsoId("__rgzMtojEeC60axPepSq7g_-814869730")]
-    [Description(@"??")]
+    [Description(@"Spread rate does not match.")]
     RepurchaseSpreadRate,
     
     /// <summary>
-    /// ??
+    /// Counterparty is for Real Time Gross Settlement (RTGS) system, you are for non-RTGS or vice versa.
     /// Encoded/decoded by serializers as "RTGSSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTGS")]
     [IsoId("__rgzM9ojEeC60axPepSq7g_-928708796")]
-    [Description(@"??")]
+    [Description(@"Counterparty is for Real Time Gross Settlement (RTGS) system, you are for non-RTGS or vice versa.")]
     RTGSSystem,
     
     /// <summary>
-    /// ??
+    /// Safekeeping account used as matching criteria on the market concerned does not match. This includes Buyer/seller's account, direct client's account at the receiving/delivering agent, or receiving/delivering agent's account at the CSD.
     /// Encoded/decoded by serializers as "SafekeepingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("__rgzNNojEeC60axPepSq7g_1329550693")]
-    [Description(@"??")]
+    [Description(@"Safekeeping account used as matching criteria on the market concerned does not match. This includes Buyer/seller's account, direct client's account at the receiving/delivering agent, or receiving/delivering agent's account at the CSD.")]
     SafekeepingAccount,
     
     /// <summary>
-    /// ??
+    /// Settlement transaction type does not match (relates to the settlement transaction type codes available for field: 22F:: SETR.).
     /// Encoded/decoded by serializers as "SettlementTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETR")]
     [IsoId("__rgzNdojEeC60axPepSq7g_1215711627")]
-    [Description(@"??")]
+    [Description(@"Settlement transaction type does not match (relates to the settlement transaction type codes available for field: 22F:: SETR.).")]
     SettlementTransaction,
     
     /// <summary>
-    /// ??
+    /// Settlement system/method does not match (for example, instruction is to settle using settlement system/method A. Counterparty expects settlement to occur using settlement system/method B).
     /// Encoded/decoded by serializers as "SettlementSystemMethod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETS")]
     [IsoId("__rgzNtojEeC60axPepSq7g_2090315846")]
-    [Description(@"??")]
+    [Description(@"Settlement system/method does not match (for example, instruction is to settle using settlement system/method A. Counterparty expects settlement to occur using settlement system/method B).")]
     SettlementSystemMethod,
     
     /// <summary>
-    /// ??
+    /// Closing date/time does not match.
     /// Encoded/decoded by serializers as "ClosingDateTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERM")]
     [IsoId("__rqkMNojEeC60axPepSq7g_1976476780")]
-    [Description(@"??")]
+    [Description(@"Closing date/time does not match.")]
     ClosingDateTime,
     
     /// <summary>
-    /// ??
+    /// Disagreement on the tax status of the financial instruments to be settled.
     /// Encoded/decoded by serializers as "TaxStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXST")]
     [IsoId("__rqkMdojEeC60axPepSq7g_2079217069")]
-    [Description(@"??")]
+    [Description(@"Disagreement on the tax status of the financial instruments to be settled.")]
     TaxStatus,
     
     /// <summary>
-    /// ??
+    /// Variable rate support does not match (repo).
     /// Encoded/decoded by serializers as "VariableRateSupport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VASU")]
     [IsoId("__rqkMtojEeC60axPepSq7g_1965378003")]
-    [Description(@"??")]
+    [Description(@"Variable rate support does not match (repo).")]
     VariableRateSupport,
     
     /// <summary>
-    /// ??
+    /// Position effect does not match.
     /// Encoded/decoded by serializers as "PositionEffect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POSE")]
     [IsoId("__rqkM9ojEeC60axPepSq7g_559814190")]
-    [Description(@"??")]
+    [Description(@"Position effect does not match.")]
     PositionEffect,
     
     /// <summary>
-    /// ??
+    /// Borrowing rate does not match.
     /// Encoded/decoded by serializers as "BorrowingRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BORT")]
     [IsoId("__rqkNNojEeC60axPepSq7g_-259139491")]
-    [Description(@"??")]
+    [Description(@"Borrowing rate does not match.")]
     BorrowingRate,
     
     /// <summary>
-    /// ??
+    /// Consumption tax amount does not match.
     /// Encoded/decoded by serializers as "ConsumptionTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAX")]
     [IsoId("__rqkNdojEeC60axPepSq7g_-1548169582")]
-    [Description(@"??")]
+    [Description(@"Consumption tax amount does not match.")]
     ConsumptionTax,
     
     /// <summary>
-    /// ??
+    /// OtherIdentification of financial instrument identification does not match.
     /// Encoded/decoded by serializers as "OtherFinancialInstrumentIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHI")]
     [IsoId("__rqkNtojEeC60axPepSq7g_1927844033")]
-    [Description(@"??")]
+    [Description(@"OtherIdentification of financial instrument identification does not match.")]
     OtherFinancialInstrumentIdentification,
     
     /// <summary>
-    /// ??
+    /// Borrowing fee does not match.
     /// Encoded/decoded by serializers as "BorrowingFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOFE")]
     [IsoId("__rzuINojEeC60axPepSq7g_-130580279")]
-    [Description(@"??")]
+    [Description(@"Borrowing fee does not match.")]
     BorrowingFee,
     
     /// <summary>
-    /// ??
+    /// Accrued interest tax indicator does not match.
     /// Encoded/decoded by serializers as "AccruedInterestTax1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TACR")]
     [IsoId("__rzuIdojEeC60axPepSq7g_-872495259")]
-    [Description(@"??")]
+    [Description(@"Accrued interest tax indicator does not match.")]
     AccruedInterestTax1,
     
     /// <summary>
-    /// ??
+    /// Settlement date in the second leg does not match.
     /// Encoded/decoded by serializers as "SettlementDate2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDAT")]
     [IsoId("__rzuItojEeC60axPepSq7g_521536905")]
-    [Description(@"??")]
+    [Description(@"Settlement date in the second leg does not match.")]
     SettlementDate2,
     
     /// <summary>
-    /// ??
+    /// CommonIdentification does not match.
     /// Encoded/decoded by serializers as "CommonIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COID")]
     [IsoId("__rzuI9ojEeC60axPepSq7g_-297416776")]
-    [Description(@"??")]
+    [Description(@"CommonIdentification does not match.")]
     CommonIdentification,
     
     /// <summary>
-    /// ??
+    /// Standard collateral ratio does not match.
     /// Encoded/decoded by serializers as "StandardCollateralRatio".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRA")]
     [IsoId("__rzuJNojEeC60axPepSq7g_1939126208")]
-    [Description(@"??")]
+    [Description(@"Standard collateral ratio does not match.")]
     StandardCollateralRatio,
     
     /// <summary>
-    /// ??
+    /// Accrued interest amount does not match.
     /// Encoded/decoded by serializers as "AccruedInterestAmount1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACRU")]
     [IsoId("__rzuJdojEeC60axPepSq7g_1120172527")]
-    [Description(@"??")]
+    [Description(@"Accrued interest amount does not match.")]
     AccruedInterestAmount1,
     
     /// <summary>
-    /// ??
+    /// Securities haircut rate does not match.
     /// Encoded/decoded by serializers as "SecuritiesHaircut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHAI")]
     [IsoId("__rzuJtojEeC60axPepSq7g_-168857564")]
-    [Description(@"??")]
+    [Description(@"Securities haircut rate does not match.")]
     SecuritiesHaircut,
     
     /// <summary>
-    /// ??
+    /// Accrued interest amount in the second leg does not match.
     /// Encoded/decoded by serializers as "AccruedInterestAmount2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACRS")]
     [IsoId("__r9fINojEeC60axPepSq7g_-987811245")]
-    [Description(@"??")]
+    [Description(@"Accrued interest amount in the second leg does not match.")]
     AccruedInterestAmount2,
     
     /// <summary>
-    /// ??
+    /// Deal amount in the second leg does not match.
     /// Encoded/decoded by serializers as "DealAmount2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEAS")]
     [IsoId("__r9fIdojEeC60axPepSq7g_1248731739")]
-    [Description(@"??")]
+    [Description(@"Deal amount in the second leg does not match.")]
     DealAmount2,
     
     /// <summary>
-    /// ??
+    /// CallableTradeIndicator does not match.
     /// Encoded/decoded by serializers as "CallableTradeIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CATI")]
     [IsoId("__r9fItojEeC60axPepSq7g_677685175")]
-    [Description(@"??")]
+    [Description(@"CallableTradeIndicator does not match.")]
     CallableTradeIndicator,
     
     /// <summary>
-    /// ??
+    /// Accrued interest tax indicator in the second leg does not match.
     /// Encoded/decoded by serializers as "AccruedInterestTax2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TACS")]
     [IsoId("__r9fI9ojEeC60axPepSq7g_-141268506")]
-    [Description(@"??")]
+    [Description(@"Accrued interest tax indicator in the second leg does not match.")]
     AccruedInterestTax2,
     
     /// <summary>
-    /// ??
+    /// Counterparty's instruction is for settlement through standing settlement instruction, your instruction is not, or vice versa.
     /// Encoded/decoded by serializers as "StandingSettlementInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBNM")]
     [IsoId("__r9fJNojEeC60axPepSq7g_-1430298597")]
-    [Description(@"??")]
+    [Description(@"Counterparty's instruction is for settlement through standing settlement instruction, your instruction is not, or vice versa.")]
     StandingSettlementInstruction,
     
     /// <summary>
-    /// ??
+    /// Maturity date does not match.
     /// Encoded/decoded by serializers as "MaturityDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MADA")]
     [IsoId("__r9fJdojEeC60axPepSq7g_2045715018")]
-    [Description(@"??")]
+    [Description(@"Maturity date does not match.")]
     MaturityDate,
     
     /// <summary>
-    /// ??
+    /// ClientOrderLinkIdentification does not match.
     /// Encoded/decoded by serializers as "ClientOrderLinkIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OLID")]
     [IsoId("__r9fJtojEeC60axPepSq7g_-12709294")]
-    [Description(@"??")]
+    [Description(@"ClientOrderLinkIdentification does not match.")]
     ClientOrderLinkIdentification,
     
     /// <summary>
-    /// ??
+    /// Closing settlement amount does not match.
     /// Encoded/decoded by serializers as "ClosingSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRSA")]
     [IsoId("__sGpENojEeC60axPepSq7g_-831662975")]
-    [Description(@"??")]
+    [Description(@"Closing settlement amount does not match.")]
     ClosingSettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Type of financing closing does not match.
     /// Encoded/decoded by serializers as "TypeOfFinancingClosing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRTE")]
     [IsoId("__sGpEdojEeC60axPepSq7g_-2120693066")]
-    [Description(@"??")]
+    [Description(@"Type of financing closing does not match.")]
     TypeOfFinancingClosing,
     
     /// <summary>
-    /// ??
+    /// Borrowing interest amount does not match.
     /// Encoded/decoded by serializers as "BorrowingInterestAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOIA")]
     [IsoId("__sGpEtojEeC60axPepSq7g_1355320549")]
-    [Description(@"??")]
+    [Description(@"Borrowing interest amount does not match.")]
     BorrowingInterestAmount,
     
     /// <summary>
-    /// ??
+    /// OpeningLegIdentification does not match.
     /// Encoded/decoded by serializers as "OpeningLegIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPLI")]
     [IsoId("__sGpE9ojEeC60axPepSq7g_-626065062")]
-    [Description(@"??")]
+    [Description(@"OpeningLegIdentification does not match.")]
     OpeningLegIdentification,
     
     /// <summary>
-    /// ??
+    /// Trade transaction type does not match.
     /// Encoded/decoded by serializers as "TradeTransactionType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRTR")]
     [IsoId("__sGpFNojEeC60axPepSq7g_1238043512")]
-    [Description(@"??")]
+    [Description(@"Trade transaction type does not match.")]
     TradeTransactionType,
     
     /// <summary>
-    /// ??
+    /// LendingWithCollateral does not match.
     /// Encoded/decoded by serializers as "LendingWithCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LWCO")]
     [IsoId("__sGpFdojEeC60axPepSq7g_-50986579")]
-    [Description(@"??")]
+    [Description(@"LendingWithCollateral does not match.")]
     LendingWithCollateral,
     
     /// <summary>
-    /// ??
+    /// Interest type does not match.
     /// Encoded/decoded by serializers as "InterestType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTT")]
     [IsoId("__sQaENojEeC60axPepSq7g_1599848485")]
-    [Description(@"??")]
+    [Description(@"Interest type does not match.")]
     InterestType,
     
     /// <summary>
-    /// ??
+    /// Current factor does not match.
     /// Encoded/decoded by serializers as "CurrentFactor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUFC")]
     [IsoId("__sQaEdojEeC60axPepSq7g_780894804")]
-    [Description(@"??")]
+    [Description(@"Current factor does not match.")]
     CurrentFactor,
     
     /// <summary>
-    /// ??
+    /// Lending transaction method does not match.
     /// Encoded/decoded by serializers as "LendingTransactionMethod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTME")]
     [IsoId("__sQaEtojEeC60axPepSq7g_-508135287")]
-    [Description(@"??")]
+    [Description(@"Lending transaction method does not match.")]
     LendingTransactionMethod,
     
     /// <summary>
-    /// ??
+    /// End factor does not match.
     /// Encoded/decoded by serializers as "EndFactor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENFC")]
     [IsoId("__sQaE9ojEeC60axPepSq7g_-1327088968")]
-    [Description(@"??")]
+    [Description(@"End factor does not match.")]
     EndFactor,
     
     /// <summary>
-    /// ??
+    /// Counterparty's instruction is for settlement through clearing segment, your instruction is not, or vice versa.
     /// Encoded/decoded by serializers as "ClearingSegment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSE")]
     [IsoId("__sQaFNojEeC60axPepSq7g_909454016")]
-    [Description(@"??")]
+    [Description(@"Counterparty's instruction is for settlement through clearing segment, your instruction is not, or vice versa.")]
     ClearingSegment,
     
 }

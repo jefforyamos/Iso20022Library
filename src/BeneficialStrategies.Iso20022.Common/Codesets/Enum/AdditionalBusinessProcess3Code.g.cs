@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdditionalBusinessProcess3Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a claim on the associated corporate action event.
     /// Encoded/decoded by serializers as "ClaimOrCompensation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAI")]
     [IsoId("_bqbk1Np-Ed-ak6NoX_4Aeg_1334000184")]
-    [Description(@"??")]
+    [Description(@"Relates to a claim on the associated corporate action event.")]
     ClaimOrCompensation,
     
     /// <summary>
-    /// ??
+    /// Relates to a tax refund from the authorities on the associated corporate action event.
     /// Encoded/decoded by serializers as "TaxRefund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXR")]
     [IsoId("_bqbk1dp-Ed-ak6NoX_4Aeg_1334000217")]
-    [Description(@"??")]
+    [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
     TaxRefund,
     
 }

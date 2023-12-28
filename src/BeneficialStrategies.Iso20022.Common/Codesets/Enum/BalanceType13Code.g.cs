@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BalanceType13Code
 {
     /// <summary>
-    /// ??
+    /// Balance attributed to investments at value.
     /// Encoded/decoded by serializers as "Investments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVE")]
     [IsoId("_m5rEcPNBEeCuA5Tr22BnwA_937976833")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to investments at value.")]
     Investments,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to cash and cash equivalents.
     /// Encoded/decoded by serializers as "CashAndCashEquivalents".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASE")]
     [IsoId("_m5rEcfNBEeCuA5Tr22BnwA_937976858")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to cash and cash equivalents.")]
     CashAndCashEquivalents,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to borrowings.
     /// Encoded/decoded by serializers as "Borrowings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BORR")]
     [IsoId("_m5rEcvNBEeCuA5Tr22BnwA_937976893")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to borrowings.")]
     Borrowings,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to revenues; including dividends, interest, net realised gains/losses etc.
     /// Encoded/decoded by serializers as "Revenues".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REVE")]
     [IsoId("_m5rEc_NBEeCuA5Tr22BnwA_937976935")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to revenues; including dividends, interest, net realised gains/losses etc.")]
     Revenues,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to expenses.
     /// Encoded/decoded by serializers as "Expenses".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPN")]
     [IsoId("_m5rEdPNBEeCuA5Tr22BnwA_937976988")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to expenses.")]
     Expenses,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to investor inflow/outflow (creations, cancellations, income distributions).
     /// Encoded/decoded by serializers as "InvestorInflowOutflow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IIOF")]
     [IsoId("_m5rEdfNBEeCuA5Tr22BnwA_481531555")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to investor inflow/outflow (creations, cancellations, income distributions).")]
     InvestorInflowOutflow,
     
     /// <summary>
-    /// ??
+    /// Balance attributed according to a different classification, which is not explictly defined.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_m50OYPNBEeCuA5Tr22BnwA_1924228507")]
-    [Description(@"??")]
+    [Description(@"Balance attributed according to a different classification, which is not explictly defined.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to payables.
     /// Encoded/decoded by serializers as "Payables".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYA")]
     [IsoId("_m50OYfNBEeCuA5Tr22BnwA_236468793")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to payables.")]
     Payables,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to receivables.
     /// Encoded/decoded by serializers as "Receivables".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_m50OYvNBEeCuA5Tr22BnwA_147557580")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to receivables.")]
     Receivables,
     
 }

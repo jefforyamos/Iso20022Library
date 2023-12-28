@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResidenceType1Code
 {
     /// <summary>
-    /// ??
+    /// Residence is domestic.
     /// Encoded/decoded by serializers as "Domestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DMST")]
     [IsoId("_LFI20WjNEeiRg5NzP0jkQg")]
-    [Description(@"??")]
+    [Description(@"Residence is domestic.")]
     Domestic,
     
     /// <summary>
-    /// ??
+    /// Residence is foreign.
     /// Encoded/decoded by serializers as "Foreign".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRGN")]
     [IsoId("_LOpYIWjNEeiRg5NzP0jkQg")]
-    [Description(@"??")]
+    [Description(@"Residence is foreign.")]
     Foreign,
     
     /// <summary>
-    /// ??
+    /// Residence is mixed
     /// Encoded/decoded by serializers as "Mixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MXED")]
     [IsoId("_LYfQoWjNEeiRg5NzP0jkQg")]
-    [Description(@"??")]
+    [Description(@"Residence is mixed")]
     Mixed,
     
 }

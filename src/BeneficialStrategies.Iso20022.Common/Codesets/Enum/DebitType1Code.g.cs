@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DebitType1Code
 {
     /// <summary>
-    /// ??
+    /// Debit is performed as a global debit for all instructions in the file.
     /// Encoded/decoded by serializers as "Global".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GLBL")]
     [IsoId("_WbBjccmKEeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Debit is performed as a global debit for all instructions in the file.")]
     Global,
     
     /// <summary>
-    /// ??
+    /// Debit is performed as an individual single debit for each instruction in the file.
     /// Encoded/decoded by serializers as "Single".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNGL")]
     [IsoId("_WmWpssmKEeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Debit is performed as an individual single debit for each instruction in the file.")]
     Single,
     
 }

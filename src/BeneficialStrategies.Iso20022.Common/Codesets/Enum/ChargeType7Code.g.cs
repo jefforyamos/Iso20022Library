@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType7Code
 {
     /// <summary>
-    /// ??
+    /// Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.
     /// Encoded/decoded by serializers as "ManagementFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANF")]
     [IsoId("_Vlzv-dp-Ed-ak6NoX_4Aeg_-1483959498")]
-    [Description(@"??")]
+    [Description(@"Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.")]
     ManagementFee,
     
     /// <summary>
-    /// ??
+    /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
     /// Encoded/decoded by serializers as "BackEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEND")]
     [IsoId("_Vl9g8Np-Ed-ak6NoX_4Aeg_-1483959203")]
-    [Description(@"??")]
+    [Description(@"Sales charge paid by the investor when redeeming an investment such as an investment fund.")]
     BackEndLoad,
     
     /// <summary>
-    /// ??
+    /// Fee paid for advisory services rendered.
     /// Encoded/decoded by serializers as "AdvisoryFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVI")]
     [IsoId("_Vl9g8dp-Ed-ak6NoX_4Aeg_-1223527582")]
-    [Description(@"??")]
+    [Description(@"Fee paid for advisory services rendered.")]
     AdvisoryFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid to a custodian in respect of custodial services.
     /// Encoded/decoded by serializers as "CustodyFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_Vl9g8tp-Ed-ak6NoX_4Aeg_-1211518630")]
-    [Description(@"??")]
+    [Description(@"Fee paid to a custodian in respect of custodial services.")]
     CustodyFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid in respect of publications made.
     /// Encoded/decoded by serializers as "PublicationFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUBL")]
     [IsoId("_Vl9g89p-Ed-ak6NoX_4Aeg_-1184737330")]
-    [Description(@"??")]
+    [Description(@"Fee paid in respect of publications made.")]
     PublicationFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid for accounting services rendered.
     /// Encoded/decoded by serializers as "AccountingFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_Vl9g9Np-Ed-ak6NoX_4Aeg_-1157032381")]
-    [Description(@"??")]
+    [Description(@"Fee paid for accounting services rendered.")]
     AccountingFee,
     
     /// <summary>
-    /// ??
+    /// Another type of charge.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Vl9g9dp-Ed-ak6NoX_4Aeg_1890586208")]
-    [Description(@"??")]
+    [Description(@"Another type of charge.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
     /// Encoded/decoded by serializers as "Equalisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUL")]
     [IsoId("_Vl9g9tp-Ed-ak6NoX_4Aeg_753326519")]
-    [Description(@"??")]
+    [Description(@"The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.")]
     Equalisation,
     
 }

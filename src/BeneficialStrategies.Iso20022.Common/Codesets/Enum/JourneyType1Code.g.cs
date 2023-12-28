@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum JourneyType1Code
 {
     /// <summary>
-    /// ??
+    /// Coach number
     /// Encoded/decoded by serializers as "CoachNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAC")]
     [IsoId("__3usEV1jEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Coach number")]
     CoachNumber,
     
     /// <summary>
-    /// ??
+    /// Early arrival or departure
     /// Encoded/decoded by serializers as "Early".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EARL")]
     [IsoId("_ALOP0l1kEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Early arrival or departure")]
     Early,
     
     /// <summary>
-    /// ??
+    /// Flight number.
     /// Encoded/decoded by serializers as "FlightNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLGT")]
     [IsoId("_AXa4wl1kEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Flight number.")]
     FlightNumber,
     
     /// <summary>
-    /// ??
+    /// Late arrival or departure.
     /// Encoded/decoded by serializers as "Late".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_AgfVMl1kEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Late arrival or departure.")]
     Late,
     
     /// <summary>
-    /// ??
+    /// On-time arrival or departure
     /// Encoded/decoded by serializers as "OnTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONTM")]
     [IsoId("_As_gIl1kEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"On-time arrival or departure")]
     OnTime,
     
     /// <summary>
-    /// ??
+    /// Other type of journey.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_A7kusl1kEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Other type of journey.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Train number.
     /// Encoded/decoded by serializers as "TrainNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_BGlE0l1kEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Train number.")]
     TrainNumber,
     
     /// <summary>
-    /// ??
+    /// Vessel number
     /// Encoded/decoded by serializers as "VesselNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VESS")]
     [IsoId("_BRla8l1kEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Vessel number")]
     VesselNumber,
     
 }

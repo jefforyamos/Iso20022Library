@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Priority2Code
 {
     /// <summary>
-    /// ??
+    /// Priority level is high.
     /// Encoded/decoded by serializers as "High".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIGH")]
     [IsoId("_aKLTBdp-Ed-ak6NoX_4Aeg_-216681953")]
-    [Description(@"??")]
+    [Description(@"Priority level is high.")]
     High,
     
     /// <summary>
-    /// ??
+    /// Priority level is normal.
     /// Encoded/decoded by serializers as "Normal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORM")]
     [IsoId("_aKLTBtp-Ed-ak6NoX_4Aeg_-190820973")]
-    [Description(@"??")]
+    [Description(@"Priority level is normal.")]
     Normal,
     
 }

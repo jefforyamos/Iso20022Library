@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ServiceLevel3Code
 {
     /// <summary>
-    /// ??
+    /// Payment must be executed following the Single Euro Payments Area scheme.
     /// Encoded/decoded by serializers as "SingleEuroPaymentsArea".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEPA")]
     [IsoId("_VwsKQdp-Ed-ak6NoX_4Aeg_-228092481")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
     SingleEuroPaymentsArea,
     
 }

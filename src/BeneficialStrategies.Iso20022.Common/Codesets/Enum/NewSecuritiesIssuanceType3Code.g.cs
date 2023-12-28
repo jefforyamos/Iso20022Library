@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NewSecuritiesIssuanceType3Code
 {
     /// <summary>
-    /// ??
+    /// Funds have been placed in escrow by a trustee or agent to ensure payment on a portion of the outstanding balance of the original security on maturity date. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
     /// Encoded/decoded by serializers as "DefeasedSecurityIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFE")]
     [IsoId("_NdThQSp5EeO3oOoGGWHH4A")]
-    [Description(@"??")]
+    [Description(@"Funds have been placed in escrow by a trustee or agent to ensure payment on a portion of the outstanding balance of the original security on maturity date. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
     DefeasedSecurityIndicator,
     
     /// <summary>
-    /// ??
+    /// Funds will not be guaranteed at maturity by the issuer or paying agent for this newly issued non-defeased security. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
     /// Encoded/decoded by serializers as "NonDefeasedSecurityIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDEF")]
     [IsoId("_NmX9sSp5EeO3oOoGGWHH4A")]
-    [Description(@"??")]
+    [Description(@"Funds will not be guaranteed at maturity by the issuer or paying agent for this newly issued non-defeased security. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
     NonDefeasedSecurityIndicator,
     
 }

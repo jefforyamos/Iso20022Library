@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BaselineStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Initial state of a baseline in the push-through model.
     /// Encoded/decoded by serializers as "Proposed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("_bcugA9p-Ed-ak6NoX_4Aeg_-310506101")]
-    [Description(@"??")]
+    [Description(@"Initial state of a baseline in the push-through model.")]
     Proposed,
     
     /// <summary>
-    /// ??
+    /// Final state of a baseline, in which only reporting is allowed.
     /// Encoded/decoded by serializers as "Closed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSD")]
     [IsoId("_bcugBNp-Ed-ak6NoX_4Aeg_-310506100")]
-    [Description(@"??")]
+    [Description(@"Final state of a baseline, in which only reporting is allowed.")]
     Closed,
     
     /// <summary>
-    /// ??
+    /// State of the baseline when an initial and at least one twin baselines have been submitted but it has not yet been agreed by all parties.
     /// Encoded/decoded by serializers as "PartiallyMatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMTC")]
     [IsoId("_bcugBdp-Ed-ak6NoX_4Aeg_-310506070")]
-    [Description(@"??")]
+    [Description(@"State of the baseline when an initial and at least one twin baselines have been submitted but it has not yet been agreed by all parties.")]
     PartiallyMatched,
     
     /// <summary>
-    /// ??
+    /// State of the baseline when it has been agreed by all parties.
     /// Encoded/decoded by serializers as "Established".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTD")]
     [IsoId("_bcugBtp-Ed-ak6NoX_4Aeg_-310506039")]
-    [Description(@"??")]
+    [Description(@"State of the baseline when it has been agreed by all parties.")]
     Established,
     
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when one or more instructions (eg, amendment request, data set submission) have been processed.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_bcugB9p-Ed-ak6NoX_4Aeg_-310506038")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when one or more instructions (eg, amendment request, data set submission) have been processed.")]
     Active,
     
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when all match instructions have been processed, and no such instruction is allowed anymore.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_bcugCNp-Ed-ak6NoX_4Aeg_-310506009")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when all match instructions have been processed, and no such instruction is allowed anymore.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when an amendment has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).
     /// Encoded/decoded by serializers as "AmendmentRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMRQ")]
     [IsoId("_bcugCdp-Ed-ak6NoX_4Aeg_-310505730")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when an amendment has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).")]
     AmendmentRequested,
     
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when an reactivation has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).
     /// Encoded/decoded by serializers as "ReActivateRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RARQ")]
     [IsoId("_bc3p8Np-Ed-ak6NoX_4Aeg_-310505729")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when an reactivation has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).")]
     ReActivateRequested,
     
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when a closure has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).
     /// Encoded/decoded by serializers as "CloseRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRQ")]
     [IsoId("_bc3p8dp-Ed-ak6NoX_4Aeg_-310505699")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when a closure has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).")]
     CloseRequested,
     
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when a completion has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).
     /// Encoded/decoded by serializers as "CompleteRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRQ")]
     [IsoId("_bc3p8tp-Ed-ak6NoX_4Aeg_-310505698")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when a completion has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).")]
     CompleteRequested,
     
     /// <summary>
-    /// ??
+    /// State of a baseline when a status extension has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).
     /// Encoded/decoded by serializers as "StatusExtensionRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SERQ")]
     [IsoId("_bc3p89p-Ed-ak6NoX_4Aeg_-255095303")]
-    [Description(@"??")]
+    [Description(@"State of a baseline when a status extension has been requested by one party and has not yet been accepted or rejected by the counterparty(ies).")]
     StatusExtensionRequested,
     
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when data set acceptance has been requested by the matching engine and not all responses have been received from the relevant party(ies).
     /// Encoded/decoded by serializers as "DataSetAcceptanceRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DARQ")]
     [IsoId("_bc3p9Np-Ed-ak6NoX_4Aeg_-231081862")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when data set acceptance has been requested by the matching engine and not all responses have been received from the relevant party(ies).")]
     DataSetAcceptanceRequested,
     
 }

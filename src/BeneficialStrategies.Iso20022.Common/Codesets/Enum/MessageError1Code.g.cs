@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageError1Code
 {
     /// <summary>
-    /// ??
+    /// Invalid data element format
     /// Encoded/decoded by serializers as "InvalidDataElementFormat".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDEF")]
     [IsoId("_wQpcofGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Invalid data element format")]
     InvalidDataElementFormat,
     
     /// <summary>
-    /// ??
+    /// Invalid data element length
     /// Encoded/decoded by serializers as "InvalidDataElementLength".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDEL")]
     [IsoId("_wUmIgfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Invalid data element length")]
     InvalidDataElementLength,
     
     /// <summary>
-    /// ??
+    /// Invalid data element value
     /// Encoded/decoded by serializers as "InvalidDataElementValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDEV")]
     [IsoId("_wYS8wfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Invalid data element value")]
     InvalidDataElementValue,
     
     /// <summary>
-    /// ??
+    /// Invalid message
     /// Encoded/decoded by serializers as "InvalidMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INME")]
     [IsoId("_wdMD0fGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Invalid message")]
     InvalidMessage,
     
     /// <summary>
-    /// ??
+    /// Invalid Message Function
     /// Encoded/decoded by serializers as "InvalidMessageFunction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INMF")]
     [IsoId("_whFFUfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Invalid Message Function")]
     InvalidMessageFunction,
     
     /// <summary>
-    /// ??
+    /// Message Parse Error
     /// Encoded/decoded by serializers as "MessageParseError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEPE")]
     [IsoId("_wppLcfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Message Parse Error")]
     MessageParseError,
     
     /// <summary>
-    /// ??
+    /// Other reason to reject a message defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_wxHFYfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Other reason to reject a message defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Protocol Version
     /// Encoded/decoded by serializers as "ProtocolVersion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRVE")]
     [IsoId("_w3BgIfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Protocol Version")]
     ProtocolVersion,
     
     /// <summary>
-    /// ??
+    /// Required data element missing
     /// Encoded/decoded by serializers as "RequiredDataElementMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDEM")]
     [IsoId("_xA0VUfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Required data element missing")]
     RequiredDataElementMissing,
     
     /// <summary>
-    /// ??
+    /// Security
     /// Encoded/decoded by serializers as "Security".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_xF7e0fGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Security")]
     Security,
     
     /// <summary>
-    /// ??
+    /// Error that is not defined in the Message type Error and is not OtherNational or OtherPrivate Error 
     /// Encoded/decoded by serializers as "Undefined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UDFD")]
     [IsoId("_xLVjQfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Error that is not defined in the Message type Error and is not OtherNational or OtherPrivate Error ")]
     Undefined,
     
     /// <summary>
-    /// ??
+    /// Other reason defined at national level to reject a message.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_xSn3AfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Other reason defined at national level to reject a message.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Iterative data error
     /// Encoded/decoded by serializers as "IterativeDataError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITDE")]
     [IsoId("_xcrx8fGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Iterative data error")]
     IterativeDataError,
     
     /// <summary>
-    /// ??
+    /// Duplicate Message
     /// Encoded/decoded by serializers as "DuplicateMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUME")]
     [IsoId("_yFe3UfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Duplicate Message")]
     DuplicateMessage,
     
     /// <summary>
-    /// ??
+    /// Inconsistent data within message
     /// Encoded/decoded by serializers as "InconsistentDataWithinMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDWM")]
     [IsoId("_yJnwcfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Inconsistent data within message")]
     InconsistentDataWithinMessage,
     
     /// <summary>
-    /// ??
+    /// Inconsistent data with related message
     /// Encoded/decoded by serializers as "InconsistentDataWithRelatedMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDRM")]
     [IsoId("_yNfj0fGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Inconsistent data with related message")]
     InconsistentDataWithRelatedMessage,
     
     /// <summary>
-    /// ??
+    /// Invalid Batch
     /// Encoded/decoded by serializers as "InvalidBatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IBAT")]
     [IsoId("_yRYlUfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Invalid Batch")]
     InvalidBatch,
     
     /// <summary>
-    /// ??
+    /// Invalid Collection
     /// Encoded/decoded by serializers as "InvalidCollection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICOL")]
     [IsoId("_yWE4EfGwEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Invalid Collection")]
     InvalidCollection,
     
 }

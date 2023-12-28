@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AcknowledgementReason4Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_bpPSAdp-Ed-ak6NoX_4Aeg_-966580559")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_bpPSAtp-Ed-ak6NoX_4Aeg_-925024563")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction was not straight through processing and had to be processed manually.
     /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTP")]
     [IsoId("_bpPSA9p-Ed-ak6NoX_4Aeg_-856682877")]
-    [Description(@"??")]
+    [Description(@"Instruction was not straight through processing and had to be processed manually.")]
     NotStraightThroughProcessing,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_bpPSBNp-Ed-ak6NoX_4Aeg_1167272842")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
 }

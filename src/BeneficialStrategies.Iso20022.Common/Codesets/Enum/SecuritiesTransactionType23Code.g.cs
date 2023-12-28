@@ -20,390 +20,390 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesTransactionType23Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a buy sell back transaction.
     /// Encoded/decoded by serializers as "BuySellBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSBK")]
     [IsoId("_M0NXEdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a buy sell back transaction.")]
     BuySellBack,
     
     /// <summary>
-    /// ??
+    /// Relates to a collateral transaction, from the point of view of the collateral taker or its agent.
     /// Encoded/decoded by serializers as "CollateralIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLI")]
     [IsoId("_NMxoEdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a collateral transaction, from the point of view of the collateral taker or its agent.")]
     CollateralIn,
     
     /// <summary>
-    /// ??
+    /// Relates to a collateral transaction, from the point of view of the collateral giver or its agent.
     /// Encoded/decoded by serializers as "CollateralOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLO")]
     [IsoId("_NTHgodEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a collateral transaction, from the point of view of the collateral giver or its agent.")]
     CollateralOut,
     
     /// <summary>
-    /// ??
+    /// Relates to the decrease of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceeds of corporate event realigned).
     /// Encoded/decoded by serializers as "MarkDown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MKDW")]
     [IsoId("_QcqrgdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the decrease of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceeds of corporate event realigned).")]
     MarkDown,
     
     /// <summary>
-    /// ??
+    /// Relates to the increase of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceeds of corporate event realigned).
     /// Encoded/decoded by serializers as "MarkUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MKUP")]
     [IsoId("_Qs9KQdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the increase of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceeds of corporate event realigned).")]
     MarkUp,
     
     /// <summary>
-    /// ??
+    /// Relates to the netting of settlement instructions.
     /// Encoded/decoded by serializers as "Netting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETT")]
     [IsoId("_Q_7wodEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the netting of settlement instructions.")]
     Netting,
     
     /// <summary>
-    /// ??
+    /// Relates to the issue of medium and short term paper (CP, CD, MTN, notes) under a program and without syndication arrangement.
     /// Encoded/decoded by serializers as "NonSyndicated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSYN")]
     [IsoId("_RKgB4dEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the issue of medium and short term paper (CP, CD, MTN, notes) under a program and without syndication arrangement.")]
     NonSyndicated,
     
     /// <summary>
-    /// ??
+    /// Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.
     /// Encoded/decoded by serializers as "PairOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAIR")]
     [IsoId("_RcFhIdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.")]
     PairOff,
     
     /// <summary>
-    /// ??
+    /// Relates to the placement/new issue of a financial instrument.
     /// Encoded/decoded by serializers as "Placement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLAC")]
     [IsoId("_RlOPAdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the placement/new issue of a financial instrument.")]
     Placement,
     
     /// <summary>
-    /// ??
+    /// Relates to a portfolio move from one investment manager to another and/or from an account servicer to another. It is generally charged differently than another account transfer, hence the need to identify this type of transfer as such.
     /// Encoded/decoded by serializers as "PortfolioMove".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PORT")]
     [IsoId("_Rs_q8dEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a portfolio move from one investment manager to another and/or from an account servicer to another. It is generally charged differently than another account transfer, hence the need to identify this type of transfer as such.")]
     PortfolioMove,
     
     /// <summary>
-    /// ??
+    /// Relates to a realignment of positions.
     /// Encoded/decoded by serializers as "Realignment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REAL")]
     [IsoId("_SKIS4dEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a realignment of positions.")]
     Realignment,
     
     /// <summary>
-    /// ??
+    /// Relates to a redemption of funds (funds industry only).
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_SSqj0dEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a redemption of funds (funds industry only).")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Relates to a repurchase agreement transaction.
     /// Encoded/decoded by serializers as "Repo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPU")]
     [IsoId("_Si6mUdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a repurchase agreement transaction.")]
     Repo,
     
     /// <summary>
-    /// ??
+    /// Relates to the return of financial instruments resulting from a rejected delivery without a matching operation.
     /// Encoded/decoded by serializers as "ReturnDeliveryWithoutMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RODE")]
     [IsoId("_S3o5IdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the return of financial instruments resulting from a rejected delivery without a matching operation.")]
     ReturnDeliveryWithoutMatching,
     
     /// <summary>
-    /// ??
+    /// Relates to a reverse repurchase agreement transaction.
     /// Encoded/decoded by serializers as "ReverseRepurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVPO")]
     [IsoId("_S-S6wdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a reverse repurchase agreement transaction.")]
     ReverseRepurchaseAgreement,
     
     /// <summary>
-    /// ??
+    /// Relates to a securities borrowing operation.
     /// Encoded/decoded by serializers as "SecuritiesBorrowing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECB")]
     [IsoId("_TNRK4dEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a securities borrowing operation.")]
     SecuritiesBorrowing,
     
     /// <summary>
-    /// ??
+    /// Relates to a securities lending operation.
     /// Encoded/decoded by serializers as "SecuritiesLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECL")]
     [IsoId("_TUP8odEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a securities lending operation.")]
     SecuritiesLending,
     
     /// <summary>
-    /// ??
+    /// Relates to a subscription to funds (funds industry only).
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_UE_dEdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a subscription to funds (funds industry only).")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.
     /// Encoded/decoded by serializers as "SyndicateUnderwriters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYND")]
     [IsoId("_UXvZ8dEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.")]
     SyndicateUnderwriters,
     
     /// <summary>
-    /// ??
+    /// Relates to a To Be Announced (TBA) closing trade.
     /// Encoded/decoded by serializers as "TBAClosing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBAC")]
     [IsoId("_UeGgodEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a To Be Announced (TBA) closing trade.")]
     TBAClosing,
     
     /// <summary>
-    /// ??
+    /// Relates to the settlement of a trade.
     /// Encoded/decoded by serializers as "Trade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_Us05IdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the settlement of a trade.")]
     Trade,
     
     /// <summary>
-    /// ??
+    /// Relates to a triparty repurchase agreement.
     /// Encoded/decoded by serializers as "TripartyRepo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPO")]
     [IsoId("_Uy7hIdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a triparty repurchase agreement.")]
     TripartyRepo,
     
     /// <summary>
-    /// ??
+    /// Relates to a triparty reverse repurchase agreement.
     /// Encoded/decoded by serializers as "TripartyReverseRepo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRVO")]
     [IsoId("_U5LTEdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a triparty reverse repurchase agreement.")]
     TripartyReverseRepo,
     
     /// <summary>
-    /// ??
+    /// Relates to a turnaround: the same security is bought and sold to settle the same day, to or from different brokers.
     /// Encoded/decoded by serializers as "Turnaround".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TURN")]
     [IsoId("_VDRqQdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a turnaround: the same security is bought and sold to settle the same day, to or from different brokers.")]
     Turnaround,
     
     /// <summary>
-    /// ??
+    /// Relates to a buy-in by the market following a delivery transaction failure.
     /// Encoded/decoded by serializers as "BuyIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BYIY")]
     [IsoId("_fsV6sdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a buy-in by the market following a delivery transaction failure.")]
     BuyIn,
     
     /// <summary>
-    /// ??
+    /// Relates to a collateral delivery/receipt to a national central bank for central bank credit operations.
     /// Encoded/decoded by serializers as "CentralBankCollateralOperation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNCB")]
     [IsoId("_jOsAEdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a collateral delivery/receipt to a national central bank for central bank credit operations.")]
     CentralBankCollateralOperation,
     
     /// <summary>
-    /// ??
+    /// Relates to an account transfer involving more than one instructing party (message sender) and/or account servicer (messages receiver).
     /// Encoded/decoded by serializers as "ExternalAccountTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWNE")]
     [IsoId("_2_R1sdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to an account transfer involving more than one instructing party (message sender) and/or account servicer (messages receiver).")]
     ExternalAccountTransfer,
     
     /// <summary>
-    /// ??
+    /// Relates to a factor update.
     /// Encoded/decoded by serializers as "FactorUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCTA")]
     [IsoId("_4k5IodEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a factor update.")]
     FactorUpdate,
     
     /// <summary>
-    /// ??
+    /// Relates to an account transfer involving one instructing party (message sender) at one account servicer (messages receiver).
     /// Encoded/decoded by serializers as "InternalAccountTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWNI")]
     [IsoId("_7OV3IdEgEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to an account transfer involving one instructing party (message sender) at one account servicer (messages receiver).")]
     InternalAccountTransfer,
     
     /// <summary>
-    /// ??
+    /// Relates to a release (into/from local) of depository receipt operation.
     /// Encoded/decoded by serializers as "DepositoryReceiptReleaseCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RELE")]
     [IsoId("_qK8DsdEkEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a release (into/from local) of depository receipt operation.")]
     DepositoryReceiptReleaseCancellation,
     
     /// <summary>
-    /// ??
+    /// Internal reallocation of a borrowed holding from one safekeeping account to another.
     /// Encoded/decoded by serializers as "BorrowingReallocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBRE")]
     [IsoId("_yOlKAdEkEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Internal reallocation of a borrowed holding from one safekeeping account to another.")]
     BorrowingReallocation,
     
     /// <summary>
-    /// ??
+    /// Relates to a corporate action.
     /// Encoded/decoded by serializers as "CorporateAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("_5Mc7EdEkEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a corporate action.")]
     CorporateAction,
     
     /// <summary>
-    /// ??
+    /// Relates to a market claim.
     /// Encoded/decoded by serializers as "MarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAI")]
     [IsoId("_77absdEkEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a market claim.")]
     MarketClaim,
     
     /// <summary>
-    /// ??
+    /// Relates to an auto-collateralisation movement.
     /// Encoded/decoded by serializers as "AutoCollateralisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTO")]
     [IsoId("_9jGyQdEkEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to an auto-collateralisation movement.")]
     AutoCollateralisation,
     
     /// <summary>
-    /// ??
+    /// Transaction is a change of an investment from one sub-fund to another sub-fund (redemption-leg).
     /// Encoded/decoded by serializers as "SwitchFrom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIF")]
     [IsoId("_DQfy4dElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a change of an investment from one sub-fund to another sub-fund (redemption-leg).")]
     SwitchFrom,
     
     /// <summary>
-    /// ??
+    /// Transaction is a change of an investment from one sub-fund to another sub-fund (subscription-leg).
     /// Encoded/decoded by serializers as "SwitchTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIT")]
     [IsoId("_DWvk0dElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a change of an investment from one sub-fund to another sub-fund (subscription-leg).")]
     SwitchTo,
     
     /// <summary>
-    /// ??
+    /// Relates to a depository receipt conversion.
     /// Encoded/decoded by serializers as "DepositoryReceiptConversion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONV")]
     [IsoId("_RromwdElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a depository receipt conversion.")]
     DepositoryReceiptConversion,
     
     /// <summary>
-    /// ??
+    /// Relates to an ETF creation or redemption.
     /// Encoded/decoded by serializers as "ExchangeTradedFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETFT")]
     [IsoId("_czqEEdElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to an ETF creation or redemption.")]
     ExchangeTradedFunds,
     
     /// <summary>
-    /// ??
+    /// Relates to the issuance of a security such as an equity or a depositary receipt.
     /// Encoded/decoded by serializers as "Issuance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("_iyTz0dElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the issuance of a security such as an equity or a depositary receipt.")]
     Issuance,
     
     /// <summary>
-    /// ??
+    /// Internal reallocation of a holding on loan from one safekeeping account to another.
     /// Encoded/decoded by serializers as "LendingReallocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLRE")]
     [IsoId("_kIvbQdElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Internal reallocation of a holding on loan from one safekeeping account to another.")]
     LendingReallocation,
     
     /// <summary>
-    /// ??
+    /// Relates to a movement of shares into or out of a pooled account.
     /// Encoded/decoded by serializers as "MoveOfStock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSP")]
     [IsoId("_mXt0QdElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a movement of shares into or out of a pooled account.")]
     MoveOfStock,
     
     /// <summary>
-    /// ??
+    /// Relates to a sell buy back transaction.
     /// Encoded/decoded by serializers as "SellBuyBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBBK")]
     [IsoId("_zWKnsdElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a sell buy back transaction.")]
     SellBuyBack,
     
     /// <summary>
-    /// ??
+    /// Relates to the withdrawal of specified amounts from specified subaccounts.
     /// Encoded/decoded by serializers as "Withdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDI")]
     [IsoId("_4zCgEdElEeiO-eodGv5iKQ")]
-    [Description(@"??")]
+    [Description(@"Relates to the withdrawal of specified amounts from specified subaccounts.")]
     Withdrawal,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceRateType3Code
 {
     /// <summary>
-    /// ??
+    /// Price expressed as a number of percentage points below par, for example, a discount price of 2.0% equals a price of 98 when par is 100.
     /// Encoded/decoded by serializers as "Discount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_aI_ANNp-Ed-ak6NoX_4Aeg_2030331253")]
-    [Description(@"??")]
+    [Description(@"Price expressed as a number of percentage points below par, for example, a discount price of 2.0% equals a price of 98 when par is 100.")]
     Discount,
     
     /// <summary>
-    /// ??
+    /// Price expressed as a number of percentage points above par, for example, a premium price of 2.0% equals a price of 102 when par is 100.
     /// Encoded/decoded by serializers as "Premium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREM")]
     [IsoId("_aI_ANdp-Ed-ak6NoX_4Aeg_2030331282")]
-    [Description(@"??")]
+    [Description(@"Price expressed as a number of percentage points above par, for example, a premium price of 2.0% equals a price of 102 when par is 100.")]
     Premium,
     
     /// <summary>
-    /// ??
+    /// Price expressed as a percentage of par.
     /// Encoded/decoded by serializers as "Percentage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCT")]
     [IsoId("_aI_ANtp-Ed-ak6NoX_4Aeg_2030331283")]
-    [Description(@"??")]
+    [Description(@"Price expressed as a percentage of par.")]
     Percentage,
     
     /// <summary>
-    /// ??
+    /// Price expressed as a yield.
     /// Encoded/decoded by serializers as "Yield".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YIEL")]
     [IsoId("_aI_AN9p-Ed-ak6NoX_4Aeg_2030331312")]
-    [Description(@"??")]
+    [Description(@"Price expressed as a yield.")]
     Yield,
     
 }

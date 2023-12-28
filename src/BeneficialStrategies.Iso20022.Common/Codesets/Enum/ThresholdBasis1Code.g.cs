@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ThresholdBasis1Code
 {
     /// <summary>
-    /// ??
+    /// Basis is the total number of shares issued.
     /// Encoded/decoded by serializers as "AllIssuedShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALSH")]
     [IsoId("_KOf5QRuOEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Basis is the total number of shares issued.")]
     AllIssuedShares,
     
     /// <summary>
-    /// ??
+    /// Basis is the total number of shares represented at the meeting by attendees. 
     /// Encoded/decoded by serializers as "AllSharesRepresentedAtMeeting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALSM")]
     [IsoId("_KUwSQRuOEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Basis is the total number of shares represented at the meeting by attendees. ")]
     AllSharesRepresentedAtMeeting,
     
     /// <summary>
-    /// ??
+    /// Basis is the total number of vote cast for a resolution.
     /// Encoded/decoded by serializers as "AllVoteCast".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALVO")]
     [IsoId("_KbArQRuOEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Basis is the total number of vote cast for a resolution.")]
     AllVoteCast,
     
 }

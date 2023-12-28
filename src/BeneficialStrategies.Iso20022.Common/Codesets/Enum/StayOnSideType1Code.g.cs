@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StayOnSideType1Code
 {
     /// <summary>
-    /// ??
+    /// An order pegged against the offer price.
     /// Encoded/decoded by serializers as "Offer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFR")]
     [IsoId("_zbzooA93EeGeV5vP7Mvdig_183499807")]
-    [Description(@"??")]
+    [Description(@"An order pegged against the offer price.")]
     Offer,
     
     /// <summary>
-    /// ??
+    /// An order pegged against the bid price.
     /// Encoded/decoded by serializers as "Bid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIDE")]
     [IsoId("_zbzooQ93EeGeV5vP7Mvdig_-571250067")]
-    [Description(@"??")]
+    [Description(@"An order pegged against the bid price.")]
     Bid,
     
     /// <summary>
-    /// ??
+    /// Indicates a voluntary absence of choice/decision.
     /// Encoded/decoded by serializers as "DontCare".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAR")]
     [IsoId("_zbzoog93EeGeV5vP7Mvdig_-128261575")]
-    [Description(@"??")]
+    [Description(@"Indicates a voluntary absence of choice/decision.")]
     DontCare,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RoundingDirection2Code
 {
     /// <summary>
-    /// ??
+    /// Round up to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDUP")]
     [IsoId("_Y-LZ8tp-Ed-ak6NoX_4Aeg_498412566")]
-    [Description(@"??")]
+    [Description(@"Round up to the nearest whole number.")]
     RoundUp,
     
     /// <summary>
-    /// ??
+    /// Round down to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundDown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDWN")]
     [IsoId("_Y-LZ89p-Ed-ak6NoX_4Aeg_498413939")]
-    [Description(@"??")]
+    [Description(@"Round down to the nearest whole number.")]
     RoundDown,
     
 }

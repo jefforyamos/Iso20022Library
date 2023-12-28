@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxType2Code
 {
     /// <summary>
-    /// ??
+    /// Tax is on certain documents and transactions.
     /// Encoded/decoded by serializers as "StampDuty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAM")]
     [IsoId("_Veg1I9p-Ed-ak6NoX_4Aeg_1366299075")]
-    [Description(@"??")]
+    [Description(@"Tax is on certain documents and transactions.")]
     StampDuty,
     
     /// <summary>
-    /// ??
+    /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
     /// Encoded/decoded by serializers as "WithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_Veg1JNp-Ed-ak6NoX_4Aeg_-1219693756")]
-    [Description(@"??")]
+    [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
     WithholdingTax,
     
     /// <summary>
-    /// ??
+    /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
     /// Encoded/decoded by serializers as "EUTaxRetention".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUTR")]
     [IsoId("_Veg1Jdp-Ed-ak6NoX_4Aeg_-1802624814")]
-    [Description(@"??")]
+    [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
     EUTaxRetention,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TargetMarket1Code
 {
     /// <summary>
-    /// ??
+    /// Yes, is applicable.
     /// Encoded/decoded by serializers as "InScope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YSCO")]
     [IsoId("_9woHAdddEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Yes, is applicable.")]
     InScope,
     
     /// <summary>
-    /// ??
+    /// Neutral or has no impact.
     /// Encoded/decoded by serializers as "Neutral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEUT")]
     [IsoId("_936awdddEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Neutral or has no impact.")]
     Neutral,
     
     /// <summary>
-    /// ??
+    /// No, is not applicable.
     /// Encoded/decoded by serializers as "NotInScope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSCO")]
     [IsoId("_-SsSQdddEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"No, is not applicable.")]
     NotInScope,
     
 }

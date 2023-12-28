@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeniedReason1Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_az5lcNp-Ed-ak6NoX_4Aeg_1343217135")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Repo call request was denied since another call already applies.
     /// Encoded/decoded by serializers as "CallDeniedSinceAlreadyApplied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAL")]
     [IsoId("_az5lcdp-Ed-ak6NoX_4Aeg_1343217164")]
-    [Description(@"??")]
+    [Description(@"Repo call request was denied since another call already applies.")]
     CallDeniedSinceAlreadyApplied,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was denied since the instruction has already been cancelled.
     /// Encoded/decoded by serializers as "DeniedSinceAlreadyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAN")]
     [IsoId("_az5lctp-Ed-ak6NoX_4Aeg_1343217165")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was denied since the instruction has already been cancelled.")]
     DeniedSinceAlreadyCancelled,
     
     /// <summary>
-    /// ??
+    /// Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.
     /// Encoded/decoded by serializers as "DeniedSinceNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFOR")]
     [IsoId("_az5lc9p-Ed-ak6NoX_4Aeg_1343217195")]
-    [Description(@"??")]
+    [Description(@"Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.")]
     DeniedSinceNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was denied because the process of settlement is in progress.
     /// Encoded/decoded by serializers as "DeniedSinceInProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRG")]
     [IsoId("_az5ldNp-Ed-ak6NoX_4Aeg_1343217196")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was denied because the process of settlement is in progress.")]
     DeniedSinceInProgress,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was denied because the repo was cancelled.
     /// Encoded/decoded by serializers as "DeniedSinceRepoEnded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DREP")]
     [IsoId("_az5lddp-Ed-ak6NoX_4Aeg_1343217197")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was denied because the repo was cancelled.")]
     DeniedSinceRepoEnded,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was denied because the instruction was already settled.
     /// Encoded/decoded by serializers as "DeniedSinceAlreadySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSET")]
     [IsoId("_az5ldtp-Ed-ak6NoX_4Aeg_1343217225")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was denied because the instruction was already settled.")]
     DeniedSinceAlreadySettled,
     
     /// <summary>
-    /// ??
+    /// Instruction has been processed and cannot be cancelled.
     /// Encoded/decoded by serializers as "InstructionProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPNC")]
     [IsoId("_az5ld9p-Ed-ak6NoX_4Aeg_1343217226")]
-    [Description(@"??")]
+    [Description(@"Instruction has been processed and cannot be cancelled.")]
     InstructionProcessed,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_az5leNp-Ed-ak6NoX_4Aeg_1343217227")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
 }

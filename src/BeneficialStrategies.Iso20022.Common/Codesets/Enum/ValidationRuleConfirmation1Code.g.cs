@@ -22,12 +22,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleConfirmation1Code
 {
     /// <summary>
-    /// ??
+    /// Confirmation party in trade.
     /// Encoded/decoded by serializers as "Confirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_0NxeUSBpEeugLNJneiyzbA")]
-    [Description(@"??")]
+    [Description(@"Confirmation party in trade.")]
     Confirmation,
     
 }

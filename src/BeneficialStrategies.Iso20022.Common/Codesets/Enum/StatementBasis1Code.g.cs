@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatementBasis1Code
 {
     /// <summary>
-    /// ??
+    /// The statement is based on contractual settlement date irrespective of settled data positions.
     /// Encoded/decoded by serializers as "Contractual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONT")]
     [IsoId("_ZP6DJdp-Ed-ak6NoX_4Aeg_-926610659")]
-    [Description(@"??")]
+    [Description(@"The statement is based on contractual settlement date irrespective of settled data positions.")]
     Contractual,
     
     /// <summary>
-    /// ??
+    /// The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_ZP6DJtp-Ed-ak6NoX_4Aeg_-2028635093")]
-    [Description(@"??")]
+    [Description(@"The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// The statement is based on trade date positions.
     /// Encoded/decoded by serializers as "Traded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_ZP6DJ9p-Ed-ak6NoX_4Aeg_-2014783388")]
-    [Description(@"??")]
+    [Description(@"The statement is based on trade date positions.")]
     Traded,
     
 }

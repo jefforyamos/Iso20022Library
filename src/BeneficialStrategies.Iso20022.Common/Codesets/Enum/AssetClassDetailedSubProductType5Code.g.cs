@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType5Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type base load.
     /// Encoded/decoded by serializers as "BaseLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSLD")]
     [IsoId("_q8_4EQ2gEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type base load.")]
     BaseLoad,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type financial transmission rights.
     /// Encoded/decoded by serializers as "FinancialTransmissionRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FITR")]
     [IsoId("_sAsJsQ2gEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type financial transmission rights.")]
     FinancialTransmissionRights,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type peak load.
     /// Encoded/decoded by serializers as "PeakLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PKLD")]
     [IsoId("_ueY7MQ2gEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type peak load.")]
     PeakLoad,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type off-peak.
     /// Encoded/decoded by serializers as "OffPeak".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFP")]
     [IsoId("_Vb9FgWs3EeW9oI9ZdgWHPQ")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type off-peak.")]
     OffPeak,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_WDhb0ms3EeW9oI9ZdgWHPQ")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
 }

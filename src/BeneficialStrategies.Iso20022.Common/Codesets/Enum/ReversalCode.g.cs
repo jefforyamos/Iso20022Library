@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReversalCode
 {
     /// <summary>
-    /// ??
+    /// Debit entry used to reverse a previously booked credit entry.
     /// Encoded/decoded by serializers as "ReversalCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVCD")]
     [IsoId("_Y-Bo89p-Ed-ak6NoX_4Aeg_499553797")]
-    [Description(@"??")]
+    [Description(@"Debit entry used to reverse a previously booked credit entry.")]
     ReversalCredit,
     
     /// <summary>
-    /// ??
+    /// Credit entry used to reverse a previously booked debit entry.
     /// Encoded/decoded by serializers as "ReversalDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVDB")]
     [IsoId("_Y-Bo9Np-Ed-ak6NoX_4Aeg_499553857")]
-    [Description(@"??")]
+    [Description(@"Credit entry used to reverse a previously booked debit entry.")]
     ReversalDebit,
     
 }

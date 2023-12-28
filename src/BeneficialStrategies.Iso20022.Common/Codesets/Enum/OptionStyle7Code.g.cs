@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionStyle7Code
 {
     /// <summary>
-    /// ??
+    /// Option can be exercised before or on expiry date.
     /// Encoded/decoded by serializers as "American".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMER")]
     [IsoId("_b6m_gUD8EeW1yage4PQ__A")]
-    [Description(@"??")]
+    [Description(@"Option can be exercised before or on expiry date.")]
     American,
     
     /// <summary>
-    /// ??
+    /// Option where the payoff is not determined by the underlying price at maturity but by the average underlying price over some pre-set period of time.
     /// Encoded/decoded by serializers as "Asian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASIA")]
     [IsoId("_b_th8UD8EeW1yage4PQ__A")]
-    [Description(@"??")]
+    [Description(@"Option where the payoff is not determined by the underlying price at maturity but by the average underlying price over some pre-set period of time.")]
     Asian,
     
     /// <summary>
-    /// ??
+    /// Option that can be exercised on multiple discrete dates prior to, or on expiry date.
     /// Encoded/decoded by serializers as "Bermudan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BERM")]
     [IsoId("_cIaK8UD8EeW1yage4PQ__A")]
-    [Description(@"??")]
+    [Description(@"Option that can be exercised on multiple discrete dates prior to, or on expiry date.")]
     Bermudan,
     
     /// <summary>
-    /// ??
+    /// Option that can be exercised on expiry date only.
     /// Encoded/decoded by serializers as "European".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EURO")]
     [IsoId("_cPlJ8UD8EeW1yage4PQ__A")]
-    [Description(@"??")]
+    [Description(@"Option that can be exercised on expiry date only.")]
     European,
     
     /// <summary>
-    /// ??
+    /// Other type of option style.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_cTFw8UD8EeW1yage4PQ__A")]
-    [Description(@"??")]
+    [Description(@"Other type of option style.")]
     Other,
     
 }

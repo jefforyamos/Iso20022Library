@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionType4Code
 {
     /// <summary>
-    /// ??
+    /// Capture the card.
     /// Encoded/decoded by serializers as "CaptureCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTR")]
     [IsoId("_886RsXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Capture the card.")]
     CaptureCard,
     
     /// <summary>
-    /// ??
+    /// Additional identification required (passport, ID card, etc.).
     /// Encoded/decoded by serializers as "IdentificationRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQID")]
     [IsoId("_-W7YoXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Additional identification required (passport, ID card, etc.).")]
     IdentificationRequired,
     
     /// <summary>
-    /// ??
+    /// Referral has to be performed.
     /// Encoded/decoded by serializers as "Referral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFRL")]
     [IsoId("_-k7_cXsNEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Referral has to be performed.")]
     Referral,
     
     /// <summary>
-    /// ??
+    /// Approve the transaction.
     /// Encoded/decoded by serializers as "Approve".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPV")]
     [IsoId("_S_kQQS6qEeWc7f-D6ByqMg")]
-    [Description(@"??")]
+    [Description(@"Approve the transaction.")]
     Approve,
     
     /// <summary>
-    /// ??
+    /// Block the card.
     /// Encoded/decoded by serializers as "BlockCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCK")]
     [IsoId("_TcMh4S6qEeWc7f-D6ByqMg")]
-    [Description(@"??")]
+    [Description(@"Block the card.")]
     BlockCard,
     
     /// <summary>
-    /// ??
+    /// No reason for declining the transaction.
     /// Encoded/decoded by serializers as "NoReasonForDecline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDCL")]
     [IsoId("_UMkO4S6qEeWc7f-D6ByqMg")]
-    [Description(@"??")]
+    [Description(@"No reason for declining the transaction.")]
     NoReasonForDecline,
     
 }

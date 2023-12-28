@@ -20,138 +20,138 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction has been accepted by the clearing agent.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPD")]
     [IsoId("_VmQb49p-Ed-ak6NoX_4Aeg_612436491")]
-    [Description(@"??")]
+    [Description(@"Transaction has been accepted by the clearing agent.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Transaction has been validated by the clearing agent.
     /// Encoded/decoded by serializers as "Validated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALD")]
     [IsoId("_VmQb5Np-Ed-ak6NoX_4Aeg_612436499")]
-    [Description(@"??")]
+    [Description(@"Transaction has been validated by the clearing agent.")]
     Validated,
     
     /// <summary>
-    /// ??
+    /// Transaction has been matched with a corresponding transaction by the clearing agent.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MATD")]
     [IsoId("_VmQb5dp-Ed-ak6NoX_4Aeg_612436500")]
-    [Description(@"??")]
+    [Description(@"Transaction has been matched with a corresponding transaction by the clearing agent.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Transaction has been authorised by the transaction administrator or authorised party.
     /// Encoded/decoded by serializers as "Authorised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTD")]
     [IsoId("_VmQb5tp-Ed-ak6NoX_4Aeg_612436501")]
-    [Description(@"??")]
+    [Description(@"Transaction has been authorised by the transaction administrator or authorised party.")]
     Authorised,
     
     /// <summary>
-    /// ??
+    /// Transaction is invalid.
     /// Encoded/decoded by serializers as "Invalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVD")]
     [IsoId("_VmQb59p-Ed-ak6NoX_4Aeg_612436502")]
-    [Description(@"??")]
+    [Description(@"Transaction is invalid.")]
     Invalid,
     
     /// <summary>
-    /// ??
+    /// Clearing agent attempted to match the transaction with a corresponding transaction but failed.
     /// Encoded/decoded by serializers as "Unmatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UMAC")]
     [IsoId("_VmQb6Np-Ed-ak6NoX_4Aeg_612436503")]
-    [Description(@"??")]
+    [Description(@"Clearing agent attempted to match the transaction with a corresponding transaction but failed.")]
     Unmatched,
     
     /// <summary>
-    /// ??
+    /// Transaction is eligible for future settlement.
     /// Encoded/decoded by serializers as "SettlementEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLE")]
     [IsoId("_VmQb6dp-Ed-ak6NoX_4Aeg_612436504")]
-    [Description(@"??")]
+    [Description(@"Transaction is eligible for future settlement.")]
     SettlementEligible,
     
     /// <summary>
-    /// ??
+    /// Transaction is eligible for immediate settlement.
     /// Encoded/decoded by serializers as "SettlementMature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLM")]
     [IsoId("_VmaM4Np-Ed-ak6NoX_4Aeg_612436513")]
-    [Description(@"??")]
+    [Description(@"Transaction is eligible for immediate settlement.")]
     SettlementMature,
     
     /// <summary>
-    /// ??
+    /// Transaction has been suspended by the clearing agent.
     /// Encoded/decoded by serializers as "Suspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPD")]
     [IsoId("_VmaM4dp-Ed-ak6NoX_4Aeg_612436514")]
-    [Description(@"??")]
+    [Description(@"Transaction has been suspended by the clearing agent.")]
     Suspended,
     
     /// <summary>
-    /// ??
+    /// Clearing agent has received a cancellation request for the transaction, and needs either a matching request for cancellation from the counterparty or a confirmation from an authorised party.
     /// Encoded/decoded by serializers as "PendingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCAN")]
     [IsoId("_VmaM4tp-Ed-ak6NoX_4Aeg_612436515")]
-    [Description(@"??")]
+    [Description(@"Clearing agent has received a cancellation request for the transaction, and needs either a matching request for cancellation from the counterparty or a confirmation from an authorised party.")]
     PendingCancellation,
     
     /// <summary>
-    /// ??
+    /// Transaction is eligible for settlement, but is pending.
     /// Encoded/decoded by serializers as "PendingSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSTL")]
     [IsoId("_VmaM49p-Ed-ak6NoX_4Aeg_612436516")]
-    [Description(@"??")]
+    [Description(@"Transaction is eligible for settlement, but is pending.")]
     PendingSettlement,
     
     /// <summary>
-    /// ??
+    /// Transaction eligible for immediate settlement, has failed to settle.
     /// Encoded/decoded by serializers as "PendingFailingSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PFST")]
     [IsoId("_VmaM5Np-Ed-ak6NoX_4Aeg_612436517")]
-    [Description(@"??")]
+    [Description(@"Transaction eligible for immediate settlement, has failed to settle.")]
     PendingFailingSettlement,
     
     /// <summary>
-    /// ??
+    /// Transaction causes the 'Sender multilateral limit' to be exceeded and cannot currently be processed.
     /// Encoded/decoded by serializers as "SenderMultilateralLimitRelated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMLR")]
     [IsoId("_VmaM5dp-Ed-ak6NoX_4Aeg_612436518")]
-    [Description(@"??")]
+    [Description(@"Transaction causes the 'Sender multilateral limit' to be exceeded and cannot currently be processed.")]
     SenderMultilateralLimitRelated,
     
     /// <summary>
-    /// ??
+    /// Transaction causes the 'Receiver multilateral limit' to be exceeded and cannot currently be processed.
     /// Encoded/decoded by serializers as "ReceiverMultilateralLimitRelated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMLR")]
     [IsoId("_VmaM5tp-Ed-ak6NoX_4Aeg_612436519")]
-    [Description(@"??")]
+    [Description(@"Transaction causes the 'Receiver multilateral limit' to be exceeded and cannot currently be processed.")]
     ReceiverMultilateralLimitRelated,
     
     /// <summary>
-    /// ??
+    /// Transaction causes the bilateral limit fixed between Sender and Receiver to be exceeded and cannot currently be processed.
     /// Encoded/decoded by serializers as "SenderReceiverBilateralLimitRelated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRBL")]
     [IsoId("_VmaM59p-Ed-ak6NoX_4Aeg_612436520")]
-    [Description(@"??")]
+    [Description(@"Transaction causes the bilateral limit fixed between Sender and Receiver to be exceeded and cannot currently be processed.")]
     SenderReceiverBilateralLimitRelated,
     
 }

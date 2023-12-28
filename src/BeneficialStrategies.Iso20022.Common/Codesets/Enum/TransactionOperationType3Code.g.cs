@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionOperationType3Code
 {
     /// <summary>
-    /// ??
+    /// Transaction corrects errors in a previously sent transaction.
     /// Encoded/decoded by serializers as "Correction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORR")]
     [IsoId("_ujf94RVlEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Transaction corrects errors in a previously sent transaction.")]
     Correction,
     
     /// <summary>
-    /// ??
+    /// Transaction is an early termination.
     /// Encoded/decoded by serializers as "EarlyTermination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETRM")]
     [IsoId("_u-bmYRVlEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Transaction is an early termination.")]
     EarlyTermination,
     
     /// <summary>
-    /// ??
+    /// Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake, in which case, it will be identified as ‘error’.
     /// Encoded/decoded by serializers as "Error".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EROR")]
     [IsoId("_vKyAURVlEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake, in which case, it will be identified as ‘error’.")]
     Error,
     
     /// <summary>
-    /// ??
+    /// Transaction is a new transaction.
     /// Encoded/decoded by serializers as "NewTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWT")]
     [IsoId("_vXRkMRVlEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a new transaction.")]
     NewTransaction,
     
     /// <summary>
-    /// ??
+    /// Contract to be reported as a new trade and included in a separate position report on the same day.
     /// Encoded/decoded by serializers as "PositionComponent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POSC")]
     [IsoId("_0sccoRVmEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Contract to be reported as a new trade and included in a separate position report on the same day.")]
     PositionComponent,
     
     /// <summary>
-    /// ??
+    /// Update of a contract valuation or collateral.
     /// Encoded/decoded by serializers as "ValuationUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALU")]
     [IsoId("_08g48RVmEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Update of a contract valuation or collateral.")]
     ValuationUpdate,
     
     /// <summary>
-    /// ??
+    /// Transaction is a compression.
     /// Encoded/decoded by serializers as "Compression".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_1EZCkRVmEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a compression.")]
     Compression,
     
     /// <summary>
-    /// ??
+    /// Transaction modifies in a previously sent transaction.
     /// Encoded/decoded by serializers as "Modification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_1MRzQRVmEeWXLoZC9OIRgg")]
-    [Description(@"??")]
+    [Description(@"Transaction modifies in a previously sent transaction.")]
     Modification,
     
     /// <summary>
-    /// ??
+    /// Other.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_DrttMeleEeWv8d_RPCVG5g")]
-    [Description(@"??")]
+    [Description(@"Other.")]
     Other,
     
 }

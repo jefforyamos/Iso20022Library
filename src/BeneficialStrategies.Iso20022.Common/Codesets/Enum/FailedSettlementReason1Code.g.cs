@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FailedSettlementReason1Code
 {
     /// <summary>
-    /// ??
+    /// Credit account is not eligible.
     /// Encoded/decoded by serializers as "CreditAccountNotEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANE")]
     [IsoId("_amyWgNp-Ed-ak6NoX_4Aeg_-641474163")]
-    [Description(@"??")]
+    [Description(@"Credit account is not eligible.")]
     CreditAccountNotEligible,
     
     /// <summary>
-    /// ??
+    /// Credit account is disabled.
     /// Encoded/decoded by serializers as "CreditAccountDisabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADI")]
     [IsoId("_amyWgdp-Ed-ak6NoX_4Aeg_-641474133")]
-    [Description(@"??")]
+    [Description(@"Credit account is disabled.")]
     CreditAccountDisabled,
     
     /// <summary>
-    /// ??
+    /// Debit account is not eligible.
     /// Encoded/decoded by serializers as "DebitAccountNotEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DANE")]
     [IsoId("_amyWgtp-Ed-ak6NoX_4Aeg_-641474102")]
-    [Description(@"??")]
+    [Description(@"Debit account is not eligible.")]
     DebitAccountNotEligible,
     
     /// <summary>
-    /// ??
+    /// Debit account is disabled.
     /// Encoded/decoded by serializers as "DebitAccountDisabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AADI")]
     [IsoId("_amyWg9p-Ed-ak6NoX_4Aeg_-641474101")]
-    [Description(@"??")]
+    [Description(@"Debit account is disabled.")]
     DebitAccountDisabled,
     
     /// <summary>
-    /// ??
+    /// Insufficient securities on the account to settle.
     /// Encoded/decoded by serializers as "InsufficientSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSE")]
     [IsoId("_amyWhNp-Ed-ak6NoX_4Aeg_-641474072")]
-    [Description(@"??")]
+    [Description(@"Insufficient securities on the account to settle.")]
     InsufficientSecurities,
     
     /// <summary>
-    /// ??
+    /// The distribution is incomplete.
     /// Encoded/decoded by serializers as "IncompleteDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDI")]
     [IsoId("_amyWhdp-Ed-ak6NoX_4Aeg_-641473762")]
-    [Description(@"??")]
+    [Description(@"The distribution is incomplete.")]
     IncompleteDistribution,
     
     /// <summary>
-    /// ??
+    /// Insufficient cash on the account to settle.
     /// Encoded/decoded by serializers as "InsufficientCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCA")]
     [IsoId("_amyWhtp-Ed-ak6NoX_4Aeg_-641473739")]
-    [Description(@"??")]
+    [Description(@"Insufficient cash on the account to settle.")]
     InsufficientCash,
     
 }

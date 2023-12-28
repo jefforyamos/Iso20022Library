@@ -21,165 +21,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalPaymentTransactionStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Settlement on the creditor's account has been completed.
     /// Encoded/decoded by serializers as "AcceptedSettlementCompletedCreditorAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCC")]
     [IsoId("_uV_hK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Settlement on the creditor's account has been completed.")]
     AcceptedSettlementCompletedCreditorAccount,
     
     /// <summary>
-    /// ??
+    /// Preceding check of technical validation was successful. Customer profile check was also successful.
     /// Encoded/decoded by serializers as "AcceptedCustomerProfile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_uWIrEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Preceding check of technical validation was successful. Customer profile check was also successful.")]
     AcceptedCustomerProfile,
     
     /// <summary>
-    /// ??
+    /// Preceding check of technical validation and customer profile was successful and an automatic funds check was positive.
     /// Encoded/decoded by serializers as "AcceptedFundsChecked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACFC")]
     [IsoId("_uWIrFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Preceding check of technical validation and customer profile was successful and an automatic funds check was positive.")]
     AcceptedFundsChecked,
     
     /// <summary>
-    /// ??
+    /// Payment instruction to issue a cheque has been accepted, and the cheque has been issued but not yet been deposited or cleared.
     /// Encoded/decoded by serializers as "AcceptedandChequeIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACIS")]
     [IsoId("_uWIrGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction to issue a cheque has been accepted, and the cheque has been issued but not yet been deposited or cleared.")]
     AcceptedandChequeIssued,
     
     /// <summary>
-    /// ??
+    /// Settlement completed.|Usage : this can be used by a Market Infrastructure reporting to Infrastructure Participant or an Account Servicer to Account Owner to report that the transaction account entry has been completed.|Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement|
     /// Encoded/decoded by serializers as "AcceptedSettlementCompletedDebitorAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSC")]
     [IsoId("_uWIrG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Settlement completed.|Usage : this can be used by a Market Infrastructure reporting to Infrastructure Participant or an Account Servicer to Account Owner to report that the transaction account entry has been completed.|Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement|")]
     AcceptedSettlementCompletedDebitorAccount,
     
     /// <summary>
-    /// ??
+    /// All preceding checks such as technical validation and customer profile were successful and therefore the payment instruction has been accepted for execution.
     /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSP")]
     [IsoId("_uWIrHvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment instruction has been accepted for execution.")]
     AcceptedSettlementInProcess,
     
     /// <summary>
-    /// ??
+    /// Authentication and syntactical and semantical validation are successful
     /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_uWScEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Authentication and syntactical and semantical validation are successful")]
     AcceptedTechnicalValidation,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but a change will be made, such as date or remittance not sent.
     /// Encoded/decoded by serializers as "AcceptedWithChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACWC")]
     [IsoId("_uWScFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but a change will be made, such as date or remittance not sent.")]
     AcceptedWithChange,
     
     /// <summary>
-    /// ??
+    /// Payment instruction included in the credit transfer is accepted without being posted to the creditor customer’s account.
     /// Encoded/decoded by serializers as "AcceptedWithoutPosting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACWP")]
     [IsoId("_uWcNEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction included in the credit transfer is accepted without being posted to the creditor customer’s account.")]
     AcceptedWithoutPosting,
     
     /// <summary>
-    /// ??
+    /// Payment transaction previously reported with status 'ACWP' is blocked, for example, funds will neither be posted to the Creditor's account, nor be returned to the Debtor.
     /// Encoded/decoded by serializers as "Blocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCK")]
     [IsoId("_uWcNFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment transaction previously reported with status 'ACWP' is blocked, for example, funds will neither be posted to the Creditor's account, nor be returned to the Debtor.")]
     Blocked,
     
     /// <summary>
-    /// ??
+    /// Payment initiation has been successfully cancelled after having received a request for cancellation.|Usage: code to be used in the context of APIs only.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_uWcNGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment initiation has been successfully cancelled after having received a request for cancellation.|Usage: code to be used in the context of APIs only.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Cash has been picked up by the Creditor.
     /// Encoded/decoded by serializers as "CashPickedUpByCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPUC")]
     [IsoId("_uWcNG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cash has been picked up by the Creditor.")]
     CashPickedUpByCreditor,
     
     /// <summary>
-    /// ??
+    /// Payment initiation needs multiple authentications, where some but not yet all have been performed. Syntactical and semantical validations are successful.
     /// Encoded/decoded by serializers as "PartiallyAcceptedTechnicalCorrect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PATC")]
     [IsoId("_uWlXAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment initiation needs multiple authentications, where some but not yet all have been performed. Syntactical and semantical validations are successful.")]
     PartiallyAcceptedTechnicalCorrect,
     
     /// <summary>
-    /// ??
+    /// Payment instruction is pending. Further checks and status update will be performed.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_uWlXBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction is pending. Further checks and status update will be performed.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Request for Payment has been presented to the Debtor.
     /// Encoded/decoded by serializers as "Presented".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRES")]
     [IsoId("_uWvIAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Request for Payment has been presented to the Debtor.")]
     Presented,
     
     /// <summary>
-    /// ??
+    /// Payment instruction has been received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVD")]
     [IsoId("_uWvIBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction has been received.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Payment instruction has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_uW4R8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Status of transaction released from the Debtor Agent and accepted by the clearing.
     /// Encoded/decoded by serializers as "AcceptedClearingProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPD")]
     [IsoId("_aXLdIeGIEeyiZZWde7CbVw")]
-    [Description(@"??")]
+    [Description(@"Status of transaction released from the Debtor Agent and accepted by the clearing.")]
     AcceptedClearingProcessed,
     
 }

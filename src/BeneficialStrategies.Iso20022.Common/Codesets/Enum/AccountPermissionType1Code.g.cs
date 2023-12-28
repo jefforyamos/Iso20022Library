@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountPermissionType1Code
 {
     /// <summary>
-    /// ??
+    /// No right to use the account.
     /// Encoded/decoded by serializers as "NoRight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORI")]
     [IsoId("_WMuDoZiyEeOuCKiE8vUpBQ")]
-    [Description(@"??")]
+    [Description(@"No right to use the account.")]
     NoRight,
     
     /// <summary>
-    /// ??
+    /// Right to use the account alone.
     /// Encoded/decoded by serializers as "RightToUseAlone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RIAL")]
     [IsoId("_WbHsAZiyEeOuCKiE8vUpBQ")]
-    [Description(@"??")]
+    [Description(@"Right to use the account alone.")]
     RightToUseAlone,
     
     /// <summary>
-    /// ??
+    /// Right to use the account together with another person.
     /// Encoded/decoded by serializers as "RightToUseWithOther".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RIWI")]
     [IsoId("_WoKCcZiyEeOuCKiE8vUpBQ")]
-    [Description(@"??")]
+    [Description(@"Right to use the account together with another person.")]
     RightToUseWithOther,
     
 }

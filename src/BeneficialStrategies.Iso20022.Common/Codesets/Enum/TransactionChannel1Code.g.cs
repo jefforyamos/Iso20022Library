@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionChannel1Code
 {
     /// <summary>
-    /// ??
+    /// Mail order.
     /// Encoded/decoded by serializers as "MailOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIL")]
     [IsoId("_TUAMOgEcEeCQm6a_G2yO_w_421671046")]
-    [Description(@"??")]
+    [Description(@"Mail order.")]
     MailOrder,
     
     /// <summary>
-    /// ??
+    /// Telephone order.
     /// Encoded/decoded by serializers as "TelephoneOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TLPH")]
     [IsoId("_TUAMOwEcEeCQm6a_G2yO_w_-391479472")]
-    [Description(@"??")]
+    [Description(@"Telephone order.")]
     TelephoneOrder,
     
     /// <summary>
-    /// ??
+    /// Electronic commerce.
     /// Encoded/decoded by serializers as "ElectronicCommerce".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECOM")]
     [IsoId("_TUAMPAEcEeCQm6a_G2yO_w_-106195051")]
-    [Description(@"??")]
+    [Description(@"Electronic commerce.")]
     ElectronicCommerce,
     
     /// <summary>
-    /// ??
+    /// Payment on television.
     /// Encoded/decoded by serializers as "TelevisionPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TVPY")]
     [IsoId("_TUAMPQEcEeCQm6a_G2yO_w_654570102")]
-    [Description(@"??")]
+    [Description(@"Payment on television.")]
     TelevisionPayment,
     
 }

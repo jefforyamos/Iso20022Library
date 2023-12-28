@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BuyInState1Code
 {
     /// <summary>
-    /// ??
+    /// Buy-in was partially successful.
     /// Encoded/decoded by serializers as "PartiallySuccessful".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSSP")]
     [IsoId("_q9Bo8ZwVEeqtp-LOti013g")]
-    [Description(@"??")]
+    [Description(@"Buy-in was partially successful.")]
     PartiallySuccessful,
     
     /// <summary>
-    /// ??
+    /// Buy-in was successful.
     /// Encoded/decoded by serializers as "Successful".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSSY")]
     [IsoId("_rBfSMZwVEeqtp-LOti013g")]
-    [Description(@"??")]
+    [Description(@"Buy-in was successful.")]
     Successful,
     
     /// <summary>
-    /// ??
+    /// Buy-in was unsuccessful.
     /// Encoded/decoded by serializers as "Unsuccesssful".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSSN")]
     [IsoId("_rF87cZwVEeqtp-LOti013g")]
-    [Description(@"??")]
+    [Description(@"Buy-in was unsuccessful.")]
     Unsuccesssful,
     
 }

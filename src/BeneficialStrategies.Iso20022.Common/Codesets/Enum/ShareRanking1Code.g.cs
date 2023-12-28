@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ShareRanking1Code
 {
     /// <summary>
-    /// ??
+    /// Payable on the date specified.
     /// Encoded/decoded by serializers as "Dividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_ZOkmZtp-Ed-ak6NoX_4Aeg_1470328798")]
-    [Description(@"??")]
+    [Description(@"Payable on the date specified.")]
     Dividend,
     
     /// <summary>
-    /// ??
+    /// Pari Passu. With equal rights as other shares of the company.
     /// Encoded/decoded by serializers as "PariPassu".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARI")]
     [IsoId("_ZOkmZ9p-Ed-ak6NoX_4Aeg_1470328827")]
-    [Description(@"??")]
+    [Description(@"Pari Passu. With equal rights as other shares of the company.")]
     PariPassu,
     
 }

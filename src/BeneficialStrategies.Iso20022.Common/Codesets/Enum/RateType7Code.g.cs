@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateType7Code
 {
     /// <summary>
-    /// ??
+    /// Rate of the scheduled payment.
     /// Encoded/decoded by serializers as "Scheduled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCHD")]
     [IsoId("_ZZmKpdp-Ed-ak6NoX_4Aeg_-218272353")]
-    [Description(@"??")]
+    [Description(@"Rate of the scheduled payment.")]
     Scheduled,
     
     /// <summary>
-    /// ??
+    /// Rate of the unscheduled payment.
     /// Encoded/decoded by serializers as "Unscheduled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USCD")]
     [IsoId("_ZZmKptp-Ed-ak6NoX_4Aeg_-218272323")]
-    [Description(@"??")]
+    [Description(@"Rate of the unscheduled payment.")]
     Unscheduled,
     
 }

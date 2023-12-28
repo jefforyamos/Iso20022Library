@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RoundingMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Rounds the amount down.
     /// Encoded/decoded by serializers as "Down".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRDW")]
     [IsoId("_Yf7Xs9p-Ed-ak6NoX_4Aeg_857438224")]
-    [Description(@"??")]
+    [Description(@"Rounds the amount down.")]
     Down,
     
     /// <summary>
-    /// ??
+    /// Rounds the amount up.
     /// Encoded/decoded by serializers as "Up".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRUP")]
     [IsoId("_Yf7XtNp-Ed-ak6NoX_4Aeg_-1995269424")]
-    [Description(@"??")]
+    [Description(@"Rounds the amount up.")]
     Up,
     
     /// <summary>
-    /// ??
+    /// Do not round.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_Yf7Xtdp-Ed-ak6NoX_4Aeg_718047814")]
-    [Description(@"??")]
+    [Description(@"Do not round.")]
     None,
     
     /// <summary>
-    /// ??
+    /// Rounds the amount to the closer integral multiple specified.
     /// Encoded/decoded by serializers as "Closer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSR")]
     [IsoId("_Yf7Xttp-Ed-ak6NoX_4Aeg_-1257761254")]
-    [Description(@"??")]
+    [Description(@"Rounds the amount to the closer integral multiple specified.")]
     Closer,
     
 }

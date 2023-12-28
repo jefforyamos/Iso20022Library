@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Appearance1Code
 {
     /// <summary>
-    /// ??
+    /// Physical certificates exist.
     /// Encoded/decoded by serializers as "Deliverable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELI")]
     [IsoId("_be9Uo9p-Ed-ak6NoX_4Aeg_1019818408")]
-    [Description(@"??")]
+    [Description(@"Physical certificates exist.")]
     Deliverable,
     
     /// <summary>
-    /// ??
+    /// Not yet deliverable contract.
     /// Encoded/decoded by serializers as "NotDeliverable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDEL")]
     [IsoId("_be9UpNp-Ed-ak6NoX_4Aeg_1019818683")]
-    [Description(@"??")]
+    [Description(@"Not yet deliverable contract.")]
     NotDeliverable,
     
     /// <summary>
-    /// ??
+    /// Limited or partial deliverability.
     /// Encoded/decoded by serializers as "Limited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIMI")]
     [IsoId("_be9Updp-Ed-ak6NoX_4Aeg_1019818935")]
-    [Description(@"??")]
+    [Description(@"Limited or partial deliverability.")]
     Limited,
     
     /// <summary>
-    /// ??
+    /// Security exists only as an electronic record, ie, there are no physical certificates representing the security.
     /// Encoded/decoded by serializers as "BookEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BENT")]
     [IsoId("_be9Uptp-Ed-ak6NoX_4Aeg_1019818978")]
-    [Description(@"??")]
+    [Description(@"Security exists only as an electronic record, ie, there are no physical certificates representing the security.")]
     BookEntry,
     
     /// <summary>
-    /// ??
+    /// Deferred printing, book entry.
     /// Encoded/decoded by serializers as "DeferredBookEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFBE")]
     [IsoId("_be9Up9p-Ed-ak6NoX_4Aeg_1019819013")]
-    [Description(@"??")]
+    [Description(@"Deferred printing, book entry.")]
     DeferredBookEntry,
     
     /// <summary>
-    /// ??
+    /// Deliverable, book entry.
     /// Encoded/decoded by serializers as "DeliverableBookEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLBE")]
     [IsoId("_be9UqNp-Ed-ak6NoX_4Aeg_1020739027")]
-    [Description(@"??")]
+    [Description(@"Deliverable, book entry.")]
     DeliverableBookEntry,
     
     /// <summary>
-    /// ??
+    /// Deferred printing, global certificate.
     /// Encoded/decoded by serializers as "TemporaryGlobal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMPG")]
     [IsoId("_bfHFoNp-Ed-ak6NoX_4Aeg_1020739087")]
-    [Description(@"??")]
+    [Description(@"Deferred printing, global certificate.")]
     TemporaryGlobal,
     
     /// <summary>
-    /// ??
+    /// Not deliverable, global certificate.
     /// Encoded/decoded by serializers as "Global".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GLOB")]
     [IsoId("_bfHFodp-Ed-ak6NoX_4Aeg_1020739165")]
-    [Description(@"??")]
+    [Description(@"Not deliverable, global certificate.")]
     Global,
     
 }

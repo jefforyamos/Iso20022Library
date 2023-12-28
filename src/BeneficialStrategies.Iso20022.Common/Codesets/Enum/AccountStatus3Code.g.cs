@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Account can be used for its intended purpose.
     /// Encoded/decoded by serializers as "Enabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENAB")]
     [IsoId("_Yajvgtp-Ed-ak6NoX_4Aeg_-2072727728")]
-    [Description(@"??")]
+    [Description(@"Account can be used for its intended purpose.")]
     Enabled,
     
     /// <summary>
-    /// ??
+    /// Account cannot be used for its intended purpose, either temporarily or permanently.
     /// Encoded/decoded by serializers as "Disabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISA")]
     [IsoId("_Yajvg9p-Ed-ak6NoX_4Aeg_-2045022067")]
-    [Description(@"??")]
+    [Description(@"Account cannot be used for its intended purpose, either temporarily or permanently.")]
     Disabled,
     
     /// <summary>
-    /// ??
+    /// Account cannot be used any longer.
     /// Encoded/decoded by serializers as "Deleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELE")]
     [IsoId("_YajvhNp-Ed-ak6NoX_4Aeg_-2017316036")]
-    [Description(@"??")]
+    [Description(@"Account cannot be used any longer.")]
     Deleted,
     
     /// <summary>
-    /// ??
+    /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
     /// Encoded/decoded by serializers as "ProForma".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORM")]
     [IsoId("_Yajvhdp-Ed-ak6NoX_4Aeg_-1757807861")]
-    [Description(@"??")]
+    [Description(@"Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.")]
     ProForma,
     
 }

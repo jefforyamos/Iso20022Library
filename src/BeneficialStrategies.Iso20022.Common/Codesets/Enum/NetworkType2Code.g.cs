@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NetworkType2Code
 {
     /// <summary>
-    /// ??
+    /// Sock5 proxy.
     /// Encoded/decoded by serializers as "Sock5".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCK5")]
     [IsoId("_BAFFsY3-EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Sock5 proxy.")]
     Sock5,
     
     /// <summary>
-    /// ??
+    /// Sock4 proxy.
     /// Encoded/decoded by serializers as "Sock4".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCK4")]
     [IsoId("_BLtG4Y3-EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Sock4 proxy.")]
     Sock4,
     
     /// <summary>
-    /// ??
+    /// HTTP proxy.
     /// Encoded/decoded by serializers as "HTTP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HTTP")]
     [IsoId("_BYqk0Y3-EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"HTTP proxy.")]
     HTTP,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TR34Status1Code
 {
     /// <summary>
-    /// ??
+    /// The device is bound.
     /// Encoded/decoded by serializers as "Bound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUND")]
     [IsoId("_MpMAQbTjEeeQy4o2AayYHg")]
-    [Description(@"??")]
+    [Description(@"The device is bound.")]
     Bound,
     
     /// <summary>
-    /// ??
+    /// The device is unbound.
     /// Encoded/decoded by serializers as "Unbound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UBND")]
     [IsoId("_MtU5YbTjEeeQy4o2AayYHg")]
-    [Description(@"??")]
+    [Description(@"The device is unbound.")]
     Unbound,
     
 }

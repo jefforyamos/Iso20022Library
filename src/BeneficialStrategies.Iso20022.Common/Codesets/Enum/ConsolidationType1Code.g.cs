@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ConsolidationType1Code
 {
     /// <summary>
-    /// ??
+    /// Consolidation is general.
     /// Encoded/decoded by serializers as "General".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENL")]
     [IsoId("_5ZjW8SDVEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Consolidation is general.")]
     General,
     
     /// <summary>
-    /// ??
+    /// Consolidation is at the level of the participant.
     /// Encoded/decoded by serializers as "Participation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_5i6uUSDVEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Consolidation is at the level of the participant.")]
     Participation,
     
 }

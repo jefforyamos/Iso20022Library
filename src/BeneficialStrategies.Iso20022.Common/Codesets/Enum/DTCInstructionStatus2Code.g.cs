@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCInstructionStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Instruction cancelled by client relating to survivor option event.
     /// Encoded/decoded by serializers as "Cancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_q2UwEZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction cancelled by client relating to survivor option event.")]
     Cancel,
     
     /// <summary>
-    /// ??
+    /// Cancellation of conversion instruction upon agent approval only.
     /// Encoded/decoded by serializers as "ConversionCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAN")]
     [IsoId("_rNiWMZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Cancellation of conversion instruction upon agent approval only.")]
     ConversionCancellation,
     
     /// <summary>
-    /// ??
+    /// Instruction dropped due to insufficient position.
     /// Encoded/decoded by serializers as "Dropped".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DROP")]
     [IsoId("_rYZiYZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction dropped due to insufficient position.")]
     Dropped,
     
     /// <summary>
-    /// ??
+    /// Fully processed instruction.
     /// Encoded/decoded by serializers as "Made".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MADE")]
     [IsoId("_r82TQZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Fully processed instruction.")]
     Made,
     
     /// <summary>
-    /// ??
+    /// Instruction for CD early redemption awaiting paperwork. Instruction will become MADE when DTC releases instruction upon paperwork.
     /// Encoded/decoded by serializers as "PendingDocumentation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDOC")]
     [IsoId("_tCnogZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction for CD early redemption awaiting paperwork. Instruction will become MADE when DTC releases instruction upon paperwork.")]
     PendingDocumentation,
     
     /// <summary>
-    /// ??
+    /// Instruction pending release or delete from approval function.
     /// Encoded/decoded by serializers as "PendingApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENA")]
     [IsoId("_tHh9sZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction pending release or delete from approval function.")]
     PendingApproval,
     
     /// <summary>
-    /// ??
+    /// Instruction waiting for update after submission.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_tNVDsZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction waiting for update after submission.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Instruction or withdrawal rejected by agent relating to survivor option event.
     /// Encoded/decoded by serializers as "RejectedByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJA")]
     [IsoId("_ua_wsZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction or withdrawal rejected by agent relating to survivor option event.")]
     RejectedByAgent,
     
     /// <summary>
-    /// ??
+    /// Instruction did not pass initial validation.
     /// Encoded/decoded by serializers as "Reject".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_vAx-UZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction did not pass initial validation.")]
     Reject,
     
     /// <summary>
-    /// ??
+    /// Previously recycled transactions have been “MADE” and the system is processing the updates.
     /// Encoded/decoded by serializers as "RecycleMade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REMD")]
     [IsoId("_vsX5AZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Previously recycled transactions have been “MADE” and the system is processing the updates.")]
     RecycleMade,
     
     /// <summary>
-    /// ??
+    /// Rescinded by Issuer.
     /// Encoded/decoded by serializers as "Rescinded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESC")]
     [IsoId("_xL5LAZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Rescinded by Issuer.")]
     Rescinded,
     
     /// <summary>
-    /// ??
+    /// Instruction moved from one client account to another for put events.
     /// Encoded/decoded by serializers as "Swung".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWUN")]
     [IsoId("_xzwcQZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction moved from one client account to another for put events.")]
     Swung,
     
     /// <summary>
-    /// ??
+    /// Client instruction withdrawn for events with withdrawal privilege.
     /// Encoded/decoded by serializers as "Withdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_yOPY0ZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Client instruction withdrawn for events with withdrawal privilege.")]
     Withdrawn,
     
     /// <summary>
-    /// ??
+    /// Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.
     /// Encoded/decoded by serializers as "Recycle".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECY")]
     [IsoId("_zz2rwZIWEeaNbfbSYshZYw")]
-    [Description(@"??")]
+    [Description(@"Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.")]
     Recycle,
     
 }

@@ -22,12 +22,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleSpecifiedAddress1Code
 {
     /// <summary>
-    /// ??
+    /// Specified address.
     /// Encoded/decoded by serializers as "SpecifiedAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEC")]
     [IsoId("_D9RdESBqEeugLNJneiyzbA")]
-    [Description(@"??")]
+    [Description(@"Specified address.")]
     SpecifiedAddress,
     
 }

@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionType5Code
 {
     /// <summary>
-    /// ??
+    /// Server busy, try later.
     /// Encoded/decoded by serializers as "Busy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSY")]
     [IsoId("_cEJbwXuYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Server busy, try later.")]
     Busy,
     
     /// <summary>
-    /// ??
+    /// Capture the card.
     /// Encoded/decoded by serializers as "CaptureCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTR")]
     [IsoId("_cNY3U3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Capture the card.")]
     CaptureCard,
     
     /// <summary>
-    /// ??
+    /// Message to display, print or log.
     /// Encoded/decoded by serializers as "DisplayMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_cc4r43uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Message to display, print or log.")]
     DisplayMessage,
     
     /// <summary>
-    /// ??
+    /// Payment application cannot propose to the merchant an override of the payment transaction.
     /// Encoded/decoded by serializers as "ForbidOverride".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOVR")]
     [IsoId("_dZ0OM3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Payment application cannot propose to the merchant an override of the payment transaction.")]
     ForbidOverride,
     
     /// <summary>
-    /// ??
+    /// Additional identification required (passport, ID card, etc.).
     /// Encoded/decoded by serializers as "IdentificationRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQID")]
     [IsoId("_djpfo3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Additional identification required (passport, ID card, etc.).")]
     IdentificationRequired,
     
     /// <summary>
-    /// ??
+    /// Last PIN (Personal Identification Number) try.
     /// Encoded/decoded by serializers as "PINLastTry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINL")]
     [IsoId("_exd9o3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Last PIN (Personal Identification Number) try.")]
     PINLastTry,
     
     /// <summary>
-    /// ??
+    /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
     /// Encoded/decoded by serializers as "PINRetry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINR")]
     [IsoId("_e5qQU3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"PIN (Personal Identification Number) is wrong, retry a PIN verification.")]
     PINRetry,
     
     /// <summary>
-    /// ??
+    /// Print a message.
     /// Encoded/decoded by serializers as "PrintMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRNT")]
     [IsoId("_fAhGQ3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Print a message.")]
     PrintMessage,
     
     /// <summary>
-    /// ??
+    /// Referral has to be performed.
     /// Encoded/decoded by serializers as "Referral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFRL")]
     [IsoId("_f_w8w3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Referral has to be performed.")]
     Referral,
     
     /// <summary>
-    /// ??
+    /// Request additional data through a displayed text and request confirmation by an attendant.
     /// Encoded/decoded by serializers as "RequestData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQDT")]
     [IsoId("_hcqYk3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Request additional data through a displayed text and request confirmation by an attendant.")]
     RequestData,
     
     /// <summary>
-    /// ??
+    /// Track provided in the response must be updated on the card.
     /// Encoded/decoded by serializers as "UpdateTrack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRCK")]
     [IsoId("_h-CnU3uYEeSVeNXcmBQ4hQ")]
-    [Description(@"??")]
+    [Description(@"Track provided in the response must be updated on the card.")]
     UpdateTrack,
     
 }

@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustomerDeviceType2Code
 {
     /// <summary>
-    /// ??
+    /// Mobile phone
     /// Encoded/decoded by serializers as "Mobile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOBL")]
     [IsoId("_GeUjgZfJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Mobile phone")]
     Mobile,
     
     /// <summary>
-    /// ??
+    /// Other device defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_GeUjg5fJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Other device defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other device defined in a private way.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_GeUjhZfJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Other device defined in a private way.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Personal computer
     /// Encoded/decoded by serializers as "PersonalComputer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PECR")]
     [IsoId("_GeUjh5fJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Personal computer")]
     PersonalComputer,
     
     /// <summary>
-    /// ??
+    /// Tablet
     /// Encoded/decoded by serializers as "Tablet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBLT")]
     [IsoId("_GeUjiZfJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Tablet")]
     Tablet,
     
     /// <summary>
-    /// ??
+    /// Non-secure card reader attached to the customer device.
     /// Encoded/decoded by serializers as "NonSecureCardReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSCR")]
     [IsoId("_GeUji5fJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Non-secure card reader attached to the customer device.")]
     NonSecureCardReader,
     
     /// <summary>
-    /// ??
+    /// Secure card reader attached to the customer device
     /// Encoded/decoded by serializers as "SecureCardReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECR")]
     [IsoId("_GeUjjZfJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Secure card reader attached to the customer device")]
     SecureCardReader,
     
     /// <summary>
-    /// ??
+    /// Embedded in a device.
     /// Encoded/decoded by serializers as "Embedded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMBD")]
     [IsoId("_jCjZAZfJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Embedded in a device.")]
     Embedded,
     
     /// <summary>
-    /// ??
+    /// Vehicle.
     /// Encoded/decoded by serializers as "Vehicle".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VHCL")]
     [IsoId("_jkdMMZfJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Vehicle.")]
     Vehicle,
     
     /// <summary>
-    /// ??
+    /// Wearable device.
     /// Encoded/decoded by serializers as "Wearable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WRBL")]
     [IsoId("_j6peoZfJEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Wearable device.")]
     Wearable,
     
     /// <summary>
-    /// ??
+    /// Watch
     /// Encoded/decoded by serializers as "Watch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WATC")]
     [IsoId("_V800YSbNEeyhZIgCcGlTyA")]
-    [Description(@"??")]
+    [Description(@"Watch")]
     Watch,
     
     /// <summary>
-    /// ??
+    /// Gaming Device
     /// Encoded/decoded by serializers as "GamingDevice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAMB")]
     [IsoId("_WCc7QSbNEeyhZIgCcGlTyA")]
-    [Description(@"??")]
+    [Description(@"Gaming Device")]
     GamingDevice,
     
     /// <summary>
-    /// ??
+    /// Jewellery
     /// Encoded/decoded by serializers as "Jewellery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JEWL")]
     [IsoId("_WHQiwSbNEeyhZIgCcGlTyA")]
-    [Description(@"??")]
+    [Description(@"Jewellery")]
     Jewellery,
     
     /// <summary>
-    /// ??
+    /// Key Fob
     /// Encoded/decoded by serializers as "KeyFob".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KFOB")]
     [IsoId("_WPLvsSbNEeyhZIgCcGlTyA")]
-    [Description(@"??")]
+    [Description(@"Key Fob")]
     KeyFob,
     
     /// <summary>
-    /// ??
+    /// Sticker
     /// Encoded/decoded by serializers as "Sticker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STIC")]
     [IsoId("_WjVawSbNEeyhZIgCcGlTyA")]
-    [Description(@"??")]
+    [Description(@"Sticker")]
     Sticker,
     
     /// <summary>
-    /// ??
+    /// Device type unknown
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNKW")]
     [IsoId("_dOHV4UQHEeyANrrBvBlqVg")]
-    [Description(@"??")]
+    [Description(@"Device type unknown")]
     Unknown,
     
 }

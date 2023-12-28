@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UserInterface1Code
 {
     /// <summary>
-    /// ??
+    /// Cardholder display or interface.
     /// Encoded/decoded by serializers as "CardholderDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDSP")]
     [IsoId("_TUc4MwEcEeCQm6a_G2yO_w_1612057850")]
-    [Description(@"??")]
+    [Description(@"Cardholder display or interface.")]
     CardholderDisplay,
     
     /// <summary>
-    /// ??
+    /// Cardholder receipt.
     /// Encoded/decoded by serializers as "CardholderReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCP")]
     [IsoId("_TUc4NAEcEeCQm6a_G2yO_w_728824563")]
-    [Description(@"??")]
+    [Description(@"Cardholder receipt.")]
     CardholderReceipt,
     
     /// <summary>
-    /// ??
+    /// Merchant display or interface.
     /// Encoded/decoded by serializers as "MerchantDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDSP")]
     [IsoId("_TUmCEAEcEeCQm6a_G2yO_w_804922611")]
-    [Description(@"??")]
+    [Description(@"Merchant display or interface.")]
     MerchantDisplay,
     
     /// <summary>
-    /// ??
+    /// Merchant receipt.
     /// Encoded/decoded by serializers as "MerchantReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRCP")]
     [IsoId("_TUmCEQEcEeCQm6a_G2yO_w_-1552819512")]
-    [Description(@"??")]
+    [Description(@"Merchant receipt.")]
     MerchantReceipt,
     
 }

@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CommunicationMethod4Code
 {
     /// <summary>
-    /// ??
+    /// Transmission by e-mail.
     /// Encoded/decoded by serializers as "Email".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_-_hTkdL6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission by e-mail.")]
     Email,
     
     /// <summary>
-    /// ??
+    /// Transmission by fax.
     /// Encoded/decoded by serializers as "Fax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAXI")]
     [IsoId("__HQTQ9L6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission by fax.")]
     Fax,
     
     /// <summary>
-    /// ??
+    /// Transmission by file transfer.
     /// Encoded/decoded by serializers as "File".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FILE")]
     [IsoId("__QCb09L6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission by file transfer.")]
     File,
     
     /// <summary>
-    /// ??
+    /// Transmission on line, for example, in a web portal.
     /// Encoded/decoded by serializers as "Online".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONLI")]
     [IsoId("__XK-k9L6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission on line, for example, in a web portal.")]
     Online,
     
     /// <summary>
-    /// ??
+    /// Transmission by telephone.
     /// Encoded/decoded by serializers as "Phone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHON")]
     [IsoId("__ed5Y9L6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission by telephone.")]
     Phone,
     
     /// <summary>
-    /// ??
+    /// Transmission by postal service.
     /// Encoded/decoded by serializers as "PostalService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("__lAmQ9L6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission by postal service.")]
     PostalService,
     
     /// <summary>
-    /// ??
+    /// Transmission by proprietary method.
     /// Encoded/decoded by serializers as "Proprietary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("__r__E9L6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission by proprietary method.")]
     Proprietary,
     
     /// <summary>
-    /// ??
+    /// Transmission by Swift (FIN).
     /// Encoded/decoded by serializers as "SWIFTMT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWMT")]
     [IsoId("__y2N89L6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission by Swift (FIN).")]
     SWIFTMT,
     
     /// <summary>
-    /// ??
+    /// Transmission by SWIFTNET.
     /// Encoded/decoded by serializers as "SWIFTMX".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWMX")]
     [IsoId("__5ir09L6EeSDLevdaFPXHw")]
-    [Description(@"??")]
+    [Description(@"Transmission by SWIFTNET.")]
     SWIFTMX,
     
 }

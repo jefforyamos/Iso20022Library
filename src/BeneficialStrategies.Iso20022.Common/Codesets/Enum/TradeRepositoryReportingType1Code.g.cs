@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeRepositoryReportingType1Code
 {
     /// <summary>
-    /// ??
+    /// Only one counterparty to the transaction has reported to the same trade repository.
     /// Encoded/decoded by serializers as "SingleSided".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWOS")]
     [IsoId("_LbInAdKvEeiQpdi3IGzUkA")]
-    [Description(@"??")]
+    [Description(@"Only one counterparty to the transaction has reported to the same trade repository.")]
     SingleSided,
     
     /// <summary>
-    /// ??
+    ///  Both counterparties to the transaction have reported to the same trade repository.
     /// Encoded/decoded by serializers as "DualSided".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWOS")]
     [IsoId("_LmKyUdKvEeiQpdi3IGzUkA")]
-    [Description(@"??")]
+    [Description(@" Both counterparties to the transaction have reported to the same trade repository.")]
     DualSided,
     
 }

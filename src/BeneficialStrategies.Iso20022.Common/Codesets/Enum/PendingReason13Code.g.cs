@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason13Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_6MzwwVhfEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("__VT7oVhfEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Pending receipt of beneficiary owner details.
     /// Encoded/decoded by serializers as "PendingBeneficiaryOwnerDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOIS")]
     [IsoId("_A6xdkVhgEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Pending receipt of beneficiary owner details.")]
     PendingBeneficiaryOwnerDetails,
     
     /// <summary>
-    /// ??
+    /// Awaiting receipt of adequate certification.
     /// Encoded/decoded by serializers as "MissingCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCER")]
     [IsoId("_BrRtcVhgEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Awaiting receipt of adequate certification.")]
     MissingCertification,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in your account.
     /// Encoded/decoded by serializers as "InsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_CFdIAVhgEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in your account.")]
     InsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Insufficient financial instruments in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_DaQ-0VhgEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Insufficient financial instruments in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_DrhG4VhgEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Quantity of financial instruments does not match.
     /// Encoded/decoded by serializers as "QuantityDisagreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_KfSgwVhgEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Quantity of financial instruments does not match.")]
     QuantityDisagreement,
     
     /// <summary>
-    /// ??
+    /// The instruction is pending receipt of securities, for example, from a purchase, loan etc.
     /// Encoded/decoded by serializers as "PendingReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENR")]
     [IsoId("_Pl_74VhgEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"The instruction is pending receipt of securities, for example, from a purchase, loan etc.")]
     PendingReceipt,
     
     /// <summary>
-    /// ??
+    /// Certificate number error.
     /// Encoded/decoded by serializers as "WrongCertificatesNumbers".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_Z8DwwVhgEeSsH9MSoogb7Q")]
-    [Description(@"??")]
+    [Description(@"Certificate number error.")]
     WrongCertificatesNumbers,
     
 }

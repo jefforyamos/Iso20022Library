@@ -20,228 +20,228 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType32Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type bakken.
     /// Encoded/decoded by serializers as "Bakken".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BAKK")]
     [IsoId("_PiIp8bv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type bakken.")]
     Bakken,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type biodiesel.
     /// Encoded/decoded by serializers as "Biodiesel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BDSL")]
     [IsoId("_PiIp87v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type biodiesel.")]
     Biodiesel,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type Brent.
     /// Encoded/decoded by serializers as "Brent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRNT")]
     [IsoId("_PiIp9bv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type Brent.")]
     Brent,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type Brent NX (New Expiry).
     /// Encoded/decoded by serializers as "BrentNX".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRNX")]
     [IsoId("_PiIp97v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type Brent NX (New Expiry).")]
     BrentNX,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type canadian.
     /// Encoded/decoded by serializers as "Canadian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNDA")]
     [IsoId("_PiIp-bv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type canadian.")]
     Canadian,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type condensate.
     /// Encoded/decoded by serializers as "Condensate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COND")]
     [IsoId("_PiIp-7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type condensate.")]
     Condensate,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type diesel.
     /// Encoded/decoded by serializers as "Diesel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEL")]
     [IsoId("_PiIp_bv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type diesel.")]
     Diesel,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type Dubai.
     /// Encoded/decoded by serializers as "Dubai".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUBA")]
     [IsoId("_PiIp_7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type Dubai.")]
     Dubai,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type ESPO (Eastern Siberia Pacific Ocean).
     /// Encoded/decoded by serializers as "ESPO".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESPO")]
     [IsoId("_PiIqAbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type ESPO (Eastern Siberia Pacific Ocean).")]
     ESPO,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type ethanol.
     /// Encoded/decoded by serializers as "Ethanol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETHA")]
     [IsoId("_PiIqA7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type ethanol.")]
     Ethanol,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type fuel.
     /// Encoded/decoded by serializers as "Fuel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUEL")]
     [IsoId("_PiIqBbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type fuel.")]
     Fuel,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type fuel oil.
     /// Encoded/decoded by serializers as "FuelOil".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FOIL")]
     [IsoId("_PiIqB7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type fuel oil.")]
     FuelOil,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type gasoil.
     /// Encoded/decoded by serializers as "Gasoil".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOIL")]
     [IsoId("_PiIqCbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type gasoil.")]
     Gasoil,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type gasoline.
     /// Encoded/decoded by serializers as "Gasoline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GSLN")]
     [IsoId("_PiIqC7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type gasoline.")]
     Gasoline,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type heating oil.
     /// Encoded/decoded by serializers as "HeatingOil".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HEAT")]
     [IsoId("_PiIqDbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type heating oil.")]
     HeatingOil,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type jet fuel.
     /// Encoded/decoded by serializers as "JetFuel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JTFL")]
     [IsoId("_PiIqD7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type jet fuel.")]
     JetFuel,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type kerosene.
     /// Encoded/decoded by serializers as "Kerosene".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KERO")]
     [IsoId("_PiIqEbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type kerosene.")]
     Kerosene,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type light Louisiana sweet (LLS).
     /// Encoded/decoded by serializers as "LightLouisianaSweet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LLSO")]
     [IsoId("_PiIqE7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type light Louisiana sweet (LLS).")]
     LightLouisianaSweet,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type mars.
     /// Encoded/decoded by serializers as "Mars".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARS")]
     [IsoId("_PiIqFbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type mars.")]
     Mars,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type naptha.
     /// Encoded/decoded by serializers as "Naphta".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAPH")]
     [IsoId("_PiIqF7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type naptha.")]
     Naphta,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type NGL (Natural Gas Liquids).
     /// Encoded/decoded by serializers as "NGL".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NGLO")]
     [IsoId("_PiIqGbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type NGL (Natural Gas Liquids).")]
     NGL,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type tapis.
     /// Encoded/decoded by serializers as "Tapis".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAPI")]
     [IsoId("_PiIqG7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type tapis.")]
     Tapis,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type WTI (West Texas Intermediate).
     /// Encoded/decoded by serializers as "WTI".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTIO")]
     [IsoId("_PiIqHbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type WTI (West Texas Intermediate).")]
     WTI,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type urals.
     /// Encoded/decoded by serializers as "Urals".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URAL")]
     [IsoId("_PiIqH7v4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type urals.")]
     Urals,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_SZcOQbv4EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
 }

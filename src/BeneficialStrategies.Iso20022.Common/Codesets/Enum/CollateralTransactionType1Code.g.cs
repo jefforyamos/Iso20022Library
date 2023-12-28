@@ -20,93 +20,95 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralTransactionType1Code
 {
     /// <summary>
-    /// ??
+    /// Automatic/manual settlement adjustment to change the allocation mode from manual to automatic or vice  versa.
     /// Encoded/decoded by serializers as "AllocationModeAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AADJ")]
     [IsoId("_4oc2AbyzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Automatic/manual settlement adjustment to change the allocation mode from manual to automatic or vice  versa.")]
     AllocationModeAdjustment,
     
     /// <summary>
-    /// ??
+    /// Change of the closing date.
     /// Encoded/decoded by serializers as "ClosingDateAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDTA")]
     [IsoId("_43ILMryzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Change of the closing date.")]
     ClosingDateAdjustment,
     
     /// <summary>
-    /// ??
+    /// Change to collateral. Used  when collateral giver manually allocates the securities to the transaction.
     /// Encoded/decoded by serializers as "CollateralAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADJ")]
     [IsoId("_45Er8byzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Change to collateral. Used  when collateral giver manually allocates the securities to the transaction.")]
     CollateralAdjustment,
     
     /// <summary>
-    /// ??
+    /// Change of other data.
     /// Encoded/decoded by serializers as "DataAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DADJ")]
     [IsoId("_4_4ekbyzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Change of other data.")]
     DataAdjustment,
     
     /// <summary>
-    /// ??
+    /// Delivery by value (DBV) transaction. 
+    /// 
     /// Encoded/decoded by serializers as "DeliveredByValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBVT")]
     [IsoId("_5F4Y4byzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Delivery by value (DBV) transaction.  ")]
     DeliveredByValue,
     
     /// <summary>
-    /// ??
+    /// Creation of a Collateral Management Transaction.
     /// Encoded/decoded by serializers as "Initiation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INIT")]
     [IsoId("_5PiEIryzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Creation of a Collateral Management Transaction.")]
     Initiation,
     
     /// <summary>
-    /// ??
+    /// Change to margin. 
+    /// 
     /// Encoded/decoded by serializers as "MarginAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MADJ")]
     [IsoId("_5V-qYbyzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Change to margin.  ")]
     MarginAdjustment,
     
     /// <summary>
-    /// ??
+    /// Change of principal/exposure adjustment
     /// Encoded/decoded by serializers as "PrincipalExposureAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PADJ")]
     [IsoId("_5g6vEryzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Change of principal/exposure adjustment")]
     PrincipalExposureAdjustment,
     
     /// <summary>
-    /// ??
+    /// Change of rate.
     /// Encoded/decoded by serializers as "RateAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RATA")]
     [IsoId("_5o_tAbyzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Change of rate.")]
     RateAdjustment,
     
     /// <summary>
-    /// ??
+    /// Closing of the Collateral Management Transaction.
     /// Encoded/decoded by serializers as "Termination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERM")]
     [IsoId("_51DMAryzEeivTd4NUfCi2g")]
-    [Description(@"??")]
+    [Description(@"Closing of the Collateral Management Transaction.")]
     Termination,
     
 }

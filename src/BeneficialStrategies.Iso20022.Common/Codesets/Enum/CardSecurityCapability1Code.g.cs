@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardSecurityCapability1Code
 {
     /// <summary>
-    /// ??
+    /// Card contains an integrated circuit card.
     /// Encoded/decoded by serializers as "ICC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCD")]
     [IsoId("_19rGYZiuEeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Card contains an integrated circuit card.")]
     ICC,
     
     /// <summary>
-    /// ??
+    /// Card does not contain a card security code in the magstripe
     /// Encoded/decoded by serializers as "MagneticStripeWithoutSecurityCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWOS")]
     [IsoId("_2MaF8piuEeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Card does not contain a card security code in the magstripe")]
     MagneticStripeWithoutSecurityCode,
     
     /// <summary>
-    /// ??
+    /// Card contains a card security code in the magstripe
     /// Encoded/decoded by serializers as "MagneticStripeWithSecurityCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSWS")]
     [IsoId("_2ZZZEpiuEeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Card contains a card security code in the magstripe")]
     MagneticStripeWithSecurityCode,
     
     /// <summary>
-    /// ??
+    /// Other type of card defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_2mahYpiuEeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Other type of card defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of card defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_24fI0piuEeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Other type of card defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Off line PIN card
     /// Encoded/decoded by serializers as "OffLinePIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OLPN")]
     [IsoId("_5L7VoZivEeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Off line PIN card")]
     OffLinePIN,
     
 }

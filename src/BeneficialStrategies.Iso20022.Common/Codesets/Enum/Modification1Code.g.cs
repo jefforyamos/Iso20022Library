@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Modification1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the item is not changed.
     /// Encoded/decoded by serializers as "NoChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOCH")]
     [IsoId("_7OFh0Q4SEeKGXqvMN6jpiw")]
-    [Description(@"??")]
+    [Description(@"Specifies that the item is not changed.")]
     NoChange,
     
     /// <summary>
-    /// ??
+    /// Specifies that the item is modified.
     /// Encoded/decoded by serializers as "Modification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_7V-5kQ4SEeKGXqvMN6jpiw")]
-    [Description(@"??")]
+    [Description(@"Specifies that the item is modified.")]
     Modification,
     
     /// <summary>
-    /// ??
+    /// Specifies that the item is deleted.
     /// Encoded/decoded by serializers as "Deletion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELE")]
     [IsoId("_7eCCUQ4SEeKGXqvMN6jpiw")]
-    [Description(@"??")]
+    [Description(@"Specifies that the item is deleted.")]
     Deletion,
     
     /// <summary>
-    /// ??
+    /// Specifies that the item is added.
     /// Encoded/decoded by serializers as "Addition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDD")]
     [IsoId("_7gjx4Q4SEeKGXqvMN6jpiw")]
-    [Description(@"??")]
+    [Description(@"Specifies that the item is added.")]
     Addition,
     
 }

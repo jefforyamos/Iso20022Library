@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType4Code
 {
     /// <summary>
-    /// ??
+    /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
     /// Encoded/decoded by serializers as "TransferFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_VeXEJ9p-Ed-ak6NoX_4Aeg_313498035")]
-    [Description(@"??")]
+    [Description(@"In investment funds, a fee charged for the transfer of ownership of an investment fund.")]
     TransferFee,
     
 }

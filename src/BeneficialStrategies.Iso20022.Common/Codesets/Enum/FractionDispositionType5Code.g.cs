@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FractionDispositionType5Code
 {
     /// <summary>
-    /// ??
+    /// Take distribution of fractions in the form of securities.
     /// Encoded/decoded by serializers as "IssueFraction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIST")]
     [IsoId("_q4hsUGtdEeCY4-KZ9JEyUQ_929256537")]
-    [Description(@"??")]
+    [Description(@"Take distribution of fractions in the form of securities.")]
     IssueFraction,
     
     /// <summary>
-    /// ??
+    /// Round down to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundDown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDDN")]
     [IsoId("_q4hsUWtdEeCY4-KZ9JEyUQ_-67815816")]
-    [Description(@"??")]
+    [Description(@"Round down to the nearest whole number.")]
     RoundDown,
     
     /// <summary>
-    /// ??
+    /// Round up to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDUP")]
     [IsoId("_q4hsUmtdEeCY4-KZ9JEyUQ_-380922856")]
-    [Description(@"??")]
+    [Description(@"Round up to the nearest whole number.")]
     RoundUp,
     
     /// <summary>
-    /// ??
+    /// If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down.
     /// Encoded/decoded by serializers as "RoundToNearest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAN")]
     [IsoId("_q4hsU2tdEeCY4-KZ9JEyUQ_-1351777445")]
-    [Description(@"??")]
+    [Description(@"If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down.")]
     RoundToNearest,
     
     /// <summary>
-    /// ??
+    /// Characteristics of the disposition of fractions are unknown.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_q4hsVGtdEeCY4-KZ9JEyUQ_1946117498")]
-    [Description(@"??")]
+    [Description(@"Characteristics of the disposition of fractions are unknown.")]
     Unknown,
     
 }

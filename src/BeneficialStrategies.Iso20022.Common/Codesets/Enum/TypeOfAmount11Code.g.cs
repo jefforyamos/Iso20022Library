@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount11Code
 {
     /// <summary>
-    /// ??
+    /// Actual amount.
     /// Encoded/decoded by serializers as "Actual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTL")]
     [IsoId("_-phBoVKQEeeFcfYfFkVztg")]
-    [Description(@"??")]
+    [Description(@"Actual amount.")]
     Actual,
     
     /// <summary>
-    /// ??
+    /// Default amount.
     /// Encoded/decoded by serializers as "Default".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("__S4HsVKQEeeFcfYfFkVztg")]
-    [Description(@"??")]
+    [Description(@"Default amount.")]
     Default,
     
     /// <summary>
-    /// ??
+    /// Estimated amount (the final amount could be above or below).
     /// Encoded/decoded by serializers as "Estimated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTM")]
     [IsoId("__uZmEVKQEeeFcfYfFkVztg")]
-    [Description(@"??")]
+    [Description(@"Estimated amount (the final amount could be above or below).")]
     Estimated,
     
     /// <summary>
-    /// ??
+    /// Maximum amount (the final amount must be less or equal).
     /// Encoded/decoded by serializers as "Maximum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXI")]
     [IsoId("_BBtoEVKREeeFcfYfFkVztg")]
-    [Description(@"??")]
+    [Description(@"Maximum amount (the final amount must be less or equal).")]
     Maximum,
     
     /// <summary>
-    /// ??
+    /// Reserved or updated reserved amount for reservation.
     /// Encoded/decoded by serializers as "Reserved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESD")]
     [IsoId("_BkrLMVKREeeFcfYfFkVztg")]
-    [Description(@"??")]
+    [Description(@"Reserved or updated reserved amount for reservation.")]
     Reserved,
     
     /// <summary>
-    /// ??
+    /// Substitute for an amount to be authorised.
     /// Encoded/decoded by serializers as "Proxy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRXY")]
     [IsoId("_TiJCwUNGEeiut6dbx3wnBg")]
-    [Description(@"??")]
+    [Description(@"Substitute for an amount to be authorised.")]
     Proxy,
     
     /// <summary>
-    /// ??
+    /// Deposit amount.
     /// Encoded/decoded by serializers as "Deposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPST")]
     [IsoId("_jZ-6cbrBEeiRnc958wUXqA")]
-    [Description(@"??")]
+    [Description(@"Deposit amount.")]
     Deposit,
     
 }

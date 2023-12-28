@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LegalFramework1Code
 {
     /// <summary>
-    /// ??
+    /// Relates to the French legal framework for repos, that is, relates to a "Pension Livrée".
     /// Encoded/decoded by serializers as "PensionLivree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRAN")]
     [IsoId("_ad115Np-Ed-ak6NoX_4Aeg_-1247950171")]
-    [Description(@"??")]
+    [Description(@"Relates to the French legal framework for repos, that is, relates to a ""Pension Livrée"".")]
     PensionLivree,
     
 }

@@ -21,48 +21,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardDataReading3Code
 {
     /// <summary>
-    /// ??
+    /// Card information are stored on a file.
     /// Encoded/decoded by serializers as "CardOnFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDFL")]
     [IsoId("_Sd-ocXr4EeSZrs_hiwNOWA")]
-    [Description(@"??")]
+    [Description(@"Card information are stored on a file.")]
     CardOnFile,
     
     /// <summary>
-    /// ??
+    /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
     /// Encoded/decoded by serializers as "EMVProximityReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECTL")]
     [IsoId("_Slb7UXr4EeSZrs_hiwNOWA")]
-    [Description(@"??")]
+    [Description(@"Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).")]
     EMVProximityReader,
     
     /// <summary>
-    /// ??
+    /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
     /// Encoded/decoded by serializers as "ICC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CICC")]
     [IsoId("_SxD8gXr4EeSZrs_hiwNOWA")]
-    [Description(@"??")]
+    [Description(@"ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.")]
     ICC,
     
     /// <summary>
-    /// ??
+    /// Magnetic stripe.
     /// Encoded/decoded by serializers as "MagneticStripe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGST")]
     [IsoId("_Thq6EXr4EeSZrs_hiwNOWA")]
-    [Description(@"??")]
+    [Description(@"Magnetic stripe.")]
     MagneticStripe,
     
     /// <summary>
-    /// ??
+    /// Contactless proximity reader.
     /// Encoded/decoded by serializers as "ProximityReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTLS")]
     [IsoId("_T1l7oXr4EeSZrs_hiwNOWA")]
-    [Description(@"??")]
+    [Description(@"Contactless proximity reader.")]
     ProximityReader,
     
 }

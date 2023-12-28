@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCCQuantitySought1Code
 {
     /// <summary>
-    /// ??
+    /// Quantity Sought expressed as quantity.
     /// Encoded/decoded by serializers as "Quantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QTTY")]
     [IsoId("_1sjJFDL3EeKU9IrkkToqcw_2031372842")]
-    [Description(@"??")]
+    [Description(@"Quantity Sought expressed as quantity.")]
     Quantity,
     
     /// <summary>
-    /// ??
+    /// Check Quantity Sought Comments for quantity sought (irregular expression).
     /// Encoded/decoded by serializers as "CheckComments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHCO")]
     [IsoId("_1sjJFTL3EeKU9IrkkToqcw_-1982735493")]
-    [Description(@"??")]
+    [Description(@"Check Quantity Sought Comments for quantity sought (irregular expression).")]
     CheckComments,
     
     /// <summary>
-    /// ??
+    /// Quantity sought is expressed as percentage.
     /// Encoded/decoded by serializers as "Percentage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRTG")]
     [IsoId("_1sjJFjL3EeKU9IrkkToqcw_-1528648224")]
-    [Description(@"??")]
+    [Description(@"Quantity sought is expressed as percentage.")]
     Percentage,
     
 }

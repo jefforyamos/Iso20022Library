@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason33Code
 {
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid cash account.
     /// Encoded/decoded by serializers as "CashAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_jV3rs-5NEeCisYr99QEiWA_-486351623")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid cash account.")]
     CashAccount,
     
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_jV3rtO5NEeCisYr99QEiWA_1551021963")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid settlement amount.
     /// Encoded/decoded by serializers as "SettlementAmountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DMON")]
     [IsoId("_jWBcsO5NEeCisYr99QEiWA_-34758990")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid settlement amount.")]
     SettlementAmountRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid settlement amount currency.
     /// Encoded/decoded by serializers as "SettlementAmountCurrencyRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCRR")]
     [IsoId("_jWBcse5NEeCisYr99QEiWA_1163601061")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid settlement amount currency.")]
     SettlementAmountCurrencyRejection,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_jWBcsu5NEeCisYr99QEiWA_1259064225")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Invalid or unrecognized link.
     /// Encoded/decoded by serializers as "InvalidLink".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVL")]
     [IsoId("_AzafZXglEeGqN5NokjUPnw_-2077778906")]
-    [Description(@"??")]
+    [Description(@"Invalid or unrecognized link.")]
     InvalidLink,
     
     /// <summary>
-    /// ??
+    /// Instruction aims at using an invalid balance.
     /// Encoded/decoded by serializers as "InvalidBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVB")]
     [IsoId("_AzafZnglEeGqN5NokjUPnw_-1899660234")]
-    [Description(@"??")]
+    [Description(@"Instruction aims at using an invalid balance.")]
     InvalidBalance,
     
     /// <summary>
-    /// ??
+    /// Invalid or unrecognized lot number.
     /// Encoded/decoded by serializers as "InvalidLotNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVN")]
     [IsoId("_AzkQYHglEeGqN5NokjUPnw_2103349324")]
-    [Description(@"??")]
+    [Description(@"Invalid or unrecognized lot number.")]
     InvalidLotNumber,
     
     /// <summary>
-    /// ??
+    /// Account servicer validation rule rejection.
     /// Encoded/decoded by serializers as "InvalidRule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALR")]
     [IsoId("_AzkQYXglEeGqN5NokjUPnw_-432511471")]
-    [Description(@"??")]
+    [Description(@"Account servicer validation rule rejection.")]
     InvalidRule,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in your account.
     /// Encoded/decoded by serializers as "InsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_jWBcs-5NEeCisYr99QEiWA_-514762422")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in your account.")]
     InsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Corporate action pending on the financial instrument instructed.
     /// Encoded/decoded by serializers as "CorporateActionRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAEV")]
     [IsoId("_jWBctO5NEeCisYr99QEiWA_1437182897")]
-    [Description(@"??")]
+    [Description(@"Corporate action pending on the financial instrument instructed.")]
     CorporateActionRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid settlement date.
     /// Encoded/decoded by serializers as "SettlementDateRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDAT")]
     [IsoId("_jWLNsO5NEeCisYr99QEiWA_-1511834775")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid settlement date.")]
     SettlementDateRejection,
     
     /// <summary>
-    /// ??
+    /// Instruction has a reference identical to another previously received instruction.
     /// Encoded/decoded by serializers as "ReferenceRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFE")]
     [IsoId("_jWLNse5NEeCisYr99QEiWA_553949610")]
-    [Description(@"??")]
+    [Description(@"Instruction has a reference identical to another previously received instruction.")]
     ReferenceRejection,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_jWLNsu5NEeCisYr99QEiWA_261991872")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_jRQRcO5NEeCisYr99QEiWA_841750264")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_jRaCcu5NEeCisYr99QEiWA_1914384398")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
     /// Encoded/decoded by serializers as "MinimumSettlementQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINO")]
     [IsoId("_jTMLIe5NEeCisYr99QEiWA_260279970")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
     MinimumSettlementQuantity,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
     /// Encoded/decoded by serializers as "MultipleSettlementQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUNO")]
     [IsoId("_jTV8Ie5NEeCisYr99QEiWA_388839182")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
     MultipleSettlementQuantity,
     
 }

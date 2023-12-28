@@ -20,30 +20,33 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValuationType1Code
 {
     /// <summary>
-    /// ??
+    /// Central counterparty (CCP) valuation.
     /// Encoded/decoded by serializers as "CCPValuation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPV")]
     [IsoId("_wGC2AfP4EeS_qLctCs2aRQ")]
-    [Description(@"??")]
+    [Description(@"Central counterparty (CCP) valuation.")]
     CCPValuation,
     
     /// <summary>
-    /// ??
+    /// Mark to market valuation.
+    /// 
+    /// 
     /// Encoded/decoded by serializers as "MarkToMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTMA")]
     [IsoId("_wQAqUfP4EeS_qLctCs2aRQ")]
-    [Description(@"??")]
+    [Description(@"Mark to market valuation.  ")]
     MarkToMarket,
     
     /// <summary>
-    /// ??
+    /// Mark to model valuation.
+    /// 
     /// Encoded/decoded by serializers as "MarkToModel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTMO")]
     [IsoId("_wbndY_P4EeS_qLctCs2aRQ")]
-    [Description(@"??")]
+    [Description(@"Mark to model valuation. ")]
     MarkToModel,
     
 }

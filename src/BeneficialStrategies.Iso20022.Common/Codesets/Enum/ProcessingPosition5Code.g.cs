@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProcessingPosition5Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the transactions/instructions are linked for information purposes only.
     /// Encoded/decoded by serializers as "Information".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFO")]
     [IsoId("_-jjQIWaxEeWZev0W8F756g")]
-    [Description(@"??")]
+    [Description(@"Specifies that the transactions/instructions are linked for information purposes only.")]
     Information,
     
 }

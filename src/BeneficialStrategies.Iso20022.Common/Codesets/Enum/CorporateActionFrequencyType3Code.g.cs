@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionFrequencyType3Code
 {
     /// <summary>
-    /// ??
+    /// Payment of a dividend, less amounts already paid through interim dividends.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_FXLZ8SXfEeO4bIO_HtGo9Q")]
-    [Description(@"??")]
+    [Description(@"Payment of a dividend, less amounts already paid through interim dividends.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// Dividend declared and paid before annual earnings have been determined.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_FeT8sSXfEeO4bIO_HtGo9Q")]
-    [Description(@"??")]
+    [Description(@"Dividend declared and paid before annual earnings have been determined.")]
     Interim,
     
     /// <summary>
-    /// ??
+    /// Reinvestment of cash distributed.
     /// Encoded/decoded by serializers as "Reinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REIN")]
     [IsoId("_FmDjcSXfEeO4bIO_HtGo9Q")]
-    [Description(@"??")]
+    [Description(@"Reinvestment of cash distributed.")]
     Reinvestment,
     
     /// <summary>
-    /// ??
+    /// Dividend paid at regular interval, for example, quarterly.
     /// Encoded/decoded by serializers as "Regular".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGR")]
     [IsoId("_Fu-18SXfEeO4bIO_HtGo9Q")]
-    [Description(@"??")]
+    [Description(@"Dividend paid at regular interval, for example, quarterly.")]
     Regular,
     
     /// <summary>
-    /// ??
+    /// Dividend in addition to the regular dividend being paid by the company.
     /// Encoded/decoded by serializers as "Special".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEC")]
     [IsoId("_F2t1oSXfEeO4bIO_HtGo9Q")]
-    [Description(@"??")]
+    [Description(@"Dividend in addition to the regular dividend being paid by the company.")]
     Special,
     
 }

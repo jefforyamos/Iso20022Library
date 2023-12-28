@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType1Code
 {
     /// <summary>
-    /// ??
+    /// Party that identifies an executing / give-up broker.
     /// Encoded/decoded by serializers as "ExecutingFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXEC")]
     [IsoId("_ZyLpwNp-Ed-ak6NoX_4Aeg_227965693")]
-    [Description(@"??")]
+    [Description(@"Party that identifies an executing / give-up broker.")]
     ExecutingFirm,
     
     /// <summary>
-    /// ??
+    /// Party that receives the trade credit.
     /// Encoded/decoded by serializers as "BrokerOfCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BROK")]
     [IsoId("_ZyLpwdp-Ed-ak6NoX_4Aeg_253825751")]
-    [Description(@"??")]
+    [Description(@"Party that receives the trade credit.")]
     BrokerOfCredit,
     
     /// <summary>
-    /// ??
+    /// Party that is going to carry the position on their books at another clearinghouse (exchanges).
     /// Encoded/decoded by serializers as "CorrespondentClearingFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORR")]
     [IsoId("_ZyLpwtp-Ed-ak6NoX_4Aeg_253825864")]
-    [Description(@"??")]
+    [Description(@"Party that is going to carry the position on their books at another clearinghouse (exchanges).")]
     CorrespondentClearingFirm,
     
     /// <summary>
-    /// ??
+    /// Party that is the counterparty in a trade.
     /// Encoded/decoded by serializers as "ContraFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COFI")]
     [IsoId("_ZyLpw9p-Ed-ak6NoX_4Aeg_253826236")]
-    [Description(@"??")]
+    [Description(@"Party that is the counterparty in a trade.")]
     ContraFirm,
     
     /// <summary>
-    /// ??
+    /// Party that is the clearing firm of the counterparty in a trade.
     /// Encoded/decoded by serializers as "ContraClearingFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COCL")]
     [IsoId("_ZyLpxNp-Ed-ak6NoX_4Aeg_253826279")]
-    [Description(@"??")]
+    [Description(@"Party that is the clearing firm of the counterparty in a trade.")]
     ContraClearingFirm,
     
     /// <summary>
-    /// ??
+    /// Party (broker or other firm), which is the contra side of the trade for the underlying security.
     /// Encoded/decoded by serializers as "UnderlyingContraFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNDE")]
     [IsoId("_ZyLpxdp-Ed-ak6NoX_4Aeg_253826717")]
-    [Description(@"??")]
+    [Description(@"Party (broker or other firm), which is the contra side of the trade for the underlying security.")]
     UnderlyingContraFirm,
     
     /// <summary>
-    /// ??
+    /// Party to which the trade is given up (carries the position that results from a trade).
     /// Encoded/decoded by serializers as "GiveUpClearingFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIVE")]
     [IsoId("_ZyLpxtp-Ed-ak6NoX_4Aeg_253826812")]
-    [Description(@"??")]
+    [Description(@"Party to which the trade is given up (carries the position that results from a trade).")]
     GiveUpClearingFirm,
     
     /// <summary>
-    /// ??
+    /// Party that originates an order.
     /// Encoded/decoded by serializers as "OrderOriginationFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORDE")]
     [IsoId("_ZyLpx9p-Ed-ak6NoX_4Aeg_253826837")]
-    [Description(@"??")]
+    [Description(@"Party that originates an order.")]
     OrderOriginationFirm,
     
     /// <summary>
-    /// ??
+    /// Party (member of an exchange)that is sponsoring an entering firm to send orders directly to the exchange.
     /// Encoded/decoded by serializers as "SponsoringFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPON")]
     [IsoId("_ZyLpyNp-Ed-ak6NoX_4Aeg_253827226")]
-    [Description(@"??")]
+    [Description(@"Party (member of an exchange)that is sponsoring an entering firm to send orders directly to the exchange.")]
     SponsoringFirm,
     
     /// <summary>
-    /// ??
+    /// Party (broker) that settles security transactions from another broker for a fee = take up broker.
     /// Encoded/decoded by serializers as "Clearingfirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLEA")]
     [IsoId("_ZyLpydp-Ed-ak6NoX_4Aeg_254747310")]
-    [Description(@"??")]
+    [Description(@"Party (broker) that settles security transactions from another broker for a fee = take up broker.")]
     Clearingfirm,
     
     /// <summary>
-    /// ??
+    /// Party that can relay an order directly to the trading floor, or give clients direct access to the floor. The introducing firm delegates the work of the floor operation, trade execution and accounting.
     /// Encoded/decoded by serializers as "IntroducingFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_ZyLpytp-Ed-ak6NoX_4Aeg_254747508")]
-    [Description(@"??")]
+    [Description(@"Party that can relay an order directly to the trading floor, or give clients direct access to the floor. The introducing firm delegates the work of the floor operation, trade execution and accounting.")]
     IntroducingFirm,
     
     /// <summary>
-    /// ??
+    /// Party that has recorded or reported an execution of a trade. When an entering firm that is not a party to a trade enters the trade into a trade recording system, any inquiries can be directed to the appropriate source.
     /// Encoded/decoded by serializers as "EnteringFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENTE")]
     [IsoId("_ZyVawNp-Ed-ak6NoX_4Aeg_254747897")]
-    [Description(@"??")]
+    [Description(@"Party that has recorded or reported an execution of a trade. When an entering firm that is not a party to a trade enters the trade into a trade recording system, any inquiries can be directed to the appropriate source.")]
     EnteringFirm,
     
     /// <summary>
-    /// ??
+    /// A client is identified in third party-transactions or for investor in intermediary transactions.
     /// Encoded/decoded by serializers as "Client".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLIE")]
     [IsoId("_ZyVawdp-Ed-ak6NoX_4Aeg_254748439")]
-    [Description(@"??")]
+    [Description(@"A client is identified in third party-transactions or for investor in intermediary transactions.")]
     Client,
     
     /// <summary>
-    /// ??
+    /// Broker to which the investment manager directs the execution of a portion of the trade.
     /// Encoded/decoded by serializers as "StepInBroker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEP")]
     [IsoId("_ZyVawtp-Ed-ak6NoX_4Aeg_254748828")]
-    [Description(@"??")]
+    [Description(@"Broker to which the investment manager directs the execution of a portion of the trade.")]
     StepInBroker,
     
     /// <summary>
-    /// ??
+    /// Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.
     /// Encoded/decoded by serializers as "AffirmingParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AFFI")]
     [IsoId("_ZyVaw9p-Ed-ak6NoX_4Aeg_254749231")]
-    [Description(@"??")]
+    [Description(@"Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.")]
     AffirmingParty,
     
     /// <summary>
-    /// ??
+    /// Party acting as the Electronic Trade Confirmation (ETC) service provider 1.
     /// Encoded/decoded by serializers as "ETCServiceProvider1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETC1")]
     [IsoId("_ZyVaxNp-Ed-ak6NoX_4Aeg_254749386")]
-    [Description(@"??")]
+    [Description(@"Party acting as the Electronic Trade Confirmation (ETC) service provider 1.")]
     ETCServiceProvider1,
     
     /// <summary>
-    /// ??
+    /// Party acting as the Electronic Trade Confirmation (ETC) service provider 2.
     /// Encoded/decoded by serializers as "ETCServiceProvider2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETC2")]
     [IsoId("_ZyVaxdp-Ed-ak6NoX_4Aeg_254749776")]
-    [Description(@"??")]
+    [Description(@"Party acting as the Electronic Trade Confirmation (ETC) service provider 2.")]
     ETCServiceProvider2,
     
     /// <summary>
-    /// ??
+    /// Party, either an individual or organisation, whose assets are being invested.
     /// Encoded/decoded by serializers as "Investor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVE")]
     [IsoId("_ZyVaxtp-Ed-ak6NoX_4Aeg_280607415")]
-    [Description(@"??")]
+    [Description(@"Party, either an individual or organisation, whose assets are being invested.")]
     Investor,
     
 }

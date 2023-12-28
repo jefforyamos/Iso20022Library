@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FleetServiceType1Code
 {
     /// <summary>
-    /// ??
+    /// Self service
     /// Encoded/decoded by serializers as "SelfService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLSV")]
     [IsoId("_1wy9YTEoEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Self service")]
     SelfService,
     
     /// <summary>
-    /// ??
+    /// High speed dispenser that may or may not support varying flow rates. 
     /// Encoded/decoded by serializers as "HighSpeedDispenser".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HSDI")]
     [IsoId("_2FW4ITEoEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"High speed dispenser that may or may not support varying flow rates. ")]
     HighSpeedDispenser,
     
     /// <summary>
-    /// ??
+    /// Full service
     /// Encoded/decoded by serializers as "FullService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLSV")]
     [IsoId("_2cwrgTEoEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Full service")]
     FullService,
     
 }

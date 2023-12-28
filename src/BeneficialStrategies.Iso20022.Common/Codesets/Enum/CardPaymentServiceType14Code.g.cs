@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardPaymentServiceType14Code
 {
     /// <summary>
-    /// ??
+    /// Initial reservation.
     /// Encoded/decoded by serializers as "InitialReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IRES")]
     [IsoId("_dSuycU7DEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"Initial reservation.")]
     InitialReservation,
     
     /// <summary>
-    /// ??
+    /// Update reservation.
     /// Encoded/decoded by serializers as "UpdateReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URES")]
     [IsoId("_dSuyc07DEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"Update reservation.")]
     UpdateReservation,
     
     /// <summary>
-    /// ??
+    /// Payment after reservation.
     /// Encoded/decoded by serializers as "PaymentReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRES")]
     [IsoId("_dSuydU7DEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"Payment after reservation.")]
     PaymentReservation,
     
     /// <summary>
-    /// ??
+    /// Additional payment after reservation.
     /// Encoded/decoded by serializers as "AdditionalPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARES")]
     [IsoId("_dSuyd07DEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"Additional payment after reservation.")]
     AdditionalPayment,
     
     /// <summary>
-    /// ??
+    /// Initial recurring payment.
     /// Encoded/decoded by serializers as "FirstRecurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREC")]
     [IsoId("_dSuyeU7DEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"Initial recurring payment.")]
     FirstRecurring,
     
     /// <summary>
-    /// ??
+    /// Repeat recurring payment.
     /// Encoded/decoded by serializers as "FollowingRecurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RREC")]
     [IsoId("_dSuye07DEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"Repeat recurring payment.")]
     FollowingRecurring,
     
     /// <summary>
-    /// ??
+    /// Acceptor claims for guarantee of payment.
     /// Encoded/decoded by serializers as "GuaranteeOfPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOPT")]
     [IsoId("_r4DdEU7DEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"Acceptor claims for guarantee of payment.")]
     GuaranteeOfPayment,
     
 }

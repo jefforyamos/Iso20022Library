@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PersonIdentificationType4Code
 {
     /// <summary>
-    /// ??
+    /// Number assigned by a passport authority to a passport.
     /// Encoded/decoded by serializers as "PassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_TTtRSAEcEeCQm6a_G2yO_w_1917785203")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a passport authority to a passport.")]
     PassportNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a license authority to a driver's license.
     /// Encoded/decoded by serializers as "DriversLicenseNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRLC")]
     [IsoId("_TTtRSQEcEeCQm6a_G2yO_w_349884811")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a license authority to a driver's license.")]
     DriversLicenseNumber,
     
     /// <summary>
-    /// ??
+    /// Employee number assigned by the company.
     /// Encoded/decoded by serializers as "EmployeeNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EEID")]
     [IsoId("_TTtRSgEcEeCQm6a_G2yO_w_338786034")]
-    [Description(@"??")]
+    [Description(@"Employee number assigned by the company.")]
     EmployeeNumber,
     
     /// <summary>
-    /// ??
+    /// Driver number, assigned by the fleet manager.
     /// Encoded/decoded by serializers as "DriverNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRVR")]
     [IsoId("_TTtRSwEcEeCQm6a_G2yO_w_-1660072047")]
-    [Description(@"??")]
+    [Description(@"Driver number, assigned by the fleet manager.")]
     DriverNumber,
     
 }

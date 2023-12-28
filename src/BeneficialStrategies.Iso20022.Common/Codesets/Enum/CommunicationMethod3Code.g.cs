@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CommunicationMethod3Code
 {
     /// <summary>
-    /// ??
+    /// Transmission by e-mail.
     /// Encoded/decoded by serializers as "Email".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_tRC9kRg2EeKnW4lR85q-0A")]
-    [Description(@"??")]
+    [Description(@"Transmission by e-mail.")]
     Email,
     
     /// <summary>
-    /// ??
+    /// Transmission by fax.
     /// Encoded/decoded by serializers as "Fax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAXI")]
     [IsoId("_tf8VMRg2EeKnW4lR85q-0A")]
-    [Description(@"??")]
+    [Description(@"Transmission by fax.")]
     Fax,
     
     /// <summary>
-    /// ??
+    /// Transmission by postal service.
     /// Encoded/decoded by serializers as "PostalService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_uOSo8Rg2EeKnW4lR85q-0A")]
-    [Description(@"??")]
+    [Description(@"Transmission by postal service.")]
     PostalService,
     
     /// <summary>
-    /// ??
+    /// Transmission by telephone.
     /// Encoded/decoded by serializers as "Phone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHON")]
     [IsoId("_uWC2wRg2EeKnW4lR85q-0A")]
-    [Description(@"??")]
+    [Description(@"Transmission by telephone.")]
     Phone,
     
     /// <summary>
-    /// ??
+    /// Transmission by file transfer.
     /// Encoded/decoded by serializers as "File".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FILE")]
     [IsoId("_xrSUQRg2EeKnW4lR85q-0A")]
-    [Description(@"??")]
+    [Description(@"Transmission by file transfer.")]
     File,
     
     /// <summary>
-    /// ??
+    /// Transmission on line, for example, in a web portal.
     /// Encoded/decoded by serializers as "Online".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONLI")]
     [IsoId("_NfzJcUp-EeKw5sECfP82rg")]
-    [Description(@"??")]
+    [Description(@"Transmission on line, for example, in a web portal.")]
     Online,
     
 }

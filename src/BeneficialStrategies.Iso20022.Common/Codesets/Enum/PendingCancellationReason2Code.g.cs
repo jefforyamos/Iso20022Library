@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingCancellationReason2Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_Z-Gl5dp-Ed-ak6NoX_4Aeg_608029315")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Prior payment credited to account based contractual income collection agreement has been collected from issuer.
     /// Encoded/decoded by serializers as "ConfirmationOfPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCNF")]
     [IsoId("_Z-Gl5tp-Ed-ak6NoX_4Aeg_608031128")]
-    [Description(@"??")]
+    [Description(@"Prior payment credited to account based contractual income collection agreement has been collected from issuer.")]
     ConfirmationOfPayment,
     
     /// <summary>
-    /// ??
+    /// Quantity of financial instruments does not match.
     /// Encoded/decoded by serializers as "QuantityDisagreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_Z-Gl59p-Ed-ak6NoX_4Aeg_608031188")]
-    [Description(@"??")]
+    [Description(@"Quantity of financial instruments does not match.")]
     QuantityDisagreement,
     
 }

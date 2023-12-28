@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationRight1Code
 {
     /// <summary>
-    /// ??
+    /// Investor is entitled to a "cooling off" period with cancellation rights under compliance rules.
     /// Encoded/decoded by serializers as "Entitled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALI")]
     [IsoId("_bYjKptp-Ed-ak6NoX_4Aeg_533511288")]
-    [Description(@"??")]
+    [Description(@"Investor is entitled to a ""cooling off"" period with cancellation rights under compliance rules.")]
     Entitled,
     
     /// <summary>
-    /// ??
+    /// Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.
     /// Encoded/decoded by serializers as "ExecutionOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOXO")]
     [IsoId("_bYjKp9p-Ed-ak6NoX_4Aeg_533511383")]
-    [Description(@"??")]
+    [Description(@"Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.")]
     ExecutionOnly,
     
     /// <summary>
-    /// ??
+    /// Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.
     /// Encoded/decoded by serializers as "WaiverAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOWA")]
     [IsoId("_bYjKqNp-Ed-ak6NoX_4Aeg_533511443")]
-    [Description(@"??")]
+    [Description(@"Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.")]
     WaiverAgreement,
     
     /// <summary>
-    /// ??
+    /// Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.
     /// Encoded/decoded by serializers as "Institutional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOIN")]
     [IsoId("_bYs7oNp-Ed-ak6NoX_4Aeg_533511503")]
-    [Description(@"??")]
+    [Description(@"Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.")]
     Institutional,
     
 }

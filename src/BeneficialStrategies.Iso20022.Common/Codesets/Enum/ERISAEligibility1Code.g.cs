@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ERISAEligibility1Code
 {
     /// <summary>
-    /// ??
+    /// Investor is subject to an ERISA declaration.
     /// Encoded/decoded by serializers as "ERISAEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELIG")]
     [IsoId("_ahtpRtp-Ed-ak6NoX_4Aeg_-1951543252")]
-    [Description(@"??")]
+    [Description(@"Investor is subject to an ERISA declaration.")]
     ERISAEligible,
     
     /// <summary>
-    /// ??
+    /// Investment is not subject to an ERISA declaration.
     /// Encoded/decoded by serializers as "NotERISAEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NELI")]
     [IsoId("_ahtpR9p-Ed-ak6NoX_4Aeg_-1951543222")]
-    [Description(@"??")]
+    [Description(@"Investment is not subject to an ERISA declaration.")]
     NotERISAEligible,
     
     /// <summary>
-    /// ??
+    /// Eligibility is unknown at the time the order is sent, and the instructing party will confirm later.
     /// Encoded/decoded by serializers as "ERISAEligibilityUnknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_ahtpSNp-Ed-ak6NoX_4Aeg_-1951543191")]
-    [Description(@"??")]
+    [Description(@"Eligibility is unknown at the time the order is sent, and the instructing party will confirm later.")]
     ERISAEligibilityUnknown,
     
 }

@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionEventStage2Code
 {
     /// <summary>
-    /// ??
+    /// Open for acceptance until the next specified deadline in the announcement (if any).
     /// Encoded/decoded by serializers as "ActionPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PWAL")]
     [IsoId("_bD1e49p-Ed-ak6NoX_4Aeg_1234993231")]
-    [Description(@"??")]
+    [Description(@"Open for acceptance until the next specified deadline in the announcement (if any).")]
     ActionPeriod,
     
     /// <summary>
-    /// ??
+    /// Subject to approval at the relevant meeting, eg, dividend.
     /// Encoded/decoded by serializers as "SubjectToApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUAP")]
     [IsoId("_bD1e5Np-Ed-ak6NoX_4Aeg_1234993256")]
-    [Description(@"??")]
+    [Description(@"Subject to approval at the relevant meeting, eg, dividend.")]
     SubjectToApproval,
     
     /// <summary>
-    /// ??
+    /// Approved at the relevant meeting, eg, dividend.
     /// Encoded/decoded by serializers as "Approved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPD")]
     [IsoId("_bD1e5dp-Ed-ak6NoX_4Aeg_1234993257")]
-    [Description(@"??")]
+    [Description(@"Approved at the relevant meeting, eg, dividend.")]
     Approved,
     
     /// <summary>
-    /// ??
+    /// The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.
     /// Encoded/decoded by serializers as "UnconditionalAsToAcceptance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNAC")]
     [IsoId("_bD1e5tp-Ed-ak6NoX_4Aeg_1234993273")]
-    [Description(@"??")]
+    [Description(@"The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.")]
     UnconditionalAsToAcceptance,
     
     /// <summary>
-    /// ??
+    /// Wholly unconditional; all conditions specified in the offer document have been satisfied.
     /// Encoded/decoded by serializers as "WhollyUnconditional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHOU")]
     [IsoId("_bD1e59p-Ed-ak6NoX_4Aeg_1234993291")]
-    [Description(@"??")]
+    [Description(@"Wholly unconditional; all conditions specified in the offer document have been satisfied.")]
     WhollyUnconditional,
     
     /// <summary>
-    /// ??
+    /// The offer is closed for acceptance.
     /// Encoded/decoded by serializers as "Deactivated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLDE")]
     [IsoId("_bD1e6Np-Ed-ak6NoX_4Aeg_1234993308")]
-    [Description(@"??")]
+    [Description(@"The offer is closed for acceptance.")]
     Deactivated,
     
     /// <summary>
-    /// ??
+    /// The event/offer conditions have not been met and the event/offer is terminated or lapsed.
     /// Encoded/decoded by serializers as "Lapsed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAPS")]
     [IsoId("_bD1e6dp-Ed-ak6NoX_4Aeg_1234993326")]
-    [Description(@"??")]
+    [Description(@"The event/offer conditions have not been met and the event/offer is terminated or lapsed.")]
     Lapsed,
     
 }

@@ -20,138 +20,138 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum POIComponentType3Code
 {
     /// <summary>
-    /// ??
+    /// Parameters for acquirer interface of the point of interaction, including acquirer host configuration parameters.
     /// Encoded/decoded by serializers as "AcquirerProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AQPP")]
     [IsoId("_rxFZgQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Parameters for acquirer interface of the point of interaction, including acquirer host configuration parameters.")]
     AcquirerProtocolParameters,
     
     /// <summary>
-    /// ??
+    /// Parameters of a payment application running on the point of interaction.
     /// Encoded/decoded by serializers as "ApplicationParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_sfD50wxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Parameters of a payment application running on the point of interaction.")]
     ApplicationParameters,
     
     /// <summary>
-    /// ??
+    /// Manufacturer configuration parameters of the point of interaction.
     /// Encoded/decoded by serializers as "TerminalParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TLPR")]
     [IsoId("_tdZKUwxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Manufacturer configuration parameters of the point of interaction.")]
     TerminalParameters,
     
     /// <summary>
-    /// ??
+    /// Security parameters of the point of interaction.
     /// Encoded/decoded by serializers as "SecurityParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCPR")]
     [IsoId("_ue2nUQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Security parameters of the point of interaction.")]
     SecurityParameters,
     
     /// <summary>
-    /// ??
+    /// Payment server of a point of interaction system.
     /// Encoded/decoded by serializers as "Server".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SERV")]
     [IsoId("_xKPPgQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Payment server of a point of interaction system.")]
     Server,
     
     /// <summary>
-    /// ??
+    /// Payment terminal point of interaction.
     /// Encoded/decoded by serializers as "Terminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERM")]
     [IsoId("_xXLfUwxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Payment terminal point of interaction.")]
     Terminal,
     
     /// <summary>
-    /// ??
+    /// Device sub-component of a component of the point of interaction.
     /// Encoded/decoded by serializers as "Device".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVCE")]
     [IsoId("_xtWjoQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Device sub-component of a component of the point of interaction.")]
     Device,
     
     /// <summary>
-    /// ??
+    /// Security module.
     /// Encoded/decoded by serializers as "SecureModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECM")]
     [IsoId("_y3cYMQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Security module.")]
     SecureModule,
     
     /// <summary>
-    /// ??
+    /// Payment application software.
     /// Encoded/decoded by serializers as "PaymentApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APLI")]
     [IsoId("_zGUhsQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Payment application software.")]
     PaymentApplication,
     
     /// <summary>
-    /// ??
+    /// EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
     /// Encoded/decoded by serializers as "EMVKernel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMVK")]
     [IsoId("_0NbTsQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).")]
     EMVKernel,
     
     /// <summary>
-    /// ??
+    /// EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
     /// Encoded/decoded by serializers as "EMVLevel1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMVO")]
     [IsoId("_0URikwxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).")]
     EMVLevel1,
     
     /// <summary>
-    /// ??
+    /// Software module of the point of interaction.
     /// Encoded/decoded by serializers as "Middleware".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDWR")]
     [IsoId("_1LeQUQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Software module of the point of interaction.")]
     Middleware,
     
     /// <summary>
-    /// ??
+    /// Driver module of the point of interaction.
     /// Encoded/decoded by serializers as "Driver".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRVR")]
     [IsoId("_1WemcQxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Driver module of the point of interaction.")]
     Driver,
     
     /// <summary>
-    /// ??
+    /// Software that manages hardware to provide common services to the applications.
     /// Encoded/decoded by serializers as "OperatingSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPST")]
     [IsoId("_2Dju4wxrEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Software that manages hardware to provide common services to the applications.")]
     OperatingSystem,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_dvTqIS9EEeKd3ZKpOzeAxg")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
 }

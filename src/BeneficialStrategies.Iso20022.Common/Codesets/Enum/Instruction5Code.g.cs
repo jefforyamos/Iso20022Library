@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Instruction5Code
 {
     /// <summary>
-    /// ??
+    /// Please advise/contact (ultimate) creditor/claimant by phone.
     /// Encoded/decoded by serializers as "PhoneBeneficiary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHOB")]
     [IsoId("_aW-_9tp-Ed-ak6NoX_4Aeg_1896618964")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact (ultimate) creditor/claimant by phone.")]
     PhoneBeneficiary,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
     /// Encoded/decoded by serializers as "Telecom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELB")]
     [IsoId("_aW-_99p-Ed-ak6NoX_4Aeg_1896618989")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.")]
     Telecom,
     
 }

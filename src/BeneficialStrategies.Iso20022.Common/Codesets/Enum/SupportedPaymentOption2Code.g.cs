@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SupportedPaymentOption2Code
 {
     /// <summary>
-    /// ??
+    /// The entity supports a partial approval of the payment transaction.
     /// Encoded/decoded by serializers as "PartialApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_ZonJwU7GEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"The entity supports a partial approval of the payment transaction.")]
     PartialApproval,
     
     /// <summary>
-    /// ??
+    /// The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).
     /// Encoded/decoded by serializers as "PaymentApprovalOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSRV")]
     [IsoId("_ZonJw07GEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).")]
     PaymentApprovalOnly,
     
     /// <summary>
-    /// ??
+    /// The sender support IssuerInstalment proposals to the Cardholder.
     /// Encoded/decoded by serializers as "IssuerInstalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSI")]
     [IsoId("_hbKgEU7GEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"The sender support IssuerInstalment proposals to the Cardholder.")]
     IssuerInstalment,
     
     /// <summary>
-    /// ??
+    /// The sender is able to support Single Tap transaction.
     /// Encoded/decoded by serializers as "PINRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINQ")]
     [IsoId("_hk3OoU7GEeyGi9JAv6wq7Q")]
-    [Description(@"??")]
+    [Description(@"The sender is able to support Single Tap transaction.")]
     PINRequest,
     
 }

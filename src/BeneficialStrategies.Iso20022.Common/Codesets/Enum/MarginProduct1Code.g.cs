@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarginProduct1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the margin is related to equities.
     /// Encoded/decoded by serializers as "Equities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUI")]
     [IsoId("_YZq-tdp-Ed-ak6NoX_4Aeg_1188512534")]
-    [Description(@"??")]
+    [Description(@"Specifies that the margin is related to equities.")]
     Equities,
     
     /// <summary>
-    /// ??
+    /// Specifies that the margin is related to fixed income.
     /// Encoded/decoded by serializers as "FixedIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXI")]
     [IsoId("_YZq-ttp-Ed-ak6NoX_4Aeg_1074673468")]
-    [Description(@"??")]
+    [Description(@"Specifies that the margin is related to fixed income.")]
     FixedIncome,
     
 }

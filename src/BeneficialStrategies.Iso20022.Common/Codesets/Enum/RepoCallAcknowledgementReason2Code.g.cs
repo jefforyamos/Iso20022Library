@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepoCallAcknowledgementReason2Code
 {
     /// <summary>
-    /// ??
+    /// Repurchase agreement call is in process.
     /// Encoded/decoded by serializers as "InProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALD")]
     [IsoId("_ZSvUtdp-Ed-ak6NoX_4Aeg_-364881931")]
-    [Description(@"??")]
+    [Description(@"Repurchase agreement call is in process.")]
     InProcess,
     
     /// <summary>
-    /// ??
+    /// Repurchase agreement call is processed.
     /// Encoded/decoded by serializers as "Processed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALP")]
     [IsoId("_ZSvUttp-Ed-ak6NoX_4Aeg_-478720997")]
-    [Description(@"??")]
+    [Description(@"Repurchase agreement call is processed.")]
     Processed,
     
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_ZSvUt9p-Ed-ak6NoX_4Aeg_1840624684")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
 }

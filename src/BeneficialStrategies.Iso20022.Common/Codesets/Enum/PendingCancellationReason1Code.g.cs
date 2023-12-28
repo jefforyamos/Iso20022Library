@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_Z-Gl4tp-Ed-ak6NoX_4Aeg_332106961")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Awaiting confirmation from the counterparty.
     /// Encoded/decoded by serializers as "AwaitingConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_Z-Gl49p-Ed-ak6NoX_4Aeg_332107239")]
-    [Description(@"??")]
+    [Description(@"Awaiting confirmation from the counterparty.")]
     AwaitingConfirmation,
     
 }

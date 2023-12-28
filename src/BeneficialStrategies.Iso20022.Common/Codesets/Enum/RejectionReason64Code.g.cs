@@ -20,336 +20,336 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason64Code
 {
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_4wbI9Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction is rejected since the provided certification is incorrect or incomplete.
     /// Encoded/decoded by serializers as "IncorrectCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_4wbI2hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction is rejected since the provided certification is incorrect or incomplete.")]
     IncorrectCertification,
     
     /// <summary>
-    /// ??
+    /// For tax reclaim, the reclaim is invalid for the tax authorities.
     /// Encoded/decoded by serializers as "InvalidForTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVA")]
     [IsoId("_4wbI3xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"For tax reclaim, the reclaim is invalid for the tax authorities.")]
     InvalidForTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// Invalid option type.
     /// Encoded/decoded by serializers as "InvalidOptionType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTY")]
     [IsoId("_4wbI6xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Invalid option type.")]
     InvalidOptionType,
     
     /// <summary>
-    /// ??
+    /// Linked reference is unknown.
     /// Encoded/decoded by serializers as "InvalidReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULNK")]
     [IsoId("_4wbI8Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Linked reference is unknown.")]
     InvalidReference,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_4wbI4Bn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
     /// <summary>
-    /// ??
+    /// Instructed position exceeds the eligible balance.
     /// Encoded/decoded by serializers as "LackofSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_4wbI4hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instructed position exceeds the eligible balance.")]
     LackofSecurities,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_4wbI4xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Mismatch between option number and option type.
     /// Encoded/decoded by serializers as "Mismatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMTY")]
     [IsoId("_4wbI5xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Mismatch between option number and option type.")]
     Mismatch,
     
     /// <summary>
-    /// ??
+    /// Rejected due to missing beneficiary owner details.
     /// Encoded/decoded by serializers as "MissingBeneficiaryOwnerDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_4wbI6hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Rejected due to missing beneficiary owner details.")]
     MissingBeneficiaryOwnerDetails,
     
     /// <summary>
-    /// ??
+    /// Option is not valid; it has been cancelled by the market or service provider, and cannot be responded to. Any responses already processed against this option are considered void and new responses will be required.
     /// Encoded/decoded by serializers as "OptionCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_4wbI7Bn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Option is not valid; it has been cancelled by the market or service provider, and cannot be responded to. Any responses already processed against this option are considered void and new responses will be required.")]
     OptionCancelled,
     
     /// <summary>
-    /// ??
+    /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, for example, expired option.
     /// Encoded/decoded by serializers as "OptionInactive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTV")]
     [IsoId("_4wbI2xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, for example, expired option.")]
     OptionInactive,
     
     /// <summary>
-    /// ??
+    /// Unrecognised option number.
     /// Encoded/decoded by serializers as "OptionNumberRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPNM")]
     [IsoId("_4wbI2Bn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Unrecognised option number.")]
     OptionNumberRejection,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_4wbI7Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_4wbI4Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Reclaim is refused by the tax authorities.
     /// Encoded/decoded by serializers as "RefusedByTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFT")]
     [IsoId("_4wbI5hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Reclaim is refused by the tax authorities.")]
     RefusedByTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid message sender's safekeeping account.
     /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_4wbI9xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
     SafekeepingAccountRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised event number.
     /// Encoded/decoded by serializers as "UnrecognisedIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVNM")]
     [IsoId("_4wbI7xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Unrecognised event number.")]
     UnrecognisedIdentification,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed cash amount.
     /// Encoded/decoded by serializers as "AmountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQCS")]
     [IsoId("_4wbI9Bn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed cash amount.")]
     AmountRejection,
     
     /// <summary>
-    /// ??
+    /// Invalid instructed currency.
     /// Encoded/decoded by serializers as "CurrencyRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQCC")]
     [IsoId("_4wbI6Bn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Invalid instructed currency.")]
     CurrencyRejection,
     
     /// <summary>
-    /// ??
+    /// Invalid use of instructed amount (QCAS) or of instructed quantity (QINS) qualifiers.
     /// Encoded/decoded by serializers as "InstructionTypeRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQAM")]
     [IsoId("_4wbI5Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Invalid use of instructed amount (QCAS) or of instructed quantity (QINS) qualifiers.")]
     InstructionTypeRejection,
     
     /// <summary>
-    /// ??
+    /// Instruction is rejected due to invalid use of the additional round up quantity.
     /// Encoded/decoded by serializers as "InvalidUseRoundUpQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IRDQ")]
     [IsoId("_4wbI2Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction is rejected due to invalid use of the additional round up quantity.")]
     InvalidUseRoundUpQuantity,
     
     /// <summary>
-    /// ??
+    /// Bid price / basis points / percentage falls outside of bid range for the event (generally used in Dutch Auctions or Bid Tenders).
     /// Encoded/decoded by serializers as "InvalidBidValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQBV")]
     [IsoId("_4wbI6Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Bid price / basis points / percentage falls outside of bid range for the event (generally used in Dutch Auctions or Bid Tenders).")]
     InvalidBidValue,
     
     /// <summary>
-    /// ??
+    /// Bid price / basis points / percentage increments rejected due to invalid bid increment for the event (generally used in Dutch Auctions or Bid Tenders).
     /// Encoded/decoded by serializers as "InvalidBidIncrement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQBI")]
     [IsoId("_4wbI3Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Bid price / basis points / percentage increments rejected due to invalid bid increment for the event (generally used in Dutch Auctions or Bid Tenders).")]
     InvalidBidIncrement,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was rejected since the instruction has already been cancelled.
     /// Encoded/decoded by serializers as "RejectedSinceAlreadyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAN")]
     [IsoId("_4wbI3hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was rejected since the instruction has already been cancelled.")]
     RejectedSinceAlreadyCancelled,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
     /// Encoded/decoded by serializers as "RejectedSinceInProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRG")]
     [IsoId("_4wbI1Rn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been rejected because the instruction process is in progress or has been processed.")]
     RejectedSinceInProgress,
     
     /// <summary>
-    /// ??
+    /// Instruction is irrevocable.
     /// Encoded/decoded by serializers as "InstructionIrrevocable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INIR")]
     [IsoId("_4wbI7hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction is irrevocable.")]
     InstructionIrrevocable,
     
     /// <summary>
-    /// ??
+    /// Unrecognised, missing or invalid shareholder number.
     /// Encoded/decoded by serializers as "ShareholderNumberRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHAR")]
     [IsoId("_4wbI8hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Unrecognised, missing or invalid shareholder number.")]
     ShareholderNumberRejection,
     
     /// <summary>
-    /// ??
+    /// Instruction is submitted before instruction start date.
     /// Encoded/decoded by serializers as "BeforeInstructionPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSTR")]
     [IsoId("_4wbI8xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction is submitted before instruction start date.")]
     BeforeInstructionPeriod,
     
     /// <summary>
-    /// ??
+    /// Contact information is missing.
     /// Encoded/decoded by serializers as "MissingContact".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTCT")]
     [IsoId("_4wbI3Bn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Contact information is missing.")]
     MissingContact,
     
     /// <summary>
-    /// ??
+    /// Instruction is rejected due to duplicate business message identifier.
     /// Encoded/decoded by serializers as "DuplicateInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_4wbI9hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction is rejected due to duplicate business message identifier.")]
     DuplicateInstruction,
     
     /// <summary>
-    /// ??
+    /// Protect identification is required for cover protect instructions.
     /// Encoded/decoded by serializers as "MissingProtectIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROI")]
     [IsoId("_4wbI1hn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Protect identification is required for cover protect instructions.")]
     MissingProtectIdentification,
     
     /// <summary>
-    /// ??
+    /// Protect date is required for cover protect instructions.
     /// Encoded/decoded by serializers as "MissingProtectDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROT")]
     [IsoId("_4wbI1xn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Protect date is required for cover protect instructions.")]
     MissingProtectDate,
     
     /// <summary>
-    /// ??
+    /// No protect privilege for this event.
     /// Encoded/decoded by serializers as "NoProtectPrivilege".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRON")]
     [IsoId("_4wbI8Bn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"No protect privilege for this event.")]
     NoProtectPrivilege,
     
     /// <summary>
-    /// ??
+    /// Transaction type is missing or invalid for protect or cover protect instructions.
     /// Encoded/decoded by serializers as "MissingTransactionType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRTI")]
     [IsoId("_4wbI5Bn0EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Transaction type is missing or invalid for protect or cover protect instructions.")]
     MissingTransactionType,
     
     /// <summary>
-    /// ??
+    /// Instruction rejected by the issuer agent.
     /// Encoded/decoded by serializers as "RejectedByIssuerAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJA")]
     [IsoId("_AqUdIRn1EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Instruction rejected by the issuer agent.")]
     RejectedByIssuerAgent,
     
     /// <summary>
-    /// ??
+    /// Required paperwork is invalid, incomplete or missing.
     /// Encoded/decoded by serializers as "InvalidPaperwork".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPAW")]
     [IsoId("_Bx_24Rn1EeyroI8qKgB7Mg")]
-    [Description(@"??")]
+    [Description(@"Required paperwork is invalid, incomplete or missing.")]
     InvalidPaperwork,
     
 }

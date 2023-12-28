@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PersonIdentificationType2Code
 {
     /// <summary>
-    /// ??
+    /// Number assigned by a passport authority to a passport.
     /// Encoded/decoded by serializers as "PassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_aGmal9p-Ed-ak6NoX_4Aeg_864875963")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a passport authority to a passport.")]
     PassportNumber,
     
     /// <summary>
-    /// ??
+    /// Account issued by the Central Provident Fund Board (Singapore).
     /// Encoded/decoded by serializers as "CPFAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPFA")]
     [IsoId("_aGmamNp-Ed-ak6NoX_4Aeg_864876360")]
-    [Description(@"??")]
+    [Description(@"Account issued by the Central Provident Fund Board (Singapore).")]
     CPFAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Supplementary retirement scheme account number.
     /// Encoded/decoded by serializers as "SRSAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRSA")]
     [IsoId("_aGvkgNp-Ed-ak6NoX_4Aeg_864876377")]
-    [Description(@"??")]
+    [Description(@"Supplementary retirement scheme account number.")]
     SRSAccountNumber,
     
     /// <summary>
-    /// ??
+    /// National registration identification number. In Singapore this is known as the NRIC.
     /// Encoded/decoded by serializers as "NationalRegistrationIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRIN")]
     [IsoId("_aGvkgdp-Ed-ak6NoX_4Aeg_864876395")]
-    [Description(@"??")]
+    [Description(@"National registration identification number. In Singapore this is known as the NRIC.")]
     NationalRegistrationIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a license authority to a driver's license.
     /// Encoded/decoded by serializers as "DriversLicenseNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRLC")]
     [IsoId("_aGvkgtp-Ed-ak6NoX_4Aeg_864876430")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a license authority to a driver's license.")]
     DriversLicenseNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a social security agency.
     /// Encoded/decoded by serializers as "SocialSecurityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOCS")]
     [IsoId("_aGvkg9p-Ed-ak6NoX_4Aeg_864876455")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a social security agency.")]
     SocialSecurityNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a government agency to identify foreign nationals.
     /// Encoded/decoded by serializers as "AlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AREG")]
     [IsoId("_aGvkhNp-Ed-ak6NoX_4Aeg_864876472")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a government agency to identify foreign nationals.")]
     AlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a national authority to an identity card.
     /// Encoded/decoded by serializers as "IdentityCardNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDCD")]
     [IsoId("_aGvkhdp-Ed-ak6NoX_4Aeg_864876738")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a national authority to an identity card.")]
     IdentityCardNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned to an employer by a registration authority.
     /// Encoded/decoded by serializers as "EmployerIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMID")]
     [IsoId("_aGvkhtp-Ed-ak6NoX_4Aeg_864876763")]
-    [Description(@"??")]
+    [Description(@"Number assigned to an employer by a registration authority.")]
     EmployerIdentificationNumber,
     
 }

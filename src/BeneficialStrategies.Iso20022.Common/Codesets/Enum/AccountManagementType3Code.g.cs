@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountManagementType3Code
 {
     /// <summary>
-    /// ??
+    /// Refers to an account modification instruction message.
     /// Encoded/decoded by serializers as "AccountModification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCM")]
     [IsoId("_Bak_kVSfEeatgN-VQ0eFlQ")]
-    [Description(@"??")]
+    [Description(@"Refers to an account modification instruction message.")]
     AccountModification,
     
     /// <summary>
-    /// ??
+    /// Refers to an account opening instruction message.
     /// Encoded/decoded by serializers as "AccountOpening".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCO")]
     [IsoId("_BxC-0VSfEeatgN-VQ0eFlQ")]
-    [Description(@"??")]
+    [Description(@"Refers to an account opening instruction message.")]
     AccountOpening,
     
     /// <summary>
-    /// ??
+    /// Refers to a get account details message.
     /// Encoded/decoded by serializers as "GetAccountDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GACC")]
     [IsoId("_jN7kUVSqEeatgN-VQ0eFlQ")]
-    [Description(@"??")]
+    [Description(@"Refers to a get account details message.")]
     GetAccountDetails,
     
     /// <summary>
-    /// ??
+    /// Refers to the account status.
     /// Encoded/decoded by serializers as "AccountStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACST")]
     [IsoId("_w6yBQaZsEea-RdGKJ0RADA")]
-    [Description(@"??")]
+    [Description(@"Refers to the account status.")]
     AccountStatus,
     
 }

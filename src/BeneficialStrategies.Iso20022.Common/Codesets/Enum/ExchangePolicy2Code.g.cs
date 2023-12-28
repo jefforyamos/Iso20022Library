@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExchangePolicy2Code
 {
     /// <summary>
-    /// ??
+    /// Exchange is performed if requested by the acquirer in a previous exchange, or at any time by the acceptor.
     /// Encoded/decoded by serializers as "OnDemand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONDM")]
     [IsoId("_mQNdYQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Exchange is performed if requested by the acquirer in a previous exchange, or at any time by the acceptor.")]
     OnDemand,
     
     /// <summary>
-    /// ??
+    /// Exchange is performed just after the transaction completion.
     /// Encoded/decoded by serializers as "Immediately".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMMD")]
     [IsoId("_mQNdYw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Exchange is performed just after the transaction completion.")]
     Immediately,
     
     /// <summary>
-    /// ??
+    /// As soon as the acquirer is contacted, for example with the next on-line transaction.
     /// Encoded/decoded by serializers as "AsSoonAsPossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASAP")]
     [IsoId("_mQNdZQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"As soon as the acquirer is contacted, for example with the next on-line transaction.")]
     AsSoonAsPossible,
     
     /// <summary>
-    /// ??
+    /// Exchanges are performed after reaching a maximum number of transaction or time period.
     /// Encoded/decoded by serializers as "AsGroup".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGRP")]
     [IsoId("_mQNdZw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Exchanges are performed after reaching a maximum number of transaction or time period.")]
     AsGroup,
     
     /// <summary>
-    /// ??
+    /// Exchange is performed after reaching a number of transactions without exchanges with the acquirer.
     /// Encoded/decoded by serializers as "NumberLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBLT")]
     [IsoId("_mQNdaQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Exchange is performed after reaching a number of transactions without exchanges with the acquirer.")]
     NumberLimit,
     
     /// <summary>
-    /// ??
+    /// Exchange is performed after reaching a cumulative amount of transactions without exchanges with the acquirer.
     /// Encoded/decoded by serializers as "TotalLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTLT")]
     [IsoId("_mQNdaw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Exchange is performed after reaching a cumulative amount of transactions without exchanges with the acquirer.")]
     TotalLimit,
     
     /// <summary>
-    /// ??
+    /// Cyclic exchanges based on the related time conditions.
     /// Encoded/decoded by serializers as "Cyclic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CYCL")]
     [IsoId("_mQNdbQ0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Cyclic exchanges based on the related time conditions.")]
     Cyclic,
     
     /// <summary>
-    /// ??
+    /// No exchange.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_mQNdbw0vEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"No exchange.")]
     None,
     
     /// <summary>
-    /// ??
+    /// All pending process must be paused until exchange is exclusively performed just after the transaction completion.
     /// Encoded/decoded by serializers as "Blocking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCK")]
     [IsoId("_Lya6gQ0wEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"All pending process must be paused until exchange is exclusively performed just after the transaction completion.")]
     Blocking,
     
 }

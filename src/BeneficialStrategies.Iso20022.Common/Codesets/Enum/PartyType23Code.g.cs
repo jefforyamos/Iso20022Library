@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType23Code
 {
     /// <summary>
-    /// ??
+    /// Other card payment entity type defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_TverwVBBEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Other card payment entity type defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other card payment entity type defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_UI7GglBBEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Other card payment entity type defined at private level")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Agent in charge of clearing payment or related transactions.
     /// Encoded/decoded by serializers as "ClearingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRA")]
     [IsoId("_VLk2UlBBEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Agent in charge of clearing payment or related transactions.")]
     ClearingAgent,
     
 }

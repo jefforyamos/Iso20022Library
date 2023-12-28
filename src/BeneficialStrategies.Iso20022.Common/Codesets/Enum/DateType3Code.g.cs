@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateType3Code
 {
     /// <summary>
-    /// ??
+    /// Partial trades have occurred over a period of two or more days.
     /// Encoded/decoded by serializers as "Various".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VARI")]
     [IsoId("_ayZwo9p-Ed-ak6NoX_4Aeg_-1348690126")]
-    [Description(@"??")]
+    [Description(@"Partial trades have occurred over a period of two or more days.")]
     Various,
     
 }

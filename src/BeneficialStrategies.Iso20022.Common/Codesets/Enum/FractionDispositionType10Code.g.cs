@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FractionDispositionType10Code
 {
     /// <summary>
-    /// ??
+    /// Buy securities up to next whole number.
     /// Encoded/decoded by serializers as "BuyUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYU")]
     [IsoId("_XLY_sWSCEeKFfdK0gKYFLQ")]
-    [Description(@"??")]
+    [Description(@"Buy securities up to next whole number.")]
     BuyUp,
     
     /// <summary>
-    /// ??
+    /// Fractional part of cash. Take cash in lieu of fractions.
     /// Encoded/decoded by serializers as "CashInLieuOfFraction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINL")]
     [IsoId("_XVO4MWSCEeKFfdK0gKYFLQ")]
-    [Description(@"??")]
+    [Description(@"Fractional part of cash. Take cash in lieu of fractions.")]
     CashInLieuOfFraction,
     
     /// <summary>
-    /// ??
+    /// Let fractions expire worthless.
     /// Encoded/decoded by serializers as "Expire".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_XtEwcWSCEeKFfdK0gKYFLQ")]
-    [Description(@"??")]
+    [Description(@"Let fractions expire worthless.")]
     Expire,
     
     /// <summary>
-    /// ??
+    /// Take distribution of fractions in the form of securities.
     /// Encoded/decoded by serializers as "IssueFraction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIST")]
     [IsoId("_YNHicWSCEeKFfdK0gKYFLQ")]
-    [Description(@"??")]
+    [Description(@"Take distribution of fractions in the form of securities.")]
     IssueFraction,
     
 }

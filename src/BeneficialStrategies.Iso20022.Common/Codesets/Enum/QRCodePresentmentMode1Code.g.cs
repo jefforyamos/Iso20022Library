@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QRCodePresentmentMode1Code
 {
     /// <summary>
-    /// ??
+    /// The consumer presented a QR Code at the point of service for the transaction.
     /// Encoded/decoded by serializers as "ConsumerPresented".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPMD")]
     [IsoId("_CPnUMcV4Eeua2vd9tJAtHg")]
-    [Description(@"??")]
+    [Description(@"The consumer presented a QR Code at the point of service for the transaction.")]
     ConsumerPresented,
     
     /// <summary>
-    /// ??
+    /// Other nationally defined method for QR Code presentment for the transaction.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_CwAEccV4Eeua2vd9tJAtHg")]
-    [Description(@"??")]
+    [Description(@"Other nationally defined method for QR Code presentment for the transaction.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other QR Code presentment mode defined by bilateral agreement.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_DGIFccV4Eeua2vd9tJAtHg")]
-    [Description(@"??")]
+    [Description(@"Other QR Code presentment mode defined by bilateral agreement.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// The acceptor presented a QR Code to the consumer for the transaction.
     /// Encoded/decoded by serializers as "MerchantPresented".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPMD")]
     [IsoId("_DGuiYcV4Eeua2vd9tJAtHg")]
-    [Description(@"??")]
+    [Description(@"The acceptor presented a QR Code to the consumer for the transaction.")]
     MerchantPresented,
     
 }

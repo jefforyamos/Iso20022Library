@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferInFunction2Code
 {
     /// <summary>
-    /// ??
+    /// The transfer-in is a confirmation (rather than an advice).
     /// Encoded/decoded by serializers as "Confirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_ukgQsSVOEeWI0orciOKunQ")]
-    [Description(@"??")]
+    [Description(@"The transfer-in is a confirmation (rather than an advice).")]
     Confirmation,
     
     /// <summary>
-    /// ??
+    /// The transfer-in provides advice about account information for a transfer.
     /// Encoded/decoded by serializers as "Advice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVI")]
     [IsoId("_uw_0kSVOEeWI0orciOKunQ")]
-    [Description(@"??")]
+    [Description(@"The transfer-in provides advice about account information for a transfer.")]
     Advice,
     
 }

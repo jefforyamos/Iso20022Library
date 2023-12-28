@@ -22,39 +22,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalMandateStatus1Code
 {
     /// <summary>
-    /// ??
+    /// The mandate is active.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_uYrBtfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The mandate is active.")]
     Active,
     
     /// <summary>
-    /// ??
+    /// The mandate is cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_uYrBuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The mandate is cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// The mandate has passed the end date.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_uYrBu_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The mandate has passed the end date.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// The mandate is put on hold.
     /// Encoded/decoded by serializers as "Suspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_uY0ysvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The mandate is put on hold.")]
     Suspended,
     
 }

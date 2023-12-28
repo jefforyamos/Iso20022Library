@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMCustomerProfile1Code
 {
     /// <summary>
-    /// ??
+    /// Customer profile is deduced from the card data and the local configuration.
     /// Encoded/decoded by serializers as "CardInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDF")]
     [IsoId("_kD1O8YoZEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Customer profile is deduced from the card data and the local configuration.")]
     CardInformation,
     
     /// <summary>
-    /// ??
+    /// Customer profile is sent via an account enquiry selecting an account.
     /// Encoded/decoded by serializers as "OtherRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OREQ")]
     [IsoId("_kMZ8IYoZEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Customer profile is sent via an account enquiry selecting an account.")]
     OtherRequest,
     
     /// <summary>
-    /// ??
+    /// Customer profile is built via a specific profile message exchange.
     /// Encoded/decoded by serializers as "ProfileRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREQ")]
     [IsoId("_kUNNQYoZEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Customer profile is built via a specific profile message exchange.")]
     ProfileRequest,
     
 }

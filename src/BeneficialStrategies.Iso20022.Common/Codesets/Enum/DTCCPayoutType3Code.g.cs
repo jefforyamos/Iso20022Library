@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCCPayoutType3Code
 {
     /// <summary>
-    /// ??
+    /// Distribution of earnings to shareholders categorised by the company as capital gains.
     /// Encoded/decoded by serializers as "CapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPG")]
     [IsoId("_g8GfIaFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Distribution of earnings to shareholders categorised by the company as capital gains.")]
     CapitalGains,
     
     /// <summary>
-    /// ??
+    /// Payout consisting of cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_hA3DUaFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Payout consisting of cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Distribution of earnings to shareholders categorised by company as dividend.
     /// Encoded/decoded by serializers as "Dividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_hIv0AaFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Distribution of earnings to shareholders categorised by company as dividend.")]
     Dividend,
     
     /// <summary>
-    /// ??
+    /// Cash payment on a debt instrument calculated using the coupon rate, principal and period of time.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_hVsD0aFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Cash payment on a debt instrument calculated using the coupon rate, principal and period of time.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Distribution of earnings to shareholders categorised by the company as long-term capital gains.
     /// Encoded/decoded by serializers as "LongTermCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTCG")]
     [IsoId("_hfNzQaFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Distribution of earnings to shareholders categorised by the company as long-term capital gains.")]
     LongTermCapitalGains,
     
     /// <summary>
-    /// ??
+    /// Cash payment that is categorised by the issuer as premium, usually offered as incentive for early participation in an offer.
     /// Encoded/decoded by serializers as "Premium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREM")]
     [IsoId("_hsv48aFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Cash payment that is categorised by the issuer as premium, usually offered as incentive for early participation in an offer.")]
     Premium,
     
     /// <summary>
-    /// ??
+    /// Cash payment on a debt instrument that represents a return of principal to the holder.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPL")]
     [IsoId("_h0L9saFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Cash payment on a debt instrument that represents a return of principal to the holder.")]
     Principal,
     
     /// <summary>
-    /// ??
+    /// Distribution that doesn't represent earnings and is categorised by the company as return of capital.
     /// Encoded/decoded by serializers as "ReturnOfCapital".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROCA")]
     [IsoId("_iA1SkaFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Distribution that doesn't represent earnings and is categorised by the company as return of capital.")]
     ReturnOfCapital,
     
     /// <summary>
-    /// ??
+    /// Distribution of earnings to shareholders categorised by the company as short-term capital gains.
     /// Encoded/decoded by serializers as "ShortTermCapitalGains".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STCG")]
     [IsoId("_idQI0aFpEeSpipW1FBSFVg")]
-    [Description(@"??")]
+    [Description(@"Distribution of earnings to shareholders categorised by the company as short-term capital gains.")]
     ShortTermCapitalGains,
     
 }

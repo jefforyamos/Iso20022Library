@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AuthenticationMethod2Code
 {
     /// <summary>
-    /// ??
+    /// Authentication bypassed by the merchant.
     /// Encoded/decoded by serializers as "Bypass".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BYPS")]
     [IsoId("_iNkFARz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Authentication bypassed by the merchant.")]
     Bypass,
     
     /// <summary>
-    /// ??
+    /// Manual verification, for example passport or drivers license.
     /// Encoded/decoded by serializers as "ManualVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANU")]
     [IsoId("_iU2_0xz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Manual verification, for example passport or drivers license.")]
     ManualVerification,
     
     /// <summary>
-    /// ??
+    /// Merchant-related authentication.
     /// Encoded/decoded by serializers as "MerchantAuthentication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_igBG8Rz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Merchant-related authentication.")]
     MerchantAuthentication,
     
     /// <summary>
-    /// ??
+    /// Off-line PIN authentication (Personal Identification Number).
     /// Encoded/decoded by serializers as "OfflinePIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FPIN")]
     [IsoId("_ilEmExz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Off-line PIN authentication (Personal Identification Number).")]
     OfflinePIN,
     
     /// <summary>
-    /// ??
+    /// On-line PIN authentication (Personal Identification Number).
     /// Encoded/decoded by serializers as "OnLinePIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPIN")]
     [IsoId("_iq4TIxz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"On-line PIN authentication (Personal Identification Number).")]
     OnLinePIN,
     
     /// <summary>
-    /// ??
+    /// Handwritten paper signature.
     /// Encoded/decoded by serializers as "PaperSignature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPSG")]
     [IsoId("_iw1KIRz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Handwritten paper signature.")]
     PaperSignature,
     
     /// <summary>
-    /// ??
+    /// Authentication by a password.
     /// Encoded/decoded by serializers as "Password".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSWD")]
     [IsoId("_i1u4QRz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Authentication by a password.")]
     Password,
     
     /// <summary>
-    /// ??
+    /// Electronic commerce transaction secured with the X.509 certificate of a customer.
     /// Encoded/decoded by serializers as "SecureCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRT")]
     [IsoId("_i6y-cRz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Electronic commerce transaction secured with the X.509 certificate of a customer.")]
     SecureCertificate,
     
     /// <summary>
-    /// ??
+    /// Channel-encrypted transaction.
     /// Encoded/decoded by serializers as "SecuredChannel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCNL")]
     [IsoId("_jAmEcRz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Channel-encrypted transaction.")]
     SecuredChannel,
     
     /// <summary>
-    /// ??
+    /// Secure electronic transaction without cardholder certificate.
     /// Encoded/decoded by serializers as "SecureNoCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNCT")]
     [IsoId("_jG12YRz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Secure electronic transaction without cardholder certificate.")]
     SecureNoCertificate,
     
     /// <summary>
-    /// ??
+    /// Electronic signature capture (handwritten signature).
     /// Encoded/decoded by serializers as "SignatureCapture".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPSG")]
     [IsoId("_jL58kxz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Electronic signature capture (handwritten signature).")]
     SignatureCapture,
     
     /// <summary>
-    /// ??
+    /// Authentication method is performed unknown.
     /// Encoded/decoded by serializers as "UnknownMethod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKNW")]
     [IsoId("_jSTfgxz3EeK5OKMB21JFBg")]
-    [Description(@"??")]
+    [Description(@"Authentication method is performed unknown.")]
     UnknownMethod,
     
 }

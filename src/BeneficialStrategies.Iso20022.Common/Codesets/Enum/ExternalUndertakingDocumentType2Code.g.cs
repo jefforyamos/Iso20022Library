@@ -21,30 +21,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalUndertakingDocumentType2Code
 {
     /// <summary>
-    /// ??
+    /// Document is a beneficiary statement.
     /// Encoded/decoded by serializers as "BeneficiaryStatement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BENS")]
     [IsoId("_uRhQ0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document is a beneficiary statement.")]
     BeneficiaryStatement,
     
     /// <summary>
-    /// ??
+    /// Document is an invoice.
     /// Encoded/decoded by serializers as "CommercialInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINV")]
     [IsoId("_uRhQ1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document is an invoice.")]
     CommercialInvoice,
     
     /// <summary>
-    /// ??
+    /// Document is a transfer form.
     /// Encoded/decoded by serializers as "TransferForm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAF")]
     [IsoId("_uRhQ2PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document is a transfer form.")]
     TransferForm,
     
 }

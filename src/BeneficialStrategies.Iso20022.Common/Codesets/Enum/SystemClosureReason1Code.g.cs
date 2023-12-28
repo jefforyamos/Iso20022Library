@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SystemClosureReason1Code
 {
     /// <summary>
-    /// ??
+    /// System is closed due to a bank holiday.
     /// Encoded/decoded by serializers as "BankingHoliday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BHOL")]
     [IsoId("_ZRQG89p-Ed-ak6NoX_4Aeg_2007403395")]
-    [Description(@"??")]
+    [Description(@"System is closed due to a bank holiday.")]
     BankingHoliday,
     
     /// <summary>
-    /// ??
+    /// System is closed for maintenance reasons.
     /// Encoded/decoded by serializers as "SystemMaintenance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMTN")]
     [IsoId("_ZRQG9Np-Ed-ak6NoX_4Aeg_2007403396")]
-    [Description(@"??")]
+    [Description(@"System is closed for maintenance reasons.")]
     SystemMaintenance,
     
     /// <summary>
-    /// ??
+    /// System is not processing any operation.
     /// Encoded/decoded by serializers as "NoOperation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOOP")]
     [IsoId("_ZRQG9dp-Ed-ak6NoX_4Aeg_2007403397")]
-    [Description(@"??")]
+    [Description(@"System is not processing any operation.")]
     NoOperation,
     
     /// <summary>
-    /// ??
+    /// System is not operational during recovery operations.
     /// Encoded/decoded by serializers as "Recovery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVR")]
     [IsoId("_ZRQG9tp-Ed-ak6NoX_4Aeg_2007403398")]
-    [Description(@"??")]
+    [Description(@"System is not operational during recovery operations.")]
     Recovery,
     
     /// <summary>
-    /// ??
+    /// System is not operational during allowed downtime windows.
     /// Encoded/decoded by serializers as "AllowedDowntimeWindow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADTW")]
     [IsoId("_ZRQG99p-Ed-ak6NoX_4Aeg_2007403406")]
-    [Description(@"??")]
+    [Description(@"System is not operational during allowed downtime windows.")]
     AllowedDowntimeWindow,
     
 }

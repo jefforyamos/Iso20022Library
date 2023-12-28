@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterestRate1Code
 {
     /// <summary>
-    /// ??
+    /// Gross interest rate of the instalment
     /// Encoded/decoded by serializers as "GrossRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GSRT")]
     [IsoId("_RBUdYTErEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Gross interest rate of the instalment")]
     GrossRate,
     
     /// <summary>
-    /// ??
+    /// Net interest rate of the instalment
     /// Encoded/decoded by serializers as "NetRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTRT")]
     [IsoId("_RW7hATErEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Net interest rate of the instalment")]
     NetRate,
     
     /// <summary>
-    /// ??
+    /// Other interest rate of the instalment
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_RrpMwTErEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other interest rate of the instalment")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other interest rate of the instalment
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_R9-S4TErEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other interest rate of the instalment")]
     OtherPrivate,
     
 }

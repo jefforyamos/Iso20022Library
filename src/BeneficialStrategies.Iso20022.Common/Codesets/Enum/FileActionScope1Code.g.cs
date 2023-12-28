@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FileActionScope1Code
 {
     /// <summary>
-    /// ??
+    /// Action applies to a file
     /// Encoded/decoded by serializers as "File".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FILE")]
     [IsoId("_SafpETEmEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Action applies to a file")]
     File,
     
     /// <summary>
-    /// ??
+    /// Action applies to a record
     /// Encoded/decoded by serializers as "Record".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECD")]
     [IsoId("_Sv9iwTEmEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Action applies to a record")]
     Record,
     
 }

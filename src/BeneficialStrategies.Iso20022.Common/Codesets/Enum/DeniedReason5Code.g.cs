@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeniedReason5Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_avbVJtp-Ed-ak6NoX_4Aeg_255864089")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Repo call request was denied since another call already applies.
     /// Encoded/decoded by serializers as "CallDeniedSinceAlreadyApplied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAL")]
     [IsoId("_avbVJ9p-Ed-ak6NoX_4Aeg_1813994353")]
-    [Description(@"??")]
+    [Description(@"Repo call request was denied since another call already applies.")]
     CallDeniedSinceAlreadyApplied,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was denied since the instruction has already been cancelled.
     /// Encoded/decoded by serializers as "DeniedSinceAlreadyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAN")]
     [IsoId("_avbVKNp-Ed-ak6NoX_4Aeg_1802895576")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was denied since the instruction has already been cancelled.")]
     DeniedSinceAlreadyCancelled,
     
     /// <summary>
-    /// ??
+    /// Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.
     /// Encoded/decoded by serializers as "DeniedSinceNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFOR")]
     [IsoId("_avbVKdp-Ed-ak6NoX_4Aeg_-554846547")]
-    [Description(@"??")]
+    [Description(@"Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.")]
     DeniedSinceNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was denied because the process of settlement is in progress.
     /// Encoded/decoded by serializers as "DeniedSinceInProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRG")]
     [IsoId("_avkfENp-Ed-ak6NoX_4Aeg_421112740")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was denied because the process of settlement is in progress.")]
     DeniedSinceInProgress,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was denied because the repo was cancelled.
     /// Encoded/decoded by serializers as "DeniedSinceRepoEnded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DREP")]
     [IsoId("_avkfEdp-Ed-ak6NoX_4Aeg_307273674")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was denied because the repo was cancelled.")]
     DeniedSinceRepoEnded,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was denied because the instruction was already settled.
     /// Encoded/decoded by serializers as "DeniedSinceAlreadySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSET")]
     [IsoId("_avkfEtp-Ed-ak6NoX_4Aeg_247025987")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was denied because the instruction was already settled.")]
     DeniedSinceAlreadySettled,
     
     /// <summary>
-    /// ??
+    /// Instruction has been processed and cannot be cancelled.
     /// Encoded/decoded by serializers as "InstructionProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPNC")]
     [IsoId("_avkfE9p-Ed-ak6NoX_4Aeg_-2110716136")]
-    [Description(@"??")]
+    [Description(@"Instruction has been processed and cannot be cancelled.")]
     InstructionProcessed,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_avkfFNp-Ed-ak6NoX_4Aeg_1169189297")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_avkfFdp-Ed-ak6NoX_4Aeg_-1188552826")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Execution is denied due to a process linked to the currency of the transaction.
     /// Encoded/decoded by serializers as "ConditionalCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCY")]
     [IsoId("_avkfFtp-Ed-ak6NoX_4Aeg_-1028010032")]
-    [Description(@"??")]
+    [Description(@"Execution is denied due to a process linked to the currency of the transaction.")]
     ConditionalCurrency,
     
     /// <summary>
-    /// ??
+    /// Execution is denied due to the execution of a process of realignment at the issuer CSD.
     /// Encoded/decoded by serializers as "ConditionalRealignement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRE")]
     [IsoId("_avkfF9p-Ed-ak6NoX_4Aeg_868526692")]
-    [Description(@"??")]
+    [Description(@"Execution is denied due to the execution of a process of realignment at the issuer CSD.")]
     ConditionalRealignement,
     
     /// <summary>
-    /// ??
+    /// Execution is denied due to the execution of a process at the registrar.
     /// Encoded/decoded by serializers as "ConditionalRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRG")]
     [IsoId("_avkfGNp-Ed-ak6NoX_4Aeg_-1489215431")]
-    [Description(@"??")]
+    [Description(@"Execution is denied due to the execution of a process at the registrar.")]
     ConditionalRegistrar,
     
 }

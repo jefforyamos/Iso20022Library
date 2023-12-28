@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionFeatures1Code
 {
     /// <summary>
-    /// ??
+    /// Feature whereby the holder can elect to place a condition on the acceptance of the option.
     /// Encoded/decoded by serializers as "Conditional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COND")]
     [IsoId("_aPYjJNp-Ed-ak6NoX_4Aeg_-906093895")]
-    [Description(@"??")]
+    [Description(@"Feature whereby the holder can elect to place a condition on the acceptance of the option.")]
     Conditional,
     
     /// <summary>
-    /// ??
+    /// Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.
     /// Encoded/decoded by serializers as "MaximumCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXC")]
     [IsoId("_aPYjJdp-Ed-ak6NoX_4Aeg_-906093886")]
-    [Description(@"??")]
+    [Description(@"Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.")]
     MaximumCash,
     
     /// <summary>
-    /// ??
+    /// Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.
     /// Encoded/decoded by serializers as "MaximumSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXS")]
     [IsoId("_aPYjJtp-Ed-ak6NoX_4Aeg_-906093866")]
-    [Description(@"??")]
+    [Description(@"Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.")]
     MaximumSecurities,
     
     /// <summary>
-    /// ??
+    /// Tender or exchange with the odd lot preference.
     /// Encoded/decoded by serializers as "OddLotPreference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPLF")]
     [IsoId("_aPiUINp-Ed-ak6NoX_4Aeg_-906093865")]
-    [Description(@"??")]
+    [Description(@"Tender or exchange with the odd lot preference.")]
     OddLotPreference,
     
     /// <summary>
-    /// ??
+    /// Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.
     /// Encoded/decoded by serializers as "Proration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROR")]
     [IsoId("_aPiUIdp-Ed-ak6NoX_4Aeg_-906093835")]
-    [Description(@"??")]
+    [Description(@"Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.")]
     Proration,
     
     /// <summary>
-    /// ??
+    /// Feature whereby the holder can elect a quantity to receive over and above normal ensured entitlement.
     /// Encoded/decoded by serializers as "OverAndAbove".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QOVE")]
     [IsoId("_aPiUItp-Ed-ak6NoX_4Aeg_-906093834")]
-    [Description(@"??")]
+    [Description(@"Feature whereby the holder can elect a quantity to receive over and above normal ensured entitlement.")]
     OverAndAbove,
     
     /// <summary>
-    /// ??
+    /// Feature whereby the holder can elect a quantity to receive.
     /// Encoded/decoded by serializers as "QuantityToReceive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QREC")]
     [IsoId("_aPiUI9p-Ed-ak6NoX_4Aeg_-906093833")]
-    [Description(@"??")]
+    [Description(@"Feature whereby the holder can elect a quantity to receive.")]
     QuantityToReceive,
     
     /// <summary>
-    /// ??
+    /// Reduced withholding tax rate applies to the option.
     /// Encoded/decoded by serializers as "ReducedWithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VVPR")]
     [IsoId("_aPiUJNp-Ed-ak6NoX_4Aeg_-906093805")]
-    [Description(@"??")]
+    [Description(@"Reduced withholding tax rate applies to the option.")]
     ReducedWithholdingTax,
     
 }

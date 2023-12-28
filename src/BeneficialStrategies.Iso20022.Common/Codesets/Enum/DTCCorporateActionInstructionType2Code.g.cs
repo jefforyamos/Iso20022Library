@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCCorporateActionInstructionType2Code
 {
     /// <summary>
-    /// ??
+    /// Withdrawal of previously submitted instruction.
     /// Encoded/decoded by serializers as "InstructionWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIIN")]
     [IsoId("_12r8gjL3EeKU9IrkkToqcw_776378901")]
-    [Description(@"??")]
+    [Description(@"Withdrawal of previously submitted instruction.")]
     InstructionWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Withdrawal of a previously submitted protect instruction.
     /// Encoded/decoded by serializers as "ProtectWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIPR")]
     [IsoId("_12r8gzL3EeKU9IrkkToqcw_-2051439632")]
-    [Description(@"??")]
+    [Description(@"Withdrawal of a previously submitted protect instruction.")]
     ProtectWithdrawal,
     
 }

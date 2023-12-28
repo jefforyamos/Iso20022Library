@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PreferenceToIncome1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates an ordinary/common preference to income.
     /// Encoded/decoded by serializers as "Ordinary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORDN")]
     [IsoId("_aIFoVtp-Ed-ak6NoX_4Aeg_-943073945")]
-    [Description(@"??")]
+    [Description(@"Indicates an ordinary/common preference to income.")]
     Ordinary,
     
     /// <summary>
-    /// ??
+    /// Indicates a preferred claim upon income and assets.
     /// Encoded/decoded by serializers as "Preferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PFRD")]
     [IsoId("_aIFoV9p-Ed-ak6NoX_4Aeg_-943073928")]
-    [Description(@"??")]
+    [Description(@"Indicates a preferred claim upon income and assets.")]
     Preferred,
     
 }

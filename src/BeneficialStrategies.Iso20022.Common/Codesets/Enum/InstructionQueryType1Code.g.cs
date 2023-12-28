@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstructionQueryType1Code
 {
     /// <summary>
-    /// ??
+    /// Query is performed on settlement transactions.
     /// Encoded/decoded by serializers as "SettlementInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_jjvIlu5NEeCisYr99QEiWA_351623035")]
-    [Description(@"??")]
+    [Description(@"Query is performed on settlement transactions.")]
     SettlementInstruction,
     
     /// <summary>
-    /// ??
+    /// Query is performed on intra-position movements.
     /// Encoded/decoded by serializers as "IntraPositionMovement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOS")]
     [IsoId("_jj4SgO5NEeCisYr99QEiWA_1818771798")]
-    [Description(@"??")]
+    [Description(@"Query is performed on intra-position movements.")]
     IntraPositionMovement,
     
     /// <summary>
-    /// ??
+    /// Query is performed on both settlement transactions and intra-position movements.
     /// Encoded/decoded by serializers as "SettlementAndIntraPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_jj4Sge5NEeCisYr99QEiWA_-645449318")]
-    [Description(@"??")]
+    [Description(@"Query is performed on both settlement transactions and intra-position movements.")]
     SettlementAndIntraPosition,
     
 }

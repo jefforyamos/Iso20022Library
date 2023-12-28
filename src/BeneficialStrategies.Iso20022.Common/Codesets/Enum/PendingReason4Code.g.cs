@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason4Code
 {
     /// <summary>
-    /// ??
+    /// Financial instruments have not been delivered by the issuer.
     /// Encoded/decoded by serializers as "NotDelivered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSEC")]
     [IsoId("_aCuAINp-Ed-ak6NoX_4Aeg_1236805137")]
-    [Description(@"??")]
+    [Description(@"Financial instruments have not been delivered by the issuer.")]
     NotDelivered,
     
     /// <summary>
-    /// ??
+    /// Payment has not been made by issuer.
     /// Encoded/decoded by serializers as "NoPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPAY")]
     [IsoId("_aCuAIdp-Ed-ak6NoX_4Aeg_1537875311")]
-    [Description(@"??")]
+    [Description(@"Payment has not been made by issuer.")]
     NoPayment,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_aCuAItp-Ed-ak6NoX_4Aeg_1606213447")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Tax reclaim has been sent to the tax authorities.
     /// Encoded/decoded by serializers as "SentToTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_aCuAI9p-Ed-ak6NoX_4Aeg_1893428479")]
-    [Description(@"??")]
+    [Description(@"Tax reclaim has been sent to the tax authorities.")]
     SentToTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.
     /// Encoded/decoded by serializers as "ValidForTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VLDA")]
     [IsoId("_aCuAJNp-Ed-ak6NoX_4Aeg_1935910629")]
-    [Description(@"??")]
+    [Description(@"For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.")]
     ValidForTaxAuthorities,
     
 }

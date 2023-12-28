@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AutoBorrowing1Code
 {
     /// <summary>
-    /// ??
+    /// Only last resort borrowing should be considered to make settlement occur.
     /// Encoded/decoded by serializers as "LastResort".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAMI")]
     [IsoId("_bjlV9tp-Ed-ak6NoX_4Aeg_-1856844449")]
-    [Description(@"??")]
+    [Description(@"Only last resort borrowing should be considered to make settlement occur.")]
     LastResort,
     
     /// <summary>
-    /// ??
+    /// No automatic borrowing should take place.
     /// Encoded/decoded by serializers as "NoAutomatic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBOR")]
     [IsoId("_bjlV99p-Ed-ak6NoX_4Aeg_-1856844448")]
-    [Description(@"??")]
+    [Description(@"No automatic borrowing should take place.")]
     NoAutomatic,
     
     /// <summary>
-    /// ??
+    /// Automatic borrowing should take place.
     /// Encoded/decoded by serializers as "Automatic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YBOR")]
     [IsoId("_bjlV-Np-Ed-ak6NoX_4Aeg_-1856844433")]
-    [Description(@"??")]
+    [Description(@"Automatic borrowing should take place.")]
     Automatic,
     
 }

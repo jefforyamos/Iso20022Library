@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralSubstitutionType1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies if the collateral that is substituted was posted against the variation margin.
     /// Encoded/decoded by serializers as "AgainstVariationMargin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVMG")]
     [IsoId("_YcDkVdp-Ed-ak6NoX_4Aeg_168648303")]
-    [Description(@"??")]
+    [Description(@"Specifies if the collateral that is substituted was posted against the variation margin.")]
     AgainstVariationMargin,
     
     /// <summary>
-    /// ??
+    /// Specifies if the collateral that is substituted was posted against the independent amount.
     /// Encoded/decoded by serializers as "AgainstSegregatedIndependentAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASIA")]
     [IsoId("_YcDkVtp-Ed-ak6NoX_4Aeg_-914318971")]
-    [Description(@"??")]
+    [Description(@"Specifies if the collateral that is substituted was posted against the independent amount.")]
     AgainstSegregatedIndependentAmount,
     
 }

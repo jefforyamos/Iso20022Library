@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementReportType1Code
 {
     /// <summary>
-    /// ??
+    /// Final settlement position.
     /// Encoded/decoded by serializers as "FinalPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIPO")]
     [IsoId("_UfqLIVdKEeeIAMBcVOw01w")]
-    [Description(@"??")]
+    [Description(@"Final settlement position.")]
     FinalPosition,
     
     /// <summary>
-    /// ??
+    /// Other type of settlement report defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_U01J4VdKEeeIAMBcVOw01w")]
-    [Description(@"??")]
+    [Description(@"Other type of settlement report defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other settlement report defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_U_OcAVdKEeeIAMBcVOw01w")]
-    [Description(@"??")]
+    [Description(@"Other settlement report defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Interim settlement position.
     /// Encoded/decoded by serializers as "InterimPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPO")]
     [IsoId("_VY-YwVdKEeeIAMBcVOw01w")]
-    [Description(@"??")]
+    [Description(@"Interim settlement position.")]
     InterimPosition,
     
 }

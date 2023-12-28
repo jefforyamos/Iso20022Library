@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BytePadding1Code
 {
     /// <summary>
-    /// ??
+    /// Message to encrypt is completed by a byte value containing the total number of added bytes.
     /// Encoded/decoded by serializers as "LengthPadding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LNGT")]
     [IsoId("_3sV-MWi9EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message to encrypt is completed by a byte value containing the total number of added bytes.")]
     LengthPadding,
     
     /// <summary>
-    /// ??
+    /// Message to encrypt is completed by one bit of value 1, followed by null bits until the encryption block length is reached.
     /// Encoded/decoded by serializers as "Null80Padding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NUL8")]
     [IsoId("_3x6asWi9EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message to encrypt is completed by one bit of value 1, followed by null bits until the encryption block length is reached.")]
     Null80Padding,
     
     /// <summary>
-    /// ??
+    /// Message to encrypt is completed by null byte values, the last byte containing the total number of added bytes.
     /// Encoded/decoded by serializers as "NullLengthPadding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NULG")]
     [IsoId("_344lYWi9EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message to encrypt is completed by null byte values, the last byte containing the total number of added bytes.")]
     NullLengthPadding,
     
     /// <summary>
-    /// ??
+    /// Message to encrypt is completed by null bytes.
     /// Encoded/decoded by serializers as "NullPadding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NULL")]
     [IsoId("_3-_NYWi9EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message to encrypt is completed by null bytes.")]
     NullPadding,
     
     /// <summary>
-    /// ??
+    /// Message to encrypt is completed by random value, the last byte containing the total number of added bytes.
     /// Encoded/decoded by serializers as "RandomPadding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RAND")]
     [IsoId("_4Hdz8Wi9EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message to encrypt is completed by random value, the last byte containing the total number of added bytes.")]
     RandomPadding,
     
 }

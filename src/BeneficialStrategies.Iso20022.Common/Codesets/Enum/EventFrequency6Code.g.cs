@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventFrequency6Code
 {
     /// <summary>
-    /// ??
+    /// Event takes place every day.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_YZq-sdp-Ed-ak6NoX_4Aeg_903765456")]
-    [Description(@"??")]
+    [Description(@"Event takes place every day.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Event takes place several times a day.
     /// Encoded/decoded by serializers as "IntraDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDA")]
     [IsoId("_YZq-stp-Ed-ak6NoX_4Aeg_699827861")]
-    [Description(@"??")]
+    [Description(@"Event takes place several times a day.")]
     IntraDay,
     
     /// <summary>
-    /// ??
+    /// Event takes place on demand.
     /// Encoded/decoded by serializers as "OnDemand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONDE")]
     [IsoId("_YZq-s9p-Ed-ak6NoX_4Aeg_-652104133")]
-    [Description(@"??")]
+    [Description(@"Event takes place on demand.")]
     OnDemand,
     
 }

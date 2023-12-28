@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FraudReportingAction1Code
 {
     /// <summary>
-    /// ??
+    /// Fraud information already reported.
     /// Encoded/decoded by serializers as "Duplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_SrO4QZgFEee-7IkMvqfAcA")]
-    [Description(@"??")]
+    [Description(@"Fraud information already reported.")]
     Duplicate,
     
     /// <summary>
-    /// ??
+    /// Closing a previously reported fraud.
     /// Encoded/decoded by serializers as "Close".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSE")]
     [IsoId("_SzSoEZgFEee-7IkMvqfAcA")]
-    [Description(@"??")]
+    [Description(@"Closing a previously reported fraud.")]
     Close,
     
     /// <summary>
-    /// ??
+    /// New fraud information not reported yet.
     /// Encoded/decoded by serializers as "New".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWF")]
     [IsoId("_S7ilIZgFEee-7IkMvqfAcA")]
-    [Description(@"??")]
+    [Description(@"New fraud information not reported yet.")]
     New,
     
     /// <summary>
-    /// ??
+    /// Other process about a fraud already reported defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_TD-vcZgFEee-7IkMvqfAcA")]
-    [Description(@"??")]
+    [Description(@"Other process about a fraud already reported defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other process about a fraud already reported defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_TPeNwZgFEee-7IkMvqfAcA")]
-    [Description(@"??")]
+    [Description(@"Other process about a fraud already reported defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Reopen a previously closed reported fraud case
     /// Encoded/decoded by serializers as "Reopen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REOP")]
     [IsoId("_TXxOIZgFEee-7IkMvqfAcA")]
-    [Description(@"??")]
+    [Description(@"Reopen a previously closed reported fraud case")]
     Reopen,
     
     /// <summary>
-    /// ??
+    /// Update information about a fraud already reported.
     /// Encoded/decoded by serializers as "Update".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDT")]
     [IsoId("_TgMKUZgFEee-7IkMvqfAcA")]
-    [Description(@"??")]
+    [Description(@"Update information about a fraud already reported.")]
     Update,
     
 }

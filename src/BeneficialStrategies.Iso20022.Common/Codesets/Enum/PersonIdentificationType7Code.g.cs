@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PersonIdentificationType7Code
 {
     /// <summary>
-    /// ??
+    /// Temporary tax processing number (used in the domestic adoption of a child).
     /// Encoded/decoded by serializers as "AdoptionTaxpayerIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATIN")]
     [IsoId("_CZgLUU4REeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Temporary tax processing number (used in the domestic adoption of a child).")]
     AdoptionTaxpayerIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Generic tax identification number.
     /// Encoded/decoded by serializers as "GenericTaxIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GTIN")]
     [IsoId("_C_cJ8U4REeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Generic tax identification number.")]
     GenericTaxIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Tax processing number.
     /// Encoded/decoded by serializers as "IndividualTaxpayerIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITIN")]
     [IsoId("_D1vf0U4REeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Tax processing number.")]
     IndividualTaxpayerIdentificationNumber,
     
 }

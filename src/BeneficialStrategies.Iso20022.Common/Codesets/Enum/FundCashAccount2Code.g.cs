@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundCashAccount2Code
 {
     /// <summary>
-    /// ??
+    /// Cash account.
     /// Encoded/decoded by serializers as "CashAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_asmDkdp-Ed-ak6NoX_4Aeg_-1052927881")]
-    [Description(@"??")]
+    [Description(@"Cash account.")]
     CashAccount,
     
     /// <summary>
-    /// ??
+    /// Central Provident Fund (CPF) ordinary account.
     /// Encoded/decoded by serializers as "PensionFundOrdinary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPFO")]
     [IsoId("_asmDktp-Ed-ak6NoX_4Aeg_-1052926597")]
-    [Description(@"??")]
+    [Description(@"Central Provident Fund (CPF) ordinary account.")]
     PensionFundOrdinary,
     
     /// <summary>
-    /// ??
+    /// Central Provident Fund (CPF) special account.
     /// Encoded/decoded by serializers as "PensionFundSpecial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPFS")]
     [IsoId("_asmDk9p-Ed-ak6NoX_4Aeg_-1052926493")]
-    [Description(@"??")]
+    [Description(@"Central Provident Fund (CPF) special account.")]
     PensionFundSpecial,
     
     /// <summary>
-    /// ??
+    /// Supplementary Retirement Scheme (SRS) account.
     /// Encoded/decoded by serializers as "RetirementScheme".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRSA")]
     [IsoId("_asmDlNp-Ed-ak6NoX_4Aeg_-1052926150")]
-    [Description(@"??")]
+    [Description(@"Supplementary Retirement Scheme (SRS) account.")]
     RetirementScheme,
     
 }

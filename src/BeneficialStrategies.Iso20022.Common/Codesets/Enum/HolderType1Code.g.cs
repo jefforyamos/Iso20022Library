@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum HolderType1Code
 {
     /// <summary>
-    /// ??
+    /// Holder is the transferee party. The transferee party may also be known as the acquiring party.
     /// Encoded/decoded by serializers as "Transferee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFEE")]
     [IsoId("_nUYtQU4SEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Holder is the transferee party. The transferee party may also be known as the acquiring party.")]
     Transferee,
     
     /// <summary>
-    /// ??
+    /// Holder is the transferor party. The transferee party may also be known as the ceding party.
     /// Encoded/decoded by serializers as "Transferor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFOR")]
     [IsoId("_naLzQU4SEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Holder is the transferor party. The transferee party may also be known as the ceding party.")]
     Transferor,
     
 }

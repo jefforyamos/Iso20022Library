@@ -22,210 +22,212 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalServiceLevel1Code
 {
     /// <summary>
-    /// ??
+    /// Payment through internal book transfer.
     /// Encoded/decoded by serializers as "BookTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKTR")]
     [IsoId("_t8zlGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment through internal book transfer.")]
     BookTransaction,
     
     /// <summary>
-    /// ??
+    /// Tracked Customer Credit Transfer.
     /// Encoded/decoded by serializers as "TrackedCustomerCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G001")]
     [IsoId("_t8zlG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tracked Customer Credit Transfer.")]
     TrackedCustomerCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Tracked Stop and Recall 
     /// Encoded/decoded by serializers as "TrackedStopAndRecall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G002")]
     [IsoId("_t8zlHvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tracked Stop and Recall ")]
     TrackedStopAndRecall,
     
     /// <summary>
-    /// ??
+    /// Tracked Outbound Corporate Transfer.
     /// Encoded/decoded by serializers as "TrackedOutboundCorporateTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G003")]
     [IsoId("_t89WEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tracked Outbound Corporate Transfer.")]
     TrackedOutboundCorporateTransfer,
     
     /// <summary>
-    /// ??
+    /// Tracked Financial Institution Transfer.
     /// Encoded/decoded by serializers as "TrackedFinancialInstitutionTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G004")]
     [IsoId("_t89WFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tracked Financial Institution Transfer.")]
     TrackedFinancialInstitutionTransfer,
     
     /// <summary>
-    /// ??
+    /// Payments must be executed following the NPC Area Payment scheme.
     /// Encoded/decoded by serializers as "NordicPaymentsCouncilAreaTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPCA")]
     [IsoId("_t89WGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payments must be executed following the NPC Area Payment scheme.")]
     NordicPaymentsCouncilAreaTransfer,
     
     /// <summary>
-    /// ??
+    /// Payment must be executed as a non-urgent transaction with priority settlement.
     /// Encoded/decoded by serializers as "NonurgentPriorityPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NUGP")]
     [IsoId("_t9GgAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed as a non-urgent transaction with priority settlement.")]
     NonurgentPriorityPayment,
     
     /// <summary>
-    /// ??
+    /// Payment must be executed as a non-urgent transaction, which is typically identified as an ACH or low value transaction. 
     /// Encoded/decoded by serializers as "NonurgentPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NURG")]
     [IsoId("_t9GgBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed as a non-urgent transaction, which is typically identified as an ACH or low value transaction. ")]
     NonurgentPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction must be processed according to the EBA Priority Service.
     /// Encoded/decoded by serializers as "EBAPriorityService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPT")]
     [IsoId("_t9GgCPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction must be processed according to the EBA Priority Service.")]
     EBAPriorityService,
     
     /// <summary>
-    /// ??
+    /// Payment must be executed with same day value to the creditor.
     /// Encoded/decoded by serializers as "SameDayValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDVA")]
     [IsoId("_t9GgC_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed with same day value to the creditor.")]
     SameDayValue,
     
     /// <summary>
-    /// ??
+    /// Payment must be executed following the Single Euro Payments Area scheme.
     /// Encoded/decoded by serializers as "SingleEuroPaymentsArea".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEPA")]
     [IsoId("_t9GgDvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
     SingleEuroPaymentsArea,
     
     /// <summary>
-    /// ??
+    /// Payment execution following the cheque agreement and traveller cheque agreement of the German Banking Industry Committee (Die Deutsche Kreditwirtschaft - DK) and Deutsche Bundesbank – Scheck Verrechnung Deutschland
     /// Encoded/decoded by serializers as "DomesticChequeClearingAndSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVDE")]
     [IsoId("_t9QRAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment execution following the cheque agreement and traveller cheque agreement of the German Banking Industry Committee (Die Deutsche Kreditwirtschaft - DK) and Deutsche Bundesbank – Scheck Verrechnung Deutschland")]
     DomesticChequeClearingAndSettlement,
     
     /// <summary>
-    /// ??
+    /// Payment must be executed as an urgent transaction cleared through a real-time gross settlement system, which is typically identified as a wire or high value transaction.  
     /// Encoded/decoded by serializers as "UrgentPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URGP")]
     [IsoId("_t9QRBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed as an urgent transaction cleared through a real-time gross settlement system, which is typically identified as a wire or high value transaction.  ")]
     UrgentPayment,
     
     /// <summary>
-    /// ??
+    /// Payment must be executed as an urgent transaction cleared through a real-time net settlement system, which is typically identified as a wire or high value transaction.  
     /// Encoded/decoded by serializers as "UrgentPaymentNetSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URNS")]
     [IsoId("_t9aCAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed as an urgent transaction cleared through a real-time net settlement system, which is typically identified as a wire or high value transaction.  ")]
     UrgentPaymentNetSettlement,
     
     /// <summary>
-    /// ??
+    /// Used for payment initiation to identify that a Payment or Direct Debit initiation must be executed as an instant or real-time payment instrument.
     /// Encoded/decoded by serializers as "InstantCreditTransferOrInstantDirectDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_ThOEoVD-Eey6cYDbEubNXg")]
-    [Description(@"??")]
+    [Description(@"Used for payment initiation to identify that a Payment or Direct Debit initiation must be executed as an instant or real-time payment instrument.")]
     InstantCreditTransferOrInstantDirectDebit,
     
     /// <summary>
-    /// ??
+    /// Request to Pay (RTP) transaction refers to an RTP scheme (such as for example the SEPA Request to Pay (SRTP) scheme).
     /// Encoded/decoded by serializers as "ServiceRequestToPay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRTP")]
     [IsoId("_Tt5OsVD-Eey6cYDbEubNXg")]
-    [Description(@"??")]
+    [Description(@"Request to Pay (RTP) transaction refers to an RTP scheme (such as for example the SEPA Request to Pay (SRTP) scheme).")]
     ServiceRequestToPay,
     
     /// <summary>
-    /// ??
+    /// Scheck Verarbeitung Austria (Cheque Processing).
     /// Encoded/decoded by serializers as "ScheckVerarbeitungAustria".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVAT")]
     [IsoId("_HouqgY5FEeyANo-d7JlQ1A")]
-    [Description(@"??")]
+    [Description(@"Scheck Verarbeitung Austria (Cheque Processing).")]
     ScheckVerarbeitungAustria,
     
     /// <summary>
-    /// ??
+    /// Specifies the service conditions applicable to a tracked exceptions and investigations case.
     /// Encoded/decoded by serializers as "TrackedCaseManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G006")]
     [IsoId("_G0Cf4eAjEey0k8vo1GQhqQ")]
-    [Description(@"??")]
+    [Description(@"Specifies the service conditions applicable to a tracked exceptions and investigations case.")]
     TrackedCaseManagement,
     
     /// <summary>
-    /// ??
+    /// Specifies the service level for a tracked inbound customer credit transfer.
     /// Encoded/decoded by serializers as "TrackedInboundCustomerCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G007")]
     [IsoId("_HFnYEeAjEey0k8vo1GQhqQ")]
-    [Description(@"??")]
+    [Description(@"Specifies the service level for a tracked inbound customer credit transfer.")]
     TrackedInboundCustomerCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Tracked Instant Customer Credit Transfer.
+    /// 
+    /// 
     /// Encoded/decoded by serializers as "TrackedInstantCustomerCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G005")]
     [IsoId("_HTL6AeAjEey0k8vo1GQhqQ")]
-    [Description(@"??")]
+    [Description(@"Tracked Instant Customer Credit Transfer.  ")]
     TrackedInstantCustomerCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Specifies the service level for a tracked low-value cross-border customer credit transfer.
     /// Encoded/decoded by serializers as "TrackedLowValueCrossBorderCustomerCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G009")]
     [IsoId("_HdnBUeAjEey0k8vo1GQhqQ")]
-    [Description(@"??")]
+    [Description(@"Specifies the service level for a tracked low-value cross-border customer credit transfer.")]
     TrackedLowValueCrossBorderCustomerCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Transaction is to be treated as an advice and only applied to the account of the creditor or next agent after settlement of the cover has been confirmed.
     /// Encoded/decoded by serializers as "WaitForSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WFSM")]
     [IsoId("_T8HuAmvcEe2F6NrIyOmXcA")]
-    [Description(@"??")]
+    [Description(@"Transaction is to be treated as an advice and only applied to the account of the creditor or next agent after settlement of the cover has been confirmed.")]
     WaitForSettlement,
     
     /// <summary>
-    /// ??
+    /// Payment is executed following a Euro One-Leg Out Scheme.
     /// Encoded/decoded by serializers as "EuroOneLegOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EOLO")]
     [IsoId("_9m6qUv7KEe2ORYPQEd-Clg")]
-    [Description(@"??")]
+    [Description(@"Payment is executed following a Euro One-Leg Out Scheme.")]
     EuroOneLegOut,
     
 }

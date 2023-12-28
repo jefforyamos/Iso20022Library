@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProcessedStatus5Code
 {
     /// <summary>
-    /// ??
+    /// The instruction/request has been received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_aKxI4Np-Ed-ak6NoX_4Aeg_-1913679382")]
-    [Description(@"??")]
+    [Description(@"The instruction/request has been received.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// The request is accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_aKxI4dp-Ed-ak6NoX_4Aeg_-1913679351")]
-    [Description(@"??")]
+    [Description(@"The request is accepted.")]
     Accepted,
     
 }

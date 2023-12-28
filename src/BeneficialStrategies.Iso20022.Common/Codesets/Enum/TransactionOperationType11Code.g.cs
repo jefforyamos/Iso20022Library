@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionOperationType11Code
 {
     /// <summary>
-    /// ??
+    /// Transaction corrects errors in a previously sent transaction.
     /// Encoded/decoded by serializers as "Correction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORR")]
     [IsoId("_AHVSkU2YEe2bQ-Ksk8mwQg")]
-    [Description(@"??")]
+    [Description(@"Transaction corrects errors in a previously sent transaction.")]
     Correction,
     
     /// <summary>
-    /// ??
+    /// Indicates the report of the collateral data or of their modifications, but not the corrections of the previously reported collateral details.
     /// Encoded/decoded by serializers as "MarginUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARU")]
     [IsoId("_A3-sYU2YEe2bQ-Ksk8mwQg")]
-    [Description(@"??")]
+    [Description(@"Indicates the report of the collateral data or of their modifications, but not the corrections of the previously reported collateral details.")]
     MarginUpdate,
     
     /// <summary>
-    /// ??
+    /// Transaction is a new transaction.
     /// Encoded/decoded by serializers as "NewTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWT")]
     [IsoId("_BjAmYU2YEe2bQ-Ksk8mwQg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a new transaction.")]
     NewTransaction,
     
     /// <summary>
-    /// ??
+    /// Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake or a cancellation of duplicate report.
     /// Encoded/decoded by serializers as "Error".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EROR")]
     [IsoId("_LmjDUWW_Ee2JluottcAG9w")]
-    [Description(@"??")]
+    [Description(@"Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake or a cancellation of duplicate report.")]
     Error,
     
 }

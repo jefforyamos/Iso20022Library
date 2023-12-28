@@ -20,30 +20,31 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MOTO1Code
 {
     /// <summary>
-    /// ??
+    /// Mail order.
     /// Encoded/decoded by serializers as "MailOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAOR")]
     [IsoId("_V2gisTxSEeyuG4d2lhAp-w")]
-    [Description(@"??")]
+    [Description(@"Mail order.")]
     MailOrder,
     
     /// <summary>
-    /// ??
+    /// Mail order or telephone order.
+    /// 
     /// Encoded/decoded by serializers as "MailOrderOrTelephoneOrder.".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOTO")]
     [IsoId("_V6r4ETxSEeyuG4d2lhAp-w")]
-    [Description(@"??")]
+    [Description(@"Mail order or telephone order. ")]
     MailOrderOrTelephoneOrder,
     
     /// <summary>
-    /// ??
+    /// Telephone order
     /// Encoded/decoded by serializers as "TelephoneOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TPOR")]
     [IsoId("_V-eL4TxSEeyuG4d2lhAp-w")]
-    [Description(@"??")]
+    [Description(@"Telephone order")]
     TelephoneOrder,
     
 }

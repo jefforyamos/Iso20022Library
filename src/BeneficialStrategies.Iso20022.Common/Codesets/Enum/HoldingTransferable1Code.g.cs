@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum HoldingTransferable1Code
 {
     /// <summary>
-    /// ??
+    /// Transfer is allowed.
     /// Encoded/decoded by serializers as "TransferAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAL")]
     [IsoId("_aV8eINp-Ed-ak6NoX_4Aeg_-1077608606")]
-    [Description(@"??")]
+    [Description(@"Transfer is allowed.")]
     TransferAllowed,
     
     /// <summary>
-    /// ??
+    /// Transfer is not allowed.
     /// Encoded/decoded by serializers as "TransferNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRNA")]
     [IsoId("_aV8eIdp-Ed-ak6NoX_4Aeg_-1064678911")]
-    [Description(@"??")]
+    [Description(@"Transfer is not allowed.")]
     TransferNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Indicates that the operation is only possible in restricted circumstances.
     /// Encoded/decoded by serializers as "ReferToFundOrderDesk".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFOD")]
     [IsoId("_aV8eItp-Ed-ak6NoX_4Aeg_-823640508")]
-    [Description(@"??")]
+    [Description(@"Indicates that the operation is only possible in restricted circumstances.")]
     ReferToFundOrderDesk,
     
 }

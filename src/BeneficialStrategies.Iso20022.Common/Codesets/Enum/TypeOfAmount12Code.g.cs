@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount12Code
 {
     /// <summary>
-    /// ??
+    /// Transaction amount that has been authorised.
     /// Encoded/decoded by serializers as "AuthorisedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTH")]
     [IsoId("_z_oWAVT6EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Transaction amount that has been authorised.")]
     AuthorisedAmount,
     
     /// <summary>
-    /// ??
+    /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
     /// Encoded/decoded by serializers as "Discount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCNT")]
     [IsoId("_4CMzkVT6EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.")]
     Discount,
     
     /// <summary>
-    /// ??
+    /// Fee applied by the card issuer to the cardholder.
     /// Encoded/decoded by serializers as "IssuerCardholderFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISCF")]
     [IsoId("_5p5KIVT6EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Fee applied by the card issuer to the cardholder.")]
     IssuerCardholderFee,
     
     /// <summary>
-    /// ??
+    /// Contains the total amount of all authorisations related to the same cardholder purchase activities. Example: total of all incremental or splitted shipment authorisations for the same purchase.
     /// Encoded/decoded by serializers as "Cumulative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUAT")]
     [IsoId("_IFzkoVT8EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Contains the total amount of all authorisations related to the same cardholder purchase activities. Example: total of all incremental or splitted shipment authorisations for the same purchase.")]
     Cumulative,
     
     /// <summary>
-    /// ??
+    /// Maximum amount (the final amount must be less or equal).
     /// Encoded/decoded by serializers as "Maximum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXI")]
     [IsoId("_NlW9kVT8EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Maximum amount (the final amount must be less or equal).")]
     Maximum,
     
     /// <summary>
-    /// ??
+    /// Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.
     /// Encoded/decoded by serializers as "MaximumAllowedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTX")]
     [IsoId("_OU91kVT8EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.")]
     MaximumAllowedAmount,
     
     /// <summary>
-    /// ??
+    /// Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.
     /// Encoded/decoded by serializers as "MinimumAllowedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTN")]
     [IsoId("_OdmNIVT8EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.")]
     MinimumAllowedAmount,
     
     /// <summary>
-    /// ??
+    /// Transaction amount that has been requested to be authorised.
     /// Encoded/decoded by serializers as "RequestedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTQ")]
     [IsoId("_PRg9YVT8EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Transaction amount that has been requested to be authorised.")]
     RequestedAmount,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_PxWUAVT8EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_P_e2oVT8EeetiruPyDPo0Q")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Requested cashback amount
     /// Encoded/decoded by serializers as "RequestedCashback".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQCH")]
     [IsoId("_2t9sYRcJEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Requested cashback amount")]
     RequestedCashback,
     
     /// <summary>
-    /// ??
+    /// Amount anticipated for the transaction
     /// Encoded/decoded by serializers as "Anticipated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANTA")]
     [IsoId("_27WoIRcJEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Amount anticipated for the transaction")]
     Anticipated,
     
     /// <summary>
-    /// ??
+    /// Local amount before DCC (Dynamic Currency Conversion) was applied.
     /// Encoded/decoded by serializers as "PreDCC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDCC")]
     [IsoId("_qD6MgekUEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Local amount before DCC (Dynamic Currency Conversion) was applied.")]
     PreDCC,
     
 }

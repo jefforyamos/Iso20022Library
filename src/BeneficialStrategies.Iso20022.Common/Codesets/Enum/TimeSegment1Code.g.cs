@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TimeSegment1Code
 {
     /// <summary>
-    /// ??
+    /// Ante meridiem or before noon time period.
     /// Encoded/decoded by serializers as "AM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMBN")]
     [IsoId("_VvKAcV1mEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Ante meridiem or before noon time period.")]
     AM,
     
     /// <summary>
-    /// ??
+    /// Post meridiem or after noon time period.
     /// Encoded/decoded by serializers as "PM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMAN")]
     [IsoId("_V8i8Ml1mEeeu75xdwwAXQw")]
-    [Description(@"??")]
+    [Description(@"Post meridiem or after noon time period.")]
     PM,
     
 }

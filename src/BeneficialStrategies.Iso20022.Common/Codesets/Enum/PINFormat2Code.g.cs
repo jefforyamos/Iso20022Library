@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PINFormat2Code
 {
     /// <summary>
-    /// ??
+    /// PIN diversified with the card account number, conforming to the standard ISO 9564-2.
     /// Encoded/decoded by serializers as "ISO0".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO0")]
     [IsoId("_DKxWoQvFEeKzJ69IWwzB9Q")]
-    [Description(@"??")]
+    [Description(@"PIN diversified with the card account number, conforming to the standard ISO 9564-2.")]
     ISO0,
     
     /// <summary>
-    /// ??
+    /// PIN completed with random padding characters, conforming to the standard ISO 9564-2.
     /// Encoded/decoded by serializers as "ISO1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO1")]
     [IsoId("_DSXMYwvFEeKzJ69IWwzB9Q")]
-    [Description(@"??")]
+    [Description(@"PIN completed with random padding characters, conforming to the standard ISO 9564-2.")]
     ISO1,
     
     /// <summary>
-    /// ??
+    /// PIN without diversification characters, conforming to the standard ISO 9564-2.
     /// Encoded/decoded by serializers as "ISO2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO2")]
     [IsoId("_DX3XcwvFEeKzJ69IWwzB9Q")]
-    [Description(@"??")]
+    [Description(@"PIN without diversification characters, conforming to the standard ISO 9564-2.")]
     ISO2,
     
     /// <summary>
-    /// ??
+    /// PIN diversified with the card account number and random characters, conforming to the standard ISO 9564-2.
     /// Encoded/decoded by serializers as "ISO3".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO3")]
     [IsoId("_DgDDEQvFEeKzJ69IWwzB9Q")]
-    [Description(@"??")]
+    [Description(@"PIN diversified with the card account number and random characters, conforming to the standard ISO 9564-2.")]
     ISO3,
     
     /// <summary>
-    /// ??
+    /// PIN format used with AES encryption, conforming to the new ISO SC2 format.
     /// Encoded/decoded by serializers as "ISO4".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO4")]
     [IsoId("_DnyCwQvFEeKzJ69IWwzB9Q")]
-    [Description(@"??")]
+    [Description(@"PIN format used with AES encryption, conforming to the new ISO SC2 format.")]
     ISO4,
     
 }

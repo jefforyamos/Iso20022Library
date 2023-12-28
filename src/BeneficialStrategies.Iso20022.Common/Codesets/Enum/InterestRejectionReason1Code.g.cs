@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterestRejectionReason1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates whether the interest request is rejected due a value date difference.
     /// Encoded/decoded by serializers as "ValueDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VADA")]
     [IsoId("_YbKMctp-Ed-ak6NoX_4Aeg_-74499350")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the interest request is rejected due a value date difference.")]
     ValueDate,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the interest request is rejected due an interest amount difference.
     /// Encoded/decoded by serializers as "DisputeAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIAM")]
     [IsoId("_YbKMc9p-Ed-ak6NoX_4Aeg_1862725823")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the interest request is rejected due an interest amount difference.")]
     DisputeAmount,
     
 }

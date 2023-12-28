@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartialInstruction3Code
 {
     /// <summary>
-    /// ??
+    /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.
     /// Encoded/decoded by serializers as "HoldCashForCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_ZxSR5Np-Ed-ak6NoX_4Aeg_528226787")]
-    [Description(@"??")]
+    [Description(@"Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.")]
     HoldCashForCreditor,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact (ultimate) creditor/claimant by phone.
     /// Encoded/decoded by serializers as "PhoneBeneficiary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHOB")]
     [IsoId("_ZxSR5dp-Ed-ak6NoX_4Aeg_528226788")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact (ultimate) creditor/claimant by phone.")]
     PhoneBeneficiary,
     
     /// <summary>
-    /// ??
+    /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
     /// Encoded/decoded by serializers as "Telecom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELB")]
     [IsoId("_ZxSR5tp-Ed-ak6NoX_4Aeg_528226818")]
-    [Description(@"??")]
+    [Description(@"Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.")]
     Telecom,
     
 }

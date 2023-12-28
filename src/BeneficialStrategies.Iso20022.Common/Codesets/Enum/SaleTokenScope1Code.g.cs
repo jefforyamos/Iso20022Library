@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SaleTokenScope1Code
 {
     /// <summary>
-    /// ??
+    /// The token is generated to recognise a customer for a longer period.
     /// Encoded/decoded by serializers as "MultipleUse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MULT")]
     [IsoId("_1z1xQdwsEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The token is generated to recognise a customer for a longer period.")]
     MultipleUse,
     
     /// <summary>
-    /// ??
+    /// The token is generated to recognise  a customer during the lifetime of a transaction.
     /// Encoded/decoded by serializers as "SingleUse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNGL")]
     [IsoId("_147FkdwsEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The token is generated to recognise  a customer during the lifetime of a transaction.")]
     SingleUse,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NotApplicable1Code
 {
     /// <summary>
-    /// ??
+    /// Not applicable (N/A).
     /// Encoded/decoded by serializers as "NotApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAP")]
     [IsoId("_eTsTgYCCEeqdQubSe21TTw")]
-    [Description(@"??")]
+    [Description(@"Not applicable (N/A).")]
     NotApplicable,
     
 }

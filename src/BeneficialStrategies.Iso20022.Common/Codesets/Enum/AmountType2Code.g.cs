@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AmountType2Code
 {
     /// <summary>
-    /// ??
+    /// The amount represents a fixed value.
     /// Encoded/decoded by serializers as "FixedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXD")]
     [IsoId("_aISmtn04EeGlwNeVP9egyg")]
-    [Description(@"??")]
+    [Description(@"The amount represents a fixed value.")]
     FixedAmount,
     
     /// <summary>
-    /// ??
+    /// The amount represents the maximum value.
     /// Encoded/decoded by serializers as "MaximumAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXI")]
     [IsoId("_aXoqRn04EeGlwNeVP9egyg")]
-    [Description(@"??")]
+    [Description(@"The amount represents the maximum value.")]
     MaximumAmount,
     
     /// <summary>
-    /// ??
+    /// The amount represents the minimum value.
     /// Encoded/decoded by serializers as "MinimumAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINI")]
     [IsoId("_ahLAxn04EeGlwNeVP9egyg")]
-    [Description(@"??")]
+    [Description(@"The amount represents the minimum value.")]
     MinimumAmount,
     
 }

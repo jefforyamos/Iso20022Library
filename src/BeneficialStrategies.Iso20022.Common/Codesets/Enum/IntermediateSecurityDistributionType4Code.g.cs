@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IntermediateSecurityDistributionType4Code
 {
     /// <summary>
-    /// ??
+    /// Distribution of reverser rights.
     /// Encoded/decoded by serializers as "ReverseRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIDS")]
     [IsoId("_q40nQWtdEeCY4-KZ9JEyUQ_1290915379")]
-    [Description(@"??")]
+    [Description(@"Distribution of reverser rights.")]
     ReverseRights,
     
     /// <summary>
-    /// ??
+    /// Distribution of dividend reinvestment securities.
     /// Encoded/decoded by serializers as "DividendReinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRIP")]
     [IsoId("_q40nQmtdEeCY4-KZ9JEyUQ_1944913624")]
-    [Description(@"??")]
+    [Description(@"Distribution of dividend reinvestment securities.")]
     DividendReinvestment,
     
     /// <summary>
-    /// ??
+    /// Distribution of cash to shareholders, in proportion to their equity holding. Ordinary dividends are recurring and regular. Shareholder must take cash and may be offered a choice of currency.
     /// Encoded/decoded by serializers as "CashDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVCA")]
     [IsoId("_q40nQ2tdEeCY4-KZ9JEyUQ_-1450152006")]
-    [Description(@"??")]
+    [Description(@"Distribution of cash to shareholders, in proportion to their equity holding. Ordinary dividends are recurring and regular. Shareholder must take cash and may be offered a choice of currency.")]
     CashDividend,
     
     /// <summary>
-    /// ??
+    /// Distribution of dividend option.
     /// Encoded/decoded by serializers as "DividendOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVOP")]
     [IsoId("_q40nRGtdEeCY4-KZ9JEyUQ_1847742937")]
-    [Description(@"??")]
+    [Description(@"Distribution of dividend option.")]
     DividendOption,
     
     /// <summary>
-    /// ??
+    /// Distribution of subscription rights.
     /// Encoded/decoded by serializers as "SubscriptionRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXRI")]
     [IsoId("_q40nRWtdEeCY4-KZ9JEyUQ_1330753765")]
-    [Description(@"??")]
+    [Description(@"Distribution of subscription rights.")]
     SubscriptionRights,
     
     /// <summary>
-    /// ??
+    /// Distribution of open offer rights.
     /// Encoded/decoded by serializers as "OpenOfferRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIO")]
     [IsoId("_q40nRmtdEeCY4-KZ9JEyUQ_1012977104")]
-    [Description(@"??")]
+    [Description(@"Distribution of open offer rights.")]
     OpenOfferRights,
     
     /// <summary>
-    /// ??
+    /// Dividend or interest paid in the form of scrip.
     /// Encoded/decoded by serializers as "ScripDividendOrPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVSC")]
     [IsoId("_q4-YQGtdEeCY4-KZ9JEyUQ_15904751")]
-    [Description(@"??")]
+    [Description(@"Dividend or interest paid in the form of scrip.")]
     ScripDividendOrPayment,
     
     /// <summary>
-    /// ??
+    /// Dividend paid to shareholders in the form of shares of stock.
     /// Encoded/decoded by serializers as "StockDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVSE")]
     [IsoId("_q4-YQWtdEeCY4-KZ9JEyUQ_-1924179236")]
-    [Description(@"??")]
+    [Description(@"Dividend paid to shareholders in the form of shares of stock.")]
     StockDividend,
     
     /// <summary>
-    /// ??
+    /// Interest payment distributed to holders of an interest bearing asset.
     /// Encoded/decoded by serializers as "InterestPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_q4-YQmtdEeCY4-KZ9JEyUQ_1373715707")]
-    [Description(@"??")]
+    [Description(@"Interest payment distributed to holders of an interest bearing asset.")]
     InterestPayment,
     
     /// <summary>
-    /// ??
+    /// A distribution of cash, assets or both.
     /// Encoded/decoded by serializers as "LiquidationDividendOrPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIQU")]
     [IsoId("_q4-YQ2tdEeCY4-KZ9JEyUQ_-1336047334")]
-    [Description(@"??")]
+    [Description(@"A distribution of cash, assets or both.")]
     LiquidationDividendOrPayment,
     
     /// <summary>
-    /// ??
+    /// A distribution of subsidiary stock to the shareholders.
     /// Encoded/decoded by serializers as "SpinOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFF")]
     [IsoId("_q4-YRGtdEeCY4-KZ9JEyUQ_981006340")]
-    [Description(@"??")]
+    [Description(@"A distribution of subsidiary stock to the shareholders.")]
     SpinOff,
     
     /// <summary>
-    /// ??
+    /// Also known as change in nominal value or subdivision.|Increase in a corporation's number of outstanding equities without any change in the shareholder's equity or the aggregate market value at the time of the split. Equity price and nominal value are reduced accordingly.
     /// Encoded/decoded by serializers as "StockSplit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLF")]
     [IsoId("_q4-YRWtdEeCY4-KZ9JEyUQ_-16066013")]
-    [Description(@"??")]
+    [Description(@"Also known as change in nominal value or subdivision.|Increase in a corporation's number of outstanding equities without any change in the shareholder's equity or the aggregate market value at the time of the split. Equity price and nominal value are reduced accordingly.")]
     StockSplit,
     
     /// <summary>
-    /// ??
+    /// Distribution of bonus rights.
     /// Encoded/decoded by serializers as "BonusRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BONU")]
     [IsoId("_q4-YRmtdEeCY4-KZ9JEyUQ_1306123847")]
-    [Description(@"??")]
+    [Description(@"Distribution of bonus rights.")]
     BonusRights,
     
     /// <summary>
-    /// ??
+    /// Exchange of holdings for other securities and/or cash. The exchange can be either mandatory or voluntary involving the exchange of outstanding securities for different securities and/or cash. For example "exchange offer", "capital reorganisation" or "funds separation".
     /// Encoded/decoded by serializers as "Exchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXOF")]
     [IsoId("_q5HiMGtdEeCY4-KZ9JEyUQ_-1028950518")]
-    [Description(@"??")]
+    [Description(@"Exchange of holdings for other securities and/or cash. The exchange can be either mandatory or voluntary involving the exchange of outstanding securities for different securities and/or cash. For example ""exchange offer"", ""capital reorganisation"" or ""funds separation"".")]
     Exchange,
     
 }

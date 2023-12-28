@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType10Code
 {
     /// <summary>
-    /// ??
+    /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
     /// Encoded/decoded by serializers as "Acceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_dnNTkXrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
     Acceptor,
     
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_dtndkXrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Entity managing the ATM.
     /// Encoded/decoded by serializers as "ATMManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATMG")]
     [IsoId("_e5urYXrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Entity managing the ATM.")]
     ATMManager,
     
     /// <summary>
-    /// ??
+    /// Party that issues cards.
     /// Encoded/decoded by serializers as "CardIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISS")]
     [IsoId("_ftit8XrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Party that issues cards.")]
     CardIssuer,
     
     /// <summary>
-    /// ??
+    /// Party to whom the card issuer delegates to authorise card payment transactions.
     /// Encoded/decoded by serializers as "DelegateIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLIS")]
     [IsoId("_f-YmUXrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
     DelegateIssuer,
     
     /// <summary>
-    /// ??
+    /// Entity hosting the ATM.
     /// Encoded/decoded by serializers as "HostingEntity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HSTG")]
     [IsoId("_hm2Y8XrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Entity hosting the ATM.")]
     HostingEntity,
     
     /// <summary>
-    /// ??
+    /// Party acting on behalf of other parties to process or forward data to other parties.
     /// Encoded/decoded by serializers as "IntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAG")]
     [IsoId("_h05cAXrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
     IntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Merchant providing goods and service in the card payment transaction.
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_i5CZkXrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Merchant providing goods and service in the card payment transaction.")]
     Merchant,
     
     /// <summary>
-    /// ??
+    /// ATM initiating the transaction.
     /// Encoded/decoded by serializers as "OriginatingATM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OATM")]
     [IsoId("_jRkOUXrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"ATM initiating the transaction.")]
     OriginatingATM,
     
     /// <summary>
-    /// ??
+    /// Point Of Interaction initiating the card payment transaction.
     /// Encoded/decoded by serializers as "OriginatingPOI".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPOI")]
     [IsoId("_jYxCgXrgEeSlsoBd7x4P6A")]
-    [Description(@"??")]
+    [Description(@"Point Of Interaction initiating the card payment transaction.")]
     OriginatingPOI,
     
 }

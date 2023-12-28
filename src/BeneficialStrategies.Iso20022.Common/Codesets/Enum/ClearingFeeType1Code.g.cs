@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClearingFeeType1Code
 {
     /// <summary>
-    /// ??
+    /// Member of the Chicago Board Of Exchange.
     /// Encoded/decoded by serializers as "CBOEMember".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBOE")]
     [IsoId("_a_X1ptp-Ed-ak6NoX_4Aeg_-26409555")]
-    [Description(@"??")]
+    [Description(@"Member of the Chicago Board Of Exchange.")]
     CBOEMember,
     
     /// <summary>
-    /// ??
+    /// Non-member and customer.
     /// Encoded/decoded by serializers as "NonMemberAndCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONM")]
     [IsoId("_a_X1p9p-Ed-ak6NoX_4Aeg_-26409537")]
-    [Description(@"??")]
+    [Description(@"Non-member and customer.")]
     NonMemberAndCustomer,
     
     /// <summary>
-    /// ??
+    /// Equity member and clearing member.
     /// Encoded/decoded by serializers as "EquityClearingMember".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQCL")]
     [IsoId("_a_X1qNp-Ed-ak6NoX_4Aeg_-26409494")]
-    [Description(@"??")]
+    [Description(@"Equity member and clearing member.")]
     EquityClearingMember,
     
     /// <summary>
-    /// ??
+    /// Full and associate member trading for own account and as floor brokers.
     /// Encoded/decoded by serializers as "FullAssociateMember".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUAS")]
     [IsoId("_a_X1qdp-Ed-ak6NoX_4Aeg_-26409234")]
-    [Description(@"??")]
+    [Description(@"Full and associate member trading for own account and as floor brokers.")]
     FullAssociateMember,
     
     /// <summary>
-    /// ??
+    /// 106.J and 106.H Firms.
     /// Encoded/decoded by serializers as "J106AndHFirms".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JANF")]
     [IsoId("_a_g_kNp-Ed-ak6NoX_4Aeg_-26409199")]
-    [Description(@"??")]
+    [Description(@"106.J and 106.H Firms.")]
     J106AndHFirms,
     
     /// <summary>
-    /// ??
+    /// GIM, IDEM and COM Membership Interest Holders.
     /// Encoded/decoded by serializers as "GICInterestHolders".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GICI")]
     [IsoId("_a_g_kdp-Ed-ak6NoX_4Aeg_-26409164")]
-    [Description(@"??")]
+    [Description(@"GIM, IDEM and COM Membership Interest Holders.")]
     GICInterestHolders,
     
     /// <summary>
-    /// ??
+    /// Lessee and 106.F Employees.
     /// Encoded/decoded by serializers as "LesseeAnd106FFirms".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LESF")]
     [IsoId("_a_g_ktp-Ed-ak6NoX_4Aeg_-26409104")]
-    [Description(@"??")]
+    [Description(@"Lessee and 106.F Employees.")]
     LesseeAnd106FFirms,
     
     /// <summary>
-    /// ??
+    /// Miscellaneous type of clearing membership.
     /// Encoded/decoded by serializers as "OtherOwnershipTypes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_a_g_k9p-Ed-ak6NoX_4Aeg_-26409062")]
-    [Description(@"??")]
+    [Description(@"Miscellaneous type of clearing membership.")]
     OtherOwnershipTypes,
     
     /// <summary>
-    /// ??
+    /// First year delegate trading for his own account.
     /// Encoded/decoded by serializers as "FirstYearOwnAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YTR1")]
     [IsoId("_a_g_lNp-Ed-ak6NoX_4Aeg_-26408779")]
-    [Description(@"??")]
+    [Description(@"First year delegate trading for his own account.")]
     FirstYearOwnAccount,
     
     /// <summary>
-    /// ??
+    /// Second year delegate trading for his own account.
     /// Encoded/decoded by serializers as "SecondYearOwnAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YTR2")]
     [IsoId("_a_g_ldp-Ed-ak6NoX_4Aeg_-26408719")]
-    [Description(@"??")]
+    [Description(@"Second year delegate trading for his own account.")]
     SecondYearOwnAccount,
     
     /// <summary>
-    /// ??
+    /// Third year delegate trading for his own account.
     /// Encoded/decoded by serializers as "ThirdYearOwnAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YTR3")]
     [IsoId("_a_g_ltp-Ed-ak6NoX_4Aeg_-26408676")]
-    [Description(@"??")]
+    [Description(@"Third year delegate trading for his own account.")]
     ThirdYearOwnAccount,
     
     /// <summary>
-    /// ??
+    /// Fourth year delegate trading for his own account.
     /// Encoded/decoded by serializers as "FourthYearOwnAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YTR4")]
     [IsoId("_a_g_l9p-Ed-ak6NoX_4Aeg_-26408659")]
-    [Description(@"??")]
+    [Description(@"Fourth year delegate trading for his own account.")]
     FourthYearOwnAccount,
     
     /// <summary>
-    /// ??
+    /// Fifth year delegate trading for his own account.
     /// Encoded/decoded by serializers as "FifthYearOwnAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YTR5")]
     [IsoId("_a_g_mNp-Ed-ak6NoX_4Aeg_-26408641")]
-    [Description(@"??")]
+    [Description(@"Fifth year delegate trading for his own account.")]
     FifthYearOwnAccount,
     
     /// <summary>
-    /// ??
+    /// Sixth year and beyond delegate trading for his own account.
     /// Encoded/decoded by serializers as "MoreThanFiveYearOwnAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NYTR")]
     [IsoId("_a_g_mdp-Ed-ak6NoX_4Aeg_-26408624")]
-    [Description(@"??")]
+    [Description(@"Sixth year and beyond delegate trading for his own account.")]
     MoreThanFiveYearOwnAccount,
     
 }

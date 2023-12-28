@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SupportedPaymentOption1Code
 {
     /// <summary>
-    /// ??
+    /// The entity supports a partial approval of the payment transaction.
     /// Encoded/decoded by serializers as "PartialApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_Aa2nQTAOEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"The entity supports a partial approval of the payment transaction.")]
     PartialApproval,
     
     /// <summary>
-    /// ??
+    /// The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).
     /// Encoded/decoded by serializers as "PaymentApprovalOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSRV")]
     [IsoId("_Am5fMzAOEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).")]
     PaymentApprovalOnly,
     
 }

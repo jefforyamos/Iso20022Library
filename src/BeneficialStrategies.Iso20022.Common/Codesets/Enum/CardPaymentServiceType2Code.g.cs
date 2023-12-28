@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardPaymentServiceType2Code
 {
     /// <summary>
-    /// ??
+    /// Aggregation of low payments.
     /// Encoded/decoded by serializers as "Aggregation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGGR")]
     [IsoId("_TSqIcAEcEeCQm6a_G2yO_w_-607130617")]
-    [Description(@"??")]
+    [Description(@"Aggregation of low payments.")]
     Aggregation,
     
     /// <summary>
-    /// ??
+    /// Dynamic currency conversion (DCC).
     /// Encoded/decoded by serializers as "DCC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCV")]
     [IsoId("_TSqIcQEcEeCQm6a_G2yO_w_1045496891")]
-    [Description(@"??")]
+    [Description(@"Dynamic currency conversion (DCC).")]
     DCC,
     
     /// <summary>
-    /// ??
+    /// Card payment with gratuity.
     /// Encoded/decoded by serializers as "Gratuity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRTT")]
     [IsoId("_TSqIcgEcEeCQm6a_G2yO_w_1223615563")]
-    [Description(@"??")]
+    [Description(@"Card payment with gratuity.")]
     Gratuity,
     
     /// <summary>
-    /// ??
+    /// Instalment payment.
     /// Encoded/decoded by serializers as "Instalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSP")]
     [IsoId("_TSqIcwEcEeCQm6a_G2yO_w_931657825")]
-    [Description(@"??")]
+    [Description(@"Instalment payment.")]
     Instalment,
     
     /// <summary>
-    /// ??
+    /// Loyalty services.
     /// Encoded/decoded by serializers as "Loyalty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOYT")]
     [IsoId("_TSqIdAEcEeCQm6a_G2yO_w_-1604202970")]
-    [Description(@"??")]
+    [Description(@"Loyalty services.")]
     Loyalty,
     
     /// <summary>
-    /// ??
+    /// No show after reservation.
     /// Encoded/decoded by serializers as "NoShow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRES")]
     [IsoId("_TSz5YAEcEeCQm6a_G2yO_w_48424538")]
-    [Description(@"??")]
+    [Description(@"No show after reservation.")]
     NoShow,
     
     /// <summary>
-    /// ??
+    /// Purchase and corporate data.
     /// Encoded/decoded by serializers as "PurchaseCorporate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUCO")]
     [IsoId("_TSz5YQEcEeCQm6a_G2yO_w_226543210")]
-    [Description(@"??")]
+    [Description(@"Purchase and corporate data.")]
     PurchaseCorporate,
     
     /// <summary>
-    /// ??
+    /// Recurring payment.
     /// Encoded/decoded by serializers as "RecurringPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECP")]
     [IsoId("_TSz5YgEcEeCQm6a_G2yO_w_-65414528")]
-    [Description(@"??")]
+    [Description(@"Recurring payment.")]
     RecurringPayment,
     
     /// <summary>
-    /// ??
+    /// Solicited available funds.
     /// Encoded/decoded by serializers as "SolicitedAvailableFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOAF")]
     [IsoId("_TSz5YwEcEeCQm6a_G2yO_w_1693691973")]
-    [Description(@"??")]
+    [Description(@"Solicited available funds.")]
     SolicitedAvailableFunds,
     
     /// <summary>
-    /// ??
+    /// Unsolicited available funds.
     /// Encoded/decoded by serializers as "UnsolicitedAvailableFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNAF")]
     [IsoId("_TSz5ZAEcEeCQm6a_G2yO_w_-948647815")]
-    [Description(@"??")]
+    [Description(@"Unsolicited available funds.")]
     UnsolicitedAvailableFunds,
     
     /// <summary>
-    /// ??
+    /// Voice authorisation.
     /// Encoded/decoded by serializers as "VoiceAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VCAU")]
     [IsoId("_TSz5ZQEcEeCQm6a_G2yO_w_-770529143")]
-    [Description(@"??")]
+    [Description(@"Voice authorisation.")]
     VoiceAuthorisation,
     
 }

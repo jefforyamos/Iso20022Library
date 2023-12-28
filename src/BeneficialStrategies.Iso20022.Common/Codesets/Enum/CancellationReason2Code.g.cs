@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationReason2Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation requested by the Debtor.
     /// Encoded/decoded by serializers as "RequestedByCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_bX9UyNp-Ed-ak6NoX_4Aeg_1539844657")]
-    [Description(@"??")]
+    [Description(@"Cancellation requested by the Debtor.")]
     RequestedByCustomer,
     
     /// <summary>
-    /// ??
+    /// Payment is a duplicate of another payment.
     /// Encoded/decoded by serializers as "DuplicatePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_bYGesNp-Ed-ak6NoX_4Aeg_1539844717")]
-    [Description(@"??")]
+    [Description(@"Payment is a duplicate of another payment.")]
     DuplicatePayment,
     
     /// <summary>
-    /// ??
+    /// Agent in the payment workflow is incorrect.
     /// Encoded/decoded by serializers as "IncorrectAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_bYGesdp-Ed-ak6NoX_4Aeg_1539845000")]
-    [Description(@"??")]
+    [Description(@"Agent in the payment workflow is incorrect.")]
     IncorrectAgent,
     
     /// <summary>
-    /// ??
+    /// Currency of the payment is incorrect.
     /// Encoded/decoded by serializers as "IncorrectCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_bYGestp-Ed-ak6NoX_4Aeg_1539845025")]
-    [Description(@"??")]
+    [Description(@"Currency of the payment is incorrect.")]
     IncorrectCurrency,
     
     /// <summary>
-    /// ??
+    /// Payment is not justified.
     /// Encoded/decoded by serializers as "UnduePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPAY")]
     [IsoId("_bYGes9p-Ed-ak6NoX_4Aeg_1539845060")]
-    [Description(@"??")]
+    [Description(@"Payment is not justified.")]
     UnduePayment,
     
     /// <summary>
-    /// ??
+    /// Payment is a suspicious payment.
     /// Encoded/decoded by serializers as "SuspiciousPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_bYGetNp-Ed-ak6NoX_4Aeg_1640509378")]
-    [Description(@"??")]
+    [Description(@"Payment is a suspicious payment.")]
     SuspiciousPayment,
     
 }

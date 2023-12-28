@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RegisteredNumberType1Code
 {
     /// <summary>
-    /// ??
+    /// Australian Business Number (ABN) is a single identifier for use in business dealings with the Australian Taxation Office (ATO) and with other government agencies.
     /// Encoded/decoded by serializers as "AustralianBusinessNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABN")]
     [IsoId("_9Y56UVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Australian Business Number (ABN) is a single identifier for use in business dealings with the Australian Taxation Office (ATO) and with other government agencies.")]
     AustralianBusinessNumber,
     
     /// <summary>
-    /// ??
+    /// Number identifying a company, issued by the Australian Securities & Investments Commission (ASIC) upon registration.
     /// Encoded/decoded by serializers as "AustralianCompanyNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACN")]
     [IsoId("_9eQUYVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Number identifying a company, issued by the Australian Securities & Investments Commission (ASIC) upon registration.")]
     AustralianCompanyNumber,
     
     /// <summary>
-    /// ??
+    /// ARBNs are issued to registrable Australian bodies and foreign companies. The ARBN is a unique identifier and no two bodies can have the same ARBN.
     /// Encoded/decoded by serializers as "AustralianRegisteredBodyNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARBN")]
     [IsoId("_9lGjQVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"ARBNs are issued to registrable Australian bodies and foreign companies. The ARBN is a unique identifier and no two bodies can have the same ARBN.")]
     AustralianRegisteredBodyNumber,
     
     /// <summary>
-    /// ??
+    /// ARSNs are issued to Managed Investment Schemes. The ARSN is a unique identifier and no two bodies can have the same ARSN.
     /// Encoded/decoded by serializers as "AustralianRegisteredSchemeNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARSN")]
     [IsoId("_9r8LEVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"ARSNs are issued to Managed Investment Schemes. The ARSN is a unique identifier and no two bodies can have the same ARSN.")]
     AustralianRegisteredSchemeNumber,
     
     /// <summary>
-    /// ??
+    /// Other registered number type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_9xJbMVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Other registered number type.")]
     Other,
     
 }

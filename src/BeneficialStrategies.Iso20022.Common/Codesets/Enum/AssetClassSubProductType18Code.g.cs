@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType18Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type plastic.
     /// Encoded/decoded by serializers as "Plastic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLST")]
     [IsoId("_AZyv0Q2sEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type plastic.")]
     Plastic,
     
 }

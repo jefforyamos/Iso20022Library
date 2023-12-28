@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepoTerminationOption1Code
 {
     /// <summary>
-    /// ??
+    /// Evergreen termination option.
     /// Encoded/decoded by serializers as "Evergreen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EGRN")]
     [IsoId("_JUfZoSy0Eea35M2x2c9PXw")]
-    [Description(@"??")]
+    [Description(@"Evergreen termination option.")]
     Evergreen,
     
     /// <summary>
-    /// ??
+    /// Extendable termination option.
     /// Encoded/decoded by serializers as "Extendable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETSB")]
     [IsoId("_JmCcoSy0Eea35M2x2c9PXw")]
-    [Description(@"??")]
+    [Description(@"Extendable termination option.")]
     Extendable,
     
 }

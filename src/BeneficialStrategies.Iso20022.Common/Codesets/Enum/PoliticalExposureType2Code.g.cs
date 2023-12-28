@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PoliticalExposureType2Code
 {
     /// <summary>
-    /// ??
+    /// No political exposure.
     /// Encoded/decoded by serializers as "NoPoliticalExposure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPEX")]
     [IsoId("_tm6vMZUgEemC09f0MxYkRg")]
-    [Description(@"??")]
+    [Description(@"No political exposure.")]
     NoPoliticalExposure,
     
     /// <summary>
-    /// ??
+    /// Political exposure.
     /// Encoded/decoded by serializers as "PoliticalExposure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YPEX")]
     [IsoId("_tuzf4ZUgEemC09f0MxYkRg")]
-    [Description(@"??")]
+    [Description(@"Political exposure.")]
     PoliticalExposure,
     
     /// <summary>
-    /// ??
+    /// Political exposure type is domestic.
     /// Encoded/decoded by serializers as "PoliticalExposureDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEXD")]
     [IsoId("_tzkEEZUgEemC09f0MxYkRg")]
-    [Description(@"??")]
+    [Description(@"Political exposure type is domestic.")]
     PoliticalExposureDomestic,
     
     /// <summary>
-    /// ??
+    /// Political exposure type is foreign.
     /// Encoded/decoded by serializers as "PoliticalExposureForeign".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEXF")]
     [IsoId("_t5g7EZUgEemC09f0MxYkRg")]
-    [Description(@"??")]
+    [Description(@"Political exposure type is foreign.")]
     PoliticalExposureForeign,
     
 }

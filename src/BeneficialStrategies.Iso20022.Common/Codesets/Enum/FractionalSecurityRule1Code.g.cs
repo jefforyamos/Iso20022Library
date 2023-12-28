@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FractionalSecurityRule1Code
 {
     /// <summary>
-    /// ??
+    /// Round Up x and above on the beneficial owner fractions, where x is the rounding factor. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
     /// Encoded/decoded by serializers as "BeneficialOwnerRoundUpXAndAbove".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BORU")]
     [IsoId("_1rgnRTL3EeKU9IrkkToqcw_1498659018")]
-    [Description(@"??")]
+    [Description(@"Round Up x and above on the beneficial owner fractions, where x is the rounding factor. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.")]
     BeneficialOwnerRoundUpXAndAbove,
     
     /// <summary>
-    /// ??
+    /// Cash in Lieu on the beneficial owner fractions.
     /// Encoded/decoded by serializers as "BeneficialOwnerCashInLieu".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCIL")]
     [IsoId("_1rqYQDL3EeKU9IrkkToqcw_1487560241")]
-    [Description(@"??")]
+    [Description(@"Cash in Lieu on the beneficial owner fractions.")]
     BeneficialOwnerCashInLieu,
     
     /// <summary>
-    /// ??
+    /// Round Down x and below beneficial owner fractions, where x is the rounding factor. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
     /// Encoded/decoded by serializers as "BeneficialOwnerRoundDownXAndBelow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BORD")]
     [IsoId("_1rqYQTL3EeKU9IrkkToqcw_1373721175")]
-    [Description(@"??")]
+    [Description(@"Round Down x and below beneficial owner fractions, where x is the rounding factor. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.")]
     BeneficialOwnerRoundDownXAndBelow,
     
 }

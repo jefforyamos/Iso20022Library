@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction8Code
 {
     /// <summary>
-    /// ??
+    /// Provide the ATM counters resettting those that are applicable.
     /// Encoded/decoded by serializers as "ATMBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BALN")]
     [IsoId("_qGK2cSycEeWT0qwwEKj7sA")]
-    [Description(@"??")]
+    [Description(@"Provide the ATM counters resettting those that are applicable.")]
     ATMBalance,
     
     /// <summary>
-    /// ??
+    /// Global status of the ATM.
     /// Encoded/decoded by serializers as "ATMGlobalStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GSTS")]
     [IsoId("_rsG5gSycEeWT0qwwEKj7sA")]
-    [Description(@"??")]
+    [Description(@"Global status of the ATM.")]
     ATMGlobalStatus,
     
     /// <summary>
-    /// ??
+    /// Security detailed report.
     /// Encoded/decoded by serializers as "SecurityDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_uCydASycEeWT0qwwEKj7sA")]
-    [Description(@"??")]
+    [Description(@"Security detailed report.")]
     SecurityDetails,
     
     /// <summary>
-    /// ??
+    /// Request the value of the ATM counters.
     /// Encoded/decoded by serializers as "CountersInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INQC")]
     [IsoId("_vAyWUSycEeWT0qwwEKj7sA")]
-    [Description(@"??")]
+    [Description(@"Request the value of the ATM counters.")]
     CountersInquiry,
     
     /// <summary>
-    /// ??
+    /// Request of a key exchange.
     /// Encoded/decoded by serializers as "KeyExchangeRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYQ")]
     [IsoId("_xK0k8SycEeWT0qwwEKj7sA")]
-    [Description(@"??")]
+    [Description(@"Request of a key exchange.")]
     KeyExchangeRequest,
     
     /// <summary>
-    /// ??
+    /// Status of cryptographic keys.
     /// Encoded/decoded by serializers as "SecurityKeyStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSTS")]
     [IsoId("_yriw0SycEeWT0qwwEKj7sA")]
-    [Description(@"??")]
+    [Description(@"Status of cryptographic keys.")]
     SecurityKeyStatus,
     
 }

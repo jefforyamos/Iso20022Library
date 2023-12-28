@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceSource2Code
 {
     /// <summary>
-    /// ??
+    /// Source of price quotation is a fund, eg, transfer agent, fund itself.
     /// Encoded/decoded by serializers as "Fund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUND")]
     [IsoId("_mUejN6B6EeOEyO7fCl8lLA")]
-    [Description(@"??")]
+    [Description(@"Source of price quotation is a fund, eg, transfer agent, fund itself.")]
     Fund,
     
     /// <summary>
-    /// ??
+    /// Source of price quotation is a theoretical value based on the market yield.
     /// Encoded/decoded by serializers as "Theoretical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THEO")]
     [IsoId("_mUejOaB6EeOEyO7fCl8lLA")]
-    [Description(@"??")]
+    [Description(@"Source of price quotation is a theoretical value based on the market yield.")]
     Theoretical,
     
     /// <summary>
-    /// ??
+    /// Source of price quotation is an external vendor.
     /// Encoded/decoded by serializers as "Vendor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VEND")]
     [IsoId("_mUejO6B6EeOEyO7fCl8lLA")]
-    [Description(@"??")]
+    [Description(@"Source of price quotation is an external vendor.")]
     Vendor,
     
     /// <summary>
-    /// ??
+    /// Source of price quotation is a stock exchange.
     /// Encoded/decoded by serializers as "StockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCH")]
     [IsoId("_KMfvYaB7EeOEyO7fCl8lLA")]
-    [Description(@"??")]
+    [Description(@"Source of price quotation is a stock exchange.")]
     StockExchange,
     
 }

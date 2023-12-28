@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CaseForwardingNotification1Code
 {
     /// <summary>
-    /// ??
+    /// Case has been forwarded to the next party for further investigation.
     /// Encoded/decoded by serializers as "FurtherInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FTHI")]
     [IsoId("_VnACxdp-Ed-ak6NoX_4Aeg_-523684722")]
-    [Description(@"??")]
+    [Description(@"Case has been forwarded to the next party for further investigation.")]
     FurtherInvestigation,
     
     /// <summary>
-    /// ??
+    /// Case has been forwarded to the next party for cancellation.
     /// Encoded/decoded by serializers as "RequestToCancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_VnACxtp-Ed-ak6NoX_4Aeg_-494133924")]
-    [Description(@"??")]
+    [Description(@"Case has been forwarded to the next party for cancellation.")]
     RequestToCancel,
     
     /// <summary>
-    /// ??
+    /// Case has been forwarded to the next party for modification.
     /// Encoded/decoded by serializers as "RequestToModify".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_VnACx9p-Ed-ak6NoX_4Aeg_-482125812")]
-    [Description(@"??")]
+    [Description(@"Case has been forwarded to the next party for modification.")]
     RequestToModify,
     
     /// <summary>
-    /// ??
+    /// Case has been forwarded to obtain authorisation to debit.
     /// Encoded/decoded by serializers as "RequestDebitAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTAU")]
     [IsoId("_VnACyNp-Ed-ak6NoX_4Aeg_1373273539")]
-    [Description(@"??")]
+    [Description(@"Case has been forwarded to obtain authorisation to debit.")]
     RequestDebitAuthorisation,
     
     /// <summary>
-    /// ??
+    /// Additional information has been forwarded to the creditor.
     /// Encoded/decoded by serializers as "SentAdditionalInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAIN")]
     [IsoId("_VnJzwNp-Ed-ak6NoX_4Aeg_1094083878")]
-    [Description(@"??")]
+    [Description(@"Additional information has been forwarded to the creditor.")]
     SentAdditionalInformation,
     
 }

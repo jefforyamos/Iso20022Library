@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementTransactionCondition5Code
 {
     /// <summary>
-    /// ??
+    /// Partial settlement is allowed.
     /// Encoded/decoded by serializers as "PartialAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_q6dmBWtdEeCY4-KZ9JEyUQ_-817672077")]
-    [Description(@"??")]
+    [Description(@"Partial settlement is allowed.")]
     PartialAllowed,
     
     /// <summary>
-    /// ??
+    /// Partial settlement is not allowed.
     /// Encoded/decoded by serializers as "PartialNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPAR")]
     [IsoId("_q6dmBmtdEeCY4-KZ9JEyUQ_-1814744430")]
-    [Description(@"??")]
+    [Description(@"Partial settlement is not allowed.")]
     PartialNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Partial settlement is allowed but must satisfy a cash value minimum (value defined in static data).
     /// Encoded/decoded by serializers as "PartialSettlementCashThresholdAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARC")]
     [IsoId("_q6nXAGtdEeCY4-KZ9JEyUQ_374187327")]
-    [Description(@"??")]
+    [Description(@"Partial settlement is allowed but must satisfy a cash value minimum (value defined in static data).")]
     PartialSettlementCashThresholdAllowed,
     
     /// <summary>
-    /// ??
+    /// Partial settlement is allowed but must satisfy a minimum quantity of securities (quantity defined in static data).
     /// Encoded/decoded by serializers as "PartialSettlementQuantityThresholdAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARQ")]
     [IsoId("_q6nXAWtdEeCY4-KZ9JEyUQ_1425320399")]
-    [Description(@"??")]
+    [Description(@"Partial settlement is allowed but must satisfy a minimum quantity of securities (quantity defined in static data).")]
     PartialSettlementQuantityThresholdAllowed,
     
 }

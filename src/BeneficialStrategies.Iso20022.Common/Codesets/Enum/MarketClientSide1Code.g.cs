@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarketClientSide1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction is for a client side transaction.
     /// Encoded/decoded by serializers as "ClientSide".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLNT")]
     [IsoId("_ZWTI0Z05Eeet_4BCDEBLdQ")]
-    [Description(@"??")]
+    [Description(@"Instruction is for a client side transaction.")]
     ClientSide,
     
     /// <summary>
-    /// ??
+    /// Instruction is for a market side transaction.
     /// Encoded/decoded by serializers as "MarketSide".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAKT")]
     [IsoId("_ZbqJ8Z05Eeet_4BCDEBLdQ")]
-    [Description(@"??")]
+    [Description(@"Instruction is for a market side transaction.")]
     MarketSide,
     
 }

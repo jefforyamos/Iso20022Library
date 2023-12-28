@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SWIFTServiceLevel2Code
 {
     /// <summary>
-    /// ??
+    /// Credit transfer is to be processed according to the SWIFTPay Service Level.
     /// Encoded/decoded by serializers as "SWIFTPay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPAY")]
     [IsoId("_ZRGV9dp-Ed-ak6NoX_4Aeg_1129333388")]
-    [Description(@"??")]
+    [Description(@"Credit transfer is to be processed according to the SWIFTPay Service Level.")]
     SWIFTPay,
     
     /// <summary>
-    /// ??
+    /// Credit transfer is to be processed according to the Standard Service Level.
     /// Encoded/decoded by serializers as "Standard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSTD")]
     [IsoId("_ZRGV9tp-Ed-ak6NoX_4Aeg_1129333389")]
-    [Description(@"??")]
+    [Description(@"Credit transfer is to be processed according to the Standard Service Level.")]
     Standard,
     
 }

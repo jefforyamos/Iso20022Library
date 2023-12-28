@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradingVenue1Code
 {
     /// <summary>
-    /// ??
+    /// Investment firm which, on an organised, frequent systematic and substantial basis, deals on own account when executing client orders outside a regulated market, an multilateral trading facility or an organised trading facility without operating a multilateral system.
     /// Encoded/decoded by serializers as "SystematicInternaliser".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SINT")]
     [IsoId("_n5ZEMV0gEeWErPfQ7BYx8A")]
-    [Description(@"??")]
+    [Description(@"Investment firm which, on an organised, frequent systematic and substantial basis, deals on own account when executing client orders outside a regulated market, an multilateral trading facility or an organised trading facility without operating a multilateral system.")]
     SystematicInternaliser,
     
     /// <summary>
-    /// ??
+    /// Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.
     /// Encoded/decoded by serializers as "MultilateralTradingFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLTF")]
     [IsoId("_akwoseRUEeW25oRYRCmhTA")]
-    [Description(@"??")]
+    [Description(@"Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.")]
     MultilateralTradingFacility,
     
     /// <summary>
-    /// ??
+    /// Multilateral system which is not a regulated market or multilateral trading facility in which multiple third-party buying and selling interests in bonds, structured finance products, emission allowances or derivatives are able to interact in a way that results in a contract.
     /// Encoded/decoded by serializers as "OrganisedTradingFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTFS")]
     [IsoId("_a_tfUeRUEeW25oRYRCmhTA")]
-    [Description(@"??")]
+    [Description(@"Multilateral system which is not a regulated market or multilateral trading facility in which multiple third-party buying and selling interests in bonds, structured finance products, emission allowances or derivatives are able to interact in a way that results in a contract.")]
     OrganisedTradingFacility,
     
     /// <summary>
-    /// ??
+    /// Market on which financial instruments can be traded according to rules defined by the stock exchange.
     /// Encoded/decoded by serializers as "RegulatedMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMKT")]
     [IsoId("_bKnHweRUEeW25oRYRCmhTA")]
-    [Description(@"??")]
+    [Description(@"Market on which financial instruments can be traded according to rules defined by the stock exchange.")]
     RegulatedMarket,
     
 }

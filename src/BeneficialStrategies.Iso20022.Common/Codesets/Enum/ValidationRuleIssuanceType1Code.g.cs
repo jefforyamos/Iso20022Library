@@ -22,30 +22,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleIssuanceType1Code
 {
     /// <summary>
-    /// ??
+    /// Undertaking issued direct.
     /// Encoded/decoded by serializers as "UndertakingIssuedDirect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("_ykFHMSBqEeugLNJneiyzbA")]
-    [Description(@"??")]
+    [Description(@"Undertaking issued direct.")]
     UndertakingIssuedDirect,
     
     /// <summary>
-    /// ??
+    /// Undertaking issued via confirming party.
     /// Encoded/decoded by serializers as "UndertakingIssuedViaConfirmingParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISCO")]
     [IsoId("_yxUR8SBqEeugLNJneiyzbA")]
-    [Description(@"??")]
+    [Description(@"Undertaking issued via confirming party.")]
     UndertakingIssuedViaConfirmingParty,
     
     /// <summary>
-    /// ??
+    /// Undertaking issued via advising party.
     /// Encoded/decoded by serializers as "UndertakingViaAdvisingParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISAD")]
     [IsoId("_y3r_sSBqEeugLNJneiyzbA")]
-    [Description(@"??")]
+    [Description(@"Undertaking issued via advising party.")]
     UndertakingViaAdvisingParty,
     
 }

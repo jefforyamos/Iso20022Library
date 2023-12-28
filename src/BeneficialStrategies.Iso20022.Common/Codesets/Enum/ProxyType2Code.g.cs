@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProxyType2Code
 {
     /// <summary>
-    /// ??
+    /// Chairman of the meeting is the proxy.
     /// Encoded/decoded by serializers as "Chairman".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHRM")]
     [IsoId("_ZWd-KNp-Ed-ak6NoX_4Aeg_-885468111")]
-    [Description(@"??")]
+    [Description(@"Chairman of the meeting is the proxy.")]
     Chairman,
     
     /// <summary>
-    /// ??
+    /// Any type of proxy is allowed.
     /// Encoded/decoded by serializers as "Discretionary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_ZWnIENp-Ed-ak6NoX_4Aeg_-885468041")]
-    [Description(@"??")]
+    [Description(@"Any type of proxy is allowed.")]
     Discretionary,
     
     /// <summary>
-    /// ??
+    /// Proxy can only be a security holder.
     /// Encoded/decoded by serializers as "SecurityHolder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HLDR")]
     [IsoId("_ZWnIEdp-Ed-ak6NoX_4Aeg_-1812267007")]
-    [Description(@"??")]
+    [Description(@"Proxy can only be a security holder.")]
     SecurityHolder,
     
 }

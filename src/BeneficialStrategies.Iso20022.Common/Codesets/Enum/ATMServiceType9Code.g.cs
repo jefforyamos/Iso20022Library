@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMServiceType9Code
 {
     /// <summary>
-    /// ??
+    /// Funds transfer between accounts belonging to the customer in the same bank.
     /// Encoded/decoded by serializers as "CustomerTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRFC")]
     [IsoId("_GTc9Aa4tEeWLdt0vLARX2Q")]
-    [Description(@"??")]
+    [Description(@"Funds transfer between accounts belonging to the customer in the same bank.")]
     CustomerTransfer,
     
     /// <summary>
-    /// ??
+    /// Funds transfer to another customer.
     /// Encoded/decoded by serializers as "InterCustomerTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRFI")]
     [IsoId("_GkSOUa4tEeWLdt0vLARX2Q")]
-    [Description(@"??")]
+    [Description(@"Funds transfer to another customer.")]
     InterCustomerTransfer,
     
     /// <summary>
-    /// ??
+    /// Funds transfer to pay a third party.
     /// Encoded/decoded by serializers as "Payment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRFP")]
     [IsoId("_PF0xka4tEeWLdt0vLARX2Q")]
-    [Description(@"??")]
+    [Description(@"Funds transfer to pay a third party.")]
     Payment,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCCashRoundingType1Code
 {
     /// <summary>
-    /// ??
+    /// Round down to the nearest cent.
     /// Encoded/decoded by serializers as "RoundDownToTheNearestCent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDNC")]
     [IsoId("_1sZ_JTL3EeKU9IrkkToqcw_-437406661")]
-    [Description(@"??")]
+    [Description(@"Round down to the nearest cent.")]
     RoundDownToTheNearestCent,
     
     /// <summary>
-    /// ??
+    /// Round down to the nearest dollar.
     /// Encoded/decoded by serializers as "RoundDownToTheNearestDollar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDND")]
     [IsoId("_1sjJEDL3EeKU9IrkkToqcw_-1816089604")]
-    [Description(@"??")]
+    [Description(@"Round down to the nearest dollar.")]
     RoundDownToTheNearestDollar,
     
     /// <summary>
-    /// ??
+    /// Round up to the nearest cent.
     /// Encoded/decoded by serializers as "RoundUpToTheNearestCent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RUNC")]
     [IsoId("_1sjJETL3EeKU9IrkkToqcw_-1929928670")]
-    [Description(@"??")]
+    [Description(@"Round up to the nearest cent.")]
     RoundUpToTheNearestCent,
     
     /// <summary>
-    /// ??
+    /// Round up to the nearest dollar.
     /// Encoded/decoded by serializers as "RoundUpToTheNearestDollar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RUND")]
     [IsoId("_1sjJEjL3EeKU9IrkkToqcw_-1827188381")]
-    [Description(@"??")]
+    [Description(@"Round up to the nearest dollar.")]
     RoundUpToTheNearestDollar,
     
 }

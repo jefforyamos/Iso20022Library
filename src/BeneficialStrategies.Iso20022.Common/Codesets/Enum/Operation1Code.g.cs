@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Operation1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates a range delimited by two variables.
     /// Encoded/decoded by serializers as "Till".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TILL")]
     [IsoId("_aO8eRNp-Ed-ak6NoX_4Aeg_-2087974128")]
-    [Description(@"??")]
+    [Description(@"Indicates a range delimited by two variables.")]
     Till,
     
     /// <summary>
-    /// ??
+    /// Indicates either of two variables is valid, but not both.
     /// Encoded/decoded by serializers as "Or".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORRR")]
     [IsoId("_aO8eRdp-Ed-ak6NoX_4Aeg_-2087974093")]
-    [Description(@"??")]
+    [Description(@"Indicates either of two variables is valid, but not both.")]
     Or,
     
     /// <summary>
-    /// ??
+    /// Indicates that only when both variables are given, the operation is valid.
     /// Encoded/decoded by serializers as "And".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANDD")]
     [IsoId("_aO8eRtp-Ed-ak6NoX_4Aeg_-2087974033")]
-    [Description(@"??")]
+    [Description(@"Indicates that only when both variables are given, the operation is valid.")]
     And,
     
 }

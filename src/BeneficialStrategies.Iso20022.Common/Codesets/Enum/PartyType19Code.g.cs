@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType19Code
 {
     /// <summary>
-    /// ??
+    /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
     /// Encoded/decoded by serializers as "Acceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_vd3eoUrAEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
     Acceptor,
     
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_v2D8MkrAEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Entity providing acquiring card payment processing services on behalf on an acquirer.
     /// Encoded/decoded by serializers as "AcquirerProcessor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQP")]
     [IsoId("_wX-9gkrAEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Entity providing acquiring card payment processing services on behalf on an acquirer.")]
     AcquirerProcessor,
     
     /// <summary>
-    /// ??
+    /// Party that issues cards.
     /// Encoded/decoded by serializers as "CardIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISS")]
     [IsoId("_xTlqIkrAEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Party that issues cards.")]
     CardIssuer,
     
     /// <summary>
-    /// ??
+    /// Entity providing issuing card payment processing services on behalf on an issuer.
     /// Encoded/decoded by serializers as "CardIssuerProcessor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISP")]
     [IsoId("_xfzhMkrAEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Entity providing issuing card payment processing services on behalf on an issuer.")]
     CardIssuerProcessor,
     
     /// <summary>
-    /// ??
+    /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_0MDsEkrAEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Other card payment entity type defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_35GUIdwAEeeOusYHZbyj7w")]
-    [Description(@"??")]
+    [Description(@"Other card payment entity type defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other card payment entity type defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_4CxNgdwAEeeOusYHZbyj7w")]
-    [Description(@"??")]
+    [Description(@"Other card payment entity type defined at private level")]
     OtherPrivate,
     
 }

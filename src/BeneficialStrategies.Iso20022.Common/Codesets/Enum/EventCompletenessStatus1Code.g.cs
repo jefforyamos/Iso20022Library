@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventCompletenessStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Event details are complete.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_ajDtFdp-Ed-ak6NoX_4Aeg_1572153086")]
-    [Description(@"??")]
+    [Description(@"Event details are complete.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Event details are not complete.
     /// Encoded/decoded by serializers as "Incomplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCO")]
     [IsoId("_ajDtFtp-Ed-ak6NoX_4Aeg_1572153199")]
-    [Description(@"??")]
+    [Description(@"Event details are not complete.")]
     Incomplete,
     
 }

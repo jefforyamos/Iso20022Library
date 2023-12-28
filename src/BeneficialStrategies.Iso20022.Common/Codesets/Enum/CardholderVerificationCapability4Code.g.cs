@@ -20,138 +20,138 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardholderVerificationCapability4Code
 {
     /// <summary>
-    /// ??
+    /// Account based digital signature.
     /// Encoded/decoded by serializers as "AccountDigitalSignature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APKI")]
     [IsoId("_xYoiEZdFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Account based digital signature.")]
     AccountDigitalSignature,
     
     /// <summary>
-    /// ??
+    /// Cardholder authentication data.
     /// Encoded/decoded by serializers as "CardholderData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHDT")]
     [IsoId("_xYoiE5dFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Cardholder authentication data.")]
     CardholderData,
     
     /// <summary>
-    /// ??
+    /// Manual signature verification.
     /// Encoded/decoded by serializers as "ManualSignature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNSG")]
     [IsoId("_xYoiFZdFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Manual signature verification.")]
     ManualSignature,
     
     /// <summary>
-    /// ??
+    /// Other manual verification, for example passport or drivers license.
     /// Encoded/decoded by serializers as "ManualVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNVR")]
     [IsoId("_xYoiF5dFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Other manual verification, for example passport or drivers license.")]
     ManualVerification,
     
     /// <summary>
-    /// ??
+    /// Offline biographics.
     /// Encoded/decoded by serializers as "OfflineBiographics".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FBIG")]
     [IsoId("_xYoiGZdFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Offline biographics.")]
     OfflineBiographics,
     
     /// <summary>
-    /// ??
+    /// Offline biometrics.
     /// Encoded/decoded by serializers as "OfflineBiometrics".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FBIO")]
     [IsoId("_xYoiG5dFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Offline biometrics.")]
     OfflineBiometrics,
     
     /// <summary>
-    /// ??
+    /// Offline digital signature analysis.
     /// Encoded/decoded by serializers as "OfflineDigitalSignature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDSG")]
     [IsoId("_xYoiHZdFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Offline digital signature analysis.")]
     OfflineDigitalSignature,
     
     /// <summary>
-    /// ??
+    /// Offline PIN in clear (Personal Identification Number).
     /// Encoded/decoded by serializers as "OfflinePINClear".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCPN")]
     [IsoId("_xYoiH5dFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Offline PIN in clear (Personal Identification Number).")]
     OfflinePINClear,
     
     /// <summary>
-    /// ??
+    /// Offline PIN encrypted (Personal Identification Number).
     /// Encoded/decoded by serializers as "OfflinePINEncrypted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEPN")]
     [IsoId("_xYoiIZdFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Offline PIN encrypted (Personal Identification Number).")]
     OfflinePINEncrypted,
     
     /// <summary>
-    /// ??
+    /// Online PIN (Personal Identification Number).
     /// Encoded/decoded by serializers as "OnLinePIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPIN")]
     [IsoId("_xYoiI5dFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Online PIN (Personal Identification Number).")]
     OnLinePIN,
     
     /// <summary>
-    /// ??
+    /// PKI (Public Key Infrastructure) based digital signature.
     /// Encoded/decoded by serializers as "PKISignature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PKIS")]
     [IsoId("_xYoiJZdFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"PKI (Public Key Infrastructure) based digital signature.")]
     PKISignature,
     
     /// <summary>
-    /// ??
+    /// Three domain secure (three domain secure authentication of the cardholder).
     /// Encoded/decoded by serializers as "SecureElectronicCommerce".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCEC")]
     [IsoId("_xYoiJ5dFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Three domain secure (three domain secure authentication of the cardholder).")]
     SecureElectronicCommerce,
     
     /// <summary>
-    /// ??
+    /// Online biometrics.
     /// Encoded/decoded by serializers as "OnLineBiometrics".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBIO")]
     [IsoId("_xYoiK5dFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Online biometrics.")]
     OnLineBiometrics,
     
     /// <summary>
-    /// ??
+    /// No cardholder verification capability.
     /// Encoded/decoded by serializers as "NoCapabilities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOVF")]
     [IsoId("_xYoiLZdFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"No cardholder verification capability.")]
     NoCapabilities,
     
     /// <summary>
-    /// ??
+    /// Other cardholder verification capabilities.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_xYoiL5dFEeWhUvuI1bSHSA")]
-    [Description(@"??")]
+    [Description(@"Other cardholder verification capabilities.")]
     Other,
     
 }

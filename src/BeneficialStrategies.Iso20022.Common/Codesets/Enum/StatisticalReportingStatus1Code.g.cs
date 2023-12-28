@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatisticalReportingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction or report has been accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_iNhH8djFEeSD0e0ybx5L5Q")]
-    [Description(@"??")]
+    [Description(@"Transaction or report has been accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Transaction or report has passed syntactical and semantical validation.
     /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_iUXW0djFEeSD0e0ybx5L5Q")]
-    [Description(@"??")]
+    [Description(@"Transaction or report has passed syntactical and semantical validation.")]
     AcceptedTechnicalValidation,
     
     /// <summary>
-    /// ??
+    /// Report has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.
     /// Encoded/decoded by serializers as "PartiallyAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_iaw5wdjFEeSD0e0ybx5L5Q")]
-    [Description(@"??")]
+    [Description(@"Report has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.")]
     PartiallyAccepted,
     
     /// <summary>
-    /// ??
+    /// Processing of transaction or report is pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_ijYqQdjFEeSD0e0ybx5L5Q")]
-    [Description(@"??")]
+    [Description(@"Processing of transaction or report is pending.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Report has been received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVD")]
     [IsoId("_ipfSQdjFEeSD0e0ybx5L5Q")]
-    [Description(@"??")]
+    [Description(@"Report has been received.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Transaction or report has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_ixYC8djFEeSD0e0ybx5L5Q")]
-    [Description(@"??")]
+    [Description(@"Transaction or report has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Reminder of a non received report.
     /// Encoded/decoded by serializers as "Reminder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMDR")]
     [IsoId("_2_4jUe2wEeS-SNPe_7uMwA")]
-    [Description(@"??")]
+    [Description(@"Reminder of a non received report.")]
     Reminder,
     
     /// <summary>
-    /// ??
+    /// File containing the report has an incorrect filename.
     /// Encoded/decoded by serializers as "IncorrectFilename".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCF")]
     [IsoId("_c9R3Ye8AEeSo-uJuUW33Ew")]
-    [Description(@"??")]
+    [Description(@"File containing the report has an incorrect filename.")]
     IncorrectFilename,
     
     /// <summary>
-    /// ??
+    /// File containing the report is corrupted.
     /// Encoded/decoded by serializers as "CorruptedFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPT")]
     [IsoId("_urYQ0e8AEeSo-uJuUW33Ew")]
-    [Description(@"??")]
+    [Description(@"File containing the report is corrupted.")]
     CorruptedFile,
     
 }

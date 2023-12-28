@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AuthenticationResult1Code
 {
     /// <summary>
-    /// ??
+    /// The authentication didn’t succeed.
     /// Encoded/decoded by serializers as "Denial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DENY")]
     [IsoId("_vwOIcfm3EeaYndR2y_Ep9g")]
-    [Description(@"??")]
+    [Description(@"The authentication didn’t succeed.")]
     Denial,
     
     /// <summary>
-    /// ??
+    /// Merchant not enrolled in the authentication programme.
     /// Encoded/decoded by serializers as "MerchantNotEnroled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRCH")]
     [IsoId("_v3DwQfm3EeaYndR2y_Ep9g")]
-    [Description(@"??")]
+    [Description(@"Merchant not enrolled in the authentication programme.")]
     MerchantNotEnroled,
     
     /// <summary>
-    /// ??
+    /// The card does not participate in the authentication programme.
     /// Encoded/decoded by serializers as "NonParticipation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARD")]
     [IsoId("_v9wOIfm3EeaYndR2y_Ep9g")]
-    [Description(@"??")]
+    [Description(@"The card does not participate in the authentication programme.")]
     NonParticipation,
     
     /// <summary>
-    /// ??
+    /// The authentication couldn’t be carried out.
     /// Encoded/decoded by serializers as "UnableToAuthenticate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_wHR9kfm3EeaYndR2y_Ep9g")]
-    [Description(@"??")]
+    [Description(@"The authentication couldn’t be carried out.")]
     UnableToAuthenticate,
     
     /// <summary>
-    /// ??
+    /// Authentication succeeded with a cryptogram.
     /// Encoded/decoded by serializers as "WithCryptogram".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPT")]
     [IsoId("_wMfNsfm3EeaYndR2y_Ep9g")]
-    [Description(@"??")]
+    [Description(@"Authentication succeeded with a cryptogram.")]
     WithCryptogram,
     
     /// <summary>
-    /// ??
+    /// Authentication succeeded without a cryptogram.
     /// Encoded/decoded by serializers as "WithoutCryptogram".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCRP")]
     [IsoId("_wR_Ywfm3EeaYndR2y_Ep9g")]
-    [Description(@"??")]
+    [Description(@"Authentication succeeded without a cryptogram.")]
     WithoutCryptogram,
     
 }

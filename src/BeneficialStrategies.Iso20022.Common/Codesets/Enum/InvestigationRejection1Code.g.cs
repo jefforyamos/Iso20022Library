@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestigationRejection1Code
 {
     /// <summary>
-    /// ??
+    /// Underlying instruction can not be found.
     /// Encoded/decoded by serializers as "UnderlyingPaymentNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFND")]
     [IsoId("_abwLNNp-Ed-ak6NoX_4Aeg_-283942364")]
-    [Description(@"??")]
+    [Description(@"Underlying instruction can not be found.")]
     UnderlyingPaymentNotFound,
     
     /// <summary>
-    /// ??
+    /// Case assignee is not allowed to investigate on this instruction or a party has been by-passed in the payment chain or no bilateral agreement has been established for this type of query.
     /// Encoded/decoded by serializers as "NotAuthorisedToInvestigate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAUT")]
     [IsoId("_abwLNdp-Ed-ak6NoX_4Aeg_-283942363")]
-    [Description(@"??")]
+    [Description(@"Case assignee is not allowed to investigate on this instruction or a party has been by-passed in the payment chain or no bilateral agreement has been established for this type of query.")]
     NotAuthorisedToInvestigate,
     
     /// <summary>
-    /// ??
+    /// Case has never been assigned before.
     /// Encoded/decoded by serializers as "UnknownCase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKNW")]
     [IsoId("_abwLNtp-Ed-ak6NoX_4Aeg_-283942362")]
-    [Description(@"??")]
+    [Description(@"Case has never been assigned before.")]
     UnknownCase,
     
     /// <summary>
-    /// ??
+    /// Used when the payment instruction has previously been cancelled or rejected.
     /// Encoded/decoded by serializers as "PaymentPreviouslyCancelledOrRejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCOR")]
     [IsoId("_abwLN9p-Ed-ak6NoX_4Aeg_-283942334")]
-    [Description(@"??")]
+    [Description(@"Used when the payment instruction has previously been cancelled or rejected.")]
     PaymentPreviouslyCancelledOrRejected,
     
     /// <summary>
-    /// ??
+    /// Wrong message has been used in the investigation workflow.
     /// Encoded/decoded by serializers as "WrongMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WMSG")]
     [IsoId("_abwLONp-Ed-ak6NoX_4Aeg_-174967773")]
-    [Description(@"??")]
+    [Description(@"Wrong message has been used in the investigation workflow.")]
     WrongMessage,
     
     /// <summary>
-    /// ??
+    /// Used to reject a non-cash related query that is not covered in the workflow.
     /// Encoded/decoded by serializers as "RejectNonCashRelated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RNCR")]
     [IsoId("_ab58MNp-Ed-ak6NoX_4Aeg_1887051953")]
-    [Description(@"??")]
+    [Description(@"Used to reject a non-cash related query that is not covered in the workflow.")]
     RejectNonCashRelated,
     
     /// <summary>
-    /// ??
+    /// Resolution of Investigation has not been received on reopened case.
     /// Encoded/decoded by serializers as "MissingResolutionOfInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MROI")]
     [IsoId("_ab58Mdp-Ed-ak6NoX_4Aeg_-538416824")]
-    [Description(@"??")]
+    [Description(@"Resolution of Investigation has not been received on reopened case.")]
     MissingResolutionOfInvestigation,
     
 }

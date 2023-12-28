@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction44Code
 {
     /// <summary>
-    /// ??
+    /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
     /// Encoded/decoded by serializers as "Advice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVC")]
     [IsoId("_idxkkUGJEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
     Advice,
     
     /// <summary>
-    /// ??
+    /// Information about the transaction.
     /// Encoded/decoded by serializers as "Notification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTI")]
     [IsoId("_j4yKAUGJEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Information about the transaction.")]
     Notification,
     
     /// <summary>
-    /// ??
+    /// Informs of an action to be taken.
     /// Encoded/decoded by serializers as "Instructure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_kUU2gUGJEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Informs of an action to be taken.")]
     Instructure,
     
     /// <summary>
-    /// ??
+    /// Message function is a request.
     /// Encoded/decoded by serializers as "Request".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_lxafkUGJEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Message function is a request.")]
     Request,
     
 }

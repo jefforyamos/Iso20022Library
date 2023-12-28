@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventFrequency10Code
 {
     /// <summary>
-    /// ??
+    /// Event takes place every day.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_ASy8ISDVEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Event takes place every day.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Event takes place as necessary.
     /// Encoded/decoded by serializers as "Adhoc".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADHO")]
     [IsoId("_Aryq8SDVEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Event takes place as necessary.")]
     Adhoc,
     
 }

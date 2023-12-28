@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SuspendedStatusReason3Code
 {
     /// <summary>
-    /// ??
+    /// There is a suspension of pricing. The order will stay on the books until the next pricing.
     /// Encoded/decoded by serializers as "PriceSuspension".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIC")]
     [IsoId("_ZQzbB9p-Ed-ak6NoX_4Aeg_1892876189")]
-    [Description(@"??")]
+    [Description(@"There is a suspension of pricing. The order will stay on the books until the next pricing.")]
     PriceSuspension,
     
     /// <summary>
-    /// ??
+    /// There is a fund overflow.
     /// Encoded/decoded by serializers as "Overflow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLOW")]
     [IsoId("_ZQzbCNp-Ed-ak6NoX_4Aeg_1892876206")]
-    [Description(@"??")]
+    [Description(@"There is a fund overflow.")]
     Overflow,
     
 }

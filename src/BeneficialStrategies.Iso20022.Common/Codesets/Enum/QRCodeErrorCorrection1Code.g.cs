@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QRCodeErrorCorrection1Code
 {
     /// <summary>
-    /// ??
+    /// Reed-Solomon error correction 15%
     /// Encoded/decoded by serializers as "ErrorCorrection15Percent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "M015")]
     [IsoId("_EgtQwdudEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Reed-Solomon error correction 15%")]
     ErrorCorrection15Percent,
     
     /// <summary>
-    /// ??
+    /// Reed-Solomon error correction 25%
     /// Encoded/decoded by serializers as "ErrorCorrection25Percent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "Q025")]
     [IsoId("_Ek7pcdudEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Reed-Solomon error correction 25%")]
     ErrorCorrection25Percent,
     
     /// <summary>
-    /// ??
+    /// Reed-Solomon error correction 30%
     /// Encoded/decoded by serializers as "ErrorCorrection30Percent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "H030")]
     [IsoId("_Eo48YdudEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Reed-Solomon error correction 30%")]
     ErrorCorrection30Percent,
     
     /// <summary>
-    /// ??
+    /// Reed-Solomon error correction  7%
     /// Encoded/decoded by serializers as "ErrorCorrection7Percent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "L007")]
     [IsoId("_Es55sdudEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Reed-Solomon error correction  7%")]
     ErrorCorrection7Percent,
     
 }

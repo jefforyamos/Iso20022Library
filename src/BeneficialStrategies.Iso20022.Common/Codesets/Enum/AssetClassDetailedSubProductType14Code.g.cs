@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType14Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type dry bulk carrier.
     /// Encoded/decoded by serializers as "DryBulkCarrier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBCR")]
     [IsoId("_fntCUFuVEeWyucVx3N7tNg")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type dry bulk carrier.")]
     DryBulkCarrier,
     
 }

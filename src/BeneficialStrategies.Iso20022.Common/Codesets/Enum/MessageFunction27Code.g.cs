@@ -21,12 +21,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction27Code
 {
     /// <summary>
-    /// ??
+    /// Information about the transaction.
     /// Encoded/decoded by serializers as "Notification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTI")]
     [IsoId("_oPgJAemrEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Information about the transaction.")]
     Notification,
     
 }

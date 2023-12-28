@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectedStatusReason8Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been received after the cut-off time.
     /// Encoded/decoded by serializers as "CutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUTO")]
     [IsoId("_ZfG8xNp-Ed-ak6NoX_4Aeg_-881859781")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received after the cut-off time.")]
     CutOffTime,
     
     /// <summary>
-    /// ??
+    /// Instructing party is not allowed to request a cancellation.
     /// Encoded/decoded by serializers as "NotAllowedToCancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NALC")]
     [IsoId("_ZfG8xdp-Ed-ak6NoX_4Aeg_-881859756")]
-    [Description(@"??")]
+    [Description(@"Instructing party is not allowed to request a cancellation.")]
     NotAllowedToCancel,
     
     /// <summary>
-    /// ??
+    /// Instruction is not compliant with the service level agreement.
     /// Encoded/decoded by serializers as "NotCompliantWithSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSLA")]
     [IsoId("_ZfG8xtp-Ed-ak6NoX_4Aeg_-881859686")]
-    [Description(@"??")]
+    [Description(@"Instruction is not compliant with the service level agreement.")]
     NotCompliantWithSLA,
     
     /// <summary>
-    /// ??
+    /// Legally impossible to cancel.
     /// Encoded/decoded by serializers as "LegallyImpossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEGL")]
     [IsoId("_ZfG8x9p-Ed-ak6NoX_4Aeg_-881859644")]
-    [Description(@"??")]
+    [Description(@"Legally impossible to cancel.")]
     LegallyImpossible,
     
 }

@@ -20,183 +20,183 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EnergyQuantityUnit2Code
 {
     /// <summary>
-    /// ??
+    /// British Thermal Unit Per Day
     /// Encoded/decoded by serializers as "BritishThermalUnitPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTUD")]
     [IsoId("_kRrPUSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"British Thermal Unit Per Day")]
     BritishThermalUnitPerDay,
     
     /// <summary>
-    /// ??
+    /// Cm per day.
     /// Encoded/decoded by serializers as "CMPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMPD")]
     [IsoId("_kYg3ISi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Cm per day.")]
     CMPerDay,
     
     /// <summary>
-    /// ??
+    /// GigaJoule Per Day.
     /// Encoded/decoded by serializers as "GigaJoulePerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GJDD")]
     [IsoId("_kduHQSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"GigaJoule Per Day.")]
     GigaJoulePerDay,
     
     /// <summary>
-    /// ??
+    /// Giga Watt.
     /// Encoded/decoded by serializers as "GW".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GWAT")]
     [IsoId("_kmDj4Si_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Giga Watt.")]
     GW,
     
     /// <summary>
-    /// ??
+    /// Giga Watt hour per day.
     /// Encoded/decoded by serializers as "GWhPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GWHD")]
     [IsoId("_krtf8Si_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Giga Watt hour per day.")]
     GWhPerDay,
     
     /// <summary>
-    /// ??
+    /// Giga Watt hour per hour.
     /// Encoded/decoded by serializers as "GWhPerHour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GWHH")]
     [IsoId("_kvudQSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Giga Watt hour per hour.")]
     GWhPerHour,
     
     /// <summary>
-    /// ??
+    /// Hundred MegaJoule Per Day.
     /// Encoded/decoded by serializers as "HundredMegaJoulePerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HMJD")]
     [IsoId("_k0fBcSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Hundred MegaJoule Per Day.")]
     HundredMegaJoulePerDay,
     
     /// <summary>
-    /// ??
+    /// KTherm per day.
     /// Encoded/decoded by serializers as "KThermPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KTMD")]
     [IsoId("_k4y5sSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"KTherm per day.")]
     KThermPerDay,
     
     /// <summary>
-    /// ??
+    /// Kilo Watt.
     /// Encoded/decoded by serializers as "KW".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KWAT")]
     [IsoId("_k8XyISi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Kilo Watt.")]
     KW,
     
     /// <summary>
-    /// ??
+    /// Kilo Watt hour per day.
     /// Encoded/decoded by serializers as "KWhPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KWHD")]
     [IsoId("_lAigcSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Kilo Watt hour per day.")]
     KWhPerDay,
     
     /// <summary>
-    /// ??
+    /// Kilo Watt hour per hour.
     /// Encoded/decoded by serializers as "KWhPerHour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KWHH")]
     [IsoId("_lLZFkSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Kilo Watt hour per hour.")]
     KWhPerHour,
     
     /// <summary>
-    /// ??
+    /// Mcm per day.
     /// Encoded/decoded by serializers as "MCMPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCMD")]
     [IsoId("_lQwGsSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Mcm per day.")]
     MCMPerDay,
     
     /// <summary>
-    /// ??
+    /// MegaJoule Per Day.
     /// Encoded/decoded by serializers as "MegaJoulePerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MJDD")]
     [IsoId("_lVqb4Si_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"MegaJoule Per Day.")]
     MegaJoulePerDay,
     
     /// <summary>
-    /// ??
+    /// Million British Thermal Unit Per Day.
     /// Encoded/decoded by serializers as "MillionBritishThermalUnitPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MBTD")]
     [IsoId("_lZ-UISi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Million British Thermal Unit Per Day.")]
     MillionBritishThermalUnitPerDay,
     
     /// <summary>
-    /// ??
+    /// Million MegaJoule Per Day.
     /// Encoded/decoded by serializers as "MillionMegaJoulePerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMJD")]
     [IsoId("_lh3E0Si_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Million MegaJoule Per Day.")]
     MillionMegaJoulePerDay,
     
     /// <summary>
-    /// ??
+    /// MTherm per day.
     /// Encoded/decoded by serializers as "MThermPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTMD")]
     [IsoId("_lotTsSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"MTherm per day.")]
     MThermPerDay,
     
     /// <summary>
-    /// ??
+    /// Mega Watt.
     /// Encoded/decoded by serializers as "MW".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWAT")]
     [IsoId("_ltBL8Si_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Mega Watt.")]
     MW,
     
     /// <summary>
-    /// ??
+    /// Mega Watt hour per day.
     /// Encoded/decoded by serializers as "MWhPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWHD")]
     [IsoId("_lx7hISi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Mega Watt hour per day.")]
     MWhPerDay,
     
     /// <summary>
-    /// ??
+    /// Mega Watt hour per hour.
     /// Encoded/decoded by serializers as "MWhPerHour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWHH")]
     [IsoId("_l2iUUSi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Mega Watt hour per hour.")]
     MWhPerHour,
     
     /// <summary>
-    /// ??
+    /// Therm per day.
     /// Encoded/decoded by serializers as "ThermPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THMD")]
     [IsoId("_l8o8USi_EeuKKc2MztSwPw")]
-    [Description(@"??")]
+    [Description(@"Therm per day.")]
     ThermPerDay,
     
 }

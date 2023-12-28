@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralAccountType1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries.
     /// Encoded/decoded by serializers as "House".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOUS")]
     [IsoId("_waeVkaMOEeCojJW5vEuTEQ_-1208405254")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries.")]
     House,
     
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for the clearing member's customers.
     /// Encoded/decoded by serializers as "Client".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLIE")]
     [IsoId("_waeVkqMOEeCojJW5vEuTEQ_-754317985")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for the clearing member's customers.")]
     Client,
     
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for liquidity providers (also known as market maker) activities.
     /// Encoded/decoded by serializers as "LiquidityProvider".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIPR")]
     [IsoId("_waeVk6MOEeCojJW5vEuTEQ_712830778")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for liquidity providers (also known as market maker) activities.")]
     LiquidityProvider,
     
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.
     /// Encoded/decoded by serializers as "Margin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGIN")]
     [IsoId("_waeVlKMOEeCojJW5vEuTEQ_-765416762")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.")]
     Margin,
     
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to post collateral that covers clearing member's default risk.
     /// Encoded/decoded by serializers as "DefaultFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_waeVlaMOEeCojJW5vEuTEQ_701732001")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to post collateral that covers clearing member's default risk.")]
     DefaultFund,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MeetingDateStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Meeting date is confirmed.
     /// Encoded/decoded by serializers as "Confirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNFR")]
     [IsoId("_M6Qg8a4oEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Meeting date is confirmed.")]
     Confirmed,
     
     /// <summary>
-    /// ??
+    /// Meeting date is tentative.
     /// Encoded/decoded by serializers as "Tentative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TNTA")]
     [IsoId("_NIP5oq4oEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Meeting date is tentative.")]
     Tentative,
     
 }

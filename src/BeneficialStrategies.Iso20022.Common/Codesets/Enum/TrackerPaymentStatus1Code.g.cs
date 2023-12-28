@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TrackerPaymentStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Settlement on the creditor's account has been completed. 
     /// Encoded/decoded by serializers as "AcceptedCreditSettlementCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCC")]
     [IsoId("_bARq4fpPEemXaqBx8S4XSg")]
-    [Description(@"??")]
+    [Description(@"Settlement on the creditor's account has been completed. ")]
     AcceptedCreditSettlementCompleted,
     
     /// <summary>
-    /// ??
+    /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
     /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSP")]
     [IsoId("_bIa6QfpPEemXaqBx8S4XSg")]
-    [Description(@"??")]
+    [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
     AcceptedSettlementInProcess,
     
     /// <summary>
-    /// ??
+    /// Payment initiation or individual transaction included in the payment initiation has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_bPzUofpPEemXaqBx8S4XSg")]
-    [Description(@"??")]
+    [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
     Rejected,
     
 }

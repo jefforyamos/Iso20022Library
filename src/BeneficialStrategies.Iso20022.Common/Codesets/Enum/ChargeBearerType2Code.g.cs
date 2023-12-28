@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeBearerType2Code
 {
     /// <summary>
-    /// ??
+    /// Charges are to be applied following the rules agreed in the service level and/or scheme.
     /// Encoded/decoded by serializers as "FollowingServiceLevel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLEV")]
     [IsoId("_a8PpJtp-Ed-ak6NoX_4Aeg_-867377749")]
-    [Description(@"??")]
+    [Description(@"Charges are to be applied following the rules agreed in the service level and/or scheme.")]
     FollowingServiceLevel,
     
 }

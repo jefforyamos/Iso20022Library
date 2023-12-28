@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeTransactionTotals2Code
 {
     /// <summary>
-    /// ??
+    /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_b5dCUSqPEeKu3rbsflh_TQ")]
-    [Description(@"??")]
+    [Description(@"Credit transactions (refund, account, cash service, as defined in the transaction service type).")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Reversal of credit transactions (cancellation).
     /// Encoded/decoded by serializers as "CreditReverse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDR")]
     [IsoId("_cICQ4SqPEeKu3rbsflh_TQ")]
-    [Description(@"??")]
+    [Description(@"Reversal of credit transactions (cancellation).")]
     CreditReverse,
     
     /// <summary>
-    /// ??
+    /// Debit transactions on the cardholder account.
     /// Encoded/decoded by serializers as "Debit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBT")]
     [IsoId("_cTpD8SqPEeKu3rbsflh_TQ")]
-    [Description(@"??")]
+    [Description(@"Debit transactions on the cardholder account.")]
     Debit,
     
     /// <summary>
-    /// ??
+    /// Reversal of debit transactions (cancellation).
     /// Encoded/decoded by serializers as "DebitReverse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBTR")]
     [IsoId("_cgIn0SqPEeKu3rbsflh_TQ")]
-    [Description(@"??")]
+    [Description(@"Reversal of debit transactions (cancellation).")]
     DebitReverse,
     
     /// <summary>
-    /// ??
+    /// Declined transactions.
     /// Encoded/decoded by serializers as "Declined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_csVQwSqPEeKu3rbsflh_TQ")]
-    [Description(@"??")]
+    [Description(@"Declined transactions.")]
     Declined,
     
     /// <summary>
-    /// ??
+    /// Failed transactions.
     /// Encoded/decoded by serializers as "Failed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_c539gSqPEeKu3rbsflh_TQ")]
-    [Description(@"??")]
+    [Description(@"Failed transactions.")]
     Failed,
     
 }

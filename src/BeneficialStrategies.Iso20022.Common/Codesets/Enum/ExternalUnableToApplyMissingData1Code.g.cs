@@ -21,174 +21,174 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalUnableToApplyMissingData1Code
 {
     /// <summary>
-    /// ??
+    /// RemittanceInformation is missing.
     /// Encoded/decoded by serializers as "MissingRemittanceInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS01")]
     [IsoId("_uwqq8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"RemittanceInformation is missing.")]
     MissingRemittanceInformation,
     
     /// <summary>
-    /// ??
+    /// Instruction for next agent is missing (former MissingSenderToReceiverInformation split into debtor, credit and next agent information).
     /// Encoded/decoded by serializers as "MissingInstructionForNextAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS02")]
     [IsoId("_uwqq9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instruction for next agent is missing (former MissingSenderToReceiverInformation split into debtor, credit and next agent information).")]
     MissingInstructionForNextAgent,
     
     /// <summary>
-    /// ??
+    /// Debtor is missing.
     /// Encoded/decoded by serializers as "MissingDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS03")]
     [IsoId("_uwz04vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Debtor is missing.")]
     MissingDebtor,
     
     /// <summary>
-    /// ??
+    /// DebtorAccount is missing.
     /// Encoded/decoded by serializers as "MissingDebtorAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS04")]
     [IsoId("_uwz05fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"DebtorAccount is missing.")]
     MissingDebtorAccount,
     
     /// <summary>
-    /// ??
+    /// DebtorAgent is missing (former MissingFirstAgent for credit transfers).
     /// Encoded/decoded by serializers as "MissingDebtorAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS05")]
     [IsoId("_uwz06PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"DebtorAgent is missing (former MissingFirstAgent for credit transfers).")]
     MissingDebtorAgent,
     
     /// <summary>
-    /// ??
+    /// Amount is missing.
     /// Encoded/decoded by serializers as "MissingAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS06")]
     [IsoId("_uwz06_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Amount is missing.")]
     MissingAmount,
     
     /// <summary>
-    /// ??
+    /// SettlementAccount is missing. (former MissingNostroVostroAccount).
     /// Encoded/decoded by serializers as "MissingSettlementAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS07")]
     [IsoId("_uw9l4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"SettlementAccount is missing. (former MissingNostroVostroAccount).")]
     MissingSettlementAccount,
     
     /// <summary>
-    /// ??
+    /// Intermediary is missing.
     /// Encoded/decoded by serializers as "MissingIntermediary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS08")]
     [IsoId("_uw9l5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Intermediary is missing.")]
     MissingIntermediary,
     
     /// <summary>
-    /// ??
+    /// InstructingReimbursementAgent is missing (former MissingReimbursementAgent1).
     /// Encoded/decoded by serializers as "MissingInstructingReimbursementAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS09")]
     [IsoId("_uw9l6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"InstructingReimbursementAgent is missing (former MissingReimbursementAgent1).")]
     MissingInstructingReimbursementAgent,
     
     /// <summary>
-    /// ??
+    /// InstructedReimbursementAgent is missing (former MissingReimbursementAgent2).
     /// Encoded/decoded by serializers as "MissingInstructedReimbursementAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS10")]
     [IsoId("_uw9l6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"InstructedReimbursementAgent is missing (former MissingReimbursementAgent2).")]
     MissingInstructedReimbursementAgent,
     
     /// <summary>
-    /// ??
+    /// Third reimbursement agent is missing (former MissingReimbursementAgent).
     /// Encoded/decoded by serializers as "MissingThirdReimbursementAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS11")]
     [IsoId("_uxHW4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Third reimbursement agent is missing (former MissingReimbursementAgent).")]
     MissingThirdReimbursementAgent,
     
     /// <summary>
-    /// ??
+    /// Creditor is missing.
     /// Encoded/decoded by serializers as "MissingCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS12")]
     [IsoId("_uxHW5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Creditor is missing.")]
     MissingCreditor,
     
     /// <summary>
-    /// ??
+    /// CreditorAccount is missing.
     /// Encoded/decoded by serializers as "MissingCreditorAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS13")]
     [IsoId("_uxQg0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CreditorAccount is missing.")]
     MissingCreditorAccount,
     
     /// <summary>
-    /// ??
+    /// Payment instruction is missing.
     /// Encoded/decoded by serializers as "MissingInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS14")]
     [IsoId("_uxQg1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment instruction is missing.")]
     MissingInstruction,
     
     /// <summary>
-    /// ??
+    /// Creditor agent is missing (former MissingFirstAgent for direct debits).
     /// Encoded/decoded by serializers as "MissingCreditorAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS15")]
     [IsoId("_uxQg2PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Creditor agent is missing (former MissingFirstAgent for direct debits).")]
     MissingCreditorAgent,
     
     /// <summary>
-    /// ??
+    /// Instruction for creditor agent is missing (former MissingSenderToReceiverInformation split into debtor, credit and next agent information).
     /// Encoded/decoded by serializers as "MissingInstructionForCreditorAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS16")]
     [IsoId("_uxQg2_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instruction for creditor agent is missing (former MissingSenderToReceiverInformation split into debtor, credit and next agent information).")]
     MissingInstructionForCreditorAgent,
     
     /// <summary>
-    /// ??
+    /// Instruction for debtor agent is missing (former MissingSenderToReceiverInformation split into debtor, credit and next agent information).
     /// Encoded/decoded by serializers as "MissingInstructionForDebtorAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS17")]
     [IsoId("_uxaR0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instruction for debtor agent is missing (former MissingSenderToReceiverInformation split into debtor, credit and next agent information).")]
     MissingInstructionForDebtorAgent,
     
     /// <summary>
-    /// ??
+    /// RelatedRemittanceInformation is missing.
     /// Encoded/decoded by serializers as "MissingRelatedRemittanceInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS18")]
     [IsoId("_uxaR1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"RelatedRemittanceInformation is missing.")]
     MissingRelatedRemittanceInformation,
     
     /// <summary>
-    /// ??
+    /// See narrative field for additional information.
     /// Encoded/decoded by serializers as "Narrative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NARR")]
     [IsoId("_uxjbwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"See narrative field for additional information.")]
     Narrative,
     
 }

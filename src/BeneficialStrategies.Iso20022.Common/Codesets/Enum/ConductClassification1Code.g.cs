@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ConductClassification1Code
 {
     /// <summary>
-    /// ??
+    /// Non standard or unusual.
     /// Encoded/decoded by serializers as "NonStandard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTA")]
     [IsoId("_rUP-0RjoEeKxeog5DTmtgg")]
-    [Description(@"??")]
+    [Description(@"Non standard or unusual.")]
     NonStandard,
     
     /// <summary>
-    /// ??
+    /// Reluctant.
     /// Encoded/decoded by serializers as "Reluctant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCLT")]
     [IsoId("_rfkeARjoEeKxeog5DTmtgg")]
-    [Description(@"??")]
+    [Description(@"Reluctant.")]
     Reluctant,
     
     /// <summary>
-    /// ??
+    /// Standard.
     /// Encoded/decoded by serializers as "Standard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAN")]
     [IsoId("_roqIkRjoEeKxeog5DTmtgg")]
-    [Description(@"??")]
+    [Description(@"Standard.")]
     Standard,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCLate1Code
 {
     /// <summary>
-    /// ??
+    /// Informs both internal and external users that the announcement was added after the position capture date.
     /// Encoded/decoded by serializers as "LateAnnouncement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_1rD7UTL3EeKU9IrkkToqcw_-1281494311")]
-    [Description(@"??")]
+    [Description(@"Informs both internal and external users that the announcement was added after the position capture date.")]
     LateAnnouncement,
     
     /// <summary>
-    /// ??
+    /// Informs both internal and external users that the announcement is late, however, it has not gone through the position capture stage.
     /// Encoded/decoded by serializers as "LateAnnouncementPending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAAS")]
     [IsoId("_1rD7UjL3EeKU9IrkkToqcw_-1916526157")]
-    [Description(@"??")]
+    [Description(@"Informs both internal and external users that the announcement is late, however, it has not gone through the position capture stage.")]
     LateAnnouncementPending,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OnLineCapability1Code
 {
     /// <summary>
-    /// ??
+    /// Off-line only capable.
     /// Encoded/decoded by serializers as "OffLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFLN")]
     [IsoId("_TTZvTwEcEeCQm6a_G2yO_w_-1526230168")]
-    [Description(@"??")]
+    [Description(@"Off-line only capable.")]
     OffLine,
     
     /// <summary>
-    /// ??
+    /// On-line only capable.
     /// Encoded/decoded by serializers as "OnLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONLN")]
     [IsoId("_TTZvUAEcEeCQm6a_G2yO_w_-1586477855")]
-    [Description(@"??")]
+    [Description(@"On-line only capable.")]
     OnLine,
     
     /// <summary>
-    /// ??
+    /// Off-line capable with possible on-line requests to the acquirer.
     /// Encoded/decoded by serializers as "SemiOffLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMON")]
     [IsoId("_TTZvUQEcEeCQm6a_G2yO_w_350747318")]
-    [Description(@"??")]
+    [Description(@"Off-line capable with possible on-line requests to the acquirer.")]
     SemiOffLine,
     
 }

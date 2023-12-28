@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType14Code
 {
     /// <summary>
-    /// ??
+    /// Charge linked to an ADR (American Depositary Receipt).
     /// Encoded/decoded by serializers as "ADRFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADRF")]
     [IsoId("_a9IZ9Np-Ed-ak6NoX_4Aeg_1905396008")]
-    [Description(@"??")]
+    [Description(@"Charge linked to an ADR (American Depositary Receipt).")]
     ADRFee,
     
     /// <summary>
-    /// ??
+    /// Fee linked to the cancellation of an issuance.
     /// Encoded/decoded by serializers as "IssuanceCancellationFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSC")]
     [IsoId("_a9IZ9dp-Ed-ak6NoX_4Aeg_1919247879")]
-    [Description(@"??")]
+    [Description(@"Fee linked to the cancellation of an issuance.")]
     IssuanceCancellationFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid to a custodian in respect of custodial services.
     /// Encoded/decoded by serializers as "CustodyFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_a9IZ9tp-Ed-ak6NoX_4Aeg_1935869866")]
-    [Description(@"??")]
+    [Description(@"Fee paid to a custodian in respect of custodial services.")]
     CustodyFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid for the provision of financial services.
     /// Encoded/decoded by serializers as "ServiceProvisionFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_a9IZ99p-Ed-ak6NoX_4Aeg_-2057106020")]
-    [Description(@"??")]
+    [Description(@"Fee paid for the provision of financial services.")]
     ServiceProvisionFee,
     
     /// <summary>
-    /// ??
+    /// Miscellaneous fee.
     /// Encoded/decoded by serializers as "MiscellaneousFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISC")]
     [IsoId("_a9IZ-Np-Ed-ak6NoX_4Aeg_-2043252398")]
-    [Description(@"??")]
+    [Description(@"Miscellaneous fee.")]
     MiscellaneousFee,
     
     /// <summary>
-    /// ??
+    /// Charge linked to the issuance of security.
     /// Encoded/decoded by serializers as "IssuanceFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("_a9SK8Np-Ed-ak6NoX_4Aeg_-1972140796")]
-    [Description(@"??")]
+    [Description(@"Charge linked to the issuance of security.")]
     IssuanceFee,
     
 }

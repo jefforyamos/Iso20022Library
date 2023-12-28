@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountManagementStatus1Code
 {
     /// <summary>
-    /// ??
+    /// The account management instruction has been received and is acknowledged.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_bqbk19p-Ed-ak6NoX_4Aeg_1951278736")]
-    [Description(@"??")]
+    [Description(@"The account management instruction has been received and is acknowledged.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// The account management instruction has been validated and accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_bqlV0Np-Ed-ak6NoX_4Aeg_1951279701")]
-    [Description(@"??")]
+    [Description(@"The account management instruction has been validated and accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// The account management instruction is being processed and the confirmation will follow.
     /// Encoded/decoded by serializers as "ProcessingOngoing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXEC")]
     [IsoId("_bqlV0dp-Ed-ak6NoX_4Aeg_1958664380")]
-    [Description(@"??")]
+    [Description(@"The account management instruction is being processed and the confirmation will follow.")]
     ProcessingOngoing,
     
     /// <summary>
-    /// ??
+    /// The account management instruction has been sent to the next party, for example, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_bqlV0tp-Ed-ak6NoX_4Aeg_1958664440")]
-    [Description(@"??")]
+    [Description(@"The account management instruction has been sent to the next party, for example, the next intermediary.")]
     SentToNextParty,
     
 }

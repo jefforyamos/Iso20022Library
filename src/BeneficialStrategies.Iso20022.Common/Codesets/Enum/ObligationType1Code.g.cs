@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ObligationType1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the obligation is related to a failed trade.
     /// Encoded/decoded by serializers as "Fails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_YZ95odp-Ed-ak6NoX_4Aeg_-590738382")]
-    [Description(@"??")]
+    [Description(@"Specifies that the obligation is related to a failed trade.")]
     Fails,
     
     /// <summary>
-    /// ??
+    /// Specifies that the obligation is related to new a trade.
     /// Encoded/decoded by serializers as "New".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEW1")]
     [IsoId("_YZ95otp-Ed-ak6NoX_4Aeg_155306625")]
-    [Description(@"??")]
+    [Description(@"Specifies that the obligation is related to new a trade.")]
     New,
     
     /// <summary>
-    /// ??
+    /// Specifies that the obligation is related to a corporate event.
     /// Encoded/decoded by serializers as "CorporateEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COEV")]
     [IsoId("_YZ95o9p-Ed-ak6NoX_4Aeg_-1536873572")]
-    [Description(@"??")]
+    [Description(@"Specifies that the obligation is related to a corporate event.")]
     CorporateEvent,
     
 }

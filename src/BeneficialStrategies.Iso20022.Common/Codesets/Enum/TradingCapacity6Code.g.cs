@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradingCapacity6Code
 {
     /// <summary>
-    /// ??
+    /// Trading as Agent on behalf of a customer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGEN")]
     [IsoId("__zaK9dojEeC60axPepSq7g_946389513")]
-    [Description(@"??")]
+    [Description(@"Trading as Agent on behalf of a customer.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Party acting as an agent for both customer and another person.
     /// Encoded/decoded by serializers as "ActingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BAGN")]
     [IsoId("__zaK9tojEeC60axPepSq7g_-729579691")]
-    [Description(@"??")]
+    [Description(@"Party acting as an agent for both customer and another person.")]
     ActingAgent,
     
     /// <summary>
-    /// ??
+    /// Crossing as an agent.
     /// Encoded/decoded by serializers as "CrossingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAGN")]
     [IsoId("__zj78NojEeC60axPepSq7g_-1990766827")]
-    [Description(@"??")]
+    [Description(@"Crossing as an agent.")]
     CrossingAgent,
     
     /// <summary>
-    /// ??
+    /// Crossing as a principal.
     /// Encoded/decoded by serializers as "CrossingPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPRN")]
     [IsoId("__zj78dojEeC60axPepSq7g_1386150177")]
-    [Description(@"??")]
+    [Description(@"Crossing as a principal.")]
     CrossingPrincipal,
     
     /// <summary>
-    /// ??
+    /// Acting as an agent for a party other than a customer.
     /// Encoded/decoded by serializers as "OtherAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OAGN")]
     [IsoId("__zj78tojEeC60axPepSq7g_1420967182")]
-    [Description(@"??")]
+    [Description(@"Acting as an agent for a party other than a customer.")]
     OtherAgent,
     
     /// <summary>
-    /// ??
+    /// Acting as an agent for some executions and principal for others in the same transaction.
     /// Encoded/decoded by serializers as "PrincipalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAG")]
     [IsoId("__zj789ojEeC60axPepSq7g_153653596")]
-    [Description(@"??")]
+    [Description(@"Acting as an agent for some executions and principal for others in the same transaction.")]
     PrincipalAgent,
     
     /// <summary>
-    /// ??
+    /// Trading as Principal.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIN")]
     [IsoId("__zj79NojEeC60axPepSq7g_-2025583832")]
-    [Description(@"??")]
+    [Description(@"Trading as Principal.")]
     Principal,
     
 }

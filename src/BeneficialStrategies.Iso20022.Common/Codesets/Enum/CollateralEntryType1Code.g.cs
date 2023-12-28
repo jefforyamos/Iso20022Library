@@ -20,21 +20,23 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralEntryType1Code
 {
     /// <summary>
-    /// ??
+    /// Financial Instruments or amount are to be delivered out of Party A's account.
+    /// 
     /// Encoded/decoded by serializers as "Delivered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELI")]
     [IsoId("_Qe13kXvLEemW9qhOy0scyg")]
-    [Description(@"??")]
+    [Description(@"Financial Instruments or amount are to be delivered out of Party A's account. ")]
     Delivered,
     
     /// <summary>
-    /// ??
+    /// Financial Instruments  or amount are to be received in Party A's account.
+    /// 
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_QjH6oXvLEemW9qhOy0scyg")]
-    [Description(@"??")]
+    [Description(@"Financial Instruments  or amount are to be received in Party A's account. ")]
     Received,
     
 }

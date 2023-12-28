@@ -22,21 +22,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction29Code
 {
     /// <summary>
-    /// ??
+    /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
     /// Encoded/decoded by serializers as "Advice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVC")]
     [IsoId("_fhDAkemqEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
     Advice,
     
     /// <summary>
-    /// ??
+    /// Information about the transaction.
     /// Encoded/decoded by serializers as "Notification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTI")]
     [IsoId("_geC0UemqEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Information about the transaction.")]
     Notification,
     
 }

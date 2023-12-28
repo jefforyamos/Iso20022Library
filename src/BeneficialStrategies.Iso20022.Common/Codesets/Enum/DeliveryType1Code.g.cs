@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeliveryType1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the delivery is against payment.
     /// Encoded/decoded by serializers as "AgainstPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGPM")]
     [IsoId("_azmDddp-Ed-ak6NoX_4Aeg_202824033")]
-    [Description(@"??")]
+    [Description(@"Indicates that the delivery is against payment.")]
     AgainstPayment,
     
     /// <summary>
-    /// ??
+    /// Indicates the delivery is free of payment.
     /// Encoded/decoded by serializers as "Free".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREE")]
     [IsoId("_azv0cNp-Ed-ak6NoX_4Aeg_202824093")]
-    [Description(@"??")]
+    [Description(@"Indicates the delivery is free of payment.")]
     Free,
     
     /// <summary>
-    /// ??
+    /// Indicates that a custodian bank or international clearing organization acts as an intermediary between the two parties to the repo.
     /// Encoded/decoded by serializers as "Triparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRIP")]
     [IsoId("_azv0cdp-Ed-ak6NoX_4Aeg_203744107")]
-    [Description(@"??")]
+    [Description(@"Indicates that a custodian bank or international clearing organization acts as an intermediary between the two parties to the repo.")]
     Triparty,
     
     /// <summary>
-    /// ??
+    /// Indicates that the collateral pledged by the (cash) borrower is not actually delivered to the cash lender. Rather, it is placed in an internal account ("held in custody") by the borrower, for the lender, throughout the duration of the trade.
     /// Encoded/decoded by serializers as "HoldInCustody".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOIC")]
     [IsoId("_azv0ctp-Ed-ak6NoX_4Aeg_203744124")]
-    [Description(@"??")]
+    [Description(@"Indicates that the collateral pledged by the (cash) borrower is not actually delivered to the cash lender. Rather, it is placed in an internal account (""held in custody"") by the borrower, for the lender, throughout the duration of the trade.")]
     HoldInCustody,
     
 }

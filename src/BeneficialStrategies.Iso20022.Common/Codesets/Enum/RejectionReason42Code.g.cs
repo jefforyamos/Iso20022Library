@@ -20,192 +20,192 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason42Code
 {
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_54I24TcNEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction is rejected since the provided certification is incorrect or incomplete.
     /// Encoded/decoded by serializers as "IncorrectCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_7HJAoTcNEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Instruction is rejected since the provided certification is incorrect or incomplete.")]
     IncorrectCertification,
     
     /// <summary>
-    /// ??
+    /// Instruction is irrevocable.
     /// Encoded/decoded by serializers as "InstructionIrrevocable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INIR")]
     [IsoId("_8AH3ETcNEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Instruction is irrevocable.")]
     InstructionIrrevocable,
     
     /// <summary>
-    /// ??
+    /// For tax reclaim, the reclaim is invalid for the tax authorities.
     /// Encoded/decoded by serializers as "InvalidForTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVA")]
     [IsoId("_9cqtkTcNEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"For tax reclaim, the reclaim is invalid for the tax authorities.")]
     InvalidForTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// Invalid option type.
     /// Encoded/decoded by serializers as "InvalidOptionType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTY")]
     [IsoId("__CuscTcNEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Invalid option type.")]
     InvalidOptionType,
     
     /// <summary>
-    /// ??
+    /// Linked reference is unknown.
     /// Encoded/decoded by serializers as "InvalidReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULNK")]
     [IsoId("__vqD4TcNEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Linked reference is unknown.")]
     InvalidReference,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_BdwkcTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
     /// <summary>
-    /// ??
+    /// Instructed position exceeds the eligible balance.
     /// Encoded/decoded by serializers as "LackofSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_CaAxUTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Instructed position exceeds the eligible balance.")]
     LackofSecurities,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_D6klITcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Mismatch between option number and option type.
     /// Encoded/decoded by serializers as "Mismatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMTY")]
     [IsoId("_EhZ7oTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Mismatch between option number and option type.")]
     Mismatch,
     
     /// <summary>
-    /// ??
+    /// Rejected due to missing beneficiary owner details.
     /// Encoded/decoded by serializers as "MissingBeneficiaryOwnerDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOIS")]
     [IsoId("_F3ioITcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Rejected due to missing beneficiary owner details.")]
     MissingBeneficiaryOwnerDetails,
     
     /// <summary>
-    /// ??
+    /// Option is not valid; it has been cancelled by the market or service provider, and cannot be responded to. Any responses already processed against this option are considered void and new responses will be required.
     /// Encoded/decoded by serializers as "OptionCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_G6y04TcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Option is not valid; it has been cancelled by the market or service provider, and cannot be responded to. Any responses already processed against this option are considered void and new responses will be required.")]
     OptionCancelled,
     
     /// <summary>
-    /// ??
+    /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, for example, expired option.
     /// Encoded/decoded by serializers as "OptionInactive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTV")]
     [IsoId("_Hig8MTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, for example, expired option.")]
     OptionInactive,
     
     /// <summary>
-    /// ??
+    /// Unrecognised option number.
     /// Encoded/decoded by serializers as "OptionNumberRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPNM")]
     [IsoId("_IBUYETcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Unrecognised option number.")]
     OptionNumberRejection,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Ic_AYTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_JwwVYTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Reclaim is refused by the tax authorities.
     /// Encoded/decoded by serializers as "RefusedByTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFT")]
     [IsoId("_KsaFUTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Reclaim is refused by the tax authorities.")]
     RefusedByTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was rejected since the instruction has already been cancelled.
     /// Encoded/decoded by serializers as "RejectedSinceAlreadyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAN")]
     [IsoId("_Magl4TcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was rejected since the instruction has already been cancelled.")]
     RejectedSinceAlreadyCancelled,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
     /// Encoded/decoded by serializers as "RejectedSinceInProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRG")]
     [IsoId("_M6DBkTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been rejected because the instruction process is in progress or has been processed.")]
     RejectedSinceInProgress,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid message sender's safekeeping account.
     /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_N8G7gTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
     SafekeepingAccountRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised event number.
     /// Encoded/decoded by serializers as "UnrecognisedIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVNM")]
     [IsoId("_P0BfYTcOEeO3kN9FenmyTQ")]
-    [Description(@"??")]
+    [Description(@"Unrecognised event number.")]
     UnrecognisedIdentification,
     
 }

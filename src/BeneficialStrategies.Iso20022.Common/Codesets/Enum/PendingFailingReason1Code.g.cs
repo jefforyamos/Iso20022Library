@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingFailingReason1Code
 {
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_jpvb4ekIEemm4qhb2yFPOw")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
 }

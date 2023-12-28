@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxRecordPeriod1Code
 {
     /// <summary>
-    /// ??
+    /// Tax is related to the second month of the period.
     /// Encoded/decoded by serializers as "FirstMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM01")]
     [IsoId("_YiT9Vdp-Ed-ak6NoX_4Aeg_-1322025421")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the second month of the period.")]
     FirstMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the first month of the period.
     /// Encoded/decoded by serializers as "SecondMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM02")]
     [IsoId("_YiT9Vtp-Ed-ak6NoX_4Aeg_-1322025391")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the first month of the period.")]
     SecondMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the third month of the period.
     /// Encoded/decoded by serializers as "ThirdMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM03")]
     [IsoId("_YiT9V9p-Ed-ak6NoX_4Aeg_-1322025390")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the third month of the period.")]
     ThirdMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the fourth month of the period.
     /// Encoded/decoded by serializers as "FourthMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM04")]
     [IsoId("_YiT9WNp-Ed-ak6NoX_4Aeg_-1322025360")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the fourth month of the period.")]
     FourthMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the fifth month of the period.
     /// Encoded/decoded by serializers as "FifthMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM05")]
     [IsoId("_YiduUNp-Ed-ak6NoX_4Aeg_-1322025330")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the fifth month of the period.")]
     FifthMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the sixth month of the period.
     /// Encoded/decoded by serializers as "SixthMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM06")]
     [IsoId("_YiduUdp-Ed-ak6NoX_4Aeg_-1322025329")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the sixth month of the period.")]
     SixthMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the seventh month of the period.
     /// Encoded/decoded by serializers as "SeventhMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM07")]
     [IsoId("_YiduUtp-Ed-ak6NoX_4Aeg_-1322025299")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the seventh month of the period.")]
     SeventhMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the eighth month of the period.
     /// Encoded/decoded by serializers as "EighthMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM08")]
     [IsoId("_YiduU9p-Ed-ak6NoX_4Aeg_-1322025268")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the eighth month of the period.")]
     EighthMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the ninth month of the period.
     /// Encoded/decoded by serializers as "NinthMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM09")]
     [IsoId("_YiduVNp-Ed-ak6NoX_4Aeg_-1322024990")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the ninth month of the period.")]
     NinthMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the tenth month of the period.
     /// Encoded/decoded by serializers as "TenthMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM10")]
     [IsoId("_YiduVdp-Ed-ak6NoX_4Aeg_-1322024989")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the tenth month of the period.")]
     TenthMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the eleventh month of the period.
     /// Encoded/decoded by serializers as "EleventhMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM11")]
     [IsoId("_YiduVtp-Ed-ak6NoX_4Aeg_-1322024959")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the eleventh month of the period.")]
     EleventhMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the twelfth month of the period.
     /// Encoded/decoded by serializers as "TwelfthMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM12")]
     [IsoId("_YiduV9p-Ed-ak6NoX_4Aeg_-1322024929")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the twelfth month of the period.")]
     TwelfthMonth,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the first quarter of the period.
     /// Encoded/decoded by serializers as "FirstQuarter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QTR1")]
     [IsoId("_YiduWNp-Ed-ak6NoX_4Aeg_-1322024928")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the first quarter of the period.")]
     FirstQuarter,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the second quarter of the period.
     /// Encoded/decoded by serializers as "SecondQuarter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QTR2")]
     [IsoId("_YiduWdp-Ed-ak6NoX_4Aeg_-1322024898")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the second quarter of the period.")]
     SecondQuarter,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the third quarter of the period.
     /// Encoded/decoded by serializers as "ThirdQuarter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QTR3")]
     [IsoId("_Yim4QNp-Ed-ak6NoX_4Aeg_-1322024867")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the third quarter of the period.")]
     ThirdQuarter,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the forth quarter of the period.
     /// Encoded/decoded by serializers as "FourthQuarter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QTR4")]
     [IsoId("_Yim4Qdp-Ed-ak6NoX_4Aeg_-1322024866")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the forth quarter of the period.")]
     FourthQuarter,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the first half of the period.
     /// Encoded/decoded by serializers as "FirstHalf".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HLF1")]
     [IsoId("_Yim4Qtp-Ed-ak6NoX_4Aeg_-1322024837")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the first half of the period.")]
     FirstHalf,
     
     /// <summary>
-    /// ??
+    /// Tax is related to the second half of the period.
     /// Encoded/decoded by serializers as "SecondHalf".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HLF2")]
     [IsoId("_Yim4Q9p-Ed-ak6NoX_4Aeg_-1322024806")]
-    [Description(@"??")]
+    [Description(@"Tax is related to the second half of the period.")]
     SecondHalf,
     
 }

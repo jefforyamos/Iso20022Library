@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionFrequencyType4Code
 {
     /// <summary>
-    /// ??
+    /// Special Dividend with reinvestment component.
     /// Encoded/decoded by serializers as "SpecialDividendWithReinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRE")]
     [IsoId("_udHZoaFUEeSK_vfd3NHBGg")]
-    [Description(@"??")]
+    [Description(@"Special Dividend with reinvestment component.")]
     SpecialDividendWithReinvestment,
     
 }

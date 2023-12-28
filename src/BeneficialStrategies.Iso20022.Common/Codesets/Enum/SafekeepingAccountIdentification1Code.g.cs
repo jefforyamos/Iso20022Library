@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SafekeepingAccountIdentification1Code
 {
     /// <summary>
-    /// ??
+    /// Announcement applies to all safekeeping accounts that own underlying financial instrument. (Used for general or preliminary announcements.).
     /// Encoded/decoded by serializers as "General".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENR")]
     [IsoId("_Y-eU5Np-Ed-ak6NoX_4Aeg_-2050057453")]
-    [Description(@"??")]
+    [Description(@"Announcement applies to all safekeeping accounts that own underlying financial instrument. (Used for general or preliminary announcements.).")]
     General,
     
 }

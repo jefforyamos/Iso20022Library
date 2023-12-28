@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateType9Code
 {
     /// <summary>
-    /// ??
+    /// Any and all rate is sought.
     /// Encoded/decoded by serializers as "AnyAndAll".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANYA")]
     [IsoId("_ZZvUlNp-Ed-ak6NoX_4Aeg_-1126354403")]
-    [Description(@"??")]
+    [Description(@"Any and all rate is sought.")]
     AnyAndAll,
     
 }

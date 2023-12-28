@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType5Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type fertilizer.
     /// Encoded/decoded by serializers as "Fertilizer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRTL")]
     [IsoId("_ie4nUQnyEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type fertilizer.")]
     Fertilizer,
     
 }

@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StoredValueAccountType1Code
 {
     /// <summary>
-    /// ??
+    /// Prepaid account managed by a financial institution for low income customers.
     /// Encoded/decoded by serializers as "BankPrepaidAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BNKA")]
     [IsoId("_swkJEdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Prepaid account managed by a financial institution for low income customers.")]
     BankPrepaidAccount,
     
     /// <summary>
-    /// ??
+    /// Car wash specific account.
     /// Encoded/decoded by serializers as "CarwashVoucher".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CWVC")]
     [IsoId("_sz7mIdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Car wash specific account.")]
     CarwashVoucher,
     
     /// <summary>
-    /// ??
+    /// Specific prepaid account for companies or professionals expenses.
     /// Encoded/decoded by serializers as "CompanyPrepaidAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPYA")]
     [IsoId("_s4Kl4dtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Specific prepaid account for companies or professionals expenses.")]
     CompanyPrepaidAccount,
     
     /// <summary>
-    /// ??
+    /// Account supporting e-money issued by an electronic money issuer.
     /// Encoded/decoded by serializers as "ElectronicMoneyAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELMY")]
     [IsoId("_s8hhcdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Account supporting e-money issued by an electronic money issuer.")]
     ElectronicMoneyAccount,
     
     /// <summary>
-    /// ??
+    /// Payment mean issued by retailers or banks as a substitute to a non-monetary gift. Usually, this Stored Value item is used only once.
     /// Encoded/decoded by serializers as "GiftCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIFT")]
     [IsoId("_tBb2odtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Payment mean issued by retailers or banks as a substitute to a non-monetary gift. Usually, this Stored Value item is used only once.")]
     GiftCard,
     
     /// <summary>
-    /// ??
+    /// Certificate to be given to a customer. Usually one shot voucher.
     /// Encoded/decoded by serializers as "GiftCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GCER")]
     [IsoId("_tGYBAdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Certificate to be given to a customer. Usually one shot voucher.")]
     GiftCertificate,
     
     /// <summary>
-    /// ??
+    /// Meal and check voucher for restaurants.
     /// Encoded/decoded by serializers as "MealVoucher".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLVC")]
     [IsoId("_tKV7AdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Meal and check voucher for restaurants.")]
     MealVoucher,
     
     /// <summary>
-    /// ??
+    /// Voucher that can be used online once or in several times.
     /// Encoded/decoded by serializers as "OnlineVoucher".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OLVC")]
     [IsoId("_tPUhodtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Voucher that can be used online once or in several times.")]
     OnlineVoucher,
     
     /// <summary>
-    /// ??
+    /// Prepaid account open with a merchant or big retailers.
     /// Encoded/decoded by serializers as "MerchantAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_tVqaMdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Prepaid account open with a merchant or big retailers.")]
     MerchantAccount,
     
     /// <summary>
-    /// ??
+    /// Other non listed stored value instrument.
     /// Encoded/decoded by serializers as "OtherPrepaidAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_tdEpwdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Other non listed stored value instrument.")]
     OtherPrepaidAccount,
     
     /// <summary>
-    /// ??
+    /// Stored value instrument used to pay telephone services (e.g. card or identifier).
     /// Encoded/decoded by serializers as "PhoneCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHON")]
     [IsoId("_thugQdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Stored value instrument used to pay telephone services (e.g. card or identifier).")]
     PhoneCard,
     
     /// <summary>
-    /// ??
+    /// Stored value account hold on the chip of a smart card. 
     /// Encoded/decoded by serializers as "SmartCardTag".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARD")]
     [IsoId("_tmPz4dtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Stored value account hold on the chip of a smart card. ")]
     SmartCardTag,
     
     /// <summary>
-    /// ??
+    /// Travel prepaid account.
     /// Encoded/decoded by serializers as "Travel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRVL")]
     [IsoId("_tquEMdtfEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Travel prepaid account.")]
     Travel,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountUsageType2Code
 {
     /// <summary>
-    /// ??
+    /// Investor.
     /// Encoded/decoded by serializers as "Investor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVE")]
     [IsoId("_FcoZMb-FEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Investor.")]
     Investor,
     
     /// <summary>
-    /// ??
+    /// Issuing participant.
     /// Encoded/decoded by serializers as "IssuingParticipant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSP")]
     [IsoId("_FjxjAb-FEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Issuing participant.")]
     IssuingParticipant,
     
     /// <summary>
-    /// ??
+    /// Settlement participant.
     /// Encoded/decoded by serializers as "SettlementParticipant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETP")]
     [IsoId("_Fqw70b-FEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Settlement participant.")]
     SettlementParticipant,
     
     /// <summary>
-    /// ??
+    /// Trading participant.
     /// Encoded/decoded by serializers as "TradingParticipant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRDP")]
     [IsoId("_FyD2ob-FEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Trading participant.")]
     TradingParticipant,
     
 }

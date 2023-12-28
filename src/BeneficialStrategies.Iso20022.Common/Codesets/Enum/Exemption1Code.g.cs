@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Exemption1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction's amount is low and could be processed without strong customer authentication.
     /// Encoded/decoded by serializers as "LowAmountExemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOWA")]
     [IsoId("_PN0UUQx1Eeqdx6buGpCCQw")]
-    [Description(@"??")]
+    [Description(@"Transaction's amount is low and could be processed without strong customer authentication.")]
     LowAmountExemption,
     
     /// <summary>
-    /// ??
+    /// Transaction is initiated by the Card Acceptor.
     /// Encoded/decoded by serializers as "MerchantInitiatedTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINT")]
     [IsoId("_PR5jEQx1Eeqdx6buGpCCQw")]
-    [Description(@"??")]
+    [Description(@"Transaction is initiated by the Card Acceptor.")]
     MerchantInitiatedTransaction,
     
     /// <summary>
-    /// ??
+    /// Transaction is one of a series of recurring payment.
     /// Encoded/decoded by serializers as "RecurringPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECP")]
     [IsoId("_PV2O8Qx1Eeqdx6buGpCCQw")]
-    [Description(@"??")]
+    [Description(@"Transaction is one of a series of recurring payment.")]
     RecurringPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a secure corporate payment.
     /// Encoded/decoded by serializers as "SecureCorporatePaymentExemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCPE")]
     [IsoId("_PZupYQx1Eeqdx6buGpCCQw")]
-    [Description(@"??")]
+    [Description(@"Transaction is a secure corporate payment.")]
     SecureCorporatePaymentExemption,
     
     /// <summary>
-    /// ??
+    /// Card Acceptor is a strong customer authentication delegate.
     /// Encoded/decoded by serializers as "StrongCustomerAuthenticationDelegation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCAD")]
     [IsoId("_PdoR8Qx1Eeqdx6buGpCCQw")]
-    [Description(@"??")]
+    [Description(@"Card Acceptor is a strong customer authentication delegate.")]
     StrongCustomerAuthenticationDelegation,
     
     /// <summary>
-    /// ??
+    /// According to the transaction risk analysis the strong customer authentication is not mandated.
     /// Encoded/decoded by serializers as "TransactionRiskAnalysisExemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAE")]
     [IsoId("_PhGcsQx1Eeqdx6buGpCCQw")]
-    [Description(@"??")]
+    [Description(@"According to the transaction risk analysis the strong customer authentication is not mandated.")]
     TransactionRiskAnalysisExemption,
     
     /// <summary>
-    /// ??
+    /// Payment is processed in a environment where strong customer authentication is inappropriate.
     /// Encoded/decoded by serializers as "TransportFareOrParkingFeeUnattendedPaymentExemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PKGE")]
     [IsoId("_Pkpf8Qx1Eeqdx6buGpCCQw")]
-    [Description(@"??")]
+    [Description(@"Payment is processed in a environment where strong customer authentication is inappropriate.")]
     TransportFareOrParkingFeeUnattendedPaymentExemption,
     
     /// <summary>
-    /// ??
+    /// Cardholder has enrolled the Card Acceptor in the exemption list of strong customer authentication.
     /// Encoded/decoded by serializers as "TrustedMerchantBeneficiaryExemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMBE")]
     [IsoId("_PolkwQx1Eeqdx6buGpCCQw")]
-    [Description(@"??")]
+    [Description(@"Cardholder has enrolled the Card Acceptor in the exemption list of strong customer authentication.")]
     TrustedMerchantBeneficiaryExemption,
     
 }

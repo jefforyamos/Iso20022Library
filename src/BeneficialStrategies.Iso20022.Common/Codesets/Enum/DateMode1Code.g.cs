@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateMode1Code
 {
     /// <summary>
-    /// ??
+    /// Beginning of day.
     /// Encoded/decoded by serializers as "BODY".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BODY")]
     [IsoId("_jKunEVuSEeSmO6RkXg92Lg")]
-    [Description(@"??")]
+    [Description(@"Beginning of day.")]
     BODY,
     
     /// <summary>
-    /// ??
+    /// End of day.
     /// Encoded/decoded by serializers as "EODY".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EODY")]
     [IsoId("_jT6_UVuSEeSmO6RkXg92Lg")]
-    [Description(@"??")]
+    [Description(@"End of day.")]
     EODY,
     
 }

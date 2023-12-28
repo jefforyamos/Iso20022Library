@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CommunicationMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Transmission by Swift (FIN).
     /// Encoded/decoded by serializers as "SWIFTMT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWMT")]
     [IsoId("_bAkIddp-Ed-ak6NoX_4Aeg_591608994")]
-    [Description(@"??")]
+    [Description(@"Transmission by Swift (FIN).")]
     SWIFTMT,
     
     /// <summary>
-    /// ??
+    /// Transmission by SWIFTNET.
     /// Encoded/decoded by serializers as "SWIFTMX".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWMX")]
     [IsoId("_bAkIdtp-Ed-ak6NoX_4Aeg_309468232")]
-    [Description(@"??")]
+    [Description(@"Transmission by SWIFTNET.")]
     SWIFTMX,
     
     /// <summary>
-    /// ??
+    /// Transmission by fax.
     /// Encoded/decoded by serializers as "Fax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAXI")]
     [IsoId("_bAkId9p-Ed-ak6NoX_4Aeg_603616409")]
-    [Description(@"??")]
+    [Description(@"Transmission by fax.")]
     Fax,
     
     /// <summary>
-    /// ??
+    /// Transmission by e-mail.
     /// Encoded/decoded by serializers as "Email".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_bAkIeNp-Ed-ak6NoX_4Aeg_617470095")]
-    [Description(@"??")]
+    [Description(@"Transmission by e-mail.")]
     Email,
     
     /// <summary>
-    /// ??
+    /// Transmission by proprietary method.
     /// Encoded/decoded by serializers as "Proprietary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("_bAtSYNp-Ed-ak6NoX_4Aeg_631321016")]
-    [Description(@"??")]
+    [Description(@"Transmission by proprietary method.")]
     Proprietary,
     
 }

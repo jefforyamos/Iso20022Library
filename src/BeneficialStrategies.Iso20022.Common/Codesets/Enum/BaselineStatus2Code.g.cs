@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BaselineStatus2Code
 {
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when all match instructions have been processed, and no such instruction is allowed anymore.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_bckvBtp-Ed-ak6NoX_4Aeg_-492223407")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when all match instructions have been processed, and no such instruction is allowed anymore.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Final state of a baseline, in which only reporting is allowed.
     /// Encoded/decoded by serializers as "Closed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSD")]
     [IsoId("_bcugANp-Ed-ak6NoX_4Aeg_-492223372")]
-    [Description(@"??")]
+    [Description(@"Final state of a baseline, in which only reporting is allowed.")]
     Closed,
     
     /// <summary>
-    /// ??
+    /// State of a baseline, after establishment, when one or more instructions (eg, amendment request, data set submission) have been processed.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_bcugAdp-Ed-ak6NoX_4Aeg_-1284169111")]
-    [Description(@"??")]
+    [Description(@"State of a baseline, after establishment, when one or more instructions (eg, amendment request, data set submission) have been processed.")]
     Active,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NewSecuritiesIssuanceType4Code
 {
     /// <summary>
-    /// ??
+    /// New security issued that has been refunded to an earlier maturity date. Applicable only in the frame of a partial defeasance PDEF corporate action event.
     /// Encoded/decoded by serializers as "RefundedSecurityIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFU")]
     [IsoId("_OQnkUaFREeSK_vfd3NHBGg")]
-    [Description(@"??")]
+    [Description(@"New security issued that has been refunded to an earlier maturity date. Applicable only in the frame of a partial defeasance PDEF corporate action event.")]
     RefundedSecurityIndicator,
     
     /// <summary>
-    /// ??
+    /// New Security issued that has not been refunded and the maturity date of the original underlying security is unchanged. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
     /// Encoded/decoded by serializers as "NonRefundedSecurityIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREF")]
     [IsoId("_OgPUs6FREeSK_vfd3NHBGg")]
-    [Description(@"??")]
+    [Description(@"New Security issued that has not been refunded and the maturity date of the original underlying security is unchanged. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.")]
     NonRefundedSecurityIndicator,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MeetingType4Code
 {
     /// <summary>
-    /// ??
+    /// Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example, approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.
     /// Encoded/decoded by serializers as "Extraordinary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XMET")]
     [IsoId("_iaPNIa7DEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example, approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.")]
     Extraordinary,
     
     /// <summary>
-    /// ??
+    /// Includes annual and ordinary meetings. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example, approval of dividends and directors. These meetings are always issuer initiated.
     /// Encoded/decoded by serializers as "General".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GMET")]
     [IsoId("_izrn4q7DEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Includes annual and ordinary meetings. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example, approval of dividends and directors. These meetings are always issuer initiated.")]
     General,
     
     /// <summary>
-    /// ??
+    /// Meeting which contains both ordinary and extraordinary resolutions.
     /// Encoded/decoded by serializers as "Mixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIXD")]
     [IsoId("_jAxosq7DEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Meeting which contains both ordinary and extraordinary resolutions.")]
     Mixed,
     
     /// <summary>
-    /// ??
+    /// Meeting that takes place as needed that is neither ordinary nor extraordinary.
     /// Encoded/decoded by serializers as "Special".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCL")]
     [IsoId("_jYIYwq7DEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Meeting that takes place as needed that is neither ordinary nor extraordinary.")]
     Special,
     
     /// <summary>
-    /// ??
+    /// Physical meeting of bond holders.
     /// Encoded/decoded by serializers as "BondHolderMeeting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMET")]
     [IsoId("_j02J8q7DEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Physical meeting of bond holders.")]
     BondHolderMeeting,
     
     /// <summary>
-    /// ??
+    /// Meeting is the result of a legal proceeding.
     /// Encoded/decoded by serializers as "CourtMeeting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMET")]
     [IsoId("_kb-bYq7DEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Meeting is the result of a legal proceeding.")]
     CourtMeeting,
     
 }

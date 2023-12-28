@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstructionType3Code
 {
     /// <summary>
-    /// ??
+    /// Instruction to match a data set.
     /// Encoded/decoded by serializers as "Match".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTCH")]
     [IsoId("_aYxvsNp-Ed-ak6NoX_4Aeg_-1294968773")]
-    [Description(@"??")]
+    [Description(@"Instruction to match a data set.")]
     Match,
     
     /// <summary>
-    /// ??
+    /// Instruction to pre-match a data set.
     /// Encoded/decoded by serializers as "PreMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMTC")]
     [IsoId("_aYxvsdp-Ed-ak6NoX_4Aeg_-1294968370")]
-    [Description(@"??")]
+    [Description(@"Instruction to pre-match a data set.")]
     PreMatch,
     
 }

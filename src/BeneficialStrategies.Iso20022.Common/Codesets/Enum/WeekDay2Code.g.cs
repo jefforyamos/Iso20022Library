@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum WeekDay2Code
 {
     /// <summary>
-    /// ??
+    /// Wednesday.
     /// Encoded/decoded by serializers as "Wednesday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEDD")]
     [IsoId("_ArjrhS-pEeWvZpCvNOLJLQ")]
-    [Description(@"??")]
+    [Description(@"Wednesday.")]
     Wednesday,
     
     /// <summary>
-    /// ??
+    /// Tuesday.
     /// Encoded/decoded by serializers as "Tuesday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TUED")]
     [IsoId("_Arjrhy-pEeWvZpCvNOLJLQ")]
-    [Description(@"??")]
+    [Description(@"Tuesday.")]
     Tuesday,
     
     /// <summary>
-    /// ??
+    /// Thursday.
     /// Encoded/decoded by serializers as "Thursday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THUD")]
     [IsoId("_ArjriS-pEeWvZpCvNOLJLQ")]
-    [Description(@"??")]
+    [Description(@"Thursday.")]
     Thursday,
     
     /// <summary>
-    /// ??
+    /// Sunday.
     /// Encoded/decoded by serializers as "Sunday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUND")]
     [IsoId("_Arjriy-pEeWvZpCvNOLJLQ")]
-    [Description(@"??")]
+    [Description(@"Sunday.")]
     Sunday,
     
     /// <summary>
-    /// ??
+    /// Saturday.
     /// Encoded/decoded by serializers as "Saturday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SATD")]
     [IsoId("_ArjrjS-pEeWvZpCvNOLJLQ")]
-    [Description(@"??")]
+    [Description(@"Saturday.")]
     Saturday,
     
     /// <summary>
-    /// ??
+    /// Monday.
     /// Encoded/decoded by serializers as "Monday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOND")]
     [IsoId("_Arjrjy-pEeWvZpCvNOLJLQ")]
-    [Description(@"??")]
+    [Description(@"Monday.")]
     Monday,
     
     /// <summary>
-    /// ??
+    /// Friday.
     /// Encoded/decoded by serializers as "Friday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRID")]
     [IsoId("_ArjrkS-pEeWvZpCvNOLJLQ")]
-    [Description(@"??")]
+    [Description(@"Friday.")]
     Friday,
     
 }

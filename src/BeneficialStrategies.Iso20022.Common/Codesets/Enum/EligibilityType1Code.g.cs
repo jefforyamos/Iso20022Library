@@ -20,30 +20,32 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EligibilityType1Code
 {
     /// <summary>
-    /// ??
+    /// Eligibility applies at securities level.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_jBwc4e5NEeCisYr99QEiWA_958890440")]
-    [Description(@"??")]
+    [Description(@"Eligibility applies at securities level.")]
     Securities,
     
     /// <summary>
-    /// ??
+    /// Eligibility applies at the level of issuer CSD.
+    /// All of the securities issued by the issuer CSD are eligible.
     /// Encoded/decoded by serializers as "IssuerCSD".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISCS")]
     [IsoId("_jBwc4u5NEeCisYr99QEiWA_-1194522765")]
-    [Description(@"??")]
+    [Description(@"Eligibility applies at the level of issuer CSD. All of the securities issued by the issuer CSD are eligible.")]
     IssuerCSD,
     
     /// <summary>
-    /// ??
+    /// Eligibility applies at country level.
+    /// All of the securities issued in that country are eligible.
     /// Encoded/decoded by serializers as "Country".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTRY")]
     [IsoId("_jBwc4-5NEeCisYr99QEiWA_-869405258")]
-    [Description(@"??")]
+    [Description(@"Eligibility applies at country level. All of the securities issued in that country are eligible.")]
     Country,
     
 }

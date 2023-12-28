@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType11Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of other type C10.
     /// Encoded/decoded by serializers as "OtherC10".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHC")]
     [IsoId("_Xwy0MQ3oEeWc7_0KPiuk6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of other type C10.")]
     OtherC10,
     
 }

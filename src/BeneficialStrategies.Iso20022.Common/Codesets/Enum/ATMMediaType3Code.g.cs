@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMMediaType3Code
 {
     /// <summary>
-    /// ??
+    /// Detected counterfeit media.
     /// Encoded/decoded by serializers as "Counterfeit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTR")]
     [IsoId("_dBRK0a4DEeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Detected counterfeit media.")]
     Counterfeit,
     
     /// <summary>
-    /// ??
+    /// Fit media.
     /// Encoded/decoded by serializers as "Fit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FITN")]
     [IsoId("_dPbio64DEeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Fit media.")]
     Fit,
     
     /// <summary>
-    /// ??
+    /// Fit or unfit media, if fitness cannot be determined.
     /// Encoded/decoded by serializers as "FitAndUnfit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FITU")]
     [IsoId("_daqiQ64DEeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Fit or unfit media, if fitness cannot be determined.")]
     FitAndUnfit,
     
     /// <summary>
-    /// ??
+    /// Suspect media.
     /// Encoded/decoded by serializers as "Suspect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCT")]
     [IsoId("_ecYd864DEeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Suspect media.")]
     Suspect,
     
     /// <summary>
-    /// ??
+    /// Unfit media (unacceptable quality).
     /// Encoded/decoded by serializers as "Unfit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNFT")]
     [IsoId("_euKxg64DEeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Unfit media (unacceptable quality).")]
     Unfit,
     
     /// <summary>
-    /// ??
+    /// Unrecognised media.
     /// Encoded/decoded by serializers as "Unrecognised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRG")]
     [IsoId("_e3j-E64DEeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Unrecognised media.")]
     Unrecognised,
     
 }

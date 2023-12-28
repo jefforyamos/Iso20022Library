@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationRight2Code
 {
     /// <summary>
-    /// ??
+    /// Investor is entitled to a "cooling off" period with cancellation rights under compliance rules.
     /// Encoded/decoded by serializers as "Entitled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALI")]
     [IsoId("_VkKxMdp-Ed-ak6NoX_4Aeg_1687884304")]
-    [Description(@"??")]
+    [Description(@"Investor is entitled to a ""cooling off"" period with cancellation rights under compliance rules.")]
     Entitled,
     
     /// <summary>
-    /// ??
+    /// Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.
     /// Encoded/decoded by serializers as "ExecutionOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOXO")]
     [IsoId("_VkKxMtp-Ed-ak6NoX_4Aeg_1687884598")]
-    [Description(@"??")]
+    [Description(@"Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.")]
     ExecutionOnly,
     
     /// <summary>
-    /// ??
+    /// Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.
     /// Encoded/decoded by serializers as "WaiverAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOWA")]
     [IsoId("_VkKxM9p-Ed-ak6NoX_4Aeg_1687884616")]
-    [Description(@"??")]
+    [Description(@"Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.")]
     WaiverAgreement,
     
     /// <summary>
-    /// ??
+    /// Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.
     /// Encoded/decoded by serializers as "Institutional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOIN")]
     [IsoId("_VkKxNNp-Ed-ak6NoX_4Aeg_1687884658")]
-    [Description(@"??")]
+    [Description(@"Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.")]
     Institutional,
     
     /// <summary>
-    /// ??
+    /// Another type of cancellation right.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_VkKxNdp-Ed-ak6NoX_4Aeg_593992752")]
-    [Description(@"??")]
+    [Description(@"Another type of cancellation right.")]
     Other,
     
 }

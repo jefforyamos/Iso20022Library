@@ -20,156 +20,156 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionType12Code
 {
     /// <summary>
-    /// ??
+    /// Server busy, try later.
     /// Encoded/decoded by serializers as "Busy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSY")]
     [IsoId("_5dVQ4UxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Server busy, try later.")]
     Busy,
     
     /// <summary>
-    /// ??
+    /// Capture the card.
     /// Encoded/decoded by serializers as "CaptureCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTR")]
     [IsoId("_5dVQ40xbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Capture the card.")]
     CaptureCard,
     
     /// <summary>
-    /// ??
+    /// Message to display, print or log.
     /// Encoded/decoded by serializers as "DisplayMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_5dVQ5UxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Message to display, print or log.")]
     DisplayMessage,
     
     /// <summary>
-    /// ??
+    /// Payment application cannot propose to the merchant an override of the payment transaction.
     /// Encoded/decoded by serializers as "ForbidOverride".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOVR")]
     [IsoId("_5dVQ50xbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Payment application cannot propose to the merchant an override of the payment transaction.")]
     ForbidOverride,
     
     /// <summary>
-    /// ??
+    /// Additional identification required (passport, ID card, etc.).
     /// Encoded/decoded by serializers as "IdentificationRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQID")]
     [IsoId("_5dVQ6UxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Additional identification required (passport, ID card, etc.).")]
     IdentificationRequired,
     
     /// <summary>
-    /// ??
+    /// Last PIN (Personal Identification Number) try.
     /// Encoded/decoded by serializers as "PINLastTry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINL")]
     [IsoId("_5dV38UxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Last PIN (Personal Identification Number) try.")]
     PINLastTry,
     
     /// <summary>
-    /// ??
+    /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
     /// Encoded/decoded by serializers as "PINRetry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINR")]
     [IsoId("_5dV380xbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"PIN (Personal Identification Number) is wrong, retry a PIN verification.")]
     PINRetry,
     
     /// <summary>
-    /// ??
+    /// Print a message.
     /// Encoded/decoded by serializers as "PrintMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRNT")]
     [IsoId("_5dV39UxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Print a message.")]
     PrintMessage,
     
     /// <summary>
-    /// ??
+    /// Referral has to be performed.
     /// Encoded/decoded by serializers as "Referral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFRL")]
     [IsoId("_5dV390xbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Referral has to be performed.")]
     Referral,
     
     /// <summary>
-    /// ??
+    /// Request additional data through a displayed text and request confirmation by an attendant.
     /// Encoded/decoded by serializers as "RequestData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQDT")]
     [IsoId("_5dV3-UxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Request additional data through a displayed text and request confirmation by an attendant.")]
     RequestData,
     
     /// <summary>
-    /// ??
+    /// Ask the cardholder to accept the currency conversion.
     /// Encoded/decoded by serializers as "AcceptCurrencyConversion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCQ")]
     [IsoId("_5dV3-0xbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Ask the cardholder to accept the currency conversion.")]
     AcceptCurrencyConversion,
     
     /// <summary>
-    /// ??
+    /// Fall-forward from contactless to chip card transaction required.
     /// Encoded/decoded by serializers as "FallForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLFW")]
     [IsoId("_5dV3_UxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Fall-forward from contactless to chip card transaction required.")]
     FallForward,
     
     /// <summary>
-    /// ??
+    /// Request Cardholder Authentification through PIN insertion.
     /// Encoded/decoded by serializers as "PINRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINQ")]
     [IsoId("_5dV3_0xbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Request Cardholder Authentification through PIN insertion.")]
     PINRequest,
     
     /// <summary>
-    /// ??
+    /// Request Cardholder Authentification according to the ConsumerDeviceCardholderVerificationMethod.
     /// Encoded/decoded by serializers as "ConsumerDeviceCardholderVerificationMethod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCV")]
     [IsoId("_5dV4AUxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Request Cardholder Authentification according to the ConsumerDeviceCardholderVerificationMethod.")]
     ConsumerDeviceCardholderVerificationMethod,
     
     /// <summary>
-    /// ??
+    /// Additional authentication of cardholder required.
     /// Encoded/decoded by serializers as "CardholderAuthentication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHDA")]
     [IsoId("_5dV4A0xbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Additional authentication of cardholder required.")]
     CardholderAuthentication,
     
     /// <summary>
-    /// ??
+    /// Recurring transactions is no more allowed for this card and for all merchants.
     /// Encoded/decoded by serializers as "StopAllRecurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAR")]
     [IsoId("_-AFqYUxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Recurring transactions is no more allowed for this card and for all merchants.")]
     StopAllRecurring,
     
     /// <summary>
-    /// ??
+    /// Cardholder has revocated this recurring transaction for this merchant.
     /// Encoded/decoded by serializers as "StopOneRecurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOR")]
     [IsoId("_-LH1sUxbEey2lJnsdq4TIg")]
-    [Description(@"??")]
+    [Description(@"Cardholder has revocated this recurring transaction for this merchant.")]
     StopOneRecurring,
     
 }

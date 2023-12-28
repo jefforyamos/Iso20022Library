@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason9Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_Go_6Rf41EeClUvPNHKL9Zw")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Awaiting confirmation from the counterparty.
     /// Encoded/decoded by serializers as "AwaitingConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_Go_6Sf41EeClUvPNHKL9Zw")]
-    [Description(@"??")]
+    [Description(@"Awaiting confirmation from the counterparty.")]
     AwaitingConfirmation,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Go_6Tf41EeClUvPNHKL9Zw")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process at the registrar.
     /// Encoded/decoded by serializers as "ConditionalRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRG")]
     [IsoId("_Go_6Uf41EeClUvPNHKL9Zw")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process at the registrar.")]
     ConditionalRegistrar,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process linked to the currency of the transaction.
     /// Encoded/decoded by serializers as "ConditionalCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCY")]
     [IsoId("_Go_6Vf41EeClUvPNHKL9Zw")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process linked to the currency of the transaction.")]
     ConditionalCurrency,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process of realignment at the issuer CSD.
     /// Encoded/decoded by serializers as "ConditionalRealignement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRE")]
     [IsoId("_Go_6Wf41EeClUvPNHKL9Zw")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process of realignment at the issuer CSD.")]
     ConditionalRealignement,
     
     /// <summary>
-    /// ??
+    /// Awaiting cancellation of one of the party.
     /// Encoded/decoded by serializers as "ConditionalDeliveryAwaitingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDAC")]
     [IsoId("_PMeU4hqJEeG38P9Gj2JZJw")]
-    [Description(@"??")]
+    [Description(@"Awaiting cancellation of one of the party.")]
     ConditionalDeliveryAwaitingCancellation,
     
     /// <summary>
-    /// ??
+    /// Not all the instructions part of a pool have been received.
     /// Encoded/decoded by serializers as "IncompleteNumberCount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INBC")]
     [IsoId("_RjugIhqJEeG38P9Gj2JZJw")]
-    [Description(@"??")]
+    [Description(@"Not all the instructions part of a pool have been received.")]
     IncompleteNumberCount,
     
 }

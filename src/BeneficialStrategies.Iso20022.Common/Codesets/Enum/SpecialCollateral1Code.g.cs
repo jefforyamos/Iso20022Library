@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SpecialCollateral1Code
 {
     /// <summary>
-    /// ??
+    /// Identifies that all repurchase agreements are conducted against general collateral.
     /// Encoded/decoded by serializers as "GeneralCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENE")]
     [IsoId("_gWcacZf_EeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"Identifies that all repurchase agreements are conducted against general collateral.")]
     GeneralCollateral,
     
     /// <summary>
-    /// ??
+    /// Identifies that all repurchase agreements are conducted against special collateral.
     /// Encoded/decoded by serializers as "SpecialCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEC")]
     [IsoId("_gb8lgZf_EeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"Identifies that all repurchase agreements are conducted against special collateral.")]
     SpecialCollateral,
     
 }

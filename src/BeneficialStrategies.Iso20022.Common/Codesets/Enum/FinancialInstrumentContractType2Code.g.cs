@@ -20,84 +20,90 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FinancialInstrumentContractType2Code
 {
     /// <summary>
-    /// ??
+    /// Contract of type contracts for difference.
     /// Encoded/decoded by serializers as "ContractForDifference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFDS")]
     [IsoId("_6FDLkZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of type contracts for difference.")]
     ContractForDifference,
     
     /// <summary>
-    /// ??
+    /// Contract of type forward rate agreement.
     /// Encoded/decoded by serializers as "ForwardRateAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRAS")]
     [IsoId("_6mlLUZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of type forward rate agreement.")]
     ForwardRateAgreement,
     
     /// <summary>
-    /// ??
+    /// Contract of type future.
     /// Encoded/decoded by serializers as "Futures".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUTR")]
     [IsoId("_7jFP0ZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of type future.")]
     Futures,
     
     /// <summary>
-    /// ??
+    /// Contract of type forward.
+    /// 
+    /// 
     /// Encoded/decoded by serializers as "Forward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORW")]
     [IsoId("_8OmSAZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of type forward.  ")]
     Forward,
     
     /// <summary>
-    /// ??
+    /// Contract of type option.
+    /// 
     /// Encoded/decoded by serializers as "Option".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTN")]
     [IsoId("_8o0v4ZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of type option. ")]
     Option,
     
     /// <summary>
-    /// ??
+    /// Contract of type spread betting.
+    /// 
     /// Encoded/decoded by serializers as "SpreadBetting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPDB")]
     [IsoId("_9HN8EZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of type spread betting. ")]
     SpreadBetting,
     
     /// <summary>
-    /// ??
+    /// Contract of type swap.
+    /// 
     /// Encoded/decoded by serializers as "Swap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWAP")]
     [IsoId("_9yJIYZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of type swap. ")]
     Swap,
     
     /// <summary>
-    /// ??
+    /// Contract of type swaption.
+    /// 
     /// Encoded/decoded by serializers as "Swaption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPT")]
     [IsoId("_-I73wZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of type swaption. ")]
     Swaption,
     
     /// <summary>
-    /// ??
+    /// Contract of other financial instrument contract type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_-oFR4ZHrEeabEPkKgPJPcA")]
-    [Description(@"??")]
+    [Description(@"Contract of other financial instrument contract type.")]
     Other,
     
 }

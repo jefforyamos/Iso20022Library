@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesTransactionType15Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is a purchase of financial instrument.
     /// Encoded/decoded by serializers as "Buy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYI")]
     [IsoId("_U6o2obu7EeSXxOgurgHGgw")]
-    [Description(@"??")]
+    [Description(@"Transaction is a purchase of financial instrument.")]
     Buy,
     
     /// <summary>
-    /// ??
+    /// Transaction is a sale of financial instrument.
     /// Encoded/decoded by serializers as "Sell".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_XDPh4bu7EeSXxOgurgHGgw")]
-    [Description(@"??")]
+    [Description(@"Transaction is a sale of financial instrument.")]
     Sell,
     
 }

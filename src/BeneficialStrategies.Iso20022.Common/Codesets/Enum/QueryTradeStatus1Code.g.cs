@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QueryTradeStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Query for all trades.
     /// Encoded/decoded by serializers as "QueryAllStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QAST")]
     [IsoId("_vWekwaadEeSR8qifggAitQ")]
-    [Description(@"??")]
+    [Description(@"Query for all trades.")]
     QueryAllStatus,
     
     /// <summary>
-    /// ??
+    /// Query for trades have been canceled.
     /// Encoded/decoded by serializers as "QueryCanceledTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QCTR")]
     [IsoId("_vcIg0aadEeSR8qifggAitQ")]
-    [Description(@"??")]
+    [Description(@"Query for trades have been canceled.")]
     QueryCanceledTrade,
     
     /// <summary>
-    /// ??
+    /// Query for cancelling trades.
     /// Encoded/decoded by serializers as "QueryCancellingTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QCIR")]
     [IsoId("_vhor4aadEeSR8qifggAitQ")]
-    [Description(@"??")]
+    [Description(@"Query for cancelling trades.")]
     QueryCancellingTrade,
     
     /// <summary>
-    /// ??
+    /// Query for emergency trades.
     /// Encoded/decoded by serializers as "QueryEmergencyTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QETR")]
     [IsoId("_vnI28aadEeSR8qifggAitQ")]
-    [Description(@"??")]
+    [Description(@"Query for emergency trades.")]
     QueryEmergencyTrade,
     
     /// <summary>
-    /// ??
+    /// Query for new trades.
     /// Encoded/decoded by serializers as "QueryNewTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QNTR")]
     [IsoId("_vsppEaadEeSR8qifggAitQ")]
-    [Description(@"??")]
+    [Description(@"Query for new trades.")]
     QueryNewTrade,
     
     /// <summary>
-    /// ??
+    /// Query for trades have been replaced.
     /// Encoded/decoded by serializers as "QueryReplacedTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QRTR")]
     [IsoId("_vyQh0aadEeSR8qifggAitQ")]
-    [Description(@"??")]
+    [Description(@"Query for trades have been replaced.")]
     QueryReplacedTrade,
     
 }

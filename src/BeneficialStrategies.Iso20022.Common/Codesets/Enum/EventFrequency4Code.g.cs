@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventFrequency4Code
 {
     /// <summary>
-    /// ??
+    /// Event takes place every year or once a year.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_ajzT8tp-Ed-ak6NoX_4Aeg_-2118703816")]
-    [Description(@"??")]
+    [Description(@"Event takes place every year or once a year.")]
     Annual,
     
     /// <summary>
-    /// ??
+    /// Event takes place as necessary.
     /// Encoded/decoded by serializers as "Adhoc".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADHO")]
     [IsoId("_ajzT89p-Ed-ak6NoX_4Aeg_-2090075609")]
-    [Description(@"??")]
+    [Description(@"Event takes place as necessary.")]
     Adhoc,
     
     /// <summary>
-    /// ??
+    /// Event takes place every month or once a month.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_ajzT9Np-Ed-ak6NoX_4Aeg_-2118703815")]
-    [Description(@"??")]
+    [Description(@"Event takes place every month or once a month.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every day.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_ajzT9dp-Ed-ak6NoX_4Aeg_-2118703814")]
-    [Description(@"??")]
+    [Description(@"Event takes place every day.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Event takes place several times a day.
     /// Encoded/decoded by serializers as "IntraDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDA")]
     [IsoId("_ajzT9tp-Ed-ak6NoX_4Aeg_-2118703798")]
-    [Description(@"??")]
+    [Description(@"Event takes place several times a day.")]
     IntraDay,
     
     /// <summary>
-    /// ??
+    /// Event takes place once a week.
     /// Encoded/decoded by serializers as "Weekly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_ajzT99p-Ed-ak6NoX_4Aeg_-2118703797")]
-    [Description(@"??")]
+    [Description(@"Event takes place once a week.")]
     Weekly,
     
 }

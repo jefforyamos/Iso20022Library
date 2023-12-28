@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Location1Code
 {
     /// <summary>
-    /// ??
+    /// At another institution
     /// Encoded/decoded by serializers as "AtAnotherInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_MGitsaHoEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"At another institution")]
     AtAnotherInstitution,
     
     /// <summary>
-    /// ??
+    /// At my institution.
     /// Encoded/decoded by serializers as "AtMyInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MYIN")]
     [IsoId("_MbH2kqHoEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"At my institution.")]
     AtMyInstitution,
     
 }

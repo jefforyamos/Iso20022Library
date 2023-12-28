@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType6Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type industrial product.
     /// Encoded/decoded by serializers as "IndustrialProduct".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDP")]
     [IsoId("_lpqhQQnyEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type industrial product.")]
     IndustrialProduct,
     
 }

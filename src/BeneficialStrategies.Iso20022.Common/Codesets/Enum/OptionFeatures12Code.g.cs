@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionFeatures12Code
 {
     /// <summary>
-    /// ??
+    /// Tender or exchange with the odd lot preference.
     /// Encoded/decoded by serializers as "OddLotPreference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPLF")]
     [IsoId("_m4sssbaSEeiN--kDwanlkA")]
-    [Description(@"??")]
+    [Description(@"Tender or exchange with the odd lot preference.")]
     OddLotPreference,
     
 }

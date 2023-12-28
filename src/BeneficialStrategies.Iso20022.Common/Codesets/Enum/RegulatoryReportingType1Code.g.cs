@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RegulatoryReportingType1Code
 {
     /// <summary>
-    /// ??
+    /// Regulatory information applies to the credit side.
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRED")]
     [IsoId("_ZbFYZ9p-Ed-ak6NoX_4Aeg_-1519759906")]
-    [Description(@"??")]
+    [Description(@"Regulatory information applies to the credit side.")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Regulatory information applies to the debit side.
     /// Encoded/decoded by serializers as "Debit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBT")]
     [IsoId("_ZbPJYNp-Ed-ak6NoX_4Aeg_-1464346584")]
-    [Description(@"??")]
+    [Description(@"Regulatory information applies to the debit side.")]
     Debit,
     
     /// <summary>
-    /// ??
+    /// Regulatory information applies to both credit and debit sides.
     /// Encoded/decoded by serializers as "Both".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_ZbPJYdp-Ed-ak6NoX_4Aeg_-1237159367")]
-    [Description(@"??")]
+    [Description(@"Regulatory information applies to both credit and debit sides.")]
     Both,
     
 }

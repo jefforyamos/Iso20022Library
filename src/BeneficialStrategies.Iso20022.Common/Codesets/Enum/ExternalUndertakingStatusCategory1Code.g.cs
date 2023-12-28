@@ -21,84 +21,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalUndertakingStatusCategory1Code
 {
     /// <summary>
-    /// ??
+    /// Status is related to an undertaking amendment.
     /// Encoded/decoded by serializers as "Amendment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMND")]
     [IsoId("_uRhQ2_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to an undertaking amendment.")]
     Amendment,
     
     /// <summary>
-    /// ??
+    /// Status is related to a counter-undertaking amount.
     /// Encoded/decoded by serializers as "CounterUndertakingAmountStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTC")]
     [IsoId("_uRrB0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to a counter-undertaking amount.")]
     CounterUndertakingAmountStatus,
     
     /// <summary>
-    /// ??
+    /// Status is related to an undertaking amount.
     /// Encoded/decoded by serializers as "UndertakingAmountStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTU")]
     [IsoId("_uRrB1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to an undertaking amount.")]
     UndertakingAmountStatus,
     
     /// <summary>
-    /// ??
+    /// Status is related to an undertaking application.
     /// Encoded/decoded by serializers as "Application".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPL")]
     [IsoId("_uRrB2PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to an undertaking application.")]
     Application,
     
     /// <summary>
-    /// ??
+    /// Status is related to an undertaking amendment requested by the beneficiary.
     /// Encoded/decoded by serializers as "BeneficiaryAmendment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BAMD")]
     [IsoId("_uRrB2_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to an undertaking amendment requested by the beneficiary.")]
     BeneficiaryAmendment,
     
     /// <summary>
-    /// ??
+    /// Status is related to an undertaking confirmation.
     /// Encoded/decoded by serializers as "Confirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_uRrB3vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to an undertaking confirmation.")]
     Confirmation,
     
     /// <summary>
-    /// ??
+    /// Status is related to an undertaking demand.
     /// Encoded/decoded by serializers as "Demand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEMD")]
     [IsoId("_uR0LwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to an undertaking demand.")]
     Demand,
     
     /// <summary>
-    /// ??
+    /// Status is related to an undertaking non-extension request.
     /// Encoded/decoded by serializers as "NonExtension".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEXT")]
     [IsoId("_uR0LxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to an undertaking non-extension request.")]
     NonExtension,
     
     /// <summary>
-    /// ??
+    /// Status is related to an undertaking termination.
     /// Encoded/decoded by serializers as "Termination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERM")]
     [IsoId("_uR0LyPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Status is related to an undertaking termination.")]
     Termination,
     
 }

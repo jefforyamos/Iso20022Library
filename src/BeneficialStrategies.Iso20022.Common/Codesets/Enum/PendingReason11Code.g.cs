@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason11Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_V3td0SdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Tax reclaim has been sent to the tax authorities.
     /// Encoded/decoded by serializers as "SentToTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_YMot0SdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Tax reclaim has been sent to the tax authorities.")]
     SentToTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// Pending receipt of beneficiary owner details.
     /// Encoded/decoded by serializers as "PendingBeneficiaryOwnerDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOIS")]
     [IsoId("_hO70wSdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Pending receipt of beneficiary owner details.")]
     PendingBeneficiaryOwnerDetails,
     
     /// <summary>
-    /// ??
+    /// Quantity of financial instruments does not match.
     /// Encoded/decoded by serializers as "QuantityDisagreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_jTyocSdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Quantity of financial instruments does not match.")]
     QuantityDisagreement,
     
     /// <summary>
-    /// ??
+    /// Insufficient financial instruments in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_kuGqUSdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Insufficient financial instruments in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_lx8F4SdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Awaiting receipt of adequate certification.
     /// Encoded/decoded by serializers as "MissingCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCER")]
     [IsoId("_mv1RgSdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Awaiting receipt of adequate certification.")]
     MissingCertification,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in your account.
     /// Encoded/decoded by serializers as "InsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_n69n4SdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in your account.")]
     InsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_o7PZISdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Payment has not been made by issuer.
     /// Encoded/decoded by serializers as "NoPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPAY")]
     [IsoId("_plCkESdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Payment has not been made by issuer.")]
     NoPayment,
     
     /// <summary>
-    /// ??
+    /// Financial instruments have not been delivered by the issuer.
     /// Encoded/decoded by serializers as "NotDelivered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSEC")]
     [IsoId("_qSRdgSdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Financial instruments have not been delivered by the issuer.")]
     NotDelivered,
     
     /// <summary>
-    /// ??
+    /// The instruction is pending receipt of securities, for example, from a purchase, loan etc.
     /// Encoded/decoded by serializers as "PendingReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENR")]
     [IsoId("_rIbCYSdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"The instruction is pending receipt of securities, for example, from a purchase, loan etc.")]
     PendingReceipt,
     
     /// <summary>
-    /// ??
+    /// For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.
     /// Encoded/decoded by serializers as "ValidForTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VLDA")]
     [IsoId("_sNwSwSdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.")]
     ValidForTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// Certificate number error.
     /// Encoded/decoded by serializers as "WrongCertificatesNumbers".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_wSabASdwEeOXAt_43VmZGw")]
-    [Description(@"??")]
+    [Description(@"Certificate number error.")]
     WrongCertificatesNumbers,
     
 }

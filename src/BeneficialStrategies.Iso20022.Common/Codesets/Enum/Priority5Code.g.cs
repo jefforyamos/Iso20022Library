@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Priority5Code
 {
     /// <summary>
-    /// ??
+    /// Priority level is high.
     /// Encoded/decoded by serializers as "High".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIGH")]
     [IsoId("_mcdxcH_QEeiik6YN_dzlEA")]
-    [Description(@"??")]
+    [Description(@"Priority level is high.")]
     High,
     
     /// <summary>
-    /// ??
+    /// Priority level is low.
     /// Encoded/decoded by serializers as "Low".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOWW")]
     [IsoId("_mh3O0X_QEeiik6YN_dzlEA")]
-    [Description(@"??")]
+    [Description(@"Priority level is low.")]
     Low,
     
     /// <summary>
-    /// ??
+    /// Priority level is normal.
     /// Encoded/decoded by serializers as "Normal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORM")]
     [IsoId("_mpC04X_QEeiik6YN_dzlEA")]
-    [Description(@"??")]
+    [Description(@"Priority level is normal.")]
     Normal,
     
     /// <summary>
-    /// ??
+    /// Priority level is urgent (highest priority possible).
     /// Encoded/decoded by serializers as "Urgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URGT")]
     [IsoId("_muQFAX_QEeiik6YN_dzlEA")]
-    [Description(@"??")]
+    [Description(@"Priority level is urgent (highest priority possible).")]
     Urgent,
     
 }

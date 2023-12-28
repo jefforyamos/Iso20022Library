@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataType1Code
 {
     /// <summary>
-    /// ??
+    /// Specified type of data is exercise data.
     /// Encoded/decoded by serializers as "ExerciseData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXDA")]
     [IsoId("_cftWAYAwEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specified type of data is exercise data.")]
     ExerciseData,
     
     /// <summary>
-    /// ??
+    /// Specified type of data is trading data.
     /// Encoded/decoded by serializers as "TradingData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRDA")]
     [IsoId("_clTnsYAwEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specified type of data is trading data.")]
     TradingData,
     
 }

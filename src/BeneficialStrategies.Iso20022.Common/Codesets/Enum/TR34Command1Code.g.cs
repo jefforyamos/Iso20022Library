@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TR34Command1Code
 {
     /// <summary>
-    /// ??
+    /// TR34 bind operation.
     /// Encoded/decoded by serializers as "Bind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIND")]
     [IsoId("_KalWQV2lEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"TR34 bind operation.")]
     Bind,
     
     /// <summary>
-    /// ??
+    /// TR34 Higher Level rebind operation.
     /// Encoded/decoded by serializers as "HigherLevelRebind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HILR")]
     [IsoId("_KfcoIV2lEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"TR34 Higher Level rebind operation.")]
     HigherLevelRebind,
     
     /// <summary>
-    /// ??
+    /// TR34 Higher Level unbind operation.
     /// Encoded/decoded by serializers as "HigherLevelUnbind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HILU")]
     [IsoId("_KiyQAV2lEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"TR34 Higher Level unbind operation.")]
     HigherLevelUnbind,
     
     /// <summary>
-    /// ??
+    /// TR34 rebind operation.
     /// Encoded/decoded by serializers as "Rebind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RBND")]
     [IsoId("_KndUoV2lEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"TR34 rebind operation.")]
     Rebind,
     
     /// <summary>
-    /// ??
+    /// TR34 unbind operation.
     /// Encoded/decoded by serializers as "Unbind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UBND")]
     [IsoId("_KsIZQV2lEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"TR34 unbind operation.")]
     Unbind,
     
 }

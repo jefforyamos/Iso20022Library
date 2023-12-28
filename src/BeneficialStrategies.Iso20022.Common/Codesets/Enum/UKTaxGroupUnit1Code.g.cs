@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UKTaxGroupUnit1Code
 {
     /// <summary>
-    /// ??
+    /// The units that were purchased prior to the last ex-div date.
     /// Encoded/decoded by serializers as "Group1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRP1")]
     [IsoId("_PGFToYoQEeahcZ3Nzs1Qag")]
-    [Description(@"??")]
+    [Description(@"The units that were purchased prior to the last ex-div date.")]
     Group1,
     
     /// <summary>
-    /// ??
+    /// The units that were purchased since the ex-div date, and that benefit from the tax exemption.
     /// Encoded/decoded by serializers as "Group2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRP2")]
     [IsoId("_PLJZ0YoQEeahcZ3Nzs1Qag")]
-    [Description(@"??")]
+    [Description(@"The units that were purchased since the ex-div date, and that benefit from the tax exemption.")]
     Group2,
     
 }

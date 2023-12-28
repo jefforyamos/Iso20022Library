@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TimeFrame1Code
 {
     /// <summary>
-    /// ??
+    /// Greater than five years.
     /// Encoded/decoded by serializers as "LongTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LONG")]
     [IsoId("_gS0e8TccEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Greater than five years.")]
     LongTerm,
     
     /// <summary>
-    /// ??
+    /// Greater than or equal to three years.
     /// Encoded/decoded by serializers as "MediumTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEDM")]
     [IsoId("_gWZXYTccEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Greater than or equal to three years.")]
     MediumTerm,
     
     /// <summary>
-    /// ??
+    /// Time frame is neutral.
     /// Encoded/decoded by serializers as "Neutral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEUT")]
     [IsoId("_gatPoTccEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Time frame is neutral.")]
     Neutral,
     
     /// <summary>
-    /// ??
+    /// Greater than or equal to one year.
     /// Encoded/decoded by serializers as "ShortTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHOR")]
     [IsoId("_gfBu8TccEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Greater than or equal to one year.")]
     ShortTerm,
     
     /// <summary>
-    /// ??
+    /// Less than one year.
     /// Encoded/decoded by serializers as "VeryShortTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VSHT")]
     [IsoId("_gjL2MTccEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Less than one year.")]
     VeryShortTerm,
     
     /// <summary>
-    /// ??
+    /// Hold to maturity.
     /// Encoded/decoded by serializers as "Hold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_FlJAgYEMEeiw-daIkkmMqQ")]
-    [Description(@"??")]
+    [Description(@"Hold to maturity.")]
     Hold,
     
 }

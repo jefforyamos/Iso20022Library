@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClearingMethod2Code
 {
     /// <summary>
-    /// ??
+    /// Day clearing.
     /// Encoded/decoded by serializers as "Day".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAYC")]
     [IsoId("_CO0dUX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Day clearing.")]
     Day,
     
     /// <summary>
-    /// ??
+    /// Clearing to be deferred in time.
     /// Encoded/decoded by serializers as "Deferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFRD")]
     [IsoId("_CO0dU30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Clearing to be deferred in time.")]
     Deferred,
     
     /// <summary>
-    /// ??
+    /// Clearing for instant payments and transfers.
     /// Encoded/decoded by serializers as "Instant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_CO0dVX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Clearing for instant payments and transfers.")]
     Instant,
     
     /// <summary>
-    /// ??
+    /// Other type of clearing method defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_CO0dV30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of clearing method defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of clearing method defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_CO0dWX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of clearing method defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Clearing done in real time.
     /// Encoded/decoded by serializers as "RealTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RLTM")]
     [IsoId("_CO0dW30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Clearing done in real time.")]
     RealTime,
     
 }

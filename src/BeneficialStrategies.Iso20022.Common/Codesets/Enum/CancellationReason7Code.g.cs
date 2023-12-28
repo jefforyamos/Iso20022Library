@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationReason7Code
 {
     /// <summary>
-    /// ??
+    /// Payment is a duplicate of another payment.
     /// Encoded/decoded by serializers as "DuplicatePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_9qJyMR06EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Payment is a duplicate of another payment.")]
     DuplicatePayment,
     
     /// <summary>
-    /// ??
+    /// Agent in the payment workflow is incorrect.
     /// Encoded/decoded by serializers as "IncorrectAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("__9EQAh06EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Agent in the payment workflow is incorrect.")]
     IncorrectAgent,
     
     /// <summary>
-    /// ??
+    /// Currency of the payment is incorrect.
     /// Encoded/decoded by serializers as "IncorrectCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_BB6_Qh07EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Currency of the payment is incorrect.")]
     IncorrectCurrency,
     
     /// <summary>
-    /// ??
+    /// Cancellation requested by the Debtor.
     /// Encoded/decoded by serializers as "RequestedByCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_Buhmkh07EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Cancellation requested by the Debtor.")]
     RequestedByCustomer,
     
     /// <summary>
-    /// ??
+    /// Payment is not justified.
     /// Encoded/decoded by serializers as "UnduePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPAY")]
     [IsoId("_CiVpIR07EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Payment is not justified.")]
     UnduePayment,
     
     /// <summary>
-    /// ??
+    /// Cancellation requested because an investigation request has been received and no remediation is possible.
     /// Encoded/decoded by serializers as "CancelUponUnableToApply".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUTA")]
     [IsoId("_DiYw4h07EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Cancellation requested because an investigation request has been received and no remediation is possible.")]
     CancelUponUnableToApply,
     
     /// <summary>
-    /// ??
+    /// Cancellation requested following technical problems resulting in an erroneous transaction.
     /// Encoded/decoded by serializers as "TechnicalProblem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TECH")]
     [IsoId("_Eae2gh07EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Cancellation requested following technical problems resulting in an erroneous transaction.")]
     TechnicalProblem,
     
     /// <summary>
-    /// ??
+    /// Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.
     /// Encoded/decoded by serializers as "FraudulentOrigin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRAD")]
     [IsoId("_FP7Qwh07EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.")]
     FraudulentOrigin,
     
     /// <summary>
-    /// ??
+    /// Cover payment has been cancelled or returned.
     /// Encoded/decoded by serializers as "CoverCancelledOrReturned".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVR")]
     [IsoId("_GeZ2Eh07EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Cover payment has been cancelled or returned.")]
     CoverCancelledOrReturned,
     
 }

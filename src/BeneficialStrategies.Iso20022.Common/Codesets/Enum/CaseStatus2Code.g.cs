@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CaseStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Case has been closed.
     /// Encoded/decoded by serializers as "Closed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSD")]
     [IsoId("_a2lGCNp-Ed-ak6NoX_4Aeg_-286578825")]
-    [Description(@"??")]
+    [Description(@"Case has been closed.")]
     Closed,
     
     /// <summary>
-    /// ??
+    /// Case has been assigned to another party.
     /// Encoded/decoded by serializers as "Assigned".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASGN")]
     [IsoId("_a2uP8Np-Ed-ak6NoX_4Aeg_-286578808")]
-    [Description(@"??")]
+    [Description(@"Case has been assigned to another party.")]
     Assigned,
     
     /// <summary>
-    /// ??
+    /// Case is currently under investigation.
     /// Encoded/decoded by serializers as "UnderInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVE")]
     [IsoId("_a2uP8dp-Ed-ak6NoX_4Aeg_-286578566")]
-    [Description(@"??")]
+    [Description(@"Case is currently under investigation.")]
     UnderInvestigation,
     
     /// <summary>
-    /// ??
+    /// Case has never been assigned before.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKNW")]
     [IsoId("_a2uP8tp-Ed-ak6NoX_4Aeg_-286578549")]
-    [Description(@"??")]
+    [Description(@"Case has never been assigned before.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Investigation is taking too long.
     /// Encoded/decoded by serializers as "Overdue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ODUE")]
     [IsoId("_a2uP89p-Ed-ak6NoX_4Aeg_-286578548")]
-    [Description(@"??")]
+    [Description(@"Investigation is taking too long.")]
     Overdue,
     
 }

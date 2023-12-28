@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionEnvironment3Code
 {
     /// <summary>
-    /// ??
+    /// Bank environment.
     /// Encoded/decoded by serializers as "Branch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRCH")]
     [IsoId("_6F6BoXsIEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Bank environment.")]
     Branch,
     
     /// <summary>
-    /// ??
+    /// Merchant environment.
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_6Md8oXsIEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Merchant environment.")]
     Merchant,
     
     /// <summary>
-    /// ??
+    /// Other environments, for instance a mall or an airport.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_6SkkoXsIEeSR68OJvMfxJQ")]
-    [Description(@"??")]
+    [Description(@"Other environments, for instance a mall or an airport.")]
     Other,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMServiceType5Code
 {
     /// <summary>
-    /// ??
+    /// Modification of the card PIN value.
     /// Encoded/decoded by serializers as "PINChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINC")]
     [IsoId("_djyvg4rAEeSgLpgNvMAP2g")]
-    [Description(@"??")]
+    [Description(@"Modification of the card PIN value.")]
     PINChange,
     
     /// <summary>
-    /// ??
+    /// Resetting of a PIN.
     /// Encoded/decoded by serializers as "PINRecovery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINR")]
     [IsoId("_djyvhYrAEeSgLpgNvMAP2g")]
-    [Description(@"??")]
+    [Description(@"Resetting of a PIN.")]
     PINRecovery,
     
     /// <summary>
-    /// ??
+    /// Unblock the PIN.
     /// Encoded/decoded by serializers as "PINUnblock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINU")]
     [IsoId("_djyvh4rAEeSgLpgNvMAP2g")]
-    [Description(@"??")]
+    [Description(@"Unblock the PIN.")]
     PINUnblock,
     
 }

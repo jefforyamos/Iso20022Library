@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RetailerService9Code
 {
     /// <summary>
-    /// ??
+    /// One system responds to the other system for a display request.
     /// Encoded/decoded by serializers as "DeviceDisplayResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDYP")]
     [IsoId("_YsANsd7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system responds to the other system for a display request.")]
     DeviceDisplayResponse,
     
     /// <summary>
-    /// ??
+    /// One system responds to the other System for a input request.
     /// Encoded/decoded by serializers as "DeviceInputResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DINP")]
     [IsoId("_ZT7wYd7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system responds to the other System for a input request.")]
     DeviceInputResponse,
     
     /// <summary>
-    /// ??
+    /// One system responds to the other System for a print request.
     /// Encoded/decoded by serializers as "DevicePrintResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRP")]
     [IsoId("_aC3S8d7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system responds to the other System for a print request.")]
     DevicePrintResponse,
     
     /// <summary>
-    /// ??
+    /// One system responds to the other System for a play sound request.
     /// Encoded/decoded by serializers as "DevicePlaySoundResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSOP")]
     [IsoId("_a3Assd7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system responds to the other System for a play sound request.")]
     DevicePlaySoundResponse,
     
     /// <summary>
-    /// ??
+    /// One system responds to the other System for secure data input.
     /// Encoded/decoded by serializers as "DeviceSecureInputResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSIP")]
     [IsoId("_cnBRwd7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"One system responds to the other System for secure data input.")]
     DeviceSecureInputResponse,
     
     /// <summary>
-    /// ??
+    /// The POI system responds to the Sale System for a card reader initialisation.
     /// Encoded/decoded by serializers as "DeviceInitialisationCardReaderResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCIP")]
     [IsoId("_dfCe4d7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI system responds to the Sale System for a card reader initialisation.")]
     DeviceInitialisationCardReaderResponse,
     
     /// <summary>
-    /// ??
+    /// The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.
     /// Encoded/decoded by serializers as "DeviceSendApplicationProtocolDataUnitCardReaderResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAP")]
     [IsoId("_eE2hsd7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.")]
     DeviceSendApplicationProtocolDataUnitCardReaderResponse,
     
     /// <summary>
-    /// ??
+    /// The POI system responds to the Sale System for a card reader power off.
     /// Encoded/decoded by serializers as "DevicePowerOffCardRequestResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCPP")]
     [IsoId("_fRKj0d7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI system responds to the Sale System for a card reader power off.")]
     DevicePowerOffCardRequestResponse,
     
     /// <summary>
-    /// ??
+    /// The POI system responds to the Sale System after a message transmission.
     /// Encoded/decoded by serializers as "DeviceTransmissionMessageResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCOP")]
     [IsoId("_gJwYsd7EEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI system responds to the Sale System after a message transmission.")]
     DeviceTransmissionMessageResponse,
     
 }

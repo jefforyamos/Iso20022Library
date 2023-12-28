@@ -21,48 +21,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalDebtorActivationCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Duplication.
     /// Encoded/decoded by serializers as "Duplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM05")]
     [IsoId("_uvBsMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Duplication.")]
     Duplication,
     
     /// <summary>
-    /// ??
+    /// Reference is not unique.
     /// Encoded/decoded by serializers as "NotUniqueReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RF01")]
     [IsoId("_uvBsNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Reference is not unique.")]
     NotUniqueReference,
     
     /// <summary>
-    /// ??
+    /// Regulatory Reason.
     /// Encoded/decoded by serializers as "RegulatoryReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RR04")]
     [IsoId("_uvK2IvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Regulatory Reason.")]
     RegulatoryReason,
     
     /// <summary>
-    /// ??
+    /// Technical rejection.
     /// Encoded/decoded by serializers as "TechnicalRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRJT")]
     [IsoId("_uvK2JfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Technical rejection.")]
     TechnicalRejection,
     
     /// <summary>
-    /// ??
+    /// Unknown creditor.
     /// Encoded/decoded by serializers as "UnknownCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCRD")]
     [IsoId("_uvUnIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Unknown creditor.")]
     UnknownCreditor,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReconciliationType1Code
 {
     /// <summary>
-    /// ??
+    /// Reconciliation between the POI and one or several Acquirers only. There is no reconciliation between the Sale System and the POI System.
     /// Encoded/decoded by serializers as "AcquirerReconciliation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AREC")]
     [IsoId("_czip0dxeEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Reconciliation between the POI and one or several Acquirers only. There is no reconciliation between the Sale System and the POI System.")]
     AcquirerReconciliation,
     
     /// <summary>
-    /// ??
+    /// Reconciliation and closure of the current period, with synchronisation of the reconciliation between the POI and Acquirers.
     /// Encoded/decoded by serializers as "AcquirerSynchronisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASYN")]
     [IsoId("_c2J48dxeEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Reconciliation and closure of the current period, with synchronisation of the reconciliation between the POI and Acquirers.")]
     AcquirerSynchronisation,
     
     /// <summary>
-    /// ??
+    /// Request result of a previous reconciliation.
     /// Encoded/decoded by serializers as "PreviousReconciliation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREC")]
     [IsoId("_c5ZaMdxeEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Request result of a previous reconciliation.")]
     PreviousReconciliation,
     
     /// <summary>
-    /// ??
+    /// Reconciliation with closure of the current period, without	any Acquirers synchronisation.
     /// Encoded/decoded by serializers as "SaleReconciliation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SREC")]
     [IsoId("_c9mkwdxeEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Reconciliation with closure of the current period, without	any Acquirers synchronisation.")]
     SaleReconciliation,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CurrencyDesignation1Code
 {
     /// <summary>
-    /// ??
+    /// Onshore.
     /// Encoded/decoded by serializers as "Onshore".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONSH")]
     [IsoId("_D0dk8Qd2EeSPHJIdUs1USg")]
-    [Description(@"??")]
+    [Description(@"Onshore.")]
     Onshore,
     
     /// <summary>
-    /// ??
+    /// Offshore.
     /// Encoded/decoded by serializers as "Offshore".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFS")]
     [IsoId("_D8gGoQd2EeSPHJIdUs1USg")]
-    [Description(@"??")]
+    [Description(@"Offshore.")]
     Offshore,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MandateAmendmentReason1Code
 {
     /// <summary>
-    /// ??
+    /// Agent details are incorrect or have changed.
     /// Encoded/decoded by serializers as "IncorrectAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_afolqNp-Ed-ak6NoX_4Aeg_-1007530300")]
-    [Description(@"??")]
+    [Description(@"Agent details are incorrect or have changed.")]
     IncorrectAgent,
     
     /// <summary>
-    /// ??
+    /// Currency for the mandate is incorrect or has changed.
     /// Encoded/decoded by serializers as "IncorrectCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_afxvkNp-Ed-ak6NoX_4Aeg_-909639032")]
-    [Description(@"??")]
+    [Description(@"Currency for the mandate is incorrect or has changed.")]
     IncorrectCurrency,
     
     /// <summary>
-    /// ??
+    /// Customer requested the change.
     /// Encoded/decoded by serializers as "RequestedByCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_afxvkdp-Ed-ak6NoX_4Aeg_-883779837")]
-    [Description(@"??")]
+    [Description(@"Customer requested the change.")]
     RequestedByCustomer,
     
     /// <summary>
-    /// ??
+    /// Account details are not correct.
     /// Encoded/decoded by serializers as "IncorrectAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_afxvktp-Ed-ak6NoX_4Aeg_-639046895")]
-    [Description(@"??")]
+    [Description(@"Account details are not correct.")]
     IncorrectAccount,
     
 }

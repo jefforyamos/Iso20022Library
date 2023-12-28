@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeStatus7Code
 {
     /// <summary>
-    /// ??
+    /// Trade is invalid.
     /// Encoded/decoded by serializers as "Invalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVA")]
     [IsoId("_23ahIZU8EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade is invalid.")]
     Invalid,
     
     /// <summary>
-    /// ??
+    /// Trade is unmatched.
     /// Encoded/decoded by serializers as "Unmatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UMTC")]
     [IsoId("_23ahI5U8EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade is unmatched.")]
     Unmatched,
     
     /// <summary>
-    /// ??
+    /// Trade is matched.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FMTC")]
     [IsoId("_23ahKZU8EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade is matched.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Trade has been selected for settlement.
     /// Encoded/decoded by serializers as "SettlementMature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAT")]
     [IsoId("_23ahMZU8EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade has been selected for settlement.")]
     SettlementMature,
     
     /// <summary>
-    /// ??
+    /// Trade has been marked not ready for settlement.
     /// Encoded/decoded by serializers as "Suspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_23ahNZU8EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade has been marked not ready for settlement.")]
     Suspended,
     
     /// <summary>
-    /// ??
+    /// Trade has been selected for settlement and is pending.
     /// Encoded/decoded by serializers as "SettlementMaturePending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAP")]
     [IsoId("_97ExIZU8EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade has been selected for settlement and is pending.")]
     SettlementMaturePending,
     
     /// <summary>
-    /// ??
+    /// For NDF instructions, open confirmations are matched and the Fix confirmations are not matched.
     /// Encoded/decoded by serializers as "PartialFix".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PFIX")]
     [IsoId("_pX7gYZVAEeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"For NDF instructions, open confirmations are matched and the Fix confirmations are not matched.")]
     PartialFix,
     
     /// <summary>
-    /// ??
+    /// For NDF instructions, if a party has submitted both the open and fix confirmations and the counterparty is yet to submit the open and fix confirmation the instruction is updated to ‘Fix Unmatched’ Status.
     /// Encoded/decoded by serializers as "FixUnmatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUMT")]
     [IsoId("_sDcrc5VAEeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"For NDF instructions, if a party has submitted both the open and fix confirmations and the counterparty is yet to submit the open and fix confirmation the instruction is updated to ‘Fix Unmatched’ Status.")]
     FixUnmatched,
     
 }

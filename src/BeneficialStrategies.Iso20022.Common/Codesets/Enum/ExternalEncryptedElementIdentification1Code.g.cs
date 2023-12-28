@@ -23,561 +23,561 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalEncryptedElementIdentification1Code
 {
     /// <summary>
-    /// ??
+    /// Primary Account Number
     /// Encoded/decoded by serializers as "PAN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "8A")]
     [IsoId("_upNYGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Primary Account Number")]
     PAN,
     
     /// <summary>
-    /// ??
+    /// Track1
     /// Encoded/decoded by serializers as "Track1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "8C")]
     [IsoId("_upNYG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Track1")]
     Track1,
     
     /// <summary>
-    /// ??
+    /// Track2
     /// Encoded/decoded by serializers as "Track2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "8D")]
     [IsoId("_upXJEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Track2")]
     Track2,
     
     /// <summary>
-    /// ??
+    /// Track3
     /// Encoded/decoded by serializers as "Track3".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "8E")]
     [IsoId("_upXJFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Track3")]
     Track3,
     
     /// <summary>
-    /// ??
+    /// Visible Card Security Code
     /// Encoded/decoded by serializers as "VisibleCSC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "8F")]
     [IsoId("_upg6EvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Visible Card Security Code")]
     VisibleCSC,
     
     /// <summary>
-    /// ??
+    /// Pre-agreed structure for encrypting data. Permits combination of data elements as per bilateral agreement.
     /// Encoded/decoded by serializers as "Preagreedstructure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "89")]
     [IsoId("_upg6FfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Pre-agreed structure for encrypting data. Permits combination of data elements as per bilateral agreement.")]
     Preagreedstructure,
     
     /// <summary>
-    /// ??
+    /// Expiry Date
     /// Encoded/decoded by serializers as "ExpiryDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "90")]
     [IsoId("_upg6GPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Expiry Date")]
     ExpiryDate,
     
     /// <summary>
-    /// ??
+    /// Payment Account Reference (PAR)
     /// Encoded/decoded by serializers as "PaymentAccountReferencePAR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "91")]
     [IsoId("_upqEAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payment Account Reference (PAR)")]
     PaymentAccountReferencePAR,
     
     /// <summary>
-    /// ??
+    /// Payer Customer Identification 
     /// Encoded/decoded by serializers as "PayerIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "92")]
     [IsoId("_upqEBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payer Customer Identification ")]
     PayerIdentification,
     
     /// <summary>
-    /// ??
+    /// Payer Customer Name
     /// Encoded/decoded by serializers as "PayerName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "93")]
     [IsoId("_upz1AvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payer Customer Name")]
     PayerName,
     
     /// <summary>
-    /// ??
+    /// Payer Customer Address
     /// Encoded/decoded by serializers as "PayerAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "94")]
     [IsoId("_upz1BfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payer Customer Address")]
     PayerAddress,
     
     /// <summary>
-    /// ??
+    /// Payer Customer Credentials Alien Registration Number
     /// Encoded/decoded by serializers as "PayerCredentialsAlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "95")]
     [IsoId("_upz1CPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payer Customer Credentials Alien Registration Number")]
     PayerCredentialsAlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Payer Customer Credentials Driver Licence Identification
     /// Encoded/decoded by serializers as "PayerCredentialsDriverLicenceIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "96")]
     [IsoId("_upz1C_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payer Customer Credentials Driver Licence Identification")]
     PayerCredentialsDriverLicenceIdentification,
     
     /// <summary>
-    /// ??
+    /// Payer Customer Credentials National Identifier
     /// Encoded/decoded by serializers as "PayerCredentialsNationalIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "97")]
     [IsoId("_up9mAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payer Customer Credentials National Identifier")]
     PayerCredentialsNationalIdentifier,
     
     /// <summary>
-    /// ??
+    /// Payer Customer Credentials Passport Number
     /// Encoded/decoded by serializers as "PayerCredentialsPassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "98")]
     [IsoId("_up9mBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payer Customer Credentials Passport Number")]
     PayerCredentialsPassportNumber,
     
     /// <summary>
-    /// ??
+    /// Payer Customer Credentials Social Security Number
     /// Encoded/decoded by serializers as "PayerCredentialsSocialSecurityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "99")]
     [IsoId("_up9mCPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payer Customer Credentials Social Security Number")]
     PayerCredentialsSocialSecurityNumber,
     
     /// <summary>
-    /// ??
+    /// Payee Customer Identification 
     /// Encoded/decoded by serializers as "PayeeIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9A")]
     [IsoId("_uqGv8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payee Customer Identification ")]
     PayeeIdentification,
     
     /// <summary>
-    /// ??
+    /// Payee Customer Name
     /// Encoded/decoded by serializers as "PayeeName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9B")]
     [IsoId("_uqGv9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payee Customer Name")]
     PayeeName,
     
     /// <summary>
-    /// ??
+    /// Payee Customer Address
     /// Encoded/decoded by serializers as "PayeeAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9C")]
     [IsoId("_uqGv-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payee Customer Address")]
     PayeeAddress,
     
     /// <summary>
-    /// ??
+    /// Payee Customer Credentials Alien Registration Number
     /// Encoded/decoded by serializers as "PayeeCredentialsAlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9D")]
     [IsoId("_uqGv-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payee Customer Credentials Alien Registration Number")]
     PayeeCredentialsAlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Payee Customer Credentials Driver Licence Identification
     /// Encoded/decoded by serializers as "PayeeCredentialsDriverLicenceIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9E")]
     [IsoId("_uqQg8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payee Customer Credentials Driver Licence Identification")]
     PayeeCredentialsDriverLicenceIdentification,
     
     /// <summary>
-    /// ??
+    /// Payee Customer Credentials National Identifier
     /// Encoded/decoded by serializers as "PayeeCredentialsNationalIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F1F")]
     [IsoId("_uqQg9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payee Customer Credentials National Identifier")]
     PayeeCredentialsNationalIdentifier,
     
     /// <summary>
-    /// ??
+    /// Payee Customer Credentials Passport Number
     /// Encoded/decoded by serializers as "PayeeCredentialsPassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F20")]
     [IsoId("_uqQg-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payee Customer Credentials Passport Number")]
     PayeeCredentialsPassportNumber,
     
     /// <summary>
-    /// ??
+    /// Payee Customer Credentials Social Security Number
     /// Encoded/decoded by serializers as "PayeeCredentialsSocialSecurityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F21")]
     [IsoId("_uqQg-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payee Customer Credentials Social Security Number")]
     PayeeCredentialsSocialSecurityNumber,
     
     /// <summary>
-    /// ??
+    /// Customer Device Identification
     /// Encoded/decoded by serializers as "CustomerDeviceIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F22")]
     [IsoId("_uqZq4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Customer Device Identification")]
     CustomerDeviceIdentification,
     
     /// <summary>
-    /// ??
+    /// Customer Device Location
     /// Encoded/decoded by serializers as "CustomerDeviceLocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F23")]
     [IsoId("_uqZq5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Customer Device Location")]
     CustomerDeviceLocation,
     
     /// <summary>
-    /// ??
+    /// Customer Device Internet Protocol Address
     /// Encoded/decoded by serializers as "CustomerDeviceIPAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F24")]
     [IsoId("_uqZq6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Customer Device Internet Protocol Address")]
     CustomerDeviceIPAddress,
     
     /// <summary>
-    /// ??
+    /// Customer Device E-mail
     /// Encoded/decoded by serializers as "CustomerDeviceEmail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F25")]
     [IsoId("_uqZq6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Customer Device E-mail")]
     CustomerDeviceEmail,
     
     /// <summary>
-    /// ??
+    /// Token Payment Token
     /// Encoded/decoded by serializers as "TokenPaymentToken".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F26")]
     [IsoId("_uqjb4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Token Payment Token")]
     TokenPaymentToken,
     
     /// <summary>
-    /// ??
+    /// Token Token Requestor Identification
     /// Encoded/decoded by serializers as "TokenTokenRequestorIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F27")]
     [IsoId("_uqjb5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Token Token Requestor Identification")]
     TokenTokenRequestorIdentification,
     
     /// <summary>
-    /// ??
+    /// Cardholder Name
     /// Encoded/decoded by serializers as "CardholderName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F28")]
     [IsoId("_uqjb6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Name")]
     CardholderName,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification Customer Identification
     /// Encoded/decoded by serializers as "CardholderIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F29")]
     [IsoId("_uqjb6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification Customer Identification")]
     CardholderIdentification,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification Alien Registration Number
     /// Encoded/decoded by serializers as "CardholderAlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F2A")]
     [IsoId("_uqjb7vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification Alien Registration Number")]
     CardholderAlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification Driver Licence Identification
     /// Encoded/decoded by serializers as "CardholderDriverLicenceIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F2B")]
     [IsoId("_uqtM4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification Driver Licence Identification")]
     CardholderDriverLicenceIdentification,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification Email
     /// Encoded/decoded by serializers as "CardholderEmail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F2C")]
     [IsoId("_uqtM5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification Email")]
     CardholderEmail,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification NatinalIdentifier
     /// Encoded/decoded by serializers as "CardholderNatinalIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F2D")]
     [IsoId("_uqtM6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification NatinalIdentifier")]
     CardholderNatinalIdentifier,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification Passport Number
     /// Encoded/decoded by serializers as "CardholderPassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F2E")]
     [IsoId("_uqtM6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification Passport Number")]
     CardholderPassportNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification PhoneNumber
     /// Encoded/decoded by serializers as "CardholderPhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F2F")]
     [IsoId("_uq2W0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification PhoneNumber")]
     CardholderPhoneNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification Social Security Number
     /// Encoded/decoded by serializers as "CardholderSocialSecurityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F30")]
     [IsoId("_urAH0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification Social Security Number")]
     CardholderSocialSecurityNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Identification Address
     /// Encoded/decoded by serializers as "CardholderAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F31")]
     [IsoId("_urAH1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Identification Address")]
     CardholderAddress,
     
     /// <summary>
-    /// ??
+    /// Cardholder Contact Information Name
     /// Encoded/decoded by serializers as "CardholderContactInformationName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F32")]
     [IsoId("_urJ40vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Contact Information Name")]
     CardholderContactInformationName,
     
     /// <summary>
-    /// ??
+    /// Cardholder Contact Information Home Phone Number
     /// Encoded/decoded by serializers as "CardholderContactInformationHomePhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F33")]
     [IsoId("_urJ41fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Contact Information Home Phone Number")]
     CardholderContactInformationHomePhoneNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Contact Information Business Phone Number
     /// Encoded/decoded by serializers as "CardholderContactInformationBusinessPhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F34")]
     [IsoId("_urTCwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Contact Information Business Phone Number")]
     CardholderContactInformationBusinessPhoneNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Contact Information Mobile Phone Number
     /// Encoded/decoded by serializers as "CardholderContactInformationMobilePhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F35")]
     [IsoId("_urTCxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Contact Information Mobile Phone Number")]
     CardholderContactInformationMobilePhoneNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Contact Information Other Phone Number
     /// Encoded/decoded by serializers as "CardholderContactInformationOtherPhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F36")]
     [IsoId("_urTCyPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Contact Information Other Phone Number")]
     CardholderContactInformationOtherPhoneNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Contact Information Personal Email Address
     /// Encoded/decoded by serializers as "CardholderContactInformationPersonalEmailAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F37")]
     [IsoId("_urTCy_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Contact Information Personal Email Address")]
     CardholderContactInformationPersonalEmailAddress,
     
     /// <summary>
-    /// ??
+    /// Cardholder Contact Information Business Email Address
     /// Encoded/decoded by serializers as "CardholderContactInformationBusinessEmailAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F38")]
     [IsoId("_urczwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Contact Information Business Email Address")]
     CardholderContactInformationBusinessEmailAddress,
     
     /// <summary>
-    /// ??
+    /// Cardholder Contact Information Other Email Address
     /// Encoded/decoded by serializers as "CardholderContactInformationOtherEmailAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F39")]
     [IsoId("_urczxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Contact Information Other Email Address")]
     CardholderContactInformationOtherEmailAddress,
     
     /// <summary>
-    /// ??
+    /// Cardholder Address Digits
     /// Encoded/decoded by serializers as "CardholderAddressDigits".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F3A")]
     [IsoId("_url9svRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Address Digits")]
     CardholderAddressDigits,
     
     /// <summary>
-    /// ??
+    /// Cardholder Billing Address
     /// Encoded/decoded by serializers as "CardholderBillingAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F3B")]
     [IsoId("_url9tfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Billing Address")]
     CardholderBillingAddress,
     
     /// <summary>
-    /// ??
+    /// Cardholder Birth Date
     /// Encoded/decoded by serializers as "CardholderBirthDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F3C")]
     [IsoId("_url9uPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Birth Date")]
     CardholderBirthDate,
     
     /// <summary>
-    /// ??
+    /// Cardholder Place Of Birth
     /// Encoded/decoded by serializers as "CardholderPlaceOfBirth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F3D")]
     [IsoId("_urvusvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Place Of Birth")]
     CardholderPlaceOfBirth,
     
     /// <summary>
-    /// ??
+    /// Cardholder Employee Identification Number
     /// Encoded/decoded by serializers as "CardholderEmployeeIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F3E")]
     [IsoId("_urvutfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Employee Identification Number")]
     CardholderEmployeeIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Employer Identification Number
     /// Encoded/decoded by serializers as "CardholderEmployerIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F3F")]
     [IsoId("_ur5fsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Employer Identification Number")]
     CardholderEmployerIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Cardholder Password
     /// Encoded/decoded by serializers as "CardholderPassword".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F40")]
     [IsoId("_ur5ftfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Password")]
     CardholderPassword,
     
     /// <summary>
-    /// ??
+    /// Cardholder Postal Code
     /// Encoded/decoded by serializers as "CardholderPostalCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F41")]
     [IsoId("_ur5fuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Postal Code")]
     CardholderPostalCode,
     
     /// <summary>
-    /// ??
+    /// Cardholder Shipping Address
     /// Encoded/decoded by serializers as "CardholderShippingAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F42")]
     [IsoId("_ur5fu_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Shipping Address")]
     CardholderShippingAddress,
     
     /// <summary>
-    /// ??
+    /// Cardholder Shipping Address From
     /// Encoded/decoded by serializers as "CardholderShippingAddressFrom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F43")]
     [IsoId("_usCpovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Shipping Address From")]
     CardholderShippingAddressFrom,
     
     /// <summary>
-    /// ??
+    /// Cardholder Shipping Address To
     /// Encoded/decoded by serializers as "CardholderShippingAddressTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F44")]
     [IsoId("_usCppfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Shipping Address To")]
     CardholderShippingAddressTo,
     
     /// <summary>
-    /// ??
+    /// Cardholder Tax Identification Number
     /// Encoded/decoded by serializers as "CardholderTaxIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F45")]
     [IsoId("_usCpqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cardholder Tax Identification Number")]
     CardholderTaxIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Account From Account Identification
     /// Encoded/decoded by serializers as "AccountFromAccountIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F46")]
     [IsoId("_usCpq_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account From Account Identification")]
     AccountFromAccountIdentification,
     
     /// <summary>
-    /// ??
+    /// Account To Account Identification
     /// Encoded/decoded by serializers as "AccountToAccountIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "9F47")]
     [IsoId("_usMaovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account To Account Identification")]
     AccountToAccountIdentification,
     
 }

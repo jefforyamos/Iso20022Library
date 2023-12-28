@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectedCancellationStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Request contains an invalid or unrecognised business reference.
     /// Encoded/decoded by serializers as "InvalidOrUnrecognisedReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFE")]
     [IsoId("_ZbPJZ9p-Ed-ak6NoX_4Aeg_1582722964")]
-    [Description(@"??")]
+    [Description(@"Request contains an invalid or unrecognised business reference.")]
     InvalidOrUnrecognisedReference,
     
     /// <summary>
-    /// ??
+    /// The cancellation request has been rejected since more than one instruction match to the cancellation criteria.
     /// Encoded/decoded by serializers as "NoCancellationMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRGM")]
     [IsoId("_ZbPJaNp-Ed-ak6NoX_4Aeg_1582722965")]
-    [Description(@"??")]
+    [Description(@"The cancellation request has been rejected since more than one instruction match to the cancellation criteria.")]
     NoCancellationMatch,
     
     /// <summary>
-    /// ??
+    /// Instruction is not compliant with the service level agreement.
     /// Encoded/decoded by serializers as "NotCompliantWithSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSLA")]
     [IsoId("_ZbYTUNp-Ed-ak6NoX_4Aeg_1582722981")]
-    [Description(@"??")]
+    [Description(@"Instruction is not compliant with the service level agreement.")]
     NotCompliantWithSLA,
     
 }

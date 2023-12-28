@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LendingTransactionMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Contract applies to a specific security only.
     /// Encoded/decoded by serializers as "OnDemandTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ODTR")]
     [IsoId("__2_DYdojEeC60axPepSq7g_-945747247")]
-    [Description(@"??")]
+    [Description(@"Contract applies to a specific security only.")]
     OnDemandTrade,
     
     /// <summary>
-    /// ??
+    /// Contract applies to a number of different securities within the same pool/fund.
     /// Encoded/decoded by serializers as "ExclusiveTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTR")]
     [IsoId("__2_DYtojEeC60axPepSq7g_1548205403")]
-    [Description(@"??")]
+    [Description(@"Contract applies to a number of different securities within the same pool/fund.")]
     ExclusiveTrade,
     
 }

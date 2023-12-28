@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BillingStatementStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Statement is the original statement.
     /// Encoded/decoded by serializers as "Original".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORGN")]
     [IsoId("_6VUE05qlEeGSON8vddiWzQ_1712373044")]
-    [Description(@"??")]
+    [Description(@"Statement is the original statement.")]
     Original,
     
     /// <summary>
-    /// ??
+    /// Statement replaces the original statement.
     /// Encoded/decoded by serializers as "Replace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPLC")]
     [IsoId("_6VUE1JqlEeGSON8vddiWzQ_1116652808")]
-    [Description(@"??")]
+    [Description(@"Statement replaces the original statement.")]
     Replace,
     
     /// <summary>
-    /// ??
+    /// Statement is a test statement.
     /// Encoded/decoded by serializers as "Test".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEST")]
     [IsoId("_6VUE1ZqlEeGSON8vddiWzQ_1105554031")]
-    [Description(@"??")]
+    [Description(@"Statement is a test statement.")]
     Test,
     
 }

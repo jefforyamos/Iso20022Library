@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeConfirmationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// All current status of the trade.
     /// Encoded/decoded by serializers as "AllStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALST")]
     [IsoId("_hJ9SEYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"All current status of the trade.")]
     AllStatus,
     
     /// <summary>
-    /// ??
+    /// Trades are confirmed by Central Matching Utility (analogous to virtual matching utility).
     /// Encoded/decoded by serializers as "Confirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_hO3nQYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Trades are confirmed by Central Matching Utility (analogous to virtual matching utility).")]
     Confirmed,
     
     /// <summary>
-    /// ??
+    /// Trade information of the both trading member is unmatched.
     /// Encoded/decoded by serializers as "Disaccord".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISA")]
     [IsoId("_hTuSEYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Trade information of the both trading member is unmatched.")]
     Disaccord,
     
     /// <summary>
-    /// ??
+    /// Central Matching Utility (analogous to virtual matching utility) confirms trades in contingency.
     /// Encoded/decoded by serializers as "EmergencyConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMCN")]
     [IsoId("_hYigoYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Central Matching Utility (analogous to virtual matching utility) confirms trades in contingency.")]
     EmergencyConfirmed,
     
     /// <summary>
-    /// ??
+    /// Trade information between Central Matching Utility(analogous to virtual matching utility) and the trading member is mismatched.
     /// Encoded/decoded by serializers as "Mismatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISM")]
     [IsoId("_hdZLcYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Trade information between Central Matching Utility(analogous to virtual matching utility) and the trading member is mismatched.")]
     Mismatched,
     
     /// <summary>
-    /// ??
+    /// Home party has confirmed, but couterparty is unrecognized.
     /// Encoded/decoded by serializers as "SelfConfirmedAndCouterpartyNotConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCCN")]
     [IsoId("_hijYQYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Home party has confirmed, but couterparty is unrecognized.")]
     SelfConfirmedAndCouterpartyNotConfirmed,
     
     /// <summary>
-    /// ??
+    /// Home party has not confirmed, but couterparty is recognized.
     /// Encoded/decoded by serializers as "SelfNotConfirmedAndCouterpartyConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNCC")]
     [IsoId("_hnzrsYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Home party has not confirmed, but couterparty is recognized.")]
     SelfNotConfirmedAndCouterpartyConfirmed,
     
     /// <summary>
-    /// ??
+    /// Both the two parties are not confirmed.
     /// Encoded/decoded by serializers as "SelfNotConfirmedAndCouterpartyNotConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNCN")]
     [IsoId("_hszgcYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Both the two parties are not confirmed.")]
     SelfNotConfirmedAndCouterpartyNotConfirmed,
     
     /// <summary>
-    /// ??
+    /// Trades are not confirmed by Central Matching Utility(analogous to virtual matching utility).
     /// Encoded/decoded by serializers as "Unconfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNCN")]
     [IsoId("_hxrZYYBFEeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Trades are not confirmed by Central Matching Utility(analogous to virtual matching utility).")]
     Unconfirmed,
     
 }

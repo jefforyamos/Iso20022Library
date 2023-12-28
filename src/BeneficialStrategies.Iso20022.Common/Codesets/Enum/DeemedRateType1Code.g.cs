@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeemedRateType1Code
 {
     /// <summary>
-    /// ??
+    /// Deemed rate of dividend proceeds attributed to the security holder.
     /// Encoded/decoded by serializers as "DeemedDividendProceeds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEDI")]
     [IsoId("_qLgTQZSlEeeh5JjedkaA_g")]
-    [Description(@"??")]
+    [Description(@"Deemed rate of dividend proceeds attributed to the security holder.")]
     DeemedDividendProceeds,
     
     /// <summary>
-    /// ??
+    /// Deemed rate of fund proceeds attributed to the security holder.
     /// Encoded/decoded by serializers as "DeemedFundProceeds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFP")]
     [IsoId("_qaYcwZSlEeeh5JjedkaA_g")]
-    [Description(@"??")]
+    [Description(@"Deemed rate of fund proceeds attributed to the security holder.")]
     DeemedFundProceeds,
     
     /// <summary>
-    /// ??
+    /// Deemed rate of interest proceeds attributed to the security holder.
     /// Encoded/decoded by serializers as "DeemedInterestProceeds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEIT")]
     [IsoId("_qfvd4ZSlEeeh5JjedkaA_g")]
-    [Description(@"??")]
+    [Description(@"Deemed rate of interest proceeds attributed to the security holder.")]
     DeemedInterestProceeds,
     
     /// <summary>
-    /// ??
+    /// Deemed rate of royalties proceeds attributed to the security holder.
     /// Encoded/decoded by serializers as "DeemedRoyaltiesProceeds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERY")]
     [IsoId("_qm4AoZSlEeeh5JjedkaA_g")]
-    [Description(@"??")]
+    [Description(@"Deemed rate of royalties proceeds attributed to the security holder.")]
     DeemedRoyaltiesProceeds,
     
 }

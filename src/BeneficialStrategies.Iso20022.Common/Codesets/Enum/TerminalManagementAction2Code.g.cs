@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalManagementAction2Code
 {
     /// <summary>
-    /// ??
+    /// Request to activate the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Activate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_9yfZEY3hEeW32YMP0mBeyw")]
-    [Description(@"??")]
+    [Description(@"Request to activate the element identified inside the message exchange.")]
     Activate,
     
     /// <summary>
-    /// ??
+    /// Request to deactivate the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Deactivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCTV")]
     [IsoId("_9yfZE43hEeW32YMP0mBeyw")]
-    [Description(@"??")]
+    [Description(@"Request to deactivate the element identified inside the message exchange.")]
     Deactivate,
     
     /// <summary>
-    /// ??
+    /// Request to delete the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Delete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELT")]
     [IsoId("_9yfZFY3hEeW32YMP0mBeyw")]
-    [Description(@"??")]
+    [Description(@"Request to delete the element identified inside the message exchange.")]
     Delete,
     
     /// <summary>
-    /// ??
+    /// Request to download the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Download".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DWNL")]
     [IsoId("_9yfZF43hEeW32YMP0mBeyw")]
-    [Description(@"??")]
+    [Description(@"Request to download the element identified inside the message exchange.")]
     Download,
     
     /// <summary>
-    /// ??
+    /// Request to install the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Install".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_9yfZGY3hEeW32YMP0mBeyw")]
-    [Description(@"??")]
+    [Description(@"Request to install the element identified inside the message exchange.")]
     Install,
     
     /// <summary>
-    /// ??
+    /// Request to restart the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Restart".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSTR")]
     [IsoId("_9yfZG43hEeW32YMP0mBeyw")]
-    [Description(@"??")]
+    [Description(@"Request to restart the element identified inside the message exchange.")]
     Restart,
     
     /// <summary>
-    /// ??
+    /// Request to upload the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Upload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPLD")]
     [IsoId("_9yfZHY3hEeW32YMP0mBeyw")]
-    [Description(@"??")]
+    [Description(@"Request to upload the element identified inside the message exchange.")]
     Upload,
     
     /// <summary>
-    /// ??
+    /// Request to update the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Update".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDT")]
     [IsoId("_GKkeUY3iEeW32YMP0mBeyw")]
-    [Description(@"??")]
+    [Description(@"Request to update the element identified inside the message exchange.")]
     Update,
     
 }

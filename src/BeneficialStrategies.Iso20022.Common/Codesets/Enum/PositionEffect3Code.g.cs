@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PositionEffect3Code
 {
     /// <summary>
-    /// ??
+    /// First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.
     /// Encoded/decoded by serializers as "Fifo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIFO")]
     [IsoId("_yHm-4SDLEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.")]
     Fifo,
     
     /// <summary>
-    /// ??
+    /// Last in, last out. Results in a position obtained after having sold in priority the securities bought chronologically.
     /// Encoded/decoded by serializers as "Lifo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIFO")]
     [IsoId("_-qssASDLEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Last in, last out. Results in a position obtained after having sold in priority the securities bought chronologically.")]
     Lifo,
     
 }

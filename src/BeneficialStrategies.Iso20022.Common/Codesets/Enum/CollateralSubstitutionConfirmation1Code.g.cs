@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralSubstitutionConfirmation1Code
 {
     /// <summary>
-    /// ??
+    /// Notification that the collateral substitution, that is new piece(s) of collateral, have been released.
     /// Encoded/decoded by serializers as "CollateralSubstitutionReleased".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CREL")]
     [IsoId("_Yb5zUdp-Ed-ak6NoX_4Aeg_434936971")]
-    [Description(@"??")]
+    [Description(@"Notification that the collateral substitution, that is new piece(s) of collateral, have been released.")]
     CollateralSubstitutionReleased,
     
     /// <summary>
-    /// ??
+    /// Confirmation that the collateral substitution, that is new piece(s) of collateral, have been received.
     /// Encoded/decoded by serializers as "CollateralSubstitutionReturned".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRET")]
     [IsoId("_Yb5zUtp-Ed-ak6NoX_4Aeg_-1408932018")]
-    [Description(@"??")]
+    [Description(@"Confirmation that the collateral substitution, that is new piece(s) of collateral, have been received.")]
     CollateralSubstitutionReturned,
     
 }

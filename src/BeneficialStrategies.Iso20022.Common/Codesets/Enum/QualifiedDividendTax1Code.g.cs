@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QualifiedDividendTax1Code
 {
     /// <summary>
-    /// ??
+    /// Dividend income is potentially qualified (for instance common or preferred stock dividends, income distribution by mutual funds).
     /// Encoded/decoded by serializers as "FullyQualified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FQUD")]
     [IsoId("_10Jl4jL3EeKU9IrkkToqcw_-2047470535")]
-    [Description(@"??")]
+    [Description(@"Dividend income is potentially qualified (for instance common or preferred stock dividends, income distribution by mutual funds).")]
     FullyQualified,
     
     /// <summary>
-    /// ??
+    /// Part of dividend income is potentially qualified (for instance income form a mutual fund which holds both stocks and bonds).
     /// Encoded/decoded by serializers as "PartlyQualified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PQUD")]
     [IsoId("_10Jl4zL3EeKU9IrkkToqcw_-1448298646")]
-    [Description(@"??")]
+    [Description(@"Part of dividend income is potentially qualified (for instance income form a mutual fund which holds both stocks and bonds).")]
     PartlyQualified,
     
     /// <summary>
-    /// ??
+    /// Dividend is not qualified (for instance UIT dividends, REIT dividends).
     /// Encoded/decoded by serializers as "NotQualified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NQUD")]
     [IsoId("_10Jl5DL3EeKU9IrkkToqcw_1154488453")]
-    [Description(@"??")]
+    [Description(@"Dividend is not qualified (for instance UIT dividends, REIT dividends).")]
     NotQualified,
     
     /// <summary>
-    /// ??
+    /// Qualified dividend tax status is unknown (for instance if dividend tax status information is unavailable at the time of the dividend update, it will be provided when new information is received).
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_10Jl5TL3EeKU9IrkkToqcw_1143389676")]
-    [Description(@"??")]
+    [Description(@"Qualified dividend tax status is unknown (for instance if dividend tax status information is unavailable at the time of the dividend update, it will be provided when new information is received).")]
     Unknown,
     
 }

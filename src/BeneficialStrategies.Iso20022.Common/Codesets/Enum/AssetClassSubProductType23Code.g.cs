@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType23Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type seafood.
     /// Encoded/decoded by serializers as "Seafood".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEAF")]
     [IsoId("_0hERMVrBEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type seafood.")]
     Seafood,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProcessedStatus6Code
 {
     /// <summary>
-    /// ??
+    /// The instruction/request has been received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_aKxI49p-Ed-ak6NoX_4Aeg_-1149003943")]
-    [Description(@"??")]
+    [Description(@"The instruction/request has been received.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Awaiting the deactivation date.
     /// Encoded/decoded by serializers as "WaitingDeactivationDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEAC")]
     [IsoId("_aKxI5Np-Ed-ak6NoX_4Aeg_-1149003942")]
-    [Description(@"??")]
+    [Description(@"Awaiting the deactivation date.")]
     WaitingDeactivationDate,
     
     /// <summary>
-    /// ??
+    /// The request has been completed.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_aKxI5dp-Ed-ak6NoX_4Aeg_-1149003664")]
-    [Description(@"??")]
+    [Description(@"The request has been completed.")]
     Completed,
     
 }

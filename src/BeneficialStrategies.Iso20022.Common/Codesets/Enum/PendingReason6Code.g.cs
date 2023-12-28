@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason6Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_aDBiIdp-Ed-ak6NoX_4Aeg_-2000254642")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Awaiting confirmation from the counterparty.
     /// Encoded/decoded by serializers as "AwaitingConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_aDBiItp-Ed-ak6NoX_4Aeg_-347627134")]
-    [Description(@"??")]
+    [Description(@"Awaiting confirmation from the counterparty.")]
     AwaitingConfirmation,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_aDBiI9p-Ed-ak6NoX_4Aeg_1188062474")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process at the registrar.
     /// Encoded/decoded by serializers as "ConditionalRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRG")]
     [IsoId("_aDBiJNp-Ed-ak6NoX_4Aeg_-251565728")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process at the registrar.")]
     ConditionalRegistrar,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process linked to the currency of the transaction.
     /// Encoded/decoded by serializers as "ConditionalCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCY")]
     [IsoId("_aDBiJdp-Ed-ak6NoX_4Aeg_-543523466")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process linked to the currency of the transaction.")]
     ConditionalCurrency,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process of realignment at the issuer CSD.
     /// Encoded/decoded by serializers as "ConditionalRealignement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRE")]
     [IsoId("_aDBiJtp-Ed-ak6NoX_4Aeg_-365404794")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process of realignment at the issuer CSD.")]
     ConditionalRealignement,
     
 }

@@ -20,66 +20,68 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GoodAndServiceDeliveryChannel1Code
 {
     /// <summary>
-    /// ??
+    /// Electronic delivery.
     /// Encoded/decoded by serializers as "ElectronicDelivery.".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDEL")]
     [IsoId("_UWH5AT5KEeyHI64WSlzTlg")]
-    [Description(@"??")]
+    [Description(@"Electronic delivery.")]
     ElectronicDelivery,
     
     /// <summary>
-    /// ??
+    /// Pick up locally
     /// Encoded/decoded by serializers as "LocalPickUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PULC")]
     [IsoId("_UbhWYT5KEeyHI64WSlzTlg")]
-    [Description(@"??")]
+    [Description(@"Pick up locally")]
     LocalPickUp,
     
     /// <summary>
-    /// ??
+    /// No delivery.
+    /// 
     /// Encoded/decoded by serializers as "NoDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDEL")]
     [IsoId("_Uf_msT5KEeyHI64WSlzTlg")]
-    [Description(@"??")]
+    [Description(@"No delivery. ")]
     NoDelivery,
     
     /// <summary>
-    /// ??
+    /// Other delivery channel defined at national level.
+    /// 
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_UlHXQT5KEeyHI64WSlzTlg")]
-    [Description(@"??")]
+    [Description(@"Other delivery channel defined at national level. ")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other delivery channel defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_UqV1gT5KEeyHI64WSlzTlg")]
-    [Description(@"??")]
+    [Description(@"Other delivery channel defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Shipping to cardholder billing address
     /// Encoded/decoded by serializers as "ShippingToCardholderBillingAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCBA")]
     [IsoId("_UvaiwT5KEeyHI64WSlzTlg")]
-    [Description(@"??")]
+    [Description(@"Shipping to cardholder billing address")]
     ShippingToCardholderBillingAddress,
     
     /// <summary>
-    /// ??
+    /// Shipping to consumer specified shipping address
     /// Encoded/decoded by serializers as "ShippingToConsumerSpecifiedShippingAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCSA")]
     [IsoId("_Uz-5sT5KEeyHI64WSlzTlg")]
-    [Description(@"??")]
+    [Description(@"Shipping to consumer specified shipping address")]
     ShippingToConsumerSpecifiedShippingAddress,
     
 }

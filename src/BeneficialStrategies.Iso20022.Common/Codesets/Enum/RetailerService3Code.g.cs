@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RetailerService3Code
 {
     /// <summary>
-    /// ??
+    /// The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).
     /// Encoded/decoded by serializers as "FinancialPaymentResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSPP")]
     [IsoId("_qmFC4dwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).")]
     FinancialPaymentResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System sends a response to a reversal request.
     /// Encoded/decoded by serializers as "FinancialReversalResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSRP")]
     [IsoId("_rgA7kdwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response to a reversal request.")]
     FinancialReversalResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System sends a response to a Balance Inquiry request.
     /// Encoded/decoded by serializers as "FinancialBalanceInquiryResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSIP")]
     [IsoId("_sPsFAdwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response to a Balance Inquiry request.")]
     FinancialBalanceInquiryResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System sends a response to a batch processing request.
     /// Encoded/decoded by serializers as "FinancialBatchResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSBP")]
     [IsoId("_s3K7wdwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response to a batch processing request.")]
     FinancialBatchResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System sends a response to a loyalty processing request.
     /// Encoded/decoded by serializers as "FinancialLoyaltyResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSLP")]
     [IsoId("_tcgdcdwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response to a loyalty processing request.")]
     FinancialLoyaltyResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System sends a response to a stored value card or account request.
     /// Encoded/decoded by serializers as "FinancialStoredValueResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSVP")]
     [IsoId("_uLJFEdwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response to a stored value card or account request.")]
     FinancialStoredValueResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System sends a response after enabling or not some service.
     /// Encoded/decoded by serializers as "FinancialEnableServiceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSEP")]
     [IsoId("_uvJKAdwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response after enabling or not some service.")]
     FinancialEnableServiceResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System sends a response to a card data acquisition request.
     /// Encoded/decoded by serializers as "FinancialCardAcquisitionResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSAP")]
     [IsoId("_vRGnkdwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response to a card data acquisition request.")]
     FinancialCardAcquisitionResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System sends a response to a reconciliation request.
     /// Encoded/decoded by serializers as "FinancialReconciliationResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSCP")]
     [IsoId("_wGk3AdwtEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The POI System sends a response to a reconciliation request.")]
     FinancialReconciliationResponse,
     
 }

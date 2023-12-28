@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReportingWaiverType1Code
 {
     /// <summary>
-    /// ??
+    /// Pre-trade waiver was for a negotiated transaction in illiquid financial instruments. Applicable to equity instruments.
     /// Encoded/decoded by serializers as "NegotiatedTransactionInIlliquidFinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OILQ")]
     [IsoId("_PgjKge8WEeSLA89yUYsVSw")]
-    [Description(@"??")]
+    [Description(@"Pre-trade waiver was for a negotiated transaction in illiquid financial instruments. Applicable to equity instruments.")]
     NegotiatedTransactionInIlliquidFinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// Pre-trade waiver was for a negotiated transaction in liquid financial instruments. Applicable to equity instruments.
     /// Encoded/decoded by serializers as "NegotiatedTransactionInLiquidFinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NLIQ")]
     [IsoId("_PnWWEe8WEeSLA89yUYsVSw")]
-    [Description(@"??")]
+    [Description(@"Pre-trade waiver was for a negotiated transaction in liquid financial instruments. Applicable to equity instruments.")]
     NegotiatedTransactionInLiquidFinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// Pre-trade waiver was for a negotiated transaction subject to conditions other than the current market price of that financial instruments. Applicable to equity instruments.
     /// Encoded/decoded by serializers as "NegotiatedTransactionWithConditions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIC")]
     [IsoId("_PxNcse8WEeSLA89yUYsVSw")]
-    [Description(@"??")]
+    [Description(@"Pre-trade waiver was for a negotiated transaction subject to conditions other than the current market price of that financial instruments. Applicable to equity instruments.")]
     NegotiatedTransactionWithConditions,
     
     /// <summary>
-    /// ??
+    /// Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.
     /// Encoded/decoded by serializers as "IlliquidInstrumentTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ILQD")]
     [IsoId("_oQTBwe8WEeSLA89yUYsVSw")]
-    [Description(@"??")]
+    [Description(@"Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.")]
     IlliquidInstrumentTransaction,
     
     /// <summary>
-    /// ??
+    /// Pre-trade waiver was for a reference price transaction. Applicable to equity instruments.
     /// Encoded/decoded by serializers as "ReferencePriceTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFPT")]
     [IsoId("_KcKw0fPbEeS_qLctCs2aRQ")]
-    [Description(@"??")]
+    [Description(@"Pre-trade waiver was for a reference price transaction. Applicable to equity instruments.")]
     ReferencePriceTransaction,
     
     /// <summary>
-    /// ??
+    /// Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.
     /// Encoded/decoded by serializers as "AboveSpecificSizeTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIZE")]
     [IsoId("_H_1TMIIjEeW_KPkCyw2GUA")]
-    [Description(@"??")]
+    [Description(@"Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.")]
     AboveSpecificSizeTransaction,
     
 }

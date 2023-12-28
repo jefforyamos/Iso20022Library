@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SignatureType2Code
 {
     /// <summary>
-    /// ??
+    /// Technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.
     /// Encoded/decoded by serializers as "Digital".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIGI")]
     [IsoId("_r15dAV-dEeavlvCtut5bgg")]
-    [Description(@"??")]
+    [Description(@"Technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.")]
     Digital,
     
     /// <summary>
-    /// ??
+    /// Copy of a physical or original signature in an electronic format.
     /// Encoded/decoded by serializers as "Electronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_sBDkIV-dEeavlvCtut5bgg")]
-    [Description(@"??")]
+    [Description(@"Copy of a physical or original signature in an electronic format.")]
     Electronic,
     
     /// <summary>
-    /// ??
+    /// No signature.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_sEVhoV-dEeavlvCtut5bgg")]
-    [Description(@"??")]
+    [Description(@"No signature.")]
     None,
     
     /// <summary>
-    /// ??
+    /// Written signature. May also be known as a physical or wet signature.
     /// Encoded/decoded by serializers as "Original".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORIG")]
     [IsoId("_sJGF0V-dEeavlvCtut5bgg")]
-    [Description(@"??")]
+    [Description(@"Written signature. May also be known as a physical or wet signature.")]
     Original,
     
 }

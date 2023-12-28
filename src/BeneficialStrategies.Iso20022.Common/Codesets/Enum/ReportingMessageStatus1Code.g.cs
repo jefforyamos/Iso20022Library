@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReportingMessageStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Whole message has been accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_-d9yUdHCEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Whole message has been accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Message has passed syntactical validation but further validations have not been completed yet.
     /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_-0GaYtHCEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Message has passed syntactical validation but further validations have not been completed yet.")]
     AcceptedTechnicalValidation,
     
     /// <summary>
-    /// ??
+    /// Message has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.
     /// Encoded/decoded by serializers as "PartiallyAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_-1bQEdHCEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Message has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.")]
     PartiallyAccepted,
     
     /// <summary>
-    /// ??
+    /// Message has been received but not processed yet.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVD")]
     [IsoId("_-2rNQdHCEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Message has been received but not processed yet.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Message has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_-8aB0dHCEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Message has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Reminder of a non received message.
     /// Encoded/decoded by serializers as "Reminder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMDR")]
     [IsoId("__UTkctHCEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Reminder of a non received message.")]
     Reminder,
     
     /// <summary>
-    /// ??
+    /// Message has been accepted with warnings.
     /// Encoded/decoded by serializers as "Warning".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WARN")]
     [IsoId("__rYnstHCEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Message has been accepted with warnings.")]
     Warning,
     
     /// <summary>
-    /// ??
+    /// File containing the report has an incorrect filename.
     /// Encoded/decoded by serializers as "IncorrectFilename".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCF")]
     [IsoId("_UanZQevBEealxoQGKU9EVQ")]
-    [Description(@"??")]
+    [Description(@"File containing the report has an incorrect filename.")]
     IncorrectFilename,
     
     /// <summary>
-    /// ??
+    /// File containing the report is corrupted.
     /// Encoded/decoded by serializers as "CorruptedFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPT")]
     [IsoId("_UeMRsevBEealxoQGKU9EVQ")]
-    [Description(@"??")]
+    [Description(@"File containing the report is corrupted.")]
     CorruptedFile,
     
 }

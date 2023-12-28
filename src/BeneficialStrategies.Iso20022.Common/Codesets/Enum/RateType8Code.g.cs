@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateType8Code
 {
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfLocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITL")]
     [IsoId("_ZZvUkNp-Ed-ak6NoX_4Aeg_-440320575")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfLocalTax,
     
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfForeignTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITF")]
     [IsoId("_ZZvUkdp-Ed-ak6NoX_4Aeg_-71837844")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfForeignTax,
     
     /// <summary>
-    /// ??
+    /// Interest liable for interest down payment tax (proportion of gross interest per unit/interim profits that is not covered by the credit in the interest pool).
     /// Encoded/decoded by serializers as "LocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIDT")]
     [IsoId("_ZZvUktp-Ed-ak6NoX_4Aeg_-98555748")]
-    [Description(@"??")]
+    [Description(@"Interest liable for interest down payment tax (proportion of gross interest per unit/interim profits that is not covered by the credit in the interest pool).")]
     LocalTax,
     
 }

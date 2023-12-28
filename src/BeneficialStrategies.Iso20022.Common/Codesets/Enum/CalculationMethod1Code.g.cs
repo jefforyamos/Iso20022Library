@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CalculationMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Calculation method by which interest is calculated on the original principal only. Accumulated interest from prior periods is not used in calculations for the following periods.
     /// Encoded/decoded by serializers as "Simple".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIMP")]
     [IsoId("_Ya3Rh9p-Ed-ak6NoX_4Aeg_-26581330")]
-    [Description(@"??")]
+    [Description(@"Calculation method by which interest is calculated on the original principal only. Accumulated interest from prior periods is not used in calculations for the following periods.")]
     Simple,
     
     /// <summary>
-    /// ??
+    /// Calculation method by which interest is calculated each period on the original principal and all interest accumulated during past periods.
     /// Encoded/decoded by serializers as "Compounding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_Ya3RiNp-Ed-ak6NoX_4Aeg_1910643843")]
-    [Description(@"??")]
+    [Description(@"Calculation method by which interest is calculated each period on the original principal and all interest accumulated during past periods.")]
     Compounding,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason18Code
 {
     /// <summary>
-    /// ??
+    /// The validation of the advice/instruction/request failed.
     /// Encoded/decoded by serializers as "FailedValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_Zir1Ntp-Ed-ak6NoX_4Aeg_-940679430")]
-    [Description(@"??")]
+    [Description(@"The validation of the advice/instruction/request failed.")]
     FailedValidation,
     
     /// <summary>
-    /// ??
+    /// Insufficient balance.
     /// Encoded/decoded by serializers as "InsufficientBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INHO")]
     [IsoId("_Zir1N9p-Ed-ak6NoX_4Aeg_-940679369")]
-    [Description(@"??")]
+    [Description(@"Insufficient balance.")]
     InsufficientBalance,
     
     /// <summary>
-    /// ??
+    /// Instruction/Request arrives too late.
     /// Encoded/decoded by serializers as "Late".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATT")]
     [IsoId("_Zir1ONp-Ed-ak6NoX_4Aeg_-940679338")]
-    [Description(@"??")]
+    [Description(@"Instruction/Request arrives too late.")]
     Late,
     
 }

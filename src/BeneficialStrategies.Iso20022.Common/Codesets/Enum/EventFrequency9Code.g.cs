@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventFrequency9Code
 {
     /// <summary>
-    /// ??
+    /// Event takes place every year or once a year.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_kqAyUSDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every year or once a year.")]
     Annual,
     
     /// <summary>
-    /// ??
+    /// Event takes place every six months or two times a year.
     /// Encoded/decoded by serializers as "SemiAnnual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEMI")]
     [IsoId("_kqAyUyDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every six months or two times a year.")]
     SemiAnnual,
     
     /// <summary>
-    /// ??
+    /// Event takes place every three months or four times a year.
     /// Encoded/decoded by serializers as "Quarterly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUTR")]
     [IsoId("_kqAyVSDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every three months or four times a year.")]
     Quarterly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every two months.
     /// Encoded/decoded by serializers as "EveryTwoMonths".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOMN")]
     [IsoId("_kqAyVyDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every two months.")]
     EveryTwoMonths,
     
     /// <summary>
-    /// ??
+    /// Event takes place every month or once a month.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_kqAyWSDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every month or once a month.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Event takes place two times a month.
     /// Encoded/decoded by serializers as "TwiceAMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWMN")]
     [IsoId("_kqAyWyDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place two times a month.")]
     TwiceAMonth,
     
     /// <summary>
-    /// ??
+    /// Event takes place every two weeks.
     /// Encoded/decoded by serializers as "EveryTwoWeeks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOWK")]
     [IsoId("_kqAyXSDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every two weeks.")]
     EveryTwoWeeks,
     
     /// <summary>
-    /// ??
+    /// Event takes place once a week.
     /// Encoded/decoded by serializers as "Weekly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_kqAyXyDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place once a week.")]
     Weekly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every day.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_kqAyYSDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place every day.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Event takes place as necessary.
     /// Encoded/decoded by serializers as "Adhoc".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADHO")]
     [IsoId("_kqAyYyDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place as necessary.")]
     Adhoc,
     
     /// <summary>
-    /// ??
+    /// Event takes place several times a day.
     /// Encoded/decoded by serializers as "IntraDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDA")]
     [IsoId("_kqAyZSDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place several times a day.")]
     IntraDay,
     
     /// <summary>
-    /// ??
+    /// Event takes place overnight.
     /// Encoded/decoded by serializers as "Overnight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OVNG")]
     [IsoId("_kqAyZyDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place overnight.")]
     Overnight,
     
     /// <summary>
-    /// ??
+    /// Event takes place on demand.
     /// Encoded/decoded by serializers as "OnDemand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONDE")]
     [IsoId("_kqAyaSDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event takes place on demand.")]
     OnDemand,
     
     /// <summary>
-    /// ??
+    /// Event does not take place.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_mJOiUSDAEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Event does not take place.")]
     None,
     
 }

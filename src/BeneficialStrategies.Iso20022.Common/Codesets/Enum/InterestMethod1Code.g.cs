@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterestMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the interest is intended to be settled in cash.
     /// Encoded/decoded by serializers as "PhysicalSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_YbAbdNp-Ed-ak6NoX_4Aeg_-1896247899")]
-    [Description(@"??")]
+    [Description(@"Indicates that the interest is intended to be settled in cash.")]
     PhysicalSettlement,
     
     /// <summary>
-    /// ??
+    /// Indicates that the interest is intended to be rolled in to existing collateral balances.
     /// Encoded/decoded by serializers as "RollIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLL")]
     [IsoId("_YbAbddp-Ed-ak6NoX_4Aeg_40977274")]
-    [Description(@"??")]
+    [Description(@"Indicates that the interest is intended to be rolled in to existing collateral balances.")]
     RollIn,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeConfirmationType2Code
 {
     /// <summary>
-    /// ??
+    /// Non-confirmed.
     /// Encoded/decoded by serializers as "NonConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCNF")]
     [IsoId("_HQSTQQ28EeWmAKKPnqYEVQ")]
-    [Description(@"??")]
+    [Description(@"Non-confirmed.")]
     NonConfirmed,
     
 }

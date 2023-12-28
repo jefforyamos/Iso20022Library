@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NotificationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// The notification contains all the details.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_Vp_FVNp-Ed-ak6NoX_4Aeg_218831864")]
-    [Description(@"??")]
+    [Description(@"The notification contains all the details.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
     /// Encoded/decoded by serializers as "PreliminaryEventConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREC")]
     [IsoId("_Vp_FVdp-Ed-ak6NoX_4Aeg_232685128")]
-    [Description(@"??")]
+    [Description(@"Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.")]
     PreliminaryEventConfirmed,
     
     /// <summary>
-    /// ??
+    /// Notification may not contain complete details as the occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
     /// Encoded/decoded by serializers as "PreliminaryEventUnconfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREU")]
     [IsoId("_Vp_FVtp-Ed-ak6NoX_4Aeg_288094847")]
-    [Description(@"??")]
+    [Description(@"Notification may not contain complete details as the occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.")]
     PreliminaryEventUnconfirmed,
     
 }

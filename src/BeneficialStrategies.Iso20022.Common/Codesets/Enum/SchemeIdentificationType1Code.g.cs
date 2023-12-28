@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SchemeIdentificationType1Code
 {
     /// <summary>
-    /// ??
+    /// Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.
     /// Encoded/decoded by serializers as "MarginAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARG")]
     [IsoId("_Gz2FkXa-Eee2GNSe_4BSzQ")]
-    [Description(@"??")]
+    [Description(@"Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.")]
     MarginAccount,
     
     /// <summary>
-    /// ??
+    /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
     /// Encoded/decoded by serializers as "CollateralAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_G6lmwXa-Eee2GNSe_4BSzQ")]
-    [Description(@"??")]
+    [Description(@"Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.")]
     CollateralAccount,
     
     /// <summary>
-    /// ??
+    /// Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.
     /// Encoded/decoded by serializers as "PositionAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POSI")]
     [IsoId("_HFG0sXa-Eee2GNSe_4BSzQ")]
-    [Description(@"??")]
+    [Description(@"Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.")]
     PositionAccount,
     
     /// <summary>
-    /// ??
+    /// Legal entity that is a participant in a clearing service of a central counterparty, that is the legal counterparty to all novated trades for all the accounts associated with such counterparty.
     /// Encoded/decoded by serializers as "ClearingMemberAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLIM")]
     [IsoId("_YWoVkXtNEee8tZ67_DQBAw")]
-    [Description(@"??")]
+    [Description(@"Legal entity that is a participant in a clearing service of a central counterparty, that is the legal counterparty to all novated trades for all the accounts associated with such counterparty.")]
     ClearingMemberAccount,
     
 }

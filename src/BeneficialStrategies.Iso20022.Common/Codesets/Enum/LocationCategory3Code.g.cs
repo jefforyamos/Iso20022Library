@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LocationCategory3Code
 {
     /// <summary>
-    /// ??
+    /// Indoor terminal.
     /// Encoded/decoded by serializers as "Indoor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDR")]
     [IsoId("_3wtnUZX5EeWMQt4mOczoDw")]
-    [Description(@"??")]
+    [Description(@"Indoor terminal.")]
     Indoor,
     
     /// <summary>
-    /// ??
+    /// Terminal incorporated in the pump dispensing petrol.
     /// Encoded/decoded by serializers as "InsidePump".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPMP")]
     [IsoId("_34m_EZX5EeWMQt4mOczoDw")]
-    [Description(@"??")]
+    [Description(@"Terminal incorporated in the pump dispensing petrol.")]
     InsidePump,
     
     /// <summary>
-    /// ??
+    /// Multiple terminals linked to a unique sale terminal.
     /// Encoded/decoded by serializers as "MultiplePOITerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPOI")]
     [IsoId("_4HaQEZX5EeWMQt4mOczoDw")]
-    [Description(@"??")]
+    [Description(@"Multiple terminals linked to a unique sale terminal.")]
     MultiplePOITerminal,
     
     /// <summary>
-    /// ??
+    /// Outdoor terminal serving several petrol pumps.
     /// Encoded/decoded by serializers as "MultiplePump".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPMP")]
     [IsoId("_4QWwsZX5EeWMQt4mOczoDw")]
-    [Description(@"??")]
+    [Description(@"Outdoor terminal serving several petrol pumps.")]
     MultiplePump,
     
     /// <summary>
-    /// ??
+    /// Terminal serving multiple sale terminals.
     /// Encoded/decoded by serializers as "MultipleSaleTerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSLE")]
     [IsoId("_4ZllMZX5EeWMQt4mOczoDw")]
-    [Description(@"??")]
+    [Description(@"Terminal serving multiple sale terminals.")]
     MultipleSaleTerminal,
     
     /// <summary>
-    /// ??
+    /// Terminal linked to a unique sale terminal.
     /// Encoded/decoded by serializers as "SingleSaleTerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSLE")]
     [IsoId("_4oC38ZX5EeWMQt4mOczoDw")]
-    [Description(@"??")]
+    [Description(@"Terminal linked to a unique sale terminal.")]
     SingleSaleTerminal,
     
     /// <summary>
-    /// ??
+    /// Terminal integrated in a vending machine.
     /// Encoded/decoded by serializers as "VendingMachine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VNDG")]
     [IsoId("_4up2QZX5EeWMQt4mOczoDw")]
-    [Description(@"??")]
+    [Description(@"Terminal integrated in a vending machine.")]
     VendingMachine,
     
 }

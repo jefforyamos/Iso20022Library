@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardholderAddressVerificationResult1Code
 {
     /// <summary>
-    /// ??
+    /// Address numeric match.
     /// Encoded/decoded by serializers as "AddressMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMCH")]
     [IsoId("_TSXNewEcEeCQm6a_G2yO_w_-1881917421")]
-    [Description(@"??")]
+    [Description(@"Address numeric match.")]
     AddressMatch,
     
     /// <summary>
-    /// ??
+    /// Address numerics do not match.
     /// Encoded/decoded by serializers as "AddressNotMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANMH")]
     [IsoId("_TSXNfAEcEeCQm6a_G2yO_w_-2071134870")]
-    [Description(@"??")]
+    [Description(@"Address numerics do not match.")]
     AddressNotMatch,
     
     /// <summary>
-    /// ??
+    /// Address numeric not processed for technical reason.
     /// Encoded/decoded by serializers as "AddressTechnical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANMT")]
     [IsoId("_TSXNfQEcEeCQm6a_G2yO_w_-133909697")]
-    [Description(@"??")]
+    [Description(@"Address numeric not processed for technical reason.")]
     AddressTechnical,
     
     /// <summary>
-    /// ??
+    /// Address numeric not processed for non-technical reason.
     /// Encoded/decoded by serializers as "AddressNotTechnical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANMO")]
     [IsoId("_TSXNfgEcEeCQm6a_G2yO_w_-656898248")]
-    [Description(@"??")]
+    [Description(@"Address numeric not processed for non-technical reason.")]
     AddressNotTechnical,
     
     /// <summary>
-    /// ??
+    /// Address numeric missing in request.
     /// Encoded/decoded by serializers as "AddressMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMSS")]
     [IsoId("_TSXNfwEcEeCQm6a_G2yO_w_1280326925")]
-    [Description(@"??")]
+    [Description(@"Address numeric missing in request.")]
     AddressMissing,
     
     /// <summary>
-    /// ??
+    /// Address numeric not used by issuer.
     /// Encoded/decoded by serializers as "AddressNotUsed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANUS")]
     [IsoId("_TSXNgAEcEeCQm6a_G2yO_w_-694884291")]
-    [Description(@"??")]
+    [Description(@"Address numeric not used by issuer.")]
     AddressNotUsed,
     
     /// <summary>
-    /// ??
+    /// Postal code matches.
     /// Encoded/decoded by serializers as "PostalMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMCH")]
     [IsoId("_TSXNgQEcEeCQm6a_G2yO_w_1242340882")]
-    [Description(@"??")]
+    [Description(@"Postal code matches.")]
     PostalMatch,
     
     /// <summary>
-    /// ??
+    /// Postal code does not match.
     /// Encoded/decoded by serializers as "PostalNotMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PNMH")]
     [IsoId("_TSXNggEcEeCQm6a_G2yO_w_-1449634165")]
-    [Description(@"??")]
+    [Description(@"Postal code does not match.")]
     PostalNotMatch,
     
     /// <summary>
-    /// ??
+    /// Postal code not processed for technical reason.
     /// Encoded/decoded by serializers as "PostalTechnical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PNMT")]
     [IsoId("_TSg-cAEcEeCQm6a_G2yO_w_487591008")]
-    [Description(@"??")]
+    [Description(@"Postal code not processed for technical reason.")]
     PostalTechnical,
     
     /// <summary>
-    /// ??
+    /// Postal code not processed for non-technical reason.
     /// Encoded/decoded by serializers as "PostalNotTechnical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PNMO")]
     [IsoId("_TSg-cQEcEeCQm6a_G2yO_w_-2084666011")]
-    [Description(@"??")]
+    [Description(@"Postal code not processed for non-technical reason.")]
     PostalNotTechnical,
     
     /// <summary>
-    /// ??
+    /// Postal code missing in request.
     /// Encoded/decoded by serializers as "PostalMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMSS")]
     [IsoId("_TSg-cgEcEeCQm6a_G2yO_w_-147440838")]
-    [Description(@"??")]
+    [Description(@"Postal code missing in request.")]
     PostalMissing,
     
     /// <summary>
-    /// ??
+    /// Postal code not used by issuer.
     /// Encoded/decoded by serializers as "PostalNotUsed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PNUS")]
     [IsoId("_TSg-cwEcEeCQm6a_G2yO_w_-1006645673")]
-    [Description(@"??")]
+    [Description(@"Postal code not used by issuer.")]
     PostalNotUsed,
     
 }

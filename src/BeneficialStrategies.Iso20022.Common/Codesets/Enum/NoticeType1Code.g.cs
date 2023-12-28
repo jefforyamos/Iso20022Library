@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NoticeType1Code
 {
     /// <summary>
-    /// ??
+    /// Notice is universal.
     /// Encoded/decoded by serializers as "Universal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNVL")]
     [IsoId("_1tTXBTL3EeKU9IrkkToqcw_1909543367")]
-    [Description(@"??")]
+    [Description(@"Notice is universal.")]
     Universal,
     
     /// <summary>
-    /// ??
+    /// Notice is specific to the securities registered in DTC's (The Depository Trust Company) nominee name.
     /// Encoded/decoded by serializers as "CedeAndCo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CEDE")]
     [IsoId("_1tcg8DL3EeKU9IrkkToqcw_-2060306422")]
-    [Description(@"??")]
+    [Description(@"Notice is specific to the securities registered in DTC's (The Depository Trust Company) nominee name.")]
     CedeAndCo,
     
 }

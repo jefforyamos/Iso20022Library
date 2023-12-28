@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementStandingInstructionDatabase1Code
 {
     /// <summary>
-    /// ??
+    /// The settlement standing instruction database to be used is the receiver's internal database.
     /// Encoded/decoded by serializers as "InternalDatabase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_ZMMAx9p-Ed-ak6NoX_4Aeg_-774171757")]
-    [Description(@"??")]
+    [Description(@"The settlement standing instruction database to be used is the receiver's internal database.")]
     InternalDatabase,
     
     /// <summary>
-    /// ??
+    /// The settlement standing instruction database to be used is the broker's database.
     /// Encoded/decoded by serializers as "BrokerDatabase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRKR")]
     [IsoId("_ZMVKsNp-Ed-ak6NoX_4Aeg_-371277985")]
-    [Description(@"??")]
+    [Description(@"The settlement standing instruction database to be used is the broker's database.")]
     BrokerDatabase,
     
     /// <summary>
-    /// ??
+    /// The settlement standing instruction database to be used is the database of the vendor.
     /// Encoded/decoded by serializers as "VendorDatabase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VEND")]
     [IsoId("_ZMVKsdp-Ed-ak6NoX_4Aeg_-1645817532")]
-    [Description(@"??")]
+    [Description(@"The settlement standing instruction database to be used is the database of the vendor.")]
     VendorDatabase,
     
 }

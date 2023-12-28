@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType38Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type recovered paper.
     /// Encoded/decoded by serializers as "RecoveredPaper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVP")]
     [IsoId("_9VZXV1ryEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type recovered paper.")]
     RecoveredPaper,
     
 }

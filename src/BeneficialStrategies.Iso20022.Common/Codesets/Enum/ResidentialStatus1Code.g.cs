@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResidentialStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Resident.
     /// Encoded/decoded by serializers as "Resident".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESI")]
     [IsoId("_ZUrOZ9p-Ed-ak6NoX_4Aeg_-1024642437")]
-    [Description(@"??")]
+    [Description(@"Resident.")]
     Resident,
     
     /// <summary>
-    /// ??
+    /// Permanent resident.
     /// Encoded/decoded by serializers as "PermanentResident".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRES")]
     [IsoId("_ZUrOaNp-Ed-ak6NoX_4Aeg_-1024642164")]
-    [Description(@"??")]
+    [Description(@"Permanent resident.")]
     PermanentResident,
     
     /// <summary>
-    /// ??
+    /// Non-resident.
     /// Encoded/decoded by serializers as "NonResident".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRES")]
     [IsoId("_ZU0_YNp-Ed-ak6NoX_4Aeg_-1024642147")]
-    [Description(@"??")]
+    [Description(@"Non-resident.")]
     NonResident,
     
 }

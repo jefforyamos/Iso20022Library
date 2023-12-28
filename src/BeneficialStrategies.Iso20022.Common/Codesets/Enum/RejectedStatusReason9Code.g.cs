@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectedStatusReason9Code
 {
     /// <summary>
-    /// ??
+    /// Identification of the security is not recognised or is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_ZfQtwNp-Ed-ak6NoX_4Aeg_-2116537053")]
-    [Description(@"??")]
+    [Description(@"Identification of the security is not recognised or is invalid.")]
     FinancialInstrumentIdentification,
     
     /// <summary>
-    /// ??
+    /// Identification of the security and the security name are not the same.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentificationAndName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDNA")]
     [IsoId("_ZfQtwdp-Ed-ak6NoX_4Aeg_-2115616477")]
-    [Description(@"??")]
+    [Description(@"Identification of the security and the security name are not the same.")]
     FinancialInstrumentIdentificationAndName,
     
     /// <summary>
-    /// ??
+    /// Order reference is a duplicate of a previously received order.
     /// Encoded/decoded by serializers as "DuplicateOrderReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORRF")]
     [IsoId("_ZfQtwtp-Ed-ak6NoX_4Aeg_-2115615018")]
-    [Description(@"??")]
+    [Description(@"Order reference is a duplicate of a previously received order.")]
     DuplicateOrderReference,
     
     /// <summary>
-    /// ??
+    /// Instruction is not compliant with the service level agreement.
     /// Encoded/decoded by serializers as "NotCompliantWithSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSLA")]
     [IsoId("_ZfQtw9p-Ed-ak6NoX_4Aeg_-2115614504")]
-    [Description(@"??")]
+    [Description(@"Instruction is not compliant with the service level agreement.")]
     NotCompliantWithSLA,
     
     /// <summary>
-    /// ??
+    /// Financial instrument quantity is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_ZfQtxNp-Ed-ak6NoX_4Aeg_-2115613141")]
-    [Description(@"??")]
+    [Description(@"Financial instrument quantity is invalid.")]
     FinancialInstrumentQuantity,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid Settlement Amount Currency.
     /// Encoded/decoded by serializers as "SettlementAmountCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCRR")]
     [IsoId("_ZfQtxdp-Ed-ak6NoX_4Aeg_-2114692392")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid Settlement Amount Currency.")]
     SettlementAmountCurrency,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid Place of Trade.
     /// Encoded/decoded by serializers as "PlaceOfTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLCE")]
     [IsoId("_ZfQtxtp-Ed-ak6NoX_4Aeg_1568215816")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid Place of Trade.")]
     PlaceOfTrade,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid trade date or requested trade date or future trade date.
     /// Encoded/decoded by serializers as "TradeDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTRD")]
     [IsoId("_ZfQtx9p-Ed-ak6NoX_4Aeg_-2096913482")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid trade date or requested trade date or future trade date.")]
     TradeDate,
     
 }

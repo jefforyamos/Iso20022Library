@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExchangeRateType2Code
 {
     /// <summary>
-    /// ??
+    /// Exchange rate is the Sell rate.
     /// Encoded/decoded by serializers as "Sell".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_cstTEYZ3Eeufof77RM8ObQ")]
-    [Description(@"??")]
+    [Description(@"Exchange rate is the Sell rate.")]
     Sell,
     
     /// <summary>
-    /// ??
+    /// Exchange rate type is privately defined.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_dMtBwYZ3Eeufof77RM8ObQ")]
-    [Description(@"??")]
+    [Description(@"Exchange rate type is privately defined.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Exchange rate type that is defined at the National level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_dsjmgYZ3Eeufof77RM8ObQ")]
-    [Description(@"??")]
+    [Description(@"Exchange rate type that is defined at the National level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Exchange rate is the Middle rate.
     /// Encoded/decoded by serializers as "Middle".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIDL")]
     [IsoId("_eNdUIYZ3Eeufof77RM8ObQ")]
-    [Description(@"??")]
+    [Description(@"Exchange rate is the Middle rate.")]
     Middle,
     
     /// <summary>
-    /// ??
+    /// Exchange rate is the Buy rate.
     /// Encoded/decoded by serializers as "Buy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYR")]
     [IsoId("_eNfJUYZ3Eeufof77RM8ObQ")]
-    [Description(@"??")]
+    [Description(@"Exchange rate is the Buy rate.")]
     Buy,
     
     /// <summary>
-    /// ??
+    /// Exchange rate applied is the rate agreed between the parties.
     /// Encoded/decoded by serializers as "Agreed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGRD")]
     [IsoId("_ewAnkYZ3Eeufof77RM8ObQ")]
-    [Description(@"??")]
+    [Description(@"Exchange rate applied is the rate agreed between the parties.")]
     Agreed,
     
 }

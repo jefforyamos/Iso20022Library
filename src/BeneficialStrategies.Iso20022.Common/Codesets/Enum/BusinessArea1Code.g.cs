@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BusinessArea1Code
 {
     /// <summary>
-    /// ??
+    /// The payment is initiated by an artificial intelligence based decision.
     /// Encoded/decoded by serializers as "ArtificialIntelligenceBasedDecision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIBD")]
     [IsoId("_RZiZIU4OEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"The payment is initiated by an artificial intelligence based decision.")]
     ArtificialIntelligenceBasedDecision,
     
     /// <summary>
-    /// ??
+    /// The card is used in a Transit business case where the fare amount is not known when the transaction is initiated.
     /// Encoded/decoded by serializers as "Openpayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPMT")]
     [IsoId("_RgShYU4OEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"The card is used in a Transit business case where the fare amount is not known when the transaction is initiated.")]
     Openpayment,
     
     /// <summary>
-    /// ??
+    /// The card is used to perform a plain payment.
     /// Encoded/decoded by serializers as "PlainPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPAY")]
     [IsoId("_RrhhAU4OEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"The card is used to perform a plain payment.")]
     PlainPayment,
     
     /// <summary>
-    /// ??
+    /// The card is used in a Transit business case where the fare amount is known when the transaction is initiated.
     /// Encoded/decoded by serializers as "TransitKnownFare".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TKNF")]
     [IsoId("_RzNdYU4OEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"The card is used in a Transit business case where the fare amount is known when the transaction is initiated.")]
     TransitKnownFare,
     
 }

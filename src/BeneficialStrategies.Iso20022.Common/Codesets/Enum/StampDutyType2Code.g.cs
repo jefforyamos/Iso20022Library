@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StampDutyType2Code
 {
     /// <summary>
-    /// ??
+    /// Stamps duty is applicable.
     /// Encoded/decoded by serializers as "Applicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTD")]
     [IsoId("_Cd9Nnv8vEeC87tbx-VXRVA")]
-    [Description(@"??")]
+    [Description(@"Stamps duty is applicable.")]
     Applicable,
     
     /// <summary>
-    /// ??
+    /// Stamp duty not applicable.
     /// Encoded/decoded by serializers as "NotApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDRN")]
     [IsoId("_CmdCSv8vEeC87tbx-VXRVA")]
-    [Description(@"??")]
+    [Description(@"Stamp duty not applicable.")]
     NotApplicable,
     
 }

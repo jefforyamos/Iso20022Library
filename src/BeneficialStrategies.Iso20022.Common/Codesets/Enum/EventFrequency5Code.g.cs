@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventFrequency5Code
 {
     /// <summary>
-    /// ??
+    /// Event takes place every year or once a year.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_aj9E8Np-Ed-ak6NoX_4Aeg_-1198401173")]
-    [Description(@"??")]
+    [Description(@"Event takes place every year or once a year.")]
     Annual,
     
     /// <summary>
-    /// ??
+    /// Event takes place every six months or two times a year.
     /// Encoded/decoded by serializers as "SemiAnnual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEMI")]
     [IsoId("_aj9E8dp-Ed-ak6NoX_4Aeg_-1187318899")]
-    [Description(@"??")]
+    [Description(@"Event takes place every six months or two times a year.")]
     SemiAnnual,
     
     /// <summary>
-    /// ??
+    /// Event takes place every three months or four times a year.
     /// Encoded/decoded by serializers as "Quarterly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUTR")]
     [IsoId("_aj9E8tp-Ed-ak6NoX_4Aeg_-1174391500")]
-    [Description(@"??")]
+    [Description(@"Event takes place every three months or four times a year.")]
     Quarterly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every month or once a month.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_aj9E89p-Ed-ak6NoX_4Aeg_-1155920594")]
-    [Description(@"??")]
+    [Description(@"Event takes place every month or once a month.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Event takes place once a week.
     /// Encoded/decoded by serializers as "Weekly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_aj9E9Np-Ed-ak6NoX_4Aeg_-1144837819")]
-    [Description(@"??")]
+    [Description(@"Event takes place once a week.")]
     Weekly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every day.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_aj9E9dp-Ed-ak6NoX_4Aeg_-1141143334")]
-    [Description(@"??")]
+    [Description(@"Event takes place every day.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Event cannot take place, because, for example, the fund is closed.
     /// Encoded/decoded by serializers as "Closed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("_aj9E9tp-Ed-ak6NoX_4Aeg_-1130984419")]
-    [Description(@"??")]
+    [Description(@"Event cannot take place, because, for example, the fund is closed.")]
     Closed,
     
     /// <summary>
-    /// ??
+    /// Event takes place every two months.
     /// Encoded/decoded by serializers as "EveryTwoMonths".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOMN")]
     [IsoId("_aj9E99p-Ed-ak6NoX_4Aeg_-1128214132")]
-    [Description(@"??")]
+    [Description(@"Event takes place every two months.")]
     EveryTwoMonths,
     
     /// <summary>
-    /// ??
+    /// Event takes place every two weeks.
     /// Encoded/decoded by serializers as "EveryTwoWeeks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOWK")]
     [IsoId("_aj9E-Np-Ed-ak6NoX_4Aeg_-1087578540")]
-    [Description(@"??")]
+    [Description(@"Event takes place every two weeks.")]
     EveryTwoWeeks,
     
     /// <summary>
-    /// ??
+    /// Event takes place two times a month.
     /// Encoded/decoded by serializers as "TwiceAMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWMN")]
     [IsoId("_akGO4Np-Ed-ak6NoX_4Aeg_-828995232")]
-    [Description(@"??")]
+    [Description(@"Event takes place two times a month.")]
     TwiceAMonth,
     
 }

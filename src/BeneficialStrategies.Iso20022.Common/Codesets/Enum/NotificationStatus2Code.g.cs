@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NotificationStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
     /// Encoded/decoded by serializers as "EventConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECON")]
     [IsoId("_aNwLeNp-Ed-ak6NoX_4Aeg_-174896803")]
-    [Description(@"??")]
+    [Description(@"Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.")]
     EventConfirmed,
     
     /// <summary>
-    /// ??
+    /// The occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
     /// Encoded/decoded by serializers as "EventUnconfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUNC")]
     [IsoId("_aN5VYNp-Ed-ak6NoX_4Aeg_-174896795")]
-    [Description(@"??")]
+    [Description(@"The occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.")]
     EventUnconfirmed,
     
 }

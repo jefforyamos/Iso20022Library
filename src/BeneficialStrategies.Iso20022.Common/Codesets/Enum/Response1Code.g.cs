@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response1Code
 {
     /// <summary>
-    /// ??
+    /// Service is declined.
     /// Encoded/decoded by serializers as "Declined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_TUAMMQEcEeCQm6a_G2yO_w_-710959612")]
-    [Description(@"??")]
+    [Description(@"Service is declined.")]
     Declined,
     
     /// <summary>
-    /// ??
+    /// Service has been successfuly provided.
     /// Encoded/decoded by serializers as "Approved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_TUAMMgEcEeCQm6a_G2yO_w_-1594192899")]
-    [Description(@"??")]
+    [Description(@"Service has been successfuly provided.")]
     Approved,
     
     /// <summary>
-    /// ??
+    /// Service has been partialy provided.
     /// Encoded/decoded by serializers as "PartialApproved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_TUAMMwEcEeCQm6a_G2yO_w_-563960777")]
-    [Description(@"??")]
+    [Description(@"Service has been partialy provided.")]
     PartialApproved,
     
     /// <summary>
-    /// ??
+    /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
     /// Encoded/decoded by serializers as "TechnicalError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TECH")]
     [IsoId("_TUAMNAEcEeCQm6a_G2yO_w_150956011")]
-    [Description(@"??")]
+    [Description(@"Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).")]
     TechnicalError,
     
 }

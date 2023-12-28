@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalManagementActionResult1Code
 {
     /// <summary>
-    /// ??
+    /// Access is denied while performing the action.
     /// Encoded/decoded by serializers as "AccessDenied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCD")]
     [IsoId("_KTxmon1DEeCF8NjrBemJWQ_1998349503")]
-    [Description(@"??")]
+    [Description(@"Access is denied while performing the action.")]
     AccessDenied,
     
     /// <summary>
-    /// ??
+    /// Problem to connect while performing the action.
     /// Encoded/decoded by serializers as "ConnectionError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTE")]
     [IsoId("_KTxmo31DEeCF8NjrBemJWQ_-2004781439")]
-    [Description(@"??")]
+    [Description(@"Problem to connect while performing the action.")]
     ConnectionError,
     
     /// <summary>
-    /// ??
+    /// Data transferred has a wrong format.
     /// Encoded/decoded by serializers as "FormatError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FMTE")]
     [IsoId("_KTxmpH1DEeCF8NjrBemJWQ_258228783")]
-    [Description(@"??")]
+    [Description(@"Data transferred has a wrong format.")]
     FormatError,
     
     /// <summary>
-    /// ??
+    /// Content of the data is invalid.
     /// Encoded/decoded by serializers as "InvalidContent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVC")]
     [IsoId("_KTxmpX1DEeCF8NjrBemJWQ_84218319")]
-    [Description(@"??")]
+    [Description(@"Content of the data is invalid.")]
     InvalidContent,
     
     /// <summary>
-    /// ??
+    /// Data transferred has a wrong length.
     /// Encoded/decoded by serializers as "LengthError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LENE")]
     [IsoId("_KTxmpn1DEeCF8NjrBemJWQ_2107604522")]
-    [Description(@"??")]
+    [Description(@"Data transferred has a wrong length.")]
     LengthError,
     
     /// <summary>
-    /// ??
+    /// Memory to store the date exceeded.
     /// Encoded/decoded by serializers as "MemoryOverflow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OVER")]
     [IsoId("_KTxmp31DEeCF8NjrBemJWQ_90247886")]
-    [Description(@"??")]
+    [Description(@"Memory to store the date exceeded.")]
     MemoryOverflow,
     
     /// <summary>
-    /// ??
+    /// Data set to be maintained is missing.
     /// Encoded/decoded by serializers as "MissingFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISS")]
     [IsoId("_KTxmqH1DEeCF8NjrBemJWQ_2138138548")]
-    [Description(@"??")]
+    [Description(@"Data set to be maintained is missing.")]
     MissingFile,
     
     /// <summary>
-    /// ??
+    /// Action is not supported.
     /// Encoded/decoded by serializers as "NotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSUP")]
     [IsoId("_KT7XoH1DEeCF8NjrBemJWQ_-1338636500")]
-    [Description(@"??")]
+    [Description(@"Action is not supported.")]
     NotSupported,
     
     /// <summary>
-    /// ??
+    /// Data transferred has a wrong digital signature.
     /// Encoded/decoded by serializers as "SignatureError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGE")]
     [IsoId("_KT7XoX1DEeCF8NjrBemJWQ_-1724818487")]
-    [Description(@"??")]
+    [Description(@"Data transferred has a wrong digital signature.")]
     SignatureError,
     
     /// <summary>
-    /// ??
+    /// Action was successfully performed.
     /// Encoded/decoded by serializers as "Success".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_KT7Xon1DEeCF8NjrBemJWQ_764235056")]
-    [Description(@"??")]
+    [Description(@"Action was successfully performed.")]
     Success,
     
     /// <summary>
-    /// ??
+    /// Data transferred has a wrong syntax.
     /// Encoded/decoded by serializers as "SyntaxError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYNE")]
     [IsoId("_KT7Xo31DEeCF8NjrBemJWQ_1816440546")]
-    [Description(@"??")]
+    [Description(@"Data transferred has a wrong syntax.")]
     SyntaxError,
     
     /// <summary>
-    /// ??
+    /// Timeout expired during the data transfer.
     /// Encoded/decoded by serializers as "Timeout".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIMO")]
     [IsoId("_KT7XpH1DEeCF8NjrBemJWQ_1358492660")]
-    [Description(@"??")]
+    [Description(@"Timeout expired during the data transfer.")]
     Timeout,
     
     /// <summary>
-    /// ??
+    /// Data set identification invalid.
     /// Encoded/decoded by serializers as "UnknownData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKDT")]
     [IsoId("_KT7XpX1DEeCF8NjrBemJWQ_939812179")]
-    [Description(@"??")]
+    [Description(@"Data set identification invalid.")]
     UnknownData,
     
     /// <summary>
-    /// ??
+    /// Cryptographic key reference used for the data signature is not valid.
     /// Encoded/decoded by serializers as "UnknownKeyReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKRF")]
     [IsoId("_KT7Xpn1DEeCF8NjrBemJWQ_1526031104")]
-    [Description(@"??")]
+    [Description(@"Cryptographic key reference used for the data signature is not valid.")]
     UnknownKeyReference,
     
 }

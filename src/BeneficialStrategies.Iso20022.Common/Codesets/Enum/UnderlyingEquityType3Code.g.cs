@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnderlyingEquityType3Code
 {
     /// <summary>
-    /// ??
+    /// Underlying is a basket.
     /// Encoded/decoded by serializers as "Basket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSKT")]
     [IsoId("_rI7j8WlOEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Underlying is a basket.")]
     Basket,
     
 }

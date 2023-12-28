@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason14Code
 {
     /// <summary>
-    /// ??
+    /// The validation of the advice/instruction/request failed.
     /// Encoded/decoded by serializers as "FailedValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_Zg5Fdtp-Ed-ak6NoX_4Aeg_-1511085978")]
-    [Description(@"??")]
+    [Description(@"The validation of the advice/instruction/request failed.")]
     FailedValidation,
     
     /// <summary>
-    /// ??
+    /// Instruction/Request arrives too late.
     /// Encoded/decoded by serializers as "Late".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATT")]
     [IsoId("_Zg5Fd9p-Ed-ak6NoX_4Aeg_-1511085947")]
-    [Description(@"??")]
+    [Description(@"Instruction/Request arrives too late.")]
     Late,
     
     /// <summary>
-    /// ??
+    /// CA Event Type does not correspond with the relating Corporate Action.
     /// Encoded/decoded by serializers as "InvalidEventType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INET")]
     [IsoId("_Zg5FeNp-Ed-ak6NoX_4Aeg_-1511085917")]
-    [Description(@"??")]
+    [Description(@"CA Event Type does not correspond with the relating Corporate Action.")]
     InvalidEventType,
     
     /// <summary>
-    /// ??
+    /// Underlying Security Identification does not correspond with the Corporate Action Reference supplied.
     /// Encoded/decoded by serializers as "InvalidUnderlyingSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INUS")]
     [IsoId("_Zg5Fedp-Ed-ak6NoX_4Aeg_-1511085608")]
-    [Description(@"??")]
+    [Description(@"Underlying Security Identification does not correspond with the Corporate Action Reference supplied.")]
     InvalidUnderlyingSecurity,
     
     /// <summary>
-    /// ??
+    /// Event Processing Type does not correspond with the relating Corporate Action.
     /// Encoded/decoded by serializers as "InvalidEventProcessingType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPT")]
     [IsoId("_ZhC2cNp-Ed-ak6NoX_4Aeg_-1511085577")]
-    [Description(@"??")]
+    [Description(@"Event Processing Type does not correspond with the relating Corporate Action.")]
     InvalidEventProcessingType,
     
     /// <summary>
-    /// ??
+    /// Mandatory/Voluntary Event Type does not correspond with the relating Corporate Action.
     /// Encoded/decoded by serializers as "InvalidMandatoryVoluntaryEventType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INMV")]
     [IsoId("_ZhC2cdp-Ed-ak6NoX_4Aeg_-1511085546")]
-    [Description(@"??")]
+    [Description(@"Mandatory/Voluntary Event Type does not correspond with the relating Corporate Action.")]
     InvalidMandatoryVoluntaryEventType,
     
     /// <summary>
-    /// ??
+    /// Details specified in the Corporate Action General Information block are inconsistent with those that were specified in the relating original message.
     /// Encoded/decoded by serializers as "InvalidCorporateActionInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDE")]
     [IsoId("_ZhC2ctp-Ed-ak6NoX_4Aeg_-1511085524")]
-    [Description(@"??")]
+    [Description(@"Details specified in the Corporate Action General Information block are inconsistent with those that were specified in the relating original message.")]
     InvalidCorporateActionInformation,
     
     /// <summary>
-    /// ??
+    /// Invalid agent identification supplied.
     /// Encoded/decoded by serializers as "InvalidAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGIN")]
     [IsoId("_ZhC2c9p-Ed-ak6NoX_4Aeg_-1511085493")]
-    [Description(@"??")]
+    [Description(@"Invalid agent identification supplied.")]
     InvalidAgent,
     
     /// <summary>
-    /// ??
+    /// Details specified in the MOVEMENT GENERAL INFORMATION block are inconsistent with those that were specified in the relating original message.
     /// Encoded/decoded by serializers as "InvalidMovementInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INMO")]
     [IsoId("_ZhC2dNp-Ed-ak6NoX_4Aeg_-1511085462")]
-    [Description(@"??")]
+    [Description(@"Details specified in the MOVEMENT GENERAL INFORMATION block are inconsistent with those that were specified in the relating original message.")]
     InvalidMovementInformation,
     
     /// <summary>
-    /// ??
+    /// Several message with the same identification.
     /// Encoded/decoded by serializers as "SameIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAID")]
     [IsoId("_ZhC2ddp-Ed-ak6NoX_4Aeg_-1511085432")]
-    [Description(@"??")]
+    [Description(@"Several message with the same identification.")]
     SameIdentification,
     
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid message identification, identification is unknown.
     /// Encoded/decoded by serializers as "InvalidIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INID")]
     [IsoId("_ZhMncNp-Ed-ak6NoX_4Aeg_-1511085370")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid message identification, identification is unknown.")]
     InvalidIdentification,
     
     /// <summary>
-    /// ??
+    /// One or more of the underlying movements have already settled.
     /// Encoded/decoded by serializers as "MovementAlreadySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOSE")]
     [IsoId("_ZhMncdp-Ed-ak6NoX_4Aeg_-1511085340")]
-    [Description(@"??")]
+    [Description(@"One or more of the underlying movements have already settled.")]
     MovementAlreadySettled,
     
 }

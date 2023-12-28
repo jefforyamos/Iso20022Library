@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProcessingPosition4Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the transaction/instruction is to be executed after the linked transaction/instruction.
     /// Encoded/decoded by serializers as "After".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AFTE")]
     [IsoId("_DsSH0REhEeKG5rB3aM9OkQ")]
-    [Description(@"??")]
+    [Description(@"Specifies that the transaction/instruction is to be executed after the linked transaction/instruction.")]
     After,
     
     /// <summary>
-    /// ??
+    /// Specifies that the transaction/instruction is to be executed before the linked transaction/instruction.
     /// Encoded/decoded by serializers as "Before".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEFO")]
     [IsoId("_D2RKQREhEeKG5rB3aM9OkQ")]
-    [Description(@"??")]
+    [Description(@"Specifies that the transaction/instruction is to be executed before the linked transaction/instruction.")]
     Before,
     
     /// <summary>
-    /// ??
+    /// Specifies that the transaction/instruction is to be executed with the linked transaction/instruction.
     /// Encoded/decoded by serializers as "With".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_EAs4oREhEeKG5rB3aM9OkQ")]
-    [Description(@"??")]
+    [Description(@"Specifies that the transaction/instruction is to be executed with the linked transaction/instruction.")]
     With,
     
 }

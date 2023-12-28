@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstructionLockoutType1Code
 {
     /// <summary>
-    /// ??
+    /// Event is locked out manually for instruction processing.  This relates to conversions, warrants and put events.
     /// Encoded/decoded by serializers as "ManualLocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANL")]
     [IsoId("_g5Rl4Q7xEeuZI5Sr_GAcuA")]
-    [Description(@"??")]
+    [Description(@"Event is locked out manually for instruction processing.  This relates to conversions, warrants and put events.")]
     ManualLocked,
     
     /// <summary>
-    /// ??
+    /// Event is not locked out manually for instruction processing. This relates to conversions, warrants and put events.
     /// Encoded/decoded by serializers as "NotLocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTL")]
     [IsoId("_g_SuUQ7xEeuZI5Sr_GAcuA")]
-    [Description(@"??")]
+    [Description(@"Event is not locked out manually for instruction processing. This relates to conversions, warrants and put events.")]
     NotLocked,
     
     /// <summary>
-    /// ??
+    /// Event is locked out systemically for instruction processing. This relates to conversion or warrant events due to an "out of town" record date on the disbursed security.
     /// Encoded/decoded by serializers as "SystemicLocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYSL")]
     [IsoId("_hELOUQ7xEeuZI5Sr_GAcuA")]
-    [Description(@"??")]
+    [Description(@"Event is locked out systemically for instruction processing. This relates to conversion or warrant events due to an ""out of town"" record date on the disbursed security.")]
     SystemicLocked,
     
 }

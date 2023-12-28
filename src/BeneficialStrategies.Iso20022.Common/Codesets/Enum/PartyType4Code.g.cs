@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType4Code
 {
     /// <summary>
-    /// ??
+    /// Merchant providing goods and service in the card payment transaction.
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_TTtRQQEcEeCQm6a_G2yO_w_-1410689751")]
-    [Description(@"??")]
+    [Description(@"Merchant providing goods and service in the card payment transaction.")]
     Merchant,
     
     /// <summary>
-    /// ??
+    /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
     /// Encoded/decoded by serializers as "Acceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_TTtRQgEcEeCQm6a_G2yO_w_-1002861397")]
-    [Description(@"??")]
+    [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
     Acceptor,
     
     /// <summary>
-    /// ??
+    /// Party acting on behalf of other parties to process or forward data to other parties.
     /// Encoded/decoded by serializers as "IntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAG")]
     [IsoId("_TTtRQwEcEeCQm6a_G2yO_w_1913422956")]
-    [Description(@"??")]
+    [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
     IntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_TTtRRAEcEeCQm6a_G2yO_w_-444319167")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Party that issues cards.
     /// Encoded/decoded by serializers as "CardIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISS")]
     [IsoId("_TTtRRQEcEeCQm6a_G2yO_w_1902324179")]
-    [Description(@"??")]
+    [Description(@"Party that issues cards.")]
     CardIssuer,
     
     /// <summary>
-    /// ??
+    /// Tax authority.
     /// Encoded/decoded by serializers as "TaxAuthority".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXH")]
     [IsoId("_TTtRRgEcEeCQm6a_G2yO_w_-2067525610")]
-    [Description(@"??")]
+    [Description(@"Tax authority.")]
     TaxAuthority,
     
 }

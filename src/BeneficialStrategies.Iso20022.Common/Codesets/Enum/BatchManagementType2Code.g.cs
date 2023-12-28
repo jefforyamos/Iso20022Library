@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BatchManagementType2Code
 {
     /// <summary>
-    /// ??
+    /// Acknowledgement requested by the originator to the destination (used with a notification message exclusively).
     /// Encoded/decoded by serializers as "AcknowledgementRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AKRQ")]
     [IsoId("_HTuKQJb0Eeuc6pwKtqbEVQ")]
-    [Description(@"??")]
+    [Description(@"Acknowledgement requested by the originator to the destination (used with a notification message exclusively).")]
     AcknowledgementRequest,
     
     /// <summary>
-    /// ??
+    /// Acknowledgement response by the destination to the originator (used with a notification message exclusively).
     /// Encoded/decoded by serializers as "AcknowledgementResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AKRP")]
     [IsoId("_HeiTIZb0Eeuc6pwKtqbEVQ")]
-    [Description(@"??")]
+    [Description(@"Acknowledgement response by the destination to the originator (used with a notification message exclusively).")]
     AcknowledgementResponse,
     
     /// <summary>
-    /// ??
+    /// End of a collection or batch by the originator (used with a request message exclusively).
     /// Encoded/decoded by serializers as "End".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENDB")]
     [IsoId("_HmFFkZb0Eeuc6pwKtqbEVQ")]
-    [Description(@"??")]
+    [Description(@"End of a collection or batch by the originator (used with a request message exclusively).")]
     End,
     
     /// <summary>
-    /// ??
+    /// Contains a list of batch or collection identifications.
     /// Encoded/decoded by serializers as "IdentificationList".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDNT")]
     [IsoId("_Htc44Zb0Eeuc6pwKtqbEVQ")]
-    [Description(@"??")]
+    [Description(@"Contains a list of batch or collection identifications.")]
     IdentificationList,
     
     /// <summary>
-    /// ??
+    /// Any other type of batch management transaction defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_H0RSkZb0Eeuc6pwKtqbEVQ")]
-    [Description(@"??")]
+    [Description(@"Any other type of batch management transaction defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Any other type of batch management transaction defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_H8W3kZb0Eeuc6pwKtqbEVQ")]
-    [Description(@"??")]
+    [Description(@"Any other type of batch management transaction defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// A request to resend a batch or collection.
     /// Encoded/decoded by serializers as "ResendRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RERQ")]
     [IsoId("_IEVu4Zb0Eeuc6pwKtqbEVQ")]
-    [Description(@"??")]
+    [Description(@"A request to resend a batch or collection.")]
     ResendRequest,
     
     /// <summary>
-    /// ??
+    /// Initiation of a collection or batch by the originator (used with a request message exclusively).
     /// Encoded/decoded by serializers as "Start".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STRT")]
     [IsoId("_ILNL4Zb0Eeuc6pwKtqbEVQ")]
-    [Description(@"??")]
+    [Description(@"Initiation of a collection or batch by the originator (used with a request message exclusively).")]
     Start,
     
 }

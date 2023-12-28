@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesBalanceType8Code
 {
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that are blocked.
     /// Encoded/decoded by serializers as "Blocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLOK")]
     [IsoId("_ZCy0Mdp-Ed-ak6NoX_4Aeg_-2122701094")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that are blocked.")]
     Blocked,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that are freely available with no specific additional status.
     /// Encoded/decoded by serializers as "AvailableWithNoAdditionalStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWAS")]
     [IsoId("_ZCy0Mtp-Ed-ak6NoX_4Aeg_-2122701093")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that are freely available with no specific additional status.")]
     AvailableWithNoAdditionalStatus,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that are available.
     /// Encoded/decoded by serializers as "Available".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVAI")]
     [IsoId("_ZCy0M9p-Ed-ak6NoX_4Aeg_-1711733881")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that are available.")]
     Available,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).
     /// Encoded/decoded by serializers as "Registered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMI")]
     [IsoId("_ZCy0NNp-Ed-ak6NoX_4Aeg_-1665556498")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).")]
     Registered,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that belong to and is kept in the safekeeping account indicated within this message, and that are pledged.
     /// Encoded/decoded by serializers as "Pledged".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLED")]
     [IsoId("_ZCy0Ndp-Ed-ak6NoX_4Aeg_-2122700380")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that belong to and is kept in the safekeeping account indicated within this message, and that are pledged.")]
     Pledged,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
     /// Encoded/decoded by serializers as "OutForRegistration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGO")]
     [IsoId("_ZCy0Ntp-Ed-ak6NoX_4Aeg_-2122700379")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).")]
     OutForRegistration,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that may only be sold under certain conditions or require legal documents.
     /// Encoded/decoded by serializers as "Restricted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSTR")]
     [IsoId("_ZCy0N9p-Ed-ak6NoX_4Aeg_-2122700355")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that may only be sold under certain conditions or require legal documents.")]
     Restricted,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Unclassified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ZCy0ONp-Ed-ak6NoX_4Aeg_-2122700354")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Unclassified,
     
     /// <summary>
-    /// ??
+    /// Transaction has been generated due to transformation following a corporate action.
     /// Encoded/decoded by serializers as "InTransshipment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_ZCy0Odp-Ed-ak6NoX_4Aeg_-2122700338")]
-    [Description(@"??")]
+    [Description(@"Transaction has been generated due to transformation following a corporate action.")]
     InTransshipment,
     
     /// <summary>
-    /// ??
+    /// Settlement transactions relates to drawn securities.
     /// Encoded/decoded by serializers as "Drawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRAW")]
     [IsoId("_ZC8lMNp-Ed-ak6NoX_4Aeg_-2122700337")]
-    [Description(@"??")]
+    [Description(@"Settlement transactions relates to drawn securities.")]
     Drawn,
     
     /// <summary>
-    /// ??
+    /// Financial instrument is unavailable due to missing or incomplete documentation pertaining to the account, or due to a missing or incomplete order.
     /// Encoded/decoded by serializers as "WaitingDocumentation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WDOC")]
     [IsoId("_ZC8lMdp-Ed-ak6NoX_4Aeg_-2122700336")]
-    [Description(@"??")]
+    [Description(@"Financial instrument is unavailable due to missing or incomplete documentation pertaining to the account, or due to a missing or incomplete order.")]
     WaitingDocumentation,
     
     /// <summary>
-    /// ??
+    /// Financial instrument is unavailable as a result of a transfer order, pending movement in the shareholders' register.
     /// Encoded/decoded by serializers as "BeingTransferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTRA")]
     [IsoId("_ZC8lMtp-Ed-ak6NoX_4Aeg_-2122700320")]
-    [Description(@"??")]
+    [Description(@"Financial instrument is unavailable as a result of a transfer order, pending movement in the shareholders' register.")]
     BeingTransferred,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
     /// Encoded/decoded by serializers as "StreetPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPOS")]
     [IsoId("_ZC8lM9p-Ed-ak6NoX_4Aeg_-1607375140")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that remain registered in the name of the prior beneficial owner.")]
     StreetPosition,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that could not be registered due to foreign ownership limitation.
     /// Encoded/decoded by serializers as "Unregistered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRG")]
     [IsoId("_ZC8lNNp-Ed-ak6NoX_4Aeg_-1565819079")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that could not be registered due to foreign ownership limitation.")]
     Unregistered,
     
     /// <summary>
-    /// ??
+    /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.
     /// Encoded/decoded by serializers as "Issued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("_ZC8lNdp-Ed-ak6NoX_4Aeg_20264378")]
-    [Description(@"??")]
+    [Description(@"In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.")]
     Issued,
     
     /// <summary>
-    /// ??
+    /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has not yet been received.
     /// Encoded/decoded by serializers as "QuasiIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUAS")]
     [IsoId("_ZC8lNtp-Ed-ak6NoX_4Aeg_20264655")]
-    [Description(@"??")]
+    [Description(@"In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has not yet been received.")]
     QuasiIssued,
     
 }

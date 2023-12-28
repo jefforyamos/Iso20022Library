@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum POIComponentType2Code
 {
     /// <summary>
-    /// ??
+    /// Payment or other software application.
     /// Encoded/decoded by serializers as "Soft".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFT")]
     [IsoId("_KTVhxH1DEeCF8NjrBemJWQ_1908221676")]
-    [Description(@"??")]
+    [Description(@"Payment or other software application.")]
     Soft,
     
     /// <summary>
-    /// ??
+    /// EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
     /// Encoded/decoded by serializers as "EMVKernel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMVK")]
     [IsoId("_KTVhxX1DEeCF8NjrBemJWQ_-847957178")]
-    [Description(@"??")]
+    [Description(@"EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).")]
     EMVKernel,
     
     /// <summary>
-    /// ??
+    /// EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
     /// Encoded/decoded by serializers as "EMVLevel1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMVO")]
     [IsoId("_KTVhxn1DEeCF8NjrBemJWQ_-403699691")]
-    [Description(@"??")]
+    [Description(@"EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).")]
     EMVLevel1,
     
     /// <summary>
-    /// ??
+    /// Merchant interface.
     /// Encoded/decoded by serializers as "MerchantInterface".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRIT")]
     [IsoId("_KTVhx31DEeCF8NjrBemJWQ_1135088751")]
-    [Description(@"??")]
+    [Description(@"Merchant interface.")]
     MerchantInterface,
     
     /// <summary>
-    /// ??
+    /// Cardholder Interface.
     /// Encoded/decoded by serializers as "CardholderInterface".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHIT")]
     [IsoId("_KTVhyH1DEeCF8NjrBemJWQ_1438145266")]
-    [Description(@"??")]
+    [Description(@"Cardholder Interface.")]
     CardholderInterface,
     
     /// <summary>
-    /// ??
+    /// Security module.
     /// Encoded/decoded by serializers as "SecureModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECM")]
     [IsoId("_KTersH1DEeCF8NjrBemJWQ_262954241")]
-    [Description(@"??")]
+    [Description(@"Security module.")]
     SecureModule,
     
     /// <summary>
-    /// ??
+    /// Personal identification number (or PIN) entry device (PED).
     /// Encoded/decoded by serializers as "PINEntryDevice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEDV")]
     [IsoId("_KTersX1DEeCF8NjrBemJWQ_-2048967126")]
-    [Description(@"??")]
+    [Description(@"Personal identification number (or PIN) entry device (PED).")]
     PINEntryDevice,
     
     /// <summary>
-    /// ??
+    /// Acquirer specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "AcquirerParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AQPR")]
     [IsoId("_KTersn1DEeCF8NjrBemJWQ_1452865412")]
-    [Description(@"??")]
+    [Description(@"Acquirer specific configuration parameters for the point of interaction (POI) system.")]
     AcquirerParameters,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_KTers31DEeCF8NjrBemJWQ_-2037868349")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.
     /// Encoded/decoded by serializers as "VendorParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VDPR")]
     [IsoId("_KTertH1DEeCF8NjrBemJWQ_-1553071793")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.")]
     VendorParameters,
     
 }

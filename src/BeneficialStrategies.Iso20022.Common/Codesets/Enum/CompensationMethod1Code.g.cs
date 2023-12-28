@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CompensationMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Account does not pay and charges or taxes due.
     /// Encoded/decoded by serializers as "No".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOCP")]
     [IsoId("_6Vm_yJqlEeGSON8vddiWzQ_-1993728072")]
-    [Description(@"??")]
+    [Description(@"Account does not pay and charges or taxes due.")]
     No,
     
     /// <summary>
-    /// ??
+    /// Account is debited for any charges or taxes due.
     /// Encoded/decoded by serializers as "Debited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBTD")]
     [IsoId("_6VwwwJqlEeGSON8vddiWzQ_-1432359176")]
-    [Description(@"??")]
+    [Description(@"Account is debited for any charges or taxes due.")]
     Debited,
     
     /// <summary>
-    /// ??
+    /// Account or summary account is invoiced for any charges or taxes due.
     /// Encoded/decoded by serializers as "Invoiced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVD")]
     [IsoId("_6VwwwZqlEeGSON8vddiWzQ_1164179586")]
-    [Description(@"??")]
+    [Description(@"Account or summary account is invoiced for any charges or taxes due.")]
     Invoiced,
     
     /// <summary>
-    /// ??
+    /// Account is automatically debited on a future date.
     /// Encoded/decoded by serializers as "DelayedDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDBT")]
     [IsoId("_6VwwwpqlEeGSON8vddiWzQ_-174770726")]
-    [Description(@"??")]
+    [Description(@"Account is automatically debited on a future date.")]
     DelayedDebit,
     
 }

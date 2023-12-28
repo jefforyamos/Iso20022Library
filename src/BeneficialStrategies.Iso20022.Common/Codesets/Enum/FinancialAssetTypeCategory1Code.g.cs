@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FinancialAssetTypeCategory1Code
 {
     /// <summary>
-    /// ??
+    /// Balance attributed to equities.
     /// Encoded/decoded by serializers as "Equities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQTY")]
     [IsoId("_m9i30vNBEeCuA5Tr22BnwA_1063862993")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to equities.")]
     Equities,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to debt instruments.
     /// Encoded/decoded by serializers as "DebtInstruments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBT")]
     [IsoId("_m9i30_NBEeCuA5Tr22BnwA_250712475")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to debt instruments.")]
     DebtInstruments,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to entitlements.
     /// Encoded/decoded by serializers as "Entitlements".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENTL")]
     [IsoId("_m9i31PNBEeCuA5Tr22BnwA_1925778616")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to entitlements.")]
     Entitlements,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to derivatives.
     /// Encoded/decoded by serializers as "Derivatives".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERV")]
     [IsoId("_m9i31fNBEeCuA5Tr22BnwA_853773557")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to derivatives.")]
     Derivatives,
     
     /// <summary>
-    /// ??
+    /// Balance attributed to money market instruments.
     /// Encoded/decoded by serializers as "MoneyMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMKT")]
     [IsoId("_m9so0PNBEeCuA5Tr22BnwA_827954634")]
-    [Description(@"??")]
+    [Description(@"Balance attributed to money market instruments.")]
     MoneyMarket,
     
     /// <summary>
-    /// ??
+    /// Other financial asset type balance according to a different classification, which is not explictly defined.
     /// Encoded/decoded by serializers as "Others".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_m9so0fNBEeCuA5Tr22BnwA_714115568")]
-    [Description(@"??")]
+    [Description(@"Other financial asset type balance according to a different classification, which is not explictly defined.")]
     Others,
     
 }

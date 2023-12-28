@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateValueType7Code
 {
     /// <summary>
-    /// ??
+    /// Rate is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_q5kOI2tdEeCY4-KZ9JEyUQ_-1063133934")]
-    [Description(@"??")]
+    [Description(@"Rate is unknown by the sender or has not been established.")]
     Unknown,
     
 }

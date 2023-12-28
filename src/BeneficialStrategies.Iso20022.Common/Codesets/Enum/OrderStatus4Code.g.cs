@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderStatus4Code
 {
     /// <summary>
-    /// ??
+    /// Order is accepted and is ready for execution (execution is the moment when pricing is applied).
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_aR65w9p-Ed-ak6NoX_4Aeg_329337861")]
-    [Description(@"??")]
+    [Description(@"Order is accepted and is ready for execution (execution is the moment when pricing is applied).")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Order is already executed and confirmation has been sent.
     /// Encoded/decoded by serializers as "AlreadyExecuted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COSE")]
     [IsoId("_aR65xNp-Ed-ak6NoX_4Aeg_330260418")]
-    [Description(@"??")]
+    [Description(@"Order is already executed and confirmation has been sent.")]
     AlreadyExecuted,
     
     /// <summary>
-    /// ??
+    /// Order has been sent to the next party, eg, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_aR65xdp-Ed-ak6NoX_4Aeg_330260898")]
-    [Description(@"??")]
+    [Description(@"Order has been sent to the next party, eg, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_aR65xtp-Ed-ak6NoX_4Aeg_330260941")]
-    [Description(@"??")]
+    [Description(@"Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Order is settled. The cash is credited or debited.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_aR65x9p-Ed-ak6NoX_4Aeg_966938848")]
-    [Description(@"??")]
+    [Description(@"Order is settled. The cash is credited or debited.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Communication problems with the next party.
     /// Encoded/decoded by serializers as "CommunicationProblemNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPNP")]
     [IsoId("_aSEqwNp-Ed-ak6NoX_4Aeg_966938883")]
-    [Description(@"??")]
+    [Description(@"Communication problems with the next party.")]
     CommunicationProblemNextParty,
     
     /// <summary>
-    /// ??
+    /// Order confirmation cancellation has been sent and will be followed by a confirmation amendment, or a confirmation amendment has been sent.
     /// Encoded/decoded by serializers as "ConfirmationAmendment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNFC")]
     [IsoId("_aSEqwdp-Ed-ak6NoX_4Aeg_966939233")]
-    [Description(@"??")]
+    [Description(@"Order confirmation cancellation has been sent and will be followed by a confirmation amendment, or a confirmation amendment has been sent.")]
     ConfirmationAmendment,
     
     /// <summary>
-    /// ??
+    /// Order has been partially filled, and is done for the day, ie, no further executions will take place today.
     /// Encoded/decoded by serializers as "DoneForDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DONE")]
     [IsoId("_aSEqwtp-Ed-ak6NoX_4Aeg_-2113826740")]
-    [Description(@"??")]
+    [Description(@"Order has been partially filled, and is done for the day, ie, no further executions will take place today.")]
     DoneForDay,
     
     /// <summary>
-    /// ??
+    /// Order has been partially filled and will not be filled further.
     /// Encoded/decoded by serializers as "PartiallyDone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DONF")]
     [IsoId("_aSEqw9p-Ed-ak6NoX_4Aeg_1047712210")]
-    [Description(@"??")]
+    [Description(@"Order has been partially filled and will not be filled further.")]
     PartiallyDone,
     
     /// <summary>
-    /// ??
+    /// Order is open.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPOD")]
     [IsoId("_aSEqxNp-Ed-ak6NoX_4Aeg_1085577922")]
-    [Description(@"??")]
+    [Description(@"Order is open.")]
     Open,
     
     /// <summary>
-    /// ??
+    /// Order confirmation received from agent is invalid.
     /// Encoded/decoded by serializers as "InvalidAgentConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IACO")]
     [IsoId("_aSEqxdp-Ed-ak6NoX_4Aeg_-1148340037")]
-    [Description(@"??")]
+    [Description(@"Order confirmation received from agent is invalid.")]
     InvalidAgentConfirmation,
     
 }

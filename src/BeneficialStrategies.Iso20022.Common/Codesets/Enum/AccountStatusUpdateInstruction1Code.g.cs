@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountStatusUpdateInstruction1Code
 {
     /// <summary>
-    /// ??
+    /// Account is to be closed.
     /// Encoded/decoded by serializers as "Close".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("_SuwCEXi6EeaRm5xIK6nGuQ")]
-    [Description(@"??")]
+    [Description(@"Account is to be closed.")]
     Close,
     
     /// <summary>
-    /// ??
+    /// Account is to be reactivated, any previous instruction to close the account is rescinded.
     /// Encoded/decoded by serializers as "Reactive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REAC")]
     [IsoId("_S6f_EXi6EeaRm5xIK6nGuQ")]
-    [Description(@"??")]
+    [Description(@"Account is to be reactivated, any previous instruction to close the account is rescinded.")]
     Reactive,
     
 }

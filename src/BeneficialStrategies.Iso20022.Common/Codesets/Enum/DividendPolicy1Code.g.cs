@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DividendPolicy1Code
 {
     /// <summary>
-    /// ??
+    /// Dividend is paid in cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_aw6i5tp-Ed-ak6NoX_4Aeg_119018465")]
-    [Description(@"??")]
+    [Description(@"Dividend is paid in cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Dividend is paid in units.
     /// Encoded/decoded by serializers as "Units".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIT")]
     [IsoId("_aw6i59p-Ed-ak6NoX_4Aeg_119018743")]
-    [Description(@"??")]
+    [Description(@"Dividend is paid in units.")]
     Units,
     
     /// <summary>
-    /// ??
+    /// Dividend is paid in both Cash and Units.
     /// Encoded/decoded by serializers as "Both".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_axET4Np-Ed-ak6NoX_4Aeg_119018774")]
-    [Description(@"??")]
+    [Description(@"Dividend is paid in both Cash and Units.")]
     Both,
     
 }

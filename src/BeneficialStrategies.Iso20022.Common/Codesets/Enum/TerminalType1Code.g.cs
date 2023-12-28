@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalType1Code
 {
     /// <summary>
-    /// ??
+    /// Automated Teller Machine
     /// Encoded/decoded by serializers as "ATM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATMT")]
     [IsoId("_jUzQIVHIEeeRzt0J6TBeaA")]
-    [Description(@"??")]
+    [Description(@"Automated Teller Machine")]
     ATM,
     
     /// <summary>
-    /// ??
+    /// Mobile or tablet used as a Point of Sale terminal
     /// Encoded/decoded by serializers as "mPOS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPOS")]
     [IsoId("_jcsA0VHIEeeRzt0J6TBeaA")]
-    [Description(@"??")]
+    [Description(@"Mobile or tablet used as a Point of Sale terminal")]
     mPOS,
     
     /// <summary>
-    /// ??
+    /// Other type defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_jnZcAVHIEeeRzt0J6TBeaA")]
-    [Description(@"??")]
+    [Description(@"Other type defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other private type of terminal.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_j5jjAVHIEeeRzt0J6TBeaA")]
-    [Description(@"??")]
+    [Description(@"Other private type of terminal.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Point of Sale terminal.
     /// Encoded/decoded by serializers as "POS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_kF5V4VHIEeeRzt0J6TBeaA")]
-    [Description(@"??")]
+    [Description(@"Point of Sale terminal.")]
     POS,
     
 }

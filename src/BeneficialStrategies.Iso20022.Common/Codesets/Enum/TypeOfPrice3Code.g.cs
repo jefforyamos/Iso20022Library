@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfPrice3Code
 {
     /// <summary>
-    /// ??
+    /// Price is an average execution price.
     /// Encoded/decoded by serializers as "Average".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVER")]
     [IsoId("__z225NojEeC60axPepSq7g_-2134523685")]
-    [Description(@"??")]
+    [Description(@"Price is an average execution price.")]
     Average,
     
     /// <summary>
-    /// ??
+    /// Price is an override of the average price.
     /// Encoded/decoded by serializers as "AverageOverride".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVOV")]
     [IsoId("__z225dojEeC60axPepSq7g_-2145622462")]
-    [Description(@"??")]
+    [Description(@"Price is an override of the average price.")]
     AverageOverride,
     
     /// <summary>
-    /// ??
+    /// Price is a gross execution price. The price is an all inclusive price, ie, including all charges, fees, and taxes.
     /// Encoded/decoded by serializers as "GrossOfAll".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GREX")]
     [IsoId("__0An4NojEeC60axPepSq7g_-1515416890")]
-    [Description(@"??")]
+    [Description(@"Price is a gross execution price. The price is an all inclusive price, ie, including all charges, fees, and taxes.")]
     GrossOfAll,
     
     /// <summary>
-    /// ??
+    /// Price is a net price, ie, net only of local broker's commission, local fees and local taxes.
     /// Encoded/decoded by serializers as "Net".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NET2")]
     [IsoId("__0An4dojEeC60axPepSq7g_-1471209616")]
-    [Description(@"??")]
+    [Description(@"Price is a net price, ie, net only of local broker's commission, local fees and local taxes.")]
     Net,
     
     /// <summary>
-    /// ??
+    /// Price is a net price, ie, net of all charges, fees and taxes.
     /// Encoded/decoded by serializers as "NetOfAll".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NET1")]
     [IsoId("__0An4tojEeC60axPepSq7g_1799597409")]
-    [Description(@"??")]
+    [Description(@"Price is a net price, ie, net of all charges, fees and taxes.")]
     NetOfAll,
     
     /// <summary>
-    /// ??
+    /// Price is equal to the nominal or face value of the instrument.
     /// Encoded/decoded by serializers as "ParValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARV")]
     [IsoId("__0An49ojEeC60axPepSq7g_-2066929852")]
-    [Description(@"??")]
+    [Description(@"Price is equal to the nominal or face value of the instrument.")]
     ParValue,
     
     /// <summary>
-    /// ??
+    /// Price is a rounded average price.
     /// Encoded/decoded by serializers as "RoundedAverage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDAV")]
     [IsoId("__0An5NojEeC60axPepSq7g_749789904")]
-    [Description(@"??")]
+    [Description(@"Price is a rounded average price.")]
     RoundedAverage,
     
 }

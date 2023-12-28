@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason16Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_kz3q8bLJEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Additional documents requested missing.
     /// Encoded/decoded by serializers as "AdditionalDocumentationMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDM")]
     [IsoId("_zPni0bLJEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Additional documents requested missing.")]
     AdditionalDocumentationMissing,
     
     /// <summary>
-    /// ??
+    /// Quantity of financial instruments does not match.
     /// Encoded/decoded by serializers as "QuantityDisagreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_3mRaAbLJEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Quantity of financial instruments does not match.")]
     QuantityDisagreement,
     
     /// <summary>
-    /// ??
+    /// Deadline to register is missed.
     /// Encoded/decoded by serializers as "DeadlineToRegisterMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DREM")]
     [IsoId("_C8coEbLKEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Deadline to register is missed.")]
     DeadlineToRegisterMissed,
     
     /// <summary>
-    /// ??
+    /// Pending receipt of beneficiary owner details.
     /// Encoded/decoded by serializers as "PendingBeneficiaryOwnerDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_HJ4R0bLKEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Pending receipt of beneficiary owner details.")]
     PendingBeneficiaryOwnerDetails,
     
     /// <summary>
-    /// ??
+    /// Missing or invalid power of attorney.
     /// Encoded/decoded by serializers as "MissingOrInvalidPOA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOA")]
     [IsoId("_YKdd8bLKEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Missing or invalid power of attorney.")]
     MissingOrInvalidPOA,
     
     /// <summary>
-    /// ??
+    /// Position is less than required threshold.
     /// Encoded/decoded by serializers as "InsufficientThresholdPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOS")]
     [IsoId("_lv5_8bLKEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Position is less than required threshold.")]
     InsufficientThresholdPosition,
     
     /// <summary>
-    /// ??
+    /// Insufficient financial instruments in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_4W2s8bLKEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Insufficient financial instruments in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_5tcFYbLKEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Insufficient or no registered position.
     /// Encoded/decoded by serializers as "NoRegisteredPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPOS")]
     [IsoId("_F5UMYbLLEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Insufficient or no registered position.")]
     NoRegisteredPosition,
     
     /// <summary>
-    /// ??
+    /// Invalid registration discrepancy.
     /// Encoded/decoded by serializers as "RegistrationDiscrepancy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IREG")]
     [IsoId("_GqtNEbLLEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Invalid registration discrepancy.")]
     RegistrationDiscrepancy,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_IgGBYbLLEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Invalid Proxy Information.
     /// Encoded/decoded by serializers as "ProxyCardDiscrepancy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRXY")]
     [IsoId("_ViIUUbLLEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Invalid Proxy Information.")]
     ProxyCardDiscrepancy,
     
     /// <summary>
-    /// ??
+    /// The instruction is pending receipt of securities, for example, from a purchase or loan.
     /// Encoded/decoded by serializers as "PendingReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENR")]
     [IsoId("_XtFI8bLLEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"The instruction is pending receipt of securities, for example, from a purchase or loan.")]
     PendingReceipt,
     
 }

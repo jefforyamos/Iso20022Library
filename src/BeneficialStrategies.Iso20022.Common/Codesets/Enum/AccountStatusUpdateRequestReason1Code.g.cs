@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountStatusUpdateRequestReason1Code
 {
     /// <summary>
-    /// ??
+    /// Previous account closure instruction was sent in error.
     /// Encoded/decoded by serializers as "AccountClosureInstructionError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOE")]
     [IsoId("_cw_7YXjAEeaRm5xIK6nGuQ")]
-    [Description(@"??")]
+    [Description(@"Previous account closure instruction was sent in error.")]
     AccountClosureInstructionError,
     
 }

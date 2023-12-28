@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AMFDoctrine1Code
 {
     /// <summary>
-    /// ??
+    /// Approach based on a significantly engaging methodology.
     /// Encoded/decoded by serializers as "SignificantlyEngagingMethodology".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMF1")]
     [IsoId("_SYhvQdA-EeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Approach based on a significantly engaging methodology.")]
     SignificantlyEngagingMethodology,
     
     /// <summary>
-    /// ??
+    /// Approach not meeting central communication standards or based on limited communication standards.
     /// Encoded/decoded by serializers as "NotMeetingCentralCommunicationStandards".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMF3")]
     [IsoId("_Se75QdA-EeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Approach not meeting central communication standards or based on limited communication standards.")]
     NotMeetingCentralCommunicationStandards,
     
     /// <summary>
-    /// ??
+    /// Approach based on a non-significantly engaging methodology.
     /// Encoded/decoded by serializers as "NonSignificantlyEngagingMethodology".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMF2")]
     [IsoId("_SlWDQdA-EeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Approach based on a non-significantly engaging methodology.")]
     NonSignificantlyEngagingMethodology,
     
 }

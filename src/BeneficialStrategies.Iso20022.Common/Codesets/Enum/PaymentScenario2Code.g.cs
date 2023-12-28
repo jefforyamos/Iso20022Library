@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentScenario2Code
 {
     /// <summary>
-    /// ??
+    /// Indicates customer credit transfer(s).
     /// Encoded/decoded by serializers as "CustomerCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCTR")]
     [IsoId("_pmo6gXYkEei7x9Ux0Cio1w")]
-    [Description(@"??")]
+    [Description(@"Indicates customer credit transfer(s).")]
     CustomerCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Indicates cover payment(s).
     /// Encoded/decoded by serializers as "Cover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVE")]
     [IsoId("_qYxiEXYkEei7x9Ux0Cio1w")]
-    [Description(@"??")]
+    [Description(@"Indicates cover payment(s).")]
     Cover,
     
     /// <summary>
-    /// ??
+    /// Indicates customer credit transfer(s) and cover(s).
     /// Encoded/decoded by serializers as "CustomerCreditTransferAndCover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTCO")]
     [IsoId("_rCIoIXYkEei7x9Ux0Cio1w")]
-    [Description(@"??")]
+    [Description(@"Indicates customer credit transfer(s) and cover(s).")]
     CustomerCreditTransferAndCover,
     
 }

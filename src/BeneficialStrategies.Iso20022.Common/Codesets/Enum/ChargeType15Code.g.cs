@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType15Code
 {
     /// <summary>
-    /// ??
+    /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
     /// Encoded/decoded by serializers as "BackEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEND")]
     [IsoId("_WOC0otp-Ed-ak6NoX_4Aeg_-70267990")]
-    [Description(@"??")]
+    [Description(@"Sales charge paid by the investor when redeeming an investment such as an investment fund.")]
     BackEndLoad,
     
     /// <summary>
-    /// ??
+    /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
     /// Encoded/decoded by serializers as "FrontEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEND")]
     [IsoId("_WOC0o9p-Ed-ak6NoX_4Aeg_-70267989")]
-    [Description(@"??")]
+    [Description(@"Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.")]
     FrontEndLoad,
     
     /// <summary>
-    /// ??
+    /// Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
     /// Encoded/decoded by serializers as "Discount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_WOC0pNp-Ed-ak6NoX_4Aeg_-70267958")]
-    [Description(@"??")]
+    [Description(@"Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.")]
     Discount,
     
     /// <summary>
-    /// ??
+    /// Charges paid by the investor to the Fund Company for subscription and redemption orders.
     /// Encoded/decoded by serializers as "UCITSCommission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCIC")]
     [IsoId("_WOC0pdp-Ed-ak6NoX_4Aeg_-70267587")]
-    [Description(@"??")]
+    [Description(@"Charges paid by the investor to the Fund Company for subscription and redemption orders.")]
     UCITSCommission,
     
     /// <summary>
-    /// ??
+    /// Fee paid for the provision of financial services.
     /// Encoded/decoded by serializers as "ServiceProvisionFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_WOC0ptp-Ed-ak6NoX_4Aeg_467608750")]
-    [Description(@"??")]
+    [Description(@"Fee paid for the provision of financial services.")]
     ServiceProvisionFee,
     
 }

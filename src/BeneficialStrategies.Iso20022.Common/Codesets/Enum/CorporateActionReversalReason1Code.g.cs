@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionReversalReason1Code
 {
     /// <summary>
-    /// ??
+    /// Difference in day count basis.
     /// Encoded/decoded by serializers as "DayCountBasisDifference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCBD")]
     [IsoId("_bSvdlNp-Ed-ak6NoX_4Aeg_-788141094")]
-    [Description(@"??")]
+    [Description(@"Difference in day count basis.")]
     DayCountBasisDifference,
     
     /// <summary>
-    /// ??
+    /// Value date is incorrect.
     /// Encoded/decoded by serializers as "IncorrectValueDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IVAD")]
     [IsoId("_bSvdldp-Ed-ak6NoX_4Aeg_262991978")]
-    [Description(@"??")]
+    [Description(@"Value date is incorrect.")]
     IncorrectValueDate,
     
     /// <summary>
-    /// ??
+    /// Record date is incorrect.
     /// Encoded/decoded by serializers as "IncorrectRecordDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IRED")]
     [IsoId("_bSvdltp-Ed-ak6NoX_4Aeg_1730140741")]
-    [Description(@"??")]
+    [Description(@"Record date is incorrect.")]
     IncorrectRecordDate,
     
     /// <summary>
-    /// ??
+    /// Price is incorrect.
     /// Encoded/decoded by serializers as "IncorrectPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPRI")]
     [IsoId("_bSvdl9p-Ed-ak6NoX_4Aeg_-801672235")]
-    [Description(@"??")]
+    [Description(@"Price is incorrect.")]
     IncorrectPrice,
     
     /// <summary>
-    /// ??
+    /// Payment is not due.
     /// Encoded/decoded by serializers as "UnduePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPAY")]
     [IsoId("_bSvdmNp-Ed-ak6NoX_4Aeg_2118370049")]
-    [Description(@"??")]
+    [Description(@"Payment is not due.")]
     UnduePayment,
     
     /// <summary>
-    /// ??
+    /// Event level tax rate is incorrect.
     /// Encoded/decoded by serializers as "IncorrectEventLevelTaxRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IETR")]
     [IsoId("_bS5OkNp-Ed-ak6NoX_4Aeg_-709448484")]
-    [Description(@"??")]
+    [Description(@"Event level tax rate is incorrect.")]
     IncorrectEventLevelTaxRate,
     
     /// <summary>
-    /// ??
+    /// Funds have not been received.
     /// Encoded/decoded by serializers as "FundsNotReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNRC")]
     [IsoId("_bS5Okdp-Ed-ak6NoX_4Aeg_1483338203")]
-    [Description(@"??")]
+    [Description(@"Funds have not been received.")]
     FundsNotReceived,
     
     /// <summary>
-    /// ??
+    /// Payment will occur outside of clearing system.
     /// Encoded/decoded by serializers as "PaymentOutsideClearingSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POCS")]
     [IsoId("_bS5Oktp-Ed-ak6NoX_4Aeg_-1344480330")]
-    [Description(@"??")]
+    [Description(@"Payment will occur outside of clearing system.")]
     PaymentOutsideClearingSystem,
     
     /// <summary>
-    /// ??
+    /// Payment currency is incorrect.
     /// Encoded/decoded by serializers as "IncorrectPaymentCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPCU")]
     [IsoId("_bS5Ok9p-Ed-ak6NoX_4Aeg_486265850")]
-    [Description(@"??")]
+    [Description(@"Payment currency is incorrect.")]
     IncorrectPaymentCurrency,
     
 }

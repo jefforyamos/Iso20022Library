@@ -21,66 +21,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardDataWriting1Code
 {
     /// <summary>
-    /// ??
+    /// ICC contactless proximity
     /// Encoded/decoded by serializers as "ICCProximity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICPY")]
     [IsoId("_0rnaU0epEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"ICC contactless proximity")]
     ICCProximity,
     
     /// <summary>
-    /// ??
+    /// Magnetic stripe.
     /// Encoded/decoded by serializers as "MagneticStripe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGST")]
     [IsoId("_0rnaVUepEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Magnetic stripe.")]
     MagneticStripe,
     
     /// <summary>
-    /// ??
+    /// ICC contact capability
     /// Encoded/decoded by serializers as "ICCContact".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCY")]
     [IsoId("_0rnaV0epEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"ICC contact capability")]
     ICCContact,
     
     /// <summary>
-    /// ??
+    /// Magstripe image contactless proximity
     /// Encoded/decoded by serializers as "MSIProximity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSIP")]
     [IsoId("_0rnaX0epEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Magstripe image contactless proximity")]
     MSIProximity,
     
     /// <summary>
-    /// ??
+    /// Other national capability type assigned at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_0rnaY0epEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Other national capability type assigned at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Unspecified capability.
     /// Encoded/decoded by serializers as "Unspecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_0rnaZ0epEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Unspecified capability.")]
     Unspecified,
     
     /// <summary>
-    /// ??
+    /// Other card reading capability assigned on a private basis.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_0rnaaUepEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Other card reading capability assigned on a private basis.")]
     OtherPrivate,
     
 }

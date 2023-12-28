@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Reporting3Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a buy-in by the market following a delivery transaction failure.
     /// Encoded/decoded by serializers as "BuyIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BYIY")]
     [IsoId("_7EMzAdB4EeihG9bKfarOOA")]
-    [Description(@"??")]
+    [Description(@"Relates to a buy-in by the market following a delivery transaction failure.")]
     BuyIn,
     
     /// <summary>
-    /// ??
+    /// Report is deferred, for example, because the order was executed in partial fills.
     /// Encoded/decoded by serializers as "DeferredReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFR")]
     [IsoId("_7Nt7YdB4EeihG9bKfarOOA")]
-    [Description(@"??")]
+    [Description(@"Report is deferred, for example, because the order was executed in partial fills.")]
     DeferredReport,
     
     /// <summary>
-    /// ??
+    /// Trade details are to be reported to a regulatory organisation.
     /// Encoded/decoded by serializers as "RegulatoryOrganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGU")]
     [IsoId("_7UkKQdB4EeihG9bKfarOOA")]
-    [Description(@"??")]
+    [Description(@"Trade details are to be reported to a regulatory organisation.")]
     RegulatoryOrganisation,
     
     /// <summary>
-    /// ??
+    /// Trade details are to be reported to a stock exchange.
     /// Encoded/decoded by serializers as "StockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEX")]
     [IsoId("_7a9GIdB4EeihG9bKfarOOA")]
-    [Description(@"??")]
+    [Description(@"Trade details are to be reported to a stock exchange.")]
     StockExchange,
     
 }

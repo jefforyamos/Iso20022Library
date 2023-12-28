@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ApplicableRules1Code
 {
     /// <summary>
-    /// ??
+    /// Pre A Day rules do not apply.
     /// Encoded/decoded by serializers as "NotPreADay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPRE")]
     [IsoId("_NhLLQVNfEeijdq8ilaxyOA")]
-    [Description(@"??")]
+    [Description(@"Pre A Day rules do not apply.")]
     NotPreADay,
     
     /// <summary>
-    /// ??
+    /// Pre A Day rules applies.
     /// Encoded/decoded by serializers as "PreADay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YPRE")]
     [IsoId("_NlylgVNfEeijdq8ilaxyOA")]
-    [Description(@"??")]
+    [Description(@"Pre A Day rules applies.")]
     PreADay,
     
 }

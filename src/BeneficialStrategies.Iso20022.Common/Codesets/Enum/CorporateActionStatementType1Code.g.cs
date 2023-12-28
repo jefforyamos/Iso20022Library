@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionStatementType1Code
 {
     /// <summary>
-    /// ??
+    /// Statement contains missing instructions.
     /// Encoded/decoded by serializers as "Missing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISS")]
     [IsoId("_bTMJg9p-Ed-ak6NoX_4Aeg_1348068920")]
-    [Description(@"??")]
+    [Description(@"Statement contains missing instructions.")]
     Missing,
     
     /// <summary>
-    /// ??
+    /// Statement contains all instructions.
     /// Encoded/decoded by serializers as "All".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLL")]
     [IsoId("_bTMJhNp-Ed-ak6NoX_4Aeg_1358228102")]
-    [Description(@"??")]
+    [Description(@"Statement contains all instructions.")]
     All,
     
 }

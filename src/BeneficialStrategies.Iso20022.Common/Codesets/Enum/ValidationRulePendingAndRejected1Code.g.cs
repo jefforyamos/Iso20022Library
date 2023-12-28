@@ -22,21 +22,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRulePendingAndRejected1Code
 {
     /// <summary>
-    /// ??
+    /// Rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_3o5AVU6KEeuOHsgMPq_2jQ")]
-    [Description(@"??")]
+    [Description(@"Rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_BRWvYU6LEeuOHsgMPq_2jQ")]
-    [Description(@"??")]
+    [Description(@"Pending.")]
     Pending,
     
 }

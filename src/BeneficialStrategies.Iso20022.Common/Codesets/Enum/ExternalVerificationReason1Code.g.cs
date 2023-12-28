@@ -21,30 +21,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalVerificationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Account number provided in the request is invalid or missing.
     /// Encoded/decoded by serializers as "IncorrectAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC01")]
     [IsoId("_uG8YjvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account number provided in the request is invalid or missing.")]
     IncorrectAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Agent identification provided in the request is incorrect
     /// Encoded/decoded by serializers as "IncorrectAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_uHFicvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Agent identification provided in the request is incorrect")]
     IncorrectAgent,
     
     /// <summary>
-    /// ??
+    /// Request is a duplicate of another request
     /// Encoded/decoded by serializers as "DuplicateRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_uHFidfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Request is a duplicate of another request")]
     DuplicateRequest,
     
 }

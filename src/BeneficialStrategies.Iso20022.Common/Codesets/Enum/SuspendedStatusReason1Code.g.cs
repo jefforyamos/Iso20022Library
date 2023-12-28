@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SuspendedStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction/instruction is suspended following your earlier suspension instruction.
     /// Encoded/decoded by serializers as "SuspendedByYourself".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBY")]
     [IsoId("_ZQzbBNp-Ed-ak6NoX_4Aeg_689720894")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction is suspended following your earlier suspension instruction.")]
     SuspendedByYourself,
     
     /// <summary>
-    /// ??
+    /// Transaction/instruction is suspended following a system suspension instruction.
     /// Encoded/decoded by serializers as "SuspendedBySystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_ZQzbBdp-Ed-ak6NoX_4Aeg_689720895")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction is suspended following a system suspension instruction.")]
     SuspendedBySystem,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResidualCash1Code
 {
     /// <summary>
-    /// ??
+    /// Residual Cash not to be transferred.
     /// Encoded/decoded by serializers as "NotResidualCashTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRCT")]
     [IsoId("_WcfODv8uEeC87tbx-VXRVA")]
-    [Description(@"??")]
+    [Description(@"Residual Cash not to be transferred.")]
     NotResidualCashTransfer,
     
     /// <summary>
-    /// ??
+    /// Residual cash to be transferred.
     /// Encoded/decoded by serializers as "ResidualCashTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCTR")]
     [IsoId("_WgN3fv8uEeC87tbx-VXRVA")]
-    [Description(@"??")]
+    [Description(@"Residual cash to be transferred.")]
     ResidualCashTransfer,
     
 }

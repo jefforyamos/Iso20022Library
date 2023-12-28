@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Prioritisation1Code
 {
     /// <summary>
-    /// ??
+    /// None of the sides should be prioritised.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_aKBiAdp-Ed-ak6NoX_4Aeg_1628857705")]
-    [Description(@"??")]
+    [Description(@"None of the sides should be prioritised.")]
     None,
     
     /// <summary>
-    /// ??
+    /// Buy side is prioritized.
     /// Encoded/decoded by serializers as "BuySide".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSPR")]
     [IsoId("_aKBiAtp-Ed-ak6NoX_4Aeg_1628857765")]
-    [Description(@"??")]
+    [Description(@"Buy side is prioritized.")]
     BuySide,
     
     /// <summary>
-    /// ??
+    /// Sell side is prioritised.
     /// Encoded/decoded by serializers as "SellSide".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPR")]
     [IsoId("_aKBiA9p-Ed-ak6NoX_4Aeg_1628858017")]
-    [Description(@"??")]
+    [Description(@"Sell side is prioritised.")]
     SellSide,
     
 }

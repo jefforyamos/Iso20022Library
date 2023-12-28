@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RequestType1Code
 {
     /// <summary>
-    /// ??
+    /// Type is a request to release the pending transactions.
     /// Encoded/decoded by serializers as "ReleasePending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT01")]
     [IsoId("_ZUOicdp-Ed-ak6NoX_4Aeg_979401766")]
-    [Description(@"??")]
+    [Description(@"Type is a request to release the pending transactions.")]
     ReleasePending,
     
     /// <summary>
-    /// ??
+    /// Type is a request to hold normal transactions.
     /// Encoded/decoded by serializers as "HoldNormal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT02")]
     [IsoId("_ZUOictp-Ed-ak6NoX_4Aeg_979401797")]
-    [Description(@"??")]
+    [Description(@"Type is a request to hold normal transactions.")]
     HoldNormal,
     
     /// <summary>
-    /// ??
+    /// Type is a request to cancellation a transaction.
     /// Encoded/decoded by serializers as "Cancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT03")]
     [IsoId("_ZUOic9p-Ed-ak6NoX_4Aeg_979401827")]
-    [Description(@"??")]
+    [Description(@"Type is a request to cancellation a transaction.")]
     Cancellation,
     
     /// <summary>
-    /// ??
+    /// Type is a request to change the sequence of the transactions.
     /// Encoded/decoded by serializers as "ReSequence".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT04")]
     [IsoId("_ZUOidNp-Ed-ak6NoX_4Aeg_979401828")]
-    [Description(@"??")]
+    [Description(@"Type is a request to change the sequence of the transactions.")]
     ReSequence,
     
     /// <summary>
-    /// ??
+    /// Type is a request to release the suspicious transactions.
     /// Encoded/decoded by serializers as "ReleaseSuspicious".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT05")]
     [IsoId("_ZUOiddp-Ed-ak6NoX_4Aeg_979401858")]
-    [Description(@"??")]
+    [Description(@"Type is a request to release the suspicious transactions.")]
     ReleaseSuspicious,
     
 }

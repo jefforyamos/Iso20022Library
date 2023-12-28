@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DistributionType1Code
 {
     /// <summary>
-    /// ??
+    /// Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.
     /// Encoded/decoded by serializers as "RollingBasis".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLL")]
     [IsoId("_aw6i4tp-Ed-ak6NoX_4Aeg_-1335531037")]
-    [Description(@"??")]
+    [Description(@"Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.")]
     RollingBasis,
     
 }

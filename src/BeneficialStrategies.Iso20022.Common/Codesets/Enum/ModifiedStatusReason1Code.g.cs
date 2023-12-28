@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ModifiedStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Modification of a transaction by the account owner.
     /// Encoded/decoded by serializers as "ModifiedByYourself".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDBY")]
     [IsoId("_0mgfgwlIEeGATtfOBToyew_1659777313")]
-    [Description(@"??")]
+    [Description(@"Modification of a transaction by the account owner.")]
     ModifiedByYourself,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_0mgfhAlIEeGATtfOBToyew_-1957918323")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
 }

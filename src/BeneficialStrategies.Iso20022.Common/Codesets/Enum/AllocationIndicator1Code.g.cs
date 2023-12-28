@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AllocationIndicator1Code
 {
     /// <summary>
-    /// ??
+    /// Trade is a post-allocation trade.
     /// Encoded/decoded by serializers as "Post_allocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_kPSY4SjvEeK1Sbo8NpBROA")]
-    [Description(@"??")]
+    [Description(@"Trade is a post-allocation trade.")]
     Post_allocation,
     
     /// <summary>
-    /// ??
+    /// Trade is a pre-allocation trade.
     /// Encoded/decoded by serializers as "Pre_allocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREA")]
     [IsoId("_kUnk0SjvEeK1Sbo8NpBROA")]
-    [Description(@"??")]
+    [Description(@"Trade is a pre-allocation trade.")]
     Pre_allocation,
     
     /// <summary>
-    /// ??
+    /// Trade is unallocated.
     /// Encoded/decoded by serializers as "Unallocated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNAL")]
     [IsoId("_kZ_NASjvEeK1Sbo8NpBROA")]
-    [Description(@"??")]
+    [Description(@"Trade is unallocated.")]
     Unallocated,
     
 }

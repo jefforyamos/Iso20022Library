@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PoliticalExposureType1Code
 {
     /// <summary>
-    /// ??
+    /// No political exposure.
     /// Encoded/decoded by serializers as "NoPoliticalExposure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPEX")]
     [IsoId("_Zojl4RRvEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"No political exposure.")]
     NoPoliticalExposure,
     
     /// <summary>
-    /// ??
+    /// Political exposure type is foreign.
     /// Encoded/decoded by serializers as "PoliticalExposureForeign".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEXF")]
     [IsoId("_ZyXpMRRvEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Political exposure type is foreign.")]
     PoliticalExposureForeign,
     
     /// <summary>
-    /// ??
+    /// Political exposure type is domestic.
     /// Encoded/decoded by serializers as "PoliticalExposureDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEXD")]
     [IsoId("_Z8CikRRvEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Political exposure type is domestic.")]
     PoliticalExposureDomestic,
     
 }

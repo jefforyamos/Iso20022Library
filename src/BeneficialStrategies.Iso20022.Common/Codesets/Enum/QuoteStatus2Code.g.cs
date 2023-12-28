@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QuoteStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are cancelled for a financial instrument's symbol.
     /// Encoded/decoded by serializers as "CancelSymbol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYMB")]
     [IsoId("_ZYjBwNp-Ed-ak6NoX_4Aeg_-1041278909")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are cancelled for a financial instrument's symbol.")]
     CancelSymbol,
     
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are cancelled for a specific security.
     /// Encoded/decoded by serializers as "CancelSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_ZYjBwdp-Ed-ak6NoX_4Aeg_-1041278866")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are cancelled for a specific security.")]
     CancelSecurity,
     
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are cancelled for an underlying financial instrument.
     /// Encoded/decoded by serializers as "CancelUnderlying".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSY")]
     [IsoId("_ZYjBwtp-Ed-ak6NoX_4Aeg_-1041278806")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are cancelled for an underlying financial instrument.")]
     CancelUnderlying,
     
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are cancelled.
     /// Encoded/decoded by serializers as "CancelAll".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLE")]
     [IsoId("_ZYjBw9p-Ed-ak6NoX_4Aeg_-1041278771")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are cancelled.")]
     CancelAll,
     
     /// <summary>
-    /// ??
+    /// Indicates that no quote can be computed or communicated.
     /// Encoded/decoded by serializers as "QuoteNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NQUO")]
     [IsoId("_ZYjBxNp-Ed-ak6NoX_4Aeg_-799316486")]
-    [Description(@"??")]
+    [Description(@"Indicates that no quote can be computed or communicated.")]
     QuoteNotFound,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UndertakingStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_e_hVNn1VEeGlwNeVP9egyg")]
-    [Description(@"??")]
+    [Description(@"Accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Undertaking not confirmed.
     /// Encoded/decoded by serializers as "NonConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCON")]
     [IsoId("_fUrs5n1VEeGlwNeVP9egyg")]
-    [Description(@"??")]
+    [Description(@"Undertaking not confirmed.")]
     NonConfirmation,
     
     /// <summary>
-    /// ??
+    /// Rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_fr7INn1VEeGlwNeVP9egyg")]
-    [Description(@"??")]
+    [Description(@"Rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Demand has been withdrawn.
     /// Encoded/decoded by serializers as "Withdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHD")]
     [IsoId("_fyVSNn1VEeGlwNeVP9egyg")]
-    [Description(@"??")]
+    [Description(@"Demand has been withdrawn.")]
     Withdrawn,
     
     /// <summary>
-    /// ??
+    /// Change to counter-undertaking amount.
     /// Encoded/decoded by serializers as "CounterUndertakingAmountChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTC")]
     [IsoId("_Emv1Fq-yEeGNi5z8K_XPKQ")]
-    [Description(@"??")]
+    [Description(@"Change to counter-undertaking amount.")]
     CounterUndertakingAmountChange,
     
     /// <summary>
-    /// ??
+    /// Change to undertaking amount.
     /// Encoded/decoded by serializers as "UndertakingAmountChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTU")]
     [IsoId("_FA0h9q-yEeGNi5z8K_XPKQ")]
-    [Description(@"??")]
+    [Description(@"Change to undertaking amount.")]
     UndertakingAmountChange,
     
 }

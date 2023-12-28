@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesStatementType1Code
 {
     /// <summary>
-    /// ??
+    /// Statement is a custody statement.
     /// Encoded/decoded by serializers as "Custody".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_ZF7As9p-Ed-ak6NoX_4Aeg_-1354761291")]
-    [Description(@"??")]
+    [Description(@"Statement is a custody statement.")]
     Custody,
     
     /// <summary>
-    /// ??
+    /// Statement is an accounting statement.
     /// Encoded/decoded by serializers as "Accounting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_ZF7AtNp-Ed-ak6NoX_4Aeg_-1354760395")]
-    [Description(@"??")]
+    [Description(@"Statement is an accounting statement.")]
     Accounting,
     
 }

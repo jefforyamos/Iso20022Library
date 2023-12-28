@@ -20,66 +20,68 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NonEquityInstrumentReportingClassification1Code
 {
     /// <summary>
-    /// ??
+    /// Contract is of type structured finance products (SFPs).
     /// Encoded/decoded by serializers as "StructuredFinanceProduct".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFPS")]
     [IsoId("_eT4oMfVGEeSKpdoott6G4g")]
-    [Description(@"??")]
+    [Description(@"Contract is of type structured finance products (SFPs).")]
     StructuredFinanceProduct,
     
     /// <summary>
-    /// ??
+    /// Contract is of type securitised derivatives.
     /// Encoded/decoded by serializers as "SecuritisedDerivative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDRV")]
     [IsoId("_eZruMfVGEeSKpdoott6G4g")]
-    [Description(@"??")]
+    [Description(@"Contract is of type securitised derivatives.")]
     SecuritisedDerivative,
     
     /// <summary>
-    /// ??
+    /// Contract is of type derivative.
+    /// 
     /// Encoded/decoded by serializers as "Derivative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERV")]
     [IsoId("_egh9EfVGEeSKpdoott6G4g")]
-    [Description(@"??")]
+    [Description(@"Contract is of type derivative. ")]
     Derivative,
     
     /// <summary>
-    /// ??
+    /// Contract is of type emission allowances.
     /// Encoded/decoded by serializers as "EmissionAllowance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_enhV4fVGEeSKpdoott6G4g")]
-    [Description(@"??")]
+    [Description(@"Contract is of type emission allowances.")]
     EmissionAllowance,
     
     /// <summary>
-    /// ??
+    /// Contract is of type bonds.
+    /// 
     /// Encoded/decoded by serializers as "Bond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOND")]
     [IsoId("_e0KqwfVGEeSKpdoott6G4g")]
-    [Description(@"??")]
+    [Description(@"Contract is of type bonds. ")]
     Bond,
     
     /// <summary>
-    /// ??
+    /// Contract is of type exchange traded commodities.
     /// Encoded/decoded by serializers as "ExchangeTradedCommodities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETCS")]
     [IsoId("_KNPywQnOEeW1sbwBDSZgiA")]
-    [Description(@"??")]
+    [Description(@"Contract is of type exchange traded commodities.")]
     ExchangeTradedCommodities,
     
     /// <summary>
-    /// ??
+    /// Contract is of type exchange traded note.
     /// Encoded/decoded by serializers as "ExchangeTradedNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETNS")]
     [IsoId("_v3ZaIX1tEeW6DpJJTspC5Q")]
-    [Description(@"??")]
+    [Description(@"Contract is of type exchange traded note.")]
     ExchangeTradedNote,
     
 }

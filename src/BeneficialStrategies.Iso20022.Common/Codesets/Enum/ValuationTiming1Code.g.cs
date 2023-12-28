@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValuationTiming1Code
 {
     /// <summary>
-    /// ??
+    /// Price valuation is done exceptionally, outside the timeframe specified in the prospectus.
     /// Encoded/decoded by serializers as "Exceptional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCP")]
     [IsoId("_Y81WJ9p-Ed-ak6NoX_4Aeg_1401456439")]
-    [Description(@"??")]
+    [Description(@"Price valuation is done exceptionally, outside the timeframe specified in the prospectus.")]
     Exceptional,
     
     /// <summary>
-    /// ??
+    /// Price valuation is done within the timeframe specified in the prospectus.
     /// Encoded/decoded by serializers as "Usual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USUA")]
     [IsoId("_Y81WKNp-Ed-ak6NoX_4Aeg_1401456440")]
-    [Description(@"??")]
+    [Description(@"Price valuation is done within the timeframe specified in the prospectus.")]
     Usual,
     
     /// <summary>
-    /// ??
+    /// Price valuation that is done outside the usual timeframe, but in conformance with a case specified in the prospectus, eg, market closing day.
     /// Encoded/decoded by serializers as "Particular".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PATC")]
     [IsoId("_Y81WKdp-Ed-ak6NoX_4Aeg_1401456441")]
-    [Description(@"??")]
+    [Description(@"Price valuation that is done outside the usual timeframe, but in conformance with a case specified in the prospectus, eg, market closing day.")]
     Particular,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionTaken1Code
 {
     /// <summary>
-    /// ??
+    /// Reported fraud was accepted
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_ykWhoXdmEeeKH6vrEwvLHA")]
-    [Description(@"??")]
+    [Description(@"Reported fraud was accepted")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Reported fraud led to actions defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_yzE6IndmEeeKH6vrEwvLHA")]
-    [Description(@"??")]
+    [Description(@"Reported fraud led to actions defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Reported fraud led to actions defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_y8mpkndmEeeKH6vrEwvLHA")]
-    [Description(@"??")]
+    [Description(@"Reported fraud led to actions defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Reported fraud was rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_zNj2sndmEeeKH6vrEwvLHA")]
-    [Description(@"??")]
+    [Description(@"Reported fraud was rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Reported fraud was accepted with warnings.
     /// Encoded/decoded by serializers as "Warning".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WARN")]
     [IsoId("_zZUawndmEeeKH6vrEwvLHA")]
-    [Description(@"??")]
+    [Description(@"Reported fraud was accepted with warnings.")]
     Warning,
     
 }

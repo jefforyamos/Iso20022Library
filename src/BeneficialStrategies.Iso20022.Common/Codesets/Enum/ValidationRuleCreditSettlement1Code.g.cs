@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleCreditSettlement1Code
 {
     /// <summary>
-    /// ??
+    /// AcceptedCreditSettlementCompleted
     /// Encoded/decoded by serializers as "AcceptedCreditSettlementCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCC")]
     [IsoId("_yFd3gSE5EeuIZ4Hf6difAw")]
-    [Description(@"??")]
+    [Description(@"AcceptedCreditSettlementCompleted")]
     AcceptedCreditSettlementCompleted,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ISAType2Code
 {
     /// <summary>
-    /// ??
+    /// Type of ISA that offers a stocks and shares component only (no cash).
     /// Encoded/decoded by serializers as "MiniEquity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINE")]
     [IsoId("_adi69Np-Ed-ak6NoX_4Aeg_1019975518")]
-    [Description(@"??")]
+    [Description(@"Type of ISA that offers a stocks and shares component only (no cash).")]
     MiniEquity,
     
     /// <summary>
-    /// ??
+    /// Type of ISA that must offer a stocks and shares component and, optionally, a cash component.
     /// Encoded/decoded by serializers as "Maxi".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXI")]
     [IsoId("_adi69dp-Ed-ak6NoX_4Aeg_1019975553")]
-    [Description(@"??")]
+    [Description(@"Type of ISA that must offer a stocks and shares component and, optionally, a cash component.")]
     Maxi,
     
     /// <summary>
-    /// ??
+    /// Type of ISA that offers a cash component only (no stock).
     /// Encoded/decoded by serializers as "MiniCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINC")]
     [IsoId("_adi69tp-Ed-ak6NoX_4Aeg_1019975613")]
-    [Description(@"??")]
+    [Description(@"Type of ISA that offers a cash component only (no stock).")]
     MiniCash,
     
     /// <summary>
-    /// ??
+    /// Any ISA.
     /// Encoded/decoded by serializers as "Any".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANYI")]
     [IsoId("_adi699p-Ed-ak6NoX_4Aeg_1076307513")]
-    [Description(@"??")]
+    [Description(@"Any ISA.")]
     Any,
     
 }

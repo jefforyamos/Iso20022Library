@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OriginatorRole2Code
 {
     /// <summary>
-    /// ??
+    /// Firms which, on an organised, frequent and systematic basis deal on their own account by executing client orders outside a regulated market or a Multilateral Trading Facility. SI's will have the obligation to provide, and make public, a definite bid and offer quote for liquid securities. They act as "mini"exchanges.
     /// Encoded/decoded by serializers as "SystematicInternaliser".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SINT")]
     [IsoId("_Zw_W8Np-Ed-ak6NoX_4Aeg_-1595967242")]
-    [Description(@"??")]
+    [Description(@"Firms which, on an organised, frequent and systematic basis deal on their own account by executing client orders outside a regulated market or a Multilateral Trading Facility. SI's will have the obligation to provide, and make public, a definite bid and offer quote for liquid securities. They act as ""mini""exchanges.")]
     SystematicInternaliser,
     
     /// <summary>
-    /// ??
+    /// Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.
     /// Encoded/decoded by serializers as "MultilateralTradingFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLTF")]
     [IsoId("_Zw_W8dp-Ed-ak6NoX_4Aeg_-1595967241")]
-    [Description(@"??")]
+    [Description(@"Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.")]
     MultilateralTradingFacility,
     
     /// <summary>
-    /// ??
+    /// Market on which financial instruments can be traded according to rules defined by the stock exchange.
     /// Encoded/decoded by serializers as "RegulatedMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMKT")]
     [IsoId("_Zw_W8tp-Ed-ak6NoX_4Aeg_-1595966959")]
-    [Description(@"??")]
+    [Description(@"Market on which financial instruments can be traded according to rules defined by the stock exchange.")]
     RegulatedMarket,
     
     /// <summary>
-    /// ??
+    /// Dealer or specialist that is trading for their own account in the OTC market. Market makers are expected to maintain an orderly market by being available to buy or sell.
     /// Encoded/decoded by serializers as "MarketMaker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MKTM")]
     [IsoId("_Zw_W89p-Ed-ak6NoX_4Aeg_-1595966882")]
-    [Description(@"??")]
+    [Description(@"Dealer or specialist that is trading for their own account in the OTC market. Market makers are expected to maintain an orderly market by being available to buy or sell.")]
     MarketMaker,
     
     /// <summary>
-    /// ??
+    /// Party, either an individual or organisation, whose assets are being invested.
     /// Encoded/decoded by serializers as "Investor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVE")]
     [IsoId("_Zw_W9Np-Ed-ak6NoX_4Aeg_-1595966822")]
-    [Description(@"??")]
+    [Description(@"Party, either an individual or organisation, whose assets are being invested.")]
     Investor,
     
     /// <summary>
-    /// ??
+    /// Party appointed by the fund management company. It updates records of investor accounts to reflect the daily investor purchases, redemptions, switches, transfers, and re-registrations. It ensures the timely settlement of transactions, and may provide tax information to the investor and/or to its intermediaries. It may calculate, collect, and rebate commissions. It prepares and distributes confirmations reflecting transactions, resulting in unit or cash account movements to the investor or the investor's intermediary. It responds to inquiries concerning account status, and processes the income distribution.
     /// Encoded/decoded by serializers as "TransfertAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAGT")]
     [IsoId("_Zw_W9dp-Ed-ak6NoX_4Aeg_-1595966821")]
-    [Description(@"??")]
+    [Description(@"Party appointed by the fund management company. It updates records of investor accounts to reflect the daily investor purchases, redemptions, switches, transfers, and re-registrations. It ensures the timely settlement of transactions, and may provide tax information to the investor and/or to its intermediaries. It may calculate, collect, and rebate commissions. It prepares and distributes confirmations reflecting transactions, resulting in unit or cash account movements to the investor or the investor's intermediary. It responds to inquiries concerning account status, and processes the income distribution.")]
     TransfertAgent,
     
 }

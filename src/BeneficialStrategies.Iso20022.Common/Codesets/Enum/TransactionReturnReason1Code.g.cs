@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionReturnReason1Code
 {
     /// <summary>
-    /// ??
+    /// Format of the account number specified is not correct.
     /// Encoded/decoded by serializers as "IncorrectAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC01")]
     [IsoId("_Vw_FMtp-Ed-ak6NoX_4Aeg_1585481412")]
-    [Description(@"??")]
+    [Description(@"Format of the account number specified is not correct.")]
     IncorrectAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account number specified has been closed on the Receiver's books.
     /// Encoded/decoded by serializers as "ClosedAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC04")]
     [IsoId("_Vw_FM9p-Ed-ak6NoX_4Aeg_1585481443")]
-    [Description(@"??")]
+    [Description(@"Account number specified has been closed on the Receiver's books.")]
     ClosedAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account specified is blocked, prohibiting posting of transactions against it.
     /// Encoded/decoded by serializers as "BlockedAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC06")]
     [IsoId("_Vw_FNNp-Ed-ak6NoX_4Aeg_1585481473")]
-    [Description(@"??")]
+    [Description(@"Account specified is blocked, prohibiting posting of transactions against it.")]
     BlockedAccount,
     
     /// <summary>
-    /// ??
+    /// Transaction forbidden on this type of account (formerly NoAgreement).
     /// Encoded/decoded by serializers as "TransactionForbidden".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AG01")]
     [IsoId("_Vw_FNdp-Ed-ak6NoX_4Aeg_1585481504")]
-    [Description(@"??")]
+    [Description(@"Transaction forbidden on this type of account (formerly NoAgreement).")]
     TransactionForbidden,
     
     /// <summary>
-    /// ??
+    /// Bank Operation code specified in the message is not valid for receiver.
     /// Encoded/decoded by serializers as "InvalidBankOperationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AG02")]
     [IsoId("_Vw_FNtp-Ed-ak6NoX_4Aeg_1585481505")]
-    [Description(@"??")]
+    [Description(@"Bank Operation code specified in the message is not valid for receiver.")]
     InvalidBankOperationCode,
     
     /// <summary>
-    /// ??
+    /// Amount of funds available to cover specified message amount is insufficient.
     /// Encoded/decoded by serializers as "InsufficientFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM04")]
     [IsoId("_Vw_FN9p-Ed-ak6NoX_4Aeg_1585481535")]
-    [Description(@"??")]
+    [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
     InsufficientFunds,
     
     /// <summary>
-    /// ??
+    /// This message appears to have been duplicated.
     /// Encoded/decoded by serializers as "Duplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM05")]
     [IsoId("_Vw_FONp-Ed-ak6NoX_4Aeg_1585481536")]
-    [Description(@"??")]
+    [Description(@"This message appears to have been duplicated.")]
     Duplication,
     
     /// <summary>
-    /// ??
+    /// Mandate is cancelled or invalid.
     /// Encoded/decoded by serializers as "NoMandate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD01")]
     [IsoId("_VxI2MNp-Ed-ak6NoX_4Aeg_1585481813")]
-    [Description(@"??")]
+    [Description(@"Mandate is cancelled or invalid.")]
     NoMandate,
     
     /// <summary>
-    /// ??
+    /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
     /// Encoded/decoded by serializers as "MissingCreditorAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BE04")]
     [IsoId("_VxI2Mdp-Ed-ak6NoX_4Aeg_1585481844")]
-    [Description(@"??")]
+    [Description(@"Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).")]
     MissingCreditorAddress,
     
     /// <summary>
-    /// ??
+    /// File format incomplete or invalid.
     /// Encoded/decoded by serializers as "InvalidFileFormatForOtherReasonThanGroupingIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD03")]
     [IsoId("_VxI2Mtp-Ed-ak6NoX_4Aeg_1585481845")]
-    [Description(@"??")]
+    [Description(@"File format incomplete or invalid.")]
     InvalidFileFormatForOtherReasonThanGroupingIndicator,
     
     /// <summary>
-    /// ??
+    /// Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
     /// Encoded/decoded by serializers as "BankIdentifierIncorrect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RC01")]
     [IsoId("_VxI2M9p-Ed-ak6NoX_4Aeg_1585481874")]
-    [Description(@"??")]
+    [Description(@"Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).")]
     BankIdentifierIncorrect,
     
     /// <summary>
-    /// ??
+    /// Return of funds requested by end customer.
     /// Encoded/decoded by serializers as "RefundRequestByEndCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD06")]
     [IsoId("_VxI2NNp-Ed-ak6NoX_4Aeg_574444668")]
-    [Description(@"??")]
+    [Description(@"Return of funds requested by end customer.")]
     RefundRequestByEndCustomer,
     
     /// <summary>
-    /// ??
+    /// End customer is deceased.
     /// Encoded/decoded by serializers as "EndCustomerDeceased".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD07")]
     [IsoId("_VxI2Ndp-Ed-ak6NoX_4Aeg_1585481875")]
-    [Description(@"??")]
+    [Description(@"End customer is deceased.")]
     EndCustomerDeceased,
     
     /// <summary>
-    /// ??
+    /// Reason has not been specified by end customer.
     /// Encoded/decoded by serializers as "NotSpecifiedReasonCustomerGenerated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS02")]
     [IsoId("_VxI2Ntp-Ed-ak6NoX_4Aeg_1585481905")]
-    [Description(@"??")]
+    [Description(@"Reason has not been specified by end customer.")]
     NotSpecifiedReasonCustomerGenerated,
     
     /// <summary>
-    /// ??
+    /// Reason has not been specified by agent.
     /// Encoded/decoded by serializers as "NotSpecifiedReasonAgentGenerated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS03")]
     [IsoId("_VxI2N9p-Ed-ak6NoX_4Aeg_1585481906")]
-    [Description(@"??")]
+    [Description(@"Reason has not been specified by agent.")]
     NotSpecifiedReasonAgentGenerated,
     
     /// <summary>
-    /// ??
+    /// Associated message was received after agreed processing cut-off time.
     /// Encoded/decoded by serializers as "CutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TM01")]
     [IsoId("_VxI2ONp-Ed-ak6NoX_4Aeg_1585481935")]
-    [Description(@"??")]
+    [Description(@"Associated message was received after agreed processing cut-off time.")]
     CutOffTime,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarketIdentification1Code
 {
     /// <summary>
-    /// ??
+    /// Market segment code.
     /// Encoded/decoded by serializers as "Segment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGMT")]
     [IsoId("_AoDUIcOcEeWiEtRBUJSIaA")]
-    [Description(@"??")]
+    [Description(@"Market segment code.")]
     Segment,
     
     /// <summary>
-    /// ??
+    /// Market operating code.
     /// Encoded/decoded by serializers as "Operating".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPRT")]
     [IsoId("_Aq3-ocOcEeWiEtRBUJSIaA")]
-    [Description(@"??")]
+    [Description(@"Market operating code.")]
     Operating,
     
 }

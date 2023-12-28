@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FreightCharges1Code
 {
     /// <summary>
-    /// ??
+    /// Freight charges are to collect from consignee.
     /// Encoded/decoded by serializers as "Collect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLCT")]
     [IsoId("_ar_motp-Ed-ak6NoX_4Aeg_-1412907475")]
-    [Description(@"??")]
+    [Description(@"Freight charges are to collect from consignee.")]
     Collect,
     
     /// <summary>
-    /// ??
+    /// Freight charges are paid by shipper.
     /// Encoded/decoded by serializers as "Prepaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPD")]
     [IsoId("_ar_mo9p-Ed-ak6NoX_4Aeg_-1412907458")]
-    [Description(@"??")]
+    [Description(@"Freight charges are paid by shipper.")]
     Prepaid,
     
 }

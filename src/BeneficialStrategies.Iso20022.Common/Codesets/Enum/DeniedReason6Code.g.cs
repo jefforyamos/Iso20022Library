@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeniedReason6Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_p17eYVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Execution is denied due to a process linked to the currency of the transaction.
     /// Encoded/decoded by serializers as "ConditionalCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCY")]
     [IsoId("_qVxcEVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Execution is denied due to a process linked to the currency of the transaction.")]
     ConditionalCurrency,
     
     /// <summary>
-    /// ??
+    /// Execution is denied due to the execution of a process of realignment at the issuer CSD.
     /// Encoded/decoded by serializers as "ConditionalRealignement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRE")]
     [IsoId("_qrDIgVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Execution is denied due to the execution of a process of realignment at the issuer CSD.")]
     ConditionalRealignement,
     
     /// <summary>
-    /// ??
+    /// Request was denied since the instruction has been cancelled.
     /// Encoded/decoded by serializers as "DeniedSinceCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAN")]
     [IsoId("_2nJuIVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Request was denied since the instruction has been cancelled.")]
     DeniedSinceCancelled,
     
     /// <summary>
-    /// ??
+    /// Request was denied because the instruction was settled.
     /// Encoded/decoded by serializers as "DeniedSinceSettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSET")]
     [IsoId("_3B7loVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Request was denied because the instruction was settled.")]
     DeniedSinceSettled,
     
     /// <summary>
-    /// ??
+    /// Request was denied because the process of settlement is in progress.
     /// Encoded/decoded by serializers as "DeniedSinceInProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRG")]
     [IsoId("_3iXZMVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Request was denied because the process of settlement is in progress.")]
     DeniedSinceInProgress,
     
     /// <summary>
-    /// ??
+    /// Request was denied because the repo was cancelled.
     /// Encoded/decoded by serializers as "DeniedSinceRepoEnded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DREP")]
     [IsoId("_3_0xQVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Request was denied because the repo was cancelled.")]
     DeniedSinceRepoEnded,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_4Y-REVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_4mzRsVheEeS8HfHHd4stCA")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Execution is denied due to the execution of a process at the registrar.
     /// Encoded/decoded by serializers as "ConditionalRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRG")]
     [IsoId("_AENlYV24EeS_LPIA7qJ58w")]
-    [Description(@"??")]
+    [Description(@"Execution is denied due to the execution of a process at the registrar.")]
     ConditionalRegistrar,
     
 }

@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExchangePolicy1Code
 {
     /// <summary>
-    /// ??
+    /// Exchange is performed if requested by the acquirer in a previous exchange, or at any time by the acceptor.
     /// Encoded/decoded by serializers as "OnDemand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONDM")]
     [IsoId("_KRsjAH1DEeCF8NjrBemJWQ_-1296053757")]
-    [Description(@"??")]
+    [Description(@"Exchange is performed if requested by the acquirer in a previous exchange, or at any time by the acceptor.")]
     OnDemand,
     
     /// <summary>
-    /// ??
+    /// Exchange is performed just after the transaction completion.
     /// Encoded/decoded by serializers as "Immediately".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMMD")]
     [IsoId("_KRsjAX1DEeCF8NjrBemJWQ_-1946713364")]
-    [Description(@"??")]
+    [Description(@"Exchange is performed just after the transaction completion.")]
     Immediately,
     
     /// <summary>
-    /// ??
+    /// As soon as the acquirer is contacted, for example with the next on-line transaction.
     /// Encoded/decoded by serializers as "AsSoonAsPossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASAP")]
     [IsoId("_KRsjAn1DEeCF8NjrBemJWQ_799792606")]
-    [Description(@"??")]
+    [Description(@"As soon as the acquirer is contacted, for example with the next on-line transaction.")]
     AsSoonAsPossible,
     
     /// <summary>
-    /// ??
+    /// Exchanges are performed after reaching a maximum number of transaction or time period.
     /// Encoded/decoded by serializers as "AsGroup".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGRP")]
     [IsoId("_KRsjA31DEeCF8NjrBemJWQ_-2068447648")]
-    [Description(@"??")]
+    [Description(@"Exchanges are performed after reaching a maximum number of transaction or time period.")]
     AsGroup,
     
     /// <summary>
-    /// ??
+    /// Exchange is performed after reaching a number of transactions without exchanges with the acquirer.
     /// Encoded/decoded by serializers as "NumberLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBLT")]
     [IsoId("_KRsjBH1DEeCF8NjrBemJWQ_-1391748620")]
-    [Description(@"??")]
+    [Description(@"Exchange is performed after reaching a number of transactions without exchanges with the acquirer.")]
     NumberLimit,
     
     /// <summary>
-    /// ??
+    /// Exchange is performed after reaching a cumulative amount of transactions without exchanges with the acquirer.
     /// Encoded/decoded by serializers as "TotalLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTLT")]
     [IsoId("_KRsjBX1DEeCF8NjrBemJWQ_1174078869")]
-    [Description(@"??")]
+    [Description(@"Exchange is performed after reaching a cumulative amount of transactions without exchanges with the acquirer.")]
     TotalLimit,
     
     /// <summary>
-    /// ??
+    /// Cyclic exchanges based on the related time conditions.
     /// Encoded/decoded by serializers as "Cyclic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CYCL")]
     [IsoId("_KRsjBn1DEeCF8NjrBemJWQ_-164514241")]
-    [Description(@"??")]
+    [Description(@"Cyclic exchanges based on the related time conditions.")]
     Cyclic,
     
     /// <summary>
-    /// ??
+    /// No exchange.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_KR1s8H1DEeCF8NjrBemJWQ_-65190958")]
-    [Description(@"??")]
+    [Description(@"No exchange.")]
     None,
     
 }

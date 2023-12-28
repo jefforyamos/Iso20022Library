@@ -21,282 +21,282 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalInvestigationExecutionConfirmation1Code
 {
     /// <summary>
-    /// ??
+    /// Used when a creditor accepts the debit authorisation.
     /// Encoded/decoded by serializers as "AcceptedDebitAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACDA")]
     [IsoId("_uZRepfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a creditor accepts the debit authorisation.")]
     AcceptedDebitAuthorisation,
     
     /// <summary>
-    /// ??
+    /// The claim for non-receipt of a payment instruction is accepted.
     /// Encoded/decoded by serializers as "AcceptedClaimNonReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACNR")]
     [IsoId("_uZReqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The claim for non-receipt of a payment instruction is accepted.")]
     AcceptedClaimNonReceipt,
     
     /// <summary>
-    /// ??
+    /// The claim for value date correction is accepted.
     /// Encoded/decoded by serializers as "AcceptedValueDateAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACVA")]
     [IsoId("_uZaokvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The claim for value date correction is accepted.")]
     AcceptedValueDateAdjustment,
     
     /// <summary>
-    /// ??
+    /// Further charges details are provided to resolve the case.
     /// Encoded/decoded by serializers as "ChargesDetailsProvided".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHRG")]
     [IsoId("_uZaolfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Further charges details are provided to resolve the case.")]
     ChargesDetailsProvided,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation is successful.
     /// Encoded/decoded by serializers as "CancelledAsPerRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNCL")]
     [IsoId("_uZaomPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation is successful.")]
     CancelledAsPerRequest,
     
     /// <summary>
-    /// ??
+    /// Used when a payment has been checked and was correctly executed without any intervention.
     /// Encoded/decoded by serializers as "ConfirmationOfPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_uZaom_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a payment has been checked and was correctly executed without any intervention.")]
     ConfirmationOfPayment,
     
     /// <summary>
-    /// ??
+    /// The original value date was correct.
     /// Encoded/decoded by serializers as "CorrectValueDateAlreadyApplied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CVAA")]
     [IsoId("_uZkZkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The original value date was correct.")]
     CorrectValueDateAlreadyApplied,
     
     /// <summary>
-    /// ??
+    /// Used when a payment will be cancelled to solve an investigation case.
     /// Encoded/decoded by serializers as "CancellationWillFollow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CWFW")]
     [IsoId("_uZkZlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a payment will be cancelled to solve an investigation case.")]
     CancellationWillFollow,
     
     /// <summary>
-    /// ??
+    /// The cancellation request has been forwarded to the next agent for execution.|Usage: This code should only be utilised where a Case Id is not present.
     /// Encoded/decoded by serializers as "CancellationRequestForwardedToTheNextAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FTNA")]
     [IsoId("_uZkZmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The cancellation request has been forwarded to the next agent for execution.|Usage: This code should only be utilised where a Case Id is not present.")]
     CancellationRequestForwardedToTheNextAgent,
     
     /// <summary>
-    /// ??
+    /// Used when a transfer of funds has been initiated (a cover payment) to resolve a case.
     /// Encoded/decoded by serializers as "CoverInitiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICOV")]
     [IsoId("_uZkZm_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a transfer of funds has been initiated (a cover payment) to resolve a case.")]
     CoverInitiated,
     
     /// <summary>
-    /// ??
+    /// Used when the requested check for a possible duplicate instruction is confirmed.
     /// Encoded/decoded by serializers as "InstructionIsDuplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDUP")]
     [IsoId("_uZuKkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when the requested check for a possible duplicate instruction is confirmed.")]
     InstructionIsDuplicate,
     
     /// <summary>
-    /// ??
+    /// Used when the result of an investigation is, or will be, the initiation of a payment instruction.
     /// Encoded/decoded by serializers as "PaymentInitiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPAY")]
     [IsoId("_uZuKmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when the result of an investigation is, or will be, the initiation of a payment instruction.")]
     PaymentInitiated,
     
     /// <summary>
-    /// ??
+    /// Used when a payment instruction (eg. MT103) has been initiated to resolve a case.
     /// Encoded/decoded by serializers as "PaymentInstructionInitiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPYI")]
     [IsoId("_uZuKm_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a payment instruction (eg. MT103) has been initiated to resolve a case.")]
     PaymentInstructionInitiated,
     
     /// <summary>
-    /// ??
+    /// Used when a transfer of funds has been modified (a cover payment) to resolve a case.
     /// Encoded/decoded by serializers as "CoverModified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCOV")]
     [IsoId("_uZuKnvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a transfer of funds has been modified (a cover payment) to resolve a case.")]
     CoverModified,
     
     /// <summary>
-    /// ??
+    /// Used when a requested modification is successful.
     /// Encoded/decoded by serializers as "ModifiedAsPerRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_uZ3UgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a requested modification is successful.")]
     ModifiedAsPerRequest,
     
     /// <summary>
-    /// ??
+    /// Used when the payment will be modified to solve an investigation case.
     /// Encoded/decoded by serializers as "ModificationWillFollow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWFW")]
     [IsoId("_uZ3UhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when the payment will be modified to solve an investigation case.")]
     ModificationWillFollow,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation is pending.
     /// Encoded/decoded by serializers as "PendingCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDCR")]
     [IsoId("_uaBFgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation is pending.")]
     PendingCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation has been partially executed.
     /// Encoded/decoded by serializers as "PartiallyExecutedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PECR")]
     [IsoId("_uaBFhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation has been partially executed.")]
     PartiallyExecutedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Further purpose details are provided to resolve the case.
     /// Encoded/decoded by serializers as "PurposeDetailsProvided".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PURP")]
     [IsoId("_uaBFiPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Further purpose details are provided to resolve the case.")]
     PurposeDetailsProvided,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation has been rejected.
     /// Encoded/decoded by serializers as "RejectedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCR")]
     [IsoId("_uaBFi_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation has been rejected.")]
     RejectedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// The claim for non-receipt of a payment instruction is rejected.
     /// Encoded/decoded by serializers as "RejectedClaimNonReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJNR")]
     [IsoId("_uaKPcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The claim for non-receipt of a payment instruction is rejected.")]
     RejectedClaimNonReceipt,
     
     /// <summary>
-    /// ??
+    /// The claim for value date correction is rejected.
     /// Encoded/decoded by serializers as "RejectedValueDateAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJVA")]
     [IsoId("_uaKPdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The claim for value date correction is rejected.")]
     RejectedValueDateAdjustment,
     
     /// <summary>
-    /// ??
+    /// Used when the entry in the statement is correct.
     /// Encoded/decoded by serializers as "StatementEntryCorrect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMTC")]
     [IsoId("_uaUAcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when the entry in the statement is correct.")]
     StatementEntryCorrect,
     
     /// <summary>
-    /// ??
+    /// Used when the entry in the statement is incorrect and further information is provided with the resolution.
     /// Encoded/decoded by serializers as "StatementEntryIncorrect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMTI")]
     [IsoId("_uaUAdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when the entry in the statement is incorrect and further information is provided with the resolution.")]
     StatementEntryIncorrect,
     
     /// <summary>
-    /// ??
+    /// Used when sender wants to respond to an assignment with an Unable To Apply workflow.
     /// Encoded/decoded by serializers as "UnableToApplyWillFollow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UWFW")]
     [IsoId("_uaUAePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Used when sender wants to respond to an assignment with an Unable To Apply workflow.")]
     UnableToApplyWillFollow,
     
     /// <summary>
-    /// ??
+    /// Process a cancellation request but batch already settled.
     /// Encoded/decoded by serializers as "BatchInstructionAlreadySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIAS")]
     [IsoId("_eSPVoQTrEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Process a cancellation request but batch already settled.")]
     BatchInstructionAlreadySettled,
     
     /// <summary>
-    /// ??
+    /// Process a  Batch Cancellation "using an incorrect batch sequence number”.
     /// Encoded/decoded by serializers as "InstructionDoesNotExist".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDNE")]
     [IsoId("_ekkbwQTrEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Process a  Batch Cancellation ""using an incorrect batch sequence number”.")]
     InstructionDoesNotExist,
     
     /// <summary>
-    /// ??
+    /// Process a cancellation request with incorrect reference to original batch.
     /// Encoded/decoded by serializers as "InvalidCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IVCR")]
     [IsoId("_erSHwQTrEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"Process a cancellation request with incorrect reference to original batch.")]
     InvalidCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Used when additional information has been sent to the beneficiary of a payment.
     /// Encoded/decoded by serializers as "AdditionalInformationSent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFO")]
     [IsoId("_G4loYRRyEeyk6Lq9x6ij-w")]
-    [Description(@"??")]
+    [Description(@"Used when additional information has been sent to the beneficiary of a payment.")]
     AdditionalInformationSent,
     
     /// <summary>
-    /// ??
+    /// Used when no additional information is available.
     /// Encoded/decoded by serializers as "NoInformationAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NINF")]
     [IsoId("_pWiy8iemEe2VkIu7jTuNaA")]
-    [Description(@"??")]
+    [Description(@"Used when no additional information is available.")]
     NoInformationAvailable,
     
     /// <summary>
-    /// ??
+    /// Used to inform that a response to an investigation is pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_H78O8ienEe2VkIu7jTuNaA")]
-    [Description(@"??")]
+    [Description(@"Used to inform that a response to an investigation is pending.")]
     Pending,
     
 }

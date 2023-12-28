@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReportType1Code
 {
     /// <summary>
-    /// ??
+    /// The report contains a baseline submitted for the first time.
     /// Encoded/decoded by serializers as "ForwardInitialSubmission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWIS")]
     [IsoId("_ZTVxo9p-Ed-ak6NoX_4Aeg_302562336")]
-    [Description(@"??")]
+    [Description(@"The report contains a baseline submitted for the first time.")]
     ForwardInitialSubmission,
     
     /// <summary>
-    /// ??
+    /// The report contains a baseline that is resubmitted.
     /// Encoded/decoded by serializers as "ForwardReSubmission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWRE")]
     [IsoId("_ZTVxpNp-Ed-ak6NoX_4Aeg_302562354")]
-    [Description(@"??")]
+    [Description(@"The report contains a baseline that is resubmitted.")]
     ForwardReSubmission,
     
     /// <summary>
-    /// ??
+    /// The report contains a baseline that is amended.
     /// Encoded/decoded by serializers as "ForwardAmend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWAM")]
     [IsoId("_ZTVxpdp-Ed-ak6NoX_4Aeg_302562379")]
-    [Description(@"??")]
+    [Description(@"The report contains a baseline that is amended.")]
     ForwardAmend,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MemberStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Member is live on the system.
     /// Encoded/decoded by serializers as "Enabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENBL")]
     [IsoId("_zdmYZA93EeGeV5vP7Mvdig_-507442078")]
-    [Description(@"??")]
+    [Description(@"Member is live on the system.")]
     Enabled,
     
     /// <summary>
-    /// ??
+    /// Member is temporarily not live on the system.
     /// Encoded/decoded by serializers as "Disabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSBL")]
     [IsoId("_zdmYZQ93EeGeV5vP7Mvdig_943717544")]
-    [Description(@"??")]
+    [Description(@"Member is temporarily not live on the system.")]
     Disabled,
     
     /// <summary>
-    /// ??
+    /// Member is no longer live on the system.
     /// Encoded/decoded by serializers as "Deleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLTD")]
     [IsoId("_zdmYZg93EeGeV5vP7Mvdig_1865880854")]
-    [Description(@"??")]
+    [Description(@"Member is no longer live on the system.")]
     Deleted,
     
     /// <summary>
-    /// ??
+    /// Member is joining and will soon be enabled on the system.
     /// Encoded/decoded by serializers as "Joining".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JOIN")]
     [IsoId("_zdviUA93EeGeV5vP7Mvdig_1111130980")]
-    [Description(@"??")]
+    [Description(@"Member is joining and will soon be enabled on the system.")]
     Joining,
     
 }

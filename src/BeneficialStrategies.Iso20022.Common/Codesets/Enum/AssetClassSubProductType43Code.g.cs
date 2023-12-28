@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType43Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type urea.
     /// Encoded/decoded by serializers as "Urea".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UREA")]
     [IsoId("_pK4MiVr3EeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type urea.")]
     Urea,
     
 }

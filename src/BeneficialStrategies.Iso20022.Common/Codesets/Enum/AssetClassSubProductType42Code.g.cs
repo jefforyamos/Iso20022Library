@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType42Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type sulphur.
     /// Encoded/decoded by serializers as "Sulphur".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLPH")]
     [IsoId("_jVdRR1r3EeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type sulphur.")]
     Sulphur,
     
 }

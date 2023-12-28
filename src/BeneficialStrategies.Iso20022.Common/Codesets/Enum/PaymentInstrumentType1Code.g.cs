@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentInstrumentType1Code
 {
     /// <summary>
-    /// ??
+    /// Payment card (credit or debit).
     /// Encoded/decoded by serializers as "Card".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARD")]
     [IsoId("_jjj6MdxgEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Payment card (credit or debit).")]
     Card,
     
     /// <summary>
-    /// ??
+    /// Cash managed by a cash handling system.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_jmi8wdxgEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Cash managed by a cash handling system.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Paper check.
     /// Encoded/decoded by serializers as "Check".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHCK")]
     [IsoId("_jp2IYdxgEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Paper check.")]
     Check,
     
     /// <summary>
-    /// ??
+    /// Account using loyalty processing.
     /// Encoded/decoded by serializers as "LoyaltyAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOYT")]
     [IsoId("_jt13kdxgEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Account using loyalty processing.")]
     LoyaltyAccount,
     
     /// <summary>
-    /// ??
+    /// Account accessed by a stored value instrument such as a card or a certificate.
     /// Encoded/decoded by serializers as "StoredValueAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVAC")]
     [IsoId("_jxDjodxgEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Account accessed by a stored value instrument such as a card or a certificate.")]
     StoredValueAccount,
     
 }

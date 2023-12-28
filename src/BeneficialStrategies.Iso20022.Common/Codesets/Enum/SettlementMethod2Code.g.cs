@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementMethod2Code
 {
     /// <summary>
-    /// ??
+    /// Settlement is done by the agent instructed to execute a payment instruction.
     /// Encoded/decoded by serializers as "InstructedAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDA")]
     [IsoId("_ZMCPx9p-Ed-ak6NoX_4Aeg_-673388466")]
-    [Description(@"??")]
+    [Description(@"Settlement is done by the agent instructed to execute a payment instruction.")]
     InstructedAgent,
     
     /// <summary>
-    /// ??
+    /// Settlement is done by the agent instructing and forwarding the payment to the next party in the payment chain.
     /// Encoded/decoded by serializers as "InstructingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INGA")]
     [IsoId("_ZMCPyNp-Ed-ak6NoX_4Aeg_-673388449")]
-    [Description(@"??")]
+    [Description(@"Settlement is done by the agent instructing and forwarding the payment to the next party in the payment chain.")]
     InstructingAgent,
     
     /// <summary>
-    /// ??
+    /// Settlement is done through a payment clearing system.
     /// Encoded/decoded by serializers as "ClearingSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRG")]
     [IsoId("_ZMMAwNp-Ed-ak6NoX_4Aeg_-673388407")]
-    [Description(@"??")]
+    [Description(@"Settlement is done through a payment clearing system.")]
     ClearingSystem,
     
 }

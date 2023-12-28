@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxType13Code
 {
     /// <summary>
-    /// ??
+    /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
     /// Encoded/decoded by serializers as "ConsumptionTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAX")]
     [IsoId("_YkZoAdp-Ed-ak6NoX_4Aeg_2016560306")]
-    [Description(@"??")]
+    [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
     ConsumptionTax,
     
     /// <summary>
-    /// ??
+    /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
     /// Encoded/decoded by serializers as "EUTaxRetention".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUTR")]
     [IsoId("_YkZoAtp-Ed-ak6NoX_4Aeg_2016560703")]
-    [Description(@"??")]
+    [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
     EUTaxRetention,
     
     /// <summary>
-    /// ??
+    /// Tax that is charged by a local settlement system or local jurisdiction.
     /// Encoded/decoded by serializers as "LocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCL")]
     [IsoId("_YkZoA9p-Ed-ak6NoX_4Aeg_2016560720")]
-    [Description(@"??")]
+    [Description(@"Tax that is charged by a local settlement system or local jurisdiction.")]
     LocalTax,
     
     /// <summary>
-    /// ??
+    /// Tax is a national tax.
     /// Encoded/decoded by serializers as "NationalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NATI")]
     [IsoId("_YkZoBNp-Ed-ak6NoX_4Aeg_2016560721")]
-    [Description(@"??")]
+    [Description(@"Tax is a national tax.")]
     NationalTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on a payment.
     /// Encoded/decoded by serializers as "PaymentLevyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEVY")]
     [IsoId("_YkZoBdp-Ed-ak6NoX_4Aeg_2016560738")]
-    [Description(@"??")]
+    [Description(@"Tax levied on a payment.")]
     PaymentLevyTax,
     
     /// <summary>
-    /// ??
+    /// Tax is a provincial tax.
     /// Encoded/decoded by serializers as "Provincial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROV")]
     [IsoId("_YkZoBtp-Ed-ak6NoX_4Aeg_2016560763")]
-    [Description(@"??")]
+    [Description(@"Tax is a provincial tax.")]
     Provincial,
     
     /// <summary>
-    /// ??
+    /// Tax is on certain documents and transactions.
     /// Encoded/decoded by serializers as "StampDuty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAM")]
     [IsoId("_YkZoB9p-Ed-ak6NoX_4Aeg_2016560780")]
-    [Description(@"??")]
+    [Description(@"Tax is on certain documents and transactions.")]
     StampDuty,
     
     /// <summary>
-    /// ??
+    /// Tax is a state tax.
     /// Encoded/decoded by serializers as "StateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAT")]
     [IsoId("_YkZoCNp-Ed-ak6NoX_4Aeg_2016560798")]
-    [Description(@"??")]
+    [Description(@"Tax is a state tax.")]
     StateTax,
     
     /// <summary>
-    /// ??
+    /// Tax collected by a stock exchange.
     /// Encoded/decoded by serializers as "StockExchangeTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEX")]
     [IsoId("_YkZoCdp-Ed-ak6NoX_4Aeg_2016560815")]
-    [Description(@"??")]
+    [Description(@"Tax collected by a stock exchange.")]
     StockExchangeTax,
     
     /// <summary>
-    /// ??
+    /// Direct reduction of an individual's tax liability.
     /// Encoded/decoded by serializers as "TaxCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTAX")]
     [IsoId("_Ykix8Np-Ed-ak6NoX_4Aeg_2016561081")]
-    [Description(@"??")]
+    [Description(@"Direct reduction of an individual's tax liability.")]
     TaxCredit,
     
     /// <summary>
-    /// ??
+    /// Tax levied on a transaction.
     /// Encoded/decoded by serializers as "TransactionTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAX")]
     [IsoId("_Ykix8dp-Ed-ak6NoX_4Aeg_2016561106")]
-    [Description(@"??")]
+    [Description(@"Tax levied on a transaction.")]
     TransactionTax,
     
     /// <summary>
-    /// ??
+    /// Tax levied on a transfer.
     /// Encoded/decoded by serializers as "TransferTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_Ykix8tp-Ed-ak6NoX_4Aeg_2016561123")]
-    [Description(@"??")]
+    [Description(@"Tax levied on a transfer.")]
     TransferTax,
     
     /// <summary>
-    /// ??
+    /// Tax is a value added tax.
     /// Encoded/decoded by serializers as "ValueAddedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATA")]
     [IsoId("_Ykix89p-Ed-ak6NoX_4Aeg_2016561141")]
-    [Description(@"??")]
+    [Description(@"Tax is a value added tax.")]
     ValueAddedTax,
     
     /// <summary>
-    /// ??
+    /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
     /// Encoded/decoded by serializers as "WithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_Ykix9Np-Ed-ak6NoX_4Aeg_2016561166")]
-    [Description(@"??")]
+    [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
     WithholdingTax,
     
 }

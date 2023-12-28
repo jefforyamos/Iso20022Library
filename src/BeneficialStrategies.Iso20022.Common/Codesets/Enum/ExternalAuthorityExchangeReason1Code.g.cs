@@ -21,120 +21,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalAuthorityExchangeReason1Code
 {
     /// <summary>
-    /// ??
+    /// Ad hoc request.
     /// Encoded/decoded by serializers as "AdHocRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADHR")]
     [IsoId("_uzf8hfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ad hoc request.")]
     AdHocRequest,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Buyer Branch.
     /// Encoded/decoded by serializers as "CompetentAuthorityForBuyerBranch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CABB")]
     [IsoId("_uzf8iPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Buyer Branch.")]
     CompetentAuthorityForBuyerBranch,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Basket Constituant.
     /// Encoded/decoded by serializers as "CompetentAuthorityForBasketConstituant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CABC")]
     [IsoId("_uzf8i_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Basket Constituant.")]
     CompetentAuthorityForBasketConstituant,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Buyer Transmitting Firm.
     /// Encoded/decoded by serializers as "CompetentAuthorityForBuyerTransmittingFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CABT")]
     [IsoId("_uzpGcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Buyer Transmitting Firm.")]
     CompetentAuthorityForBuyerTransmittingFirm,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Decision Making Branch.
     /// Encoded/decoded by serializers as "CompetentAuthorityForDecisionMakingBranch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADB")]
     [IsoId("_uzpGdfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Decision Making Branch.")]
     CompetentAuthorityForDecisionMakingBranch,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Direct Underlying.
     /// Encoded/decoded by serializers as "CompetentAuthorityForDirectUnderlying".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADU")]
     [IsoId("_uzpGePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Direct Underlying.")]
     CompetentAuthorityForDirectUnderlying,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Executing Branch.
     /// Encoded/decoded by serializers as "CompetentAuthorityForExecutingBranch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAEB")]
     [IsoId("_uzpGe_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Executing Branch.")]
     CompetentAuthorityForExecutingBranch,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Instrument.
     /// Encoded/decoded by serializers as "CompetentAuthorityForInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAFI")]
     [IsoId("_uzy3cvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Instrument.")]
     CompetentAuthorityForInstrument,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Index.
     /// Encoded/decoded by serializers as "CompetentAuthorityForIndex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAIX")]
     [IsoId("_uzy3dfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Index.")]
     CompetentAuthorityForIndex,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Membership Branch.
     /// Encoded/decoded by serializers as "CompetentAuthorityForMembershipBranch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAMB")]
     [IsoId("_uz8ocvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Membership Branch.")]
     CompetentAuthorityForMembershipBranch,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Seller Branch.
     /// Encoded/decoded by serializers as "CompetentAuthorityForSellerBranch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASB")]
     [IsoId("_uz8odfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Seller Branch.")]
     CompetentAuthorityForSellerBranch,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Seller Transmitting Firm.
     /// Encoded/decoded by serializers as "CompetentAuthorityForSellerTransmittingFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAST")]
     [IsoId("_uz8oePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Seller Transmitting Firm.")]
     CompetentAuthorityForSellerTransmittingFirm,
     
     /// <summary>
-    /// ??
+    /// Competent Authority for Trading Venue.
     /// Encoded/decoded by serializers as "CompetentAuthorityForTradingVenue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CATV")]
     [IsoId("_uz8oe_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Competent Authority for Trading Venue.")]
     CompetentAuthorityForTradingVenue,
     
 }

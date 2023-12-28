@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IssuerTaxability1Code
 {
     /// <summary>
-    /// ??
+    /// The cash proceeds are taxable.
     /// Encoded/decoded by serializers as "Taxable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXBL")]
     [IsoId("_zlMDJgFKEeGOtY_0fwodfg")]
-    [Description(@"??")]
+    [Description(@"The cash proceeds are taxable.")]
     Taxable,
     
 }

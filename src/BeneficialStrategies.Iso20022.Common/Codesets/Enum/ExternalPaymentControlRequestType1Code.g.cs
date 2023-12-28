@@ -22,48 +22,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalPaymentControlRequestType1Code
 {
     /// <summary>
-    /// ??
+    /// Type is a request to release the pending transactions.
     /// Encoded/decoded by serializers as "ReleasePending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT01")]
     [IsoId("_udl9-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is a request to release the pending transactions.")]
     ReleasePending,
     
     /// <summary>
-    /// ??
+    /// Type is a request to hold normal transactions.
     /// Encoded/decoded by serializers as "HoldNormal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT02")]
     [IsoId("_udl9-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is a request to hold normal transactions.")]
     HoldNormal,
     
     /// <summary>
-    /// ??
+    /// Type is a request to cancel a transaction.
     /// Encoded/decoded by serializers as "Cancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT03")]
     [IsoId("_udl9_vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is a request to cancel a transaction.")]
     Cancellation,
     
     /// <summary>
-    /// ??
+    /// Type is a request to change the sequence of the transactions.
     /// Encoded/decoded by serializers as "ReSequence".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT04")]
     [IsoId("_udvH4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is a request to change the sequence of the transactions.")]
     ReSequence,
     
     /// <summary>
-    /// ??
+    /// Type is a request to release the suspicious transactions.
     /// Encoded/decoded by serializers as "ReleaseSuspicious".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT05")]
     [IsoId("_udvH5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Type is a request to release the suspicious transactions.")]
     ReleaseSuspicious,
     
 }

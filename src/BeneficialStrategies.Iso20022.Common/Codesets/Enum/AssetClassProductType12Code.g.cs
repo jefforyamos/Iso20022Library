@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType12Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type inflation.
     /// Encoded/decoded by serializers as "Inflation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFL")]
     [IsoId("_TxFBZ1rLEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type inflation.")]
     Inflation,
     
 }

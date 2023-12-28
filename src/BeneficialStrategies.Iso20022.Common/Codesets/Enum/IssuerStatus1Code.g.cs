@@ -20,174 +20,174 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IssuerStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Event is approved by SEC (Securities and Exchange Commission).
     /// Encoded/decoded by serializers as "ApprovedBySEC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASEC")]
     [IsoId("_1ss6ETL3EeKU9IrkkToqcw_549706816")]
-    [Description(@"??")]
+    [Description(@"Event is approved by SEC (Securities and Exchange Commission).")]
     ApprovedBySEC,
     
     /// <summary>
-    /// ??
+    /// Event is approved by shareholders.
     /// Encoded/decoded by serializers as "ApprovedByShareholders".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASHH")]
     [IsoId("_1ss6EjL3EeKU9IrkkToqcw_435867750")]
-    [Description(@"??")]
+    [Description(@"Event is approved by shareholders.")]
     ApprovedByShareholders,
     
     /// <summary>
-    /// ??
+    /// Event is approved by SEC (Securities and Exchange Commission and shareholders.
     /// Encoded/decoded by serializers as "ApprovedByShareholdersAndSEC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASHS")]
     [IsoId("_1ss6EzL3EeKU9IrkkToqcw_1003794085")]
-    [Description(@"??")]
+    [Description(@"Event is approved by SEC (Securities and Exchange Commission and shareholders.")]
     ApprovedByShareholdersAndSEC,
     
     /// <summary>
-    /// ??
+    /// Event has approximate rate.
     /// Encoded/decoded by serializers as "ApproximateRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APRT")]
     [IsoId("_1ss6FDL3EeKU9IrkkToqcw_1328911592")]
-    [Description(@"??")]
+    [Description(@"Event has approximate rate.")]
     ApproximateRate,
     
     /// <summary>
-    /// ??
+    /// Awaiting information from company on the event.
     /// Encoded/decoded by serializers as "AwaitingInformationFromCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIFC")]
     [IsoId("_1ss6FTL3EeKU9IrkkToqcw_1215072526")]
-    [Description(@"??")]
+    [Description(@"Awaiting information from company on the event.")]
     AwaitingInformationFromCompany,
     
     /// <summary>
-    /// ??
+    /// Event has day grace period.
     /// Encoded/decoded by serializers as "DayGracePeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DGRP")]
     [IsoId("_1s2rEDL3EeKU9IrkkToqcw_-1006162773")]
-    [Description(@"??")]
+    [Description(@"Event has day grace period.")]
     DayGracePeriod,
     
     /// <summary>
-    /// ??
+    /// Event distribution was rejected.
     /// Encoded/decoded by serializers as "DistributionRejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DREJ")]
     [IsoId("_1s2rETL3EeKU9IrkkToqcw_-681045266")]
-    [Description(@"??")]
+    [Description(@"Event distribution was rejected.")]
     DistributionRejected,
     
     /// <summary>
-    /// ??
+    /// Event has free form comments for review.
     /// Encoded/decoded by serializers as "SeeComments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FFCO")]
     [IsoId("_1s2rEjL3EeKU9IrkkToqcw_-794884332")]
-    [Description(@"??")]
+    [Description(@"Event has free form comments for review.")]
     SeeComments,
     
     /// <summary>
-    /// ??
+    /// Holiday in country of origin of the event.
     /// Encoded/decoded by serializers as "HolidayInCountryofOrigin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOCO")]
     [IsoId("_1s2rEzL3EeKU9IrkkToqcw_396975072")]
-    [Description(@"??")]
+    [Description(@"Holiday in country of origin of the event.")]
     HolidayInCountryofOrigin,
     
     /// <summary>
-    /// ??
+    /// Event issue is not funded.
     /// Encoded/decoded by serializers as "IssueNotFunded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFN")]
     [IsoId("_1s2rFDL3EeKU9IrkkToqcw_283136006")]
-    [Description(@"??")]
+    [Description(@"Event issue is not funded.")]
     IssueNotFunded,
     
     /// <summary>
-    /// ??
+    /// Event issue is trading flat.
     /// Encoded/decoded by serializers as "IssueTradingFlat".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITFL")]
     [IsoId("_1s2rFTL3EeKU9IrkkToqcw_1448108144")]
-    [Description(@"??")]
+    [Description(@"Event issue is trading flat.")]
     IssueTradingFlat,
     
     /// <summary>
-    /// ??
+    /// Event is a late announcement with elections.
     /// Encoded/decoded by serializers as "LateAnnouncementWithElections".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAWE")]
     [IsoId("_1s2rFjL3EeKU9IrkkToqcw_-395760845")]
-    [Description(@"??")]
+    [Description(@"Event is a late announcement with elections.")]
     LateAnnouncementWithElections,
     
     /// <summary>
-    /// ??
+    /// Event is a liquidation.
     /// Encoded/decoded by serializers as "Liquidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIQU")]
     [IsoId("_1s2rFzL3EeKU9IrkkToqcw_-509599911")]
-    [Description(@"??")]
+    [Description(@"Event is a liquidation.")]
     Liquidation,
     
     /// <summary>
-    /// ??
+    /// Event proceeds will be paid upon receipt of funds.
     /// Encoded/decoded by serializers as "PaidUponrReceiptOfFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PURF")]
     [IsoId("_1s_1ADL3EeKU9IrkkToqcw_365004308")]
-    [Description(@"??")]
+    [Description(@"Event proceeds will be paid upon receipt of funds.")]
     PaidUponrReceiptOfFunds,
     
     /// <summary>
-    /// ??
+    /// Event processed are pending conversion of funds.
     /// Encoded/decoded by serializers as "PendingConversionOfFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCOF")]
     [IsoId("_1s_1ATL3EeKU9IrkkToqcw_1582093987")]
-    [Description(@"??")]
+    [Description(@"Event processed are pending conversion of funds.")]
     PendingConversionOfFunds,
     
     /// <summary>
-    /// ??
+    /// Event is pending election dividend services elections.
     /// Encoded/decoded by serializers as "PendingEDSElections".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PELE")]
     [IsoId("_1s_1AjL3EeKU9IrkkToqcw_1468254921")]
-    [Description(@"??")]
+    [Description(@"Event is pending election dividend services elections.")]
     PendingEDSElections,
     
     /// <summary>
-    /// ??
+    /// Event is pending SEC (Securities and Exchange Commission approval.
     /// Encoded/decoded by serializers as "PendingSECApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSEC")]
     [IsoId("_1s_1AzL3EeKU9IrkkToqcw_-110086210")]
-    [Description(@"??")]
+    [Description(@"Event is pending SEC (Securities and Exchange Commission approval.")]
     PendingSECApproval,
     
     /// <summary>
-    /// ??
+    /// Event is pending SEC (Securities and Exchange Commission and shareholders approval.
     /// Encoded/decoded by serializers as "PendingShareholderAndSECApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSHS")]
     [IsoId("_1s_1BDL3EeKU9IrkkToqcw_344001059")]
-    [Description(@"??")]
+    [Description(@"Event is pending SEC (Securities and Exchange Commission and shareholders approval.")]
     PendingShareholderAndSECApproval,
     
     /// <summary>
-    /// ??
+    /// Event is pending shareholder approval.
     /// Encoded/decoded by serializers as "PendingShareholderApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSHA")]
     [IsoId("_1s_1BTL3EeKU9IrkkToqcw_230161993")]
-    [Description(@"??")]
+    [Description(@"Event is pending shareholder approval.")]
     PendingShareholderApproval,
     
 }

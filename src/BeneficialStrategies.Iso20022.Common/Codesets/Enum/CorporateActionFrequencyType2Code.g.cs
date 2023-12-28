@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionFrequencyType2Code
 {
     /// <summary>
-    /// ??
+    /// Payment of a dividend, less amounts already paid through interim dividends.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_q3oUdWtdEeCY4-KZ9JEyUQ_680513451")]
-    [Description(@"??")]
+    [Description(@"Payment of a dividend, less amounts already paid through interim dividends.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// Dividend declared and paid before annual earnings have been determined.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_q3oUdmtdEeCY4-KZ9JEyUQ_387893484")]
-    [Description(@"??")]
+    [Description(@"Dividend declared and paid before annual earnings have been determined.")]
     Interim,
     
     /// <summary>
-    /// ??
+    /// Dividend paid at regular interval, for example, quarterly.
     /// Encoded/decoded by serializers as "Regular".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGR")]
     [IsoId("_q3oUd2tdEeCY4-KZ9JEyUQ_-1882435262")]
-    [Description(@"??")]
+    [Description(@"Dividend paid at regular interval, for example, quarterly.")]
     Regular,
     
     /// <summary>
-    /// ??
+    /// Dividend in addition to the regular dividend being paid by the company.
     /// Encoded/decoded by serializers as "Special".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEC")]
     [IsoId("_q3yFcGtdEeCY4-KZ9JEyUQ_1415459681")]
-    [Description(@"??")]
+    [Description(@"Dividend in addition to the regular dividend being paid by the company.")]
     Special,
     
     /// <summary>
-    /// ??
+    /// Automatic Reinvestment of Cash distributed by accumulating funds.
     /// Encoded/decoded by serializers as "FundCashDistributionReinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REIN")]
     [IsoId("_q3yFcWtdEeCY4-KZ9JEyUQ_-960271952")]
-    [Description(@"??")]
+    [Description(@"Automatic Reinvestment of Cash distributed by accumulating funds.")]
     FundCashDistributionReinvestment,
     
 }

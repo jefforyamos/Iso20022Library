@@ -22,30 +22,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalAcceptedReason1Code
 {
     /// <summary>
-    /// ??
+    /// Received after the servicer's deadline. Processed on best effort basis
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_uVGJS_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Received after the servicer's deadline. Processed on best effort basis")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction was not straight through processing and had to be processed manually
     /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTP")]
     [IsoId("_uVP6QvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instruction was not straight through processing and had to be processed manually")]
     NotStraightThroughProcessing,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process
     /// Encoded/decoded by serializers as "MarketPracticeRuleDiscrepency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMPG")]
     [IsoId("_uVP6RfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process")]
     MarketPracticeRuleDiscrepency,
     
 }

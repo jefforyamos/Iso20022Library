@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterestType3Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the type of interest is a zero coupon.
     /// Encoded/decoded by serializers as "ZeroCoupon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZCPN")]
     [IsoId("_ha_UvGliEeGaMcKyqKNRfQ_2005580526")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of interest is a zero coupon.")]
     ZeroCoupon,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of interest is fixed.
     /// Encoded/decoded by serializers as "Fixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXD")]
     [IsoId("_ha_UvWliEeGaMcKyqKNRfQ_-583192410")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of interest is fixed.")]
     Fixed,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of interest is a floating rate note.
     /// Encoded/decoded by serializers as "FloatingRateNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLRN")]
     [IsoId("_ha_UvmliEeGaMcKyqKNRfQ_-1218224256")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of interest is a floating rate note.")]
     FloatingRateNote,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of interest is a dual basis.
     /// Encoded/decoded by serializers as "DualBasis".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUAL")]
     [IsoId("_ha_Uv2liEeGaMcKyqKNRfQ_1701818028")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of interest is a dual basis.")]
     DualBasis,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of interest is index.
     /// Encoded/decoded by serializers as "Index".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDE")]
     [IsoId("_ha_UwGliEeGaMcKyqKNRfQ_1306353277")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of interest is index.")]
     Index,
     
     /// <summary>
-    /// ??
+    /// Indicates that the type of interest is discounted.
     /// Encoded/decoded by serializers as "Discounted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSCO")]
     [IsoId("_ha_UwWliEeGaMcKyqKNRfQ_-1863117043")]
-    [Description(@"??")]
+    [Description(@"Indicates that the type of interest is discounted.")]
     Discounted,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeliveryReceiptType2Code
 {
     /// <summary>
-    /// ??
+    /// Settlement of the financial instrument and cash is separate.
     /// Encoded/decoded by serializers as "SeparateSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREE")]
     [IsoId("_azJXhtp-Ed-ak6NoX_4Aeg_-2033362077")]
-    [Description(@"??")]
+    [Description(@"Settlement of the financial instrument and cash is separate.")]
     SeparateSettlement,
     
     /// <summary>
-    /// ??
+    /// Settlement of the financial instrument and cash takes place in a delivery versus payment (DVP) environment, that is, through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// Encoded/decoded by serializers as "AgainstPaymentSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APMT")]
     [IsoId("_azJXh9p-Ed-ak6NoX_4Aeg_-2033361692")]
-    [Description(@"??")]
+    [Description(@"Settlement of the financial instrument and cash takes place in a delivery versus payment (DVP) environment, that is, through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).")]
     AgainstPaymentSettlement,
     
 }

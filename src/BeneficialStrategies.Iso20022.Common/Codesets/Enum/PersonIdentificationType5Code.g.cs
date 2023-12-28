@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PersonIdentificationType5Code
 {
     /// <summary>
-    /// ??
+    /// Number assigned by a government agency to identify foreign nationals.
     /// Encoded/decoded by serializers as "AlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AREG")]
     [IsoId("_tjOMQRQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a government agency to identify foreign nationals.")]
     AlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Account issued by the Central Provident Fund Board (Singapore).
     /// Encoded/decoded by serializers as "CPFAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPFA")]
     [IsoId("_tybF4RQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Account issued by the Central Provident Fund Board (Singapore).")]
     CPFAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a license authority to a driver's license.
     /// Encoded/decoded by serializers as "DriversLicenseNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRLC")]
     [IsoId("_uRtp8RQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a license authority to a driver's license.")]
     DriversLicenseNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned to an employer by a registration authority.
     /// Encoded/decoded by serializers as "EmployerIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMID")]
     [IsoId("_uzjLsRQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Number assigned to an employer by a registration authority.")]
     EmployerIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a national authority to an identity card.
     /// Encoded/decoded by serializers as "IdentityCardNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDCD")]
     [IsoId("_vd3UARQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a national authority to an identity card.")]
     IdentityCardNumber,
     
     /// <summary>
-    /// ??
+    /// National registration identification number. In Singapore this is known as the NRIC.
     /// Encoded/decoded by serializers as "NationalRegistrationIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRIN")]
     [IsoId("_wAI6oRQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"National registration identification number. In Singapore this is known as the NRIC.")]
     NationalRegistrationIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Another type of identification type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_wNs1gRQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Another type of identification type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a passport authority to a passport.
     /// Encoded/decoded by serializers as "PassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_z-XqwRQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a passport authority to a passport.")]
     PassportNumber,
     
     /// <summary>
-    /// ??
+    /// Post office card number as assigned by a national post office.
     /// Encoded/decoded by serializers as "PostOfficeCardNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POCD")]
     [IsoId("_1Dgt4RQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Post office card number as assigned by a national post office.")]
     PostOfficeCardNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a social security agency.
     /// Encoded/decoded by serializers as "SocialSecurityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOCS")]
     [IsoId("_1Oi5MRQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a social security agency.")]
     SocialSecurityNumber,
     
     /// <summary>
-    /// ??
+    /// Supplementary retirement scheme account number.
     /// Encoded/decoded by serializers as "SRSAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRSA")]
     [IsoId("_1qGz0RQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Supplementary retirement scheme account number.")]
     SRSAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Gun license number as assigned by a gun licensing authority.
     /// Encoded/decoded by serializers as "GunLicenseNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GUNL")]
     [IsoId("_4Hn_IRQQEeKCyZtSz_i3FA")]
-    [Description(@"??")]
+    [Description(@"Gun license number as assigned by a gun licensing authority.")]
     GunLicenseNumber,
     
 }

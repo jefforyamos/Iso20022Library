@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GCAActionType1Code
 {
     /// <summary>
-    /// ??
+    /// Custodian needs to be contacted.
     /// Encoded/decoded by serializers as "ContactCustodian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCON")]
     [IsoId("_118VozL3EeKU9IrkkToqcw_-770650333")]
-    [Description(@"??")]
+    [Description(@"Custodian needs to be contacted.")]
     ContactCustodian,
     
     /// <summary>
-    /// ??
+    /// Further research is required.
     /// Encoded/decoded by serializers as "ResearchRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREA")]
     [IsoId("_118VpDL3EeKU9IrkkToqcw_-1093140369")]
-    [Description(@"??")]
+    [Description(@"Further research is required.")]
     ResearchRequired,
     
     /// <summary>
-    /// ??
+    /// Custodian has been contacted.
     /// Encoded/decoded by serializers as "CustodianContacted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCU")]
     [IsoId("_118VpTL3EeKU9IrkkToqcw_-15120031")]
-    [Description(@"??")]
+    [Description(@"Custodian has been contacted.")]
     CustodianContacted,
     
     /// <summary>
-    /// ??
+    /// Custodian does not need to be contacted.
     /// Encoded/decoded by serializers as "DoNotContactCustodian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NQCU")]
     [IsoId("_118VpjL3EeKU9IrkkToqcw_-26218808")]
-    [Description(@"??")]
+    [Description(@"Custodian does not need to be contacted.")]
     DoNotContactCustodian,
     
     /// <summary>
-    /// ??
+    /// No further action is required.
     /// Encoded/decoded by serializers as "NoFurtherActionRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFAC")]
     [IsoId("_12FfkDL3EeKU9IrkkToqcw_1024914264")]
-    [Description(@"??")]
+    [Description(@"No further action is required.")]
     NoFurtherActionRequired,
     
     /// <summary>
-    /// ??
+    /// Not supported by the GCA VA (Global Corporate Actions Validation service).
     /// Encoded/decoded by serializers as "NotSupportedByGCA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSUP")]
     [IsoId("_12FfkTL3EeKU9IrkkToqcw_-47090795")]
-    [Description(@"??")]
+    [Description(@"Not supported by the GCA VA (Global Corporate Actions Validation service).")]
     NotSupportedByGCA,
     
     /// <summary>
-    /// ??
+    /// Invalid.
     /// Encoded/decoded by serializers as "Invalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVA")]
     [IsoId("_12FfkjL3EeKU9IrkkToqcw_1420057968")]
-    [Description(@"??")]
+    [Description(@"Invalid.")]
     Invalid,
     
 }

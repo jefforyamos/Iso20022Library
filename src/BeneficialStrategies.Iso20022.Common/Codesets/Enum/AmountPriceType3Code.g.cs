@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AmountPriceType3Code
 {
     /// <summary>
-    /// ??
+    /// Price expressed as a currency and amount per unit or per share.
     /// Encoded/decoded by serializers as "ActualAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTU")]
     [IsoId("_i3gHgZbREee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Price expressed as a currency and amount per unit or per share.")]
     ActualAmount,
     
     /// <summary>
-    /// ??
+    /// Price expressed as an amount of money per lot.
     /// Encoded/decoded by serializers as "Lot".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLOT")]
     [IsoId("_i9wggZbREee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Price expressed as an amount of money per lot.")]
     Lot,
     
 }

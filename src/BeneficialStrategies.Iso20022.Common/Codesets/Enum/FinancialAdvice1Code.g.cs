@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FinancialAdvice1Code
 {
     /// <summary>
-    /// ??
+    /// Advice has been received from an independent financial advisor.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_an-pUdp-Ed-ak6NoX_4Aeg_236854692")]
-    [Description(@"??")]
+    [Description(@"Advice has been received from an independent financial advisor.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Advice has not been received from an independent financial advisor.
     /// Encoded/decoded by serializers as "NotReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREC")]
     [IsoId("_an-pUtp-Ed-ak6NoX_4Aeg_240547799")]
-    [Description(@"??")]
+    [Description(@"Advice has not been received from an independent financial advisor.")]
     NotReceived,
     
     /// <summary>
-    /// ??
+    /// It is not known whether or not advice has been received from an independent financial advisor.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_an-pU9p-Ed-ak6NoX_4Aeg_244241759")]
-    [Description(@"??")]
+    [Description(@"It is not known whether or not advice has been received from an independent financial advisor.")]
     Unknown,
     
 }

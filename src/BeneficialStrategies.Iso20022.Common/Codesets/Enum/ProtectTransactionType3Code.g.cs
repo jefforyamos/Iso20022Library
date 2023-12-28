@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProtectTransactionType3Code
 {
     /// <summary>
-    /// ??
+    /// Reorganisation is a protect transaction type.
     /// Encoded/decoded by serializers as "ProtectTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROT")]
     [IsoId("_Kp2HcbpaEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a protect transaction type.")]
     ProtectTransaction,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarketType4Code
 {
     /// <summary>
-    /// ??
+    /// The place is a fund (transfer agent, fund itself, etc.).
     /// Encoded/decoded by serializers as "Fund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUND")]
     [IsoId("_aUmaVdp-Ed-ak6NoX_4Aeg_-1841693350")]
-    [Description(@"??")]
+    [Description(@"The place is a fund (transfer agent, fund itself, etc.).")]
     Fund,
     
     /// <summary>
-    /// ??
+    /// The place is a local market.
     /// Encoded/decoded by serializers as "LocalMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LMAR")]
     [IsoId("_aUmaVtp-Ed-ak6NoX_4Aeg_-790560278")]
-    [Description(@"??")]
+    [Description(@"The place is a local market.")]
     LocalMarket,
     
     /// <summary>
-    /// ??
+    /// The place is theoretical.
     /// Encoded/decoded by serializers as "Theoretical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THEO")]
     [IsoId("_aUmaV9p-Ed-ak6NoX_4Aeg_1996754313")]
-    [Description(@"??")]
+    [Description(@"The place is theoretical.")]
     Theoretical,
     
     /// <summary>
-    /// ??
+    /// The place is a vendor.
     /// Encoded/decoded by serializers as "Vendor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VEND")]
     [IsoId("_aUmaWNp-Ed-ak6NoX_4Aeg_-831064220")]
-    [Description(@"??")]
+    [Description(@"The place is a vendor.")]
     Vendor,
     
 }

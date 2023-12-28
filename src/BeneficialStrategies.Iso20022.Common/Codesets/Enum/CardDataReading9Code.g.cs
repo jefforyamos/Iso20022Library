@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardDataReading9Code
 {
     /// <summary>
-    /// ??
+    /// Unknown card reading capability.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNKW")]
     [IsoId("_JDP14ZlfEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Unknown card reading capability.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Other national capability type assigned at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_JtshEZlfEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Other national capability type assigned at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other card reading capability assigned on a private basis.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_J0hh0ZlfEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Other card reading capability assigned on a private basis.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Card details captured via camera.
     /// Encoded/decoded by serializers as "Camera".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAMR")]
     [IsoId("_N2p6gZlfEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Card details captured via camera.")]
     Camera,
     
     /// <summary>
-    /// ??
+    /// Key entered.
     /// Encoded/decoded by serializers as "KeyEntered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEEN")]
     [IsoId("_ujzGIZlfEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Key entered.")]
     KeyEntered,
     
     /// <summary>
-    /// ??
+    /// ICC contactless proximity
     /// Encoded/decoded by serializers as "ICCProximity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICPY")]
     [IsoId("_05JGUazhEeurLutE1vUWxQ")]
-    [Description(@"??")]
+    [Description(@"ICC contactless proximity")]
     ICCProximity,
     
     /// <summary>
-    /// ??
+    /// Optical coded reading capabilities (e.g. barcode, QR code, etc.)
     /// Encoded/decoded by serializers as "OpticalCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTC")]
     [IsoId("_iyilMa7BEeuhTp7lI6XAzA")]
-    [Description(@"??")]
+    [Description(@"Optical coded reading capabilities (e.g. barcode, QR code, etc.)")]
     OpticalCode,
     
     /// <summary>
-    /// ??
+    /// Card information are stored on a file.
     /// Encoded/decoded by serializers as "CardOnFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDFL")]
     [IsoId("_b9Nm8cmuEeuF1f85xf6dbg")]
-    [Description(@"??")]
+    [Description(@"Card information are stored on a file.")]
     CardOnFile,
     
     /// <summary>
-    /// ??
+    /// Card details were obtained via a mobile banking application.
     /// Encoded/decoded by serializers as "MobileBankingApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MBNK")]
     [IsoId("_4QIqAcmuEeuF1f85xf6dbg")]
-    [Description(@"??")]
+    [Description(@"Card details were obtained via a mobile banking application.")]
     MobileBankingApplication,
     
     /// <summary>
-    /// ??
+    /// Card details were obtained via a token.
     /// Encoded/decoded by serializers as "Token".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOKN")]
     [IsoId("_OuQc4cmvEeuF1f85xf6dbg")]
-    [Description(@"??")]
+    [Description(@"Card details were obtained via a token.")]
     Token,
     
     /// <summary>
-    /// ??
+    /// ICC contact capability
     /// Encoded/decoded by serializers as "ICCContact".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCY")]
     [IsoId("_XJ0T8cmvEeuF1f85xf6dbg")]
-    [Description(@"??")]
+    [Description(@"ICC contact capability")]
     ICCContact,
     
 }

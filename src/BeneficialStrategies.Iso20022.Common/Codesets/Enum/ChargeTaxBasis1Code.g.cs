@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeTaxBasis1Code
 {
     /// <summary>
-    /// ??
+    /// Charges/tax basis is flat or absolute for the trade being allocated.
     /// Encoded/decoded by serializers as "FlatOrAbsolute".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLAT")]
     [IsoId("__05YttojEeC60axPepSq7g_2090853964")]
-    [Description(@"??")]
+    [Description(@"Charges/tax basis is flat or absolute for the trade being allocated.")]
     FlatOrAbsolute,
     
     /// <summary>
-    /// ??
+    /// Charge/tax basis is per unit of financial instrument.
     /// Encoded/decoded by serializers as "PerUnit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PERU")]
     [IsoId("__1DJsNojEeC60axPepSq7g_203767408")]
-    [Description(@"??")]
+    [Description(@"Charge/tax basis is per unit of financial instrument.")]
     PerUnit,
     
 }

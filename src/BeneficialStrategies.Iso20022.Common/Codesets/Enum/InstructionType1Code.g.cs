@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstructionType1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction to lodge a baseline.
     /// Encoded/decoded by serializers as "Lodge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LODG")]
     [IsoId("_aYn-ttp-Ed-ak6NoX_4Aeg_-8888673")]
-    [Description(@"??")]
+    [Description(@"Instruction to lodge a baseline.")]
     Lodge,
     
     /// <summary>
-    /// ??
+    /// Instruction to push full baseline information to the correspondent.
     /// Encoded/decoded by serializers as "FullPushThrough".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FPTR")]
     [IsoId("_aYn-t9p-Ed-ak6NoX_4Aeg_-8888613")]
-    [Description(@"??")]
+    [Description(@"Instruction to push full baseline information to the correspondent.")]
     FullPushThrough,
     
 }

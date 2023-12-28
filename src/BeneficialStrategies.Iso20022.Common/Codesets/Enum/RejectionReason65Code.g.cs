@@ -20,237 +20,237 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason65Code
 {
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_Dmq40hrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Requested additional documentation is missing. 
     /// Encoded/decoded by serializers as "AdditionalDocumentationMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDM")]
     [IsoId("_Dmq4zBrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Requested additional documentation is missing. ")]
     AdditionalDocumentationMissing,
     
     /// <summary>
-    /// ??
+    /// Event has been cancelled.
     /// Encoded/decoded by serializers as "EventCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCAN")]
     [IsoId("_Dmq40BrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Event has been cancelled.")]
     EventCancelled,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_Dmq4vBrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Deadline to register is missed.
     /// Encoded/decoded by serializers as "DeadlineToRegisterMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DREM")]
     [IsoId("_Dmq4vxrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Deadline to register is missed.")]
     DeadlineToRegisterMissed,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_Dmq4vRrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
     /// <summary>
-    /// ??
+    /// Unrecognised event number.
     /// Encoded/decoded by serializers as "UnrecognisedIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVNM")]
     [IsoId("_Dmq4zRrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Unrecognised event number.")]
     UnrecognisedIdentification,
     
     /// <summary>
-    /// ??
+    /// Rejected due to missing beneficiary owner details.
     /// Encoded/decoded by serializers as "MissingBeneficiaryOwnerDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_Dmq4vhrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Rejected due to missing beneficiary owner details.")]
     MissingBeneficiaryOwnerDetails,
     
     /// <summary>
-    /// ??
+    /// Missing or invalid power of attorney.
     /// Encoded/decoded by serializers as "MissingOrInvalidPOA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOA")]
     [IsoId("_Dmq4xhrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Missing or invalid power of attorney.")]
     MissingOrInvalidPOA,
     
     /// <summary>
-    /// ??
+    /// Position is less than required threshold.
     /// Encoded/decoded by serializers as "InsufficientThresholdPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOS")]
     [IsoId("_Dmq4yRrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Position is less than required threshold.")]
     InsufficientThresholdPosition,
     
     /// <summary>
-    /// ??
+    /// Invalid registration information.
     /// Encoded/decoded by serializers as "RegistrationDiscrepancy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IREG")]
     [IsoId("_Dmq4zhrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Invalid registration information.")]
     RegistrationDiscrepancy,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_Dmq40xrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Insufficient or no registered position.
     /// Encoded/decoded by serializers as "NoRegisteredPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPOS")]
     [IsoId("_Dmq4yhrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Insufficient or no registered position.")]
     NoRegisteredPosition,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Dmq4zxrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Partial voting is not allowed.
     /// Encoded/decoded by serializers as "PartialVoteNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_Dmq4yxrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Partial voting is not allowed.")]
     PartialVoteNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Invalid proxy information.
     /// Encoded/decoded by serializers as "ProxyCardDiscrepancy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRXY")]
     [IsoId("_Dmq4whrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Invalid proxy information.")]
     ProxyCardDiscrepancy,
     
     /// <summary>
-    /// ??
+    /// Issuer or registrar has rejected the instruction.
     /// Encoded/decoded by serializers as "RejectedByIssuerOrRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RBIS")]
     [IsoId("_Dmq4xBrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Issuer or registrar has rejected the instruction.")]
     RejectedByIssuerOrRegistrar,
     
     /// <summary>
-    /// ??
+    /// Resolution number provided discrepancy.
     /// Encoded/decoded by serializers as "ResolutionNumberDiscrepancy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESN")]
     [IsoId("_Dmq4wBrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Resolution number provided discrepancy.")]
     ResolutionNumberDiscrepancy,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid message sender's safekeeping account.
     /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_Dmq40RrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
     SafekeepingAccountRejection,
     
     /// <summary>
-    /// ??
+    /// Split voting is not allowed.
     /// Encoded/decoded by serializers as "SplitVoteNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLT")]
     [IsoId("_Dmq4wRrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Split voting is not allowed.")]
     SplitVoteNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Linked reference is unknown.
     /// Encoded/decoded by serializers as "InvalidReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULNK")]
     [IsoId("_Dmq4xRrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Linked reference is unknown.")]
     InvalidReference,
     
     /// <summary>
-    /// ??
+    /// Invalid option type.
     /// Encoded/decoded by serializers as "InvalidOptionType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTY")]
     [IsoId("_Dmq4uxrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Invalid option type.")]
     InvalidOptionType,
     
     /// <summary>
-    /// ??
+    /// Instructed position exceeds the eligible balance.
     /// Encoded/decoded by serializers as "LackofSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_Dmq4wxrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Instructed position exceeds the eligible balance.")]
     LackofSecurities,
     
     /// <summary>
-    /// ??
+    /// Instruction is invalid due to multiple resolutions instructed as vote "For” and belonging to the same listing group resolution label number.
     /// Encoded/decoded by serializers as "InvalidVoteInFavourInGroupListing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIST")]
     [IsoId("_Dmq4xxrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Instruction is invalid due to multiple resolutions instructed as vote ""For” and belonging to the same listing group resolution label number.")]
     InvalidVoteInFavourInGroupListing,
     
     /// <summary>
-    /// ??
+    /// Invalid instruction as the shareholder or its delegate is not registered in the company stock ledger book.
     /// Encoded/decoded by serializers as "NotRegisteredInInStockLedger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOSL")]
     [IsoId("_Dmq4yBrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Invalid instruction as the shareholder or its delegate is not registered in the company stock ledger book.")]
     NotRegisteredInInStockLedger,
     
     /// <summary>
-    /// ??
+    /// Instruction rejected due to the method of participation not supported by the account servicer.
     /// Encoded/decoded by serializers as "ParticipationMethodNotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMNS")]
     [IsoId("_V7QDQRrpEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Instruction rejected due to the method of participation not supported by the account servicer.")]
     ParticipationMethodNotSupported,
     
 }

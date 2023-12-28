@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCBaseDisbursed1Code
 {
     /// <summary>
-    /// ??
+    /// Based on base security.
     /// Encoded/decoded by serializers as "Base".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BASE")]
     [IsoId("_1qBZhDL3EeKU9IrkkToqcw_-1482681313")]
-    [Description(@"??")]
+    [Description(@"Based on base security.")]
     Base,
     
     /// <summary>
-    /// ??
+    /// Based on disbursed security.
     /// Encoded/decoded by serializers as "Disbursed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISB")]
     [IsoId("_1qBZhTL3EeKU9IrkkToqcw_-1596520379")]
-    [Description(@"??")]
+    [Description(@"Based on disbursed security.")]
     Disbursed,
     
 }

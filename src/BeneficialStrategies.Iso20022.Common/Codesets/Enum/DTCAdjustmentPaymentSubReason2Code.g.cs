@@ -20,1434 +20,1436 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCAdjustmentPaymentSubReason2Code
 {
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an accrual claim payment related to a stock distribution payable on user defined date.
     /// Encoded/decoded by serializers as "AccrualClaimPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCPK")]
     [IsoId("_BZFXscMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an accrual claim payment related to a stock distribution payable on user defined date.")]
     AccrualClaimPayment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that accrued interest was not previously paid to you for the redemption in this issue. This adjustment is to pay you for this accrued interest.
     /// Encoded/decoded by serializers as "AccruedInterestNotPaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SACP")]
     [IsoId("_BgOhgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that accrued interest was not previously paid to you for the redemption in this issue. This adjustment is to pay you for this accrued interest.")]
     AccruedInterestNotPaid,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for the accrued interest previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.
     /// Encoded/decoded by serializers as "AccruedInterestWrongRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SACA")]
     [IsoId("_Bjyy4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for the accrued interest previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.")]
     AccruedInterestWrongRate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for a distribution of additional rights for round up of fractions as requested for your beneficial owners.
     /// Encoded/decoded by serializers as "AdditionalRightsForBeneficialOwner".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRTJ")]
     [IsoId("_BrYoocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for a distribution of additional rights for round up of fractions as requested for your beneficial owners.")]
     AdditionalRightsForBeneficialOwner,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an allocation adjustment due to fractions rounded up by the agent related adjustment.
     /// Encoded/decoded by serializers as "AllocationAdjustmentDueToFractionsRoundedUpByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSRJ")]
     [IsoId("_B4epccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an allocation adjustment due to fractions rounded up by the agent related adjustment.")]
     AllocationAdjustmentDueToFractionsRoundedUpByAgent,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an allocation of dividend reinvestment shares - DRP/TEDS instruction @100%.
     /// Encoded/decoded by serializers as "AllocationOfDRPTEDSInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SST6")]
     [IsoId("_CDe_kcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an allocation of dividend reinvestment shares - DRP/TEDS instruction @100%.")]
     AllocationOfDRPTEDSInstruction,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an allocation for a participant position that was assumed by your good selves paid on retired Participant number.
     /// Encoded/decoded by serializers as "AssumedByYourGoodselves".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SARA")]
     [IsoId("_CGwWAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an allocation for a participant position that was assumed by your good selves paid on retired Participant number.")]
     AssumedByYourGoodselves,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an adjustment to avoid fiscal payment.
     /// Encoded/decoded by serializers as "AvoidFiscalPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAIA")]
     [IsoId("_CQuxYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an adjustment to avoid fiscal payment.")]
     AvoidFiscalPayment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for certificates you deposited prior to publication date were subsequently called. The agent paid DTCC the principal redemption proceeds but erroneously paid you the accrued interest.
     /// Encoded/decoded by serializers as "CalledCertificatesAccruedErroneousInterestChargeBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAPP")]
     [IsoId("_Cai0scMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for certificates you deposited prior to publication date were subsequently called. The agent paid DTCC the principal redemption proceeds but erroneously paid you the accrued interest.")]
     CalledCertificatesAccruedErroneousInterestChargeBack,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for certificates you deposited prior to publication date were subsequently called. The agent paid DTCC the principal proceeds via check, but in your customer’s name. We are forwarding the check today. This adjustment is to charge you for the funds.
     /// Encoded/decoded by serializers as "CalledCertificatesCheckInParticipantsNameChargeBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCKS")]
     [IsoId("_Cd0LIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for certificates you deposited prior to publication date were subsequently called. The agent paid DTCC the principal proceeds via check, but in your customer’s name. We are forwarding the check today. This adjustment is to charge you for the funds.")]
     CalledCertificatesCheckInParticipantsNameChargeBack,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for accrued cash due on DRP share allocation.
     /// Encoded/decoded by serializers as "CashDueOnDRPShareAllocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSDK")]
     [IsoId("_Cno1gcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for accrued cash due on DRP share allocation.")]
     CashDueOnDRPShareAllocation,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for accrued cash due on a stock dividend adjustment made on user defined date.
     /// Encoded/decoded by serializers as "CashDueOnStockDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSCK")]
     [IsoId("_Cq6L8cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for accrued cash due on a stock dividend adjustment made on user defined date.")]
     CashDueOnStockDividend,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an adjustment for cash-in-lieu of fractional shares related adjustment.
     /// Encoded/decoded by serializers as "CashInLieuOfFractionalShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSJJ")]
     [IsoId("_C0b7YcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an adjustment for cash-in-lieu of fractional shares related adjustment.")]
     CashInLieuOfFractionalShares,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an adjustment for cash on increased shares due to a stock distribution payable.
     /// Encoded/decoded by serializers as "CashOnIncreasedShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNNG")]
     [IsoId("_C3tR0cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an adjustment for cash on increased shares due to a stock distribution payable.")]
     CashOnIncreasedShares,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that, as per your authorization, we are charging your account in lieu of receipt of dividend reinvestment related shares related adjustment.
     /// Encoded/decoded by serializers as "ChargeInLieuOfReceiptOfDividendReinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSR6")]
     [IsoId("_Dk7kMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that, as per your authorization, we are charging your account in lieu of receipt of dividend reinvestment related shares related adjustment.")]
     ChargeInLieuOfReceiptOfDividendReinvestment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an announcement deleted for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "AnnouncementDeletedOrFailTracking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFLD")]
     [IsoId("_EHmMYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an announcement deleted for fail tracking related adjustment.")]
     AnnouncementDeletedOrFailTracking,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an allocation of baby bonds amount to be exited in USD.
     /// Encoded/decoded by serializers as "AllocationOfBabyBondsAmountToBeExited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SABA")]
     [IsoId("_EN_vUcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an allocation of baby bonds amount to be exited in USD.")]
     AllocationOfBabyBondsAmountToBeExited,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an allocation adjustment.
     /// Encoded/decoded by serializers as "AllocationAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGLA")]
     [IsoId("_EUicMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an allocation adjustment.")]
     AllocationAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that an agent paid DTC based on combined fractions for all public service New Hampshire. New spinoffs distributed on July 25, 1991.
     /// Encoded/decoded by serializers as "AgentPaidBasedOnCombinedFractions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPJ")]
     [IsoId("_EapEMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that an agent paid DTC based on combined fractions for all public service New Hampshire. New spinoffs distributed on July 25, 1991.")]
     AgentPaidBasedOnCombinedFractions,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an adjustment to your dividend reinvestment (DRP) position related adjustment.
     /// Encoded/decoded by serializers as "AdjustmentToYourDividendReinvestmentPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSD6")]
     [IsoId("_EdwpocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an adjustment to your dividend reinvestment (DRP) position related adjustment.")]
     AdjustmentToYourDividendReinvestmentPosition,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for a bond paying in baby bonds that are issued in minimum/incremental denominations. This is to adjust for the amount of pending unissued bonds.
     /// Encoded/decoded by serializers as "BabyBondPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSDJ")]
     [IsoId("_FKi3IcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for a bond paying in baby bonds that are issued in minimum/incremental denominations. This is to adjust for the amount of pending unissued bonds.")]
     BabyBondPayment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an adjustment for cash due on an accrued stock payment.
     /// Encoded/decoded by serializers as "CashDueOnAccruedStockPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSBK")]
     [IsoId("_Fdb98cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an adjustment for cash due on an accrued stock payment.")]
     CashDueOnAccruedStockPayment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an allocation adjustment due to a change in the record date.
     /// Encoded/decoded by serializers as "ChangeInRecordDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRDA")]
     [IsoId("_FnG3UcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an allocation adjustment due to a change in the record date.")]
     ChangeInRecordDate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for required lists containing discrepancies or which were not forwarded to French paying agent. This charge is at user defined withholding rate.
     /// Encoded/decoded by serializers as "ChargeAtWithholdingRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFI9")]
     [IsoId("_FqYNwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for required lists containing discrepancies or which were not forwarded to French paying agent. This charge is at user defined withholding rate.")]
     ChargeAtWithholdingRate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that, as per agent, this charge is for French avoid fiscal tax credit.
     /// Encoded/decoded by serializers as "ChargeForFrenchAvoidFiscalTaxCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFAF")]
     [IsoId("_FwomwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that, as per agent, this charge is for French avoid fiscal tax credit.")]
     ChargeForFrenchAvoidFiscalTaxCredit,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your record date position was adjusted for a COD buy back withdrawal.
     /// Encoded/decoded by serializers as "CODBuyBackWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBB1")]
     [IsoId("_F3eOkcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your record date position was adjusted for a COD buy back withdrawal.")]
     CODBuyBackWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC COD withdrawal adjustment.
     /// Encoded/decoded by serializers as "CODWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJCB")]
     [IsoId("_F7DHAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC COD withdrawal adjustment.")]
     CODWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your good selves.
     /// Encoded/decoded by serializers as "CODWithdrawalNotDeliveredInNameOfGoodselves".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBDB")]
     [IsoId("_Htc4wcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your good selves.")]
     CODWithdrawalNotDeliveredInNameOfGoodselves,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your nominee.
     /// Encoded/decoded by serializers as "CODWithdrawalNotDeliveredInNameOfNominee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBEB")]
     [IsoId("_Hw4AMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your nominee.")]
     CODWithdrawalNotDeliveredInNameOfNominee,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that the company never declared dividend adjust allocation on user defined date.
     /// Encoded/decoded by serializers as "CompanyDidNotDeclareDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SANA")]
     [IsoId("_H3atEcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that the company never declared dividend adjust allocation on user defined date.")]
     CompanyDidNotDeclareDividend,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that the Company in default related adjustment.
     /// Encoded/decoded by serializers as "CompanyInDefault".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SADA")]
     [IsoId("_H6sDgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that the Company in default related adjustment.")]
     CompanyInDefault,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason code is for the coupon collection service adjustment for coupon deposit.
     /// Encoded/decoded by serializers as "CouponCollectionService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCSM")]
     [IsoId("_H90QAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason code is for the coupon collection service adjustment for coupon deposit.")]
     CouponCollectionService,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for Custody payment.
     /// Encoded/decoded by serializers as "CustodyPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCDP")]
     [IsoId("_IHyEUcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for Custody payment.")]
     CustodyPayment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that DTCC deliver order related adjustment.
     /// Encoded/decoded by serializers as "DeliverOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJEG")]
     [IsoId("_IXjlscMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that DTCC deliver order related adjustment.")]
     DeliverOrder,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC deposit related adjustment.
     /// Encoded/decoded by serializers as "DepositAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJDD")]
     [IsoId("_IhEuEcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC deposit related adjustment.")]
     DepositAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for dividend reinvestment allocation why not on normal event.
     /// Encoded/decoded by serializers as "DividendReinvestmentAllocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSC6")]
     [IsoId("_IxJKYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for dividend reinvestment allocation why not on normal event.")]
     DividendReinvestmentAllocation,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for date revision for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "DateRevision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFLN")]
     [IsoId("_JOmiccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for date revision for fail tracking related adjustment.")]
     DateRevision,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for delete for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "Delete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFL1")]
     [IsoId("_JRuH4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for delete for fail tracking related adjustment.")]
     Delete,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your record date position was adjusted for deliver order (DO) activity.
     /// Encoded/decoded by serializers as "DeliverOrderActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEEE")]
     [IsoId("_JYHq0cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your record date position was adjusted for deliver order (DO) activity.")]
     DeliverOrderActivity,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for adjustment related to the deposit of lost certificate over the record date that was registered in the name of your [user defined].
     /// Encoded/decoded by serializers as "DepositLostCertificateRegisteredInNameOfYour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDAD")]
     [IsoId("_JbZBQcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for adjustment related to the deposit of lost certificate over the record date that was registered in the name of your [user defined].")]
     DepositLostCertificateRegisteredInNameOfYour,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for deposit after cut off date transferred into the name of the CEDE on record date.
     /// Encoded/decoded by serializers as "DepositTransferredIntoNameOfCEDEAndCo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDCD")]
     [IsoId("_JiPQIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for deposit after cut off date transferred into the name of the CEDE on record date.")]
     DepositTransferredIntoNameOfCEDEAndCo,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for dividend allocation adjustment due to your sub accounting instructions to the agent.
     /// Encoded/decoded by serializers as "DividendReinvestmentAllocationAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSS6")]
     [IsoId("_Jx3AgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for dividend allocation adjustment due to your sub accounting instructions to the agent.")]
     DividendReinvestmentAllocationAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for dividend reinvestment allocation of cash in lieu of fractions related adjustment.
     /// Encoded/decoded by serializers as "DividendReinvestmentAllocationOfCashInLieuOfFractions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSE6")]
     [IsoId("_J4jeYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for dividend reinvestment allocation of cash in lieu of fractions related adjustment.")]
     DividendReinvestmentAllocationOfCashInLieuOfFractions,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for CTF(s) held over record date on which we guarantee to hold you free and harmless of any further claim on this dividend.
     /// Encoded/decoded by serializers as "CTFSHeldOverRecordDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDMT")]
     [IsoId("_KLmWMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for CTF(s) held over record date on which we guarantee to hold you free and harmless of any further claim on this dividend.")]
     CTFSHeldOverRecordDate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC claim against registered holder in the name of your customer.
     /// Encoded/decoded by serializers as "DTCCClaimInTheNameOfYourCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCP")]
     [IsoId("_LWuskcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC claim against registered holder in the name of your customer.")]
     DTCCClaimInTheNameOfYourCustomer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC claim against registered holder in the name of your customer. Late identification of missed transfer by Transfer Agent.
     /// Encoded/decoded by serializers as "DTCCClaimInTheNameOfYourCustomerLateTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLCP")]
     [IsoId("_LZ2SAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC claim against registered holder in the name of your customer. Late identification of missed transfer by Transfer Agent.")]
     DTCCClaimInTheNameOfYourCustomerLateTransfer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC claim against registered holder in the name of your good selves.
     /// Encoded/decoded by serializers as "DTCCClaimInTheNameOfYourGoodselves".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPGP")]
     [IsoId("_Lc-egcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC claim against registered holder in the name of your good selves.")]
     DTCCClaimInTheNameOfYourGoodselves,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC claim against registered holder in the name of your nominee. Late identification of missed transfer by Transfer Agent.
     /// Encoded/decoded by serializers as "DTCCClaimInTheNameOfYourNominee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLNP")]
     [IsoId("_LmpX4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC claim against registered holder in the name of your nominee. Late identification of missed transfer by Transfer Agent.")]
     DTCCClaimInTheNameOfYourNominee,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC claim against registered holder in the name of your nominee.
     /// Encoded/decoded by serializers as "DTCCClaimInTheNameOfYourNomineeLateTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPNP")]
     [IsoId("_Lp6uUcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC claim against registered holder in the name of your nominee.")]
     DTCCClaimInTheNameOfYourNomineeLateTransfer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC claim on registered holder in the name of your customer.
     /// Encoded/decoded by serializers as "DTCCClaimOnRegisteredHolderInTheNameOfYourCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGLZ")]
     [IsoId("_LtC60cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC claim on registered holder in the name of your customer.")]
     DTCCClaimOnRegisteredHolderInTheNameOfYourCustomer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for due bill for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "DueBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFLE")]
     [IsoId("_L89mIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for due bill for fail tracking related adjustment.")]
     DueBill,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for due bill fail tracking.
     /// Encoded/decoded by serializers as "DueBillFailTracking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSFF")]
     [IsoId("_MAFyocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for due bill fail tracking.")]
     DueBillFailTracking,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for due bill fail tracking reversal.
     /// Encoded/decoded by serializers as "DueBillReversal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSFR")]
     [IsoId("_MDgTAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for due bill fail tracking reversal.")]
     DueBillReversal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your record date position was adjusted for a DWAC withdrawal to effect a buy back/treasury purchase.
     /// Encoded/decoded by serializers as "DWACAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBB3")]
     [IsoId("_MNLMYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your record date position was adjusted for a DWAC withdrawal to effect a buy back/treasury purchase.")]
     DWACAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for foreign cash dividends/bonds interest allocation at favourable rate.
     /// Encoded/decoded by serializers as "ForeignCashDividendsOrBondsInterestAllocationAtFavourableRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFF8")]
     [IsoId("_MxCHYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for foreign cash dividends/bonds interest allocation at favourable rate.")]
     ForeignCashDividendsOrBondsInterestAllocationAtFavourableRate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for ten percent French withholding tax, based on your revised instructions to reduce favourable tax status to unfavourable.
     /// Encoded/decoded by serializers as "FrenchWithholdingTax10Percent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFH9")]
     [IsoId("_NK6nAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for ten percent French withholding tax, based on your revised instructions to reduce favourable tax status to unfavourable.")]
     FrenchWithholdingTax10Percent,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for foreign cash dividends or bond interest allocation at unfavourable rate.
     /// Encoded/decoded by serializers as "ForeignCashDividendsOrBondInterestAllocationAtUnfavourableRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFU9")]
     [IsoId("_NRLAAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for foreign cash dividends or bond interest allocation at unfavourable rate.")]
     ForeignCashDividendsOrBondInterestAllocationAtUnfavourableRate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for foreign cash dividends/bond interest allocation at exempt rate.
     /// Encoded/decoded by serializers as "ForeignCashDividendsOrBondInterestAllocationAtExemptRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFE8")]
     [IsoId("_NUSlccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for foreign cash dividends/bond interest allocation at exempt rate.")]
     ForeignCashDividendsOrBondInterestAllocationAtExemptRate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your record date position was adjusted for a DWAC buy back withdrawal.
     /// Encoded/decoded by serializers as "DWACBuyBackWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSBB")]
     [IsoId("_NXj74cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your record date position was adjusted for a DWAC buy back withdrawal.")]
     DWACBuyBackWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC claim on registered holder in the name of your good selves.
     /// Encoded/decoded by serializers as "DTCCClaimOnRegisteredHolderInTheNameOfYourGoodselves".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGLQ")]
     [IsoId("_Nq5uocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC claim on registered holder in the name of your good selves.")]
     DTCCClaimOnRegisteredHolderInTheNameOfYourGoodselves,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC claim against registered holder in the name of your good selves. Late identification of missed transfer by Transfer Agent.
     /// Encoded/decoded by serializers as "DTCCClaimInTheNameOfYourGoodselvesLateTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLGP")]
     [IsoId("_NxKHocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC claim against registered holder in the name of your good selves. Late identification of missed transfer by Transfer Agent.")]
     DTCCClaimInTheNameOfYourGoodselvesLateTransfer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for foreign cash dividends allocation at unfavourable rate.
     /// Encoded/decoded by serializers as "ForeignCashDividendUnfavourableRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFL9")]
     [IsoId("_OKTAYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for foreign cash dividends allocation at unfavourable rate.")]
     ForeignCashDividendUnfavourableRate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for allocation of fractional rights.
     /// Encoded/decoded by serializers as "FractionalRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFR")]
     [IsoId("_OQsjUcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for allocation of fractional rights.")]
     FractionalRights,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for fifteen percent French withholding tax, based on your option election of 100% ADRs at the favourable rate.
     /// Encoded/decoded by serializers as "FrenchWithholdingTax15Percent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFG8")]
     [IsoId("_OdfCIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for fifteen percent French withholding tax, based on your option election of 100% ADRs at the favourable rate.")]
     FrenchWithholdingTax15Percent,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for twenty five percent French withholding tax, based on your option election of 100% ADRs at the unfavourable rate.
     /// Encoded/decoded by serializers as "FrenchWithholdingTax25Percent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFG9")]
     [IsoId("_OjvbIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for twenty five percent French withholding tax, based on your option election of 100% ADRs at the unfavourable rate.")]
     FrenchWithholdingTax25Percent,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is as per memo requesting a frozen letter movement from part number.
     /// Encoded/decoded by serializers as "FrozenLetterMovement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFRO")]
     [IsoId("_PZTKIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is as per memo requesting a frozen letter movement from part number.")]
     FrozenLetterMovement,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that company is taking 30 day grace period.
     /// Encoded/decoded by serializers as "GracePeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAGA")]
     [IsoId("_PfsGAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that company is taking 30 day grace period.")]
     GracePeriod,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that this adjustment represents credits/debits to your account in lieu of reorganisation deposit activity.
     /// Encoded/decoded by serializers as "InLieuOfReorganisationDepositActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRG")]
     [IsoId("_Pi-DgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that this adjustment represents credits/debits to your account in lieu of reorganisation deposit activity.")]
     InLieuOfReorganisationDepositActivity,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that adjustment is in response to your inquiry. Refer to control number.
     /// Encoded/decoded by serializers as "InResponseToYourInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRIH")]
     [IsoId("_PpN1ccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that adjustment is in response to your inquiry. Refer to control number.")]
     InResponseToYourInquiry,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for in settlement of a trade - DTCC reorganisation account 428-10271-1-2-039.
     /// Encoded/decoded by serializers as "InSettlementOfTradeDTCCReorganisationAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGLT")]
     [IsoId("_PsVa4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for in settlement of a trade - DTCC reorganisation account 428-10271-1-2-039.")]
     InSettlementOfTradeDTCCReorganisationAccount,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for Interest adjusted due to early withdrawal (certificate of deposit).
     /// Encoded/decoded by serializers as "InterestAdjustedDueToEarlyWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SACB")]
     [IsoId("_Pylz4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for Interest adjusted due to early withdrawal (certificate of deposit).")]
     InterestAdjustedDueToEarlyWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for interest allocated in error first payment on "date user defined".
     /// Encoded/decoded by serializers as "InterestAllocatedInError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAEA")]
     [IsoId("_P4-vwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for interest allocated in error first payment on ""date user defined"".")]
     InterestAllocatedInError,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that the interest due on the above CUSIP was erroneously paid to you by the issuer although the certificate of deposit was transferred to CEDE (DTCC) prior to the interest payment date.
     /// Encoded/decoded by serializers as "InterestDueWasErroneouslyPaidToYouByIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S66P")]
     [IsoId("_P_0-ocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that the interest due on the above CUSIP was erroneously paid to you by the issuer although the certificate of deposit was transferred to CEDE (DTCC) prior to the interest payment date.")]
     InterestDueWasErroneouslyPaidToYouByIssuer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for interest or dividend due on conversion related adjustment.
     /// Encoded/decoded by serializers as "InterestorDividendDueOnConversion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAC7")]
     [IsoId("_QDQGEcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for interest or dividend due on conversion related adjustment.")]
     InterestorDividendDueOnConversion,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for interest or dividend due on merger related adjustment.
     /// Encoded/decoded by serializers as "InterestOrDividendDueOnMerger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAM7")]
     [IsoId("_QJyy8cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for interest or dividend due on merger related adjustment.")]
     InterestOrDividendDueOnMerger,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for interest or dividend due on redemption.
     /// Encoded/decoded by serializers as "InterestOrDividendDueOnRedemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAR7")]
     [IsoId("_QQMV4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for interest or dividend due on redemption.")]
     InterestOrDividendDueOnRedemption,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for interest or dividend due on repayment option.
     /// Encoded/decoded by serializers as "InterestOrDividendDueOnRepaymentOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAP7")]
     [IsoId("_QWvCwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for interest or dividend due on repayment option.")]
     InterestOrDividendDueOnRepaymentOption,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for interest or dividend due on tender.
     /// Encoded/decoded by serializers as "InterestOrDividendDueOnTender".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAT7")]
     [IsoId("_QdIlscMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for interest or dividend due on tender.")]
     InterestOrDividendDueOnTender,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that interest pays at maturity. Allocated in error on user defined date.
     /// Encoded/decoded by serializers as "InterestPaysAtMaturity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAMA")]
     [IsoId("_QmqVIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that interest pays at maturity. Allocated in error on user defined date.")]
     InterestPaysAtMaturity,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for that your interim position was adjusted for deliver order activity.
     /// Encoded/decoded by serializers as "InterimPositionAdjustedForDeliverOrderActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGE")]
     [IsoId("_QtDRAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for that your interim position was adjusted for deliver order activity.")]
     InterimPositionAdjustedForDeliverOrderActivity,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that DTCC investment identification related adjustment.
     /// Encoded/decoded by serializers as "InvestmentIdentificationAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJIE")]
     [IsoId("_Qzcz8cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that DTCC investment identification related adjustment.")]
     InvestmentIdentificationAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for issue in default related adjustment.
     /// Encoded/decoded by serializers as "IssueInDefault".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SADM")]
     [IsoId("_Q8-jYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for issue in default related adjustment.")]
     IssueInDefault,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for fail tracking for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "LateAnnouncement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFLL")]
     [IsoId("_RDhQQcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for fail tracking for fail tracking related adjustment.")]
     LateAnnouncement,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for late announcement activity due bill activity related adjustment.
     /// Encoded/decoded by serializers as "LateAnnouncementActivityDueBillActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SILL")]
     [IsoId("_RGymscMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for late announcement activity due bill activity related adjustment.")]
     LateAnnouncementActivityDueBillActivity,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for that the adjustment related to the deposit of lost certificate over the record date was registered in the name of your good selves.
     /// Encoded/decoded by serializers as "LostCertificateRegisteredInTheNameOfYourGoodselves".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDBD")]
     [IsoId("_RKNuIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for that the adjustment related to the deposit of lost certificate over the record date was registered in the name of your good selves.")]
     LostCertificateRegisteredInTheNameOfYourGoodselves,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for withdrawal by transfer - lost certificate over the record date was registered in the name of your customer.
     /// Encoded/decoded by serializers as "LostCertificateWasRegisteredInTheNameOfYourCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWG1")]
     [IsoId("_RQdgEcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for withdrawal by transfer - lost certificate over the record date was registered in the name of your customer.")]
     LostCertificateWasRegisteredInTheNameOfYourCustomer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for adjustment related to the deposit of lost certificate over the record date that was registered in the name of your nominee.
     /// Encoded/decoded by serializers as "LostCertificateWasRegisteredInTheNameOfYourNominee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDED")]
     [IsoId("_SJ5CccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for adjustment related to the deposit of lost certificate over the record date that was registered in the name of your nominee.")]
     LostCertificateWasRegisteredInTheNameOfYourNominee,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for adjustment made for the Midwest depository (6942).
     /// Encoded/decoded by serializers as "MidwestDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCMU")]
     [IsoId("_SNdT0cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for adjustment made for the Midwest depository (6942).")]
     MidwestDepository,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for muni bearer bond coupon adjustment.
     /// Encoded/decoded by serializers as "MuniBearerBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGLM")]
     [IsoId("_STtFwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for muni bearer bond coupon adjustment.")]
     MuniBearerBond,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for muni bearer bond coupon related adjustment.
     /// Encoded/decoded by serializers as "MuniBearerBondCoupon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAM")]
     [IsoId("_SW1SQcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for muni bearer bond coupon related adjustment.")]
     MuniBearerBondCoupon,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for muni bearer bond coupon adjustment excess coupon(s) withdrawn on user defined date.
     /// Encoded/decoded by serializers as "MuniBearerBondCouponAdjustmentExcessCouponsWithdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMDM")]
     [IsoId("_StJggcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for muni bearer bond coupon adjustment excess coupon(s) withdrawn on user defined date.")]
     MuniBearerBondCouponAdjustmentExcessCouponsWithdrawn,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for non allocation for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "NonAllocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFLS")]
     [IsoId("_S2qo4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for non allocation for fail tracking related adjustment.")]
     NonAllocation,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for optional dividend (ops) allocation related adjustment.
     /// Encoded/decoded by serializers as "OptionalDividendAllocationAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOP2")]
     [IsoId("_S5y1YcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for optional dividend (ops) allocation related adjustment.")]
     OptionalDividendAllocationAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for part claim payment.
     /// Encoded/decoded by serializers as "PartClaimPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCPP")]
     [IsoId("_TNIoIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for part claim payment.")]
     PartClaimPayment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC pledge release related adjustment.
     /// Encoded/decoded by serializers as "PledgeReleaseAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJEE")]
     [IsoId("_UE7LwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC pledge release related adjustment.")]
     PledgeReleaseAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your record date position was adjusted for deposit activity.
     /// Encoded/decoded by serializers as "PositionAdjustedForDepositActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDDD")]
     [IsoId("_UIWTMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your record date position was adjusted for deposit activity.")]
     PositionAdjustedForDepositActivity,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your position was reinstated for a withdrawal by transfer. However the certificates(s) were issued and outstanding over the record date in the name of your customer(s).
     /// Encoded/decoded by serializers as "PositionReinstatedCertificatesIssuedAndOutstanding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWN1")]
     [IsoId("_ULxaocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your position was reinstated for a withdrawal by transfer. However the certificates(s) were issued and outstanding over the record date in the name of your customer(s).")]
     PositionReinstatedCertificatesIssuedAndOutstanding,
     
     /// <summary>
-    /// ??
+    /// Reserved for new user defined reason codes.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_UVSjAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Reserved for new user defined reason codes.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for adjustment made for the Pacific depository (3097).
     /// Encoded/decoded by serializers as "PacificDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCLU")]
     [IsoId("_UYj5ccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for adjustment made for the Pacific depository (3097).")]
     PacificDepository,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that payment of full avoid fiscal tax refund (equal to 42.5% of the dividend).
     /// Encoded/decoded by serializers as "PaymentOfFullAvoidFiscalTaxRefund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAHA")]
     [IsoId("_UooVwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that payment of full avoid fiscal tax refund (equal to 42.5% of the dividend).")]
     PaymentOfFullAvoidFiscalTaxRefund,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that payment of partial avoid fiscal tax refund (equal to 15% of the dividend).
     /// Encoded/decoded by serializers as "PaymentOfPartialAvoidFiscalTaxRefund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAPA")]
     [IsoId("_UvB4scMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that payment of partial avoid fiscal tax refund (equal to 15% of the dividend).")]
     PaymentOfPartialAvoidFiscalTaxRefund,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for adjustment made for the Philadelphia depository (6070).
     /// Encoded/decoded by serializers as "PhiladelphiaDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCNU")]
     [IsoId("_U7rNkcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for adjustment made for the Philadelphia depository (6070).")]
     PhiladelphiaDepository,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC pledge related adjustment.
     /// Encoded/decoded by serializers as "PledgeAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJEF")]
     [IsoId("_VCEwgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC pledge related adjustment.")]
     PledgeAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for post date change for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "PostDateChangeForFailTracking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFL3")]
     [IsoId("_VLl44cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for post date change for fail tracking related adjustment.")]
     PostDateChangeForFailTracking,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for part-claim reversal.
     /// Encoded/decoded by serializers as "PartClaimReversal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRP")]
     [IsoId("_VbgkMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for part-claim reversal.")]
     PartClaimReversal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for muni bearer bond coupon adjustment. Your interim position was adjusted for deposit activity.
     /// Encoded/decoded by serializers as "MuniBearerBondCouponPositionAdjustedForDepositActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMMM")]
     [IsoId("_Vk4iocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for muni bearer bond coupon adjustment. Your interim position was adjusted for deposit activity.")]
     MuniBearerBondCouponPositionAdjustedForDepositActivity,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for muni bearer bond coupon adjustment excess coupon(s) deposited on user defined date.
     /// Encoded/decoded by serializers as "MuniBearerBondCouponAdjustmentExcessCouponsDeposited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMEM")]
     [IsoId("_VrbPgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for muni bearer bond coupon adjustment excess coupon(s) deposited on user defined date.")]
     MuniBearerBondCouponAdjustmentExcessCouponsDeposited,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for muni bearer bond coupon adjustment for coupon(s) missing from a withdrawal.
     /// Encoded/decoded by serializers as "MuniBearerBondCouponAdjustmentCouponsMissingFromWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMCM")]
     [IsoId("_VujcAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for muni bearer bond coupon adjustment for coupon(s) missing from a withdrawal.")]
     MuniBearerBondCouponAdjustmentCouponsMissingFromWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for muni bearer bond coupon adjustment for coupon(s) missing from a deposit related adjustment.
     /// Encoded/decoded by serializers as "MuniBearerBondCouponAdjustmentCouponsMissingFromDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMBM")]
     [IsoId("_V08-8cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for muni bearer bond coupon adjustment for coupon(s) missing from a deposit related adjustment.")]
     MuniBearerBondCouponAdjustmentCouponsMissingFromDeposit,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an allocation of a pay in kind distribution.
     /// Encoded/decoded by serializers as "PaynInKindDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPA")]
     [IsoId("_WUfaocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an allocation of a pay in kind distribution.")]
     PaynInKindDistribution,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for that you deposited securities that were previously called. The agent paid DTCC the redemption proceeds. This adjustment is to pass these proceeds on to you. Your free account security position will be adjusted (shorted) today for the called quantity.
     /// Encoded/decoded by serializers as "PreviouslyCalledCertificatesFundsDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDEP")]
     [IsoId("_XDzXscMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for that you deposited securities that were previously called. The agent paid DTCC the redemption proceeds. This adjustment is to pass these proceeds on to you. Your free account security position will be adjusted (shorted) today for the called quantity.")]
     PreviouslyCalledCertificatesFundsDelivery,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for allocation adjustment for dividend reinvestment due to price correction by the agent.
     /// Encoded/decoded by serializers as "PriceCorrectionDividendReinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSA6")]
     [IsoId("_XKo_gcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for allocation adjustment for dividend reinvestment due to price correction by the agent.")]
     PriceCorrectionDividendReinvestment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for proceeds from sale of.
     /// Encoded/decoded by serializers as "ProceedsFromSaleOf".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPFS")]
     [IsoId("_Xg0D0cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for proceeds from sale of.")]
     ProceedsFromSaleOf,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for proceeds resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
     /// Encoded/decoded by serializers as "ProceedsFromBuyTransactionInDividendTradingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSP4")]
     [IsoId("_XqVMMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for proceeds resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).")]
     ProceedsFromBuyTransactionInDividendTradingAccount,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for proceeds resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
     /// Encoded/decoded by serializers as "ProceedsFromSellTransactionInDividendTradingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSS5")]
     [IsoId("_X3RcAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for proceeds resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).")]
     ProceedsFromSellTransactionInDividendTradingAccount,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that this allocation was adjusted for a rate change. Please refer to DIVA comment field for additional information.
     /// Encoded/decoded by serializers as "RateChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRTA")]
     [IsoId("_X6jZgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that this allocation was adjusted for a rate change. Please refer to DIVA comment field for additional information.")]
     RateChange,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for rate revision for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "RateRevision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFLR")]
     [IsoId("_YAzLccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for rate revision for fail tracking related adjustment.")]
     RateRevision,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for rate unknown for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "RateUnknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFL0")]
     [IsoId("_YEEh4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for rate unknown for fail tracking related adjustment.")]
     RateUnknown,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that our record date position was adjusted for a withdrawal by transfer activity.
     /// Encoded/decoded by serializers as "RecordDatePositionAdjustedForWithdrawalByTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWHT")]
     [IsoId("_YKeE0cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that our record date position was adjusted for a withdrawal by transfer activity.")]
     RecordDatePositionAdjustedForWithdrawalByTransfer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC redemption related adjustment.
     /// Encoded/decoded by serializers as "RedemptionAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJE7")]
     [IsoId("_YNlqQcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC redemption related adjustment.")]
     RedemptionAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for redemption payment due to pledge release.
     /// Encoded/decoded by serializers as "RedemptionPaymentDueToPledgeRelease".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGLP")]
     [IsoId("_YdXLocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for redemption payment due to pledge release.")]
     RedemptionPaymentDueToPledgeRelease,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that the 25% French withholding rate has been revised. This adjustment is based on the refunded tax rate.
     /// Encoded/decoded by serializers as "RefundedTaxRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFJ9")]
     [IsoId("_YgoiEcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that the 25% French withholding rate has been revised. This adjustment is based on the refunded tax rate.")]
     RefundedTaxRate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for refund of French tax based on acceptance of global reclamation for the July 1992 distribution refer to important notice b # 1352‑93.
     /// Encoded/decoded by serializers as "RefundOfFrenchTaxJuly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFRB")]
     [IsoId("_YnCFAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for refund of French tax based on acceptance of global reclamation for the July 1992 distribution refer to important notice b # 1352‑93.")]
     RefundOfFrenchTaxJuly,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for refund of French tax based on acceptance of global reclamation for the June 1992 distribution refer to important notice b # 1352‑93.
     /// Encoded/decoded by serializers as "RefundOfFrenchTaxJune".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFRA")]
     [IsoId("_YqKRgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for refund of French tax based on acceptance of global reclamation for the June 1992 distribution refer to important notice b # 1352‑93.")]
     RefundOfFrenchTaxJune,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for reinstate for fail tracking related adjustment.
     /// Encoded/decoded by serializers as "Reinstate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFL2")]
     [IsoId("_YwjNYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for reinstate for fail tracking related adjustment.")]
     Reinstate,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC reorganisation related adjustment.
+    /// 
     /// Encoded/decoded by serializers as "ReorganisationAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJR7")]
     [IsoId("_Y28wUcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC reorganisation related adjustment. ")]
     ReorganisationAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for reorganisation related adjustment on user defined date.
     /// Encoded/decoded by serializers as "ReorganisationRelatedAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S777")]
     [IsoId("_ZHK9ocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for reorganisation related adjustment on user defined date.")]
     ReorganisationRelatedAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for Rep payment / charge.
     /// Encoded/decoded by serializers as "RepPaymentCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRPO")]
     [IsoId("_ZKSjEcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for Rep payment / charge.")]
     RepPaymentCharge,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for redemption cash settlement.
     /// Encoded/decoded by serializers as "RedemptionCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGL7")]
     [IsoId("_ZfuAgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for redemption cash settlement.")]
     RedemptionCash,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for a reversal of an accrual claim payment related to a stock distribution payable on user defined date.
     /// Encoded/decoded by serializers as "ReversalOfAccrualClaimPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRK")]
     [IsoId("_aHcH0cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for a reversal of an accrual claim payment related to a stock distribution payable on user defined date.")]
     ReversalOfAccrualClaimPayment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for a reversal of a COD withdrawal related adjustment.
     /// Encoded/decoded by serializers as "ReversalOfCODWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBRH")]
     [IsoId("_aLAZMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for a reversal of a COD withdrawal related adjustment.")]
     ReversalOfCODWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for a reversal of a deposit adjustment.
     /// Encoded/decoded by serializers as "ReversalOfDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDRH")]
     [IsoId("_aR_yAcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for a reversal of a deposit adjustment.")]
     ReversalOfDeposit,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for allocation of script shares amount to be exited in dollar value.
     /// Encoded/decoded by serializers as "ScriptSharesExited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SASA")]
     [IsoId("_alfVwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for allocation of script shares amount to be exited in dollar value.")]
     ScriptSharesExited,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for share adjustment resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
     /// Encoded/decoded by serializers as "ShareAdjustmentFromBuyTransactionInDividendTradingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSR4")]
     [IsoId("_aoniQcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for share adjustment resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).")]
     ShareAdjustmentFromBuyTransactionInDividendTradingAccount,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for share adjustment resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
     /// Encoded/decoded by serializers as "ShareAdjustmentFromSellTransactionInDividendTradingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSR5")]
     [IsoId("_arvHscMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for share adjustment resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).")]
     ShareAdjustmentFromSellTransactionInDividendTradingAccount,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for an allocation of spinoff security.
     /// Encoded/decoded by serializers as "SpinOffAllocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSOS")]
     [IsoId("_au3UMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for an allocation of spinoff security.")]
     SpinOffAllocation,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for stock loan related payment or charge.
+    /// 
     /// Encoded/decoded by serializers as "StockLoanAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSLA")]
     [IsoId("_ax-5ocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for stock loan related payment or charge. ")]
     StockLoanAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for stock loan or repo payment order related adjustment.
     /// Encoded/decoded by serializers as "StockLoanOrRepoPaymentOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPO")]
     [IsoId("_a1HGIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for stock loan or repo payment order related adjustment.")]
     StockLoanOrRepoPaymentOrder,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for supplemental interim activity from Midwest (6942).
     /// Encoded/decoded by serializers as "SupplementalInterimActivityFromMidwest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSME")]
     [IsoId("_a_OrccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for supplemental interim activity from Midwest (6942).")]
     SupplementalInterimActivityFromMidwest,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for supplementary interim on user defined date.
     /// Encoded/decoded by serializers as "SupplementaryInterimOn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFA")]
     [IsoId("_bI5k0cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for supplementary interim on user defined date.")]
     SupplementaryInterimOn,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for supplemental interim activity from Philadelphia (6070).
     /// Encoded/decoded by serializers as "SupplementalInterimActivityFromPhiladelphia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPE")]
     [IsoId("_bPcRscMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for supplemental interim activity from Philadelphia (6070).")]
     SupplementalInterimActivityFromPhiladelphia,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for supplemental interim activity related adjustment.
     /// Encoded/decoded by serializers as "SupplementalInterimActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRPP")]
     [IsoId("_bcPXkcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for supplemental interim activity related adjustment.")]
     SupplementalInterimActivity,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for revision of charge for withholding tax.
     /// Encoded/decoded by serializers as "RevisionOfChargeForWithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAJA")]
     [IsoId("_bsv4wcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for revision of charge for withholding tax.")]
     RevisionOfChargeForWithholdingTax,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is due to shares escheated to New York state in error. This is to reverse.
     /// Encoded/decoded by serializers as "ReverseOfSharesEscheatedToNYStateInError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETO")]
     [IsoId("_bwxdIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is due to shares escheated to New York state in error. This is to reverse.")]
     ReverseOfSharesEscheatedToNYStateInError,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is due to a reverse of escheated amount of claim.
     /// Encoded/decoded by serializers as "ReverseOfEscheatedAmountOfClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFAP")]
     [IsoId("_b0yaccMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is due to a reverse of escheated amount of claim.")]
     ReverseOfEscheatedAmountOfClaim,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for a reversal of a withdrawal by transfer adjustment.
     /// Encoded/decoded by serializers as "ReversalOfWithdrawalByTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWRH")]
     [IsoId("_b4pmwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for a reversal of a withdrawal by transfer adjustment.")]
     ReversalOfWithdrawalByTransfer,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is to adjust allocation at 100% on your tax exempt instructions.
     /// Encoded/decoded by serializers as "TaxExemptInstructions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEA")]
     [IsoId("_cwvsYcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is to adjust allocation at 100% on your tax exempt instructions.")]
     TaxExemptInstructions,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for interest adjusted due to tender fee deduction.
     /// Encoded/decoded by serializers as "TenderFeeDeduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAF7")]
     [IsoId("_c3lUMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for interest adjusted due to tender fee deduction.")]
     TenderFeeDeduction,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your account is being credited at the unfavourable rate (20%) as a result of the reorg merger paid on 4/2/93 (Armstrong Pharm to Medeva plc, effective 1/15/93). If entitled to favourable rate(15%), you must follow attached.
     /// Encoded/decoded by serializers as "UnfavourableRateMerger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAA7")]
     [IsoId("_c75zgcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your account is being credited at the unfavourable rate (20%) as a result of the reorg merger paid on 4/2/93 (Armstrong Pharm to Medeva plc, effective 1/15/93). If entitled to favourable rate(15%), you must follow attached.")]
     UnfavourableRateMerger,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for uninsured interest withheld as per FSLICN.
     /// Encoded/decoded by serializers as "UninsuredInterestWithheld".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAWA")]
     [IsoId("_c_LJ8cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for uninsured interest withheld as per FSLICN.")]
     UninsuredInterestWithheld,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for option to receive Vodafone Group American Depository Receipt at 11.354392 for every 100 ADRS.
     /// Encoded/decoded by serializers as "VodaphoneADR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRRA")]
     [IsoId("_dGKiwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for option to receive Vodafone Group American Depository Receipt at 11.354392 for every 100 ADRS.")]
     VodaphoneADR,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for adjustment made for a withdrawal by transfer that was not transferred into your clients name by the record date.
     /// Encoded/decoded by serializers as "WithdrawalByTransferNotTransferredIntoClientsName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWL1")]
     [IsoId("_dJSvQcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for adjustment made for a withdrawal by transfer that was not transferred into your clients name by the record date.")]
     WithdrawalByTransferNotTransferredIntoClientsName,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason code is for adjustment made for a withdrawal by transfer set up after the cut off date made transfer into your clients name.
     /// Encoded/decoded by serializers as "WithdrawalByTransferSetUpAfterCutOffDateTransferIntoClientsName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWM1")]
     [IsoId("_dP_NIcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason code is for adjustment made for a withdrawal by transfer set up after the cut off date made transfer into your clients name.")]
     WithdrawalByTransferSetUpAfterCutOffDateTransferIntoClientsName,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for DTCC WT related adjustment.
     /// Encoded/decoded by serializers as "WithdrawalTransferAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJWT")]
     [IsoId("_ddEm4cMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for DTCC WT related adjustment.")]
     WithdrawalTransferAdjustment,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that your record date position was adjusted for a w/t buy back withdrawal.
     /// Encoded/decoded by serializers as "WithdrawalTransferBuyBackWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBB2")]
     [IsoId("_djxEwcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that your record date position was adjusted for a w/t buy back withdrawal.")]
     WithdrawalTransferBuyBackWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for adjustment to allocation to charge (user defined percentage) withholding tax in (user defined) country.
     /// Encoded/decoded by serializers as "WithholdingTaxAdjustmentInUserDefinedCountry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWTA")]
     [IsoId("_dnMMMcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for adjustment to allocation to charge (user defined percentage) withholding tax in (user defined) country.")]
     WithholdingTaxAdjustmentInUserDefinedCountry,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is in response to your written inquiry.
     /// Encoded/decoded by serializers as "WrittenInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRAH")]
     [IsoId("_dxdigcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is in response to your written inquiry.")]
     WrittenInquiry,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is for write off reorganisation related adjustment.
     /// Encoded/decoded by serializers as "WriteOffReorganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SJEW")]
     [IsoId("_d8UHocMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is for write off reorganisation related adjustment.")]
     WriteOffReorganisation,
     
     /// <summary>
-    /// ??
+    /// Adjustment sub-reason is that the principal previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.
     /// Encoded/decoded by serializers as "WrongRatePrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRA")]
     [IsoId("_eD59YcMKEee-Vv_OVx0uAQ")]
-    [Description(@"??")]
+    [Description(@"Adjustment sub-reason is that the principal previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.")]
     WrongRatePrincipal,
     
 }

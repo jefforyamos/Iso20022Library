@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EncryptedDataFormat1Code
 {
     /// <summary>
-    /// ??
+    /// ASCII Format.
     /// Encoded/decoded by serializers as "ASCII".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASCI")]
     [IsoId("_kQkL0QHzEeiJObvChJn-OA")]
-    [Description(@"??")]
+    [Description(@"ASCII Format.")]
     ASCII,
     
     /// <summary>
-    /// ??
+    /// Binary format.
     /// Encoded/decoded by serializers as "Binary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BINF")]
     [IsoId("_kd9HkgHzEeiJObvChJn-OA")]
-    [Description(@"??")]
+    [Description(@"Binary format.")]
     Binary,
     
     /// <summary>
-    /// ??
+    /// EBCDIC format.
     /// Encoded/decoded by serializers as "EBCDIC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EBCD")]
     [IsoId("_kryvQgHzEeiJObvChJn-OA")]
-    [Description(@"??")]
+    [Description(@"EBCDIC format.")]
     EBCDIC,
     
     /// <summary>
-    /// ??
+    /// HEX Format.
     /// Encoded/decoded by serializers as "HEX".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HEXF")]
     [IsoId("_k-1AAgHzEeiJObvChJn-OA")]
-    [Description(@"??")]
+    [Description(@"HEX Format.")]
     HEX,
     
     /// <summary>
-    /// ??
+    /// Other format defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_lNtJggHzEeiJObvChJn-OA")]
-    [Description(@"??")]
+    [Description(@"Other format defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of format defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_lb_dIgHzEeiJObvChJn-OA")]
-    [Description(@"??")]
+    [Description(@"Other type of format defined at private level.")]
     OtherPrivate,
     
 }

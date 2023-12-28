@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RetailerService5Code
 {
     /// <summary>
-    /// ??
+    /// The POI System responds to a login request.
     /// Encoded/decoded by serializers as "AdministrativeSessionManagementLoginResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMIP")]
     [IsoId("_fuo54d6LEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI System responds to a login request.")]
     AdministrativeSessionManagementLoginResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System responds to a logout request.
     /// Encoded/decoded by serializers as "AdministrativeSessionManagementLogoutResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMOP")]
     [IsoId("_gFTtcd6LEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI System responds to a logout request.")]
     AdministrativeSessionManagementLogoutResponse,
     
     /// <summary>
-    /// ??
+    /// The POI System responds to a diagnosis request.
     /// Encoded/decoded by serializers as "AdministrativeSessionManagementDiagnosisResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMDP")]
     [IsoId("_guks4d6LEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The POI System responds to a diagnosis request.")]
     AdministrativeSessionManagementDiagnosisResponse,
     
 }

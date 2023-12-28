@@ -20,246 +20,246 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ModificationRejection2Code
 {
     /// <summary>
-    /// ??
+    /// Related transaction reference cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyRelatedReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM01")]
     [IsoId("_aMHMtNp-Ed-ak6NoX_4Aeg_-2138458495")]
-    [Description(@"??")]
+    [Description(@"Related transaction reference cannot be modified.")]
     UnableToModifyRelatedReference,
     
     /// <summary>
-    /// ??
+    /// Service level element of payment type cannot be modified(former UnableToModifyBankOperationCode).
     /// Encoded/decoded by serializers as "UnableToModifyPaymentServiceLevel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM02")]
     [IsoId("_aMHMtdp-Ed-ak6NoX_4Aeg_-2138458486")]
-    [Description(@"??")]
+    [Description(@"Service level element of payment type cannot be modified(former UnableToModifyBankOperationCode).")]
     UnableToModifyPaymentServiceLevel,
     
     /// <summary>
-    /// ??
+    /// Category purpose element of payment type cannot be modified (former UnableToModifyInstructionCode).
     /// Encoded/decoded by serializers as "UnableToModifyCategoryPurpose".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM03")]
     [IsoId("_aMHMttp-Ed-ak6NoX_4Aeg_-2138458464")]
-    [Description(@"??")]
+    [Description(@"Category purpose element of payment type cannot be modified (former UnableToModifyInstructionCode).")]
     UnableToModifyCategoryPurpose,
     
     /// <summary>
-    /// ??
+    /// RequestedExecutionDate cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyRequestedExecutionDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM04")]
     [IsoId("_aMHMt9p-Ed-ak6NoX_4Aeg_-2138458434")]
-    [Description(@"??")]
+    [Description(@"RequestedExecutionDate cannot be modified.")]
     UnableToModifyRequestedExecutionDate,
     
     /// <summary>
-    /// ??
+    /// InterbankSettlementDate cannot be modified (former UnableToModifyValueDate).
     /// Encoded/decoded by serializers as "UnableToModifyInterbankSettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM05")]
     [IsoId("_aMHMuNp-Ed-ak6NoX_4Aeg_-2138458433")]
-    [Description(@"??")]
+    [Description(@"InterbankSettlementDate cannot be modified (former UnableToModifyValueDate).")]
     UnableToModifyInterbankSettlementDate,
     
     /// <summary>
-    /// ??
+    /// SettlementAccount cannot be modified (former UnableToModifyInterbankSettlementAccount).
     /// Encoded/decoded by serializers as "UnableToModifyInterbankSettlementAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM06")]
     [IsoId("_aMHMudp-Ed-ak6NoX_4Aeg_-2138458155")]
-    [Description(@"??")]
+    [Description(@"SettlementAccount cannot be modified (former UnableToModifyInterbankSettlementAccount).")]
     UnableToModifyInterbankSettlementAccount,
     
     /// <summary>
-    /// ??
+    /// Debtor cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM07")]
     [IsoId("_aMQWoNp-Ed-ak6NoX_4Aeg_-2138458124")]
-    [Description(@"??")]
+    [Description(@"Debtor cannot be modified.")]
     UnableToModifyDebtor,
     
     /// <summary>
-    /// ??
+    /// DebtorAccount cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyDebtorAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM08")]
     [IsoId("_aMQWodp-Ed-ak6NoX_4Aeg_-2138458094")]
-    [Description(@"??")]
+    [Description(@"DebtorAccount cannot be modified.")]
     UnableToModifyDebtorAccount,
     
     /// <summary>
-    /// ??
+    /// InstructedReimbursementAgent cannot be modified (former UnableToModifyReceiverCorrespondent).
     /// Encoded/decoded by serializers as "UnableToModifyInstructedReimbursementAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM09")]
     [IsoId("_aMQWotp-Ed-ak6NoX_4Aeg_-2138458093")]
-    [Description(@"??")]
+    [Description(@"InstructedReimbursementAgent cannot be modified (former UnableToModifyReceiverCorrespondent).")]
     UnableToModifyInstructedReimbursementAgent,
     
     /// <summary>
-    /// ??
+    /// ThirdReimbursementAgent cannot be modified (former UnableToModifyThirdReimbursementInstitution).
     /// Encoded/decoded by serializers as "UnableToModifyThirdReimbursementAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM10")]
     [IsoId("_aMQWo9p-Ed-ak6NoX_4Aeg_-2138458063")]
-    [Description(@"??")]
+    [Description(@"ThirdReimbursementAgent cannot be modified (former UnableToModifyThirdReimbursementInstitution).")]
     UnableToModifyThirdReimbursementAgent,
     
     /// <summary>
-    /// ??
+    /// Clearing Channel element of payment type cannot be modified (former UnableToModifyPaymentScheme).
     /// Encoded/decoded by serializers as "UnableToModifyPaymentClearingChannel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM11")]
     [IsoId("_aMQWpNp-Ed-ak6NoX_4Aeg_-2138458032")]
-    [Description(@"??")]
+    [Description(@"Clearing Channel element of payment type cannot be modified (former UnableToModifyPaymentScheme).")]
     UnableToModifyPaymentClearingChannel,
     
     /// <summary>
-    /// ??
+    /// Creditor agent account cannot be modified (former UnableToModifyAccountOfBeneficiaryInstitution).
     /// Encoded/decoded by serializers as "UnableToModifyCreditorAgentAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM12")]
     [IsoId("_aMQWpdp-Ed-ak6NoX_4Aeg_-2138458031")]
-    [Description(@"??")]
+    [Description(@"Creditor agent account cannot be modified (former UnableToModifyAccountOfBeneficiaryInstitution).")]
     UnableToModifyCreditorAgentAccount,
     
     /// <summary>
-    /// ??
+    /// Creditor cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM13")]
     [IsoId("_aMQWptp-Ed-ak6NoX_4Aeg_-2138458002")]
-    [Description(@"??")]
+    [Description(@"Creditor cannot be modified.")]
     UnableToModifyCreditor,
     
     /// <summary>
-    /// ??
+    /// Creditor account cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyCreditorAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM14")]
     [IsoId("_aMQWp9p-Ed-ak6NoX_4Aeg_-2138457971")]
-    [Description(@"??")]
+    [Description(@"Creditor account cannot be modified.")]
     UnableToModifyCreditorAccount,
     
     /// <summary>
-    /// ??
+    /// Remittance information cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyRemittanceInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM15")]
     [IsoId("_aMQWqNp-Ed-ak6NoX_4Aeg_-2138457970")]
-    [Description(@"??")]
+    [Description(@"Remittance information cannot be modified.")]
     UnableToModifyRemittanceInformation,
     
     /// <summary>
-    /// ??
+    /// PaymentPurpose cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyPaymentPurpose".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM16")]
     [IsoId("_aMQWqdp-Ed-ak6NoX_4Aeg_-2138457941")]
-    [Description(@"??")]
+    [Description(@"PaymentPurpose cannot be modified.")]
     UnableToModifyPaymentPurpose,
     
     /// <summary>
-    /// ??
+    /// Charge bearer cannot be modified (former UnableToModifyDetailsOfCharges).
     /// Encoded/decoded by serializers as "UnableToModifyChargeBearer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM17")]
     [IsoId("_aMaHoNp-Ed-ak6NoX_4Aeg_-2138457940")]
-    [Description(@"??")]
+    [Description(@"Charge bearer cannot be modified (former UnableToModifyDetailsOfCharges).")]
     UnableToModifyChargeBearer,
     
     /// <summary>
-    /// ??
+    /// Instruction for next agent cannot be modified (former UnableToModifySenderToReceiver).
     /// Encoded/decoded by serializers as "UnableToModifyInstructionForNextAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM18")]
     [IsoId("_aMaHodp-Ed-ak6NoX_4Aeg_-2138457910")]
-    [Description(@"??")]
+    [Description(@"Instruction for next agent cannot be modified (former UnableToModifySenderToReceiver).")]
     UnableToModifyInstructionForNextAgent,
     
     /// <summary>
-    /// ??
+    /// Instruction for creditor agent cannot be modified. (former UnableToModifyInstructionForFinalAgent).
     /// Encoded/decoded by serializers as "UnableToModifyInstructionForCreditorAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM19")]
     [IsoId("_aMaHotp-Ed-ak6NoX_4Aeg_-2138457879")]
-    [Description(@"??")]
+    [Description(@"Instruction for creditor agent cannot be modified. (former UnableToModifyInstructionForFinalAgent).")]
     UnableToModifyInstructionForCreditorAgent,
     
     /// <summary>
-    /// ??
+    /// Used to inform of cancellation and request a new payment instruction. This should only be used if an agent does not want to modify a pending payment.
     /// Encoded/decoded by serializers as "InstructionCancelledSubmitNewInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM20")]
     [IsoId("_aMaHo9p-Ed-ak6NoX_4Aeg_-2138457878")]
-    [Description(@"??")]
+    [Description(@"Used to inform of cancellation and request a new payment instruction. This should only be used if an agent does not want to modify a pending payment.")]
     InstructionCancelledSubmitNewInstruction,
     
     /// <summary>
-    /// ??
+    /// Modification is not possible and the cancellation is requested.
     /// Encoded/decoded by serializers as "UnableToModifySubmitCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM21")]
     [IsoId("_aMaHpNp-Ed-ak6NoX_4Aeg_-2138457632")]
-    [Description(@"??")]
+    [Description(@"Modification is not possible and the cancellation is requested.")]
     UnableToModifySubmitCancellation,
     
     /// <summary>
-    /// ??
+    /// Debtor agent account cannot be modified (applicable for direct debits).
     /// Encoded/decoded by serializers as "UnableToModifyDebtorAgentAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM22")]
     [IsoId("_aMaHpdp-Ed-ak6NoX_4Aeg_-2138457599")]
-    [Description(@"??")]
+    [Description(@"Debtor agent account cannot be modified (applicable for direct debits).")]
     UnableToModifyDebtorAgentAccount,
     
     /// <summary>
-    /// ??
+    /// Interbank settlement amount cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyInterbankSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM23")]
     [IsoId("_aMaHptp-Ed-ak6NoX_4Aeg_-2138457569")]
-    [Description(@"??")]
+    [Description(@"Interbank settlement amount cannot be modified.")]
     UnableToModifyInterbankSettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Instruction for debtor agent cannot be modified (applicable for direct debits).
     /// Encoded/decoded by serializers as "UnableToModifyInstructionForDebtorAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM24")]
     [IsoId("_aMaHp9p-Ed-ak6NoX_4Aeg_-2138457567")]
-    [Description(@"??")]
+    [Description(@"Instruction for debtor agent cannot be modified (applicable for direct debits).")]
     UnableToModifyInstructionForDebtorAgent,
     
     /// <summary>
-    /// ??
+    /// Requested collection date cannot be modified (applicable for direct debits).
     /// Encoded/decoded by serializers as "UnableToModifyRequestedCollectionDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM25")]
     [IsoId("_aMaHqNp-Ed-ak6NoX_4Aeg_-2138457539")]
-    [Description(@"??")]
+    [Description(@"Requested collection date cannot be modified (applicable for direct debits).")]
     UnableToModifyRequestedCollectionDate,
     
     /// <summary>
-    /// ??
+    /// Payment type cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyPaymentType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM26")]
     [IsoId("_aMaHqdp-Ed-ak6NoX_4Aeg_-2137537536")]
-    [Description(@"??")]
+    [Description(@"Payment type cannot be modified.")]
     UnableToModifyPaymentType,
     
     /// <summary>
-    /// ??
+    /// Instructed or equivalent amount cannot be modified.
     /// Encoded/decoded by serializers as "UnableToModifyInstructedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UM27")]
     [IsoId("_aMj4oNp-Ed-ak6NoX_4Aeg_-2137537506")]
-    [Description(@"??")]
+    [Description(@"Instructed or equivalent amount cannot be modified.")]
     UnableToModifyInstructedAmount,
     
 }

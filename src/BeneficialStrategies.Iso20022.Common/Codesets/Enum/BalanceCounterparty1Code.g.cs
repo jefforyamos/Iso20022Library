@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BalanceCounterparty1Code
 {
     /// <summary>
-    /// ??
+    /// Balance calculated regarding one member in the system.
     /// Encoded/decoded by serializers as "Bilateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BILA")]
     [IsoId("_bkBa09p-Ed-ak6NoX_4Aeg_678189977")]
-    [Description(@"??")]
+    [Description(@"Balance calculated regarding one member in the system.")]
     Bilateral,
     
     /// <summary>
-    /// ??
+    /// Balance calculated regarding all members in the system.
     /// Encoded/decoded by serializers as "Multilateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MULT")]
     [IsoId("_bkBa1Np-Ed-ak6NoX_4Aeg_678189978")]
-    [Description(@"??")]
+    [Description(@"Balance calculated regarding all members in the system.")]
     Multilateral,
     
 }

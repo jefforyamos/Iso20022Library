@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardDepositType1Code
 {
     /// <summary>
-    /// ??
+    /// Other Private
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_6AbV0S7TEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Other Private")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other National
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_6EiZwS7TEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Other National")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Envelope
     /// Encoded/decoded by serializers as "Envelope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENVL")]
     [IsoId("_6JHXwS7TEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Envelope")]
     Envelope,
     
     /// <summary>
-    /// ??
+    /// Cheque
     /// Encoded/decoded by serializers as "Cheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHEC")]
     [IsoId("_6KROUS7TEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Cheque")]
     Cheque,
     
     /// <summary>
-    /// ??
+    /// Cash
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_6L8CQS7TEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Cash")]
     Cash,
     
 }

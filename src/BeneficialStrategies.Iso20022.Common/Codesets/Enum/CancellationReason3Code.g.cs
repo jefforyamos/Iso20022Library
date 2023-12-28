@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationReason3Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation requested by the Debtor.
     /// Encoded/decoded by serializers as "RequestedByCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_bYGettp-Ed-ak6NoX_4Aeg_-553056545")]
-    [Description(@"??")]
+    [Description(@"Cancellation requested by the Debtor.")]
     RequestedByCustomer,
     
     /// <summary>
-    /// ??
+    /// Payment is a duplicate of another payment.
     /// Encoded/decoded by serializers as "DuplicatePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_bYGet9p-Ed-ak6NoX_4Aeg_-553056520")]
-    [Description(@"??")]
+    [Description(@"Payment is a duplicate of another payment.")]
     DuplicatePayment,
     
     /// <summary>
-    /// ??
+    /// Agent in the payment workflow is incorrect.
     /// Encoded/decoded by serializers as "IncorrectAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_bYGeuNp-Ed-ak6NoX_4Aeg_-553056503")]
-    [Description(@"??")]
+    [Description(@"Agent in the payment workflow is incorrect.")]
     IncorrectAgent,
     
     /// <summary>
-    /// ??
+    /// Currency of the payment is incorrect.
     /// Encoded/decoded by serializers as "IncorrectCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_bYQPsNp-Ed-ak6NoX_4Aeg_-553056460")]
-    [Description(@"??")]
+    [Description(@"Currency of the payment is incorrect.")]
     IncorrectCurrency,
     
     /// <summary>
-    /// ??
+    /// Payment is not justified.
     /// Encoded/decoded by serializers as "UnduePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPAY")]
     [IsoId("_bYQPsdp-Ed-ak6NoX_4Aeg_-553056459")]
-    [Description(@"??")]
+    [Description(@"Payment is not justified.")]
     UnduePayment,
     
     /// <summary>
-    /// ??
+    /// Insufficient or incoherent details about the debtor with respect to regulatory requirements.
     /// Encoded/decoded by serializers as "InsufficientDebtorDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM23")]
     [IsoId("_bYQPstp-Ed-ak6NoX_4Aeg_-212277718")]
-    [Description(@"??")]
+    [Description(@"Insufficient or incoherent details about the debtor with respect to regulatory requirements.")]
     InsufficientDebtorDetails,
     
     /// <summary>
-    /// ??
+    /// Insufficient or incoherent details about the creditor with respect to regulatory requirements.
     /// Encoded/decoded by serializers as "InsufficientCreditorDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MM24")]
     [IsoId("_bYQPs9p-Ed-ak6NoX_4Aeg_-212277392")]
-    [Description(@"??")]
+    [Description(@"Insufficient or incoherent details about the creditor with respect to regulatory requirements.")]
     InsufficientCreditorDetails,
     
 }

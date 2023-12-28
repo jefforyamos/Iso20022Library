@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionAction1Code
 {
     /// <summary>
-    /// ??
+    /// Start a transaction by a swipe ahead mechanism, with the services which are enabled.
     /// Encoded/decoded by serializers as "StartTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAR")]
     [IsoId("__DTjAduTEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Start a transaction by a swipe ahead mechanism, with the services which are enabled.")]
     StartTransaction,
     
     /// <summary>
-    /// ??
+    /// Keep quite after a swipe ahead mechanism.
     /// Encoded/decoded by serializers as "Stop".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOP")]
     [IsoId("_L9kT0ezIEeiojesOXOKoug")]
-    [Description(@"??")]
+    [Description(@"Keep quite after a swipe ahead mechanism.")]
     Stop,
     
 }

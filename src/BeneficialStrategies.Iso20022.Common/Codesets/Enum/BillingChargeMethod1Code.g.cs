@@ -20,183 +20,183 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BillingChargeMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Charge is calculated as the product of volume times unit price. This is the default value.
     /// Encoded/decoded by serializers as "UnitPriced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPRC")]
     [IsoId("_6Ukd95qlEeGSON8vddiWzQ_-840350178")]
-    [Description(@"??")]
+    [Description(@"Charge is calculated as the product of volume times unit price. This is the default value.")]
     UnitPriced,
     
     /// <summary>
-    /// ??
+    /// Service is specifically identified as a stamp duty for accounting purposes. The charge is calculated as the product of volume times unit price.
     /// Encoded/decoded by serializers as "StampDuty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAM")]
     [IsoId("_6Ukd-JqlEeGSON8vddiWzQ_1610748129")]
-    [Description(@"??")]
+    [Description(@"Service is specifically identified as a stamp duty for accounting purposes. The charge is calculated as the product of volume times unit price.")]
     StampDuty,
     
     /// <summary>
-    /// ??
+    /// Fee charged in addition to the volume times unit price when one or more units of the service are provided.
     /// Encoded/decoded by serializers as "BaseCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCHG")]
     [IsoId("_6UuO8JqlEeGSON8vddiWzQ_-1217070404")]
-    [Description(@"??")]
+    [Description(@"Fee charged in addition to the volume times unit price when one or more units of the service are provided.")]
     BaseCharge,
     
     /// <summary>
-    /// ??
+    /// Charge is calculated using a price which is lower than the quoted bank price.
     /// Encoded/decoded by serializers as "DiscountPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRC")]
     [IsoId("_6UuO8ZqlEeGSON8vddiWzQ_2064835398")]
-    [Description(@"??")]
+    [Description(@"Charge is calculated using a price which is lower than the quoted bank price.")]
     DiscountPrice,
     
     /// <summary>
-    /// ??
+    /// Fixed charge not tied to volume or unit price. Flat Charge fees do not require a volume or Unit Price.
     /// Encoded/decoded by serializers as "FlatCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCHG")]
     [IsoId("_6UuO8pqlEeGSON8vddiWzQ_2053736621")]
-    [Description(@"??")]
+    [Description(@"Fixed charge not tied to volume or unit price. Flat Charge fees do not require a volume or Unit Price.")]
     FlatCharge,
     
     /// <summary>
-    /// ??
+    /// A single service where the volume, original charge and balance required are the totals of two or more pricing tiers.
     /// Encoded/decoded by serializers as "ListPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LPRC")]
     [IsoId("_6UuO85qlEeGSON8vddiWzQ_361556424")]
-    [Description(@"??")]
+    [Description(@"A single service where the volume, original charge and balance required are the totals of two or more pricing tiers.")]
     ListPrice,
     
     /// <summary>
-    /// ??
+    /// Lowest charge possible for the service.
     /// Encoded/decoded by serializers as "MinimumCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCHG")]
     [IsoId("_6UuO9JqlEeGSON8vddiWzQ_1828705187")]
-    [Description(@"??")]
+    [Description(@"Lowest charge possible for the service.")]
     MinimumCharge,
     
     /// <summary>
-    /// ??
+    /// Maximum charge possible for the service even though volume times unit price exceeds the maximum reduction value.
     /// Encoded/decoded by serializers as "MaximumReduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MXRD")]
     [IsoId("_6UuO9ZqlEeGSON8vddiWzQ_815643693")]
-    [Description(@"??")]
+    [Description(@"Maximum charge possible for the service even though volume times unit price exceeds the maximum reduction value.")]
     MaximumReduction,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 1 in a multi tier, volume discount charging structure. Designates the tier 1 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR1")]
     [IsoId("_6UuO9pqlEeGSON8vddiWzQ_804544916")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 1 in a multi tier, volume discount charging structure. Designates the tier 1 used to charge out the volume that falls in that tier.")]
     Tier1,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 2 in a multi tier, volume discount charging structure. Designates the tier 2 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR2")]
     [IsoId("_6UuO95qlEeGSON8vddiWzQ_-766551424")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 2 in a multi tier, volume discount charging structure. Designates the tier 2 used to charge out the volume that falls in that tier.")]
     Tier2,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 3 in a multi tier, volume discount charging structure. Designates the tier 3 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier3".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR3")]
     [IsoId("_6UuO-JqlEeGSON8vddiWzQ_1601332259")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 3 in a multi tier, volume discount charging structure. Designates the tier 3 used to charge out the volume that falls in that tier.")]
     Tier3,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 4 in a multi tier, volume discount charging structure. Designates the tier 4 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier4".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR4")]
     [IsoId("_6U3Y4JqlEeGSON8vddiWzQ_337586552")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 4 in a multi tier, volume discount charging structure. Designates the tier 4 used to charge out the volume that falls in that tier.")]
     Tier4,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 5 in a multi tier, volume discount charging structure. Designates the tier 5 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier5".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR5")]
     [IsoId("_6U3Y4ZqlEeGSON8vddiWzQ_446377247")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 5 in a multi tier, volume discount charging structure. Designates the tier 5 used to charge out the volume that falls in that tier.")]
     Tier5,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 6 in a multi tier, volume discount charging structure. Designates the tier 6 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier6".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR6")]
     [IsoId("_6U3Y4pqlEeGSON8vddiWzQ_-1049352499")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 6 in a multi tier, volume discount charging structure. Designates the tier 6 used to charge out the volume that falls in that tier.")]
     Tier6,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 7 in a multi tier, volume discount charging structure. Designates the tier 7 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier7".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR7")]
     [IsoId("_6U3Y45qlEeGSON8vddiWzQ_-654755907")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 7 in a multi tier, volume discount charging structure. Designates the tier 7 used to charge out the volume that falls in that tier.")]
     Tier7,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 8 in a multi tier, volume discount charging structure. Designates the tier 8 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier8".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR8")]
     [IsoId("_6U3Y5JqlEeGSON8vddiWzQ_897527195")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 8 in a multi tier, volume discount charging structure. Designates the tier 8 used to charge out the volume that falls in that tier.")]
     Tier8,
     
     /// <summary>
-    /// ??
+    /// Line item represents a charge for tier 9 in a multi tier, volume discount charging structure. Designates the tier 9 used to charge out the volume that falls in that tier.
     /// Encoded/decoded by serializers as "Tier9".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIR9")]
     [IsoId("_6U3Y5ZqlEeGSON8vddiWzQ_1233780089")]
-    [Description(@"??")]
+    [Description(@"Line item represents a charge for tier 9 in a multi tier, volume discount charging structure. Designates the tier 9 used to charge out the volume that falls in that tier.")]
     Tier9,
     
     /// <summary>
-    /// ??
+    /// Unit price is determined by the total volume.
     /// Encoded/decoded by serializers as "ThresholdPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TPRC")]
     [IsoId("_6U3Y5pqlEeGSON8vddiWzQ_1855677988")]
-    [Description(@"??")]
+    [Description(@"Unit price is determined by the total volume.")]
     ThresholdPrice,
     
     /// <summary>
-    /// ??
+    /// Indicates different prices for the same service. Typically used in a relationship summary statement where the same service has a different price for different accounts in the relationship.
     /// Encoded/decoded by serializers as "ZonePrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZPRC")]
     [IsoId("_6U3Y55qlEeGSON8vddiWzQ_-972140545")]
-    [Description(@"??")]
+    [Description(@"Indicates different prices for the same service. Typically used in a relationship summary statement where the same service has a different price for different accounts in the relationship.")]
     ZonePrice,
     
     /// <summary>
-    /// ??
+    /// Charge is calculated as a balance times a per-annum rate multiplied by a time factor.
     /// Encoded/decoded by serializers as "BalanceBased".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BBSE")]
     [IsoId("_6U3Y6JqlEeGSON8vddiWzQ_11808999")]
-    [Description(@"??")]
+    [Description(@"Charge is calculated as a balance times a per-annum rate multiplied by a time factor.")]
     BalanceBased,
     
 }

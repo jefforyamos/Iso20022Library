@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Payment1Code
 {
     /// <summary>
-    /// ??
+    /// The cash payment occurs or will occur upon receipt of proceeds from the issuer.
     /// Encoded/decoded by serializers as "ActualPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTU")]
     [IsoId("_Zy7Qp9p-Ed-ak6NoX_4Aeg_1133077747")]
-    [Description(@"??")]
+    [Description(@"The cash payment occurs or will occur upon receipt of proceeds from the issuer.")]
     ActualPayment,
     
     /// <summary>
-    /// ??
+    /// The cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer.
     /// Encoded/decoded by serializers as "ContractualPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONT")]
     [IsoId("_Zy7QqNp-Ed-ak6NoX_4Aeg_1133077769")]
-    [Description(@"??")]
+    [Description(@"The cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer.")]
     ContractualPayment,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatementUpdateType1Code
 {
     /// <summary>
-    /// ??
+    /// Statement is complete.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_ZQM-GNp-Ed-ak6NoX_4Aeg_1368668707")]
-    [Description(@"??")]
+    [Description(@"Statement is complete.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Statement contains changes only.
     /// Encoded/decoded by serializers as "Delta".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELT")]
     [IsoId("_ZQWvENp-Ed-ak6NoX_4Aeg_1368668708")]
-    [Description(@"??")]
+    [Description(@"Statement contains changes only.")]
     Delta,
     
 }

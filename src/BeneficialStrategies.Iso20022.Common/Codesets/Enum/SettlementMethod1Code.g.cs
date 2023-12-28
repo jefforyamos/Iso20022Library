@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Settlement is done by the agent instructed to execute a payment instruction.
     /// Encoded/decoded by serializers as "InstructedAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDA")]
     [IsoId("_ZMCPwtp-Ed-ak6NoX_4Aeg_301241605")]
-    [Description(@"??")]
+    [Description(@"Settlement is done by the agent instructed to execute a payment instruction.")]
     InstructedAgent,
     
     /// <summary>
-    /// ??
+    /// Settlement is done by the agent instructing and forwarding the payment to the next party in the payment chain.
     /// Encoded/decoded by serializers as "InstructingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INGA")]
     [IsoId("_ZMCPw9p-Ed-ak6NoX_4Aeg_543203158")]
-    [Description(@"??")]
+    [Description(@"Settlement is done by the agent instructing and forwarding the payment to the next party in the payment chain.")]
     InstructingAgent,
     
     /// <summary>
-    /// ??
+    /// Settlement is done through a cover payment.
     /// Encoded/decoded by serializers as "CoverMethod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVE")]
     [IsoId("_ZMCPxNp-Ed-ak6NoX_4Aeg_546899109")]
-    [Description(@"??")]
+    [Description(@"Settlement is done through a cover payment.")]
     CoverMethod,
     
     /// <summary>
-    /// ??
+    /// Settlement is done through a payment clearing system.
     /// Encoded/decoded by serializers as "ClearingSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRG")]
     [IsoId("_ZMCPxdp-Ed-ak6NoX_4Aeg_569985423")]
-    [Description(@"??")]
+    [Description(@"Settlement is done through a payment clearing system.")]
     ClearingSystem,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason19Code
 {
     /// <summary>
-    /// ??
+    /// Financial instruments have not been delivered by the issuer.
     /// Encoded/decoded by serializers as "NotDelivered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSEC")]
     [IsoId("_j41ie-aEEemtTOaHuc_63w")]
-    [Description(@"??")]
+    [Description(@"Financial instruments have not been delivered by the issuer.")]
     NotDelivered,
     
     /// <summary>
-    /// ??
+    /// Payment has not been made by issuer.
     /// Encoded/decoded by serializers as "NoPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPAY")]
     [IsoId("_j41ieeaEEemtTOaHuc_63w")]
-    [Description(@"??")]
+    [Description(@"Payment has not been made by issuer.")]
     NoPayment,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_j41id-aEEemtTOaHuc_63w")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Tax reclaim has been sent to the tax authorities.
     /// Encoded/decoded by serializers as "SentToTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_j41ieOaEEemtTOaHuc_63w")]
-    [Description(@"??")]
+    [Description(@"Tax reclaim has been sent to the tax authorities.")]
     SentToTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.
     /// Encoded/decoded by serializers as "ValidForTaxAuthorities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VLDA")]
     [IsoId("_j41ieuaEEemtTOaHuc_63w")]
-    [Description(@"??")]
+    [Description(@"For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.")]
     ValidForTaxAuthorities,
     
     /// <summary>
-    /// ??
+    /// Awaiting receipt of adequate certification.
     /// Encoded/decoded by serializers as "MissingCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCER")]
     [IsoId("_pqsMUeaEEemtTOaHuc_63w")]
-    [Description(@"??")]
+    [Description(@"Awaiting receipt of adequate certification.")]
     MissingCertification,
     
 }

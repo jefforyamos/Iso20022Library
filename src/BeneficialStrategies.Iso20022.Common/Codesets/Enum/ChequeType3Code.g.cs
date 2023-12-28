@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChequeType3Code
 {
     /// <summary>
-    /// ??
+    /// A guaranteed bank cheque with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.
     /// Encoded/decoded by serializers as "Draft".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRFT")]
     [IsoId("_a-7Jttp-Ed-ak6NoX_4Aeg_1310151272")]
-    [Description(@"??")]
+    [Description(@"A guaranteed bank cheque with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.")]
     Draft,
     
     /// <summary>
-    /// ??
+    /// An instrument with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.
     /// Encoded/decoded by serializers as "ElectronicDraft".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELDR")]
     [IsoId("_a-7Jt9p-Ed-ak6NoX_4Aeg_1310151519")]
-    [Description(@"??")]
+    [Description(@"An instrument with a future value date (do not pay before], which in commercial terms is a 'negotiatable instrument': the beneficiary can receive early payment from any bank under subtraction of a discount. The ordering customer's account is debited on value date.")]
     ElectronicDraft,
     
 }

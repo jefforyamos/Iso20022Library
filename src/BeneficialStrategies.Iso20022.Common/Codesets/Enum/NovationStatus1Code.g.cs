@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NovationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is not a novation.
     /// Encoded/decoded by serializers as "NoNovation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONO")]
     [IsoId("_k6HCUcETEea7jLfvGi1PDw")]
-    [Description(@"??")]
+    [Description(@"Transaction is not a novation.")]
     NoNovation,
     
     /// <summary>
-    /// ??
+    /// Transaction is a novation.
     /// Encoded/decoded by serializers as "Novation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOVA")]
     [IsoId("_lA8qIcETEea7jLfvGi1PDw")]
-    [Description(@"??")]
+    [Description(@"Transaction is a novation.")]
     Novation,
     
 }

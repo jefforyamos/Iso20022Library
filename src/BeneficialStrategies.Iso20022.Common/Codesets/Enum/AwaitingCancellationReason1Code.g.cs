@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AwaitingCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation has not been received yet.
     /// Encoded/decoded by serializers as "AwaitingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WCAN")]
     [IsoId("__0Ti0tojEeC60axPepSq7g_323091822")]
-    [Description(@"??")]
+    [Description(@"Cancellation has not been received yet.")]
     AwaitingCancellation,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CallIn1Code
 {
     /// <summary>
-    /// ??
+    /// Pay-in call is for account value.
     /// Encoded/decoded by serializers as "CallForAccountValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFAV")]
     [IsoId("_bXNt6dp-Ed-ak6NoX_4Aeg_556310168")]
-    [Description(@"??")]
+    [Description(@"Pay-in call is for account value.")]
     CallForAccountValue,
     
     /// <summary>
-    /// ??
+    /// Pay-in call is for settlement.
     /// Encoded/decoded by serializers as "CallForSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFST")]
     [IsoId("_bXW30Np-Ed-ak6NoX_4Aeg_600636833")]
-    [Description(@"??")]
+    [Description(@"Pay-in call is for settlement.")]
     CallForSettlement,
     
     /// <summary>
-    /// ??
+    /// Pay-in call is for currency close.
     /// Encoded/decoded by serializers as "CallForCurrencyClose".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFCC")]
     [IsoId("_bXW30dp-Ed-ak6NoX_4Aeg_628342105")]
-    [Description(@"??")]
+    [Description(@"Pay-in call is for currency close.")]
     CallForCurrencyClose,
     
 }

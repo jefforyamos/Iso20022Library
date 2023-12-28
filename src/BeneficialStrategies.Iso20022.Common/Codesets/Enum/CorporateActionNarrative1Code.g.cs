@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionNarrative1Code
 {
     /// <summary>
-    /// ??
+    /// Provides taxation conditions that cannot be included within the structured fields of this message.
     /// Encoded/decoded by serializers as "TaxationConditions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXE")]
     [IsoId("_bK2F0dp-Ed-ak6NoX_4Aeg_24208786")]
-    [Description(@"??")]
+    [Description(@"Provides taxation conditions that cannot be included within the structured fields of this message.")]
     TaxationConditions,
     
     /// <summary>
-    /// ??
+    /// Provides information required for the registration.
     /// Encoded/decoded by serializers as "RegistrationDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGI")]
     [IsoId("_bK2F0tp-Ed-ak6NoX_4Aeg_24208815")]
-    [Description(@"??")]
+    [Description(@"Provides information required for the registration.")]
     RegistrationDetails,
     
     /// <summary>
-    /// ??
+    /// Certification process for withholding tax reduction or exemption based on the tax status of the holder.
     /// Encoded/decoded by serializers as "WithholdingTaxReliefCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTRC")]
     [IsoId("_bK2F09p-Ed-ak6NoX_4Aeg_24209063")]
-    [Description(@"??")]
+    [Description(@"Certification process for withholding tax reduction or exemption based on the tax status of the holder.")]
     WithholdingTaxReliefCertification,
     
     /// <summary>
-    /// ??
+    /// In the context of a corporate action, an International Central Securities Depository (ICSD) refuses a mark-up/mark-down confirmation sent by the account servicer.
     /// Encoded/decoded by serializers as "ICSDRefusalOfMarkUpDownConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFMC")]
     [IsoId("_bK2F1Np-Ed-ak6NoX_4Aeg_24209085")]
-    [Description(@"??")]
+    [Description(@"In the context of a corporate action, an International Central Securities Depository (ICSD) refuses a mark-up/mark-down confirmation sent by the account servicer.")]
     ICSDRefusalOfMarkUpDownConfirmation,
     
     /// <summary>
-    /// ??
+    /// International Central Securities Depository (ICSD) chases the authorisation from the account servicer in order to process the exchange from global temporary to global permanent.
     /// Encoded/decoded by serializers as "ChasingOfPriorAuthorization".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAUT")]
     [IsoId("_bK2F1dp-Ed-ak6NoX_4Aeg_24209116")]
-    [Description(@"??")]
+    [Description(@"International Central Securities Depository (ICSD) chases the authorisation from the account servicer in order to process the exchange from global temporary to global permanent.")]
     ChasingOfPriorAuthorization,
     
     /// <summary>
-    /// ??
+    /// Confirmation of transfer of interests between International Central Securities Depositories (ICSDs) following a corporate actions.
     /// Encoded/decoded by serializers as "ConfirmationOfHoldingTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTIN")]
     [IsoId("_bK2F1tp-Ed-ak6NoX_4Aeg_24209125")]
-    [Description(@"??")]
+    [Description(@"Confirmation of transfer of interests between International Central Securities Depositories (ICSDs) following a corporate actions.")]
     ConfirmationOfHoldingTransfer,
     
 }

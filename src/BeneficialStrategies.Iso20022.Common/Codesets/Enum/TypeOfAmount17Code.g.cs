@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount17Code
 {
     /// <summary>
-    /// ??
+    /// Other type of amount defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_mpFfEVjqEeiTlKUpxxSxEw")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_m0EnEVjqEeiTlKUpxxSxEw")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Fee applied by the card issuer to the cardholder.
     /// Encoded/decoded by serializers as "IssuerCardholderFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISCF")]
     [IsoId("_nw0jMVjqEeiTlKUpxxSxEw")]
-    [Description(@"??")]
+    [Description(@"Fee applied by the card issuer to the cardholder.")]
     IssuerCardholderFee,
     
     /// <summary>
-    /// ??
+    /// Amount anticipated for the transaction
     /// Encoded/decoded by serializers as "Anticipated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANTA")]
     [IsoId("_7nV2oa0pEeiBP5PZ97xcEA")]
-    [Description(@"??")]
+    [Description(@"Amount anticipated for the transaction")]
     Anticipated,
     
 }

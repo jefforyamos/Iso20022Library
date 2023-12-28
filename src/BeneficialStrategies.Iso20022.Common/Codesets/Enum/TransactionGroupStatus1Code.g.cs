@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionGroupStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Authentication and syntactical and semantical validation are successful.
     /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_YrZn5Np-Ed-ak6NoX_4Aeg_-2100712382")]
-    [Description(@"??")]
+    [Description(@"Authentication and syntactical and semantical validation are successful.")]
     AcceptedTechnicalValidation,
     
     /// <summary>
-    /// ??
+    /// Payment initiation has been received by the receiving agent.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVD")]
     [IsoId("_YrZn5dp-Ed-ak6NoX_4Aeg_-2100712357")]
-    [Description(@"??")]
+    [Description(@"Payment initiation has been received by the receiving agent.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.
     /// Encoded/decoded by serializers as "PartiallyAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_YrZn5tp-Ed-ak6NoX_4Aeg_-2100712322")]
-    [Description(@"??")]
+    [Description(@"A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.")]
     PartiallyAccepted,
     
     /// <summary>
-    /// ??
+    /// Payment initiation or individual transaction included in the payment initiation has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_YrZn59p-Ed-ak6NoX_4Aeg_-2100712032")]
-    [Description(@"??")]
+    [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Payment initiation or individual transaction included in the payment initiation is pending.  Further checks and status update will be performed.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_YrZn6Np-Ed-ak6NoX_4Aeg_-2100712014")]
-    [Description(@"??")]
+    [Description(@"Payment initiation or individual transaction included in the payment initiation is pending.  Further checks and status update will be performed.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Preceding check of technical validation was successful. Customer profile check was also successful.
     /// Encoded/decoded by serializers as "AcceptedCustomerProfile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_YrjY4Np-Ed-ak6NoX_4Aeg_-2100711979")]
-    [Description(@"??")]
+    [Description(@"Preceding check of technical validation was successful. Customer profile check was also successful.")]
     AcceptedCustomerProfile,
     
     /// <summary>
-    /// ??
+    /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
     /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSP")]
     [IsoId("_YrjY4dp-Ed-ak6NoX_4Aeg_-2100711937")]
-    [Description(@"??")]
+    [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
     AcceptedSettlementInProcess,
     
     /// <summary>
-    /// ??
+    /// Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement
     /// Encoded/decoded by serializers as "AcceptedSettlementCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSC")]
     [IsoId("_YrjY4tp-Ed-ak6NoX_4Aeg_-2100711919")]
-    [Description(@"??")]
+    [Description(@"Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement")]
     AcceptedSettlementCompleted,
     
     /// <summary>
-    /// ??
+    /// Cancellation is accepted.
     /// Encoded/decoded by serializers as "AcceptedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCR")]
     [IsoId("_YrjY49p-Ed-ak6NoX_4Aeg_-1715877559")]
-    [Description(@"??")]
+    [Description(@"Cancellation is accepted.")]
     AcceptedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but a change will be made, such as date or remittance not sent.
     /// Encoded/decoded by serializers as "AcceptedWithChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACWC")]
     [IsoId("_YrjY5Np-Ed-ak6NoX_4Aeg_-1673394573")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but a change will be made, such as date or remittance not sent.")]
     AcceptedWithChange,
     
 }

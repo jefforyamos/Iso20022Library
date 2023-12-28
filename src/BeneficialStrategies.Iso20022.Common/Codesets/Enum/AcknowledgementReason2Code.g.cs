@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AcknowledgementReason2Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_bpGIENp-Ed-ak6NoX_4Aeg_-1187951923")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
     /// Encoded/decoded by serializers as "MarketPracticeRuleDiscrepency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMPG")]
     [IsoId("_bpGIEdp-Ed-ak6NoX_4Aeg_-1187951894")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.")]
     MarketPracticeRuleDiscrepency,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_bpGIEtp-Ed-ak6NoX_4Aeg_-1187951864")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction was not straight through processing and had to be processed manually.
     /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTP")]
     [IsoId("_bpGIE9p-Ed-ak6NoX_4Aeg_-1187951863")]
-    [Description(@"??")]
+    [Description(@"Instruction was not straight through processing and had to be processed manually.")]
     NotStraightThroughProcessing,
     
     /// <summary>
-    /// ??
+    /// Instruction registration is accepted but the registration is not in full, that is, not with voting rights.
     /// Encoded/decoded by serializers as "AcceptedWithoutVotingRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQWV")]
     [IsoId("_bpGIFNp-Ed-ak6NoX_4Aeg_-1187951833")]
-    [Description(@"??")]
+    [Description(@"Instruction registration is accepted but the registration is not in full, that is, not with voting rights.")]
     AcceptedWithoutVotingRights,
     
 }

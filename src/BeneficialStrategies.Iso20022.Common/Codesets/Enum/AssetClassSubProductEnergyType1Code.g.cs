@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductEnergyType1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type coal.
     /// Encoded/decoded by serializers as "Coal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAL")]
     [IsoId("_flKPkc5GEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type coal.")]
     Coal,
     
     /// <summary>
-    /// ??
+    /// Commodity of type electricity.
     /// Encoded/decoded by serializers as "Electricity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_fuNd4c5GEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type electricity.")]
     Electricity,
     
     /// <summary>
-    /// ??
+    /// Commodity of type oil.
     /// Encoded/decoded by serializers as "Oil".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OILP")]
     [IsoId("_gLvucc5GEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type oil.")]
     Oil,
     
     /// <summary>
-    /// ??
+    /// Commodity of type inter energy.
     /// Encoded/decoded by serializers as "InterEnergy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INRG")]
     [IsoId("_gzJFoc5GEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type inter energy.")]
     InterEnergy,
     
     /// <summary>
-    /// ??
+    /// Commodity of type natural gas.
     /// Encoded/decoded by serializers as "NaturalGas".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NGAS")]
     [IsoId("_USGZAUDbEeWOL-OsSq2h6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of type natural gas.")]
     NaturalGas,
     
     /// <summary>
-    /// ??
+    /// Commodity of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_UhRdcUDbEeWOL-OsSq2h6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of other type.")]
     Other,
     
 }

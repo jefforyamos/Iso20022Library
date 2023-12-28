@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PreferredContactMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Preferred method used to reach the contact is per letter.
     /// Encoded/decoded by serializers as "Letter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LETT")]
     [IsoId("_6UHyA5qlEeGSON8vddiWzQ_-970786773")]
-    [Description(@"??")]
+    [Description(@"Preferred method used to reach the contact is per letter.")]
     Letter,
     
     /// <summary>
-    /// ??
+    /// Preferred method used to reach the contact is per email.
     /// Encoded/decoded by serializers as "Email".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIL")]
     [IsoId("_6UHyBJqlEeGSON8vddiWzQ_496361990")]
-    [Description(@"??")]
+    [Description(@"Preferred method used to reach the contact is per email.")]
     Email,
     
     /// <summary>
-    /// ??
+    /// Preferred method used to reach the contact is per phone.
     /// Encoded/decoded by serializers as "Phone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHON")]
     [IsoId("_6UHyBZqlEeGSON8vddiWzQ_37862079")]
-    [Description(@"??")]
+    [Description(@"Preferred method used to reach the contact is per phone.")]
     Phone,
     
     /// <summary>
-    /// ??
+    /// Preferred method used to reach the contact is per fax.
     /// Encoded/decoded by serializers as "Fax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAXX")]
     [IsoId("_6UHyBpqlEeGSON8vddiWzQ_1934398803")]
-    [Description(@"??")]
+    [Description(@"Preferred method used to reach the contact is per fax.")]
     Fax,
     
     /// <summary>
-    /// ??
+    /// Preferred method used to reach the contact is per mobile or cell phone.
     /// Encoded/decoded by serializers as "MobileOrCellPhone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CELL")]
     [IsoId("_6UHyB5qlEeGSON8vddiWzQ_-1355658363")]
-    [Description(@"??")]
+    [Description(@"Preferred method used to reach the contact is per mobile or cell phone.")]
     MobileOrCellPhone,
     
 }

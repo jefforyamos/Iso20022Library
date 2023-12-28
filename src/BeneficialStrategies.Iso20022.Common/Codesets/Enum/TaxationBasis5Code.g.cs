@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxationBasis5Code
 {
     /// <summary>
-    /// ??
+    /// Charge/tax basis is a lump sum.
     /// Encoded/decoded by serializers as "Flat".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLAT")]
     [IsoId("_u1XA4TkTEeahTcrfPSjpxA")]
-    [Description(@"??")]
+    [Description(@"Charge/tax basis is a lump sum.")]
     Flat,
     
     /// <summary>
-    /// ??
+    /// Charge/Commission/tax basis is based on the gross amount.
     /// Encoded/decoded by serializers as "GrossAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRAM")]
     [IsoId("_u7wj0TkTEeahTcrfPSjpxA")]
-    [Description(@"??")]
+    [Description(@"Charge/Commission/tax basis is based on the gross amount.")]
     GrossAmount,
     
     /// <summary>
-    /// ??
+    /// Charge/commission/tax basis is based on the net amount.
     /// Encoded/decoded by serializers as "NetAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEAM")]
     [IsoId("_vBjp0TkTEeahTcrfPSjpxA")]
-    [Description(@"??")]
+    [Description(@"Charge/commission/tax basis is based on the net amount.")]
     NetAmount,
     
     /// <summary>
-    /// ??
+    /// Charge/tax basis is the price.
     /// Encoded/decoded by serializers as "NetAssetValuePrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAVP")]
     [IsoId("_vNAr4TkTEeahTcrfPSjpxA")]
-    [Description(@"??")]
+    [Description(@"Charge/tax basis is the price.")]
     NetAssetValuePrice,
     
     /// <summary>
-    /// ??
+    /// Charges/tax basis is per unit of financial instrument.
     /// Encoded/decoded by serializers as "PerUnit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PERU")]
     [IsoId("_vbAEkTkTEeahTcrfPSjpxA")]
-    [Description(@"??")]
+    [Description(@"Charges/tax basis is per unit of financial instrument.")]
     PerUnit,
     
 }

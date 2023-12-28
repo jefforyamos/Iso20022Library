@@ -20,336 +20,338 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyIdentificationType1Code
 {
     /// <summary>
-    /// ??
+    /// Member identification of the FX trading system.
     /// Encoded/decoded by serializers as "FXMemberID".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FXID")]
     [IsoId("_2jqYYYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Member identification of the FX trading system.")]
     FXMemberID,
     
     /// <summary>
-    /// ??
+    /// English short name of FX system.
     /// Encoded/decoded by serializers as "FXSystemEnglishShortName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FXSN")]
     [IsoId("_2oP9cYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"English short name of FX system.")]
     FXSystemEnglishShortName,
     
     /// <summary>
-    /// ??
+    /// Name of the firm group.
     /// Encoded/decoded by serializers as "InstitutionGroupName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INGN")]
     [IsoId("_2su00YA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Name of the firm group.")]
     InstitutionGroupName,
     
     /// <summary>
-    /// ??
+    /// Institution identification in com star system.
     /// Encoded/decoded by serializers as "InstitutionIdentificationInComStarSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IICS")]
     [IsoId("_2xOTQYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Institution identification in com star system.")]
     InstitutionIdentificationInComStarSystem,
     
     /// <summary>
-    /// ??
+    /// Internal team that traders belong.
+    /// 
     /// Encoded/decoded by serializers as "InternalGroupTheTraderBelongedTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IGBT")]
     [IsoId("_21sjkYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Internal team that traders belong. ")]
     InternalGroupTheTraderBelongedTo,
     
     /// <summary>
-    /// ??
+    /// Specifies the maket makers.
     /// Encoded/decoded by serializers as "MarketMaker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAMA")]
     [IsoId("_26Q6gYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specifies the maket makers.")]
     MarketMaker,
     
     /// <summary>
-    /// ??
+    /// Identify members or clients.
     /// Encoded/decoded by serializers as "MembersOrClients".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEOC")]
     [IsoId("_2-vx4YA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Identify members or clients.")]
     MembersOrClients,
     
     /// <summary>
-    /// ??
+    /// Type of the trading members.
     /// Encoded/decoded by serializers as "MemberType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "METY")]
     [IsoId("_3GA3gYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Type of the trading members.")]
     MemberType,
     
     /// <summary>
-    /// ??
+    /// Specifies the non maket makers.
     /// Encoded/decoded by serializers as "NonMarketMaker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMM")]
     [IsoId("_3N1WwYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specifies the non maket makers.")]
     NonMarketMaker,
     
     /// <summary>
-    /// ??
+    /// Specifies other system.
     /// Encoded/decoded by serializers as "OtherSystemCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OSCO")]
     [IsoId("_3VsSQYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specifies other system.")]
     OtherSystemCode,
     
     /// <summary>
-    /// ??
+    /// Password of the trading system.
     /// Encoded/decoded by serializers as "Password".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_3bsMkYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Password of the trading system.")]
     Password,
     
     /// <summary>
-    /// ??
+    /// Phone number of the trading members.
     /// Encoded/decoded by serializers as "PhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PONU")]
     [IsoId("_3iIy0YA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Phone number of the trading members.")]
     PhoneNumber,
     
     /// <summary>
-    /// ??
+    /// Postal address of the trading members.
     /// Encoded/decoded by serializers as "PostalAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POAD")]
     [IsoId("_3nRxgYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Postal address of the trading members.")]
     PostalAddress,
     
     /// <summary>
-    /// ??
+    /// Member identification of the RMB trading system
+    /// 
     /// Encoded/decoded by serializers as "RMBMemberIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMID")]
     [IsoId("_3soLkYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Member identification of the RMB trading system ")]
     RMBMemberIdentification,
     
     /// <summary>
-    /// ??
+    /// Legal chinese short title of the trading members.
     /// Encoded/decoded by serializers as "ShortLegalChineseNameOfFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLCN")]
     [IsoId("_3xxKQYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Legal chinese short title of the trading members.")]
     ShortLegalChineseNameOfFirm,
     
     /// <summary>
-    /// ??
+    /// Legal short title of the trading members.
     /// Encoded/decoded by serializers as "ShortLegalNameOfFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLNF")]
     [IsoId("_32Sd4YA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Legal short title of the trading members.")]
     ShortLegalNameOfFirm,
     
     /// <summary>
-    /// ??
+    /// Chinese names for the traders.
     /// Encoded/decoded by serializers as "TraderChineseName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TACN")]
     [IsoId("_369igYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Chinese names for the traders.")]
     TraderChineseName,
     
     /// <summary>
-    /// ??
+    /// Specifies the traders.
     /// Encoded/decoded by serializers as "TraderCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRCO")]
     [IsoId("_3_tfoYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specifies the traders.")]
     TraderCode,
     
     /// <summary>
-    /// ??
+    /// Names for the traders.
     /// Encoded/decoded by serializers as "TraderName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TANA")]
     [IsoId("_4FhzwYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Names for the traders.")]
     TraderName,
     
     /// <summary>
-    /// ??
+    /// Input the user of trading system.
     /// Encoded/decoded by serializers as "UserInputTrades".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USIT")]
     [IsoId("_4QrT0YA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Input the user of trading system.")]
     UserInputTrades,
     
     /// <summary>
-    /// ??
+    /// User name of the trading system.
     /// Encoded/decoded by serializers as "UserName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USNA")]
     [IsoId("_4W8T4YA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"User name of the trading system.")]
     UserName,
     
     /// <summary>
-    /// ??
+    /// Agent input the user of the trading system.
     /// Encoded/decoded by serializers as "AgentUserInputTrades".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUIT")]
     [IsoId("_5GMmkYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Agent input the user of the trading system.")]
     AgentUserInputTrades,
     
     /// <summary>
-    /// ??
+    /// Identification of the branch.
     /// Encoded/decoded by serializers as "BranchIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRID")]
     [IsoId("_5K12AYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Identification of the branch.")]
     BranchIdentification,
     
     /// <summary>
-    /// ??
+    /// Specifies clearing institution.
     /// Encoded/decoded by serializers as "ClearingInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLIN")]
     [IsoId("_5m5f4YA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specifies clearing institution.")]
     ClearingInstitution,
     
     /// <summary>
-    /// ??
+    /// Identification of the collateral management institution.
     /// Encoded/decoded by serializers as "CollateralManagementInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMID")]
     [IsoId("_5rjWYYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Identification of the collateral management institution.")]
     CollateralManagementInstitution,
     
     /// <summary>
-    /// ??
+    /// Name of the collateral management institution.
     /// Encoded/decoded by serializers as "CollateralManagementInstitutionName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COIN")]
     [IsoId("_5wEqAYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Name of the collateral management institution.")]
     CollateralManagementInstitutionName,
     
     /// <summary>
-    /// ??
+    /// Contact method of the traders.
     /// Encoded/decoded by serializers as "ContactMethodOfTrader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMOT")]
     [IsoId("_50mksYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Contact method of the traders.")]
     ContactMethodOfTrader,
     
     /// <summary>
-    /// ??
+    /// Contact name of the trading members.
     /// Encoded/decoded by serializers as "ContactName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONU")]
     [IsoId("_55K7oYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Contact name of the trading members.")]
     ContactName,
     
     /// <summary>
-    /// ??
+    /// Institution of custody management.
     /// Encoded/decoded by serializers as "CustodyManagementInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMIN")]
     [IsoId("_59rBIYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Institution of custody management.")]
     CustodyManagementInstitution,
     
     /// <summary>
-    /// ??
+    /// Trade confimation person name.
     /// Encoded/decoded by serializers as "DealConfirmContactName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECN")]
     [IsoId("_6CLGoYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Trade confimation person name.")]
     DealConfirmContactName,
     
     /// <summary>
-    /// ??
+    /// Department of the trading members.
     /// Encoded/decoded by serializers as "Department".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPA")]
     [IsoId("_6GsaQYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Department of the trading members.")]
     Department,
     
     /// <summary>
-    /// ??
+    /// Specifies eligible of counterparty.
     /// Encoded/decoded by serializers as "EligibleCounterparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELCO")]
     [IsoId("_6LMfwYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specifies eligible of counterparty.")]
     EligibleCounterparty,
     
     /// <summary>
-    /// ??
+    /// Place of execution.
     /// Encoded/decoded by serializers as "ExecutionVenue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXVE")]
     [IsoId("_6PuacYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Place of execution.")]
     ExecutionVenue,
     
     /// <summary>
-    /// ??
+    /// Specifies the firm.
     /// Encoded/decoded by serializers as "FirmCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FICO")]
     [IsoId("_6VKUEYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Specifies the firm.")]
     FirmCode,
     
     /// <summary>
-    /// ??
+    /// Identification of the firm.
     /// Encoded/decoded by serializers as "FirmIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIID")]
     [IsoId("_6bflkYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Identification of the firm.")]
     FirmIdentification,
     
     /// <summary>
-    /// ??
+    /// Legal chinese full title of the trading members.
     /// Encoded/decoded by serializers as "FullLegalChineseNameOfFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLCN")]
     [IsoId("_6gFxsYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Legal chinese full title of the trading members.")]
     FullLegalChineseNameOfFirm,
     
     /// <summary>
-    /// ??
+    /// Legal full title of the trading members.
     /// Encoded/decoded by serializers as "FullLegalNameOfFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLNF")]
     [IsoId("_6knsYYA2EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Legal full title of the trading members.")]
     FullLegalNameOfFirm,
     
 }

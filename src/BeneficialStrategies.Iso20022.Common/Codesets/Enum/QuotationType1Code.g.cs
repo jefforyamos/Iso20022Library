@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QuotationType1Code
 {
     /// <summary>
-    /// ??
+    /// Quotation expressed as a currency and amount.
     /// Encoded/decoded by serializers as "ActualAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTU")]
     [IsoId("_anpo8dK5EeihtcVwfFPNlg")]
-    [Description(@"??")]
+    [Description(@"Quotation expressed as a currency and amount.")]
     ActualAmount,
     
     /// <summary>
-    /// ??
+    /// Quotation is expressed as percentage.
     /// Encoded/decoded by serializers as "Percentage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCT")]
     [IsoId("_atwQ8dK5EeihtcVwfFPNlg")]
-    [Description(@"??")]
+    [Description(@"Quotation is expressed as percentage.")]
     Percentage,
     
 }

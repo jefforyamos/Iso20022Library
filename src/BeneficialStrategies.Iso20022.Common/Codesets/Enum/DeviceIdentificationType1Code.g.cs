@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeviceIdentificationType1Code
 {
     /// <summary>
-    /// ??
+    /// International Mobile Equipment Identity.
     /// Encoded/decoded by serializers as "IMEI".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMEI")]
     [IsoId("_XS0CIZfOEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"International Mobile Equipment Identity.")]
     IMEI,
     
     /// <summary>
-    /// ??
+    /// Other nationally assigned code.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_XaxrUZfOEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Other nationally assigned code.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other privately assigned code.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_X8TrEZfOEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Other privately assigned code.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Secure element ID.
     /// Encoded/decoded by serializers as "SecureElementIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEID")]
     [IsoId("_X9ZQMZfOEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Secure element ID.")]
     SecureElementIdentification,
     
     /// <summary>
-    /// ??
+    /// Device serial number.
     /// Encoded/decoded by serializers as "SerialNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SENU")]
     [IsoId("_X-KsQZfOEeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Device serial number.")]
     SerialNumber,
     
 }

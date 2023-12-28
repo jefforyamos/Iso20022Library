@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RiskReductionService1Code
 {
     /// <summary>
-    /// ??
+    /// There is no portfolio compression.
     /// Encoded/decoded by serializers as "NoRiskReduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORR")]
     [IsoId("_IMhhYYKPEeyi6unpji8kcA")]
-    [Description(@"??")]
+    [Description(@"There is no portfolio compression.")]
     NoRiskReduction,
     
     /// <summary>
-    /// ??
+    /// Portfolio Compression without a third-party service provider.
     /// Encoded/decoded by serializers as "NoThirdPartyPortfolioCompression".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PWOS")]
     [IsoId("_ITNYMYKPEeyi6unpji8kcA")]
-    [Description(@"??")]
+    [Description(@"Portfolio Compression without a third-party service provider.")]
     NoThirdPartyPortfolioCompression,
     
     /// <summary>
-    /// ??
+    /// Other portfolio compression.
     /// Encoded/decoded by serializers as "OtherCompression".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_IYeSsYKPEeyi6unpji8kcA")]
-    [Description(@"??")]
+    [Description(@"Other portfolio compression.")]
     OtherCompression,
     
     /// <summary>
-    /// ??
+    /// Portfolio rebalancing or margin management.
     /// Encoded/decoded by serializers as "PortfolioRebalancing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRBM")]
     [IsoId("_IeBhEYKPEeyi6unpji8kcA")]
-    [Description(@"??")]
+    [Description(@"Portfolio rebalancing or margin management.")]
     PortfolioRebalancing,
     
     /// <summary>
-    /// ??
+    /// Portfolio Compression with a third-party service provider or CCP.
     /// Encoded/decoded by serializers as "ThirdPartyPortfolioCompression".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PWAS")]
     [IsoId("_IilQ8YKPEeyi6unpji8kcA")]
-    [Description(@"??")]
+    [Description(@"Portfolio Compression with a third-party service provider or CCP.")]
     ThirdPartyPortfolioCompression,
     
 }

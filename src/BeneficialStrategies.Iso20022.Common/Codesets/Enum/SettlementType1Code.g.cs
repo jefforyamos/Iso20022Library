@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementType1Code
 {
     /// <summary>
-    /// ??
+    /// Option trade is settled as principal.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIN")]
     [IsoId("_ZOH6eNp-Ed-ak6NoX_4Aeg_506485993")]
-    [Description(@"??")]
+    [Description(@"Option trade is settled as principal.")]
     Principal,
     
     /// <summary>
-    /// ??
+    /// Option trade is netted off against another trade.
     /// Encoded/decoded by serializers as "NettedOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETO")]
     [IsoId("_ZOREYNp-Ed-ak6NoX_4Aeg_506486010")]
-    [Description(@"??")]
+    [Description(@"Option trade is netted off against another trade.")]
     NettedOff,
     
 }

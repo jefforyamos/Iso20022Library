@@ -22,30 +22,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleInstruction1Code
 {
     /// <summary>
-    /// ??
+    /// Hold cash for creditor.
     /// Encoded/decoded by serializers as "HoldCashForCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_sgJgYSAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Hold cash for creditor.")]
     HoldCashForCreditor,
     
     /// <summary>
-    /// ??
+    /// Phone beneficiary.
     /// Encoded/decoded by serializers as "PhoneBeneficiary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHOB")]
     [IsoId("_sgJgYyAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Phone beneficiary.")]
     PhoneBeneficiary,
     
     /// <summary>
-    /// ??
+    /// Telecom beneficiary.
     /// Encoded/decoded by serializers as "Telecom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELB")]
     [IsoId("_sgJgZSAeEeuSiN6KdHu9iw")]
-    [Description(@"??")]
+    [Description(@"Telecom beneficiary.")]
     Telecom,
     
 }

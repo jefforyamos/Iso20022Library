@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Status9Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been accepted and is validated for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_8eAnIfNvEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Instruction has been accepted and is validated for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Attendance is confirmed at the meeting.
     /// Encoded/decoded by serializers as "AttendanceConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATTC")]
     [IsoId("_9EsMofNvEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Attendance is confirmed at the meeting.")]
     AttendanceConfirmed,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_9qfBUfNvEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the agent, for example, due to an event deadline extension.
     /// Encoded/decoded by serializers as "CancelledBySubcustodian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSUB")]
     [IsoId("_94UpAfNvEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the agent, for example, due to an event deadline extension.")]
     CancelledBySubcustodian,
     
     /// <summary>
-    /// ??
+    /// Accepted and sent along the chain.
     /// Encoded/decoded by serializers as "Forwarded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRWD")]
     [IsoId("_-fmEYfNvEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Accepted and sent along the chain.")]
     Forwarded,
     
     /// <summary>
-    /// ??
+    /// Instruction has been received by Issuer, equivalent to the confirmation of receipt of votes cast electronically.
     /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIS")]
     [IsoId("__E8NIfNvEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received by Issuer, equivalent to the confirmation of receipt of votes cast electronically.")]
     ReceivedByIssuerOrRegistrar,
     
     /// <summary>
-    /// ??
+    /// Rights holder has been registered to participate to the meeting.
     /// Encoded/decoded by serializers as "RegisteredToParticipateAtMeeting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGM")]
     [IsoId("__qkpwfNvEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Rights holder has been registered to participate to the meeting.")]
     RegisteredToParticipateAtMeeting,
     
     /// <summary>
-    /// ??
+    /// Standing instruction is applied.
     /// Encoded/decoded by serializers as "StandingInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STIN")]
     [IsoId("_AMfrEfNwEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Standing instruction is applied.")]
     StandingInstruction,
     
 }

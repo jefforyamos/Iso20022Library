@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Status2Code
 {
     /// <summary>
-    /// ??
+    /// Processing has been completed.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_ZQggENp-Ed-ak6NoX_4Aeg_-539683848")]
-    [Description(@"??")]
+    [Description(@"Processing has been completed.")]
     Completed,
     
     /// <summary>
-    /// ??
+    /// Instruction is pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_ZQggEdp-Ed-ak6NoX_4Aeg_-475958869")]
-    [Description(@"??")]
+    [Description(@"Instruction is pending.")]
     Pending,
     
 }

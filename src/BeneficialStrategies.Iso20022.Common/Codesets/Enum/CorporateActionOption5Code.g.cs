@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionOption5Code
 {
     /// <summary>
-    /// ??
+    /// Option to choose cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_bMfEk9p-Ed-ak6NoX_4Aeg_160952572")]
-    [Description(@"??")]
+    [Description(@"Option to choose cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Distribution of securities to holders.
     /// Encoded/decoded by serializers as "Security".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_bMfElNp-Ed-ak6NoX_4Aeg_720605213")]
-    [Description(@"??")]
+    [Description(@"Distribution of securities to holders.")]
     Security,
     
 }

@@ -21,21 +21,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalEffectiveDateParameter1Code
 {
     /// <summary>
-    /// ??
+    /// Relates to the settlement date.
     /// Encoded/decoded by serializers as "SettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_uU8YRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Relates to the settlement date.")]
     SettlementDate,
     
     /// <summary>
-    /// ??
+    /// Relates to the trade date.
     /// Encoded/decoded by serializers as "TradeDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_uU8YSPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Relates to the trade date.")]
     TradeDate,
     
 }

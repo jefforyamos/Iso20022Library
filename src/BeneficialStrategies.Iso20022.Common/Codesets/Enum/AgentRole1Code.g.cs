@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AgentRole1Code
 {
     /// <summary>
-    /// ??
+    /// Identification of the agent acting as main agent.
     /// Encoded/decoded by serializers as "PrincipalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIN")]
     [IsoId("_bnmTR9p-Ed-ak6NoX_4Aeg_1607205276")]
-    [Description(@"??")]
+    [Description(@"Identification of the agent acting as main agent.")]
     PrincipalAgent,
     
     /// <summary>
-    /// ??
+    /// Identification of the agent acting as co-domicile or sub agent.
     /// Encoded/decoded by serializers as "SubAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBA")]
     [IsoId("_bnmTSNp-Ed-ak6NoX_4Aeg_1634910933")]
-    [Description(@"??")]
+    [Description(@"Identification of the agent acting as co-domicile or sub agent.")]
     SubAgent,
     
 }

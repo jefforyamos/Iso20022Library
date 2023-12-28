@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMCommand2Code
 {
     /// <summary>
-    /// ??
+    /// Provide the ATM counters, resetting those that are applicable.
     /// Encoded/decoded by serializers as "ATMBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABAL")]
     [IsoId("_y5cO4Yr2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Provide the ATM counters, resetting those that are applicable.")]
     ATMBalance,
     
     /// <summary>
-    /// ??
+    /// Status of the ATM required by the ATM manager.
     /// Encoded/decoded by serializers as "ATMStatusUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTS")]
     [IsoId("_zCoAE4r2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Status of the ATM required by the ATM manager.")]
     ATMStatusUpdate,
     
     /// <summary>
-    /// ??
+    /// Update the ATM configuration parameters.
     /// Encoded/decoded by serializers as "ConfigurationUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFGT")]
     [IsoId("_zH5hoYr2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Update the ATM configuration parameters.")]
     ConfigurationUpdate,
     
     /// <summary>
-    /// ??
+    /// Request the value of the ATM counters.
     /// Encoded/decoded by serializers as "CountersInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCNT")]
     [IsoId("_zRKLU4r2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Request the value of the ATM counters.")]
     CountersInquiry,
     
     /// <summary>
-    /// ??
+    /// Perform a disconnection followed by a reconnection.
     /// Encoded/decoded by serializers as "Disconnect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_zStqgYr2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Perform a disconnection followed by a reconnection.")]
     Disconnect,
     
     /// <summary>
-    /// ??
+    /// Activate cryptographic keys.
     /// Encoded/decoded by serializers as "KeyActivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KACT")]
     [IsoId("_zcTEU4r2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Activate cryptographic keys.")]
     KeyActivation,
     
     /// <summary>
-    /// ??
+    /// Deactivate cryptographic keys.
     /// Encoded/decoded by serializers as "KeyDeactivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDAC")]
     [IsoId("_zd2jgYr2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Deactivate cryptographic keys.")]
     KeyDeactivation,
     
     /// <summary>
-    /// ??
+    /// Start a cryptographic key download.
     /// Encoded/decoded by serializers as "KeyDownload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDWL")]
     [IsoId("_zmgwQ4r2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Start a cryptographic key download.")]
     KeyDownload,
     
     /// <summary>
-    /// ??
+    /// Remove cryptographic keys.
     /// Encoded/decoded by serializers as "KeyRemove".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KRMV")]
     [IsoId("_zsutAYr2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Remove cryptographic keys.")]
     KeyRemove,
     
     /// <summary>
-    /// ??
+    /// Update the configuration of the hardware security module on the ATM.
     /// Encoded/decoded by serializers as "SecurityDeviceConfigurationUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCFU")]
     [IsoId("_z1YSs4r2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Update the configuration of the hardware security module on the ATM.")]
     SecurityDeviceConfigurationUpdate,
     
     /// <summary>
-    /// ??
+    /// Update the security scheme of the hardware security module on the ATM.
     /// Encoded/decoded by serializers as "SecurityDeviceSchemeUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSCU")]
     [IsoId("_z6CJMYr2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Update the security scheme of the hardware security module on the ATM.")]
     SecurityDeviceSchemeUpdate,
     
     /// <summary>
-    /// ??
+    /// Update the status of the hardware security module on the ATM.
     /// Encoded/decoded by serializers as "SecurityDeviceStatusUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSTU")]
     [IsoId("_0EJHc4r2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Update the status of the hardware security module on the ATM.")]
     SecurityDeviceStatusUpdate,
     
     /// <summary>
-    /// ??
+    /// Send a specific message to initiate a process.
     /// Encoded/decoded by serializers as "SendMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNDM")]
     [IsoId("_0Mvp04r2EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Send a specific message to initiate a process.")]
     SendMessage,
     
 }

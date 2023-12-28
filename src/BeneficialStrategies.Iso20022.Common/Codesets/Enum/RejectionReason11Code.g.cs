@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason11Code
 {
     /// <summary>
-    /// ??
+    /// The validation of the advice/instruction/request failed.
     /// Encoded/decoded by serializers as "FailedValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_ZgdAl9p-Ed-ak6NoX_4Aeg_-698385107")]
-    [Description(@"??")]
+    [Description(@"The validation of the advice/instruction/request failed.")]
     FailedValidation,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was rejected since the instruction has already been cancelled.
     /// Encoded/decoded by serializers as "RejectedSinceAlreadyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAN")]
     [IsoId("_ZgdAmNp-Ed-ak6NoX_4Aeg_-698385076")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was rejected since the instruction has already been cancelled.")]
     RejectedSinceAlreadyCancelled,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
     /// Encoded/decoded by serializers as "RejectedSinceInProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRG")]
     [IsoId("_ZgdAmdp-Ed-ak6NoX_4Aeg_-698385045")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been rejected because the instruction process is in progress or has been processed.")]
     RejectedSinceInProgress,
     
     /// <summary>
-    /// ??
+    /// Invalid corporate action identification supplied.
     /// Encoded/decoded by serializers as "InvalidCAIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFI")]
     [IsoId("_ZgmKgNp-Ed-ak6NoX_4Aeg_-698385015")]
-    [Description(@"??")]
+    [Description(@"Invalid corporate action identification supplied.")]
     InvalidCAIdentification,
     
 }

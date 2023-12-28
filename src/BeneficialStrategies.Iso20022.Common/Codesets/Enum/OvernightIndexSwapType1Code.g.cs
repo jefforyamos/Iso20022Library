@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OvernightIndexSwapType1Code
 {
     /// <summary>
-    /// ??
+    /// Fixed interest rate is paid by the reporting agent.
     /// Encoded/decoded by serializers as "Paid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAID")]
     [IsoId("_MMw1obu9EeSXxOgurgHGgw")]
-    [Description(@"??")]
+    [Description(@"Fixed interest rate is paid by the reporting agent.")]
     Paid,
     
     /// <summary>
-    /// ??
+    /// Fixed interest rate is received by the reporting agent.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_MTdTg7u9EeSXxOgurgHGgw")]
-    [Description(@"??")]
+    [Description(@"Fixed interest rate is received by the reporting agent.")]
     Received,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PowerOfAttorneyLegalisation1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the power of attorney must be legalised by a notary.
     /// Encoded/decoded by serializers as "Notary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTA")]
     [IsoId("_aHo8ZNp-Ed-ak6NoX_4Aeg_-267216404")]
-    [Description(@"??")]
+    [Description(@"Indicates that the power of attorney must be legalised by a notary.")]
     Notary,
     
     /// <summary>
-    /// ??
+    /// Indicates that the power of attorney must be legalised by a local authority.
     /// Encoded/decoded by serializers as "LocalAuthority".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCA")]
     [IsoId("_aHo8Zdp-Ed-ak6NoX_4Aeg_-254286026")]
-    [Description(@"??")]
+    [Description(@"Indicates that the power of attorney must be legalised by a local authority.")]
     LocalAuthority,
     
     /// <summary>
-    /// ??
+    /// Indicates that the power of attorney must be legalised by a legal officer.
     /// Encoded/decoded by serializers as "Apostilled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APOS")]
     [IsoId("_aHo8Ztp-Ed-ak6NoX_4Aeg_-239508247")]
-    [Description(@"??")]
+    [Description(@"Indicates that the power of attorney must be legalised by a legal officer.")]
     Apostilled,
     
     /// <summary>
-    /// ??
+    /// Indicates that the power of attorney must be legalised by a consular officer.
     /// Encoded/decoded by serializers as "Consularized".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COUN")]
     [IsoId("_aHytYNp-Ed-ak6NoX_4Aeg_-224734417")]
-    [Description(@"??")]
+    [Description(@"Indicates that the power of attorney must be legalised by a consular officer.")]
     Consularized,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateType5Code
 {
     /// <summary>
-    /// ??
+    /// Open-dated, which indicates that the date has not been established.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_ayjhoNp-Ed-ak6NoX_4Aeg_957934914")]
-    [Description(@"??")]
+    [Description(@"Open-dated, which indicates that the date has not been established.")]
     Open,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundOrderType10Code
 {
     /// <summary>
-    /// ??
+    /// Investment fund order is a subscription.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_fPfJIbszEeiTr4dQrTCaYA")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a subscription.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a dividend reinvestment (only applicable to a subscription).
     /// Encoded/decoded by serializers as "ReinvestmentOfDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDIV")]
     [IsoId("_f00q0bszEeiTr4dQrTCaYA")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a dividend reinvestment (only applicable to a subscription).")]
     ReinvestmentOfDividend,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a redemption.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_gs6wcbszEeiTr4dQrTCaYA")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a redemption.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a regular savings plan (only applicable to a subscription).
     /// Encoded/decoded by serializers as "RegularSavingsPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RGSV")]
     [IsoId("_hNyo4bszEeiTr4dQrTCaYA")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a regular savings plan (only applicable to a subscription).")]
     RegularSavingsPlan,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is for a withdrawal investment plan (only applicable to a redemption).
     /// Encoded/decoded by serializers as "Withdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIDP")]
     [IsoId("_hpd4QbszEeiTr4dQrTCaYA")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is for a withdrawal investment plan (only applicable to a redemption).")]
     Withdrawal,
     
 }

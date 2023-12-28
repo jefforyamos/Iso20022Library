@@ -22,39 +22,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalValidationRuleIdentification1Code
 {
     /// <summary>
-    /// ??
+    /// Identifies the validation rules related to the Russian Cross-border Transactions Currency Control Reporting
     /// Encoded/decoded by serializers as "CrossborderTransactionsCurrencyControlReporting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCTR")]
     [IsoId("_uTdKjvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Identifies the validation rules related to the Russian Cross-border Transactions Currency Control Reporting")]
     CrossborderTransactionsCurrencyControlReporting,
     
     /// <summary>
-    /// ??
+    /// Identifies the validation rules related to the invoice tax reporting 
     /// Encoded/decoded by serializers as "InvoiceTaxReporting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITRP")]
     [IsoId("_uTm7gvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Identifies the validation rules related to the invoice tax reporting ")]
     InvoiceTaxReporting,
     
     /// <summary>
-    /// ??
+    /// Identifies the validation rule scheme related to the ECB Euro Money Market Statistical Reporting
     /// Encoded/decoded by serializers as "MoneyMarketStatisticalReporting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMSR")]
     [IsoId("_uTm7hfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Identifies the validation rule scheme related to the ECB Euro Money Market Statistical Reporting")]
     MoneyMarketStatisticalReporting,
     
     /// <summary>
-    /// ??
+    /// Identifies the validation rules related to the Bank Of England Sterling Money Market Daily Reporting
     /// Encoded/decoded by serializers as "SterlingMoneyMarketDaily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMMD")]
     [IsoId("_uTwFcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Identifies the validation rules related to the Bank Of England Sterling Money Market Daily Reporting")]
     SterlingMoneyMarketDaily,
     
 }

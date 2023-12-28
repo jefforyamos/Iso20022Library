@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BlockTrade1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is a block trade parent.
     /// Encoded/decoded by serializers as "Parent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLPA")]
     [IsoId("_begotdp-Ed-ak6NoX_4Aeg_489423628")]
-    [Description(@"??")]
+    [Description(@"Transaction is a block trade parent.")]
     Parent,
     
     /// <summary>
-    /// ??
+    /// Transaction is a block trade child.
     /// Encoded/decoded by serializers as "Child".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCH")]
     [IsoId("_begottp-Ed-ak6NoX_4Aeg_535598920")]
-    [Description(@"??")]
+    [Description(@"Transaction is a block trade child.")]
     Child,
     
 }

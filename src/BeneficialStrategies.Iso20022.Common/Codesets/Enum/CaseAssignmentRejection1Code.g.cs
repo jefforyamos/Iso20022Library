@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CaseAssignmentRejection1Code
 {
     /// <summary>
-    /// ??
+    /// Underlying instruction can not be found.
     /// Encoded/decoded by serializers as "UnderlyingPaymentNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFND")]
     [IsoId("_Vm2419p-Ed-ak6NoX_4Aeg_-407386472")]
-    [Description(@"??")]
+    [Description(@"Underlying instruction can not be found.")]
     UnderlyingPaymentNotFound,
     
     /// <summary>
-    /// ??
+    /// Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).
     /// Encoded/decoded by serializers as "NotAuthorisedToInvestigate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAUT")]
     [IsoId("_VnACwNp-Ed-ak6NoX_4Aeg_-48136805")]
-    [Description(@"??")]
+    [Description(@"Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).")]
     NotAuthorisedToInvestigate,
     
     /// <summary>
-    /// ??
+    /// Case has never been assigned before.
     /// Encoded/decoded by serializers as "UnknownCase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKNW")]
     [IsoId("_VnACwdp-Ed-ak6NoX_4Aeg_-1993051148")]
-    [Description(@"??")]
+    [Description(@"Case has never been assigned before.")]
     UnknownCase,
     
     /// <summary>
-    /// ??
+    /// Used when the payment instruction has been rejected.
     /// Encoded/decoded by serializers as "PaymentRejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_VnACwtp-Ed-ak6NoX_4Aeg_-1951794735")]
-    [Description(@"??")]
+    [Description(@"Used when the payment instruction has been rejected.")]
     PaymentRejected,
     
     /// <summary>
-    /// ??
+    /// Used when the payment instruction has been cancelled.
     /// Encoded/decoded by serializers as "PaymentCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNCL")]
     [IsoId("_VnACw9p-Ed-ak6NoX_4Aeg_-1881606195")]
-    [Description(@"??")]
+    [Description(@"Used when the payment instruction has been cancelled.")]
     PaymentCancelled,
     
 }

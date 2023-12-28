@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionRight1Code
 {
     /// <summary>
-    /// ??
+    /// Exercise option right.
     /// Encoded/decoded by serializers as "Exercise".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXER")]
     [IsoId("__vPco9ojEeC60axPepSq7g_-581695193")]
-    [Description(@"??")]
+    [Description(@"Exercise option right.")]
     Exercise,
     
     /// <summary>
-    /// ??
+    /// Option right assignment.
     /// Encoded/decoded by serializers as "Assignment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASGN")]
     [IsoId("__vPcpNojEeC60axPepSq7g_-1981917652")]
-    [Description(@"??")]
+    [Description(@"Option right assignment.")]
     Assignment,
     
     /// <summary>
-    /// ??
+    /// The option right is renounced.
     /// Encoded/decoded by serializers as "Renouncement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RENO")]
     [IsoId("__vPcpdojEeC60axPepSq7g_-1993016429")]
-    [Description(@"??")]
+    [Description(@"The option right is renounced.")]
     Renouncement,
     
     /// <summary>
-    /// ??
+    /// Option right expires.
     /// Encoded/decoded by serializers as "Expiration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("__vYmkNojEeC60axPepSq7g_-525867666")]
-    [Description(@"??")]
+    [Description(@"Option right expires.")]
     Expiration,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstalmentPlan1Code
 {
     /// <summary>
-    /// ??
+    /// The payment is split in several instalments of equal amounts.
     /// Encoded/decoded by serializers as "EqualPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQPM")]
     [IsoId("_VzJcoTDhEeO9waS4ina8CA")]
-    [Description(@"??")]
+    [Description(@"The payment is split in several instalments of equal amounts.")]
     EqualPayment,
     
     /// <summary>
-    /// ??
+    /// The payment is split in several instalments of different amounts.
     /// Encoded/decoded by serializers as "InequalPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NQPM")]
     [IsoId("_V4pnsTDhEeO9waS4ina8CA")]
-    [Description(@"??")]
+    [Description(@"The payment is split in several instalments of different amounts.")]
     InequalPayment,
     
     /// <summary>
-    /// ??
+    /// The first instalment is deferred.
     /// Encoded/decoded by serializers as "DeferredInstalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFRI")]
     [IsoId("_31iVITGrEeOVuYdyXoFwuA")]
-    [Description(@"??")]
+    [Description(@"The first instalment is deferred.")]
     DeferredInstalment,
     
 }

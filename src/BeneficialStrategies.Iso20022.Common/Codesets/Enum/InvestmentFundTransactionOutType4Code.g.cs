@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentFundTransactionOutType4Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is a redemption of an investment fund.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_ViYohdp-Ed-ak6NoX_4Aeg_-1882035565")]
-    [Description(@"??")]
+    [Description(@"Transaction is a redemption of an investment fund.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Transaction is a subscription leg of a switch order execution.
     /// Encoded/decoded by serializers as "SwitchOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIO")]
     [IsoId("_ViYohtp-Ed-ak6NoX_4Aeg_-1812771225")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription leg of a switch order execution.")]
     SwitchOut,
     
     /// <summary>
-    /// ??
+    /// Transaction is an InSpecie.
     /// Encoded/decoded by serializers as "InSpecie".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSP")]
     [IsoId("_ViYoh9p-Ed-ak6NoX_4Aeg_1824710762")]
-    [Description(@"??")]
+    [Description(@"Transaction is an InSpecie.")]
     InSpecie,
     
     /// <summary>
-    /// ??
+    /// Transaction is a cross out.
     /// Encoded/decoded by serializers as "CrossOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CROO")]
     [IsoId("_ViYoiNp-Ed-ak6NoX_4Aeg_1843184237")]
-    [Description(@"??")]
+    [Description(@"Transaction is a cross out.")]
     CrossOut,
     
     /// <summary>
-    /// ??
+    /// Transaction is a dividend.
     /// Encoded/decoded by serializers as "Dividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_ViYoidp-Ed-ak6NoX_4Aeg_1864425612")]
-    [Description(@"??")]
+    [Description(@"Transaction is a dividend.")]
     Dividend,
     
     /// <summary>
-    /// ??
+    /// Transaction is another type of transaction.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ViiZgNp-Ed-ak6NoX_4Aeg_1870890259")]
-    [Description(@"??")]
+    [Description(@"Transaction is another type of transaction.")]
     Other,
     
 }

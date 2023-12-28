@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PeriodUnit2Code
 {
     /// <summary>
-    /// ??
+    /// Period unit expressed in hours.
     /// Encoded/decoded by serializers as "Hours".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOUR")]
     [IsoId("_I1r-sXyYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Period unit expressed in hours.")]
     Hours,
     
     /// <summary>
-    /// ??
+    /// Half days
     /// Encoded/decoded by serializers as "HalfDays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HFDA")]
     [IsoId("_I1r-s3yYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Half days")]
     HalfDays,
     
     /// <summary>
-    /// ??
+    /// Counted in days.
     /// Encoded/decoded by serializers as "Days".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAYS")]
     [IsoId("_I1r-tXyYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in days.")]
     Days,
     
     /// <summary>
-    /// ??
+    /// Counted in weeks.
     /// Encoded/decoded by serializers as "Weeks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_I1r-t3yYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in weeks.")]
     Weeks,
     
     /// <summary>
-    /// ??
+    /// Counted in months.
     /// Encoded/decoded by serializers as "Months".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_I1r-uXyYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in months.")]
     Months,
     
     /// <summary>
-    /// ??
+    /// Counted in years.
     /// Encoded/decoded by serializers as "Years".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_I1r-u3yYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in years.")]
     Years,
     
     /// <summary>
-    /// ??
+    /// Period unit expressed in minutes
     /// Encoded/decoded by serializers as "Minutes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINU")]
     [IsoId("_I1r-vXyYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Period unit expressed in minutes")]
     Minutes,
     
     /// <summary>
-    /// ??
+    /// Counted in some other unit.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_I1r-v3yYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in some other unit.")]
     Other,
     
 }

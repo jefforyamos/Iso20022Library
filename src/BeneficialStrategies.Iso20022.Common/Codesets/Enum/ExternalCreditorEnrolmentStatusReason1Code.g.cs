@@ -21,66 +21,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalCreditorEnrolmentStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Already existing creditor.
     /// Encoded/decoded by serializers as "AlreadyExistingCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACRD")]
     [IsoId("_uvUnJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Already existing creditor.")]
     AlreadyExistingCreditor,
     
     /// <summary>
-    /// ??
+    /// Duplication.
     /// Encoded/decoded by serializers as "Duplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM05")]
     [IsoId("_uvUnKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Duplication.")]
     Duplication,
     
     /// <summary>
-    /// ??
+    /// Invalid file format.
     /// Encoded/decoded by serializers as "InvalidFileFormat".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FF01")]
     [IsoId("_uvUnK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Invalid file format.")]
     InvalidFileFormat,
     
     /// <summary>
-    /// ??
+    /// Reference is not unique.
     /// Encoded/decoded by serializers as "NotUniqueReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RF01")]
     [IsoId("_uveYIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Reference is not unique.")]
     NotUniqueReference,
     
     /// <summary>
-    /// ??
+    /// Regulatory Reason.
     /// Encoded/decoded by serializers as "RegulatoryReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RR04")]
     [IsoId("_uveYJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Regulatory Reason.")]
     RegulatoryReason,
     
     /// <summary>
-    /// ??
+    /// Invalid character set.
     /// Encoded/decoded by serializers as "InvalidCharacterSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RR10")]
     [IsoId("_uvoJIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Invalid character set.")]
     InvalidCharacterSet,
     
     /// <summary>
-    /// ??
+    /// Technical rejection.
     /// Encoded/decoded by serializers as "TechnicalRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRJT")]
     [IsoId("_uvoJJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Technical rejection.")]
     TechnicalRejection,
     
 }

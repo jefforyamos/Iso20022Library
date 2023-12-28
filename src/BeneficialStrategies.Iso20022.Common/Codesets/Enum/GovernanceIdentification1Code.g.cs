@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GovernanceIdentification1Code
 {
     /// <summary>
-    /// ??
+    /// The version of the International Standby Practices (ISP) that is in effect on the date of issue of the undertaking.
     /// Encoded/decoded by serializers as "InternationalStandbyPractices".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISPR")]
     [IsoId("_buUCNnycEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"The version of the International Standby Practices (ISP) that is in effect on the date of issue of the undertaking.")]
     InternationalStandbyPractices,
     
     /// <summary>
-    /// ??
+    /// No applicable rule set defined.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_djAS9nycEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"No applicable rule set defined.")]
     None,
     
     /// <summary>
-    /// ??
+    /// The version of the Uniform Customs and Practice for Documentary Credits (UCP) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.
     /// Encoded/decoded by serializers as "UniformCustomsAndPractice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCPR")]
     [IsoId("_dtcBVnycEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"The version of the Uniform Customs and Practice for Documentary Credits (UCP) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.")]
     UniformCustomsAndPractice,
     
     /// <summary>
-    /// ??
+    /// The version of the ICC Uniform Rules For Demand Guarantees (URDG) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.
     /// Encoded/decoded by serializers as "UniformRulesForDemandGuarantees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URDG")]
     [IsoId("_d1VZFnycEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"The version of the ICC Uniform Rules For Demand Guarantees (URDG) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.")]
     UniformRulesForDemandGuarantees,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductMetal1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type non precious metals.
     /// Encoded/decoded by serializers as "NonPrecious".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPRM")]
     [IsoId("_aFAcEdDrEeS8V88MH4oPOQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type non precious metals.")]
     NonPrecious,
     
     /// <summary>
-    /// ??
+    /// Commodity of type precious metals.
     /// Encoded/decoded by serializers as "Precious".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRME")]
     [IsoId("_aSQN4dDrEeS8V88MH4oPOQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type precious metals.")]
     Precious,
     
     /// <summary>
-    /// ??
+    /// Commodity of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_IOVEkAFLEeaDfK-zDSyB6A")]
-    [Description(@"??")]
+    [Description(@"Commodity of other type.")]
     Other,
     
 }

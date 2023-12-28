@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProductType4Code
 {
     /// <summary>
-    /// ??
+    /// Identifies categories of instruments that are credits.
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_3BXTkebCEeW1iL_FRZt8bg")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of instruments that are credits.")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Identifies categories of currency instruments.
     /// Encoded/decoded by serializers as "Currency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_3BXTk-bCEeW1iL_FRZt8bg")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of currency instruments.")]
     Currency,
     
     /// <summary>
-    /// ??
+    /// Identifies the nature or type of an equity.
     /// Encoded/decoded by serializers as "Equity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUI")]
     [IsoId("_3BXTlebCEeW1iL_FRZt8bg")]
-    [Description(@"??")]
+    [Description(@"Identifies the nature or type of an equity.")]
     Equity,
     
     /// <summary>
-    /// ??
+    /// Identifies categories of instruments that are interest rates based.
     /// Encoded/decoded by serializers as "InterestRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_3BXTl-bCEeW1iL_FRZt8bg")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of instruments that are interest rates based.")]
     InterestRate,
     
     /// <summary>
-    /// ??
+    /// Identifies categories of instruments that are commodities.
     /// Encoded/decoded by serializers as "Commodity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_3BXTmebCEeW1iL_FRZt8bg")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of instruments that are commodities.")]
     Commodity,
     
     /// <summary>
-    /// ??
+    /// Other asset type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_5Q8wkebCEeW1iL_FRZt8bg")]
-    [Description(@"??")]
+    [Description(@"Other asset type.")]
     Other,
     
 }

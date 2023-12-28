@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Eligibility1Code
 {
     /// <summary>
-    /// ??
+    /// Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules.
     /// Encoded/decoded by serializers as "EligibleCounterparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELIG")]
     [IsoId("_ahHzZdp-Ed-ak6NoX_4Aeg_-1307879388")]
-    [Description(@"??")]
+    [Description(@"Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules.")]
     EligibleCounterparty,
     
     /// <summary>
-    /// ??
+    /// Retail customers are the least sophisticated level of investor.
     /// Encoded/decoded by serializers as "RetailClient".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETL")]
     [IsoId("_ahHzZtp-Ed-ak6NoX_4Aeg_-1307879371")]
-    [Description(@"??")]
+    [Description(@"Retail customers are the least sophisticated level of investor.")]
     RetailClient,
     
     /// <summary>
-    /// ??
+    /// Professional customers are, for example, investment firms, credit institutions, insurance companies.
     /// Encoded/decoded by serializers as "ProfessionalClient".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROF")]
     [IsoId("_ahHzZ9p-Ed-ak6NoX_4Aeg_-1307879327")]
-    [Description(@"??")]
+    [Description(@"Professional customers are, for example, investment firms, credit institutions, insurance companies.")]
     ProfessionalClient,
     
 }

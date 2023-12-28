@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentTransactionState1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is credited.
     /// Encoded/decoded by serializers as "Credited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRED")]
     [IsoId("_YEuMYaHnEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"Transaction is credited.")]
     Credited,
     
     /// <summary>
-    /// ??
+    /// Financial institution to financial institution customer credit transfer is received at the creditor agent or the financial institution credit transfer with cover is received at the creditor.
     /// Encoded/decoded by serializers as "ReceivedAtCreditorAgentOrCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCCC")]
     [IsoId("_YZBBYqHnEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"Financial institution to financial institution customer credit transfer is received at the creditor agent or the financial institution credit transfer with cover is received at the creditor.")]
     ReceivedAtCreditorAgentOrCreditor,
     
     /// <summary>
-    /// ??
+    /// Transaction is received by my institution.
     /// Encoded/decoded by serializers as "ReceivedByMyInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCMY")]
     [IsoId("_YsRUkqHnEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"Transaction is received by my institution.")]
     ReceivedByMyInstitution,
     
     /// <summary>
-    /// ??
+    /// Transaction is sent by my institution.
     /// Encoded/decoded by serializers as "SentByMyInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STMY")]
     [IsoId("_Yw8ZMaHnEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"Transaction is sent by my institution.")]
     SentByMyInstitution,
     
     /// <summary>
-    /// ??
+    /// Financial institution to financial institution customer credit transfer is sent by the debtor agent or the financial institution credit transfer with cover is sent by the debtor.
     /// Encoded/decoded by serializers as "SentByDebtorAgentOrDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STDD")]
     [IsoId("_ZKEq4aHnEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"Financial institution to financial institution customer credit transfer is sent by the debtor agent or the financial institution credit transfer with cover is sent by the debtor.")]
     SentByDebtorAgentOrDebtor,
     
 }

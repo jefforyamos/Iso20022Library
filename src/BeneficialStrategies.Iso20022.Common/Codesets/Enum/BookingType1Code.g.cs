@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BookingType1Code
 {
     /// <summary>
-    /// ??
+    /// Booking type is regular.
     /// Encoded/decoded by serializers as "Regular".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGU")]
     [IsoId("_bU1IRtp-Ed-ak6NoX_4Aeg_-626502093")]
-    [Description(@"??")]
+    [Description(@"Booking type is regular.")]
     Regular,
     
     /// <summary>
-    /// ??
+    /// Order is to be booked out as a CFD.
     /// Encoded/decoded by serializers as "ContractForDifference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFOD")]
     [IsoId("_bU-SMNp-Ed-ak6NoX_4Aeg_-626502041")]
-    [Description(@"??")]
+    [Description(@"Order is to be booked out as a CFD.")]
     ContractForDifference,
     
     /// <summary>
-    /// ??
+    /// Order is to be booked out as an OTC derivative (for example, Swap).
     /// Encoded/decoded by serializers as "TotalReturnSwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRSW")]
     [IsoId("_bU-SMdp-Ed-ak6NoX_4Aeg_-626501775")]
-    [Description(@"??")]
+    [Description(@"Order is to be booked out as an OTC derivative (for example, Swap).")]
     TotalReturnSwap,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CryptographicKeyType2Code
 {
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES128".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AES2")]
     [IsoId("_yZyTMSm0EeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     AES128,
     
     /// <summary>
-    /// ??
+    /// Data encryption standard key of 112 bits (without the parity bits).
     /// Encoded/decoded by serializers as "DES112".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDE3")]
     [IsoId("_zIyuQym0EeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Data encryption standard key of 112 bits (without the parity bits).")]
     DES112,
     
     /// <summary>
-    /// ??
+    /// DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.
     /// Encoded/decoded by serializers as "DUKPT2009".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DKP9")]
     [IsoId("_zYRUsym0EeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.")]
     DUKPT2009,
     
 }

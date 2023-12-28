@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CSCManagement1Code
 {
     /// <summary>
-    /// ??
+    /// Card security code present.
     /// Encoded/decoded by serializers as "CSCPresent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRST")]
     [IsoId("_TS9qYgEcEeCQm6a_G2yO_w_-1905065506")]
-    [Description(@"??")]
+    [Description(@"Card security code present.")]
     CSCPresent,
     
     /// <summary>
-    /// ??
+    /// Card security code by-passed or not provided by the merchant.
     /// Encoded/decoded by serializers as "CSCByPass".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BYPS")]
     [IsoId("_TS9qYwEcEeCQm6a_G2yO_w_-1032051106")]
-    [Description(@"??")]
+    [Description(@"Card security code by-passed or not provided by the merchant.")]
     CSCByPass,
     
     /// <summary>
-    /// ??
+    /// Card security code unreadable.
     /// Encoded/decoded by serializers as "CSCUnread".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRD")]
     [IsoId("_TS9qZAEcEeCQm6a_G2yO_w_905174067")]
-    [Description(@"??")]
+    [Description(@"Card security code unreadable.")]
     CSCUnread,
     
     /// <summary>
-    /// ??
+    /// No card security code imprint.
     /// Encoded/decoded by serializers as "NoCSC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCSC")]
     [IsoId("_TS9qZQEcEeCQm6a_G2yO_w_1419047201")]
-    [Description(@"??")]
+    [Description(@"No card security code imprint.")]
     NoCSC,
     
 }

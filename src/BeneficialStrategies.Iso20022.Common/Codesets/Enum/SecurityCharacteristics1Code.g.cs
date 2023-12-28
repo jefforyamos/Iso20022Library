@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecurityCharacteristics1Code
 {
     /// <summary>
-    /// ??
+    /// Encryption initiated by the cardholder to secure end-to-end communication channel.
     /// Encoded/decoded by serializers as "CardholderEndToEndEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CETE")]
     [IsoId("_EhiGsUq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption initiated by the cardholder to secure end-to-end communication channel.")]
     CardholderEndToEndEncryption,
     
     /// <summary>
-    /// ??
+    /// Encryption initiated by the cardholder to secure point-to-point communication channel.
     /// Encoded/decoded by serializers as "CardholderPointToPointEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTE")]
     [IsoId("_Eu2J8kq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption initiated by the cardholder to secure point-to-point communication channel.")]
     CardholderPointToPointEncryption,
     
     /// <summary>
-    /// ??
+    /// Encryption used to secure the communication channel.
     /// Encoded/decoded by serializers as "ChannelEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CENC")]
     [IsoId("_E91oMkq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption used to secure the communication channel.")]
     ChannelEncryption,
     
     /// <summary>
-    /// ??
+    /// Usage of MAC to secure a communication channel
     /// Encoded/decoded by serializers as "ChannelMAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMAC")]
     [IsoId("_FI3Mckq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Usage of MAC to secure a communication channel")]
     ChannelMAC,
     
     /// <summary>
-    /// ??
+    /// Encryption used from one end to the other end of the communication channel.
     /// Encoded/decoded by serializers as "EndToEndEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETEE")]
     [IsoId("_FUIBQkq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption used from one end to the other end of the communication channel.")]
     EndToEndEncryption,
     
     /// <summary>
-    /// ??
+    /// Encryption initiated by the merchant to secure end-to-end communication channel.
     /// Encoded/decoded by serializers as "MerchantEndToEndEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "METE")]
     [IsoId("_Feuuwkq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption initiated by the merchant to secure end-to-end communication channel.")]
     MerchantEndToEndEncryption,
     
     /// <summary>
-    /// ??
+    /// Encryption initiated by the merchant to secure point-to-point communication channel.
     /// Encoded/decoded by serializers as "MerchantPointToPointEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPTE")]
     [IsoId("_Frszwkq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption initiated by the merchant to secure point-to-point communication channel.")]
     MerchantPointToPointEncryption,
     
     /// <summary>
-    /// ??
+    /// Open network
     /// Encoded/decoded by serializers as "OpenNetwork".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPNN")]
     [IsoId("_F8xVokq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Open network")]
     OpenNetwork,
     
     /// <summary>
-    /// ??
+    /// MAC used in a pass-through communication mode
     /// Encoded/decoded by serializers as "PassthroughMAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMAC")]
     [IsoId("_GLu-skq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"MAC used in a pass-through communication mode")]
     PassthroughMAC,
     
     /// <summary>
-    /// ??
+    /// Encryption using PKI to secure the communication channel.
     /// Encoded/decoded by serializers as "PKIEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PKIE")]
     [IsoId("_GX_5Ekq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption using PKI to secure the communication channel.")]
     PKIEncryption,
     
     /// <summary>
-    /// ??
+    /// Encryption using a private algorithm to secure a communication channel.
     /// Encoded/decoded by serializers as "PrivateAlgorithmEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAE")]
     [IsoId("_GpQBIkq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption using a private algorithm to secure a communication channel.")]
     PrivateAlgorithmEncryption,
     
     /// <summary>
-    /// ??
+    /// Private algorithm used for MAC.
     /// Encoded/decoded by serializers as "PrivateAlgorithmMAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAM")]
     [IsoId("_G4pvEkq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Private algorithm used for MAC.")]
     PrivateAlgorithmMAC,
     
     /// <summary>
-    /// ??
+    /// Private network.
     /// Encoded/decoded by serializers as "PrivateNetwork".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRVN")]
     [IsoId("_HDma0kq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Private network.")]
     PrivateNetwork,
     
     /// <summary>
-    /// ??
+    /// Standard algorithm used for MAC
     /// Encoded/decoded by serializers as "StandardAlgorithmMAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAM")]
     [IsoId("_HPjMIkq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Standard algorithm used for MAC")]
     StandardAlgorithmMAC,
     
     /// <summary>
-    /// ??
+    /// Encryption initiated by the acquirer to secure point-to-point communication channel.
     /// Encoded/decoded by serializers as "AcquirerPointToPointEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APTE")]
     [IsoId("_IRZqskq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption initiated by the acquirer to secure point-to-point communication channel.")]
     AcquirerPointToPointEncryption,
     
     /// <summary>
-    /// ??
+    /// Encryption initiated by the acquirer to secure end-to-end communication channel.
     /// Encoded/decoded by serializers as "AcquirerEndToEndEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AETE")]
     [IsoId("_Iepcgkq2Eeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Encryption initiated by the acquirer to secure end-to-end communication channel.")]
     AcquirerEndToEndEncryption,
     
     /// <summary>
-    /// ??
+    /// Other security characteristics defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_MIUowQwgEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"Other security characteristics defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other security characteristics defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_MV-qQQwgEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"Other security characteristics defined at private level")]
     OtherPrivate,
     
 }

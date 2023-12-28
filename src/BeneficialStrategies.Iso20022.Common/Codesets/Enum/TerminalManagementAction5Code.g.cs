@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalManagementAction5Code
 {
     /// <summary>
-    /// ??
+    /// Request to deactivate the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Deactivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCTV")]
     [IsoId("_GmJtgSiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to deactivate the element identified inside the message exchange.")]
     Deactivate,
     
     /// <summary>
-    /// ??
+    /// Request to delete the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Delete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELT")]
     [IsoId("_GmJtgyiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to delete the element identified inside the message exchange.")]
     Delete,
     
     /// <summary>
-    /// ??
+    /// Request to download the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Download".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DWNL")]
     [IsoId("_GmJthSiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to download the element identified inside the message exchange.")]
     Download,
     
     /// <summary>
-    /// ??
+    /// Request to install the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Install".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_GmJthyiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to install the element identified inside the message exchange.")]
     Install,
     
     /// <summary>
-    /// ??
+    /// Request to restart the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Restart".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSTR")]
     [IsoId("_GmJtiSiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to restart the element identified inside the message exchange.")]
     Restart,
     
     /// <summary>
-    /// ??
+    /// Request to upload the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Upload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPLD")]
     [IsoId("_GmJtiyiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to upload the element identified inside the message exchange.")]
     Upload,
     
     /// <summary>
-    /// ??
+    /// Request to update the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Update".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDT")]
     [IsoId("_GmKUkSiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to update the element identified inside the message exchange.")]
     Update,
     
     /// <summary>
-    /// ??
+    /// Request sent to a POI to bind with a server.
     /// Encoded/decoded by serializers as "Bind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIND")]
     [IsoId("_GmKUkyiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request sent to a POI to bind with a server.")]
     Bind,
     
     /// <summary>
-    /// ??
+    /// Request sent to a POI to rebind with a server.
     /// Encoded/decoded by serializers as "Rebind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RBND")]
     [IsoId("_GmKUlSiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request sent to a POI to rebind with a server.")]
     Rebind,
     
     /// <summary>
-    /// ??
+    /// Request sent to a POI to unbind with a server.
     /// Encoded/decoded by serializers as "Unbind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UBND")]
     [IsoId("_GmKUlyiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request sent to a POI to unbind with a server.")]
     Unbind,
     
     /// <summary>
-    /// ??
+    /// Request to activate the element identified inside the message exchange.
     /// Encoded/decoded by serializers as "Activate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_GmKUmSiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to activate the element identified inside the message exchange.")]
     Activate,
     
     /// <summary>
-    /// ??
+    /// Request to execute a device request.
     /// Encoded/decoded by serializers as "DeviceRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEVR")]
     [IsoId("_Mam_cSiyEeurkfo6MpvKDA")]
-    [Description(@"??")]
+    [Description(@"Request to execute a device request.")]
     DeviceRequest,
     
 }

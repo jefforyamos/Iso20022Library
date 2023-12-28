@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FileActionResult1Code
 {
     /// <summary>
-    /// ??
+    /// Identified record is already present in the file.
     /// Encoded/decoded by serializers as "DuplicateRecord".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPR")]
     [IsoId("_1m3kQVECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Identified record is already present in the file.")]
     DuplicateRecord,
     
     /// <summary>
-    /// ??
+    /// Invalid record field syntax.
     /// Encoded/decoded by serializers as "FieldEditError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FERD")]
     [IsoId("_2AgMQlECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Invalid record field syntax.")]
     FieldEditError,
     
     /// <summary>
-    /// ??
+    /// Invalid field value in record.
     /// Encoded/decoded by serializers as "FieldValueInvalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFD")]
     [IsoId("_2KX58lECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Invalid field value in record.")]
     FieldValueInvalid,
     
     /// <summary>
-    /// ??
+    /// File is locked and cannot be modified.
     /// Encoded/decoded by serializers as "FileLocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLCK")]
     [IsoId("_2YQk8lECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"File is locked and cannot be modified.")]
     FileLocked,
     
     /// <summary>
-    /// ??
+    /// Invalid record format.
     /// Encoded/decoded by serializers as "FormatError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FTER")]
     [IsoId("_2jasElECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Invalid record format.")]
     FormatError,
     
     /// <summary>
-    /// ??
+    /// Requested file action not supported.
     /// Encoded/decoded by serializers as "NotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSUP")]
     [IsoId("_2tRyslECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Requested file action not supported.")]
     NotSupported,
     
     /// <summary>
-    /// ??
+    /// Other type of file action result
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_23jJAlECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Other type of file action result")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Action performed successfully
     /// Encoded/decoded by serializers as "Successful".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_3D14klECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Action performed successfully")]
     Successful,
     
     /// <summary>
-    /// ??
+    /// Identified record was not found.
     /// Encoded/decoded by serializers as "UnableToLocateRecord".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UTLR")]
     [IsoId("_3NXA8lECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Identified record was not found.")]
     UnableToLocateRecord,
     
     /// <summary>
-    /// ??
+    /// File is unknown.
     /// Encoded/decoded by serializers as "UnknownFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNKF")]
     [IsoId("_3b2I4lECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"File is unknown.")]
     UnknownFile,
     
     /// <summary>
-    /// ??
+    /// Action could not be performed.
     /// Encoded/decoded by serializers as "Unsuccessful".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USUC")]
     [IsoId("_3nfYMlECEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Action could not be performed.")]
     Unsuccessful,
     
 }

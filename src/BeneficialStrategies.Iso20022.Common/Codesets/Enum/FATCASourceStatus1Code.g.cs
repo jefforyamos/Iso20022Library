@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FATCASourceStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Source of the Foreign Account Tax Compliance Act (FATCA) status calculated.
     /// Encoded/decoded by serializers as "Calculated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALC")]
     [IsoId("_QakGUQjVEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Source of the Foreign Account Tax Compliance Act (FATCA) status calculated.")]
     Calculated,
     
     /// <summary>
-    /// ??
+    /// Source of the Foreign Account Tax Compliance Act (FATCA) status is as declared by the investor.
     /// Encoded/decoded by serializers as "Declared".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_QjVn0QjVEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Source of the Foreign Account Tax Compliance Act (FATCA) status is as declared by the investor.")]
     Declared,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeCertificateType2Code
 {
     /// <summary>
-    /// ??
+    /// Beneficiary certificate.
     /// Encoded/decoded by serializers as "Beneficiary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BENE")]
     [IsoId("_YmLwuNp-Ed-ak6NoX_4Aeg_2058856409")]
-    [Description(@"??")]
+    [Description(@"Beneficiary certificate.")]
     Beneficiary,
     
     /// <summary>
-    /// ??
+    /// Shipping line certificate.
     /// Encoded/decoded by serializers as "ShippingLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHIP")]
     [IsoId("_YmLwudp-Ed-ak6NoX_4Aeg_2058856410")]
-    [Description(@"??")]
+    [Description(@"Shipping line certificate.")]
     ShippingLine,
     
     /// <summary>
-    /// ??
+    /// Undefined certificate at this stage.
     /// Encoded/decoded by serializers as "Undefined1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UND1")]
     [IsoId("_YmVhsNp-Ed-ak6NoX_4Aeg_2058856418")]
-    [Description(@"??")]
+    [Description(@"Undefined certificate at this stage.")]
     Undefined1,
     
     /// <summary>
-    /// ??
+    /// Undefined certificate at this stage.
     /// Encoded/decoded by serializers as "Undefined2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UND2")]
     [IsoId("_YmVhsdp-Ed-ak6NoX_4Aeg_2058856419")]
-    [Description(@"??")]
+    [Description(@"Undefined certificate at this stage.")]
     Undefined2,
     
 }

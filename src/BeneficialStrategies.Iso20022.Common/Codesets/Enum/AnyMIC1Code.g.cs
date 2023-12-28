@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AnyMIC1Code
 {
     /// <summary>
-    /// ??
+    /// Any MIC code.
     /// Encoded/decoded by serializers as "AnyMIC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANYM")]
     [IsoId("_SW4c0R3ZEeWNp95x0ENf8w")]
-    [Description(@"??")]
+    [Description(@"Any MIC code.")]
     AnyMIC,
     
 }

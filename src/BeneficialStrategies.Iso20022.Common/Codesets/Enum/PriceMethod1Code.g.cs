@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Price will be calculated after the close of the dealing period. An investor, therefore, does not know the exact buy or sell price.
     /// Encoded/decoded by serializers as "ForwardPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORW")]
     [IsoId("_aIreMdp-Ed-ak6NoX_4Aeg_-1724055265")]
-    [Description(@"??")]
+    [Description(@"Price will be calculated after the close of the dealing period. An investor, therefore, does not know the exact buy or sell price.")]
     ForwardPrice,
     
     /// <summary>
-    /// ??
+    /// Price is calculated at an earlier valuation point preceding the dealing period. An investor, therefore, knows the exact buy or sell price.
     /// Encoded/decoded by serializers as "HistoricalPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIST")]
     [IsoId("_aIreMtp-Ed-ak6NoX_4Aeg_-1724055264")]
-    [Description(@"??")]
+    [Description(@"Price is calculated at an earlier valuation point preceding the dealing period. An investor, therefore, knows the exact buy or sell price.")]
     HistoricalPrice,
     
 }

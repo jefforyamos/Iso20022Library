@@ -20,12 +20,14 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PortfolioWithdrawalReason1Code
 {
     /// <summary>
-    /// ??
+    /// Withdrawal is for a first time residential property.
+    /// 
+    /// 
     /// Encoded/decoded by serializers as "FirstTimeResidentialProperty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FTRS")]
     [IsoId("_sp6loV23EeiFXdiLi_Nf4A")]
-    [Description(@"??")]
+    [Description(@"Withdrawal is for a first time residential property.  ")]
     FirstTimeResidentialProperty,
     
 }

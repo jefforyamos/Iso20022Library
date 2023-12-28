@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType7Code
 {
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_ncXyUQyHEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Party acting on behalf of other parties to process or forward data to other parties.
     /// Encoded/decoded by serializers as "IntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAG")]
     [IsoId("_ovcjwQyHEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
     IntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Party component of a POI system or POI terminal (Point of Interaction).
     /// Encoded/decoded by serializers as "POIComponent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCPT")]
     [IsoId("_p-bfYQyHEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Party component of a POI system or POI terminal (Point of Interaction).")]
     POIComponent,
     
     /// <summary>
-    /// ??
+    /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
     /// Encoded/decoded by serializers as "TerminalManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMGT")]
     [IsoId("_qo1HQQyHEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Responsible for one or several maintenance functions of a card payment acceptance terminal.")]
     TerminalManager,
     
     /// <summary>
-    /// ??
+    /// Party selling goods and services.
     /// Encoded/decoded by serializers as "SaleSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SALE")]
     [IsoId("_r5bzgQyHEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Party selling goods and services.")]
     SaleSystem,
     
 }

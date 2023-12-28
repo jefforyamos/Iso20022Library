@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AmountPriceType2Code
 {
     /// <summary>
-    /// ??
+    /// Price expressed as a currency and amount per unit or per share.
     /// Encoded/decoded by serializers as "ActualAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTU")]
     [IsoId("_beqZtNp-Ed-ak6NoX_4Aeg_-777647527")]
-    [Description(@"??")]
+    [Description(@"Price expressed as a currency and amount per unit or per share.")]
     ActualAmount,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancelledStatusReason17Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by yourself.
     /// Encoded/decoded by serializers as "CancelledByYourself".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANI")]
     [IsoId("_8oENQuBBEeiVRbNQx5-Vhg")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by yourself.")]
     CancelledByYourself,
     
     /// <summary>
-    /// ??
+    /// Other (see additional information).
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_zdUNIQiAEeuAafINYd9EUw")]
-    [Description(@"??")]
+    [Description(@"Other (see additional information).")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the agent.
     /// Encoded/decoded by serializers as "CancelledByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSUB")]
     [IsoId("_EvmEwSAQEeu0P6yLvKBt0w")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the agent.")]
     CancelledByAgent,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the system.
     /// Encoded/decoded by serializers as "CancelledBySystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANS")]
     [IsoId("_IGRssSAQEeu0P6yLvKBt0w")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the system.")]
     CancelledBySystem,
     
 }

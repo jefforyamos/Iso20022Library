@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateType2Code
 {
     /// <summary>
-    /// ??
+    /// Rate used for additional tax that cannot be categorised.
     /// Encoded/decoded by serializers as "AdditionalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATAX")]
     [IsoId("_ZZTPsNp-Ed-ak6NoX_4Aeg_-1692318332")]
-    [Description(@"??")]
+    [Description(@"Rate used for additional tax that cannot be categorised.")]
     AdditionalTax,
     
     /// <summary>
-    /// ??
+    /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// Encoded/decoded by serializers as "Charges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_ZZTPsdp-Ed-ak6NoX_4Aeg_-1692318331")]
-    [Description(@"??")]
+    [Description(@"Rate used to calculate the amount of the charges/fees that cannot be categorised.")]
     Charges,
     
     /// <summary>
-    /// ??
+    /// Rate used to calculate the cash disbursement in lieu of a fractional quantity of, for example, equity.
     /// Encoded/decoded by serializers as "CashInLieuOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINL")]
     [IsoId("_ZZTPstp-Ed-ak6NoX_4Aeg_-1692318303")]
-    [Description(@"??")]
+    [Description(@"Rate used to calculate the cash disbursement in lieu of a fractional quantity of, for example, equity.")]
     CashInLieuOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Cash dividend per equity before deductions or allowances have been made.
     /// Encoded/decoded by serializers as "Gross".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRSS")]
     [IsoId("_ZZTPs9p-Ed-ak6NoX_4Aeg_-1692318302")]
-    [Description(@"??")]
+    [Description(@"Cash dividend per equity before deductions or allowances have been made.")]
     Gross,
     
     /// <summary>
-    /// ??
+    /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example, consent fees.
     /// Encoded/decoded by serializers as "CashIncentive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCE")]
     [IsoId("_ZZTPtNp-Ed-ak6NoX_4Aeg_-1692318301")]
-    [Description(@"??")]
+    [Description(@"Rate of the cash premium made available if the securities holder consents or participates to an event, for example, consent fees.")]
     CashIncentive,
     
     /// <summary>
-    /// ??
+    /// Relates to the netting of settlement instructions.
     /// Encoded/decoded by serializers as "Net".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETT")]
     [IsoId("_ZZTPtdp-Ed-ak6NoX_4Aeg_-1692318025")]
-    [Description(@"??")]
+    [Description(@"Relates to the netting of settlement instructions.")]
     Net,
     
     /// <summary>
-    /// ??
+    /// Cash rate made available in an offer in order to encourage participation in the offer.
     /// Encoded/decoded by serializers as "Sollication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFE")]
     [IsoId("_ZZTPttp-Ed-ak6NoX_4Aeg_-1692318024")]
-    [Description(@"??")]
+    [Description(@"Cash rate made available in an offer in order to encourage participation in the offer.")]
     Sollication,
     
     /// <summary>
-    /// ??
+    /// Financial instrument has not been stamped and/or duly signed.
     /// Encoded/decoded by serializers as "StampDuty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAM")]
     [IsoId("_ZZTPt9p-Ed-ak6NoX_4Aeg_-1692318023")]
-    [Description(@"??")]
+    [Description(@"Financial instrument has not been stamped and/or duly signed.")]
     StampDuty,
     
     /// <summary>
-    /// ??
+    /// Rate of stock exchange tax.
     /// Encoded/decoded by serializers as "StockExchangeTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEX")]
     [IsoId("_ZZcZoNp-Ed-ak6NoX_4Aeg_-1692317994")]
-    [Description(@"??")]
+    [Description(@"Rate of stock exchange tax.")]
     StockExchangeTax,
     
     /// <summary>
-    /// ??
+    /// Transaction has been generated due to transformation following a corporate action.
     /// Encoded/decoded by serializers as "TransferTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_ZZcZodp-Ed-ak6NoX_4Aeg_-1692317993")]
-    [Description(@"??")]
+    [Description(@"Transaction has been generated due to transformation following a corporate action.")]
     TransferTax,
     
     /// <summary>
-    /// ??
+    /// Rate used to calculate the amount of transaction tax.
     /// Encoded/decoded by serializers as "TransactionTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAX")]
     [IsoId("_ZZcZotp-Ed-ak6NoX_4Aeg_-1692317964")]
-    [Description(@"??")]
+    [Description(@"Rate used to calculate the amount of transaction tax.")]
     TransactionTax,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which tax is deferred.
     /// Encoded/decoded by serializers as "TaxDeferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXDF")]
     [IsoId("_ZZcZo9p-Ed-ak6NoX_4Aeg_-1692317963")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which tax is deferred.")]
     TaxDeferred,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security which is not taxable.
     /// Encoded/decoded by serializers as "TaxFeeAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXFR")]
     [IsoId("_ZZcZpNp-Ed-ak6NoX_4Aeg_-1692317962")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security which is not taxable.")]
     TaxFeeAmount,
     
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfForeignTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITF")]
     [IsoId("_ZZcZpdp-Ed-ak6NoX_4Aeg_-1692317933")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfForeignTax,
     
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfLocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITL")]
     [IsoId("_ZZcZptp-Ed-ak6NoX_4Aeg_-1692317932")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfLocalTax,
     
     /// <summary>
-    /// ??
+    /// Relates to a tax refund from the authorities on the associated corporate action event.
     /// Encoded/decoded by serializers as "WithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXR")]
     [IsoId("_ZZcZp9p-Ed-ak6NoX_4Aeg_-1692317902")]
-    [Description(@"??")]
+    [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
     WithholdingTax,
     
 }

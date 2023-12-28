@@ -20,21 +20,22 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResponseStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Collateral giver instruction details are confirmed.
     /// Encoded/decoded by serializers as "Confirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_FtcUocf1EemlRYW9CHJ8_Q")]
-    [Description(@"??")]
+    [Description(@"Collateral giver instruction details are confirmed.")]
     Confirmed,
     
     /// <summary>
-    /// ??
+    /// Collateral giver instruction details are not recognised.
+    /// 
     /// Encoded/decoded by serializers as "NotRecognised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DKNY")]
     [IsoId("_Fzstocf1EemlRYW9CHJ8_Q")]
-    [Description(@"??")]
+    [Description(@"Collateral giver instruction details are not recognised. ")]
     NotRecognised,
     
 }

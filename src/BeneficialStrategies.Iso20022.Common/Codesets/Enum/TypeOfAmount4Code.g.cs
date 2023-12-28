@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount4Code
 {
     /// <summary>
-    /// ??
+    /// Actual amount.
     /// Encoded/decoded by serializers as "Actual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTL")]
     [IsoId("_6oNx0VfvEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Actual amount.")]
     Actual,
     
     /// <summary>
-    /// ??
+    /// Estimated amount (the final amount could be above or below).
     /// Encoded/decoded by serializers as "Estimated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTM")]
     [IsoId("_6y7NAVfvEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Estimated amount (the final amount could be above or below).")]
     Estimated,
     
 }

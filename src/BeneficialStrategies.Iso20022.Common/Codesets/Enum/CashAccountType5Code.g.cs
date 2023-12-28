@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashAccountType5Code
 {
     /// <summary>
-    /// ??
+    /// Account is for the coverage of lending.
     /// Encoded/decoded by serializers as "Lending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEND")]
     [IsoId("_2pYDQSCyEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Account is for the coverage of lending.")]
     Lending,
     
     /// <summary>
-    /// ??
+    /// Account is for collateral.
     /// Encoded/decoded by serializers as "Collateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_3W53oSCyEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Account is for collateral.")]
     Collateral,
     
     /// <summary>
-    /// ??
+    /// Account is for financial settlements.
     /// Encoded/decoded by serializers as "FinancialSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_34FSESCyEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Account is for financial settlements.")]
     FinancialSettlement,
     
     /// <summary>
-    /// ??
+    /// Account is for margin returns.
     /// Encoded/decoded by serializers as "MarginReturn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARR")]
     [IsoId("__NxGMSCyEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Account is for margin returns.")]
     MarginReturn,
     
     /// <summary>
-    /// ??
+    /// Account is an segregated account.
     /// Encoded/decoded by serializers as "Segregated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEGT")]
     [IsoId("__yXoESCyEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Account is an segregated account.")]
     Segregated,
     
 }

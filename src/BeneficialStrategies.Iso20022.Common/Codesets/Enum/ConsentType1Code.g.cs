@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ConsentType1Code
 {
     /// <summary>
-    /// ??
+    /// Change in the terms and conditions of the bond.
     /// Encoded/decoded by serializers as "ChangeInTerms".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTRM")]
     [IsoId("_Wr3YgSHnEeOQ7qT4JUI53A")]
-    [Description(@"??")]
+    [Description(@"Change in the terms and conditions of the bond.")]
     ChangeInTerms,
     
     /// <summary>
-    /// ??
+    /// Change in the due and payable conditions.
     /// Encoded/decoded by serializers as "DueAndPayable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPY")]
     [IsoId("_WzTdQSHnEeOQ7qT4JUI53A")]
-    [Description(@"??")]
+    [Description(@"Change in the due and payable conditions.")]
     DueAndPayable,
     
 }

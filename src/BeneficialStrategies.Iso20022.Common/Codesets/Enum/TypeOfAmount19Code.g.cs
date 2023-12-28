@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount19Code
 {
     /// <summary>
-    /// ??
+    /// Telephone connection-related charge
     /// Encoded/decoded by serializers as "Connect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONN")]
     [IsoId("_d9j_0X0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Telephone connection-related charge")]
     Connect,
     
     /// <summary>
-    /// ??
+    /// Insurance charges 
     /// Encoded/decoded by serializers as "Insurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_d9j_030mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Insurance charges ")]
     Insurance,
     
     /// <summary>
-    /// ??
+    /// Charges related to a long distance call. 
     /// Encoded/decoded by serializers as "LongDistance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LNDS")]
     [IsoId("_d9j_1X0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Charges related to a long distance call. ")]
     LongDistance,
     
     /// <summary>
-    /// ??
+    /// Miscellaneous charges not elsewhere defined
     /// Encoded/decoded by serializers as "Miscellaneous".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISC")]
     [IsoId("_d9j_130mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Miscellaneous charges not elsewhere defined")]
     Miscellaneous,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_d9j_2X0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_d9j_230mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Telephone usage-related charge
     /// Encoded/decoded by serializers as "Usage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USGE")]
     [IsoId("_d9j_3X0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Telephone usage-related charge")]
     Usage,
     
 }

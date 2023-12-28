@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RequestType2Code
 {
     /// <summary>
-    /// ??
+    /// Type is an enquiry on the bank's position.
     /// Encoded/decoded by serializers as "BankPositionEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT11")]
     [IsoId("_ZUOid9p-Ed-ak6NoX_4Aeg_-957935410")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on the bank's position.")]
     BankPositionEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on a specific transaction.
     /// Encoded/decoded by serializers as "SpecificTransactionEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT12")]
     [IsoId("_ZUOieNp-Ed-ak6NoX_4Aeg_-957935409")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on a specific transaction.")]
     SpecificTransactionEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on a queued transaction.
     /// Encoded/decoded by serializers as "QueuedTransactionEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT13")]
     [IsoId("_ZUYTcNp-Ed-ak6NoX_4Aeg_-957935132")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on a queued transaction.")]
     QueuedTransactionEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on a suspicious transaction.
     /// Encoded/decoded by serializers as "SuspiciousTransactionEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT14")]
     [IsoId("_ZUYTcdp-Ed-ak6NoX_4Aeg_-957935131")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on a suspicious transaction.")]
     SuspiciousTransactionEnquiry,
     
     /// <summary>
-    /// ??
+    /// Type is an enquiry on pending inward credits.
     /// Encoded/decoded by serializers as "PendingInwardCreditsEnquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RT15")]
     [IsoId("_ZUYTctp-Ed-ak6NoX_4Aeg_-957935101")]
-    [Description(@"??")]
+    [Description(@"Type is an enquiry on pending inward credits.")]
     PendingInwardCreditsEnquiry,
     
 }

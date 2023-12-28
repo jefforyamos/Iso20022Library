@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CommunicationMethod2Code
 {
     /// <summary>
-    /// ??
+    /// Transmission by e-mail.
     /// Encoded/decoded by serializers as "Email".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_mPNrgQ1fEeKGXqvMN6jpiw")]
-    [Description(@"??")]
+    [Description(@"Transmission by e-mail.")]
     Email,
     
     /// <summary>
-    /// ??
+    /// Transmission by fax.
     /// Encoded/decoded by serializers as "Fax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAXI")]
     [IsoId("_mk0vIQ1fEeKGXqvMN6jpiw")]
-    [Description(@"??")]
+    [Description(@"Transmission by fax.")]
     Fax,
     
     /// <summary>
-    /// ??
+    /// Transmission by file transfer.
     /// Encoded/decoded by serializers as "File".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FILE")]
     [IsoId("_myYqAQ1fEeKGXqvMN6jpiw")]
-    [Description(@"??")]
+    [Description(@"Transmission by file transfer.")]
     File,
     
     /// <summary>
-    /// ??
+    /// Transmission on line, for example, in a web portal.
     /// Encoded/decoded by serializers as "Online".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONLI")]
     [IsoId("_nNM9wQ1fEeKGXqvMN6jpiw")]
-    [Description(@"??")]
+    [Description(@"Transmission on line, for example, in a web portal.")]
     Online,
     
     /// <summary>
-    /// ??
+    /// Transmission by postal service.
     /// Encoded/decoded by serializers as "PostalService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_jEZ6YUp-EeKw5sECfP82rg")]
-    [Description(@"??")]
+    [Description(@"Transmission by postal service.")]
     PostalService,
     
 }

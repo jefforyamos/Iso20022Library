@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestigatedParties1Code
 {
     /// <summary>
-    /// ??
+    /// Investigated parties are all parties playig a role matching the search criteria.
     /// Encoded/decoded by serializers as "AllParties".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLP")]
     [IsoId("_XhTElmKEEeG1ab6Vf7EgPA")]
-    [Description(@"??")]
+    [Description(@"Investigated parties are all parties playig a role matching the search criteria.")]
     AllParties,
     
     /// <summary>
-    /// ??
+    /// Investigated party is the owner.
     /// Encoded/decoded by serializers as "Owner".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWNE")]
     [IsoId("_XmNZxmKEEeG1ab6Vf7EgPA")]
-    [Description(@"??")]
+    [Description(@"Investigated party is the owner.")]
     Owner,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCMultiplyDivide1Code
 {
     /// <summary>
-    /// ??
+    /// Positions multiplied by rate.
     /// Encoded/decoded by serializers as "Multiply".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MULT")]
     [IsoId("_1p3ogzL3EeKU9IrkkToqcw_1860873575")]
-    [Description(@"??")]
+    [Description(@"Positions multiplied by rate.")]
     Multiply,
     
     /// <summary>
-    /// ??
+    /// Positions divided by rate.
     /// Encoded/decoded by serializers as "Divide".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVDE")]
     [IsoId("_1p3ohDL3EeKU9IrkkToqcw_-935145883")]
-    [Description(@"??")]
+    [Description(@"Positions divided by rate.")]
     Divide,
     
 }

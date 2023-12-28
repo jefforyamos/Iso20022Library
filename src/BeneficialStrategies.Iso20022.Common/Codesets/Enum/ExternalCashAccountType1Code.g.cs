@@ -22,210 +22,210 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalCashAccountType1Code
 {
     /// <summary>
-    /// ??
+    /// Account used to post debits and credits when no specific account has been nominated.
     /// Encoded/decoded by serializers as "Current".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACC")]
     [IsoId("_uLQ32_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used to post debits and credits when no specific account has been nominated.")]
     Current,
     
     /// <summary>
-    /// ??
+    /// Account used for credit card payments.
     /// Encoded/decoded by serializers as "CardAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARD")]
     [IsoId("_uLQ33vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for credit card payments.")]
     CardAccount,
     
     /// <summary>
-    /// ??
+    /// Account used for the payment of cash.
     /// Encoded/decoded by serializers as "CashPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_uLao0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for the payment of cash.")]
     CashPayment,
     
     /// <summary>
-    /// ??
+    /// Account used for charges if different from the account for|payment.
     /// Encoded/decoded by serializers as "Charges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_uLao1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for charges if different from the account for|payment.")]
     Charges,
     
     /// <summary>
-    /// ??
+    /// Account used for payment of income if different from the current cash account
     /// Encoded/decoded by serializers as "CashIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISH")]
     [IsoId("_uLao2PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for payment of income if different from the current cash account")]
     CashIncome,
     
     /// <summary>
-    /// ??
+    /// Account used for commission if different from the account|for payment.
     /// Encoded/decoded by serializers as "Commission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_uLao2_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for commission if different from the account|for payment.")]
     Commission,
     
     /// <summary>
-    /// ??
+    /// Account used to post settlement debit and credit entries on behalf of a designated Clearing Participant.
     /// Encoded/decoded by serializers as "ClearingParticipantSettlementAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPAC")]
     [IsoId("_uLjywvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used to post settlement debit and credit entries on behalf of a designated Clearing Participant.")]
     ClearingParticipantSettlementAccount,
     
     /// <summary>
-    /// ??
+    /// Account used for savings with special interest and withdrawal terms.  
     /// Encoded/decoded by serializers as "LimitedLiquiditySavingsAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LLSV")]
     [IsoId("_uLjyxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for savings with special interest and withdrawal terms.  ")]
     LimitedLiquiditySavingsAccount,
     
     /// <summary>
-    /// ??
+    /// Account used for loans.
     /// Encoded/decoded by serializers as "Loan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOAN")]
     [IsoId("_uLjyyPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for loans.")]
     Loan,
     
     /// <summary>
-    /// ??
+    /// Account used for a marginal lending facility.
     /// Encoded/decoded by serializers as "MarginalLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGLD")]
     [IsoId("_uLjyy_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for a marginal lending facility.")]
     MarginalLending,
     
     /// <summary>
-    /// ??
+    /// Account used for money markets if different from the cash|account.
     /// Encoded/decoded by serializers as "MoneyMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOMA")]
     [IsoId("_uLjyzvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for money markets if different from the cash|account.")]
     MoneyMarket,
     
     /// <summary>
-    /// ??
+    /// Account used for non-resident external.
     /// Encoded/decoded by serializers as "NonResidentExternal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREX")]
     [IsoId("_uLtjwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for non-resident external.")]
     NonResidentExternal,
     
     /// <summary>
-    /// ??
+    /// Account is used for overdrafts.
     /// Encoded/decoded by serializers as "Overdraft".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ODFT")]
     [IsoId("_uLtjxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account is used for overdrafts.")]
     Overdraft,
     
     /// <summary>
-    /// ??
+    /// Account used for overnight deposits.
     /// Encoded/decoded by serializers as "OverNightDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONDP")]
     [IsoId("_uLtjyPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for overnight deposits.")]
     OverNightDeposit,
     
     /// <summary>
-    /// ??
+    /// Account not otherwise specified. 
     /// Encoded/decoded by serializers as "OtherAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_uLtjy_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account not otherwise specified. ")]
     OtherAccount,
     
     /// <summary>
-    /// ??
+    /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
     /// Encoded/decoded by serializers as "Settlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SACC")]
     [IsoId("_uLtjzvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.")]
     Settlement,
     
     /// <summary>
-    /// ??
+    /// Accounts used for salary payments.
     /// Encoded/decoded by serializers as "Salary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLRY")]
     [IsoId("_uL2tsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Accounts used for salary payments.")]
     Salary,
     
     /// <summary>
-    /// ??
+    /// Account used for savings.
     /// Encoded/decoded by serializers as "Savings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVGS")]
     [IsoId("_uL2ttfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for savings.")]
     Savings,
     
     /// <summary>
-    /// ??
+    /// Account used for taxes if different from the account for|payment.
     /// Encoded/decoded by serializers as "Tax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXE")]
     [IsoId("_uL2tuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for taxes if different from the account for|payment.")]
     Tax,
     
     /// <summary>
-    /// ??
+    /// A transacting account is the most basic type of bank account that you can get. The main difference between transaction and cheque accounts is that you usually do not get a cheque book with your transacting account and neither are you offered an overdraft facility.
     /// Encoded/decoded by serializers as "TransactingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_uL2tu_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A transacting account is the most basic type of bank account that you can get. The main difference between transaction and cheque accounts is that you usually do not get a cheque book with your transacting account and neither are you offered an overdraft facility.")]
     TransactingAccount,
     
     /// <summary>
-    /// ??
+    /// Account used for trading if different from the current cash|account.
     /// Encoded/decoded by serializers as "CashTrading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAS")]
     [IsoId("_uL2tvvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account used for trading if different from the current cash|account.")]
     CashTrading,
     
     /// <summary>
-    /// ??
+    /// Account created virtually to facilitate collection and reconciliation.
     /// Encoded/decoded by serializers as "VirtualAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VACC")]
     [IsoId("_n1HScY5FEeyANo-d7JlQ1A")]
-    [Description(@"??")]
+    [Description(@"Account created virtually to facilitate collection and reconciliation.")]
     VirtualAccount,
     
     /// <summary>
-    /// ??
+    /// Non-Resident Individual / Entity Foreign Current held domestically.
     /// Encoded/decoded by serializers as "NonResidentForeignCurrencyAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFCA")]
     [IsoId("_YbOMAmvbEe2F6NrIyOmXcA")]
-    [Description(@"??")]
+    [Description(@"Non-Resident Individual / Entity Foreign Current held domestically.")]
     NonResidentForeignCurrencyAccount,
     
 }

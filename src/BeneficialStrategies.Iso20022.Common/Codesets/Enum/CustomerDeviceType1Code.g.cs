@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustomerDeviceType1Code
 {
     /// <summary>
-    /// ??
+    /// Mobile phone
     /// Encoded/decoded by serializers as "Mobile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOBL")]
     [IsoId("_LGwDQUetEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Mobile phone")]
     Mobile,
     
     /// <summary>
-    /// ??
+    /// Other device defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_LfTtMketEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Other device defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other device defined in a private way.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_LtiWcketEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Other device defined in a private way.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Personal computer
     /// Encoded/decoded by serializers as "PersonalComputer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PECR")]
     [IsoId("_L6nwMketEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Personal computer")]
     PersonalComputer,
     
     /// <summary>
-    /// ??
+    /// Tablet
     /// Encoded/decoded by serializers as "Tablet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBLT")]
     [IsoId("_MSSpUketEee9r7QjOdsbFw")]
-    [Description(@"??")]
+    [Description(@"Tablet")]
     Tablet,
     
     /// <summary>
-    /// ??
+    /// Non-secure card reader attached to the customer device.
     /// Encoded/decoded by serializers as "NonSecureCardReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSCR")]
     [IsoId("_MieKIS7TEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Non-secure card reader attached to the customer device.")]
     NonSecureCardReader,
     
     /// <summary>
-    /// ??
+    /// Secure card reader attached to the customer device
     /// Encoded/decoded by serializers as "SecureCardReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECR")]
     [IsoId("_Mw-gMS7TEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Secure card reader attached to the customer device")]
     SecureCardReader,
     
 }

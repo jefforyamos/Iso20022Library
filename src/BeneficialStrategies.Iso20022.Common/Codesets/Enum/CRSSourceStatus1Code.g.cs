@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CRSSourceStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Source of the Common Reporting Standard (CRS) status is calculated.
     /// Encoded/decoded by serializers as "Calculated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALC")]
     [IsoId("_A1tMMUNtEeaS-NnwLNvMPg")]
-    [Description(@"??")]
+    [Description(@"Source of the Common Reporting Standard (CRS) status is calculated.")]
     Calculated,
     
     /// <summary>
-    /// ??
+    /// Source of the Common Reporting Standard (CRS) status is as declared by the investor.
     /// Encoded/decoded by serializers as "Declared".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_A_-igUNtEeaS-NnwLNvMPg")]
-    [Description(@"??")]
+    [Description(@"Source of the Common Reporting Standard (CRS) status is as declared by the investor.")]
     Declared,
     
 }

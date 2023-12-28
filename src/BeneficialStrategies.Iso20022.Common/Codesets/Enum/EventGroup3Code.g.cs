@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventGroup3Code
 {
     /// <summary>
-    /// ??
+    /// Distribution domain events.
     /// Encoded/decoded by serializers as "Distribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISN")]
     [IsoId("_y02d8egcEei5aPS232E3Mw")]
-    [Description(@"??")]
+    [Description(@"Distribution domain events.")]
     Distribution,
     
 }

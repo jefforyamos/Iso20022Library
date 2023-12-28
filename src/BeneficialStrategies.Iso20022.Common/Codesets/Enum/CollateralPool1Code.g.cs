@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralPool1Code
 {
     /// <summary>
-    /// ??
+    /// Collateral is not of pool type.
     /// Encoded/decoded by serializers as "NoPool".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOPL")]
     [IsoId("_CvAqQd7GEeSaBeqd_btViQ")]
-    [Description(@"??")]
+    [Description(@"Collateral is not of pool type.")]
     NoPool,
     
     /// <summary>
-    /// ??
+    /// Collateral is of pool type.
     /// Encoded/decoded by serializers as "Pool".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POOL")]
     [IsoId("_Czndcd7GEeSaBeqd_btViQ")]
-    [Description(@"??")]
+    [Description(@"Collateral is of pool type.")]
     Pool,
     
 }

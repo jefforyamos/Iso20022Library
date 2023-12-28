@@ -20,57 +20,63 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CCPMemberType1Code
 {
     /// <summary>
-    /// ??
+    /// Agent Clearing Member.
+    /// 
     /// Encoded/decoded by serializers as "AgentClearingMember".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACMB")]
     [IsoId("_oMEOYQIJEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Agent Clearing Member. ")]
     AgentClearingMember,
     
     /// <summary>
-    /// ??
+    /// Clearing House.
     /// Encoded/decoded by serializers as "ClearingHouse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPX")]
     [IsoId("_oVkIogIJEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Clearing House.")]
     ClearingHouse,
     
     /// <summary>
-    /// ??
+    /// Direct Clearing Member.
+    /// 
     /// Encoded/decoded by serializers as "DirectClearingMember".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCMB")]
     [IsoId("_ofNM0gIJEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Direct Clearing Member. ")]
     DirectClearingMember,
     
     /// <summary>
-    /// ??
+    /// Futures Commission Merchant.
+    /// 
+    /// 
     /// Encoded/decoded by serializers as "FuturesCommissionMerchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCMC")]
     [IsoId("_oo9lwgIJEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Futures Commission Merchant.  ")]
     FuturesCommissionMerchant,
     
     /// <summary>
-    /// ??
+    /// General Clearing Member.
+    /// 
     /// Encoded/decoded by serializers as "GeneralClearingMember".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GCMB")]
     [IsoId("_otx0UQIJEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"General Clearing Member. ")]
     GeneralClearingMember,
     
     /// <summary>
-    /// ??
+    /// Sponsored Clearing Member.
+    ///  
     /// Encoded/decoded by serializers as "SponsoredClearingMember".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCMB")]
     [IsoId("_o53vkgIJEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Sponsored Clearing Member.  ")]
     SponsoredClearingMember,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm8Code
 {
     /// <summary>
-    /// ??
+    /// Generator Function, used for RSA encryption and RSA igital signature (PKCS #1 version 2.1) - (ASN.1 Object Identifier: id-mgf1).
     /// Encoded/decoded by serializers as "MGF1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGF1")]
     [IsoId("_Z4B7cQmFEeKKaIHo7gv4XA")]
-    [Description(@"??")]
+    [Description(@"Generator Function, used for RSA encryption and RSA igital signature (PKCS #1 version 2.1) - (ASN.1 Object Identifier: id-mgf1).")]
     MGF1,
     
 }

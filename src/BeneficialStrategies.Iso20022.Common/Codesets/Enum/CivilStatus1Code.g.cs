@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CivilStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Person is divorced.
     /// Encoded/decoded by serializers as "Divorced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVO")]
     [IsoId("_xZ1E8SChEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Person is divorced.")]
     Divorced,
     
     /// <summary>
-    /// ??
+    /// Person is legally divorced.
     /// Encoded/decoded by serializers as "LegallyDivorced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LDIV")]
     [IsoId("_xhkEoSChEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Person is legally divorced.")]
     LegallyDivorced,
     
     /// <summary>
-    /// ??
+    /// Person is married.
     /// Encoded/decoded by serializers as "Married".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARR")]
     [IsoId("_xpAJYSChEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Person is married.")]
     Married,
     
     /// <summary>
-    /// ??
+    /// Person is separated.
     /// Encoded/decoded by serializers as "Separated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEPA")]
     [IsoId("_xwl_ISChEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Person is separated.")]
     Separated,
     
     /// <summary>
-    /// ??
+    /// Person is single.
     /// Encoded/decoded by serializers as "Single".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SING")]
     [IsoId("_x34S4SChEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Person is single.")]
     Single,
     
     /// <summary>
-    /// ??
+    /// Person is in a stable union.
     /// Encoded/decoded by serializers as "StableUnion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIO")]
     [IsoId("_x6tkcSChEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Person is in a stable union.")]
     StableUnion,
     
     /// <summary>
-    /// ??
+    /// Person is a widower.
     /// Encoded/decoded by serializers as "Widow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIDO")]
     [IsoId("_yBjMQSChEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Person is a widower.")]
     Widow,
     
 }

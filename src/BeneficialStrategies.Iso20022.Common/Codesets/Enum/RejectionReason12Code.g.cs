@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason12Code
 {
     /// <summary>
-    /// ??
+    /// Rejected as the deactivation of the event is already completed.
     /// Encoded/decoded by serializers as "EventAlreadyDeactivated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEAC")]
     [IsoId("_ZgmKgtp-Ed-ak6NoX_4Aeg_-843380834")]
-    [Description(@"??")]
+    [Description(@"Rejected as the deactivation of the event is already completed.")]
     EventAlreadyDeactivated,
     
     /// <summary>
-    /// ??
+    /// The validation of the advice/instruction/request failed.
     /// Encoded/decoded by serializers as "FailedValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_ZgmKg9p-Ed-ak6NoX_4Aeg_-843380804")]
-    [Description(@"??")]
+    [Description(@"The validation of the advice/instruction/request failed.")]
     FailedValidation,
     
     /// <summary>
-    /// ??
+    /// An Agent Corporate Action Deactivation Instruction with the same identification already exists.
     /// Encoded/decoded by serializers as "SameCAIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAME")]
     [IsoId("_ZgmKhNp-Ed-ak6NoX_4Aeg_-843380803")]
-    [Description(@"??")]
+    [Description(@"An Agent Corporate Action Deactivation Instruction with the same identification already exists.")]
     SameCAIdentification,
     
     /// <summary>
-    /// ??
+    /// Invalid corporate action identification supplied.
     /// Encoded/decoded by serializers as "InvalidCAIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFI")]
     [IsoId("_ZgmKhdp-Ed-ak6NoX_4Aeg_-843380773")]
-    [Description(@"??")]
+    [Description(@"Invalid corporate action identification supplied.")]
     InvalidCAIdentification,
     
     /// <summary>
-    /// ??
+    /// Invalid agent identification supplied.
     /// Encoded/decoded by serializers as "InvalidAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGIN")]
     [IsoId("_ZgmKhtp-Ed-ak6NoX_4Aeg_-843380742")]
-    [Description(@"??")]
+    [Description(@"Invalid agent identification supplied.")]
     InvalidAgent,
     
     /// <summary>
-    /// ??
+    /// Agent Identification specified does not correspond to the main Agent of the relating event.
     /// Encoded/decoded by serializers as "NotMainAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIN")]
     [IsoId("_ZgmKh9p-Ed-ak6NoX_4Aeg_-843380712")]
-    [Description(@"??")]
+    [Description(@"Agent Identification specified does not correspond to the main Agent of the relating event.")]
     NotMainAgent,
     
     /// <summary>
-    /// ??
+    /// Invalid combination of CA option code and CA option number.
     /// Encoded/decoded by serializers as "InvalidOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTI")]
     [IsoId("_ZgmKiNp-Ed-ak6NoX_4Aeg_-843380681")]
-    [Description(@"??")]
+    [Description(@"Invalid combination of CA option code and CA option number.")]
     InvalidOption,
     
     /// <summary>
-    /// ??
+    /// The specified Corporate Action option already has a pending deactivation instruction.
     /// Encoded/decoded by serializers as "PendingDeactivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEDA")]
     [IsoId("_Zgv7gNp-Ed-ak6NoX_4Aeg_-843380651")]
-    [Description(@"??")]
+    [Description(@"The specified Corporate Action option already has a pending deactivation instruction.")]
     PendingDeactivation,
     
     /// <summary>
-    /// ??
+    /// Specified Corporate Action has no remaining options to disable.
     /// Encoded/decoded by serializers as "NoRemainingOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORO")]
     [IsoId("_Zgv7gdp-Ed-ak6NoX_4Aeg_-843380620")]
-    [Description(@"??")]
+    [Description(@"Specified Corporate Action has no remaining options to disable.")]
     NoRemainingOption,
     
     /// <summary>
-    /// ??
+    /// CA Event Type does not correspond with the relating Corporate Action.
     /// Encoded/decoded by serializers as "InvalidEventType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INET")]
     [IsoId("_Zgv7gtp-Ed-ak6NoX_4Aeg_-843380372")]
-    [Description(@"??")]
+    [Description(@"CA Event Type does not correspond with the relating Corporate Action.")]
     InvalidEventType,
     
     /// <summary>
-    /// ??
+    /// Underlying Security Identification does not correspond with the Corporate Action Reference supplied.
     /// Encoded/decoded by serializers as "InvalidUnderlyingSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INUS")]
     [IsoId("_Zgv7g9p-Ed-ak6NoX_4Aeg_-843380342")]
-    [Description(@"??")]
+    [Description(@"Underlying Security Identification does not correspond with the Corporate Action Reference supplied.")]
     InvalidUnderlyingSecurity,
     
     /// <summary>
-    /// ??
+    /// Event Processing Type does not correspond with the relating Corporate Action.
     /// Encoded/decoded by serializers as "InvalidEventProcessingType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPT")]
     [IsoId("_Zgv7hNp-Ed-ak6NoX_4Aeg_-843380311")]
-    [Description(@"??")]
+    [Description(@"Event Processing Type does not correspond with the relating Corporate Action.")]
     InvalidEventProcessingType,
     
     /// <summary>
-    /// ??
+    /// Mandatory/Voluntary Event Type does not correspond with the relating Corporate Action.
     /// Encoded/decoded by serializers as "InvalidMandatoryVoluntaryEventType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INMV")]
     [IsoId("_Zgv7hdp-Ed-ak6NoX_4Aeg_-843379917")]
-    [Description(@"??")]
+    [Description(@"Mandatory/Voluntary Event Type does not correspond with the relating Corporate Action.")]
     InvalidMandatoryVoluntaryEventType,
     
     /// <summary>
-    /// ??
+    /// Several message with the same identification.
     /// Encoded/decoded by serializers as "SameIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAID")]
     [IsoId("_Zgv7htp-Ed-ak6NoX_4Aeg_-843379886")]
-    [Description(@"??")]
+    [Description(@"Several message with the same identification.")]
     SameIdentification,
     
     /// <summary>
-    /// ??
+    /// Issuer CA Identification does not correspond with the Corporate Action Identification supplied.
     /// Encoded/decoded by serializers as "MismatchedCAIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MICA")]
     [IsoId("_Zgv7h9p-Ed-ak6NoX_4Aeg_-843379825")]
-    [Description(@"??")]
+    [Description(@"Issuer CA Identification does not correspond with the Corporate Action Identification supplied.")]
     MismatchedCAIdentification,
     
     /// <summary>
-    /// ??
+    /// This instruction type is not applicable for mandatory events.
     /// Encoded/decoded by serializers as "NotApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAP")]
     [IsoId("_Zgv7iNp-Ed-ak6NoX_4Aeg_-843379764")]
-    [Description(@"??")]
+    [Description(@"This instruction type is not applicable for mandatory events.")]
     NotApplicable,
     
 }

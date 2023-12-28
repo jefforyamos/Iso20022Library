@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RetailerResultDetail1Code
 {
     /// <summary>
-    /// ??
+    /// The Initiator of the request has sent an Abort message request, which was accepted and processed.
     /// Encoded/decoded by serializers as "Aborted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABRT")]
     [IsoId("_NGX1EdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The Initiator of the request has sent an Abort message request, which was accepted and processed.")]
     Aborted,
     
     /// <summary>
-    /// ??
+    /// The system is busy, try later.
     /// Encoded/decoded by serializers as "Busy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSY")]
     [IsoId("_NJ8GcdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The system is busy, try later.")]
     Busy,
     
     /// <summary>
-    /// ??
+    /// The user has aborted the transaction on the PED keyboard, for instance during PIN entering.
     /// Encoded/decoded by serializers as "Cancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_NXLRMdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The user has aborted the transaction on the PED keyboard, for instance during PIN entering.")]
     Cancel,
     
     /// <summary>
-    /// ??
+    /// Device out of order.
     /// Encoded/decoded by serializers as "DeviceOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEVO")]
     [IsoId("_Na3eYdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Device out of order.")]
     DeviceOut,
     
     /// <summary>
-    /// ??
+    /// The user has entered the PIN on the PED keyboard and the verification fails.
     /// Encoded/decoded by serializers as "WrongPIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WPIN")]
     [IsoId("_N8gy4dxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The user has entered the PIN on the PED keyboard and the verification fails.")]
     WrongPIN,
     
     /// <summary>
-    /// ??
+    /// Acquirer or any host is unreachable or has not answered to an online request, so is considered as temporary unavailable. Depending on the Sale context, the request could be repeated (to be compared with "Refusal").
     /// Encoded/decoded by serializers as "UnreachableHost".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NHOS")]
     [IsoId("_N_z-gdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Acquirer or any host is unreachable or has not answered to an online request, so is considered as temporary unavailable. Depending on the Sale context, the request could be repeated (to be compared with ""Refusal"").")]
     UnreachableHost,
     
     /// <summary>
-    /// ??
+    /// The service is not available (not implemented, not configured, protocol version too old...).
     /// Encoded/decoded by serializers as "UnavailableService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNVS")]
     [IsoId("_ODXo0dxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The service is not available (not implemented, not configured, protocol version too old...).")]
     UnavailableService,
     
     /// <summary>
-    /// ??
+    /// The hardware is not available (absent, not configured...).
     /// Encoded/decoded by serializers as "UnavailableDevice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNVD")]
     [IsoId("_OHxnsdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The hardware is not available (absent, not configured...).")]
     UnavailableDevice,
     
     /// <summary>
-    /// ??
+    /// The transaction is refused by the host or by the local rules associated to the card or the POI.
     /// Encoded/decoded by serializers as "Refusal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFU")]
     [IsoId("_OMVXkdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The transaction is refused by the host or by the local rules associated to the card or the POI.")]
     Refusal,
     
     /// <summary>
-    /// ??
+    /// Some sale items are not payable by the card proposed by the Customer.
     /// Encoded/decoded by serializers as "PaymentRestriction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYR")]
     [IsoId("_OTlPEdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Some sale items are not payable by the card proposed by the Customer.")]
     PaymentRestriction,
     
     /// <summary>
-    /// ??
+    /// The transaction is not found (e.g. for a reversal or a repeat).
     /// Encoded/decoded by serializers as "NotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TNFD")]
     [IsoId("_OXthIdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The transaction is not found (e.g. for a reversal or a repeat).")]
     NotFound,
     
     /// <summary>
-    /// ??
+    /// A service request is sent during a Service dialogue. A combination of services not possible to provide. During the DeviceInitialisationCardReader message processing, the user has entered a card which has to be protected by the POI, and cannot be processed with this device request from the external, and then the Sale System.
     /// Encoded/decoded by serializers as "NotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NALW")]
     [IsoId("_OcJ8QdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"A service request is sent during a Service dialogue. A combination of services not possible to provide. During the DeviceInitialisationCardReader message processing, the user has entered a card which has to be protected by the POI, and cannot be processed with this device request from the external, and then the Sale System.")]
     NotAllowed,
     
     /// <summary>
-    /// ??
+    /// Not logged in.
     /// Encoded/decoded by serializers as "LoggedOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOUT")]
     [IsoId("_OgC9wdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Not logged in.")]
     LoggedOut,
     
     /// <summary>
-    /// ??
+    /// The card entered by the Customer cannot be processed by the POI because this card is not configured in the system.
     /// Encoded/decoded by serializers as "InvalidCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IVCA")]
     [IsoId("_OkTLodxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The card entered by the Customer cannot be processed by the POI because this card is not configured in the system.")]
     InvalidCard,
     
     /// <summary>
-    /// ??
+    /// If the Input Device request a NotifyCardInputFlag and the Customer enters a card in the card reader without answers to the Input command, the POI abort the Input command processing, and answer a dedicated ErrorCondition value in the Input response message.
     /// Encoded/decoded by serializers as "InsertedCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICAR")]
     [IsoId("_OoZBcdxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"If the Input Device request a NotifyCardInputFlag and the Customer enters a card in the card reader without answers to the Input command, the POI abort the Input command processing, and answer a dedicated ErrorCondition value in the Input response message.")]
     InsertedCard,
     
     /// <summary>
-    /// ??
+    /// The transaction is still in progress and then the command cannot be processed.
     /// Encoded/decoded by serializers as "InProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIPG")]
     [IsoId("_OtBp0dxYEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"The transaction is still in progress and then the command cannot be processed.")]
     InProgress,
     
 }

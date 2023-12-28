@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResponseStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Part of the collateral is accepted, a part rejected.
     /// Encoded/decoded by serializers as "PartlyAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_Y9uuBtp-Ed-ak6NoX_4Aeg_-788093724")]
-    [Description(@"??")]
+    [Description(@"Part of the collateral is accepted, a part rejected.")]
     PartlyAccepted,
     
     /// <summary>
-    /// ??
+    /// Claim, substitution, proposal is fully accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_Y9uuB9p-Ed-ak6NoX_4Aeg_-788093696")]
-    [Description(@"??")]
+    [Description(@"Claim, substitution, proposal is fully accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Claim, substitution, proposal is fully rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_Y9uuCNp-Ed-ak6NoX_4Aeg_-788093695")]
-    [Description(@"??")]
+    [Description(@"Claim, substitution, proposal is fully rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Party A agrees with the return part of the substitution and accepts to wait for the proposal of the new collateral.
     /// Encoded/decoded by serializers as "SubstitutionAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBR")]
     [IsoId("_Y9uuCdp-Ed-ak6NoX_4Aeg_-788093665")]
-    [Description(@"??")]
+    [Description(@"Party A agrees with the return part of the substitution and accepts to wait for the proposal of the new collateral.")]
     SubstitutionAccepted,
     
 }

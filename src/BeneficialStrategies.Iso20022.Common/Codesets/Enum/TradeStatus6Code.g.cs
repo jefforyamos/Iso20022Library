@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeStatus6Code
 {
     /// <summary>
-    /// ??
+    /// Trade is invalid.
     /// Encoded/decoded by serializers as "Invalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVA")]
     [IsoId("_k2IicZU7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade is invalid.")]
     Invalid,
     
     /// <summary>
-    /// ??
+    /// Trade is matched.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FMTC")]
     [IsoId("_k2Iic5U7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade is matched.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Trade has been selected for settlement and is pending.
     /// Encoded/decoded by serializers as "SettlementMaturePending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAP")]
     [IsoId("_k2Iid5U7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade has been selected for settlement and is pending.")]
     SettlementMaturePending,
     
     /// <summary>
-    /// ??
+    /// Trade is rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_k2Iie5U7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade is rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Trade is rescinded.
     /// Encoded/decoded by serializers as "Rescinded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSCD")]
     [IsoId("_k2IifZU7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade is rescinded.")]
     Rescinded,
     
     /// <summary>
-    /// ??
+    /// Settlement is complete.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLD")]
     [IsoId("_k2Iif5U7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Settlement is complete.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Trade has been split into subtrades for settlement efficiency.
     /// Encoded/decoded by serializers as "Split".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLI")]
     [IsoId("_k2IihZU7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade has been split into subtrades for settlement efficiency.")]
     Split,
     
     /// <summary>
-    /// ??
+    /// Trade is unmatched.
     /// Encoded/decoded by serializers as "Unmatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UMTC")]
     [IsoId("_k2IiiZU7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade is unmatched.")]
     Unmatched,
     
     /// <summary>
-    /// ??
+    /// Trade has been selected for settlement.
     /// Encoded/decoded by serializers as "SettlementMature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAT")]
     [IsoId("_k2Iii5U7EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade has been selected for settlement.")]
     SettlementMature,
     
     /// <summary>
-    /// ??
+    /// For NDF instructions, if a party has submitted both the open and fix confirmations and the counterparty is yet to submit the open and fix confirmation the instruction is updated to ‘Fix Unmatched’ Status.
     /// Encoded/decoded by serializers as "FixUnmatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUMT")]
     [IsoId("_jEGx4ZVAEeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"For NDF instructions, if a party has submitted both the open and fix confirmations and the counterparty is yet to submit the open and fix confirmation the instruction is updated to ‘Fix Unmatched’ Status.")]
     FixUnmatched,
     
     /// <summary>
-    /// ??
+    /// Trade has been netted by the central system.
     /// Encoded/decoded by serializers as "Netted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETT")]
     [IsoId("_j--espVAEeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Trade has been netted by the central system.")]
     Netted,
     
     /// <summary>
-    /// ??
+    /// For NDF instructions, open confirmations are matched and the Fix confirmations are not matched.
     /// Encoded/decoded by serializers as "PartialFix".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PFIX")]
     [IsoId("_lPS3EpVAEeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"For NDF instructions, open confirmations are matched and the Fix confirmations are not matched.")]
     PartialFix,
     
     /// <summary>
-    /// ??
+    /// For NDF trades, the trade is marked as open match when both open confirmations from both parties match.
     /// Encoded/decoded by serializers as "OpenMatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OMTC")]
     [IsoId("_Idn3QaAcEea9x5aZm6UTkw")]
-    [Description(@"??")]
+    [Description(@"For NDF trades, the trade is marked as open match when both open confirmations from both parties match.")]
     OpenMatched,
     
 }

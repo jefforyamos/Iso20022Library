@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleNarrative1Code
 {
     /// <summary>
-    /// ??
+    /// Narrative.
     /// Encoded/decoded by serializers as "Narrative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NARR")]
     [IsoId("_MEQ0kR-1EeuxStysDTgLiw")]
-    [Description(@"??")]
+    [Description(@"Narrative.")]
     Narrative,
     
 }

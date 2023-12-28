@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceValueType10Code
 {
     /// <summary>
-    /// ??
+    /// Price is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_q5RTNWtdEeCY4-KZ9JEyUQ_1587696077")]
-    [Description(@"??")]
+    [Description(@"Price is unknown by the sender or has not been established.")]
     Unknown,
     
 }

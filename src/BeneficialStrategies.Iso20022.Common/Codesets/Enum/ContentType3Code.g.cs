@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ContentType3Code
 {
     /// <summary>
-    /// ??
+    /// Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).
     /// Encoded/decoded by serializers as "EnvelopedData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVLP")]
     [IsoId("_W7MyET6OEeq_lLaSkIVjTQ")]
-    [Description(@"??")]
+    [Description(@"Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).")]
     EnvelopedData,
     
     /// <summary>
-    /// ??
+    /// General data encryption that conforms to the ISO 13492 standard.
     /// Encoded/decoded by serializers as "ISOFinancialServicesDataEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IFSE")]
     [IsoId("_Zi3X4T6OEeq_lLaSkIVjTQ")]
-    [Description(@"??")]
+    [Description(@"General data encryption that conforms to the ISO 13492 standard.")]
     ISOFinancialServicesDataEncryption,
     
 }

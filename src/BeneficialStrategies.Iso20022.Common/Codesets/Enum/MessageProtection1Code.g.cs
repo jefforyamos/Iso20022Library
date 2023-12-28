@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageProtection1Code
 {
     /// <summary>
-    /// ??
+    /// Messages contain an encrypted body and a MAC or a digital signature computed on the complete message (header plus body after encryption).
     /// Encoded/decoded by serializers as "EnvelopedMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVLP")]
     [IsoId("_L8IuwYrgEeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Messages contain an encrypted body and a MAC or a digital signature computed on the complete message (header plus body after encryption).")]
     EnvelopedMessage,
     
     /// <summary>
-    /// ??
+    /// Messages contain a MAC or a digital signature computed on the body only.
     /// Encoded/decoded by serializers as "MACBody".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACB")]
     [IsoId("_MBfv4YrgEeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Messages contain a MAC or a digital signature computed on the body only.")]
     MACBody,
     
     /// <summary>
-    /// ??
+    /// Messages contain a MAC or a digital signature computed on the complete message (header plus body).
     /// Encoded/decoded by serializers as "MACMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACM")]
     [IsoId("_MHUEA4rgEeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Messages contain a MAC or a digital signature computed on the complete message (header plus body).")]
     MACMessage,
     
     /// <summary>
-    /// ??
+    /// Messages are not protected, no encryption and no MAC or digital signature.
     /// Encoded/decoded by serializers as "NoProtection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNPR")]
     [IsoId("_MLxtQYrgEeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Messages are not protected, no encryption and no MAC or digital signature.")]
     NoProtection,
     
 }

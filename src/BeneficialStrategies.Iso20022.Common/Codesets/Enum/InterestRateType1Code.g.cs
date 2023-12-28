@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterestRateType1Code
 {
     /// <summary>
-    /// ??
+    /// Rate is fixed.
     /// Encoded/decoded by serializers as "Fixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXE")]
     [IsoId("_y3adwbtKEeSmENFdxjMqzQ")]
-    [Description(@"??")]
+    [Description(@"Rate is fixed.")]
     Fixed,
     
     /// <summary>
-    /// ??
+    /// Rate is variable.
     /// Encoded/decoded by serializers as "Variable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VARI")]
     [IsoId("_zCH48btKEeSmENFdxjMqzQ")]
-    [Description(@"??")]
+    [Description(@"Rate is variable.")]
     Variable,
     
 }

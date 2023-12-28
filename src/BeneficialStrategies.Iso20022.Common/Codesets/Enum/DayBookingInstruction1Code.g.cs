@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DayBookingInstruction1Code
 {
     /// <summary>
-    /// ??
+    /// Can trigger booking without reference to the order initiator.
     /// Encoded/decoded by serializers as "Auto".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTO")]
     [IsoId("_aytSpdp-Ed-ak6NoX_4Aeg_1465007733")]
-    [Description(@"??")]
+    [Description(@"Can trigger booking without reference to the order initiator.")]
     Auto,
     
     /// <summary>
-    /// ??
+    /// Speak with order initiator before booking.
     /// Encoded/decoded by serializers as "SpeakFirst".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TALK")]
     [IsoId("_aytSptp-Ed-ak6NoX_4Aeg_1465007750")]
-    [Description(@"??")]
+    [Description(@"Speak with order initiator before booking.")]
     SpeakFirst,
     
 }

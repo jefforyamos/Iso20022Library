@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundOrderType5Code
 {
     /// <summary>
-    /// ??
+    /// That part of an investment fund order attributed to a normal staff portion.
     /// Encoded/decoded by serializers as "NormalStaffPortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSPN")]
     [IsoId("_atVqctp-Ed-ak6NoX_4Aeg_-683770576")]
-    [Description(@"??")]
+    [Description(@"That part of an investment fund order attributed to a normal staff portion.")]
     NormalStaffPortion,
     
     /// <summary>
-    /// ??
+    /// That part of an investment fund order attributed to a normal client portion.
     /// Encoded/decoded by serializers as "NormalClientPortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCPN")]
     [IsoId("_atVqc9p-Ed-ak6NoX_4Aeg_-629285145")]
-    [Description(@"??")]
+    [Description(@"That part of an investment fund order attributed to a normal client portion.")]
     NormalClientPortion,
     
     /// <summary>
-    /// ??
+    /// That part of an investment fund order attributed to a staff member with a savings plan.
     /// Encoded/decoded by serializers as "StaffWithSavingsPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWSP")]
     [IsoId("_atVqdNp-Ed-ak6NoX_4Aeg_-571102419")]
-    [Description(@"??")]
+    [Description(@"That part of an investment fund order attributed to a staff member with a savings plan.")]
     StaffWithSavingsPlan,
     
     /// <summary>
-    /// ??
+    /// That part of an investment fund order attributed to a client with a savings plan.
     /// Encoded/decoded by serializers as "ClientWithSavingsPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CWSP")]
     [IsoId("_atVqddp-Ed-ak6NoX_4Aeg_-329138804")]
-    [Description(@"??")]
+    [Description(@"That part of an investment fund order attributed to a client with a savings plan.")]
     ClientWithSavingsPlan,
     
 }

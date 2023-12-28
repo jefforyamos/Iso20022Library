@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionType2Code
 {
     /// <summary>
-    /// ??
+    /// Right to buy a quantity of an asset for an agreed price at exercise date.
     /// Encoded/decoded by serializers as "Call".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALL")]
     [IsoId("__qRwIANzEeWksqGoe-EFrg")]
-    [Description(@"??")]
+    [Description(@"Right to buy a quantity of an asset for an agreed price at exercise date.")]
     Call,
     
     /// <summary>
-    /// ??
+    /// Right to sell a quantity of an asset for an agreed price at exercise date.
     /// Encoded/decoded by serializers as "Put".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUTO")]
     [IsoId("__qRwIQNzEeWksqGoe-EFrg")]
-    [Description(@"??")]
+    [Description(@"Right to sell a quantity of an asset for an agreed price at exercise date.")]
     Put,
     
     /// <summary>
-    /// ??
+    /// Right where the holder of the option decides whether the option is put or call.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_2SzHUQjtEeW36pGcc5RpFw")]
-    [Description(@"??")]
+    [Description(@"Right where the holder of the option decides whether the option is put or call.")]
     Other,
     
 }

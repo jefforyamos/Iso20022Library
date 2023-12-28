@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BusinessDayConvention1Code
 {
     /// <summary>
-    /// ??
+    /// The date will be the first following day that is a business day.
     /// Encoded/decoded by serializers as "Following".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWNG")]
     [IsoId("_bVIDNtp-Ed-ak6NoX_4Aeg_1252936265")]
-    [Description(@"??")]
+    [Description(@"The date will be the first following day that is a business day.")]
     Following,
     
     /// <summary>
-    /// ??
+    /// The date will be the first preceding day that is a business day.
     /// Encoded/decoded by serializers as "Preceding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREC")]
     [IsoId("_bVIDN9p-Ed-ak6NoX_4Aeg_-522159377")]
-    [Description(@"??")]
+    [Description(@"The date will be the first preceding day that is a business day.")]
     Preceding,
     
 }

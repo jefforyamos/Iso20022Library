@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Trading1MethodCode
 {
     /// <summary>
-    /// ??
+    /// Trade executed through an electronic trading system.
     /// Encoded/decoded by serializers as "Electronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_YqgQA9p-Ed-ak6NoX_4Aeg_2750610")]
-    [Description(@"??")]
+    [Description(@"Trade executed through an electronic trading system.")]
     Electronic,
     
     /// <summary>
-    /// ??
+    /// Trade executed over the phone.
     /// Encoded/decoded by serializers as "Phone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHON")]
     [IsoId("_YqgQBNp-Ed-ak6NoX_4Aeg_32300524")]
-    [Description(@"??")]
+    [Description(@"Trade executed over the phone.")]
     Phone,
     
     /// <summary>
-    /// ??
+    /// Trade executed through a broker.
     /// Encoded/decoded by serializers as "Broker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BROK")]
     [IsoId("_YqgQBdp-Ed-ak6NoX_4Aeg_48002593")]
-    [Description(@"??")]
+    [Description(@"Trade executed through a broker.")]
     Broker,
     
 }

@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount5Code
 {
     /// <summary>
-    /// ??
+    /// Cash-back amount.
     /// Encoded/decoded by serializers as "Cashback".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHB")]
     [IsoId("_JB5b0Xs1EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Cash-back amount.")]
     Cashback,
     
     /// <summary>
-    /// ??
+    /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
     /// Encoded/decoded by serializers as "Discount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCNT")]
     [IsoId("_JW-7A3s1EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.")]
     Discount,
     
     /// <summary>
-    /// ??
+    /// Fees.
     /// Encoded/decoded by serializers as "Fees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEES")]
     [IsoId("_KEPCk3s1EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Fees.")]
     Fees,
     
     /// <summary>
-    /// ??
+    /// Gratuity amount.
     /// Encoded/decoded by serializers as "Gratuity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRTY")]
     [IsoId("_KM4oQXs1EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Gratuity amount.")]
     Gratuity,
     
     /// <summary>
-    /// ??
+    /// Extra fee for a purchase or a withdrawal.
     /// Encoded/decoded by serializers as "Surcharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRCH")]
     [IsoId("_KqKaI3s1EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Extra fee for a purchase or a withdrawal.")]
     Surcharge,
     
     /// <summary>
-    /// ??
+    /// Value added tax amount.
     /// Encoded/decoded by serializers as "ValueAddedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATX")]
     [IsoId("_KxCeM3s1EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Value added tax amount.")]
     ValueAddedTax,
     
     /// <summary>
-    /// ??
+    /// Commission, for example for DCC (Dynamic Currency Conversion) transactions.
     /// Encoded/decoded by serializers as "Commission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_7D9GwdPHEeSFn54OzS96Iw")]
-    [Description(@"??")]
+    [Description(@"Commission, for example for DCC (Dynamic Currency Conversion) transactions.")]
     Commission,
     
     /// <summary>
-    /// ??
+    /// Donation amount.
     /// Encoded/decoded by serializers as "Donation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DONN")]
     [IsoId("_Zu6dgS70EeWc7f-D6ByqMg")]
-    [Description(@"??")]
+    [Description(@"Donation amount.")]
     Donation,
     
     /// <summary>
-    /// ??
+    /// Taxes applicable to the transaction.
     /// Encoded/decoded by serializers as "Tax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXT")]
     [IsoId("_W5BZAS71EeWDa4uwlWChEA")]
-    [Description(@"??")]
+    [Description(@"Taxes applicable to the transaction.")]
     Tax,
     
 }

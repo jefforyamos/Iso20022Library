@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementUnitType1Code
 {
     /// <summary>
-    /// ??
+    /// Represent the face amount, for example the principal of a debt instrument.
     /// Encoded/decoded by serializers as "FaceAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAMT")]
     [IsoId("_hblKlmliEeGaMcKyqKNRfQ_40062376")]
-    [Description(@"??")]
+    [Description(@"Represent the face amount, for example the principal of a debt instrument.")]
     FaceAmount,
     
     /// <summary>
-    /// ??
+    /// Represent the unit as a number, for example a number of shares.
     /// Encoded/decoded by serializers as "Unit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIT")]
     [IsoId("_hblKl2liEeGaMcKyqKNRfQ_-1210061355")]
-    [Description(@"??")]
+    [Description(@"Represent the unit as a number, for example a number of shares.")]
     Unit,
     
 }

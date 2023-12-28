@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_YvIRV9p-Ed-ak6NoX_4Aeg_82230149")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction has been acknowledged / accepted for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_YvIRWNp-Ed-ak6NoX_4Aeg_82230165")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction is matched.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACH")]
     [IsoId("_YvRbQNp-Ed-ak6NoX_4Aeg_82230182")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction is matched.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction is fully executed and the confirmation is sent.
     /// Encoded/decoded by serializers as "AlreadyExecuted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COSE")]
     [IsoId("_YvRbQdp-Ed-ak6NoX_4Aeg_82230200")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction is fully executed and the confirmation is sent.")]
     AlreadyExecuted,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction is settled.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_YvRbQtp-Ed-ak6NoX_4Aeg_630620620")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction is settled.")]
     Settled,
     
 }

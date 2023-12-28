@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ModificationLevel1Code
 {
     /// <summary>
-    /// ??
+    /// Modification applies to a position.
     /// Encoded/decoded by serializers as "Position".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSTN")]
     [IsoId("_YvcnEbSZEeeTnocDRx5mhw")]
-    [Description(@"??")]
+    [Description(@"Modification applies to a position.")]
     Position,
     
     /// <summary>
-    /// ??
+    /// Modification applies to a transaction.
     /// Encoded/decoded by serializers as "Transaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TCTN")]
     [IsoId("_Y83YAbSZEeeTnocDRx5mhw")]
-    [Description(@"??")]
+    [Description(@"Modification applies to a transaction.")]
     Transaction,
     
 }

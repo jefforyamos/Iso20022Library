@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Trade is validated.
     /// Encoded/decoded by serializers as "Validated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALI")]
     [IsoId("_Vp_FWNp-Ed-ak6NoX_4Aeg_1624593448")]
-    [Description(@"??")]
+    [Description(@"Trade is validated.")]
     Validated,
     
     /// <summary>
-    /// ??
+    /// Trade passed regulatory check.
     /// Encoded/decoded by serializers as "RegulatoryChecked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGC")]
     [IsoId("_VqIPQNp-Ed-ak6NoX_4Aeg_1624593076")]
-    [Description(@"??")]
+    [Description(@"Trade passed regulatory check.")]
     RegulatoryChecked,
     
     /// <summary>
-    /// ??
+    /// Trade is invalid.
     /// Encoded/decoded by serializers as "Invalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVA")]
     [IsoId("_VqIPQdp-Ed-ak6NoX_4Aeg_1624593077")]
-    [Description(@"??")]
+    [Description(@"Trade is invalid.")]
     Invalid,
     
     /// <summary>
-    /// ??
+    /// Trade settlement is rejected.
     /// Encoded/decoded by serializers as "SettlementRejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRJC")]
     [IsoId("_VqIPQtp-Ed-ak6NoX_4Aeg_1624593094")]
-    [Description(@"??")]
+    [Description(@"Trade settlement is rejected.")]
     SettlementRejected,
     
     /// <summary>
-    /// ??
+    /// Trade is suspended for regulatory reasons.
     /// Encoded/decoded by serializers as "RegulatorySuspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGS")]
     [IsoId("_VqIPQ9p-Ed-ak6NoX_4Aeg_1624593111")]
-    [Description(@"??")]
+    [Description(@"Trade is suspended for regulatory reasons.")]
     RegulatorySuspended,
     
     /// <summary>
-    /// ??
+    /// Trade is unmatched.
     /// Encoded/decoded by serializers as "Unmatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UMTC")]
     [IsoId("_VqIPRNp-Ed-ak6NoX_4Aeg_1624593129")]
-    [Description(@"??")]
+    [Description(@"Trade is unmatched.")]
     Unmatched,
     
     /// <summary>
-    /// ??
+    /// Trade is matched.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FMTC")]
     [IsoId("_VqIPRdp-Ed-ak6NoX_4Aeg_1624593137")]
-    [Description(@"??")]
+    [Description(@"Trade is matched.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Trade is rescinded.
     /// Encoded/decoded by serializers as "Rescinded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSCD")]
     [IsoId("_VqIPRtp-Ed-ak6NoX_4Aeg_1624593154")]
-    [Description(@"??")]
+    [Description(@"Trade is rescinded.")]
     Rescinded,
     
     /// <summary>
-    /// ??
+    /// Settlement is complete.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLD")]
     [IsoId("_VqIPR9p-Ed-ak6NoX_4Aeg_1624593171")]
-    [Description(@"??")]
+    [Description(@"Settlement is complete.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.
     /// Encoded/decoded by serializers as "PartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSTL")]
     [IsoId("_VqIPSNp-Ed-ak6NoX_4Aeg_1624593189")]
-    [Description(@"??")]
+    [Description(@"Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.")]
     PartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Both the Opening and the Valuation details of an NDF trade have been matched with corresponding details of a counterparty's NDF trade.
     /// Encoded/decoded by serializers as "MatchedValued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VMTC")]
     [IsoId("_VqIPSdp-Ed-ak6NoX_4Aeg_1624593431")]
-    [Description(@"??")]
+    [Description(@"Both the Opening and the Valuation details of an NDF trade have been matched with corresponding details of a counterparty's NDF trade.")]
     MatchedValued,
     
     /// <summary>
-    /// ??
+    /// Trade is rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_VqIPStp-Ed-ak6NoX_4Aeg_1624593432")]
-    [Description(@"??")]
+    [Description(@"Trade is rejected.")]
     Rejected,
     
 }

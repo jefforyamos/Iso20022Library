@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AuthenticationMethod7Code
 {
     /// <summary>
-    /// ??
+    /// A token is used to verify an already performed authentication.
     /// Encoded/decoded by serializers as "AuthenticationToken".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOKA")]
     [IsoId("_BIbxIYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"A token is used to verify an already performed authentication.")]
     AuthenticationToken,
     
     /// <summary>
-    /// ??
+    /// Biometric authentication of the cardholder.
     /// Encoded/decoded by serializers as "Biometry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIOM")]
     [IsoId("_CGhKAYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Biometric authentication of the cardholder.")]
     Biometry,
     
     /// <summary>
-    /// ??
+    /// Customer mobile device.
     /// Encoded/decoded by serializers as "Mobile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOBL")]
     [IsoId("_CV8tIYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Customer mobile device.")]
     Mobile,
     
     /// <summary>
-    /// ??
+    /// Other customer authentication.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ChAGkYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Other customer authentication.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Off-line PIN authentication (Personal Identification Number).
     /// Encoded/decoded by serializers as "OfflinePIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FPIN")]
     [IsoId("_DaprYYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Off-line PIN authentication (Personal Identification Number).")]
     OfflinePIN,
     
     /// <summary>
-    /// ??
+    /// On-line PIN authentication (Personal Identification Number).
     /// Encoded/decoded by serializers as "OnLinePIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPIN")]
     [IsoId("_DgP9EYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"On-line PIN authentication (Personal Identification Number).")]
     OnLinePIN,
     
     /// <summary>
-    /// ??
+    /// Authentication by a password.
     /// Encoded/decoded by serializers as "Password".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSWD")]
     [IsoId("_FZTJYYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Authentication by a password.")]
     Password,
     
     /// <summary>
-    /// ??
+    /// Electronic commerce transaction secured with the X.509 certificate of a customer.
     /// Encoded/decoded by serializers as "SecureCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRT")]
     [IsoId("_FquQkYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Electronic commerce transaction secured with the X.509 certificate of a customer.")]
     SecureCertificate,
     
     /// <summary>
-    /// ??
+    /// Channel-encrypted transaction.
     /// Encoded/decoded by serializers as "SecuredChannel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCNL")]
     [IsoId("_G1VpkYobEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Channel-encrypted transaction.")]
     SecuredChannel,
     
 }

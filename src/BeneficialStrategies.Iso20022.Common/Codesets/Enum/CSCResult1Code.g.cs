@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CSCResult1Code
 {
     /// <summary>
-    /// ??
+    /// Card security code match.
     /// Encoded/decoded by serializers as "CSCMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMCH")]
     [IsoId("_TS9qZwEcEeCQm6a_G2yO_w_153972600")]
-    [Description(@"??")]
+    [Description(@"Card security code match.")]
     CSCMatch,
     
     /// <summary>
-    /// ??
+    /// No card security code match.
     /// Encoded/decoded by serializers as "CSCNoMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNMH")]
     [IsoId("_TS9qaAEcEeCQm6a_G2yO_w_-1576057323")]
-    [Description(@"??")]
+    [Description(@"No card security code match.")]
     CSCNoMatch,
     
     /// <summary>
-    /// ??
+    /// Card security code not processed for technical reason.
     /// Encoded/decoded by serializers as "CSCTechnical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNMT")]
     [IsoId("_TS9qaQEcEeCQm6a_G2yO_w_-1689896389")]
-    [Description(@"??")]
+    [Description(@"Card security code not processed for technical reason.")]
     CSCTechnical,
     
     /// <summary>
-    /// ??
+    /// Card security code not processed for non-technical reason.
     /// Encoded/decoded by serializers as "CSCNotTechnical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNMO")]
     [IsoId("_TS9qagEcEeCQm6a_G2yO_w_-1542897554")]
-    [Description(@"??")]
+    [Description(@"Card security code not processed for non-technical reason.")]
     CSCNotTechnical,
     
     /// <summary>
-    /// ??
+    /// Card security code missing in request.
     /// Encoded/decoded by serializers as "CSCMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMSS")]
     [IsoId("_TS9qawEcEeCQm6a_G2yO_w_394327619")]
-    [Description(@"??")]
+    [Description(@"Card security code missing in request.")]
     CSCMissing,
     
     /// <summary>
-    /// ??
+    /// Card security code not used by issuer.
     /// Encoded/decoded by serializers as "CSCNotUsed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNUS")]
     [IsoId("_TS9qbAEcEeCQm6a_G2yO_w_-1425026569")]
-    [Description(@"??")]
+    [Description(@"Card security code not used by issuer.")]
     CSCNotUsed,
     
 }

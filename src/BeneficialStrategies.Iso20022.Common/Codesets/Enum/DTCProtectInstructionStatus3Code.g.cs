@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCProtectInstructionStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Instruction pending release or delete from approval function.
     /// Encoded/decoded by serializers as "PendingApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENA")]
     [IsoId("_DAg5Me2MEeiWtrflKsFqHg")]
-    [Description(@"??")]
+    [Description(@"Instruction pending release or delete from approval function.")]
     PendingApproval,
     
     /// <summary>
-    /// ??
+    /// Client instruction withdrawn for events with withdrawal privilege.
     /// Encoded/decoded by serializers as "Withdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_DAg5M-2MEeiWtrflKsFqHg")]
-    [Description(@"??")]
+    [Description(@"Client instruction withdrawn for events with withdrawal privilege.")]
     Withdrawn,
     
 }

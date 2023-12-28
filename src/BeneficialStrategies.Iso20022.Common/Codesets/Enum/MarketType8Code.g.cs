@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarketType8Code
 {
     /// <summary>
-    /// ??
+    /// Specified type of market is counter market.
     /// Encoded/decoded by serializers as "Counter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COUN")]
     [IsoId("_FcGlgTzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"Specified type of market is counter market.")]
     Counter,
     
     /// <summary>
-    /// ??
+    /// Specified type of market is inter bank market.
     /// Encoded/decoded by serializers as "InterBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INBA")]
     [IsoId("_F4RkITzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"Specified type of market is inter bank market.")]
     InterBank,
     
     /// <summary>
-    /// ??
+    /// The place is over the counter.
     /// Encoded/decoded by serializers as "OverTheCounter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTCO")]
     [IsoId("_GeAucTzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"The place is over the counter.")]
     OverTheCounter,
     
     /// <summary>
-    /// ??
+    /// The place is a primary market.
     /// Encoded/decoded by serializers as "PrimaryMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIM")]
     [IsoId("_G9KvoTzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"The place is a primary market.")]
     PrimaryMarket,
     
     /// <summary>
-    /// ??
+    /// The place is a secondary market.
     /// Encoded/decoded by serializers as "SecondaryMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECM")]
     [IsoId("_HgWVMTzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"The place is a secondary market.")]
     SecondaryMarket,
     
     /// <summary>
-    /// ??
+    /// The place is a stock exchange.
     /// Encoded/decoded by serializers as "StockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCH")]
     [IsoId("_IEdH0TzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"The place is a stock exchange.")]
     StockExchange,
     
     /// <summary>
-    /// ??
+    /// Various places.
     /// Encoded/decoded by serializers as "Various".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VARI")]
     [IsoId("_OIREYTzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"Various places.")]
     Various,
     
 }

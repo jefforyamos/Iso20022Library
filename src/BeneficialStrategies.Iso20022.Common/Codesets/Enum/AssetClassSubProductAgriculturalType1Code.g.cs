@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductAgriculturalType1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type dairy.
     /// Encoded/decoded by serializers as "Dairy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRY")]
     [IsoId("_f8pxQc5AEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type dairy.")]
     Dairy,
     
     /// <summary>
-    /// ??
+    /// Commodity of type forestry.
     /// Encoded/decoded by serializers as "Forestry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRST")]
     [IsoId("_gHrVgc5AEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type forestry.")]
     Forestry,
     
     /// <summary>
-    /// ??
+    /// Commodity of type grain oil seeds.
     /// Encoded/decoded by serializers as "GrainOilSeeds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GROS")]
     [IsoId("_ginlEc5AEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type grain oil seeds.")]
     GrainOilSeeds,
     
     /// <summary>
-    /// ??
+    /// Commodity of type livestock.
     /// Encoded/decoded by serializers as "Livestock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LSTK")]
     [IsoId("_hBSeEc5AEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type livestock.")]
     Livestock,
     
     /// <summary>
-    /// ??
+    /// Commodity of type softs.
     /// Encoded/decoded by serializers as "Softs".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFT")]
     [IsoId("_pJ0EYc5AEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type softs.")]
     Softs,
     
     /// <summary>
-    /// ??
+    /// Commodity of type seafood.
     /// Encoded/decoded by serializers as "Seafood".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEAF")]
     [IsoId("_iAuhoUDaEeWOL-OsSq2h6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of type seafood.")]
     Seafood,
     
     /// <summary>
-    /// ??
+    /// Commodity of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_3WT_IUDaEeWOL-OsSq2h6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of other type.")]
     Other,
     
 }

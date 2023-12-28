@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingOpeningStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Authorisation is required.
     /// Encoded/decoded by serializers as "Authorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATHR")]
     [IsoId("_vgrwAWCKEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Authorisation is required.")]
     Authorisation,
     
     /// <summary>
-    /// ??
+    /// Authorisation is provided but account opening is still pending.
     /// Encoded/decoded by serializers as "AuthorisedButPending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATHP")]
     [IsoId("_vqNfcWCKEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Authorisation is provided but account opening is still pending.")]
     AuthorisedButPending,
     
     /// <summary>
-    /// ??
+    /// FATCA reporting date is missing.
     /// Encoded/decoded by serializers as "FATCAReportingDateMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRDM")]
     [IsoId("_vz4Y0WCKEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"FATCA reporting date is missing.")]
     FATCAReportingDateMissing,
     
     /// <summary>
-    /// ??
+    /// Know Your Customer (KYC) document is missing.
     /// Encoded/decoded by serializers as "KnowYourCustomerDocumentMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KYCM")]
     [IsoId("_v9PwMWCKEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Know Your Customer (KYC) document is missing.")]
     KnowYourCustomerDocumentMissing,
     
     /// <summary>
-    /// ??
+    /// Account is not yet open, even for partial use.
     /// Encoded/decoded by serializers as "NotOpened".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTO")]
     [IsoId("_wG6pkWCKEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Account is not yet open, even for partial use.")]
     NotOpened,
     
     /// <summary>
-    /// ??
+    /// Account will be opened when restrictions are addressed.
     /// Encoded/decoded by serializers as "Restrictions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REST")]
     [IsoId("_wQJeEWCKEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Account will be opened when restrictions are addressed.")]
     Restrictions,
     
     /// <summary>
-    /// ??
+    /// Rights holder information is missing.
     /// Encoded/decoded by serializers as "RightsHolderMissing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RIGH")]
     [IsoId("_wZ0XcWCKEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Rights holder information is missing.")]
     RightsHolderMissing,
     
 }

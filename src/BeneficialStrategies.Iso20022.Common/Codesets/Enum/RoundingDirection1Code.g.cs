@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RoundingDirection1Code
 {
     /// <summary>
-    /// ??
+    /// Round up to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDUP")]
     [IsoId("_Y-Bo9tp-Ed-ak6NoX_4Aeg_2066033827")]
-    [Description(@"??")]
+    [Description(@"Round up to the nearest whole number.")]
     RoundUp,
     
     /// <summary>
-    /// ??
+    /// Round down to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundDown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDWN")]
     [IsoId("_Y-Bo99p-Ed-ak6NoX_4Aeg_2066033828")]
-    [Description(@"??")]
+    [Description(@"Round down to the nearest whole number.")]
     RoundDown,
     
     /// <summary>
-    /// ??
+    /// Round up or down to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundToNearest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAN")]
     [IsoId("_Y-Bo-Np-Ed-ak6NoX_4Aeg_-1599090070")]
-    [Description(@"??")]
+    [Description(@"Round up or down to the nearest whole number.")]
     RoundToNearest,
     
     /// <summary>
-    /// ??
+    /// Do not round.
     /// Encoded/decoded by serializers as "IssueFraction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIST")]
     [IsoId("_Y-LZ8Np-Ed-ak6NoX_4Aeg_-1566769655")]
-    [Description(@"??")]
+    [Description(@"Do not round.")]
     IssueFraction,
     
 }

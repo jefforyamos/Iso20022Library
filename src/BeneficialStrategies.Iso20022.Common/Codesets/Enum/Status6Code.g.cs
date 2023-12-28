@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Status6Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_kpxjkO5NEeCisYr99QEiWA_-61748503")]
-    [Description(@"??")]
+    [Description(@"Instruction has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Processing has been completed.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_kpxjke5NEeCisYr99QEiWA_203121317")]
-    [Description(@"??")]
+    [Description(@"Processing has been completed.")]
     Completed,
     
     /// <summary>
-    /// ??
+    /// Instruction is queued.
     /// Encoded/decoded by serializers as "Queued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUED")]
     [IsoId("_kpxjku5NEeCisYr99QEiWA_-1861474063")]
-    [Description(@"??")]
+    [Description(@"Instruction is queued.")]
     Queued,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NoReasonCode
 {
     /// <summary>
-    /// ??
+    /// No reason to report or no reason available to report.
     /// Encoded/decoded by serializers as "NoReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORE")]
     [IsoId("_aNmaeNp-Ed-ak6NoX_4Aeg_1957291337")]
-    [Description(@"??")]
+    [Description(@"No reason to report or no reason available to report.")]
     NoReason,
     
 }

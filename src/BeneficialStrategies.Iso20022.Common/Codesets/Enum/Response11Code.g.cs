@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response11Code
 {
     /// <summary>
-    /// ??
+    /// An additional Response Code, mainly a functional one, should be considered to identify the outcome of the request.
     /// Encoded/decoded by serializers as "Warning".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WARN")]
     [IsoId("_UGttMS8NEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"An additional Response Code, mainly a functional one, should be considered to identify the outcome of the request.")]
     Warning,
     
     /// <summary>
-    /// ??
+    /// Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.
     /// Encoded/decoded by serializers as "Failure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_UGttMy8NEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.")]
     Failure,
     
     /// <summary>
-    /// ??
+    /// Processing OK. Information related to the result of the processing is contained in other parts of the response message.
     /// Encoded/decoded by serializers as "Success".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_ZqPAIS8NEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"Processing OK. Information related to the result of the processing is contained in other parts of the response message.")]
     Success,
     
 }

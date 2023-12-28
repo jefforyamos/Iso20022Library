@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VoteType1Code
 {
     /// <summary>
-    /// ??
+    /// Results of a vote on a proposal is for advice only.
     /// Encoded/decoded by serializers as "Advisory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVI")]
     [IsoId("_5URc0a37EemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Results of a vote on a proposal is for advice only.")]
     Advisory,
     
     /// <summary>
-    /// ??
+    /// Results of a vote on a proposal is binding.
     /// Encoded/decoded by serializers as "Binding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BNDG")]
     [IsoId("_5fbj8q37EemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Results of a vote on a proposal is binding.")]
     Binding,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarketType5Code
 {
     /// <summary>
-    /// ??
+    /// The place is over the counter.
     /// Encoded/decoded by serializers as "OverTheCounter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTCO")]
     [IsoId("_aUwLUdp-Ed-ak6NoX_4Aeg_1589066038")]
-    [Description(@"??")]
+    [Description(@"The place is over the counter.")]
     OverTheCounter,
     
     /// <summary>
-    /// ??
+    /// The place is a stock exchange.
     /// Encoded/decoded by serializers as "StockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCH")]
     [IsoId("_aUwLUtp-Ed-ak6NoX_4Aeg_-1956234882")]
-    [Description(@"??")]
+    [Description(@"The place is a stock exchange.")]
     StockExchange,
     
 }

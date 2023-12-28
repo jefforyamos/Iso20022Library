@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType30Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type milled wheat.
     /// Encoded/decoded by serializers as "MillingWheat".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWHT")]
     [IsoId("_Tlws4bv3EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type milled wheat.")]
     MillingWheat,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_VhCGwbv3EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
 }

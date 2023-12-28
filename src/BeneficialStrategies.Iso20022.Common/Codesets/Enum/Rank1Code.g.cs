@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Rank1Code
 {
     /// <summary>
-    /// ??
+    /// Element is the primary one.
     /// Encoded/decoded by serializers as "Primary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIM")]
     [IsoId("_8Vcd8ZNgEeWSf8tCOKY7Ug")]
-    [Description(@"??")]
+    [Description(@"Element is the primary one.")]
     Primary,
     
     /// <summary>
-    /// ??
+    /// Element is the primary one.
     /// Encoded/decoded by serializers as "Secondary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECO")]
     [IsoId("_8dx6kZNgEeWSf8tCOKY7Ug")]
-    [Description(@"??")]
+    [Description(@"Element is the primary one.")]
     Secondary,
     
 }

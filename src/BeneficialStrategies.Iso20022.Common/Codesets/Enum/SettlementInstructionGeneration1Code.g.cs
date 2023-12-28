@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementInstructionGeneration1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies if the ETC service provider is to generate a settlement instruction.
     /// Encoded/decoded by serializers as "InstructionGenerationByETCProvider".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENS")]
     [IsoId("__wk5ZtojEeC60axPepSq7g_899535056")]
-    [Description(@"??")]
+    [Description(@"Specifies if the ETC service provider is to generate a settlement instruction.")]
     InstructionGenerationByETCProvider,
     
     /// <summary>
-    /// ??
+    /// Specifies if the ETC service provider is not to generate a settlement instruction where a previous agreement to do so exists.
     /// Encoded/decoded by serializers as "NotInstructionGenerationByETCProvider".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOGE")]
     [IsoId("__wuqYNojEeC60axPepSq7g_710317607")]
-    [Description(@"??")]
+    [Description(@"Specifies if the ETC service provider is not to generate a settlement instruction where a previous agreement to do so exists.")]
     NotInstructionGenerationByETCProvider,
     
 }

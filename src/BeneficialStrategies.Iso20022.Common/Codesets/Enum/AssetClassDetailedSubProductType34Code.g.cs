@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType34Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type tanker.
     /// Encoded/decoded by serializers as "Tanker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TNKR")]
     [IsoId("_0Dk7sbv6EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type tanker.")]
     Tanker,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_2cukYbv6EeiLRYqS-r-R-A")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
 }

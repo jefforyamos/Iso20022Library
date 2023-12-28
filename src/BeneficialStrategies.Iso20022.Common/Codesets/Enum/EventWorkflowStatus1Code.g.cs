@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventWorkflowStatus1Code
 {
     /// <summary>
-    /// ??
+    /// All of the required data has been populated. Any conflicting data has been resolved. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.
     /// Encoded/decoded by serializers as "Approved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSAP")]
     [IsoId("_1yNsNTL3EeKU9IrkkToqcw_-1182982813")]
-    [Description(@"??")]
+    [Description(@"All of the required data has been populated. Any conflicting data has been resolved. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.")]
     Approved,
     
     /// <summary>
-    /// ??
+    /// Validation review was performed and event has been modified. Event is pending authorised approval.
     /// Encoded/decoded by serializers as "PendingApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSPA")]
     [IsoId("_1yXdMDL3EeKU9IrkkToqcw_-1296821879")]
-    [Description(@"??")]
+    [Description(@"Validation review was performed and event has been modified. Event is pending authorised approval.")]
     PendingApproval,
     
     /// <summary>
-    /// ??
+    /// Announcement has been confirmed but not all of the required data is available. Event was validated or specific STP criteria was met, however data is still pending confirmation of the event.
     /// Encoded/decoded by serializers as "ConditionallyApproved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSCA")]
     [IsoId("_1yXdMTL3EeKU9IrkkToqcw_1268115494")]
-    [Description(@"??")]
+    [Description(@"Announcement has been confirmed but not all of the required data is available. Event was validated or specific STP criteria was met, however data is still pending confirmation of the event.")]
     ConditionallyApproved,
     
     /// <summary>
-    /// ??
+    /// Validation review has been performed and event has been modified. Announcement has been confirmed but not all of the required data is available. Even record is pending authorised approval.
     /// Encoded/decoded by serializers as "PendingConditionalApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSPN")]
     [IsoId("_1yXdMjL3EeKU9IrkkToqcw_1154276428")]
-    [Description(@"??")]
+    [Description(@"Validation review has been performed and event has been modified. Announcement has been confirmed but not all of the required data is available. Even record is pending authorised approval.")]
     PendingConditionalApproval,
     
     /// <summary>
-    /// ??
+    /// Two or more sources disagree on one or more data elements.
     /// Encoded/decoded by serializers as "InConflict".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSCT")]
     [IsoId("_1yXdMzL3EeKU9IrkkToqcw_1722202763")]
-    [Description(@"??")]
+    [Description(@"Two or more sources disagree on one or more data elements.")]
     InConflict,
     
     /// <summary>
-    /// ??
+    /// Required data is not available. Announcement record cannot be verified.
     /// Encoded/decoded by serializers as "Incomplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSIN")]
     [IsoId("_1yXdNDL3EeKU9IrkkToqcw_1711103986")]
-    [Description(@"??")]
+    [Description(@"Required data is not available. Announcement record cannot be verified.")]
     Incomplete,
     
     /// <summary>
-    /// ??
+    /// Validation has determined the announcement record to be invalid. Pending authorisation.
     /// Encoded/decoded by serializers as "PendingDeleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSPD")]
     [IsoId("_1yXdNTL3EeKU9IrkkToqcw_18923789")]
-    [Description(@"??")]
+    [Description(@"Validation has determined the announcement record to be invalid. Pending authorisation.")]
     PendingDeleted,
     
     /// <summary>
-    /// ??
+    /// Announcement record is not supported by validation service.
     /// Encoded/decoded by serializers as "NotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSNS")]
     [IsoId("_1ygnIDL3EeKU9IrkkToqcw_-94915277")]
-    [Description(@"??")]
+    [Description(@"Announcement record is not supported by validation service.")]
     NotSupported,
     
     /// <summary>
-    /// ??
+    /// Validation has determined that the record is not supported. Pending authorisations.
     /// Encoded/decoded by serializers as "PendingNotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSPS")]
     [IsoId("_1ygnITL3EeKU9IrkkToqcw_-298852872")]
-    [Description(@"??")]
+    [Description(@"Validation has determined that the record is not supported. Pending authorisations.")]
     PendingNotSupported,
     
     /// <summary>
-    /// ??
+    /// Validation has determined event is being cancelled by the issuer/offeror. Pending authorisation.
     /// Encoded/decoded by serializers as "PendingCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSPC")]
     [IsoId("_1ygnIjL3EeKU9IrkkToqcw_1731496793")]
-    [Description(@"??")]
+    [Description(@"Validation has determined event is being cancelled by the issuer/offeror. Pending authorisation.")]
     PendingCancelled,
     
 }

@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionAttribute1Code
 {
     /// <summary>
-    /// ??
+    /// Payment is an aggregation one.
     /// Encoded/decoded by serializers as "Aggregation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGGR")]
     [IsoId("_9DuUcRYgEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Payment is an aggregation one.")]
     Aggregation,
     
     /// <summary>
-    /// ??
+    /// Withdrawal is a cardless cash disbursement one.
     /// Encoded/decoded by serializers as "CardlessATMCashDisbursement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADB")]
     [IsoId("_9PCMkhYgEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Withdrawal is a cardless cash disbursement one.")]
     CardlessATMCashDisbursement,
     
     /// <summary>
-    /// ??
+    /// Payment is a debt repayment one.
     /// Encoded/decoded by serializers as "DebtRepayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBRP")]
     [IsoId("_9aoYkhYgEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Payment is a debt repayment one.")]
     DebtRepayment,
     
     /// <summary>
-    /// ??
+    /// Payment is a deferred one.
     /// Encoded/decoded by serializers as "DeferredPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFRD")]
     [IsoId("_9kmz8hYgEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Payment is a deferred one.")]
     DeferredPayment,
     
     /// <summary>
-    /// ??
+    /// Payment is an instalment one.
     /// Encoded/decoded by serializers as "Instalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_9ySqohYgEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Payment is an instalment one.")]
     Instalment,
     
     /// <summary>
-    /// ??
+    /// Attribute defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_99vsshYgEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Attribute defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Attribute defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_-Ojv4hYgEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Attribute defined at private level")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// An occurrence of a recurring payment..
     /// Encoded/decoded by serializers as "RecurringPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCPT")]
     [IsoId("_-du0UhYgEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"An occurrence of a recurring payment..")]
     RecurringPayment,
     
     /// <summary>
-    /// ??
+    /// Service to replenish value in an account (for example, mobile account, prepaid account, etc.).
     /// Encoded/decoded by serializers as "TopUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TPUP")]
     [IsoId("_kgXn4UJpEeiO-KV5ZjnZnQ")]
-    [Description(@"??")]
+    [Description(@"Service to replenish value in an account (for example, mobile account, prepaid account, etc.).")]
     TopUp,
     
     /// <summary>
-    /// ??
+    /// Payment in advance of receiving goods or services.
     /// Encoded/decoded by serializers as "PrePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPYT")]
     [IsoId("_kVqacUJuEeiO-KV5ZjnZnQ")]
-    [Description(@"??")]
+    [Description(@"Payment in advance of receiving goods or services.")]
     PrePayment,
     
     /// <summary>
-    /// ??
+    /// To authorise additional amounts for a previously authorised transaction.
     /// Encoded/decoded by serializers as "Incremental".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCR")]
     [IsoId("_r1TngUNNEeiut6dbx3wnBg")]
-    [Description(@"??")]
+    [Description(@"To authorise additional amounts for a previously authorised transaction.")]
     Incremental,
     
     /// <summary>
-    /// ??
+    /// Preauthorisation for an amount which is unknown at the time when the transaction is initiated and to be cleared within a specified timeframe.
     /// Encoded/decoded by serializers as "PreAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAUT")]
     [IsoId("_sAduoUNNEeiut6dbx3wnBg")]
-    [Description(@"??")]
+    [Description(@"Preauthorisation for an amount which is unknown at the time when the transaction is initiated and to be cleared within a specified timeframe.")]
     PreAuthorisation,
     
     /// <summary>
-    /// ??
+    /// Financial completion of a pre-authorised transaction within a specified timeframe.
     /// Encoded/decoded by serializers as "PreAuthorisationCompletion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACP")]
     [IsoId("_sMNroUNNEeiut6dbx3wnBg")]
-    [Description(@"??")]
+    [Description(@"Financial completion of a pre-authorised transaction within a specified timeframe.")]
     PreAuthorisationCompletion,
     
     /// <summary>
-    /// ??
+    /// Subsequent occurrence of a recurring payment.
     /// Encoded/decoded by serializers as "SubsequentRecurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBR")]
     [IsoId("_YJdO4dFeEeiOQebAIFZZCQ")]
-    [Description(@"??")]
+    [Description(@"Subsequent occurrence of a recurring payment.")]
     SubsequentRecurring,
     
     /// <summary>
-    /// ??
+    /// First occurence of a recurring payment.
     /// Encoded/decoded by serializers as "FirstRecurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRCP")]
     [IsoId("_ZBnl8dFeEeiOQebAIFZZCQ")]
-    [Description(@"??")]
+    [Description(@"First occurence of a recurring payment.")]
     FirstRecurring,
     
     /// <summary>
-    /// ??
+    /// Transaction previously initiated is completed and contains the actual amount.
     /// Encoded/decoded by serializers as "Completion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPLT")]
     [IsoId("_AmAxEdagEeigmZxKhkzTEg")]
-    [Description(@"??")]
+    [Description(@"Transaction previously initiated is completed and contains the actual amount.")]
     Completion,
     
 }

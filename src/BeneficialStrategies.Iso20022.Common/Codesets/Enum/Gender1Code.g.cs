@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Gender1Code
 {
     /// <summary>
-    /// ??
+    /// Individual is a female.
     /// Encoded/decoded by serializers as "Female".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEMA")]
     [IsoId("_LwE5wYoTEeahcZ3Nzs1Qag")]
-    [Description(@"??")]
+    [Description(@"Individual is a female.")]
     Female,
     
     /// <summary>
-    /// ??
+    /// Individual is a male.
     /// Encoded/decoded by serializers as "Male".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MALE")]
     [IsoId("_L01d8YoTEeahcZ3Nzs1Qag")]
-    [Description(@"??")]
+    [Description(@"Individual is a male.")]
     Male,
     
 }

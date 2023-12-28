@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralDeliveryMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Securities interest collateral arrangement.
     /// Encoded/decoded by serializers as "SecuritiesInterestCollateralArrangement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SICA")]
     [IsoId("_lJtHMSDmEeahCJeThTBhHA")]
-    [Description(@"??")]
+    [Description(@"Securities interest collateral arrangement.")]
     SecuritiesInterestCollateralArrangement,
     
     /// <summary>
-    /// ??
+    /// Securities interest with the right of use.
     /// Encoded/decoded by serializers as "SecuritiesInterestWithUseRight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIUR")]
     [IsoId("_lS7UoSDmEeahCJeThTBhHA")]
-    [Description(@"??")]
+    [Description(@"Securities interest with the right of use.")]
     SecuritiesInterestWithUseRight,
     
     /// <summary>
-    /// ??
+    /// Title transfer collateral arrangement.
     /// Encoded/decoded by serializers as "TitleTransferCollateralArrangement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTCA")]
     [IsoId("_laNoYSDmEeahCJeThTBhHA")]
-    [Description(@"??")]
+    [Description(@"Title transfer collateral arrangement.")]
     TitleTransferCollateralArrangement,
     
 }

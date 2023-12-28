@@ -21,30 +21,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalShipmentCondition1Code
 {
     /// <summary>
-    /// ??
+    /// Goods/service delivered after payment
     /// Encoded/decoded by serializers as "AdvancePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVN")]
     [IsoId("_uUDne_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Goods/service delivered after payment")]
     AdvancePayment,
     
     /// <summary>
-    /// ??
+    /// Goods/service delivered at the same time as payment.
     /// Encoded/decoded by serializers as "DeliveryversusPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMNT")]
     [IsoId("_uUDnfvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Goods/service delivered at the same time as payment.")]
     DeliveryversusPayment,
     
     /// <summary>
-    /// ??
+    /// Goods/service delivered before payment
     /// Encoded/decoded by serializers as "TradeLoan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRLN")]
     [IsoId("_uUMxYvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Goods/service delivered before payment")]
     TradeLoan,
     
 }

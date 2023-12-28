@@ -20,174 +20,174 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ConditionallyAcceptedStatusReason3Code
 {
     /// <summary>
-    /// ??
+    /// Order is pending until documents are completed and received, eg, legal documents from the successor, legal proceeds because of bankruptcy, missing signature.
     /// Encoded/decoded by serializers as "AwaitingDocuments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_bBmqQNp-Ed-ak6NoX_4Aeg_22639830")]
-    [Description(@"??")]
+    [Description(@"Order is pending until documents are completed and received, eg, legal documents from the successor, legal proceeds because of bankruptcy, missing signature.")]
     AwaitingDocuments,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending until there is enough cash in the account to pay the subscription.
     /// Encoded/decoded by serializers as "AwaitingSubscriptionMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWSM")]
     [IsoId("_bBmqQdp-Ed-ak6NoX_4Aeg_22639907")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending until there is enough cash in the account to pay the subscription.")]
     AwaitingSubscriptionMoney,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing pending the result of the investigation for possible duplicates.
     /// Encoded/decoded by serializers as "PossibleDuplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_bBmqQtp-Ed-ak6NoX_4Aeg_22639950")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing pending the result of the investigation for possible duplicates.")]
     PossibleDuplicate,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing pending the extension of the trading limit.
     /// Encoded/decoded by serializers as "TradingLimitExceeded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRED")]
     [IsoId("_bBmqQ9p-Ed-ak6NoX_4Aeg_22640002")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing pending the extension of the trading limit.")]
     TradingLimitExceeded,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending the benefit plan investor (BPI) declaration.
     /// Encoded/decoded by serializers as "BenefitPlanDeclaration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BPID")]
     [IsoId("_bBmqRNp-Ed-ak6NoX_4Aeg_2058481387")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending the benefit plan investor (BPI) declaration.")]
     BenefitPlanDeclaration,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending the ERISA declaration.
     /// Encoded/decoded by serializers as "ERISADeclaration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERIS")]
     [IsoId("_bBmqRdp-Ed-ak6NoX_4Aeg_2058481422")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending the ERISA declaration.")]
     ERISADeclaration,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending until the required anti-money laundering documentation is presented to the transfer agent.
     /// Encoded/decoded by serializers as "AMLDocuments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMLD")]
     [IsoId("_bBmqRtp-Ed-ak6NoX_4Aeg_2058481482")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending until the required anti-money laundering documentation is presented to the transfer agent.")]
     AMLDocuments,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending the investment manager's approval.
     /// Encoded/decoded by serializers as "AwaitingApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_bBwbQNp-Ed-ak6NoX_4Aeg_2058481790")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending the investment manager's approval.")]
     AwaitingApproval,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the subscription order is pending as additional funding is required.
     /// Encoded/decoded by serializers as "AdditionalFundingRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AFUN")]
     [IsoId("_bBwbQdp-Ed-ak6NoX_4Aeg_2058481825")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the subscription order is pending as additional funding is required.")]
     AdditionalFundingRequired,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending as the order is below the minimum initial investment amount and is subject to the investment manager's approval.
     /// Encoded/decoded by serializers as "BelowMinimumInitialInvestmentAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMIN")]
     [IsoId("_bBwbQtp-Ed-ak6NoX_4Aeg_2058481868")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending as the order is below the minimum initial investment amount and is subject to the investment manager's approval.")]
     BelowMinimumInitialInvestmentAmount,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the subscription order is pending as the order is below the minimum top-up investment and is subject to the investment manager's approval.
     /// Encoded/decoded by serializers as "BelowMinimumTopUpAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMTO")]
     [IsoId("_bBwbQ9p-Ed-ak6NoX_4Aeg_2058481928")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the subscription order is pending as the order is below the minimum top-up investment and is subject to the investment manager's approval.")]
     BelowMinimumTopUpAmount,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending as there is insufficient capacity and the order is subject to the investment manager's approval.
     /// Encoded/decoded by serializers as "InsufficientCapacity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_bBwbRNp-Ed-ak6NoX_4Aeg_2058481980")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending as there is insufficient capacity and the order is subject to the investment manager's approval.")]
     InsufficientCapacity,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending because of a percentage holding breach, eg, PPM rules; taxation rules (ERISA).
     /// Encoded/decoded by serializers as "PercentageHoldingBreach".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCT")]
     [IsoId("_bBwbRdp-Ed-ak6NoX_4Aeg_2058482040")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending because of a percentage holding breach, eg, PPM rules; taxation rules (ERISA).")]
     PercentageHoldingBreach,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the redemption order is pending as it is below the minimum redemption amount and subject to the investment manager's approval.
     /// Encoded/decoded by serializers as "BelowMinimumRedemptionAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMRA")]
     [IsoId("_bBwbRtp-Ed-ak6NoX_4Aeg_2058482300")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the redemption order is pending as it is below the minimum redemption amount and subject to the investment manager's approval.")]
     BelowMinimumRedemptionAmount,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the redemption order is pending as the holding will be below the minimum retained value and subject to the investment manager's approval.
     /// Encoded/decoded by serializers as "BelowMinimumRetainedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMRV")]
     [IsoId("_bBwbR9p-Ed-ak6NoX_4Aeg_2058482352")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the redemption order is pending as the holding will be below the minimum retained value and subject to the investment manager's approval.")]
     BelowMinimumRetainedAmount,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending as a lock-up period is in place and subject to the investment manager's approval.
     /// Encoded/decoded by serializers as "LockUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCK")]
     [IsoId("_bBwbSNp-Ed-ak6NoX_4Aeg_2058482430")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending as a lock-up period is in place and subject to the investment manager's approval.")]
     LockUp,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the redemption order is pending as assets are illiquid and the order is subject to the investment manager's approval.
     /// Encoded/decoded by serializers as "AssetsIlliquid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ILLI")]
     [IsoId("_bBwbSdp-Ed-ak6NoX_4Aeg_2059402419")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the redemption order is pending as assets are illiquid and the order is subject to the investment manager's approval.")]
     AssetsIlliquid,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the redemption order is pending as it is subject to the investment manager's discretion.
     /// Encoded/decoded by serializers as "Discretion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_bB5lMNp-Ed-ak6NoX_4Aeg_2059402444")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the redemption order is pending as it is subject to the investment manager's discretion.")]
     Discretion,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the subscription order is pending as the order is below the minimum investment and a top-up is required.
     /// Encoded/decoded by serializers as "SubscriptionTopUpAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOP")]
     [IsoId("_bB5lMdp-Ed-ak6NoX_4Aeg_93259506")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the subscription order is pending as the order is below the minimum investment and a top-up is required.")]
     SubscriptionTopUpAmount,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OtherAsset2Code
 {
     /// <summary>
-    /// ??
+    /// Asset is a discretionary investment manager account
     /// Encoded/decoded by serializers as "Discretionary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIMA")]
     [IsoId("_fnEmYZNCEemQB_8XA98K0Q")]
-    [Description(@"??")]
+    [Description(@"Asset is a discretionary investment manager account")]
     Discretionary,
     
     /// <summary>
-    /// ??
+    /// Asset is an external investment account.
     /// Encoded/decoded by serializers as "ExternalAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXIA")]
     [IsoId("_fsbAcZNCEemQB_8XA98K0Q")]
-    [Description(@"??")]
+    [Description(@"Asset is an external investment account.")]
     ExternalAccount,
     
     /// <summary>
-    /// ??
+    /// Property that is not real estate. Also known as 'movable chattels'.
     /// Encoded/decoded by serializers as "MovableProperty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOVE")]
     [IsoId("_fyX3cZNCEemQB_8XA98K0Q")]
-    [Description(@"??")]
+    [Description(@"Property that is not real estate. Also known as 'movable chattels'.")]
     MovableProperty,
     
     /// <summary>
-    /// ??
+    /// Property that is real estate.
     /// Encoded/decoded by serializers as "Property".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("_f5EVUZNCEemQB_8XA98K0Q")]
-    [Description(@"??")]
+    [Description(@"Property that is real estate.")]
     Property,
     
     /// <summary>
-    /// ??
+    /// Asset is a trustee investment plan (TIP).
     /// Encoded/decoded by serializers as "TrusteeInvestmentPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIPP")]
     [IsoId("_f_UuUZNCEemQB_8XA98K0Q")]
-    [Description(@"??")]
+    [Description(@"Asset is a trustee investment plan (TIP).")]
     TrusteeInvestmentPlan,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyNatureType1Code
 {
     /// <summary>
-    /// ??
+    /// Other type of issuer.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ge0rER3dEeWTa7N6lo4ufA")]
-    [Description(@"??")]
+    [Description(@"Other type of issuer.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Issuer is a non-financial institution.
     /// Encoded/decoded by serializers as "NonFinancialInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFIN")]
     [IsoId("_gts0kR3dEeWTa7N6lo4ufA")]
-    [Description(@"??")]
+    [Description(@"Issuer is a non-financial institution.")]
     NonFinancialInstitution,
     
     /// <summary>
-    /// ??
+    /// Issuer is a financial institution.
     /// Encoded/decoded by serializers as "FinancialInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIIN")]
     [IsoId("_gyBT4R3dEeWTa7N6lo4ufA")]
-    [Description(@"??")]
+    [Description(@"Issuer is a financial institution.")]
     FinancialInstitution,
     
     /// <summary>
-    /// ??
+    /// Issuer is a central counterparty.
     /// Encoded/decoded by serializers as "CentralCounterparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPS")]
     [IsoId("_hBMYUR3dEeWTa7N6lo4ufA")]
-    [Description(@"??")]
+    [Description(@"Issuer is a central counterparty.")]
     CentralCounterparty,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMCassetteType1Code
 {
     /// <summary>
-    /// ??
+    /// Cassette for deposits.
     /// Encoded/decoded by serializers as "In".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPST")]
     [IsoId("_783pwYqfEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Cassette for deposits.")]
     In,
     
     /// <summary>
-    /// ??
+    /// Cassette for dispense.
     /// Encoded/decoded by serializers as "Out".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_8CFg8YqfEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Cassette for dispense.")]
     Out,
     
     /// <summary>
-    /// ??
+    /// Cassette for recycling.
     /// Encoded/decoded by serializers as "Recycling".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCYC")]
     [IsoId("_8HvdAYqfEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Cassette for recycling.")]
     Recycling,
     
     /// <summary>
-    /// ??
+    /// Cassette for reject.
     /// Encoded/decoded by serializers as "Reject".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_8NQ2MYqfEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Cassette for reject.")]
     Reject,
     
     /// <summary>
-    /// ??
+    /// Cassette for replenishment.
     /// Encoded/decoded by serializers as "Replenishment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPLT")]
     [IsoId("_8Sn3UYqfEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Cassette for replenishment.")]
     Replenishment,
     
     /// <summary>
-    /// ??
+    /// Cassette for retract.
     /// Encoded/decoded by serializers as "Retract".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTRC")]
     [IsoId("_8X_fgYqfEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Cassette for retract.")]
     Retract,
     
 }

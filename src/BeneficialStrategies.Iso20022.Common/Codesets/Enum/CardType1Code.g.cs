@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardType1Code
 {
     /// <summary>
-    /// ??
+    /// Card where the holder has been granted a line of credit. The card enables the holder to make purchases and withdraw cash up to a pre-arranged ceiling.
     /// Encoded/decoded by serializers as "CreditCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_zd5TUw93EeGeV5vP7Mvdig_-1511071309")]
-    [Description(@"??")]
+    [Description(@"Card where the holder has been granted a line of credit. The card enables the holder to make purchases and withdraw cash up to a pre-arranged ceiling.")]
     CreditCard,
     
     /// <summary>
-    /// ??
+    /// Card enabling the holder to have its purchases directly charged to its account. The card may also combine other functions, for example, cash card or cheque guaranteed card.
     /// Encoded/decoded by serializers as "DebitCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBIT")]
     [IsoId("_zd5TVA93EeGeV5vP7Mvdig_-502422457")]
-    [Description(@"??")]
+    [Description(@"Card enabling the holder to have its purchases directly charged to its account. The card may also combine other functions, for example, cash card or cheque guaranteed card.")]
     DebitCard,
     
 }

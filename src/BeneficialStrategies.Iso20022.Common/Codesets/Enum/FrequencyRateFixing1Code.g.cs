@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FrequencyRateFixing1Code
 {
     /// <summary>
-    /// ??
+    /// No update of  the rate for the duration of the trade.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_Iq2REY9PEeqMo4JxiuZGSw")]
-    [Description(@"??")]
+    [Description(@"No update of  the rate for the duration of the trade.")]
     None,
     
     /// <summary>
-    /// ??
+    /// Daily fixing according to the tenor of the index.
     /// Encoded/decoded by serializers as "Overnight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OVNG")]
     [IsoId("_IwpXEo9PEeqMo4JxiuZGSw")]
-    [Description(@"??")]
+    [Description(@"Daily fixing according to the tenor of the index.")]
     Overnight,
     
     /// <summary>
-    /// ??
+    /// Periodic fixing of the rate in line with   (according to) the Tenor of the rate.
     /// Encoded/decoded by serializers as "Periodic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRDC")]
     [IsoId("_I4Fb0o9PEeqMo4JxiuZGSw")]
-    [Description(@"??")]
+    [Description(@"Periodic fixing of the rate in line with   (according to) the Tenor of the rate.")]
     Periodic,
     
 }

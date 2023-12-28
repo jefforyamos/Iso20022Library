@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OutputFormat5Code
 {
     /// <summary>
-    /// ??
+    /// Other type of output of message defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_bKsXwclUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Other type of output of message defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of output format defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_btaqUclUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Other type of output format defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Text without format attributes.
     /// Encoded/decoded by serializers as "SimpleText".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEXT")]
     [IsoId("_hhloYslUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Text without format attributes.")]
     SimpleText,
     
     /// <summary>
-    /// ??
+    /// Uniform Resource Locator (URL) reference for the message.
     /// Encoded/decoded by serializers as "UniformResourceLocator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URLI")]
     [IsoId("_iCEfQclUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Uniform Resource Locator (URL) reference for the message.")]
     UniformResourceLocator,
     
     /// <summary>
-    /// ??
+    /// XHTML document which includes a subset of the XHTML output tag.
     /// Encoded/decoded by serializers as "XHTML".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HTML")]
     [IsoId("_qSpOUslUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
     XHTML,
     
     /// <summary>
-    /// ??
+    /// A formatted print line.
     /// Encoded/decoded by serializers as "PrintLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLIN")]
     [IsoId("_rjgZQslUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"A formatted print line.")]
     PrintLine,
     
     /// <summary>
-    /// ??
+    /// Java Syntax Object Notation format.
     /// Encoded/decoded by serializers as "JSON".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JSON")]
     [IsoId("_uDqB0slUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Java Syntax Object Notation format.")]
     JSON,
     
     /// <summary>
-    /// ??
+    /// eXtensible Markup Language format.
     /// Encoded/decoded by serializers as "XML".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XMLF")]
     [IsoId("_ulcgQclUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"eXtensible Markup Language format.")]
     XML,
     
     /// <summary>
-    /// ??
+    /// Electronic data interchange for administration, commerce and transport.
     /// Encoded/decoded by serializers as "EDIFACT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDIF")]
     [IsoId("_viTKEslUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Electronic data interchange for administration, commerce and transport.")]
     EDIFACT,
     
     /// <summary>
-    /// ??
+    /// Comma separated value format.
     /// Encoded/decoded by serializers as "CSV".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSVF")]
     [IsoId("_wd9hEslUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Comma separated value format.")]
     CSV,
     
     /// <summary>
-    /// ??
+    /// Joint Photographic Experts Group format.
     /// Encoded/decoded by serializers as "JPEG".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JPEG")]
     [IsoId("_w_v_gMlUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Joint Photographic Experts Group format.")]
     JPEG,
     
     /// <summary>
-    /// ??
+    /// Portable Document Format.
     /// Encoded/decoded by serializers as "PDF".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDFF")]
     [IsoId("_x23NsslUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Portable Document Format.")]
     PDF,
     
     /// <summary>
-    /// ??
+    /// Portable Network Graphics format.
     /// Encoded/decoded by serializers as "PNG".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PNGF")]
     [IsoId("_yYLLAclUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Portable Network Graphics format.")]
     PNG,
     
     /// <summary>
-    /// ??
+    /// Scalable vector graphic format.
     /// Encoded/decoded by serializers as "SVG".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVGF")]
     [IsoId("_0G8Z8slUEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Scalable vector graphic format.")]
     SVG,
     
 }

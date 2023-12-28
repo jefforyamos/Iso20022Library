@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralType1Code
 {
     /// <summary>
-    /// ??
+    /// Collateral type is cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_YghNldp-Ed-ak6NoX_4Aeg_-2096385794")]
-    [Description(@"??")]
+    [Description(@"Collateral type is cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Collateral type is securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_YghNltp-Ed-ak6NoX_4Aeg_2084742436")]
-    [Description(@"??")]
+    [Description(@"Collateral type is securities.")]
     Securities,
     
     /// <summary>
-    /// ??
+    /// Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.
     /// Encoded/decoded by serializers as "LetterOfCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LCRE")]
     [IsoId("_YghNl9p-Ed-ak6NoX_4Aeg_-473975924")]
-    [Description(@"??")]
+    [Description(@"Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.")]
     LetterOfCredit,
     
     /// <summary>
-    /// ??
+    /// Other assets that could be used as collateral.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_YghNmNp-Ed-ak6NoX_4Aeg_400628295")]
-    [Description(@"??")]
+    [Description(@"Other assets that could be used as collateral.")]
     Other,
     
 }

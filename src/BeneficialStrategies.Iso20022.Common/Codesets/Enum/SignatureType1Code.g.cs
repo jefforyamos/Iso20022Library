@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SignatureType1Code
 {
     /// <summary>
-    /// ??
+    /// The investor's written signature is required. Can also be known as physical or wet signature.
     /// Encoded/decoded by serializers as "Original".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORIG")]
     [IsoId("_ZPUNQtp-Ed-ak6NoX_4Aeg_1976689877")]
-    [Description(@"??")]
+    [Description(@"The investor's written signature is required. Can also be known as physical or wet signature.")]
     Original,
     
     /// <summary>
-    /// ??
+    /// A technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.
     /// Encoded/decoded by serializers as "Digital".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIGI")]
     [IsoId("_ZPUNQ9p-Ed-ak6NoX_4Aeg_1976689878")]
-    [Description(@"??")]
+    [Description(@"A technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.")]
     Digital,
     
     /// <summary>
-    /// ??
+    /// A copy of a physical or original signature in an electronic format.
     /// Encoded/decoded by serializers as "Electronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_ZPUNRNp-Ed-ak6NoX_4Aeg_1976689908")]
-    [Description(@"??")]
+    [Description(@"A copy of a physical or original signature in an electronic format.")]
     Electronic,
     
     /// <summary>
-    /// ??
+    /// There is no signature required in any form.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_ZPUNRdp-Ed-ak6NoX_4Aeg_1976689909")]
-    [Description(@"??")]
+    [Description(@"There is no signature required in any form.")]
     None,
     
 }

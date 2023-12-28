@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnderlyingEquityType5Code
 {
     /// <summary>
-    /// ??
+    /// Underlying is of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Q7CIIYHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is of other type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Underlying is an exchange traded fund.
     /// Encoded/decoded by serializers as "ExchangeTradedFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETFS")]
     [IsoId("_RTu8AYHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is an exchange traded fund.")]
     ExchangeTradedFund,
     
     /// <summary>
-    /// ??
+    /// Underlying is a share.
     /// Encoded/decoded by serializers as "Share".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHRS")]
     [IsoId("_SPsN8YHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is a share.")]
     Share,
     
     /// <summary>
-    /// ??
+    /// Underlying is a stock dividend.
     /// Encoded/decoded by serializers as "StockDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVSE")]
     [IsoId("_Ta0kUYHCEeaalK9UbuVGFw")]
-    [Description(@"??")]
+    [Description(@"Underlying is a stock dividend.")]
     StockDividend,
     
 }

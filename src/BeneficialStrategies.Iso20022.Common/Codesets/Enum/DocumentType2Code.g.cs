@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DocumentType2Code
 {
     /// <summary>
-    /// ??
+    /// Document is an invoice claiming payment for the supply of metered services, for example gas or electricity supplied to a fixed meter.
     /// Encoded/decoded by serializers as "MeteredServiceInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSIN")]
     [IsoId("_af7gmNp-Ed-ak6NoX_4Aeg_-1135079244")]
-    [Description(@"??")]
+    [Description(@"Document is an invoice claiming payment for the supply of metered services, for example gas or electricity supplied to a fixed meter.")]
     MeteredServiceInvoice,
     
     /// <summary>
-    /// ??
+    /// Document is a credit note for the final amount settled for a commercial transaction.
     /// Encoded/decoded by serializers as "CreditNoteRelatedToFinancialAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNFA")]
     [IsoId("_af7gmdp-Ed-ak6NoX_4Aeg_-1135079227")]
-    [Description(@"??")]
+    [Description(@"Document is a credit note for the final amount settled for a commercial transaction.")]
     CreditNoteRelatedToFinancialAdjustment,
     
     /// <summary>
-    /// ??
+    /// Document is a debit note for the final amount settled for a commercial transaction.
     /// Encoded/decoded by serializers as "DebitNoteRelatedToFinancialAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DNFA")]
     [IsoId("_agEqgNp-Ed-ak6NoX_4Aeg_-1135079209")]
-    [Description(@"??")]
+    [Description(@"Document is a debit note for the final amount settled for a commercial transaction.")]
     DebitNoteRelatedToFinancialAdjustment,
     
     /// <summary>
-    /// ??
+    /// Document is an invoice.
     /// Encoded/decoded by serializers as "CommercialInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINV")]
     [IsoId("_agEqgdp-Ed-ak6NoX_4Aeg_-1135078967")]
-    [Description(@"??")]
+    [Description(@"Document is an invoice.")]
     CommercialInvoice,
     
     /// <summary>
-    /// ??
+    /// Document is a credit note.
     /// Encoded/decoded by serializers as "CreditNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CREN")]
     [IsoId("_agEqgtp-Ed-ak6NoX_4Aeg_-1135078950")]
-    [Description(@"??")]
+    [Description(@"Document is a credit note.")]
     CreditNote,
     
     /// <summary>
-    /// ??
+    /// Document is a debit note.
     /// Encoded/decoded by serializers as "DebitNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBN")]
     [IsoId("_agEqg9p-Ed-ak6NoX_4Aeg_-1135078932")]
-    [Description(@"??")]
+    [Description(@"Document is a debit note.")]
     DebitNote,
     
     /// <summary>
-    /// ??
+    /// Document is an invoice for the hiring of human resources or renting goods or equipment.
     /// Encoded/decoded by serializers as "HireInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIRI")]
     [IsoId("_agEqhNp-Ed-ak6NoX_4Aeg_-1135078915")]
-    [Description(@"??")]
+    [Description(@"Document is an invoice for the hiring of human resources or renting goods or equipment.")]
     HireInvoice,
     
     /// <summary>
-    /// ??
+    /// Document is an invoice issued by the debtor.
     /// Encoded/decoded by serializers as "SelfBilledInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBIN")]
     [IsoId("_agEqhdp-Ed-ak6NoX_4Aeg_-1135078897")]
-    [Description(@"??")]
+    [Description(@"Document is an invoice issued by the debtor.")]
     SelfBilledInvoice,
     
     /// <summary>
-    /// ??
+    /// Document is an agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.
     /// Encoded/decoded by serializers as "CommercialContract".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMCN")]
     [IsoId("_agEqhtp-Ed-ak6NoX_4Aeg_-1135078837")]
-    [Description(@"??")]
+    [Description(@"Document is an agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.")]
     CommercialContract,
     
     /// <summary>
-    /// ??
+    /// Document is a statement of the transactions posted to the debtor's account at the supplier.
     /// Encoded/decoded by serializers as "StatementOfAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOAC")]
     [IsoId("_agEqh9p-Ed-ak6NoX_4Aeg_-1135078795")]
-    [Description(@"??")]
+    [Description(@"Document is a statement of the transactions posted to the debtor's account at the supplier.")]
     StatementOfAccount,
     
     /// <summary>
-    /// ??
+    /// Document is a dispatch advice.
     /// Encoded/decoded by serializers as "DispatchAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_agEqiNp-Ed-ak6NoX_4Aeg_-864489577")]
-    [Description(@"??")]
+    [Description(@"Document is a dispatch advice.")]
     DispatchAdvice,
     
 }

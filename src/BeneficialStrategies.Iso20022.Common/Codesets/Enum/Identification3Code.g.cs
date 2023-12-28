@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Identification3Code
 {
     /// <summary>
-    /// ??
+    /// Driver licence identification.
     /// Encoded/decoded by serializers as "DriverLicenceIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRID")]
     [IsoId("_ljyOsad3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Driver licence identification.")]
     DriverLicenceIdentification,
     
     /// <summary>
-    /// ??
+    /// National identification.
     /// Encoded/decoded by serializers as "NationalIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTID")]
     [IsoId("_ljyOs6d3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"National identification.")]
     NationalIdentifier,
     
     /// <summary>
-    /// ??
+    /// Passport number.
     /// Encoded/decoded by serializers as "PassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_ljyOtad3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Passport number.")]
     PassportNumber,
     
     /// <summary>
-    /// ??
+    /// Social security number.
     /// Encoded/decoded by serializers as "SocialSecurityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSYN")]
     [IsoId("_ljy1wad3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Social security number.")]
     SocialSecurityNumber,
     
     /// <summary>
-    /// ??
+    /// Alien registration number.
     /// Encoded/decoded by serializers as "AlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARNB")]
     [IsoId("_ljy1w6d3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Alien registration number.")]
     AlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Other identification provided at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_ljy1xad3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Other identification provided at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other identification assigned at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_ljy1x6d3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Other identification assigned at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// E-mail.
     /// Encoded/decoded by serializers as "Email".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_ljy1yad3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"E-mail.")]
     Email,
     
     /// <summary>
-    /// ??
+    /// Phone number.
     /// Encoded/decoded by serializers as "PhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHNB")]
     [IsoId("_ljy1y6d3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Phone number.")]
     PhoneNumber,
     
     /// <summary>
-    /// ??
+    /// Identification of customer.
     /// Encoded/decoded by serializers as "CustomerIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUID")]
     [IsoId("_wj9Xkad3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Identification of customer.")]
     CustomerIdentification,
     
     /// <summary>
-    /// ??
+    /// Tax identifier.
     /// Encoded/decoded by serializers as "TaxIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXID")]
     [IsoId("_yiSsgad3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Tax identifier.")]
     TaxIdentifier,
     
     /// <summary>
-    /// ??
+    /// Proxy
     /// Encoded/decoded by serializers as "Proxy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRXY")]
     [IsoId("_0LPnUad3EeuEcqP2FGAFaA")]
-    [Description(@"??")]
+    [Description(@"Proxy")]
     Proxy,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Referred1Code
 {
     /// <summary>
-    /// ??
+    /// The investor was referred to the fund by a placement agent.
     /// Encoded/decoded by serializers as "Referred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFR")]
     [IsoId("_Zaosddp-Ed-ak6NoX_4Aeg_59379446")]
-    [Description(@"??")]
+    [Description(@"The investor was referred to the fund by a placement agent.")]
     Referred,
     
     /// <summary>
-    /// ??
+    /// The investor was not referred to the fund by a placement agent.
     /// Encoded/decoded by serializers as "NotReferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRFR")]
     [IsoId("_Zaosdtp-Ed-ak6NoX_4Aeg_59379471")]
-    [Description(@"??")]
+    [Description(@"The investor was not referred to the fund by a placement agent.")]
     NotReferred,
     
     /// <summary>
-    /// ??
+    /// It is not known whether the investor was referred to the fund by a placement agent.
     /// Encoded/decoded by serializers as "NotKnown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKNW")]
     [IsoId("_Zaosd9p-Ed-ak6NoX_4Aeg_59379506")]
-    [Description(@"??")]
+    [Description(@"It is not known whether the investor was referred to the fund by a placement agent.")]
     NotKnown,
     
 }

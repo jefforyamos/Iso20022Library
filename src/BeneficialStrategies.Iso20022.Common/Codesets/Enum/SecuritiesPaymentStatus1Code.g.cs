@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesPaymentStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Security is fully paid.
     /// Encoded/decoded by serializers as "FullyPaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_ZFoFx9p-Ed-ak6NoX_4Aeg_-1185567647")]
-    [Description(@"??")]
+    [Description(@"Security is fully paid.")]
     FullyPaid,
     
     /// <summary>
-    /// ??
+    /// Security is nill paid.
     /// Encoded/decoded by serializers as "NillPaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NILL")]
     [IsoId("_ZFoFyNp-Ed-ak6NoX_4Aeg_-899273641")]
-    [Description(@"??")]
+    [Description(@"Security is nill paid.")]
     NillPaid,
     
     /// <summary>
-    /// ??
+    /// Security is partially paid.
     /// Encoded/decoded by serializers as "PartiallyPaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_ZFx2wNp-Ed-ak6NoX_4Aeg_-862334871")]
-    [Description(@"??")]
+    [Description(@"Security is partially paid.")]
     PartiallyPaid,
     
 }

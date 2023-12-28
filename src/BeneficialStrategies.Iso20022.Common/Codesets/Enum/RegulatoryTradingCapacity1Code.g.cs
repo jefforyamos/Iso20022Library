@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RegulatoryTradingCapacity1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction was carried out as a matched principal trading.
     /// Encoded/decoded by serializers as "MatchedPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTCH")]
     [IsoId("_Am-fce8cEeSLA89yUYsVSw")]
-    [Description(@"??")]
+    [Description(@"Transaction was carried out as a matched principal trading.")]
     MatchedPrincipal,
     
     /// <summary>
-    /// ??
+    /// Transaction was carried out as a deal under own account.
     /// Encoded/decoded by serializers as "DealOnOwnAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEAL")]
     [IsoId("_AuSBUe8cEeSLA89yUYsVSw")]
-    [Description(@"??")]
+    [Description(@"Transaction was carried out as a deal under own account.")]
     DealOnOwnAccount,
     
     /// <summary>
-    /// ??
+    /// Transaction was carried out as an agent.
     /// Encoded/decoded by serializers as "AnyOtherCapacity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AOTC")]
     [IsoId("_A1hRwe8cEeSLA89yUYsVSw")]
-    [Description(@"??")]
+    [Description(@"Transaction was carried out as an agent.")]
     AnyOtherCapacity,
     
 }

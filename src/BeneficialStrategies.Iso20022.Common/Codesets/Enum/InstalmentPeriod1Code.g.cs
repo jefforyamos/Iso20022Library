@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstalmentPeriod1Code
 {
     /// <summary>
-    /// ??
+    /// Monthly instalment period.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_wMPdwTEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Monthly instalment period.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Annual instalment period.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANNU")]
     [IsoId("_wgNioTEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Annual instalment period.")]
     Annual,
     
 }

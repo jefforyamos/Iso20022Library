@@ -21,192 +21,192 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalProxyAccountType1Code
 {
     /// <summary>
-    /// ??
+    /// A telephone number in the format specified by the 'The international public telecommunication numbering plan ITU-T E.164. 
     /// Encoded/decoded by serializers as "TelephoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TELE")]
     [IsoId("_um0yePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A telephone number in the format specified by the 'The international public telecommunication numbering plan ITU-T E.164. ")]
     TelephoneNumber,
     
     /// <summary>
-    /// ??
+    /// Internationalised address of an electronic mail box for internet messages.
     /// Encoded/decoded by serializers as "EmailAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_um0ye_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Internationalised address of an electronic mail box for internet messages.")]
     EmailAddress,
     
     /// <summary>
-    /// ??
+    /// Internationalised internet domain name.
     /// Encoded/decoded by serializers as "DomainName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DNAM")]
     [IsoId("_um-jcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Internationalised internet domain name.")]
     DomainName,
     
     /// <summary>
-    /// ??
+    /// Corporate Identification issued by a national  institution or regulator, used as account proxy. |(applied for corporate account proxy).
     /// Encoded/decoded by serializers as "CertificateOfIncorporationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINC")]
     [IsoId("_D2324ZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Corporate Identification issued by a national  institution or regulator, used as account proxy. |(applied for corporate account proxy).")]
     CertificateOfIncorporationNumber,
     
     /// <summary>
-    /// ??
+    /// Unique government-issued tax Identification used as account proxy to identify the corporate (for example for government tax) and typically linked to the corporate bank account (applied for corporate account proxy).
     /// Encoded/decoded by serializers as "CorporateTaxIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COTX")]
     [IsoId("_D8_F8ZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Unique government-issued tax Identification used as account proxy to identify the corporate (for example for government tax) and typically linked to the corporate bank account (applied for corporate account proxy).")]
     CorporateTaxIdentification,
     
     /// <summary>
-    /// ??
+    /// Identification issued by a national  institution or regulator (different from a national scheme like a clearing provider), used as account proxy (applied for corporate or individual account proxy).
     /// Encoded/decoded by serializers as "CountryAuthorityIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COID")]
     [IsoId("_EC8kAZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Identification issued by a national  institution or regulator (different from a national scheme like a clearing provider), used as account proxy (applied for corporate or individual account proxy).")]
     CountryAuthorityIdentification,
     
     /// <summary>
-    /// ??
+    /// Any other customer identification number issued by a corporate, bank or other organization, used as account proxy.|(applied for corporate or individual account proxy).
     /// Encoded/decoded by serializers as "CustomerIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_EJM9AZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Any other customer identification number issued by a corporate, bank or other organization, used as account proxy.|(applied for corporate or individual account proxy).")]
     CustomerIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Unique government-issued Identification used as account proxy to  identify the individual  (for example for government charges, road taxes and tolls,vaccination charges) and typically linked to the individual's bank account (applied for  individual account proxy).
     /// Encoded/decoded by serializers as "DriverLicenseNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRLC")]
     [IsoId("_ERQFwZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Unique government-issued Identification used as account proxy to  identify the individual  (for example for government charges, road taxes and tolls,vaccination charges) and typically linked to the individual's bank account (applied for  individual account proxy).")]
     DriverLicenseNumber,
     
     /// <summary>
-    /// ??
+    /// Government-issued Identification (different from a passport Identification or a national Identification). Used as account proxy to  identify the individual (for example for public benefits) and typically linked to the individual's bank account (applied for  individual account proxy).
     /// Encoded/decoded by serializers as "ElectronicIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EIDN")]
     [IsoId("_EXNj0ZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Government-issued Identification (different from a passport Identification or a national Identification). Used as account proxy to  identify the individual (for example for public benefits) and typically linked to the individual's bank account (applied for  individual account proxy).")]
     ElectronicIdentification,
     
     /// <summary>
-    /// ??
+    /// Market-adopted prepaid instruments like e-Wallets, payments to / from e-wallets from / to bank accounts (applied for corporate or individual account proxy).
     /// Encoded/decoded by serializers as "EWalletIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EWAL")]
     [IsoId("_EcuV8ZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Market-adopted prepaid instruments like e-Wallets, payments to / from e-wallets from / to bank accounts (applied for corporate or individual account proxy).")]
     EWalletIdentification,
     
     /// <summary>
-    /// ??
+    /// Unique government-issued  tax Identification  used as account proxy to  identify the individual  for example for government tax) and typically linked to the individual's bank account (applied for  individual account proxy).
     /// Encoded/decoded by serializers as "IndividualTaxIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PVTX")]
     [IsoId("_EiY5EZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Unique government-issued  tax Identification  used as account proxy to  identify the individual  for example for government tax) and typically linked to the individual's bank account (applied for  individual account proxy).")]
     IndividualTaxIdentification,
     
     /// <summary>
-    /// ??
+    /// Legal Entity Identifier used as account proxy (applied for corporate account proxy).|Use cases: Can be used by corporates as a "government-issued" Identification for registration with payment schemes as a proxy. The proxy may be further used for payments and collections using the underlying instant payment rails for a variety of corporate use cases.
     /// Encoded/decoded by serializers as "LegalEntityIdentifierCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEIC")]
     [IsoId("_En5rMZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Legal Entity Identifier used as account proxy (applied for corporate account proxy).|Use cases: Can be used by corporates as a ""government-issued"" Identification for registration with payment schemes as a proxy. The proxy may be further used for payments and collections using the underlying instant payment rails for a variety of corporate use cases.")]
     LegalEntityIdentifierCode,
     
     /// <summary>
-    /// ??
+    /// Mobile phone number in the format specified by the “The international public telecommunication numbering plan ITU- T E 164" (applied for corporate or individual account proxy).
     /// Encoded/decoded by serializers as "MobilePhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MBNO")]
     [IsoId("_Eq4GsZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Mobile phone number in the format specified by the “The international public telecommunication numbering plan ITU- T E 164"" (applied for corporate or individual account proxy).")]
     MobilePhoneNumber,
     
     /// <summary>
-    /// ??
+    /// Unique government-issued Identification  used as account proxy to  identify the individual  or corporate for example for public benefits, government subsidies) and typically linked to the individual's / corporate bank account.|(applied for corporate or individual account proxy).
     /// Encoded/decoded by serializers as "NationalIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NIDN")]
     [IsoId("_EvgIAZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Unique government-issued Identification  used as account proxy to  identify the individual  or corporate for example for public benefits, government subsidies) and typically linked to the individual's / corporate bank account.|(applied for corporate or individual account proxy).")]
     NationalIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Unique government-issued Identification  used as account proxy to  identify the individual  (for example for government charges, road taxes, vaccination charges) and typically linked to the individual's bank account|(applied for  individual account proxy).
     /// Encoded/decoded by serializers as "PassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPT")]
     [IsoId("_E0kOMZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Unique government-issued Identification  used as account proxy to  identify the individual  (for example for government charges, road taxes, vaccination charges) and typically linked to the individual's bank account|(applied for  individual account proxy).")]
     PassportNumber,
     
     /// <summary>
-    /// ??
+    /// Account proxy issued by a payment scheme (applied for corporate or individual account proxy).|Use cases: Any proxies issued by clearing systems, for example VPA (India), FPS Identifier (Hong Kong), Jompay (Malaysia) CCIN (Canada).
     /// Encoded/decoded by serializers as "SchemeIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHID")]
     [IsoId("_E3Gk0ZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Account proxy issued by a payment scheme (applied for corporate or individual account proxy).|Use cases: Any proxies issued by clearing systems, for example VPA (India), FPS Identifier (Hong Kong), Jompay (Malaysia) CCIN (Canada).")]
     SchemeIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Unique government-issued Identification  used as account proxy to identify the individual  (for example for public benefits) and typically linked to the individual's bank account (applied for individual account proxy).
     /// Encoded/decoded by serializers as "SocialSecurityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOSE")]
     [IsoId("_E-sakZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Unique government-issued Identification  used as account proxy to identify the individual  (for example for public benefits) and typically linked to the individual's bank account (applied for individual account proxy).")]
     SocialSecurityNumber,
     
     /// <summary>
-    /// ??
+    /// Electronic Identification used, for example, to mask an account number as a means of data secrecy.|(applied for corporate or individual account proxy).
     /// Encoded/decoded by serializers as "TokenIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOKN")]
     [IsoId("_FDxH0ZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Electronic Identification used, for example, to mask an account number as a means of data secrecy.|(applied for corporate or individual account proxy).")]
     TokenIdentification,
     
     /// <summary>
-    /// ??
+    /// Subscriber Identification for utilities and services. As opposed to a biller Identification, this identification is used for the subscriber of the service (applied for corporate or individual account proxy).
     /// Encoded/decoded by serializers as "UtilitiesSubscriptionIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UBIL")]
     [IsoId("_FI1OAZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Subscriber Identification for utilities and services. As opposed to a biller Identification, this identification is used for the subscriber of the service (applied for corporate or individual account proxy).")]
     UtilitiesSubscriptionIdentification,
     
     /// <summary>
-    /// ??
+    /// Account proxy for receiving insurance claims, pay insurance premium, road tax payments, traffic tickets etc.(applied for corporate or individual account proxy).
     /// Encoded/decoded by serializers as "VehicleIdentificationPlateNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VIPN")]
     [IsoId("_FLNzoZuVEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Account proxy for receiving insurance claims, pay insurance premium, road tax payments, traffic tickets etc.(applied for corporate or individual account proxy).")]
     VehicleIdentificationPlateNumber,
     
     /// <summary>
-    /// ??
+    /// Billers of specific utilities could register for a Biller Identification as supported in the clearing scheme, and use this identification for collections (applied for corporate account proxy).
     /// Encoded/decoded by serializers as "BillerSubscriberIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIID")]
     [IsoId("_Z40uUZuZEeya_t2LwNmi4g")]
-    [Description(@"??")]
+    [Description(@"Billers of specific utilities could register for a Biller Identification as supported in the clearing scheme, and use this identification for collections (applied for corporate account proxy).")]
     BillerSubscriberIdentification,
     
 }

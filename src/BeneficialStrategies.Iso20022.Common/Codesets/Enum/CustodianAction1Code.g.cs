@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustodianAction1Code
 {
     /// <summary>
-    /// ??
+    /// Custodian is researching pending issues raised by the validation service.
     /// Encoded/decoded by serializers as "Research".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSCH")]
     [IsoId("_14n2MTL3EeKU9IrkkToqcw_-892224501")]
-    [Description(@"??")]
+    [Description(@"Custodian is researching pending issues raised by the validation service.")]
     Research,
     
     /// <summary>
-    /// ??
+    /// Custodian is expected to send updated information.
     /// Encoded/decoded by serializers as "SendInfo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEND")]
     [IsoId("_14n2MjL3EeKU9IrkkToqcw_-146179494")]
-    [Description(@"??")]
+    [Description(@"Custodian is expected to send updated information.")]
     SendInfo,
     
     /// <summary>
-    /// ??
+    /// Custodian disagrees with the validation service and will take no further action.
     /// Encoded/decoded by serializers as "Disagrees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISS")]
     [IsoId("_14n2MzL3EeKU9IrkkToqcw_1320969269")]
-    [Description(@"??")]
+    [Description(@"Custodian disagrees with the validation service and will take no further action.")]
     Disagrees,
     
     /// <summary>
-    /// ??
+    /// No action required by the custodian.
     /// Encoded/decoded by serializers as "NoAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAC")]
     [IsoId("_14n2NDL3EeKU9IrkkToqcw_-1838359691")]
-    [Description(@"??")]
+    [Description(@"No action required by the custodian.")]
     NoAction,
     
 }

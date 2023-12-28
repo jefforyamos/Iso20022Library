@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxWrapperAmountType1Code
 {
     /// <summary>
-    /// ??
+    /// Type of amount is a bonus, for example, a government bonus.
     /// Encoded/decoded by serializers as "Bonus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BONU")]
     [IsoId("_Dpx-MV25EeiFXdiLi_Nf4A")]
-    [Description(@"??")]
+    [Description(@"Type of amount is a bonus, for example, a government bonus.")]
     Bonus,
     
     /// <summary>
-    /// ??
+    /// Type of amount is a withdrawal, for example, a withdrawal for a first time residential purchase.
     /// Encoded/decoded by serializers as "Withdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHD")]
     [IsoId("_DwLhIV25EeiFXdiLi_Nf4A")]
-    [Description(@"??")]
+    [Description(@"Type of amount is a withdrawal, for example, a withdrawal for a first time residential purchase.")]
     Withdrawal,
     
 }

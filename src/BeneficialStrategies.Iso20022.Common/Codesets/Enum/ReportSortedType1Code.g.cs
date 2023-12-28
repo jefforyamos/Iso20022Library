@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReportSortedType1Code
 {
     /// <summary>
-    /// ??
+    /// Type of criterion is a nation.
     /// Encoded/decoded by serializers as "Country".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COUN")]
     [IsoId("_VeXEKdp-Ed-ak6NoX_4Aeg_-2144991903")]
-    [Description(@"??")]
+    [Description(@"Type of criterion is a nation.")]
     Country,
     
     /// <summary>
-    /// ??
+    /// Type of criterion is an entity, eg, a financial institution.
     /// Encoded/decoded by serializers as "Party".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_Veg1INp-Ed-ak6NoX_4Aeg_-2144991902")]
-    [Description(@"??")]
+    [Description(@"Type of criterion is an entity, eg, a financial institution.")]
     Party,
     
     /// <summary>
-    /// ??
+    /// Type of criterion is a currency, eg, the euro.
     /// Encoded/decoded by serializers as "Currency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_Veg1Idp-Ed-ak6NoX_4Aeg_-2144991901")]
-    [Description(@"??")]
+    [Description(@"Type of criterion is a currency, eg, the euro.")]
     Currency,
     
 }

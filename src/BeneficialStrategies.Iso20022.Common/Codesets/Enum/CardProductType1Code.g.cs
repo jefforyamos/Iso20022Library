@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardProductType1Code
 {
     /// <summary>
-    /// ??
+    /// Cards issued as a means of business expenditure, for instance business card or corporate card. The user could be a company, an individual for business expenses or a self employed for business purposes.
     /// Encoded/decoded by serializers as "CommercialCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_l5gnMWtZEeSKOvNNYJQdoQ")]
-    [Description(@"??")]
+    [Description(@"Cards issued as a means of business expenditure, for instance business card or corporate card. The user could be a company, an individual for business expenses or a self employed for business purposes.")]
     CommercialCard,
     
     /// <summary>
-    /// ??
+    /// Cards issued as a means of personal expenditure. The user is always an individual.
     /// Encoded/decoded by serializers as "ConsumerCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONS")]
     [IsoId("_l_LKUWtZEeSKOvNNYJQdoQ")]
-    [Description(@"??")]
+    [Description(@"Cards issued as a means of personal expenditure. The user is always an individual.")]
     ConsumerCard,
     
 }

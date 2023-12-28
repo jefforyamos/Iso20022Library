@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationGroupStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Authentication and syntactical and semantical validation are successful.
     /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_Y8sMM9p-Ed-ak6NoX_4Aeg_1671956618")]
-    [Description(@"??")]
+    [Description(@"Authentication and syntactical and semantical validation are successful.")]
     AcceptedTechnicalValidation,
     
     /// <summary>
-    /// ??
+    /// Preceding check of technical validation was successful. Customer profile check was also successful.
     /// Encoded/decoded by serializers as "AcceptedCustomerProfile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_Y8sMNNp-Ed-ak6NoX_4Aeg_1671956639")]
-    [Description(@"??")]
+    [Description(@"Preceding check of technical validation was successful. Customer profile check was also successful.")]
     AcceptedCustomerProfile,
     
     /// <summary>
-    /// ??
+    /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
     /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSP")]
     [IsoId("_Y8sMNdp-Ed-ak6NoX_4Aeg_1671956670")]
-    [Description(@"??")]
+    [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
     AcceptedSettlementInProcess,
     
     /// <summary>
-    /// ??
+    /// Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement
     /// Encoded/decoded by serializers as "AcceptedSettlementCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSC")]
     [IsoId("_Y8sMNtp-Ed-ak6NoX_4Aeg_1671956679")]
-    [Description(@"??")]
+    [Description(@"Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement")]
     AcceptedSettlementCompleted,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but a change will be made, such as date or remittance not sent.
     /// Encoded/decoded by serializers as "AcceptedWithChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACWC")]
     [IsoId("_Y8sMN9p-Ed-ak6NoX_4Aeg_1672876703")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but a change will be made, such as date or remittance not sent.")]
     AcceptedWithChange,
     
 }

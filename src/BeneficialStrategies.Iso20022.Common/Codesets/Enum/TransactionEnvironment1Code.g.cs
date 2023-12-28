@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionEnvironment1Code
 {
     /// <summary>
-    /// ??
+    /// Merchant environment.
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_TUJ9MAEcEeCQm6a_G2yO_w_765796733")]
-    [Description(@"??")]
+    [Description(@"Merchant environment.")]
     Merchant,
     
     /// <summary>
-    /// ??
+    /// Private environment.
     /// Encoded/decoded by serializers as "Private".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIV")]
     [IsoId("_TUJ9MQEcEeCQm6a_G2yO_w_1751770309")]
-    [Description(@"??")]
+    [Description(@"Private environment.")]
     Private,
     
     /// <summary>
-    /// ??
+    /// Public environment.
     /// Encoded/decoded by serializers as "Public".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUBL")]
     [IsoId("_TUJ9MgEcEeCQm6a_G2yO_w_-376057534")]
-    [Description(@"??")]
+    [Description(@"Public environment.")]
     Public,
     
 }

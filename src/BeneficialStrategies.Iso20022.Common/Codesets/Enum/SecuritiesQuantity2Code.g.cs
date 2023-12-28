@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesQuantity2Code
 {
     /// <summary>
-    /// ??
+    /// Maximum / Minimum number is unknown or not decided.
     /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_bLRaljFxEeGKkIZzgd38VA")]
-    [Description(@"??")]
+    [Description(@"Maximum / Minimum number is unknown or not decided.")]
     Unknown,
     
 }

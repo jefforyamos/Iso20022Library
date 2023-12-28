@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PreAllocationMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Preallocation is proratised.
     /// Encoded/decoded by serializers as "Prorata".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROR")]
     [IsoId("_aH73Vtp-Ed-ak6NoX_4Aeg_1246774126")]
-    [Description(@"??")]
+    [Description(@"Preallocation is proratised.")]
     Prorata,
     
     /// <summary>
-    /// ??
+    /// No prorata, discuss first.
     /// Encoded/decoded by serializers as "SpeakFirst".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TALK")]
     [IsoId("_aH73V9p-Ed-ak6NoX_4Aeg_1246774161")]
-    [Description(@"??")]
+    [Description(@"No prorata, discuss first.")]
     SpeakFirst,
     
 }

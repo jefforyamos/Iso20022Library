@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PresentationMedium2Code
 {
     /// <summary>
-    /// ??
+    /// Biometric medium.
     /// Encoded/decoded by serializers as "Biometric".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIOM")]
     [IsoId("_NnVqMX0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Biometric medium.")]
     Biometric,
     
     /// <summary>
-    /// ??
+    /// Presentation is made electronically.
     /// Encoded/decoded by serializers as "Electronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_NnVqM30kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Presentation is made electronically.")]
     Electronic,
     
     /// <summary>
-    /// ??
+    /// Presentation is made on paper.
     /// Encoded/decoded by serializers as "Paper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAPR")]
     [IsoId("_NnVqNX0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Presentation is made on paper.")]
     Paper,
     
     /// <summary>
-    /// ??
+    /// Presentation is made on paper and/or electronically.
     /// Encoded/decoded by serializers as "PaperElectronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_NnVqN30kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Presentation is made on paper and/or electronically.")]
     PaperElectronic,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LimitStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Limit is currently in effect.
     /// Encoded/decoded by serializers as "Enabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENAB")]
     [IsoId("_zdviUg93EeGeV5vP7Mvdig_372741033")]
-    [Description(@"??")]
+    [Description(@"Limit is currently in effect.")]
     Enabled,
     
     /// <summary>
-    /// ??
+    /// Limit is not currently in effect.
     /// Encoded/decoded by serializers as "Disabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISA")]
     [IsoId("_zdviUw93EeGeV5vP7Mvdig_815729525")]
-    [Description(@"??")]
+    [Description(@"Limit is not currently in effect.")]
     Disabled,
     
     /// <summary>
-    /// ??
+    /// Limit has been deleted or suspended.
     /// Encoded/decoded by serializers as "Deleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELD")]
     [IsoId("_zdviVA93EeGeV5vP7Mvdig_1401676551")]
-    [Description(@"??")]
+    [Description(@"Limit has been deleted or suspended.")]
     Deleted,
     
     /// <summary>
-    /// ??
+    /// Limit has been asked for and is not yet enabled.
     /// Encoded/decoded by serializers as "Requested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQD")]
     [IsoId("_zdviVQ93EeGeV5vP7Mvdig_348111115")]
-    [Description(@"??")]
+    [Description(@"Limit has been asked for and is not yet enabled.")]
     Requested,
     
 }

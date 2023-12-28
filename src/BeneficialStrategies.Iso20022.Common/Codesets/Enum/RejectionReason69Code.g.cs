@@ -20,138 +20,138 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason69Code
 {
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid message sender's safekeeping account.
     /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_F9JsQStaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
     SafekeepingAccountRejection,
     
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_F9JsQytaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_F9JsRStaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Corporate action pending on the financial instrument instructed.
     /// Encoded/decoded by serializers as "CorporateActionRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAEV")]
     [IsoId("_F9JsRytaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Corporate action pending on the financial instrument instructed.")]
     CorporateActionRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid settlement date.
     /// Encoded/decoded by serializers as "SettlementDateRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDAT")]
     [IsoId("_F9JsSStaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid settlement date.")]
     SettlementDateRejection,
     
     /// <summary>
-    /// ??
+    /// Instruction has a reference identical to another previously received instruction.
     /// Encoded/decoded by serializers as "ReferenceRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFE")]
     [IsoId("_F9JsSytaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Instruction has a reference identical to another previously received instruction.")]
     ReferenceRejection,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_F9JsTStaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_F9JsTytaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_F9JsUStaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
     /// <summary>
-    /// ??
+    /// Instruction aims at using an invalid balance.
     /// Encoded/decoded by serializers as "InvalidBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVB")]
     [IsoId("_F9JsUytaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Instruction aims at using an invalid balance.")]
     InvalidBalance,
     
     /// <summary>
-    /// ??
+    /// Invalid or unrecognized link.
     /// Encoded/decoded by serializers as "InvalidLink".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVL")]
     [IsoId("_F9JsVStaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Invalid or unrecognized link.")]
     InvalidLink,
     
     /// <summary>
-    /// ??
+    /// Invalid or unrecognized lot number.
     /// Encoded/decoded by serializers as "InvalidLotNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVN")]
     [IsoId("_F9JsVytaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Invalid or unrecognized lot number.")]
     InvalidLotNumber,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
     /// Encoded/decoded by serializers as "MinimumSettlementQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINO")]
     [IsoId("_F9JsWStaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
     MinimumSettlementQuantity,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
     /// Encoded/decoded by serializers as "MultipleSettlementQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUNO")]
     [IsoId("_F9JsWytaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
     MultipleSettlementQuantity,
     
     /// <summary>
-    /// ??
+    /// Account servicer validation rule rejection.
     /// Encoded/decoded by serializers as "InvalidRule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALR")]
     [IsoId("_F9JsXStaEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Account servicer validation rule rejection.")]
     InvalidRule,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeniedReason3Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_a0MgYNp-Ed-ak6NoX_4Aeg_255961976")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Repo call request was denied since another call already applies.
     /// Encoded/decoded by serializers as "CallDeniedSinceAlreadyApplied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAL")]
     [IsoId("_a0MgYdp-Ed-ak6NoX_4Aeg_255961977")]
-    [Description(@"??")]
+    [Description(@"Repo call request was denied since another call already applies.")]
     CallDeniedSinceAlreadyApplied,
     
     /// <summary>
-    /// ??
+    /// Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.
     /// Encoded/decoded by serializers as "DeniedSinceNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFOR")]
     [IsoId("_a0MgYtp-Ed-ak6NoX_4Aeg_255962253")]
-    [Description(@"??")]
+    [Description(@"Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.")]
     DeniedSinceNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_a0MgY9p-Ed-ak6NoX_4Aeg_255962345")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_a0MgZNp-Ed-ak6NoX_4Aeg_59995441")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
 }

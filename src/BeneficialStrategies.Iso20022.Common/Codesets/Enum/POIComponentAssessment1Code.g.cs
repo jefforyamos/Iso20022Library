@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum POIComponentAssessment1Code
 {
     /// <summary>
-    /// ??
+    /// Approval number delivered by an approval centre.
     /// Encoded/decoded by serializers as "Approval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPL")]
     [IsoId("_fAoO8bk3EeKg8PSpEMv-Sg")]
-    [Description(@"??")]
+    [Description(@"Approval number delivered by an approval centre.")]
     Approval,
     
     /// <summary>
-    /// ??
+    /// Certification number delivered by a certification body.
     /// Encoded/decoded by serializers as "Certification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_fLolE7k3EeKg8PSpEMv-Sg")]
-    [Description(@"??")]
+    [Description(@"Certification number delivered by a certification body.")]
     Certification,
     
     /// <summary>
-    /// ??
+    /// Evaluation by a lab or a tool.
     /// Encoded/decoded by serializers as "Evaluation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVAL")]
     [IsoId("_fUtokbk3EeKg8PSpEMv-Sg")]
-    [Description(@"??")]
+    [Description(@"Evaluation by a lab or a tool.")]
     Evaluation,
     
 }

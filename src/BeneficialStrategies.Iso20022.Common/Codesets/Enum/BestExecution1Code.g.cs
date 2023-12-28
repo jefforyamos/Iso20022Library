@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BestExecution1Code
 {
     /// <summary>
-    /// ??
+    /// Best execution rules were followed.
     /// Encoded/decoded by serializers as "Best".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTEX")]
     [IsoId("_beXewdp-Ed-ak6NoX_4Aeg_47375840")]
-    [Description(@"??")]
+    [Description(@"Best execution rules were followed.")]
     Best,
     
 }

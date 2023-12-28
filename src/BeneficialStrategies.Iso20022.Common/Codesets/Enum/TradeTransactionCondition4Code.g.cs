@@ -20,201 +20,203 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeTransactionCondition4Code
 {
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed cum bonus.
     /// Encoded/decoded by serializers as "CumBonus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBNS")]
     [IsoId("_YpBCQNp-Ed-ak6NoX_4Aeg_-166151120")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed cum bonus.")]
     CumBonus,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed ex bonus.
     /// Encoded/decoded by serializers as "ExBonus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XBNS")]
     [IsoId("_YpBCQdp-Ed-ak6NoX_4Aeg_-1227503079")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed ex bonus.")]
     ExBonus,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed cum coupon.
     /// Encoded/decoded by serializers as "CumCoupon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPN")]
     [IsoId("_YpBCQtp-Ed-ak6NoX_4Aeg_-1049384407")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed cum coupon.")]
     CumCoupon,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed ex coupon.
     /// Encoded/decoded by serializers as "ExCoupon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XCPN")]
     [IsoId("_YpBCQ9p-Ed-ak6NoX_4Aeg_-1341342145")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed ex coupon.")]
     ExCoupon,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed cum dividend.
     /// Encoded/decoded by serializers as "CumDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDIV")]
     [IsoId("_YpBCRNp-Ed-ak6NoX_4Aeg_-1163223473")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed cum dividend.")]
     CumDividend,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed ex dividend.
     /// Encoded/decoded by serializers as "ExDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XDIV")]
     [IsoId("_YpBCRdp-Ed-ak6NoX_4Aeg_2070391864")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed ex dividend.")]
     ExDividend,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed cum rights.
     /// Encoded/decoded by serializers as "CumRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTS")]
     [IsoId("_YpBCRtp-Ed-ak6NoX_4Aeg_-2046456760")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed cum rights.")]
     CumRights,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed ex rights.
     /// Encoded/decoded by serializers as "ExRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XRTS")]
     [IsoId("_YpBCR9p-Ed-ak6NoX_4Aeg_1956552798")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed ex rights.")]
     ExRights,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed cum warrant.
     /// Encoded/decoded by serializers as "CumWarrant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CWAR")]
     [IsoId("_YpBCSNp-Ed-ak6NoX_4Aeg_2134671470")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed cum warrant.")]
     CumWarrant,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed ex warrant.
     /// Encoded/decoded by serializers as "ExWarrant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XWAR")]
     [IsoId("_YpBCSdp-Ed-ak6NoX_4Aeg_1073319511")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed ex warrant.")]
     ExWarrant,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed with a special cum 
+    /// dividend, that is, buying after the ex date and getting the dividend.
     /// Encoded/decoded by serializers as "SpecialCumDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCU")]
     [IsoId("_YpKzQNp-Ed-ak6NoX_4Aeg_1251438183")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed with a special cum  dividend, that is, buying after the ex date and getting the dividend.")]
     SpecialCumDividend,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed with a special ex 
+    /// dividend, that is, selling before the ex date without the coupon.
     /// Encoded/decoded by serializers as "SpecialExDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEX")]
     [IsoId("_YpKzQdp-Ed-ak6NoX_4Aeg_959480445")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed with a special ex  dividend, that is, selling before the ex date without the coupon.")]
     SpecialExDividend,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.
     /// Encoded/decoded by serializers as "GuaranteedDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GTDL")]
     [IsoId("_YpKzQtp-Ed-ak6NoX_4Aeg_-920825195")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.")]
     GuaranteedDelivery,
     
     /// <summary>
-    /// ??
+    /// Result of option when set. (UK specific).
     /// Encoded/decoded by serializers as "ResultOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCRO")]
     [IsoId("_YpKzQ9p-Ed-ak6NoX_4Aeg_1444277001")]
-    [Description(@"??")]
+    [Description(@"Result of option when set. (UK specific).")]
     ResultOption,
     
     /// <summary>
-    /// ??
+    /// Result of repo when set (UK specific).
     /// Encoded/decoded by serializers as "ResultRepo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCRP")]
     [IsoId("_YpKzRNp-Ed-ak6NoX_4Aeg_382925042")]
-    [Description(@"??")]
+    [Description(@"Result of repo when set (UK specific).")]
     ResultRepo,
     
     /// <summary>
-    /// ??
+    /// Form of delivery, not for foreign registration when unset (UK specific).
     /// Encoded/decoded by serializers as "DeliveryForm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCFD")]
     [IsoId("_YpKzRdp-Ed-ak6NoX_4Aeg_269085976")]
-    [Description(@"??")]
+    [Description(@"Form of delivery, not for foreign registration when unset (UK specific).")]
     DeliveryForm,
     
     /// <summary>
-    /// ??
+    /// Board lots, not set for odd lots (UK specific).
     /// Encoded/decoded by serializers as "BoardLot".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCBL")]
     [IsoId("_YpKzRtp-Ed-ak6NoX_4Aeg_447204648")]
-    [Description(@"??")]
+    [Description(@"Board lots, not set for odd lots (UK specific).")]
     BoardLot,
     
     /// <summary>
-    /// ??
+    /// Bad names, not set for good names (UK specific).
     /// Encoded/decoded by serializers as "BadName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCBN")]
     [IsoId("_YpKzR9p-Ed-ak6NoX_4Aeg_-614147311")]
-    [Description(@"??")]
+    [Description(@"Bad names, not set for good names (UK specific).")]
     BadName,
     
     /// <summary>
-    /// ??
+    /// Trade was executed at market price.
     /// Encoded/decoded by serializers as "MarketPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAPR")]
     [IsoId("_YpKzSNp-Ed-ak6NoX_4Aeg_-436028639")]
-    [Description(@"??")]
+    [Description(@"Trade was executed at market price.")]
     MarketPrice,
     
     /// <summary>
-    /// ??
+    /// Trade for which the price is not the one quoted but an improved one, that is, the negotiated price.
     /// Encoded/decoded by serializers as "NegotiatedTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEGO")]
     [IsoId("_YpKzSdp-Ed-ak6NoX_4Aeg_-727986377")]
-    [Description(@"??")]
+    [Description(@"Trade for which the price is not the one quoted but an improved one, that is, the negotiated price.")]
     NegotiatedTrade,
     
     /// <summary>
-    /// ??
+    /// Trade was executed outside of normal market conditions, for example, in the case of an iceberg order.
     /// Encoded/decoded by serializers as "NonMarketPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMPR")]
     [IsoId("_YpT9MNp-Ed-ak6NoX_4Aeg_-549867705")]
-    [Description(@"??")]
+    [Description(@"Trade was executed outside of normal market conditions, for example, in the case of an iceberg order.")]
     NonMarketPrice,
     
     /// <summary>
-    /// ??
+    /// Place of delivery, in country of incorporation when unset (UK specific).
     /// Encoded/decoded by serializers as "DeliverCountryIncorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCPD")]
     [IsoId("_YpT9Mdp-Ed-ak6NoX_4Aeg_-427588864")]
-    [Description(@"??")]
+    [Description(@"Place of delivery, in country of incorporation when unset (UK specific).")]
     DeliverCountryIncorporation,
     
 }

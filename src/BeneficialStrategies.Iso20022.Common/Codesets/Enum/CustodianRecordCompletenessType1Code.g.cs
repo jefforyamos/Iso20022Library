@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustodianRecordCompletenessType1Code
 {
     /// <summary>
-    /// ??
+    /// Custodian record is complete.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_11patDL3EeKU9IrkkToqcw_2131580066")]
-    [Description(@"??")]
+    [Description(@"Custodian record is complete.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Custodian record is incomplete.
     /// Encoded/decoded by serializers as "Incomplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCO")]
     [IsoId("_11patTL3EeKU9IrkkToqcw_439399869")]
-    [Description(@"??")]
+    [Description(@"Custodian record is incomplete.")]
     Incomplete,
     
     /// <summary>
-    /// ??
+    /// Custodian record is conditionally complete.
     /// Encoded/decoded by serializers as "ConditionallyComplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCOM")]
     [IsoId("_11patjL3EeKU9IrkkToqcw_893487138")]
-    [Description(@"??")]
+    [Description(@"Custodian record is conditionally complete.")]
     ConditionallyComplete,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeliverReturn1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the collateral is to be delivered.
     /// Encoded/decoded by serializers as "Deliver".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELV")]
     [IsoId("_YcMuQ9p-Ed-ak6NoX_4Aeg_1267443780")]
-    [Description(@"??")]
+    [Description(@"Specifies that the collateral is to be delivered.")]
     Deliver,
     
     /// <summary>
-    /// ??
+    /// Specifies that the collateral is to be returned.
     /// Encoded/decoded by serializers as "Return".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETN")]
     [IsoId("_YcMuRNp-Ed-ak6NoX_4Aeg_1710432272")]
-    [Description(@"??")]
+    [Description(@"Specifies that the collateral is to be returned.")]
     Return,
     
 }

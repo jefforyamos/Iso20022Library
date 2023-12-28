@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfDate1Code
 {
     /// <summary>
-    /// ??
+    /// Date / date and time is the actual date / date and time.
     /// Encoded/decoded by serializers as "Actual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTL")]
     [IsoId("_Ua4UEVfvEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Date / date and time is the actual date / date and time.")]
     Actual,
     
     /// <summary>
-    /// ??
+    /// Date/date and time is estimated.
     /// Encoded/decoded by serializers as "Estimated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTM")]
     [IsoId("_UiUY0VfvEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Date/date and time is estimated.")]
     Estimated,
     
 }

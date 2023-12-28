@@ -22,12 +22,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleAnyBank1Code
 {
     /// <summary>
-    /// ??
+    /// Any bank.
     /// Encoded/decoded by serializers as "AnyBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANYB")]
     [IsoId("_GAUS4SBqEeugLNJneiyzbA")]
-    [Description(@"??")]
+    [Description(@"Any bank.")]
     AnyBank,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepoTerminationOption2Code
 {
     /// <summary>
-    /// ??
+    /// Evergreen termination option.
     /// Encoded/decoded by serializers as "Evergreen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EGRN")]
     [IsoId("_cqq1Me83EeiYJN4CMdaY8A")]
-    [Description(@"??")]
+    [Description(@"Evergreen termination option.")]
     Evergreen,
     
     /// <summary>
-    /// ??
+    /// Evergreen and extendable termination option. 
     /// Encoded/decoded by serializers as "EvergreenAndExtendable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EGAE")]
     [IsoId("_cwfwYe83EeiYJN4CMdaY8A")]
-    [Description(@"??")]
+    [Description(@"Evergreen and extendable termination option. ")]
     EvergreenAndExtendable,
     
     /// <summary>
-    /// ??
+    /// Extendable termination option.
     /// Encoded/decoded by serializers as "Extendable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETSB")]
     [IsoId("_c7BlYe83EeiYJN4CMdaY8A")]
-    [Description(@"??")]
+    [Description(@"Extendable termination option.")]
     Extendable,
     
     /// <summary>
-    /// ??
+    /// Search for requested data not complete yet.
     /// Encoded/decoded by serializers as "NotApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAP")]
     [IsoId("_dBKpoO83EeiYJN4CMdaY8A")]
-    [Description(@"??")]
+    [Description(@"Search for requested data not complete yet.")]
     NotApplicable,
     
 }

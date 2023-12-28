@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GoodTillBookingInstruction1Code
 {
     /// <summary>
-    /// ??
+    /// Book out all trades on day of execution.
     /// Encoded/decoded by serializers as "BookOnExecutionDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOEX")]
     [IsoId("_auYMQtp-Ed-ak6NoX_4Aeg_659969076")]
-    [Description(@"??")]
+    [Description(@"Book out all trades on day of execution.")]
     BookOnExecutionDay,
     
     /// <summary>
-    /// ??
+    /// Accumulate executions until order is filled or expires.
     /// Encoded/decoded by serializers as "AccumulateTillEnd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTE")]
     [IsoId("_auYMQ9p-Ed-ak6NoX_4Aeg_659969118")]
-    [Description(@"??")]
+    [Description(@"Accumulate executions until order is filled or expires.")]
     AccumulateTillEnd,
     
     /// <summary>
-    /// ??
+    /// Accumulate until verbally notified otherwise.
     /// Encoded/decoded by serializers as "AccumulateTillTold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTT")]
     [IsoId("_auYMRNp-Ed-ak6NoX_4Aeg_659969178")]
-    [Description(@"??")]
+    [Description(@"Accumulate until verbally notified otherwise.")]
     AccumulateTillTold,
     
 }

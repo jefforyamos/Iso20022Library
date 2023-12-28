@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProformaStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Modification to the account data is in process.
     /// Encoded/decoded by serializers as "ModificationInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_kDXs0U_vEeaB8-OWTiMVrQ")]
-    [Description(@"??")]
+    [Description(@"Modification to the account data is in process.")]
     ModificationInProcess,
     
     /// <summary>
-    /// ??
+    /// Account opening is waiting for rights holder information.
     /// Encoded/decoded by serializers as "Rights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RIGH")]
     [IsoId("_kWRasU_vEeaB8-OWTiMVrQ")]
-    [Description(@"??")]
+    [Description(@"Account opening is waiting for rights holder information.")]
     Rights,
     
 }

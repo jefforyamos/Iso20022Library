@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EnabledStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Modification to the account data is in process.
     /// Encoded/decoded by serializers as "Modified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_MrP-0WBhEeaR1OOiVxm3Gg")]
-    [Description(@"??")]
+    [Description(@"Modification to the account data is in process.")]
     Modified,
     
 }

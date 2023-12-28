@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatementBasis2Code
 {
     /// <summary>
-    /// ??
+    /// The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_ZQD0INp-Ed-ak6NoX_4Aeg_-1755151069")]
-    [Description(@"??")]
+    [Description(@"The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// The statement is based on trade date positions.
     /// Encoded/decoded by serializers as "Traded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_ZQD0Idp-Ed-ak6NoX_4Aeg_-1755150482")]
-    [Description(@"??")]
+    [Description(@"The statement is based on trade date positions.")]
     Traded,
     
 }

@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardAccountType1Code
 {
     /// <summary>
-    /// ??
+    /// Default account.
     /// Encoded/decoded by serializers as "Default".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_TSNcfQEcEeCQm6a_G2yO_w_-449669424")]
-    [Description(@"??")]
+    [Description(@"Default account.")]
     Default,
     
     /// <summary>
-    /// ??
+    /// Savings account.
     /// Encoded/decoded by serializers as "Savings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVNG")]
     [IsoId("_TSNcfgEcEeCQm6a_G2yO_w_1127404324")]
-    [Description(@"??")]
+    [Description(@"Savings account.")]
     Savings,
     
     /// <summary>
-    /// ??
+    /// Checking account.
     /// Encoded/decoded by serializers as "Checking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHCK")]
     [IsoId("_TSNcfwEcEeCQm6a_G2yO_w_1944410752")]
-    [Description(@"??")]
+    [Description(@"Checking account.")]
     Checking,
     
     /// <summary>
-    /// ??
+    /// Credit card account.
     /// Encoded/decoded by serializers as "CreditCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_TSNcgAEcEeCQm6a_G2yO_w_-2082317872")]
-    [Description(@"??")]
+    [Description(@"Credit card account.")]
     CreditCard,
     
     /// <summary>
-    /// ??
+    /// Universal account.
     /// Encoded/decoded by serializers as "Universal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UVRL")]
     [IsoId("_TSNcgQEcEeCQm6a_G2yO_w_-469218526")]
-    [Description(@"??")]
+    [Description(@"Universal account.")]
     Universal,
     
     /// <summary>
-    /// ??
+    /// Investment account.
     /// Encoded/decoded by serializers as "Investment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVS")]
     [IsoId("_TSNcggEcEeCQm6a_G2yO_w_2114733823")]
-    [Description(@"??")]
+    [Description(@"Investment account.")]
     Investment,
     
     /// <summary>
-    /// ??
+    /// Electronic purse card account.
     /// Encoded/decoded by serializers as "EpurseCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPRS")]
     [IsoId("_TSXNcAEcEeCQm6a_G2yO_w_-304672763")]
-    [Description(@"??")]
+    [Description(@"Electronic purse card account.")]
     EpurseCard,
     
 }

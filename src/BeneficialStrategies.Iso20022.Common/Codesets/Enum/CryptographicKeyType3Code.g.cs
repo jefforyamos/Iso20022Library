@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CryptographicKeyType3Code
 {
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES128".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AES2")]
     [IsoId("_A4GNEWp0EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     AES128,
     
     /// <summary>
-    /// ??
+    /// Data encryption standard key of 112 bits (without the parity bits).
     /// Encoded/decoded by serializers as "DES112".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDE3")]
     [IsoId("_A4GNE2p0EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Data encryption standard key of 112 bits (without the parity bits).")]
     DES112,
     
     /// <summary>
-    /// ??
+    /// DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.
     /// Encoded/decoded by serializers as "DUKPT2009".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DKP9")]
     [IsoId("_A4GNFWp0EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.")]
     DUKPT2009,
     
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES192".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AES9")]
     [IsoId("_Ej_QAWp0EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).")]
     AES192,
     
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES256".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AES5")]
     [IsoId("_E4s7wWp0EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).")]
     AES256,
     
     /// <summary>
-    /// ??
+    /// Data encryption standard key of 168 bits (without the parity bits).
     /// Encoded/decoded by serializers as "DES168".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDE4")]
     [IsoId("_FL6ysWp0EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Data encryption standard key of 168 bits (without the parity bits).")]
     DES168,
     
 }

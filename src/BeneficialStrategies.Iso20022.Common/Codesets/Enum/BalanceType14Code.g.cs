@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BalanceType14Code
 {
     /// <summary>
-    /// ??
+    /// Amount put on hold.
     /// Encoded/decoded by serializers as "AmountOnHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMOH")]
     [IsoId("_nrrV0X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Amount put on hold.")]
     AmountOnHold,
     
     /// <summary>
-    /// ??
+    /// Amount of money owed
     /// Encoded/decoded by serializers as "AmountOwing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTO")]
     [IsoId("_nrrV030kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Amount of money owed")]
     AmountOwing,
     
     /// <summary>
-    /// ??
+    /// Amount of money due.
     /// Encoded/decoded by serializers as "AmountDue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTD")]
     [IsoId("_nrrV1X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Amount of money due.")]
     AmountDue,
     
     /// <summary>
-    /// ??
+    /// Credit line available.
     /// Encoded/decoded by serializers as "CreditLine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDL")]
     [IsoId("_nrrV130kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Credit line available.")]
     CreditLine,
     
     /// <summary>
-    /// ??
+    /// Other type of balance defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_nrrV2X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of balance defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of balance defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_nrrV230kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of balance defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Balance of money or securities that is at the disposal of the account owner on the date specified.
     /// Encoded/decoded by serializers as "Available".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVLB")]
     [IsoId("_nrrV3X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
     Available,
     
     /// <summary>
-    /// ??
+    /// Cleared items balance. 
     /// Encoded/decoded by serializers as "ClearedItem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRI")]
     [IsoId("_nrrV330kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Cleared items balance. ")]
     ClearedItem,
     
     /// <summary>
-    /// ??
+    /// Ledger balance refers to posted transactions (e.g. limit authorisation amount - posted transactions).
     /// Encoded/decoded by serializers as "Ledger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LDGR")]
     [IsoId("_nrrV4X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Ledger balance refers to posted transactions (e.g. limit authorisation amount - posted transactions).")]
     Ledger,
     
 }

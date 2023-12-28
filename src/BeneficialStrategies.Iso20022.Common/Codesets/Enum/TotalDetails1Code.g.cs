@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TotalDetails1Code
 {
     /// <summary>
-    /// ??
+    /// Give the totals result per Operator Identification value.
     /// Encoded/decoded by serializers as "PerCashierIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPID")]
     [IsoId("_KYx18d6TEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Give the totals result per Operator Identification value.")]
     PerCashierIdentification,
     
     /// <summary>
-    /// ??
+    /// Give the totals result per POI Identification value.
     /// Encoded/decoded by serializers as "PerPOIIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PIID")]
     [IsoId("_KcKhId6TEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Give the totals result per POI Identification value.")]
     PerPOIIdentification,
     
     /// <summary>
-    /// ??
+    /// Give the totals result per Totals Group Identification value.
     /// Encoded/decoded by serializers as "PerTotalsGroup".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TGID")]
     [IsoId("_KplSEd6TEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Give the totals result per Totals Group Identification value.")]
     PerTotalsGroup,
     
     /// <summary>
-    /// ??
+    /// Give the totals result per Shift Number Identification value.
     /// Encoded/decoded by serializers as "PerShiftNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNID")]
     [IsoId("_Ks-kUd6TEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Give the totals result per Shift Number Identification value.")]
     PerShiftNumber,
     
     /// <summary>
-    /// ??
+    /// Give the totals result per Sale Identification value.
     /// Encoded/decoded by serializers as "PerSaleIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAID")]
     [IsoId("_KwBRQd6TEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Give the totals result per Sale Identification value.")]
     PerSaleIdentification,
     
 }

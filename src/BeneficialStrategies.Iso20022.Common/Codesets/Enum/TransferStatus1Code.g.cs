@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_Ve9hFdp-Ed-ak6NoX_4Aeg_670907080")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction has been acknowledged / accepted for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_Ve9hFtp-Ed-ak6NoX_4Aeg_966433169")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction is matched.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACH")]
     [IsoId("_Ve9hF9p-Ed-ak6NoX_4Aeg_1070790523")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction is matched.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction is fully executed and the confirmation is sent.
     /// Encoded/decoded by serializers as "AlreadyExecuted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COSE")]
     [IsoId("_Ve9hGNp-Ed-ak6NoX_4Aeg_1114195595")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction is fully executed and the confirmation is sent.")]
     AlreadyExecuted,
     
     /// <summary>
-    /// ??
+    /// Transfer cancellation instruction or settlement cancellation instruction is pending.
     /// Encoded/decoded by serializers as "CancellationPending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_VfGrANp-Ed-ak6NoX_4Aeg_1812559642")]
-    [Description(@"??")]
+    [Description(@"Transfer cancellation instruction or settlement cancellation instruction is pending.")]
     CancellationPending,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction has been executed, confirmed and then the confirmation has been reversed.
     /// Encoded/decoded by serializers as "Reversed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVSD")]
     [IsoId("_VfGrAdp-Ed-ak6NoX_4Aeg_-1711269451")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction has been executed, confirmed and then the confirmation has been reversed.")]
     Reversed,
     
     /// <summary>
-    /// ??
+    /// Transfer or settlement instruction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_VfGrAtp-Ed-ak6NoX_4Aeg_287637623")]
-    [Description(@"??")]
+    [Description(@"Transfer or settlement instruction has been cancelled.")]
     Cancelled,
     
 }

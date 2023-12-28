@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProcessingPosition3Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the transaction/instruction is to be executed after the linked transaction/instruction.
     /// Encoded/decoded by serializers as "After".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AFTE")]
     [IsoId("_aK6559p-Ed-ak6NoX_4Aeg_-1877116893")]
-    [Description(@"??")]
+    [Description(@"Specifies that the transaction/instruction is to be executed after the linked transaction/instruction.")]
     After,
     
     /// <summary>
-    /// ??
+    /// Specifies that the transaction/instruction is to be executed with the linked transaction/instruction.
     /// Encoded/decoded by serializers as "With".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_aK656Np-Ed-ak6NoX_4Aeg_-1877116876")]
-    [Description(@"??")]
+    [Description(@"Specifies that the transaction/instruction is to be executed with the linked transaction/instruction.")]
     With,
     
     /// <summary>
-    /// ??
+    /// Specifies that the transaction/instruction is to be executed before the linked transaction/instruction.
     /// Encoded/decoded by serializers as "Before".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEFO")]
     [IsoId("_aLED0Np-Ed-ak6NoX_4Aeg_-1877116833")]
-    [Description(@"??")]
+    [Description(@"Specifies that the transaction/instruction is to be executed before the linked transaction/instruction.")]
     Before,
     
     /// <summary>
-    /// ??
+    /// Specifies that the transactions/instructions are linked for information purposes only.
     /// Encoded/decoded by serializers as "Information".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFO")]
     [IsoId("_aLED0dp-Ed-ak6NoX_4Aeg_-1877116816")]
-    [Description(@"??")]
+    [Description(@"Specifies that the transactions/instructions are linked for information purposes only.")]
     Information,
     
 }

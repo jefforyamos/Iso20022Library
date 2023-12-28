@@ -21,273 +21,273 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalClearingSystemIdentification1Code
 {
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Austria
     /// Encoded/decoded by serializers as "AustrianBankleitzahl".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATBLZ")]
     [IsoId("_tlQnxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Austria")]
     AustrianBankleitzahl,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Australia
     /// Encoded/decoded by serializers as "AustralianBankStateBranchCodeBSB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUBSB")]
     [IsoId("_tlQnyPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Australia")]
     AustralianBankStateBranchCodeBSB,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Canada
     /// Encoded/decoded by serializers as "CanadianPaymentsAssociationPaymentRoutingNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACPA")]
     [IsoId("_tlQny_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Canada")]
     CanadianPaymentsAssociationPaymentRoutingNumber,
     
     /// <summary>
-    /// ??
+    /// Financial Institution Identification (IID) used in Switzerland, without check digit
     /// Encoded/decoded by serializers as "SwissFinancialInstitutionIdentificationShort".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHBCC")]
     [IsoId("_tlQnzvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Financial Institution Identification (IID) used in Switzerland, without check digit")]
     SwissFinancialInstitutionIdentificationShort,
     
     /// <summary>
-    /// ??
+    /// Financial Institution Identification (IID) used in Switzerland, including check digit
     /// Encoded/decoded by serializers as "SwissFinancialInstitutionIdentificationLong".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHSIC")]
     [IsoId("_tlQn0fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Financial Institution Identification (IID) used in Switzerland, including check digit")]
     SwissFinancialInstitutionIdentificationLong,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in China
     /// Encoded/decoded by serializers as "CNAPSIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNAPS")]
     [IsoId("_tlaYwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in China")]
     CNAPSIdentifier,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Germany
     /// Encoded/decoded by serializers as "GermanBankleitzahl".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBLZ")]
     [IsoId("_tlaYxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Germany")]
     GermanBankleitzahl,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Spain
     /// Encoded/decoded by serializers as "SpanishDomesticInterbankingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESNCC")]
     [IsoId("_tlaYyPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Spain")]
     SpanishDomesticInterbankingCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in the UK
     /// Encoded/decoded by serializers as "UKDomesticSortCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBDSC")]
     [IsoId("_tlaYy_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in the UK")]
     UKDomesticSortCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Greece
     /// Encoded/decoded by serializers as "HelenicBankIdentificationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRBIC")]
     [IsoId("_tlkJwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Greece")]
     HelenicBankIdentificationCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Hong Kong
     /// Encoded/decoded by serializers as "HongKongBankCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HKNCC")]
     [IsoId("_tlkJxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Hong Kong")]
     HongKongBankCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Ireland
     /// Encoded/decoded by serializers as "IrishNationalClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IENCC")]
     [IsoId("_tlkJyPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Ireland")]
     IrishNationalClearingCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in India
     /// Encoded/decoded by serializers as "IndianFinancialSystemCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFSC")]
     [IsoId("_tlkJy_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in India")]
     IndianFinancialSystemCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Italy
     /// Encoded/decoded by serializers as "ItalianDomesticIdentificationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITNCC")]
     [IsoId("_tlkJzvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Italy")]
     ItalianDomesticIdentificationCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Japan
     /// Encoded/decoded by serializers as "JapanZenginClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JPZGN")]
     [IsoId("_tltTsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Japan")]
     JapanZenginClearingCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in New Zealand
     /// Encoded/decoded by serializers as "NewZealandNationalClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NZNCC")]
     [IsoId("_tltTtfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in New Zealand")]
     NewZealandNationalClearingCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Poland
     /// Encoded/decoded by serializers as "PolishNationalClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLKNR")]
     [IsoId("_tltTuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Poland")]
     PolishNationalClearingCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Portugal
     /// Encoded/decoded by serializers as "PortugueseNationalClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTNCC")]
     [IsoId("_tltTu_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Portugal")]
     PortugueseNationalClearingCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Russia
     /// Encoded/decoded by serializers as "RussianCentralBankIdentificationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RUCBC")]
     [IsoId("_tltTvvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Russia")]
     RussianCentralBankIdentificationCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Sweden
     /// Encoded/decoded by serializers as "SwedenBankgiroClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SESBA")]
     [IsoId("_tl3EsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Sweden")]
     SwedenBankgiroClearingCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Singapore
     /// Encoded/decoded by serializers as "IBGSortCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGIBG")]
     [IsoId("_tl3EtfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Singapore")]
     IBGSortCode,
     
     /// <summary>
-    /// ??
+    /// Bank Identification code used in Thailand
     /// Encoded/decoded by serializers as "ThaiCentralBankIdentificationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THCBC")]
     [IsoId("_tl3EuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Identification code used in Thailand")]
     ThaiCentralBankIdentificationCode,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in Taiwan
     /// Encoded/decoded by serializers as "FinancialInstitutionCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWNCC")]
     [IsoId("_tl3Eu_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in Taiwan")]
     FinancialInstitutionCode,
     
     /// <summary>
-    /// ??
+    /// Routing Transit number assigned by the ABA for US financial institutons
     /// Encoded/decoded by serializers as "UnitedStatesRoutingNumberFedwireNACHA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USABA")]
     [IsoId("_tl3EvvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Routing Transit number assigned by the ABA for US financial institutons")]
     UnitedStatesRoutingNumberFedwireNACHA,
     
     /// <summary>
-    /// ??
+    /// Bank identifier used by CHIPs in the US
     /// Encoded/decoded by serializers as "CHIPSParticipantIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USPID")]
     [IsoId("_tmA1svRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank identifier used by CHIPs in the US")]
     CHIPSParticipantIdentifier,
     
     /// <summary>
-    /// ??
+    /// Bank Branch code used in South Africa
     /// Encoded/decoded by serializers as "SouthAfricanNationalClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZANCC")]
     [IsoId("_tmA1tfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Branch code used in South Africa")]
     SouthAfricanNationalClearingCode,
     
     /// <summary>
-    /// ??
+    /// RTGS settlement account used in New Zealand.
     /// Encoded/decoded by serializers as "NewZealandRTGSClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NZRSA")]
     [IsoId("_c_XdsQTZEey95qpfbNuEwg")]
-    [Description(@"??")]
+    [Description(@"RTGS settlement account used in New Zealand.")]
     NewZealandRTGSClearingCode,
     
     /// <summary>
-    /// ??
+    /// Banco de Mocambique RTGS system.
     /// Encoded/decoded by serializers as "BancoDeMocambiqueRTGS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MZBMO")]
     [IsoId("_v84qEmvcEe2F6NrIyOmXcA")]
-    [Description(@"??")]
+    [Description(@"Banco de Mocambique RTGS system.")]
     BancoDeMocambiqueRTGS,
     
     /// <summary>
-    /// ??
+    /// Chinese Cross-border Interbank Payment System (CIPS) Identifier.
     /// Encoded/decoded by serializers as "CrossBorderInterbankPaymentSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNCIP")]
     [IsoId("_LNkXkmveEe2F6NrIyOmXcA")]
-    [Description(@"??")]
+    [Description(@"Chinese Cross-border Interbank Payment System (CIPS) Identifier.")]
     CrossBorderInterbankPaymentSystem,
     
     /// <summary>
-    /// ??
+    /// Participant Institution code used by BOK-Wire+ in South Korea.
     /// Encoded/decoded by serializers as "SouthKoreaCentralBankIdentificationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KRBOK")]
     [IsoId("_BwCmYv7MEe2ORYPQEd-Clg")]
-    [Description(@"??")]
+    [Description(@"Participant Institution code used by BOK-Wire+ in South Korea.")]
     SouthKoreaCentralBankIdentificationCode,
     
 }

@@ -20,300 +20,300 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectedStatusReason5Code
 {
     /// <summary>
-    /// ??
+    /// Order contains funds that have different valuation points.
     /// Encoded/decoded by serializers as "DifferentValuationPoints".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POIN")]
     [IsoId("_VkeTNdp-Ed-ak6NoX_4Aeg_-512347283")]
-    [Description(@"??")]
+    [Description(@"Order contains funds that have different valuation points.")]
     DifferentValuationPoints,
     
     /// <summary>
-    /// ??
+    /// Delivering agent is not recognised or is invalid.
     /// Encoded/decoded by serializers as "DeliveringAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICAG")]
     [IsoId("_VkeTNtp-Ed-ak6NoX_4Aeg_-511427251")]
-    [Description(@"??")]
+    [Description(@"Delivering agent is not recognised or is invalid.")]
     DeliveringAgent,
     
     /// <summary>
-    /// ??
+    /// Direct debit account identification is not recognised or is invalid.
     /// Encoded/decoded by serializers as "DirectDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDDB")]
     [IsoId("_VkeTN9p-Ed-ak6NoX_4Aeg_-511427234")]
-    [Description(@"??")]
+    [Description(@"Direct debit account identification is not recognised or is invalid.")]
     DirectDebit,
     
     /// <summary>
-    /// ??
+    /// Intermediary is not recognised or is invalid.
     /// Encoded/decoded by serializers as "Intermediary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_VkeTONp-Ed-ak6NoX_4Aeg_-511427216")]
-    [Description(@"??")]
+    [Description(@"Intermediary is not recognised or is invalid.")]
     Intermediary,
     
     /// <summary>
-    /// ??
+    /// Investment account identification is not recognised or is invalid.
     /// Encoded/decoded by serializers as "InvestmentAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_VkeTOdp-Ed-ak6NoX_4Aeg_-511427199")]
-    [Description(@"??")]
+    [Description(@"Investment account identification is not recognised or is invalid.")]
     InvestmentAccount,
     
     /// <summary>
-    /// ??
+    /// Payment card details are incorrect.
     /// Encoded/decoded by serializers as "PaymentCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPAY")]
     [IsoId("_VkndINp-Ed-ak6NoX_4Aeg_-511427181")]
-    [Description(@"??")]
+    [Description(@"Payment card details are incorrect.")]
     PaymentCard,
     
     /// <summary>
-    /// ??
+    /// Credit transfer details are incorrect.
     /// Encoded/decoded by serializers as "InvalidCreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICTR")]
     [IsoId("_VkndIdp-Ed-ak6NoX_4Aeg_-511427156")]
-    [Description(@"??")]
+    [Description(@"Credit transfer details are incorrect.")]
     InvalidCreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Place of settlement is not recognised or is invalid.
     /// Encoded/decoded by serializers as "SettlementPlace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPT")]
     [IsoId("_VkndItp-Ed-ak6NoX_4Aeg_-511427139")]
-    [Description(@"??")]
+    [Description(@"Place of settlement is not recognised or is invalid.")]
     SettlementPlace,
     
     /// <summary>
-    /// ??
+    /// Receiving agent is not recognised or is invalid.
     /// Encoded/decoded by serializers as "ReceivingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IVAG")]
     [IsoId("_VkndI9p-Ed-ak6NoX_4Aeg_-511427121")]
-    [Description(@"??")]
+    [Description(@"Receiving agent is not recognised or is invalid.")]
     ReceivingAgent,
     
     /// <summary>
-    /// ??
+    /// Safekeeping place is not recognised or is invalid.
     /// Encoded/decoded by serializers as "SafekeepingPlace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISAF")]
     [IsoId("_VkndJNp-Ed-ak6NoX_4Aeg_-511427096")]
-    [Description(@"??")]
+    [Description(@"Safekeeping place is not recognised or is invalid.")]
     SafekeepingPlace,
     
     /// <summary>
-    /// ??
+    /// Form of the security is wrong, eg, the form of security is registered not bearer or vice versa.
     /// Encoded/decoded by serializers as "InvalidSecurityForm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFOR")]
     [IsoId("_VkndJdp-Ed-ak6NoX_4Aeg_-511427079")]
-    [Description(@"??")]
+    [Description(@"Form of the security is wrong, eg, the form of security is registered not bearer or vice versa.")]
     InvalidSecurityForm,
     
     /// <summary>
-    /// ??
+    /// Identification of the security is not recognised or is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_VkndJtp-Ed-ak6NoX_4Aeg_-793166376")]
-    [Description(@"??")]
+    [Description(@"Identification of the security is not recognised or is invalid.")]
     FinancialInstrumentIdentification,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked due to a corporate action.
     /// Encoded/decoded by serializers as "AccountBlockedForCorporateAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCA")]
     [IsoId("_VkndJ9p-Ed-ak6NoX_4Aeg_-511427044")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked due to a corporate action.")]
     AccountBlockedForCorporateAction,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked due to a transfer out of investment funds.
     /// Encoded/decoded by serializers as "AccountBlockedForTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLTR")]
     [IsoId("_VkxOINp-Ed-ak6NoX_4Aeg_-511427026")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked due to a transfer out of investment funds.")]
     AccountBlockedForTransfer,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
     /// Encoded/decoded by serializers as "AccountBlockedMissingDocuments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_VkxOIdp-Ed-ak6NoX_4Aeg_-511427001")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.")]
     AccountBlockedMissingDocuments,
     
     /// <summary>
-    /// ??
+    /// There is not enough cash in the account to process the instruction.
     /// Encoded/decoded by serializers as "NotEnoughCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_VkxOItp-Ed-ak6NoX_4Aeg_-511426966")]
-    [Description(@"??")]
+    [Description(@"There is not enough cash in the account to process the instruction.")]
     NotEnoughCash,
     
     /// <summary>
-    /// ??
+    /// There are not enough securities in the account to process the instruction.
     /// Encoded/decoded by serializers as "NotEnoughFinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_VkxOI9p-Ed-ak6NoX_4Aeg_-323094095")]
-    [Description(@"??")]
+    [Description(@"There are not enough securities in the account to process the instruction.")]
     NotEnoughFinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// Identification of the security and the security name are not the same.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentificationAndName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDNA")]
     [IsoId("_VkxOJNp-Ed-ak6NoX_4Aeg_90644619")]
-    [Description(@"??")]
+    [Description(@"Identification of the security and the security name are not the same.")]
     FinancialInstrumentIdentificationAndName,
     
     /// <summary>
-    /// ??
+    /// Percentage of commission waiving exceeds the commission percentage or commission amount.
     /// Encoded/decoded by serializers as "UnacceptedCommissionWaiving".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UWAI")]
     [IsoId("_VkxOJdp-Ed-ak6NoX_4Aeg_-511426672")]
-    [Description(@"??")]
+    [Description(@"Percentage of commission waiving exceeds the commission percentage or commission amount.")]
     UnacceptedCommissionWaiving,
     
     /// <summary>
-    /// ??
+    /// Deal currency is not supported.
     /// Encoded/decoded by serializers as "UnacceptedDealCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UDCY")]
     [IsoId("_VkxOJtp-Ed-ak6NoX_4Aeg_-511426654")]
-    [Description(@"??")]
+    [Description(@"Deal currency is not supported.")]
     UnacceptedDealCurrency,
     
     /// <summary>
-    /// ??
+    /// Net asset value currency is not supported.
     /// Encoded/decoded by serializers as "UnacceptedNAVCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNAV")]
     [IsoId("_VkxOJ9p-Ed-ak6NoX_4Aeg_-511426612")]
-    [Description(@"??")]
+    [Description(@"Net asset value currency is not supported.")]
     UnacceptedNAVCurrency,
     
     /// <summary>
-    /// ??
+    /// Payment method, for example, cheque or payment card, is not accepted.
     /// Encoded/decoded by serializers as "UnacceptedPaymentMethod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPAY")]
     [IsoId("_VkxOKNp-Ed-ak6NoX_4Aeg_-511426594")]
-    [Description(@"??")]
+    [Description(@"Payment method, for example, cheque or payment card, is not accepted.")]
     UnacceptedPaymentMethod,
     
     /// <summary>
-    /// ??
+    /// Settlement currency requested is not supported.
     /// Encoded/decoded by serializers as "UnacceptedRequestedSettlementCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URSC")]
     [IsoId("_VkxOKdp-Ed-ak6NoX_4Aeg_-511426569")]
-    [Description(@"??")]
+    [Description(@"Settlement currency requested is not supported.")]
     UnacceptedRequestedSettlementCurrency,
     
     /// <summary>
-    /// ??
+    /// Quantity of units or amount of money in the order is too high for a subscription.
     /// Encoded/decoded by serializers as "TooHighUnitsOrAmountToSubscribe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHIG")]
     [IsoId("_Vk6_INp-Ed-ak6NoX_4Aeg_-511426551")]
-    [Description(@"??")]
+    [Description(@"Quantity of units or amount of money in the order is too high for a subscription.")]
     TooHighUnitsOrAmountToSubscribe,
     
     /// <summary>
-    /// ??
+    /// Quantity of units or amount of money in the order is too low for a subscription.
     /// Encoded/decoded by serializers as "TooLowUnitsOrAmountToSubscribe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLOW")]
     [IsoId("_Vk6_Idp-Ed-ak6NoX_4Aeg_-511426268")]
-    [Description(@"??")]
+    [Description(@"Quantity of units or amount of money in the order is too low for a subscription.")]
     TooLowUnitsOrAmountToSubscribe,
     
     /// <summary>
-    /// ??
+    /// Linked reference is not known.
     /// Encoded/decoded by serializers as "UnknownLinkagesReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULNK")]
     [IsoId("_Vk6_Itp-Ed-ak6NoX_4Aeg_-511426250")]
-    [Description(@"??")]
+    [Description(@"Linked reference is not known.")]
     UnknownLinkagesReference,
     
     /// <summary>
-    /// ??
+    /// Order contains physical delivery details but the fund can not be physically delivered.
     /// Encoded/decoded by serializers as "PhysicalDeliveryImpossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLVY")]
     [IsoId("_Vk6_I9p-Ed-ak6NoX_4Aeg_-511426225")]
-    [Description(@"??")]
+    [Description(@"Order contains physical delivery details but the fund can not be physically delivered.")]
     PhysicalDeliveryImpossible,
     
     /// <summary>
-    /// ??
+    /// Order reference is a duplicate of a previously received order.
     /// Encoded/decoded by serializers as "DuplicateOrderReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORRF")]
     [IsoId("_Vk6_JNp-Ed-ak6NoX_4Aeg_-511426190")]
-    [Description(@"??")]
+    [Description(@"Order reference is a duplicate of a previously received order.")]
     DuplicateOrderReference,
     
     /// <summary>
-    /// ??
+    /// Instructing party is not allowed to instruct for this investment account.
     /// Encoded/decoded by serializers as "InstructingPartyNotAllowedForAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPAC")]
     [IsoId("_Vk6_Jdp-Ed-ak6NoX_4Aeg_-511426165")]
-    [Description(@"??")]
+    [Description(@"Instructing party is not allowed to instruct for this investment account.")]
     InstructingPartyNotAllowedForAccount,
     
     /// <summary>
-    /// ??
+    /// Order type is invalid.
     /// Encoded/decoded by serializers as "InvalidOrderType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IOTP")]
     [IsoId("_Vk6_Jtp-Ed-ak6NoX_4Aeg_-511426148")]
-    [Description(@"??")]
+    [Description(@"Order type is invalid.")]
     InvalidOrderType,
     
     /// <summary>
-    /// ??
+    /// Instruction is not compliant with the service level agreement.
     /// Encoded/decoded by serializers as "NotCompliantWithSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSLA")]
     [IsoId("_Vk6_J9p-Ed-ak6NoX_4Aeg_-511426113")]
-    [Description(@"??")]
+    [Description(@"Instruction is not compliant with the service level agreement.")]
     NotCompliantWithSLA,
     
     /// <summary>
-    /// ??
+    /// Instruction has been received after the cut-off time.
     /// Encoded/decoded by serializers as "CutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUTO")]
     [IsoId("_Vk6_KNp-Ed-ak6NoX_4Aeg_-511426095")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received after the cut-off time.")]
     CutOffTime,
     
     /// <summary>
-    /// ??
+    /// Another reason for the status rejected.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Vk6_Kdp-Ed-ak6NoX_4Aeg_-511426070")]
-    [Description(@"??")]
+    [Description(@"Another reason for the status rejected.")]
     Other,
     
 }

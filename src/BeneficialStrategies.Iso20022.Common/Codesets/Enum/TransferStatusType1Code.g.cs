@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferStatusType1Code
 {
     /// <summary>
-    /// ??
+    /// Status report is sent in response to an account holding information request.
     /// Encoded/decoded by serializers as "AccountHoldingInformationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S019")]
     [IsoId("_HqVIMVUWEeiQFOf5GRHqeQ")]
-    [Description(@"??")]
+    [Description(@"Status report is sent in response to an account holding information request.")]
     AccountHoldingInformationRequest,
     
     /// <summary>
-    /// ??
+    /// Status report advises one or more Benefit Crystallisation Events (BCE) have occurred.
     /// Encoded/decoded by serializers as "BenefitCrystallisationEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCEV")]
     [IsoId("_HupngVUWEeiQFOf5GRHqeQ")]
-    [Description(@"??")]
+    [Description(@"Status report advises one or more Benefit Crystallisation Events (BCE) have occurred.")]
     BenefitCrystallisationEvent,
     
     /// <summary>
-    /// ??
+    /// Status report advises one or more drawdowns.
     /// Encoded/decoded by serializers as "Drawdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRAW")]
     [IsoId("_Hy9fwVUWEeiQFOf5GRHqeQ")]
-    [Description(@"??")]
+    [Description(@"Status report advises one or more drawdowns.")]
     Drawdown,
     
     /// <summary>
-    /// ??
+    /// Status report advises cash is or has been instructed.
     /// Encoded/decoded by serializers as "PaymentAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYA")]
     [IsoId("_H5EHwVUWEeiQFOf5GRHqeQ")]
-    [Description(@"??")]
+    [Description(@"Status report advises cash is or has been instructed.")]
     PaymentAdvice,
     
     /// <summary>
-    /// ??
+    /// Status report is sent in response to a portfolio transfer instruction.
     /// Encoded/decoded by serializers as "PortfolioTransferInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S012")]
     [IsoId("_H-3NwVUWEeiQFOf5GRHqeQ")]
-    [Description(@"??")]
+    [Description(@"Status report is sent in response to a portfolio transfer instruction.")]
     PortfolioTransferInstruction,
     
     /// <summary>
-    /// ??
+    /// Status report is sent in response to a transfer-in instruction.
     /// Encoded/decoded by serializers as "TransferInInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S005")]
     [IsoId("_IFQwsVUWEeiQFOf5GRHqeQ")]
-    [Description(@"??")]
+    [Description(@"Status report is sent in response to a transfer-in instruction.")]
     TransferInInstruction,
     
     /// <summary>
-    /// ??
+    /// Status report is sent in response to a transfer-out instruction.
     /// Encoded/decoded by serializers as "TransferOutInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S001")]
     [IsoId("_IK6swVUWEeiQFOf5GRHqeQ")]
-    [Description(@"??")]
+    [Description(@"Status report is sent in response to a transfer-out instruction.")]
     TransferOutInstruction,
     
     /// <summary>
-    /// ??
+    /// Status report is sent to provide information required for a CSD or ICSD settlement leg.
     /// Encoded/decoded by serializers as "CSDorICSDSettlementInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_XZN54ei5EeifCsigq7uLaQ")]
-    [Description(@"??")]
+    [Description(@"Status report is sent to provide information required for a CSD or ICSD settlement leg.")]
     CSDorICSDSettlementInformation,
     
 }

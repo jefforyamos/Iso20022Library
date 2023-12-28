@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FleetPurchaseType1Code
 {
     /// <summary>
-    /// ??
+    /// Fuel
     /// Encoded/decoded by serializers as "Fuel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUEL")]
     [IsoId("_knUwcTEnEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Fuel")]
     Fuel,
     
     /// <summary>
-    /// ??
+    /// Non fuel
     /// Encoded/decoded by serializers as "NonFuel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONF")]
     [IsoId("_lSZGsTEnEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Non fuel")]
     NonFuel,
     
     /// <summary>
-    /// ??
+    /// Fuel and non fuel
     /// Encoded/decoded by serializers as "FuelAndNonFuel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FANF")]
     [IsoId("_lomAMTEnEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Fuel and non fuel")]
     FuelAndNonFuel,
     
 }

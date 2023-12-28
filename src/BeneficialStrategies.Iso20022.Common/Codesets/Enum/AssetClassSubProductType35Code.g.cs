@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType35Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type containerboard.
     /// Encoded/decoded by serializers as "Containerboard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBRD")]
     [IsoId("_mxGD8VryEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type containerboard.")]
     Containerboard,
     
 }

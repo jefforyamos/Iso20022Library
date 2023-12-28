@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdditionalBusinessProcess1Code
 {
     /// <summary>
-    /// ??
+    /// Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).
     /// Encoded/decoded by serializers as "AutomaticMarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACLA")]
     [IsoId("_bqSa5Np-Ed-ak6NoX_4Aeg_1581017081")]
-    [Description(@"??")]
+    [Description(@"Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).")]
     AutomaticMarketClaim,
     
     /// <summary>
-    /// ??
+    /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).
     /// Encoded/decoded by serializers as "SubjectToTransformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATXF")]
     [IsoId("_bqSa5dp-Ed-ak6NoX_4Aeg_1581017097")]
-    [Description(@"??")]
+    [Description(@"As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).")]
     SubjectToTransformation,
     
     /// <summary>
-    /// ??
+    /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.
     /// Encoded/decoded by serializers as "CancelUnderlyingTrades".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTR")]
     [IsoId("_bqSa5tp-Ed-ak6NoX_4Aeg_1581017098")]
-    [Description(@"??")]
+    [Description(@"As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.")]
     CancelUnderlyingTrades,
     
     /// <summary>
-    /// ??
+    /// Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).
     /// Encoded/decoded by serializers as "NoAutomaticMarketClaimsAndTransformations".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAMC")]
     [IsoId("_bqSa59p-Ed-ak6NoX_4Aeg_1581017122")]
-    [Description(@"??")]
+    [Description(@"Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).")]
     NoAutomaticMarketClaimsAndTransformations,
     
     /// <summary>
-    /// ??
+    /// Issuer only allows a single option to be selected per designated holding.
     /// Encoded/decoded by serializers as "NoSplitElection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPLE")]
     [IsoId("_bqSa6Np-Ed-ak6NoX_4Aeg_1581017123")]
-    [Description(@"??")]
+    [Description(@"Issuer only allows a single option to be selected per designated holding.")]
     NoSplitElection,
     
     /// <summary>
-    /// ??
+    /// Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.
     /// Encoded/decoded by serializers as "SchemeOrPlanOfArrangement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCHM")]
     [IsoId("_bqSa6dp-Ed-ak6NoX_4Aeg_1581017139")]
-    [Description(@"??")]
+    [Description(@"Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.")]
     SchemeOrPlanOfArrangement,
     
     /// <summary>
-    /// ??
+    /// Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).
     /// Encoded/decoded by serializers as "Consent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONS")]
     [IsoId("_bqSa6tp-Ed-ak6NoX_4Aeg_-912746764")]
-    [Description(@"??")]
+    [Description(@"Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).")]
     Consent,
     
 }

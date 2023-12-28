@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionMandatoryVoluntary1Code
 {
     /// <summary>
-    /// ??
+    /// Participation in CA event is mandatory. Further instructions from the account owner are not required.
     /// Encoded/decoded by serializers as "Mandatory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAND")]
     [IsoId("_bKsU0tp-Ed-ak6NoX_4Aeg_-1751624150")]
-    [Description(@"??")]
+    [Description(@"Participation in CA event is mandatory. Further instructions from the account owner are not required.")]
     Mandatory,
     
     /// <summary>
-    /// ??
+    /// Participation in the corporate action is mandatory and further instructions from the account owner are required, unless a default option has been specified.
     /// Encoded/decoded by serializers as "MandatoryWithOptions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHOS")]
     [IsoId("_bKsU09p-Ed-ak6NoX_4Aeg_-1751624149")]
-    [Description(@"??")]
+    [Description(@"Participation in the corporate action is mandatory and further instructions from the account owner are required, unless a default option has been specified.")]
     MandatoryWithOptions,
     
     /// <summary>
-    /// ??
+    /// Participation in the corporate action is voluntary. If the owner wishes to take part in the event, instructions from the account owner are required.
     /// Encoded/decoded by serializers as "Voluntary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VOLU")]
     [IsoId("_bKsU1Np-Ed-ak6NoX_4Aeg_-1751624119")]
-    [Description(@"??")]
+    [Description(@"Participation in the corporate action is voluntary. If the owner wishes to take part in the event, instructions from the account owner are required.")]
     Voluntary,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SequenceType3Code
 {
     /// <summary>
-    /// ??
+    /// First collection of a series of direct debit instructions.
     /// Encoded/decoded by serializers as "First".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRST")]
     [IsoId("_t90OJFkyEeGeoaLUQk__nA_908612180")]
-    [Description(@"??")]
+    [Description(@"First collection of a series of direct debit instructions.")]
     First,
     
     /// <summary>
-    /// ??
+    /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
     /// Encoded/decoded by serializers as "Recurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCUR")]
     [IsoId("_t99_IFkyEeGeoaLUQk__nA_1026483165")]
-    [Description(@"??")]
+    [Description(@"Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.")]
     Recurring,
     
     /// <summary>
-    /// ??
+    /// Final collection of a series of direct debit instructions.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNAL")]
     [IsoId("_t99_IVkyEeGeoaLUQk__nA_-1801335368")]
-    [Description(@"??")]
+    [Description(@"Final collection of a series of direct debit instructions.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
     /// Encoded/decoded by serializers as "OneOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OOFF")]
     [IsoId("_t99_IlkyEeGeoaLUQk__nA_1948646475")]
-    [Description(@"??")]
+    [Description(@"Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.")]
     OneOff,
     
     /// <summary>
-    /// ??
+    /// Collection used to re-present previously reversed or returned direct debit transactions.
     /// Encoded/decoded by serializers as "Represented".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPRE")]
     [IsoId("_t99_I1kyEeGeoaLUQk__nA_-1832965217")]
-    [Description(@"??")]
+    [Description(@"Collection used to re-present previously reversed or returned direct debit transactions.")]
     Represented,
     
 }

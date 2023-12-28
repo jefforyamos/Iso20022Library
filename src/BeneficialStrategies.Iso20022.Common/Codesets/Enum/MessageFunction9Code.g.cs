@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction9Code
 {
     /// <summary>
-    /// ??
+    /// Reject of a request or an advice message by an acquirer or an agent.
     /// Encoded/decoded by serializers as "AcceptorRequestReject".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCQ")]
     [IsoId("_XdFiUY0OEeWRYffwL7E13A")]
-    [Description(@"??")]
+    [Description(@"Reject of a request or an advice message by an acquirer or an agent.")]
     AcceptorRequestReject,
     
     /// <summary>
-    /// ??
+    /// Reject of a response or an advice response message by a card acceptor or an agent.
     /// Encoded/decoded by serializers as "AcceptorResponseReject".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCP")]
     [IsoId("_XmBb4Y0OEeWRYffwL7E13A")]
-    [Description(@"??")]
+    [Description(@"Reject of a response or an advice response message by a card acceptor or an agent.")]
     AcceptorResponseReject,
     
 }

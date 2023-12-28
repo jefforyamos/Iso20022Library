@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DrawdownType2Code
 {
     /// <summary>
-    /// ??
+    /// Drawdown type is both flexi-access and capped.
     /// Encoded/decoded by serializers as "Both".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_i8LLEZNwEembCsVG-3f_AA")]
-    [Description(@"??")]
+    [Description(@"Drawdown type is both flexi-access and capped.")]
     Both,
     
     /// <summary>
-    /// ??
+    /// Drawdown type is capped.
     /// Encoded/decoded by serializers as "CappedIncomeDrawdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPP")]
     [IsoId("_jBOqMZNwEembCsVG-3f_AA")]
-    [Description(@"??")]
+    [Description(@"Drawdown type is capped.")]
     CappedIncomeDrawdown,
     
     /// <summary>
-    /// ??
+    /// Drawdown type is flexi-access.
     /// Encoded/decoded by serializers as "FlexibleAccessDrawdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLEX")]
     [IsoId("_jHLhMZNwEembCsVG-3f_AA")]
-    [Description(@"??")]
+    [Description(@"Drawdown type is flexi-access.")]
     FlexibleAccessDrawdown,
     
 }

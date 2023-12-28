@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NamePrefix1Code
 {
     /// <summary>
-    /// ??
+    /// Title of the person is Doctor or Dr.
     /// Encoded/decoded by serializers as "Doctor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCT")]
     [IsoId("_jXsywYc0EeeO5vQpPey46w")]
-    [Description(@"??")]
+    [Description(@"Title of the person is Doctor or Dr.")]
     Doctor,
     
     /// <summary>
-    /// ??
+    /// Title of the person is Mister or Mr.
     /// Encoded/decoded by serializers as "Mister".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIST")]
     [IsoId("_jp59EYc0EeeO5vQpPey46w")]
-    [Description(@"??")]
+    [Description(@"Title of the person is Mister or Mr.")]
     Mister,
     
     /// <summary>
-    /// ??
+    /// Title of the person is Miss.
     /// Encoded/decoded by serializers as "Miss".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISS")]
     [IsoId("_jkbAIYc0EeeO5vQpPey46w")]
-    [Description(@"??")]
+    [Description(@"Title of the person is Miss.")]
     Miss,
     
     /// <summary>
-    /// ??
+    /// Title of the person is Madam.
     /// Encoded/decoded by serializers as "Madam".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MADM")]
     [IsoId("_jehMcYc0EeeO5vQpPey46w")]
-    [Description(@"??")]
+    [Description(@"Title of the person is Madam.")]
     Madam,
     
 }

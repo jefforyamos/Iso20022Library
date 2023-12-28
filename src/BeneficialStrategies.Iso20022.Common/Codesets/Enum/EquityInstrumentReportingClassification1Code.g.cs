@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EquityInstrumentReportingClassification1Code
 {
     /// <summary>
-    /// ??
+    /// Contract is of type shares.
     /// Encoded/decoded by serializers as "Share".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHRS")]
     [IsoId("_DpNkQQjtEeW36pGcc5RpFw")]
-    [Description(@"??")]
+    [Description(@"Contract is of type shares.")]
     Share,
     
     /// <summary>
-    /// ??
+    /// Contract is of type other equity-like financial instrument.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_DxPe4QjtEeW36pGcc5RpFw")]
-    [Description(@"??")]
+    [Description(@"Contract is of type other equity-like financial instrument.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Contract is of type electronic traded funds.
     /// Encoded/decoded by serializers as "ElectronicTradedFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETFS")]
     [IsoId("_D4hyoQjtEeW36pGcc5RpFw")]
-    [Description(@"??")]
+    [Description(@"Contract is of type electronic traded funds.")]
     ElectronicTradedFund,
     
     /// <summary>
-    /// ??
+    /// Contract is of type depositary receipt.
     /// Encoded/decoded by serializers as "DepositaryReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRS")]
     [IsoId("_EFnzcQjtEeW36pGcc5RpFw")]
-    [Description(@"??")]
+    [Description(@"Contract is of type depositary receipt.")]
     DepositaryReceipt,
     
     /// <summary>
-    /// ??
+    /// Contract is of type certificates.
     /// Encoded/decoded by serializers as "Certificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRFT")]
     [IsoId("_EO2A4QjtEeW36pGcc5RpFw")]
-    [Description(@"??")]
+    [Description(@"Contract is of type certificates.")]
     Certificate,
     
 }

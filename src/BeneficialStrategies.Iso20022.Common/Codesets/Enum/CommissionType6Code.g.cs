@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CommissionType6Code
 {
     /// <summary>
-    /// ??
+    /// Commission for subscribing to an investment, paid at the time of the subscription.
     /// Encoded/decoded by serializers as "FrontEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEND")]
     [IsoId("_a_9rhNp-Ed-ak6NoX_4Aeg_2072219495")]
-    [Description(@"??")]
+    [Description(@"Commission for subscribing to an investment, paid at the time of the subscription.")]
     FrontEndLoad,
     
     /// <summary>
-    /// ??
+    /// Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.
     /// Encoded/decoded by serializers as "BackEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEND")]
     [IsoId("_a_9rhdp-Ed-ak6NoX_4Aeg_2072219512")]
-    [Description(@"??")]
+    [Description(@"Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.")]
     BackEndLoad,
     
     /// <summary>
-    /// ??
+    /// Amount of cash due to an intermediary for selling a product, or services, to a third party.
     /// Encoded/decoded by serializers as "CommissionDePlacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDPL")]
     [IsoId("_a_9rhtp-Ed-ak6NoX_4Aeg_22575918")]
-    [Description(@"??")]
+    [Description(@"Amount of cash due to an intermediary for selling a product, or services, to a third party.")]
     CommissionDePlacement,
     
 }

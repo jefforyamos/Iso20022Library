@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DayType1Code
 {
     /// <summary>
-    /// ??
+    /// Elapsed calendar days.
     /// Encoded/decoded by serializers as "ElapsedCalendarDays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTU")]
     [IsoId("_ay2ck9p-Ed-ak6NoX_4Aeg_1678509570")]
-    [Description(@"??")]
+    [Description(@"Elapsed calendar days.")]
     ElapsedCalendarDays,
     
     /// <summary>
-    /// ??
+    /// Elapsed business days.
     /// Encoded/decoded by serializers as "ElapsedBusinessDays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSE")]
     [IsoId("_ay2clNp-Ed-ak6NoX_4Aeg_1678509571")]
-    [Description(@"??")]
+    [Description(@"Elapsed business days.")]
     ElapsedBusinessDays,
     
 }

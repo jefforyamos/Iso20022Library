@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterestRequestSequence1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates this is a new interest payment request.
     /// Encoded/decoded by serializers as "Initial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INIT")]
     [IsoId("_YbKMeNp-Ed-ak6NoX_4Aeg_-654514650")]
-    [Description(@"??")]
+    [Description(@"Indicates this is a new interest payment request.")]
     Initial,
     
     /// <summary>
-    /// ??
+    /// Indicates this is an updated interest payement request.
     /// Encoded/decoded by serializers as "Updated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDA")]
     [IsoId("_YbT9cNp-Ed-ak6NoX_4Aeg_-200427381")]
-    [Description(@"??")]
+    [Description(@"Indicates this is an updated interest payement request.")]
     Updated,
     
 }

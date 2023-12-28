@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionParty3Code
 {
     /// <summary>
-    /// ??
+    /// Indicates the receiver of the trade.
     /// Encoded/decoded by serializers as "Maker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAKE")]
     [IsoId("_g2qdMTzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"Indicates the receiver of the trade.")]
     Maker,
     
     /// <summary>
-    /// ??
+    /// Indicates the initiator of the trade.
     /// Encoded/decoded by serializers as "Taker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAKE")]
     [IsoId("_g9k9gTzzEeWLuazO9XdCTg")]
-    [Description(@"??")]
+    [Description(@"Indicates the initiator of the trade.")]
     Taker,
     
 }

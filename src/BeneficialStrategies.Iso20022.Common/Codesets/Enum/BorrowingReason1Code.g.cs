@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BorrowingReason1Code
 {
     /// <summary>
-    /// ??
+    /// The borrowing reason is for Self consumption.
     /// Encoded/decoded by serializers as "SelfConsumption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFCT")]
     [IsoId("__0dT0NojEeC60axPepSq7g_-351803488")]
-    [Description(@"??")]
+    [Description(@"The borrowing reason is for Self consumption.")]
     SelfConsumption,
     
     /// <summary>
-    /// ??
+    /// The borrowing reason is for Transfer to thrid party.
     /// Encoded/decoded by serializers as "TransferToThirdParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTTP")]
     [IsoId("__0dT0dojEeC60axPepSq7g_1231215891")]
-    [Description(@"??")]
+    [Description(@"The borrowing reason is for Transfer to thrid party.")]
     TransferToThirdParty,
     
     /// <summary>
-    /// ??
+    /// The borrowing reason is for Market making purpose.
     /// Encoded/decoded by serializers as "MarketMakingPurpose".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMPP")]
     [IsoId("__0dT0tojEeC60axPepSq7g_-1596602642")]
-    [Description(@"??")]
+    [Description(@"The borrowing reason is for Market making purpose.")]
     MarketMakingPurpose,
     
 }

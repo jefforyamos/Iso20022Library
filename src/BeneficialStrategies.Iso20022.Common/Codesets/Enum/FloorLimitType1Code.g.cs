@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FloorLimitType1Code
 {
     /// <summary>
-    /// ??
+    /// Floor limit applies to credit entries.
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRED")]
     [IsoId("_aqzT09p-Ed-ak6NoX_4Aeg_-430226238")]
-    [Description(@"??")]
+    [Description(@"Floor limit applies to credit entries.")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Floor limit applies to debit entries.
     /// Encoded/decoded by serializers as "Debit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBT")]
     [IsoId("_aqzT1Np-Ed-ak6NoX_4Aeg_-371121394")]
-    [Description(@"??")]
+    [Description(@"Floor limit applies to debit entries.")]
     Debit,
     
     /// <summary>
-    /// ??
+    /// Floor limit applies to both credit and debit entries.
     /// Encoded/decoded by serializers as "Both".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_aqzT1dp-Ed-ak6NoX_4Aeg_-344337748")]
-    [Description(@"??")]
+    [Description(@"Floor limit applies to both credit and debit entries.")]
     Both,
     
 }

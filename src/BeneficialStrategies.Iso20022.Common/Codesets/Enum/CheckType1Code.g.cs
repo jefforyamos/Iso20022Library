@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CheckType1Code
 {
     /// <summary>
-    /// ??
+    /// The check is guaranteed by a bank.
     /// Encoded/decoded by serializers as "BankCheck".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BANK")]
     [IsoId("_ipUJEdtbEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"The check is guaranteed by a bank.")]
     BankCheck,
     
     /// <summary>
-    /// ??
+    /// The check belongs to a Company or a professional entity.
     /// Encoded/decoded by serializers as "BusinessCheck".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSI")]
     [IsoId("_itISEdtbEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"The check belongs to a Company or a professional entity.")]
     BusinessCheck,
     
     /// <summary>
-    /// ??
+    /// Check issued by Government.
     /// Encoded/decoded by serializers as "GovernmentCheck".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOVC")]
     [IsoId("_ixdYcdtbEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Check issued by Government.")]
     GovernmentCheck,
     
     /// <summary>
-    /// ??
+    /// Check issued by a company for the employees.
     /// Encoded/decoded by serializers as "PayrollCheck".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYR")]
     [IsoId("_i2vhEdtbEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"Check issued by a company for the employees.")]
     PayrollCheck,
     
     /// <summary>
-    /// ??
+    /// The check belongs to an individual.
     /// Encoded/decoded by serializers as "PersonalCheck".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PERS")]
     [IsoId("_i6bHMdtbEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"The check belongs to an individual.")]
     PersonalCheck,
     
 }

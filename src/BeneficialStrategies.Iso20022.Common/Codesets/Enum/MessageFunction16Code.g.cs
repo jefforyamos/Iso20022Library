@@ -21,48 +21,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction16Code
 {
     /// <summary>
-    /// ??
+    /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
     /// Encoded/decoded by serializers as "Advice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVC")]
     [IsoId("_4blWEemrEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
     Advice,
     
     /// <summary>
-    /// ??
+    /// Information about the transaction.
     /// Encoded/decoded by serializers as "Notification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTI")]
     [IsoId("_68aUEemrEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Information about the transaction.")]
     Notification,
     
     /// <summary>
-    /// ??
+    /// Advice about the capture of an activity already performed (response expected).
     /// Encoded/decoded by serializers as "CaptureAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAAD")]
     [IsoId("_86kp4emrEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Advice about the capture of an activity already performed (response expected).")]
     CaptureAdvice,
     
     /// <summary>
-    /// ??
+    /// Notification about the capture of an activity already performed (no response expected).
     /// Encoded/decoded by serializers as "CaptureNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANO")]
     [IsoId("_9CAuoemrEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Notification about the capture of an activity already performed (no response expected).")]
     CaptureNotification,
     
     /// <summary>
-    /// ??
+    /// Message function is a request.
     /// Encoded/decoded by serializers as "Request".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_90vMEemrEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Message function is a request.")]
     Request,
     
 }

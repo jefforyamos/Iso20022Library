@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType48Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type non deliverable.
     /// Encoded/decoded by serializers as "NonDeliverable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDLV")]
     [IsoId("_oS0CcfwhEeW4Wthd0Ze_kA")]
-    [Description(@"??")]
+    [Description(@"Commodity of type non deliverable.")]
     NonDeliverable,
     
 }

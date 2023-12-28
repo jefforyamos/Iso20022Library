@@ -20,138 +20,138 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionType9Code
 {
     /// <summary>
-    /// ??
+    /// Server busy, try later.
     /// Encoded/decoded by serializers as "Busy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSY")]
     [IsoId("_5CnNwQvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Server busy, try later.")]
     Busy,
     
     /// <summary>
-    /// ??
+    /// Capture the card.
     /// Encoded/decoded by serializers as "CaptureCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTR")]
     [IsoId("_5CnNwwvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Capture the card.")]
     CaptureCard,
     
     /// <summary>
-    /// ??
+    /// Message to display, print or log.
     /// Encoded/decoded by serializers as "DisplayMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_5CnNxQvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Message to display, print or log.")]
     DisplayMessage,
     
     /// <summary>
-    /// ??
+    /// Payment application cannot propose to the merchant an override of the payment transaction.
     /// Encoded/decoded by serializers as "ForbidOverride".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOVR")]
     [IsoId("_5CnNxwvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Payment application cannot propose to the merchant an override of the payment transaction.")]
     ForbidOverride,
     
     /// <summary>
-    /// ??
+    /// Additional identification required (passport, ID card, etc.).
     /// Encoded/decoded by serializers as "IdentificationRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQID")]
     [IsoId("_5CnNyQvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Additional identification required (passport, ID card, etc.).")]
     IdentificationRequired,
     
     /// <summary>
-    /// ??
+    /// Last PIN (Personal Identification Number) try.
     /// Encoded/decoded by serializers as "PINLastTry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINL")]
     [IsoId("_5CnNywvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Last PIN (Personal Identification Number) try.")]
     PINLastTry,
     
     /// <summary>
-    /// ??
+    /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
     /// Encoded/decoded by serializers as "PINRetry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINR")]
     [IsoId("_5CnNzQvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"PIN (Personal Identification Number) is wrong, retry a PIN verification.")]
     PINRetry,
     
     /// <summary>
-    /// ??
+    /// Print a message.
     /// Encoded/decoded by serializers as "PrintMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRNT")]
     [IsoId("_5CnNzwvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Print a message.")]
     PrintMessage,
     
     /// <summary>
-    /// ??
+    /// Referral has to be performed.
     /// Encoded/decoded by serializers as "Referral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFRL")]
     [IsoId("_5CnN0QvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Referral has to be performed.")]
     Referral,
     
     /// <summary>
-    /// ??
+    /// Request additional data through a displayed text and request confirmation by an attendant.
     /// Encoded/decoded by serializers as "RequestData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQDT")]
     [IsoId("_5CnN0wvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Request additional data through a displayed text and request confirmation by an attendant.")]
     RequestData,
     
     /// <summary>
-    /// ??
+    /// Ask the cardholder to accept the currency conversion.
     /// Encoded/decoded by serializers as "AcceptCurrencyConversion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCQ")]
     [IsoId("_5CnN1QvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Ask the cardholder to accept the currency conversion.")]
     AcceptCurrencyConversion,
     
     /// <summary>
-    /// ??
+    /// Fall-forward from contactless to chip card transaction required.
     /// Encoded/decoded by serializers as "FallForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLFW")]
     [IsoId("_5CnN1wvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Fall-forward from contactless to chip card transaction required.")]
     FallForward,
     
     /// <summary>
-    /// ??
+    /// Request Cardholder Authentification through PIN insertion.
     /// Encoded/decoded by serializers as "PINRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINQ")]
     [IsoId("_-6m74QvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Request Cardholder Authentification through PIN insertion.")]
     PINRequest,
     
     /// <summary>
-    /// ??
+    /// Request Cardholder Authentification according to the ConsumerDeviceCardholderVerificationMethod.
     /// Encoded/decoded by serializers as "ConsumerDeviceCardholderVerificationMethod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCV")]
     [IsoId("__4KwUQvBEeqgUfvUJi0f5w")]
-    [Description(@"??")]
+    [Description(@"Request Cardholder Authentification according to the ConsumerDeviceCardholderVerificationMethod.")]
     ConsumerDeviceCardholderVerificationMethod,
     
     /// <summary>
-    /// ??
+    /// Additional authentication of cardholder required.
     /// Encoded/decoded by serializers as "CardholderAuthentication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHDA")]
     [IsoId("_tSmGYRHiEeqHXfNbCUQ1KA")]
-    [Description(@"??")]
+    [Description(@"Additional authentication of cardholder required.")]
     CardholderAuthentication,
     
 }

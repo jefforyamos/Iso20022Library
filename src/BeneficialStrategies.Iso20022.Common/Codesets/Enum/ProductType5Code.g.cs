@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProductType5Code
 {
     /// <summary>
-    /// ??
+    /// Identifies categories of instruments related to Emission Allowance.
     /// Encoded/decoded by serializers as "EmissionAllowance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_Ty9kEWlDEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of instruments related to Emission Allowance.")]
     EmissionAllowance,
     
     /// <summary>
-    /// ??
+    /// Identifies categories of instruments that are interest rates based.
     /// Encoded/decoded by serializers as "InterestRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_VAB0IWlDEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of instruments that are interest rates based.")]
     InterestRate,
     
     /// <summary>
-    /// ??
+    /// Identifies the nature or type of an equity.
     /// Encoded/decoded by serializers as "Equity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUI")]
     [IsoId("_VdArEWlDEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Identifies the nature or type of an equity.")]
     Equity,
     
     /// <summary>
-    /// ??
+    /// Identifies categories of instruments that are commodities.
     /// Encoded/decoded by serializers as "Commodity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_VzUSQWlDEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of instruments that are commodities.")]
     Commodity,
     
     /// <summary>
-    /// ??
+    /// Identifies categories of instruments that are credits.
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_WGPOQWlDEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of instruments that are credits.")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Identifies categories of currency instruments.
     /// Encoded/decoded by serializers as "Currency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_WZ5KEWlDEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Identifies categories of currency instruments.")]
     Currency,
     
 }

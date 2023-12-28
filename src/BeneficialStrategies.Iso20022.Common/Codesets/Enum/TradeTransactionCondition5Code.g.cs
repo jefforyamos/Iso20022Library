@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeTransactionCondition5Code
 {
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed ex coupon.
     /// Encoded/decoded by serializers as "ExCoupon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XCPN")]
     [IsoId("_iNUDEV-mEeavlvCtut5bgg")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed ex coupon.")]
     ExCoupon,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed cum coupon.
     /// Encoded/decoded by serializers as "CumCoupon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPN")]
     [IsoId("_iYxsMV-mEeavlvCtut5bgg")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed cum coupon.")]
     CumCoupon,
     
 }

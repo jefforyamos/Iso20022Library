@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CarRentalActivity1Code
 {
     /// <summary>
-    /// ??
+    /// Company specialised in car sharing activities.
     /// Encoded/decoded by serializers as "CarSharing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARS")]
     [IsoId("_rkPHUVyrEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Company specialised in car sharing activities.")]
     CarSharing,
     
     /// <summary>
-    /// ??
+    /// Global car rental activities.
     /// Encoded/decoded by serializers as "Global".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GLBL")]
     [IsoId("_rxoDEVyrEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Global car rental activities.")]
     Global,
     
     /// <summary>
-    /// ??
+    /// Individual renting a car.
     /// Encoded/decoded by serializers as "Individual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDV")]
     [IsoId("_r-kS4lyrEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Individual renting a car.")]
     Individual,
     
     /// <summary>
-    /// ??
+    /// Peer to peer car rental activities.
     /// Encoded/decoded by serializers as "PeerToPeer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PETP")]
     [IsoId("_sQko4lyrEeeve7Je9cXtkQ")]
-    [Description(@"??")]
+    [Description(@"Peer to peer car rental activities.")]
     PeerToPeer,
     
     /// <summary>
-    /// ??
+    /// Other Private
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_6MeY4fSrEeife6veM7daYw")]
-    [Description(@"??")]
+    [Description(@"Other Private")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other National
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_6RrpAfSrEeife6veM7daYw")]
-    [Description(@"??")]
+    [Description(@"Other National")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of car rental activity.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_6TUAsfSrEeife6veM7daYw")]
-    [Description(@"??")]
+    [Description(@"Other type of car rental activity.")]
     Other,
     
 }

@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxRecord1Code
 {
     /// <summary>
-    /// ??
+    /// Tax record is related to the withholding tax.
     /// Encoded/decoded by serializers as "WithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHTX")]
     [IsoId("_YiBCaNp-Ed-ak6NoX_4Aeg_278106712")]
-    [Description(@"??")]
+    [Description(@"Tax record is related to the withholding tax.")]
     WithholdingTax,
     
     /// <summary>
-    /// ??
+    /// Tax record is related to the value added tax.
     /// Encoded/decoded by serializers as "ValueAddedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATX")]
     [IsoId("_YiKMUNp-Ed-ak6NoX_4Aeg_278106740")]
-    [Description(@"??")]
+    [Description(@"Tax record is related to the value added tax.")]
     ValueAddedTax,
     
     /// <summary>
-    /// ??
+    /// Tax record is related to the income payment details.
     /// Encoded/decoded by serializers as "IncomePaymentDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCP")]
     [IsoId("_YiKMUdp-Ed-ak6NoX_4Aeg_278106771")]
-    [Description(@"??")]
+    [Description(@"Tax record is related to the income payment details.")]
     IncomePaymentDetails,
     
     /// <summary>
-    /// ??
+    /// Tax record is related to the total amount for income payments.
     /// Encoded/decoded by serializers as "TotalAmountForIncomePayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TLAI")]
     [IsoId("_YiKMUtp-Ed-ak6NoX_4Aeg_278106772")]
-    [Description(@"??")]
+    [Description(@"Tax record is related to the total amount for income payments.")]
     TotalAmountForIncomePayments,
     
     /// <summary>
-    /// ??
+    /// Tax record is related to the money payments details.
     /// Encoded/decoded by serializers as "MoneyPaymentDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONP")]
     [IsoId("_YiKMU9p-Ed-ak6NoX_4Aeg_278106802")]
-    [Description(@"??")]
+    [Description(@"Tax record is related to the money payments details.")]
     MoneyPaymentDetails,
     
     /// <summary>
-    /// ??
+    /// Tax record is related to the total amount for money payments.
     /// Encoded/decoded by serializers as "TotalAmountForMoneyPayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TLAM")]
     [IsoId("_YiKMVNp-Ed-ak6NoX_4Aeg_278107073")]
-    [Description(@"??")]
+    [Description(@"Tax record is related to the total amount for money payments.")]
     TotalAmountForMoneyPayments,
     
     /// <summary>
-    /// ??
+    /// Other tax record type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_YiKMVdp-Ed-ak6NoX_4Aeg_278107081")]
-    [Description(@"??")]
+    [Description(@"Other tax record type.")]
     Other,
     
 }

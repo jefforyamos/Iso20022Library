@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PhysicalTransferType4Code
 {
     /// <summary>
-    /// ??
+    /// Physical transfer.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_tMiAQYBAEeall68-KLgmUw")]
-    [Description(@"??")]
+    [Description(@"Physical transfer.")]
     Physical,
     
     /// <summary>
-    /// ??
+    /// Determined by a third party or optional for counterparty.
     /// Encoded/decoded by serializers as "Optional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTL")]
     [IsoId("_tbaJwYBAEeall68-KLgmUw")]
-    [Description(@"??")]
+    [Description(@"Determined by a third party or optional for counterparty.")]
     Optional,
     
     /// <summary>
-    /// ??
+    /// Cash transfer.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_tmRV8YBAEeall68-KLgmUw")]
-    [Description(@"??")]
+    [Description(@"Cash transfer.")]
     Cash,
     
 }

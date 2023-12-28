@@ -21,129 +21,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardDataReading10Code
 {
     /// <summary>
-    /// ??
+    /// ICC contactless proximity
     /// Encoded/decoded by serializers as "ICCProximity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICPY")]
     [IsoId("_9koew8SmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"ICC contactless proximity")]
     ICCProximity,
     
     /// <summary>
-    /// ??
+    /// Magnetic stripe.
     /// Encoded/decoded by serializers as "MagneticStripe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGST")]
     [IsoId("_9koexcSmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Magnetic stripe.")]
     MagneticStripe,
     
     /// <summary>
-    /// ??
+    /// ICC contact capability
     /// Encoded/decoded by serializers as "ICCContact".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCY")]
     [IsoId("_9koex8SmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"ICC contact capability")]
     ICCContact,
     
     /// <summary>
-    /// ??
+    /// Recognition of magnetic ink characters
     /// Encoded/decoded by serializers as "MagneticInkCharacterRecognition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MICR")]
     [IsoId("_9koeycSmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Recognition of magnetic ink characters")]
     MagneticInkCharacterRecognition,
     
     /// <summary>
-    /// ??
+    /// Manual, no terminal used.
     /// Encoded/decoded by serializers as "ManualEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLEY")]
     [IsoId("_9koey8SmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Manual, no terminal used.")]
     ManualEntry,
     
     /// <summary>
-    /// ??
+    /// OCR either at time of transaction or after the event.
     /// Encoded/decoded by serializers as "OpticalCharacterRecognition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCRR")]
     [IsoId("_9koezcSmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"OCR either at time of transaction or after the event.")]
     OpticalCharacterRecognition,
     
     /// <summary>
-    /// ??
+    /// Magstripe image contactless proximity
     /// Encoded/decoded by serializers as "MSIProximity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSIP")]
     [IsoId("_9koez8SmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Magstripe image contactless proximity")]
     MSIProximity,
     
     /// <summary>
-    /// ??
+    /// Optical coded reading capabilities (e.g. barcode, QR code, etc.)
     /// Encoded/decoded by serializers as "OpticalCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTC")]
     [IsoId("_9koe0cSmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Optical coded reading capabilities (e.g. barcode, QR code, etc.)")]
     OpticalCode,
     
     /// <summary>
-    /// ??
+    /// Other national capability type assigned at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_9koe08SmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Other national capability type assigned at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Radio Frequency Identification tag capabilities.
     /// Encoded/decoded by serializers as "RFIDTag".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFID")]
     [IsoId("_9koe1cSmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Radio Frequency Identification tag capabilities.")]
     RFIDTag,
     
     /// <summary>
-    /// ??
+    /// Unspecified capability.
     /// Encoded/decoded by serializers as "Unspecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_9koe18SmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Unspecified capability.")]
     Unspecified,
     
     /// <summary>
-    /// ??
+    /// Other card reading capability assigned on a private basis.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_9koe2cSmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Other card reading capability assigned on a private basis.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Key entered.
     /// Encoded/decoded by serializers as "KeyEntered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEEN")]
     [IsoId("_9koe28SmEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Key entered.")]
     KeyEntered,
     
     /// <summary>
-    /// ??
+    /// Account data on file.
     /// Encoded/decoded by serializers as "AccountData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLE")]
     [IsoId("_LZTvkcSnEeuBjv5G5kw00g")]
-    [Description(@"??")]
+    [Description(@"Account data on file.")]
     AccountData,
     
 }

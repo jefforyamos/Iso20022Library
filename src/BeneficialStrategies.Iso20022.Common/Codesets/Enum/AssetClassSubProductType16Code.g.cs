@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType16Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type precious metals.
     /// Encoded/decoded by serializers as "Precious".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRME")]
     [IsoId("_oLnOsQn0EeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type precious metals.")]
     Precious,
     
 }

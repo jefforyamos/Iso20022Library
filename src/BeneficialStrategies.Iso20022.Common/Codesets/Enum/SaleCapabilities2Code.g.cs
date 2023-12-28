@@ -21,21 +21,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SaleCapabilities2Code
 {
     /// <summary>
-    /// ??
+    /// Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element). The output device attached to this input device is the CashierDisplay device.
     /// Encoded/decoded by serializers as "CashierInput".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHIN")]
     [IsoId("_AwtYYd6nEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element). The output device attached to this input device is the CashierDisplay device.")]
     CashierInput,
     
     /// <summary>
-    /// ??
+    /// Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element).
     /// Encoded/decoded by serializers as "CustomerInput".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUIN")]
     [IsoId("_BTpGUd6nEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element).")]
     CustomerInput,
     
 }

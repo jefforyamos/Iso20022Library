@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EUDividendStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Dividend is in the scope of the directive.
     /// Encoded/decoded by serializers as "DividendInScope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_aiKVNdp-Ed-ak6NoX_4Aeg_1079111436")]
-    [Description(@"??")]
+    [Description(@"Dividend is in the scope of the directive.")]
     DividendInScope,
     
     /// <summary>
-    /// ??
+    /// Dividend is out of the scope of the directive.
     /// Encoded/decoded by serializers as "DividendOutScope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVO")]
     [IsoId("_aiKVNtp-Ed-ak6NoX_4Aeg_1080036251")]
-    [Description(@"??")]
+    [Description(@"Dividend is out of the scope of the directive.")]
     DividendOutScope,
     
     /// <summary>
-    /// ??
+    /// Unknown whether the dividend is in or out of the scope of the directive.
     /// Encoded/decoded by serializers as "DividendUnknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_aiKVN9p-Ed-ak6NoX_4Aeg_1080960307")]
-    [Description(@"??")]
+    [Description(@"Unknown whether the dividend is in or out of the scope of the directive.")]
     DividendUnknown,
     
 }

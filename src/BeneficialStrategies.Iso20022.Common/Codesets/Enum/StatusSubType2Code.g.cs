@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatusSubType2Code
 {
     /// <summary>
-    /// ??
+    /// Same day flag has been set to true for the sub status of the trade notification.
     /// Encoded/decoded by serializers as "OnlySameDayFlagTrue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMDY")]
     [IsoId("_EmxXpZU-EeaYkf5FCqYMeA")]
-    [Description(@"??")]
+    [Description(@"Same day flag has been set to true for the sub status of the trade notification.")]
     OnlySameDayFlagTrue,
     
 }

@@ -20,156 +20,156 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfPrice30Code
 {
     /// <summary>
-    /// ??
+    /// Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.
     /// Encoded/decoded by serializers as "Bid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIDE")]
     [IsoId("_m88a4vNBEeCuA5Tr22BnwA_1291473582")]
-    [Description(@"??")]
+    [Description(@"Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.")]
     Bid,
     
     /// <summary>
-    /// ??
+    /// Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.
     /// Encoded/decoded by serializers as "Offer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFR")]
     [IsoId("_m88a4_NBEeCuA5Tr22BnwA_-1066268541")]
-    [Description(@"??")]
+    [Description(@"Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.")]
     Offer,
     
     /// <summary>
-    /// ??
+    /// Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.
     /// Encoded/decoded by serializers as "NetAssetValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAVL")]
     [IsoId("_m88a5PNBEeCuA5Tr22BnwA_1877420608")]
-    [Description(@"??")]
+    [Description(@"Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.")]
     NetAssetValue,
     
     /// <summary>
-    /// ??
+    /// Price is the calculated creation price of a dual-priced investment fund (creation-cancellation prices) and the highest possible buying price of the units before the initial charge. The actual buying or offer price, which includes charges, will be higher.
     /// Encoded/decoded by serializers as "Creation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CREA")]
     [IsoId("_m88a5fNBEeCuA5Tr22BnwA_498737665")]
-    [Description(@"??")]
+    [Description(@"Price is the calculated creation price of a dual-priced investment fund (creation-cancellation prices) and the highest possible buying price of the units before the initial charge. The actual buying or offer price, which includes charges, will be higher.")]
     Creation,
     
     /// <summary>
-    /// ??
+    /// Price is the calculated cancellation price of a dual-priced investment fund (creation-cancellation price), and the lowest possible valuation of the units on any one-day. The actual selling or bid price is usually higher.
     /// Encoded/decoded by serializers as "Cancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_m9GL4PNBEeCuA5Tr22BnwA_-1859004458")]
-    [Description(@"??")]
+    [Description(@"Price is the calculated cancellation price of a dual-priced investment fund (creation-cancellation price), and the lowest possible valuation of the units on any one-day. The actual selling or bid price is usually higher.")]
     Cancellation,
     
     /// <summary>
-    /// ??
+    /// Price is the non-official interim price given to an investor before the executed price.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_m9GL4fNBEeCuA5Tr22BnwA_1259502818")]
-    [Description(@"??")]
+    [Description(@"Price is the non-official interim price given to an investor before the executed price.")]
     Interim,
     
     /// <summary>
-    /// ??
+    /// Price is the calculated net asset value price of a single-priced investment fund. The price is adjusted to take into account the dealing costs due to individual large deals, or due to a significant imbalance in volumes of subscriptions vs redemptions, as an alternative to dilution levy.
     /// Encoded/decoded by serializers as "Swing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWNG")]
     [IsoId("_m9GL4vNBEeCuA5Tr22BnwA_1248404041")]
-    [Description(@"??")]
+    [Description(@"Price is the calculated net asset value price of a single-priced investment fund. The price is adjusted to take into account the dealing costs due to individual large deals, or due to a significant imbalance in volumes of subscriptions vs redemptions, as an alternative to dilution levy.")]
     Swing,
     
     /// <summary>
-    /// ??
+    /// Price is the average price between the bid and offer prices.
     /// Encoded/decoded by serializers as "Mid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIDD")]
     [IsoId("_m9GL4_NBEeCuA5Tr22BnwA_1186771133")]
-    [Description(@"??")]
+    [Description(@"Price is the average price between the bid and offer prices.")]
     Mid,
     
     /// <summary>
-    /// ??
+    /// Price is the price used when reinvesting units after distribution.
     /// Encoded/decoded by serializers as "Reinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RINV")]
     [IsoId("_m9GL5PNBEeCuA5Tr22BnwA_-761552817")]
-    [Description(@"??")]
+    [Description(@"Price is the price used when reinvesting units after distribution.")]
     Reinvestment,
     
     /// <summary>
-    /// ??
+    /// Price is the price used when transferring units between products.
     /// Encoded/decoded by serializers as "Switch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIC")]
     [IsoId("_m9GL5fNBEeCuA5Tr22BnwA_652683805")]
-    [Description(@"??")]
+    [Description(@"Price is the price used when transferring units between products.")]
     Switch,
     
     /// <summary>
-    /// ??
+    /// Price is the net income of a financial instrument, calculated on each dealing day, and divided by all the units outstanding on that day.
     /// Encoded/decoded by serializers as "DailyDividendRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDVR")]
     [IsoId("_m9GL5vNBEeCuA5Tr22BnwA_-1705058318")]
-    [Description(@"??")]
+    [Description(@"Price is the net income of a financial instrument, calculated on each dealing day, and divided by all the units outstanding on that day.")]
     DailyDividendRate,
     
     /// <summary>
-    /// ??
+    /// True offer price.
     /// Encoded/decoded by serializers as "Actual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTU")]
     [IsoId("_m9P84PNBEeCuA5Tr22BnwA_-810327413")]
-    [Description(@"??")]
+    [Description(@"True offer price.")]
     Actual,
     
     /// <summary>
-    /// ??
+    /// The original NAV before the price of the investment fund was swung.
     /// Encoded/decoded by serializers as "NonAdjustedUnpublished".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAUP")]
     [IsoId("_m9P84fNBEeCuA5Tr22BnwA_912382864")]
-    [Description(@"??")]
+    [Description(@"The original NAV before the price of the investment fund was swung.")]
     NonAdjustedUnpublished,
     
     /// <summary>
-    /// ??
+    /// Price is a guaranteed price.
     /// Encoded/decoded by serializers as "Guaranteed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GUAR")]
     [IsoId("_m9P84vNBEeCuA5Tr22BnwA_1990403202")]
-    [Description(@"??")]
+    [Description(@"Price is a guaranteed price.")]
     Guaranteed,
     
     /// <summary>
-    /// ??
+    /// Price is an estimated net asset value per unit.
     /// Encoded/decoded by serializers as "EstimatedNAV".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENAV")]
     [IsoId("_m9P84_NBEeCuA5Tr22BnwA_-473640925")]
-    [Description(@"??")]
+    [Description(@"Price is an estimated net asset value per unit.")]
     EstimatedNAV,
     
     /// <summary>
-    /// ??
+    /// Net Asset Value (NAV) applicable to redemptions.
     /// Encoded/decoded by serializers as "RedemptionNAV".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDN")]
     [IsoId("_m9P85PNBEeCuA5Tr22BnwA_-122528641")]
-    [Description(@"??")]
+    [Description(@"Net Asset Value (NAV) applicable to redemptions.")]
     RedemptionNAV,
     
     /// <summary>
-    /// ??
+    /// Net Asset Value (NAV) applicable to subscriptions.
     /// Encoded/decoded by serializers as "SubscriptionNAV".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBN")]
     [IsoId("_m9P85fNBEeCuA5Tr22BnwA_320459851")]
-    [Description(@"??")]
+    [Description(@"Net Asset Value (NAV) applicable to subscriptions.")]
     SubscriptionNAV,
     
 }

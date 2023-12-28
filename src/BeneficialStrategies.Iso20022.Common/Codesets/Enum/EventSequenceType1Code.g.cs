@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventSequenceType1Code
 {
     /// <summary>
-    /// ??
+    /// Final event in a series of successive events.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_OQhPYbXJEeiTob_PrFFUxA")]
-    [Description(@"??")]
+    [Description(@"Final event in a series of successive events.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// Interim event in a series of successive events.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_OWxBUbXJEeiTob_PrFFUxA")]
-    [Description(@"??")]
+    [Description(@"Interim event in a series of successive events.")]
     Interim,
     
 }

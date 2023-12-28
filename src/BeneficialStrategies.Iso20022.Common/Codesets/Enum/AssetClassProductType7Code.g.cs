@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType7Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type metal.
     /// Encoded/decoded by serializers as "Metal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "METL")]
     [IsoId("_n9PtcQnyEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type metal.")]
     Metal,
     
 }

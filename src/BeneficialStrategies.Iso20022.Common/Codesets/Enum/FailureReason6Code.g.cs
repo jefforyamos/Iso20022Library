@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FailureReason6Code
 {
     /// <summary>
-    /// ??
+    /// Key is compromised.
     /// Encoded/decoded by serializers as "Compromised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMPR")]
     [IsoId("_6MpPwYtDEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Key is compromised.")]
     Compromised,
     
     /// <summary>
-    /// ??
+    /// Key has expired.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPR")]
     [IsoId("_6XX5EYtDEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Key has expired.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// Key check value is incorrect.
     /// Encoded/decoded by serializers as "InvalidKCV".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KCVE")]
     [IsoId("_7HWkgYtDEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Key check value is incorrect.")]
     InvalidKCV,
     
     /// <summary>
-    /// ??
+    /// Error during the key download in the security device.
     /// Encoded/decoded by serializers as "KeyLoadError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KLOD")]
     [IsoId("_7N6fgYtDEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Error during the key download in the security device.")]
     KeyLoadError,
     
 }

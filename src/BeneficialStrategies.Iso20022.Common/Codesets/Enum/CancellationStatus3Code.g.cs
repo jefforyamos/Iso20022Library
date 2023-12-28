@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_a0MgZtp-Ed-ak6NoX_4Aeg_1830748469")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request is pending. It is not known at this time whether cancellation can be effected.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_a0MgZ9p-Ed-ak6NoX_4Aeg_1830748470")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request is pending. It is not known at this time whether cancellation can be effected.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been accepted and processed, the cancellation is complete.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_a0MgaNp-Ed-ak6NoX_4Aeg_1830748494")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been accepted and processed, the cancellation is complete.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been received by issuer or registrar.
     /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIS")]
     [IsoId("_a0Mgadp-Ed-ak6NoX_4Aeg_1830748512")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been received by issuer or registrar.")]
     ReceivedByIssuerOrRegistrar,
     
 }

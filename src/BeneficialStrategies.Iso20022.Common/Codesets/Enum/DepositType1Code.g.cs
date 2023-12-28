@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DepositType1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that it is a fixed term deposit.
     /// Encoded/decoded by serializers as "FixedTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FITE")]
     [IsoId("_YcWfQNp-Ed-ak6NoX_4Aeg_-2068684174")]
-    [Description(@"??")]
+    [Description(@"Specifies that it is a fixed term deposit.")]
     FixedTerm,
     
     /// <summary>
-    /// ??
+    /// Specifies that it is a call/notice deposit.
     /// Encoded/decoded by serializers as "Call".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALL")]
     [IsoId("_YcWfQdp-Ed-ak6NoX_4Aeg_1908506461")]
-    [Description(@"??")]
+    [Description(@"Specifies that it is a call/notice deposit.")]
     Call,
     
 }

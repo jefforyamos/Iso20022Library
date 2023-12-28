@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentScheduleType1Code
 {
     /// <summary>
-    /// ??
+    /// Payment schedule is defined as per contract.
     /// Encoded/decoded by serializers as "Contract".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTR")]
     [IsoId("_0Cn1gQqPEeWqX7rjSIiMuQ")]
-    [Description(@"??")]
+    [Description(@"Payment schedule is defined as per contract.")]
     Contract,
     
     /// <summary>
-    /// ??
+    /// Payment schedule is estimated.
     /// Encoded/decoded by serializers as "Estimated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTM")]
     [IsoId("_0H1FoQqPEeWqX7rjSIiMuQ")]
-    [Description(@"??")]
+    [Description(@"Payment schedule is estimated.")]
     Estimated,
     
 }

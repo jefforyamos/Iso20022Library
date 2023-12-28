@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LodgingActivity1Code
 {
     /// <summary>
-    /// ??
+    /// Apartment residence.
     /// Encoded/decoded by serializers as "Apartment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APTM")]
     [IsoId("_Dl0zwWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Apartment residence.")]
     Apartment,
     
     /// <summary>
-    /// ??
+    /// Bed and breakfast or related lodging.
     /// Encoded/decoded by serializers as "BedAndBreakfast".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEBR")]
     [IsoId("_DvdQ4WMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Bed and breakfast or related lodging.")]
     BedAndBreakfast,
     
     /// <summary>
-    /// ??
+    /// Cottage and related lodging.
     /// Encoded/decoded by serializers as "Cottage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COTT")]
     [IsoId("_D6_ygWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Cottage and related lodging.")]
     Cottage,
     
     /// <summary>
-    /// ??
+    /// Cruise line lodging.
     /// Encoded/decoded by serializers as "Cruise".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRUI")]
     [IsoId("_EH_FoWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Cruise line lodging.")]
     Cruise,
     
     /// <summary>
-    /// ??
+    /// An individual offering lodging facilities.
     /// Encoded/decoded by serializers as "Home".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOME")]
     [IsoId("_EP_yIWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"An individual offering lodging facilities.")]
     Home,
     
     /// <summary>
-    /// ??
+    /// Hostel or related lodging.
     /// Encoded/decoded by serializers as "Hostel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOST")]
     [IsoId("_EY9g4WMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Hostel or related lodging.")]
     Hostel,
     
     /// <summary>
-    /// ??
+    /// Hotel or related lodging.
     /// Encoded/decoded by serializers as "Hotel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOTL")]
     [IsoId("_Eh2XIWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Hotel or related lodging.")]
     Hotel,
     
     /// <summary>
-    /// ??
+    /// Lodge or related lodging.
     /// Encoded/decoded by serializers as "Lodge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LODG")]
     [IsoId("_EsVv4WMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Lodge or related lodging.")]
     Lodge,
     
     /// <summary>
-    /// ??
+    /// Motel or related lodging.
     /// Encoded/decoded by serializers as "Motel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOTL")]
     [IsoId("_E3f3AWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Motel or related lodging.")]
     Motel,
     
     /// <summary>
-    /// ??
+    /// Other type of lodging defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_FAXfIWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Other type of lodging defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of lodging defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_FJPHQWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Other type of lodging defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Resort or related lodging.
     /// Encoded/decoded by serializers as "Resort".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESO")]
     [IsoId("_FSGvYWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Resort or related lodging.")]
     Resort,
     
     /// <summary>
-    /// ??
+    /// Room and board or related lodging.
     /// Encoded/decoded by serializers as "RoomAndBoard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROAB")]
     [IsoId("_FdW9IWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Room and board or related lodging.")]
     RoomAndBoard,
     
     /// <summary>
-    /// ??
+    /// Tourist shelter and related lodging.
     /// Encoded/decoded by serializers as "TouristShelter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOSH")]
     [IsoId("_FrkYQWMdEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Tourist shelter and related lodging.")]
     TouristShelter,
     
 }

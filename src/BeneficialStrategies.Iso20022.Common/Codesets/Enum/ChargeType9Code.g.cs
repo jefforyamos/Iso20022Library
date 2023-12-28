@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType9Code
 {
     /// <summary>
-    /// ??
+    /// Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.
     /// Encoded/decoded by serializers as "ManagementFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANF")]
     [IsoId("_a9lF4Np-Ed-ak6NoX_4Aeg_-1114851871")]
-    [Description(@"??")]
+    [Description(@"Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.")]
     ManagementFee,
     
     /// <summary>
-    /// ??
+    /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
     /// Encoded/decoded by serializers as "BackEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEND")]
     [IsoId("_a9lF4dp-Ed-ak6NoX_4Aeg_-1114850509")]
-    [Description(@"??")]
+    [Description(@"Sales charge paid by the investor when redeeming an investment such as an investment fund.")]
     BackEndLoad,
     
     /// <summary>
-    /// ??
+    /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
     /// Encoded/decoded by serializers as "FrontEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEND")]
     [IsoId("_a9lF4tp-Ed-ak6NoX_4Aeg_-1073293657")]
-    [Description(@"??")]
+    [Description(@"Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.")]
     FrontEndLoad,
     
     /// <summary>
-    /// ??
+    /// Fee paid for advisory services rendered.
     /// Encoded/decoded by serializers as "AdvisoryFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVI")]
     [IsoId("_a9lF49p-Ed-ak6NoX_4Aeg_-1114850492")]
-    [Description(@"??")]
+    [Description(@"Fee paid for advisory services rendered.")]
     AdvisoryFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid to a custodian in respect of custodial services.
     /// Encoded/decoded by serializers as "CustodyFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_a9lF5Np-Ed-ak6NoX_4Aeg_-1114850474")]
-    [Description(@"??")]
+    [Description(@"Fee paid to a custodian in respect of custodial services.")]
     CustodyFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid in respect of publications made.
     /// Encoded/decoded by serializers as "PublicationFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUBL")]
     [IsoId("_a9lF5dp-Ed-ak6NoX_4Aeg_-1114850457")]
-    [Description(@"??")]
+    [Description(@"Fee paid in respect of publications made.")]
     PublicationFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid for accounting services rendered.
     /// Encoded/decoded by serializers as "AccountingFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_a9lF5tp-Ed-ak6NoX_4Aeg_-1114850166")]
-    [Description(@"??")]
+    [Description(@"Fee paid for accounting services rendered.")]
     AccountingFee,
     
     /// <summary>
-    /// ??
+    /// The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
     /// Encoded/decoded by serializers as "Equalisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUL")]
     [IsoId("_a9lF59p-Ed-ak6NoX_4Aeg_-1114850036")]
-    [Description(@"??")]
+    [Description(@"The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.")]
     Equalisation,
     
     /// <summary>
-    /// ??
+    /// Fee charged to the investor for early redemption of the fund.
     /// Encoded/decoded by serializers as "Penalty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENA")]
     [IsoId("_a9lF6Np-Ed-ak6NoX_4Aeg_-486651348")]
-    [Description(@"??")]
+    [Description(@"Fee charged to the investor for early redemption of the fund.")]
     Penalty,
     
 }

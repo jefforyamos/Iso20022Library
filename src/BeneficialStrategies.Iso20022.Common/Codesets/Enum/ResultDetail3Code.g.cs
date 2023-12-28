@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResultDetail3Code
 {
     /// <summary>
-    /// ??
+    /// The certificate is unknown.
     /// Encoded/decoded by serializers as "UnknownCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTU")]
     [IsoId("_dRl0sY4YEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"The certificate is unknown.")]
     UnknownCertificate,
     
     /// <summary>
-    /// ??
+    /// Requested service not supported.
     /// Encoded/decoded by serializers as "UnsupportedService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVSU")]
     [IsoId("_eBK3g44YEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"Requested service not supported.")]
     UnsupportedService,
     
 }

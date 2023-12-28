@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReversalReason1Code
 {
     /// <summary>
-    /// ??
+    /// Customer cancels the transaction.
     /// Encoded/decoded by serializers as "CustomerCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUSC")]
     [IsoId("_FHV08duHEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Customer cancels the transaction.")]
     CustomerCancellation,
     
     /// <summary>
-    /// ??
+    /// Reversal after a suspection of malfunction of the POI system.
     /// Encoded/decoded by serializers as "Malfuntion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MALF")]
     [IsoId("_FMy8sduHEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Reversal after a suspection of malfunction of the POI system.")]
     Malfuntion,
     
     /// <summary>
-    /// ??
+    /// Merchant or Cashier cancels the transaction.
     /// Encoded/decoded by serializers as "MerchantCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_FQaRYduHEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Merchant or Cashier cancels the transaction.")]
     MerchantCancellation,
     
     /// <summary>
-    /// ??
+    /// POI System unable to complete transaction.
     /// Encoded/decoded by serializers as "UnableToComplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNAB")]
     [IsoId("_FWSP4duHEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"POI System unable to complete transaction.")]
     UnableToComplete,
     
 }

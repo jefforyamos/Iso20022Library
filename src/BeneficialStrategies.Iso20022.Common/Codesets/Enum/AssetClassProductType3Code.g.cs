@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType3Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type environmental.
     /// Encoded/decoded by serializers as "Environmental".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENVR")]
     [IsoId("_hLbbYQnyEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type environmental.")]
     Environmental,
     
 }

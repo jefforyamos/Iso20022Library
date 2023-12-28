@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Reporting1Code
 {
     /// <summary>
-    /// ??
+    /// Trade details are to be reported to a stock exchange.
     /// Encoded/decoded by serializers as "StockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEX")]
     [IsoId("_ZTMAoNp-Ed-ak6NoX_4Aeg_-1707100866")]
-    [Description(@"??")]
+    [Description(@"Trade details are to be reported to a stock exchange.")]
     StockExchange,
     
     /// <summary>
-    /// ??
+    /// Trade details are to be reported to a regulatory organisation.
     /// Encoded/decoded by serializers as "RegulatoryOrganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGU")]
     [IsoId("_ZTMAodp-Ed-ak6NoX_4Aeg_-1707100823")]
-    [Description(@"??")]
+    [Description(@"Trade details are to be reported to a regulatory organisation.")]
     RegulatoryOrganisation,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashAccountType3Code
 {
     /// <summary>
-    /// ??
+    /// Account used for the payment of cash.
     /// Encoded/decoded by serializers as "CashPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_a3Bx-Np-Ed-ak6NoX_4Aeg_-729445965")]
-    [Description(@"??")]
+    [Description(@"Account used for the payment of cash.")]
     CashPayment,
     
     /// <summary>
-    /// ??
+    /// Account used for charges if different from the account for payment.
     /// Encoded/decoded by serializers as "Charges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_a3K74Np-Ed-ak6NoX_4Aeg_-728524735")]
-    [Description(@"??")]
+    [Description(@"Account used for charges if different from the account for payment.")]
     Charges,
     
     /// <summary>
-    /// ??
+    /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
     /// Encoded/decoded by serializers as "Settlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SACC")]
     [IsoId("_a3K74dp-Ed-ak6NoX_4Aeg_-728524020")]
-    [Description(@"??")]
+    [Description(@"Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.")]
     Settlement,
     
     /// <summary>
-    /// ??
+    /// Account used to post debits and credits when no specific account has been nominated.
     /// Encoded/decoded by serializers as "Current".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACC")]
     [IsoId("_a3K74tp-Ed-ak6NoX_4Aeg_-728523977")]
-    [Description(@"??")]
+    [Description(@"Account used to post debits and credits when no specific account has been nominated.")]
     Current,
     
     /// <summary>
-    /// ??
+    /// Account used for savings.
     /// Encoded/decoded by serializers as "Savings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVGS")]
     [IsoId("_a3K749p-Ed-ak6NoX_4Aeg_-728523942")]
-    [Description(@"??")]
+    [Description(@"Account used for savings.")]
     Savings,
     
 }

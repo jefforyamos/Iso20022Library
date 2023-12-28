@@ -20,174 +20,174 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PurchaseIdentifierType1Code
 {
     /// <summary>
-    /// ??
+    /// Contract Number
     /// Encoded/decoded by serializers as "ContractNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONU")]
     [IsoId("_gqOrsfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Contract Number")]
     ContractNumber,
     
     /// <summary>
-    /// ??
+    /// Customer Order
     /// Encoded/decoded by serializers as "CustomerOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUOR")]
     [IsoId("_gwj9MfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Customer Order")]
     CustomerOrder,
     
     /// <summary>
-    /// ??
+    /// Customer Purchase Order
     /// Encoded/decoded by serializers as "CustomerPurchaseOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUPO")]
     [IsoId("_g0ZUUfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Customer Purchase Order")]
     CustomerPurchaseOrder,
     
     /// <summary>
-    /// ??
+    /// Folio Number
     /// Encoded/decoded by serializers as "FolioNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FONU")]
     [IsoId("_g4ApAfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Folio Number")]
     FolioNumber,
     
     /// <summary>
-    /// ??
+    /// Invoice Number
     /// Encoded/decoded by serializers as "InvoiceNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INNU")]
     [IsoId("_g7xHofJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Invoice Number")]
     InvoiceNumber,
     
     /// <summary>
-    /// ??
+    /// Order Number
     /// Encoded/decoded by serializers as "OrderNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORNU")]
     [IsoId("_hAyKgfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Order Number")]
     OrderNumber,
     
     /// <summary>
-    /// ??
+    /// Other Purchase Identifier defined at a national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_hSflkfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Other Purchase Identifier defined at a national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other Purchase Identifier defined at a private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_hYff4fJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Other Purchase Identifier defined at a private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Payment Reference Number
     /// Encoded/decoded by serializers as "PaymentReferenceNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRNU")]
     [IsoId("_hb288fJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Payment Reference Number")]
     PaymentReferenceNumber,
     
     /// <summary>
-    /// ??
+    /// Purchase Identification
     /// Encoded/decoded by serializers as "PurchaseIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUID")]
     [IsoId("_hfKvofJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Purchase Identification")]
     PurchaseIdentification,
     
     /// <summary>
-    /// ??
+    /// Record Locator
     /// Encoded/decoded by serializers as "RecordLocator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RELO")]
     [IsoId("_hioTUfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Record Locator")]
     RecordLocator,
     
     /// <summary>
-    /// ??
+    /// Rental Agreement
     /// Encoded/decoded by serializers as "RentalAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REAG")]
     [IsoId("_hmAXcfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Rental Agreement")]
     RentalAgreement,
     
     /// <summary>
-    /// ??
+    /// Rental Number
     /// Encoded/decoded by serializers as "RentalNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RENU")]
     [IsoId("_hpS8AfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Rental Number")]
     RentalNumber,
     
     /// <summary>
-    /// ??
+    /// Reservation Number
     /// Encoded/decoded by serializers as "ReservationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSNU")]
     [IsoId("_hs1_QfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Reservation Number")]
     ReservationNumber,
     
     /// <summary>
-    /// ??
+    /// Supplier Order
     /// Encoded/decoded by serializers as "SupplierOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUOR")]
     [IsoId("_hxaWMfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Supplier Order")]
     SupplierOrder,
     
     /// <summary>
-    /// ??
+    /// Ticket Number 
     /// Encoded/decoded by serializers as "TicketNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TINU")]
     [IsoId("_h0zBYfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Ticket Number ")]
     TicketNumber,
     
     /// <summary>
-    /// ??
+    /// Tracking Number
     /// Encoded/decoded by serializers as "TrackingNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRNU")]
     [IsoId("_h4l8QfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Tracking Number")]
     TrackingNumber,
     
     /// <summary>
-    /// ??
+    /// Supplier Invoice
     /// Encoded/decoded by serializers as "SupplierInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUIN")]
     [IsoId("_iJh7QfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Supplier Invoice")]
     SupplierInvoice,
     
     /// <summary>
-    /// ??
+    /// Transaction Identification is a proprietary value provided by the card acceptor or acquirer to uniquely identify a given transaction. 
     /// Encoded/decoded by serializers as "TransactionIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TNID")]
     [IsoId("_iPBfQfJQEeiJn9rM2Znz2w")]
-    [Description(@"??")]
+    [Description(@"Transaction Identification is a proprietary value provided by the card acceptor or acquirer to uniquely identify a given transaction. ")]
     TransactionIdentification,
     
 }

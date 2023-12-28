@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepoCallRequestStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Repurchase agreement call request is acknowledged/accepted.
     /// Encoded/decoded by serializers as "AcknowledgedAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACK")]
     [IsoId("_ZS5Fttp-Ed-ak6NoX_4Aeg_-1000214541")]
-    [Description(@"??")]
+    [Description(@"Repurchase agreement call request is acknowledged/accepted.")]
     AcknowledgedAccepted,
     
     /// <summary>
-    /// ??
+    /// Repuchase agreement call request is denied.
     /// Encoded/decoded by serializers as "Denied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEND")]
     [IsoId("_ZS5Ft9p-Ed-ak6NoX_4Aeg_-1000214284")]
-    [Description(@"??")]
+    [Description(@"Repuchase agreement call request is denied.")]
     Denied,
     
 }

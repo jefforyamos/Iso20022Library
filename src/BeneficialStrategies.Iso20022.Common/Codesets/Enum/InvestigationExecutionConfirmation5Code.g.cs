@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestigationExecutionConfirmation5Code
 {
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation is successful.
     /// Encoded/decoded by serializers as "CancelledAsPerRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNCL")]
     [IsoId("_S-p1IR08EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation is successful.")]
     CancelledAsPerRequest,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation is pending.
     /// Encoded/decoded by serializers as "PendingCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDCR")]
     [IsoId("_Uebl0h08EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation is pending.")]
     PendingCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation has been rejected.
     /// Encoded/decoded by serializers as "RejectedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCR")]
     [IsoId("_VBa-Ih08EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation has been rejected.")]
     RejectedCancellationRequest,
     
 }

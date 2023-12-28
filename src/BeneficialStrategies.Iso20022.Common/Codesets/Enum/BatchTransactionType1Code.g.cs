@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BatchTransactionType1Code
 {
     /// <summary>
-    /// ??
+    /// Debit and credit transactions.
     /// Encoded/decoded by serializers as "DebitCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTCT")]
     [IsoId("_KUq-hH1DEeCF8NjrBemJWQ_-819708143")]
-    [Description(@"??")]
+    [Description(@"Debit and credit transactions.")]
     DebitCredit,
     
     /// <summary>
-    /// ??
+    /// Cancellation of a previous transaction.
     /// Encoded/decoded by serializers as "Cancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNCL")]
     [IsoId("_KUq-hX1DEeCF8NjrBemJWQ_-538462037")]
-    [Description(@"??")]
+    [Description(@"Cancellation of a previous transaction.")]
     Cancellation,
     
     /// <summary>
-    /// ??
+    /// Failed transactions.
     /// Encoded/decoded by serializers as "Failed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_KUq-hn1DEeCF8NjrBemJWQ_-111331682")]
-    [Description(@"??")]
+    [Description(@"Failed transactions.")]
     Failed,
     
     /// <summary>
-    /// ??
+    /// Declined transactions.
     /// Encoded/decoded by serializers as "Declined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCLN")]
     [IsoId("_KUq-h31DEeCF8NjrBemJWQ_1581782246")]
-    [Description(@"??")]
+    [Description(@"Declined transactions.")]
     Declined,
     
 }

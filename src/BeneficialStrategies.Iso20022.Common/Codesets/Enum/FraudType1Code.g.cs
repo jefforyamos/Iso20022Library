@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FraudType1Code
 {
     /// <summary>
-    /// ??
+    /// Fraudulent transaction due to the unauthorised use of a card account by a person with the intent to defraud the issuer of the card.
     /// Encoded/decoded by serializers as "AccountTakeover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTO")]
     [IsoId("_9_BkgXa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction due to the unauthorised use of a card account by a person with the intent to defraud the issuer of the card.")]
     AccountTakeover,
     
     /// <summary>
-    /// ??
+    /// Fraudulent transaction where the acquirer confirmed that the IIN (Issuer Identification Number) used was either never issued or is invalid.
     /// Encoded/decoded by serializers as "CounterfeitWithUnassignedIIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CWUI")]
     [IsoId("_-JcEwXa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction where the acquirer confirmed that the IIN (Issuer Identification Number) used was either never issued or is invalid.")]
     CounterfeitWithUnassignedIIN,
     
     /// <summary>
-    /// ??
+    /// Fraudulent transaction with a card that was not received by the cardholder.
     /// Encoded/decoded by serializers as "CardNotReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRNT")]
     [IsoId("_-mcw4Xa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction with a card that was not received by the cardholder.")]
     CardNotReceived,
     
     /// <summary>
-    /// ??
+    /// Fraudulent use of an account.
     /// Encoded/decoded by serializers as "FraudulentAccountUse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRAC")]
     [IsoId("_-_SusXa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent use of an account.")]
     FraudulentAccountUse,
     
     /// <summary>
-    /// ??
+    /// Fraudulent transaction on an account that the cardholder never applied for or the information on the application was falsified.
     /// Encoded/decoded by serializers as "FraudulentApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRAP")]
     [IsoId("__LpIoXa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction on an account that the cardholder never applied for or the information on the application was falsified.")]
     FraudulentApplication,
     
     /// <summary>
-    /// ??
+    /// Fraudulent transaction with an altered or duplicated card in a card-present environment where the cardholder did not knowingly participate or the account was not created.
     /// Encoded/decoded by serializers as "CounterfeitWithExistingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CWKA")]
     [IsoId("__Xi2oXa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction with an altered or duplicated card in a card-present environment where the cardholder did not knowingly participate or the account was not created.")]
     CounterfeitWithExistingAccount,
     
     /// <summary>
-    /// ??
+    /// Fraudulent transaction with a card that has been reported as lost
     /// Encoded/decoded by serializers as "LostCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDL")]
     [IsoId("__mIFMXa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction with a card that has been reported as lost")]
     LostCard,
     
     /// <summary>
-    /// ??
+    /// Fraudulent transaction that cannot be categorised as one of the standard fraud types.
     /// Encoded/decoded by serializers as "Miscellaneous".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISC")]
     [IsoId("__vgDoXa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction that cannot be categorised as one of the standard fraud types.")]
     Miscellaneous,
     
     /// <summary>
-    /// ??
+    /// Other type of fraud defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("__5K9AXa-Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Other type of fraud defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of fraud defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_AF9b0Xa_Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Other type of fraud defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Fraudulent transaction with a card that has been reported as stolen.
     /// Encoded/decoded by serializers as "StolenCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDS")]
     [IsoId("_AOvkYXa_Eeef9c2nwgY9Xw")]
-    [Description(@"??")]
+    [Description(@"Fraudulent transaction with a card that has been reported as stolen.")]
     StolenCard,
     
     /// <summary>
-    /// ??
+    /// Fraudulent use in a card-not-present environment of an account.
     /// Encoded/decoded by serializers as "CardNotPresentAccountUse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNPA")]
     [IsoId("_0o1GgZgCEee-7IkMvqfAcA")]
-    [Description(@"??")]
+    [Description(@"Fraudulent use in a card-not-present environment of an account.")]
     CardNotPresentAccountUse,
     
     /// <summary>
-    /// ??
+    /// Merchant makes additional transactions against a card when consumer authorised for one legitimate transaction.
     /// Encoded/decoded by serializers as "MultipleUseFraud".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUFD")]
     [IsoId("_IFiwUWzjEemD24gVaMSpeA")]
-    [Description(@"??")]
+    [Description(@"Merchant makes additional transactions against a card when consumer authorised for one legitimate transaction.")]
     MultipleUseFraud,
     
     /// <summary>
-    /// ??
+    /// Two parties colluding for the purpose of creating fraudulent transaction. For example, a cardholder and merchant. 
     /// Encoded/decoded by serializers as "Collusion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COSN")]
     [IsoId("_PaqjwWzjEemD24gVaMSpeA")]
-    [Description(@"??")]
+    [Description(@"Two parties colluding for the purpose of creating fraudulent transaction. For example, a cardholder and merchant. ")]
     Collusion,
     
 }

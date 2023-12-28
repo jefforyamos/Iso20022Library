@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProtectInstructionStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Protect instruction which has not been fully covered. Will include partial covers.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_riQzIbpTEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Protect instruction which has not been fully covered. Will include partial covers.")]
     Open,
     
     /// <summary>
-    /// ??
+    /// Protect instruction has been fully covered.
     /// Encoded/decoded by serializers as "FullyCovered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVR")]
     [IsoId("_r-rpYrpTEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Protect instruction has been fully covered.")]
     FullyCovered,
     
     /// <summary>
-    /// ??
+    /// Protect instruction has expired.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_vrX9krpTEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Protect instruction has expired.")]
     Expired,
     
 }

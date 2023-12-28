@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum HoldingAccountLevel1Code
 {
     /// <summary>
-    /// ??
+    /// Holding account is defined as the safekeeping account (Level 0).
     /// Encoded/decoded by serializers as "SafekeepingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_cNACsU1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the safekeeping account (Level 0).")]
     SafekeepingAccount,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 1 account.
     /// Encoded/decoded by serializers as "Level1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL1")]
     [IsoId("_cUJMgU1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 1 account.")]
     Level1,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 2 account.
     /// Encoded/decoded by serializers as "Level2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL2")]
     [IsoId("_cbIlUU1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 2 account.")]
     Level2,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 3 account.
     /// Encoded/decoded by serializers as "Level3".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL3")]
     [IsoId("_cdq78U1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 3 account.")]
     Level3,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 4 account.
     /// Encoded/decoded by serializers as "Level4".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL4")]
     [IsoId("_coYXIU1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 4 account.")]
     Level4,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 5 account.
     /// Encoded/decoded by serializers as "Level5".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL5")]
     [IsoId("_cvhg8U1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 5 account.")]
     Level5,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 6 account.
     /// Encoded/decoded by serializers as "Level6".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL6")]
     [IsoId("_c1nh4U1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 6 account.")]
     Level6,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 7 account.
     /// Encoded/decoded by serializers as "Level7".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL7")]
     [IsoId("_c8T_wU1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 7 account.")]
     Level7,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 8 account.
     /// Encoded/decoded by serializers as "Level8".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL8")]
     [IsoId("_dBrA4U1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 8 account.")]
     Level8,
     
     /// <summary>
-    /// ??
+    /// Holding account is defined as the sub-level 9 account.
     /// Encoded/decoded by serializers as "Level9".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL9")]
     [IsoId("_dHU88U1qEeSvz4A_x0ui8g")]
-    [Description(@"??")]
+    [Description(@"Holding account is defined as the sub-level 9 account.")]
     Level9,
     
 }

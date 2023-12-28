@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType16Code
 {
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_FuP8Qa1_EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Party that issues cards.
     /// Encoded/decoded by serializers as "CardIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISS")]
     [IsoId("_FuP8Q61_EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Party that issues cards.")]
     CardIssuer,
     
     /// <summary>
-    /// ??
+    /// Party to whom the card issuer delegates to authorise card payment transactions.
     /// Encoded/decoded by serializers as "DelegateIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLIS")]
     [IsoId("_FuP8Ra1_EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
     DelegateIssuer,
     
     /// <summary>
-    /// ??
+    /// Party acting on behalf of other parties to process or forward data to other parties.
     /// Encoded/decoded by serializers as "IntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAG")]
     [IsoId("_FuP8R61_EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
     IntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Application on the terminal which has initiated the transaction.
     /// Encoded/decoded by serializers as "OriginatingTerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTRM")]
     [IsoId("_FuP8Sa1_EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Application on the terminal which has initiated the transaction.")]
     OriginatingTerminal,
     
     /// <summary>
-    /// ??
+    /// The bank of the source account.
     /// Encoded/decoded by serializers as "AccountFromBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKAF")]
     [IsoId("_KDSC0a1_EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"The bank of the source account.")]
     AccountFromBank,
     
     /// <summary>
-    /// ??
+    /// The bank of the destination account.
     /// Encoded/decoded by serializers as "AccountToBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKAT")]
     [IsoId("_KK4foa1_EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"The bank of the destination account.")]
     AccountToBank,
     
     /// <summary>
-    /// ??
+    /// Entity managing the ATM.
     /// Encoded/decoded by serializers as "ATMManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATMG")]
     [IsoId("_KcUN4a1_EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Entity managing the ATM.")]
     ATMManager,
     
 }

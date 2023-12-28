@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AgreementFramework1Code
 {
     /// <summary>
-    /// ??
+    /// French Banker's Association Agreement.
     /// Encoded/decoded by serializers as "FBAAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FBAA")]
     [IsoId("_YbdHYNp-Ed-ak6NoX_4Aeg_2036640841")]
-    [Description(@"??")]
+    [Description(@"French Banker's Association Agreement.")]
     FBAAgreement,
     
     /// <summary>
-    /// ??
+    /// British Banker's Association Agreement.
     /// Encoded/decoded by serializers as "BBAAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BBAA")]
     [IsoId("_YbdHYdp-Ed-ak6NoX_4Aeg_-1672379429")]
-    [Description(@"??")]
+    [Description(@"British Banker's Association Agreement.")]
     BBAAgreement,
     
     /// <summary>
-    /// ??
+    /// German Rahmenvertrag Agreement.
     /// Encoded/decoded by serializers as "GermanRahmenvertragAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERV")]
     [IsoId("_YbdHYtp-Ed-ak6NoX_4Aeg_1243904924")]
-    [Description(@"??")]
+    [Description(@"German Rahmenvertrag Agreement.")]
     GermanRahmenvertragAgreement,
     
     /// <summary>
-    /// ??
+    /// International Swaps and Derivatives Association Agreement.
     /// Encoded/decoded by serializers as "ISDAAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISDA")]
     [IsoId("_YbdHY9p-Ed-ak6NoX_4Aeg_1130065858")]
-    [Description(@"??")]
+    [Description(@"International Swaps and Derivatives Association Agreement.")]
     ISDAAgreement,
     
     /// <summary>
-    /// ??
+    /// No information about the master agreement is available.
     /// Encoded/decoded by serializers as "NoReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONR")]
     [IsoId("_YbdHZNp-Ed-ak6NoX_4Aeg_1232806147")]
-    [Description(@"??")]
+    [Description(@"No information about the master agreement is available.")]
     NoReference,
     
 }

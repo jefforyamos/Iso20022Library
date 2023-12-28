@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentCancellationRejection3Code
 {
     /// <summary>
-    /// ??
+    /// Reported when the cancellation cannot be accepted because of an agent refuses to cancel.
     /// Encoded/decoded by serializers as "AgentDecision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_xpmqER09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Reported when the cancellation cannot be accepted because of an agent refuses to cancel.")]
     AgentDecision,
     
     /// <summary>
-    /// ??
+    /// Cancellation not accepted as the transaction has already been returned.
     /// Encoded/decoded by serializers as "AlreadyReturned".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARDT")]
     [IsoId("_xv44Qh09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Cancellation not accepted as the transaction has already been returned.")]
     AlreadyReturned,
     
     /// <summary>
-    /// ??
+    /// Cancellation indemnity is required.
     /// Encoded/decoded by serializers as "CancellationIndemnityRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDM")]
     [IsoId("_x3zeIR09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Cancellation indemnity is required.")]
     CancellationIndemnityRequired,
     
     /// <summary>
-    /// ??
+    /// Account number specified has been closed on the receiver’s books.
     /// Encoded/decoded by serializers as "ClosedAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC04")]
     [IsoId("_x_dlUR09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Account number specified has been closed on the receiver’s books.")]
     ClosedAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Reported when the cancellation cannot be accepted because of a customer decision (Creditor).
     /// Encoded/decoded by serializers as "CustomerDecision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_yGmvIh09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Reported when the cancellation cannot be accepted because of a customer decision (Creditor).")]
     CustomerDecision,
     
     /// <summary>
-    /// ??
+    /// Amount of funds available to cover specified message amount is insufficient.
     /// Encoded/decoded by serializers as "InsufficientFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM04")]
     [IsoId("_yNidkh09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
     InsufficientFunds,
     
     /// <summary>
-    /// ??
+    /// Reported when the cancellation cannot be accepted because of regulatory rules.
     /// Encoded/decoded by serializers as "LegalDecision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEGL")]
     [IsoId("_yU-iUh09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Reported when the cancellation cannot be accepted because of regulatory rules.")]
     LegalDecision,
     
     /// <summary>
-    /// ??
+    /// No response from beneficiary (to the cancellation request).
     /// Encoded/decoded by serializers as "NoAnswerFromCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAS")]
     [IsoId("_yZ--Ih09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"No response from beneficiary (to the cancellation request).")]
     NoAnswerFromCustomer,
     
     /// <summary>
-    /// ??
+    /// Original transaction (subject to cancellation) never received.
     /// Encoded/decoded by serializers as "NoOriginalTransactionReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOOR")]
     [IsoId("_yewwch09EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Original transaction (subject to cancellation) never received.")]
     NoOriginalTransactionReceived,
     
 }

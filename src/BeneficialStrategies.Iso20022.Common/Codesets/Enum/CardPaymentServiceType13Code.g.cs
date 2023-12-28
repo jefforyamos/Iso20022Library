@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardPaymentServiceType13Code
 {
     /// <summary>
-    /// ??
+    /// Card payment.
     /// Encoded/decoded by serializers as "CardPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDP")]
     [IsoId("_CzZIcdufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Card payment.")]
     CardPayment,
     
     /// <summary>
-    /// ??
+    /// Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.
     /// Encoded/decoded by serializers as "CashAdvance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHW")]
     [IsoId("_Dda84dufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.")]
     CashAdvance,
     
     /// <summary>
-    /// ??
+    /// Cash deposit.
     /// Encoded/decoded by serializers as "CashDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHD")]
     [IsoId("_ELN3AdufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Cash deposit.")]
     CashDeposit,
     
     /// <summary>
-    /// ??
+    /// Initial reservation.
     /// Encoded/decoded by serializers as "InitialReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IRES")]
     [IsoId("_FayBcdufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Initial reservation.")]
     InitialReservation,
     
     /// <summary>
-    /// ??
+    /// Deferred payment.
     /// Encoded/decoded by serializers as "DeferredPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFR")]
     [IsoId("_GD6eAdufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Deferred payment.")]
     DeferredPayment,
     
     /// <summary>
-    /// ??
+    /// Update reservation.
     /// Encoded/decoded by serializers as "UpdateReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URES")]
     [IsoId("_HMJ4cdufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Update reservation.")]
     UpdateReservation,
     
     /// <summary>
-    /// ??
+    /// Payment after reservation.
     /// Encoded/decoded by serializers as "PaymentReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRES")]
     [IsoId("_J2hM8dufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Payment after reservation.")]
     PaymentReservation,
     
     /// <summary>
-    /// ??
+    /// Recurring payment.
     /// Encoded/decoded by serializers as "RecurringPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECP")]
     [IsoId("_Khy-kdufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Recurring payment.")]
     RecurringPayment,
     
     /// <summary>
-    /// ??
+    /// Instalment payment.
     /// Encoded/decoded by serializers as "Instalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSP")]
     [IsoId("_MAr-cdufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Instalment payment.")]
     Instalment,
     
     /// <summary>
-    /// ??
+    /// Instalment payment transaction performed by the card issuer.
     /// Encoded/decoded by serializers as "IssuerInstalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSI")]
     [IsoId("_MZUg4dufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Instalment payment transaction performed by the card issuer.")]
     IssuerInstalment,
     
     /// <summary>
-    /// ??
+    /// Refund transaction.
     /// Encoded/decoded by serializers as "Refund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFND")]
     [IsoId("_NeARAdufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Refund transaction.")]
     Refund,
     
     /// <summary>
-    /// ??
+    /// Voice authorisation.
     /// Encoded/decoded by serializers as "VoiceAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VCAU")]
     [IsoId("_OpXQ4dufEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Voice authorisation.")]
     VoiceAuthorisation,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesFinancingTransactionType1Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a repurchase agreement transaction.
     /// Encoded/decoded by serializers as "Repo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPU")]
     [IsoId("_ZFoFwtp-Ed-ak6NoX_4Aeg_-738371349")]
-    [Description(@"??")]
+    [Description(@"Relates to a repurchase agreement transaction.")]
     Repo,
     
     /// <summary>
-    /// ??
+    /// Relates to a reverse repurchase agreement transaction.
     /// Encoded/decoded by serializers as "ReverseRepo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVPO")]
     [IsoId("_ZFoFw9p-Ed-ak6NoX_4Aeg_-738371331")]
-    [Description(@"??")]
+    [Description(@"Relates to a reverse repurchase agreement transaction.")]
     ReverseRepo,
     
     /// <summary>
-    /// ??
+    /// Relates to a securities borrowing operation.
     /// Encoded/decoded by serializers as "SecuritiesBorrowing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECB")]
     [IsoId("_ZFoFxNp-Ed-ak6NoX_4Aeg_-738371296")]
-    [Description(@"??")]
+    [Description(@"Relates to a securities borrowing operation.")]
     SecuritiesBorrowing,
     
     /// <summary>
-    /// ??
+    /// Relates to a securities lending operation.
     /// Encoded/decoded by serializers as "SecuritiesLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECL")]
     [IsoId("_ZFoFxdp-Ed-ak6NoX_4Aeg_-738371271")]
-    [Description(@"??")]
+    [Description(@"Relates to a securities lending operation.")]
     SecuritiesLending,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReturnExcessCash1Code
 {
     /// <summary>
-    /// ??
+    /// Excess cash in the currency is returned.
     /// Encoded/decoded by serializers as "AutomaticallyReturned".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTND")]
     [IsoId("_u2qp0QLoEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Excess cash in the currency is returned.")]
     AutomaticallyReturned,
     
     /// <summary>
-    /// ??
+    /// Automatic return of excess cash has not been requested for the currency. 
     /// Encoded/decoded by serializers as "NoAutomaticReturn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTDN")]
     [IsoId("_vAVjMgLoEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Automatic return of excess cash has not been requested for the currency. ")]
     NoAutomaticReturn,
     
     /// <summary>
-    /// ??
+    /// Automatic return of cash is temporarily suspended (for example due to a currency holiday).
     /// Encoded/decoded by serializers as "Suspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPD")]
     [IsoId("_vKC40gLoEeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Automatic return of cash is temporarily suspended (for example due to a currency holiday).")]
     Suspended,
     
 }

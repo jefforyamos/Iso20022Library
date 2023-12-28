@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EmissionAllowanceProductType1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type emissions allowance EUAA (European Union Aviation Allowance).
     /// Encoded/decoded by serializers as "EUAA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUAA")]
     [IsoId("_e6j1sQnWEeWa7rBfPECYsw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type emissions allowance EUAA (European Union Aviation Allowance).")]
     EUAA,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type emissions allowance EUA (European Union Allowance).
     /// Encoded/decoded by serializers as "EUA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUAE")]
     [IsoId("_fBs_gQnWEeWa7rBfPECYsw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type emissions allowance EUA (European Union Allowance).")]
     EUA,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type emissions allowance ERU (European Reduction Unit).
     /// Encoded/decoded by serializers as "ERU".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERUE")]
     [IsoId("_fGweoQnWEeWa7rBfPECYsw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type emissions allowance ERU (European Reduction Unit).")]
     ERU,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type emissions allowance CER (Certified Emission Reduction).
     /// Encoded/decoded by serializers as "CER".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERE")]
     [IsoId("_fL9uwQnWEeWa7rBfPECYsw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type emissions allowance CER (Certified Emission Reduction).")]
     CER,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_YQdvoX1uEeW6DpJJTspC5Q")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
 }

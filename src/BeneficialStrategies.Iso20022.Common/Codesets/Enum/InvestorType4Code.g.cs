@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestorType4Code
 {
     /// <summary>
-    /// ??
+    /// Investor is both professional per se and elective professional.
     /// Encoded/decoded by serializers as "BothProfessionalPerSeAndElectiveProfessional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOT3")]
     [IsoId("__1XaobVMEeqkjqDuFVh1-A")]
-    [Description(@"??")]
+    [Description(@"Investor is both professional per se and elective professional.")]
     BothProfessionalPerSeAndElectiveProfessional,
     
     /// <summary>
-    /// ??
+    /// Investor is neither professional per se or elective professional.
     /// Encoded/decoded by serializers as "NotProfessionalPerSeElectiveProfessional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPRF")]
     [IsoId("_A9C0YbVNEeqkjqDuFVh1-A")]
-    [Description(@"??")]
+    [Description(@"Investor is neither professional per se or elective professional.")]
     NotProfessionalPerSeElectiveProfessional,
     
     /// <summary>
-    /// ??
+    /// Investor is professional per se but not elective professional.
     /// Encoded/decoded by serializers as "ProfessionalPerSeNotElectiveProfessional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRF3")]
     [IsoId("_BkOJIbVNEeqkjqDuFVh1-A")]
-    [Description(@"??")]
+    [Description(@"Investor is professional per se but not elective professional.")]
     ProfessionalPerSeNotElectiveProfessional,
     
     /// <summary>
-    /// ??
+    /// Investor is an elective professional but not professional per se.
     /// Encoded/decoded by serializers as "ElectiveProfessionalNotProfessionalPerSe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRF4")]
     [IsoId("_CeL3AbVNEeqkjqDuFVh1-A")]
-    [Description(@"??")]
+    [Description(@"Investor is an elective professional but not professional per se.")]
     ElectiveProfessionalNotProfessionalPerSe,
     
 }

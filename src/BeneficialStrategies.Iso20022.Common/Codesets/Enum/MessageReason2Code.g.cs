@@ -21,174 +21,174 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageReason2Code
 {
     /// <summary>
-    /// ??
+    /// Stand-in processing at the acquirer's option.
     /// Encoded/decoded by serializers as "AcquirerStandin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTD")]
     [IsoId("_oH-a0X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Stand-in processing at the acquirer's option.")]
     AcquirerStandin,
     
     /// <summary>
-    /// ??
+    /// Transaction above or under the floor limit.
     /// Encoded/decoded by serializers as "FloorLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLRL")]
     [IsoId("_oH-a030lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Transaction above or under the floor limit.")]
     FloorLimit,
     
     /// <summary>
-    /// ??
+    /// Transaction performed offline by the card.
     /// Encoded/decoded by serializers as "CardProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COFF")]
     [IsoId("_oH-a1X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Transaction performed offline by the card.")]
     CardProcessed,
     
     /// <summary>
-    /// ??
+    /// Card acceptor forced to be online.
     /// Encoded/decoded by serializers as "CardAcceptorSuspicious".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASPC")]
     [IsoId("_oH-a130lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Card acceptor forced to be online.")]
     CardAcceptorSuspicious,
     
     /// <summary>
-    /// ??
+    /// Card cannot process offline the transaction.
     /// Encoded/decoded by serializers as "CardUnableToProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUNB")]
     [IsoId("_oH-a2X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Card cannot process offline the transaction.")]
     CardUnableToProcess,
     
     /// <summary>
-    /// ??
+    /// Random online decided by the card.
     /// Encoded/decoded by serializers as "CardRandomSelection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRND")]
     [IsoId("_oH-a230lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Random online decided by the card.")]
     CardRandomSelection,
     
     /// <summary>
-    /// ??
+    /// Forced online by card acceptor, terminal, card, or the issuer.
     /// Encoded/decoded by serializers as "OnlineForced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORC")]
     [IsoId("_oH-a3X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Forced online by card acceptor, terminal, card, or the issuer.")]
     OnlineForced,
     
     /// <summary>
-    /// ??
+    /// Issuer signed off.
     /// Encoded/decoded by serializers as "IssuerSignedOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISGN")]
     [IsoId("_oH-a330lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Issuer signed off.")]
     IssuerSignedOff,
     
     /// <summary>
-    /// ??
+    /// Issuer timed out on request.
     /// Encoded/decoded by serializers as "IssuerTimeout".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITIM")]
     [IsoId("_oH-a4X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Issuer timed out on request.")]
     IssuerTimeout,
     
     /// <summary>
-    /// ??
+    /// Issuer unavailable.
     /// Encoded/decoded by serializers as "IssuerUnavailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IUNV")]
     [IsoId("_oH-a430lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Issuer unavailable.")]
     IssuerUnavailable,
     
     /// <summary>
-    /// ??
+    /// Other national type of reason.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_oH-a5X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other national type of reason.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other private type of reason.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_oH-a530lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other private type of reason.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Random online decided by the terminal.
     /// Encoded/decoded by serializers as "TerminalRandomSelection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRND")]
     [IsoId("_oH-a6X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Random online decided by the terminal.")]
     TerminalRandomSelection,
     
     /// <summary>
-    /// ??
+    /// Terminal cannot process offline the transaction.
     /// Encoded/decoded by serializers as "TerminalUnableToProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TUNB")]
     [IsoId("_oH-a630lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Terminal cannot process offline the transaction.")]
     TerminalUnableToProcess,
     
     /// <summary>
-    /// ??
+    /// Stand-in processing at the receiver's option.
     /// Encoded/decoded by serializers as "ReceiverStandin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSTD")]
     [IsoId("_oH-a7X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Stand-in processing at the receiver's option.")]
     ReceiverStandin,
     
     /// <summary>
-    /// ??
+    /// Receiver timed out on request.
     /// Encoded/decoded by serializers as "ReceiverTimeout".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTIM")]
     [IsoId("_oH-a730lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Receiver timed out on request.")]
     ReceiverTimeout,
     
     /// <summary>
-    /// ??
+    /// Receiver signed off.
     /// Encoded/decoded by serializers as "ReceiverSignedOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSGN")]
     [IsoId("_oH-a8X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Receiver signed off.")]
     ReceiverSignedOff,
     
     /// <summary>
-    /// ??
+    /// Receiver unavailable.
     /// Encoded/decoded by serializers as "ReceiverUnavailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RUNV")]
     [IsoId("_oH-a830lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Receiver unavailable.")]
     ReceiverUnavailable,
     
     /// <summary>
-    /// ??
+    /// Transaction performed offline by the terminal.
     /// Encoded/decoded by serializers as "TerminalProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOFF")]
     [IsoId("_oH-a9X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Transaction performed offline by the terminal.")]
     TerminalProcessed,
     
 }

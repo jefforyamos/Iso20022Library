@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AcknowledgementReason1Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_bo8XFtp-Ed-ak6NoX_4Aeg_1134564404")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
     /// Encoded/decoded by serializers as "MarketPracticeRuleDiscrepency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMPG")]
     [IsoId("_bo8XF9p-Ed-ak6NoX_4Aeg_1419930057")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.")]
     MarketPracticeRuleDiscrepency,
     
 }

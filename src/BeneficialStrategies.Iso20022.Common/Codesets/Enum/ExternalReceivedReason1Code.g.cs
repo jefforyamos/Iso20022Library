@@ -22,12 +22,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalReceivedReason1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was not straight through processing and had to be processed manually
     /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTP")]
     [IsoId("_uVGJSPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instruction was not straight through processing and had to be processed manually")]
     NotStraightThroughProcessing,
     
 }

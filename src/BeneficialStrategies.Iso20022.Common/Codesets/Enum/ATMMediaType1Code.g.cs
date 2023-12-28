@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMMediaType1Code
 {
     /// <summary>
-    /// ??
+    /// Card media.
     /// Encoded/decoded by serializers as "Cards".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARD")]
     [IsoId("_JV2vAYqeEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Card media.")]
     Cards,
     
     /// <summary>
-    /// ??
+    /// Coin media.
     /// Encoded/decoded by serializers as "Coins".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COIN")]
     [IsoId("_Jcs94YqeEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Coin media.")]
     Coins,
     
     /// <summary>
-    /// ??
+    /// Non fixed value of the media, for instance gold, silver.
     /// Encoded/decoded by serializers as "Commodity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMDT")]
     [IsoId("_Jiqb8YqeEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Non fixed value of the media, for instance gold, silver.")]
     Commodity,
     
     /// <summary>
-    /// ??
+    /// Coupon media.
     /// Encoded/decoded by serializers as "Coupons".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPNS")]
     [IsoId("_JnvJMYqeEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Coupon media.")]
     Coupons,
     
     /// <summary>
-    /// ??
+    /// Bank note media.
     /// Encoded/decoded by serializers as "Notes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTE")]
     [IsoId("_J9VlwYqeEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Bank note media.")]
     Notes,
     
     /// <summary>
-    /// ??
+    /// Stamp media.
     /// Encoded/decoded by serializers as "Stamps".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STMP")]
     [IsoId("_KFrpcYqeEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Stamp media.")]
     Stamps,
     
     /// <summary>
-    /// ??
+    /// Undetermined medias.
     /// Encoded/decoded by serializers as "Undetermined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UDTM")]
     [IsoId("_KMFzcYqeEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Undetermined medias.")]
     Undetermined,
     
 }

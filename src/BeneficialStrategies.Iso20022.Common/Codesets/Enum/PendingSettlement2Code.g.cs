@@ -20,354 +20,354 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingSettlement2Code
 {
     /// <summary>
-    /// ??
+    /// Securities have been delivered, but the settlement amount has not been received from the counterparty.
     /// Encoded/decoded by serializers as "AwaitingMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWMO")]
     [IsoId("_aDKsFNp-Ed-ak6NoX_4Aeg_508168770")]
-    [Description(@"??")]
+    [Description(@"Securities have been delivered, but the settlement amount has not been received from the counterparty.")]
     AwaitingMoney,
     
     /// <summary>
-    /// ??
+    /// Awaiting securities from corporate action issue or other procedures, for example, conversion, dematerialisation, exchange, registration, stamping, splitting, etc.
     /// Encoded/decoded by serializers as "AwaitingSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAIS")]
     [IsoId("_aDKsFdp-Ed-ak6NoX_4Aeg_508169110")]
-    [Description(@"??")]
+    [Description(@"Awaiting securities from corporate action issue or other procedures, for example, conversion, dematerialisation, exchange, registration, stamping, splitting, etc.")]
     AwaitingSecurities,
     
     /// <summary>
-    /// ??
+    /// Instruction that has been refused or not recognised, and is represented automatically.
     /// Encoded/decoded by serializers as "InstructionRefusedOrNotRecognised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFU")]
     [IsoId("_aDKsFtp-Ed-ak6NoX_4Aeg_508169480")]
-    [Description(@"??")]
+    [Description(@"Instruction that has been refused or not recognised, and is represented automatically.")]
     InstructionRefusedOrNotRecognised,
     
     /// <summary>
-    /// ??
+    /// Securities have not yet been received from the counterparty.
     /// Encoded/decoded by serializers as "AwaitingSharesFromCounterparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWSH")]
     [IsoId("_aDKsF9p-Ed-ak6NoX_4Aeg_508169596")]
-    [Description(@"??")]
+    [Description(@"Securities have not yet been received from the counterparty.")]
     AwaitingSharesFromCounterparty,
     
     /// <summary>
-    /// ??
+    /// Settlement is physical and securities are being delivered.
     /// Encoded/decoded by serializers as "PhysicalDeliveryDelay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHSE")]
     [IsoId("_aDKsGNp-Ed-ak6NoX_4Aeg_508169718")]
-    [Description(@"??")]
+    [Description(@"Settlement is physical and securities are being delivered.")]
     PhysicalDeliveryDelay,
     
     /// <summary>
-    /// ??
+    /// Trade is being amended in the market.
     /// Encoded/decoded by serializers as "TradeAmendedInMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAMM")]
     [IsoId("_aDKsGdp-Ed-ak6NoX_4Aeg_508170058")]
-    [Description(@"??")]
+    [Description(@"Trade is being amended in the market.")]
     TradeAmendedInMarket,
     
     /// <summary>
-    /// ??
+    /// Awaiting documents or endorsements from you.
     /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromYou".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCY")]
     [IsoId("_aDUdENp-Ed-ak6NoX_4Aeg_508170459")]
-    [Description(@"??")]
+    [Description(@"Awaiting documents or endorsements from you.")]
     AwaitingDocumentsOrEndorsementsFromYou,
     
     /// <summary>
-    /// ??
+    /// Awaiting documents or endorsements from the counterparty.
     /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromCounterparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_aDUdEdp-Ed-ak6NoX_4Aeg_508170612")]
-    [Description(@"??")]
+    [Description(@"Awaiting documents or endorsements from the counterparty.")]
     AwaitingDocumentsOrEndorsementsFromCounterparty,
     
     /// <summary>
-    /// ??
+    /// Your account is blocked, no instruction can settle over the account.
     /// Encoded/decoded by serializers as "AccountBlocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLOC")]
     [IsoId("_aDUdEtp-Ed-ak6NoX_4Aeg_508170951")]
-    [Description(@"??")]
+    [Description(@"Your account is blocked, no instruction can settle over the account.")]
     AccountBlocked,
     
     /// <summary>
-    /// ??
+    /// Chaser/enquiry sent to the agent or depository.
     /// Encoded/decoded by serializers as "EnquirySent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAS")]
     [IsoId("_aDUdE9p-Ed-ak6NoX_4Aeg_508171096")]
-    [Description(@"??")]
+    [Description(@"Chaser/enquiry sent to the agent or depository.")]
     EnquirySent,
     
     /// <summary>
-    /// ??
+    /// Securities are new issues and are not yet available/tradable.
     /// Encoded/decoded by serializers as "NewIssues".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWI")]
     [IsoId("_aDUdFNp-Ed-ak6NoX_4Aeg_508171498")]
-    [Description(@"??")]
+    [Description(@"Securities are new issues and are not yet available/tradable.")]
     NewIssues,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable securities in the counterparty's account, or counterparty does not hold the securities.
     /// Encoded/decoded by serializers as "CounterpartyInsufficientSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAC")]
     [IsoId("_aDUdFdp-Ed-ak6NoX_4Aeg_508171651")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable securities in the counterparty's account, or counterparty does not hold the securities.")]
     CounterpartyInsufficientSecurities,
     
     /// <summary>
-    /// ??
+    /// Securities quantity is not a multiple of an existing settlement amount lot for the instructed financial instrument.
     /// Encoded/decoded by serializers as "MultipleSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUNO")]
     [IsoId("_aDUdFtp-Ed-ak6NoX_4Aeg_508171983")]
-    [Description(@"??")]
+    [Description(@"Securities quantity is not a multiple of an existing settlement amount lot for the instructed financial instrument.")]
     MultipleSettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Settlement cannot be executed as securities are in global form.
     /// Encoded/decoded by serializers as "GlobalFormSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GLOB")]
     [IsoId("_aDUdF9p-Ed-ak6NoX_4Aeg_509092107")]
-    [Description(@"??")]
+    [Description(@"Settlement cannot be executed as securities are in global form.")]
     GlobalFormSecurities,
     
     /// <summary>
-    /// ??
+    /// Your instruction is a preadvice, that is, matching only.
     /// Encoded/decoded by serializers as "PreadviceInstructed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREA")]
     [IsoId("_aDUdGNp-Ed-ak6NoX_4Aeg_509092260")]
-    [Description(@"??")]
+    [Description(@"Your instruction is a preadvice, that is, matching only.")]
     PreadviceInstructed,
     
     /// <summary>
-    /// ??
+    /// Guaranteed delivery indicator differs in the counterparty's instruction.
     /// Encoded/decoded by serializers as "GuaranteedDeliveryIndicatorDifference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GUAD")]
     [IsoId("_aDUdGdp-Ed-ak6NoX_4Aeg_509092631")]
-    [Description(@"??")]
+    [Description(@"Guaranteed delivery indicator differs in the counterparty's instruction.")]
     GuaranteedDeliveryIndicatorDifference,
     
     /// <summary>
-    /// ??
+    /// Trade will settle in partials.
     /// Encoded/decoded by serializers as "TradeSettlesInPartials".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_aDdnANp-Ed-ak6NoX_4Aeg_509093032")]
-    [Description(@"??")]
+    [Description(@"Trade will settle in partials.")]
     TradeSettlesInPartials,
     
     /// <summary>
-    /// ??
+    /// Instruction has not been matched because the matching process is not required.
     /// Encoded/decoded by serializers as "NoMatchingRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMAS")]
     [IsoId("_aDdnAdp-Ed-ak6NoX_4Aeg_509093208")]
-    [Description(@"??")]
+    [Description(@"Instruction has not been matched because the matching process is not required.")]
     NoMatchingRequired,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in the counterparty's account.
     /// Encoded/decoded by serializers as "CounterpartyInsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMON")]
     [IsoId("_aDdnAtp-Ed-ak6NoX_4Aeg_509093579")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in the counterparty's account.")]
     CounterpartyInsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Not enough collateral in your account to execute the transaction.
     /// Encoded/decoded by serializers as "CollateralShortage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YCOL")]
     [IsoId("_aDdnA9p-Ed-ak6NoX_4Aeg_509094010")]
-    [Description(@"??")]
+    [Description(@"Not enough collateral in your account to execute the transaction.")]
     CollateralShortage,
     
     /// <summary>
-    /// ??
+    /// Securities are not deliverable as they are pledged as collateral.
     /// Encoded/decoded by serializers as "SecuritiesPledgedAsCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_aDdnBNp-Ed-ak6NoX_4Aeg_509094163")]
-    [Description(@"??")]
+    [Description(@"Securities are not deliverable as they are pledged as collateral.")]
     SecuritiesPledgedAsCollateral,
     
     /// <summary>
-    /// ??
+    /// Deposit of shares for the issuing of depositary receipts has been refused. The allotment for depositary receipts granted by the issuer is exceeded by the transaction.
     /// Encoded/decoded by serializers as "RefusedDepositForIssueOfDepositaryReceipts".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPO")]
     [IsoId("_aDdnBdp-Ed-ak6NoX_4Aeg_509095141")]
-    [Description(@"??")]
+    [Description(@"Deposit of shares for the issuing of depositary receipts has been refused. The allotment for depositary receipts granted by the issuer is exceeded by the transaction.")]
     RefusedDepositForIssueOfDepositaryReceipts,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable securities in your account because the maximum foreign limit has been reached.
     /// Encoded/decoded by serializers as "MaximumForeignLimitReached".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLIM")]
     [IsoId("_aDdnBtp-Ed-ak6NoX_4Aeg_510016553")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable securities in your account because the maximum foreign limit has been reached.")]
     MaximumForeignLimitReached,
     
     /// <summary>
-    /// ??
+    /// Foreign exchange instruction is missing.
     /// Encoded/decoded by serializers as "NoForeignExchangeInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOFX")]
     [IsoId("_aDdnB9p-Ed-ak6NoX_4Aeg_510018055")]
-    [Description(@"??")]
+    [Description(@"Foreign exchange instruction is missing.")]
     NoForeignExchangeInstruction,
     
     /// <summary>
-    /// ??
+    /// Securities require income adjustment, for example, dividend or interest.
     /// Encoded/decoded by serializers as "IncomeAdjustementRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCA")]
     [IsoId("_aDdnCNp-Ed-ak6NoX_4Aeg_510939611")]
-    [Description(@"??")]
+    [Description(@"Securities require income adjustment, for example, dividend or interest.")]
     IncomeAdjustementRequired,
     
     /// <summary>
-    /// ??
+    /// Your instruction is pending settlement because the instruction linked to it is pending.
     /// Encoded/decoded by serializers as "PendingLinkedInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LINK")]
     [IsoId("_aDdnCdp-Ed-ak6NoX_4Aeg_510941236")]
-    [Description(@"??")]
+    [Description(@"Your instruction is pending settlement because the instruction linked to it is pending.")]
     PendingLinkedInstruction,
     
     /// <summary>
-    /// ??
+    /// Instruction is awaiting the settlement date, and no settlement problems have been reported.
     /// Encoded/decoded by serializers as "AwaitingSettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUTU")]
     [IsoId("_aDnYANp-Ed-ak6NoX_4Aeg_511862793")]
-    [Description(@"??")]
+    [Description(@"Instruction is awaiting the settlement date, and no settlement problems have been reported.")]
     AwaitingSettlementDate,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable securities in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_aDnYAdp-Ed-ak6NoX_4Aeg_511864604")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable securities in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable securities in your account because securities are loaned out.
     /// Encoded/decoded by serializers as "SecuritiesLoanedOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LALO")]
     [IsoId("_aDnYAtp-Ed-ak6NoX_4Aeg_511866044")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable securities in your account because securities are loaned out.")]
     SecuritiesLoanedOut,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in your account.
     /// Encoded/decoded by serializers as "InsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_aDnYA9p-Ed-ak6NoX_4Aeg_512787201")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in your account.")]
     InsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Settlement confirmation has not been received.
     /// Encoded/decoded by serializers as "ConfirmationNotReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCON")]
     [IsoId("_aDnYBNp-Ed-ak6NoX_4Aeg_512788618")]
-    [Description(@"??")]
+    [Description(@"Settlement confirmation has not been received.")]
     ConfirmationNotReceived,
     
     /// <summary>
-    /// ??
+    /// Delivery/receipt has been refused because the physical securities are not in good order.
     /// Encoded/decoded by serializers as "NotInGoodOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFS")]
     [IsoId("_aDnYBdp-Ed-ak6NoX_4Aeg_513709774")]
-    [Description(@"??")]
+    [Description(@"Delivery/receipt has been refused because the physical securities are not in good order.")]
     NotInGoodOrder,
     
     /// <summary>
-    /// ??
+    /// Instruction is pending as stamp duty information is missing.
     /// Encoded/decoded by serializers as "LackOfStampDutyInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDUT")]
     [IsoId("_aDnYBtp-Ed-ak6NoX_4Aeg_513711184")]
-    [Description(@"??")]
+    [Description(@"Instruction is pending as stamp duty information is missing.")]
     LackOfStampDutyInformation,
     
     /// <summary>
-    /// ??
+    /// Processing batch differs in the counterparty's instruction, for example, day time/real time versus overnight.
     /// Encoded/decoded by serializers as "ProcessingBatchDifference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BATC")]
     [IsoId("_aDnYB9p-Ed-ak6NoX_4Aeg_513712624")]
-    [Description(@"??")]
+    [Description(@"Processing batch differs in the counterparty's instruction, for example, day time/real time versus overnight.")]
     ProcessingBatchDifference,
     
     /// <summary>
-    /// ??
+    /// Instruction is confirmed in the local market or is ready for settlement, awaiting the next settlement cycle.
     /// Encoded/decoded by serializers as "AwaitingNextSettlementCycle".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CYCL")]
     [IsoId("_aDnYCNp-Ed-ak6NoX_4Aeg_514633757")]
-    [Description(@"??")]
+    [Description(@"Instruction is confirmed in the local market or is ready for settlement, awaiting the next settlement cycle.")]
     AwaitingNextSettlementCycle,
     
     /// <summary>
-    /// ??
+    /// Settlement is pending. The securities are blocked due to, for example, a corporate action event, re-alignment.
     /// Encoded/decoded by serializers as "SecuritiesBlocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBLO")]
     [IsoId("_aDnYCdp-Ed-ak6NoX_4Aeg_514635198")]
-    [Description(@"??")]
+    [Description(@"Settlement is pending. The securities are blocked due to, for example, a corporate action event, re-alignment.")]
     SecuritiesBlocked,
     
     /// <summary>
-    /// ??
+    /// Counterparty is in receivership, that is, the form of bankruptcy where a court appointed person, the receiver, manages the affairs of the business.
     /// Encoded/decoded by serializers as "CounterpartyInReceivership".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPEC")]
     [IsoId("_aDxJANp-Ed-ak6NoX_4Aeg_514636607")]
-    [Description(@"??")]
+    [Description(@"Counterparty is in receivership, that is, the form of bankruptcy where a court appointed person, the receiver, manages the affairs of the business.")]
     CounterpartyInReceivership,
     
     /// <summary>
-    /// ??
+    /// Securities amount is lower than the minimum existing settlement amount for the instructed financial instrument.
     /// Encoded/decoded by serializers as "MinimumSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINO")]
     [IsoId("_aDxJAdp-Ed-ak6NoX_4Aeg_515557794")]
-    [Description(@"??")]
+    [Description(@"Securities amount is lower than the minimum existing settlement amount for the instructed financial instrument.")]
     MinimumSettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Payment is pending, and does not settle because the actual use of the risk management limit on the counterpart (bilateral limit) prevents settlement.
     /// Encoded/decoded by serializers as "PendingCAP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCAP")]
     [IsoId("_aDxJAtp-Ed-ak6NoX_4Aeg_515559203")]
-    [Description(@"??")]
+    [Description(@"Payment is pending, and does not settle because the actual use of the risk management limit on the counterpart (bilateral limit) prevents settlement.")]
     PendingCAP,
     
 }

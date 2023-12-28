@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MatchingProcess1Code
 {
     /// <summary>
-    /// ??
+    /// The referenced transaction is requested to be unmatched.
     /// Encoded/decoded by serializers as "Unmatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNMT")]
     [IsoId("_aU58V9p-Ed-ak6NoX_4Aeg_65054355")]
-    [Description(@"??")]
+    [Description(@"The referenced transaction is requested to be unmatched.")]
     Unmatch,
     
     /// <summary>
-    /// ??
+    /// Matching process is to be resumed for the referenced transaction.
     /// Encoded/decoded by serializers as "ResumeMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTRE")]
     [IsoId("_aU58WNp-Ed-ak6NoX_4Aeg_65054356")]
-    [Description(@"??")]
+    [Description(@"Matching process is to be resumed for the referenced transaction.")]
     ResumeMatching,
     
 }

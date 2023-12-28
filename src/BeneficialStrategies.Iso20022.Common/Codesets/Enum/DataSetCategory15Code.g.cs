@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetCategory15Code
 {
     /// <summary>
-    /// ??
+    /// Configuration parameters of the payment acquirer protocol.
     /// Encoded/decoded by serializers as "AcquirerProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQP")]
     [IsoId("_2IRu0Q0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Configuration parameters of the payment acquirer protocol.")]
     AcquirerProtocolParameters,
     
     /// <summary>
-    /// ??
+    /// Payment application specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "ApplicationParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_2IRu0w0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
     ApplicationParameters,
     
     /// <summary>
-    /// ??
+    /// Creation of a subset of the configuration parameters of an application.
     /// Encoded/decoded by serializers as "ApplicationParametersSubsetCreation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APSB")]
     [IsoId("_2IRu1Q0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Creation of a subset of the configuration parameters of an application.")]
     ApplicationParametersSubsetCreation,
     
     /// <summary>
-    /// ??
+    /// Download of cryptographic keys with the related information.
     /// Encoded/decoded by serializers as "KeyDownload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDWL")]
     [IsoId("_2IRu1w0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Download of cryptographic keys with the related information.")]
     KeyDownload,
     
     /// <summary>
-    /// ??
+    /// Activate, deactivate or revoke loaded cryptographic keys.
     /// Encoded/decoded by serializers as "KeyManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KMGT")]
     [IsoId("_2IRu2Q0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Activate, deactivate or revoke loaded cryptographic keys.")]
     KeyManagement,
     
     /// <summary>
-    /// ??
+    /// Reporting on activity, status and error of a point of interaction.
     /// Encoded/decoded by serializers as "Reporting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPRT")]
     [IsoId("_2IRu2w0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Reporting on activity, status and error of a point of interaction.")]
     Reporting,
     
     /// <summary>
-    /// ??
+    /// Software module.
     /// Encoded/decoded by serializers as "SoftwareModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPK")]
     [IsoId("_2IRu3Q0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Software module.")]
     SoftwareModule,
     
     /// <summary>
-    /// ??
+    /// Configuration parameters for the TMS protocol.
     /// Encoded/decoded by serializers as "TMSProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMSP")]
     [IsoId("_2IRu3w0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Configuration parameters for the TMS protocol.")]
     TMSProtocolParameters,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_2IRu4Q0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
     /// Encoded/decoded by serializers as "TerminalParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPR")]
     [IsoId("_2IRu4w0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
     TerminalParameters,
     
     /// <summary>
-    /// ??
+    /// Certificate provided by a terminal manager.
     /// Encoded/decoded by serializers as "CertificateParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTF")]
     [IsoId("_2IRu5Q0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Certificate provided by a terminal manager.")]
     CertificateParameters,
     
     /// <summary>
-    /// ??
+    /// Component of the Sale system.
     /// Encoded/decoded by serializers as "SaleComponent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SACP")]
     [IsoId("_2IRu5w0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Component of the Sale system.")]
     SaleComponent,
     
     /// <summary>
-    /// ??
+    /// Parameters related to the Sale to POI protocol.
     /// Encoded/decoded by serializers as "SaleToPOIProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAPR")]
     [IsoId("_2IRu6Q0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Parameters related to the Sale to POI protocol.")]
     SaleToPOIProtocolParameters,
     
     /// <summary>
-    /// ??
+    /// Any repository used for recording log traces.
     /// Encoded/decoded by serializers as "LogFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOGF")]
     [IsoId("_721NEQ0aEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Any repository used for recording log traces.")]
     LogFile,
     
     /// <summary>
-    /// ??
+    /// Report file generated by the POI.
     /// Encoded/decoded by serializers as "ReportFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPFL")]
     [IsoId("_BTZjcQ0bEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Report file generated by the POI.")]
     ReportFile,
     
     /// <summary>
-    /// ??
+    /// Configuration file relevant for the POI.
     /// Encoded/decoded by serializers as "ConfigurationFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_B-5-kQ0bEeqUVL7sB4m7NA")]
-    [Description(@"??")]
+    [Description(@"Configuration file relevant for the POI.")]
     ConfigurationFile,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Side5Code
 {
     /// <summary>
-    /// ??
+    /// An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.
     /// Encoded/decoded by serializers as "SellShort".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SESH")]
     [IsoId("_J93mcezkEeSBf_ghFpb9rQ")]
-    [Description(@"??")]
+    [Description(@"An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.")]
     SellShort,
     
     /// <summary>
-    /// ??
+    /// Order is sell driven.
     /// Encoded/decoded by serializers as "Sell".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_KGQtcezkEeSBf_ghFpb9rQ")]
-    [Description(@"??")]
+    [Description(@"Order is sell driven.")]
     Sell,
     
     /// <summary>
-    /// ??
+    /// Short sale exempt from short-sale rules.
     /// Encoded/decoded by serializers as "SellShortExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSEX")]
     [IsoId("_Kaep8ezkEeSBf_ghFpb9rQ")]
-    [Description(@"??")]
+    [Description(@"Short sale exempt from short-sale rules.")]
     SellShortExempt,
     
     /// <summary>
-    /// ??
+    /// The side of the indication of interest is not disclosed.
     /// Encoded/decoded by serializers as "Undisclosed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNDI")]
     [IsoId("_KA-CwaiqEeWRLJcxVQAwmw")]
-    [Description(@"??")]
+    [Description(@"The side of the indication of interest is not disclosed.")]
     Undisclosed,
     
 }

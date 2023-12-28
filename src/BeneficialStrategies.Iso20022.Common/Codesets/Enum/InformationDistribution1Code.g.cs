@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InformationDistribution1Code
 {
     /// <summary>
-    /// ??
+    /// Electronic distribution.
     /// Encoded/decoded by serializers as "Electronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_jzUI8ROCEeKjmvxNCObNeQ")]
-    [Description(@"??")]
+    [Description(@"Electronic distribution.")]
     Electronic,
     
     /// <summary>
-    /// ??
+    /// Paper distribution.
     /// Encoded/decoded by serializers as "Paper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAPR")]
     [IsoId("_j7gboROCEeKjmvxNCObNeQ")]
-    [Description(@"??")]
+    [Description(@"Paper distribution.")]
     Paper,
     
 }

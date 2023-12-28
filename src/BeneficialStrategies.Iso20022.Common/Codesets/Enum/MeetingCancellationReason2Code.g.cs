@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MeetingCancellationReason2Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation due to insufficient participation to the vote.
     /// Encoded/decoded by serializers as "Quorum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QORM")]
     [IsoId("_aVM3Qdp-Ed-ak6NoX_4Aeg_-990079521")]
-    [Description(@"??")]
+    [Description(@"Cancellation due to insufficient participation to the vote.")]
     Quorum,
     
     /// <summary>
-    /// ??
+    /// Cancellation due to a processing error.
     /// Encoded/decoded by serializers as "Processing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROC")]
     [IsoId("_aVM3Qtp-Ed-ak6NoX_4Aeg_-990079505")]
-    [Description(@"??")]
+    [Description(@"Cancellation due to a processing error.")]
     Processing,
     
     /// <summary>
-    /// ??
+    /// Cancellation due to the meeting being cancelled by the issuer.
     /// Encoded/decoded by serializers as "Withdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_aVM3Q9p-Ed-ak6NoX_4Aeg_-918047442")]
-    [Description(@"??")]
+    [Description(@"Cancellation due to the meeting being cancelled by the issuer.")]
     Withdrawal,
     
 }

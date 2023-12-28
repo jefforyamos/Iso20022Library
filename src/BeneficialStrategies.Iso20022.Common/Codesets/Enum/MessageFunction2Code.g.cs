@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction2Code
 {
     /// <summary>
-    /// ??
+    /// Message function is a request.
     /// Encoded/decoded by serializers as "Request".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_TRnmlgEcEeCQm6a_G2yO_w_-162813602")]
-    [Description(@"??")]
+    [Description(@"Message function is a request.")]
     Request,
     
     /// <summary>
-    /// ??
+    /// Message function is a response.
     /// Encoded/decoded by serializers as "Response".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESP")]
     [IsoId("_TRnmlwEcEeCQm6a_G2yO_w_218407664")]
-    [Description(@"??")]
+    [Description(@"Message function is a response.")]
     Response,
     
 }

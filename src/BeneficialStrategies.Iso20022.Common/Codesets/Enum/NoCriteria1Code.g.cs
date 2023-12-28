@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NoCriteria1Code
 {
     /// <summary>
-    /// ??
+    /// No criteria.
     /// Encoded/decoded by serializers as "NoCriteria".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOCR")]
     [IsoId("_aNcpc9p-Ed-ak6NoX_4Aeg_-678428636")]
-    [Description(@"??")]
+    [Description(@"No criteria.")]
     NoCriteria,
     
 }

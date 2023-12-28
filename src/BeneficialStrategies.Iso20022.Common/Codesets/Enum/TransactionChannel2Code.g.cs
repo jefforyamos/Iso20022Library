@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionChannel2Code
 {
     /// <summary>
-    /// ??
+    /// Financial advisor.
     /// Encoded/decoded by serializers as "FinancialAdvisor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIAD")]
     [IsoId("_5TAXgRRFEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Financial advisor.")]
     FinancialAdvisor,
     
     /// <summary>
-    /// ??
+    /// Home banking.
     /// Encoded/decoded by serializers as "HomeBanking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOBA")]
     [IsoId("_5fNAcRRFEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Home banking.")]
     HomeBanking,
     
     /// <summary>
-    /// ??
+    /// Office or branch.
     /// Encoded/decoded by serializers as "OfficeOrBranch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRAN")]
     [IsoId("_7iH6cRRFEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Office or branch.")]
     OfficeOrBranch,
     
 }

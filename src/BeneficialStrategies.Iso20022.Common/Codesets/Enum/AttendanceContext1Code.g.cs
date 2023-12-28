@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AttendanceContext1Code
 {
     /// <summary>
-    /// ??
+    /// Attended payment, with an attendant.
     /// Encoded/decoded by serializers as "Attended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATTD")]
     [IsoId("_TSEShAEcEeCQm6a_G2yO_w_940571351")]
-    [Description(@"??")]
+    [Description(@"Attended payment, with an attendant.")]
     Attended,
     
     /// <summary>
-    /// ??
+    /// Semi-attended, including self checkout. An attendant supervises several payment, and could be called to help the cardholder.
     /// Encoded/decoded by serializers as "SemiAttended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SATT")]
     [IsoId("_TSEShQEcEeCQm6a_G2yO_w_57338064")]
-    [Description(@"??")]
+    [Description(@"Semi-attended, including self checkout. An attendant supervises several payment, and could be called to help the cardholder.")]
     SemiAttended,
     
     /// <summary>
-    /// ??
+    /// Unattended payment, no attendant present.
     /// Encoded/decoded by serializers as "Unattended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UATT")]
     [IsoId("_TSEShgEcEeCQm6a_G2yO_w_1087570186")]
-    [Description(@"??")]
+    [Description(@"Unattended payment, no attendant present.")]
     Unattended,
     
 }

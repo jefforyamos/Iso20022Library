@@ -22,57 +22,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalTradeMarket1Code
 {
     /// <summary>
-    /// ??
+    /// Factoring service provider, Factoring client and third party in the same country
     /// Encoded/decoded by serializers as "FactoringDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDMS")]
     [IsoId("_uTUAmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Factoring service provider, Factoring client and third party in the same country")]
     FactoringDomestic,
     
     /// <summary>
-    /// ??
+    /// Factoring service provider, Factoring client in the same country, third party in another country
     /// Encoded/decoded by serializers as "FactoringExport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEXP")]
     [IsoId("_uTUAm_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Factoring service provider, Factoring client in the same country, third party in another country")]
     FactoringExport,
     
     /// <summary>
-    /// ??
+    /// Factoring client and third party in the same country, Factoring service provider in another country
     /// Encoded/decoded by serializers as "FactoringForeignDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FFDM")]
     [IsoId("_uTdKgvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Factoring client and third party in the same country, Factoring service provider in another country")]
     FactoringForeignDomestic,
     
     /// <summary>
-    /// ??
+    /// Factoring service provider, Factoring client and third party in the same country, but factoring client has an exceptional VAT ruling, for example if it’s overseas
     /// Encoded/decoded by serializers as "FactoringFrenchDomTom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FFDT")]
     [IsoId("_uTdKhfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Factoring service provider, Factoring client and third party in the same country, but factoring client has an exceptional VAT ruling, for example if it’s overseas")]
     FactoringFrenchDomTom,
     
     /// <summary>
-    /// ??
+    /// Factoring service provider and third party in the same country, Factoring client in another country
     /// Encoded/decoded by serializers as "FactoringImport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIMP")]
     [IsoId("_uTdKiPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Factoring service provider and third party in the same country, Factoring client in another country")]
     FactoringImport,
     
     /// <summary>
-    /// ??
+    /// Factoring service provider, Factoring client and third party in three different countries
     /// Encoded/decoded by serializers as "FactoringReexportedExport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREX")]
     [IsoId("_uTdKi_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Factoring service provider, Factoring client and third party in three different countries")]
     FactoringReexportedExport,
     
 }

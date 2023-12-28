@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdditionalBusinessProcess8Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).
     /// Encoded/decoded by serializers as "Consent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONS")]
     [IsoId("_6Jrh0ZcDEee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).")]
     Consent,
     
     /// <summary>
-    /// ??
+    /// Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.
     /// Encoded/decoded by serializers as "FullPrefunding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FPRE")]
     [IsoId("_6XEdkZcDEee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.")]
     FullPrefunding,
     
     /// <summary>
-    /// ??
+    /// Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.
     /// Encoded/decoded by serializers as "PartialMandatoryPutRedemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPUT")]
     [IsoId("_6vBqkZcDEee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.")]
     PartialMandatoryPutRedemption,
     
     /// <summary>
-    /// ??
+    /// Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.
     /// Encoded/decoded by serializers as "PartialPreFunding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPRE")]
     [IsoId("_66odoZcDEee8S7xwGG7Veg")]
-    [Description(@"??")]
+    [Description(@"Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.")]
     PartialPreFunding,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CryptographicKeyType1Code
 {
     /// <summary>
-    /// ??
+    /// Data encryption standard.
     /// Encoded/decoded by serializers as "DES".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DESC")]
     [IsoId("_KU0vhX1DEeCF8NjrBemJWQ_2128463419")]
-    [Description(@"??")]
+    [Description(@"Data encryption standard.")]
     DES,
     
     /// <summary>
-    /// ??
+    /// Advanced encryption standard.
     /// Encoded/decoded by serializers as "AES".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AESC")]
     [IsoId("_KU0vhn1DEeCF8NjrBemJWQ_-2088353466")]
-    [Description(@"??")]
+    [Description(@"Advanced encryption standard.")]
     AES,
     
     /// <summary>
-    /// ??
+    /// Rivest, Shamir and Adleman.
     /// Encoded/decoded by serializers as "RSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSAC")]
     [IsoId("_KU0vh31DEeCF8NjrBemJWQ_-1222392590")]
-    [Description(@"??")]
+    [Description(@"Rivest, Shamir and Adleman.")]
     RSA,
     
     /// <summary>
-    /// ??
+    /// Elliptic-curve cryptography.
     /// Encoded/decoded by serializers as "ECC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECCC")]
     [IsoId("_KU0viH1DEeCF8NjrBemJWQ_-505240776")]
-    [Description(@"??")]
+    [Description(@"Elliptic-curve cryptography.")]
     ECC,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalManagementErrorAction2Code
 {
     /// <summary>
-    /// ??
+    /// Send a status report immediately.
     /// Encoded/decoded by serializers as "SendStatusReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDSR")]
     [IsoId("_uWdDMx3YEeKKrOIoqWglDw")]
-    [Description(@"??")]
+    [Description(@"Send a status report immediately.")]
     SendStatusReport,
     
     /// <summary>
-    /// ??
+    /// Stop the current sequence of terminal management actions without any action, and do not notice the error with a status report.
     /// Encoded/decoded by serializers as "StopSequence".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOP")]
     [IsoId("_ugRtkx3YEeKKrOIoqWglDw")]
-    [Description(@"??")]
+    [Description(@"Stop the current sequence of terminal management actions without any action, and do not notice the error with a status report.")]
     StopSequence,
     
 }

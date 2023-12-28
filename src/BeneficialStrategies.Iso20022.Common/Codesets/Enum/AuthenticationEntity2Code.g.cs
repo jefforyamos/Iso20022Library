@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AuthenticationEntity2Code
 {
     /// <summary>
-    /// ??
+    /// Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.
     /// Encoded/decoded by serializers as "ICC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCD")]
     [IsoId("_a4ZqMWjoEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.")]
     ICC,
     
     /// <summary>
-    /// ??
+    /// Authorisation agent of the issuer.
     /// Encoded/decoded by serializers as "AuthorisedAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_a4ZqM2joEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Authorisation agent of the issuer.")]
     AuthorisedAgent,
     
     /// <summary>
-    /// ??
+    /// Merchant (for example signature verification by the attendant).
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_a4ZqNWjoEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Merchant (for example signature verification by the attendant).")]
     Merchant,
     
     /// <summary>
-    /// ??
+    /// Acquirer of the transaction.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_xWp_8WjoEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Acquirer of the transaction.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Card issuer.
     /// Encoded/decoded by serializers as "Issuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSR")]
     [IsoId("_xlWjQWjoEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Card issuer.")]
     Issuer,
     
     /// <summary>
-    /// ??
+    /// Secure application in the terminal.
     /// Encoded/decoded by serializers as "Terminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRML")]
     [IsoId("_xytCwWjoEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Secure application in the terminal.")]
     Terminal,
     
 }

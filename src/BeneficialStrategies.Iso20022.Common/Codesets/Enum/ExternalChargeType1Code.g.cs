@@ -22,39 +22,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalChargeType1Code
 {
     /// <summary>
-    /// ??
+    /// Fee paid to a broker for services provided.
     /// Encoded/decoded by serializers as "BrokerageFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRKF")]
     [IsoId("_uLHG3vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Fee paid to a broker for services provided.")]
     BrokerageFee,
     
     /// <summary>
-    /// ??
+    /// Fee paid for processing a batch of transactions.
     /// Encoded/decoded by serializers as "Batch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTCH")]
     [IsoId("_uLQ30vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Fee paid for processing a batch of transactions.")]
     Batch,
     
     /// <summary>
-    /// ??
+    /// Fee paid for services provided.
     /// Encoded/decoded by serializers as "Commission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_uLQ31fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Fee paid for services provided.")]
     Commission,
     
     /// <summary>
-    /// ??
+    /// Summation of individual fees.
     /// Encoded/decoded by serializers as "Summation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUMM")]
     [IsoId("_uLQ32PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Summation of individual fees.")]
     Summation,
     
 }

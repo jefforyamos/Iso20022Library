@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClearingChannel2Code
 {
     /// <summary>
-    /// ??
+    /// Clearing channel is a real-time gross settlement system.
     /// Encoded/decoded by serializers as "RealTimeGrossSettlementSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTGS")]
     [IsoId("_a_OEpNp-Ed-ak6NoX_4Aeg_1501459782")]
-    [Description(@"??")]
+    [Description(@"Clearing channel is a real-time gross settlement system.")]
     RealTimeGrossSettlementSystem,
     
     /// <summary>
-    /// ??
+    /// Clearing channel is a real-time net settlement system.
     /// Encoded/decoded by serializers as "RealTimeNetSettlementSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTNS")]
     [IsoId("_a_OEpdp-Ed-ak6NoX_4Aeg_1501460232")]
-    [Description(@"??")]
+    [Description(@"Clearing channel is a real-time net settlement system.")]
     RealTimeNetSettlementSystem,
     
     /// <summary>
-    /// ??
+    /// Clearing channel is a mass payment net settlement system.
     /// Encoded/decoded by serializers as "MassPaymentNetSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPNS")]
     [IsoId("_a_OEptp-Ed-ak6NoX_4Aeg_1501460309")]
-    [Description(@"??")]
+    [Description(@"Clearing channel is a mass payment net settlement system.")]
     MassPaymentNetSystem,
     
     /// <summary>
-    /// ??
+    /// Payment through internal book transfer.
     /// Encoded/decoded by serializers as "BookTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOOK")]
     [IsoId("_a_OEp9p-Ed-ak6NoX_4Aeg_1524547392")]
-    [Description(@"??")]
+    [Description(@"Payment through internal book transfer.")]
     BookTransfer,
     
 }

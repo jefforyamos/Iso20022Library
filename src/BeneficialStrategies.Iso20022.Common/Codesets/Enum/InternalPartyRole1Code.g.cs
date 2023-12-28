@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InternalPartyRole1Code
 {
     /// <summary>
-    /// ??
+    /// Party acting as an internal agent.
     /// Encoded/decoded by serializers as "Internal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTC")]
     [IsoId("_T0-jUR5ZEeWc9bJOIIhUUw")]
-    [Description(@"??")]
+    [Description(@"Party acting as an internal agent.")]
     Internal,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionEventStage4Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.
     /// Encoded/decoded by serializers as "CancellationAndReRun".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_5wragSUmEeO8eOSw0QN9mA")]
-    [Description(@"??")]
+    [Description(@"Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.")]
     CancellationAndReRun,
     
     /// <summary>
-    /// ??
+    /// Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.
     /// Encoded/decoded by serializers as "SupplementalCancellationAndReRun".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_6CSu8SUmEeO8eOSw0QN9mA")]
-    [Description(@"??")]
+    [Description(@"Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.")]
     SupplementalCancellationAndReRun,
     
     /// <summary>
-    /// ??
+    /// A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.
     /// Encoded/decoded by serializers as "SupplementalCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESC")]
     [IsoId("_6OILgSUmEeO8eOSw0QN9mA")]
-    [Description(@"??")]
+    [Description(@"A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.")]
     SupplementalCancellation,
     
 }

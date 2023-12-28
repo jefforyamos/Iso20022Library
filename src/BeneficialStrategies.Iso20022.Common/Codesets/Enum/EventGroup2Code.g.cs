@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventGroup2Code
 {
     /// <summary>
-    /// ??
+    /// Distribution domain events.
     /// Encoded/decoded by serializers as "Distribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISN")]
     [IsoId("_rxKTga2oEea8JNaCEJBGAA")]
-    [Description(@"??")]
+    [Description(@"Distribution domain events.")]
     Distribution,
     
     /// <summary>
-    /// ??
+    /// Redemption domain events.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_r2Nyoa2oEea8JNaCEJBGAA")]
-    [Description(@"??")]
+    [Description(@"Redemption domain events.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Reorganization domain events.
     /// Encoded/decoded by serializers as "Reorganization".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REOR")]
     [IsoId("_r7bCwa2oEea8JNaCEJBGAA")]
-    [Description(@"??")]
+    [Description(@"Reorganization domain events.")]
     Reorganization,
     
 }

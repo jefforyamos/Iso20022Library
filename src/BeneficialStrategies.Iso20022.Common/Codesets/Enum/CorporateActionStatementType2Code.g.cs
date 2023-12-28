@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionStatementType2Code
 {
     /// <summary>
-    /// ??
+    /// Statement contains missing instructions.
     /// Encoded/decoded by serializers as "Missing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISS")]
     [IsoId("_03aEEbtEEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Statement contains missing instructions.")]
     Missing,
     
     /// <summary>
-    /// ??
+    /// Statement contains all instructions.
     /// Encoded/decoded by serializers as "All".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLL")]
     [IsoId("_03aEE7tEEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Statement contains all instructions.")]
     All,
     
     /// <summary>
-    /// ??
+    /// Balance information with no instruction details provided.
     /// Encoded/decoded by serializers as "BalanceOnlyNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BALO")]
     [IsoId("_WIwwAbtFEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Balance information with no instruction details provided.")]
     BalanceOnlyNotification,
     
     /// <summary>
-    /// ??
+    /// Balance information with instruction details.
     /// Encoded/decoded by serializers as "BalanceInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BALI")]
     [IsoId("_WSKjortFEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Balance information with instruction details.")]
     BalanceInformation,
     
 }

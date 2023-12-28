@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ShortLong1Code
 {
     /// <summary>
-    /// ??
+    /// Position is short, that is, the balance is negative.
     /// Encoded/decoded by serializers as "Short".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHOR")]
     [IsoId("_ZOtwU9p-Ed-ak6NoX_4Aeg_179013074")]
-    [Description(@"??")]
+    [Description(@"Position is short, that is, the balance is negative.")]
     Short,
     
     /// <summary>
-    /// ??
+    /// Position is long, that is, the balance is positive.
     /// Encoded/decoded by serializers as "Long".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LONG")]
     [IsoId("_ZOtwVNp-Ed-ak6NoX_4Aeg_1366496716")]
-    [Description(@"??")]
+    [Description(@"Position is long, that is, the balance is positive.")]
     Long,
     
 }

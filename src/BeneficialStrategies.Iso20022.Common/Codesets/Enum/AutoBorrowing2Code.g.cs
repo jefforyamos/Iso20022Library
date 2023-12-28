@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AutoBorrowing2Code
 {
     /// <summary>
-    /// ??
+    /// Only last resort borrowing should be considered to make settlement occur.
     /// Encoded/decoded by serializers as "LastResort".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAMI")]
     [IsoId("_bjuf4dp-Ed-ak6NoX_4Aeg_-875280874")]
-    [Description(@"??")]
+    [Description(@"Only last resort borrowing should be considered to make settlement occur.")]
     LastResort,
     
     /// <summary>
-    /// ??
+    /// No automatic borrowing should take place.
     /// Encoded/decoded by serializers as "NoAutomatic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBOR")]
     [IsoId("_bjuf4tp-Ed-ak6NoX_4Aeg_-875280873")]
-    [Description(@"??")]
+    [Description(@"No automatic borrowing should take place.")]
     NoAutomatic,
     
     /// <summary>
-    /// ??
+    /// Automatic borrowing should take place.
     /// Encoded/decoded by serializers as "Automatic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YBOR")]
     [IsoId("_bjuf49p-Ed-ak6NoX_4Aeg_-875280857")]
-    [Description(@"??")]
+    [Description(@"Automatic borrowing should take place.")]
     Automatic,
     
     /// <summary>
-    /// ??
+    /// Return of stocks should take place.
     /// Encoded/decoded by serializers as "Return".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTRN")]
     [IsoId("_bjuf5Np-Ed-ak6NoX_4Aeg_-871586494")]
-    [Description(@"??")]
+    [Description(@"Return of stocks should take place.")]
     Return,
     
 }

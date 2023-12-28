@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdditionalBusinessProcess6Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a claim on the associated corporate action event.
     /// Encoded/decoded by serializers as "ClaimOrCompensation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAI")]
     [IsoId("_YfT4oWH-EeWNUe-5HV3A_g")]
-    [Description(@"??")]
+    [Description(@"Relates to a claim on the associated corporate action event.")]
     ClaimOrCompensation,
     
     /// <summary>
-    /// ??
+    /// Indicates a preadvice of movement reversal.
     /// Encoded/decoded by serializers as "NotificationOfReversal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REVR")]
     [IsoId("_YfT4o2H-EeWNUe-5HV3A_g")]
-    [Description(@"??")]
+    [Description(@"Indicates a preadvice of movement reversal.")]
     NotificationOfReversal,
     
     /// <summary>
-    /// ??
+    /// Relates to a tax refund from the authorities on the associated corporate action event.
     /// Encoded/decoded by serializers as "TaxRefund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXR")]
     [IsoId("_YfT4pWH-EeWNUe-5HV3A_g")]
-    [Description(@"??")]
+    [Description(@"Relates to a tax refund from the authorities on the associated corporate action event.")]
     TaxRefund,
     
     /// <summary>
-    /// ??
+    /// Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.
     /// Encoded/decoded by serializers as "PartialMandatoryPutRedemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPUT")]
     [IsoId("_a2w4MWH-EeWNUe-5HV3A_g")]
-    [Description(@"??")]
+    [Description(@"Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.")]
     PartialMandatoryPutRedemption,
     
     /// <summary>
-    /// ??
+    /// Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.
     /// Encoded/decoded by serializers as "PartialPreFunding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPRE")]
     [IsoId("_mfSvoWIAEeWNUe-5HV3A_g")]
-    [Description(@"??")]
+    [Description(@"Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.")]
     PartialPreFunding,
     
     /// <summary>
-    /// ??
+    /// Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.
     /// Encoded/decoded by serializers as "FullPrefunding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FPRE")]
     [IsoId("_ml_NgWIAEeWNUe-5HV3A_g")]
-    [Description(@"??")]
+    [Description(@"Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.")]
     FullPrefunding,
     
     /// <summary>
-    /// ??
+    /// Proceeds / entitlements of the mandatory event can only be paid if specified action is taken by the account owner.
     /// Encoded/decoded by serializers as "RequiredAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REAC")]
     [IsoId("_80PYIWKfEeWR9ZSfjmHwUA")]
-    [Description(@"??")]
+    [Description(@"Proceeds / entitlements of the mandatory event can only be paid if specified action is taken by the account owner.")]
     RequiredAction,
     
 }

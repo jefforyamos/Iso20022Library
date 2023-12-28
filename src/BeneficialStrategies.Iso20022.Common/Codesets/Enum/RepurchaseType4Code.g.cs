@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepurchaseType4Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a change in the closing or maturity date.
     /// Encoded/decoded by serializers as "RepurchaseCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALL")]
     [IsoId("_ZTx2hdp-Ed-ak6NoX_4Aeg_708958784")]
-    [Description(@"??")]
+    [Description(@"Relates to a change in the closing or maturity date.")]
     RepurchaseCall,
     
     /// <summary>
-    /// ??
+    /// Is part of a pair-off.
     /// Encoded/decoded by serializers as "RepoRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RATE")]
     [IsoId("_ZTx2htp-Ed-ak6NoX_4Aeg_708958801")]
-    [Description(@"??")]
+    [Description(@"Is part of a pair-off.")]
     RepoRate,
     
     /// <summary>
-    /// ??
+    /// Relates to a repo rollover of a position extending the closing or maturity date.
     /// Encoded/decoded by serializers as "Rollover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLP")]
     [IsoId("_ZTx2h9p-Ed-ak6NoX_4Aeg_708958802")]
-    [Description(@"??")]
+    [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
     Rollover,
     
 }

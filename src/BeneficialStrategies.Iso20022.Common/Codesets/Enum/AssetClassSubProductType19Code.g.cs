@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType19Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type deliverable.
     /// Encoded/decoded by serializers as "Deliverable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLVR")]
     [IsoId("_TB5cIQ3oEeWc7_0KPiuk6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of type deliverable.")]
     Deliverable,
     
     /// <summary>
-    /// ??
+    /// Commodity of type non deliverable.
     /// Encoded/decoded by serializers as "NonDeliverable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDLV")]
     [IsoId("_T0xqkQ3oEeWc7_0KPiuk6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of type non deliverable.")]
     NonDeliverable,
     
 }

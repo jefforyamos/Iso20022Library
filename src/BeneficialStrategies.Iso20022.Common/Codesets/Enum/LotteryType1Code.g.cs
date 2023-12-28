@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LotteryType1Code
 {
     /// <summary>
-    /// ??
+    /// Original lottery that has been announced for a specific amount and date.
     /// Encoded/decoded by serializers as "OriginalLotteryNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORIG")]
     [IsoId("_afolotp-Ed-ak6NoX_4Aeg_-1740647868")]
-    [Description(@"??")]
+    [Description(@"Original lottery that has been announced for a specific amount and date.")]
     OriginalLotteryNotification,
     
     /// <summary>
-    /// ??
+    /// Supplemental or additional quantity called on a previously announced original lottery.
     /// Encoded/decoded by serializers as "SupplementalLotteryNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUPP")]
     [IsoId("_afolo9p-Ed-ak6NoX_4Aeg_-1740647840")]
-    [Description(@"??")]
+    [Description(@"Supplemental or additional quantity called on a previously announced original lottery.")]
     SupplementalLotteryNotification,
     
 }

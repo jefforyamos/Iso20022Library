@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChequeDelivery2Code
 {
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through mail services to creditor agent.
     /// Encoded/decoded by serializers as "MailToFinalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLFA")]
     [IsoId("_a-oOwdp-Ed-ak6NoX_4Aeg_94504069")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through mail services to creditor agent.")]
     MailToFinalAgent,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through courier services to creditor agent.
     /// Encoded/decoded by serializers as "CourierToFinalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRFA")]
     [IsoId("_a-oOwtp-Ed-ak6NoX_4Aeg_94504160")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through courier services to creditor agent.")]
     CourierToFinalAgent,
     
     /// <summary>
-    /// ??
+    /// Cheque will be picked up by the creditor agent.
     /// Encoded/decoded by serializers as "PickUpByFinalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUFA")]
     [IsoId("_a-oOw9p-Ed-ak6NoX_4Aeg_94504439")]
-    [Description(@"??")]
+    [Description(@"Cheque will be picked up by the creditor agent.")]
     PickUpByFinalAgent,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through registered mail services to creditor agent.
     /// Encoded/decoded by serializers as "RegisteredMailToFinalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RGFA")]
     [IsoId("_a-oOxNp-Ed-ak6NoX_4Aeg_94504499")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through registered mail services to creditor agent.")]
     RegisteredMailToFinalAgent,
     
 }

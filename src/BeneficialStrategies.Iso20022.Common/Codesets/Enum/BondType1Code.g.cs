@@ -20,57 +20,59 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BondType1Code
 {
     /// <summary>
-    /// ??
+    /// Bond of type sovereign bond.
+    /// 
     /// Encoded/decoded by serializers as "SovereignBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUSB")]
     [IsoId("_z95C0XwXEeWa36CuR-uOCw")]
-    [Description(@"??")]
+    [Description(@"Bond of type sovereign bond. ")]
     SovereignBond,
     
     /// <summary>
-    /// ??
+    /// Bond of type other public bond.
     /// Encoded/decoded by serializers as "OtherPublicBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OEPB")]
     [IsoId("_0jKTEXwXEeWa36CuR-uOCw")]
-    [Description(@"??")]
+    [Description(@"Bond of type other public bond.")]
     OtherPublicBond,
     
     /// <summary>
-    /// ??
+    /// Bond of type convertible bond.
     /// Encoded/decoded by serializers as "ConvertibleBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CVTB")]
     [IsoId("_1H1tcXwXEeWa36CuR-uOCw")]
-    [Description(@"??")]
+    [Description(@"Bond of type convertible bond.")]
     ConvertibleBond,
     
     /// <summary>
-    /// ??
+    /// Bond of type corporate Bond.
+    /// 
     /// Encoded/decoded by serializers as "CorporateBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPB")]
     [IsoId("_1huNEXwXEeWa36CuR-uOCw")]
-    [Description(@"??")]
+    [Description(@"Bond of type corporate Bond. ")]
     CorporateBond,
     
     /// <summary>
-    /// ??
+    /// Bond of type covered Bond.
     /// Encoded/decoded by serializers as "CoveredBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CVDB")]
     [IsoId("_15wSkXwXEeWa36CuR-uOCw")]
-    [Description(@"??")]
+    [Description(@"Bond of type covered Bond.")]
     CoveredBond,
     
     /// <summary>
-    /// ??
+    /// Other bond type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_2V1KkXwXEeWa36CuR-uOCw")]
-    [Description(@"??")]
+    [Description(@"Other bond type.")]
     Other,
     
 }

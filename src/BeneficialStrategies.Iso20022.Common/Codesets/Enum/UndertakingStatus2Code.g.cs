@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UndertakingStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_9NC3RnymEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_u-8y1n4EEeG05p8M2uqofg")]
-    [Description(@"??")]
+    [Description(@"Rejected.")]
     Rejected,
     
 }

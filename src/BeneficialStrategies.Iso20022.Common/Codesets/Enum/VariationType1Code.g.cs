@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VariationType1Code
 {
     /// <summary>
-    /// ??
+    /// Decrease to undertaking amount.
     /// Encoded/decoded by serializers as "Decrease".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECR")]
     [IsoId("_GXO5dnyoEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Decrease to undertaking amount.")]
     Decrease,
     
     /// <summary>
-    /// ??
+    /// Increase to undertaking amount.
     /// Encoded/decoded by serializers as "Increase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCR")]
     [IsoId("_GeibVnyoEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Increase to undertaking amount.")]
     Increase,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BillingCurrencyType2Code
 {
     /// <summary>
-    /// ??
+    /// Currency type used for the billing is the account currency.
     /// Encoded/decoded by serializers as "Account".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_6WzSkpqlEeGSON8vddiWzQ_-1127654531")]
-    [Description(@"??")]
+    [Description(@"Currency type used for the billing is the account currency.")]
     Account,
     
     /// <summary>
-    /// ??
+    /// Currency type used for the billing is the settlement currency.
     /// Encoded/decoded by serializers as "Settlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLM")]
     [IsoId("_6WzSk5qlEeGSON8vddiWzQ_-541707505")]
-    [Description(@"??")]
+    [Description(@"Currency type used for the billing is the settlement currency.")]
     Settlement,
     
     /// <summary>
-    /// ??
+    /// Currency type used for the billing is the pricing currency.
     /// Encoded/decoded by serializers as "Pricing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCG")]
     [IsoId("_6WzSlJqlEeGSON8vddiWzQ_-1424940792")]
-    [Description(@"??")]
+    [Description(@"Currency type used for the billing is the pricing currency.")]
     Pricing,
     
     /// <summary>
-    /// ??
+    /// Currency type used for the billing is the host currency.
     /// Encoded/decoded by serializers as "Host".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOST")]
     [IsoId("_6WzSlZqlEeGSON8vddiWzQ_-1920390448")]
-    [Description(@"??")]
+    [Description(@"Currency type used for the billing is the host currency.")]
     Host,
     
 }

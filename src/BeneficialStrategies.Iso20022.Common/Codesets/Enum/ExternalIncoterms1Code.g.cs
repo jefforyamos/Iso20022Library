@@ -21,102 +21,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalIncoterms1Code
 {
     /// <summary>
-    /// ??
+    /// Cost and Freight (sea and inland waterway transport) - Incoterms 2010
     /// Encoded/decoded by serializers as "CostAndFreight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFR")]
     [IsoId("_uH-6UvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cost and Freight (sea and inland waterway transport) - Incoterms 2010")]
     CostAndFreight,
     
     /// <summary>
-    /// ??
+    /// Cost, Insurance and Freight (sea and inland waterway transport) - Incoterms 2010
     /// Encoded/decoded by serializers as "CostInsuranceAndFreight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CIF")]
     [IsoId("_uH-6VfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Cost, Insurance and Freight (sea and inland waterway transport) - Incoterms 2010")]
     CostInsuranceAndFreight,
     
     /// <summary>
-    /// ??
+    /// Carriage and Insurance Paid To (any mode of transport, including multimodal) - Incoterms 2010
     /// Encoded/decoded by serializers as "CarriageAndInsurancePaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CIP")]
     [IsoId("_uIIrUvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Carriage and Insurance Paid To (any mode of transport, including multimodal) - Incoterms 2010")]
     CarriageAndInsurancePaid,
     
     /// <summary>
-    /// ??
+    /// Carriage Paid To (any mode of transport, including multimodal) - Incoterms 2010
     /// Encoded/decoded by serializers as "CarriagePaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPT")]
     [IsoId("_uIIrVfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Carriage Paid To (any mode of transport, including multimodal) - Incoterms 2010")]
     CarriagePaid,
     
     /// <summary>
-    /// ??
+    /// Delivered at Place (any mode of transport, including multimodal) - Incoterms 2010
     /// Encoded/decoded by serializers as "DeliveredAtPlace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAP")]
     [IsoId("_uIIrWPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Delivered at Place (any mode of transport, including multimodal) - Incoterms 2010")]
     DeliveredAtPlace,
     
     /// <summary>
-    /// ??
+    /// Delivered at Terminal (any mode of transport, including multimodal) - Incoterms 2010
     /// Encoded/decoded by serializers as "DeliveredAtTerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAT")]
     [IsoId("_uIIrW_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Delivered at Terminal (any mode of transport, including multimodal) - Incoterms 2010")]
     DeliveredAtTerminal,
     
     /// <summary>
-    /// ??
+    /// Delivered Duty Paid (any mode of transport, including multimodal) - Incoterms 2010
     /// Encoded/decoded by serializers as "DeliveredDutyPaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDP")]
     [IsoId("_uIR1QvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Delivered Duty Paid (any mode of transport, including multimodal) - Incoterms 2010")]
     DeliveredDutyPaid,
     
     /// <summary>
-    /// ??
+    /// Ex Works (any mode of transport, including multimodal) - Incoterms 2010
     /// Encoded/decoded by serializers as "ExWorks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXW")]
     [IsoId("_uIR1RfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ex Works (any mode of transport, including multimodal) - Incoterms 2010")]
     ExWorks,
     
     /// <summary>
-    /// ??
+    /// Free Alongside Ship (sea and inland waterway transport) - Incoterms 2010
     /// Encoded/decoded by serializers as "FreeAlongsideShip".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAS")]
     [IsoId("_uIR1SPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Free Alongside Ship (sea and inland waterway transport) - Incoterms 2010")]
     FreeAlongsideShip,
     
     /// <summary>
-    /// ??
+    /// Free Carrier (any mode of transport, including multimodal) - Incoterms 2010
     /// Encoded/decoded by serializers as "FreeCarrier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCA")]
     [IsoId("_uIR1S_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Free Carrier (any mode of transport, including multimodal) - Incoterms 2010")]
     FreeCarrier,
     
     /// <summary>
-    /// ??
+    /// Free On Board (sea and inland waterway transport) - Incoterms 2010
     /// Encoded/decoded by serializers as "FreeOnBoard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FOB")]
     [IsoId("_uIR1TvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Free On Board (sea and inland waterway transport) - Incoterms 2010")]
     FreeOnBoard,
     
 }

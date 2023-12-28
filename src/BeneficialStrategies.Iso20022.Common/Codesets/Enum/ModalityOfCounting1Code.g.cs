@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ModalityOfCounting1Code
 {
     /// <summary>
-    /// ??
+    /// Electronic vote recorded and counted at the meeting.
     /// Encoded/decoded by serializers as "ElectronicAtMeeting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVAM")]
     [IsoId("_OwH-kbLXEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Electronic vote recorded and counted at the meeting.")]
     ElectronicAtMeeting,
     
     /// <summary>
-    /// ??
+    /// Electronic vote recorded and counted ahead of the meeting.
     /// Encoded/decoded by serializers as "ElectronicBefore".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVBM")]
     [IsoId("_O3HXYbLXEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Electronic vote recorded and counted ahead of the meeting.")]
     ElectronicBefore,
     
     /// <summary>
-    /// ??
+    /// Paper vote recorded and counted ahead of the meeting.
     /// Encoded/decoded by serializers as "PaperBefore".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PVBM")]
     [IsoId("_O98_MbLXEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Paper vote recorded and counted ahead of the meeting.")]
     PaperBefore,
     
     /// <summary>
-    /// ??
+    /// Physical attendance with vote at the meeting.
     /// Encoded/decoded by serializers as "PhysicalAtMeeting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PVAM")]
     [IsoId("_PE8_EbLXEemDyeh7tbvg1w")]
-    [Description(@"??")]
+    [Description(@"Physical attendance with vote at the meeting.")]
     PhysicalAtMeeting,
     
 }

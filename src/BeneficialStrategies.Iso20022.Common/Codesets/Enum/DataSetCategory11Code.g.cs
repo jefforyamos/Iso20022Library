@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetCategory11Code
 {
     /// <summary>
-    /// ??
+    /// Configuration parameters of the payment acquirer protocol.
     /// Encoded/decoded by serializers as "AcquirerProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQP")]
     [IsoId("_LSf3EY4GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Configuration parameters of the payment acquirer protocol.")]
     AcquirerProtocolParameters,
     
     /// <summary>
-    /// ??
+    /// Payment application specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "ApplicationParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_LSf3E44GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
     ApplicationParameters,
     
     /// <summary>
-    /// ??
+    /// Creation of a subset of the configuration parameters of an application.
     /// Encoded/decoded by serializers as "ApplicationParametersSubsetCreation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APSB")]
     [IsoId("_LSf3FY4GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Creation of a subset of the configuration parameters of an application.")]
     ApplicationParametersSubsetCreation,
     
     /// <summary>
-    /// ??
+    /// Download of cryptographic keys with the related information.
     /// Encoded/decoded by serializers as "KeyDownload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDWL")]
     [IsoId("_LSf3F44GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Download of cryptographic keys with the related information.")]
     KeyDownload,
     
     /// <summary>
-    /// ??
+    /// Activate, deactivate or revoke loaded cryptographic keys.
     /// Encoded/decoded by serializers as "KeyManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KMGT")]
     [IsoId("_LSf3GY4GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Activate, deactivate or revoke loaded cryptographic keys.")]
     KeyManagement,
     
     /// <summary>
-    /// ??
+    /// Reporting on activity, status and error of a point of interaction.
     /// Encoded/decoded by serializers as "Reporting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPRT")]
     [IsoId("_LSf3G44GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Reporting on activity, status and error of a point of interaction.")]
     Reporting,
     
     /// <summary>
-    /// ??
+    /// Software module.
     /// Encoded/decoded by serializers as "SoftwareModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPK")]
     [IsoId("_LSf3HY4GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Software module.")]
     SoftwareModule,
     
     /// <summary>
-    /// ??
+    /// Configuration parameters for the TMS protocol.
     /// Encoded/decoded by serializers as "TMSProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMSP")]
     [IsoId("_LSf3H44GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Configuration parameters for the TMS protocol.")]
     TMSProtocolParameters,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_LSf3IY4GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
     /// Encoded/decoded by serializers as "TerminalParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPR")]
     [IsoId("_LSf3I44GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
     TerminalParameters,
     
     /// <summary>
-    /// ??
+    /// Certificate provided by a terminal manager.
     /// Encoded/decoded by serializers as "CertificateParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTF")]
     [IsoId("_RkeLcY4GEeWrZqsymMFdfg")]
-    [Description(@"??")]
+    [Description(@"Certificate provided by a terminal manager.")]
     CertificateParameters,
     
 }

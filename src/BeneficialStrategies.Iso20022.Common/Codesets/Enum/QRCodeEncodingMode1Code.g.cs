@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QRCodeEncodingMode1Code
 {
     /// <summary>
-    /// ??
+    /// Alphanumeric value provided in Barcode field.
     /// Encoded/decoded by serializers as "Alphanumeric".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALFA")]
     [IsoId("_C2JMYdudEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Alphanumeric value provided in Barcode field.")]
     Alphanumeric,
     
     /// <summary>
-    /// ??
+    /// Binary value provided in Quick Response Code Binary Value.
     /// Encoded/decoded by serializers as "Binary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BINA")]
     [IsoId("_C6I7kdudEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Binary value provided in Quick Response Code Binary Value.")]
     Binary,
     
     /// <summary>
-    /// ??
+    /// Kanji value provided in Quick Response Code Binary Value.
     /// Encoded/decoded by serializers as "Kanji".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KANJ")]
     [IsoId("_C-EZUdudEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Kanji value provided in Quick Response Code Binary Value.")]
     Kanji,
     
     /// <summary>
-    /// ??
+    /// Numeric value provided in Barcode field.
     /// Encoded/decoded by serializers as "Numeric".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NUME")]
     [IsoId("_DCOgkdudEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Numeric value provided in Barcode field.")]
     Numeric,
     
 }

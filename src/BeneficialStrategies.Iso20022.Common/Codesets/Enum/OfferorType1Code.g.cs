@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OfferorType1Code
 {
     /// <summary>
-    /// ??
+    /// Offeror is the issuing company.
     /// Encoded/decoded by serializers as "Self".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELF")]
     [IsoId("_1pa8ljL3EeKU9IrkkToqcw_2101612018")]
-    [Description(@"??")]
+    [Description(@"Offeror is the issuing company.")]
     Self,
     
     /// <summary>
-    /// ??
+    /// Offer is made by the third party.
     /// Encoded/decoded by serializers as "ThirdParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THRD")]
     [IsoId("_1pktkDL3EeKU9IrkkToqcw_1987772952")]
-    [Description(@"??")]
+    [Description(@"Offer is made by the third party.")]
     ThirdParty,
     
 }

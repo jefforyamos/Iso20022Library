@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionEventStage1Code
 {
     /// <summary>
-    /// ??
+    /// Approved at the relevant meeting, eg, dividend.
     /// Encoded/decoded by serializers as "Approved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPD")]
     [IsoId("_bDsU8dp-Ed-ak6NoX_4Aeg_1114905475")]
-    [Description(@"??")]
+    [Description(@"Approved at the relevant meeting, eg, dividend.")]
     Approved,
     
     /// <summary>
-    /// ??
+    /// The offer is closed for acceptance.
     /// Encoded/decoded by serializers as "Deactivated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLDE")]
     [IsoId("_bDsU8tp-Ed-ak6NoX_4Aeg_1114905505")]
-    [Description(@"??")]
+    [Description(@"The offer is closed for acceptance.")]
     Deactivated,
     
     /// <summary>
-    /// ??
+    /// Open for acceptance until the next specified deadline in the announcement (if any).
     /// Encoded/decoded by serializers as "ActionPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PWAL")]
     [IsoId("_bDsU89p-Ed-ak6NoX_4Aeg_1114905506")]
-    [Description(@"??")]
+    [Description(@"Open for acceptance until the next specified deadline in the announcement (if any).")]
     ActionPeriod,
     
     /// <summary>
-    /// ??
+    /// Subject to approval at the relevant meeting, eg, dividend.
     /// Encoded/decoded by serializers as "SubjectToApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUAP")]
     [IsoId("_bDsU9Np-Ed-ak6NoX_4Aeg_1114905536")]
-    [Description(@"??")]
+    [Description(@"Subject to approval at the relevant meeting, eg, dividend.")]
     SubjectToApproval,
     
     /// <summary>
-    /// ??
+    /// The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.
     /// Encoded/decoded by serializers as "UnconditionalAsToAcceptance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNAC")]
     [IsoId("_bDsU9dp-Ed-ak6NoX_4Aeg_1114905537")]
-    [Description(@"??")]
+    [Description(@"The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.")]
     UnconditionalAsToAcceptance,
     
     /// <summary>
-    /// ??
+    /// Wholly unconditional; all conditions specified in the offer document have been satisfied.
     /// Encoded/decoded by serializers as "WhollyUnconditional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHOU")]
     [IsoId("_bDsU9tp-Ed-ak6NoX_4Aeg_1114905566")]
-    [Description(@"??")]
+    [Description(@"Wholly unconditional; all conditions specified in the offer document have been satisfied.")]
     WhollyUnconditional,
     
     /// <summary>
-    /// ??
+    /// An original or supplemental lottery is being reversed.
     /// Encoded/decoded by serializers as "FullReversalLotteryNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_bDsU99p-Ed-ak6NoX_4Aeg_1114905567")]
-    [Description(@"??")]
+    [Description(@"An original or supplemental lottery is being reversed.")]
     FullReversalLotteryNotification,
     
     /// <summary>
-    /// ??
+    /// The event/offer conditions have not been met and the event/offer is terminated or lapsed.
     /// Encoded/decoded by serializers as "Lapsed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAPS")]
     [IsoId("_bDsU-Np-Ed-ak6NoX_4Aeg_1114905597")]
-    [Description(@"??")]
+    [Description(@"The event/offer conditions have not been met and the event/offer is terminated or lapsed.")]
     Lapsed,
     
     /// <summary>
-    /// ??
+    /// Original call amount is reduced by the agent. The original announcement is cancelled and a new original lottery is issued.
     /// Encoded/decoded by serializers as "PartialReversalLotteryNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_bD1e4Np-Ed-ak6NoX_4Aeg_1114905598")]
-    [Description(@"??")]
+    [Description(@"Original call amount is reduced by the agent. The original announcement is cancelled and a new original lottery is issued.")]
     PartialReversalLotteryNotification,
     
     /// <summary>
-    /// ??
+    /// Original and or supplemental lottery details have changed and the lottery is being cancelled.
     /// Encoded/decoded by serializers as "RescissionReversalLotteryNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESC")]
     [IsoId("_bD1e4dp-Ed-ak6NoX_4Aeg_1114905627")]
-    [Description(@"??")]
+    [Description(@"Original and or supplemental lottery details have changed and the lottery is being cancelled.")]
     RescissionReversalLotteryNotification,
     
 }

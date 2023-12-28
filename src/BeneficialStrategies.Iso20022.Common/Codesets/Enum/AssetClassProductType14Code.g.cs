@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType14Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type official economic statistic.
     /// Encoded/decoded by serializers as "OfficialEconomicStatistic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OEST")]
     [IsoId("_Zkr-xVrLEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type official economic statistic.")]
     OfficialEconomicStatistic,
     
 }

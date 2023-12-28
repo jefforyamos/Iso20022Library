@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardPaymentServiceType10Code
 {
     /// <summary>
-    /// ??
+    /// Creation of an X.509 certificate with the public key and the information of the owner of the asymmetric key provided by the requestor.
     /// Encoded/decoded by serializers as "CreateCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTC")]
     [IsoId("_wguZgY4MEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"Creation of an X.509 certificate with the public key and the information of the owner of the asymmetric key provided by the requestor.")]
     CreateCertificate,
     
     /// <summary>
-    /// ??
+    /// Renewal of an X.509 certificate, protected by the certificate to renew.
     /// Encoded/decoded by serializers as "RenewCerificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTR")]
     [IsoId("_xQaKA44MEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"Renewal of an X.509 certificate, protected by the certificate to renew.")]
     RenewCerificate,
     
     /// <summary>
-    /// ??
+    /// Revocation of an active X.509 certificate.
     /// Encoded/decoded by serializers as "RevokeCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTK")]
     [IsoId("_yQQdc44MEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"Revocation of an active X.509 certificate.")]
     RevokeCertificate,
     
     /// <summary>
-    /// ??
+    /// Remove a POI from the white list of the terminal manager.
     /// Encoded/decoded by serializers as "RemoveWhiteList".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WLSR")]
     [IsoId("_zIS4s44MEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"Remove a POI from the white list of the terminal manager.")]
     RemoveWhiteList,
     
     /// <summary>
-    /// ??
+    /// Add a POI in the white list of the terminal manager.
     /// Encoded/decoded by serializers as "AddWhiteList".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WLSA")]
     [IsoId("_znLNE44MEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"Add a POI in the white list of the terminal manager.")]
     AddWhiteList,
     
 }

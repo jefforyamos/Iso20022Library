@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PINFormat1Code
 {
     /// <summary>
-    /// ??
+    /// PIN diversified with the card account number, conforming to the standard ISO 9564-2.
     /// Encoded/decoded by serializers as "ISO0".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO0")]
     [IsoId("_TTtRTQEcEeCQm6a_G2yO_w_-36231100")]
-    [Description(@"??")]
+    [Description(@"PIN diversified with the card account number, conforming to the standard ISO 9564-2.")]
     ISO0,
     
     /// <summary>
-    /// ??
+    /// PIN completed with random padding characters, conforming to the standard ISO 9564-2.
     /// Encoded/decoded by serializers as "ISO1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO1")]
     [IsoId("_TTtRTgEcEeCQm6a_G2yO_w_325809407")]
-    [Description(@"??")]
+    [Description(@"PIN completed with random padding characters, conforming to the standard ISO 9564-2.")]
     ISO1,
     
     /// <summary>
-    /// ??
+    /// PIN without diversification characters, conforming to the standard ISO 9564-2.
     /// Encoded/decoded by serializers as "ISO2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO2")]
     [IsoId("_TTtRTwEcEeCQm6a_G2yO_w_-1049115605")]
-    [Description(@"??")]
+    [Description(@"PIN without diversification characters, conforming to the standard ISO 9564-2.")]
     ISO2,
     
     /// <summary>
-    /// ??
+    /// PIN diversified with the card account number and random characters, conforming to the standard ISO 9564-2.
     /// Encoded/decoded by serializers as "ISO3".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISO3")]
     [IsoId("_TTtRUAEcEeCQm6a_G2yO_w_888109568")]
-    [Description(@"??")]
+    [Description(@"PIN diversified with the card account number and random characters, conforming to the standard ISO 9564-2.")]
     ISO3,
     
 }

@@ -20,318 +20,318 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnitOfMeasure1Code
 {
     /// <summary>
-    /// ??
+    /// Standard length of cloth, wallpaper, as an item for sale or amount of a substance.
     /// Encoded/decoded by serializers as "Piece".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PIEC")]
     [IsoId("_TUTHJAEcEeCQm6a_G2yO_w_1207210081")]
-    [Description(@"??")]
+    [Description(@"Standard length of cloth, wallpaper, as an item for sale or amount of a substance.")]
     Piece,
     
     /// <summary>
-    /// ??
+    /// Measure of weight, in Britain 2240lb (long ton)and in the US 2000lb (short ton).
     /// Encoded/decoded by serializers as "Ton".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TONS")]
     [IsoId("_TUTHJQEcEeCQm6a_G2yO_w_50869229")]
-    [Description(@"??")]
+    [Description(@"Measure of weight, in Britain 2240lb (long ton)and in the US 2000lb (short ton).")]
     Ton,
     
     /// <summary>
-    /// ??
+    /// Unit of length equal to 1/3 yard.
     /// Encoded/decoded by serializers as "Foot".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FOOT")]
     [IsoId("_TUTHJgEcEeCQm6a_G2yO_w_375986736")]
-    [Description(@"??")]
+    [Description(@"Unit of length equal to 1/3 yard.")]
     Foot,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to 8 pints.
     /// Encoded/decoded by serializers as "GBGallon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBGA")]
     [IsoId("_TUTHJwEcEeCQm6a_G2yO_w_-1981755387")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to 8 pints.")]
     GBGallon,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to 8 pints.
     /// Encoded/decoded by serializers as "USGallon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USGA")]
     [IsoId("_TUTHKAEcEeCQm6a_G2yO_w_-998938276")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to 8 pints.")]
     USGallon,
     
     /// <summary>
-    /// ??
+    /// Unit of measure that is equal to a 1, 000th of a kilo.
     /// Encoded/decoded by serializers as "Gram".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRAM")]
     [IsoId("_TUTHKQEcEeCQm6a_G2yO_w_-1633970122")]
-    [Description(@"??")]
+    [Description(@"Unit of measure that is equal to a 1, 000th of a kilo.")]
     Gram,
     
     /// <summary>
-    /// ??
+    /// Measure of length equal to 2.54 cm.
     /// Encoded/decoded by serializers as "Inch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCH")]
     [IsoId("_TUTHKgEcEeCQm6a_G2yO_w_303255051")]
-    [Description(@"??")]
+    [Description(@"Measure of length equal to 2.54 cm.")]
     Inch,
     
     /// <summary>
-    /// ??
+    /// Basic unit of mass in the SI system, 1000 grams.
     /// Encoded/decoded by serializers as "Kilogram".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KILO")]
     [IsoId("_TUTHKwEcEeCQm6a_G2yO_w_-555949784")]
-    [Description(@"??")]
+    [Description(@"Basic unit of mass in the SI system, 1000 grams.")]
     Kilogram,
     
     /// <summary>
-    /// ??
+    /// Unit of weight equal to 0.454 kilograms.
     /// Encoded/decoded by serializers as "Pound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUND")]
     [IsoId("_TUTHLAEcEeCQm6a_G2yO_w_1381275389")]
-    [Description(@"??")]
+    [Description(@"Unit of weight equal to 0.454 kilograms.")]
     Pound,
     
     /// <summary>
-    /// ??
+    /// Unit of length in the metric system, equal to 39.37 inches.
     /// Encoded/decoded by serializers as "Metre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "METR")]
     [IsoId("_TUTHLQEcEeCQm6a_G2yO_w_495183288")]
-    [Description(@"??")]
+    [Description(@"Unit of length in the metric system, equal to 39.37 inches.")]
     Metre,
     
     /// <summary>
-    /// ??
+    /// Unit of measure that is equal to one hundredth of a metre.
     /// Encoded/decoded by serializers as "Centimetre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMET")]
     [IsoId("_TUTHLgEcEeCQm6a_G2yO_w_-1348685701")]
-    [Description(@"??")]
+    [Description(@"Unit of measure that is equal to one hundredth of a metre.")]
     Centimetre,
     
     /// <summary>
-    /// ??
+    /// Unit of measure that is a thousandth of one metre.
     /// Encoded/decoded by serializers as "Millimetre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMET")]
     [IsoId("_TUTHLwEcEeCQm6a_G2yO_w_588539472")]
-    [Description(@"??")]
+    [Description(@"Unit of measure that is a thousandth of one metre.")]
     Millimetre,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to a thousand cubic centimetres.
     /// Encoded/decoded by serializers as "Litre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LITR")]
     [IsoId("_TUTHMAEcEeCQm6a_G2yO_w_-587920548")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to a thousand cubic centimetres.")]
     Litre,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to one hundredth of a litre.
     /// Encoded/decoded by serializers as "Centilitre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CELI")]
     [IsoId("_TUTHMQEcEeCQm6a_G2yO_w_-905697209")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to one hundredth of a litre.")]
     Centilitre,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to one thousandth of a litre.
     /// Encoded/decoded by serializers as "MilliLitre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MILI")]
     [IsoId("_TUTHMgEcEeCQm6a_G2yO_w_1697089890")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to one thousandth of a litre.")]
     MilliLitre,
     
     /// <summary>
-    /// ??
+    /// Unit of weight equal to a sixteenth of a pound.
     /// Encoded/decoded by serializers as "GBOunce".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBOU")]
     [IsoId("_TUTHMwEcEeCQm6a_G2yO_w_-660652233")]
-    [Description(@"??")]
+    [Description(@"Unit of weight equal to a sixteenth of a pound.")]
     GBOunce,
     
     /// <summary>
-    /// ??
+    /// Unit of weight equal to a sixteenth of a pound.
     /// Encoded/decoded by serializers as "USOunce".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USOU")]
     [IsoId("_TUTHNAEcEeCQm6a_G2yO_w_1685991113")]
-    [Description(@"??")]
+    [Description(@"Unit of weight equal to a sixteenth of a pound.")]
     USOunce,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to 2 pints.
     /// Encoded/decoded by serializers as "GBQuart".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBQA")]
     [IsoId("_TUc4IAEcEeCQm6a_G2yO_w_-1557843111")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to 2 pints.")]
     GBQuart,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to 2 pints.
     /// Encoded/decoded by serializers as "USQuart".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USQA")]
     [IsoId("_TUc4IQEcEeCQm6a_G2yO_w_379382062")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to 2 pints.")]
     USQuart,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to 568 cubic centimetres.
     /// Encoded/decoded by serializers as "GBPint".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBPI")]
     [IsoId("_TUc4IgEcEeCQm6a_G2yO_w_1229471480")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to 568 cubic centimetres.")]
     GBPint,
     
     /// <summary>
-    /// ??
+    /// Unit of volume that is equal to 473 cubic centimetres.
     /// Encoded/decoded by serializers as "USPint".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USPI")]
     [IsoId("_TUc4IwEcEeCQm6a_G2yO_w_1347342465")]
-    [Description(@"??")]
+    [Description(@"Unit of volume that is equal to 473 cubic centimetres.")]
     USPint,
     
     /// <summary>
-    /// ??
+    /// Unit of length equal to 1, 760 yards.
     /// Encoded/decoded by serializers as "Mile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MILE")]
     [IsoId("_TUc4JAEcEeCQm6a_G2yO_w_-1010399658")]
-    [Description(@"??")]
+    [Description(@"Unit of length equal to 1, 760 yards.")]
     Mile,
     
     /// <summary>
-    /// ??
+    /// Unit of measure that is equal to 1, 000 meters.
     /// Encoded/decoded by serializers as "Kilometre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KMET")]
     [IsoId("_TUc4JQEcEeCQm6a_G2yO_w_1672459972")]
-    [Description(@"??")]
+    [Description(@"Unit of measure that is equal to 1, 000 meters.")]
     Kilometre,
     
     /// <summary>
-    /// ??
+    /// Unit of length equal to 3 feet or 0.9144 metre.
     /// Encoded/decoded by serializers as "Yard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YARD")]
     [IsoId("_TUc4JgEcEeCQm6a_G2yO_w_297534960")]
-    [Description(@"??")]
+    [Description(@"Unit of length equal to 3 feet or 0.9144 metre.")]
     Yard,
     
     /// <summary>
-    /// ??
+    /// Measure of a surface, one kilometre by one kilometre.
     /// Encoded/decoded by serializers as "SquareKilometre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SQKI")]
     [IsoId("_TUc4JwEcEeCQm6a_G2yO_w_751622229")]
-    [Description(@"??")]
+    [Description(@"Measure of a surface, one kilometre by one kilometre.")]
     SquareKilometre,
     
     /// <summary>
-    /// ??
+    /// Unit of measure that is equal to 10, 000 square meters.
     /// Encoded/decoded by serializers as "Hectare".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HECT")]
     [IsoId("_TUc4KAEcEeCQm6a_G2yO_w_-1606119894")]
-    [Description(@"??")]
+    [Description(@"Unit of measure that is equal to 10, 000 square meters.")]
     Hectare,
     
     /// <summary>
-    /// ??
+    /// Unit of measure equal to a 100 square meters.
     /// Encoded/decoded by serializers as "Are".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARES")]
     [IsoId("_TUc4KQEcEeCQm6a_G2yO_w_740523452")]
-    [Description(@"??")]
+    [Description(@"Unit of measure equal to a 100 square meters.")]
     Are,
     
     /// <summary>
-    /// ??
+    /// Measure of a surface, one metre by one metre.
     /// Encoded/decoded by serializers as "SquareMetre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMET")]
     [IsoId("_TUc4KgEcEeCQm6a_G2yO_w_2098334408")]
-    [Description(@"??")]
+    [Description(@"Measure of a surface, one metre by one metre.")]
     SquareMetre,
     
     /// <summary>
-    /// ??
+    /// Measure of a surface, one centimetre by one centimetre.
     /// Encoded/decoded by serializers as "SquareCentimetre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCMT")]
     [IsoId("_TUc4KwEcEeCQm6a_G2yO_w_1482653875")]
-    [Description(@"??")]
+    [Description(@"Measure of a surface, one centimetre by one centimetre.")]
     SquareCentimetre,
     
     /// <summary>
-    /// ??
+    /// Measure of a surface, one millimetre by one millimetre.
     /// Encoded/decoded by serializers as "SquareMillimetre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMIL")]
     [IsoId("_TUc4LAEcEeCQm6a_G2yO_w_-875088248")]
-    [Description(@"??")]
+    [Description(@"Measure of a surface, one millimetre by one millimetre.")]
     SquareMillimetre,
     
     /// <summary>
-    /// ??
+    /// Measure of a surface, one mile by one mile.
     /// Encoded/decoded by serializers as "SquareMile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SQMI")]
     [IsoId("_TUc4LQEcEeCQm6a_G2yO_w_-2051548268")]
-    [Description(@"??")]
+    [Description(@"Measure of a surface, one mile by one mile.")]
     SquareMile,
     
     /// <summary>
-    /// ??
+    /// Measure of a surface, one yard by one yard.
     /// Encoded/decoded by serializers as "SquareYard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SQYA")]
     [IsoId("_TUc4LgEcEeCQm6a_G2yO_w_-1597460999")]
-    [Description(@"??")]
+    [Description(@"Measure of a surface, one yard by one yard.")]
     SquareYard,
     
     /// <summary>
-    /// ??
+    /// Measure of a surface, one foot by one foot.
     /// Encoded/decoded by serializers as "SquareFoot".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SQFO")]
     [IsoId("_TUc4LwEcEeCQm6a_G2yO_w_339764174")]
-    [Description(@"??")]
+    [Description(@"Measure of a surface, one foot by one foot.")]
     SquareFoot,
     
     /// <summary>
-    /// ??
+    /// Measure of a surface, one inch by one inch.
     /// Encoded/decoded by serializers as "SquareInch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SQIN")]
     [IsoId("_TUc4MAEcEeCQm6a_G2yO_w_233462170")]
-    [Description(@"??")]
+    [Description(@"Measure of a surface, one inch by one inch.")]
     SquareInch,
     
     /// <summary>
-    /// ??
+    /// Unit of measure equal to 4, 840 square yards.
     /// Encoded/decoded by serializers as "Acre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACRE")]
     [IsoId("_TUc4MQEcEeCQm6a_G2yO_w_558579677")]
-    [Description(@"??")]
+    [Description(@"Unit of measure equal to 4, 840 square yards.")]
     Acre,
     
 }

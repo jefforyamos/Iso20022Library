@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount2Code
 {
     /// <summary>
-    /// ??
+    /// Cash-back amount.
     /// Encoded/decoded by serializers as "Cashback".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHB")]
     [IsoId("_TUJ9OgEcEeCQm6a_G2yO_w_1893013307")]
-    [Description(@"??")]
+    [Description(@"Cash-back amount.")]
     Cashback,
     
     /// <summary>
-    /// ??
+    /// Gratuity amount.
     /// Encoded/decoded by serializers as "Gratuity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRTY")]
     [IsoId("_TUJ9OwEcEeCQm6a_G2yO_w_1009780020")]
-    [Description(@"??")]
+    [Description(@"Gratuity amount.")]
     Gratuity,
     
     /// <summary>
-    /// ??
+    /// Fees.
     /// Encoded/decoded by serializers as "Fees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEES")]
     [IsoId("_TUJ9PAEcEeCQm6a_G2yO_w_-1680238167")]
-    [Description(@"??")]
+    [Description(@"Fees.")]
     Fees,
     
     /// <summary>
-    /// ??
+    /// Global rebate of the transaction. This amount is counted as a negative amount.
     /// Encoded/decoded by serializers as "Rebates".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RBTS")]
     [IsoId("_TUJ9PQEcEeCQm6a_G2yO_w_1239804117")]
-    [Description(@"??")]
+    [Description(@"Global rebate of the transaction. This amount is counted as a negative amount.")]
     Rebates,
     
     /// <summary>
-    /// ??
+    /// Value added tax amount.
     /// Encoded/decoded by serializers as "ValueAddedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATX")]
     [IsoId("_TUJ9PgEcEeCQm6a_G2yO_w_1693891386")]
-    [Description(@"??")]
+    [Description(@"Value added tax amount.")]
     ValueAddedTax,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResolutionStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Meeting resolution has been accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_S5RIgV64EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Meeting resolution has been accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Meeting resolution has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_TCMbAV64EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Meeting resolution has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Meeting resolution has been withdrawn.
     /// Encoded/decoded by serializers as "Withdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WDRA")]
     [IsoId("_TK-jkV64EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Meeting resolution has been withdrawn.")]
     Withdrawn,
     
 }

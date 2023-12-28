@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType20Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type dairy.
     /// Encoded/decoded by serializers as "Dairy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRY")]
     [IsoId("_prJicVq_EeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type dairy.")]
     Dairy,
     
 }

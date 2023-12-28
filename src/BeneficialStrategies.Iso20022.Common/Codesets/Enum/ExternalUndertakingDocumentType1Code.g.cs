@@ -21,48 +21,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalUndertakingDocumentType1Code
 {
     /// <summary>
-    /// ??
+    /// Document is a beneficiary statement.
     /// Encoded/decoded by serializers as "BeneficiaryStatement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BENS")]
     [IsoId("_uRYG4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document is a beneficiary statement.")]
     BeneficiaryStatement,
     
     /// <summary>
-    /// ??
+    /// Document is an invoice.
     /// Encoded/decoded by serializers as "CommercialInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINV")]
     [IsoId("_uRYG5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document is an invoice.")]
     CommercialInvoice,
     
     /// <summary>
-    /// ??
+    /// Document is a claim form.
     /// Encoded/decoded by serializers as "ClaimForm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAF")]
     [IsoId("_uRYG6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document is a claim form.")]
     ClaimForm,
     
     /// <summary>
-    /// ??
+    /// Document is an undertaking demand.
     /// Encoded/decoded by serializers as "Demand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEMD")]
     [IsoId("_uRYG6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document is an undertaking demand.")]
     Demand,
     
     /// <summary>
-    /// ??
+    /// Document is a transfer form.
     /// Encoded/decoded by serializers as "TransferForm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAF")]
     [IsoId("_uRYG7vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document is a transfer form.")]
     TransferForm,
     
 }

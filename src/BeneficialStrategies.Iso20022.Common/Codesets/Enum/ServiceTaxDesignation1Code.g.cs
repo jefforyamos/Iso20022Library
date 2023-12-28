@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ServiceTaxDesignation1Code
 {
     /// <summary>
-    /// ??
+    /// No taxes are due.
     /// Encoded/decoded by serializers as "Exempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XMPT")]
     [IsoId("_6WNcs5qlEeGSON8vddiWzQ_476426734")]
-    [Description(@"??")]
+    [Description(@"No taxes are due.")]
     Exempt,
     
     /// <summary>
-    /// ??
+    /// Tax is due but at zero percent and a zero charge.
     /// Encoded/decoded by serializers as "ZeroRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZERO")]
     [IsoId("_6WNctJqlEeGSON8vddiWzQ_-303620587")]
-    [Description(@"??")]
+    [Description(@"Tax is due but at zero percent and a zero charge.")]
     ZeroRate,
     
     /// <summary>
-    /// ??
+    /// One or more taxes are due on this service.
     /// Encoded/decoded by serializers as "Taxable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXE")]
     [IsoId("_6WNctZqlEeGSON8vddiWzQ_-314719364")]
-    [Description(@"??")]
+    [Description(@"One or more taxes are due on this service.")]
     Taxable,
     
 }

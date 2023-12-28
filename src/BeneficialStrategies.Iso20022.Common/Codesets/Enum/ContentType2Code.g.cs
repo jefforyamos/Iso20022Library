@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ContentType2Code
 {
     /// <summary>
-    /// ??
+    /// Generic, non cryptographic, or unqualified data content - (ASN.1 Object Identifier: id-data).
     /// Encoded/decoded by serializers as "PlainData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DATA")]
     [IsoId("_gd_z0WizEeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Generic, non cryptographic, or unqualified data content - (ASN.1 Object Identifier: id-data).")]
     PlainData,
     
     /// <summary>
-    /// ??
+    /// Digital signature - (ASN.1 Object Identifier: id-signedData).
     /// Encoded/decoded by serializers as "SignedData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGN")]
     [IsoId("_gd_z02izEeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Digital signature - (ASN.1 Object Identifier: id-signedData).")]
     SignedData,
     
     /// <summary>
-    /// ??
+    /// Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).
     /// Encoded/decoded by serializers as "EnvelopedData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVLP")]
     [IsoId("_gd_z1WizEeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).")]
     EnvelopedData,
     
     /// <summary>
-    /// ??
+    /// Message digest - (ASN.1 Object Identifier: id-digestedData).
     /// Encoded/decoded by serializers as "DigestedData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DGST")]
     [IsoId("_gd_z12izEeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message digest - (ASN.1 Object Identifier: id-digestedData).")]
     DigestedData,
     
     /// <summary>
-    /// ??
+    /// MAC (Message Authentication Code), with encryption key - (ASN.1 Object Identifier: id-ct-authData).
     /// Encoded/decoded by serializers as "AuthenticatedData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_gd_z22izEeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"MAC (Message Authentication Code), with encryption key - (ASN.1 Object Identifier: id-ct-authData).")]
     AuthenticatedData,
     
 }

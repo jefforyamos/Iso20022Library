@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradingVenue2Code
 {
     /// <summary>
-    /// ??
+    /// Person authorised under the provisions established in the regulation to provide the service of publishing trade reports on behalf of investment firms.
     /// Encoded/decoded by serializers as "ApprovedPublicationArrangement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPA")]
     [IsoId("_dy31QV0iEeWErPfQ7BYx8A")]
-    [Description(@"??")]
+    [Description(@"Person authorised under the provisions established in the regulation to provide the service of publishing trade reports on behalf of investment firms.")]
     ApprovedPublicationArrangement,
     
     /// <summary>
-    /// ??
+    /// Provider which will consolidate post-trade information into a continuous electronic data stream and make it publicly available as close to real time as technologically possible on a reasonable commercial basis and free of charge after 15 minutes.
     /// Encoded/decoded by serializers as "ConsolidatedTapeProvider".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTPS")]
     [IsoId("_F8rOgb4BEeWvRsMSLyTf-A")]
-    [Description(@"??")]
+    [Description(@"Provider which will consolidate post-trade information into a continuous electronic data stream and make it publicly available as close to real time as technologically possible on a reasonable commercial basis and free of charge after 15 minutes.")]
     ConsolidatedTapeProvider,
     
 }

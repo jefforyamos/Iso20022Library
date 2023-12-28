@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancelledStatusReason11Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by yourself.
     /// Encoded/decoded by serializers as "CancelledByYourself".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANI")]
     [IsoId("_q2JGtmtdEeCY4-KZ9JEyUQ_-816468203")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by yourself.")]
     CancelledByYourself,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.
     /// Encoded/decoded by serializers as "CancelledByOther".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANO")]
     [IsoId("_q2S3sGtdEeCY4-KZ9JEyUQ_1372396382")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.")]
     CancelledByOther,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the system.
     /// Encoded/decoded by serializers as "CancelledBySystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANS")]
     [IsoId("_q2S3sWtdEeCY4-KZ9JEyUQ_-1844550576")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the system.")]
     CancelledBySystem,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the agent due to an event deadline extension.
     /// Encoded/decoded by serializers as "CancelledByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSUB")]
     [IsoId("_q2S3smtdEeCY4-KZ9JEyUQ_1453344367")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the agent due to an event deadline extension.")]
     CancelledByAgent,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_q2S3s2tdEeCY4-KZ9JEyUQ_-486739620")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
 }

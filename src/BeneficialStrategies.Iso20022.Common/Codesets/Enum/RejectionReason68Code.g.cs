@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason68Code
 {
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_K7ukQStIEeye9qONztM6oQ")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
     /// <summary>
-    /// ??
+    /// Unrecognised event number.
     /// Encoded/decoded by serializers as "UnrecognisedIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVNM")]
     [IsoId("_K7ukQytIEeye9qONztM6oQ")]
-    [Description(@"??")]
+    [Description(@"Unrecognised event number.")]
     UnrecognisedIdentification,
     
     /// <summary>
-    /// ??
+    /// Financial instrument's symbol has not been recognized.
     /// Encoded/decoded by serializers as "UnknownSymbol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_K7ukRStIEeye9qONztM6oQ")]
-    [Description(@"??")]
+    [Description(@"Financial instrument's symbol has not been recognized.")]
     UnknownSymbol,
     
     /// <summary>
-    /// ??
+    /// Insufficient collateral proposed.
     /// Encoded/decoded by serializers as "InsufficientCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICOL")]
     [IsoId("_K7ukRytIEeye9qONztM6oQ")]
-    [Description(@"??")]
+    [Description(@"Insufficient collateral proposed.")]
     InsufficientCollateral,
     
     /// <summary>
-    /// ??
+    /// Concentration limit was exceeded.
     /// Encoded/decoded by serializers as "ConcentrationLimitExceeded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONL")]
     [IsoId("_K7ukSStIEeye9qONztM6oQ")]
-    [Description(@"??")]
+    [Description(@"Concentration limit was exceeded.")]
     ConcentrationLimitExceeded,
     
     /// <summary>
-    /// ??
+    /// Security is not eligible.
     /// Encoded/decoded by serializers as "NonEligibleSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELIG")]
     [IsoId("_K7ukSytIEeye9qONztM6oQ")]
-    [Description(@"??")]
+    [Description(@"Security is not eligible.")]
     NonEligibleSecurity,
     
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid message identification, identification is unknown.
     /// Encoded/decoded by serializers as "InvalidIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INID")]
     [IsoId("_K7ukTStIEeye9qONztM6oQ")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid message identification, identification is unknown.")]
     InvalidIdentification,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_K7ukTytIEeye9qONztM6oQ")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxType3Code
 {
     /// <summary>
-    /// ??
+    /// Local tax (ZAS pflichtige Zinsen) - interest liable for interest down payment tax (proportion of gross interest per unit/interim profits that is not covered by the credit in the interest pool).
     /// Encoded/decoded by serializers as "GermanLocalTax2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIDT")]
     [IsoId("_Ykix9tp-Ed-ak6NoX_4Aeg_1780697407")]
-    [Description(@"??")]
+    [Description(@"Local tax (ZAS pflichtige Zinsen) - interest liable for interest down payment tax (proportion of gross interest per unit/interim profits that is not covered by the credit in the interest pool).")]
     GermanLocalTax2,
     
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfForeignTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITF")]
     [IsoId("_Ykix99p-Ed-ak6NoX_4Aeg_1780697436")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfForeignTax,
     
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfLocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITL")]
     [IsoId("_Ykix-Np-Ed-ak6NoX_4Aeg_1780697437")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfLocalTax,
     
 }

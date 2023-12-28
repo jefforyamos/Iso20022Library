@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionTypeCode
 {
     /// <summary>
-    /// ??
+    /// Right to buy a quantity of an asset for an agreed price at exercise date.
     /// Encoded/decoded by serializers as "Call".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALL")]
     [IsoId("_aQbsBdp-Ed-ak6NoX_4Aeg_-17692338")]
-    [Description(@"??")]
+    [Description(@"Right to buy a quantity of an asset for an agreed price at exercise date.")]
     Call,
     
     /// <summary>
-    /// ??
+    /// Right to sell a quantity of an asset for an agreed price at exercise date.
     /// Encoded/decoded by serializers as "Put".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUTO")]
     [IsoId("_aQbsBtp-Ed-ak6NoX_4Aeg_22019899")]
-    [Description(@"??")]
+    [Description(@"Right to sell a quantity of an asset for an agreed price at exercise date.")]
     Put,
     
 }

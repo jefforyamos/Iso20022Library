@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType13Code
 {
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_rR52MYp8EeS3NqNpgnMh2w")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Party that issues cards.
     /// Encoded/decoded by serializers as "CardIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISS")]
     [IsoId("_rlIUM4p8EeS3NqNpgnMh2w")]
-    [Description(@"??")]
+    [Description(@"Party that issues cards.")]
     CardIssuer,
     
     /// <summary>
-    /// ??
+    /// Party to whom the card issuer delegates to authorise card payment transactions.
     /// Encoded/decoded by serializers as "DelegateIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLIS")]
     [IsoId("_sTWsI4p8EeS3NqNpgnMh2w")]
-    [Description(@"??")]
+    [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
     DelegateIssuer,
     
     /// <summary>
-    /// ??
+    /// Party acting on behalf of other parties to process or forward data to other parties.
     /// Encoded/decoded by serializers as "IntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAG")]
     [IsoId("_stIeE4p8EeS3NqNpgnMh2w")]
-    [Description(@"??")]
+    [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
     IntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Application on the terminal which has initiated the transaction.
     /// Encoded/decoded by serializers as "OriginatingTerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTRM")]
     [IsoId("_tFbCQ4p8EeS3NqNpgnMh2w")]
-    [Description(@"??")]
+    [Description(@"Application on the terminal which has initiated the transaction.")]
     OriginatingTerminal,
     
 }

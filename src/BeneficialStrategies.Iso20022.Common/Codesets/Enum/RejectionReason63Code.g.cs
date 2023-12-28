@@ -20,156 +20,156 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason63Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has a reference identical to another previously received instruction.
     /// Encoded/decoded by serializers as "ReferenceRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFE")]
     [IsoId("_svdYARIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Instruction has a reference identical to another previously received instruction.")]
     ReferenceRejection,
     
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_svdYAxIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid client collateral instruction identification.
     /// Encoded/decoded by serializers as "ClientCollateralInstructionIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCIX")]
     [IsoId("_svdYBRIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid client collateral instruction identification.")]
     ClientCollateralInstructionIdentification,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid Client Collateral Transaction Identification.
     /// Encoded/decoded by serializers as "ClientCollateralTransactionIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCTI")]
     [IsoId("_svdYBxIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid Client Collateral Transaction Identification.")]
     ClientCollateralTransactionIdentification,
     
     /// <summary>
-    /// ??
+    /// Unrecognised, invalid or missing common reference.
     /// Encoded/decoded by serializers as "CommonReferenceRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IIND")]
     [IsoId("_svdYCRIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised, invalid or missing common reference.")]
     CommonReferenceRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or Invalid Party A.
     /// Encoded/decoded by serializers as "InvalidPartyA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTYA")]
     [IsoId("_svdYCxIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or Invalid Party A.")]
     InvalidPartyA,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or Invalid Party B
     /// Encoded/decoded by serializers as "InvalidPartyB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTYB")]
     [IsoId("_svdYDRIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or Invalid Party B")]
     InvalidPartyB,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_svdYDxIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or Invalid Triparty Agent
     /// Encoded/decoded by serializers as "InvalidTripartyAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITPA")]
     [IsoId("_svdYERIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or Invalid Triparty Agent")]
     InvalidTripartyAgent,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid Party A Safekeeping Account
     /// Encoded/decoded by serializers as "PartyASafekeepingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFA")]
     [IsoId("_svdYExIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid Party A Safekeeping Account")]
     PartyASafekeepingAccount,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or Invalid Party B Safekeeping Account.
     /// Encoded/decoded by serializers as "PartyBSafekeepingAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFB")]
     [IsoId("_svdYFRIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or Invalid Party B Safekeeping Account.")]
     PartyBSafekeepingAccount,
     
     /// <summary>
-    /// ??
+    /// Invalid execution date/time
     /// Encoded/decoded by serializers as "RequestedExecutionDateTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDT")]
     [IsoId("_svdYFxIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Invalid execution date/time")]
     RequestedExecutionDateTime,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was rejected since the instruction has already been cancelled.
     /// Encoded/decoded by serializers as "RejectedSinceAlreadyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAN")]
     [IsoId("_svdYGRIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was rejected since the instruction has already been cancelled.")]
     RejectedSinceAlreadyCancelled,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
     /// Encoded/decoded by serializers as "RejectedSinceInProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRG")]
     [IsoId("_svdYGxIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been rejected because the instruction process is in progress or has been processed.")]
     RejectedSinceInProgress,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was rejected because the instruction was already settled.
     /// Encoded/decoded by serializers as "RejectedSinceAlreadySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSET")]
     [IsoId("_svdYHRIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was rejected because the instruction was already settled.")]
     RejectedSinceAlreadySettled,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was rejected because the repurchase was cancelled.
     /// Encoded/decoded by serializers as "RejectedSinceRepoEnded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RREP")]
     [IsoId("_svdYHxIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was rejected because the repurchase was cancelled.")]
     RejectedSinceRepoEnded,
     
     /// <summary>
-    /// ??
+    /// Cancellation, modification or termination request has been rejected since the instruction could not be found.
     /// Encoded/decoded by serializers as "NotFoundRejectionForCancellationModificationOrTermination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRJN")]
     [IsoId("_svdYIRIvEeyHZKWo4KVxBw")]
-    [Description(@"??")]
+    [Description(@"Cancellation, modification or termination request has been rejected since the instruction could not be found.")]
     NotFoundRejectionForCancellationModificationOrTermination,
     
 }

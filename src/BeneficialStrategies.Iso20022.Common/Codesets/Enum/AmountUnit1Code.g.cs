@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AmountUnit1Code
 {
     /// <summary>
-    /// ??
+    /// The amount is expressed in a monetary value in a currency.
     /// Encoded/decoded by serializers as "Monetary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONE")]
     [IsoId("_lOTp0dtlEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"The amount is expressed in a monetary value in a currency.")]
     Monetary,
     
     /// <summary>
-    /// ??
+    /// The amount is expressed in point.
     /// Encoded/decoded by serializers as "Point".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POIN")]
     [IsoId("_lSlF0dtlEeipuvJHTHIw9A")]
-    [Description(@"??")]
+    [Description(@"The amount is expressed in point.")]
     Point,
     
 }

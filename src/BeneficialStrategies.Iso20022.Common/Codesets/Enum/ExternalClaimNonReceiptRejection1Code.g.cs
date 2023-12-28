@@ -21,48 +21,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalClaimNonReceiptRejection1Code
 {
     /// <summary>
-    /// ??
+    /// Original credit transfer never received.
     /// Encoded/decoded by serializers as "NoOriginalTransactionReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOOR")]
     [IsoId("_ubNYWPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Original credit transfer never received.")]
     NoOriginalTransactionReceived,
     
     /// <summary>
-    /// ??
+    /// Original credit transfer was received but is not processable.
     /// Encoded/decoded by serializers as "OriginalTransactionReceivedButNotProcessable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RNPR")]
     [IsoId("_ubNYW_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Original credit transfer was received but is not processable.")]
     OriginalTransactionReceivedButNotProcessable,
     
     /// <summary>
-    /// ??
+    /// Already rejected original SCT (SEPA Credit Transfer).
     /// Encoded/decoded by serializers as "AlreadyRejectedTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARJT")]
     [IsoId("_ubNYXvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Already rejected original SCT (SEPA Credit Transfer).")]
     AlreadyRejectedTransaction,
     
     /// <summary>
-    /// ??
+    /// Already returned original SCT (SEPA Credit Transfer).
     /// Encoded/decoded by serializers as "AlreadyReturnedTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARDT")]
     [IsoId("_ubWiQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Already returned original SCT (SEPA Credit Transfer).")]
     AlreadyReturnedTransaction,
     
     /// <summary>
-    /// ??
+    /// Regulatory reason.
     /// Encoded/decoded by serializers as "RegulatoryReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RR04")]
     [IsoId("_ubWiRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Regulatory reason.")]
     RegulatoryReason,
     
 }

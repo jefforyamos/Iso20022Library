@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QueryType3Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the query requests that all matching items be returned.
     /// Encoded/decoded by serializers as "All".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLL")]
     [IsoId("_ZXqQ99p-Ed-ak6NoX_4Aeg_1181990669")]
-    [Description(@"??")]
+    [Description(@"Specifies that the query requests that all matching items be returned.")]
     All,
     
     /// <summary>
-    /// ??
+    /// Specifies that the query requests that only new matching items since the last similar query be returned.
     /// Encoded/decoded by serializers as "Changed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHNG")]
     [IsoId("_ZXqQ-Np-Ed-ak6NoX_4Aeg_1181990712")]
-    [Description(@"??")]
+    [Description(@"Specifies that the query requests that only new matching items since the last similar query be returned.")]
     Changed,
     
     /// <summary>
-    /// ??
+    /// Specifies that the query requests that only items that have changed since the last query be returned.
     /// Encoded/decoded by serializers as "Modified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODF")]
     [IsoId("_ZXza4Np-Ed-ak6NoX_4Aeg_1181990713")]
-    [Description(@"??")]
+    [Description(@"Specifies that the query requests that only items that have changed since the last query be returned.")]
     Modified,
     
 }

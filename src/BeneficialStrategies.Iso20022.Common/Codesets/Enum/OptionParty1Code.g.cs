@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionParty1Code
 {
     /// <summary>
-    /// ??
+    /// Seller in a trade.
     /// Encoded/decoded by serializers as "Seller".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLLR")]
     [IsoId("_aP_AE9p-Ed-ak6NoX_4Aeg_-1870012986")]
-    [Description(@"??")]
+    [Description(@"Seller in a trade.")]
     Seller,
     
     /// <summary>
-    /// ??
+    /// Buyer in a trade.
     /// Encoded/decoded by serializers as "Buyer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BYER")]
     [IsoId("_aP_AFNp-Ed-ak6NoX_4Aeg_-1870012969")]
-    [Description(@"??")]
+    [Description(@"Buyer in a trade.")]
     Buyer,
     
 }

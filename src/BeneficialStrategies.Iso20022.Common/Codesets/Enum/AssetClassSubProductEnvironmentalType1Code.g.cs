@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductEnvironmentalType1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type emission.
     /// Encoded/decoded by serializers as "Emission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMIS")]
     [IsoId("_mjMYsc5GEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type emission.")]
     Emission,
     
     /// <summary>
-    /// ??
+    /// Commodity of type weather.
     /// Encoded/decoded by serializers as "Weather".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHR")]
     [IsoId("_mzjv8c5GEeSc85GUbgBycw")]
-    [Description(@"??")]
+    [Description(@"Commodity of type weather.")]
     Weather,
     
     /// <summary>
-    /// ??
+    /// Commodity of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_jVjxIUDbEeWOL-OsSq2h6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of other type.")]
     Other,
     
 }

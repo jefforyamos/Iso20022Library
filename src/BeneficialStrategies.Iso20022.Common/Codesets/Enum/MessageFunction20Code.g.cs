@@ -21,66 +21,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction20Code
 {
     /// <summary>
-    /// ??
+    /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
     /// Encoded/decoded by serializers as "Advice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVC")]
     [IsoId("_xtHBAemtEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
     Advice,
     
     /// <summary>
-    /// ??
+    /// Information about the transaction.
     /// Encoded/decoded by serializers as "Notification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTI")]
     [IsoId("_zKVM8OmtEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Information about the transaction.")]
     Notification,
     
     /// <summary>
-    /// ??
+    /// Message function is a request.
     /// Encoded/decoded by serializers as "Request".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_zzsTAemtEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Message function is a request.")]
     Request,
     
     /// <summary>
-    /// ??
+    /// Advice for reversal without financial capture.
     /// Encoded/decoded by serializers as "ReversalAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVRA")]
     [IsoId("_1H5F0emtEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Advice for reversal without financial capture.")]
     ReversalAdvice,
     
     /// <summary>
-    /// ??
+    /// Notification of reversal for either an authorisation or a financial message (response not expected).
     /// Encoded/decoded by serializers as "ReversalNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVNO")]
     [IsoId("_1rYNYemtEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Notification of reversal for either an authorisation or a financial message (response not expected).")]
     ReversalNotification,
     
     /// <summary>
-    /// ??
+    /// Advice about the status of a transaction.
     /// Encoded/decoded by serializers as "StatusAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAD")]
     [IsoId("_3BoOoemtEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Advice about the status of a transaction.")]
     StatusAdvice,
     
     /// <summary>
-    /// ??
+    /// Notification about the status of a transaction.
     /// Encoded/decoded by serializers as "StatusNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNO")]
     [IsoId("_3I7JcemtEemNVKPwszFC-A")]
-    [Description(@"??")]
+    [Description(@"Notification about the status of a transaction.")]
     StatusNotification,
     
 }

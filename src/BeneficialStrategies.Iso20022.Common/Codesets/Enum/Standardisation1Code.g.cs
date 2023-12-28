@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Standardisation1Code
 {
     /// <summary>
-    /// ??
+    /// Derivatives defined according to exchange specifications, but certain characteristics can be user defined.
     /// Encoded/decoded by serializers as "Flexible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLEX")]
     [IsoId("_SRUj4YQDEeeCVYNDbDZB1g")]
-    [Description(@"??")]
+    [Description(@"Derivatives defined according to exchange specifications, but certain characteristics can be user defined.")]
     Flexible,
     
     /// <summary>
-    /// ??
+    /// Custom-made instrument between two parties. Underlying|instruments, expiration date and contract size of the derivatives are not standardised.
     /// Encoded/decoded by serializers as "NonStandardised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTA")]
     [IsoId("_SUJOYYQDEeeCVYNDbDZB1g")]
-    [Description(@"??")]
+    [Description(@"Custom-made instrument between two parties. Underlying|instruments, expiration date and contract size of the derivatives are not standardised.")]
     NonStandardised,
     
     /// <summary>
-    /// ??
+    /// The underlying instruments, expiration date and contract size of the derivatives are standardised.
     /// Encoded/decoded by serializers as "Standardised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAN")]
     [IsoId("_SYwooYQDEeeCVYNDbDZB1g")]
-    [Description(@"??")]
+    [Description(@"The underlying instruments, expiration date and contract size of the derivatives are standardised.")]
     Standardised,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VotingParticipationMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Vote participation is via documents sent through physical post / mail.
     /// Encoded/decoded by serializers as "Correspondence".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIL")]
     [IsoId("_gdrTga33EemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote participation is via documents sent through physical post / mail.")]
     Correspondence,
     
     /// <summary>
-    /// ??
+    /// Vote participation is through physical attendance.
     /// Encoded/decoded by serializers as "InPerson".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_givZsa33EemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote participation is through physical attendance.")]
     InPerson,
     
     /// <summary>
-    /// ??
+    /// Participation to the meeting is in person but the person is not voting.
     /// Encoded/decoded by serializers as "NotVoting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHNV")]
     [IsoId("_gqxUUq33EemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Participation to the meeting is in person but the person is not voting.")]
     NotVoting,
     
     /// <summary>
-    /// ??
+    /// Vote participation is through a proxy person.
     /// Encoded/decoded by serializers as "Proxy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRXY")]
     [IsoId("_gvh4ga33EemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote participation is through a proxy person.")]
     Proxy,
     
     /// <summary>
-    /// ??
+    /// Vote participation is through virtual meeting attendance method like multimedia and web based video or audio conferencing. 
     /// Encoded/decoded by serializers as "Virtual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VIRT")]
     [IsoId("_g5Dn8q33EemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote participation is through virtual meeting attendance method like multimedia and web based video or audio conferencing. ")]
     Virtual,
     
     /// <summary>
-    /// ??
+    /// Vote participation is through electronic means like email or dedicated standards messaging or web based voting applications.
     /// Encoded/decoded by serializers as "ElectronicVoting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVOT")]
     [IsoId("__atT0bISEemux5trsZcCpw")]
-    [Description(@"??")]
+    [Description(@"Vote participation is through electronic means like email or dedicated standards messaging or web based voting applications.")]
     ElectronicVoting,
     
 }

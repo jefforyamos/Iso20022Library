@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRulePending1Code
 {
     /// <summary>
-    /// ??
+    /// Pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_JSdbUR-1EeuxStysDTgLiw")]
-    [Description(@"??")]
+    [Description(@"Pending.")]
     Pending,
     
 }

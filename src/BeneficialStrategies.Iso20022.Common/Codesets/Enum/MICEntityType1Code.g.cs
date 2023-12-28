@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MICEntityType1Code
 {
     /// <summary>
-    /// ??
+    /// Person authorised under the provisions established in the regulation to provide the service of publishing trade reports on behalf of investment firms.
     /// Encoded/decoded by serializers as "ApprovedPublicationArrangement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPA")]
     [IsoId("_vs3-YS6mEeiLE6ldFr13hQ")]
-    [Description(@"??")]
+    [Description(@"Person authorised under the provisions established in the regulation to provide the service of publishing trade reports on behalf of investment firms.")]
     ApprovedPublicationArrangement,
     
     /// <summary>
-    /// ??
+    /// Provider which will consolidate post-trade information into a continuous electronic data stream and make it publicly available as close to real time as technologically possible on a reasonable commercial basis and free of charge after 15 minutes.
     /// Encoded/decoded by serializers as "ConsolidatedTapeProvider".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTPS")]
     [IsoId("_vzI-cS6mEeiLE6ldFr13hQ")]
-    [Description(@"??")]
+    [Description(@"Provider which will consolidate post-trade information into a continuous electronic data stream and make it publicly available as close to real time as technologically possible on a reasonable commercial basis and free of charge after 15 minutes.")]
     ConsolidatedTapeProvider,
     
     /// <summary>
-    /// ??
+    /// Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.
     /// Encoded/decoded by serializers as "MultilateralTradingFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLTF")]
     [IsoId("_v6SvUS6mEeiLE6ldFr13hQ")]
-    [Description(@"??")]
+    [Description(@"Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.")]
     MultilateralTradingFacility,
     
     /// <summary>
-    /// ??
+    /// Multilateral system which is not a regulated market or multilateral trading facility in which multiple third-party buying and selling interests in bonds, structured finance products, emission allowances or derivatives are able to interact in a way that results in a contract.
     /// Encoded/decoded by serializers as "OrganisedTradingFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTFS")]
     [IsoId("_wNgmQS6mEeiLE6ldFr13hQ")]
-    [Description(@"??")]
+    [Description(@"Multilateral system which is not a regulated market or multilateral trading facility in which multiple third-party buying and selling interests in bonds, structured finance products, emission allowances or derivatives are able to interact in a way that results in a contract.")]
     OrganisedTradingFacility,
     
     /// <summary>
-    /// ??
+    /// Market on which financial instruments can be traded according to rules defined by the stock exchange.
     /// Encoded/decoded by serializers as "RegulatedMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMKT")]
     [IsoId("_wTU6YS6mEeiLE6ldFr13hQ")]
-    [Description(@"??")]
+    [Description(@"Market on which financial instruments can be traded according to rules defined by the stock exchange.")]
     RegulatedMarket,
     
     /// <summary>
-    /// ??
+    /// Investment firm which, on an organised, frequent systematic and substantial basis, deals on own account when executing client orders outside a regulated market, an multilateral trading facility or an organised trading facility without operating a multilateral system.
     /// Encoded/decoded by serializers as "SystematicInternaliser".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SINT")]
     [IsoId("_wcju4S6mEeiLE6ldFr13hQ")]
-    [Description(@"??")]
+    [Description(@"Investment firm which, on an organised, frequent systematic and substantial basis, deals on own account when executing client orders outside a regulated market, an multilateral trading facility or an organised trading facility without operating a multilateral system.")]
     SystematicInternaliser,
     
 }

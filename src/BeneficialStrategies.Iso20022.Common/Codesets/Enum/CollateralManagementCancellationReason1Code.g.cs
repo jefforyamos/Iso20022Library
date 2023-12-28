@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralManagementCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation due to message being sent in error.
     /// Encoded/decoded by serializers as "ProcessingError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRER")]
     [IsoId("_Ybm4adp-Ed-ak6NoX_4Aeg_809732037")]
-    [Description(@"??")]
+    [Description(@"Cancellation due to message being sent in error.")]
     ProcessingError,
     
     /// <summary>
-    /// ??
+    /// Cancellation due to a change in exposure or collateral or independent amount or margin terms. For collateral proposal submitting new/different collateral.
     /// Encoded/decoded by serializers as "PendingNewSubmission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PNSU")]
     [IsoId("_Ybm4atp-Ed-ak6NoX_4Aeg_1570497190")]
-    [Description(@"??")]
+    [Description(@"Cancellation due to a change in exposure or collateral or independent amount or margin terms. For collateral proposal submitting new/different collateral.")]
     PendingNewSubmission,
     
 }

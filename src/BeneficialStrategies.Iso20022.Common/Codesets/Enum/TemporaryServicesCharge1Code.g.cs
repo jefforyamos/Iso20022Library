@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TemporaryServicesCharge1Code
 {
     /// <summary>
-    /// ??
+    /// Weekend
     /// Encoded/decoded by serializers as "Weekend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WKND")]
     [IsoId("_8LRpUTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Weekend")]
     Weekend,
     
     /// <summary>
-    /// ??
+    /// Regular
     /// Encoded/decoded by serializers as "Regular".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGL")]
     [IsoId("_8fsaITEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Regular")]
     Regular,
     
     /// <summary>
-    /// ??
+    /// Overtime
     /// Encoded/decoded by serializers as "Overtime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OVRT")]
     [IsoId("_8gvjATEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Overtime")]
     Overtime,
     
     /// <summary>
-    /// ??
+    /// Other Private
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_8oV_0TEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other Private")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other National
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_83--UTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other National")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// On call
     /// Encoded/decoded by serializers as "OnCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONCL")]
     [IsoId("_844WMTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"On call")]
     OnCall,
     
     /// <summary>
-    /// ??
+    /// Night
     /// Encoded/decoded by serializers as "Night".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NITE")]
     [IsoId("_87j2wTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Night")]
     Night,
     
     /// <summary>
-    /// ??
+    /// Holiday
     /// Encoded/decoded by serializers as "Holiday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLI")]
     [IsoId("_9FG0UTEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Holiday")]
     Holiday,
     
     /// <summary>
-    /// ??
+    /// Hazard
     /// Encoded/decoded by serializers as "Hazard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HAZD")]
     [IsoId("_9Uc34TEvEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Hazard")]
     Hazard,
     
 }

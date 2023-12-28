@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionStyle2Code
 {
     /// <summary>
-    /// ??
+    /// Option can be exercised before or on expiry date.
     /// Encoded/decoded by serializers as "American".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMER")]
     [IsoId("_aQIxF9p-Ed-ak6NoX_4Aeg_-1107826186")]
-    [Description(@"??")]
+    [Description(@"Option can be exercised before or on expiry date.")]
     American,
     
     /// <summary>
-    /// ??
+    /// Option that can be exercised on expiry date only.
     /// Encoded/decoded by serializers as "European".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EURO")]
     [IsoId("_aQIxGNp-Ed-ak6NoX_4Aeg_-1107826168")]
-    [Description(@"??")]
+    [Description(@"Option that can be exercised on expiry date only.")]
     European,
     
 }

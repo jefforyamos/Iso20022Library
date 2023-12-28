@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm18Code
 {
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES128CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EA2C")]
     [IsoId("_dUAkwdtkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     AES128CBC,
     
     /// <summary>
-    /// ??
+    /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
     /// Encoded/decoded by serializers as "DES112CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "E3DC")]
     [IsoId("_dUAkw9tkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).")]
     DES112CBC,
     
     /// <summary>
-    /// ??
+    /// DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2009 Annex A.
     /// Encoded/decoded by serializers as "DUKPT2009".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DKP9")]
     [IsoId("_dUAkxdtkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"DUKPT (Derived Unique Key Per Transaction) algorithm, as specified in ANSI X9.24-2009 Annex A.")]
     DUKPT2009,
     
     /// <summary>
-    /// ??
+    /// UKPT (Unique Key Per Transaction) or Master Session Key key encryption - (ASN.1 Object Identifier: id-ukpt-wrap).
     /// Encoded/decoded by serializers as "UKPT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKPT")]
     [IsoId("_dUAkx9tkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"UKPT (Unique Key Per Transaction) or Master Session Key key encryption - (ASN.1 Object Identifier: id-ukpt-wrap).")]
     UKPT,
     
     /// <summary>
-    /// ??
+    /// UKPT (Unique Key Per Transaction) or Master Session Key key encryption, using Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "UKPTwithAES128".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKA1")]
     [IsoId("_dUAkydtkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"UKPT (Unique Key Per Transaction) or Master Session Key key encryption, using Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     UKPTwithAES128,
     
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES192CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EA9C")]
     [IsoId("_dUAky9tkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).")]
     AES192CBC,
     
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES256CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EA5C")]
     [IsoId("_dUAkzdtkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).")]
     AES256CBC,
     
     /// <summary>
-    /// ??
+    /// AES DUKPT (Derived Unique Key Per Transaction) ECB algorithm, as specified in ANSI X9.24-3-2017 Annex A, With key length of 128 bits.
     /// Encoded/decoded by serializers as "AESDUKPT128ECB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DA12")]
     [IsoId("_fY4mkdtkEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"AES DUKPT (Derived Unique Key Per Transaction) ECB algorithm, as specified in ANSI X9.24-3-2017 Annex A, With key length of 128 bits.")]
     AESDUKPT128ECB,
     
     /// <summary>
-    /// ??
+    /// AES DUKPT (Derived Unique Key Per Transaction) ECB algorithm, as specified in ANSI X9.24-3-2017 Annex A.With key length of 192 bits.
     /// Encoded/decoded by serializers as "AESDUKPT192ECB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DA19")]
     [IsoId("_wW-DoNv5EeeKpa-yxjuKzQ")]
-    [Description(@"??")]
+    [Description(@"AES DUKPT (Derived Unique Key Per Transaction) ECB algorithm, as specified in ANSI X9.24-3-2017 Annex A.With key length of 192 bits.")]
     AESDUKPT192ECB,
     
     /// <summary>
-    /// ??
+    /// AES DUKPT (Derived Unique Key Per Transaction) ECB algorithm, as specified in ANSI X9.24-3-2017 Annex A.With key length of 256 bits.
     /// Encoded/decoded by serializers as "AESDUKPT256ECB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DA25")]
     [IsoId("_wdNOgdv5EeeKpa-yxjuKzQ")]
-    [Description(@"??")]
+    [Description(@"AES DUKPT (Derived Unique Key Per Transaction) ECB algorithm, as specified in ANSI X9.24-3-2017 Annex A.With key length of 256 bits.")]
     AESDUKPT256ECB,
     
     /// <summary>
-    /// ??
+    /// Key Derivation according to the Special Publication from the NIST entitled 800-108.
     /// Encoded/decoded by serializers as "Nist800_108KeyDerivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "N108")]
     [IsoId("_VU5MUd6JEeeCre2qFaLC2A")]
-    [Description(@"??")]
+    [Description(@"Key Derivation according to the Special Publication from the NIST entitled 800-108.")]
     Nist800_108KeyDerivation,
     
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) CTR (Counter) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES256CTR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EA5R")]
     [IsoId("_vSZlQd6LEeeCre2qFaLC2A")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) CTR (Counter) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     AES256CTR,
     
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) CTR (Counter) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES192CTR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EA9R")]
     [IsoId("_voa4kd6LEeeCre2qFaLC2A")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) CTR (Counter) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     AES192CTR,
     
     /// <summary>
-    /// ??
+    /// AES (Advanced Encryption Standard) CTR (Counter) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
     /// Encoded/decoded by serializers as "AES128CTR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EA2R")]
     [IsoId("_v0vdUd6LEeeCre2qFaLC2A")]
-    [Description(@"??")]
+    [Description(@"AES (Advanced Encryption Standard) CTR (Counter) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).")]
     AES128CTR,
     
     /// <summary>
-    /// ??
+    /// Triple DES (Data Encryption Standard) CTR (Counter) encryption with double length key (112 Bit) as defined in FIPS SP 800-38a.
     /// Encoded/decoded by serializers as "DES112CTR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "E3DR")]
     [IsoId("_1zhdwd8sEeeNt9bWIs54cw")]
-    [Description(@"??")]
+    [Description(@"Triple DES (Data Encryption Standard) CTR (Counter) encryption with double length key (112 Bit) as defined in FIPS SP 800-38a.")]
     DES112CTR,
     
     /// <summary>
-    /// ??
+    /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with triple length key (168 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
     /// Encoded/decoded by serializers as "DES168CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "E36C")]
     [IsoId("_15eUwd8sEeeNt9bWIs54cw")]
-    [Description(@"??")]
+    [Description(@"Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with triple length key (168 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).")]
     DES168CBC,
     
     /// <summary>
-    /// ??
+    /// Triple DES (Data Encryption Standard) CTR (Counter) encryption with triple length key (168 Bit) as defined in FIPS SP 800-38a.
     /// Encoded/decoded by serializers as "DES168CTR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "E36R")]
     [IsoId("_1-uBId8sEeeNt9bWIs54cw")]
-    [Description(@"??")]
+    [Description(@"Triple DES (Data Encryption Standard) CTR (Counter) encryption with triple length key (168 Bit) as defined in FIPS SP 800-38a.")]
     DES168CTR,
     
     /// <summary>
-    /// ??
+    /// The DEPRECATED Simple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with simple length key (56 Bit) as defined in FIPS PUB 81 - (ASN.1 Object Identifier: des-cbc).
     /// Encoded/decoded by serializers as "SDE056CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SD5C")]
     [IsoId("_3ps8Qd8sEeeNt9bWIs54cw")]
-    [Description(@"??")]
+    [Description(@"The DEPRECATED Simple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with simple length key (56 Bit) as defined in FIPS PUB 81 - (ASN.1 Object Identifier: des-cbc).")]
     SDE056CBC,
     
 }

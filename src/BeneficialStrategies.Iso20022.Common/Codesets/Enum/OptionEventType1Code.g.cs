@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionEventType1Code
 {
     /// <summary>
-    /// ??
+    /// Notice of a close out of the position.
     /// Encoded/decoded by serializers as "CloseOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLST")]
     [IsoId("_FFj5wcR1EeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Notice of a close out of the position.")]
     CloseOut,
     
     /// <summary>
-    /// ??
+    /// First confirmation.
     /// Encoded/decoded by serializers as "FirstConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_FNK9ocR1EeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"First confirmation.")]
     FirstConfirmation,
     
     /// <summary>
-    /// ??
+    /// Notice of a knock-in. The option has a specified spot level, which, if touched during the knock-in period, triggers the option into existence. Prior to that level being touched, no option exists.
     /// Encoded/decoded by serializers as "KnockIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KNIN")]
     [IsoId("_FbHTAcR1EeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Notice of a knock-in. The option has a specified spot level, which, if touched during the knock-in period, triggers the option into existence. Prior to that level being touched, no option exists.")]
     KnockIn,
     
     /// <summary>
-    /// ??
+    /// Notice of a knock-out. The option has a specified spot level, which, if touched during the knock-out period, terminates the option.
     /// Encoded/decoded by serializers as "KnockOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KNOC")]
     [IsoId("_FiiwscR1EeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Notice of a knock-out. The option has a specified spot level, which, if touched during the knock-out period, terminates the option.")]
     KnockOut,
     
     /// <summary>
-    /// ??
+    /// Another type of event.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_FqH_YcR1EeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Another type of event.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Notice of a trigger hit.
     /// Encoded/decoded by serializers as "Trigger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRIG")]
     [IsoId("_FxfLocR1EeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Notice of a trigger hit.")]
     Trigger,
     
 }

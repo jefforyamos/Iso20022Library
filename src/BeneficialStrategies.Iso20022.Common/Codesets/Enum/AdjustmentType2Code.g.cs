@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdjustmentType2Code
 {
     /// <summary>
-    /// ??
+    /// Adjustment is a rebate.
     /// Encoded/decoded by serializers as "Rebate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REBA")]
     [IsoId("_bnKOZ9p-Ed-ak6NoX_4Aeg_-1989744440")]
-    [Description(@"??")]
+    [Description(@"Adjustment is a rebate.")]
     Rebate,
     
     /// <summary>
-    /// ??
+    /// Adjustment is a discount.
     /// Encoded/decoded by serializers as "Discount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_bnTYUNp-Ed-ak6NoX_4Aeg_-1989744416")]
-    [Description(@"??")]
+    [Description(@"Adjustment is a discount.")]
     Discount,
     
     /// <summary>
-    /// ??
+    /// Adjustment is a credit note.
     /// Encoded/decoded by serializers as "CreditNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CREN")]
     [IsoId("_bnTYUdp-Ed-ak6NoX_4Aeg_-1989744399")]
-    [Description(@"??")]
+    [Description(@"Adjustment is a credit note.")]
     CreditNote,
     
     /// <summary>
-    /// ??
+    /// Adjustment is a surcharge.
     /// Encoded/decoded by serializers as "Surcharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SURC")]
     [IsoId("_bnTYUtp-Ed-ak6NoX_4Aeg_-1488271597")]
-    [Description(@"??")]
+    [Description(@"Adjustment is a surcharge.")]
     Surcharge,
     
 }

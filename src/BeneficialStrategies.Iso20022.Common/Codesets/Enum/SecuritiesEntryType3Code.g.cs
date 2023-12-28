@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesEntryType3Code
 {
     /// <summary>
-    /// ??
+    /// Total number of securities eligible for this event.
     /// Encoded/decoded by serializers as "Eligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELIG")]
     [IsoId("_RmChwTUFEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Total number of securities eligible for this event.")]
     Eligible,
     
     /// <summary>
-    /// ??
+    /// Balance of uninstructed position.
     /// Encoded/decoded by serializers as "UninstructedBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNBA")]
     [IsoId("_SBw0cTUFEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Balance of uninstructed position.")]
     UninstructedBalance,
     
     /// <summary>
-    /// ??
+    /// Balance of instructed position.
     /// Encoded/decoded by serializers as "InstructedBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INBA")]
     [IsoId("_SrfG4TUFEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Balance of instructed position.")]
     InstructedBalance,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardServiceType2Code
 {
     /// <summary>
-    /// ??
+    /// Close communication at application level to stop store and forward process.
     /// Encoded/decoded by serializers as "DisableStoreForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFDS")]
     [IsoId("_gNOtAXvEEeSKFIcWw3l4Yw")]
-    [Description(@"??")]
+    [Description(@"Close communication at application level to stop store and forward process.")]
     DisableStoreForward,
     
     /// <summary>
-    /// ??
+    /// Detection whether communication at application level is still active.
     /// Encoded/decoded by serializers as "EchoTest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECHO")]
     [IsoId("_gYs9M3vEEeSKFIcWw3l4Yw")]
-    [Description(@"??")]
+    [Description(@"Detection whether communication at application level is still active.")]
     EchoTest,
     
     /// <summary>
-    /// ??
+    /// Establish communication at application level to start store and forward process.
     /// Encoded/decoded by serializers as "EnableStoreForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFEN")]
     [IsoId("_gkU-Y3vEEeSKFIcWw3l4Yw")]
-    [Description(@"??")]
+    [Description(@"Establish communication at application level to start store and forward process.")]
     EnableStoreForward,
     
     /// <summary>
-    /// ??
+    /// Terminate communication at application level.
     /// Encoded/decoded by serializers as "SignOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGNF")]
     [IsoId("_gxJSY3vEEeSKFIcWw3l4Yw")]
-    [Description(@"??")]
+    [Description(@"Terminate communication at application level.")]
     SignOff,
     
     /// <summary>
-    /// ??
+    /// Establish communication at application level.
     /// Encoded/decoded by serializers as "SignOn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SGNN")]
     [IsoId("_g6ro43vEEeSKFIcWw3l4Yw")]
-    [Description(@"??")]
+    [Description(@"Establish communication at application level.")]
     SignOn,
     
 }

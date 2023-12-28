@@ -21,30 +21,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalSystemErrorHandling1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies the error code when the data requested are not yet available.
     /// Encoded/decoded by serializers as "DataNotYetAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "X020")]
     [IsoId("_uhBFZfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Specifies the error code when the data requested are not yet available.")]
     DataNotYetAvailable,
     
     /// <summary>
-    /// ??
+    /// Specifies the error code when the data requested generates a message size that exceed the processing capacity.
     /// Encoded/decoded by serializers as "MessageSizeLimitExceeded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "X030")]
     [IsoId("_uhBFaPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Specifies the error code when the data requested generates a message size that exceed the processing capacity.")]
     MessageSizeLimitExceeded,
     
     /// <summary>
-    /// ??
+    /// Specifies the error code when the data requested have not been found.
     /// Encoded/decoded by serializers as "DataNotAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "X050")]
     [IsoId("_uhK2YvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Specifies the error code when the data requested have not been found.")]
     DataNotAvailable,
     
 }

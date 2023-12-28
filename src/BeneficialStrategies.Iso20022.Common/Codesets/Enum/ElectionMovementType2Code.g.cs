@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ElectionMovementType2Code
 {
     /// <summary>
-    /// ??
+    /// Direct movement of resource, that is, cash or security that is directly credited to the paying agent account.
     /// Encoded/decoded by serializers as "Direct".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRCT")]
     [IsoId("_ag-CYdp-Ed-ak6NoX_4Aeg_2033254774")]
-    [Description(@"??")]
+    [Description(@"Direct movement of resource, that is, cash or security that is directly credited to the paying agent account.")]
     Direct,
     
     /// <summary>
-    /// ??
+    /// Election results in a change of balance type that transfers control of the securities rather than the securities themselves.
     /// Encoded/decoded by serializers as "Sequestered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEQD")]
     [IsoId("_ag-CYtp-Ed-ak6NoX_4Aeg_658329762")]
-    [Description(@"??")]
+    [Description(@"Election results in a change of balance type that transfers control of the securities rather than the securities themselves.")]
     Sequestered,
     
 }

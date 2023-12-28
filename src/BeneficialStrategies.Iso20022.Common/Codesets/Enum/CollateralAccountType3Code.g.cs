@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralAccountType3Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.
     /// Encoded/decoded by serializers as "Margin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGIN")]
     [IsoId("_Ce_XEVHQEeeqtLmveSCYmA")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.")]
     Margin,
     
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to post collateral that covers clearing member's default risk.
     /// Encoded/decoded by serializers as "DefaultFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_Cwzf0VHQEeeqtLmveSCYmA")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to post collateral that covers clearing member's default risk.")]
     DefaultFund,
     
 }

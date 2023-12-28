@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AttestationValue1Code
 {
     /// <summary>
-    /// ??
+    /// Attestation claimed.
     /// Encoded/decoded by serializers as "Claimed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAI")]
     [IsoId("_J41_cQMlEeujMs2LsB3mMw")]
-    [Description(@"??")]
+    [Description(@"Attestation claimed.")]
     Claimed,
     
     /// <summary>
-    /// ??
+    /// Attestation validated.
     /// Encoded/decoded by serializers as "Honored".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HONO")]
     [IsoId("_KERMUQMlEeujMs2LsB3mMw")]
-    [Description(@"??")]
+    [Description(@"Attestation validated.")]
     Honored,
     
     /// <summary>
-    /// ??
+    /// Attestation not claimed.
     /// Encoded/decoded by serializers as "NotClaimed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCLA")]
     [IsoId("_KOxzMQMlEeujMs2LsB3mMw")]
-    [Description(@"??")]
+    [Description(@"Attestation not claimed.")]
     NotClaimed,
     
     /// <summary>
-    /// ??
+    /// Attestation failed validation.
     /// Encoded/decoded by serializers as "NotHonored".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NHON")]
     [IsoId("_H6g1EQMmEeujMs2LsB3mMw")]
-    [Description(@"??")]
+    [Description(@"Attestation failed validation.")]
     NotHonored,
     
 }

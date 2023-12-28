@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UserInterface4Code
 {
     /// <summary>
-    /// ??
+    /// Cardholder display or interface.
     /// Encoded/decoded by serializers as "CardholderDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDSP")]
     [IsoId("_y9Xb4YO_EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Cardholder display or interface.")]
     CardholderDisplay,
     
     /// <summary>
-    /// ??
+    /// Cardholder receipt.
     /// Encoded/decoded by serializers as "CardholderReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCP")]
     [IsoId("_zakVQYO_EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Cardholder receipt.")]
     CardholderReceipt,
     
     /// <summary>
-    /// ??
+    /// Merchant display or interface.
     /// Encoded/decoded by serializers as "MerchantDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDSP")]
     [IsoId("_zpBoAYO_EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Merchant display or interface.")]
     MerchantDisplay,
     
     /// <summary>
-    /// ??
+    /// Merchant receipt.
     /// Encoded/decoded by serializers as "MerchantReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRCP")]
     [IsoId("_zwx10YO_EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Merchant receipt.")]
     MerchantReceipt,
     
     /// <summary>
-    /// ??
+    /// Other interface of the cardholder, for instance e-mail or smartphone message.
     /// Encoded/decoded by serializers as "OtherCardholderInterface".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDO")]
     [IsoId("_0DQF4YO_EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Other interface of the cardholder, for instance e-mail or smartphone message.")]
     OtherCardholderInterface,
     
 }

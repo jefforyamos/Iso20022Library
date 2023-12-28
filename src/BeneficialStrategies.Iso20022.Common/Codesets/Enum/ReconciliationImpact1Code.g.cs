@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReconciliationImpact1Code
 {
     /// <summary>
-    /// ??
+    /// Debit category
     /// Encoded/decoded by serializers as "Debit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBT")]
     [IsoId("__1Z-cS7OEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Debit category")]
     Debit,
     
     /// <summary>
-    /// ??
+    /// Credit category
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("__5E9gS7OEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Credit category")]
     Credit,
     
 }

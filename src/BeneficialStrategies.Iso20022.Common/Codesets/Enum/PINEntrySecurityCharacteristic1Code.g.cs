@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PINEntrySecurityCharacteristic1Code
 {
     /// <summary>
-    /// ??
+    /// Other nationally assigned code.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_V-zMMaH4EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Other nationally assigned code.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other privately assigned code.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_WHtQkaH4EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Other privately assigned code.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// PIN entry is protected via an approved software solution.
     /// Encoded/decoded by serializers as "SecureSoftware".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECS")]
     [IsoId("_WvNVcaH4EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"PIN entry is protected via an approved software solution.")]
     SecureSoftware,
     
     /// <summary>
-    /// ??
+    /// PIN entry is protected via a secure hardware solution.
     /// Encoded/decoded by serializers as "SecureHardware".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECH")]
     [IsoId("_W4tPsaH4EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"PIN entry is protected via a secure hardware solution.")]
     SecureHardware,
     
 }

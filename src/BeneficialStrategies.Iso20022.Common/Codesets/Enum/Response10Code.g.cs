@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response10Code
 {
     /// <summary>
-    /// ??
+    /// Request is still in progress.
     /// Encoded/decoded by serializers as "InProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPS")]
     [IsoId("_SpLhgX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Request is still in progress.")]
     InProgress,
     
     /// <summary>
-    /// ??
+    /// Service is under review.
     /// Encoded/decoded by serializers as "UnderReview".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRV")]
     [IsoId("_SpLhg30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Service is under review.")]
     UnderReview,
     
     /// <summary>
-    /// ??
+    /// Other type of processing result defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_SpLhhX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of processing result defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other type of processing result defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_SpLhh30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of processing result defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.
     /// Encoded/decoded by serializers as "Failure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_bt7vcX06Eem0U9m89kippg")]
-    [Description(@"??")]
+    [Description(@"Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.")]
     Failure,
     
     /// <summary>
-    /// ??
+    /// Processing OK. Information related to the result of the processing is contained in other parts of the response message.
     /// Encoded/decoded by serializers as "Success".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_cQcmoX06Eem0U9m89kippg")]
-    [Description(@"??")]
+    [Description(@"Processing OK. Information related to the result of the processing is contained in other parts of the response message.")]
     Success,
     
 }

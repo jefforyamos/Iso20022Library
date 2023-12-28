@@ -22,93 +22,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalModelFormIdentification1Code
 {
     /// <summary>
-    /// ??
+    /// ISP98 model form for standby incorporating annexed form of payment demand with statement.
     /// Encoded/decoded by serializers as "ISP98ModelForm1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISP1")]
     [IsoId("_uPScNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ISP98 model form for standby incorporating annexed form of payment demand with statement.")]
     ISP98ModelForm1,
     
     /// <summary>
-    /// ??
+    /// ISP98 model form or standby providing for extension and incorporating annexed form of payment demand with alternative non-extension statement.
     /// Encoded/decoded by serializers as "ISP98ModelForm2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISP2")]
     [IsoId("_uPScOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ISP98 model form or standby providing for extension and incorporating annexed form of payment demand with alternative non-extension statement.")]
     ISP98ModelForm2,
     
     /// <summary>
-    /// ??
+    /// ISP98 model form or standby providing for reduction and incorporating annexed form of reduction demand. 
     /// Encoded/decoded by serializers as "ISP98ModelForm3".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISP3")]
     [IsoId("_uPbmIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ISP98 model form or standby providing for reduction and incorporating annexed form of reduction demand. ")]
     ISP98ModelForm3,
     
     /// <summary>
-    /// ??
+    /// ISP98 model form for standby providing for transfer and incorporating annexed form of transfer demand.
     /// Encoded/decoded by serializers as "ISP98ModelForm4".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISP4")]
     [IsoId("_uPbmJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ISP98 model form for standby providing for transfer and incorporating annexed form of transfer demand.")]
     ISP98ModelForm4,
     
     /// <summary>
-    /// ??
+    /// ISP98 model form for simplified demand only standby.
     /// Encoded/decoded by serializers as "ISP98ModelForm5".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISP5")]
     [IsoId("_uPbmKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ISP98 model form for simplified demand only standby.")]
     ISP98ModelForm5,
     
     /// <summary>
-    /// ??
+    /// ISP98 model form for counter standby with annexed form of local bank undertaking.
     /// Encoded/decoded by serializers as "ISP98ModelForm6".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISP6")]
     [IsoId("_uPbmK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ISP98 model form for counter standby with annexed form of local bank undertaking.")]
     ISP98ModelForm6,
     
     /// <summary>
-    /// ??
+    /// ISP98 model form for standby requiring confirmation.
     /// Encoded/decoded by serializers as "ISP98ModelForm7".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISP7")]
     [IsoId("_uPlXIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ISP98 model form for standby requiring confirmation.")]
     ISP98ModelForm7,
     
     /// <summary>
-    /// ??
+    /// ISP98 model form for confirmation of standby.
     /// Encoded/decoded by serializers as "ISP98ModelForm8".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISP8")]
     [IsoId("_uPlXJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ISP98 model form for confirmation of standby.")]
     ISP98ModelForm8,
     
     /// <summary>
-    /// ??
+    /// Model form for demand guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).
     /// Encoded/decoded by serializers as "URDGDemandGuarantee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UDG1")]
     [IsoId("_uPlXKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Model form for demand guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).")]
     URDGDemandGuarantee,
     
     /// <summary>
-    /// ??
+    /// Model form for counter-guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).
     /// Encoded/decoded by serializers as "URDGCounterGuarantee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UDG2")]
     [IsoId("_uPvIIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Model form for counter-guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).")]
     URDGCounterGuarantee,
     
 }

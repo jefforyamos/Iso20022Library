@@ -20,327 +20,327 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectedStatusReason10Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the Receiver's deadline.
     /// Encoded/decoded by serializers as "AfterDeadline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_ZdBSFdp-Ed-ak6NoX_4Aeg_-275597383")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the Receiver's deadline.")]
     AfterDeadline,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked due to a transfer out of investment funds.
     /// Encoded/decoded by serializers as "AccountBlockedForTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLTR")]
     [IsoId("_ZdBSFtp-Ed-ak6NoX_4Aeg_-275598546")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked due to a transfer out of investment funds.")]
     AccountBlockedForTransfer,
     
     /// <summary>
-    /// ??
+    /// Instruction has been received after the cut-off time.
     /// Encoded/decoded by serializers as "CutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUTO")]
     [IsoId("_ZdBSF9p-Ed-ak6NoX_4Aeg_-275597461")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received after the cut-off time.")]
     CutOffTime,
     
     /// <summary>
-    /// ??
+    /// Cash settlement date is not recognised or is invalid.
     /// Encoded/decoded by serializers as "SettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDAT")]
     [IsoId("_ZdBSGNp-Ed-ak6NoX_4Aeg_-275597306")]
-    [Description(@"??")]
+    [Description(@"Cash settlement date is not recognised or is invalid.")]
     SettlementDate,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
     /// Encoded/decoded by serializers as "AccountBlockedMissingDocuments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_ZdBSGdp-Ed-ak6NoX_4Aeg_-275598528")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.")]
     AccountBlockedMissingDocuments,
     
     /// <summary>
-    /// ??
+    /// Financial instrument quantity is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_ZdLDENp-Ed-ak6NoX_4Aeg_-275597046")]
-    [Description(@"??")]
+    [Description(@"Financial instrument quantity is invalid.")]
     FinancialInstrumentQuantity,
     
     /// <summary>
-    /// ??
+    /// Identification of the security is not recognised or is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_ZdLDEdp-Ed-ak6NoX_4Aeg_-276518578")]
-    [Description(@"??")]
+    [Description(@"Identification of the security is not recognised or is invalid.")]
     FinancialInstrumentIdentification,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid trade date or requested trade date or future trade date.
     /// Encoded/decoded by serializers as "TradeDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTRD")]
     [IsoId("_ZdLDEtp-Ed-ak6NoX_4Aeg_-275597011")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid trade date or requested trade date or future trade date.")]
     TradeDate,
     
     /// <summary>
-    /// ??
+    /// Identification of the security and the security name are not the same.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentificationAndName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDNA")]
     [IsoId("_ZdLDE9p-Ed-ak6NoX_4Aeg_-275598408")]
-    [Description(@"??")]
+    [Description(@"Identification of the security and the security name are not the same.")]
     FinancialInstrumentIdentificationAndName,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid subscriber or redeemer.
     /// Encoded/decoded by serializers as "SubscriberOrRedeemer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IEXE")]
     [IsoId("_ZdLDFNp-Ed-ak6NoX_4Aeg_-275596934")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid subscriber or redeemer.")]
     SubscriberOrRedeemer,
     
     /// <summary>
-    /// ??
+    /// Intermediary is not recognised or is invalid.
     /// Encoded/decoded by serializers as "Intermediary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_ZdLDFdp-Ed-ak6NoX_4Aeg_-276519526")]
-    [Description(@"??")]
+    [Description(@"Intermediary is not recognised or is invalid.")]
     Intermediary,
     
     /// <summary>
-    /// ??
+    /// Order type is invalid.
     /// Encoded/decoded by serializers as "InvalidOrderType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IOTP")]
     [IsoId("_ZdLDFtp-Ed-ak6NoX_4Aeg_-275597538")]
-    [Description(@"??")]
+    [Description(@"Order type is invalid.")]
     InvalidOrderType,
     
     /// <summary>
-    /// ??
+    /// Instructing party is not allowed to instruct for this investment account.
     /// Encoded/decoded by serializers as "InstructingPartyNotAllowedForAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPAC")]
     [IsoId("_ZdLDF9p-Ed-ak6NoX_4Aeg_-275597573")]
-    [Description(@"??")]
+    [Description(@"Instructing party is not allowed to instruct for this investment account.")]
     InstructingPartyNotAllowedForAccount,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "TooLate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_ZdLDGNp-Ed-ak6NoX_4Aeg_-275597418")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     TooLate,
     
     /// <summary>
-    /// ??
+    /// There is not enough cash in the account to process the instruction.
     /// Encoded/decoded by serializers as "NotEnoughCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_ZdLDGdp-Ed-ak6NoX_4Aeg_-275598451")]
-    [Description(@"??")]
+    [Description(@"There is not enough cash in the account to process the instruction.")]
     NotEnoughCash,
     
     /// <summary>
-    /// ??
+    /// The cancellation request has been rejected since more than one instruction match to the cancellation criteria.
     /// Encoded/decoded by serializers as "NoCancellationMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRGM")]
     [IsoId("_ZdUNANp-Ed-ak6NoX_4Aeg_-275596418")]
-    [Description(@"??")]
+    [Description(@"The cancellation request has been rejected since more than one instruction match to the cancellation criteria.")]
     NoCancellationMatch,
     
     /// <summary>
-    /// ??
+    /// Instruction is not compliant with the service level agreement.
     /// Encoded/decoded by serializers as "NotCompliantWithSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSLA")]
     [IsoId("_ZdUNAdp-Ed-ak6NoX_4Aeg_-275597503")]
-    [Description(@"??")]
+    [Description(@"Instruction is not compliant with the service level agreement.")]
     NotCompliantWithSLA,
     
     /// <summary>
-    /// ??
+    /// Order reference is a duplicate of a previously received order.
     /// Encoded/decoded by serializers as "DuplicateOrderReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORRF")]
     [IsoId("_ZdUNAtp-Ed-ak6NoX_4Aeg_-275597864")]
-    [Description(@"??")]
+    [Description(@"Order reference is a duplicate of a previously received order.")]
     DuplicateOrderReference,
     
     /// <summary>
-    /// ??
+    /// Investment account identification is not recognised or is invalid.
     /// Encoded/decoded by serializers as "InvestmentAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_ZdUNA9p-Ed-ak6NoX_4Aeg_-276519466")]
-    [Description(@"??")]
+    [Description(@"Investment account identification is not recognised or is invalid.")]
     InvestmentAccount,
     
     /// <summary>
-    /// ??
+    /// There are not enough securities in the account to process the instruction.
     /// Encoded/decoded by serializers as "NotEnoughFinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_ZdUNBNp-Ed-ak6NoX_4Aeg_-275598433")]
-    [Description(@"??")]
+    [Description(@"There are not enough securities in the account to process the instruction.")]
     NotEnoughFinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// Quantity of units or amount of money in the order is too high for a subscription.
     /// Encoded/decoded by serializers as "TooHighUnitsOrAmountToSubscribe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHIG")]
     [IsoId("_ZdUNBdp-Ed-ak6NoX_4Aeg_-275598001")]
-    [Description(@"??")]
+    [Description(@"Quantity of units or amount of money in the order is too high for a subscription.")]
     TooHighUnitsOrAmountToSubscribe,
     
     /// <summary>
-    /// ??
+    /// Quantity of units or amount of money in the order is too low for a subscription.
     /// Encoded/decoded by serializers as "TooLowUnitsOrAmountToSubscribe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLOW")]
     [IsoId("_ZdUNBtp-Ed-ak6NoX_4Aeg_-275597959")]
-    [Description(@"??")]
+    [Description(@"Quantity of units or amount of money in the order is too low for a subscription.")]
     TooLowUnitsOrAmountToSubscribe,
     
     /// <summary>
-    /// ??
+    /// Deal currency is not supported.
     /// Encoded/decoded by serializers as "UnacceptedDealCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UDCY")]
     [IsoId("_ZdUNB9p-Ed-ak6NoX_4Aeg_-275598331")]
-    [Description(@"??")]
+    [Description(@"Deal currency is not supported.")]
     UnacceptedDealCurrency,
     
     /// <summary>
-    /// ??
+    /// Linked reference is not known.
     /// Encoded/decoded by serializers as "UnknownLinkagesReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULNK")]
     [IsoId("_ZdUNCNp-Ed-ak6NoX_4Aeg_686179464")]
-    [Description(@"??")]
+    [Description(@"Linked reference is not known.")]
     UnknownLinkagesReference,
     
     /// <summary>
-    /// ??
+    /// Settlement currency requested is not supported.
     /// Encoded/decoded by serializers as "UnacceptedRequestedSettlementCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URSC")]
     [IsoId("_ZdUNCdp-Ed-ak6NoX_4Aeg_-275598019")]
-    [Description(@"??")]
+    [Description(@"Settlement currency requested is not supported.")]
     UnacceptedRequestedSettlementCurrency,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid ordered amount.
     /// Encoded/decoded by serializers as "InvalidOrderedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORDR")]
     [IsoId("_Zdd-ANp-Ed-ak6NoX_4Aeg_1927127679")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid ordered amount.")]
     InvalidOrderedAmount,
     
     /// <summary>
-    /// ??
+    /// Amount of subscription is below the minimum initial investment amount.
     /// Encoded/decoded by serializers as "BelowMinimumInitialInvestmentAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMIN")]
     [IsoId("_Zdd-Adp-Ed-ak6NoX_4Aeg_1927127756")]
-    [Description(@"??")]
+    [Description(@"Amount of subscription is below the minimum initial investment amount.")]
     BelowMinimumInitialInvestmentAmount,
     
     /// <summary>
-    /// ??
+    /// Amount of subscription is below the minimum top-up investment.
     /// Encoded/decoded by serializers as "BelowMinimumTopUpAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMTO")]
     [IsoId("_Zdd-Atp-Ed-ak6NoX_4Aeg_1927127851")]
-    [Description(@"??")]
+    [Description(@"Amount of subscription is below the minimum top-up investment.")]
     BelowMinimumTopUpAmount,
     
     /// <summary>
-    /// ??
+    /// Insufficient capacity.
     /// Encoded/decoded by serializers as "InsufficientCapacity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_Zdd-A9p-Ed-ak6NoX_4Aeg_1927128177")]
-    [Description(@"??")]
+    [Description(@"Insufficient capacity.")]
     InsufficientCapacity,
     
     /// <summary>
-    /// ??
+    /// Percentage holding breach, for example, PPM rules; taxation rules (ERISA).
     /// Encoded/decoded by serializers as "PercentageHoldingBreach".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCT")]
     [IsoId("_Zdd-BNp-Ed-ak6NoX_4Aeg_1927128273")]
-    [Description(@"??")]
+    [Description(@"Percentage holding breach, for example, PPM rules; taxation rules (ERISA).")]
     PercentageHoldingBreach,
     
     /// <summary>
-    /// ??
+    /// Amount is below the minimum redemption amount.
     /// Encoded/decoded by serializers as "BelowMinimumRedemptionAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMRA")]
     [IsoId("_Zdd-Bdp-Ed-ak6NoX_4Aeg_1927128375")]
-    [Description(@"??")]
+    [Description(@"Amount is below the minimum redemption amount.")]
     BelowMinimumRedemptionAmount,
     
     /// <summary>
-    /// ??
+    /// Holding will be below the minimum retained value.
     /// Encoded/decoded by serializers as "BelowMinimumRetainedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMRV")]
     [IsoId("_Zdd-Btp-Ed-ak6NoX_4Aeg_1927128410")]
-    [Description(@"??")]
+    [Description(@"Holding will be below the minimum retained value.")]
     BelowMinimumRetainedAmount,
     
     /// <summary>
-    /// ??
+    /// Lock-up period is in place.
     /// Encoded/decoded by serializers as "LockUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCK")]
     [IsoId("_Zdd-B9p-Ed-ak6NoX_4Aeg_1927128670")]
-    [Description(@"??")]
+    [Description(@"Lock-up period is in place.")]
     LockUp,
     
     /// <summary>
-    /// ??
+    /// Assets are illiquid.
     /// Encoded/decoded by serializers as "AssetsIlliquid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ILLI")]
     [IsoId("_Zdd-CNp-Ed-ak6NoX_4Aeg_1927128687")]
-    [Description(@"??")]
+    [Description(@"Assets are illiquid.")]
     AssetsIlliquid,
     
     /// <summary>
-    /// ??
+    /// Data in the order or transfer instruction is invalid.
     /// Encoded/decoded by serializers as "DataInvalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DINV")]
     [IsoId("_Zdd-Cdp-Ed-ak6NoX_4Aeg_1927128730")]
-    [Description(@"??")]
+    [Description(@"Data in the order or transfer instruction is invalid.")]
     DataInvalid,
     
     /// <summary>
-    /// ??
+    /// Fund is closed and will not take in any more investments.
     /// Encoded/decoded by serializers as "FundClosed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("_ZdnvANp-Ed-ak6NoX_4Aeg_1927128765")]
-    [Description(@"??")]
+    [Description(@"Fund is closed and will not take in any more investments.")]
     FundClosed,
     
 }

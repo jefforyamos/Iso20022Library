@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionDeadline1Code
 {
     /// <summary>
-    /// ??
+    /// Issuer or issuer's agent deadline to respond, with an election instruction, to an outstanding offer or privilege.
     /// Encoded/decoded by serializers as "MarketDeadline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MKDT")]
     [IsoId("_bDPpCdp-Ed-ak6NoX_4Aeg_803900500")]
-    [Description(@"??")]
+    [Description(@"Issuer or issuer's agent deadline to respond, with an election instruction, to an outstanding offer or privilege.")]
     MarketDeadline,
     
     /// <summary>
-    /// ??
+    /// Date on which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// Encoded/decoded by serializers as "ResponseDeadline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDDT")]
     [IsoId("_bDZaANp-Ed-ak6NoX_4Aeg_819599893")]
-    [Description(@"??")]
+    [Description(@"Date on which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).")]
     ResponseDeadline,
     
     /// <summary>
-    /// ??
+    /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event, giving the holder eligibility to incentives. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// Encoded/decoded by serializers as "EarlyResponseDeadline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EARD")]
     [IsoId("_bDZaAdp-Ed-ak6NoX_4Aeg_842687467")]
-    [Description(@"??")]
+    [Description(@"Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event, giving the holder eligibility to incentives. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).")]
     EarlyResponseDeadline,
     
 }

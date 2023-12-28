@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SpecialPurpose2Code
 {
     /// <summary>
-    /// ??
+    /// Blank value.
     /// Encoded/decoded by serializers as "Blank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLNK")]
     [IsoId("_V-aLccVcEeiYpLQka876sg")]
-    [Description(@"??")]
+    [Description(@"Blank value.")]
     Blank,
     
     /// <summary>
-    /// ??
+    /// Not available (N/A).
     /// Encoded/decoded by serializers as "NotAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTAV")]
     [IsoId("_WJ0xQsVcEeiYpLQka876sg")]
-    [Description(@"??")]
+    [Description(@"Not available (N/A).")]
     NotAvailable,
     
 }

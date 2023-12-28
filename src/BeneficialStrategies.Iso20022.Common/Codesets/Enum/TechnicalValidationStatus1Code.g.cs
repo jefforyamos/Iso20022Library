@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TechnicalValidationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the request has been correctly received and that the technical validation was successful.
     /// Encoded/decoded by serializers as "ReceptionConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCCF")]
     [IsoId("_Yll60tp-Ed-ak6NoX_4Aeg_1971021771")]
-    [Description(@"??")]
+    [Description(@"Indicates that the request has been correctly received and that the technical validation was successful.")]
     ReceptionConfirmation,
     
     /// <summary>
-    /// ??
+    /// Indicates there was an error in the reception of the request or that the technical validation was not successful.
     /// Encoded/decoded by serializers as "ReceptionError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCER")]
     [IsoId("_Yll609p-Ed-ak6NoX_4Aeg_1971021772")]
-    [Description(@"??")]
+    [Description(@"Indicates there was an error in the reception of the request or that the technical validation was not successful.")]
     ReceptionError,
     
 }

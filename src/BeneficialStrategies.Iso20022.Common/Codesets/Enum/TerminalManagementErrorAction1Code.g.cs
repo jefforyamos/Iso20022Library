@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalManagementErrorAction1Code
 {
     /// <summary>
-    /// ??
+    /// Ignore the error.
     /// Encoded/decoded by serializers as "IgnoreError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IGNR")]
     [IsoId("_KUh0l31DEeCF8NjrBemJWQ_-1839509664")]
-    [Description(@"??")]
+    [Description(@"Ignore the error.")]
     IgnoreError,
     
     /// <summary>
-    /// ??
+    /// Send a status report immediately.
     /// Encoded/decoded by serializers as "SendStatusReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDSR")]
     [IsoId("_KUh0mH1DEeCF8NjrBemJWQ_-1174724220")]
-    [Description(@"??")]
+    [Description(@"Send a status report immediately.")]
     SendStatusReport,
     
 }

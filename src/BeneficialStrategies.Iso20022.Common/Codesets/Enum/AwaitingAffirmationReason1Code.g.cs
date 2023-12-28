@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AwaitingAffirmationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Affirmation has not been received yet.
     /// Encoded/decoded by serializers as "AwaitingAffirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WAFF")]
     [IsoId("__0Jx1NojEeC60axPepSq7g_684115329")]
-    [Description(@"??")]
+    [Description(@"Affirmation has not been received yet.")]
     AwaitingAffirmation,
     
 }

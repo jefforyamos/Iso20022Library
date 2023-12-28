@@ -20,174 +20,174 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalDocumentLineType1Code
 {
     /// <summary>
-    /// ??
+    /// Line item reference is an additional product identification assigned by the manufacturer.
     /// Encoded/decoded by serializers as "AdditionalProductIdentificationAssignedByTheManufacturer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADPI")]
     [IsoId("_uSQ3vvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is an additional product identification assigned by the manufacturer.")]
     AdditionalProductIdentificationAssignedByTheManufacturer,
     
     /// <summary>
-    /// ??
+    /// Line item reference is an alternate International Standard Book Number (ISBN).
     /// Encoded/decoded by serializers as "AlternateISBN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AISB")]
     [IsoId("_uSaosvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is an alternate International Standard Book Number (ISBN).")]
     AlternateISBN,
     
     /// <summary>
-    /// ??
+    /// Line item reference is an asset number.
     /// Encoded/decoded by serializers as "AssetNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASNB")]
     [IsoId("_uSaotfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is an asset number.")]
     AssetNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a catalog number.
     /// Encoded/decoded by serializers as "CatalogNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTNB")]
     [IsoId("_uSaouPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a catalog number.")]
     CatalogNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is Dun & Bradstreet Standard Product and Service code.
     /// Encoded/decoded by serializers as "DunBradstreetStandardProductAndServiceCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBSP")]
     [IsoId("_uSjyovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is Dun & Bradstreet Standard Product and Service code.")]
     DunBradstreetStandardProductAndServiceCode,
     
     /// <summary>
-    /// ??
+    /// Line item reference is an European Article Number (EAN).
     /// Encoded/decoded by serializers as "EuropeanArticleNumberEAN2551".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EANN")]
     [IsoId("_uSjypfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is an European Article Number (EAN).")]
     EuropeanArticleNumberEAN2551,
     
     /// <summary>
-    /// ??
+    /// Line item reference is an equipment identification number.
     /// Encoded/decoded by serializers as "EquipmentIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EINB")]
     [IsoId("_uSjyqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is an equipment identification number.")]
     EquipmentIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a general specification number.
     /// Encoded/decoded by serializers as "GeneralSpecificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GSNB")]
     [IsoId("_uStjovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a general specification number.")]
     GeneralSpecificationNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a Health Care Industry Bar Code (HIBC)
     /// Encoded/decoded by serializers as "HIBCHealthCareIndustryBarCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIBC")]
     [IsoId("_uStjpfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a Health Care Industry Bar Code (HIBC)")]
     HIBCHealthCareIndustryBarCode,
     
     /// <summary>
-    /// ??
+    /// Line item reference is an International Standard Book Number (ISBN).
     /// Encoded/decoded by serializers as "InternationalStandardBookNumberISBN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISBN")]
     [IsoId("_uStjqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is an International Standard Book Number (ISBN).")]
     InternationalStandardBookNumberISBN,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a lot number.
     /// Encoded/decoded by serializers as "LotNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTNB")]
     [IsoId("_uS3UovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a lot number.")]
     LotNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a model number
     /// Encoded/decoded by serializers as "ModelNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDNB")]
     [IsoId("_uS3UpfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a model number")]
     ModelNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a part reference number.
     /// Encoded/decoded by serializers as "PartNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRNB")]
     [IsoId("_uS3UqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a part reference number.")]
     PartNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a product type code.
     /// Encoded/decoded by serializers as "ProductTypeCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTCD")]
     [IsoId("_uS3Uq_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a product type code.")]
     ProductTypeCode,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a stock number.
     /// Encoded/decoded by serializers as "StockNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SKNB")]
     [IsoId("_uS3UrvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a stock number.")]
     StockNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a style number.
     /// Encoded/decoded by serializers as "StyleNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNB")]
     [IsoId("_uTAekvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a style number.")]
     StyleNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is a technical order number.
     /// Encoded/decoded by serializers as "TechnicalOrderNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TONB")]
     [IsoId("_uTAelfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is a technical order number.")]
     TechnicalOrderNumber,
     
     /// <summary>
-    /// ??
+    /// Line item reference is an UPC consumer package code.
     /// Encoded/decoded by serializers as "UPCConsumerPackageCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPCC")]
     [IsoId("_uTAemPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is an UPC consumer package code.")]
     UPCConsumerPackageCode,
     
     /// <summary>
-    /// ??
+    /// Line item reference is an Universal Product Number.
     /// Encoded/decoded by serializers as "UniversalProductNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPNB")]
     [IsoId("_uTKPkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Line item reference is an Universal Product Number.")]
     UniversalProductNumber,
     
 }

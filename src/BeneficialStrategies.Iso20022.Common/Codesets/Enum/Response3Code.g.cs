@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response3Code
 {
     /// <summary>
-    /// ??
+    /// Service has been successfuly provided.
     /// Encoded/decoded by serializers as "Approved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_p-IvkXuGEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Service has been successfuly provided.")]
     Approved,
     
     /// <summary>
-    /// ??
+    /// Service is declined.
     /// Encoded/decoded by serializers as "Declined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_qEZIkXuGEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Service is declined.")]
     Declined,
     
     /// <summary>
-    /// ??
+    /// Further action required to complete the transaction, for instance a referral.
     /// Encoded/decoded by serializers as "FurtherAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRTH")]
     [IsoId("_qMJWYXuGEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Further action required to complete the transaction, for instance a referral.")]
     FurtherAction,
     
     /// <summary>
-    /// ??
+    /// Service has been partialy provided.
     /// Encoded/decoded by serializers as "PartialApproved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_rHtmwXuGEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Service has been partialy provided.")]
     PartialApproved,
     
     /// <summary>
-    /// ??
+    /// Advice message is processed.
     /// Encoded/decoded by serializers as "Processed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCS")]
     [IsoId("_rPm-gXuGEeSZrqGdHyoIrw")]
-    [Description(@"??")]
+    [Description(@"Advice message is processed.")]
     Processed,
     
     /// <summary>
-    /// ??
+    /// Advice message could not be processed.
     /// Encoded/decoded by serializers as "NotProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNPR")]
     [IsoId("_QgeH4SxKEeW0Obqrzm1X8Q")]
-    [Description(@"??")]
+    [Description(@"Advice message could not be processed.")]
     NotProcessed,
     
 }

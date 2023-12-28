@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason13Code
 {
     /// <summary>
-    /// ??
+    /// The validation of the advice/instruction/request failed.
     /// Encoded/decoded by serializers as "FailedValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_Zg5FcNp-Ed-ak6NoX_4Aeg_-1186004164")]
-    [Description(@"??")]
+    [Description(@"The validation of the advice/instruction/request failed.")]
     FailedValidation,
     
     /// <summary>
-    /// ??
+    /// Several message with the same identification.
     /// Encoded/decoded by serializers as "SameIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAID")]
     [IsoId("_Zg5Fcdp-Ed-ak6NoX_4Aeg_-1186004134")]
-    [Description(@"??")]
+    [Description(@"Several message with the same identification.")]
     SameIdentification,
     
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid message identification, identification is unknown.
     /// Encoded/decoded by serializers as "InvalidIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INID")]
     [IsoId("_Zg5Fctp-Ed-ak6NoX_4Aeg_-1186004103")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid message identification, identification is unknown.")]
     InvalidIdentification,
     
     /// <summary>
-    /// ??
+    /// Invalid corporate action identification supplied.
     /// Encoded/decoded by serializers as "InvalidCAIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFI")]
     [IsoId("_Zg5Fc9p-Ed-ak6NoX_4Aeg_-1186004102")]
-    [Description(@"??")]
+    [Description(@"Invalid corporate action identification supplied.")]
     InvalidCAIdentification,
     
     /// <summary>
-    /// ??
+    /// Issuer CA Identification does not correspond with the Corporate Action Identification supplied.
     /// Encoded/decoded by serializers as "MismatchedCAIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MICA")]
     [IsoId("_Zg5FdNp-Ed-ak6NoX_4Aeg_-1186004072")]
-    [Description(@"??")]
+    [Description(@"Issuer CA Identification does not correspond with the Corporate Action Identification supplied.")]
     MismatchedCAIdentification,
     
 }

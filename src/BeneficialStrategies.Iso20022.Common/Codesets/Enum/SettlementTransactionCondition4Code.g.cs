@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementTransactionCondition4Code
 {
     /// <summary>
-    /// ??
+    /// Tax-exempt financial instruments are to be settled.
     /// Encoded/decoded by serializers as "Clean".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLEN")]
     [IsoId("_q6UcFWtdEeCY4-KZ9JEyUQ_-1025495293")]
-    [Description(@"??")]
+    [Description(@"Tax-exempt financial instruments are to be settled.")]
     Clean,
     
     /// <summary>
-    /// ??
+    /// Taxable financial instruments are to be settled.
     /// Encoded/decoded by serializers as "Dirty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRT")]
     [IsoId("_q6UcFmtdEeCY4-KZ9JEyUQ_-2022567646")]
-    [Description(@"??")]
+    [Description(@"Taxable financial instruments are to be settled.")]
     Dirty,
     
     /// <summary>
-    /// ??
+    /// Matching receipt instruction not required (only for concerned international or national central securities depositories).
     /// Encoded/decoded by serializers as "DeliveryWithoutMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLWM")]
     [IsoId("_q6dmAGtdEeCY4-KZ9JEyUQ_25637779")]
-    [Description(@"??")]
+    [Description(@"Matching receipt instruction not required (only for concerned international or national central securities depositories).")]
     DeliveryWithoutMatching,
     
     /// <summary>
-    /// ??
+    /// Securities are to be physically settled.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_q6dmAWtdEeCY4-KZ9JEyUQ_-971434574")]
-    [Description(@"??")]
+    [Description(@"Securities are to be physically settled.")]
     Physical,
     
     /// <summary>
-    /// ??
+    /// Settlement transactions to be settled with special delivery.
     /// Encoded/decoded by serializers as "SpecialDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPDL")]
     [IsoId("_q6dmAmtdEeCY4-KZ9JEyUQ_-2110188948")]
-    [Description(@"??")]
+    [Description(@"Settlement transactions to be settled with special delivery.")]
     SpecialDelivery,
     
     /// <summary>
-    /// ??
+    /// Money and financial instruments settle in different locations.
     /// Encoded/decoded by serializers as "SplitSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPST")]
     [IsoId("_q6dmA2tdEeCY4-KZ9JEyUQ_-403994588")]
-    [Description(@"??")]
+    [Description(@"Money and financial instruments settle in different locations.")]
     SplitSettlement,
     
     /// <summary>
-    /// ??
+    /// No market claim should be automatically generated.
     /// Encoded/decoded by serializers as "NoAutomaticMarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMC")]
     [IsoId("_q6dmBGtdEeCY4-KZ9JEyUQ_763183726")]
-    [Description(@"??")]
+    [Description(@"No market claim should be automatically generated.")]
     NoAutomaticMarketClaim,
     
 }

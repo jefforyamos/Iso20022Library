@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CalculationBasis1Code
 {
     /// <summary>
-    /// ??
+    /// Average basis.
     /// Encoded/decoded by serializers as "Average".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVER")]
     [IsoId("_VjbKV9p-Ed-ak6NoX_4Aeg_-1571364153")]
-    [Description(@"??")]
+    [Description(@"Average basis.")]
     Average,
     
     /// <summary>
-    /// ??
+    /// Daily basis.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_VjbKWNp-Ed-ak6NoX_4Aeg_-1568592785")]
-    [Description(@"??")]
+    [Description(@"Daily basis.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Another type of calculation basis.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Vjk7UNp-Ed-ak6NoX_4Aeg_-855201061")]
-    [Description(@"??")]
+    [Description(@"Another type of calculation basis.")]
     Other,
     
 }

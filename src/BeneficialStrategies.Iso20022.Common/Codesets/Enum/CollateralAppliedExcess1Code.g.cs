@@ -20,21 +20,23 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralAppliedExcess1Code
 {
     /// <summary>
-    /// ??
+    /// Collateral used by the collateral receiver to discharge liabilities owed to it by the collateral provider.
+    /// 
     /// Encoded/decoded by serializers as "Applied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APLD")]
     [IsoId("_v1E-sQF7EeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Collateral used by the collateral receiver to discharge liabilities owed to it by the collateral provider. ")]
     Applied,
     
     /// <summary>
-    /// ??
+    /// Collateral held by the collateral receiver either in anticipation of future liabilities or towards previously liabilities no longer owed to it.
+    /// 
     /// Encoded/decoded by serializers as "Excess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCS")]
     [IsoId("_v-TzMQF7EeutW5-TpeYJhA")]
-    [Description(@"??")]
+    [Description(@"Collateral held by the collateral receiver either in anticipation of future liabilities or towards previously liabilities no longer owed to it. ")]
     Excess,
     
 }

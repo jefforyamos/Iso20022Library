@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountUsageType1Code
 {
     /// <summary>
-    /// ??
+    /// Investor.
     /// Encoded/decoded by serializers as "Investor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVE")]
     [IsoId("_ayRoIRKDEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Investor.")]
     Investor,
     
     /// <summary>
-    /// ??
+    /// Settlement participant.
     /// Encoded/decoded by serializers as "SettlementParticipant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETP")]
     [IsoId("_a6Uw4RKDEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Settlement participant.")]
     SettlementParticipant,
     
 }

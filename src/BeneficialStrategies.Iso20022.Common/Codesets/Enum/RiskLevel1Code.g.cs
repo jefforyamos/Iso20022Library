@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RiskLevel1Code
 {
     /// <summary>
-    /// ??
+    /// High.
     /// Encoded/decoded by serializers as "High".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIGH")]
     [IsoId("_Lx6w4RdxEeKYM7Bc71nDlA")]
-    [Description(@"??")]
+    [Description(@"High.")]
     High,
     
     /// <summary>
-    /// ??
+    /// Low.
     /// Encoded/decoded by serializers as "Low".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOWW")]
     [IsoId("_L595oRdxEeKYM7Bc71nDlA")]
-    [Description(@"??")]
+    [Description(@"Low.")]
     Low,
     
     /// <summary>
-    /// ??
+    /// Medium.
     /// Encoded/decoded by serializers as "Medium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEDM")]
     [IsoId("_MDqBIRdxEeKYM7Bc71nDlA")]
-    [Description(@"??")]
+    [Description(@"Medium.")]
     Medium,
     
 }

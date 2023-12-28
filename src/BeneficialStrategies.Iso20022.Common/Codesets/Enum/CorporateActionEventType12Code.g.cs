@@ -20,606 +20,606 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionEventType12Code
 {
     /// <summary>
-    /// ??
+    /// Funds related event in which the income (for example accumulation units) that accrues during an accounting period is retained within the fund instead of being paid away to investors. The retained income is nonetheless deemed to have been distributed to investors for tax purposes.
     /// Encoded/decoded by serializers as "Accumulation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCU")]
     [IsoId("_ks_Z8Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Funds related event in which the income (for example accumulation units) that accrues during an accounting period is retained within the fund instead of being paid away to investors. The retained income is nonetheless deemed to have been distributed to investors for tax purposes.")]
     Accumulation,
     
     /// <summary>
-    /// ??
+    /// Trading in security has commenced or security has been re-activated after a suspension in trading.
     /// Encoded/decoded by serializers as "ActiveTradingStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_k4m0EQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Trading in security has commenced or security has been re-activated after a suspension in trading.")]
     ActiveTradingStatus,
     
     /// <summary>
-    /// ??
+    /// Information provided by the issuer having no accounting/financial impact on the holder.
     /// Encoded/decoded by serializers as "Information".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFO")]
     [IsoId("_m1fXgQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Information provided by the issuer having no accounting/financial impact on the holder.")]
     Information,
     
     /// <summary>
-    /// ??
+    /// Combination of different security types to create a unit. Units are usually comprised of warrants and bonds or warrants and equities. Securities may be combined at the request of the security holder or based on market convention.
     /// Encoded/decoded by serializers as "Attachment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATTI")]
     [IsoId("_o5hEwQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Combination of different security types to create a unit. Units are usually comprised of warrants and bonds or warrants and equities. Securities may be combined at the request of the security holder or based on market convention.")]
     Attachment,
     
     /// <summary>
-    /// ??
+    /// Legal status of a company unable to pay creditors. Bankruptcy usually involves a formal court ruling. Securities may become valueless.
     /// Encoded/decoded by serializers as "Bankruptcy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRUP")]
     [IsoId("_pAOJsQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Legal status of a company unable to pay creditors. Bankruptcy usually involves a formal court ruling. Securities may become valueless.")]
     Bankruptcy,
     
     /// <summary>
-    /// ??
+    /// Failure by the company to perform obligations defined as default events under the bond agreement and that have not been remedied.
     /// Encoded/decoded by serializers as "BondDefault".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_pGyEsQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Failure by the company to perform obligations defined as default events under the bond agreement and that have not been remedied.")]
     BondDefault,
     
     /// <summary>
-    /// ??
+    /// Event is a bonus issue or scrip issue or capitalisation issue. Security holders are awarded additional assets free of payment from the issuer in proportion to their holding. A bonus issue is typically represented by shares, rights or warrants. Nominal value doesn't change. Holder may be offered choice of form.
     /// Encoded/decoded by serializers as "BonusIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BONU")]
     [IsoId("_pNfJoQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is a bonus issue or scrip issue or capitalisation issue. Security holders are awarded additional assets free of payment from the issuer in proportion to their holding. A bonus issue is typically represented by shares, rights or warrants. Nominal value doesn't change. Holder may be offered choice of form.")]
     BonusIssue,
     
     /// <summary>
-    /// ??
+    /// Call or exercise on nil paid securities or intermediate securities resulting from an intermediate securities distribution (RHDI). This code is used for the second event, when an intermediate securities' issue (rights/coupons) is composed of two events, the first event being the distribution of intermediate securities.
     /// Encoded/decoded by serializers as "CallOnIntermediateSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXRI")]
     [IsoId("_pT5ToQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Call or exercise on nil paid securities or intermediate securities resulting from an intermediate securities distribution (RHDI). This code is used for the second event, when an intermediate securities' issue (rights/coupons) is composed of two events, the first event being the distribution of intermediate securities.")]
     CallOnIntermediateSecurities,
     
     /// <summary>
-    /// ??
+    /// The Corporate event pays shareholders an amount in cash issued from the Capital account. There is no reduction to the face value of a single share (or the share has no par value). The number of circulating shares remains unchanged.
     /// Encoded/decoded by serializers as "CapitalDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPD")]
     [IsoId("_pamYkQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"The Corporate event pays shareholders an amount in cash issued from the Capital account. There is no reduction to the face value of a single share (or the share has no par value). The number of circulating shares remains unchanged.")]
     CapitalDistribution,
     
     /// <summary>
-    /// ??
+    /// Event is the distribution of profits resulting from the sale of securities. Shareholders of mutual funds, unit trusts, or Sicavs are recipients of capital gains distributions and are often reinvested in additional shares of the fund.
     /// Encoded/decoded by serializers as "CapitalGainsDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPG")]
     [IsoId("_phTdgQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is the distribution of profits resulting from the sale of securities. Shareholders of mutual funds, unit trusts, or Sicavs are recipients of capital gains distributions and are often reinvested in additional shares of the fund.")]
     CapitalGainsDistribution,
     
     /// <summary>
-    /// ??
+    /// Increase of the current principal of a debt instrument without increasing the nominal value. It normally arises from the incorporation of due but unpaid interest into the principal. This is commonly done by increasing the pool factor value, for example, capitalisation, and negative amortisation.
     /// Encoded/decoded by serializers as "Capitalisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPI")]
     [IsoId("_poTdYQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Increase of the current principal of a debt instrument without increasing the nominal value. It normally arises from the incorporation of due but unpaid interest into the principal. This is commonly done by increasing the pool factor value, for example, capitalisation, and negative amortisation.")]
     Capitalisation,
     
     /// <summary>
-    /// ??
+    /// Distribution to shareholders of cash resulting from the selling of non-eligible securities, for example, in the frame of a depositary receipt program.
     /// Encoded/decoded by serializers as "CashDistributionFromNonEligibleSecuritiesSales".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRCA")]
     [IsoId("_pvBJYQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Distribution to shareholders of cash resulting from the selling of non-eligible securities, for example, in the frame of a depositary receipt program.")]
     CashDistributionFromNonEligibleSecuritiesSales,
     
     /// <summary>
-    /// ??
+    /// Distribution of cash to shareholders, in proportion to their equity holding. Ordinary dividends are recurring and regular. Shareholder must take cash and may be offered a choice of currency.
     /// Encoded/decoded by serializers as "CashDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVCA")]
     [IsoId("_p2d1MQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Distribution of cash to shareholders, in proportion to their equity holding. Ordinary dividends are recurring and regular. Shareholder must take cash and may be offered a choice of currency.")]
     CashDividend,
     
     /// <summary>
-    /// ??
+    /// Information regarding a change further described in the corporate action details.
     /// Encoded/decoded by serializers as "Change".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAN")]
     [IsoId("_p83_MQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Information regarding a change further described in the corporate action details.")]
     Change,
     
     /// <summary>
-    /// ??
+    /// Situation where interested parties seek restitution for financial loss. The security holder may be offered the opportunity to join a class action proceeding and would need to respond with an instruction.
     /// Encoded/decoded by serializers as "ClassActionProposedSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSA")]
     [IsoId("_qgV4oQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Situation where interested parties seek restitution for financial loss. The security holder may be offered the opportunity to join a class action proceeding and would need to respond with an instruction.")]
     ClassActionProposedSettlement,
     
     /// <summary>
-    /// ??
+    /// A Company Option may be granted by the company, allowing the holder to take up shares at some future date(s) at a pre arranged price in the company. A company may not grant options which enable the holder to take up unissued shares at a time which is five or more years from the date of the grant. Option holders are not members of a company. They are contingent creditors of a company and hence may, in some instances, be entitled to vote on and be bound by a scheme of arrangement between the creditors and the company. As many options have multiple exercise periods a company option will either lapse or carry on to the next expiry date.
     /// Encoded/decoded by serializers as "CompanyOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COOP")]
     [IsoId("_qoFfYQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"A Company Option may be granted by the company, allowing the holder to take up shares at some future date(s) at a pre arranged price in the company. A company may not grant options which enable the holder to take up unissued shares at a time which is five or more years from the date of the grant. Option holders are not members of a company. They are contingent creditors of a company and hence may, in some instances, be entitled to vote on and be bound by a scheme of arrangement between the creditors and the company. As many options have multiple exercise periods a company option will either lapse or carry on to the next expiry date.")]
     CompanyOption,
     
     /// <summary>
-    /// ??
+    /// Procedure that aims to obtain consent of holder to a proposal by the issuer or a third party without convening a meeting. For example, consent to change the terms of a bond.
     /// Encoded/decoded by serializers as "Consent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONS")]
     [IsoId("_quykUQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Procedure that aims to obtain consent of holder to a proposal by the issuer or a third party without convening a meeting. For example, consent to change the terms of a bond.")]
     Consent,
     
     /// <summary>
-    /// ??
+    /// Conversion of securities ( generally convertible bonds or preferred shares) into another form of securities ( usually common shares) at a pre-stated price/ratio.
     /// Encoded/decoded by serializers as "Conversion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONV")]
     [IsoId("_rA-ggQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Conversion of securities ( generally convertible bonds or preferred shares) into another form of securities ( usually common shares) at a pre-stated price/ratio.")]
     Conversion,
     
     /// <summary>
-    /// ??
+    /// An occurrence of credit derivative for which the issuer of one or several underlying securities is unable to fulfill its financial obligations (as defined in terms and conditions).
     /// Encoded/decoded by serializers as "CreditEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CREV")]
     [IsoId("_smAkoQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"An occurrence of credit derivative for which the issuer of one or several underlying securities is unable to fulfill its financial obligations (as defined in terms and conditions).")]
     CreditEvent,
     
     /// <summary>
-    /// ??
+    /// Reduction of face value of a single share or the value of fund assets. The number of circulating shares/units remains unchanged. This event may include a cash payout to holders.
     /// Encoded/decoded by serializers as "DecreaseInValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECR")]
     [IsoId("_stKVgQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Reduction of face value of a single share or the value of fund assets. The number of circulating shares/units remains unchanged. This event may include a cash payout to holders.")]
     DecreaseInValue,
     
     /// <summary>
-    /// ??
+    /// Separation of components that comprise a security, for example, usually units comprised of warrants and bond or warrants and equity. Units may be broken up at the request of the security holder or based on market convention.
     /// Encoded/decoded by serializers as "Detachment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DETI")]
     [IsoId("_szkfgQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Separation of components that comprise a security, for example, usually units comprised of warrants and bond or warrants and equity. Units may be broken up at the request of the security holder or based on market convention.")]
     Detachment,
     
     /// <summary>
-    /// ??
+    /// Requirement for holders or beneficial owners to disclose their name, location and holdings of any issue to the issuer.
     /// Encoded/decoded by serializers as "Disclosure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSCL")]
     [IsoId("_s6HzcQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Requirement for holders or beneficial owners to disclose their name, location and holdings of any issue to the issuer.")]
     Disclosure,
     
     /// <summary>
-    /// ??
+    /// Event is a distribution of a dividend to shareholders with the choice of payment method. The shareholder must choose the form of payment - stock, cash, or both.
     /// Encoded/decoded by serializers as "DividendOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVOP")]
     [IsoId("_tCnoIQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is a distribution of a dividend to shareholders with the choice of payment method. The shareholder must choose the form of payment - stock, cash, or both.")]
     DividendOption,
     
     /// <summary>
-    /// ??
+    /// Event is a dividend payment type where cash dividend is rolled over into additional shares in the issuing company.
     /// Encoded/decoded by serializers as "DividendReinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRIP")]
     [IsoId("_tpNuEQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is a dividend payment type where cash dividend is rolled over into additional shares in the issuing company.")]
     DividendReinvestment,
     
     /// <summary>
-    /// ??
+    /// Redemption in part before the scheduled final maturity date of a security. Drawing is distinct from partial call since drawn bonds are chosen by lottery and with no reduction in nominal value.
     /// Encoded/decoded by serializers as "Drawing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRAW")]
     [IsoId("_tvxCAQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Redemption in part before the scheduled final maturity date of a security. Drawing is distinct from partial call since drawn bonds are chosen by lottery and with no reduction in nominal value.")]
     Drawing,
     
     /// <summary>
-    /// ??
+    /// An action by a party wishing to acquire a security. Holders of the security are invited to make an offer to sell, within a specific price range. The acquiring party will buy from the holder with lowest offer.
     /// Encoded/decoded by serializers as "DutchAuction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTCH")]
     [IsoId("_t2U9AQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"An action by a party wishing to acquire a security. Holders of the security are invited to make an offer to sell, within a specific price range. The acquiring party will buy from the holder with lowest offer.")]
     DutchAuction,
     
     /// <summary>
-    /// ??
+    /// Exchange of holdings for other securities and/or cash. The exchange can be either mandatory or voluntary involving the exchange of outstanding securities for different securities and/or cash. For example "exchange offer", "capital reorganisation" or "funds separation".
     /// Encoded/decoded by serializers as "Exchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXOF")]
     [IsoId("_uXjawQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Exchange of holdings for other securities and/or cash. The exchange can be either mandatory or voluntary involving the exchange of outstanding securities for different securities and/or cash. For example ""exchange offer"", ""capital reorganisation"" or ""funds separation"".")]
     Exchange,
     
     /// <summary>
-    /// ??
+    /// The redemption of an entire issue outstanding of securities, eg, bonds, preferred equity, funds, by the issuer or its agent, for example, asset manager, at final maturity.
     /// Encoded/decoded by serializers as "FinalMaturity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_vA1oUQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"The redemption of an entire issue outstanding of securities, eg, bonds, preferred equity, funds, by the issuer or its agent, for example, asset manager, at final maturity.")]
     FinalMaturity,
     
     /// <summary>
-    /// ??
+    /// The redemption of an entire issue outstanding of securities, eg, bonds, preferred equity, funds, by the issuer or its agent, for example, asset manager,before final maturity.
     /// Encoded/decoded by serializers as "FullCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCAL")]
     [IsoId("_vIvAEQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"The redemption of an entire issue outstanding of securities, eg, bonds, preferred equity, funds, by the issuer or its agent, for example, asset manager,before final maturity.")]
     FullCall,
     
     /// <summary>
-    /// ??
+    /// Increase in the face value of a single security. The number of circulating securities remains unchanged.
     /// Encoded/decoded by serializers as "IncreaseInValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCR")]
     [IsoId("_vQyI0Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Increase in the face value of a single security. The number of circulating securities remains unchanged.")]
     IncreaseInValue,
     
     /// <summary>
-    /// ??
+    /// An instalment towards the purchase of equity capital, subject to an agreement between an issuer and a purchaser.
     /// Encoded/decoded by serializers as "InstalmentCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPMT")]
     [IsoId("_vf1RcQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"An instalment towards the purchase of equity capital, subject to an agreement between an issuer and a purchaser.")]
     InstalmentCall,
     
     /// <summary>
-    /// ??
+    /// Interest payment distributed to holders of an interest bearing asset.
     /// Encoded/decoded by serializers as "InterestPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_wr-7gQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Interest payment distributed to holders of an interest bearing asset.")]
     InterestPayment,
     
     /// <summary>
-    /// ??
+    /// An event which consists of two components, the decrease of the amortized value of a pool factor security and an interest payment.
     /// Encoded/decoded by serializers as "InterestPaymentWithPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRII")]
     [IsoId("_xaxUIQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"An event which consists of two components, the decrease of the amortized value of a pool factor security and an interest payment.")]
     InterestPaymentWithPrincipal,
     
     /// <summary>
-    /// ??
+    /// The distribution of intermediate securities that gives the holder the right to take part in a future event.
     /// Encoded/decoded by serializers as "IntermediateSecuritiesDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RHDI")]
     [IsoId("_xiqr4Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"The distribution of intermediate securities that gives the holder the right to take part in a future event.")]
     IntermediateSecuritiesDistribution,
     
     /// <summary>
-    /// ??
+    /// A distribution of cash, assets or both. Debt may be paid in order of priority based on preferred claims to assets specified by the security.
     /// Encoded/decoded by serializers as "LiquidationDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIQU")]
     [IsoId("_xpXw0Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"A distribution of cash, assets or both. Debt may be paid in order of priority based on preferred claims to assets specified by the security.")]
     LiquidationDividend,
     
     /// <summary>
-    /// ??
+    /// As stipulated in a bond's Terms and Conditions, the issuer or the bond-holder may prolong the maturity date of a bond. After extension, the security may differ from original issue (new rate or maturity date). May be subject to bondholder's approval.
     /// Encoded/decoded by serializers as "MaturityExtension".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTM")]
     [IsoId("_xv7r0Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"As stipulated in a bond's Terms and Conditions, the issuer or the bond-holder may prolong the maturity date of a bond. After extension, the security may differ from original issue (new rate or maturity date). May be subject to bondholder's approval.")]
     MaturityExtension,
     
     /// <summary>
-    /// ??
+    /// Event is a mandatory or voluntary exchange of outstanding securities as the result of two or more companies combining assets. Cash payments may accompany share exchange.
     /// Encoded/decoded by serializers as "Merger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRGR")]
     [IsoId("_x6D4MQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is a mandatory or voluntary exchange of outstanding securities as the result of two or more companies combining assets. Cash payments may accompany share exchange.")]
     Merger,
     
     /// <summary>
-    /// ??
+    /// Offers that are not supervised or regulated by an official entity and being offered by a party, for example a broker, usually at a discount price, for example broker offer, mini-tender, mini odd lot offer or third party offer.
     /// Encoded/decoded by serializers as "NonOfficialOffer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOOF")]
     [IsoId("_yoHRAQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Offers that are not supervised or regulated by an official entity and being offered by a party, for example a broker, usually at a discount price, for example broker offer, mini-tender, mini odd lot offer or third party offer.")]
     NonOfficialOffer,
     
     /// <summary>
-    /// ??
+    /// Non-US beneficial owner certification requirement for exchange of temporary to permanent notes.
     /// Encoded/decoded by serializers as "NonUSTEFRADCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_0A7eEQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Non-US beneficial owner certification requirement for exchange of temporary to permanent notes.")]
     NonUSTEFRADCertification,
     
     /// <summary>
-    /// ??
+    /// Odd Lot Sale/Purchase. Sale or purchase of odd-lots to/from the issuing company, initiated either by the holder of the security or through an offer made by the issuer.
     /// Encoded/decoded by serializers as "OddLotSalePurchase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ODLT")]
     [IsoId("_0mBvMQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Odd Lot Sale/Purchase. Sale or purchase of odd-lots to/from the issuing company, initiated either by the holder of the security or through an offer made by the issuer.")]
     OddLotSalePurchase,
     
     /// <summary>
-    /// ??
+    /// Other event, use only when no other event type applies, for example, a new event type.
     /// Encoded/decoded by serializers as "OtherEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_1CyjsQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Other event, use only when no other event type applies, for example, a new event type.")]
     OtherEvent,
     
     /// <summary>
-    /// ??
+    /// Occurs when securities with different characteristics, for example, shares with different entitlements to dividend or voting rights, become identical in all respects, for example, pari-passu or assimilation. May be scheduled in advance, for example, shares resulting from a bonus may become fungible after a pre-set period of time, or may result from outside events, for example, merger, reorganisation, issue of supplementary tranches.
     /// Encoded/decoded by serializers as "PariPassu".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARI")]
     [IsoId("_1Kr7cQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Occurs when securities with different characteristics, for example, shares with different entitlements to dividend or voting rights, become identical in all respects, for example, pari-passu or assimilation. May be scheduled in advance, for example, shares resulting from a bonus may become fungible after a pre-set period of time, or may result from outside events, for example, merger, reorganisation, issue of supplementary tranches.")]
     PariPassu,
     
     /// <summary>
-    /// ??
+    /// Securities are redeemed in part before their scheduled final maturity date with reduction of the nominal value of the shares. The outstanding amount of securities will be reduced proportionally.
     /// Encoded/decoded by serializers as "PartialRedemptionWithNominalValueReduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCAL")]
     [IsoId("_1Uhz8Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Securities are redeemed in part before their scheduled final maturity date with reduction of the nominal value of the shares. The outstanding amount of securities will be reduced proportionally.")]
     PartialRedemptionWithNominalValueReduction,
     
     /// <summary>
-    /// ??
+    /// Securities are redeemed in part before their scheduled final maturity date without reduction of the nominal value of the shares. This is commonly done by pool factor reduction.
     /// Encoded/decoded by serializers as "PartialRedemptionWithoutNominalValueReduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRED")]
     [IsoId("_1bO44Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Securities are redeemed in part before their scheduled final maturity date without reduction of the nominal value of the shares. This is commonly done by pool factor reduction.")]
     PartialRedemptionWithoutNominalValueReduction,
     
     /// <summary>
-    /// ??
+    /// Interest payment, in any kind except cash, distributed to holders of an interest bearing asset.
     /// Encoded/decoded by serializers as "PayInKind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINK")]
     [IsoId("_1hyM0Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Interest payment, in any kind except cash, distributed to holders of an interest bearing asset.")]
     PayInKind,
     
     /// <summary>
-    /// ??
+    /// Changes in the state of incorporation for US companies and changes in the place of incorporation for foreign companies. Where shares need to be registered following the incorporation change, the holder(s) may have to elect the registrar.
     /// Encoded/decoded by serializers as "PlaceOfIncorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLAC")]
     [IsoId("_1ofRwA8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Changes in the state of incorporation for US companies and changes in the place of incorporation for foreign companies. Where shares need to be registered following the incorporation change, the holder(s) may have to elect the registrar.")]
     PlaceOfIncorporation,
     
     /// <summary>
-    /// ??
+    /// Also called partial defeasance. Issuer has money set aside to redeem a portion of an issue and the indenture states that the securities could be called earlier than the stated maturity.
     /// Encoded/decoded by serializers as "Prefunding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDEF")]
     [IsoId("_1vM9wQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Also called partial defeasance. Issuer has money set aside to redeem a portion of an issue and the indenture states that the securities could be called earlier than the stated maturity.")]
     Prefunding,
     
     /// <summary>
-    /// ??
+    /// Form of open or public offer where, due to a limited amount of securities available, priority is given to existing shareholders.
     /// Encoded/decoded by serializers as "PriorityIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIO")]
     [IsoId("_12WuoQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Form of open or public offer where, due to a limited amount of securities available, priority is given to existing shareholders.")]
     PriorityIssue,
     
     /// <summary>
-    /// ??
+    /// Event by which the unit (currency and/or nominal) of a security is restated, for example, nominal/par value of security in a national currency is restated in another currency.
     /// Encoded/decoded by serializers as "Redenomination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDO")]
     [IsoId("_2Bhc0Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event by which the unit (currency and/or nominal) of a security is restated, for example, nominal/par value of security in a national currency is restated in another currency.")]
     Redenomination,
     
     /// <summary>
-    /// ??
+    /// Purchase and sale of remarketed preferred equities/bonds through the negotiation of interest rate between the issuers and the holders.
     /// Encoded/decoded by serializers as "RemarketingAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REMK")]
     [IsoId("_3BTe0Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Purchase and sale of remarketed preferred equities/bonds through the negotiation of interest rate between the issuers and the holders.")]
     RemarketingAgreement,
     
     /// <summary>
-    /// ??
+    /// Repurchase offer/Issuer bid/ Reverse rights. Offer to existing holders by the issuing company to repurchase its own securities. The objective of the offer is to reduce the number of outstanding securities.
     /// Encoded/decoded by serializers as "RepurchaseOffer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIDS")]
     [IsoId("_3QNdgQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Repurchase offer/Issuer bid/ Reverse rights. Offer to existing holders by the issuing company to repurchase its own securities. The objective of the offer is to reduce the number of outstanding securities.")]
     RepurchaseOffer,
     
     /// <summary>
-    /// ??
+    /// Event is a change in nominal value, a consolidation. It is a decrease in number of outstanding shares of stock without any change in the shareholder's equity or the aggregate market value at the time of the split. Stock price and nominal value are reduced accordingly.
     /// Encoded/decoded by serializers as "ReverseStockSplit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLR")]
     [IsoId("_3WnngQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is a change in nominal value, a consolidation. It is a decrease in number of outstanding shares of stock without any change in the shareholder's equity or the aggregate market value at the time of the split. Stock price and nominal value are reduced accordingly.")]
     ReverseStockSplit,
     
     /// <summary>
-    /// ??
+    /// Rights Issue/ Subscription Rights/ Rights Offer. Offer to holders of a security to subscribe for additional securities via the distribution of an intermediate security. Both processes are included in the same event.
     /// Encoded/decoded by serializers as "RightsIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RHTS")]
     [IsoId("_3dK7cQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Rights Issue/ Subscription Rights/ Rights Offer. Offer to holders of a security to subscribe for additional securities via the distribution of an intermediate security. Both processes are included in the same event.")]
     RightsIssue,
     
     /// <summary>
-    /// ??
+    /// Scrip Dividend/Payment. Dividend or interest paid in the form of scrip.
     /// Encoded/decoded by serializers as "ScripDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVSC")]
     [IsoId("_3ju2cQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Scrip Dividend/Payment. Dividend or interest paid in the form of scrip.")]
     ScripDividend,
     
     /// <summary>
-    /// ??
+    /// This corporate event pays shareholders an amount in cash issued from the shares premium reserve. It is similar to a dividend but with different tax implications.
     /// Encoded/decoded by serializers as "SharesPremiumDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHPR")]
     [IsoId("_5l9z8Q8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"This corporate event pays shareholders an amount in cash issued from the shares premium reserve. It is similar to a dividend but with different tax implications.")]
     SharesPremiumDividend,
     
     /// <summary>
-    /// ??
+    /// Modification of the smallest negotiable unit of shares in order to obtain a new negotiable unit.
     /// Encoded/decoded by serializers as "SmallestNegotiableUnit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAL")]
     [IsoId("_5vEFkQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Modification of the smallest negotiable unit of shares in order to obtain a new negotiable unit.")]
     SmallestNegotiableUnit,
     
     /// <summary>
-    /// ??
+    /// Event is a demerger or distribution or an unbundling. It is a distribution of subsidiary stock to the shareholders of the parent company without a surrender of shares. A spin-off represents a form of divestiture resulting in an independent company. Normally this is without cost to the parent issue shareholder.
     /// Encoded/decoded by serializers as "SpinOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFF")]
     [IsoId("_6dQoUQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is a demerger or distribution or an unbundling. It is a distribution of subsidiary stock to the shareholders of the parent company without a surrender of shares. A spin-off represents a form of divestiture resulting in an independent company. Normally this is without cost to the parent issue shareholder.")]
     SpinOff,
     
     /// <summary>
-    /// ??
+    /// Event is a dividend paid to shareholders in the form of shares of stock in the issuing company or in another company. The shareholder must take stock and is not offered a choice in the form of distribution.
     /// Encoded/decoded by serializers as "StockDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVSE")]
     [IsoId("_6jhBUQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is a dividend paid to shareholders in the form of shares of stock in the issuing company or in another company. The shareholder must take stock and is not offered a choice in the form of distribution.")]
     StockDividend,
     
     /// <summary>
-    /// ??
+    /// Event is a change in nominal value, a subdivision. It is an increase in a corporation's number of outstanding shares of stock without any change in the shareholder's equity or the aggregate market value at the time of the split. Stock price and nominal value are reduced accordingly.
     /// Encoded/decoded by serializers as "StockSplit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLF")]
     [IsoId("_6qhBMQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is a change in nominal value, a subdivision. It is an increase in a corporation's number of outstanding shares of stock without any change in the shareholder's equity or the aggregate market value at the time of the split. Stock price and nominal value are reduced accordingly.")]
     StockSplit,
     
     /// <summary>
-    /// ??
+    /// Event related to tax reclaim activities.
     /// Encoded/decoded by serializers as "TaxReclaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TREC")]
     [IsoId("_7H4SoQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event related to tax reclaim activities.")]
     TaxReclaim,
     
     /// <summary>
-    /// ??
+    /// Event is an acquisition or take-over or offre publique de retrait (FR) or purchase offer. It is an offer made to holders by a third party, requesting them to sell (tender) or exchange their securities.
     /// Encoded/decoded by serializers as "Tender".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEND")]
     [IsoId("_7ObmkQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Event is an acquisition or take-over or offre publique de retrait (FR) or purchase offer. It is an offer made to holders by a third party, requesting them to sell (tender) or exchange their securities.")]
     Tender,
     
     /// <summary>
-    /// ??
+    /// Security is no longer able to comply with the listing requirements of a stock exchange and is removed from official board quotation.
     /// Encoded/decoded by serializers as "TradingStatusDelisted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLST")]
     [IsoId("_7U_hkQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Security is no longer able to comply with the listing requirements of a stock exchange and is removed from official board quotation.")]
     TradingStatusDelisted,
     
     /// <summary>
-    /// ??
+    /// Trading in the security has been suspended.
     /// Encoded/decoded by serializers as "TradingStatusSuspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_7bsmgQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Trading in the security has been suspended.")]
     TradingStatusSuspended,
     
     /// <summary>
-    /// ??
+    /// Option offered to holders to buy (call warrant) or to sell (put warrant) a specific amount of stock, cash, or commodity, at a predetermined price, during a predetermined period of time (which usually corresponds to the life of the issue).
     /// Encoded/decoded by serializers as "WarrantExercise".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXWA")]
     [IsoId("_7iP6cQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Option offered to holders to buy (call warrant) or to sell (put warrant) a specific amount of stock, cash, or commodity, at a predetermined price, during a predetermined period of time (which usually corresponds to the life of the issue).")]
     WarrantExercise,
     
     /// <summary>
-    /// ??
+    /// Certification process for withholding tax reduction or exemption based on the tax status of the holder.
     /// Encoded/decoded by serializers as "WithholdingTaxReliefCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTRC")]
     [IsoId("_7oz1cQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Certification process for withholding tax reduction or exemption based on the tax status of the holder.")]
     WithholdingTaxReliefCertification,
     
     /// <summary>
-    /// ??
+    /// Booking out of valueless securities.
     /// Encoded/decoded by serializers as "Worthless".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WRTH")]
     [IsoId("_7vN_cQ8DEeKhfswDSmpBfA")]
-    [Description(@"??")]
+    [Description(@"Booking out of valueless securities.")]
     Worthless,
     
     /// <summary>
-    /// ??
+    /// Redemption in part before the scheduled final maturity date of a security. Drawing is distinct from partial call since drawn bonds are chosen by lottery and with no reduction in nominal value.
     /// Encoded/decoded by serializers as "PutRedemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BPUT")]
     [IsoId("_WnahYR3gEeKzELQTdjrfww")]
-    [Description(@"??")]
+    [Description(@"Redemption in part before the scheduled final maturity date of a security. Drawing is distinct from partial call since drawn bonds are chosen by lottery and with no reduction in nominal value.")]
     PutRedemption,
     
 }

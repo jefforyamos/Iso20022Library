@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMServiceType1Code
 {
     /// <summary>
-    /// ??
+    /// Amount and notes values are chosen by the customer.
     /// Encoded/decoded by serializers as "ChosenWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHSN")]
     [IsoId("_1VkYUYogEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Amount and notes values are chosen by the customer.")]
     ChosenWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.
     /// Encoded/decoded by serializers as "PreAuthorisedWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PATH")]
     [IsoId("_1aqTsYogEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.")]
     PreAuthorisedWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Amount and notes Values are pre-defined by the customer profile.
     /// Encoded/decoded by serializers as "ProfileWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRFL")]
     [IsoId("_1gFmQYogEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Amount and notes Values are pre-defined by the customer profile.")]
     ProfileWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Standard withdrawal of items.
     /// Encoded/decoded by serializers as "StandardWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STDR")]
     [IsoId("_1mPRkYogEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Standard withdrawal of items.")]
     StandardWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Withdrawal authorised by a supervisor.
     /// Encoded/decoded by serializers as "SupervisedWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRV")]
     [IsoId("_1rPtYYogEeSirOZJBRz_nA")]
-    [Description(@"??")]
+    [Description(@"Withdrawal authorised by a supervisor.")]
     SupervisedWithdrawal,
     
 }

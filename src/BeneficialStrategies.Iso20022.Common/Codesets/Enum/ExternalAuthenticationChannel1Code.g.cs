@@ -21,39 +21,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalAuthenticationChannel1Code
 {
     /// <summary>
-    /// ??
+    /// Authentication provided through ATM
     /// Encoded/decoded by serializers as "ATM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATMA")]
     [IsoId("_uZHtovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Authentication provided through ATM")]
     ATM,
     
     /// <summary>
-    /// ??
+    /// Authentication provided through Card
     /// Encoded/decoded by serializers as "Card".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARD")]
     [IsoId("_uZHtpfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Authentication provided through Card")]
     Card,
     
     /// <summary>
-    /// ??
+    /// Authentication provided through Internet Banking
     /// Encoded/decoded by serializers as "InternetBanking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INBA")]
     [IsoId("_uZHtqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Authentication provided through Internet Banking")]
     InternetBanking,
     
     /// <summary>
-    /// ??
+    /// Authentication provided through Mobile
     /// Encoded/decoded by serializers as "Mobile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOBI")]
     [IsoId("_uZReovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Authentication provided through Mobile")]
     Mobile,
     
 }

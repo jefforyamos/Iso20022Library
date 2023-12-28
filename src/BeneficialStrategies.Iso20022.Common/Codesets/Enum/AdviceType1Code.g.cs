@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdviceType1Code
 {
     /// <summary>
-    /// ??
+    /// Advice with transaction details is requested.
     /// Encoded/decoded by serializers as "AdviceWithDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADWD")]
     [IsoId("_XiPt0e8XEemSR6j6KWQzCg")]
-    [Description(@"??")]
+    [Description(@"Advice with transaction details is requested.")]
     AdviceWithDetails,
     
     /// <summary>
-    /// ??
+    /// Advice without  transaction details is requested.
     /// Encoded/decoded by serializers as "AdviceWithoutDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADND")]
     [IsoId("_Xz3CQe8XEemSR6j6KWQzCg")]
-    [Description(@"??")]
+    [Description(@"Advice without  transaction details is requested.")]
     AdviceWithoutDetails,
     
 }

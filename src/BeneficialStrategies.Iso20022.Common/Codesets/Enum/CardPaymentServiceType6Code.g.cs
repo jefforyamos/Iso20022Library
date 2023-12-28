@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardPaymentServiceType6Code
 {
     /// <summary>
-    /// ??
+    /// Aggregation of low payments.
     /// Encoded/decoded by serializers as "Aggregation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGGR")]
     [IsoId("_DwySMTAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Aggregation of low payments.")]
     Aggregation,
     
     /// <summary>
-    /// ??
+    /// Dynamic currency conversion (DCC).
     /// Encoded/decoded by serializers as "DCC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCV")]
     [IsoId("_DwySMzAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Dynamic currency conversion (DCC).")]
     DCC,
     
     /// <summary>
-    /// ??
+    /// Card payment with gratuity.
     /// Encoded/decoded by serializers as "Gratuity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRTT")]
     [IsoId("_DwySNTAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Card payment with gratuity.")]
     Gratuity,
     
     /// <summary>
-    /// ??
+    /// Loyalty services.
     /// Encoded/decoded by serializers as "Loyalty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOYT")]
     [IsoId("_DwySOTAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Loyalty services.")]
     Loyalty,
     
     /// <summary>
-    /// ??
+    /// No show after reservation.
     /// Encoded/decoded by serializers as "NoShow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRES")]
     [IsoId("_DwySOzAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"No show after reservation.")]
     NoShow,
     
     /// <summary>
-    /// ??
+    /// Purchase and corporate data.
     /// Encoded/decoded by serializers as "PurchaseCorporate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUCO")]
     [IsoId("_DwySPTAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Purchase and corporate data.")]
     PurchaseCorporate,
     
     /// <summary>
-    /// ??
+    /// Recurring payment.
     /// Encoded/decoded by serializers as "RecurringPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECP")]
     [IsoId("_DwySPzAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Recurring payment.")]
     RecurringPayment,
     
     /// <summary>
-    /// ??
+    /// Solicited available funds.
     /// Encoded/decoded by serializers as "SolicitedAvailableFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOAF")]
     [IsoId("_DwySQTAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Solicited available funds.")]
     SolicitedAvailableFunds,
     
     /// <summary>
-    /// ??
+    /// Voice authorisation.
     /// Encoded/decoded by serializers as "VoiceAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VCAU")]
     [IsoId("_DwySRTAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Voice authorisation.")]
     VoiceAuthorisation,
     
     /// <summary>
-    /// ??
+    /// Instalment payment transaction performed by the card issuer.
     /// Encoded/decoded by serializers as "IssuerInstalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSI")]
     [IsoId("_HS68MTAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Instalment payment transaction performed by the card issuer.")]
     IssuerInstalment,
     
     /// <summary>
-    /// ??
+    /// Instalment payment transaction performed by the acceptor or the acquirer.
     /// Encoded/decoded by serializers as "AcceptorInstalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSA")]
     [IsoId("_Hvx3UzAXEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Instalment payment transaction performed by the acceptor or the acquirer.")]
     AcceptorInstalment,
     
     /// <summary>
-    /// ??
+    /// Card payment with cash-back.
     /// Encoded/decoded by serializers as "CashBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHB")]
     [IsoId("_Yf8poUuGEeOC3MFxIpMwug")]
-    [Description(@"??")]
+    [Description(@"Card payment with cash-back.")]
     CashBack,
     
 }

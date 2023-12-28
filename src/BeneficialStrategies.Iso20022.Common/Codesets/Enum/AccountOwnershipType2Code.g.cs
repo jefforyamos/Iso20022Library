@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountOwnershipType2Code
 {
     /// <summary>
-    /// ??
+    /// Two or more individuals own shares of the same account. Upon the death of one of the account owners, the entire account ownership is passed onto the surviving owners.
     /// Encoded/decoded by serializers as "JointAccountWithSurvivorshipRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JOIN")]
     [IsoId("_Vi1Uc9p-Ed-ak6NoX_4Aeg_-974801603")]
-    [Description(@"??")]
+    [Description(@"Two or more individuals own shares of the same account. Upon the death of one of the account owners, the entire account ownership is passed onto the surviving owners.")]
     JointAccountWithSurvivorshipRights,
     
     /// <summary>
-    /// ??
+    /// Two or more individuals of legal age own shares of the same account. Upon the death of one of the account owners, the respective percentage of the ownership is transferred to the deceased's estate.
     /// Encoded/decoded by serializers as "JointAccountInCommon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMO")]
     [IsoId("_Vi1UdNp-Ed-ak6NoX_4Aeg_-974800492")]
-    [Description(@"??")]
+    [Description(@"Two or more individuals of legal age own shares of the same account. Upon the death of one of the account owners, the respective percentage of the ownership is transferred to the deceased's estate.")]
     JointAccountInCommon,
     
     /// <summary>
-    /// ??
+    /// Minor's account, registered in the minor's name. Since the minor cannot legally own property, the custodian of the account maintains control of the account.
     /// Encoded/decoded by serializers as "CustodialAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_Vi1Uddp-Ed-ak6NoX_4Aeg_-974800457")]
-    [Description(@"??")]
+    [Description(@"Minor's account, registered in the minor's name. Since the minor cannot legally own property, the custodian of the account maintains control of the account.")]
     CustodialAccount,
     
     /// <summary>
-    /// ??
+    /// Account has only one individual owner.
     /// Encoded/decoded by serializers as "SingleOwnerAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGL")]
     [IsoId("_Vi1Udtp-Ed-ak6NoX_4Aeg_-966489913")]
-    [Description(@"??")]
+    [Description(@"Account has only one individual owner.")]
     SingleOwnerAccount,
     
     /// <summary>
-    /// ??
+    /// Two or more individuals of legal age own shares of the same account.
     /// Encoded/decoded by serializers as "JointAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JOIT")]
     [IsoId("_Vi1Ud9p-Ed-ak6NoX_4Aeg_-966489827")]
-    [Description(@"??")]
+    [Description(@"Two or more individuals of legal age own shares of the same account.")]
     JointAccount,
     
     /// <summary>
-    /// ??
+    /// Account owner is a corporate.
     /// Encoded/decoded by serializers as "Corporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("_Vi1UeNp-Ed-ak6NoX_4Aeg_-966489792")]
-    [Description(@"??")]
+    [Description(@"Account owner is a corporate.")]
     Corporation,
     
     /// <summary>
-    /// ??
+    /// Account owner is a contractual business organisation in which two or more individuals agree to pool their funds to manage and operate a business.
     /// Encoded/decoded by serializers as "FormalPartnership".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_Vi1Uedp-Ed-ak6NoX_4Aeg_-966489455")]
-    [Description(@"??")]
+    [Description(@"Account owner is a contractual business organisation in which two or more individuals agree to pool their funds to manage and operate a business.")]
     FormalPartnership,
     
     /// <summary>
-    /// ??
+    /// Account owner is an organisation which is engaged as a trustee for individuals or businesses in the administration of services such as stock transfer, registration, trust funds.
     /// Encoded/decoded by serializers as "FormalTrust".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRUS")]
     [IsoId("_Vi-eYNp-Ed-ak6NoX_4Aeg_-966488448")]
-    [Description(@"??")]
+    [Description(@"Account owner is an organisation which is engaged as a trustee for individuals or businesses in the administration of services such as stock transfer, registration, trust funds.")]
     FormalTrust,
     
     /// <summary>
-    /// ??
+    /// Account owner is a person or firm into whose name securities or other properties are transferred in order to facilitate transactions whilst leaving the customer as the actual owner.
     /// Encoded/decoded by serializers as "Nominee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMI")]
     [IsoId("_Vi-eYdp-Ed-ak6NoX_4Aeg_-966488413")]
-    [Description(@"??")]
+    [Description(@"Account owner is a person or firm into whose name securities or other properties are transferred in order to facilitate transactions whilst leaving the customer as the actual owner.")]
     Nominee,
     
     /// <summary>
-    /// ??
+    /// Account owner is an association that is given tax-free status due to the nature of their activities such as charity organisation.
     /// Encoded/decoded by serializers as "NonProfitOrganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFPO")]
     [IsoId("_Vi-eYtp-Ed-ak6NoX_4Aeg_-966488353")]
-    [Description(@"??")]
+    [Description(@"Account owner is an association that is given tax-free status due to the nature of their activities such as charity organisation.")]
     NonProfitOrganisation,
     
     /// <summary>
-    /// ??
+    /// Account owner is another type of non individual organisation.
     /// Encoded/decoded by serializers as "OtherNonIndividual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONIS")]
     [IsoId("_Vi-eY9p-Ed-ak6NoX_4Aeg_2007981289")]
-    [Description(@"??")]
+    [Description(@"Account owner is another type of non individual organisation.")]
     OtherNonIndividual,
     
     /// <summary>
-    /// ??
+    /// Account owner is an entity located in the European Union which can be considered neither as a legal entity (for example, company, corporate), nor as an individual person, nor as a UCITS (Undertakings for Collective Investment of Transferable Securities) fund.
     /// Encoded/decoded by serializers as "EUResidualEntity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EURE")]
     [IsoId("_Vi-eZNp-Ed-ak6NoX_4Aeg_-177830065")]
-    [Description(@"??")]
+    [Description(@"Account owner is an entity located in the European Union which can be considered neither as a legal entity (for example, company, corporate), nor as an individual person, nor as a UCITS (Undertakings for Collective Investment of Transferable Securities) fund.")]
     EUResidualEntity,
     
     /// <summary>
-    /// ??
+    /// Account owner is a government organisation.
     /// Encoded/decoded by serializers as "GovernmentOrganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOVO")]
     [IsoId("_Vi-eZdp-Ed-ak6NoX_4Aeg_1640583960")]
-    [Description(@"??")]
+    [Description(@"Account owner is a government organisation.")]
     GovernmentOrganisation,
     
 }

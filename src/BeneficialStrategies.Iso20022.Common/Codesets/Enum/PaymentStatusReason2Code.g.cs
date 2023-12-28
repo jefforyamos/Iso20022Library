@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentStatusReason2Code
 {
     /// <summary>
-    /// ??
+    /// The transaction processing cannot be completed the same day.
     /// Encoded/decoded by serializers as "CreditDebitNotConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G002")]
     [IsoId("_m3wxgaXaEeaBtJ1HvhzRtg")]
-    [Description(@"??")]
+    [Description(@"The transaction processing cannot be completed the same day.")]
     CreditDebitNotConfirmed,
     
     /// <summary>
-    /// ??
+    /// Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.
     /// Encoded/decoded by serializers as "CreditPendingFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G004")]
     [IsoId("_m8ReEaXaEeaBtJ1HvhzRtg")]
-    [Description(@"??")]
+    [Description(@"Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.")]
     CreditPendingFunds,
     
     /// <summary>
-    /// ??
+    /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure maintaining the transaction’s service obligations.
     /// Encoded/decoded by serializers as "PaymentTransferredAndSLAMaintained".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G000")]
     [IsoId("_nGkpkaXaEeaBtJ1HvhzRtg")]
-    [Description(@"??")]
+    [Description(@"The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure maintaining the transaction’s service obligations.")]
     PaymentTransferredAndSLAMaintained,
     
     /// <summary>
-    /// ??
+    /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.
     /// Encoded/decoded by serializers as "PaymentTransferredAndSLANoLongerMaintained".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G001")]
     [IsoId("_nLJnkaXaEeaBtJ1HvhzRtg")]
-    [Description(@"??")]
+    [Description(@"The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.")]
     PaymentTransferredAndSLANoLongerMaintained,
     
     /// <summary>
-    /// ??
+    /// In an FI to FI Customer Credit Transfer: Credit to creditor's account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.
     /// Encoded/decoded by serializers as "CreditPendingDocuments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "G003")]
     [IsoId("_eqFg0aZbEeatnf2letP_og")]
-    [Description(@"??")]
+    [Description(@"In an FI to FI Customer Credit Transfer: Credit to creditor's account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.")]
     CreditPendingDocuments,
     
 }

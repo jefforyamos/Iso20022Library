@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FractionDispositionType7Code
 {
     /// <summary>
-    /// ??
+    /// Buy securities up to next whole number.
     /// Encoded/decoded by serializers as "BuyUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYU")]
     [IsoId("_q4rdUmtdEeCY4-KZ9JEyUQ_571987950")]
-    [Description(@"??")]
+    [Description(@"Buy securities up to next whole number.")]
     BuyUp,
     
     /// <summary>
-    /// ??
+    /// Fractional part of cash. Take cash in lieu of fractions.
     /// Encoded/decoded by serializers as "CashInLieuOfFraction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINL")]
     [IsoId("_q4rdU2tdEeCY4-KZ9JEyUQ_1068282124")]
-    [Description(@"??")]
+    [Description(@"Fractional part of cash. Take cash in lieu of fractions.")]
     CashInLieuOfFraction,
     
     /// <summary>
-    /// ??
+    /// Take distribution of fractions in the form of securities.
     /// Encoded/decoded by serializers as "IssueFraction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIST")]
     [IsoId("_q4rdVGtdEeCY4-KZ9JEyUQ_71209771")]
-    [Description(@"??")]
+    [Description(@"Take distribution of fractions in the form of securities.")]
     IssueFraction,
     
     /// <summary>
-    /// ??
+    /// Round down to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundDown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDDN")]
     [IsoId("_q4rdVWtdEeCY4-KZ9JEyUQ_1522369393")]
-    [Description(@"??")]
+    [Description(@"Round down to the nearest whole number.")]
     RoundDown,
     
     /// <summary>
-    /// ??
+    /// Round up to the nearest whole number.
     /// Encoded/decoded by serializers as "RoundUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDUP")]
     [IsoId("_q4rdVmtdEeCY4-KZ9JEyUQ_1847486900")]
-    [Description(@"??")]
+    [Description(@"Round up to the nearest whole number.")]
     RoundUp,
     
     /// <summary>
-    /// ??
+    /// If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down.
     /// Encoded/decoded by serializers as "RoundToNearest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAN")]
     [IsoId("_q40nQGtdEeCY4-KZ9JEyUQ_850414547")]
-    [Description(@"??")]
+    [Description(@"If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down.")]
     RoundToNearest,
     
 }

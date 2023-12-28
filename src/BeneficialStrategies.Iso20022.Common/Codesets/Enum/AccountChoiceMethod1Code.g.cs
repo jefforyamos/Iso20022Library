@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountChoiceMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Account selected in an account list.
     /// Encoded/decoded by serializers as "AccountSelected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSL")]
     [IsoId("_ojWosXs7EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Account selected in an account list.")]
     AccountSelected,
     
     /// <summary>
-    /// ??
+    /// Account identification is entered by the customer.
     /// Encoded/decoded by serializers as "Entered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENTR")]
     [IsoId("_ot0MQ3s7EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Account identification is entered by the customer.")]
     Entered,
     
     /// <summary>
-    /// ??
+    /// Account is selected according to the configuration.
     /// Encoded/decoded by serializers as "ImplicitAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMAC")]
     [IsoId("_o4i1k3s7EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Account is selected according to the configuration.")]
     ImplicitAccount,
     
     /// <summary>
-    /// ??
+    /// Type of account is selected according to the configuration.
     /// Encoded/decoded by serializers as "ImplicitType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMPL")]
     [IsoId("_o--0wXs7EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Type of account is selected according to the configuration.")]
     ImplicitType,
     
     /// <summary>
-    /// ??
+    /// Account is not selected by the customer or a profile, but by the issuer.
     /// Encoded/decoded by serializers as "NoSelection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOSL")]
     [IsoId("_pJsP83s7EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Account is not selected by the customer or a profile, but by the issuer.")]
     NoSelection,
     
     /// <summary>
-    /// ??
+    /// Type of account selected in a list.
     /// Encoded/decoded by serializers as "TypeSelected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TPSL")]
     [IsoId("_pREDQ3s7EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Type of account selected in a list.")]
     TypeSelected,
     
 }

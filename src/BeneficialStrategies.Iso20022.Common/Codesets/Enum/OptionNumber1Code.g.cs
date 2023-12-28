@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionNumber1Code
 {
     /// <summary>
-    /// ??
+    /// The corporate action instruction is unsolicited, that is, the instruction has not been preceded by a corporate action notification.
     /// Encoded/decoded by serializers as "Unsolicited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSO")]
     [IsoId("_aP1PGdp-Ed-ak6NoX_4Aeg_6858494")]
-    [Description(@"??")]
+    [Description(@"The corporate action instruction is unsolicited, that is, the instruction has not been preceded by a corporate action notification.")]
     Unsolicited,
     
 }

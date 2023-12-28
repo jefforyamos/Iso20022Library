@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationRejectedReason1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been received after the cut-off time.
     /// Encoded/decoded by serializers as "CutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUTO")]
     [IsoId("_bYjKo9p-Ed-ak6NoX_4Aeg_-1041848")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received after the cut-off time.")]
     CutOffTime,
     
     /// <summary>
-    /// ??
+    /// Order or transfer has already been executed and confirmation has been sent.
     /// Encoded/decoded by serializers as "AlreadyExecuted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COSE")]
     [IsoId("_bYjKpNp-Ed-ak6NoX_4Aeg_-2116683787")]
-    [Description(@"??")]
+    [Description(@"Order or transfer has already been executed and confirmation has been sent.")]
     AlreadyExecuted,
     
 }

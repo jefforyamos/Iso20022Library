@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PositionEffect1Code
 {
     /// <summary>
-    /// ??
+    /// Position after the trade should be open.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_aHWBdtp-Ed-ak6NoX_4Aeg_-191177094")]
-    [Description(@"??")]
+    [Description(@"Position after the trade should be open.")]
     Open,
     
     /// <summary>
-    /// ??
+    /// Position after the trade should be closed.
     /// Encoded/decoded by serializers as "Close".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("_aHWBd9p-Ed-ak6NoX_4Aeg_-191177059")]
-    [Description(@"??")]
+    [Description(@"Position after the trade should be closed.")]
     Close,
     
     /// <summary>
-    /// ??
+    /// Results in a position obtained in a security previously held, sold and repurchased.
     /// Encoded/decoded by serializers as "Rolled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLL")]
     [IsoId("_aHfLYNp-Ed-ak6NoX_4Aeg_-191177016")]
-    [Description(@"??")]
+    [Description(@"Results in a position obtained in a security previously held, sold and repurchased.")]
     Rolled,
     
     /// <summary>
-    /// ??
+    /// First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.
     /// Encoded/decoded by serializers as "Fifo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIFO")]
     [IsoId("_aHfLYdp-Ed-ak6NoX_4Aeg_-191176981")]
-    [Description(@"??")]
+    [Description(@"First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.")]
     Fifo,
     
 }

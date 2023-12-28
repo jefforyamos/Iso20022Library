@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentNeed2Code
 {
     /// <summary>
-    /// ??
+    /// No specific need.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSPE")]
     [IsoId("_i8cCMaDtEequlaOyi6MUhw")]
-    [Description(@"??")]
+    [Description(@"No specific need.")]
     None,
     
     /// <summary>
-    /// ??
+    /// Other specific need.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_jD4G8aDtEequlaOyi6MUhw")]
-    [Description(@"??")]
+    [Description(@"Other specific need.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Investment need is for Islamic banking.
     /// Encoded/decoded by serializers as "IslamicBanking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISLB")]
     [IsoId("_jK3fwaDtEequlaOyi6MUhw")]
-    [Description(@"??")]
+    [Description(@"Investment need is for Islamic banking.")]
     IslamicBanking,
     
 }

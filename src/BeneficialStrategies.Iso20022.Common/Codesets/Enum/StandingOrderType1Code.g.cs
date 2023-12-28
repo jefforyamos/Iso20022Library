@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StandingOrderType1Code
 {
     /// <summary>
-    /// ??
+    /// Liquidity transfer standing order type, that has been customised or defined to the specific need of the user.
     /// Encoded/decoded by serializers as "UserDefinedStandingOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USTO")]
     [IsoId("_8OFBVKMgEeCJ6YNENx4h-w_1846866247")]
-    [Description(@"??")]
+    [Description(@"Liquidity transfer standing order type, that has been customised or defined to the specific need of the user.")]
     UserDefinedStandingOrder,
     
     /// <summary>
-    /// ??
+    /// Liquidity transfer standing order type, as predefined in the system.
     /// Encoded/decoded by serializers as "PredefinedStandingOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSTO")]
     [IsoId("_8OFBVaMgEeCJ6YNENx4h-w_328114765")]
-    [Description(@"??")]
+    [Description(@"Liquidity transfer standing order type, as predefined in the system.")]
     PredefinedStandingOrder,
     
 }

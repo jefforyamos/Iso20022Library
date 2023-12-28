@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DepositaryReceiptProcessingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// No record of the transaction for which a status is requested.
     /// Encoded/decoded by serializers as "NoRecordFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORE")]
     [IsoId("_av4BFdp-Ed-ak6NoX_4Aeg_-1629994249")]
-    [Description(@"??")]
+    [Description(@"No record of the transaction for which a status is requested.")]
     NoRecordFound,
     
     /// <summary>
-    /// ??
+    /// Depositary receipt is pending completion.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_av4BFtp-Ed-ak6NoX_4Aeg_-1629994248")]
-    [Description(@"??")]
+    [Description(@"Depositary receipt is pending completion.")]
     Pending,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CopyDuplicate1Code
 {
     /// <summary>
-    /// ??
+    /// Message is being sent as a copy to a party other than the account owner, for information purposes and the message is a duplicate of a message previously sent.
     /// Encoded/decoded by serializers as "CopyDuplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CODU")]
     [IsoId("_bCWRJNp-Ed-ak6NoX_4Aeg_-462671298")]
-    [Description(@"??")]
+    [Description(@"Message is being sent as a copy to a party other than the account owner, for information purposes and the message is a duplicate of a message previously sent.")]
     CopyDuplicate,
     
     /// <summary>
-    /// ??
+    /// Message is being sent as a copy to a party other than the account owner, for information purposes.
     /// Encoded/decoded by serializers as "Copy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COPY")]
     [IsoId("_bCWRJdp-Ed-ak6NoX_4Aeg_-462671239")]
-    [Description(@"??")]
+    [Description(@"Message is being sent as a copy to a party other than the account owner, for information purposes.")]
     Copy,
     
     /// <summary>
-    /// ??
+    /// Message is for information/confirmation purposes. It is a duplicate of a message previously sent.
     /// Encoded/decoded by serializers as "Duplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_bCWRJtp-Ed-ak6NoX_4Aeg_-462671187")]
-    [Description(@"??")]
+    [Description(@"Message is for information/confirmation purposes. It is a duplicate of a message previously sent.")]
     Duplicate,
     
 }

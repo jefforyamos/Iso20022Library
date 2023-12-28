@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AttendanceContext2Code
 {
     /// <summary>
-    /// ??
+    /// Delivery by an attendant.
     /// Encoded/decoded by serializers as "AttendantDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATTL")]
     [IsoId("_f2LJwZVJEeWu36UkS2TkoQ")]
-    [Description(@"??")]
+    [Description(@"Delivery by an attendant.")]
     AttendantDelivery,
     
     /// <summary>
-    /// ??
+    /// Delivery by a carrier.
     /// Encoded/decoded by serializers as "CarrierDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARR")]
     [IsoId("_f-q-cZVJEeWu36UkS2TkoQ")]
-    [Description(@"??")]
+    [Description(@"Delivery by a carrier.")]
     CarrierDelivery,
     
     /// <summary>
-    /// ??
+    /// Delivery by the customer.
     /// Encoded/decoded by serializers as "CustomerDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_gRMR0ZVJEeWu36UkS2TkoQ")]
-    [Description(@"??")]
+    [Description(@"Delivery by the customer.")]
     CustomerDelivery,
     
     /// <summary>
-    /// ??
+    /// Full service for fuel distribution.
     /// Encoded/decoded by serializers as "FullServe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_gcBo0ZVJEeWu36UkS2TkoQ")]
-    [Description(@"??")]
+    [Description(@"Full service for fuel distribution.")]
     FullServe,
     
     /// <summary>
-    /// ??
+    /// Self service for fuel distribution.
     /// Encoded/decoded by serializers as "SelfServe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELF")]
     [IsoId("_gpQMgZVJEeWu36UkS2TkoQ")]
-    [Description(@"??")]
+    [Description(@"Self service for fuel distribution.")]
     SelfServe,
     
 }

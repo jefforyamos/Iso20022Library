@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount7Code
 {
     /// <summary>
-    /// ??
+    /// Fees.
     /// Encoded/decoded by serializers as "Fees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEES")]
     [IsoId("_NBM3MYN-EeSNofOeou9G3A")]
-    [Description(@"??")]
+    [Description(@"Fees.")]
     Fees,
     
     /// <summary>
-    /// ??
+    /// Fees amount from the card issuer.
     /// Encoded/decoded by serializers as "IssuerFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEI")]
     [IsoId("_NWACgYN-EeSNofOeou9G3A")]
-    [Description(@"??")]
+    [Description(@"Fees amount from the card issuer.")]
     IssuerFees,
     
     /// <summary>
-    /// ??
+    /// Interchange fees.
     /// Encoded/decoded by serializers as "InterchangeFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEH")]
     [IsoId("_gi3gAYN-EeSNofOeou9G3A")]
-    [Description(@"??")]
+    [Description(@"Interchange fees.")]
     InterchangeFees,
     
     /// <summary>
-    /// ??
+    /// Processing fees.
     /// Encoded/decoded by serializers as "ProcessingFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEP")]
     [IsoId("_nk6mcYN-EeSNofOeou9G3A")]
-    [Description(@"??")]
+    [Description(@"Processing fees.")]
     ProcessingFees,
     
     /// <summary>
-    /// ??
+    /// International service assessment fees.
     /// Encoded/decoded by serializers as "InternationalServiceAssessmentFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEA")]
     [IsoId("_63UEMYN-EeSNofOeou9G3A")]
-    [Description(@"??")]
+    [Description(@"International service assessment fees.")]
     InternationalServiceAssessmentFees,
     
 }

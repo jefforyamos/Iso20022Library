@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleReceived1Code
 {
     /// <summary>
-    /// ??
+    /// Received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVD")]
     [IsoId("_Eth3kR-1EeuxStysDTgLiw")]
-    [Description(@"??")]
+    [Description(@"Received.")]
     Received,
     
 }

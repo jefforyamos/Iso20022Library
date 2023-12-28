@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PrePaymentSpeed1Code
 {
     /// <summary>
-    /// ??
+    /// Prepayment speed schedule is Single Monthly Mortality, ie, the percentage of outstanding mortgage loan principal prepays in one month.
     /// Encoded/decoded by serializers as "SingleMonthlyMortality".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIMM")]
     [IsoId("_aIOyRNp-Ed-ak6NoX_4Aeg_-232543155")]
-    [Description(@"??")]
+    [Description(@"Prepayment speed schedule is Single Monthly Mortality, ie, the percentage of outstanding mortgage loan principal prepays in one month.")]
     SingleMonthlyMortality,
     
     /// <summary>
-    /// ??
+    /// Measure of prepayment as a percentage of the current outstanding loan balance, expressed as a compound annual rate.
     /// Encoded/decoded by serializers as "ConstantPrePaymentRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COPR")]
     [IsoId("_aIOyRdp-Ed-ak6NoX_4Aeg_-232542895")]
-    [Description(@"??")]
+    [Description(@"Measure of prepayment as a percentage of the current outstanding loan balance, expressed as a compound annual rate.")]
     ConstantPrePaymentRate,
     
     /// <summary>
-    /// ??
+    /// Measure of prepayment as a monthly percentage of the original loan balance.
     /// Encoded/decoded by serializers as "AbsolutePrePaymentSpeed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABPS")]
     [IsoId("_aIOyRtp-Ed-ak6NoX_4Aeg_-232542878")]
-    [Description(@"??")]
+    [Description(@"Measure of prepayment as a monthly percentage of the original loan balance.")]
     AbsolutePrePaymentSpeed,
     
     /// <summary>
-    /// ??
+    /// Repayment measure for nonamortizing assets not subject to prepayment. It is calculated by dividing the sum of the interest and principal payments received in a month by the outstanding balance.
     /// Encoded/decoded by serializers as "MonthlyPrePaymentRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOPR")]
     [IsoId("_aIOyR9p-Ed-ak6NoX_4Aeg_-232542843")]
-    [Description(@"??")]
+    [Description(@"Repayment measure for nonamortizing assets not subject to prepayment. It is calculated by dividing the sum of the interest and principal payments received in a month by the outstanding balance.")]
     MonthlyPrePaymentRate,
     
     /// <summary>
-    /// ??
+    /// Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the final Constant Prepayment Rate of the Home Equity Prepayment Curve (10-month seasoning scale composed of even step-ups, terminating at the final Home Equity Prepayment percentage in the 10th month).
     /// Encoded/decoded by serializers as "HomeEquityPrePaymentCurve".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOEP")]
     [IsoId("_aIOySNp-Ed-ak6NoX_4Aeg_-232542782")]
-    [Description(@"??")]
+    [Description(@"Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the final Constant Prepayment Rate of the Home Equity Prepayment Curve (10-month seasoning scale composed of even step-ups, terminating at the final Home Equity Prepayment percentage in the 10th month).")]
     HomeEquityPrePaymentCurve,
     
     /// <summary>
-    /// ??
+    /// Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the Bonds Market Association prepayment Curve.
     /// Encoded/decoded by serializers as "BMAPrePaymentCurve".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOMA")]
     [IsoId("_aIYjQNp-Ed-ak6NoX_4Aeg_-231622768")]
-    [Description(@"??")]
+    [Description(@"Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the Bonds Market Association prepayment Curve.")]
     BMAPrePaymentCurve,
     
     /// <summary>
-    /// ??
+    /// Refers to the pricing speed of a transaction as defined in the prospectus and is specific to the issue which are normally priced at 100 percent PPC.
     /// Encoded/decoded by serializers as "ProspectusPrePaymentCurve".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("_aIYjQdp-Ed-ak6NoX_4Aeg_-231622733")]
-    [Description(@"??")]
+    [Description(@"Refers to the pricing speed of a transaction as defined in the prospectus and is specific to the issue which are normally priced at 100 percent PPC.")]
     ProspectusPrePaymentCurve,
     
     /// <summary>
-    /// ??
+    /// Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the Manufactured Housing Prepayment Curve (24-month seasoning scale composed of even step-ups).
     /// Encoded/decoded by serializers as "ManufacturedHousingPrePaymentCurve".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAHP")]
     [IsoId("_aIYjQtp-Ed-ak6NoX_4Aeg_-231622673")]
-    [Description(@"??")]
+    [Description(@"Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the Manufactured Housing Prepayment Curve (24-month seasoning scale composed of even step-ups).")]
     ManufacturedHousingPrePaymentCurve,
     
 }

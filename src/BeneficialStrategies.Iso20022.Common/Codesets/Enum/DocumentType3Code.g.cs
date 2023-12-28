@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DocumentType3Code
 {
     /// <summary>
-    /// ??
+    /// Document is a remittance advice sent separately from the current transaction.
     /// Encoded/decoded by serializers as "RemittanceAdviceMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RADM")]
     [IsoId("_agObgNp-Ed-ak6NoX_4Aeg_665911923")]
-    [Description(@"??")]
+    [Description(@"Document is a remittance advice sent separately from the current transaction.")]
     RemittanceAdviceMessage,
     
     /// <summary>
-    /// ??
+    /// Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.
     /// Encoded/decoded by serializers as "RelatedPaymentInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPIN")]
     [IsoId("_agObgdp-Ed-ak6NoX_4Aeg_665911940")]
-    [Description(@"??")]
+    [Description(@"Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.")]
     RelatedPaymentInstruction,
     
     /// <summary>
-    /// ??
+    /// Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.
     /// Encoded/decoded by serializers as "ForeignExchangeDealReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FXDR")]
     [IsoId("_agObgtp-Ed-ak6NoX_4Aeg_665912235")]
-    [Description(@"??")]
+    [Description(@"Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.")]
     ForeignExchangeDealReference,
     
     /// <summary>
-    /// ??
+    /// Document is a dispatch advice.
     /// Encoded/decoded by serializers as "DispatchAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_agObg9p-Ed-ak6NoX_4Aeg_665912698")]
-    [Description(@"??")]
+    [Description(@"Document is a dispatch advice.")]
     DispatchAdvice,
     
     /// <summary>
-    /// ??
+    /// Document is a purchase order.
     /// Encoded/decoded by serializers as "PurchaseOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUOR")]
     [IsoId("_agObhNp-Ed-ak6NoX_4Aeg_906952902")]
-    [Description(@"??")]
+    [Description(@"Document is a purchase order.")]
     PurchaseOrder,
     
     /// <summary>
-    /// ??
+    /// Document is a structured communication reference provided by the creditor to identify the referred transaction.
     /// Encoded/decoded by serializers as "StructuredCommunicationReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCOR")]
     [IsoId("_agObhdp-Ed-ak6NoX_4Aeg_922649765")]
-    [Description(@"??")]
+    [Description(@"Document is a structured communication reference provided by the creditor to identify the referred transaction.")]
     StructuredCommunicationReference,
     
 }

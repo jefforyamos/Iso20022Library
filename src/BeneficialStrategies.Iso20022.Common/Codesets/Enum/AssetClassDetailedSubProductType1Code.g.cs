@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type feed wheat.
     /// Encoded/decoded by serializers as "FeedWheat".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWHT")]
     [IsoId("_96wFSSY7EeWAO6hFQSFUmw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type feed wheat.")]
     FeedWheat,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type soybeans.
     /// Encoded/decoded by serializers as "Soybeans".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOYB")]
     [IsoId("_96wFSiY7EeWAO6hFQSFUmw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type soybeans.")]
     Soybeans,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type rapeseed.
     /// Encoded/decoded by serializers as "Rapeseed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPSD")]
     [IsoId("_96wFRyY7EeWAO6hFQSFUmw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type rapeseed.")]
     Rapeseed,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_96wFSyY7EeWAO6hFQSFUmw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type maize.
     /// Encoded/decoded by serializers as "Maize".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORN")]
     [IsoId("_96wFSCY7EeWAO6hFQSFUmw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type maize.")]
     Maize,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type rice.
     /// Encoded/decoded by serializers as "Rice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RICE")]
     [IsoId("_C5a1AfwfEeW4Wthd0Ze_kA")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type rice.")]
     Rice,
     
 }

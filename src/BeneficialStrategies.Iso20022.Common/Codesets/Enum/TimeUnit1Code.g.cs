@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TimeUnit1Code
 {
     /// <summary>
-    /// ??
+    /// Time unit is calendar day.
     /// Encoded/decoded by serializers as "CalendarDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAYC")]
     [IsoId("_Yl41wtp-Ed-ak6NoX_4Aeg_-1921054302")]
-    [Description(@"??")]
+    [Description(@"Time unit is calendar day.")]
     CalendarDay,
     
     /// <summary>
-    /// ??
+    /// Time unit is hour.
     /// Encoded/decoded by serializers as "Hour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOUR")]
     [IsoId("_Yl41w9p-Ed-ak6NoX_4Aeg_-1921054301")]
-    [Description(@"??")]
+    [Description(@"Time unit is hour.")]
     Hour,
     
     /// <summary>
-    /// ??
+    /// Time unit is minute.
     /// Encoded/decoded by serializers as "Minute".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINU")]
     [IsoId("_Yl41xNp-Ed-ak6NoX_4Aeg_-1921054284")]
-    [Description(@"??")]
+    [Description(@"Time unit is minute.")]
     Minute,
     
     /// <summary>
-    /// ??
+    /// Time unit is month.
     /// Encoded/decoded by serializers as "Month".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_Yl41xdp-Ed-ak6NoX_4Aeg_-1921054283")]
-    [Description(@"??")]
+    [Description(@"Time unit is month.")]
     Month,
     
     /// <summary>
-    /// ??
+    /// Time unit is second.
     /// Encoded/decoded by serializers as "Second".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECO")]
     [IsoId("_Yl41xtp-Ed-ak6NoX_4Aeg_-1921054275")]
-    [Description(@"??")]
+    [Description(@"Time unit is second.")]
     Second,
     
     /// <summary>
-    /// ??
+    /// Time unit is week.
     /// Encoded/decoded by serializers as "Week".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_Yl41x9p-Ed-ak6NoX_4Aeg_-1921054259")]
-    [Description(@"??")]
+    [Description(@"Time unit is week.")]
     Week,
     
     /// <summary>
-    /// ??
+    /// Time unit is year.
     /// Encoded/decoded by serializers as "Year".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_Yl41yNp-Ed-ak6NoX_4Aeg_-1921054258")]
-    [Description(@"??")]
+    [Description(@"Time unit is year.")]
     Year,
     
 }

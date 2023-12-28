@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExoticOptionStyle1Code
 {
     /// <summary>
-    /// ??
+    /// Agreement under which a fixed amount is paid out if a specific condition is met at any time during the exercise period. The expiration style is European or American. The binary option has only "payment triggers".
     /// Encoded/decoded by serializers as "BinaryOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BINA")]
     [IsoId("_KdV-IcRyEeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Agreement under which a fixed amount is paid out if a specific condition is met at any time during the exercise period. The expiration style is European or American. The binary option has only ""payment triggers"".")]
     BinaryOption,
     
     /// <summary>
-    /// ??
+    /// Agreement under which a fixed amount is paid out if a specific condition is met on expiration date. The digital option has only "payment triggers" which may be single or double trigger level.
     /// Encoded/decoded by serializers as "DigitalOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIGI")]
     [IsoId("_Kl5dMcRyEeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Agreement under which a fixed amount is paid out if a specific condition is met on expiration date. The digital option has only ""payment triggers"" which may be single or double trigger level.")]
     DigitalOption,
     
     /// <summary>
-    /// ??
+    /// Agreement under which a fixed amount is paid unless a specific condition is met. The notouch option has only "no payment triggers" which may be single or double trigger levels.
     /// Encoded/decoded by serializers as "NoTouchOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTO")]
     [IsoId("_KojvocRyEeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Agreement under which a fixed amount is paid unless a specific condition is met. The notouch option has only ""no payment triggers"" which may be single or double trigger levels.")]
     NoTouchOption,
     
     /// <summary>
-    /// ??
+    /// Contract that provides the buyer the right but not the obligation to buy or sell the underlying currency at a predetermined rate with expiration determined by the expiration style. The expiration style is European, American, Asian or Bermudan.
     /// Encoded/decoded by serializers as "VanillaOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VANI")]
     [IsoId("_KrfH0cRyEeOg-a7zWL_U0A")]
-    [Description(@"??")]
+    [Description(@"Contract that provides the buyer the right but not the obligation to buy or sell the underlying currency at a predetermined rate with expiration determined by the expiration style. The expiration style is European, American, Asian or Bermudan.")]
     VanillaOption,
     
 }

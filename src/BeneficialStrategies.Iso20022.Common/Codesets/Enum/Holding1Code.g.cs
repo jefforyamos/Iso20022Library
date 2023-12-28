@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Holding1Code
 {
     /// <summary>
-    /// ??
+    /// Certificate.
     /// Encoded/decoded by serializers as "Certificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_HrQ00RKgEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Certificate.")]
     Certificate,
     
     /// <summary>
-    /// ??
+    /// Non partial holding.
     /// Encoded/decoded by serializers as "NonPartialHolding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPRH")]
     [IsoId("_H08VQRKgEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Non partial holding.")]
     NonPartialHolding,
     
     /// <summary>
-    /// ??
+    /// Partial holding.
     /// Encoded/decoded by serializers as "PartialHolding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRTH")]
     [IsoId("_IBT9URKgEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Partial holding.")]
     PartialHolding,
     
 }

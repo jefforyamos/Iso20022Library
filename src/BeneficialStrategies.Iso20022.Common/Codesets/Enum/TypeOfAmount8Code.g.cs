@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount8Code
 {
     /// <summary>
-    /// ??
+    /// Actual amount.
     /// Encoded/decoded by serializers as "Actual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTL")]
     [IsoId("_gKHgEa11EeawR4FMacHsRQ")]
-    [Description(@"??")]
+    [Description(@"Actual amount.")]
     Actual,
     
     /// <summary>
-    /// ??
+    /// Estimated amount (the final amount could be above or below).
     /// Encoded/decoded by serializers as "Estimated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTM")]
     [IsoId("_gKHgE611EeawR4FMacHsRQ")]
-    [Description(@"??")]
+    [Description(@"Estimated amount (the final amount could be above or below).")]
     Estimated,
     
     /// <summary>
-    /// ??
+    /// Maximum amount (the final amount must be less or equal).
     /// Encoded/decoded by serializers as "Maximum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXI")]
     [IsoId("_gKHgFa11EeawR4FMacHsRQ")]
-    [Description(@"??")]
+    [Description(@"Maximum amount (the final amount must be less or equal).")]
     Maximum,
     
     /// <summary>
-    /// ??
+    /// Default amount.
     /// Encoded/decoded by serializers as "Default".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_gKHgF611EeawR4FMacHsRQ")]
-    [Description(@"??")]
+    [Description(@"Default amount.")]
     Default,
     
     /// <summary>
-    /// ??
+    /// Replacement amount.
     /// Encoded/decoded by serializers as "Replacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPLT")]
     [IsoId("_gKHgGa11EeawR4FMacHsRQ")]
-    [Description(@"??")]
+    [Description(@"Replacement amount.")]
     Replacement,
     
     /// <summary>
-    /// ??
+    /// Incremental amount for reservation.
     /// Encoded/decoded by serializers as "Incremental".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCR")]
     [IsoId("_ldQNoa11EeawR4FMacHsRQ")]
-    [Description(@"??")]
+    [Description(@"Incremental amount for reservation.")]
     Incremental,
     
     /// <summary>
-    /// ??
+    /// Decremental amount for reservation.
     /// Encoded/decoded by serializers as "Decremental".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECR")]
     [IsoId("_mJlvMa11EeawR4FMacHsRQ")]
-    [Description(@"??")]
+    [Description(@"Decremental amount for reservation.")]
     Decremental,
     
     /// <summary>
-    /// ??
+    /// Reserved or updated reserved amount for reservation.
     /// Encoded/decoded by serializers as "Reserved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESD")]
     [IsoId("_m246Ea11EeawR4FMacHsRQ")]
-    [Description(@"??")]
+    [Description(@"Reserved or updated reserved amount for reservation.")]
     Reserved,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType13Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type multi commodity exotic.
     /// Encoded/decoded by serializers as "MultiCommodityExotic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCEX")]
     [IsoId("_XyXFgVrLEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type multi commodity exotic.")]
     MultiCommodityExotic,
     
 }

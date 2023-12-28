@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetType2Code
 {
     /// <summary>
-    /// ??
+    /// Data set is a baseline.
     /// Encoded/decoded by serializers as "Baseline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BASE")]
     [IsoId("_ayG1s9p-Ed-ak6NoX_4Aeg_597609124")]
-    [Description(@"??")]
+    [Description(@"Data set is a baseline.")]
     Baseline,
     
     /// <summary>
-    /// ??
+    /// Data set is a transport data set.
     /// Encoded/decoded by serializers as "TransportDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRDS")]
     [IsoId("_ayG1tNp-Ed-ak6NoX_4Aeg_597609125")]
-    [Description(@"??")]
+    [Description(@"Data set is a transport data set.")]
     TransportDataSet,
     
     /// <summary>
-    /// ??
+    /// Data set is a commercial data set.
     /// Encoded/decoded by serializers as "CommercialDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CODS")]
     [IsoId("_ayG1tdp-Ed-ak6NoX_4Aeg_597609154")]
-    [Description(@"??")]
+    [Description(@"Data set is a commercial data set.")]
     CommercialDataSet,
     
     /// <summary>
-    /// ??
+    /// Data set is an insurance data set.
     /// Encoded/decoded by serializers as "InsuranceDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDS")]
     [IsoId("_ayG1ttp-Ed-ak6NoX_4Aeg_672416869")]
-    [Description(@"??")]
+    [Description(@"Data set is an insurance data set.")]
     InsuranceDataSet,
     
     /// <summary>
-    /// ??
+    /// Data set is a certificate data set.
     /// Encoded/decoded by serializers as "CertificateDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CEDS")]
     [IsoId("_ayG1t9p-Ed-ak6NoX_4Aeg_925458258")]
-    [Description(@"??")]
+    [Description(@"Data set is a certificate data set.")]
     CertificateDataSet,
     
     /// <summary>
-    /// ??
+    /// Data set is an other special certificate data set.
     /// Encoded/decoded by serializers as "OtherCertificateDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCDS")]
     [IsoId("_ayG1uNp-Ed-ak6NoX_4Aeg_940237322")]
-    [Description(@"??")]
+    [Description(@"Data set is an other special certificate data set.")]
     OtherCertificateDataSet,
     
 }

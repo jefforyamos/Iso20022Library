@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DistributionType3Code
 {
     /// <summary>
-    /// ??
+    /// Final payment.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_5ixRYSXWEeOL3KXg7zAfKA")]
-    [Description(@"??")]
+    [Description(@"Final payment.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// Interim payment.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_5nYEkSXWEeOL3KXg7zAfKA")]
-    [Description(@"??")]
+    [Description(@"Interim payment.")]
     Interim,
     
     /// <summary>
-    /// ??
+    /// Event is ongoing for acceptance on an unsolicited basis.
     /// Encoded/decoded by serializers as "Ongoing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONGO")]
     [IsoId("_5uOTcSXWEeOL3KXg7zAfKA")]
-    [Description(@"??")]
+    [Description(@"Event is ongoing for acceptance on an unsolicited basis.")]
     Ongoing,
     
     /// <summary>
-    /// ??
+    /// Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.
     /// Encoded/decoded by serializers as "RollingBasis".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLL")]
     [IsoId("_5y1GoSXWEeOL3KXg7zAfKA")]
-    [Description(@"??")]
+    [Description(@"Event will have a number of acceptance and payment dates until further announcement by the Issuer or its agent.")]
     RollingBasis,
     
 }

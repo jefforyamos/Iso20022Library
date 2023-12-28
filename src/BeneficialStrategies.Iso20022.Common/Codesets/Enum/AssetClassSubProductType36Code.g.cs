@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType36Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type newsprint.
     /// Encoded/decoded by serializers as "Newsprint".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSPT")]
     [IsoId("_uxcls1ryEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type newsprint.")]
     Newsprint,
     
 }

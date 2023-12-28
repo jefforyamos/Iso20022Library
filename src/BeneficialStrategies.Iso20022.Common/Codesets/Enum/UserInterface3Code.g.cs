@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UserInterface3Code
 {
     /// <summary>
-    /// ??
+    /// Acquirer.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQU")]
     [IsoId("_ecl4wYO6EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Acquirer.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Agent.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_ejvpoYO6EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Agent.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Issuer.
     /// Encoded/decoded by serializers as "Issuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSR")]
     [IsoId("_euVJAYO6EeSWSLYdc10LRg")]
-    [Description(@"??")]
+    [Description(@"Issuer.")]
     Issuer,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PairedReconciled1Code
 {
     /// <summary>
-    /// ??
+    /// Paired.
     /// Encoded/decoded by serializers as "Paired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARD")]
     [IsoId("_NFpVIGJuEeiVRNxFJ2pSfQ")]
-    [Description(@"??")]
+    [Description(@"Paired.")]
     Paired,
     
     /// <summary>
-    /// ??
+    /// Reconciled.
     /// Encoded/decoded by serializers as "Reconciled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECO")]
     [IsoId("_NWlUIWJuEeiVRNxFJ2pSfQ")]
-    [Description(@"??")]
+    [Description(@"Reconciled.")]
     Reconciled,
     
 }

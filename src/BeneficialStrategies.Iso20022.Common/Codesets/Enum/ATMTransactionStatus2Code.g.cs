@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMTransactionStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Total presented amount is equal to the amount to dispense.
     /// Encoded/decoded by serializers as "Full".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_-SIj4YqSEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Total presented amount is equal to the amount to dispense.")]
     Full,
     
     /// <summary>
-    /// ??
+    /// Total presented amount is lower than the amount to dispense.
     /// Encoded/decoded by serializers as "Partial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_-fsew4qSEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Total presented amount is lower than the amount to dispense.")]
     Partial,
     
     /// <summary>
-    /// ??
+    /// Total presented amount is equal to zero.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_-szts4qSEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Total presented amount is equal to zero.")]
     None,
     
 }

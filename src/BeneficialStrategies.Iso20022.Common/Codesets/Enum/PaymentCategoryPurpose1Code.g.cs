@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentCategoryPurpose1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is related to settlement of a trade, eg a foreign exchange deal or a securities transaction.
     /// Encoded/decoded by serializers as "TradeSettlementPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORT")]
     [IsoId("_ZzFBpNp-Ed-ak6NoX_4Aeg_11813796")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to settlement of a trade, eg a foreign exchange deal or a securities transaction.")]
     TradeSettlementPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of salaries.
     /// Encoded/decoded by serializers as "SalaryPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SALA")]
     [IsoId("_ZzFBpdp-Ed-ak6NoX_4Aeg_11813831")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of salaries.")]
     SalaryPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to treasury operations.
     /// Encoded/decoded by serializers as "TreasuryPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TREA")]
     [IsoId("_ZzFBptp-Ed-ak6NoX_4Aeg_11813874")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to treasury operations.")]
     TreasuryPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is a general cash management instruction.
     /// Encoded/decoded by serializers as "CashManagementTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_ZzOLkNp-Ed-ak6NoX_4Aeg_11814294")]
-    [Description(@"??")]
+    [Description(@"Transaction is a general cash management instruction.")]
     CashManagementTransfer,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of dividends.
     /// Encoded/decoded by serializers as "Dividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_ZzOLkdp-Ed-ak6NoX_4Aeg_11814432")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of dividends.")]
     Dividend,
     
     /// <summary>
-    /// ??
+    /// Transaction is a payment to or from a government department.
     /// Encoded/decoded by serializers as "GovernmentPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOVT")]
     [IsoId("_ZzOLktp-Ed-ak6NoX_4Aeg_11814840")]
-    [Description(@"??")]
+    [Description(@"Transaction is a payment to or from a government department.")]
     GovernmentPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of interest.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_ZzOLk9p-Ed-ak6NoX_4Aeg_11815657")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of interest.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to the transfer of a loan to a borrower.
     /// Encoded/decoded by serializers as "Loan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOAN")]
     [IsoId("_ZzOLlNp-Ed-ak6NoX_4Aeg_11815735")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to the transfer of a loan to a borrower.")]
     Loan,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of pension.
     /// Encoded/decoded by serializers as "PensionPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENS")]
     [IsoId("_ZzOLldp-Ed-ak6NoX_4Aeg_11816173")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of pension.")]
     PensionPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_ZzOLltp-Ed-ak6NoX_4Aeg_11816275")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of securities.")]
     Securities,
     
     /// <summary>
-    /// ??
+    /// Transaction is a social security benefit, ie payment made by a government to support individuals.
     /// Encoded/decoded by serializers as "SocialSecurityBenefit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSBE")]
     [IsoId("_ZzOLl9p-Ed-ak6NoX_4Aeg_11816605")]
-    [Description(@"??")]
+    [Description(@"Transaction is a social security benefit, ie payment made by a government to support individuals.")]
     SocialSecurityBenefit,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to a payment to a supplier.
     /// Encoded/decoded by serializers as "SupplierPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUPP")]
     [IsoId("_ZzOLmNp-Ed-ak6NoX_4Aeg_12736929")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to a payment to a supplier.")]
     SupplierPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of taxes.
     /// Encoded/decoded by serializers as "TaxPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXS")]
     [IsoId("_ZzOLmdp-Ed-ak6NoX_4Aeg_12737259")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of taxes.")]
     TaxPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to the payment of a trade transaction.
     /// Encoded/decoded by serializers as "Trade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_ZzX8kNp-Ed-ak6NoX_4Aeg_12737379")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to the payment of a trade transaction.")]
     Trade,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of value added tax.
     /// Encoded/decoded by serializers as "ValueAddedTaxPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATX")]
     [IsoId("_ZzX8kdp-Ed-ak6NoX_4Aeg_12737800")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of value added tax.")]
     ValueAddedTaxPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is related to the payment of a hedging operation.
     /// Encoded/decoded by serializers as "Hedging".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HEDG")]
     [IsoId("_ZzX8ktp-Ed-ak6NoX_4Aeg_12738232")]
-    [Description(@"??")]
+    [Description(@"Transaction is related to the payment of a hedging operation.")]
     Hedging,
     
     /// <summary>
-    /// ??
+    /// Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
     /// Encoded/decoded by serializers as "IntraCompanyPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTC")]
     [IsoId("_ZzX8k9p-Ed-ak6NoX_4Aeg_12738747")]
-    [Description(@"??")]
+    [Description(@"Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.")]
     IntraCompanyPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of withholding tax.
     /// Encoded/decoded by serializers as "WithHolding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHLD")]
     [IsoId("_ZzX8lNp-Ed-ak6NoX_4Aeg_26591144")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of withholding tax.")]
     WithHolding,
     
 }

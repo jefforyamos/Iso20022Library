@@ -20,327 +20,327 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCUnallocatedAdjustmentReason2Code
 {
     /// <summary>
-    /// ??
+    /// Incorrect announcement.
     /// Encoded/decoded by serializers as "BadAnnouncement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANNG")]
     [IsoId("_3MFzgaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Incorrect announcement.")]
     BadAnnouncement,
     
     /// <summary>
-    /// ??
+    /// Incorrect payable date.
     /// Encoded/decoded by serializers as "BadPayableDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BDPD")]
     [IsoId("_3MFzg6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Incorrect payable date.")]
     BadPayableDate,
     
     /// <summary>
-    /// ??
+    /// Cash rate for allocation is zero.
     /// Encoded/decoded by serializers as "CashRateUnknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHR")]
     [IsoId("_3MFzhaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Cash rate for allocation is zero.")]
     CashRateUnknown,
     
     /// <summary>
-    /// ??
+    /// Cash rate for allocation is zero.
     /// Encoded/decoded by serializers as "CashRateZero".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHU")]
     [IsoId("_3MFzh6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Cash rate for allocation is zero.")]
     CashRateZero,
     
     /// <summary>
-    /// ??
+    /// Payment is conditional and conditions have not been met yet.
     /// Encoded/decoded by serializers as "ConditionalPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COND")]
     [IsoId("_3MFziaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Payment is conditional and conditions have not been met yet.")]
     ConditionalPayment,
     
     /// <summary>
-    /// ??
+    /// Issue is in default.
     /// Encoded/decoded by serializers as "Default".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_3MFzi6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Issue is in default.")]
     Default,
     
     /// <summary>
-    /// ??
+    /// Holiday in country of origin.
     /// Encoded/decoded by serializers as "HolidayInCountryOfOrigin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HICO")]
     [IsoId("_3MFzjaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Holiday in country of origin.")]
     HolidayInCountryOfOrigin,
     
     /// <summary>
-    /// ??
+    /// Insufficient funds were received from the agent.
     /// Encoded/decoded by serializers as "InsufficientFundsReceivedFromAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MASF")]
     [IsoId("_3MFzj6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Insufficient funds were received from the agent.")]
     InsufficientFundsReceivedFromAgent,
     
     /// <summary>
-    /// ??
+    /// Issue was not funded.
     /// Encoded/decoded by serializers as "IssueNotFunded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISNF")]
     [IsoId("_3MFzkaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Issue was not funded.")]
     IssueNotFunded,
     
     /// <summary>
-    /// ??
+    /// Issue is not maturing.
     /// Encoded/decoded by serializers as "IssueNotMaturing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMAT")]
     [IsoId("_3MFzk6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Issue is not maturing.")]
     IssueNotMaturing,
     
     /// <summary>
-    /// ??
+    /// Issues funded and/or identified after the cycle cut off.
     /// Encoded/decoded by serializers as "AfterCycleCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LFID")]
     [IsoId("_3MFzlaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Issues funded and/or identified after the cycle cut off.")]
     AfterCycleCutOff,
     
     /// <summary>
-    /// ??
+    /// Item is pending.
     /// Encoded/decoded by serializers as "ItemIsPending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_3MFzl6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Item is pending.")]
     ItemIsPending,
     
     /// <summary>
-    /// ??
+    /// Funds were not received by the agent.
     /// Encoded/decoded by serializers as "FundsNotReceivedByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANFI")]
     [IsoId("_3MFzmaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Funds were not received by the agent.")]
     FundsNotReceivedByAgent,
     
     /// <summary>
-    /// ??
+    /// Issue is being liquidated.
     /// Encoded/decoded by serializers as "Liquidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIQD")]
     [IsoId("_3MFzm6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Issue is being liquidated.")]
     Liquidation,
     
     /// <summary>
-    /// ??
+    /// Notional balance pincipal will not be paid.
     /// Encoded/decoded by serializers as "NotionalBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTL")]
     [IsoId("_3MFznaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Notional balance pincipal will not be paid.")]
     NotionalBalance,
     
     /// <summary>
-    /// ??
+    /// Reserved for new user defined reason codes.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_3MFzn6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Reserved for new user defined reason codes.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Paid upon receipt of check.
     /// Encoded/decoded by serializers as "PaidUponReceiptOfCheck".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCHK")]
     [IsoId("_3MFzoaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Paid upon receipt of check.")]
     PaidUponReceiptOfCheck,
     
     /// <summary>
-    /// ??
+    /// Pending conversion of funds.
     /// Encoded/decoded by serializers as "PendingConversionOfFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRFX")]
     [IsoId("_3MFzo6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Pending conversion of funds.")]
     PendingConversionOfFunds,
     
     /// <summary>
-    /// ??
+    /// Recapitalization. Issue not funded.
     /// Encoded/decoded by serializers as "RecapitalizationNotFunded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCNF")]
     [IsoId("_3MFzpaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Recapitalization. Issue not funded.")]
     RecapitalizationNotFunded,
     
     /// <summary>
-    /// ??
+    /// Redemption of rates. Issue not funded.
     /// Encoded/decoded by serializers as "RedemptionOfRatesNotYetFunded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRNF")]
     [IsoId("_3MFzp6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Redemption of rates. Issue not funded.")]
     RedemptionOfRatesNotYetFunded,
     
     /// <summary>
-    /// ??
+    /// Released pledge position.
     /// Encoded/decoded by serializers as "ReleasedPledgePosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPLG")]
     [IsoId("_3MFzqaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Released pledge position.")]
     ReleasedPledgePosition,
     
     /// <summary>
-    /// ??
+    /// Sale of asset. Issue not funded.
     /// Encoded/decoded by serializers as "SaleOfAssetsNotYetFunded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SANF")]
     [IsoId("_3MFzq6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Sale of asset. Issue not funded.")]
     SaleOfAssetsNotYetFunded,
     
     /// <summary>
-    /// ??
+    /// Same day position capture.
     /// Encoded/decoded by serializers as "SameDayPositionCapture".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDPC")]
     [IsoId("_3MFzraImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Same day position capture.")]
     SameDayPositionCapture,
     
     /// <summary>
-    /// ??
+    /// Special distribution. Issue not funded.
     /// Encoded/decoded by serializers as "SpecialDistributionNotYetFunded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPNF")]
     [IsoId("_3MFzr6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Special distribution. Issue not funded.")]
     SpecialDistributionNotYetFunded,
     
     /// <summary>
-    /// ??
+    /// Specific issues have been suppressed.
     /// Encoded/decoded by serializers as "SpecificIssuesSuppressed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUVF")]
     [IsoId("_3MFzsaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Specific issues have been suppressed.")]
     SpecificIssuesSuppressed,
     
     /// <summary>
-    /// ??
+    /// Rate is not final. Rate is approximate.
     /// Encoded/decoded by serializers as "ApproximateRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APRR")]
     [IsoId("_3MFzs6ImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Rate is not final. Rate is approximate.")]
     ApproximateRate,
     
     /// <summary>
-    /// ??
+    /// Company is taking a 30 day grace period.
     /// Encoded/decoded by serializers as "GracePeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAGA")]
     [IsoId("_3MFztaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Company is taking a 30 day grace period.")]
     GracePeriod,
     
     /// <summary>
-    /// ??
+    /// Maturity for stock payment option.
     /// Encoded/decoded by serializers as "MaturityForStockPaymentOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSTK")]
     [IsoId("_6Q62caImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Maturity for stock payment option.")]
     MaturityForStockPaymentOption,
     
     /// <summary>
-    /// ??
+    /// Pledged Position.
     /// Encoded/decoded by serializers as "PledgedPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLEG")]
     [IsoId("_6dHfYaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Pledged Position.")]
     PledgedPosition,
     
     /// <summary>
-    /// ??
+    /// Call Rescinded.
     /// Encoded/decoded by serializers as "CallRescinded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESC")]
     [IsoId("_7MkmYaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Call Rescinded.")]
     CallRescinded,
     
     /// <summary>
-    /// ??
+    /// CD Accelerated Maturity.
     /// Encoded/decoded by serializers as "CDAcceleratedMaturity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERLY")]
     [IsoId("_7ZXsQaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"CD Accelerated Maturity.")]
     CDAcceleratedMaturity,
     
     /// <summary>
-    /// ??
+    /// CHIPS Payment.
     /// Encoded/decoded by serializers as "CHIPSPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHIP")]
     [IsoId("_7hQc8aImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"CHIPS Payment.")]
     CHIPSPayment,
     
     /// <summary>
-    /// ??
+    /// Church bond not funded.
     /// Encoded/decoded by serializers as "ChurchBondNotFunded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHBD")]
     [IsoId("_7oGEwaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Church bond not funded.")]
     ChurchBondNotFunded,
     
     /// <summary>
-    /// ??
+    /// Failed Bank, FDIC Assumed.
     /// Encoded/decoded by serializers as "FDIC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDIC")]
     [IsoId("_70JjwaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Failed Bank, FDIC Assumed.")]
     FDIC,
     
     /// <summary>
-    /// ??
+    /// Five Day Grace Period.
     /// Encoded/decoded by serializers as "FiveDayGracePeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FVDG")]
     [IsoId("_77vZgaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Five Day Grace Period.")]
     FiveDayGracePeriod,
     
     /// <summary>
-    /// ??
+    /// Funds held at Chase for OFAC.
     /// Encoded/decoded by serializers as "FundsHeldAtChaseForOFAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFAC")]
     [IsoId("_8CIVYaImEeS6IulNYwkZBg")]
-    [Description(@"??")]
+    [Description(@"Funds held at Chase for OFAC.")]
     FundsHeldAtChaseForOFAC,
     
 }

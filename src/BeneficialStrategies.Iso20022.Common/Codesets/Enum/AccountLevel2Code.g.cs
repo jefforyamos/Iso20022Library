@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountLevel2Code
 {
     /// <summary>
-    /// ??
+    /// Intermediate level within an account hierarchy.
     /// Encoded/decoded by serializers as "Intermediate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTM")]
     [IsoId("_6Uas95qlEeGSON8vddiWzQ_-77486222")]
-    [Description(@"??")]
+    [Description(@"Intermediate level within an account hierarchy.")]
     Intermediate,
     
     /// <summary>
-    /// ??
+    /// Highest level within an account hierarchy.
     /// Encoded/decoded by serializers as "Summary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMRY")]
     [IsoId("_6Ukd8JqlEeGSON8vddiWzQ_1446759063")]
-    [Description(@"??")]
+    [Description(@"Highest level within an account hierarchy.")]
     Summary,
     
     /// <summary>
-    /// ??
+    /// Account is a real deposit/current account.
     /// Encoded/decoded by serializers as "Detail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DETL")]
     [IsoId("_6Ukd8ZqlEeGSON8vddiWzQ_-2087443080")]
-    [Description(@"??")]
+    [Description(@"Account is a real deposit/current account.")]
     Detail,
     
 }

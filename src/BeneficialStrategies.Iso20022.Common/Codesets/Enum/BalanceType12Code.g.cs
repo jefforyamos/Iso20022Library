@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BalanceType12Code
 {
     /// <summary>
-    /// ??
+    /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted.
     /// Encoded/decoded by serializers as "Expected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XPCD")]
     [IsoId("_bmQ2g9p-Ed-ak6NoX_4Aeg_1717684427")]
-    [Description(@"??")]
+    [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted.")]
     Expected,
     
     /// <summary>
-    /// ??
+    /// Opening balance of amount of money that is at the disposal of the account owner on the date specified.
     /// Encoded/decoded by serializers as "OpeningAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPAV")]
     [IsoId("_bmQ2hNp-Ed-ak6NoX_4Aeg_1717685653")]
-    [Description(@"??")]
+    [Description(@"Opening balance of amount of money that is at the disposal of the account owner on the date specified.")]
     OpeningAvailable,
     
     /// <summary>
-    /// ??
+    /// Available balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
     /// Encoded/decoded by serializers as "InterimAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAV")]
     [IsoId("_bmQ2hdp-Ed-ak6NoX_4Aeg_1717685654")]
-    [Description(@"??")]
+    [Description(@"Available balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.")]
     InterimAvailable,
     
     /// <summary>
-    /// ??
+    /// Closing balance of amount of money that is at the disposal of the account owner on the date specified.
     /// Encoded/decoded by serializers as "ClosingAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAV")]
     [IsoId("_bmQ2htp-Ed-ak6NoX_4Aeg_1717685683")]
-    [Description(@"??")]
+    [Description(@"Closing balance of amount of money that is at the disposal of the account owner on the date specified.")]
     ClosingAvailable,
     
     /// <summary>
-    /// ??
+    /// Forward available balance of money that is at the disposal of the account owner on the date specified.
     /// Encoded/decoded by serializers as "ForwardAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FWAV")]
     [IsoId("_bmQ2h9p-Ed-ak6NoX_4Aeg_1717685684")]
-    [Description(@"??")]
+    [Description(@"Forward available balance of money that is at the disposal of the account owner on the date specified.")]
     ForwardAvailable,
     
     /// <summary>
-    /// ??
+    /// Balance of the account at the end of the pre-agreed account reporting period. It is the sum of the opening booked balance at the beginning of the period and all entries booked to the account during the pre-agreed account reporting period.
     /// Encoded/decoded by serializers as "ClosingBooked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLBD")]
     [IsoId("_bmQ2iNp-Ed-ak6NoX_4Aeg_1717685714")]
-    [Description(@"??")]
+    [Description(@"Balance of the account at the end of the pre-agreed account reporting period. It is the sum of the opening booked balance at the beginning of the period and all entries booked to the account during the pre-agreed account reporting period.")]
     ClosingBooked,
     
     /// <summary>
-    /// ??
+    /// Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
     /// Encoded/decoded by serializers as "InterimBooked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITBD")]
     [IsoId("_bmQ2idp-Ed-ak6NoX_4Aeg_1717685744")]
-    [Description(@"??")]
+    [Description(@"Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.")]
     InterimBooked,
     
     /// <summary>
-    /// ??
+    /// Book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report.
     /// Encoded/decoded by serializers as "OpeningBooked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPBD")]
     [IsoId("_bmaAcNp-Ed-ak6NoX_4Aeg_1717685745")]
-    [Description(@"??")]
+    [Description(@"Book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report.")]
     OpeningBooked,
     
     /// <summary>
-    /// ??
+    /// Balance of the account at the previously closed account reporting period. The opening booked balance for the new period has to be equal to this balance. ||Usage: the previously booked closing balance should equal (inclusive date) the booked closing balance of the date it references and equal the actual booked opening balance of the current date.
     /// Encoded/decoded by serializers as "PreviouslyClosedBooked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCD")]
     [IsoId("_bmaAcdp-Ed-ak6NoX_4Aeg_1717685775")]
-    [Description(@"??")]
+    [Description(@"Balance of the account at the previously closed account reporting period. The opening booked balance for the new period has to be equal to this balance. ||Usage: the previously booked closing balance should equal (inclusive date) the booked closing balance of the date it references and equal the actual booked opening balance of the current date.")]
     PreviouslyClosedBooked,
     
     /// <summary>
-    /// ??
+    /// Balance for informational purposes.
     /// Encoded/decoded by serializers as "Information".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFO")]
     [IsoId("_bmaActp-Ed-ak6NoX_4Aeg_-1574337323")]
-    [Description(@"??")]
+    [Description(@"Balance for informational purposes.")]
     Information,
     
 }

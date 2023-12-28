@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssignmentMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Assignment was conducted randomly.
     /// Encoded/decoded by serializers as "Random".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RAND")]
     [IsoId("_bfaAktp-Ed-ak6NoX_4Aeg_-1560115838")]
-    [Description(@"??")]
+    [Description(@"Assignment was conducted randomly.")]
     Random,
     
     /// <summary>
-    /// ??
+    /// Assignment was conducted on a prorata basis.
     /// Encoded/decoded by serializers as "Prorata".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROR")]
     [IsoId("_bfaAk9p-Ed-ak6NoX_4Aeg_-1560115837")]
-    [Description(@"??")]
+    [Description(@"Assignment was conducted on a prorata basis.")]
     Prorata,
     
 }

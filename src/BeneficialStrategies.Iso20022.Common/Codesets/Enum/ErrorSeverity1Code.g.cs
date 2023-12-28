@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ErrorSeverity1Code
 {
     /// <summary>
-    /// ??
+    /// The error is considered fatal.
     /// Encoded/decoded by serializers as "Fatal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FATL")]
     [IsoId("_sXHiUQ3EEeWH49U6bkyMaA")]
-    [Description(@"??")]
+    [Description(@"The error is considered fatal.")]
     Fatal,
     
     /// <summary>
-    /// ??
+    /// The error is considered transient.
     /// Encoded/decoded by serializers as "Transient".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_sdgeMw3EEeWH49U6bkyMaA")]
-    [Description(@"??")]
+    [Description(@"The error is considered transient.")]
     Transient,
     
 }

@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMSecurityScheme4Code
 {
     /// <summary>
-    /// ??
+    /// Application key download protected by a share symmetric key.
     /// Encoded/decoded by serializers as "ApplicationRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPK")]
     [IsoId("_bkJVsV2ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"Application key download protected by a share symmetric key.")]
     ApplicationRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Key download protected by asymmetric keys authenticated by a certificate.
     /// Encoded/decoded by serializers as "CertificateRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_bkJVs12ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"Key download protected by asymmetric keys authenticated by a certificate.")]
     CertificateRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Key download conform to the French ATM key download security scheme.
     /// Encoded/decoded by serializers as "FrenchRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRAN")]
     [IsoId("_bkJVtV2ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"Key download conform to the French ATM key download security scheme.")]
     FrenchRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Key download conform to the German ATM key download security scheme.
     /// Encoded/decoded by serializers as "GermanRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTCH")]
     [IsoId("_bkJVt12ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"Key download conform to the German ATM key download security scheme.")]
     GermanRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Key download conform to the Luxemburg ATM key download security scheme.
     /// Encoded/decoded by serializers as "LuxemburgRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LUXG")]
     [IsoId("_bkJVuV2ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"Key download conform to the Luxemburg ATM key download security scheme.")]
     LuxemburgRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Manual key entry on the ATM.
     /// Encoded/decoded by serializers as "ManualKeyEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANU")]
     [IsoId("_bkJVu12ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"Manual key entry on the ATM.")]
     ManualKeyEntry,
     
     /// <summary>
-    /// ??
+    /// Key download protected by asymmetric keys authenticated by a PKI (Public Key Infrastructure).
     /// Encoded/decoded by serializers as "PKIKeyDownload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PKIP")]
     [IsoId("_bkJVvV2ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"Key download protected by asymmetric keys authenticated by a PKI (Public Key Infrastructure).")]
     PKIKeyDownload,
     
     /// <summary>
-    /// ??
+    /// Key download protected by asymmetric keys authenticated by a digital signature.
     /// Encoded/decoded by serializers as "SignatureRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGN")]
     [IsoId("_bkJVv12ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"Key download protected by asymmetric keys authenticated by a digital signature.")]
     SignatureRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// ANSI X9 TR34 2012 scheme for the distribution of the symmetric public keys and the initial master key.
     /// Encoded/decoded by serializers as "TR34".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TR34")]
     [IsoId("_c68wkV2ZEeekzJIz1JxYSQ")]
-    [Description(@"??")]
+    [Description(@"ANSI X9 TR34 2012 scheme for the distribution of the symmetric public keys and the initial master key.")]
     TR34,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Quantity2Code
 {
     /// <summary>
-    /// ??
+    /// Instruction applies to the entire eligible balance of underlying securities.
     /// Encoded/decoded by serializers as "AllSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QALL")]
     [IsoId("_ZXgf8Np-Ed-ak6NoX_4Aeg_274124253")]
-    [Description(@"??")]
+    [Description(@"Instruction applies to the entire eligible balance of underlying securities.")]
     AllSecurities,
     
     /// <summary>
-    /// ??
+    /// Quantity has not been established.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_ZXgf8dp-Ed-ak6NoX_4Aeg_391412322")]
-    [Description(@"??")]
+    [Description(@"Quantity has not been established.")]
     Open,
     
     /// <summary>
-    /// ??
+    /// Quantity is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "UnknownQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_ZXgf8tp-Ed-ak6NoX_4Aeg_678624841")]
-    [Description(@"??")]
+    [Description(@"Quantity is unknown by the sender or has not been established.")]
     UnknownQuantity,
     
 }

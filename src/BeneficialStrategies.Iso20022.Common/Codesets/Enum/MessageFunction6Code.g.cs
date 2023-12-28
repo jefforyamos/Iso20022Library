@@ -20,237 +20,237 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction6Code
 {
     /// <summary>
-    /// ??
+    /// Advice of transaction totals from an acquirer.
     /// Encoded/decoded by serializers as "AcquirerReconciliationAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCAV")]
     [IsoId("_uFKVwXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Advice of transaction totals from an acquirer.")]
     AcquirerReconciliationAdvice,
     
     /// <summary>
-    /// ??
+    /// Notification of transaction totals from an acquirer.
     /// Encoded/decoded by serializers as "AcquirerReconciliationNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCAN")]
     [IsoId("_uZm7wXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Notification of transaction totals from an acquirer.")]
     AcquirerReconciliationNotification,
     
     /// <summary>
-    /// ??
+    /// Request of transaction totals exchange from an acquirer.
     /// Encoded/decoded by serializers as "AcquirerReconciliationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCAQ")]
     [IsoId("_uiZrYXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Request of transaction totals exchange from an acquirer.")]
     AcquirerReconciliationRequest,
     
     /// <summary>
-    /// ??
+    /// Reject of a message by an acquirer.
     /// Encoded/decoded by serializers as "AcquirerReject".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJA")]
     [IsoId("_ux5f8XrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Reject of a message by an acquirer.")]
     AcquirerReject,
     
     /// <summary>
-    /// ??
+    /// Reversal advice of an authorisation or a financial message.
     /// Encoded/decoded by serializers as "AcquirerReversalAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REVV")]
     [IsoId("_vDXqcXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Reversal advice of an authorisation or a financial message.")]
     AcquirerReversalAdvice,
     
     /// <summary>
-    /// ??
+    /// Reversal notification of an authorisation or a financial message.
     /// Encoded/decoded by serializers as "AcquirerReversalNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REVN")]
     [IsoId("_vYhbEXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Reversal notification of an authorisation or a financial message.")]
     AcquirerReversalNotification,
     
     /// <summary>
-    /// ??
+    /// Reversal request of an authorisation or a financial message.
     /// Encoded/decoded by serializers as "AcquirerReversalRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REVQ")]
     [IsoId("_vhw2oXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Reversal request of an authorisation or a financial message.")]
     AcquirerReversalRequest,
     
     /// <summary>
-    /// ??
+    /// Advice of transaction totals from a processor.
     /// Encoded/decoded by serializers as "AgentReconciliationAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCPV")]
     [IsoId("_vx7ZkXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Advice of transaction totals from a processor.")]
     AgentReconciliationAdvice,
     
     /// <summary>
-    /// ??
+    /// Notification of transaction totals from a processor.
     /// Encoded/decoded by serializers as "AgentReconciliationNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCPN")]
     [IsoId("_wISEEXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Notification of transaction totals from a processor.")]
     AgentReconciliationNotification,
     
     /// <summary>
-    /// ??
+    /// Request of transaction totals exchange from a processor.
     /// Encoded/decoded by serializers as "AgentReconciliationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCPQ")]
     [IsoId("_wUYmYXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Request of transaction totals exchange from a processor.")]
     AgentReconciliationRequest,
     
     /// <summary>
-    /// ??
+    /// Reject of a message by an agent.
     /// Encoded/decoded by serializers as "AgentReject".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJP")]
     [IsoId("_wjUaQXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Reject of a message by an agent.")]
     AgentReject,
     
     /// <summary>
-    /// ??
+    /// Initiator of the message advises the recipient about the result of an authorisation already performed.
     /// Encoded/decoded by serializers as "AuthorisationAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTV")]
     [IsoId("_2kMXkXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Initiator of the message advises the recipient about the result of an authorisation already performed.")]
     AuthorisationAdvice,
     
     /// <summary>
-    /// ??
+    /// Information about an authorisation.
     /// Encoded/decoded by serializers as "AuthorisationNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTN")]
     [IsoId("_2y7-MXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Information about an authorisation.")]
     AuthorisationNotification,
     
     /// <summary>
-    /// ??
+    /// The initiator requests an authorisation without financial impact to complete the transaction.
     /// Encoded/decoded by serializers as "AuthorisationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTQ")]
     [IsoId("_27by4XrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"The initiator requests an authorisation without financial impact to complete the transaction.")]
     AuthorisationRequest,
     
     /// <summary>
-    /// ??
+    /// Response for authorisation without financial capture.
     /// Encoded/decoded by serializers as "AuthorisationResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTP")]
     [IsoId("_3E87QXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Response for authorisation without financial capture.")]
     AuthorisationResponse,
     
     /// <summary>
-    /// ??
+    /// Initiator of the message advises the receptor that an authorisation has been successfully delivered or completed with a final amount, and requests the clearing of the transaction.
     /// Encoded/decoded by serializers as "FinancialAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNCV")]
     [IsoId("_5HLRsXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Initiator of the message advises the receptor that an authorisation has been successfully delivered or completed with a final amount, and requests the clearing of the transaction.")]
     FinancialAdvice,
     
     /// <summary>
-    /// ??
+    /// Initiator requests the clearing of the transaction.
     /// Encoded/decoded by serializers as "FinancialNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNCN")]
     [IsoId("_5sC5UXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Initiator requests the clearing of the transaction.")]
     FinancialNotification,
     
     /// <summary>
-    /// ??
+    /// Initiator of the message requests both the authorisation and the clearing of the transaction.
     /// Encoded/decoded by serializers as "FinancialRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNCQ")]
     [IsoId("_5yv-QXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Initiator of the message requests both the authorisation and the clearing of the transaction.")]
     FinancialRequest,
     
     /// <summary>
-    /// ??
+    /// Advice of transaction totals from an issuer.
     /// Encoded/decoded by serializers as "IssuerReconciliationAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIV")]
     [IsoId("_7MpJYXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Advice of transaction totals from an issuer.")]
     IssuerReconciliationAdvice,
     
     /// <summary>
-    /// ??
+    /// Notification of transaction totals from an issuer.
     /// Encoded/decoded by serializers as "IssuerReconciliationNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIN")]
     [IsoId("_7Y3AcXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Notification of transaction totals from an issuer.")]
     IssuerReconciliationNotification,
     
     /// <summary>
-    /// ??
+    /// Request of transaction totals exchange from an issuer.
     /// Encoded/decoded by serializers as "IssuerReconciliationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIQ")]
     [IsoId("_7fAEsXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Request of transaction totals exchange from an issuer.")]
     IssuerReconciliationRequest,
     
     /// <summary>
-    /// ??
+    /// Reject of a message by an issuer.
     /// Encoded/decoded by serializers as "IssuerReject".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJI")]
     [IsoId("_7tw5cXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Reject of a message by an issuer.")]
     IssuerReject,
     
     /// <summary>
-    /// ??
+    /// Advise of a performed key update.
     /// Encoded/decoded by serializers as "KeyExchangeAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYV")]
     [IsoId("_719zMXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Advise of a performed key update.")]
     KeyExchangeAdvice,
     
     /// <summary>
-    /// ??
+    /// Request of a key exchange.
     /// Encoded/decoded by serializers as "KeyExchangeRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KEYQ")]
     [IsoId("_8DX9EXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Request of a key exchange.")]
     KeyExchangeRequest,
     
     /// <summary>
-    /// ??
+    /// Advise of a performed network management service.
     /// Encoded/decoded by serializers as "NetworkManagementAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGTV")]
     [IsoId("_8Tp0wXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Advise of a performed network management service.")]
     NetworkManagementAdvice,
     
     /// <summary>
-    /// ??
+    /// Request of a network management service.
     /// Encoded/decoded by serializers as "NetworkManagementRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGTQ")]
     [IsoId("_8hgqkXrKEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Request of a network management service.")]
     NetworkManagementRequest,
     
 }

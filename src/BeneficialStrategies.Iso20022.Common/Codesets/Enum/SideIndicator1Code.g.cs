@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SideIndicator1Code
 {
     /// <summary>
-    /// ??
+    /// Clearing broker identification is for the Central Counterparty (CCP) leg.
     /// Encoded/decoded by serializers as "CCPLeg".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPL")]
     [IsoId("__vvtsS5UEeKwTrPDLMbLxA")]
-    [Description(@"??")]
+    [Description(@"Clearing broker identification is for the Central Counterparty (CCP) leg.")]
     CCPLeg,
     
     /// <summary>
-    /// ??
+    /// Clearing broker identification is for the client leg.
     /// Encoded/decoded by serializers as "ClientLeg".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLNT")]
     [IsoId("__z2xoS5UEeKwTrPDLMbLxA")]
-    [Description(@"??")]
+    [Description(@"Clearing broker identification is for the client leg.")]
     ClientLeg,
     
 }

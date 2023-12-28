@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReorganisationTransactionType2Code
 {
     /// <summary>
-    /// ??
+    /// Reorganisation is a cover protect directly to agent transaction type.
     /// Encoded/decoded by serializers as "CoverProtectDirectlyToAgentHeaderTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COVA")]
     [IsoId("_uO0ssecZEei5aPS232E3Mw")]
-    [Description(@"??")]
+    [Description(@"Reorganisation is a cover protect directly to agent transaction type.")]
     CoverProtectDirectlyToAgentHeaderTransaction,
     
 }

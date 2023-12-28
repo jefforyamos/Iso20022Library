@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RetailerService6Code
 {
     /// <summary>
-    /// ??
+    /// The Sale System requests to the POI System a report on a list of transactions.
     /// Encoded/decoded by serializers as "AdministrativeReportTransactionRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPTQ")]
     [IsoId("_potZgd6PEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Sale System requests to the POI System a report on a list of transactions.")]
     AdministrativeReportTransactionRequest,
     
     /// <summary>
-    /// ??
+    /// The Sale System requests to the POI System a report on the totals figures of the POI system.
     /// Encoded/decoded by serializers as "AdministrativeReportGetTotalsRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPAQ")]
     [IsoId("_qOCUId6PEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Sale System requests to the POI System a report on the totals figures of the POI system.")]
     AdministrativeReportGetTotalsRequest,
     
 }

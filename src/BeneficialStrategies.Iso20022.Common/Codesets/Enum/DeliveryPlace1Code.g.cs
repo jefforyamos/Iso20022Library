@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeliveryPlace1Code
 {
     /// <summary>
-    /// ??
+    /// Card needs to be mailed to employers address.
     /// Encoded/decoded by serializers as "Employer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMPL")]
     [IsoId("_azANkdp-Ed-ak6NoX_4Aeg_-743931467")]
-    [Description(@"??")]
+    [Description(@"Card needs to be mailed to employers address.")]
     Employer,
     
     /// <summary>
-    /// ??
+    /// Card needs to be mailed to individual specified in PersonDetail.
     /// Encoded/decoded by serializers as "Individual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDI")]
     [IsoId("_azANktp-Ed-ak6NoX_4Aeg_-743931451")]
-    [Description(@"??")]
+    [Description(@"Card needs to be mailed to individual specified in PersonDetail.")]
     Individual,
     
     /// <summary>
-    /// ??
+    /// Card needs to be available at the entrance of the meeting.
     /// Encoded/decoded by serializers as "EntranceOfMeeting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENTR")]
     [IsoId("_azANk9p-Ed-ak6NoX_4Aeg_-743931450")]
-    [Description(@"??")]
+    [Description(@"Card needs to be available at the entrance of the meeting.")]
     EntranceOfMeeting,
     
     /// <summary>
-    /// ??
+    /// Cards needs to be send to other specified address.
     /// Encoded/decoded by serializers as "OtherAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OADR")]
     [IsoId("_azANlNp-Ed-ak6NoX_4Aeg_1639092662")]
-    [Description(@"??")]
+    [Description(@"Cards needs to be send to other specified address.")]
     OtherAddress,
     
 }

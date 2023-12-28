@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DeviceOperatingSystemType1Code
 {
     /// <summary>
-    /// ??
+    /// Android operating system.
     /// Encoded/decoded by serializers as "Android".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DROI")]
     [IsoId("_6BpRUZfREeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Android operating system.")]
     Android,
     
     /// <summary>
-    /// ??
+    /// Blackberry operating system.
     /// Encoded/decoded by serializers as "Blackberry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCK")]
     [IsoId("_6JoIoZfREeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Blackberry operating system.")]
     Blackberry,
     
     /// <summary>
-    /// ??
+    /// iOS operating system.
     /// Encoded/decoded by serializers as "iOS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IOSS")]
     [IsoId("_6sbTsZfREeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"iOS operating system.")]
     iOS,
     
     /// <summary>
-    /// ??
+    /// Other nationally defined code.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_6tJscZfREeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Other nationally defined code.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other privately defined code.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_6t2QAZfREeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Other privately defined code.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Tizen operating system.
     /// Encoded/decoded by serializers as "Tizen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIZN")]
     [IsoId("_6uizkZfREeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Tizen operating system.")]
     Tizen,
     
     /// <summary>
-    /// ??
+    /// Windows operating system.
     /// Encoded/decoded by serializers as "Windows".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WIND")]
     [IsoId("_6vU2sZfREeuqNYk2TG3bTg")]
-    [Description(@"??")]
+    [Description(@"Windows operating system.")]
     Windows,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventGroup1Code
 {
     /// <summary>
-    /// ??
+    /// Redemption domain events.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_1tTXAzL3EeKU9IrkkToqcw_-766484011")]
-    [Description(@"??")]
+    [Description(@"Redemption domain events.")]
     Redemption,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AcknowledgementReason6Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_0mppcQlIEeGATtfOBToyew_818267667")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
     /// Encoded/decoded by serializers as "MarketPracticeRuleDiscrepency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMPG")]
     [IsoId("_0mppcglIEeGATtfOBToyew_-243084292")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.")]
     MarketPracticeRuleDiscrepency,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_0mppcwlIEeGATtfOBToyew_-64965620")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Instruction was not straight through processing and had to be processed manually.
     /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTP")]
     [IsoId("_0mppdAlIEeGATtfOBToyew_-1062037973")]
-    [Description(@"??")]
+    [Description(@"Instruction was not straight through processing and had to be processed manually.")]
     NotStraightThroughProcessing,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_0mppdQlIEeGATtfOBToyew_-1175877039")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
 }

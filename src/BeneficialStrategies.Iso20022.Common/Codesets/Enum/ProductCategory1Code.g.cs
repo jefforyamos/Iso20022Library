@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProductCategory1Code
 {
     /// <summary>
-    /// ??
+    /// Classification of goods as developed by the Customs Cooperation council.
     /// Encoded/decoded by serializers as "HarmonizedTariffCodeName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HRTR")]
     [IsoId("_aLXl0Np-Ed-ak6NoX_4Aeg_1456527208")]
-    [Description(@"??")]
+    [Description(@"Classification of goods as developed by the Customs Cooperation council.")]
     HarmonizedTariffCodeName,
     
     /// <summary>
-    /// ??
+    /// Product identifier used by the retail industry.
     /// Encoded/decoded by serializers as "QuotaCategory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QOTA")]
     [IsoId("_aLXl0dp-Ed-ak6NoX_4Aeg_1456527268")]
-    [Description(@"??")]
+    [Description(@"Product identifier used by the retail industry.")]
     QuotaCategory,
     
     /// <summary>
-    /// ??
+    /// Product Group Code.
     /// Encoded/decoded by serializers as "ProductGroup".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRGP")]
     [IsoId("_aLXl0tp-Ed-ak6NoX_4Aeg_1456527285")]
-    [Description(@"??")]
+    [Description(@"Product Group Code.")]
     ProductGroup,
     
     /// <summary>
-    /// ??
+    /// Line of business code.
     /// Encoded/decoded by serializers as "LineOfBusiness".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOBU")]
     [IsoId("_aLXl09p-Ed-ak6NoX_4Aeg_1456527286")]
-    [Description(@"??")]
+    [Description(@"Line of business code.")]
     LineOfBusiness,
     
     /// <summary>
-    /// ??
+    /// Code for gender.
     /// Encoded/decoded by serializers as "Gender".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GNDR")]
     [IsoId("_aLXl1Np-Ed-ak6NoX_4Aeg_1456527520")]
-    [Description(@"??")]
+    [Description(@"Code for gender.")]
     Gender,
     
 }

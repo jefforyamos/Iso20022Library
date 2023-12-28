@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationStatus5Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation instruction/request has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_Ar4IQZM8EemQB_8XA98K0Q")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction/request has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_EBOTcZM8EemQB_8XA98K0Q")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction/request has been sent to the next party, that is, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_ESebgZM8EemQB_8XA98K0Q")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction/request has been sent to the next party, that is, the next intermediary.")]
     SentToNextParty,
     
 }

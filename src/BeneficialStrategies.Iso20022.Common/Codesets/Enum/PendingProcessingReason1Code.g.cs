@@ -20,174 +20,174 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingProcessingReason1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_aAfLhdp-Ed-ak6NoX_4Aeg_1265761433")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.
     /// Encoded/decoded by serializers as "AwaitingSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAIS")]
     [IsoId("_aAfLhtp-Ed-ak6NoX_4Aeg_1265761468")]
-    [Description(@"??")]
+    [Description(@"Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.")]
     AwaitingSecurities,
     
     /// <summary>
-    /// ??
+    /// Awaiting documents or endorsements from you.
     /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromYou".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCY")]
     [IsoId("_aAfLh9p-Ed-ak6NoX_4Aeg_1652718235")]
-    [Description(@"??")]
+    [Description(@"Awaiting documents or endorsements from you.")]
     AwaitingDocumentsOrEndorsementsFromYou,
     
     /// <summary>
-    /// ??
+    /// A foreign exchange instruction from you is missing.
     /// Encoded/decoded by serializers as "NoForeignExchangeInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOFX")]
     [IsoId("_aAfLiNp-Ed-ak6NoX_4Aeg_-1812928688")]
-    [Description(@"??")]
+    [Description(@"A foreign exchange instruction from you is missing.")]
     NoForeignExchangeInstruction,
     
     /// <summary>
-    /// ??
+    /// Your account is blocked, no instruction can settle over the account.
     /// Encoded/decoded by serializers as "AccountBlocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLOC")]
     [IsoId("_aAfLidp-Ed-ak6NoX_4Aeg_1265761529")]
-    [Description(@"??")]
+    [Description(@"Your account is blocked, no instruction can settle over the account.")]
     AccountBlocked,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
     /// Encoded/decoded by serializers as "MultipleSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUNO")]
     [IsoId("_aAo8gNp-Ed-ak6NoX_4Aeg_1265761572")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.")]
     MultipleSettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Settlement cannot be executed; financial instruments are in global form.
     /// Encoded/decoded by serializers as "GlobalFormSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GLOB")]
     [IsoId("_aAo8gdp-Ed-ak6NoX_4Aeg_2078461059")]
-    [Description(@"??")]
+    [Description(@"Settlement cannot be executed; financial instruments are in global form.")]
     GlobalFormSecurities,
     
     /// <summary>
-    /// ??
+    /// Insufficient collateral in your account to execute the instruction.
     /// Encoded/decoded by serializers as "CollateralShortage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YCOL")]
     [IsoId("_aAo8gtp-Ed-ak6NoX_4Aeg_1265761649")]
-    [Description(@"??")]
+    [Description(@"Insufficient collateral in your account to execute the instruction.")]
     CollateralShortage,
     
     /// <summary>
-    /// ??
+    /// Financial instruments are not deliverable as they are pledged as collateral.
     /// Encoded/decoded by serializers as "SecuritiesPledgedAsCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_aAo8g9p-Ed-ak6NoX_4Aeg_1265761666")]
-    [Description(@"??")]
+    [Description(@"Financial instruments are not deliverable as they are pledged as collateral.")]
     SecuritiesPledgedAsCollateral,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.
     /// Encoded/decoded by serializers as "MaximumForeignLimitReached".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLIM")]
     [IsoId("_aAo8hNp-Ed-ak6NoX_4Aeg_1265761683")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.")]
     MaximumForeignLimitReached,
     
     /// <summary>
-    /// ??
+    /// Next process is launched. No processing pending problems to be reported.
     /// Encoded/decoded by serializers as "NextProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEXT")]
     [IsoId("_aAo8hdp-Ed-ak6NoX_4Aeg_-2084445306")]
-    [Description(@"??")]
+    [Description(@"Next process is launched. No processing pending problems to be reported.")]
     NextProcess,
     
     /// <summary>
-    /// ??
+    /// Insufficient financial instruments in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_aAo8htp-Ed-ak6NoX_4Aeg_1265761943")]
-    [Description(@"??")]
+    [Description(@"Insufficient financial instruments in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Financial instruments are out on loan.
     /// Encoded/decoded by serializers as "SecuritiesLoanedOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LALO")]
     [IsoId("_aAo8h9p-Ed-ak6NoX_4Aeg_1265761944")]
-    [Description(@"??")]
+    [Description(@"Financial instruments are out on loan.")]
     SecuritiesLoanedOut,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in your account.
     /// Encoded/decoded by serializers as "InsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_aAo8iNp-Ed-ak6NoX_4Aeg_1265761945")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in your account.")]
     InsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
     /// Encoded/decoded by serializers as "MinimumSettlementAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINO")]
     [IsoId("_aAo8idp-Ed-ak6NoX_4Aeg_1265762021")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.")]
     MinimumSettlementAmount,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_aAyGcNp-Ed-ak6NoX_4Aeg_1265762038")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.
     /// Encoded/decoded by serializers as "UnavailableDeliverableDenominatedQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DENO")]
     [IsoId("_aAyGcdp-Ed-ak6NoX_4Aeg_1265762074")]
-    [Description(@"??")]
+    [Description(@"Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.")]
     UnavailableDeliverableDenominatedQuantity,
     
     /// <summary>
-    /// ??
+    /// Central bank liquidity is insufficient.
     /// Encoded/decoded by serializers as "InsufficientCentralBankLiquidity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIQU")]
     [IsoId("_aAyGctp-Ed-ak6NoX_4Aeg_1265762381")]
-    [Description(@"??")]
+    [Description(@"Central bank liquidity is insufficient.")]
     InsufficientCentralBankLiquidity,
     
     /// <summary>
-    /// ??
+    /// Certificate number error.
     /// Encoded/decoded by serializers as "WrongCertificatesNumbers".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_aAyGc9p-Ed-ak6NoX_4Aeg_1265762441")]
-    [Description(@"??")]
+    [Description(@"Certificate number error.")]
     WrongCertificatesNumbers,
     
 }

@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentFundFee2Code
 {
     /// <summary>
-    /// ??
+    /// Fee paid by the investor to the fund or fund management company when redeeming.
     /// Encoded/decoded by serializers as "BackEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEND")]
     [IsoId("_uPlWAa26EeerDLLe8bZJCA")]
-    [Description(@"??")]
+    [Description(@"Fee paid by the investor to the fund or fund management company when redeeming.")]
     BackEndLoad,
     
     /// <summary>
-    /// ??
+    /// Fee paid by the investor to the fund or fund management company when subscribing.
     /// Encoded/decoded by serializers as "FrontEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEND")]
     [IsoId("_uhu18a26EeerDLLe8bZJCA")]
-    [Description(@"??")]
+    [Description(@"Fee paid by the investor to the fund or fund management company when subscribing.")]
     FrontEndLoad,
     
     /// <summary>
-    /// ??
+    /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
     /// Encoded/decoded by serializers as "TransferFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_uzbp8a26EeerDLLe8bZJCA")]
-    [Description(@"??")]
+    [Description(@"In investment funds, a fee charged for the transfer of ownership of an investment fund.")]
     TransferFee,
     
     /// <summary>
-    /// ??
+    /// Charge paid for the postage.
     /// Encoded/decoded by serializers as "PostageCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_0rY70a26EeerDLLe8bZJCA")]
-    [Description(@"??")]
+    [Description(@"Charge paid for the postage.")]
     PostageCharge,
     
     /// <summary>
-    /// ??
+    /// Fee charged by a regulatory authority, for example, securities and exchange fees.
     /// Encoded/decoded by serializers as "RegulatoryFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGF")]
     [IsoId("_48070a26EeerDLLe8bZJCA")]
-    [Description(@"??")]
+    [Description(@"Fee charged by a regulatory authority, for example, securities and exchange fees.")]
     RegulatoryFee,
     
     /// <summary>
-    /// ??
+    /// Charge for shipping, including the insurance of securities.
     /// Encoded/decoded by serializers as "ShippingCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHIP")]
     [IsoId("_6HEhYa26EeerDLLe8bZJCA")]
-    [Description(@"??")]
+    [Description(@"Charge for shipping, including the insurance of securities.")]
     ShippingCharge,
     
     /// <summary>
-    /// ??
+    /// Fees, drawdown, or other reduction from or in addition to the deal price.
     /// Encoded/decoded by serializers as "SpecialConcessions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCN")]
     [IsoId("_uV2goa27EeerDLLe8bZJCA")]
-    [Description(@"??")]
+    [Description(@"Fees, drawdown, or other reduction from or in addition to the deal price.")]
     SpecialConcessions,
     
 }

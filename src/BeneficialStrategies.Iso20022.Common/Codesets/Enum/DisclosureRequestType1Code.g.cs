@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DisclosureRequestType1Code
 {
     /// <summary>
-    /// ??
+    /// New disclosure request.
     /// Encoded/decoded by serializers as "New".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWM")]
     [IsoId("_SWm1QUV3EemRx7jyevcLwg")]
-    [Description(@"??")]
+    [Description(@"New disclosure request.")]
     New,
     
     /// <summary>
-    /// ??
+    /// Disclosure request replacing a previously sent request.
     /// Encoded/decoded by serializers as "Replacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPL")]
     [IsoId("_SdTTIUV3EemRx7jyevcLwg")]
-    [Description(@"??")]
+    [Description(@"Disclosure request replacing a previously sent request.")]
     Replacement,
     
 }

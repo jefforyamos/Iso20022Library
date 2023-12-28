@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardFallback1Code
 {
     /// <summary>
-    /// ??
+    /// Card fall-back occurred during the transaction in progress. The previous transaction on the terminal failed.
     /// Encoded/decoded by serializers as "FallbackAfterFailure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FFLB")]
     [IsoId("_p94cwWkCEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Card fall-back occurred during the transaction in progress. The previous transaction on the terminal failed.")]
     FallbackAfterFailure,
     
     /// <summary>
-    /// ??
+    /// Card fall-back occurred during the transaction in progress. The previous transaction on the terminal was successful.
     /// Encoded/decoded by serializers as "FallbackAfterSuccess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFLB")]
     [IsoId("_qEHnoWkCEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Card fall-back occurred during the transaction in progress. The previous transaction on the terminal was successful.")]
     FallbackAfterSuccess,
     
     /// <summary>
-    /// ??
+    /// No card fall-back during the transaction in progress.
     /// Encoded/decoded by serializers as "NoFallback".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFLB")]
     [IsoId("_qKU9UWkCEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"No card fall-back during the transaction in progress.")]
     NoFallback,
     
 }

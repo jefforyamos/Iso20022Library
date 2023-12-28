@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IndependentAmountConventionType1Code
 {
     /// <summary>
-    /// ??
+    /// Independent amount is an add on to exposure.
     /// Encoded/decoded by serializers as "NettedBeforeThreshold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBTR")]
     [IsoId("_YczLN9p-Ed-ak6NoX_4Aeg_-1097054396")]
-    [Description(@"??")]
+    [Description(@"Independent amount is an add on to exposure.")]
     NettedBeforeThreshold,
     
     /// <summary>
-    /// ??
+    /// Independent amount is an add on to the credit support amount and forms part of the variation margin requirement.
     /// Encoded/decoded by serializers as "NettedAfterThreshold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NATR")]
     [IsoId("_Yc8VINp-Ed-ak6NoX_4Aeg_-642967127")]
-    [Description(@"??")]
+    [Description(@"Independent amount is an add on to the credit support amount and forms part of the variation margin requirement.")]
     NettedAfterThreshold,
     
     /// <summary>
-    /// ??
+    /// Independent amount is treated independently of variation margin for segregation purposes.
     /// Encoded/decoded by serializers as "Segregated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEGR")]
     [IsoId("_Yc8VIdp-Ed-ak6NoX_4Aeg_226653514")]
-    [Description(@"??")]
+    [Description(@"Independent amount is treated independently of variation margin for segregation purposes.")]
     Segregated,
     
 }

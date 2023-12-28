@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateType3Code
 {
     /// <summary>
-    /// ??
+    /// Imputed tax.
     /// Encoded/decoded by serializers as "Imputed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMPU")]
     [IsoId("_ZZcZqdp-Ed-ak6NoX_4Aeg_-1424495955")]
-    [Description(@"??")]
+    [Description(@"Imputed tax.")]
     Imputed,
     
     /// <summary>
-    /// ??
+    /// Rate is a precompte.
     /// Encoded/decoded by serializers as "Precompte".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREC")]
     [IsoId("_ZZmKoNp-Ed-ak6NoX_4Aeg_-1424495946")]
-    [Description(@"??")]
+    [Description(@"Rate is a precompte.")]
     Precompte,
     
     /// <summary>
-    /// ??
+    /// Rate is a one tier tax.
     /// Encoded/decoded by serializers as "OneTierTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIER")]
     [IsoId("_ZZmKodp-Ed-ak6NoX_4Aeg_-1424495927")]
-    [Description(@"??")]
+    [Description(@"Rate is a one tier tax.")]
     OneTierTax,
     
 }

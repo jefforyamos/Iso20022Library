@@ -20,75 +20,77 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BenchmarkCurveName1Code
 {
     /// <summary>
-    /// ??
+    /// Benchmark curve used for municipals based on the best credit rating for municipal market debt.
     /// Encoded/decoded by serializers as "MuniAAA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAAA")]
     [IsoId("_zeDEUA93EeGeV5vP7Mvdig_-730272138")]
-    [Description(@"??")]
+    [Description(@"Benchmark curve used for municipals based on the best credit rating for municipal market debt.")]
     MuniAAA,
     
     /// <summary>
-    /// ??
+    /// Portion of a synthetic curve that is composed of Eurodollar or Treasury or similar Futures and Swap rates. The term usually begins at 3 months to 2 years for the futures strip component with the Swaps filling in the points to 10 years and beyond.
     /// Encoded/decoded by serializers as "FutureSWAP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUSW")]
     [IsoId("_zeDEUQ93EeGeV5vP7Mvdig_1565837077")]
-    [Description(@"??")]
+    [Description(@"Portion of a synthetic curve that is composed of Eurodollar or Treasury or similar Futures and Swap rates. The term usually begins at 3 months to 2 years for the futures strip component with the Swaps filling in the points to 10 years and beyond.")]
     FutureSWAP,
     
     /// <summary>
-    /// ??
+    /// Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.
+    /// 
+    /// London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.
     /// Encoded/decoded by serializers as "LIBID".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIBI")]
     [IsoId("_zeDEUg93EeGeV5vP7Mvdig_2008825569")]
-    [Description(@"??")]
+    [Description(@"Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.  London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.")]
     LIBID,
     
     /// <summary>
-    /// ??
+    /// London Interbank Offered Rate, the interest rate that major international banks in London charge each other for borrowing.
     /// Encoded/decoded by serializers as "LIBOR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIBO")]
     [IsoId("_zeDEUw93EeGeV5vP7Mvdig_-2118728291")]
-    [Description(@"??")]
+    [Description(@"London Interbank Offered Rate, the interest rate that major international banks in London charge each other for borrowing.")]
     LIBOR,
     
     /// <summary>
-    /// ??
+    /// In curve construction, Swap is the long portion of the curve constituting about 3 years to 30 years term.||The exchange of one security, currency or interest rate for another to change the maturity (bonds), or quality of issues (stocks or bonds), or because investment objectives have changed.
     /// Encoded/decoded by serializers as "SWAP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWAP")]
     [IsoId("_zeDEVA93EeGeV5vP7Mvdig_1541207159")]
-    [Description(@"??")]
+    [Description(@"In curve construction, Swap is the long portion of the curve constituting about 3 years to 30 years term.||The exchange of one security, currency or interest rate for another to change the maturity (bonds), or quality of issues (stocks or bonds), or because investment objectives have changed.")]
     SWAP,
     
     /// <summary>
-    /// ??
+    /// Treasury benchmark that comes in three types: the yield curve, the par curve, and the spot curve. All curves also have a constituent time series.
     /// Encoded/decoded by serializers as "Treasury".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TREA")]
     [IsoId("_zeDEVQ93EeGeV5vP7Mvdig_-1675739799")]
-    [Description(@"??")]
+    [Description(@"Treasury benchmark that comes in three types: the yield curve, the par curve, and the spot curve. All curves also have a constituent time series.")]
     Treasury,
     
     /// <summary>
-    /// ??
+    /// Euro Interbank Offer Rate is the rate at which Euro inter-bank term deposits within the Euro zone are offered by one prime bank to another prime bank.
     /// Encoded/decoded by serializers as "Euribor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EURI")]
     [IsoId("_zeDEVg93EeGeV5vP7Mvdig_155183370")]
-    [Description(@"??")]
+    [Description(@"Euro Interbank Offer Rate is the rate at which Euro inter-bank term deposits within the Euro zone are offered by one prime bank to another prime bank.")]
     Euribor,
     
     /// <summary>
-    /// ??
+    /// Pfandbriefe security is a collateralised bullet bond backed by either mortgage loans or loans to the public sector. Pfandbriefe differ from traditional asset-backed securities in significant ways. The most important difference is that Pfandbriefe carry no pre-payment risk since they remain on the balance sheet of the issuing institution. Therefore, their spreads over sovereign bonds are attributable to liquidity and credit quality alone. New indices have been created and existing indices have been modified in response to the growing importance of the Pfandbriefe market. The Deutsche Borse has three synthetic indices called REX, JEX, and PEX. The Pfandbriefe curve is used as a reference for credit as well as mortgage market.
     /// Encoded/decoded by serializers as "Pfandbriefe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PFAN")]
     [IsoId("_zeMOQA93EeGeV5vP7Mvdig_609270639")]
-    [Description(@"??")]
+    [Description(@"Pfandbriefe security is a collateralised bullet bond backed by either mortgage loans or loans to the public sector. Pfandbriefe differ from traditional asset-backed securities in significant ways. The most important difference is that Pfandbriefe carry no pre-payment risk since they remain on the balance sheet of the issuing institution. Therefore, their spreads over sovereign bonds are attributable to liquidity and credit quality alone. New indices have been created and existing indices have been modified in response to the growing importance of the Pfandbriefe market. The Deutsche Borse has three synthetic indices called REX, JEX, and PEX. The Pfandbriefe curve is used as a reference for credit as well as mortgage market.")]
     Pfandbriefe,
     
 }

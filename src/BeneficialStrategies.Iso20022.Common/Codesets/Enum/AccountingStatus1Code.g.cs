@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Account or party is regarded as domestic for reporting purposes.
     /// Encoded/decoded by serializers as "Domestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YDOM")]
     [IsoId("_gQQnASDEEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Account or party is regarded as domestic for reporting purposes.")]
     Domestic,
     
     /// <summary>
-    /// ??
+    /// Account or party is not regarded as domestic for reporting purposes.
     /// Encoded/decoded by serializers as "NotDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDOM")]
     [IsoId("_gahWQSDEEeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Account or party is not regarded as domestic for reporting purposes.")]
     NotDomestic,
     
 }

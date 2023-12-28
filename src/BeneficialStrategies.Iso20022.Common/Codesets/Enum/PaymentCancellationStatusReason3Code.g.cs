@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentCancellationStatusReason3Code
 {
     /// <summary>
-    /// ??
+    /// Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.
     /// Encoded/decoded by serializers as "ForwardedToAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S003")]
     [IsoId("_tomosYEoEei51tn2YGQhvg")]
-    [Description(@"??")]
+    [Description(@"Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.")]
     ForwardedToAgent,
     
     /// <summary>
-    /// ??
+    /// Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.
     /// Encoded/decoded by serializers as "DeliveryAcknowledgementReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S004")]
     [IsoId("_txPAQYEoEei51tn2YGQhvg")]
-    [Description(@"??")]
+    [Description(@"Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.")]
     DeliveryAcknowledgementReceived,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType3Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type olive oil.
     /// Encoded/decoded by serializers as "OliveOil".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OOLI")]
     [IsoId("_OOrBAQnzEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type olive oil.")]
     OliveOil,
     
 }

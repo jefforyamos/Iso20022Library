@@ -20,39 +20,43 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ESGCategoryGermanFundMarket1Code
 {
     /// <summary>
-    /// ??
+    /// Neutral or has no impact.
     /// Encoded/decoded by serializers as "Neutral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEUT")]
     [IsoId("_dI3ugM6gEeuxwOWq_hqWVg")]
-    [Description(@"??")]
+    [Description(@"Neutral or has no impact.")]
     Neutral,
     
     /// <summary>
-    /// ??
+    /// Product with impact-related investment (pursuant to Article 9 Disclosure Regulation):
+    /// - No serious breach of the United Nations Global Compact (UNGC);
+    /// - Relevant for both individual products and those in a portfolio/basket (shares/bonds);
+    /// - Product manager follows a recognised industry standard (UN PRI).
     /// Encoded/decoded by serializers as "Impact".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMPF")]
     [IsoId("_dPWJ8c6gEeuxwOWq_hqWVg")]
-    [Description(@"??")]
+    [Description(@"Product with impact-related investment (pursuant to Article 9 Disclosure Regulation): - No serious breach of the United Nations Global Compact (UNGC); - Relevant for both individual products and those in a portfolio/basket (shares/bonds); - Product manager follows a recognised industry standard (UN PRI).")]
     Impact,
     
     /// <summary>
-    /// ??
+    /// Product with a dedicated environmental, social and corporate governance (ESG) strategy (pursuant to Article 8 Disclosure Regulation).
     /// Encoded/decoded by serializers as "ESGStrategy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESGF")]
     [IsoId("_dVM6Uc6gEeuxwOWq_hqWVg")]
-    [Description(@"??")]
+    [Description(@"Product with a dedicated environmental, social and corporate governance (ESG) strategy (pursuant to Article 8 Disclosure Regulation).")]
     ESGStrategy,
     
     /// <summary>
-    /// ??
+    /// Product having environmental, social and corporate governance (ESG) characteristics, opportunities or risks according to the "ESG integration enhanced" criteria.
+    /// Product integration approach is disclosed and the product manager follows a recognised industry standard (UN PRI).
     /// Encoded/decoded by serializers as "BasicCategory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BASF")]
     [IsoId("_dbS7Qc6gEeuxwOWq_hqWVg")]
-    [Description(@"??")]
+    [Description(@"Product having environmental, social and corporate governance (ESG) characteristics, opportunities or risks according to the ""ESG integration enhanced"" criteria. Product integration approach is disclosed and the product manager follows a recognised industry standard (UN PRI).")]
     BasicCategory,
     
 }

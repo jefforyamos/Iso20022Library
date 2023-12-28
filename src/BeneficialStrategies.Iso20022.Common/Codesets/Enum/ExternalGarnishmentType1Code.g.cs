@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalGarnishmentType1Code
 {
     /// <summary>
-    /// ??
+    /// Garnishment from a third party payer for Child Support
     /// Encoded/decoded by serializers as "GarnishmentForChildSupport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GNCS")]
     [IsoId("_uTKPlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Garnishment from a third party payer for Child Support")]
     GarnishmentForChildSupport,
     
     /// <summary>
-    /// ??
+    /// Garnishment from a direct payer for Child Support
     /// Encoded/decoded by serializers as "GarnishmentForChildSupportFromDirectPayer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GNDP")]
     [IsoId("_uTUAkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Garnishment from a direct payer for Child Support")]
     GarnishmentForChildSupportFromDirectPayer,
     
     /// <summary>
-    /// ??
+    /// Garnishment from a third party payer to taxing agency
     /// Encoded/decoded by serializers as "GarnishmentToTaxingAgency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GTPP")]
     [IsoId("_uTUAlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Garnishment from a third party payer to taxing agency")]
     GarnishmentToTaxingAgency,
     
 }

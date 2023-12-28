@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstructionLockout1Code
 {
     /// <summary>
-    /// ??
+    /// System suspended elections processing based on business rules.
     /// Encoded/decoded by serializers as "SystemicLocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYLK")]
     [IsoId("_1tJmBDL3EeKU9IrkkToqcw_-1287259278")]
-    [Description(@"??")]
+    [Description(@"System suspended elections processing based on business rules.")]
     SystemicLocked,
     
     /// <summary>
-    /// ??
+    /// DTC (the Depository Trust Company) personnel suspended elections processing.
     /// Encoded/decoded by serializers as "ManualLocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MALK")]
     [IsoId("_1tTXADL3EeKU9IrkkToqcw_964591391")]
-    [Description(@"??")]
+    [Description(@"DTC (the Depository Trust Company) personnel suspended elections processing.")]
     ManualLocked,
     
     /// <summary>
-    /// ??
+    /// Eligible for elections processing.
     /// Encoded/decoded by serializers as "NotLocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOLO")]
     [IsoId("_1tTXATL3EeKU9IrkkToqcw_1289708898")]
-    [Description(@"??")]
+    [Description(@"Eligible for elections processing.")]
     NotLocked,
     
 }

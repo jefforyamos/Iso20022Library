@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeTransactionTotals3Code
 {
     /// <summary>
-    /// ??
+    /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_56GB4dxhEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Credit transactions (refund, account, cash service, as defined in the transaction service type).")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Reversal of credit transactions (cancellation).
     /// Encoded/decoded by serializers as "CreditReverse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDR")]
     [IsoId("_59X_YdxhEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Reversal of credit transactions (cancellation).")]
     CreditReverse,
     
     /// <summary>
-    /// ??
+    /// Debit transactions on the cardholder account.
     /// Encoded/decoded by serializers as "Debit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBT")]
     [IsoId("_6ApV0dxhEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Debit transactions on the cardholder account.")]
     Debit,
     
     /// <summary>
-    /// ??
+    /// Reversal of debit transactions (cancellation).
     /// Encoded/decoded by serializers as "DebitReverse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBTR")]
     [IsoId("_6EFEUdxhEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Reversal of debit transactions (cancellation).")]
     DebitReverse,
     
     /// <summary>
-    /// ??
+    /// Declined transactions.
     /// Encoded/decoded by serializers as "Declined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_6HIYUdxhEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Declined transactions.")]
     Declined,
     
     /// <summary>
-    /// ??
+    /// Failed transactions.
     /// Encoded/decoded by serializers as "Failed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_6KQk0dxhEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Failed transactions.")]
     Failed,
     
     /// <summary>
-    /// ??
+    /// Outstanding Reservation transactions.
     /// Encoded/decoded by serializers as "Reservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESV")]
     [IsoId("_6NjwcdxhEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Outstanding Reservation transactions.")]
     Reservation,
     
 }

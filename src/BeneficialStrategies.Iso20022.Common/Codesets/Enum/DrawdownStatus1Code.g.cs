@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DrawdownStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Pension is fully in drawdown.
     /// Encoded/decoded by serializers as "Full".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_KDEMEVKjEeiSDqv62fL07g")]
-    [Description(@"??")]
+    [Description(@"Pension is fully in drawdown.")]
     Full,
     
     /// <summary>
-    /// ??
+    /// Pension is not in drawdown.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_KIthEVKjEeiSDqv62fL07g")]
-    [Description(@"??")]
+    [Description(@"Pension is not in drawdown.")]
     None,
     
     /// <summary>
-    /// ??
+    /// Pension is in partial drawdown.
     /// Encoded/decoded by serializers as "Partial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_KNesUVKjEeiSDqv62fL07g")]
-    [Description(@"??")]
+    [Description(@"Pension is in partial drawdown.")]
     Partial,
     
 }

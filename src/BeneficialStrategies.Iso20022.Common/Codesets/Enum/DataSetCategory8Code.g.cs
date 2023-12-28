@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetCategory8Code
 {
     /// <summary>
-    /// ??
+    /// Software module.
     /// Encoded/decoded by serializers as "SoftwareModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPK")]
     [IsoId("_CyFB4Y3JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Software module.")]
     SoftwareModule,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.
     /// Encoded/decoded by serializers as "VendorParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VDPR")]
     [IsoId("_CyFB443JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.")]
     VendorParameters,
     
     /// <summary>
-    /// ??
+    /// Acquirer specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "AcquirerParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AQPR")]
     [IsoId("_CyFB5Y3JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Acquirer specific configuration parameters for the point of interaction (POI) system.")]
     AcquirerParameters,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_CyFB543JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
     /// <summary>
-    /// ??
+    /// Batch upload of transaction data (data capture of a group of transactions).
     /// Encoded/decoded by serializers as "BatchCapture".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXCP")]
     [IsoId("_CyFB6Y3JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Batch upload of transaction data (data capture of a group of transactions).")]
     BatchCapture,
     
     /// <summary>
-    /// ??
+    /// Batch download response for the batch capture of transactions.
     /// Encoded/decoded by serializers as "CaptureResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AKCP")]
     [IsoId("_CyFB643JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Batch download response for the batch capture of transactions.")]
     CaptureResponse,
     
     /// <summary>
-    /// ??
+    /// Report of software configuration and parameter status.
     /// Encoded/decoded by serializers as "StatusReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STRP")]
     [IsoId("_CyFB7Y3JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Report of software configuration and parameter status.")]
     StatusReport,
     
     /// <summary>
-    /// ??
+    /// Data needed to create a terminal management sub-domain.
     /// Encoded/decoded by serializers as "DelegationData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLGT")]
     [IsoId("_CyFB743JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Data needed to create a terminal management sub-domain.")]
     DelegationData,
     
     /// <summary>
-    /// ??
+    /// Configuration of management plan in the point of interaction.
     /// Encoded/decoded by serializers as "ManagementPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGTP")]
     [IsoId("_CyFB8Y3JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Configuration of management plan in the point of interaction.")]
     ManagementPlan,
     
     /// <summary>
-    /// ??
+    /// Batch of transaction that have generated an error in the totals of the reconciliation.
     /// Encoded/decoded by serializers as "ReconciliationError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCLE")]
     [IsoId("_GhQpYY3JEeWjkqXgn_0Imw")]
-    [Description(@"??")]
+    [Description(@"Batch of transaction that have generated an error in the totals of the reconciliation.")]
     ReconciliationError,
     
 }

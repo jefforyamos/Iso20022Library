@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionOperationType4Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is a new transaction.
     /// Encoded/decoded by serializers as "NewTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWT")]
     [IsoId("_kzZz9w1GEeaj35fzaZHUIg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a new transaction.")]
     NewTransaction,
     
     /// <summary>
-    /// ??
+    /// Transaction amends a previously sent transaction.
     /// Encoded/decoded by serializers as "Amendment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMND")]
     [IsoId("_rVWeAQ1GEeaj35fzaZHUIg")]
-    [Description(@"??")]
+    [Description(@"Transaction amends a previously sent transaction.")]
     Amendment,
     
     /// <summary>
-    /// ??
+    /// Transaction requests the deletion/cancellation of a previously sent transaction.
     /// Encoded/decoded by serializers as "Cancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_sSjGEQ1GEeaj35fzaZHUIg")]
-    [Description(@"??")]
+    [Description(@"Transaction requests the deletion/cancellation of a previously sent transaction.")]
     Cancellation,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DocumentType4Code
 {
     /// <summary>
-    /// ??
+    /// Document is an invoice.
     /// Encoded/decoded by serializers as "CommercialInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINV")]
     [IsoId("_agObh9p-Ed-ak6NoX_4Aeg_1538718054")]
-    [Description(@"??")]
+    [Description(@"Document is an invoice.")]
     CommercialInvoice,
     
 }

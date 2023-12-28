@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClearingAccountType4Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to register trades executed for the clearing member's customers.
     /// Encoded/decoded by serializers as "Client".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLIE")]
     [IsoId("_Gbdm4YJLEeuDe9SyRl5qeg")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to register trades executed for the clearing member's customers.")]
     Client,
     
     /// <summary>
-    /// ??
+    /// Specifies that the account is used to register trades executed for either the clearing member or its subsidiaries.
     /// Encoded/decoded by serializers as "House".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOUS")]
     [IsoId("_GmBREYJLEeuDe9SyRl5qeg")]
-    [Description(@"??")]
+    [Description(@"Specifies that the account is used to register trades executed for either the clearing member or its subsidiaries.")]
     House,
     
 }

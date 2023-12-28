@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResourceAction1Code
 {
     /// <summary>
-    /// ??
+    /// Pause the media resource in progress as specified in the message.
     /// Encoded/decoded by serializers as "Pause".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAUS")]
     [IsoId("_Zlf9AS8AEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"Pause the media resource in progress as specified in the message.")]
     Pause,
     
     /// <summary>
-    /// ??
+    /// Start the media resource as specified in the message.
     /// Encoded/decoded by serializers as "Play".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAS")]
     [IsoId("_ZpxZAS8AEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"Start the media resource as specified in the message.")]
     Play,
     
     /// <summary>
-    /// ??
+    /// Play in a loop the media resource as specified in the message.
     /// Encoded/decoded by serializers as "PlayInLoop".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOOP")]
     [IsoId("_Zu6XsS8AEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"Play in a loop the media resource as specified in the message.")]
     PlayInLoop,
     
     /// <summary>
-    /// ??
+    /// Resume the progress of the media resource as specified in the message.
     /// Encoded/decoded by serializers as "Resume".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESU")]
     [IsoId("_ZzjAES8AEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"Resume the progress of the media resource as specified in the message.")]
     Resume,
     
     /// <summary>
-    /// ??
+    /// Set the default volume of sounds.
     /// Encoded/decoded by serializers as "SetDefaultVolume".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVOL")]
     [IsoId("_Z4VZcS8AEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"Set the default volume of sounds.")]
     SetDefaultVolume,
     
     /// <summary>
-    /// ??
+    /// Stop the media resource in progress.
     /// Encoded/decoded by serializers as "Stop".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOS")]
     [IsoId("_Z9HLwS8AEeu125Ip9zFcsQ")]
-    [Description(@"??")]
+    [Description(@"Stop the media resource in progress.")]
     Stop,
     
 }

@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Reconciliation3Code
 {
     /// <summary>
-    /// ??
+    /// Trade repository has both sides of the trade reported but fields are not valuation reconciled.
     /// Encoded/decoded by serializers as "DualSidedEEAPartiallyReconciledNoValuationReconciliation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRW")]
     [IsoId("_chTjwVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has both sides of the trade reported but fields are not valuation reconciled.")]
     DualSidedEEAPartiallyReconciledNoValuationReconciliation,
     
     /// <summary>
-    /// ??
+    /// Trade repository has both sides of the trade reported but fields are valuation reconciled only.
     /// Encoded/decoded by serializers as "DualSidedEEAPartiallyReconciledValuationReconciliationOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRV")]
     [IsoId("_ckmvYVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has both sides of the trade reported but fields are valuation reconciled only.")]
     DualSidedEEAPartiallyReconciledValuationReconciliationOnly,
     
     /// <summary>
-    /// ??
+    /// Trade repository has both sides of the trade reported and all fields match.
     /// Encoded/decoded by serializers as "DualSidedMatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSMA")]
     [IsoId("_cn8XQVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has both sides of the trade reported and all fields match.")]
     DualSidedMatched,
     
     /// <summary>
-    /// ??
+    /// Trade repository has both sides of the trade reported but not all fields match.
     /// Encoded/decoded by serializers as "DualSidedNonMatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSNM")]
     [IsoId("_crFx4VBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has both sides of the trade reported but not all fields match.")]
     DualSidedNonMatched,
     
     /// <summary>
-    /// ??
+    /// Trade was not required to be submitted for reconciliation.
     /// Encoded/decoded by serializers as "NotSubmittedToReconciliation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORE")]
     [IsoId("_cuiugVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade was not required to be submitted for reconciliation.")]
     NotSubmittedToReconciliation,
     
     /// <summary>
-    /// ??
+    /// Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, and the result has been successful according to the specification of the inter-TR reconciliation process.
     /// Encoded/decoded by serializers as "SingleSidedEEAMatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSMA")]
     [IsoId("_cz8L4VBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, and the result has been successful according to the specification of the inter-TR reconciliation process.")]
     SingleSidedEEAMatched,
     
     /// <summary>
-    /// ??
+    /// Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, and either has already performed comparison of the reports, or is in the process of doing so.
     /// Encoded/decoded by serializers as "SingleSidedEEAPaired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPA")]
     [IsoId("_c2xdcVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, and either has already performed comparison of the reports, or is in the process of doing so.")]
     SingleSidedEEAPaired,
     
     /// <summary>
-    /// ??
+    /// Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, but fields are not valuation reconciled.
     /// Encoded/decoded by serializers as "SingleSidedEEAPartiallyReconciledNoValuationReconciliation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRW")]
     [IsoId("_c_KkcVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, but fields are not valuation reconciled.")]
     SingleSidedEEAPartiallyReconciledNoValuationReconciliation,
     
     /// <summary>
-    /// ??
+    /// Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, but fields are valuation reconciled only.
     /// Encoded/decoded by serializers as "SingleSidedEEAPartiallyReconciledValuationReconciliationOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRV")]
     [IsoId("_dCPtoVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, but fields are valuation reconciled only.")]
     SingleSidedEEAPartiallyReconciledValuationReconciliationOnly,
     
     /// <summary>
-    /// ??
+    /// Trade repository has one side of the trade, knows that the other side is EEA counterparty and does not know which TR holds the other side of the trade.
     /// Encoded/decoded by serializers as "SingleSidedEEAUnpaired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSUN")]
     [IsoId("_dFnxwVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has one side of the trade, knows that the other side is EEA counterparty and does not know which TR holds the other side of the trade.")]
     SingleSidedEEAUnpaired,
     
     /// <summary>
-    /// ??
+    /// Trade repository has one side of the trade and knows that the other side does not have a reporting obligation.
     /// Encoded/decoded by serializers as "SingleSidedNonEEA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSNE")]
     [IsoId("_dI-nwVBUEe2v8Nk6ybN7jA")]
-    [Description(@"??")]
+    [Description(@"Trade repository has one side of the trade and knows that the other side does not have a reporting obligation.")]
     SingleSidedNonEEA,
     
 }

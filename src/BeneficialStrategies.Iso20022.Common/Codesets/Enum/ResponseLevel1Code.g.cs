@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResponseLevel1Code
 {
     /// <summary>
-    /// ??
+    /// No acknowledgement is requested.
     /// Encoded/decoded by serializers as "NoAcknowledgement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NACK")]
     [IsoId("_ZVH6Utp-Ed-ak6NoX_4Aeg_-1557115638")]
-    [Description(@"??")]
+    [Description(@"No acknowledgement is requested.")]
     NoAcknowledgement,
     
     /// <summary>
-    /// ??
+    /// Acknowledgement of only negative or erroneous messages is requested.
     /// Encoded/decoded by serializers as "AcknowledgementNegativeError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACNE")]
     [IsoId("_ZVH6U9p-Ed-ak6NoX_4Aeg_-1557115330")]
-    [Description(@"??")]
+    [Description(@"Acknowledgement of only negative or erroneous messages is requested.")]
     AcknowledgementNegativeError,
     
     /// <summary>
-    /// ??
+    /// Acknowledgement of each message is requested.
     /// Encoded/decoded by serializers as "AcknowledgementEach".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACEA")]
     [IsoId("_ZVH6VNp-Ed-ak6NoX_4Aeg_-1557115288")]
-    [Description(@"??")]
+    [Description(@"Acknowledgement of each message is requested.")]
     AcknowledgementEach,
     
 }

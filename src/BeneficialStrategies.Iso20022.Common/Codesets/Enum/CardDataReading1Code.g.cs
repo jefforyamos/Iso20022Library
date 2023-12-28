@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardDataReading1Code
 {
     /// <summary>
-    /// ??
+    /// Tag reading capabilities (RFID, etc.).
     /// Encoded/decoded by serializers as "Tag".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAGC")]
     [IsoId("_TSXNcgEcEeCQm6a_G2yO_w_1877381084")]
-    [Description(@"??")]
+    [Description(@"Tag reading capabilities (RFID, etc.).")]
     Tag,
     
     /// <summary>
-    /// ??
+    /// Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_TSXNcwEcEeCQm6a_G2yO_w_-764781715")]
-    [Description(@"??")]
+    [Description(@"Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.")]
     Physical,
     
     /// <summary>
-    /// ??
+    /// Bar code.
     /// Encoded/decoded by serializers as "BarCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRCD")]
     [IsoId("_TSXNdAEcEeCQm6a_G2yO_w_1172443458")]
-    [Description(@"??")]
+    [Description(@"Bar code.")]
     BarCode,
     
     /// <summary>
-    /// ??
+    /// Magnetic stripe.
     /// Encoded/decoded by serializers as "MagneticStripe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGST")]
     [IsoId("_TSXNdQEcEeCQm6a_G2yO_w_-439664208")]
-    [Description(@"??")]
+    [Description(@"Magnetic stripe.")]
     MagneticStripe,
     
     /// <summary>
-    /// ??
+    /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
     /// Encoded/decoded by serializers as "ICC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CICC")]
     [IsoId("_TSXNdgEcEeCQm6a_G2yO_w_-1892344504")]
-    [Description(@"??")]
+    [Description(@"ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.")]
     ICC,
     
     /// <summary>
-    /// ??
+    /// Account data on file.
     /// Encoded/decoded by serializers as "AccountData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLE")]
     [IsoId("_TSXNdwEcEeCQm6a_G2yO_w_44880669")]
-    [Description(@"??")]
+    [Description(@"Account data on file.")]
     AccountData,
     
     /// <summary>
-    /// ??
+    /// Contactless proximity reader.
     /// Encoded/decoded by serializers as "ProximityReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTLS")]
     [IsoId("_TSXNeAEcEeCQm6a_G2yO_w_1689489202")]
-    [Description(@"??")]
+    [Description(@"Contactless proximity reader.")]
     ProximityReader,
     
     /// <summary>
-    /// ??
+    /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
     /// Encoded/decoded by serializers as "EMVProximityReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECTL")]
     [IsoId("_TSXNeQEcEeCQm6a_G2yO_w_-154379787")]
-    [Description(@"??")]
+    [Description(@"Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).")]
     EMVProximityReader,
     
 }

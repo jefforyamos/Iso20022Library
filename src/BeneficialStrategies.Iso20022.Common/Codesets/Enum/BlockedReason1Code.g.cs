@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BlockedReason1Code
 {
     /// <summary>
-    /// ??
+    /// Bankruptcy.
     /// Encoded/decoded by serializers as "Bankruptcy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKRP")]
     [IsoId("_WeMLwRHeEeKVqeHljBM1MQ")]
-    [Description(@"??")]
+    [Description(@"Bankruptcy.")]
     Bankruptcy,
     
     /// <summary>
-    /// ??
+    /// Commitment.
     /// Encoded/decoded by serializers as "Commitment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMMT")]
     [IsoId("_Wm-7YRHeEeKVqeHljBM1MQ")]
-    [Description(@"??")]
+    [Description(@"Commitment.")]
     Commitment,
     
     /// <summary>
-    /// ??
+    /// Confiscation.
     /// Encoded/decoded by serializers as "Confiscation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNFS")]
     [IsoId("_WyKQoRHeEeKVqeHljBM1MQ")]
-    [Description(@"??")]
+    [Description(@"Confiscation.")]
     Confiscation,
     
     /// <summary>
-    /// ??
+    /// Reserved in contemplation of death.
     /// Encoded/decoded by serializers as "MortisCausa".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MORT")]
     [IsoId("_XAKQYRHeEeKVqeHljBM1MQ")]
-    [Description(@"??")]
+    [Description(@"Reserved in contemplation of death.")]
     MortisCausa,
     
     /// <summary>
-    /// ??
+    /// Pledged.
     /// Encoded/decoded by serializers as "Pledged".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLDG")]
     [IsoId("_XOK3MRHeEeKVqeHljBM1MQ")]
-    [Description(@"??")]
+    [Description(@"Pledged.")]
     Pledged,
     
     /// <summary>
-    /// ??
+    /// Reregistration.
     /// Encoded/decoded by serializers as "Reregistration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPE")]
     [IsoId("_XYTqoRHeEeKVqeHljBM1MQ")]
-    [Description(@"??")]
+    [Description(@"Reregistration.")]
     Reregistration,
     
     /// <summary>
-    /// ??
+    /// Transfer.
     /// Encoded/decoded by serializers as "Transfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_Xmw9YRHeEeKVqeHljBM1MQ")]
-    [Description(@"??")]
+    [Description(@"Transfer.")]
     Transfer,
     
 }

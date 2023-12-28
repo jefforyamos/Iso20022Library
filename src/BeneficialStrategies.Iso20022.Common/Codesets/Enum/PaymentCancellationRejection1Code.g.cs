@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentCancellationRejection1Code
 {
     /// <summary>
-    /// ??
+    /// Reported when the cancellation cannot be accepted because of regulatory rules.
     /// Encoded/decoded by serializers as "LegalDecision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEGL")]
     [IsoId("_zb9ZoQ93EeGeV5vP7Mvdig_323838395")]
-    [Description(@"??")]
+    [Description(@"Reported when the cancellation cannot be accepted because of regulatory rules.")]
     LegalDecision,
     
     /// <summary>
-    /// ??
+    /// Reported when the cancellation cannot be accepted because of an agent refuses to cancel.
     /// Encoded/decoded by serializers as "AgentDecision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_zb9Zog93EeGeV5vP7Mvdig_-596999348")]
-    [Description(@"??")]
+    [Description(@"Reported when the cancellation cannot be accepted because of an agent refuses to cancel.")]
     AgentDecision,
     
     /// <summary>
-    /// ??
+    /// Reported when the cancellation cannot be accepted because of a customer decision (Creditor).
     /// Encoded/decoded by serializers as "CustomerDecision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_zb9Zow93EeGeV5vP7Mvdig_749712831")]
-    [Description(@"??")]
+    [Description(@"Reported when the cancellation cannot be accepted because of a customer decision (Creditor).")]
     CustomerDecision,
     
 }

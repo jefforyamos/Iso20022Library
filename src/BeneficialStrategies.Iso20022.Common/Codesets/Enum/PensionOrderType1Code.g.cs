@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PensionOrderType1Code
 {
     /// <summary>
-    /// ??
+    /// Pension policy, plan or scheme has been earmarked (set aside.)
     /// Encoded/decoded by serializers as "Earmark".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EARM")]
     [IsoId("_j14EwbT5EeiENt6AoDfPXg")]
-    [Description(@"??")]
+    [Description(@"Pension policy, plan or scheme has been earmarked (set aside.)")]
     Earmark,
     
     /// <summary>
-    /// ??
+    /// Sharing order for the pension policy, plan or scheme has been issued by a court.
     /// Encoded/decoded by serializers as "Sharing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHAR")]
     [IsoId("_j7FU4bT5EeiENt6AoDfPXg")]
-    [Description(@"??")]
+    [Description(@"Sharing order for the pension policy, plan or scheme has been issued by a court.")]
     Sharing,
     
 }

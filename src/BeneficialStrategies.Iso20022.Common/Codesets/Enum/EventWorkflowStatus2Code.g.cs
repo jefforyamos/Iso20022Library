@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventWorkflowStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Announcement record has been deleted/ removed as an invalid record.
     /// Encoded/decoded by serializers as "Deleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSDE")]
     [IsoId("_1ygnJDL3EeKU9IrkkToqcw_-651436427")]
-    [Description(@"??")]
+    [Description(@"Announcement record has been deleted/ removed as an invalid record.")]
     Deleted,
     
     /// <summary>
-    /// ??
+    /// Validation has determined event is being cancelled by the issuer/offeror. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WSCN")]
     [IsoId("_1ygnJTL3EeKU9IrkkToqcw_-1341432055")]
-    [Description(@"??")]
+    [Description(@"Validation has determined event is being cancelled by the issuer/offeror. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.")]
     Cancelled,
     
 }

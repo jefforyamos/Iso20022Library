@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response4Code
 {
     /// <summary>
-    /// ??
+    /// Service has been successfuly provided.
     /// Encoded/decoded by serializers as "Approved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_0y2tISxQEeW0Obqrzm1X8Q")]
-    [Description(@"??")]
+    [Description(@"Service has been successfuly provided.")]
     Approved,
     
     /// <summary>
-    /// ??
+    /// Service is declined.
     /// Encoded/decoded by serializers as "Declined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_040yQSxQEeW0Obqrzm1X8Q")]
-    [Description(@"??")]
+    [Description(@"Service is declined.")]
     Declined,
     
     /// <summary>
-    /// ??
+    /// Service has been partialy provided.
     /// Encoded/decoded by serializers as "PartialApproved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_1HPowSxQEeW0Obqrzm1X8Q")]
-    [Description(@"??")]
+    [Description(@"Service has been partialy provided.")]
     PartialApproved,
     
 }

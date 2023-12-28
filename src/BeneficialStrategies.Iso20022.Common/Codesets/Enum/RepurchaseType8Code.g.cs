@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepurchaseType8Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a principal adjustment.
     /// Encoded/decoded by serializers as "PrincipalExposureAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PADJ")]
     [IsoId("_CCDcYY-REeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to a principal adjustment.")]
     PrincipalExposureAdjustment,
     
     /// <summary>
-    /// ??
+    /// Relates to a repo rollover of a contract extending the closing or maturity date without the underlying collateral impacted.
     /// Encoded/decoded by serializers as "RepoContractRollover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLP")]
     [IsoId("_CG9KgY-REeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to a repo rollover of a contract extending the closing or maturity date without the underlying collateral impacted.")]
     RepoContractRollover,
     
     /// <summary>
-    /// ??
+    /// Is part of a pair-off.
     /// Encoded/decoded by serializers as "RepoRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RATE")]
     [IsoId("_CTApgY-REeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Is part of a pair-off.")]
     RepoRate,
     
     /// <summary>
-    /// ??
+    /// Relates to the early closing/maturity date for a term repo or a termination date of an open repo with the underlying collateral.
     /// Encoded/decoded by serializers as "RepurchaseCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALL")]
     [IsoId("_ENc88Y-REeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to the early closing/maturity date for a term repo or a termination date of an open repo with the underlying collateral.")]
     RepurchaseCall,
     
 }

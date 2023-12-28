@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionReversalReason1Code
 {
     /// <summary>
-    /// ??
+    /// Account number specified has been closed on the Receiver's books.
     /// Encoded/decoded by serializers as "ClosedAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC04")]
     [IsoId("_YuFId9p-Ed-ak6NoX_4Aeg_1201920053")]
-    [Description(@"??")]
+    [Description(@"Account number specified has been closed on the Receiver's books.")]
     ClosedAccountNumber,
     
     /// <summary>
-    /// ??
+    /// This message appears to have been duplicated.
     /// Encoded/decoded by serializers as "Duplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM05")]
     [IsoId("_YuFIeNp-Ed-ak6NoX_4Aeg_1202840611")]
-    [Description(@"??")]
+    [Description(@"This message appears to have been duplicated.")]
     Duplication,
     
     /// <summary>
-    /// ??
+    /// Bank Operation code specified in the message is not valid for receiver.
     /// Encoded/decoded by serializers as "InvalidBankOperationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AG02")]
     [IsoId("_YuO5cNp-Ed-ak6NoX_4Aeg_1202842147")]
-    [Description(@"??")]
+    [Description(@"Bank Operation code specified in the message is not valid for receiver.")]
     InvalidBankOperationCode,
     
     /// <summary>
-    /// ??
+    /// Mandate is cancelled or invalid.
     /// Encoded/decoded by serializers as "NoMandate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD01")]
     [IsoId("_YuO5cdp-Ed-ak6NoX_4Aeg_1204688750")]
-    [Description(@"??")]
+    [Description(@"Mandate is cancelled or invalid.")]
     NoMandate,
     
     /// <summary>
-    /// ??
+    /// Creditor or creditor's agent should not have collected the direct debit.
     /// Encoded/decoded by serializers as "CollectionNotDue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD05")]
     [IsoId("_YuO5ctp-Ed-ak6NoX_4Aeg_1205611187")]
-    [Description(@"??")]
+    [Description(@"Creditor or creditor's agent should not have collected the direct debit.")]
     CollectionNotDue,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MeetingInstructionCancellationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation has been completed.
     /// Encoded/decoded by serializers as "CancellationCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_VpiZZtp-Ed-ak6NoX_4Aeg_-1092392896")]
-    [Description(@"??")]
+    [Description(@"Cancellation has been completed.")]
     CancellationCompleted,
     
     /// <summary>
-    /// ??
+    /// Cancellation is pending. It is not known at this time whether cancellation can be executed.
     /// Encoded/decoded by serializers as "PendingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_VpiZZ9p-Ed-ak6NoX_4Aeg_-1068378433")]
-    [Description(@"??")]
+    [Description(@"Cancellation is pending. It is not known at this time whether cancellation can be executed.")]
     PendingCancellation,
     
     /// <summary>
-    /// ??
+    /// Cancellation will not be executed due to business reasons.
     /// Encoded/decoded by serializers as "CancellationDenied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEND")]
     [IsoId("_VpiZaNp-Ed-ak6NoX_4Aeg_-1051757850")]
-    [Description(@"??")]
+    [Description(@"Cancellation will not be executed due to business reasons.")]
     CancellationDenied,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been rejected for further processing due to system (data) reasons.
     /// Encoded/decoded by serializers as "CancellationRejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_VpsKYNp-Ed-ak6NoX_4Aeg_-1009275976")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been rejected for further processing due to system (data) reasons.")]
     CancellationRejected,
     
 }

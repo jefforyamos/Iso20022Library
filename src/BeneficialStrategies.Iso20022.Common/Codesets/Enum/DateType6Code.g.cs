@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateType6Code
 {
     /// <summary>
-    /// ??
+    /// Open-dated, which indicates that the date has not been established.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_ayjhotp-Ed-ak6NoX_4Aeg_988349228")]
-    [Description(@"??")]
+    [Description(@"Open-dated, which indicates that the date has not been established.")]
     Open,
     
     /// <summary>
-    /// ??
+    /// Date is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_ayjho9p-Ed-ak6NoX_4Aeg_988349289")]
-    [Description(@"??")]
+    [Description(@"Date is unknown by the sender or has not been established.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
     /// Encoded/decoded by serializers as "Ongoing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONGO")]
     [IsoId("_ayjhpNp-Ed-ak6NoX_4Aeg_988349381")]
-    [Description(@"??")]
+    [Description(@"Ongoing basis, which indicates that the date is determined by ""ongoing basis"" process, for example ""au fil de l'eau"".")]
     Ongoing,
     
 }

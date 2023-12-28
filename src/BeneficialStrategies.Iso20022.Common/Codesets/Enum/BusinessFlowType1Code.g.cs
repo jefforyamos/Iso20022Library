@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BusinessFlowType1Code
 {
     /// <summary>
-    /// ??
+    /// Single leg process initiated by the delivering party.
     /// Encoded/decoded by serializers as "SingleLegDeliveringParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLDP")]
     [IsoId("_ad9YDv8xEeC-e_lDNJKWcg")]
-    [Description(@"??")]
+    [Description(@"Single leg process initiated by the delivering party.")]
     SingleLegDeliveringParty,
     
     /// <summary>
-    /// ??
+    /// Single leg process initiated by the receiving party.
     /// Encoded/decoded by serializers as "SingleLegReceivingParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLRP")]
     [IsoId("_aiItbv8xEeC-e_lDNJKWcg")]
-    [Description(@"??")]
+    [Description(@"Single leg process initiated by the receiving party.")]
     SingleLegReceivingParty,
     
     /// <summary>
-    /// ??
+    /// Double leg process.
     /// Encoded/decoded by serializers as "DoubleLegProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLPR")]
     [IsoId("_bIIWbv8xEeC-e_lDNJKWcg")]
-    [Description(@"??")]
+    [Description(@"Double leg process.")]
     DoubleLegProcess,
     
 }

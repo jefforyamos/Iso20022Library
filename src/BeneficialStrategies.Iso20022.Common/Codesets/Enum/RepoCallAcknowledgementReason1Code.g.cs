@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepoCallAcknowledgementReason1Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_ZwscAdp-Ed-ak6NoX_4Aeg_1866536563")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Repurchase agreement call is in process.
     /// Encoded/decoded by serializers as "InProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALD")]
     [IsoId("_ZwscAtp-Ed-ak6NoX_4Aeg_1866536564")]
-    [Description(@"??")]
+    [Description(@"Repurchase agreement call is in process.")]
     InProcess,
     
     /// <summary>
-    /// ??
+    /// Repurchase agreement call is issued.
     /// Encoded/decoded by serializers as "Issued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALI")]
     [IsoId("_ZwscA9p-Ed-ak6NoX_4Aeg_1866536594")]
-    [Description(@"??")]
+    [Description(@"Repurchase agreement call is issued.")]
     Issued,
     
     /// <summary>
-    /// ??
+    /// Repurchase agreement call is processed.
     /// Encoded/decoded by serializers as "Processed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALP")]
     [IsoId("_ZwscBNp-Ed-ak6NoX_4Aeg_1866536595")]
-    [Description(@"??")]
+    [Description(@"Repurchase agreement call is processed.")]
     Processed,
     
     /// <summary>
-    /// ??
+    /// Repurchase agreement call request is being processed.
     /// Encoded/decoded by serializers as "BeingProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALR")]
     [IsoId("_ZwscBdp-Ed-ak6NoX_4Aeg_1866536873")]
-    [Description(@"??")]
+    [Description(@"Repurchase agreement call request is being processed.")]
     BeingProcessed,
     
 }

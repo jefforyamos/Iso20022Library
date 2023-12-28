@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType17Code
 {
     /// <summary>
-    /// ??
+    /// Charge paid for the postage.
     /// Encoded/decoded by serializers as "PostageCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POST")]
     [IsoId("_TQuOtAEcEeCQm6a_G2yO_w_-860308422")]
-    [Description(@"??")]
+    [Description(@"Charge paid for the postage.")]
     PostageCharge,
     
     /// <summary>
-    /// ??
+    /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
     /// Encoded/decoded by serializers as "RegulatoryFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGF")]
     [IsoId("_TQuOtQEcEeCQm6a_G2yO_w_-1566692032")]
-    [Description(@"??")]
+    [Description(@"Fee charged by a regulatory authority, eg, Securities and Exchange fees.")]
     RegulatoryFee,
     
     /// <summary>
-    /// ??
+    /// Charge for shipping, including the insurance of securities.
     /// Encoded/decoded by serializers as "ShippingCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHIP")]
     [IsoId("_TQuOtgEcEeCQm6a_G2yO_w_-1577790809")]
-    [Description(@"??")]
+    [Description(@"Charge for shipping, including the insurance of securities.")]
     ShippingCharge,
     
     /// <summary>
-    /// ??
+    /// Fee paid for the provision of financial services.
     /// Encoded/decoded by serializers as "ServiceProvisionFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_TQuOtwEcEeCQm6a_G2yO_w_-110642046")]
-    [Description(@"??")]
+    [Description(@"Fee paid for the provision of financial services.")]
     ServiceProvisionFee,
     
     /// <summary>
-    /// ??
+    /// Another type of charge.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_TQuOuAEcEeCQm6a_G2yO_w_981104540")]
-    [Description(@"??")]
+    [Description(@"Another type of charge.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
     /// Encoded/decoded by serializers as "Premium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREM")]
     [IsoId("_TQuOuQEcEeCQm6a_G2yO_w_49770569")]
-    [Description(@"??")]
+    [Description(@"In investment funds, pre-arranged addition to the trade amount based on the published net asset value.")]
     Premium,
     
     /// <summary>
-    /// ??
+    /// Charge is for packaging of goods.
     /// Encoded/decoded by serializers as "Packaging".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_TQuOugEcEeCQm6a_G2yO_w_-756432644")]
-    [Description(@"??")]
+    [Description(@"Charge is for packaging of goods.")]
     Packaging,
     
     /// <summary>
-    /// ??
+    /// Charge is for pick-up of goods.
     /// Encoded/decoded by serializers as "PickUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PICK")]
     [IsoId("_TQuOuwEcEeCQm6a_G2yO_w_710716119")]
-    [Description(@"??")]
+    [Description(@"Charge is for pick-up of goods.")]
     PickUp,
     
     /// <summary>
-    /// ??
+    /// Charge is for security.
     /// Encoded/decoded by serializers as "SecurityCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_TQuOvAEcEeCQm6a_G2yO_w_360968694")]
-    [Description(@"??")]
+    [Description(@"Charge is for security.")]
     SecurityCharge,
     
     /// <summary>
-    /// ??
+    /// Charge is a premium for insurance.
     /// Encoded/decoded by serializers as "InsurancePremium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_TQuOvQEcEeCQm6a_G2yO_w_1060959384")]
-    [Description(@"??")]
+    [Description(@"Charge is a premium for insurance.")]
     InsurancePremium,
     
     /// <summary>
-    /// ??
+    /// Miscellaneous fee.
     /// Encoded/decoded by serializers as "MiscellaneousFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISC")]
     [IsoId("_TQuOvgEcEeCQm6a_G2yO_w_-970868659")]
-    [Description(@"??")]
+    [Description(@"Miscellaneous fee.")]
     MiscellaneousFee,
     
 }

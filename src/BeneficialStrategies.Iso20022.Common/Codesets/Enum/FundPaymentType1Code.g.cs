@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundPaymentType1Code
 {
     /// <summary>
-    /// ??
+    /// Payment instrument is a bankers draft.
     /// Encoded/decoded by serializers as "BankersDraft".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRAF")]
     [IsoId("_wli18V8xEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a bankers draft.")]
     BankersDraft,
     
     /// <summary>
-    /// ??
+    /// Payment instrument is a cash account.
     /// Encoded/decoded by serializers as "CashAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACC")]
     [IsoId("_wqTaIV8xEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a cash account.")]
     CashAccount,
     
     /// <summary>
-    /// ??
+    /// Payment instrument is a cheque.
     /// Encoded/decoded by serializers as "Cheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHEQ")]
     [IsoId("_w1dhQV8xEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a cheque.")]
     Cheque,
     
     /// <summary>
-    /// ??
+    /// Payment instrument is a credit transfer.
     /// Encoded/decoded by serializers as "CreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_w9Cv8V8xEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a credit transfer.")]
     CreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Payment instrument is a direct debit.
     /// Encoded/decoded by serializers as "DirectDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDEB")]
     [IsoId("_xC2dAV8xEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a direct debit.")]
     DirectDebit,
     
     /// <summary>
-    /// ??
+    /// Payment instrument is a payment card.
     /// Encoded/decoded by serializers as "PaymentCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARD")]
     [IsoId("_xIzUAV8xEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Payment instrument is a payment card.")]
     PaymentCard,
     
 }

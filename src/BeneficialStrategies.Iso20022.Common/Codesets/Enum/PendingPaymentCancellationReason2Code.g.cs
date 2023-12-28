@@ -20,12 +20,13 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingPaymentCancellationReason2Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation indemnity is required. 
+    /// 
     /// Encoded/decoded by serializers as "CancellationIndemnityRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDM")]
     [IsoId("_8g490SCMEei5H9PsIMzTkw")]
-    [Description(@"??")]
+    [Description(@"Cancellation indemnity is required.  ")]
     CancellationIndemnityRequired,
     
 }

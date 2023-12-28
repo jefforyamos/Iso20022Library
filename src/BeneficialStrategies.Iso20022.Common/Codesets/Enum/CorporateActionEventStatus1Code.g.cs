@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionEventStatus1Code
 {
     /// <summary>
-    /// ??
+    /// The CA event is active.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTI")]
     [IsoId("_bEJA4tp-Ed-ak6NoX_4Aeg_2009797756")]
-    [Description(@"??")]
+    [Description(@"The CA event is active.")]
     Active,
     
     /// <summary>
-    /// ??
+    /// The CA event is deactivated. The clients cannot send instruction anymore.
     /// Encoded/decoded by serializers as "Deactivated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEAC")]
     [IsoId("_bEJA49p-Ed-ak6NoX_4Aeg_2009797785")]
-    [Description(@"??")]
+    [Description(@"The CA event is deactivated. The clients cannot send instruction anymore.")]
     Deactivated,
     
     /// <summary>
-    /// ??
+    /// The CA event is expired, no more processing, claims, transformations take place.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_bEJA5Np-Ed-ak6NoX_4Aeg_2009797786")]
-    [Description(@"??")]
+    [Description(@"The CA event is expired, no more processing, claims, transformations take place.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// The CA event is cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_bEJA5dp-Ed-ak6NoX_4Aeg_2009797815")]
-    [Description(@"??")]
+    [Description(@"The CA event is cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// The CA event is withrawn, ie, cancelled by the market.
     /// Encoded/decoded by serializers as "Withdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_bEJA5tp-Ed-ak6NoX_4Aeg_2009797846")]
-    [Description(@"??")]
+    [Description(@"The CA event is withrawn, ie, cancelled by the market.")]
     Withdrawn,
     
 }

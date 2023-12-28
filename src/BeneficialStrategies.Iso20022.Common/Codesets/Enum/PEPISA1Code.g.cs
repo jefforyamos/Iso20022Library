@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PEPISA1Code
 {
     /// <summary>
-    /// ??
+    /// Personal equity plan.
     /// Encoded/decoded by serializers as "PEP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEPT")]
     [IsoId("_zdTddA93EeGeV5vP7Mvdig_-2054941291")]
-    [Description(@"??")]
+    [Description(@"Personal equity plan.")]
     PEP,
     
     /// <summary>
-    /// ??
+    /// Individual savings account.
     /// Encoded/decoded by serializers as "ISA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISAT")]
     [IsoId("_zdTddQ93EeGeV5vP7Mvdig_865100993")]
-    [Description(@"??")]
+    [Description(@"Individual savings account.")]
     ISA,
     
 }

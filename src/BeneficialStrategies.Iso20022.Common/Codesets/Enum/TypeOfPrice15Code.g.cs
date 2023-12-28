@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfPrice15Code
 {
     /// <summary>
-    /// ??
+    /// Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.
     /// Encoded/decoded by serializers as "Bid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIDE")]
     [IsoId("_WOMlpNp-Ed-ak6NoX_4Aeg_1777611101")]
-    [Description(@"??")]
+    [Description(@"Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.")]
     Bid,
     
     /// <summary>
-    /// ??
+    /// Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.
     /// Encoded/decoded by serializers as "Offer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFR")]
     [IsoId("_WOMlpdp-Ed-ak6NoX_4Aeg_1777611123")]
-    [Description(@"??")]
+    [Description(@"Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.")]
     Offer,
     
     /// <summary>
-    /// ??
+    /// Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.
     /// Encoded/decoded by serializers as "NetAssetValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAVL")]
     [IsoId("_WOMlptp-Ed-ak6NoX_4Aeg_1777611131")]
-    [Description(@"??")]
+    [Description(@"Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.")]
     NetAssetValue,
     
 }

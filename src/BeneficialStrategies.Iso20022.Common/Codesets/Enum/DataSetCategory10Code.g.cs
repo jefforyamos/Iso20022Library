@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetCategory10Code
 {
     /// <summary>
-    /// ??
+    /// Acquirer specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "AcquirerParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AQPR")]
     [IsoId("_UpxbYY35EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Acquirer specific configuration parameters for the point of interaction (POI) system.")]
     AcquirerParameters,
     
     /// <summary>
-    /// ??
+    /// Payment application specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "ApplicationParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_UpxbY435EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
     ApplicationParameters,
     
     /// <summary>
-    /// ??
+    /// The terminal manager is the master.
     /// Encoded/decoded by serializers as "MasterTerminalManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTMG")]
     [IsoId("_UpxbZY35EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"The terminal manager is the master.")]
     MasterTerminalManager,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_UpxbZ435EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
     /// <summary>
-    /// ??
+    /// Monitoring of the terminal estate.
     /// Encoded/decoded by serializers as "Monitoring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTOR")]
     [IsoId("_UpxbaY35EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Monitoring of the terminal estate.")]
     Monitoring,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters related to the security of software application and application protocol.
     /// Encoded/decoded by serializers as "SecurityParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCPR")]
     [IsoId("_Upxba435EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters related to the security of software application and application protocol.")]
     SecurityParameters,
     
     /// <summary>
-    /// ??
+    /// Software module.
     /// Encoded/decoded by serializers as "SoftwareModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPK")]
     [IsoId("_UpxbbY35EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Software module.")]
     SoftwareModule,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
     /// Encoded/decoded by serializers as "TerminalParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPR")]
     [IsoId("_Upxbb435EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
     TerminalParameters,
     
     /// <summary>
-    /// ??
+    /// Certificate provided by a terminal manager.
     /// Encoded/decoded by serializers as "CertificateParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTF")]
     [IsoId("_YHlmEY35EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Certificate provided by a terminal manager.")]
     CertificateParameters,
     
     /// <summary>
-    /// ??
+    /// Configuration parameters for the TMS protocol.
     /// Encoded/decoded by serializers as "TMSProtocolParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMSP")]
     [IsoId("_Yhq6AY35EeWRwov1g9WL_A")]
-    [Description(@"??")]
+    [Description(@"Configuration parameters for the TMS protocol.")]
     TMSProtocolParameters,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentAccountCategory1Code
 {
     /// <summary>
-    /// ??
+    /// Account is fully managed by the financial institution, that is, an investor gives a 'mandate' to the financial institution to execute a mutually agreed investment strategy on its behalf.
     /// Encoded/decoded by serializers as "MandateAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAND")]
     [IsoId("_HQJ88RRIEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Account is fully managed by the financial institution, that is, an investor gives a 'mandate' to the financial institution to execute a mutually agreed investment strategy on its behalf.")]
     MandateAccount,
     
     /// <summary>
-    /// ??
+    /// Account is a standard account managed by the investor. The investor issues instructions for the account to the financial institution.
     /// Encoded/decoded by serializers as "RetailAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETA")]
     [IsoId("_HZh7YRRIEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Account is a standard account managed by the investor. The investor issues instructions for the account to the financial institution.")]
     RetailAccount,
     
 }

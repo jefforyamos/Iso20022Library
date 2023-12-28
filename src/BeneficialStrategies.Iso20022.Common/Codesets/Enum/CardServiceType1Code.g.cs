@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardServiceType1Code
 {
     /// <summary>
-    /// ??
+    /// Partial reconciliation of the day.
     /// Encoded/decoded by serializers as "CheckPoint".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_AFicAXu9EeSLmfFG0DG7zQ")]
-    [Description(@"??")]
+    [Description(@"Partial reconciliation of the day.")]
     CheckPoint,
     
     /// <summary>
-    /// ??
+    /// Final reconciliation.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_AK5dIXu9EeSLmfFG0DG7zQ")]
-    [Description(@"??")]
+    [Description(@"Final reconciliation.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// Request for totals of a previous reconciliation.
     /// Encoded/decoded by serializers as "TotalInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRVS")]
     [IsoId("_AUbzo3u9EeSLmfFG0DG7zQ")]
-    [Description(@"??")]
+    [Description(@"Request for totals of a previous reconciliation.")]
     TotalInquiry,
     
 }

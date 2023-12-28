@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SwitchType1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates a full switch for an account.
     /// Encoded/decoded by serializers as "FullSwitch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_xBa00Q2YEeSNWNtJlXOAhg")]
-    [Description(@"??")]
+    [Description(@"Indicates a full switch for an account.")]
     FullSwitch,
     
     /// <summary>
-    /// ??
+    /// Indicates a partial switch for an account.
     /// Encoded/decoded by serializers as "PartSwitch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_xGBoAQ2YEeSNWNtJlXOAhg")]
-    [Description(@"??")]
+    [Description(@"Indicates a partial switch for an account.")]
     PartSwitch,
     
 }

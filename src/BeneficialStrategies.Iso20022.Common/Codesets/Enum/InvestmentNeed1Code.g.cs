@@ -20,66 +20,67 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentNeed1Code
 {
     /// <summary>
-    /// ??
+    /// Investment need is for environmental social corporate governance.
+    /// 
     /// Encoded/decoded by serializers as "EnvironmentalSocialCorporateGovernance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESGO")]
     [IsoId("_-DCJ8TcdEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Investment need is for environmental social corporate governance. ")]
     EnvironmentalSocialCorporateGovernance,
     
     /// <summary>
-    /// ??
+    /// Investment need is for ethical investment.
     /// Encoded/decoded by serializers as "EthicalInvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETHI")]
     [IsoId("_-IFpETcdEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Investment need is for ethical investment.")]
     EthicalInvestment,
     
     /// <summary>
-    /// ??
+    /// Investment need is for green investment.
     /// Encoded/decoded by serializers as "GreenInvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRIN")]
     [IsoId("_-NJvQTcdEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Investment need is for green investment.")]
     GreenInvestment,
     
     /// <summary>
-    /// ??
+    /// Investment need is for Islamic banking.
     /// Encoded/decoded by serializers as "IslamicBanking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISLB")]
     [IsoId("_-SgJUTcdEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Investment need is for Islamic banking.")]
     IslamicBanking,
     
     /// <summary>
-    /// ??
+    /// No specific need.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSPE")]
     [IsoId("_-US5ETcdEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"No specific need.")]
     None,
     
     /// <summary>
-    /// ??
+    /// Other specific need.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_-ZgJMTcdEeidBoT_PugKiA")]
-    [Description(@"??")]
+    [Description(@"Other specific need.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Specific investment need.
     /// Encoded/decoded by serializers as "SpecificNeed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YSPE")]
     [IsoId("_c_wd0el4Eei6w4V2u1HOBw")]
-    [Description(@"??")]
+    [Description(@"Specific investment need.")]
     SpecificNeed,
     
 }

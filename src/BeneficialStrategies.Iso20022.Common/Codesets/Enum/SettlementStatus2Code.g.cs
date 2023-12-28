@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Settlement is awaiting authorisation.
     /// Encoded/decoded by serializers as "AwaitingAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AAUT")]
     [IsoId("_waKzmaMOEeCojJW5vEuTEQ_147220499")]
-    [Description(@"??")]
+    [Description(@"Settlement is awaiting authorisation.")]
     AwaitingAuthorisation,
     
     /// <summary>
-    /// ??
+    /// Settlement is accepted for settlement.
     /// Encoded/decoded by serializers as "AcceptedForSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTL")]
     [IsoId("_waKzmqMOEeCojJW5vEuTEQ_1225240837")]
-    [Description(@"??")]
+    [Description(@"Settlement is accepted for settlement.")]
     AcceptedForSettlement,
     
     /// <summary>
-    /// ??
+    /// Settlement has been created.
     /// Encoded/decoded by serializers as "SettlementTransactionCreated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STCR")]
     [IsoId("_waKzm6MOEeCojJW5vEuTEQ_342007550")]
-    [Description(@"??")]
+    [Description(@"Settlement has been created.")]
     SettlementTransactionCreated,
     
     /// <summary>
-    /// ??
+    /// Settlement is complete.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLD")]
     [IsoId("_waKznKMOEeCojJW5vEuTEQ_-795814798")]
-    [Description(@"??")]
+    [Description(@"Settlement is complete.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Settlement is awaiting confirmation of creation.
     /// Encoded/decoded by serializers as "AwaitingCreationConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCF")]
     [IsoId("_waUkkKMOEeCojJW5vEuTEQ_-1679048085")]
-    [Description(@"??")]
+    [Description(@"Settlement is awaiting confirmation of creation.")]
     AwaitingCreationConfirmation,
     
     /// <summary>
-    /// ??
+    /// Settlement is awaiting confirmation of rescind.
     /// Encoded/decoded by serializers as "AwaitingRescindConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARCF")]
     [IsoId("_waUkkaMOEeCojJW5vEuTEQ_-341727529")]
-    [Description(@"??")]
+    [Description(@"Settlement is awaiting confirmation of rescind.")]
     AwaitingRescindConfirmation,
     
 }

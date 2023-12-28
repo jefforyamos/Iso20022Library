@@ -21,21 +21,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalDocumentPurpose1Code
 {
     /// <summary>
-    /// ??
+    /// The document represents a document that has been confirmed, for example an invoice that has been confirmed by the buyer for payment.|
     /// Encoded/decoded by serializers as "Confirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_uHFiePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The document represents a document that has been confirmed, for example an invoice that has been confirmed by the buyer for payment.|")]
     Confirmed,
     
     /// <summary>
-    /// ??
+    /// The document represents an invoice submitted under a factoring arrangment. 
     /// Encoded/decoded by serializers as "Factoredinvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINV")]
     [IsoId("_uHPTcvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"The document represents an invoice submitted under a factoring arrangment. ")]
     Factoredinvoice,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FormOfSecurity1Code
 {
     /// <summary>
-    /// ??
+    /// The financial instrument does not specify any registration of ownership, and is payable to whomever possesses the certificate.
     /// Encoded/decoded by serializers as "Bearer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEAR")]
     [IsoId("_1Gk9wN1OEeGAp99n2TKigg_1287612204")]
-    [Description(@"??")]
+    [Description(@"The financial instrument does not specify any registration of ownership, and is payable to whomever possesses the certificate.")]
     Bearer,
     
     /// <summary>
-    /// ??
+    /// Shareholder name of the financial instrument appears in the corporation/funds books.
     /// Encoded/decoded by serializers as "Registered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGD")]
     [IsoId("_3TsVkN1OEeGAp99n2TKigg_1858924413")]
-    [Description(@"??")]
+    [Description(@"Shareholder name of the financial instrument appears in the corporation/funds books.")]
     Registered,
     
 }

@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxType9Code
 {
     /// <summary>
-    /// ??
+    /// Tax is a provincial tax.
     /// Encoded/decoded by serializers as "Provincial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROV")]
     [IsoId("_Yksi89p-Ed-ak6NoX_4Aeg_-1809973337")]
-    [Description(@"??")]
+    [Description(@"Tax is a provincial tax.")]
     Provincial,
     
     /// <summary>
-    /// ??
+    /// Tax is a national tax.
     /// Encoded/decoded by serializers as "NationalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NATI")]
     [IsoId("_Yksi9Np-Ed-ak6NoX_4Aeg_-1809973277")]
-    [Description(@"??")]
+    [Description(@"Tax is a national tax.")]
     NationalTax,
     
     /// <summary>
-    /// ??
+    /// Tax is a state tax.
     /// Encoded/decoded by serializers as "StateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAT")]
     [IsoId("_Yksi9dp-Ed-ak6NoX_4Aeg_-1809973260")]
-    [Description(@"??")]
+    [Description(@"Tax is a state tax.")]
     StateTax,
     
     /// <summary>
-    /// ??
+    /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
     /// Encoded/decoded by serializers as "WithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_Yksi9tp-Ed-ak6NoX_4Aeg_-1809973242")]
-    [Description(@"??")]
+    [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
     WithholdingTax,
     
     /// <summary>
-    /// ??
+    /// Tax is on certain documents and transactions.
     /// Encoded/decoded by serializers as "StampDuty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAM")]
     [IsoId("_Yksi99p-Ed-ak6NoX_4Aeg_-1809972969")]
-    [Description(@"??")]
+    [Description(@"Tax is on certain documents and transactions.")]
     StampDuty,
     
     /// <summary>
-    /// ??
+    /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
     /// Encoded/decoded by serializers as "ConsumptionTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAX")]
     [IsoId("_Yk2T8Np-Ed-ak6NoX_4Aeg_-1809972968")]
-    [Description(@"??")]
+    [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
     ConsumptionTax,
     
     /// <summary>
-    /// ??
+    /// Tax is a value added tax.
     /// Encoded/decoded by serializers as "ValueAddedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATA")]
     [IsoId("_Yk2T8dp-Ed-ak6NoX_4Aeg_-1791501938")]
-    [Description(@"??")]
+    [Description(@"Tax is a value added tax.")]
     ValueAddedTax,
     
     /// <summary>
-    /// ??
+    /// Tax is customs and excise.
     /// Encoded/decoded by serializers as "CustomsTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_Yk2T8tp-Ed-ak6NoX_4Aeg_-1830323614")]
-    [Description(@"??")]
+    [Description(@"Tax is customs and excise.")]
     CustomsTax,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FractionDispositionType3Code
 {
     /// <summary>
-    /// ??
+    /// Buy securities up to next whole number.
     /// Encoded/decoded by serializers as "BuyUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYU")]
     [IsoId("_arjhwNp-Ed-ak6NoX_4Aeg_1382196652")]
-    [Description(@"??")]
+    [Description(@"Buy securities up to next whole number.")]
     BuyUp,
     
     /// <summary>
-    /// ??
+    /// Fractional part of cash. Take cash in lieu of fractions.
     /// Encoded/decoded by serializers as "CashInLieuOfFraction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINL")]
     [IsoId("_arjhwdp-Ed-ak6NoX_4Aeg_1382196668")]
-    [Description(@"??")]
+    [Description(@"Fractional part of cash. Take cash in lieu of fractions.")]
     CashInLieuOfFraction,
     
     /// <summary>
-    /// ??
+    /// Take distribution of fractions in the form of securities.
     /// Encoded/decoded by serializers as "IssueFraction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIST")]
     [IsoId("_arjhwtp-Ed-ak6NoX_4Aeg_1382196669")]
-    [Description(@"??")]
+    [Description(@"Take distribution of fractions in the form of securities.")]
     IssueFraction,
     
     /// <summary>
-    /// ??
+    /// Let fractions expire worthless.
     /// Encoded/decoded by serializers as "Expire".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_arjhw9p-Ed-ak6NoX_4Aeg_1758992666")]
-    [Description(@"??")]
+    [Description(@"Let fractions expire worthless.")]
     Expire,
     
     /// <summary>
-    /// ??
+    /// Characteristics of the disposition of fractions are unknown.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_arjhxNp-Ed-ak6NoX_4Aeg_299584857")]
-    [Description(@"??")]
+    [Description(@"Characteristics of the disposition of fractions are unknown.")]
     Unknown,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Verification1Code
 {
     /// <summary>
-    /// ??
+    /// Verification failed.
     /// Encoded/decoded by serializers as "Failed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_xPkEAWjpEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Verification failed.")]
     Failed,
     
     /// <summary>
-    /// ??
+    /// Information required to perform the verification was missing.
     /// Encoded/decoded by serializers as "Missing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISS")]
     [IsoId("_xVtvUWjpEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Information required to perform the verification was missing.")]
     Missing,
     
     /// <summary>
-    /// ??
+    /// Verification has not been performed.
     /// Encoded/decoded by serializers as "NotPerformed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOVF")]
     [IsoId("_xdGwwWjpEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Verification has not been performed.")]
     NotPerformed,
     
     /// <summary>
-    /// ??
+    /// Verification was partially successful.
     /// Encoded/decoded by serializers as "PartialMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_xib8sWjpEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Verification was partially successful.")]
     PartialMatch,
     
     /// <summary>
-    /// ??
+    /// Verification was successful.
     /// Encoded/decoded by serializers as "Successful".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_xpMsAWjpEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Verification was successful.")]
     Successful,
     
     /// <summary>
-    /// ??
+    /// Device or entity to perform the verification was unavailable.
     /// Encoded/decoded by serializers as "TechnicalError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERRR")]
     [IsoId("_xwe_wWjpEeSDR-pyia6Xtg")]
-    [Description(@"??")]
+    [Description(@"Device or entity to perform the verification was unavailable.")]
     TechnicalError,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReconciliationCriteria1Code
 {
     /// <summary>
-    /// ??
+    /// The set is defined by transactions made with cards belonging  to the same brand.
     /// Encoded/decoded by serializers as "CardBrand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRND")]
     [IsoId("_T3JYoSpWEeuUucRY0yCMTA")]
-    [Description(@"??")]
+    [Description(@"The set is defined by transactions made with cards belonging  to the same brand.")]
     CardBrand,
     
     /// <summary>
-    /// ??
+    /// The set is defined by transactions made with cards sharing the same CardProductProfile.
     /// Encoded/decoded by serializers as "CardProductProfile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROF")]
     [IsoId("_UHVwwSpWEeuUucRY0yCMTA")]
-    [Description(@"??")]
+    [Description(@"The set is defined by transactions made with cards sharing the same CardProductProfile.")]
     CardProductProfile,
     
     /// <summary>
-    /// ??
+    /// The set is defined by transactions processed by POIs identified with the same POIGroup.
     /// Encoded/decoded by serializers as "PoiGroup".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRUP")]
     [IsoId("_UJQcUSpWEeuUucRY0yCMTA")]
-    [Description(@"??")]
+    [Description(@"The set is defined by transactions processed by POIs identified with the same POIGroup.")]
     PoiGroup,
     
 }

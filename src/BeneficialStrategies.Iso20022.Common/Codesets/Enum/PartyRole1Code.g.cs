@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyRole1Code
 {
     /// <summary>
-    /// ??
+    /// Party that safekeeps and administers assets on behalf of the owner.
     /// Encoded/decoded by serializers as "Custodian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_zsaVUSDSEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Party that safekeeps and administers assets on behalf of the owner.")]
     Custodian,
     
     /// <summary>
-    /// ??
+    /// Party, either an individual or organisation, whose assets are being invested.
     /// Encoded/decoded by serializers as "Investor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVS")]
     [IsoId("_0PE9gSDSEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Party, either an individual or organisation, whose assets are being invested.")]
     Investor,
     
 }

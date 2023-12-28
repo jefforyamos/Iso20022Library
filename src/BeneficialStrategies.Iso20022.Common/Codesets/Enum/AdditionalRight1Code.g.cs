@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdditionalRight1Code
 {
     /// <summary>
-    /// ??
+    /// Defines a written question proposal.
     /// Encoded/decoded by serializers as "WrittenQuestionProposal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WQPS")]
     [IsoId("_bmjxd9p-Ed-ak6NoX_4Aeg_1593352605")]
-    [Description(@"??")]
+    [Description(@"Defines a written question proposal.")]
     WrittenQuestionProposal,
     
     /// <summary>
-    /// ??
+    /// Defines a resolution proposal.
     /// Encoded/decoded by serializers as "ResolutionProposal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSPS")]
     [IsoId("_bmjxeNp-Ed-ak6NoX_4Aeg_1593352636")]
-    [Description(@"??")]
+    [Description(@"Defines a resolution proposal.")]
     ResolutionProposal,
     
     /// <summary>
-    /// ??
+    /// Defines a resolution proposal.
     /// Encoded/decoded by serializers as "AgendaItemProposal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIPS")]
     [IsoId("_bmticNp-Ed-ak6NoX_4Aeg_1593352666")]
-    [Description(@"??")]
+    [Description(@"Defines a resolution proposal.")]
     AgendaItemProposal,
     
 }

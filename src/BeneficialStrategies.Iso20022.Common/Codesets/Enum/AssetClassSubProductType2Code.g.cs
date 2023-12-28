@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType2Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type softs.
     /// Encoded/decoded by serializers as "Softs".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFT")]
     [IsoId("_MkTJ4QnzEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type softs.")]
     Softs,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Form1Code
 {
     /// <summary>
-    /// ??
+    /// A phsyical form is required through the main fund order desk.
     /// Encoded/decoded by serializers as "Required".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_Vr6_B9p-Ed-ak6NoX_4Aeg_1756006617")]
-    [Description(@"??")]
+    [Description(@"A phsyical form is required through the main fund order desk.")]
     Required,
     
     /// <summary>
-    /// ??
+    /// A phsyical form is not required through the main fund order desk.
     /// Encoded/decoded by serializers as "NotRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREQ")]
     [IsoId("_Vr6_CNp-Ed-ak6NoX_4Aeg_1756006646")]
-    [Description(@"??")]
+    [Description(@"A phsyical form is not required through the main fund order desk.")]
     NotRequired,
     
     /// <summary>
-    /// ??
+    /// A phsyical form with the investor's written signature is required through the main fund order desk.
     /// Encoded/decoded by serializers as "SignatureRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SREQ")]
     [IsoId("_VsEwANp-Ed-ak6NoX_4Aeg_1756006647")]
-    [Description(@"??")]
+    [Description(@"A phsyical form with the investor's written signature is required through the main fund order desk.")]
     SignatureRequired,
     
 }

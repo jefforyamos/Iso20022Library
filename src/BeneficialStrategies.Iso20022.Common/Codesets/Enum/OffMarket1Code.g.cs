@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OffMarket1Code
 {
     /// <summary>
-    /// ??
+    /// Trade was executed off-market.
     /// Encoded/decoded by serializers as "OffMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XOFF")]
     [IsoId("_aOfyUtp-Ed-ak6NoX_4Aeg_-2050871151")]
-    [Description(@"??")]
+    [Description(@"Trade was executed off-market.")]
     OffMarket,
     
     /// <summary>
-    /// ??
+    /// Trade was executed off-exchange because the instrument is not admitted to trade on an exchange.
     /// Encoded/decoded by serializers as "NotAdmittedOnExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XXXX")]
     [IsoId("_aOfyU9p-Ed-ak6NoX_4Aeg_-103068136")]
-    [Description(@"??")]
+    [Description(@"Trade was executed off-exchange because the instrument is not admitted to trade on an exchange.")]
     NotAdmittedOnExchange,
     
 }

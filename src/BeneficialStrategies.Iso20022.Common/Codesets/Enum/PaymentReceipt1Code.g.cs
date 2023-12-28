@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentReceipt1Code
 {
     /// <summary>
-    /// ??
+    /// Operation is a payment.
     /// Encoded/decoded by serializers as "Payment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYM")]
     [IsoId("__uhuoQ5EEeenr-7g_0TYag")]
-    [Description(@"??")]
+    [Description(@"Operation is a payment.")]
     Payment,
     
     /// <summary>
-    /// ??
+    /// Operation is a receipt.
     /// Encoded/decoded by serializers as "Receipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("__0B5sQ5EEeenr-7g_0TYag")]
-    [Description(@"??")]
+    [Description(@"Operation is a receipt.")]
     Receipt,
     
     /// <summary>
-    /// ??
+    /// Operation is null.
     /// Encoded/decoded by serializers as "None".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("__51mwQ5EEeenr-7g_0TYag")]
-    [Description(@"??")]
+    [Description(@"Operation is null.")]
     None,
     
 }

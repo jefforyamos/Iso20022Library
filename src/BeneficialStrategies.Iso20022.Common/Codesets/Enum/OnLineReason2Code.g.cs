@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OnLineReason2Code
 {
     /// <summary>
-    /// ??
+    /// Transaction random selection to go online.
     /// Encoded/decoded by serializers as "RandomSelection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RNDM")]
     [IsoId("_3vH7UU4LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Transaction random selection to go online.")]
     RandomSelection,
     
     /// <summary>
-    /// ??
+    /// Payment application in the Integrated Circuit Card forces to go on-line.
     /// Encoded/decoded by serializers as "ICCForced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCF")]
     [IsoId("_3vH7U04LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Payment application in the Integrated Circuit Card forces to go on-line.")]
     ICCForced,
     
     /// <summary>
-    /// ??
+    /// On line forced by card acceptor.
     /// Encoded/decoded by serializers as "MerchantForced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERF")]
     [IsoId("_3vH7VU4LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"On line forced by card acceptor.")]
     MerchantForced,
     
     /// <summary>
-    /// ??
+    /// Terminal random selection to go online.
     /// Encoded/decoded by serializers as "TerminalForced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRMF")]
     [IsoId("_3vH7V04LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Terminal random selection to go online.")]
     TerminalForced,
     
     /// <summary>
-    /// ??
+    /// On line forced by card issuer.
     /// Encoded/decoded by serializers as "IssuerForced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSF")]
     [IsoId("_3vH7WU4LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"On line forced by card issuer.")]
     IssuerForced,
     
     /// <summary>
-    /// ??
+    /// Over floor limit.
     /// Encoded/decoded by serializers as "FloorLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRLT")]
     [IsoId("_3vH7W04LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Over floor limit.")]
     FloorLimit,
     
     /// <summary>
-    /// ??
+    /// Card appears on terminal exception file.
     /// Encoded/decoded by serializers as "ExceptionFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXFL")]
     [IsoId("_3vH7XU4LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Card appears on terminal exception file.")]
     ExceptionFile,
     
     /// <summary>
-    /// ??
+    /// Total amount of purchases per cardholder and per application above floor limit.
     /// Encoded/decoded by serializers as "TotalAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAMT")]
     [IsoId("_3vH7X04LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Total amount of purchases per cardholder and per application above floor limit.")]
     TotalAmount,
     
     /// <summary>
-    /// ??
+    /// Bank Identification Number under control.
     /// Encoded/decoded by serializers as "ControlledBIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBIN")]
     [IsoId("_3vH7YU4LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Bank Identification Number under control.")]
     ControlledBIN,
     
     /// <summary>
-    /// ??
+    /// Unknown Bank Identification Number.
     /// Encoded/decoded by serializers as "UnknownBIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UBIN")]
     [IsoId("_3vH7Y04LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Unknown Bank Identification Number.")]
     UnknownBIN,
     
     /// <summary>
-    /// ??
+    /// Primary account number (card number) under control.
     /// Encoded/decoded by serializers as "ControlledPAN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPAN")]
     [IsoId("_3vH7ZU4LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Primary account number (card number) under control.")]
     ControlledPAN,
     
     /// <summary>
-    /// ??
+    /// Flow control.
     /// Encoded/decoded by serializers as "FlowControl".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLOW")]
     [IsoId("_3vH7Z04LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Flow control.")]
     FlowControl,
     
     /// <summary>
-    /// ??
+    /// Unknown currency code or foreign currency.
     /// Encoded/decoded by serializers as "UnavailableCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCY")]
     [IsoId("_3vH7aU4LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Unknown currency code or foreign currency.")]
     UnavailableCurrency,
     
     /// <summary>
-    /// ??
+    /// Request Cardholder Authentication througth PIN insertion
     /// Encoded/decoded by serializers as "IssuerForcedPINRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IFPR")]
     [IsoId("_9wKQsE4LEey_VecAUE-C9Q")]
-    [Description(@"??")]
+    [Description(@"Request Cardholder Authentication througth PIN insertion")]
     IssuerForcedPINRequest,
     
 }

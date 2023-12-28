@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ListStatusType1Code
 {
     /// <summary>
-    /// ??
+    /// Status is an acknowledgement of the ListOrder.
     /// Encoded/decoded by serializers as "Acknowledgement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACKN")]
     [IsoId("_afVDptp-Ed-ak6NoX_4Aeg_375253895")]
-    [Description(@"??")]
+    [Description(@"Status is an acknowledgement of the ListOrder.")]
     Acknowledgement,
     
     /// <summary>
-    /// ??
+    /// Status is a response to a previously sent StatusRequest.
     /// Encoded/decoded by serializers as "Response".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESP")]
     [IsoId("_afVDp9p-Ed-ak6NoX_4Aeg_375253930")]
-    [Description(@"??")]
+    [Description(@"Status is a response to a previously sent StatusRequest.")]
     Response,
     
     /// <summary>
-    /// ??
+    /// Status indicates that the ListOrder has been executed.
     /// Encoded/decoded by serializers as "AllDone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADON")]
     [IsoId("_afVDqNp-Ed-ak6NoX_4Aeg_375253972")]
-    [Description(@"??")]
+    [Description(@"Status indicates that the ListOrder has been executed.")]
     AllDone,
     
     /// <summary>
-    /// ??
+    /// Status indicates that any of the individual orders of the ListOrder have a status that requires something to be done.
     /// Encoded/decoded by serializers as "Alert".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALER")]
     [IsoId("_afe0oNp-Ed-ak6NoX_4Aeg_375254224")]
-    [Description(@"??")]
+    [Description(@"Status indicates that any of the individual orders of the ListOrder have a status that requires something to be done.")]
     Alert,
     
     /// <summary>
-    /// ??
+    /// Status indicates that the Execution has started.
     /// Encoded/decoded by serializers as "ExecutionStarted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXST")]
     [IsoId("_afe0odp-Ed-ak6NoX_4Aeg_375254670")]
-    [Description(@"??")]
+    [Description(@"Status indicates that the Execution has started.")]
     ExecutionStarted,
     
     /// <summary>
-    /// ??
+    /// Status indicated that time limit for the order has expired.
     /// Encoded/decoded by serializers as "Timed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIME")]
     [IsoId("_afe0otp-Ed-ak6NoX_4Aeg_375254705")]
-    [Description(@"??")]
+    [Description(@"Status indicated that time limit for the order has expired.")]
     Timed,
     
 }

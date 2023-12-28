@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ElectionType1Code
 {
     /// <summary>
-    /// ??
+    /// New election advice.
     /// Encoded/decoded by serializers as "NewElection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWM")]
     [IsoId("_ag-CaNp-Ed-ak6NoX_4Aeg_-1543884834")]
-    [Description(@"??")]
+    [Description(@"New election advice.")]
     NewElection,
     
     /// <summary>
-    /// ??
+    /// Election advice which is the result of an option change.
     /// Encoded/decoded by serializers as "OptionChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAN")]
     [IsoId("_ahHzYNp-Ed-ak6NoX_4Aeg_-1543884803")]
-    [Description(@"??")]
+    [Description(@"Election advice which is the result of an option change.")]
     OptionChange,
     
 }

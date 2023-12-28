@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FeeCollectionInitiator1Code
 {
     /// <summary>
-    /// ??
+    /// Entity acquiring card transaction.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_Qd1jQSxLEeyg-aG5nXcnfg")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transaction.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_Qih2ASxLEeyg-aG5nXcnfg")]
-    [Description(@"??")]
+    [Description(@"Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Entity issuing card.
     /// Encoded/decoded by serializers as "CardIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISS")]
     [IsoId("_QnBUcSxLEeyg-aG5nXcnfg")]
-    [Description(@"??")]
+    [Description(@"Entity issuing card.")]
     CardIssuer,
     
     /// <summary>
-    /// ??
+    /// Other entity initiates fee collection defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_Qs3dwSxLEeyg-aG5nXcnfg")]
-    [Description(@"??")]
+    [Description(@"Other entity initiates fee collection defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other entity initiates fee collection defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_Qw30ASxLEeyg-aG5nXcnfg")]
-    [Description(@"??")]
+    [Description(@"Other entity initiates fee collection defined at private level.")]
     OtherPrivate,
     
 }

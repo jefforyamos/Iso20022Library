@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NetDividendRateType1Code
 {
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which capital is distributed.
     /// Encoded/decoded by serializers as "CapitalPortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPO")]
     [IsoId("_aNTfg9p-Ed-ak6NoX_4Aeg_284283232")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which capital is distributed.")]
     CapitalPortion,
     
     /// <summary>
-    /// ??
+    /// Rate resulting from a fully franked dividend paid by a company; the rate includes tax credit for companies that have made sufficient tax payments during the fiscal period.
     /// Encoded/decoded by serializers as "FullyFranked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLFR")]
     [IsoId("_aNTfhNp-Ed-ak6NoX_4Aeg_284283241")]
-    [Description(@"??")]
+    [Description(@"Rate resulting from a fully franked dividend paid by a company; the rate includes tax credit for companies that have made sufficient tax payments during the fiscal period.")]
     FullyFranked,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which income is distributed.
     /// Encoded/decoded by serializers as "IncomePortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCO")]
     [IsoId("_aNTfhdp-Ed-ak6NoX_4Aeg_284283242")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which income is distributed.")]
     IncomePortion,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which interest is paid.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_aNTfhtp-Ed-ak6NoX_4Aeg_284283263")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which interest is paid.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which other income is paid.
     /// Encoded/decoded by serializers as "SundryOrOtherIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOIC")]
     [IsoId("_aNTfh9p-Ed-ak6NoX_4Aeg_284283272")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which other income is paid.")]
     SundryOrOtherIncome,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which tax is charged.
     /// Encoded/decoded by serializers as "TaxablePortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXBL")]
     [IsoId("_aNTfiNp-Ed-ak6NoX_4Aeg_284283273")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which tax is charged.")]
     TaxablePortion,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which tax is deferred.
     /// Encoded/decoded by serializers as "TaxDeferred".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXDF")]
     [IsoId("_aNTfidp-Ed-ak6NoX_4Aeg_284283293")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which tax is deferred.")]
     TaxDeferred,
     
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security which is not taxable.
     /// Encoded/decoded by serializers as "TaxFree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXFR")]
     [IsoId("_aNcpcNp-Ed-ak6NoX_4Aeg_284283294")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security which is not taxable.")]
     TaxFree,
     
     /// <summary>
-    /// ??
+    /// Rate resulting from an unfranked dividend paid by a company; the rate does not include tax credit and is subject to withholding tax.
     /// Encoded/decoded by serializers as "Unfranked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNFR")]
     [IsoId("_aNcpcdp-Ed-ak6NoX_4Aeg_284283324")]
-    [Description(@"??")]
+    [Description(@"Rate resulting from an unfranked dividend paid by a company; the rate does not include tax credit and is subject to withholding tax.")]
     Unfranked,
     
 }

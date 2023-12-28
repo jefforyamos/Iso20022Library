@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductFreight1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type dry freight.
     /// Encoded/decoded by serializers as "Dry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRYF")]
     [IsoId("_pxgg4UDbEeWOL-OsSq2h6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of type dry freight.")]
     Dry,
     
     /// <summary>
-    /// ??
+    /// Commodity of type wet freight.
     /// Encoded/decoded by serializers as "Wet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WETF")]
     [IsoId("_q4LOAUDbEeWOL-OsSq2h6w")]
-    [Description(@"??")]
+    [Description(@"Commodity of type wet freight.")]
     Wet,
     
     /// <summary>
-    /// ??
+    /// Commodity of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_mmQ5MafvEeW_OId9wS8dsQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of other type.")]
     Other,
     
 }

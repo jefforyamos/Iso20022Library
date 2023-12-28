@@ -20,120 +20,122 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeTransactionCondition2Code
 {
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed with a special cum coupon.
     /// Encoded/decoded by serializers as "SpecialCumCoupon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCC")]
     [IsoId("_YoHqZtp-Ed-ak6NoX_4Aeg_287848345")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed with a special cum coupon.")]
     SpecialCumCoupon,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed with a special ex coupon.
     /// Encoded/decoded by serializers as "SpecialExCoupon".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECN")]
     [IsoId("_YoHqZ9p-Ed-ak6NoX_4Aeg_287848353")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed with a special ex coupon.")]
     SpecialExCoupon,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed special ex bonus.
     /// Encoded/decoded by serializers as "SpecialExBonus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEBN")]
     [IsoId("_YoHqaNp-Ed-ak6NoX_4Aeg_287848370")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed special ex bonus.")]
     SpecialExBonus,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed special cum bonus.
     /// Encoded/decoded by serializers as "SpecialCumBonus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCBN")]
     [IsoId("_YoHqadp-Ed-ak6NoX_4Aeg_287848371")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed special cum bonus.")]
     SpecialCumBonus,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed special cum rights.
     /// Encoded/decoded by serializers as "SpecialCumRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRT")]
     [IsoId("_YoRbYNp-Ed-ak6NoX_4Aeg_287848387")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed special cum rights.")]
     SpecialCumRights,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed special ex rights.
     /// Encoded/decoded by serializers as "SpecialExRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SERT")]
     [IsoId("_YoRbYdp-Ed-ak6NoX_4Aeg_287848388")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed special ex rights.")]
     SpecialExRights,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed special cum capital repayments.
     /// Encoded/decoded by serializers as "SpecialCumCapitalRepayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCCR")]
     [IsoId("_YoRbYtp-Ed-ak6NoX_4Aeg_287848405")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed special cum capital repayments.")]
     SpecialCumCapitalRepayments,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed special ex capital repayments.
     /// Encoded/decoded by serializers as "SpecialExCapitalRepayments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECR")]
     [IsoId("_YoRbY9p-Ed-ak6NoX_4Aeg_287848406")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed special ex capital repayments.")]
     SpecialExCapitalRepayments,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed with a cash settlement.
     /// Encoded/decoded by serializers as "CashSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAST")]
     [IsoId("_YoRbZNp-Ed-ak6NoX_4Aeg_287848430")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed with a cash settlement.")]
     CashSettlement,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed with a special price.
     /// Encoded/decoded by serializers as "SpecialPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPPR")]
     [IsoId("_YoRbZdp-Ed-ak6NoX_4Aeg_287848431")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed with a special price.")]
     SpecialPrice,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed with a special cum 
+    /// dividend, that is, buying after the ex date and getting the dividend.
     /// Encoded/decoded by serializers as "SpecialCumDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCU")]
     [IsoId("_YoRbZtp-Ed-ak6NoX_4Aeg_287848447")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed with a special cum  dividend, that is, buying after the ex date and getting the dividend.")]
     SpecialCumDividend,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the trade is executed with a special ex 
+    /// dividend, that is, selling before the ex date without the coupon.
     /// Encoded/decoded by serializers as "SpecialExDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEX")]
     [IsoId("_YoRbZ9p-Ed-ak6NoX_4Aeg_287848465")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the trade is executed with a special ex  dividend, that is, selling before the ex date without the coupon.")]
     SpecialExDividend,
     
     /// <summary>
-    /// ??
+    /// Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.
     /// Encoded/decoded by serializers as "GuaranteedDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GTDL")]
     [IsoId("_YoRbaNp-Ed-ak6NoX_4Aeg_334023861")]
-    [Description(@"??")]
+    [Description(@"Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.")]
     GuaranteedDelivery,
     
 }

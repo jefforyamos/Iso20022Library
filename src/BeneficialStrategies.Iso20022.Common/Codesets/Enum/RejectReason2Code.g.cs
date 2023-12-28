@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectReason2Code
 {
     /// <summary>
-    /// ??
+    /// Not possible to process the message, for instance the security module is unavailable, the hardware is unavailable, or there is a problem of resource.
     /// Encoded/decoded by serializers as "UnableToProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNPR")]
     [IsoId("_QSOjUWp1EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Not possible to process the message, for instance the security module is unavailable, the hardware is unavailable, or there is a problem of resource.")]
     UnableToProcess,
     
     /// <summary>
-    /// ??
+    /// Invalid envelope of the message.
     /// Encoded/decoded by serializers as "InvalidMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMSG")]
     [IsoId("_QSOjU2p1EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Invalid envelope of the message.")]
     InvalidMessage,
     
     /// <summary>
-    /// ??
+    /// Invalid message: At least one of the data element or data structure is not present, the format, or the content of one data element or one data structure is not correct.
     /// Encoded/decoded by serializers as "ParsingError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARS")]
     [IsoId("_QSOjVWp1EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Invalid message: At least one of the data element or data structure is not present, the format, or the content of one data element or one data structure is not correct.")]
     ParsingError,
     
     /// <summary>
-    /// ??
+    /// Security error (for example an invalid key or an incorrect MAC value).
     /// Encoded/decoded by serializers as "Security".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_QSOjV2p1EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Security error (for example an invalid key or an incorrect MAC value).")]
     Security,
     
     /// <summary>
-    /// ??
+    /// Invalid identification data for the sender.
     /// Encoded/decoded by serializers as "InitiatingParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTP")]
     [IsoId("_QSOjWWp1EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Invalid identification data for the sender.")]
     InitiatingParty,
     
     /// <summary>
-    /// ??
+    /// Invalid identification data for the the receiver.
     /// Encoded/decoded by serializers as "RecipientParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCPP")]
     [IsoId("_QSOjW2p1EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Invalid identification data for the the receiver.")]
     RecipientParty,
     
     /// <summary>
-    /// ??
+    /// Version of the protocol couldn't be supported by the recipient.
     /// Encoded/decoded by serializers as "ProtocolVersion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VERS")]
     [IsoId("_QSOjX2p1EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Version of the protocol couldn't be supported by the recipient.")]
     ProtocolVersion,
     
     /// <summary>
-    /// ??
+    /// Type of message the recipient receives is unknow or unsupported.
     /// Encoded/decoded by serializers as "MessageType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSGT")]
     [IsoId("_QSOjYWp1EeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Type of message the recipient receives is unknow or unsupported.")]
     MessageType,
     
 }

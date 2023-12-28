@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCServiceType1Code
 {
     /// <summary>
-    /// ??
+    /// Cash In Lieu or Round Up service.
     /// Encoded/decoded by serializers as "CashInLieuRoundUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CILR")]
     [IsoId("_14xnNTL3EeKU9IrkkToqcw_-623906197")]
-    [Description(@"??")]
+    [Description(@"Cash In Lieu or Round Up service.")]
     CashInLieuRoundUp,
     
     /// <summary>
-    /// ??
+    /// U.S. Tax Withholding service.
     /// Encoded/decoded by serializers as "USTaxWithholding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USTX")]
     [IsoId("_14xnNjL3EeKU9IrkkToqcw_843242566")]
-    [Description(@"??")]
+    [Description(@"U.S. Tax Withholding service.")]
     USTaxWithholding,
     
     /// <summary>
-    /// ??
+    /// Foreign Tax Relief service.
     /// Encoded/decoded by serializers as "ForeignTaxRelief".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FTXR")]
     [IsoId("_146xIDL3EeKU9IrkkToqcw_1672203018")]
-    [Description(@"??")]
+    [Description(@"Foreign Tax Relief service.")]
     ForeignTaxRelief,
     
 }

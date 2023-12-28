@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashSettlementSystem2Code
 {
     /// <summary>
-    /// ??
+    /// Settle money through gross settlement system.
     /// Encoded/decoded by serializers as "GrossSettlementSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GROS")]
     [IsoId("_a7WRRNp-Ed-ak6NoX_4Aeg_-702652999")]
-    [Description(@"??")]
+    [Description(@"Settle money through gross settlement system.")]
     GrossSettlementSystem,
     
     /// <summary>
-    /// ??
+    /// Settle money through net settlement system.
     /// Encoded/decoded by serializers as "NetSettlementSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETS")]
     [IsoId("_a7WRRdp-Ed-ak6NoX_4Aeg_1056453502")]
-    [Description(@"??")]
+    [Description(@"Settle money through net settlement system.")]
     NetSettlementSystem,
     
 }

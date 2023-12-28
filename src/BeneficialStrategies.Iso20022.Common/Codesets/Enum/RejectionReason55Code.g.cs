@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason55Code
 {
     /// <summary>
-    /// ??
+    /// Disagreement in beneficial ownership.
     /// Encoded/decoded by serializers as "BeneficialOwnershipDisagreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BENO")]
     [IsoId("_8E9YIekJEemm4qhb2yFPOw")]
-    [Description(@"??")]
+    [Description(@"Disagreement in beneficial ownership.")]
     BeneficialOwnershipDisagreement,
     
     /// <summary>
-    /// ??
+    /// Corporate action pending on the financial instrument instructed.
     /// Encoded/decoded by serializers as "CorporateActionRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAEV")]
     [IsoId("_AXmSAekKEemm4qhb2yFPOw")]
-    [Description(@"??")]
+    [Description(@"Corporate action pending on the financial instrument instructed.")]
     CorporateActionRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_CvfWcekKEemm4qhb2yFPOw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_T9KjYekKEemm4qhb2yFPOw")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Instruction has not been matched. It is a possible duplicate instruction.
     /// Encoded/decoded by serializers as "PossibleDuplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PODU")]
     [IsoId("_P4QuEekLEemm4qhb2yFPOw")]
-    [Description(@"??")]
+    [Description(@"Instruction has not been matched. It is a possible duplicate instruction.")]
     PossibleDuplicate,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid message sender's safekeeping account.
     /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_V9wFoekLEemm4qhb2yFPOw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
     SafekeepingAccountRejection,
     
     /// <summary>
-    /// ??
+    /// Standing Settlement Instruction is unknown or invalid.
     /// Encoded/decoded by serializers as "StandingSettlementInstructionRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSID")]
     [IsoId("_kHyicekLEemm4qhb2yFPOw")]
-    [Description(@"??")]
+    [Description(@"Standing Settlement Instruction is unknown or invalid.")]
     StandingSettlementInstructionRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_FJq80emtEemUgrefIx730g")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
 }

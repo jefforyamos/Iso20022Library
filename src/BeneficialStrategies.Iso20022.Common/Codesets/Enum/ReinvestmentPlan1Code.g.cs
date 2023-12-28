@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReinvestmentPlan1Code
 {
     /// <summary>
-    /// ??
+    /// Reinvestment plan is for retail investors only.
     /// Encoded/decoded by serializers as "ForRetailInvestorsOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETA")]
     [IsoId("_Jc8egVf9EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Reinvestment plan is for retail investors only.")]
     ForRetailInvestorsOnly,
     
     /// <summary>
-    /// ??
+    /// Full reinvestment plan offered.
     /// Encoded/decoded by serializers as "FullReinvestmentPlanOffered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_JkiUQVf9EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Full reinvestment plan offered.")]
     FullReinvestmentPlanOffered,
     
     /// <summary>
-    /// ??
+    /// Reinvestment plan is subject to shareholder approval.
     /// Encoded/decoded by serializers as "SubjectToShareholderApproval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUAP")]
     [IsoId("_JuNNoVf9EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Reinvestment plan is subject to shareholder approval.")]
     SubjectToShareholderApproval,
     
 }

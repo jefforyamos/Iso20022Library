@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesQuantity1Code
 {
     /// <summary>
-    /// ??
+    /// No Maximum / Minimum number provided.
     /// Encoded/decoded by serializers as "SQNO".
     /// </summary>
     [EnumMember(Value = "SQNO")]
     [IsoId("_V_Is5jFxEeGKkIZzgd38VA")]
-    [Description(@"??")]
+    [Description(@"No Maximum / Minimum number provided.")]
     No,
     
     /// <summary>
-    /// ??
+    /// Maximum / Minimum number is unknown or not decided.
     /// Encoded/decoded by serializers as "UKWN".
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_WDAgRjFxEeGKkIZzgd38VA")]
-    [Description(@"??")]
+    [Description(@"Maximum / Minimum number is unknown or not decided.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Maximum / Minimum number provided.
     /// Encoded/decoded by serializers as "SQYS".
     /// </summary>
     [EnumMember(Value = "SQYS")]
     [IsoId("_WJ3WNjFxEeGKkIZzgd38VA")]
-    [Description(@"??")]
+    [Description(@"Maximum / Minimum number provided.")]
     Yes,
     
 }

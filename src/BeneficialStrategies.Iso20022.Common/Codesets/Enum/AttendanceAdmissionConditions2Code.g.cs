@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AttendanceAdmissionConditions2Code
 {
     /// <summary>
-    /// ??
+    /// Any attendee must be a shareholder themselves.
     /// Encoded/decoded by serializers as "AllowedForShareholder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MASH")]
     [IsoId("_X7kGQfNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Any attendee must be a shareholder themselves.")]
     AllowedForShareholder,
     
     /// <summary>
-    /// ??
+    /// Attendee must be a shareholder registered in company stock ledger book.
     /// Encoded/decoded by serializers as "AllowedIfRegisteredInStockLedger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MASL")]
     [IsoId("_YBXMQfNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Attendee must be a shareholder registered in company stock ledger book.")]
     AllowedIfRegisteredInStockLedger,
     
     /// <summary>
-    /// ??
+    /// Attendees acting on behalf of registered holder must have a valid power of attorney (POA) and/or proof of holding.
     /// Encoded/decoded by serializers as "AllowedOnBehalf".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAPO")]
     [IsoId("_YGuNYfNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Attendees acting on behalf of registered holder must have a valid power of attorney (POA) and/or proof of holding.")]
     AllowedOnBehalf,
     
     /// <summary>
-    /// ??
+    /// Attendees will be placed on a attendee list and must bring photographic identification with them.
     /// Encoded/decoded by serializers as "AllowedWithAttendeeList".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAAL")]
     [IsoId("_YLn7gfNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Attendees will be placed on a attendee list and must bring photographic identification with them.")]
     AllowedWithAttendeeList,
     
     /// <summary>
-    /// ??
+    /// Attendees will be placed on a attendee list or issued with a letter of representation, and must bring photographic identification with them.
     /// Encoded/decoded by serializers as "AllowedWithLetterOfRepresentation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MALR")]
     [IsoId("_YRbokfNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Attendees will be placed on a attendee list or issued with a letter of representation, and must bring photographic identification with them.")]
     AllowedWithLetterOfRepresentation,
     
     /// <summary>
-    /// ??
+    /// Attendees must request proof of holding and register for attendance directly with Issuer.
     /// Encoded/decoded by serializers as "AllowedWithProof".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAHI")]
     [IsoId("_YWV9wfNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Attendees must request proof of holding and register for attendance directly with Issuer.")]
     AllowedWithProof,
     
     /// <summary>
-    /// ??
+    /// Attendees will be issued an admission ticket and must bring photographic identification with them.
     /// Encoded/decoded by serializers as "AllowedWithTicket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MATK")]
     [IsoId("_YaNKEfNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Attendees will be issued an admission ticket and must bring photographic identification with them.")]
     AllowedWithTicket,
     
     /// <summary>
-    /// ??
+    /// Attendee must be a delegate of the shareholder registered in the company stock ledger book.
     /// Encoded/decoded by serializers as "DelegateAllowedIfRegisteredInStockLedger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MADS")]
     [IsoId("_YeOHYfNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Attendee must be a delegate of the shareholder registered in the company stock ledger book.")]
     DelegateAllowedIfRegisteredInStockLedger,
     
     /// <summary>
-    /// ??
+    /// Meeting attendance is not possible.
     /// Encoded/decoded by serializers as "NotPossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANP")]
     [IsoId("_YhpO0fNhEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Meeting attendance is not possible.")]
     NotPossible,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesBalanceType10Code
 {
     /// <summary>
-    /// ??
+    /// Balance of money or securities that is at the disposal of the account owner on the date specified.
     /// Encoded/decoded by serializers as "Available".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVLB")]
     [IsoId("_Y_N7wtp-Ed-ak6NoX_4Aeg_-2001716249")]
-    [Description(@"??")]
+    [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
     Available,
     
     /// <summary>
-    /// ??
+    /// Balance of cash that may only be used under certain conditions.||Balance type is used to block securities/cash in the client account e.g., in relation to elections relating to certain corporate actions. The holding is under the direct control of the system paying agent, who us the only one who can transfer securities out of this balance type.|Also known as the "escrow balance" or "sequestered balance".
     /// Encoded/decoded by serializers as "Restricted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REST")]
     [IsoId("_Y_N7w9p-Ed-ak6NoX_4Aeg_-2001716229")]
-    [Description(@"??")]
+    [Description(@"Balance of cash that may only be used under certain conditions.||Balance type is used to block securities/cash in the client account e.g., in relation to elections relating to certain corporate actions. The holding is under the direct control of the system paying agent, who us the only one who can transfer securities out of this balance type.|Also known as the ""escrow balance"" or ""sequestered balance"".")]
     Restricted,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that are reserved for the distribution of the proceeds.
     /// Encoded/decoded by serializers as "ReservedForDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDIS")]
     [IsoId("_Y_N7xNp-Ed-ak6NoX_4Aeg_-2001716228")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that are reserved for the distribution of the proceeds.")]
     ReservedForDistribution,
     
     /// <summary>
-    /// ??
+    /// Balance of securities which are reserved temporarily in the SPA account before they will effectively be exchanged.
     /// Encoded/decoded by serializers as "ReservedForRemoval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RREM")]
     [IsoId("_Y_N7xdp-Ed-ak6NoX_4Aeg_-2001715950")]
-    [Description(@"??")]
+    [Description(@"Balance of securities which are reserved temporarily in the SPA account before they will effectively be exchanged.")]
     ReservedForRemoval,
     
 }

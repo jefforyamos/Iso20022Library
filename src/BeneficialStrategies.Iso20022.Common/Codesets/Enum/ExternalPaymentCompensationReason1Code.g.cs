@@ -21,12 +21,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalPaymentCompensationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Compensation requested for value date correction.
     /// Encoded/decoded by serializers as "ValueDateAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VADA")]
     [IsoId("_udl99fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Compensation requested for value date correction.")]
     ValueDateAdjustment,
     
 }

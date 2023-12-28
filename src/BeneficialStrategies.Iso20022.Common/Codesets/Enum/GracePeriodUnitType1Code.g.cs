@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GracePeriodUnitType1Code
 {
     /// <summary>
-    /// ??
+    /// Grace period weeks.
     /// Encoded/decoded by serializers as "Weeks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEKS")]
     [IsoId("_xb7ZcTEpEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Grace period weeks.")]
     Weeks,
     
     /// <summary>
-    /// ??
+    /// Grace period payments.
     /// Encoded/decoded by serializers as "Payments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PMTS")]
     [IsoId("_xwpFMTEpEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Grace period payments.")]
     Payments,
     
     /// <summary>
-    /// ??
+    /// Other Private Grace period.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_yFqS8TEpEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other Private Grace period.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other National Grace period.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_yaONsTEpEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other National Grace period.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Grace period months.
     /// Encoded/decoded by serializers as "Months".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_yuo-gTEpEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Grace period months.")]
     Months,
     
     /// <summary>
-    /// ??
+    /// Grace period days.
     /// Encoded/decoded by serializers as "Days".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAYS")]
     [IsoId("_zDWqQTEpEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Grace period days.")]
     Days,
     
 }

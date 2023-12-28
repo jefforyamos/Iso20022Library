@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Quantity5Code
 {
     /// <summary>
-    /// ??
+    /// Quantity is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "UnknownQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_lYgM6QFIEeGhYJiRaPcH8g")]
-    [Description(@"??")]
+    [Description(@"Quantity is unknown by the sender or has not been established.")]
     UnknownQuantity,
     
 }

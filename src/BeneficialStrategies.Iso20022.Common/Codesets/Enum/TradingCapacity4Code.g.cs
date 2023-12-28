@@ -20,138 +20,138 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradingCapacity4Code
 {
     /// <summary>
-    /// ??
+    /// Trading as Principal.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIN")]
     [IsoId("__zHQAdojEeC60axPepSq7g_-86024906")]
-    [Description(@"??")]
+    [Description(@"Trading as Principal.")]
     Principal,
     
     /// <summary>
-    /// ??
+    /// Crossing as a principal.
     /// Encoded/decoded by serializers as "CrossingPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPRN")]
     [IsoId("__zHQAtojEeC60axPepSq7g_-199863972")]
-    [Description(@"??")]
+    [Description(@"Crossing as a principal.")]
     CrossingPrincipal,
     
     /// <summary>
-    /// ??
+    /// Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.
     /// Encoded/decoded by serializers as "RisklessPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RISP")]
     [IsoId("__zHQA9ojEeC60axPepSq7g_-52865137")]
-    [Description(@"??")]
+    [Description(@"Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.")]
     RisklessPrincipal,
     
     /// <summary>
-    /// ??
+    /// Trading for its firm. The transaction affects the firm's own account, not that of its customers.
     /// Encoded/decoded by serializers as "Proprietary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("__zHQBNojEeC60axPepSq7g_1471203159")]
-    [Description(@"??")]
+    [Description(@"Trading for its firm. The transaction affects the firm's own account, not that of its customers.")]
     Proprietary,
     
     /// <summary>
-    /// ??
+    /// Trading as Agent on behalf of a customer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGEN")]
     [IsoId("__zHQBdojEeC60axPepSq7g_1622201004")]
-    [Description(@"??")]
+    [Description(@"Trading as Agent on behalf of a customer.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Crossing as an agent.
     /// Encoded/decoded by serializers as "CrossingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAGN")]
     [IsoId("__zHQBtojEeC60axPepSq7g_-1148697996")]
-    [Description(@"??")]
+    [Description(@"Crossing as an agent.")]
     CrossingAgent,
     
     /// <summary>
-    /// ??
+    /// Acting as an agent for a party other than a customer.
     /// Encoded/decoded by serializers as "OtherAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OAGN")]
     [IsoId("__zRBANojEeC60axPepSq7g_-845601054")]
-    [Description(@"??")]
+    [Description(@"Acting as an agent for a party other than a customer.")]
     OtherAgent,
     
     /// <summary>
-    /// ??
+    /// Acting as an agent for some executions and principal for others in the same transaction.
     /// Encoded/decoded by serializers as "PrincipalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAG")]
     [IsoId("__zRBAdojEeC60axPepSq7g_678467242")]
-    [Description(@"??")]
+    [Description(@"Acting as an agent for some executions and principal for others in the same transaction.")]
     PrincipalAgent,
     
     /// <summary>
-    /// ??
+    /// Party acting as an agent for both customer and another person.
     /// Encoded/decoded by serializers as "ActingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BAGN")]
     [IsoId("__zRBAtojEeC60axPepSq7g_232419284")]
-    [Description(@"??")]
+    [Description(@"Party acting as an agent for both customer and another person.")]
     ActingAgent,
     
     /// <summary>
-    /// ??
+    /// Any legal person whose regular occupation or business is the provision of one or more investment services to third parties and/or the performance of one or more investment activities on a professional basis.
     /// Encoded/decoded by serializers as "InvestmentFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFI")]
     [IsoId("__zRBA9ojEeC60axPepSq7g_1756487580")]
-    [Description(@"??")]
+    [Description(@"Any legal person whose regular occupation or business is the provision of one or more investment services to third parties and/or the performance of one or more investment activities on a professional basis.")]
     InvestmentFirm,
     
     /// <summary>
-    /// ??
+    /// Dealer or specialist that is trading for their own account in the OTC market. Market makers are expected to maintain an orderly market by being available to buy or sell.
     /// Encoded/decoded by serializers as "MarketMaker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MKTM")]
     [IsoId("__zRBBNojEeC60axPepSq7g_686506553")]
-    [Description(@"??")]
+    [Description(@"Dealer or specialist that is trading for their own account in the OTC market. Market makers are expected to maintain an orderly market by being available to buy or sell.")]
     MarketMaker,
     
     /// <summary>
-    /// ??
+    /// Multilateral Trading Facility (MTF) is a multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.
     /// Encoded/decoded by serializers as "MultilateralTradingFacility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLTF")]
     [IsoId("__zaK8NojEeC60axPepSq7g_-2084392447")]
-    [Description(@"??")]
+    [Description(@"Multilateral Trading Facility (MTF) is a multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.")]
     MultilateralTradingFacility,
     
     /// <summary>
-    /// ??
+    /// Regulated market on which financial instruments can be traded according to rules defined by the stock exchange.
     /// Encoded/decoded by serializers as "RegulatedMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMKT")]
     [IsoId("__zaK8dojEeC60axPepSq7g_-1777537574")]
-    [Description(@"??")]
+    [Description(@"Regulated market on which financial instruments can be traded according to rules defined by the stock exchange.")]
     RegulatedMarket,
     
     /// <summary>
-    /// ??
+    /// Firms which, on an organised, frequent and systematic basis, deal on their own account by executing client orders outside a regulated market or an MTF. SIs have the obligation to provide, and make public, a definite bid and offer quote for liquid securities.
     /// Encoded/decoded by serializers as "SystematicInternaliser".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SINT")]
     [IsoId("__zaK8tojEeC60axPepSq7g_-253469278")]
-    [Description(@"??")]
+    [Description(@"Firms which, on an organised, frequent and systematic basis, deal on their own account by executing client orders outside a regulated market or an MTF. SIs have the obligation to provide, and make public, a definite bid and offer quote for liquid securities.")]
     SystematicInternaliser,
     
     /// <summary>
-    /// ??
+    /// Party appointed by the Fund Management Company. It updates records of investor accounts to reflect the daily investor purchases, redemptions, switches, transfers, and re-registrations. It ensures the timely settlement of transactions, and may provide tax information to the investor and/or to its intermediaries. It may calculate, collect, and rebate commissions. It prepares and distributes confirmations reflecting transactions, resulting in unit or cash account movements to the investor or the investor's intermediary. It responds to inquiries concerning account status, and processes the income distribution.
     /// Encoded/decoded by serializers as "TransferAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAGT")]
     [IsoId("__zaK89ojEeC60axPepSq7g_-1016772421")]
-    [Description(@"??")]
+    [Description(@"Party appointed by the Fund Management Company. It updates records of investor accounts to reflect the daily investor purchases, redemptions, switches, transfers, and re-registrations. It ensures the timely settlement of transactions, and may provide tax information to the investor and/or to its intermediaries. It may calculate, collect, and rebate commissions. It prepares and distributes confirmations reflecting transactions, resulting in unit or cash account movements to the investor or the investor's intermediary. It responds to inquiries concerning account status, and processes the income distribution.")]
     TransferAgent,
     
 }

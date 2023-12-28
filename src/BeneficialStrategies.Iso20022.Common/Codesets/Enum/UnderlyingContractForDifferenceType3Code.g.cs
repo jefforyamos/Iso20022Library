@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnderlyingContractForDifferenceType3Code
 {
     /// <summary>
-    /// ??
+    /// Underlying is a bond.
     /// Encoded/decoded by serializers as "Bond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOND")]
     [IsoId("_-D6XQYJoEeaStugbHOVOsA")]
-    [Description(@"??")]
+    [Description(@"Underlying is a bond.")]
     Bond,
     
     /// <summary>
-    /// ??
+    /// Underlying is a commodity.
     /// Encoded/decoded by serializers as "Commodity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_-NuakYJoEeaStugbHOVOsA")]
-    [Description(@"??")]
+    [Description(@"Underlying is a commodity.")]
     Commodity,
     
     /// <summary>
-    /// ??
+    /// Underlying is a currency.
     /// Encoded/decoded by serializers as "Currency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_-hqDMYJoEeaStugbHOVOsA")]
-    [Description(@"??")]
+    [Description(@"Underlying is a currency.")]
     Currency,
     
     /// <summary>
-    /// ??
+    /// Underlying is an emission allowance.
     /// Encoded/decoded by serializers as "EmissionAllowance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_-7ii0YJoEeaStugbHOVOsA")]
-    [Description(@"??")]
+    [Description(@"Underlying is an emission allowance.")]
     EmissionAllowance,
     
     /// <summary>
-    /// ??
+    /// Underlying is an equity.
     /// Encoded/decoded by serializers as "Equity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUI")]
     [IsoId("__UhqkYJoEeaStugbHOVOsA")]
-    [Description(@"??")]
+    [Description(@"Underlying is an equity.")]
     Equity,
     
     /// <summary>
-    /// ??
+    /// Underlying is a future on equity.
     /// Encoded/decoded by serializers as "FutureOnEquity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FTEQ")]
     [IsoId("_ANMX8YJpEeaStugbHOVOsA")]
-    [Description(@"??")]
+    [Description(@"Underlying is a future on equity.")]
     FutureOnEquity,
     
     /// <summary>
-    /// ??
+    /// Underlying is an option on equity.
     /// Encoded/decoded by serializers as "OptionOnEquity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEQ")]
     [IsoId("_BAgEMYJpEeaStugbHOVOsA")]
-    [Description(@"??")]
+    [Description(@"Underlying is an option on equity.")]
     OptionOnEquity,
     
     /// <summary>
-    /// ??
+    /// Underlying is of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_BPhXoYJpEeaStugbHOVOsA")]
-    [Description(@"??")]
+    [Description(@"Underlying is of other type.")]
     Other,
     
 }

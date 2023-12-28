@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartiallySettledStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Units are partially settled.
     /// Encoded/decoded by serializers as "UnitsPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPST")]
     [IsoId("_ZxSR6Np-Ed-ak6NoX_4Aeg_289532051")]
-    [Description(@"??")]
+    [Description(@"Units are partially settled.")]
     UnitsPartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Cash is partially settled.
     /// Encoded/decoded by serializers as "CashPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPST")]
     [IsoId("_ZxSR6dp-Ed-ak6NoX_4Aeg_289532363")]
-    [Description(@"??")]
+    [Description(@"Cash is partially settled.")]
     CashPartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Units and cash are both partially settled.
     /// Encoded/decoded by serializers as "UnitsCashPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCPS")]
     [IsoId("_ZxcC4Np-Ed-ak6NoX_4Aeg_289532483")]
-    [Description(@"??")]
+    [Description(@"Units and cash are both partially settled.")]
     UnitsCashPartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Final redemption proceeds are held back, pending annual financial audit approval.
     /// Encoded/decoded by serializers as "HoldBackPendingAudit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLA")]
     [IsoId("_ZxcC4dp-Ed-ak6NoX_4Aeg_237753692")]
-    [Description(@"??")]
+    [Description(@"Final redemption proceeds are held back, pending annual financial audit approval.")]
     HoldBackPendingAudit,
     
     /// <summary>
-    /// ??
+    /// Final redemption proceeds are held back as the fund has been liquidated and is pending audit approval.
     /// Encoded/decoded by serializers as "HoldBackLiquidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLL")]
     [IsoId("_ZxcC4tp-Ed-ak6NoX_4Aeg_237753727")]
-    [Description(@"??")]
+    [Description(@"Final redemption proceeds are held back as the fund has been liquidated and is pending audit approval.")]
     HoldBackLiquidation,
     
 }

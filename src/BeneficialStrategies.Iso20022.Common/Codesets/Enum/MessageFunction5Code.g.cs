@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction5Code
 {
     /// <summary>
-    /// ??
+    /// Request for authorisation with financial capture.
     /// Encoded/decoded by serializers as "FinancialAuthorisationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAUQ")]
     [IsoId("_jGozoWpsEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Request for authorisation with financial capture.")]
     FinancialAuthorisationRequest,
     
     /// <summary>
-    /// ??
+    /// Request for cancellation.
     /// Encoded/decoded by serializers as "CancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAQ")]
     [IsoId("_jGozo2psEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Request for cancellation.")]
     CancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Advice for completion without financial capture.
     /// Encoded/decoded by serializers as "CompletionAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMPV")]
     [IsoId("_jGozpWpsEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Advice for completion without financial capture.")]
     CompletionAdvice,
     
     /// <summary>
-    /// ??
+    /// Request for diagnostic.
     /// Encoded/decoded by serializers as "DiagnosticRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DGNP")]
     [IsoId("_jGozp2psEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Request for diagnostic.")]
     DiagnosticRequest,
     
     /// <summary>
-    /// ??
+    /// Request for reconciliation.
     /// Encoded/decoded by serializers as "ReconciliationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCLQ")]
     [IsoId("_jGozqWpsEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Request for reconciliation.")]
     ReconciliationRequest,
     
     /// <summary>
-    /// ??
+    /// Advice for cancellation.
     /// Encoded/decoded by serializers as "CancellationAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAV")]
     [IsoId("_jGozq2psEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Advice for cancellation.")]
     CancellationAdvice,
     
     /// <summary>
-    /// ??
+    /// Transfer the financial data as a collection of transction.
     /// Encoded/decoded by serializers as "BatchTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTCH")]
     [IsoId("_jGozrWpsEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Transfer the financial data as a collection of transction.")]
     BatchTransfer,
     
     /// <summary>
-    /// ??
+    /// Advice for reversal with financial capture.
     /// Encoded/decoded by serializers as "FinancialReversalAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRVA")]
     [IsoId("_jGozr2psEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Advice for reversal with financial capture.")]
     FinancialReversalAdvice,
     
     /// <summary>
-    /// ??
+    /// The initiator requests an authorisation without financial impact to complete the transaction.
     /// Encoded/decoded by serializers as "AuthorisationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTQ")]
     [IsoId("_jGozsWpsEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"The initiator requests an authorisation without financial impact to complete the transaction.")]
     AuthorisationRequest,
     
     /// <summary>
-    /// ??
+    /// Advice for completion with financial capture.
     /// Encoded/decoded by serializers as "FinancialCompletionAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCMV")]
     [IsoId("_jGozs2psEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Advice for completion with financial capture.")]
     FinancialCompletionAdvice,
     
     /// <summary>
-    /// ??
+    /// Reversal advice of an authorisation or a financial message.
     /// Encoded/decoded by serializers as "AcquirerReversalAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REVV")]
     [IsoId("_jGoztWpsEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Reversal advice of an authorisation or a financial message.")]
     AcquirerReversalAdvice,
     
     /// <summary>
-    /// ??
+    /// Request for dynamic currency conversion.
     /// Encoded/decoded by serializers as "CurrencyConversionRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCQ")]
     [IsoId("_nmCXIWpsEeSMqvBfBY1c9A")]
-    [Description(@"??")]
+    [Description(@"Request for dynamic currency conversion.")]
     CurrencyConversionRequest,
     
 }

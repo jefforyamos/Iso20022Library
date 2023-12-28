@@ -20,138 +20,138 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction received after the account servicers specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_Zi1mMtp-Ed-ak6NoX_4Aeg_-219351513")]
-    [Description(@"??")]
+    [Description(@"Instruction received after the account servicers specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_Zi1mM9p-Ed-ak6NoX_4Aeg_-192568846")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_Zi1mNNp-Ed-ak6NoX_4Aeg_-126077469")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Position is less than required threshold.
     /// Encoded/decoded by serializers as "InsufficientTresholdPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOS")]
     [IsoId("_Zi1mNdp-Ed-ak6NoX_4Aeg_-106680134")]
-    [Description(@"??")]
+    [Description(@"Position is less than required threshold.")]
     InsufficientTresholdPosition,
     
     /// <summary>
-    /// ??
+    /// Instructed position exceeds the eligible balance.
     /// Encoded/decoded by serializers as "LackofSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_Zi1mNtp-Ed-ak6NoX_4Aeg_646909701")]
-    [Description(@"??")]
+    [Description(@"Instructed position exceeds the eligible balance.")]
     LackofSecurities,
     
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid or unrecognised safekeeping account.
     /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_Zi1mN9p-Ed-ak6NoX_4Aeg_680157992")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid or unrecognised safekeeping account.")]
     SafekeepingAccountRejection,
     
     /// <summary>
-    /// ??
+    /// Issuer or Registrar has rejected the instruction.
     /// Encoded/decoded by serializers as "RejectedByIssuerOrRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RBIS")]
     [IsoId("_Zi1mONp-Ed-ak6NoX_4Aeg_705093323")]
-    [Description(@"??")]
+    [Description(@"Issuer or Registrar has rejected the instruction.")]
     RejectedByIssuerOrRegistrar,
     
     /// <summary>
-    /// ??
+    /// Unrecognised event number or identification (eg corporate action event number, a meeting identification).
     /// Encoded/decoded by serializers as "UnrecognizedIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVNM")]
     [IsoId("_Zi1mOdp-Ed-ak6NoX_4Aeg_766044307")]
-    [Description(@"??")]
+    [Description(@"Unrecognised event number or identification (eg corporate action event number, a meeting identification).")]
     UnrecognizedIdentification,
     
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid message reference, reference is unknown.
     /// Encoded/decoded by serializers as "InvalidReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULNK")]
     [IsoId("_Zi-wINp-Ed-ak6NoX_4Aeg_1032018093")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid message reference, reference is unknown.")]
     InvalidReference,
     
     /// <summary>
-    /// ??
+    /// Invalid proxy information.
     /// Encoded/decoded by serializers as "ProxyCardDiscrepancy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRXY")]
     [IsoId("_Zi-wIdp-Ed-ak6NoX_4Aeg_1047717799")]
-    [Description(@"??")]
+    [Description(@"Invalid proxy information.")]
     ProxyCardDiscrepancy,
     
     /// <summary>
-    /// ??
+    /// Partial voting is not allowed.
     /// Encoded/decoded by serializers as "PartialVoteNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_Zi-wItp-Ed-ak6NoX_4Aeg_1068961790")]
-    [Description(@"??")]
+    [Description(@"Partial voting is not allowed.")]
     PartialVoteNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Split voting is not allowed.
     /// Encoded/decoded by serializers as "SplitVoteNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLT")]
     [IsoId("_Zi-wI9p-Ed-ak6NoX_4Aeg_1080964521")]
-    [Description(@"??")]
+    [Description(@"Split voting is not allowed.")]
     SplitVoteNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Missing or invalid power of attorney.
     /// Encoded/decoded by serializers as "MissingOrInvalidPOA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOA")]
     [IsoId("_Zi-wJNp-Ed-ak6NoX_4Aeg_1104977941")]
-    [Description(@"??")]
+    [Description(@"Missing or invalid power of attorney.")]
     MissingOrInvalidPOA,
     
     /// <summary>
-    /// ??
+    /// Invalid registration information.
     /// Encoded/decoded by serializers as "RegistrationDiscrepancy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IREG")]
     [IsoId("_Zi-wJdp-Ed-ak6NoX_4Aeg_1667403767")]
-    [Description(@"??")]
+    [Description(@"Invalid registration information.")]
     RegistrationDiscrepancy,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_Zi-wJtp-Ed-ak6NoX_4Aeg_1926910316")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
 }

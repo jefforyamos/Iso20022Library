@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentFundTransactionInType3Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is a subscription to an investment fund.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_ViO3idp-Ed-ak6NoX_4Aeg_-936351208")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription to an investment fund.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Transaction is a subscription leg of a switch order execution.
     /// Encoded/decoded by serializers as "SwitchIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWII")]
     [IsoId("_ViYogNp-Ed-ak6NoX_4Aeg_-921572438")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription leg of a switch order execution.")]
     SwitchIn,
     
     /// <summary>
-    /// ??
+    /// Transaction is an InSpecie.
     /// Encoded/decoded by serializers as "InSpecie".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSP")]
     [IsoId("_ViYogdp-Ed-ak6NoX_4Aeg_-1939231322")]
-    [Description(@"??")]
+    [Description(@"Transaction is an InSpecie.")]
     InSpecie,
     
     /// <summary>
-    /// ??
+    /// Transaction is a cross-in.
     /// Encoded/decoded by serializers as "CrossIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CROI")]
     [IsoId("_ViYogtp-Ed-ak6NoX_4Aeg_-1929071750")]
-    [Description(@"??")]
+    [Description(@"Transaction is a cross-in.")]
     CrossIn,
     
     /// <summary>
-    /// ??
+    /// Transaction is another type of transaction.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ViYog9p-Ed-ak6NoX_4Aeg_-1909676382")]
-    [Description(@"??")]
+    [Description(@"Transaction is another type of transaction.")]
     Other,
     
 }

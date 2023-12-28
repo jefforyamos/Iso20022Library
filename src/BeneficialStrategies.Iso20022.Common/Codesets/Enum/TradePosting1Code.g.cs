@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradePosting1Code
 {
     /// <summary>
-    /// ??
+    /// Trade is maintained as a separate individual position in the clearing account.
     /// Encoded/decoded by serializers as "Gross".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GROS")]
     [IsoId("_-fsj2KMOEeCojJW5vEuTEQ_142944546")]
-    [Description(@"??")]
+    [Description(@"Trade is maintained as a separate individual position in the clearing account.")]
     Gross,
     
     /// <summary>
-    /// ??
+    /// Trade is maintained as a net position in the clearing account.
     /// Encoded/decoded by serializers as "Net".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETT")]
     [IsoId("_-fsj2aMOEeCojJW5vEuTEQ_1610093309")]
-    [Description(@"??")]
+    [Description(@"Trade is maintained as a net position in the clearing account.")]
     Net,
     
 }

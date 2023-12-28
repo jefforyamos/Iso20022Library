@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PledgeeType1Code
 {
     /// <summary>
-    /// ??
+    /// Financial instruments are pledged to a counterparty.
     /// Encoded/decoded by serializers as "Counterparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTY")]
     [IsoId("_o56mAVj2EeSYweXGddZAOA")]
-    [Description(@"??")]
+    [Description(@"Financial instruments are pledged to a counterparty.")]
     Counterparty,
     
     /// <summary>
-    /// ??
+    /// Financial instruments are pledged to a regulatory body.
     /// Encoded/decoded by serializers as "RegulatoryBody".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGB")]
     [IsoId("_pCsHgVj2EeSYweXGddZAOA")]
-    [Description(@"??")]
+    [Description(@"Financial instruments are pledged to a regulatory body.")]
     RegulatoryBody,
     
 }

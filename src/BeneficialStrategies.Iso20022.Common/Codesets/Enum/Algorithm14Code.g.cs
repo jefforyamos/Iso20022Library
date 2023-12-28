@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm14Code
 {
     /// <summary>
-    /// ??
+    /// Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).
     /// Encoded/decoded by serializers as "SHA256WithRSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERS2")]
     [IsoId("_i_XcAWjBEeSP8Z8nx8HTuQ")]
-    [Description(@"??")]
+    [Description(@"Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).")]
     SHA256WithRSA,
     
     /// <summary>
-    /// ??
+    /// The DEPRECATED Signature algorithms with RSA (PKCS #1 version 2.1), using SHA-1 digest algorithm - (ASN.1 Object Identifier: sha1WithRSAEncryption).
     /// Encoded/decoded by serializers as "SHA1WithRSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERS1")]
     [IsoId("_x0rDYWjBEeSP8Z8nx8HTuQ")]
-    [Description(@"??")]
+    [Description(@"The DEPRECATED Signature algorithms with RSA (PKCS #1 version 2.1), using SHA-1 digest algorithm - (ASN.1 Object Identifier: sha1WithRSAEncryption).")]
     SHA1WithRSA,
     
     /// <summary>
-    /// ??
+    /// Signature algorithm with Appendix, Probabilistic Signature Scheme (PKCS #1 version 2.1), - (ASN.1 Object Identifier: id-RSASSA-PSS).
     /// Encoded/decoded by serializers as "RSASSA_PSS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPSS")]
     [IsoId("_2ytDoWjBEeSP8Z8nx8HTuQ")]
-    [Description(@"??")]
+    [Description(@"Signature algorithm with Appendix, Probabilistic Signature Scheme (PKCS #1 version 2.1), - (ASN.1 Object Identifier: id-RSASSA-PSS).")]
     RSASSA_PSS,
     
 }

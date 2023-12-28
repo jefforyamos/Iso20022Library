@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CutOff1Code
 {
     /// <summary>
-    /// ??
+    /// Cut-off may change to early.
     /// Encoded/decoded by serializers as "AnticipatedEarlyCutoff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AERL")]
     [IsoId("_1pktkjL3EeKU9IrkkToqcw_1676180925")]
-    [Description(@"??")]
+    [Description(@"Cut-off may change to early.")]
     AnticipatedEarlyCutoff,
     
     /// <summary>
-    /// ??
+    /// Cut-off occurs before the DTCC (The Depository Trust and Clearing Corporation) standard settlement cut-off. Early cut-off usually 1: 30 Eastern Standard Time.
     /// Encoded/decoded by serializers as "Early".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EARL")]
     [IsoId("_1pktkzL3EeKU9IrkkToqcw_1562341859")]
-    [Description(@"??")]
+    [Description(@"Cut-off occurs before the DTCC (The Depository Trust and Clearing Corporation) standard settlement cut-off. Early cut-off usually 1: 30 Eastern Standard Time.")]
     Early,
     
     /// <summary>
-    /// ??
+    /// Cut-off is after settlement at DTCC (The Depository Trust and Clearing Corporation).
     /// Encoded/decoded by serializers as "Late".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_1pktlDL3EeKU9IrkkToqcw_2001298432")]
-    [Description(@"??")]
+    [Description(@"Cut-off is after settlement at DTCC (The Depository Trust and Clearing Corporation).")]
     Late,
     
 }

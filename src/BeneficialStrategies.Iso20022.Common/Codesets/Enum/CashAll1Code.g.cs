@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashAll1Code
 {
     /// <summary>
-    /// ??
+    /// All assets in a portfolio should be liquidated and transferred as cash.
     /// Encoded/decoded by serializers as "LiquidatedTransferAsCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIQU")]
     [IsoId("_S1Ptsc4FEeiAhd-njDxLnA")]
-    [Description(@"??")]
+    [Description(@"All assets in a portfolio should be liquidated and transferred as cash.")]
     LiquidatedTransferAsCash,
     
     /// <summary>
-    /// ??
+    /// All assets in a portfolio should not be liquidated and transferred as cash.
     /// Encoded/decoded by serializers as "NotLiquidatedTransferAsCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NLIQ")]
     [IsoId("_S7Dawc4FEeiAhd-njDxLnA")]
-    [Description(@"??")]
+    [Description(@"All assets in a portfolio should not be liquidated and transferred as cash.")]
     NotLiquidatedTransferAsCash,
     
 }

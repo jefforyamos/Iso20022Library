@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Frequency17Code
 {
     /// <summary>
-    /// ??
+    /// Event takes place every year or once a year.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_fusgsclPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place every year or once a year.")]
     Annual,
     
     /// <summary>
-    /// ??
+    /// Event takes place every day.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_futHx8lPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place every day.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Event takes place every two weeks.
     /// Encoded/decoded by serializers as "Fortnightly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRTN")]
     [IsoId("_futHz8lPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place every two weeks.")]
     Fortnightly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every month or once a month.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_futH0clPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place every month or once a month.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every three months or four times a year.
     /// Encoded/decoded by serializers as "Quarterly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QURT")]
     [IsoId("_futH38lPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place every three months or four times a year.")]
     Quarterly,
     
     /// <summary>
-    /// ??
+    /// Event takes place every six months or two times a year.
     /// Encoded/decoded by serializers as "SemiAnnual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIAN")]
     [IsoId("_futH7clPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place every six months or two times a year.")]
     SemiAnnual,
     
     /// <summary>
-    /// ??
+    /// Event takes place every ten business days.
     /// Encoded/decoded by serializers as "TenDays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEND")]
     [IsoId("_futH9clPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place every ten business days.")]
     TenDays,
     
     /// <summary>
-    /// ??
+    /// Event takes place once a week.
     /// Encoded/decoded by serializers as "Weekly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_futH98lPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place once a week.")]
     Weekly,
     
     /// <summary>
-    /// ??
+    /// Event takes place on request or as necessary.
     /// Encoded/decoded by serializers as "Adhoc".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADHO")]
     [IsoId("_pdb24MlPEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place on request or as necessary.")]
     Adhoc,
     
     /// <summary>
-    /// ??
+    /// Event associated with a shift.
     /// Encoded/decoded by serializers as "Shift".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHFT")]
     [IsoId("_1TaJ4clQEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event associated with a shift.")]
     Shift,
     
     /// <summary>
-    /// ??
+    /// Event takes place on demand.
     /// Encoded/decoded by serializers as "OnDemand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ODMD")]
     [IsoId("_1uI-EclQEeuJ35KoBRZFOg")]
-    [Description(@"??")]
+    [Description(@"Event takes place on demand.")]
     OnDemand,
     
 }

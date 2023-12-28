@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralRole1Code
 {
     /// <summary>
-    /// ??
+    /// Collateral giver.
     /// Encoded/decoded by serializers as "CollateralGiver".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIVE")]
     [IsoId("_qHyVISDCEeaned5xL18mUQ")]
-    [Description(@"??")]
+    [Description(@"Collateral giver.")]
     CollateralGiver,
     
     /// <summary>
-    /// ??
+    /// Collateral taker. 
     /// Encoded/decoded by serializers as "CollateralTaker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAKE")]
     [IsoId("_qPOZ4SDCEeaned5xL18mUQ")]
-    [Description(@"??")]
+    [Description(@"Collateral taker. ")]
     CollateralTaker,
     
 }

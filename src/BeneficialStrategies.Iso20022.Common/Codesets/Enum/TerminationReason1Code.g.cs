@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Reason for termination is reduction terms have been fulfilled.
     /// Encoded/decoded by serializers as "ReductionTermsFulfilled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFU")]
     [IsoId("_946n4RSKEeKyNbjzgBLUcA")]
-    [Description(@"??")]
+    [Description(@"Reason for termination is reduction terms have been fulfilled.")]
     ReductionTermsFulfilled,
     
     /// <summary>
-    /// ??
+    /// Reason for termination is non-acceptance of a tender.
     /// Encoded/decoded by serializers as "TenderNonAcceptance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAC")]
     [IsoId("_-CKDcRSKEeKyNbjzgBLUcA")]
-    [Description(@"??")]
+    [Description(@"Reason for termination is non-acceptance of a tender.")]
     TenderNonAcceptance,
     
     /// <summary>
-    /// ??
+    /// Reason for termination is underlying business has finished.
     /// Encoded/decoded by serializers as "UnderlyingBusinessFinished".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUFI")]
     [IsoId("_-NLnsRSKEeKyNbjzgBLUcA")]
-    [Description(@"??")]
+    [Description(@"Reason for termination is underlying business has finished.")]
     UnderlyingBusinessFinished,
     
     /// <summary>
-    /// ??
+    /// Reason for termination is warranty obligation period has expired.
     /// Encoded/decoded by serializers as "WarrantyObligationPeriodExpired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WOEX")]
     [IsoId("_-Yp34RSKEeKyNbjzgBLUcA")]
-    [Description(@"??")]
+    [Description(@"Reason for termination is warranty obligation period has expired.")]
     WarrantyObligationPeriodExpired,
     
 }

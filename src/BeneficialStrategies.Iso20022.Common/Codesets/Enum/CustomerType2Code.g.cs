@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustomerType2Code
 {
     /// <summary>
-    /// ??
+    /// Consumer
     /// Encoded/decoded by serializers as "Consumer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSMR")]
     [IsoId("_56414S7QEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Consumer")]
     Consumer,
     
     /// <summary>
-    /// ??
+    /// Company
     /// Encoded/decoded by serializers as "Company".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPNY")]
     [IsoId("_6R19US7QEemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Company")]
     Company,
     
 }

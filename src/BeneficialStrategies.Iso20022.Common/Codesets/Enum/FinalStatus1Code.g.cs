@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FinalStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction has been successfully processed by the clearing agent.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLD")]
     [IsoId("_8PRUJaMgEeCJ6YNENx4h-w_-1768690296")]
-    [Description(@"??")]
+    [Description(@"Transaction has been successfully processed by the clearing agent.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Transaction has been rejected by the clearing agent.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJTD")]
     [IsoId("_8PRUJqMgEeCJ6YNENx4h-w_-116062788")]
-    [Description(@"??")]
+    [Description(@"Transaction has been rejected by the clearing agent.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Transaction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_8PRUJ6MgEeCJ6YNENx4h-w_-408020526")]
-    [Description(@"??")]
+    [Description(@"Transaction has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Transaction has been successfully processed by the clearing agent. Settlement will take place outside of the system.
     /// Encoded/decoded by serializers as "Finalised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNLD")]
     [IsoId("_8PaeEKMgEeCJ6YNENx4h-w_-229901854")]
-    [Description(@"??")]
+    [Description(@"Transaction has been successfully processed by the clearing agent. Settlement will take place outside of the system.")]
     Finalised,
     
 }

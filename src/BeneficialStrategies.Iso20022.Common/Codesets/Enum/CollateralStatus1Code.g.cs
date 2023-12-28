@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Excess of collateral.
     /// Encoded/decoded by serializers as "CollateralExcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCS")]
     [IsoId("_JpYjkcUcEeiF-qqyf1JQhg")]
-    [Description(@"??")]
+    [Description(@"Excess of collateral.")]
     CollateralExcess,
     
     /// <summary>
-    /// ??
+    /// Shortage of collateral.
     /// Encoded/decoded by serializers as "CollateralShortage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFI")]
     [IsoId("_JuqsMcUcEeiF-qqyf1JQhg")]
-    [Description(@"??")]
+    [Description(@"Shortage of collateral.")]
     CollateralShortage,
     
     /// <summary>
-    /// ??
+    /// Collateral covers the exposure and there is no excess.
     /// Encoded/decoded by serializers as "NoExcessCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLAT")]
     [IsoId("_J0VPUcUcEeiF-qqyf1JQhg")]
-    [Description(@"??")]
+    [Description(@"Collateral covers the exposure and there is no excess.")]
     NoExcessCollateral,
     
 }

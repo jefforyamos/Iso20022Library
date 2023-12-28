@@ -21,93 +21,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalPendingProcessingReason1Code
 {
     /// <summary>
-    /// ??
+    /// Received after the servicer's deadline. Processed on best effort basis
     /// Encoded/decoded by serializers as "ServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_uVP6SPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Received after the servicer's deadline. Processed on best effort basis")]
     ServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Exceptional closing of all financial institutions due to natural disaster, for example, earthquake
     /// Encoded/decoded by serializers as "NaturalDisaster".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISA")]
     [IsoId("_uVZEMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Exceptional closing of all financial institutions due to natural disaster, for example, earthquake")]
     NaturalDisaster,
     
     /// <summary>
-    /// ??
+    /// Special follow-up is taking place
     /// Encoded/decoded by serializers as "Escalation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESCA")]
     [IsoId("_uVZENfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Special follow-up is taking place")]
     Escalation,
     
     /// <summary>
-    /// ??
+    /// Pending reason being investigated
     /// Encoded/decoded by serializers as "StatusReasonInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IAAD")]
     [IsoId("_uVZEOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Pending reason being investigated")]
     StatusReasonInvestigation,
     
     /// <summary>
-    /// ??
+    /// Longer processing timeframe for this type of SSI
     /// Encoded/decoded by serializers as "LongerProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LPRO")]
     [IsoId("_uVZEO_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Longer processing timeframe for this type of SSI")]
     LongerProcessing,
     
     /// <summary>
-    /// ??
+    /// Information, for example, currency is missing
     /// Encoded/decoded by serializers as "MissingInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINF")]
     [IsoId("_uVi1MvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Information, for example, currency is missing")]
     MissingInformation,
     
     /// <summary>
-    /// ??
+    /// Financial instrument is a new issue and not yet available/tradable
     /// Encoded/decoded by serializers as "NewIssues".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWI")]
     [IsoId("_uVi1NfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Financial instrument is a new issue and not yet available/tradable")]
     NewIssues,
     
     /// <summary>
-    /// ??
+    /// Next process is launched. No processing pending problems to be reported
     /// Encoded/decoded by serializers as "NextProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEXT")]
     [IsoId("_uVi1OPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Next process is launched. No processing pending problems to be reported")]
     NextProcess,
     
     /// <summary>
-    /// ??
+    /// Instruction was not straight through processing and had to be processed manually
     /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTP")]
     [IsoId("_uVi1O_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instruction was not straight through processing and had to be processed manually")]
     NotStraightThroughProcessing,
     
     /// <summary>
-    /// ??
+    /// Transaction was put on hold/frozen by the system
     /// Encoded/decoded by serializers as "SystemOnHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRSY")]
     [IsoId("_uVsmMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Transaction was put on hold/frozen by the system")]
     SystemOnHold,
     
 }

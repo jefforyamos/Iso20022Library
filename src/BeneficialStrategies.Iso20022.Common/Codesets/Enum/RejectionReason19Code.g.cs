@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason19Code
 {
     /// <summary>
-    /// ??
+    /// The validation of the advice/instruction/request failed.
     /// Encoded/decoded by serializers as "FailedValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_Zi1mMNp-Ed-ak6NoX_4Aeg_-856637114")]
-    [Description(@"??")]
+    [Description(@"The validation of the advice/instruction/request failed.")]
     FailedValidation,
     
 }

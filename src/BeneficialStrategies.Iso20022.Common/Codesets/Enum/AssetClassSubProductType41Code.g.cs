@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType41Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type potash.
     /// Encoded/decoded by serializers as "Potash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTSH")]
     [IsoId("_bWeohVr3EeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type potash.")]
     Potash,
     
 }

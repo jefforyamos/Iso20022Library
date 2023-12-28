@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType27Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type light ends.
     /// Encoded/decoded by serializers as "LightEnds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LGHT")]
     [IsoId("_oxn4d1rKEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type light ends.")]
     LightEnds,
     
 }

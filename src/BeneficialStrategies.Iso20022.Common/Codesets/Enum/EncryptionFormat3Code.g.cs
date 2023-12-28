@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EncryptionFormat3Code
 {
     /// <summary>
-    /// ??
+    /// Format of a cryptographic key specified by the ANSI X9 TR-34 standard.
     /// Encoded/decoded by serializers as "TR34".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TR34")]
     [IsoId("_KlXRgX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-34 standard.")]
     TR34,
     
     /// <summary>
-    /// ??
+    /// Format of a cryptographic key specified by the ANSI X9 TR-31 standard.
     /// Encoded/decoded by serializers as "TR31".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TR31")]
     [IsoId("_KlXRg30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-31 standard.")]
     TR31,
     
     /// <summary>
-    /// ??
+    /// CTC encryption mode.
     /// Encoded/decoded by serializers as "CTCE".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTCE")]
     [IsoId("_KlXRhX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"CTC encryption mode.")]
     CTCE,
     
     /// <summary>
-    /// ??
+    /// Cipher Block Chaining mode of encryption
     /// Encoded/decoded by serializers as "CBC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBCE")]
     [IsoId("_KlXRh30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Cipher Block Chaining mode of encryption")]
     CBC,
     
 }

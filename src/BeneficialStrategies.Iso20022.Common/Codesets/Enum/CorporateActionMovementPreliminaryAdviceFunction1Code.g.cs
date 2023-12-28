@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionMovementPreliminaryAdviceFunction1Code
 {
     /// <summary>
-    /// ??
+    /// Message is an entitlement.
     /// Encoded/decoded by serializers as "Entitlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENTL")]
     [IsoId("_MkWqETQUEe2o-K1dwNg8Gg")]
-    [Description(@"??")]
+    [Description(@"Message is an entitlement.")]
     Entitlement,
     
     /// <summary>
-    /// ??
+    /// Message is a preadvice of movement.
     /// Encoded/decoded by serializers as "PreadviceOfMovement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPA")]
     [IsoId("_MzstojQUEe2o-K1dwNg8Gg")]
-    [Description(@"??")]
+    [Description(@"Message is a preadvice of movement.")]
     PreadviceOfMovement,
     
 }

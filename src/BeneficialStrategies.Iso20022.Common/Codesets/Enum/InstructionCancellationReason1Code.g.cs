@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstructionCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled as per your request.
     /// Encoded/decoded by serializers as "CancelledByYourselves".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANI")]
     [IsoId("_aXIw8dp-Ed-ak6NoX_4Aeg_-339028661")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled as per your request.")]
     CancelledByYourselves,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the settlement system.
     /// Encoded/decoded by serializers as "CancelledBySystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANS")]
     [IsoId("_aXIw8tp-Ed-ak6NoX_4Aeg_-339028630")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the settlement system.")]
     CancelledBySystem,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the agent.
     /// Encoded/decoded by serializers as "CancelledByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSUB")]
     [IsoId("_aXIw89p-Ed-ak6NoX_4Aeg_-339028569")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the agent.")]
     CancelledByAgent,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType37Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type pulp.
     /// Encoded/decoded by serializers as "Pulp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PULP")]
     [IsoId("_2IP0JVryEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type pulp.")]
     Pulp,
     
 }

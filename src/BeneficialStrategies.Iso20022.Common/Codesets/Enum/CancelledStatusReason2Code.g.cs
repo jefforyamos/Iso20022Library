@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancelledStatusReason2Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the hub.
     /// Encoded/decoded by serializers as "CancelledByHub".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANH")]
     [IsoId("_a0pMV9p-Ed-ak6NoX_4Aeg_-839075780")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the hub.")]
     CancelledByHub,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the instructing party.
     /// Encoded/decoded by serializers as "CancelledByInstructingParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_a0pMWNp-Ed-ak6NoX_4Aeg_-811371079")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the instructing party.")]
     CancelledByInstructingParty,
     
     /// <summary>
-    /// ??
+    /// Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.
     /// Encoded/decoded by serializers as "EndOfLife".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CXLR")]
     [IsoId("_a0yWQNp-Ed-ak6NoX_4Aeg_-781815077")]
-    [Description(@"??")]
+    [Description(@"Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.")]
     EndOfLife,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by a party other than the instructing party, eg, a market infrastructure such as a stock exchange.
     /// Encoded/decoded by serializers as "CancelledByOther".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANO")]
     [IsoId("_a0yWQdp-Ed-ak6NoX_4Aeg_1087397542")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by a party other than the instructing party, eg, a market infrastructure such as a stock exchange.")]
     CancelledByOther,
     
 }

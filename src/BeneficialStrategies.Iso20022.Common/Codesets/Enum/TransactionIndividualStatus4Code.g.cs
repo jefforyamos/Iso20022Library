@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionIndividualStatus4Code
 {
     /// <summary>
-    /// ??
+    /// Payment initiation or individual transaction included in the payment initiation has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_d-6wcaEXEeaGKbT2u7DmyA")]
-    [Description(@"??")]
+    [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
     /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSP")]
     [IsoId("_vZ7SgaZsEeatnf2letP_og")]
-    [Description(@"??")]
+    [Description(@"All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.")]
     AcceptedSettlementInProcess,
     
     /// <summary>
-    /// ??
+    /// Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement
     /// Encoded/decoded by serializers as "AcceptedSettlementCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSC")]
     [IsoId("_ufz3wKcpEeaDVIZNl20DWg")]
-    [Description(@"??")]
+    [Description(@"Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement")]
     AcceptedSettlementCompleted,
     
     /// <summary>
-    /// ??
+    /// Settlement on the creditor's account has been completed. 
     /// Encoded/decoded by serializers as "AcceptedCreditSettlementCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCC")]
     [IsoId("_XidJkYErEei51tn2YGQhvg")]
-    [Description(@"??")]
+    [Description(@"Settlement on the creditor's account has been completed. ")]
     AcceptedCreditSettlementCompleted,
     
 }

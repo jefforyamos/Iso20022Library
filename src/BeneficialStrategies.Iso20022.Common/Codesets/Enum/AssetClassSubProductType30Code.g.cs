@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType30Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type weather.
     /// Encoded/decoded by serializers as "Weather".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHR")]
     [IsoId("_f4vr41rNEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type weather.")]
     Weather,
     
 }

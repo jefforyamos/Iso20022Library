@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResolutionSubStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Resolution voted at the meeting was amended.
     /// Encoded/decoded by serializers as "AmendedResolution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMDR")]
     [IsoId("_Zd6yETUHEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Resolution voted at the meeting was amended.")]
     AmendedResolution,
     
     /// <summary>
-    /// ??
+    /// Resolution voted at the meeting is new. 
     /// Encoded/decoded by serializers as "NewResolution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWR")]
     [IsoId("_ZkxoATUHEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Resolution voted at the meeting is new. ")]
     NewResolution,
     
 }

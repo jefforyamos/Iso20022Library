@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum POIComponentStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Component not yet activated.
     /// Encoded/decoded by serializers as "WaitingActivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WAIT")]
     [IsoId("_LHVRYQxxEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Component not yet activated.")]
     WaitingActivation,
     
     /// <summary>
-    /// ??
+    /// Component not working properly.
     /// Encoded/decoded by serializers as "OutOfOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OUTD")]
     [IsoId("_LO6gEQxxEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Component not working properly.")]
     OutOfOrder,
     
     /// <summary>
-    /// ??
+    /// Component activated and in operation.
     /// Encoded/decoded by serializers as "InOperation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPER")]
     [IsoId("_LUHwMwxxEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Component activated and in operation.")]
     InOperation,
     
     /// <summary>
-    /// ??
+    /// Component has been deactivated.
     /// Encoded/decoded by serializers as "Deactivated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DACT")]
     [IsoId("_Lbj08QxxEeKa_56Jbsi1RQ")]
-    [Description(@"??")]
+    [Description(@"Component has been deactivated.")]
     Deactivated,
     
 }

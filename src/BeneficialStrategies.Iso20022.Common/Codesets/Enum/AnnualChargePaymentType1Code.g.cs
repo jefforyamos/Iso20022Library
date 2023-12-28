@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AnnualChargePaymentType1Code
 {
     /// <summary>
-    /// ??
+    /// Annual charge is deducted from the fund capital.
     /// Encoded/decoded by serializers as "Capital".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPL")]
     [IsoId("_iTTggGAPEeiNMJ262H2pWg")]
-    [Description(@"??")]
+    [Description(@"Annual charge is deducted from the fund capital.")]
     Capital,
     
     /// <summary>
-    /// ??
+    /// Annual charge is deducted from the fund income.
     /// Encoded/decoded by serializers as "Income".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCO")]
     [IsoId("_iXy-8WAPEeiNMJ262H2pWg")]
-    [Description(@"??")]
+    [Description(@"Annual charge is deducted from the fund income.")]
     Income,
     
 }

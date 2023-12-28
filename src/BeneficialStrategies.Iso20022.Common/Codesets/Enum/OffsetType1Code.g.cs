@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OffsetType1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that range of peg order or discretion offset value is a price.
     /// Encoded/decoded by serializers as "Price".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIC")]
     [IsoId("_aOo8QNp-Ed-ak6NoX_4Aeg_-1344728954")]
-    [Description(@"??")]
+    [Description(@"Indicates that range of peg order or discretion offset value is a price.")]
     Price,
     
     /// <summary>
-    /// ??
+    /// The range of peg order or discretion offset value is measured in basis points.
     /// Encoded/decoded by serializers as "BasisPoint".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BAPO")]
     [IsoId("_aOo8Qdp-Ed-ak6NoX_4Aeg_-1344728894")]
-    [Description(@"??")]
+    [Description(@"The range of peg order or discretion offset value is measured in basis points.")]
     BasisPoint,
     
     /// <summary>
-    /// ??
+    /// The range of peg order or discretion offset value is a tick.
     /// Encoded/decoded by serializers as "Tick".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TICK")]
     [IsoId("_aOo8Qtp-Ed-ak6NoX_4Aeg_-1344728859")]
-    [Description(@"??")]
+    [Description(@"The range of peg order or discretion offset value is a tick.")]
     Tick,
     
     /// <summary>
-    /// ??
+    /// The range of peg order or discretion offset is a price level.
     /// Encoded/decoded by serializers as "PriceTierLevel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTLE")]
     [IsoId("_aOo8Q9p-Ed-ak6NoX_4Aeg_-1344728568")]
-    [Description(@"??")]
+    [Description(@"The range of peg order or discretion offset is a price level.")]
     PriceTierLevel,
     
 }

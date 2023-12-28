@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AffirmationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Status of the transaction is affirmed.
     /// Encoded/decoded by serializers as "Affirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AFFI")]
     [IsoId("_bndJUNp-Ed-ak6NoX_4Aeg_589689024")]
-    [Description(@"??")]
+    [Description(@"Status of the transaction is affirmed.")]
     Affirmed,
     
     /// <summary>
-    /// ??
+    /// Status of the transaction is unaffirmed.
     /// Encoded/decoded by serializers as "Unaffirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAFI")]
     [IsoId("_bndJUdp-Ed-ak6NoX_4Aeg_618318083")]
-    [Description(@"??")]
+    [Description(@"Status of the transaction is unaffirmed.")]
     Unaffirmed,
     
 }

@@ -21,39 +21,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction18Code
 {
     /// <summary>
-    /// ??
+    /// Request to initiate the transfer of a batch (response expected).
     /// Encoded/decoded by serializers as "BatchRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTRQ")]
     [IsoId("_cAK-IVAWEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Request to initiate the transfer of a batch (response expected).")]
     BatchRequest,
     
     /// <summary>
-    /// ??
+    /// Notification to initiate the transfer of a batch (no response expected).
     /// Encoded/decoded by serializers as "BatchNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BTNF")]
     [IsoId("_cOdRwlAWEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Notification to initiate the transfer of a batch (no response expected).")]
     BatchNotification,
     
     /// <summary>
-    /// ??
+    /// Notification to initiate the transfer of a collection (no response expected).
     /// Encoded/decoded by serializers as "CollectionNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLNF")]
     [IsoId("_cgdAslAWEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Notification to initiate the transfer of a collection (no response expected).")]
     CollectionNotification,
     
     /// <summary>
-    /// ??
+    /// Request to initiate the transfer of a collection (response expected).
     /// Encoded/decoded by serializers as "CollectionRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRQ")]
     [IsoId("_cyAqwlAWEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Request to initiate the transfer of a collection (response expected).")]
     CollectionRequest,
     
 }

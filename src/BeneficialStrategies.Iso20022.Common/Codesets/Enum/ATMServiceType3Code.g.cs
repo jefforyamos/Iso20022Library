@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMServiceType3Code
 {
     /// <summary>
-    /// ??
+    /// Ask for account statement information to a related custumer account.
     /// Encoded/decoded by serializers as "AccountStatements".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTS")]
     [IsoId("_NzZooYqvEeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Ask for account statement information to a related custumer account.")]
     AccountStatements,
     
     /// <summary>
-    /// ??
+    /// Verification of the card.
     /// Encoded/decoded by serializers as "CardVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDVF")]
     [IsoId("_OGUko4qvEeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Verification of the card.")]
     CardVerification,
     
     /// <summary>
-    /// ??
+    /// Ask to a DCC service provider to qualify the currency conversion for the card.
     /// Encoded/decoded by serializers as "DynamicCurrencyConversion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCS")]
     [IsoId("_OZjCo4qvEeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Ask to a DCC service provider to qualify the currency conversion for the card.")]
     DynamicCurrencyConversion,
     
     /// <summary>
-    /// ??
+    /// Ask for exchange rate for the ongoing deposit transaction.
     /// Encoded/decoded by serializers as "ExchangeRateDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XRTD")]
     [IsoId("_PZLTo4qvEeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Ask for exchange rate for the ongoing deposit transaction.")]
     ExchangeRateDeposit,
     
     /// <summary>
-    /// ??
+    /// Ask for exchange rate for the ongoing withdrawal transaction.
     /// Encoded/decoded by serializers as "ExchangeRateWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XRTW")]
     [IsoId("_Ph0SQ4qvEeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Ask for exchange rate for the ongoing withdrawal transaction.")]
     ExchangeRateWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Select the EMV applications allowed by the acquirer.
     /// Encoded/decoded by serializers as "SelectEMVApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMVS")]
     [IsoId("_QYW4s4qvEeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Select the EMV applications allowed by the acquirer.")]
     SelectEMVApplication,
     
     /// <summary>
-    /// ??
+    /// Ask for customer profile with eventualy related account information.
     /// Encoded/decoded by serializers as "CustomerProfile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMPF")]
     [IsoId("_Ix3Kkec3EeSW7vQF-KSwOA")]
-    [Description(@"??")]
+    [Description(@"Ask for customer profile with eventualy related account information.")]
     CustomerProfile,
     
     /// <summary>
-    /// ??
+    /// Balance inquiry.
     /// Encoded/decoded by serializers as "BalanceInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCQ")]
     [IsoId("_wiCi8egaEeSbJsoAnSuiCQ")]
-    [Description(@"??")]
+    [Description(@"Balance inquiry.")]
     BalanceInquiry,
     
 }

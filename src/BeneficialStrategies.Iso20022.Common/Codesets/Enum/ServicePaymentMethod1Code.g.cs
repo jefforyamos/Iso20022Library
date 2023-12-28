@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ServicePaymentMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Allows the bank to offset a service charge with interest earned on the deposit account balance. The actual charges arising from balance compensable services are always calculated and charged at month end. Used in the USA.
     /// Encoded/decoded by serializers as "BalanceCompensable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCMP")]
     [IsoId("_6V6hxpqlEeGSON8vddiWzQ_1103448435")]
-    [Description(@"??")]
+    [Description(@"Allows the bank to offset a service charge with interest earned on the deposit account balance. The actual charges arising from balance compensable services are always calculated and charged at month end. Used in the USA.")]
     BalanceCompensable,
     
     /// <summary>
-    /// ??
+    /// Charge is not balance compensable and is due. In the absence of balance compensable charges in Europe, this would be the most commonly used code for services that are billed at month end.
     /// Encoded/decoded by serializers as "HardCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLAT")]
     [IsoId("_6V6hx5qlEeGSON8vddiWzQ_-588731762")]
-    [Description(@"??")]
+    [Description(@"Charge is not balance compensable and is due. In the absence of balance compensable charges in Europe, this would be the most commonly used code for services that are billed at month end.")]
     HardCharge,
     
     /// <summary>
-    /// ??
+    /// Charge was previously assessed and is not part of the amount due as of this statement. This code is used for charges that were debited as the chargeable event took place.
     /// Encoded/decoded by serializers as "PreviouslyCharged".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PVCH")]
     [IsoId("_6WDrsJqlEeGSON8vddiWzQ_878417001")]
-    [Description(@"??")]
+    [Description(@"Charge was previously assessed and is not part of the amount due as of this statement. This code is used for charges that were debited as the chargeable event took place.")]
     PreviouslyCharged,
     
     /// <summary>
-    /// ??
+    /// Charge was previously invoiced and is not part of the amount due as of this statement. This code is used for charges that were invoiced as the chargeable event took place.
     /// Encoded/decoded by serializers as "InvoicedSeparately".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVS")]
     [IsoId("_6WDrsZqlEeGSON8vddiWzQ_-599830539")]
-    [Description(@"??")]
+    [Description(@"Charge was previously invoiced and is not part of the amount due as of this statement. This code is used for charges that were invoiced as the chargeable event took place.")]
     InvoicedSeparately,
     
     /// <summary>
-    /// ??
+    /// Charge is waived and not due. The waived amount must be placed in original charge amount.
     /// Encoded/decoded by serializers as "Waived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WVED")]
     [IsoId("_6WDrspqlEeGSON8vddiWzQ_21670166")]
-    [Description(@"??")]
+    [Description(@"Charge is waived and not due. The waived amount must be placed in original charge amount.")]
     Waived,
     
     /// <summary>
-    /// ??
+    /// Service is free, no charge, to the customer.
     /// Encoded/decoded by serializers as "Free".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FREE")]
     [IsoId("_6WDrs5qlEeGSON8vddiWzQ_1488818929")]
-    [Description(@"??")]
+    [Description(@"Service is free, no charge, to the customer.")]
     Free,
     
 }

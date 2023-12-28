@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VoteInstruction5Code
 {
     /// <summary>
-    /// ??
+    /// Active vote expressed as abstain (no opinion).
     /// Encoded/decoded by serializers as "Abstain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABST")]
     [IsoId("_aWN4Ia4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Active vote expressed as abstain (no opinion).")]
     Abstain,
     
     /// <summary>
-    /// ??
+    /// Vote against a meeting resolution.
     /// Encoded/decoded by serializers as "Against".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAGS")]
     [IsoId("_ahq6Mq4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote against a meeting resolution.")]
     Against,
     
     /// <summary>
-    /// ??
+    /// Rights holder gives authority to the chairman to vote on his behalf.
     /// Encoded/decoded by serializers as "Chairman".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHRM")]
     [IsoId("_bHm40q4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Rights holder gives authority to the chairman to vote on his behalf.")]
     Chairman,
     
     /// <summary>
-    /// ??
+    /// Vote in favour of a meeting resolution.
     /// Encoded/decoded by serializers as "For".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFOR")]
     [IsoId("_b0PVUq4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote in favour of a meeting resolution.")]
     For,
     
     /// <summary>
-    /// ??
+    /// Do not vote.
     /// Encoded/decoded by serializers as "NoAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAC")]
     [IsoId("_cTe2Eq4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Do not vote.")]
     NoAction,
     
     /// <summary>
-    /// ??
+    /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
     /// Encoded/decoded by serializers as "Withhold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHH")]
     [IsoId("_dLkUoq4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).")]
     Withhold,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for one year for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "OneYear".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONEY")]
     [IsoId("_d198gq4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for one year for ""say on pay"" type of resolution.")]
     OneYear,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for three years for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "ThreeYears".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THRY")]
     [IsoId("_eAYcwq4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for three years for ""say on pay"" type of resolution.")]
     ThreeYears,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for two years for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "TwoYears".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWOY")]
     [IsoId("_eE2GAa4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for two years for ""say on pay"" type of resolution.")]
     TwoYears,
     
     /// <summary>
-    /// ??
+    /// Vote is cast as empty but the vote is counted.
     /// Encoded/decoded by serializers as "Blank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLNK")]
     [IsoId("_fApm8q4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"Vote is cast as empty but the vote is counted.")]
     Blank,
     
     /// <summary>
-    /// ??
+    /// No recommendation provided for the vote instruction type.
     /// Encoded/decoded by serializers as "NoRecommendation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREC")]
     [IsoId("_5gPEIa4aEemG7MmivSuE5g")]
-    [Description(@"??")]
+    [Description(@"No recommendation provided for the vote instruction type.")]
     NoRecommendation,
     
 }

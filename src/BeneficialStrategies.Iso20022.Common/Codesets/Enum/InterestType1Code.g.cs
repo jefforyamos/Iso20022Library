@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterestType1Code
 {
     /// <summary>
-    /// ??
+    /// During or within a business day.
     /// Encoded/decoded by serializers as "IntraDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDY")]
     [IsoId("_zd5TUA93EeGeV5vP7Mvdig_809162901")]
-    [Description(@"??")]
+    [Description(@"During or within a business day.")]
     IntraDay,
     
     /// <summary>
-    /// ??
+    /// Period of time between the end of a business day and the start of the next business day (usually the day after).
     /// Encoded/decoded by serializers as "OverNight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OVRN")]
     [IsoId("_zd5TUQ93EeGeV5vP7Mvdig_-747638714")]
-    [Description(@"??")]
+    [Description(@"Period of time between the end of a business day and the start of the next business day (usually the day after).")]
     OverNight,
     
 }

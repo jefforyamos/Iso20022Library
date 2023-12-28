@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OperationalStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Enabled.
     /// Encoded/decoded by serializers as "Enabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENAB")]
     [IsoId("_G4T6wSDZEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Enabled.")]
     Enabled,
     
     /// <summary>
-    /// ??
+    /// Special circumstances.
     /// Encoded/decoded by serializers as "SpecialCircumstances".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEC")]
     [IsoId("_G_dEkSDZEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Special circumstances.")]
     SpecialCircumstances,
     
 }

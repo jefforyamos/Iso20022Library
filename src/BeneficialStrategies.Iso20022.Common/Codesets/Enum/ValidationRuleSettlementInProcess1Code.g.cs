@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleSettlementInProcess1Code
 {
     /// <summary>
-    /// ??
+    /// Accepted settlement in process.
     /// Encoded/decoded by serializers as "AcceptedSettlementInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACSP")]
     [IsoId("_C55eASE6EeuIZ4Hf6difAw")]
-    [Description(@"??")]
+    [Description(@"Accepted settlement in process.")]
     AcceptedSettlementInProcess,
     
 }

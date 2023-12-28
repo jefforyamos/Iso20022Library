@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType11Code
 {
     /// <summary>
-    /// ??
+    /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
     /// Encoded/decoded by serializers as "Acceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_-QbU8XtCEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
     Acceptor,
     
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_-ZApM3tCEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Party that issues cards.
     /// Encoded/decoded by serializers as "CardIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISS")]
     [IsoId("__OPoE3tCEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Party that issues cards.")]
     CardIssuer,
     
     /// <summary>
-    /// ??
+    /// Party to whom the card issuer delegates to authorise card payment transactions.
     /// Encoded/decoded by serializers as "DelegateIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLIS")]
     [IsoId("__deW43tCEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Party to whom the card issuer delegates to authorise card payment transactions.")]
     DelegateIssuer,
     
     /// <summary>
-    /// ??
+    /// Party acting on behalf of other parties to process or forward data to other parties.
     /// Encoded/decoded by serializers as "IntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAG")]
     [IsoId("_AgFDY3tDEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
     IntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Application on the terminal which has initiated the transaction.
     /// Encoded/decoded by serializers as "OriginatingTerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTRM")]
     [IsoId("_BBjYw3tDEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Application on the terminal which has initiated the transaction.")]
     OriginatingTerminal,
     
     /// <summary>
-    /// ??
+    /// Application in the smart card.
     /// Encoded/decoded by serializers as "CardApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCA")]
     [IsoId("_X79fgS6vEeWc7f-D6ByqMg")]
-    [Description(@"??")]
+    [Description(@"Application in the smart card.")]
     CardApplication,
     
 }

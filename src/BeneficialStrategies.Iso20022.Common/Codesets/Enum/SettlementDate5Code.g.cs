@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementDate5Code
 {
     /// <summary>
-    /// ??
+    /// Settlement takes place under the standard rules applicable to the market and instrument.
     /// Encoded/decoded by serializers as "Regular".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGU")]
     [IsoId("__wR-dNojEeC60axPepSq7g_-2042913404")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place under the standard rules applicable to the market and instrument.")]
     Regular,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("__wR-ddojEeC60axPepSq7g_-518845108")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the day after trade date.
     /// Encoded/decoded by serializers as "NextDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NXTD")]
     [IsoId("__wbvcNojEeC60axPepSq7g_1934277231")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the day after trade date.")]
     NextDay,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus one business day.
     /// Encoded/decoded by serializers as "TPlusOne".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TONE")]
     [IsoId("__wbvcdojEeC60axPepSq7g_-1599924912")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus one business day.")]
     TPlusOne,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus two business days.
     /// Encoded/decoded by serializers as "TPlusTwo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTWO")]
     [IsoId("__wbvctojEeC60axPepSq7g_230998257")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus two business days.")]
     TPlusTwo,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus three business days.
     /// Encoded/decoded by serializers as "TPlusThree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTRE")]
     [IsoId("__wbvc9ojEeC60axPepSq7g_1755066553")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus three business days.")]
     TPlusThree,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus four business days.
     /// Encoded/decoded by serializers as "TPlusFour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFOR")]
     [IsoId("__wbvdNojEeC60axPepSq7g_685085526")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus four business days.")]
     TPlusFour,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus five business days.
     /// Encoded/decoded by serializers as "TPlusFive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFIV")]
     [IsoId("__wbvddojEeC60axPepSq7g_1010203033")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus five business days.")]
     TPlusFive,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place at the choice/option of the seller.
     /// Encoded/decoded by serializers as "SellersOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("__wk5YNojEeC60axPepSq7g_-40862622")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place at the choice/option of the seller.")]
     SellersOption,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place when the financial instrument is distributed.
     /// Encoded/decoded by serializers as "WhenDistributed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WDIS")]
     [IsoId("__wk5YdojEeC60axPepSq7g_1814515449")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place when the financial instrument is distributed.")]
     WhenDistributed,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place when the financial instrument is issued or distributed.
     /// Encoded/decoded by serializers as "WhenIssuedOrDistributed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHID")]
     [IsoId("__wk5YtojEeC60axPepSq7g_-1719686694")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place when the financial instrument is issued or distributed.")]
     WhenIssuedOrDistributed,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place as a result of a "to be announced" trade.
     /// Encoded/decoded by serializers as "ToBeAnnouncedTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBAT")]
     [IsoId("__wk5Y9ojEeC60axPepSq7g_-195618398")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place as a result of a ""to be announced"" trade.")]
     ToBeAnnouncedTrade,
     
     /// <summary>
-    /// ??
+    /// Settlement is to be done when the security is issued.
     /// Encoded/decoded by serializers as "WhenIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WISS")]
     [IsoId("__wk5ZNojEeC60axPepSq7g_1464768024")]
-    [Description(@"??")]
+    [Description(@"Settlement is to be done when the security is issued.")]
     WhenIssued,
     
 }

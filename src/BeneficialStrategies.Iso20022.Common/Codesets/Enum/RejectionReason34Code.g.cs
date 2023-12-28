@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason34Code
 {
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_jWLNtO5NEeCisYr99QEiWA_440385589")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_jWUXoO5NEeCisYr99QEiWA_-620966370")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid cash account.
     /// Encoded/decoded by serializers as "CashAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_jWUXoe5NEeCisYr99QEiWA_-442847698")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid cash account.")]
     CashAccount,
     
     /// <summary>
-    /// ??
+    /// More than one instruction match the criteria.
     /// Encoded/decoded by serializers as "NoMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRGM")]
     [IsoId("_jWUXou5NEeCisYr99QEiWA_-734805436")]
-    [Description(@"??")]
+    [Description(@"More than one instruction match the criteria.")]
     NoMatch,
     
     /// <summary>
-    /// ??
+    /// Instruction could not be found.
     /// Encoded/decoded by serializers as "NotFoundRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRGN")]
     [IsoId("_jWUXo-5NEeCisYr99QEiWA_-556686764")]
-    [Description(@"??")]
+    [Description(@"Instruction could not be found.")]
     NotFoundRejection,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_jWUXpO5NEeCisYr99QEiWA_-1618038723")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Instruction has a reference identical to another previously received instruction.
     /// Encoded/decoded by serializers as "ReferenceRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFE")]
     [IsoId("_jWeIoO5NEeCisYr99QEiWA_-1731877789")]
-    [Description(@"??")]
+    [Description(@"Instruction has a reference identical to another previously received instruction.")]
     ReferenceRejection,
     
 }

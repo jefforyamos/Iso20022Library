@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountOpeningType1Code
 {
     /// <summary>
-    /// ??
+    /// Account request is to open a new account.
     /// Encoded/decoded by serializers as "NewAccountOpening".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWA")]
     [IsoId("_bq4Qwtp-Ed-ak6NoX_4Aeg_-1409903872")]
-    [Description(@"??")]
+    [Description(@"Account request is to open a new account.")]
     NewAccountOpening,
     
     /// <summary>
-    /// ??
+    /// Account request is to open a supplementary account, that is, based on an existing account.
     /// Encoded/decoded by serializers as "SupplementaryAccountOpening".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUPA")]
     [IsoId("_bq4Qw9p-Ed-ak6NoX_4Aeg_-1409903871")]
-    [Description(@"??")]
+    [Description(@"Account request is to open a supplementary account, that is, based on an existing account.")]
     SupplementaryAccountOpening,
     
 }

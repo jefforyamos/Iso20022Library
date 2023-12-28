@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DistributionInstructionType1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction to debit the positions held under all clients accounts in the underlying resouces of the given event and option. This order applies to all clients who are eligible to participate to the CA event.
     /// Encoded/decoded by serializers as "GlobalDebitOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GDEB")]
     [IsoId("_awnn8Np-Ed-ak6NoX_4Aeg_-1264498767")]
-    [Description(@"??")]
+    [Description(@"Instruction to debit the positions held under all clients accounts in the underlying resouces of the given event and option. This order applies to all clients who are eligible to participate to the CA event.")]
     GlobalDebitOrder,
     
     /// <summary>
-    /// ??
+    /// An instruction, on a per client basis, to debit the position held in the underlying resources (securities and/or cash) and/or the credit of the proceeds (securities and/or cash).
     /// Encoded/decoded by serializers as "IndividualOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDEB")]
     [IsoId("_awnn8dp-Ed-ak6NoX_4Aeg_-1264498766")]
-    [Description(@"??")]
+    [Description(@"An instruction, on a per client basis, to debit the position held in the underlying resources (securities and/or cash) and/or the credit of the proceeds (securities and/or cash).")]
     IndividualOrder,
     
     /// <summary>
-    /// ??
+    /// Instruction to transfer securities from the clients sequestered balances back to the respective available balances.
     /// Encoded/decoded by serializers as "GlobalReturnOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRET")]
     [IsoId("_awnn8tp-Ed-ak6NoX_4Aeg_-1264498737")]
-    [Description(@"??")]
+    [Description(@"Instruction to transfer securities from the clients sequestered balances back to the respective available balances.")]
     GlobalReturnOrder,
     
     /// <summary>
-    /// ??
+    /// Instruction to transfer the position from one sequestered balance (related to a CA option) to another sequestered balalnce (related to another CA option).
     /// Encoded/decoded by serializers as "OptionChangeOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAN")]
     [IsoId("_awnn89p-Ed-ak6NoX_4Aeg_-1264498736")]
-    [Description(@"??")]
+    [Description(@"Instruction to transfer the position from one sequestered balance (related to a CA option) to another sequestered balalnce (related to another CA option).")]
     OptionChangeOrder,
     
     /// <summary>
-    /// ??
+    /// Instruction to transfer securities from a client sequestered balance back to its available balance.
     /// Encoded/decoded by serializers as "IndividualReturnOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IRET")]
     [IsoId("_awnn9Np-Ed-ak6NoX_4Aeg_1772889529")]
-    [Description(@"??")]
+    [Description(@"Instruction to transfer securities from a client sequestered balance back to its available balance.")]
     IndividualReturnOrder,
     
 }

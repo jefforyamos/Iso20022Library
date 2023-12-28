@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RiskAssessment1Code
 {
     /// <summary>
-    /// ??
+    /// Recommended to approve conditionally.
     /// Encoded/decoded by serializers as "ApproveConditionally".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPC")]
     [IsoId("_5HcuQZljEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Recommended to approve conditionally.")]
     ApproveConditionally,
     
     /// <summary>
-    /// ??
+    /// Recommended to approve conditionally; high risk conditions exist.
     /// Encoded/decoded by serializers as "ApproveConditionallyWithHighRisk".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPH")]
     [IsoId("_5PkIcZljEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Recommended to approve conditionally; high risk conditions exist.")]
     ApproveConditionallyWithHighRisk,
     
     /// <summary>
-    /// ??
+    /// Recommended to approve unconditionally.
     /// Encoded/decoded by serializers as "ApproveUnconditionally".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPU")]
     [IsoId("_5xslIZljEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Recommended to approve unconditionally.")]
     ApproveUnconditionally,
     
     /// <summary>
-    /// ??
+    /// Recommended to not approve.
     /// Encoded/decoded by serializers as "DoNotApprove".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DONT")]
     [IsoId("_56CBwZljEeu76rs9yGlfEg")]
-    [Description(@"??")]
+    [Description(@"Recommended to not approve.")]
     DoNotApprove,
     
 }

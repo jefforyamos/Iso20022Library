@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfIdentification2Code
 {
     /// <summary>
-    /// ??
+    /// Number assigned by a government agency to identify foreign nationals.
     /// Encoded/decoded by serializers as "AlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARNU")]
     [IsoId("__ztF5NojEeC60axPepSq7g_1743002948")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a government agency to identify foreign nationals.")]
     AlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned to a tax exempt entity.
     /// Encoded/decoded by serializers as "TaxExemptIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHTY")]
     [IsoId("__ztF5dojEeC60axPepSq7g_-721218168")]
-    [Description(@"??")]
+    [Description(@"Number assigned to a tax exempt entity.")]
     TaxExemptIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned to a corporate entity.
     /// Encoded/decoded by serializers as "CorporateIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("__z224NojEeC60axPepSq7g_-1013175906")]
-    [Description(@"??")]
+    [Description(@"Number assigned to a corporate entity.")]
     CorporateIdentification,
     
     /// <summary>
-    /// ??
+    /// Number assigned to a foreign investor (other than the alien number).
     /// Encoded/decoded by serializers as "ForeignInvestmentIdentityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIIN")]
     [IsoId("__z224dojEeC60axPepSq7g_-1896409193")]
-    [Description(@"??")]
+    [Description(@"Number assigned to a foreign investor (other than the alien number).")]
     ForeignInvestmentIdentityNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a tax authority to an entity.
     /// Encoded/decoded by serializers as "TaxIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXID")]
     [IsoId("__z224tojEeC60axPepSq7g_-1718290521")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a tax authority to an entity.")]
     TaxIdentificationNumber,
     
 }

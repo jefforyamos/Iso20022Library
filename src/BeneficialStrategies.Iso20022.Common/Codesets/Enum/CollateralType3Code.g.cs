@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralType3Code
 {
     /// <summary>
-    /// ??
+    /// Collateral type is cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("__1WEotojEeC60axPepSq7g_-80556502")]
-    [Description(@"??")]
+    [Description(@"Collateral type is cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Collateral type is securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("__1WEo9ojEeC60axPepSq7g_680208651")]
-    [Description(@"??")]
+    [Description(@"Collateral type is securities.")]
     Securities,
     
     /// <summary>
-    /// ??
+    /// Collateral type are physical entities, for example, airplanes for debt issued by the airline industry.
     /// Encoded/decoded by serializers as "PhysicalEntities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("__1WEpNojEeC60axPepSq7g_2147357414")]
-    [Description(@"??")]
+    [Description(@"Collateral type are physical entities, for example, airplanes for debt issued by the airline industry.")]
     PhysicalEntities,
     
     /// <summary>
-    /// ??
+    /// Collateral type is an insurance contract.
     /// Encoded/decoded by serializers as "Insurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("__1WEpdojEeC60axPepSq7g_1134295920")]
-    [Description(@"??")]
+    [Description(@"Collateral type is an insurance contract.")]
     Insurance,
     
     /// <summary>
-    /// ??
+    /// Collateral type is stock certificates.
     /// Encoded/decoded by serializers as "StockCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STCF")]
     [IsoId("__1f1oNojEeC60axPepSq7g_-1329748207")]
-    [Description(@"??")]
+    [Description(@"Collateral type is stock certificates.")]
     StockCertificate,
     
     /// <summary>
-    /// ??
+    /// Collateral type is bonds.
     /// Encoded/decoded by serializers as "Bond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOND")]
     [IsoId("__1f1odojEeC60axPepSq7g_137400556")]
-    [Description(@"??")]
+    [Description(@"Collateral type is bonds.")]
     Bond,
     
     /// <summary>
-    /// ??
+    /// Collateral type is a bank guarantee.
     /// Encoded/decoded by serializers as "BankGuarantee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBBK")]
     [IsoId("__1f1otojEeC60axPepSq7g_-875660938")]
-    [Description(@"??")]
+    [Description(@"Collateral type is a bank guarantee.")]
     BankGuarantee,
     
     /// <summary>
-    /// ??
+    /// Other assets that could be used as collateral.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("__1f1o9ojEeC60axPepSq7g_-702733106")]
-    [Description(@"??")]
+    [Description(@"Other assets that could be used as collateral.")]
     Other,
     
 }

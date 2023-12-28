@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DividendRateType1Code
 {
     /// <summary>
-    /// ??
+    /// Rate relating to the underlying security for which tax is charged.
     /// Encoded/decoded by serializers as "TaxablePortion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXBL")]
     [IsoId("_q3yFdGtdEeCY4-KZ9JEyUQ_-747091417")]
-    [Description(@"??")]
+    [Description(@"Rate relating to the underlying security for which tax is charged.")]
     TaxablePortion,
     
 }

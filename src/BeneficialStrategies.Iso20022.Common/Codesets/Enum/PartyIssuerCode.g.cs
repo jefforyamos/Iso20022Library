@@ -20,804 +20,804 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyIssuerCode
 {
     /// <summary>
-    /// ??
+    /// Based in Luxembourg, the holding, clearing and settlement agency for certain international securities, especially Eurobonds.
     /// Encoded/decoded by serializers as "ClearstreamBankLuxemburg".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CEDE")]
     [IsoId("_VtaMx9p-Ed-ak6NoX_4Aeg_335333606")]
-    [Description(@"??")]
+    [Description(@"Based in Luxembourg, the holding, clearing and settlement agency for certain international securities, especially Eurobonds.")]
     ClearstreamBankLuxemburg,
     
     /// <summary>
-    /// ??
+    /// Caja de Valores S.A.
     /// Encoded/decoded by serializers as "CajaDeValores".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAVL")]
     [IsoId("_VtaMyNp-Ed-ak6NoX_4Aeg_335333607")]
-    [Description(@"??")]
+    [Description(@"Caja de Valores S.A.")]
     CajaDeValores,
     
     /// <summary>
-    /// ??
+    /// Austraclear Limited.
     /// Encoded/decoded by serializers as "AustraclearLtd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACLR")]
     [IsoId("_VtaMydp-Ed-ak6NoX_4Aeg_335333608")]
-    [Description(@"??")]
+    [Description(@"Austraclear Limited.")]
     AustraclearLtd,
     
     /// <summary>
-    /// ??
+    /// Australian Bank State Branch Code.
     /// Encoded/decoded by serializers as "AustralianBankStateBranch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUAU")]
     [IsoId("_Vtj9wNp-Ed-ak6NoX_4Aeg_335333617")]
-    [Description(@"??")]
+    [Description(@"Australian Bank State Branch Code.")]
     AustralianBankStateBranch,
     
     /// <summary>
-    /// ??
+    /// Clearing House Electronic Settlements Systems.
     /// Encoded/decoded by serializers as "ClearingHouseElectronicSettlementSystems".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHES")]
     [IsoId("_Vtj9wdp-Ed-ak6NoX_4Aeg_335333618")]
-    [Description(@"??")]
+    [Description(@"Clearing House Electronic Settlements Systems.")]
     ClearingHouseElectronicSettlementSystems,
     
     /// <summary>
-    /// ??
+    /// Austrian Bankleitzahl.
     /// Encoded/decoded by serializers as "AustrianBankLeitzahl".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATAT")]
     [IsoId("_Vtj9wtp-Ed-ak6NoX_4Aeg_335333619")]
-    [Description(@"??")]
+    [Description(@"Austrian Bankleitzahl.")]
     AustrianBankLeitzahl,
     
     /// <summary>
-    /// ??
+    /// OKB - Oesterreichische Kontrollbank AG.
     /// Encoded/decoded by serializers as "OesterreichischeKontrollbank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OEKO")]
     [IsoId("_Vtj9w9p-Ed-ak6NoX_4Aeg_335333620")]
-    [Description(@"??")]
+    [Description(@"OKB - Oesterreichische Kontrollbank AG.")]
     OesterreichischeKontrollbank,
     
     /// <summary>
-    /// ??
+    /// CIK - Caisse Interprofessionelle de Depots et de Virements de Titres S.A.
     /// Encoded/decoded by serializers as "CaisseInterprofessionelleDepotsVirementsTitres".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CIKB")]
     [IsoId("_Vtj9xNp-Ed-ak6NoX_4Aeg_335333621")]
-    [Description(@"??")]
+    [Description(@"CIK - Caisse Interprofessionelle de Depots et de Virements de Titres S.A.")]
     CaisseInterprofessionelleDepotsVirementsTitres,
     
     /// <summary>
-    /// ??
+    /// Euroclear.
     /// Encoded/decoded by serializers as "Euroclear".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EOCC")]
     [IsoId("_Vtj9xdp-Ed-ak6NoX_4Aeg_335333622")]
-    [Description(@"??")]
+    [Description(@"Euroclear.")]
     Euroclear,
     
     /// <summary>
-    /// ??
+    /// Banque Nationale de Belgique.
     /// Encoded/decoded by serializers as "BanqueNationaleDeBelgique".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBBE")]
     [IsoId("_Vtj9xtp-Ed-ak6NoX_4Aeg_335333623")]
-    [Description(@"??")]
+    [Description(@"Banque Nationale de Belgique.")]
     BanqueNationaleDeBelgique,
     
     /// <summary>
-    /// ??
+    /// CLC - Camara de Liquidacao e Custodia S.A. (Brazil).
     /// Encoded/decoded by serializers as "CamaraLiquidacaoCustodia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLCB")]
     [IsoId("_Vtj9x9p-Ed-ak6NoX_4Aeg_335333624")]
-    [Description(@"??")]
+    [Description(@"CLC - Camara de Liquidacao e Custodia S.A. (Brazil).")]
     CamaraLiquidacaoCustodia,
     
     /// <summary>
-    /// ??
+    /// CDS - Canadian Depository for Securities Limited.
     /// Encoded/decoded by serializers as "CanadianDepositorySecuritiesLtd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDSL")]
     [IsoId("_Vtj9yNp-Ed-ak6NoX_4Aeg_335333625")]
-    [Description(@"??")]
+    [Description(@"CDS - Canadian Depository for Securities Limited.")]
     CanadianDepositorySecuritiesLtd,
     
     /// <summary>
-    /// ??
+    /// Canadian Payments Association Payment Routing Number.
     /// Encoded/decoded by serializers as "CanadianPaymentsAssociation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACC")]
     [IsoId("_Vtj9ydp-Ed-ak6NoX_4Aeg_335333626")]
-    [Description(@"??")]
+    [Description(@"Canadian Payments Association Payment Routing Number.")]
     CanadianPaymentsAssociation,
     
     /// <summary>
-    /// ??
+    /// Chile Central Securities Depository Deposito Central de Valores.
     /// Encoded/decoded by serializers as "CentralSecuritiesDepositoryDepositoCentralValores".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDD")]
     [IsoId("_Vtj9ytp-Ed-ak6NoX_4Aeg_335333634")]
-    [Description(@"??")]
+    [Description(@"Chile Central Securities Depository Deposito Central de Valores.")]
     CentralSecuritiesDepositoryDepositoCentralValores,
     
     /// <summary>
-    /// ??
+    /// Shanghai Securities Central Clearing & Registration Company.
     /// Encoded/decoded by serializers as "ShanghaiSecuritiesCentralClearingRegistrationCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCRC")]
     [IsoId("_VttHsNp-Ed-ak6NoX_4Aeg_335333635")]
-    [Description(@"??")]
+    [Description(@"Shanghai Securities Central Clearing & Registration Company.")]
     ShanghaiSecuritiesCentralClearingRegistrationCompany,
     
     /// <summary>
-    /// ??
+    /// Shenzhen Securities Clearing Company.
     /// Encoded/decoded by serializers as "ShenzhenSecuritiesClearingCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSCC")]
     [IsoId("_VttHsdp-Ed-ak6NoX_4Aeg_335333636")]
-    [Description(@"??")]
+    [Description(@"Shenzhen Securities Clearing Company.")]
     ShenzhenSecuritiesClearingCompany,
     
     /// <summary>
-    /// ??
+    /// Colombia Central Depository System.
     /// Encoded/decoded by serializers as "ColombiaCentralDepositorySystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDSY")]
     [IsoId("_VttHstp-Ed-ak6NoX_4Aeg_335333637")]
-    [Description(@"??")]
+    [Description(@"Colombia Central Depository System.")]
     ColombiaCentralDepositorySystem,
     
     /// <summary>
-    /// ??
+    /// Denmark Vaerdipapircentralen.
     /// Encoded/decoded by serializers as "DenmarkVaerdipapircentralen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VPDK")]
     [IsoId("_VttHs9p-Ed-ak6NoX_4Aeg_335333638")]
-    [Description(@"??")]
+    [Description(@"Denmark Vaerdipapircentralen.")]
     DenmarkVaerdipapircentralen,
     
     /// <summary>
-    /// ??
+    /// Finnish Central Securities Depository Limited.
     /// Encoded/decoded by serializers as "FinnishCentralSecuritiesDepositoryLtd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APKE")]
     [IsoId("_VttHtNp-Ed-ak6NoX_4Aeg_335333639")]
-    [Description(@"??")]
+    [Description(@"Finnish Central Securities Depository Limited.")]
     FinnishCentralSecuritiesDepositoryLtd,
     
     /// <summary>
-    /// ??
+    /// French R.I.B.
     /// Encoded/decoded by serializers as "FranceRIB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRRI")]
     [IsoId("_VttHtdp-Ed-ak6NoX_4Aeg_335333648")]
-    [Description(@"??")]
+    [Description(@"French R.I.B.")]
     FranceRIB,
     
     /// <summary>
-    /// ??
+    /// Societe Interprofessional Pour La Compensation des Valeurs Mobiliers in France.
     /// Encoded/decoded by serializers as "SICOVAM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SICV")]
     [IsoId("_VttHttp-Ed-ak6NoX_4Aeg_335333649")]
-    [Description(@"??")]
+    [Description(@"Societe Interprofessional Pour La Compensation des Valeurs Mobiliers in France.")]
     SICOVAM,
     
     /// <summary>
-    /// ??
+    /// The Prague Stock Exchange.
     /// Encoded/decoded by serializers as "PragueStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XPRA")]
     [IsoId("_VttHt9p-Ed-ak6NoX_4Aeg_335333650")]
-    [Description(@"??")]
+    [Description(@"The Prague Stock Exchange.")]
     PragueStockExchange,
     
     /// <summary>
-    /// ??
+    /// Bundesausichtsamt fur den Wertpapierhandel.
     /// Encoded/decoded by serializers as "BundesausichtsamtWertpapierhandel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUWE")]
     [IsoId("_VttHuNp-Ed-ak6NoX_4Aeg_335333651")]
-    [Description(@"??")]
+    [Description(@"Bundesausichtsamt fur den Wertpapierhandel.")]
     BundesausichtsamtWertpapierhandel,
     
     /// <summary>
-    /// ??
+    /// Deutsche Boerse AG: Deutsche Terminborse.
     /// Encoded/decoded by serializers as "DeutscheBoerseAGDeutscheTerminborse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XDTB")]
     [IsoId("_VttHudp-Ed-ak6NoX_4Aeg_335333652")]
-    [Description(@"??")]
+    [Description(@"Deutsche Boerse AG: Deutsche Terminborse.")]
     DeutscheBoerseAGDeutscheTerminborse,
     
     /// <summary>
-    /// ??
+    /// Deutsche Boerse AG: Frankfurter Wertpapierborse.
     /// Encoded/decoded by serializers as "DeutscheBoerseAGFrankfurterWertpapierborse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XFRA")]
     [IsoId("_Vt24sNp-Ed-ak6NoX_4Aeg_335333653")]
-    [Description(@"??")]
+    [Description(@"Deutsche Boerse AG: Frankfurter Wertpapierborse.")]
     DeutscheBoerseAGFrankfurterWertpapierborse,
     
     /// <summary>
-    /// ??
+    /// Deutsche Boerse AG: XETRA (exchange electronic trading).
     /// Encoded/decoded by serializers as "DeutscheBoerseAGXETRA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XETR")]
     [IsoId("_Vt24sdp-Ed-ak6NoX_4Aeg_335333654")]
-    [Description(@"??")]
+    [Description(@"Deutsche Boerse AG: XETRA (exchange electronic trading).")]
     DeutscheBoerseAGXETRA,
     
     /// <summary>
-    /// ??
+    /// Deutsche Borse Clearing AG.
     /// Encoded/decoded by serializers as "DeutscheBorseClearingAG".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAKV")]
     [IsoId("_Vt24stp-Ed-ak6NoX_4Aeg_335333655")]
-    [Description(@"??")]
+    [Description(@"Deutsche Borse Clearing AG.")]
     DeutscheBorseClearingAG,
     
     /// <summary>
-    /// ??
+    /// Deutsche Bundesbank.
     /// Encoded/decoded by serializers as "DeutscheBundesbank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MARK")]
     [IsoId("_Vt24s9p-Ed-ak6NoX_4Aeg_335333656")]
-    [Description(@"??")]
+    [Description(@"Deutsche Bundesbank.")]
     DeutscheBundesbank,
     
     /// <summary>
-    /// ??
+    /// German Bankleitzahl.
     /// Encoded/decoded by serializers as "GermanBankleitzahl".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBL")]
     [IsoId("_Vt24tNp-Ed-ak6NoX_4Aeg_335333657")]
-    [Description(@"??")]
+    [Description(@"German Bankleitzahl.")]
     GermanBankleitzahl,
     
     /// <summary>
-    /// ??
+    /// Zentraler Kreditausschuss.
     /// Encoded/decoded by serializers as "ZentralerKreditausschuss".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZEKR")]
     [IsoId("_Vt24tdp-Ed-ak6NoX_4Aeg_335333665")]
-    [Description(@"??")]
+    [Description(@"Zentraler Kreditausschuss.")]
     ZentralerKreditausschuss,
     
     /// <summary>
-    /// ??
+    /// Hong KongCentral Clearing and Securities Settlement System.
     /// Encoded/decoded by serializers as "HongKongCentralClearingSecuritiesSettlementSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAS")]
     [IsoId("_Vt24ttp-Ed-ak6NoX_4Aeg_335333666")]
-    [Description(@"??")]
+    [Description(@"Hong KongCentral Clearing and Securities Settlement System.")]
     HongKongCentralClearingSecuritiesSettlementSystem,
     
     /// <summary>
-    /// ??
+    /// Hong Kong National Clearing System.
     /// Encoded/decoded by serializers as "HongKongNationalClearing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HKCH")]
     [IsoId("_Vt24t9p-Ed-ak6NoX_4Aeg_335333667")]
-    [Description(@"??")]
+    [Description(@"Hong Kong National Clearing System.")]
     HongKongNationalClearing,
     
     /// <summary>
-    /// ??
+    /// India National Securities Depositary.
     /// Encoded/decoded by serializers as "IndianNationalSecuritiesDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSDL")]
     [IsoId("_Vt24uNp-Ed-ak6NoX_4Aeg_335333668")]
-    [Description(@"??")]
+    [Description(@"India National Securities Depositary.")]
     IndianNationalSecuritiesDepository,
     
     /// <summary>
-    /// ??
+    /// Indonesian Securities Central Depository.
     /// Encoded/decoded by serializers as "IndonesianSecuritiesCentralDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDEI")]
     [IsoId("_Vt24udp-Ed-ak6NoX_4Aeg_335333669")]
-    [Description(@"??")]
+    [Description(@"Indonesian Securities Central Depository.")]
     IndonesianSecuritiesCentralDepository,
     
     /// <summary>
-    /// ??
+    /// Irish National Clearing Code.
     /// Encoded/decoded by serializers as "IrishNationalClearing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IESC")]
     [IsoId("_Vt24utp-Ed-ak6NoX_4Aeg_335333670")]
-    [Description(@"??")]
+    [Description(@"Irish National Clearing Code.")]
     IrishNationalClearing,
     
     /// <summary>
-    /// ??
+    /// Israel Tel Aviv Stock Exchange.
     /// Encoded/decoded by serializers as "TelAvivStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XTAE")]
     [IsoId("_VuApsNp-Ed-ak6NoX_4Aeg_335333679")]
-    [Description(@"??")]
+    [Description(@"Israel Tel Aviv Stock Exchange.")]
     TelAvivStockExchange,
     
     /// <summary>
-    /// ??
+    /// Italian Domestic Identification Code.
     /// Encoded/decoded by serializers as "ItalianDomesticIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITIT")]
     [IsoId("_VuApsdp-Ed-ak6NoX_4Aeg_335333680")]
-    [Description(@"??")]
+    [Description(@"Italian Domestic Identification Code.")]
     ItalianDomesticIdentification,
     
     /// <summary>
-    /// ??
+    /// Italy - Monte Titoli.
     /// Encoded/decoded by serializers as "MonteTitoli".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOTI")]
     [IsoId("_VuApstp-Ed-ak6NoX_4Aeg_335333681")]
-    [Description(@"??")]
+    [Description(@"Italy - Monte Titoli.")]
     MonteTitoli,
     
     /// <summary>
-    /// ??
+    /// Japan Securities Clearing Corporation.
     /// Encoded/decoded by serializers as "JapanSecuritiesClearingCorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JSCC")]
     [IsoId("_VuAps9p-Ed-ak6NoX_4Aeg_335333682")]
-    [Description(@"??")]
+    [Description(@"Japan Securities Clearing Corporation.")]
     JapanSecuritiesClearingCorporation,
     
     /// <summary>
-    /// ??
+    /// Japan Securities Depository Center.
     /// Encoded/decoded by serializers as "JapanSecuritiesDepositoryCenter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JSDC")]
     [IsoId("_VuAptNp-Ed-ak6NoX_4Aeg_335333683")]
-    [Description(@"??")]
+    [Description(@"Japan Securities Depository Center.")]
     JapanSecuritiesDepositoryCenter,
     
     /// <summary>
-    /// ??
+    /// Korea Securities Depository.
     /// Encoded/decoded by serializers as "KoreanSecuritiesDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KSDC")]
     [IsoId("_VuAptdp-Ed-ak6NoX_4Aeg_335333684")]
-    [Description(@"??")]
+    [Description(@"Korea Securities Depository.")]
     KoreanSecuritiesDepository,
     
     /// <summary>
-    /// ??
+    /// Malaysian Central Depositary.
     /// Encoded/decoded by serializers as "MalaysianCentralDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCDY")]
     [IsoId("_VuApttp-Ed-ak6NoX_4Aeg_335333685")]
-    [Description(@"??")]
+    [Description(@"Malaysian Central Depositary.")]
     MalaysianCentralDepository,
     
     /// <summary>
-    /// ??
+    /// Mexico S.D. Indeval, S.A. de C.V.
     /// Encoded/decoded by serializers as "IndevalSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDE")]
     [IsoId("_VuApt9p-Ed-ak6NoX_4Aeg_335333686")]
-    [Description(@"??")]
+    [Description(@"Mexico S.D. Indeval, S.A. de C.V.")]
     IndevalSA,
     
     /// <summary>
-    /// ??
+    /// Amsterdamse Effectenbeurs.
     /// Encoded/decoded by serializers as "AmsterdamseEffectenbeurs".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XAMS")]
     [IsoId("_VuApuNp-Ed-ak6NoX_4Aeg_335333687")]
-    [Description(@"??")]
+    [Description(@"Amsterdamse Effectenbeurs.")]
     AmsterdamseEffectenbeurs,
     
     /// <summary>
-    /// ??
+    /// Nederlands Centraal Instituut voor Giraal Effectenverkeer.
     /// Encoded/decoded by serializers as "NECIGEF".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NECI")]
     [IsoId("_VuApudp-Ed-ak6NoX_4Aeg_335333688")]
-    [Description(@"??")]
+    [Description(@"Nederlands Centraal Instituut voor Giraal Effectenverkeer.")]
     NECIGEF,
     
     /// <summary>
-    /// ??
+    /// New Zealand National Clearing Code.
     /// Encoded/decoded by serializers as "NewZealandNationalClearing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NZBA")]
     [IsoId("_VuJzoNp-Ed-ak6NoX_4Aeg_335333696")]
-    [Description(@"??")]
+    [Description(@"New Zealand National Clearing Code.")]
     NewZealandNationalClearing,
     
     /// <summary>
-    /// ??
+    /// New Zealand Stock Exchange.
     /// Encoded/decoded by serializers as "NewZealandStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XNZE")]
     [IsoId("_VuJzodp-Ed-ak6NoX_4Aeg_335333697")]
-    [Description(@"??")]
+    [Description(@"New Zealand Stock Exchange.")]
     NewZealandStockExchange,
     
     /// <summary>
-    /// ??
+    /// Norway Verdipapirsentralen.
     /// Encoded/decoded by serializers as "Verdipapirsentralen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VPSN")]
     [IsoId("_VuJzotp-Ed-ak6NoX_4Aeg_335333698")]
-    [Description(@"??")]
+    [Description(@"Norway Verdipapirsentralen.")]
     Verdipapirsentralen,
     
     /// <summary>
-    /// ??
+    /// Philippine Central Depositary.
     /// Encoded/decoded by serializers as "PhilippineCentralDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCDY")]
     [IsoId("_VuJzo9p-Ed-ak6NoX_4Aeg_335333699")]
-    [Description(@"??")]
+    [Description(@"Philippine Central Depositary.")]
     PhilippineCentralDepository,
     
     /// <summary>
-    /// ??
+    /// Poland National Depository for Securities.
     /// Encoded/decoded by serializers as "PolandNationalDepositorySecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDPW")]
     [IsoId("_VuJzpNp-Ed-ak6NoX_4Aeg_335333700")]
-    [Description(@"??")]
+    [Description(@"Poland National Depository for Securities.")]
     PolandNationalDepositorySecurities,
     
     /// <summary>
-    /// ??
+    /// Portugal Central de Valores de Mobiliaros.
     /// Encoded/decoded by serializers as "CentralValoresMobiliaros".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CVMP")]
     [IsoId("_VuJzpdp-Ed-ak6NoX_4Aeg_335333701")]
-    [Description(@"??")]
+    [Description(@"Portugal Central de Valores de Mobiliaros.")]
     CentralValoresMobiliaros,
     
     /// <summary>
-    /// ??
+    /// Portuguese National Clearing Code.
     /// Encoded/decoded by serializers as "PortugueseNationalClearing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTIF")]
     [IsoId("_VuJzptp-Ed-ak6NoX_4Aeg_335333710")]
-    [Description(@"??")]
+    [Description(@"Portuguese National Clearing Code.")]
     PortugueseNationalClearing,
     
     /// <summary>
-    /// ??
+    /// Associacao para a Prestacao de Servicios as Bolsas de Valores.
     /// Encoded/decoded by serializers as "INTERBOLSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XCVM")]
     [IsoId("_VuJzp9p-Ed-ak6NoX_4Aeg_335333711")]
-    [Description(@"??")]
+    [Description(@"Associacao para a Prestacao de Servicios as Bolsas de Valores.")]
     INTERBOLSA,
     
     /// <summary>
-    /// ??
+    /// Russian Central Bank Identification Code.
     /// Encoded/decoded by serializers as "RussianCentralBankIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RUIC")]
     [IsoId("_VuJzqNp-Ed-ak6NoX_4Aeg_335333712")]
-    [Description(@"??")]
+    [Description(@"Russian Central Bank Identification Code.")]
     RussianCentralBankIdentification,
     
     /// <summary>
-    /// ??
+    /// Central Depository Pte Ltd.
     /// Encoded/decoded by serializers as "SingaporeCentralDepositoryLtd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDPL")]
     [IsoId("_VuJzqdp-Ed-ak6NoX_4Aeg_335333713")]
-    [Description(@"??")]
+    [Description(@"Central Depository Pte Ltd.")]
     SingaporeCentralDepositoryLtd,
     
     /// <summary>
-    /// ??
+    /// Singapore International Monetary Exchange Limited.
     /// Encoded/decoded by serializers as "SingaporeInternationalMonetaryExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XSIM")]
     [IsoId("_VuTkoNp-Ed-ak6NoX_4Aeg_335333714")]
-    [Description(@"??")]
+    [Description(@"Singapore International Monetary Exchange Limited.")]
     SingaporeInternationalMonetaryExchange,
     
     /// <summary>
-    /// ??
+    /// The Bratislava Stock Exchange.
     /// Encoded/decoded by serializers as "BratislavaStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XBRA")]
     [IsoId("_VuTkodp-Ed-ak6NoX_4Aeg_335333715")]
-    [Description(@"??")]
+    [Description(@"The Bratislava Stock Exchange.")]
     BratislavaStockExchange,
     
     /// <summary>
-    /// ??
+    /// South African National Clearing Code.
     /// Encoded/decoded by serializers as "SouthAfricanNationalClearing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZABS")]
     [IsoId("_VuTkotp-Ed-ak6NoX_4Aeg_335333716")]
-    [Description(@"??")]
+    [Description(@"South African National Clearing Code.")]
     SouthAfricanNationalClearing,
     
     /// <summary>
-    /// ??
+    /// Strate Clearing and Settlement (Proprietary) Limited.
     /// Encoded/decoded by serializers as "StrateClearingSettlementLtd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STRA")]
     [IsoId("_VuTko9p-Ed-ak6NoX_4Aeg_335333717")]
-    [Description(@"??")]
+    [Description(@"Strate Clearing and Settlement (Proprietary) Limited.")]
     StrateClearingSettlementLtd,
     
     /// <summary>
-    /// ??
+    /// Banco de Espana.
     /// Encoded/decoded by serializers as "BancoEspana".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESPB")]
     [IsoId("_VuTkpNp-Ed-ak6NoX_4Aeg_335333718")]
-    [Description(@"??")]
+    [Description(@"Banco de Espana.")]
     BancoEspana,
     
     /// <summary>
-    /// ??
+    /// Servicio de Compensacion y Liquidacion de Valores.
     /// Encoded/decoded by serializers as "ServicioCompensacionLiquidacionValores".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCLV")]
     [IsoId("_VuTkpdp-Ed-ak6NoX_4Aeg_335333719")]
-    [Description(@"??")]
+    [Description(@"Servicio de Compensacion y Liquidacion de Valores.")]
     ServicioCompensacionLiquidacionValores,
     
     /// <summary>
-    /// ??
+    /// Spanish Domestic Interbanking Code.
     /// Encoded/decoded by serializers as "SpanishDomesticInterbanking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESES")]
     [IsoId("_VuTkptp-Ed-ak6NoX_4Aeg_335333727")]
-    [Description(@"??")]
+    [Description(@"Spanish Domestic Interbanking Code.")]
     SpanishDomesticInterbanking,
     
     /// <summary>
-    /// ??
+    /// Sweden Vardepapperscentralen.
     /// Encoded/decoded by serializers as "Vardepapperscentralen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VPCS")]
     [IsoId("_VuTkp9p-Ed-ak6NoX_4Aeg_335333728")]
-    [Description(@"??")]
+    [Description(@"Sweden Vardepapperscentralen.")]
     Vardepapperscentralen,
     
     /// <summary>
-    /// ??
+    /// SIS - SEGA/Intersettle.
     /// Encoded/decoded by serializers as "SISSEGAIntersettle".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCOM")]
     [IsoId("_VuTkqNp-Ed-ak6NoX_4Aeg_335333729")]
-    [Description(@"??")]
+    [Description(@"SIS - SEGA/Intersettle.")]
     SISSEGAIntersettle,
     
     /// <summary>
-    /// ??
+    /// Swiss Clearing System.
     /// Encoded/decoded by serializers as "SwissClearingCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHSW")]
     [IsoId("_VuTkqdp-Ed-ak6NoX_4Aeg_335333730")]
-    [Description(@"??")]
+    [Description(@"Swiss Clearing System.")]
     SwissClearingCode,
     
     /// <summary>
-    /// ??
+    /// Thailand Securities Depository Company Limited.
     /// Encoded/decoded by serializers as "ThailandSecuritiesDepositoryCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TSDC")]
     [IsoId("_VuTkqtp-Ed-ak6NoX_4Aeg_335333731")]
-    [Description(@"??")]
+    [Description(@"Thailand Securities Depository Company Limited.")]
     ThailandSecuritiesDepositoryCompany,
     
     /// <summary>
-    /// ??
+    /// Taiwan Securities Central Depository Co Limited.
     /// Encoded/decoded by serializers as "TaiwanSecuritiesCentralDepository".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TSCD")]
     [IsoId("_VudVoNp-Ed-ak6NoX_4Aeg_335333732")]
-    [Description(@"??")]
+    [Description(@"Taiwan Securities Central Depository Co Limited.")]
     TaiwanSecuritiesCentralDepository,
     
     /// <summary>
-    /// ??
+    /// Turkey Takasbank.
     /// Encoded/decoded by serializers as "Takasbank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TVSB")]
     [IsoId("_VudVodp-Ed-ak6NoX_4Aeg_335333741")]
-    [Description(@"??")]
+    [Description(@"Turkey Takasbank.")]
     Takasbank,
     
     /// <summary>
-    /// ??
+    /// UK Domestic Sort Code.
     /// Encoded/decoded by serializers as "UKDomesticSort".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBSC")]
     [IsoId("_VudVotp-Ed-ak6NoX_4Aeg_335333742")]
-    [Description(@"??")]
+    [Description(@"UK Domestic Sort Code.")]
     UKDomesticSort,
     
     /// <summary>
-    /// ??
+    /// Bank of England (Central Moneymarkets Office).
     /// Encoded/decoded by serializers as "BankOfEnglandCMO".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKEN")]
     [IsoId("_VudVo9p-Ed-ak6NoX_4Aeg_335333743")]
-    [Description(@"??")]
+    [Description(@"Bank of England (Central Moneymarkets Office).")]
     BankOfEnglandCMO,
     
     /// <summary>
-    /// ??
+    /// CRESTCo Ltd. Company operating two real-time securities settlement services: CREST (for UK, Irish and international securities and government bonds) and CMO (UK money market instrument settlement).
     /// Encoded/decoded by serializers as "CrestCo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRST")]
     [IsoId("_VudVpNp-Ed-ak6NoX_4Aeg_335333744")]
-    [Description(@"??")]
+    [Description(@"CRESTCo Ltd. Company operating two real-time securities settlement services: CREST (for UK, Irish and international securities and government bonds) and CMO (UK money market instrument settlement).")]
     CrestCo,
     
     /// <summary>
-    /// ??
+    /// UK Financial Services Authority.
     /// Encoded/decoded by serializers as "FinancialServicesAuthority".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSAU")]
     [IsoId("_VudVpdp-Ed-ak6NoX_4Aeg_335333745")]
-    [Description(@"??")]
+    [Description(@"UK Financial Services Authority.")]
     FinancialServicesAuthority,
     
     /// <summary>
-    /// ??
+    /// The London Clearing House.
     /// Encoded/decoded by serializers as "LondonClearingHouse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LCHL")]
     [IsoId("_VudVptp-Ed-ak6NoX_4Aeg_335333746")]
-    [Description(@"??")]
+    [Description(@"The London Clearing House.")]
     LondonClearingHouse,
     
     /// <summary>
-    /// ??
+    /// UK - International Securities Market Association.
     /// Encoded/decoded by serializers as "InternationalSecuritiesMarketAssociation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XISM")]
     [IsoId("_VudVp9p-Ed-ak6NoX_4Aeg_335333747")]
-    [Description(@"??")]
+    [Description(@"UK - International Securities Market Association.")]
     InternationalSecuritiesMarketAssociation,
     
     /// <summary>
-    /// ??
+    /// London Stock Exchange.
     /// Encoded/decoded by serializers as "LondonStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XLON")]
     [IsoId("_VudVqNp-Ed-ak6NoX_4Aeg_335333748")]
-    [Description(@"??")]
+    [Description(@"London Stock Exchange.")]
     LondonStockExchange,
     
     /// <summary>
-    /// ??
+    /// American Stock Exchange.
     /// Encoded/decoded by serializers as "AmericanStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XASE")]
     [IsoId("_VudVqdp-Ed-ak6NoX_4Aeg_335333749")]
-    [Description(@"??")]
+    [Description(@"American Stock Exchange.")]
     AmericanStockExchange,
     
     /// <summary>
-    /// ??
+    /// Depository Trust Company.
     /// Encoded/decoded by serializers as "DepositoryTrustCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTCC")]
     [IsoId("_VumfkNp-Ed-ak6NoX_4Aeg_335333750")]
-    [Description(@"??")]
+    [Description(@"Depository Trust Company.")]
     DepositoryTrustCompany,
     
     /// <summary>
-    /// ??
+    /// USA Emerging Markets Clearing Corporation.
     /// Encoded/decoded by serializers as "EmergingMarketsClearingCorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMCC")]
     [IsoId("_Vumfkdp-Ed-ak6NoX_4Aeg_335333758")]
-    [Description(@"??")]
+    [Description(@"USA Emerging Markets Clearing Corporation.")]
     EmergingMarketsClearingCorporation,
     
     /// <summary>
-    /// ??
+    /// Fedwire Routing Number.
     /// Encoded/decoded by serializers as "FedwireRoutingNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USFW")]
     [IsoId("_Vumfktp-Ed-ak6NoX_4Aeg_335333759")]
-    [Description(@"??")]
+    [Description(@"Fedwire Routing Number.")]
     FedwireRoutingNumber,
     
     /// <summary>
-    /// ??
+    /// Provider of trade netting and settlement for the US Government securities marketplace.
     /// Encoded/decoded by serializers as "GovernmentSecuritiesClearingCorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GSCC")]
     [IsoId("_Vumfk9p-Ed-ak6NoX_4Aeg_335333760")]
-    [Description(@"??")]
+    [Description(@"Provider of trade netting and settlement for the US Government securities marketplace.")]
     GovernmentSecuritiesClearingCorporation,
     
     /// <summary>
-    /// ??
+    /// International Securities Clearing Corporation.
     /// Encoded/decoded by serializers as "InternationalSecuritiesClearingCorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISCC")]
     [IsoId("_VumflNp-Ed-ak6NoX_4Aeg_335333761")]
-    [Description(@"??")]
+    [Description(@"International Securities Clearing Corporation.")]
     InternationalSecuritiesClearingCorporation,
     
     /// <summary>
-    /// ??
+    /// Mortgage Backed Securities Clearing Corporation.
     /// Encoded/decoded by serializers as "MortgageBackedSecuritiesClearingCorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MBSC")]
     [IsoId("_Vumfldp-Ed-ak6NoX_4Aeg_335333762")]
-    [Description(@"??")]
+    [Description(@"Mortgage Backed Securities Clearing Corporation.")]
     MortgageBackedSecuritiesClearingCorporation,
     
     /// <summary>
-    /// ??
+    /// National Association Securities Dealers.
     /// Encoded/decoded by serializers as "NationalAssociationSecuritiesDealers".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XNAS")]
     [IsoId("_Vumfltp-Ed-ak6NoX_4Aeg_335333763")]
-    [Description(@"??")]
+    [Description(@"National Association Securities Dealers.")]
     NationalAssociationSecuritiesDealers,
     
     /// <summary>
-    /// ??
+    /// National Association of Securities Dealers Automated Quotation Service "NASDAQ" / National Market System.
     /// Encoded/decoded by serializers as "NASDAQ".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XNMS")]
     [IsoId("_Vumfl9p-Ed-ak6NoX_4Aeg_335333772")]
-    [Description(@"??")]
+    [Description(@"National Association of Securities Dealers Automated Quotation Service ""NASDAQ"" / National Market System.")]
     NASDAQ,
     
     /// <summary>
-    /// ??
+    /// National Securities Clearing Corporation.
     /// Encoded/decoded by serializers as "NationalSecuritiesClearingCorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSCC")]
     [IsoId("_VumfmNp-Ed-ak6NoX_4Aeg_335333773")]
-    [Description(@"??")]
+    [Description(@"National Securities Clearing Corporation.")]
     NationalSecuritiesClearingCorporation,
     
     /// <summary>
-    /// ??
+    /// New York Clearing House.
     /// Encoded/decoded by serializers as "NewYorkClearingHouse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NYCH")]
     [IsoId("_Vumfmdp-Ed-ak6NoX_4Aeg_335333774")]
-    [Description(@"??")]
+    [Description(@"New York Clearing House.")]
     NewYorkClearingHouse,
     
     /// <summary>
-    /// ??
+    /// New York Stock Exchange.
     /// Encoded/decoded by serializers as "NewYorkStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XNYS")]
     [IsoId("_Vumfmtp-Ed-ak6NoX_4Aeg_335333775")]
-    [Description(@"??")]
+    [Description(@"New York Stock Exchange.")]
     NewYorkStockExchange,
     
     /// <summary>
-    /// ??
+    /// Options Clearing Corporation.
     /// Encoded/decoded by serializers as "OptionsClearingCorporation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCCX")]
     [IsoId("_VuwQkNp-Ed-ak6NoX_4Aeg_335333776")]
-    [Description(@"??")]
+    [Description(@"Options Clearing Corporation.")]
     OptionsClearingCorporation,
     
     /// <summary>
-    /// ??
+    /// Participant Trust Company.
     /// Encoded/decoded by serializers as "ParticipantTrustCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTCY")]
     [IsoId("_VuwQkdp-Ed-ak6NoX_4Aeg_335333777")]
-    [Description(@"??")]
+    [Description(@"Participant Trust Company.")]
     ParticipantTrustCompany,
     
 }

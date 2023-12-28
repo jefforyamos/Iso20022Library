@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionEventProcessingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that a corporate action event processing has been completed.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_bDZaA9p-Ed-ak6NoX_4Aeg_772412579")]
-    [Description(@"??")]
+    [Description(@"Specifies that a corporate action event processing has been completed.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Specifies that a corporate action event processing has not been completed.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_bDZaBNp-Ed-ak6NoX_4Aeg_772412580")]
-    [Description(@"??")]
+    [Description(@"Specifies that a corporate action event processing has not been completed.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Corporate action event processing specifying that the funds paid have been reconciled with the funds received from the agent (meaning that there is no more risk of payment to be reversed).
     /// Encoded/decoded by serializers as "Reconciled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECD")]
     [IsoId("_bDZaBdp-Ed-ak6NoX_4Aeg_772412610")]
-    [Description(@"??")]
+    [Description(@"Corporate action event processing specifying that the funds paid have been reconciled with the funds received from the agent (meaning that there is no more risk of payment to be reversed).")]
     Reconciled,
     
 }

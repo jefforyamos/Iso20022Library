@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason71Code
 {
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_98T3wStYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_98T3wytYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid message sender's safekeeping account.
     /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_98T3xStYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
     SafekeepingAccountRejection,
     
     /// <summary>
-    /// ??
+    /// More than one instruction match the criteria.
     /// Encoded/decoded by serializers as "NoMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRGM")]
     [IsoId("_98T3xytYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"More than one instruction match the criteria.")]
     NoMatch,
     
     /// <summary>
-    /// ??
+    /// Instruction could not be found.
     /// Encoded/decoded by serializers as "NotFoundRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRGN")]
     [IsoId("_98T3yStYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Instruction could not be found.")]
     NotFoundRejection,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_98T3yytYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Instruction has a reference identical to another previously received instruction.
     /// Encoded/decoded by serializers as "ReferenceRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFE")]
     [IsoId("_98T3zStYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Instruction has a reference identical to another previously received instruction.")]
     ReferenceRejection,
     
     /// <summary>
-    /// ??
+    /// Invalid or unrecognized modification request.
     /// Encoded/decoded by serializers as "InvalidModificationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVM")]
     [IsoId("_98T3zytYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Invalid or unrecognized modification request.")]
     InvalidModificationRequest,
     
     /// <summary>
-    /// ??
+    /// Invalid or unrecognized link.
     /// Encoded/decoded by serializers as "InvalidLink".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVL")]
     [IsoId("_98T30StYEeyF-PUIGuhxvA")]
-    [Description(@"??")]
+    [Description(@"Invalid or unrecognized link.")]
     InvalidLink,
     
 }

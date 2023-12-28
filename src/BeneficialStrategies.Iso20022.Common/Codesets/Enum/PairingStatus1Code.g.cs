@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PairingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction has been paired.
     /// Encoded/decoded by serializers as "Paired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARD")]
     [IsoId("_sPf1AV54Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"Transaction has been paired.")]
     Paired,
     
     /// <summary>
-    /// ??
+    /// Transaction has not been paired.
     /// Encoded/decoded by serializers as "Unpaired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNPR")]
     [IsoId("_sPf1Al54Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"Transaction has not been paired.")]
     Unpaired,
     
 }

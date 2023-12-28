@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterestType2Code
 {
     /// <summary>
-    /// ??
+    /// Indicates deal price including accrued interest.
     /// Encoded/decoded by serializers as "CumInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINT")]
     [IsoId("__215cdojEeC60axPepSq7g_717130324")]
-    [Description(@"??")]
+    [Description(@"Indicates deal price including accrued interest.")]
     CumInterest,
     
     /// <summary>
-    /// ??
+    /// Indicates deal price excluding accrued interest.
     /// Encoded/decoded by serializers as "ExInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XINT")]
     [IsoId("__215ctojEeC60axPepSq7g_1303077350")]
-    [Description(@"??")]
+    [Description(@"Indicates deal price excluding accrued interest.")]
     ExInterest,
     
 }

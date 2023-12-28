@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationProcessingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation has been completed.
     /// Encoded/decoded by serializers as "CancellationCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_bXgo09p-Ed-ak6NoX_4Aeg_2094579543")]
-    [Description(@"??")]
+    [Description(@"Cancellation has been completed.")]
     CancellationCompleted,
     
     /// <summary>
-    /// ??
+    /// Cancellation is pending. It is not known at this time whether cancellation can be affected.
     /// Encoded/decoded by serializers as "PendingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_bXgo1Np-Ed-ak6NoX_4Aeg_2094579544")]
-    [Description(@"??")]
+    [Description(@"Cancellation is pending. It is not known at this time whether cancellation can be affected.")]
     PendingCancellation,
     
     /// <summary>
-    /// ??
+    /// Cancellation will not be executed.
     /// Encoded/decoded by serializers as "Denied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEND")]
     [IsoId("_bXgo1dp-Ed-ak6NoX_4Aeg_2094579564")]
-    [Description(@"??")]
+    [Description(@"Cancellation will not be executed.")]
     Denied,
     
     /// <summary>
-    /// ??
+    /// Cancellation has been received at the stock exchange.
     /// Encoded/decoded by serializers as "ReceivedAtStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCH")]
     [IsoId("_bXgo1tp-Ed-ak6NoX_4Aeg_2094579565")]
-    [Description(@"??")]
+    [Description(@"Cancellation has been received at the stock exchange.")]
     ReceivedAtStockExchange,
     
     /// <summary>
-    /// ??
+    /// Cancellation has been received at the intermediary.
     /// Encoded/decoded by serializers as "ReceivedAtIntermediary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_bXgo19p-Ed-ak6NoX_4Aeg_2094579595")]
-    [Description(@"??")]
+    [Description(@"Cancellation has been received at the intermediary.")]
     ReceivedAtIntermediary,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been acknowledged for further processing by the account servicer.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_bXqZ0Np-Ed-ak6NoX_4Aeg_2094579596")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been acknowledged for further processing by the account servicer.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Order is partially filled, cancellation processing accepted for the remainder.
     /// Encoded/decoded by serializers as "PartiallyFilled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARF")]
     [IsoId("_bXqZ0dp-Ed-ak6NoX_4Aeg_2094579626")]
-    [Description(@"??")]
+    [Description(@"Order is partially filled, cancellation processing accepted for the remainder.")]
     PartiallyFilled,
     
     /// <summary>
-    /// ??
+    /// Cancellation has been rejected for further processing.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_bXqZ0tp-Ed-ak6NoX_4Aeg_2094579627")]
-    [Description(@"??")]
+    [Description(@"Cancellation has been rejected for further processing.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Cancellation request is in repair.
     /// Encoded/decoded by serializers as "InRepair".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPR")]
     [IsoId("_bXqZ09p-Ed-ak6NoX_4Aeg_2094579656")]
-    [Description(@"??")]
+    [Description(@"Cancellation request is in repair.")]
     InRepair,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReferToFundOrderDesk1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the operation is only possible in restricted circumstances.
     /// Encoded/decoded by serializers as "ReferToFundOrderDesk".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFOD")]
     [IsoId("_ZayddNp-Ed-ak6NoX_4Aeg_-805146800")]
-    [Description(@"??")]
+    [Description(@"Indicates that the operation is only possible in restricted circumstances.")]
     ReferToFundOrderDesk,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CertificationFormatType1Code
 {
     /// <summary>
-    /// ??
+    /// Certification must be provided in electronic format.
     /// Encoded/decoded by serializers as "Electronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_a78HIdp-Ed-ak6NoX_4Aeg_-1559890547")]
-    [Description(@"??")]
+    [Description(@"Certification must be provided in electronic format.")]
     Electronic,
     
     /// <summary>
-    /// ??
+    /// Certification must be provided in physical format.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_a78HItp-Ed-ak6NoX_4Aeg_-1559890529")]
-    [Description(@"??")]
+    [Description(@"Certification must be provided in physical format.")]
     Physical,
     
 }

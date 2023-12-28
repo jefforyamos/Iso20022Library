@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Verification2Code
 {
     /// <summary>
-    /// ??
+    /// Verification failed.
     /// Encoded/decoded by serializers as "Failed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_1vp8AX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Verification failed.")]
     Failed,
     
     /// <summary>
-    /// ??
+    /// Further action required.
     /// Encoded/decoded by serializers as "FurtherAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUTA")]
     [IsoId("_1vp8A30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Further action required.")]
     FurtherAction,
     
     /// <summary>
-    /// ??
+    /// Information required to perform the verification was missing.
     /// Encoded/decoded by serializers as "Missing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISS")]
     [IsoId("_1vp8BX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Information required to perform the verification was missing.")]
     Missing,
     
     /// <summary>
-    /// ??
+    /// Verification has not been performed.
     /// Encoded/decoded by serializers as "NotPerformed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOVF")]
     [IsoId("_1vp8B30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Verification has not been performed.")]
     NotPerformed,
     
     /// <summary>
-    /// ??
+    /// Other result of verification defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_1vp8CX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other result of verification defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other result of verification defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_1vp8C30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other result of verification defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Verification was partially successful.
     /// Encoded/decoded by serializers as "PartialMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_1vp8DX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Verification was partially successful.")]
     PartialMatch,
     
     /// <summary>
-    /// ??
+    /// Verification was successful.
     /// Encoded/decoded by serializers as "Successful".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_1vp8D30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Verification was successful.")]
     Successful,
     
     /// <summary>
-    /// ??
+    /// Device or entity to perform the verification was unavailable.
     /// Encoded/decoded by serializers as "TechnicalError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERRR")]
     [IsoId("_1vp8EX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Device or entity to perform the verification was unavailable.")]
     TechnicalError,
     
 }

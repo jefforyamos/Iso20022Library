@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventConfirmationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Occurrence of the event has been confirmed.
     /// Encoded/decoded by serializers as "Confirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_ajNeEtp-Ed-ak6NoX_4Aeg_-181611544")]
-    [Description(@"??")]
+    [Description(@"Occurrence of the event has been confirmed.")]
     Confirmed,
     
     /// <summary>
-    /// ??
+    /// Occurrence of the event has not been confirmed.
     /// Encoded/decoded by serializers as "Unconfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCON")]
     [IsoId("_ajNeE9p-Ed-ak6NoX_4Aeg_-176071125")]
-    [Description(@"??")]
+    [Description(@"Occurrence of the event has not been confirmed.")]
     Unconfirmed,
     
 }

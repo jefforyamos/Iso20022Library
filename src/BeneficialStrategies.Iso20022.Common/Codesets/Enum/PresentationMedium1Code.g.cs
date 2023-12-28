@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PresentationMedium1Code
 {
     /// <summary>
-    /// ??
+    /// Presentation is made on paper and/or electronically.
     /// Encoded/decoded by serializers as "PaperElectronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_nvSZZnyfEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Presentation is made on paper and/or electronically.")]
     PaperElectronic,
     
     /// <summary>
-    /// ??
+    /// Presentation is made electronically.
     /// Encoded/decoded by serializers as "Electronic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_n3yOFnyfEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Presentation is made electronically.")]
     Electronic,
     
     /// <summary>
-    /// ??
+    /// Presentation is made on paper.
     /// Encoded/decoded by serializers as "Paper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAPR")]
     [IsoId("_n_Yq5nyfEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Presentation is made on paper.")]
     Paper,
     
 }

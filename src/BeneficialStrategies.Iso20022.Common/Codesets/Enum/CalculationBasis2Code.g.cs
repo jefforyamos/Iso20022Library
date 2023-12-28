@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CalculationBasis2Code
 {
     /// <summary>
-    /// ??
+    /// Average basis.
     /// Encoded/decoded by serializers as "Average".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVER")]
     [IsoId("_bVR0Ndp-Ed-ak6NoX_4Aeg_-1779457837")]
-    [Description(@"??")]
+    [Description(@"Average basis.")]
     Average,
     
     /// <summary>
-    /// ??
+    /// Daily basis.
     /// Encoded/decoded by serializers as "Daily".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAIL")]
     [IsoId("_bVR0Ntp-Ed-ak6NoX_4Aeg_-1779457820")]
-    [Description(@"??")]
+    [Description(@"Daily basis.")]
     Daily,
     
     /// <summary>
-    /// ??
+    /// Monthly basis.
     /// Encoded/decoded by serializers as "Monthly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_bVR0N9p-Ed-ak6NoX_4Aeg_1334046994")]
-    [Description(@"??")]
+    [Description(@"Monthly basis.")]
     Monthly,
     
     /// <summary>
-    /// ??
+    /// Yearly basis.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_bVR0ONp-Ed-ak6NoX_4Aeg_1334047012")]
-    [Description(@"??")]
+    [Description(@"Yearly basis.")]
     Annual,
     
 }

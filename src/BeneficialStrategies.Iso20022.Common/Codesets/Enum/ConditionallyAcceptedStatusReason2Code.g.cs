@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ConditionallyAcceptedStatusReason2Code
 {
     /// <summary>
-    /// ??
+    /// Order is pending until documents are completed and received, eg, legal documents from the successor, legal proceeds because of bankruptcy, missing signature.
     /// Encoded/decoded by serializers as "AwaitingDocuments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_bA3DYtp-Ed-ak6NoX_4Aeg_-883291302")]
-    [Description(@"??")]
+    [Description(@"Order is pending until documents are completed and received, eg, legal documents from the successor, legal proceeds because of bankruptcy, missing signature.")]
     AwaitingDocuments,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending until there are enough funds in the account to complete the redemption.
     /// Encoded/decoded by serializers as "AwaitingRedemptionMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWRM")]
     [IsoId("_bA3DY9p-Ed-ak6NoX_4Aeg_-1558528706")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending until there are enough funds in the account to complete the redemption.")]
     AwaitingRedemptionMoney,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing but the execution of the order is pending until there is enough cash in the account to pay the subscription.
     /// Encoded/decoded by serializers as "AwaitingSubscriptionMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWSM")]
     [IsoId("_bA3DZNp-Ed-ak6NoX_4Aeg_-1558528628")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing but the execution of the order is pending until there is enough cash in the account to pay the subscription.")]
     AwaitingSubscriptionMoney,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing pending the result of the investigation for possible duplicates.
     /// Encoded/decoded by serializers as "PossibleDuplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPL")]
     [IsoId("_bA3DZdp-Ed-ak6NoX_4Aeg_-1290549980")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing pending the result of the investigation for possible duplicates.")]
     PossibleDuplicate,
     
     /// <summary>
-    /// ??
+    /// Order is accepted for further processing pending the extension of the trading limit.
     /// Encoded/decoded by serializers as "TradingLimitExceeded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRED")]
     [IsoId("_bA3DZtp-Ed-ak6NoX_4Aeg_-1227752075")]
-    [Description(@"??")]
+    [Description(@"Order is accepted for further processing pending the extension of the trading limit.")]
     TradingLimitExceeded,
     
 }

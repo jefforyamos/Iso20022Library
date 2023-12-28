@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetPriceType1Code
 {
     /// <summary>
-    /// ??
+    /// Argus / Mc Closkey price.
     /// Encoded/decoded by serializers as "ArgusMcCloskey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARGM")]
     [IsoId("_Uio3oRtFEeWhp-Wous5jzA")]
-    [Description(@"??")]
+    [Description(@"Argus / Mc Closkey price.")]
     ArgusMcCloskey,
     
     /// <summary>
-    /// ??
+    /// Baltic price.
     /// Encoded/decoded by serializers as "Baltic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLTC")]
     [IsoId("_UnPq0RtFEeWhp-Wous5jzA")]
-    [Description(@"??")]
+    [Description(@"Baltic price.")]
     Baltic,
     
     /// <summary>
-    /// ??
+    /// Exchange price.
     /// Encoded/decoded by serializers as "Exchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXOF")]
     [IsoId("_UsAPARtFEeWhp-Wous5jzA")]
-    [Description(@"??")]
+    [Description(@"Exchange price.")]
     Exchange,
     
     /// <summary>
-    /// ??
+    /// Global coal price.
     /// Encoded/decoded by serializers as "GlobalCoal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBCL")]
     [IsoId("_UwnpQRtFEeWhp-Wous5jzA")]
-    [Description(@"??")]
+    [Description(@"Global coal price.")]
     GlobalCoal,
     
     /// <summary>
-    /// ??
+    /// IHS Mc Closkey price.
     /// Encoded/decoded by serializers as "IHSMcCloskey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IHSM")]
     [IsoId("_U1YNcRtFEeWhp-Wous5jzA")]
-    [Description(@"??")]
+    [Description(@"IHS Mc Closkey price.")]
     IHSMcCloskey,
     
     /// <summary>
-    /// ??
+    /// Other price.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_U9tqERtFEeWhp-Wous5jzA")]
-    [Description(@"??")]
+    [Description(@"Other price.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Platts price.
     /// Encoded/decoded by serializers as "Platts".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLAT")]
     [IsoId("_VFS4wRtFEeWhp-Wous5jzA")]
-    [Description(@"??")]
+    [Description(@"Platts price.")]
     Platts,
     
 }

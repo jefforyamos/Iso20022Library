@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StandingInstructionGrossNet1Code
 {
     /// <summary>
-    /// ??
+    /// Gross payment.
     /// Encoded/decoded by serializers as "Gross".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GROS")]
     [IsoId("_ZPnIONp-Ed-ak6NoX_4Aeg_1018738724")]
-    [Description(@"??")]
+    [Description(@"Gross payment.")]
     Gross,
     
     /// <summary>
-    /// ??
+    /// Net payment.
     /// Encoded/decoded by serializers as "Net".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETT")]
     [IsoId("_ZPw5MNp-Ed-ak6NoX_4Aeg_1053834510")]
-    [Description(@"??")]
+    [Description(@"Net payment.")]
     Net,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType44Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type urea and ammonium nitrite.
     /// Encoded/decoded by serializers as "UreaAndAmmoniumNitrite".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UAAN")]
     [IsoId("_voxdC1r3EeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type urea and ammonium nitrite.")]
     UreaAndAmmoniumNitrite,
     
 }

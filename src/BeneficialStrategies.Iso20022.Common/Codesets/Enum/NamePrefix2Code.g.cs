@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NamePrefix2Code
 {
     /// <summary>
-    /// ??
+    /// Title of the person is Doctor or Dr.
     /// Encoded/decoded by serializers as "Doctor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCT")]
     [IsoId("_SmTbEXRmEeiH1ZOt2UD8vQ")]
-    [Description(@"??")]
+    [Description(@"Title of the person is Doctor or Dr.")]
     Doctor,
     
     /// <summary>
-    /// ??
+    /// Title of the person is Madam.
     /// Encoded/decoded by serializers as "Madam".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MADM")]
     [IsoId("_SseUgXRmEeiH1ZOt2UD8vQ")]
-    [Description(@"??")]
+    [Description(@"Title of the person is Madam.")]
     Madam,
     
     /// <summary>
-    /// ??
+    /// Title of the person is Miss.
     /// Encoded/decoded by serializers as "Miss".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISS")]
     [IsoId("_SzqhoXRmEeiH1ZOt2UD8vQ")]
-    [Description(@"??")]
+    [Description(@"Title of the person is Miss.")]
     Miss,
     
     /// <summary>
-    /// ??
+    /// Title of the person is Mister or Mr.
     /// Encoded/decoded by serializers as "Mister".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIST")]
     [IsoId("_S6p6cXRmEeiH1ZOt2UD8vQ")]
-    [Description(@"??")]
+    [Description(@"Title of the person is Mister or Mr.")]
     Mister,
     
     /// <summary>
-    /// ??
+    /// Title of the person is gender neutral (Mx).
     /// Encoded/decoded by serializers as "GenderNeutral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIKS")]
     [IsoId("_TCckgXRmEeiH1ZOt2UD8vQ")]
-    [Description(@"??")]
+    [Description(@"Title of the person is gender neutral (Mx).")]
     GenderNeutral,
     
 }

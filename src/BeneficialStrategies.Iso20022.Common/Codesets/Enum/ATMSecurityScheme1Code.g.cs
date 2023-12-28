@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMSecurityScheme1Code
 {
     /// <summary>
-    /// ??
+    /// Application key download protected by a share symmetric key.
     /// Encoded/decoded by serializers as "ApplicationRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPK")]
     [IsoId("_YwVQoYr5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Application key download protected by a share symmetric key.")]
     ApplicationRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Key download protected by asymmetric keys authenticated by a certificate.
     /// Encoded/decoded by serializers as "CertificateRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERT")]
     [IsoId("_Y5_i84r5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Key download protected by asymmetric keys authenticated by a certificate.")]
     CertificateRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Key download conform to the French ATM key download security scheme.
     /// Encoded/decoded by serializers as "FrenchRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRAN")]
     [IsoId("_Y_cDoYr5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Key download conform to the French ATM key download security scheme.")]
     FrenchRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Key download conform to the German ATM key download security scheme.
     /// Encoded/decoded by serializers as "GermanRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTCH")]
     [IsoId("_ZF9iY4r5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Key download conform to the German ATM key download security scheme.")]
     GermanRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Key download conform to the Luxemburg ATM key download security scheme.
     /// Encoded/decoded by serializers as "LuxemburgRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LUXG")]
     [IsoId("_ZK00QYr5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Key download conform to the Luxemburg ATM key download security scheme.")]
     LuxemburgRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// Manual key entry on the ATM.
     /// Encoded/decoded by serializers as "ManualKeyEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANU")]
     [IsoId("_ZQxEMYr5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Manual key entry on the ATM.")]
     ManualKeyEntry,
     
     /// <summary>
-    /// ??
+    /// Key download protected by asymmetric keys authenticated by a PKI (Public Key Infrastructure).
     /// Encoded/decoded by serializers as "PKIKeyDownload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PKIP")]
     [IsoId("_ZZuy84r5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Key download protected by asymmetric keys authenticated by a PKI (Public Key Infrastructure).")]
     PKIKeyDownload,
     
     /// <summary>
-    /// ??
+    /// Key download protected by asymmetric keys authenticated by a digital signature.
     /// Encoded/decoded by serializers as "SignatureRemoteKeyLoading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGN")]
     [IsoId("_ZfmKY4r5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Key download protected by asymmetric keys authenticated by a digital signature.")]
     SignatureRemoteKeyLoading,
     
     /// <summary>
-    /// ??
+    /// No key exchange performed, no security scheme defined.
     /// Encoded/decoded by serializers as "Unitialised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_ZinCIYr5EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"No key exchange performed, no security scheme defined.")]
     Unitialised,
     
 }

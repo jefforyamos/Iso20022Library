@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType24Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type coal.
     /// Encoded/decoded by serializers as "Coal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAL")]
     [IsoId("_fK85IVrKEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type coal.")]
     Coal,
     
 }

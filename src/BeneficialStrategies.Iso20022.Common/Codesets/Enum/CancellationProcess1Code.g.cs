@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationProcess1Code
 {
     /// <summary>
-    /// ??
+    /// Card payment transaction may be cancelled by an advice only before closure of the reconciliation period or before the capture by batch.
     /// Encoded/decoded by serializers as "Advice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVC")]
     [IsoId("_YZnlMR3oEeKWfegf-2AeBQ")]
-    [Description(@"??")]
+    [Description(@"Card payment transaction may be cancelled by an advice only before closure of the reconciliation period or before the capture by batch.")]
     Advice,
     
     /// <summary>
-    /// ??
+    /// Card payment transaction cannot be cancelled by the acquirer.
     /// Encoded/decoded by serializers as "NotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NALW")]
     [IsoId("_YiP8wR3oEeKWfegf-2AeBQ")]
-    [Description(@"??")]
+    [Description(@"Card payment transaction cannot be cancelled by the acquirer.")]
     NotAllowed,
     
     /// <summary>
-    /// ??
+    /// Card payment transaction may also be cancelled after the closure of the reconciliation period or after the capture by batch. In this case a cancellation request exchange is required.
     /// Encoded/decoded by serializers as "Request".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_Yo8aoR3oEeKWfegf-2AeBQ")]
-    [Description(@"??")]
+    [Description(@"Card payment transaction may also be cancelled after the closure of the reconciliation period or after the capture by batch. In this case a cancellation request exchange is required.")]
     Request,
     
 }

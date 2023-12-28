@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionRejectReason4Code
 {
     /// <summary>
-    /// ??
+    /// Format of the account number specified is not correct.
     /// Encoded/decoded by serializers as "IncorrectAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC01")]
     [IsoId("_Ytoch9p-Ed-ak6NoX_4Aeg_702218854")]
-    [Description(@"??")]
+    [Description(@"Format of the account number specified is not correct.")]
     IncorrectAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account number specified has been closed on the Receiver's books.
     /// Encoded/decoded by serializers as "ClosedAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC04")]
     [IsoId("_YtociNp-Ed-ak6NoX_4Aeg_702218897")]
-    [Description(@"??")]
+    [Description(@"Account number specified has been closed on the Receiver's books.")]
     ClosedAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account specified is blocked, prohibiting posting of transactions against it.
     /// Encoded/decoded by serializers as "BlockedAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC06")]
     [IsoId("_YtyNgNp-Ed-ak6NoX_4Aeg_702218932")]
-    [Description(@"??")]
+    [Description(@"Account specified is blocked, prohibiting posting of transactions against it.")]
     BlockedAccount,
     
     /// <summary>
-    /// ??
+    /// Transaction forbidden on this type of account (formerly NoAgreement).
     /// Encoded/decoded by serializers as "TransactionForbidden".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AG01")]
     [IsoId("_YtyNgdp-Ed-ak6NoX_4Aeg_702219257")]
-    [Description(@"??")]
+    [Description(@"Transaction forbidden on this type of account (formerly NoAgreement).")]
     TransactionForbidden,
     
     /// <summary>
-    /// ??
+    /// Bank Operation code specified in the message is not valid for receiver.
     /// Encoded/decoded by serializers as "InvalidBankOperationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AG02")]
     [IsoId("_YtyNgtp-Ed-ak6NoX_4Aeg_702218967")]
-    [Description(@"??")]
+    [Description(@"Bank Operation code specified in the message is not valid for receiver.")]
     InvalidBankOperationCode,
     
     /// <summary>
-    /// ??
+    /// Amount of funds available to cover specified message amount is insufficient.
     /// Encoded/decoded by serializers as "InsufficientFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM04")]
     [IsoId("_YtyNg9p-Ed-ak6NoX_4Aeg_702219300")]
-    [Description(@"??")]
+    [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
     InsufficientFunds,
     
     /// <summary>
-    /// ??
+    /// This message appears to have been duplicated.
     /// Encoded/decoded by serializers as "Duplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM05")]
     [IsoId("_YtyNhNp-Ed-ak6NoX_4Aeg_702219335")]
-    [Description(@"??")]
+    [Description(@"This message appears to have been duplicated.")]
     Duplication,
     
     /// <summary>
-    /// ??
+    /// Mandate is cancelled or invalid.
     /// Encoded/decoded by serializers as "NoMandate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD01")]
     [IsoId("_YtyNhdp-Ed-ak6NoX_4Aeg_702219370")]
-    [Description(@"??")]
+    [Description(@"Mandate is cancelled or invalid.")]
     NoMandate,
     
     /// <summary>
-    /// ??
+    /// Mandate related information data required by the scheme is missing.
     /// Encoded/decoded by serializers as "MissingMandatoryInformationInMandate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD02")]
     [IsoId("_YtyNhtp-Ed-ak6NoX_4Aeg_702219412")]
-    [Description(@"??")]
+    [Description(@"Mandate related information data required by the scheme is missing.")]
     MissingMandatoryInformationInMandate,
     
     /// <summary>
-    /// ??
+    /// File format incomplete or invalid.
     /// Encoded/decoded by serializers as "InvalidFileFormatForOtherReasonThanGroupingIndicator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD03")]
     [IsoId("_YtyNh9p-Ed-ak6NoX_4Aeg_702219456")]
-    [Description(@"??")]
+    [Description(@"File format incomplete or invalid.")]
     InvalidFileFormatForOtherReasonThanGroupingIndicator,
     
     /// <summary>
-    /// ??
+    /// Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
     /// Encoded/decoded by serializers as "BankIdentifierIncorrect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RC01")]
     [IsoId("_YtyNiNp-Ed-ak6NoX_4Aeg_702219491")]
-    [Description(@"??")]
+    [Description(@"Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).")]
     BankIdentifierIncorrect,
     
     /// <summary>
-    /// ??
+    /// End customer is deceased.
     /// Encoded/decoded by serializers as "EndCustomerDeceased".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD07")]
     [IsoId("_YtyNidp-Ed-ak6NoX_4Aeg_702219768")]
-    [Description(@"??")]
+    [Description(@"End customer is deceased.")]
     EndCustomerDeceased,
     
     /// <summary>
-    /// ??
+    /// Reason has not been specified by agent.
     /// Encoded/decoded by serializers as "NotSpecifiedReasonAgentGenerated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS03")]
     [IsoId("_Yt7-gNp-Ed-ak6NoX_4Aeg_702219828")]
-    [Description(@"??")]
+    [Description(@"Reason has not been specified by agent.")]
     NotSpecifiedReasonAgentGenerated,
     
     /// <summary>
-    /// ??
+    /// Associated message was received after agreed processing cut-off time.
     /// Encoded/decoded by serializers as "CutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TM01")]
     [IsoId("_Yt7-gdp-Ed-ak6NoX_4Aeg_702219863")]
-    [Description(@"??")]
+    [Description(@"Associated message was received after agreed processing cut-off time.")]
     CutOffTime,
     
 }

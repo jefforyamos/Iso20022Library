@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CILPaymentType1Code
 {
     /// <summary>
-    /// ??
+    /// Event pays daily at fixed rate.
     /// Encoded/decoded by serializers as "Fixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXD")]
     [IsoId("_1tJmADL3EeKU9IrkkToqcw_1674898907")]
-    [Description(@"??")]
+    [Description(@"Event pays daily at fixed rate.")]
     Fixed,
     
     /// <summary>
-    /// ??
+    /// Price can fluctuate. Payment is held until released.
     /// Encoded/decoded by serializers as "Hold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_1tJmATL3EeKU9IrkkToqcw_1955757868")]
-    [Description(@"??")]
+    [Description(@"Price can fluctuate. Payment is held until released.")]
     Hold,
     
     /// <summary>
-    /// ??
+    /// Pays on same day as convert/exercise instructions.
     /// Encoded/decoded by serializers as "PayCIL".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCIL")]
     [IsoId("_1tJmAjL3EeKU9IrkkToqcw_-43100213")]
-    [Description(@"??")]
+    [Description(@"Pays on same day as convert/exercise instructions.")]
     PayCIL,
     
 }

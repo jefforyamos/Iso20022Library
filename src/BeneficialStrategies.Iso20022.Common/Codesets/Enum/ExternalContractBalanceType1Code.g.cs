@@ -21,21 +21,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalContractBalanceType1Code
 {
     /// <summary>
-    /// ??
+    /// Revolver loan current utilisation (applicable on loan contracts types)
     /// Encoded/decoded by serializers as "CurrentUtilisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPC")]
     [IsoId("_uUDndfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Revolver loan current utilisation (applicable on loan contracts types)")]
     CurrentUtilisation,
     
     /// <summary>
-    /// ??
+    /// Total loan utilisation for loans with total loan limit  (applicable on loan contracts types)
     /// Encoded/decoded by serializers as "TotalUtilisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPT")]
     [IsoId("_uUDnePRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Total loan utilisation for loans with total loan limit  (applicable on loan contracts types)")]
     TotalUtilisation,
     
 }

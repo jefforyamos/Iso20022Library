@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExtendedEventType1Code
 {
     /// <summary>
-    /// ??
+    /// General information provided by the issuer that should not result in material changes to the security.
     /// Encoded/decoded by serializers as "RightsPlanAdoption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPLA")]
     [IsoId("_15OTIDL3EeKU9IrkkToqcw_-797256594")]
-    [Description(@"??")]
+    [Description(@"General information provided by the issuer that should not result in material changes to the security.")]
     RightsPlanAdoption,
     
     /// <summary>
-    /// ??
+    /// Security, usually a form of a derivative, for which the agent or issuer has decided to terminate the derivative based on a change to the underlying security(ies) or a change in strategy. Distinguishes from Mandatory Exchange, Exchange Offer event types mapped to the same ISO event type code.
     /// Encoded/decoded by serializers as "Termination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMTN")]
     [IsoId("_15OTITL3EeKU9IrkkToqcw_540063962")]
-    [Description(@"??")]
+    [Description(@"Security, usually a form of a derivative, for which the agent or issuer has decided to terminate the derivative based on a change to the underlying security(ies) or a change in strategy. Distinguishes from Mandatory Exchange, Exchange Offer event types mapped to the same ISO event type code.")]
     Termination,
     
     /// <summary>
-    /// ??
+    /// Security holders are issued additional securities, free of payment, from the issuer in proportion to their holdings. A bonus issue is typically represented by shares or warrants. Nominal value does not change. The security holder may be offered choice of entitlement. Distinguishes from Rights Subscription, Sale Of Rights event types mapped to the same ISO event type code.
     /// Encoded/decoded by serializers as "BonusRightsIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRIS")]
     [IsoId("_15OTIjL3EeKU9IrkkToqcw_-343169325")]
-    [Description(@"??")]
+    [Description(@"Security holders are issued additional securities, free of payment, from the issuer in proportion to their holdings. A bonus issue is typically represented by shares or warrants. Nominal value does not change. The security holder may be offered choice of entitlement. Distinguishes from Rights Subscription, Sale Of Rights event types mapped to the same ISO event type code.")]
     BonusRightsIssue,
     
     /// <summary>
-    /// ??
+    /// Exercise of a privilege by the issuer to repay, in full, any debt security prior to maturity when the issuer deposits assets in trust. This irrevocably restricts their use to satisfaction of the debt. Distinguishes from "partial defeasance", "partial prerefunding" event types mapped to the same ISO event type code.
     /// Encoded/decoded by serializers as "FullPrerefunding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLPR")]
     [IsoId("_15OTIzL3EeKU9IrkkToqcw_865181469")]
-    [Description(@"??")]
+    [Description(@"Exercise of a privilege by the issuer to repay, in full, any debt security prior to maturity when the issuer deposits assets in trust. This irrevocably restricts their use to satisfaction of the debt. Distinguishes from ""partial defeasance"", ""partial prerefunding"" event types mapped to the same ISO event type code.")]
     FullPrerefunding,
     
     /// <summary>
-    /// ??
+    /// Issuer sets aside cash in escrow to pay off a portion of the issue before the maturity date. New securities are issued for the portion defeased. Distinguishes from "full prerefunding", "partial prerefunding" event types mapped to the same ISO event type code.
     /// Encoded/decoded by serializers as "PartialDefeasance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDEF")]
     [IsoId("_15OTJDL3EeKU9IrkkToqcw_-18051818")]
-    [Description(@"??")]
+    [Description(@"Issuer sets aside cash in escrow to pay off a portion of the issue before the maturity date. New securities are issued for the portion defeased. Distinguishes from ""full prerefunding"", ""partial prerefunding"" event types mapped to the same ISO event type code.")]
     PartialDefeasance,
     
     /// <summary>
-    /// ??
+    /// Similar to a Full Prerefunding, a partial prerefunding is the exercise of a privilege by the issuer to repay, in part, any debt security prior to maturity when the issuer deposits assets in trust. This irrevocably restricts their use to satisfaction of the debt. New securities are issued for the portion prerefunded. Distinguishes from "full prerefunding", "partial defeasance" event types mapped to the same ISO event type code.
     /// Encoded/decoded by serializers as "PartialPrerefunding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPRE")]
     [IsoId("_15OTJTL3EeKU9IrkkToqcw_-1754719686")]
-    [Description(@"??")]
+    [Description(@"Similar to a Full Prerefunding, a partial prerefunding is the exercise of a privilege by the issuer to repay, in part, any debt security prior to maturity when the issuer deposits assets in trust. This irrevocably restricts their use to satisfaction of the debt. New securities are issued for the portion prerefunded. Distinguishes from ""full prerefunding"", ""partial defeasance"" event types mapped to the same ISO event type code.")]
     PartialPrerefunding,
     
 }

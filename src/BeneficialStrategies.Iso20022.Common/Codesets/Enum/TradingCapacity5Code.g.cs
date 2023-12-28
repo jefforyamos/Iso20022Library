@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradingCapacity5Code
 {
     /// <summary>
-    /// ??
+    /// Trading as Principal.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIN")]
     [IsoId("_Yaall9p-Ed-ak6NoX_4Aeg_524208854")]
-    [Description(@"??")]
+    [Description(@"Trading as Principal.")]
     Principal,
     
     /// <summary>
-    /// ??
+    /// Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.
     /// Encoded/decoded by serializers as "RisklessPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RISP")]
     [IsoId("_YaalmNp-Ed-ak6NoX_4Aeg_789078674")]
-    [Description(@"??")]
+    [Description(@"Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.")]
     RisklessPrincipal,
     
     /// <summary>
-    /// ??
+    /// Trading as Agent on behalf of a customer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGEN")]
     [IsoId("_YajvgNp-Ed-ak6NoX_4Aeg_1711241984")]
-    [Description(@"??")]
+    [Description(@"Trading as Agent on behalf of a customer.")]
     Agent,
     
 }

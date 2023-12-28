@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LockStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Party has been locked for operations.
     /// Encoded/decoded by serializers as "Locked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCK")]
     [IsoId("_oSkPwWjMEeiRg5NzP0jkQg")]
-    [Description(@"??")]
+    [Description(@"Party has been locked for operations.")]
     Locked,
     
     /// <summary>
-    /// ??
+    /// Party is ready for operations.
     /// Encoded/decoded by serializers as "Unlocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULCK")]
     [IsoId("_oYLIgWjMEeiRg5NzP0jkQg")]
-    [Description(@"??")]
+    [Description(@"Party is ready for operations.")]
     Unlocked,
     
 }

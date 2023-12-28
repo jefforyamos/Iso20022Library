@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InitialPhysicalForm1Code
 {
     /// <summary>
-    /// ??
+    /// Initial Physical Form is GT.
     /// Encoded/decoded by serializers as "GT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GTGT")]
     [IsoId("_hblKnWliEeGaMcKyqKNRfQ_-933244343")]
-    [Description(@"??")]
+    [Description(@"Initial Physical Form is GT.")]
     GT,
     
     /// <summary>
-    /// ??
+    /// Initial Physical Form is GP.
     /// Encoded/decoded by serializers as "GP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GPGP")]
     [IsoId("_hblKnmliEeGaMcKyqKNRfQ_1809811702")]
-    [Description(@"??")]
+    [Description(@"Initial Physical Form is GP.")]
     GP,
     
     /// <summary>
-    /// ??
+    /// Initial Physical Form is definitive.
     /// Encoded/decoded by serializers as "Definitive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DERN")]
     [IsoId("_hblKn2liEeGaMcKyqKNRfQ_-2031068325")]
-    [Description(@"??")]
+    [Description(@"Initial Physical Form is definitive.")]
     Definitive,
     
 }

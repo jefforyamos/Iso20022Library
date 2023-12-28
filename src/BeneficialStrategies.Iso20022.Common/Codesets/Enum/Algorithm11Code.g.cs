@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm11Code
 {
     /// <summary>
-    /// ??
+    /// Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).
     /// Encoded/decoded by serializers as "SHA256".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HS25")]
     [IsoId("_yLO4UWi4EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).")]
     SHA256,
     
     /// <summary>
-    /// ??
+    /// Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).
     /// Encoded/decoded by serializers as "SHA384".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HS38")]
     [IsoId("_yLO4U2i4EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).")]
     SHA384,
     
     /// <summary>
-    /// ??
+    /// Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).
     /// Encoded/decoded by serializers as "SHA512".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HS51")]
     [IsoId("_yLO4VWi4EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).")]
     SHA512,
     
     /// <summary>
-    /// ??
+    /// The DEPRECATED Message digest algorithm SHA-1 as defined in FIPS 180-1 - (ASN.1 Object Identifier: id-sha1).
     /// Encoded/decoded by serializers as "SHA1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HS01")]
     [IsoId("_I6AWUWi5EeS87LmvcA55sg")]
-    [Description(@"??")]
+    [Description(@"The DEPRECATED Message digest algorithm SHA-1 as defined in FIPS 180-1 - (ASN.1 Object Identifier: id-sha1).")]
     SHA1,
     
 }

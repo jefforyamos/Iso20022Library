@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PersonIdentificationType3Code
 {
     /// <summary>
-    /// ??
+    /// Number assigned by a government agency to identify foreign nationals.
     /// Encoded/decoded by serializers as "AlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARNU")]
     [IsoId("_aGvkiNp-Ed-ak6NoX_4Aeg_266470202")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a government agency to identify foreign nationals.")]
     AlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a passport authority to a passport.
     /// Encoded/decoded by serializers as "PassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCPT")]
     [IsoId("_aGvkidp-Ed-ak6NoX_4Aeg_266470231")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a passport authority to a passport.")]
     PassportNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned to an employer by a registration authority.
     /// Encoded/decoded by serializers as "EmployerIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMID")]
     [IsoId("_aG5VgNp-Ed-ak6NoX_4Aeg_266470232")]
-    [Description(@"??")]
+    [Description(@"Number assigned to an employer by a registration authority.")]
     EmployerIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a license authority to a driver's license.
     /// Encoded/decoded by serializers as "DriversLicenseNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRLC")]
     [IsoId("_aG5Vgdp-Ed-ak6NoX_4Aeg_266470233")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a license authority to a driver's license.")]
     DriversLicenseNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned to a foreign investor (other than the alien number).
     /// Encoded/decoded by serializers as "ForeignInvestmentIdentityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINN")]
     [IsoId("_aG5Vgtp-Ed-ak6NoX_4Aeg_266470261")]
-    [Description(@"??")]
+    [Description(@"Number assigned to a foreign investor (other than the alien number).")]
     ForeignInvestmentIdentityNumber,
     
     /// <summary>
-    /// ??
+    /// Number assigned by a tax authority to an entity.
     /// Encoded/decoded by serializers as "TaxIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXID")]
     [IsoId("_aG5Vg9p-Ed-ak6NoX_4Aeg_266470262")]
-    [Description(@"??")]
+    [Description(@"Number assigned by a tax authority to an entity.")]
     TaxIdentificationNumber,
     
 }

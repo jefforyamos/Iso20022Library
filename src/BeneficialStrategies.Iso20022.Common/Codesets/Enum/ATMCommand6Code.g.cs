@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMCommand6Code
 {
     /// <summary>
-    /// ??
+    /// Provide the ATM counters, resetting those that are applicable.
     /// Encoded/decoded by serializers as "ATMBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABAL")]
     [IsoId("_-OwDcV_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Provide the ATM counters, resetting those that are applicable.")]
     ATMBalance,
     
     /// <summary>
-    /// ??
+    /// Status of the ATM required by the ATM manager.
     /// Encoded/decoded by serializers as "ATMStatusUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTS")]
     [IsoId("_-OwDc1_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Status of the ATM required by the ATM manager.")]
     ATMStatusUpdate,
     
     /// <summary>
-    /// ??
+    /// Update the ATM configuration parameters.
     /// Encoded/decoded by serializers as "ConfigurationUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFGT")]
     [IsoId("_-OwDdV_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Update the ATM configuration parameters.")]
     ConfigurationUpdate,
     
     /// <summary>
-    /// ??
+    /// Request the value of the ATM counters.
     /// Encoded/decoded by serializers as "CountersInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCNT")]
     [IsoId("_-OwDd1_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Request the value of the ATM counters.")]
     CountersInquiry,
     
     /// <summary>
-    /// ??
+    /// Perform a disconnection followed by a reconnection.
     /// Encoded/decoded by serializers as "Disconnect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_-OwDeV_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Perform a disconnection followed by a reconnection.")]
     Disconnect,
     
     /// <summary>
-    /// ??
+    /// Activate cryptographic keys.
     /// Encoded/decoded by serializers as "KeyActivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KACT")]
     [IsoId("_-OwDe1_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Activate cryptographic keys.")]
     KeyActivation,
     
     /// <summary>
-    /// ??
+    /// Deactivate cryptographic keys.
     /// Encoded/decoded by serializers as "KeyDeactivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDAC")]
     [IsoId("_-OwDfV_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Deactivate cryptographic keys.")]
     KeyDeactivation,
     
     /// <summary>
-    /// ??
+    /// Start a cryptographic key download.
     /// Encoded/decoded by serializers as "KeyDownload".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KDWL")]
     [IsoId("_-OwDf1_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Start a cryptographic key download.")]
     KeyDownload,
     
     /// <summary>
-    /// ??
+    /// Remove cryptographic keys.
     /// Encoded/decoded by serializers as "KeyRemove".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KRMV")]
     [IsoId("_-OwDgV_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Remove cryptographic keys.")]
     KeyRemove,
     
     /// <summary>
-    /// ??
+    /// Update the configuration of the hardware security module on the ATM.
     /// Encoded/decoded by serializers as "SecurityDeviceConfigurationUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCFU")]
     [IsoId("_-OwDg1_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Update the configuration of the hardware security module on the ATM.")]
     SecurityDeviceConfigurationUpdate,
     
     /// <summary>
-    /// ??
+    /// Update the security scheme of the hardware security module on the ATM.
     /// Encoded/decoded by serializers as "SecurityDeviceSchemeUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSCU")]
     [IsoId("_-OwDhV_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Update the security scheme of the hardware security module on the ATM.")]
     SecurityDeviceSchemeUpdate,
     
     /// <summary>
-    /// ??
+    /// Update the status of the hardware security module on the ATM.
     /// Encoded/decoded by serializers as "SecurityDeviceStatusUpdate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSTU")]
     [IsoId("_-OwDh1_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Update the status of the hardware security module on the ATM.")]
     SecurityDeviceStatusUpdate,
     
     /// <summary>
-    /// ??
+    /// Send a specific message to initiate a process.
     /// Encoded/decoded by serializers as "SendMessage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNDM")]
     [IsoId("_-OwDiV_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Send a specific message to initiate a process.")]
     SendMessage,
     
     /// <summary>
-    /// ??
+    /// Replace an existing key using a Higher Level Authority (HLA) key. In the TR34 scheme this would be used to implement a HLA Rebind operation.
     /// Encoded/decoded by serializers as "HLAKeyReplace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HKCG")]
     [IsoId("___KRIV_REeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Replace an existing key using a Higher Level Authority (HLA) key. In the TR34 scheme this would be used to implement a HLA Rebind operation.")]
     HLAKeyReplace,
     
     /// <summary>
-    /// ??
+    /// Remove a cryptographic key using a Higher Level Authority key (HLA). In the TR34 scheme this would be used to implement a HLA Unbind operation.
     /// Encoded/decoded by serializers as "HLAKeyRemove".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HKRV")]
     [IsoId("_AIxgIV_SEeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Remove a cryptographic key using a Higher Level Authority key (HLA). In the TR34 scheme this would be used to implement a HLA Unbind operation.")]
     HLAKeyRemove,
     
     /// <summary>
-    /// ??
+    /// Replaces an existing cryptographic key. In a TR34 scheme this would be used to implement a Rebind operation.
     /// Encoded/decoded by serializers as "KeyReplace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KCHG")]
     [IsoId("_Av38YV_SEeeD0NpJQPACzA")]
-    [Description(@"??")]
+    [Description(@"Replaces an existing cryptographic key. In a TR34 scheme this would be used to implement a Rebind operation.")]
     KeyReplace,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DistributionAccount1Code
 {
     /// <summary>
-    /// ??
+    /// General free account. DTC (The Depository Trust Company) allows immediate use of securities.
     /// Encoded/decoded by serializers as "GeneralFree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENF")]
     [IsoId("_1tcg8jL3EeKU9IrkkToqcw_1027673005")]
-    [Description(@"??")]
+    [Description(@"General free account. DTC (The Depository Trust Company) allows immediate use of securities.")]
     GeneralFree,
     
     /// <summary>
-    /// ??
+    /// RRG account. Sub account. DTC (The Depository Trust Company) does not allow immediate use of securities.
     /// Encoded/decoded by serializers as "RRGAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RRGA")]
     [IsoId("_1tcg8zL3EeKU9IrkkToqcw_1352790512")]
-    [Description(@"??")]
+    [Description(@"RRG account. Sub account. DTC (The Depository Trust Company) does not allow immediate use of securities.")]
     RRGAccount,
     
 }

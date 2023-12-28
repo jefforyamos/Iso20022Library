@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Operation3Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that only when all if all of its elements are valid, the whole expression is valid.
     /// Encoded/decoded by serializers as "And".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANDD")]
     [IsoId("_zxpM0dGyEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Indicates that only when all if all of its elements are valid, the whole expression is valid.")]
     And,
     
     /// <summary>
-    /// ??
+    /// Indicates that when at least one of its elements is valid, the whole expression is valid.
     /// Encoded/decoded by serializers as "Or".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORRR")]
     [IsoId("_0EAIItGyEeaokquJJ-K6uA")]
-    [Description(@"??")]
+    [Description(@"Indicates that when at least one of its elements is valid, the whole expression is valid.")]
     Or,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestorType1Code
 {
     /// <summary>
-    /// ??
+    /// Investor is a retail investor.
     /// Encoded/decoded by serializers as "Retail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETL")]
     [IsoId("_haryuWliEeGaMcKyqKNRfQ_-1196008348")]
-    [Description(@"??")]
+    [Description(@"Investor is a retail investor.")]
     Retail,
     
     /// <summary>
-    /// ??
+    /// Investor is a professional or institutional investor.
     /// Encoded/decoded by serializers as "Professional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROF")]
     [IsoId("_haryumliEeGaMcKyqKNRfQ_271140415")]
-    [Description(@"??")]
+    [Description(@"Investor is a professional or institutional investor.")]
     Professional,
     
     /// <summary>
-    /// ??
+    /// Investor is an employee.
     /// Encoded/decoded by serializers as "Staff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAF")]
     [IsoId("_haryu2liEeGaMcKyqKNRfQ_-1207107125")]
-    [Description(@"??")]
+    [Description(@"Investor is an employee.")]
     Staff,
     
     /// <summary>
-    /// ??
+    /// Investor is a physical person.
     /// Encoded/decoded by serializers as "PhysicalPerson".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPER")]
     [IsoId("_haryvGliEeGaMcKyqKNRfQ_260041638")]
-    [Description(@"??")]
+    [Description(@"Investor is a physical person.")]
     PhysicalPerson,
     
 }

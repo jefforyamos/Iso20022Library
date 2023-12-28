@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationIndividualStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation request is rejected
     /// Encoded/decoded by serializers as "RejectedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCR")]
     [IsoId("_bXW319p-Ed-ak6NoX_4Aeg_349830132")]
-    [Description(@"??")]
+    [Description(@"Cancellation request is rejected")]
     RejectedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Cancellation is accepted.
     /// Encoded/decoded by serializers as "AcceptedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCR")]
     [IsoId("_bXgo0Np-Ed-ak6NoX_4Aeg_349830162")]
-    [Description(@"??")]
+    [Description(@"Cancellation is accepted.")]
     AcceptedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Cancellation request is pending.
     /// Encoded/decoded by serializers as "PendingCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDCR")]
     [IsoId("_bXgo0dp-Ed-ak6NoX_4Aeg_349830163")]
-    [Description(@"??")]
+    [Description(@"Cancellation request is pending.")]
     PendingCancellationRequest,
     
 }

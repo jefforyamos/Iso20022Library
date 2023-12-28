@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProxyNotAllowed1Code
 {
     /// <summary>
-    /// ??
+    /// Proxy not allowed.
     /// Encoded/decoded by serializers as "NotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPRO")]
     [IsoId("_jssAccjCEem7mOT-LZ2mYQ")]
-    [Description(@"??")]
+    [Description(@"Proxy not allowed.")]
     NotAllowed,
     
 }

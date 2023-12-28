@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation instruction/request has been sent to the next party, that is, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_Ve9hEdp-Ed-ak6NoX_4Aeg_1711057455")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction/request has been sent to the next party, that is, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_Ve9hEtp-Ed-ak6NoX_4Aeg_1711057480")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request is pending. It is not known at this time whether cancellation can be effected.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_Ve9hE9p-Ed-ak6NoX_4Aeg_1711057497")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request is pending. It is not known at this time whether cancellation can be effected.")]
     Pending,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Operator1Code
 {
     /// <summary>
-    /// ??
+    /// Smaller than.
     /// Encoded/decoded by serializers as "SmallerThan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAL")]
     [IsoId("_aPFoNNp-Ed-ak6NoX_4Aeg_1687113130")]
-    [Description(@"??")]
+    [Description(@"Smaller than.")]
     SmallerThan,
     
     /// <summary>
-    /// ??
+    /// Smaller or equal to.
     /// Encoded/decoded by serializers as "SmallerOrEqualTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMEQ")]
     [IsoId("_aPFoNdp-Ed-ak6NoX_4Aeg_1687113165")]
-    [Description(@"??")]
+    [Description(@"Smaller or equal to.")]
     SmallerOrEqualTo,
     
     /// <summary>
-    /// ??
+    /// Greater than.
     /// Encoded/decoded by serializers as "GreaterThan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GREA")]
     [IsoId("_aPFoNtp-Ed-ak6NoX_4Aeg_1687113207")]
-    [Description(@"??")]
+    [Description(@"Greater than.")]
     GreaterThan,
     
     /// <summary>
-    /// ??
+    /// Greater or equal to.
     /// Encoded/decoded by serializers as "GreaterOrEqualTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GREQ")]
     [IsoId("_aPFoN9p-Ed-ak6NoX_4Aeg_1687113250")]
-    [Description(@"??")]
+    [Description(@"Greater or equal to.")]
     GreaterOrEqualTo,
     
     /// <summary>
-    /// ??
+    /// Equal to.
     /// Encoded/decoded by serializers as "EqualTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQAL")]
     [IsoId("_aPFoONp-Ed-ak6NoX_4Aeg_1687113519")]
-    [Description(@"??")]
+    [Description(@"Equal to.")]
     EqualTo,
     
 }

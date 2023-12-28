@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RestrictionType1Code
 {
     /// <summary>
-    /// ??
+    /// Selling restriction.
     /// Encoded/decoded by serializers as "Selling".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELR")]
     [IsoId("_hbcAr2liEeGaMcKyqKNRfQ_-1297174021")]
-    [Description(@"??")]
+    [Description(@"Selling restriction.")]
     Selling,
     
     /// <summary>
-    /// ??
+    /// Buying restriction.
     /// Encoded/decoded by serializers as "Buying".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYR")]
     [IsoId("_hbcAsGliEeGaMcKyqKNRfQ_-268302593")]
-    [Description(@"??")]
+    [Description(@"Buying restriction.")]
     Buying,
     
     /// <summary>
-    /// ??
+    /// Placing restriction.
     /// Encoded/decoded by serializers as "Placing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLAR")]
     [IsoId("_hbcAsWliEeGaMcKyqKNRfQ_809717745")]
-    [Description(@"??")]
+    [Description(@"Placing restriction.")]
     Placing,
     
     /// <summary>
-    /// ??
+    /// Holding restriction.
     /// Encoded/decoded by serializers as "Holding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLR")]
     [IsoId("_hblKkGliEeGaMcKyqKNRfQ_-1548024378")]
-    [Description(@"??")]
+    [Description(@"Holding restriction.")]
     Holding,
     
     /// <summary>
-    /// ??
+    /// Voting restriction.
     /// Encoded/decoded by serializers as "Voting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VOTR")]
     [IsoId("_hblKkWliEeGaMcKyqKNRfQ_798618968")]
-    [Description(@"??")]
+    [Description(@"Voting restriction.")]
     Voting,
     
 }

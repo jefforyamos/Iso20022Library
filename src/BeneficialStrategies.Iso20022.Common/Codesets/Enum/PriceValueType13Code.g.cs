@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceValueType13Code
 {
     /// <summary>
-    /// ??
+    /// Price is not required to be specified by account owner.
     /// Encoded/decoded by serializers as "Unspecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_M2HEYQ-zEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Price is not required to be specified by account owner.")]
     Unspecified,
     
 }

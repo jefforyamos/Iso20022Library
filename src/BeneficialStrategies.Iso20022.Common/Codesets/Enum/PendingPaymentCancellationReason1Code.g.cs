@@ -20,30 +20,31 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingPaymentCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation indemnity is required. 
+    /// 
     /// Encoded/decoded by serializers as "CancellationIndemnityRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDM")]
     [IsoId("_DXz7wR0_EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Cancellation indemnity is required.  ")]
     CancellationIndemnityRequired,
     
     /// <summary>
-    /// ??
+    /// The cancellation has been forwarded to the next agent in the payment chain.
     /// Encoded/decoded by serializers as "PassedToNextAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTNA")]
     [IsoId("_Dfnz8h0_EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"The cancellation has been forwarded to the next agent in the payment chain.")]
     PassedToNextAgent,
     
     /// <summary>
-    /// ??
+    /// Creditor authorisation is required to return the payment.
     /// Encoded/decoded by serializers as "RequestedDebitAuthority".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQDA")]
     [IsoId("_Dmi7Uh0_EeiYoZGjIMHr2A")]
-    [Description(@"??")]
+    [Description(@"Creditor authorisation is required to return the payment.")]
     RequestedDebitAuthority,
     
 }

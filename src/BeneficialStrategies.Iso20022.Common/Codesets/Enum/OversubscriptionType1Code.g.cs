@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OversubscriptionType1Code
 {
     /// <summary>
-    /// ??
+    /// Unlimited oversubscription.
     /// Encoded/decoded by serializers as "Unlimited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNLD")]
     [IsoId("_1rW2QjL3EeKU9IrkkToqcw_490787890")]
-    [Description(@"??")]
+    [Description(@"Unlimited oversubscription.")]
     Unlimited,
     
     /// <summary>
-    /// ??
+    /// The subscription is limited by quantity or percentage.
     /// Encoded/decoded by serializers as "LimitedByQuantityOrPercentage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTDB")]
     [IsoId("_1rW2QzL3EeKU9IrkkToqcw_-1016864815")]
-    [Description(@"??")]
+    [Description(@"The subscription is limited by quantity or percentage.")]
     LimitedByQuantityOrPercentage,
     
     /// <summary>
-    /// ??
+    /// No oversubscription is allowed.
     /// Encoded/decoded by serializers as "NoOversubscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_1rW2RDL3EeKU9IrkkToqcw_-1130703881")]
-    [Description(@"??")]
+    [Description(@"No oversubscription is allowed.")]
     NoOversubscription,
     
 }

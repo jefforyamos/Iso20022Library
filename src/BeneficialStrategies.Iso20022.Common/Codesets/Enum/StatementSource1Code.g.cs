@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatementSource1Code
 {
     /// <summary>
-    /// ??
+    /// Accounting.
     /// Encoded/decoded by serializers as "Accounting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_m5hTc_NBEeCuA5Tr22BnwA_770688282")]
-    [Description(@"??")]
+    [Description(@"Accounting.")]
     Accounting,
     
     /// <summary>
-    /// ??
+    /// Custody.
     /// Encoded/decoded by serializers as "Custody".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_m5hTdPNBEeCuA5Tr22BnwA_770688600")]
-    [Description(@"??")]
+    [Description(@"Custody.")]
     Custody,
     
 }

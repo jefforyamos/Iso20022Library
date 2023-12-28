@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralisationIndicator1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is fully collateralised.
     /// Encoded/decoded by serializers as "FullyCollateralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_At8bUS5VEeKwTrPDLMbLxA")]
-    [Description(@"??")]
+    [Description(@"Transaction is fully collateralised.")]
     FullyCollateralised,
     
     /// <summary>
-    /// ??
+    /// Transaction is one-way collateralised.
     /// Encoded/decoded by serializers as "OneWayCollateralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONEW")]
     [IsoId("_Ax7jcS5VEeKwTrPDLMbLxA")]
-    [Description(@"??")]
+    [Description(@"Transaction is one-way collateralised.")]
     OneWayCollateralised,
     
     /// <summary>
-    /// ??
+    /// Transaction is partially collateralised.
     /// Encoded/decoded by serializers as "PartiallyCollateralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_A2-bgS5VEeKwTrPDLMbLxA")]
-    [Description(@"??")]
+    [Description(@"Transaction is partially collateralised.")]
     PartiallyCollateralised,
     
     /// <summary>
-    /// ??
+    /// Transaction is uncollateralised.
     /// Encoded/decoded by serializers as "Uncollateralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNCO")]
     [IsoId("_A7OpYS5VEeKwTrPDLMbLxA")]
-    [Description(@"??")]
+    [Description(@"Transaction is uncollateralised.")]
     Uncollateralised,
     
 }

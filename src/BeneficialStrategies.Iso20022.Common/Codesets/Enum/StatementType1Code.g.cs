@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatementType1Code
 {
     /// <summary>
-    /// ??
+    /// Accounting Statement of Holdings (semt 003).
     /// Encoded/decoded by serializers as "AccountingHoldings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ST03")]
     [IsoId("_ZQM-FNp-Ed-ak6NoX_4Aeg_757727475")]
-    [Description(@"??")]
+    [Description(@"Accounting Statement of Holdings (semt 003).")]
     AccountingHoldings,
     
     /// <summary>
-    /// ??
+    /// Custody Statement of Holdings (semt 002).
     /// Encoded/decoded by serializers as "CustodyHoldings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ST02")]
     [IsoId("_ZQM-Fdp-Ed-ak6NoX_4Aeg_757727518")]
-    [Description(@"??")]
+    [Description(@"Custody Statement of Holdings (semt 002).")]
     CustodyHoldings,
     
     /// <summary>
-    /// ??
+    /// Statement of Investment Fund Transactions (semt 006).
     /// Encoded/decoded by serializers as "InvestmentFundTransactions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ST06")]
     [IsoId("_ZQM-Ftp-Ed-ak6NoX_4Aeg_757727535")]
-    [Description(@"??")]
+    [Description(@"Statement of Investment Fund Transactions (semt 006).")]
     InvestmentFundTransactions,
     
 }

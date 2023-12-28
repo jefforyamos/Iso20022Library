@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QualityIndication1Code
 {
     /// <summary>
-    /// ??
+    /// Low quality.
     /// Encoded/decoded by serializers as "Low".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOWE")]
     [IsoId("_ZXNlB9p-Ed-ak6NoX_4Aeg_-1478752289")]
-    [Description(@"??")]
+    [Description(@"Low quality.")]
     Low,
     
     /// <summary>
-    /// ??
+    /// Medium quality.
     /// Encoded/decoded by serializers as "Medium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEDI")]
     [IsoId("_ZXNlCNp-Ed-ak6NoX_4Aeg_-1478752246")]
-    [Description(@"??")]
+    [Description(@"Medium quality.")]
     Medium,
     
     /// <summary>
-    /// ??
+    /// High quality.
     /// Encoded/decoded by serializers as "High".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIGH")]
     [IsoId("_ZXNlCdp-Ed-ak6NoX_4Aeg_-1478752210")]
-    [Description(@"??")]
+    [Description(@"High quality.")]
     High,
     
 }

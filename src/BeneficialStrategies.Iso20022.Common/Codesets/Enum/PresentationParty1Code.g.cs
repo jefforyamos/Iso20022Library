@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PresentationParty1Code
 {
     /// <summary>
-    /// ??
+    /// Presentation made either to the issuer or other nominated party.
     /// Encoded/decoded by serializers as "IssuerOrOtherNominatatedParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETHR")]
     [IsoId("_cu64tnyeEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Presentation made either to the issuer or other nominated party.")]
     IssuerOrOtherNominatatedParty,
     
     /// <summary>
-    /// ??
+    /// Presentation made exclusively to the confirmer.
     /// Encoded/decoded by serializers as "ExclusiveConfirmer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCN")]
     [IsoId("_c1xupnyeEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Presentation made exclusively to the confirmer.")]
     ExclusiveConfirmer,
     
     /// <summary>
-    /// ??
+    /// Presentation made exclusively to the issuer.
     /// Encoded/decoded by serializers as "ExclusiveIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXIS")]
     [IsoId("_c-toNnyeEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Presentation made exclusively to the issuer.")]
     ExclusiveIssuer,
     
 }

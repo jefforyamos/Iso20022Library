@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GroupCancellationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation is partially accepted.
     /// Encoded/decoded by serializers as "PartiallyAcceptedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACR")]
     [IsoId("_auruRNp-Ed-ak6NoX_4Aeg_-305868783")]
-    [Description(@"??")]
+    [Description(@"Cancellation is partially accepted.")]
     PartiallyAcceptedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Cancellation request is rejected
     /// Encoded/decoded by serializers as "RejectedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCR")]
     [IsoId("_auruRdp-Ed-ak6NoX_4Aeg_-305868753")]
-    [Description(@"??")]
+    [Description(@"Cancellation request is rejected")]
     RejectedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Cancellation is accepted.
     /// Encoded/decoded by serializers as "AcceptedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCR")]
     [IsoId("_auruRtp-Ed-ak6NoX_4Aeg_-305868752")]
-    [Description(@"??")]
+    [Description(@"Cancellation is accepted.")]
     AcceptedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Cancellation request is pending.
     /// Encoded/decoded by serializers as "PendingCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDCR")]
     [IsoId("_auruR9p-Ed-ak6NoX_4Aeg_-91612397")]
-    [Description(@"??")]
+    [Description(@"Cancellation request is pending.")]
     PendingCancellationRequest,
     
 }

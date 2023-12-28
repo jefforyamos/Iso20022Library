@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Identification2Code
 {
     /// <summary>
-    /// ??
+    /// Driver licence identification.
     /// Encoded/decoded by serializers as "DriverLicenceIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRID")]
     [IsoId("_QK1H0QwTEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"Driver licence identification.")]
     DriverLicenceIdentification,
     
     /// <summary>
-    /// ??
+    /// National identification.
     /// Encoded/decoded by serializers as "NationalIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTID")]
     [IsoId("_Sxb9sQwTEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"National identification.")]
     NationalIdentifier,
     
     /// <summary>
-    /// ??
+    /// Passport number.
     /// Encoded/decoded by serializers as "PassportNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_YPMm4QwTEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"Passport number.")]
     PassportNumber,
     
     /// <summary>
-    /// ??
+    /// Social security number.
     /// Encoded/decoded by serializers as "SocialSecurityNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSYN")]
     [IsoId("_Y9AIEQwTEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"Social security number.")]
     SocialSecurityNumber,
     
     /// <summary>
-    /// ??
+    /// Alien registration number.
     /// Encoded/decoded by serializers as "AlienRegistrationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARNB")]
     [IsoId("_alYbIQwTEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"Alien registration number.")]
     AlienRegistrationNumber,
     
     /// <summary>
-    /// ??
+    /// Other identification provided at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_R8pjYQwWEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"Other identification provided at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other identification assigned at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_SGkUYQwWEeiHgJ0O2VQ-kg")]
-    [Description(@"??")]
+    [Description(@"Other identification assigned at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// E-mail.
     /// Encoded/decoded by serializers as "Email".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_P7TigaetEeiva6IOmhpVHw")]
-    [Description(@"??")]
+    [Description(@"E-mail.")]
     Email,
     
     /// <summary>
-    /// ??
+    /// Phone number.
     /// Encoded/decoded by serializers as "PhoneNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHNB")]
     [IsoId("_QOUlIaetEeiva6IOmhpVHw")]
-    [Description(@"??")]
+    [Description(@"Phone number.")]
     PhoneNumber,
     
 }

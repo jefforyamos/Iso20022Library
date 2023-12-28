@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetCategory3Code
 {
     /// <summary>
-    /// ??
+    /// Acquirer specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "AcquirerParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AQPR")]
     [IsoId("_a6DocSmrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Acquirer specific configuration parameters for the point of interaction (POI) system.")]
     AcquirerParameters,
     
     /// <summary>
-    /// ??
+    /// Payment application specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "ApplicationParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_bNilISmrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
     ApplicationParameters,
     
     /// <summary>
-    /// ??
+    /// Batch upload of transaction data (data capture of a group of transactions).
     /// Encoded/decoded by serializers as "BatchCapture".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXCP")]
     [IsoId("_bYssQymrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Batch upload of transaction data (data capture of a group of transactions).")]
     BatchCapture,
     
     /// <summary>
-    /// ??
+    /// Batch download response for the batch capture of transactions.
     /// Encoded/decoded by serializers as "CaptureResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AKCP")]
     [IsoId("_bepjQSmrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Batch download response for the batch capture of transactions.")]
     CaptureResponse,
     
     /// <summary>
-    /// ??
+    /// Data needed to create a terminal management sub-domain.
     /// Encoded/decoded by serializers as "DelegationData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLGT")]
     [IsoId("_bo65kymrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Data needed to create a terminal management sub-domain.")]
     DelegationData,
     
     /// <summary>
-    /// ??
+    /// Configuration of management plan in the point of interaction.
     /// Encoded/decoded by serializers as "ManagementPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGTP")]
     [IsoId("_bwgIQSmrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Configuration of management plan in the point of interaction.")]
     ManagementPlan,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_b6UyoSmrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters related to the security of software application and application protocol.
     /// Encoded/decoded by serializers as "SecurityParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCPR")]
     [IsoId("_cBw3YSmrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters related to the security of software application and application protocol.")]
     SecurityParameters,
     
     /// <summary>
-    /// ??
+    /// Software module.
     /// Encoded/decoded by serializers as "SoftwareModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPK")]
     [IsoId("_cK164ymrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Software module.")]
     SoftwareModule,
     
     /// <summary>
-    /// ??
+    /// Report of software configuration and parameter status.
     /// Encoded/decoded by serializers as "StatusReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STRP")]
     [IsoId("_cSR_oSmrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Report of software configuration and parameter status.")]
     StatusReport,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
     /// Encoded/decoded by serializers as "TerminalParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPR")]
     [IsoId("_cY-dgymrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
     TerminalParameters,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.
     /// Encoded/decoded by serializers as "VendorParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VDPR")]
     [IsoId("_cgtdMymrEeKIjpr--01h3Q")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.")]
     VendorParameters,
     
 }

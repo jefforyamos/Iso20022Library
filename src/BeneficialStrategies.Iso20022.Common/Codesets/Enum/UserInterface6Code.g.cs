@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UserInterface6Code
 {
     /// <summary>
-    /// ??
+    /// Cardholder display or interface.
     /// Encoded/decoded by serializers as "CardholderDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDSP")]
     [IsoId("_WEr4MU9HEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Cardholder display or interface.")]
     CardholderDisplay,
     
     /// <summary>
-    /// ??
+    /// Cardholder receipt.
     /// Encoded/decoded by serializers as "CardholderReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCP")]
     [IsoId("_Wkv4UU9HEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Cardholder receipt.")]
     CardholderReceipt,
     
     /// <summary>
-    /// ??
+    /// Merchant display or interface.
     /// Encoded/decoded by serializers as "MerchantDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDSP")]
     [IsoId("_W4nPgU9HEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Merchant display or interface.")]
     MerchantDisplay,
     
     /// <summary>
-    /// ??
+    /// Merchant receipt.
     /// Encoded/decoded by serializers as "MerchantReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRCP")]
     [IsoId("_XfIc8U9HEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Merchant receipt.")]
     MerchantReceipt,
     
     /// <summary>
-    /// ??
+    /// Other interface of the cardholder, for instance e-mail or smartphone message.
     /// Encoded/decoded by serializers as "OtherCardholderInterface".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDO")]
     [IsoId("_YDNaYU9HEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Other interface of the cardholder, for instance e-mail or smartphone message.")]
     OtherCardholderInterface,
     
     /// <summary>
-    /// ??
+    /// File used to store the message.
     /// Encoded/decoded by serializers as "File".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FILE")]
     [IsoId("_gu274U9HEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"File used to store the message.")]
     File,
     
     /// <summary>
-    /// ??
+    /// Information dedicated to a software application related to a device belonging to the cardholder.
     /// Encoded/decoded by serializers as "CardholderApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAP")]
     [IsoId("_2k6pMU9HEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Information dedicated to a software application related to a device belonging to the cardholder.")]
     CardholderApplication,
     
     /// <summary>
-    /// ??
+    /// Information dedicated to a software application related to a device belonging to the merchant.
     /// Encoded/decoded by serializers as "MerchantApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRAP")]
     [IsoId("_8Yc4oU9IEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Information dedicated to a software application related to a device belonging to the merchant.")]
     MerchantApplication,
     
     /// <summary>
-    /// ??
+    /// Other interface of the merchant for instance e-mail or smartphone message.
     /// Encoded/decoded by serializers as "OtherMerchantInterface".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRIN")]
     [IsoId("_QDYyMU9JEeeg87n1YQSQ_A")]
-    [Description(@"??")]
+    [Description(@"Other interface of the merchant for instance e-mail or smartphone message.")]
     OtherMerchantInterface,
     
 }

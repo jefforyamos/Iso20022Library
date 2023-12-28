@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TrackerAlertStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Tracker notification is related to an invalid update.
     /// Encoded/decoded by serializers as "Invalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVA")]
     [IsoId("_QEn4kfryEemIKt9hrQ9pJw")]
-    [Description(@"??")]
+    [Description(@"Tracker notification is related to an invalid update.")]
     Invalid,
     
     /// <summary>
-    /// ??
+    /// Tracker notification is related to a rejected cancellation request.
     /// Encoded/decoded by serializers as "RejectedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCR")]
     [IsoId("_QK5fsfryEemIKt9hrQ9pJw")]
-    [Description(@"??")]
+    [Description(@"Tracker notification is related to a rejected cancellation request.")]
     RejectedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Tracker notification is related to a rejected investigation.
     /// Encoded/decoded by serializers as "RejectedInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJIN")]
     [IsoId("_QQH98fryEemIKt9hrQ9pJw")]
-    [Description(@"??")]
+    [Description(@"Tracker notification is related to a rejected investigation.")]
     RejectedInvestigation,
     
     /// <summary>
-    /// ??
+    /// Tracker notification is a warning.
     /// Encoded/decoded by serializers as "Warning".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WARN")]
     [IsoId("_QV510fryEemIKt9hrQ9pJw")]
-    [Description(@"??")]
+    [Description(@"Tracker notification is a warning.")]
     Warning,
     
 }

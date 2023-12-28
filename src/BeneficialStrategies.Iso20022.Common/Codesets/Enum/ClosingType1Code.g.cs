@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClosingType1Code
 {
     /// <summary>
-    /// ??
+    /// Repo with a term of one day.
     /// Encoded/decoded by serializers as "Overnight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OVER")]
     [IsoId("_KgvwAdonEeCWg-hsBVGrDA_975924177")]
-    [Description(@"??")]
+    [Description(@"Repo with a term of one day.")]
     Overnight,
     
     /// <summary>
-    /// ??
+    /// Repo with a term of more than one day.
     /// Encoded/decoded by serializers as "Term".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERM")]
     [IsoId("_KgvwAtonEeCWg-hsBVGrDA_-1666415611")]
-    [Description(@"??")]
+    [Description(@"Repo with a term of more than one day.")]
     Term,
     
     /// <summary>
-    /// ??
+    /// Identifies "a classic term repo with the added feature that the cash is repaid to the buyer in installments" (Definition from "Mastering Repo Markets" by Bob Steiner).
     /// Encoded/decoded by serializers as "Flexible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLEX")]
     [IsoId("_KgvwA9onEeCWg-hsBVGrDA_-1488296939")]
-    [Description(@"??")]
+    [Description(@"Identifies ""a classic term repo with the added feature that the cash is repaid to the buyer in installments"" (Definition from ""Mastering Repo Markets"" by Bob Steiner).")]
     Flexible,
     
     /// <summary>
-    /// ??
+    /// Repo which can be terminated by either party at any time, and which has an unspecified repurchase date.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_KgvwBNonEeCWg-hsBVGrDA_-1780254677")]
-    [Description(@"??")]
+    [Description(@"Repo which can be terminated by either party at any time, and which has an unspecified repurchase date.")]
     Open,
     
 }

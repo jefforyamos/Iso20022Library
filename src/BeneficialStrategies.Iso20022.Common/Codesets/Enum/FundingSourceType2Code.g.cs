@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundingSourceType2Code
 {
     /// <summary>
-    /// ??
+    /// Loyalty points converted into cash
     /// Encoded/decoded by serializers as "Loyaly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOYL")]
     [IsoId("_4MzzIdwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Loyalty points converted into cash")]
     Loyaly,
     
     /// <summary>
-    /// ??
+    /// Other type of account defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_46oicdwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Other type of account defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of account defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_5EAg4dwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Other type of account defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Savings account.
     /// Encoded/decoded by serializers as "Savings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVNG")]
     [IsoId("_6QVKEdwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Savings account.")]
     Savings,
     
     /// <summary>
-    /// ??
+    /// Universal account.
     /// Encoded/decoded by serializers as "Universal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UVRL")]
     [IsoId("_7OOVsdwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Universal account.")]
     Universal,
     
     /// <summary>
-    /// ??
+    /// Cash as a source type  to perform the transaction.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_9LyOkdwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Cash as a source type  to perform the transaction.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Credit card account.
     /// Encoded/decoded by serializers as "CreditCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_-ayYUdwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Credit card account.")]
     CreditCard,
     
     /// <summary>
-    /// ??
+    /// Debit card account.
     /// Encoded/decoded by serializers as "DebitCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDBT")]
     [IsoId("__Y0t4dwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Debit card account.")]
     DebitCard,
     
     /// <summary>
-    /// ??
+    /// Electronic purse card account.
     /// Encoded/decoded by serializers as "EpurseCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPRS")]
     [IsoId("__r3lsdwoEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Electronic purse card account.")]
     EpurseCard,
     
     /// <summary>
-    /// ??
+    /// Account for debiting funds.
     /// Encoded/decoded by serializers as "DebitAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBAC")]
     [IsoId("_Av_8MdwpEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Account for debiting funds.")]
     DebitAccount,
     
     /// <summary>
-    /// ??
+    /// Current account.
     /// Encoded/decoded by serializers as "Current".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_BI_rAdwpEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Current account.")]
     Current,
     
     /// <summary>
-    /// ??
+    /// Cheque
     /// Encoded/decoded by serializers as "Cheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHQE")]
     [IsoId("_BviGkdwpEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Cheque")]
     Cheque,
     
     /// <summary>
-    /// ??
+    /// Pre-paid account.
     /// Encoded/decoded by serializers as "PrePaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPD")]
     [IsoId("_DMhB8dwpEeeiWo5KG3eipw")]
-    [Description(@"??")]
+    [Description(@"Pre-paid account.")]
     PrePaid,
     
     /// <summary>
-    /// ??
+    /// Line of credit account.
     /// Encoded/decoded by serializers as "LineOfCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LCDT")]
     [IsoId("_7u4G4eFmEeeA0cKTZTRL5g")]
-    [Description(@"??")]
+    [Description(@"Line of credit account.")]
     LineOfCredit,
     
 }

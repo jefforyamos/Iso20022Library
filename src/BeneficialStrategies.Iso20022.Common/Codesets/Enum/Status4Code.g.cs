@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Status4Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_YgFIttp-Ed-ak6NoX_4Aeg_703110423")]
-    [Description(@"??")]
+    [Description(@"Instruction has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Instruction has been accepted and is validated for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_YgFIt9p-Ed-ak6NoX_4Aeg_-1140758566")]
-    [Description(@"??")]
+    [Description(@"Instruction has been accepted and is validated for further processing.")]
     Accepted,
     
 }

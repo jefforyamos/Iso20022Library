@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalIntegrationCategory1Code
 {
     /// <summary>
-    /// ??
+    /// Multiple terminals linked to a unique sale terminal.
     /// Encoded/decoded by serializers as "MultiplePOITerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPOI")]
     [IsoId("_hundoWXPEem9Y55YJ70L8g")]
-    [Description(@"??")]
+    [Description(@"Multiple terminals linked to a unique sale terminal.")]
     MultiplePOITerminal,
     
     /// <summary>
-    /// ??
+    /// Terminal serving multiple sale terminals.
     /// Encoded/decoded by serializers as "MultipleSaleTerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MSLE")]
     [IsoId("_jFUx4WXPEem9Y55YJ70L8g")]
-    [Description(@"??")]
+    [Description(@"Terminal serving multiple sale terminals.")]
     MultipleSaleTerminal,
     
     /// <summary>
-    /// ??
+    /// Terminal linked to a unique sale terminal.
     /// Encoded/decoded by serializers as "SingleSaleTerminal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSLE")]
     [IsoId("_jfLcUWXPEem9Y55YJ70L8g")]
-    [Description(@"??")]
+    [Description(@"Terminal linked to a unique sale terminal.")]
     SingleSaleTerminal,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AllegementReason1Code
 {
     /// <summary>
-    /// ??
+    /// Allegement has been received and no match could be found.
     /// Encoded/decoded by serializers as "AllegementReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALG1")]
     [IsoId("__0Jx0NojEeC60axPepSq7g_1527696364")]
-    [Description(@"??")]
+    [Description(@"Allegement has been received and no match could be found.")]
     AllegementReceived,
     
 }

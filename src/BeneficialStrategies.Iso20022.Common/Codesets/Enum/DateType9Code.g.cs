@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateType9Code
 {
     /// <summary>
-    /// ??
+    /// Blocking occurs until and inclusive of the end of the election period of the option.
     /// Encoded/decoded by serializers as "BlockingTillEndOfElectionPeriod".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PWAL")]
     [IsoId("_fv2X0e4EEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Blocking occurs until and inclusive of the end of the election period of the option.")]
     BlockingTillEndOfElectionPeriod,
     
     /// <summary>
-    /// ??
+    /// Blocking occurs until and inclusive of the market deadline of the option.
     /// Encoded/decoded by serializers as "BlockingTillMarketDeadline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MKDT")]
     [IsoId("_f1gT4e4EEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Blocking occurs until and inclusive of the market deadline of the option.")]
     BlockingTillMarketDeadline,
     
     /// <summary>
-    /// ??
+    /// Blocking occurs until and inclusive of the meeting date.
     /// Encoded/decoded by serializers as "BlockingTillMeetingDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEET")]
     [IsoId("_f7Ae8e4EEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Blocking occurs until and inclusive of the meeting date.")]
     BlockingTillMeetingDate,
     
     /// <summary>
-    /// ??
+    /// Unblocking will occur on payment date of the option.
     /// Encoded/decoded by serializers as "BlockingTillPaymentDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYD")]
     [IsoId("_gAqbAe4EEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Unblocking will occur on payment date of the option.")]
     BlockingTillPaymentDate,
     
     /// <summary>
-    /// ??
+    /// Blocking occurs until and inclusive of the record date of the event.
     /// Encoded/decoded by serializers as "BlockingTillRecordDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDTE")]
     [IsoId("_gGKmEe4EEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Blocking occurs until and inclusive of the record date of the event.")]
     BlockingTillRecordDate,
     
     /// <summary>
-    /// ??
+    /// Blocking occurs until and inclusive of the account servicer deadline for the option.
     /// Encoded/decoded by serializers as "BlockingTillResponseDeadline".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDDT")]
     [IsoId("_gMROEe4EEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Blocking occurs until and inclusive of the account servicer deadline for the option.")]
     BlockingTillResponseDeadline,
     
     /// <summary>
-    /// ??
+    /// Refer to additional information element for the date until when the securities are blocked.
     /// Encoded/decoded by serializers as "NarrativeUnblockingDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NARR")]
     [IsoId("_gUv0oe4EEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Refer to additional information element for the date until when the securities are blocked.")]
     NarrativeUnblockingDate,
     
     /// <summary>
-    /// ??
+    /// Date is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_gordQe4EEeqc-LCjwLsUVg")]
-    [Description(@"??")]
+    [Description(@"Date is unknown by the sender or has not been established.")]
     Unknown,
     
 }

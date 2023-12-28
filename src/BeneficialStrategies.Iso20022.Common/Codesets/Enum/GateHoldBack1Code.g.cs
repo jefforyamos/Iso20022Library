@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GateHoldBack1Code
 {
     /// <summary>
-    /// ??
+    /// Gating of redemption proceeds.
     /// Encoded/decoded by serializers as "Gating".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GATE")]
     [IsoId("_Sqv5ITwwEeaFzejt0Yw_3A")]
-    [Description(@"??")]
+    [Description(@"Gating of redemption proceeds.")]
     Gating,
     
     /// <summary>
-    /// ??
+    /// Hold back of redemption proceeds.
     /// Encoded/decoded by serializers as "HoldBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_S1AoYTwwEeaFzejt0Yw_3A")]
-    [Description(@"??")]
+    [Description(@"Hold back of redemption proceeds.")]
     HoldBack,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClosurePendingStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Account closing is in process.
     /// Encoded/decoded by serializers as "AccountClosingInProcess".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("_gh-qIWCMEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Account closing is in process.")]
     AccountClosingInProcess,
     
     /// <summary>
-    /// ??
+    /// Account will be closed when conditions are met.
     /// Encoded/decoded by serializers as "PendingConditions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_grWokWCMEeabZtzjEVWYCQ")]
-    [Description(@"??")]
+    [Description(@"Account will be closed when conditions are met.")]
     PendingConditions,
     
 }

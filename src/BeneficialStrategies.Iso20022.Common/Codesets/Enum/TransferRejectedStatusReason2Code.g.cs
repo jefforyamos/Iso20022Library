@@ -20,237 +20,237 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferRejectedStatusReason2Code
 {
     /// <summary>
-    /// ??
+    /// Cash settlement date is not recognised or is invalid.
     /// Encoded/decoded by serializers as "SettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDAT")]
     [IsoId("_YurlaNp-Ed-ak6NoX_4Aeg_-1404400474")]
-    [Description(@"??")]
+    [Description(@"Cash settlement date is not recognised or is invalid.")]
     SettlementDate,
     
     /// <summary>
-    /// ??
+    /// Place of settlement is not recognised or is invalid.
     /// Encoded/decoded by serializers as "SettlementPlace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPT")]
     [IsoId("_Yu0vUNp-Ed-ak6NoX_4Aeg_-1404400439")]
-    [Description(@"??")]
+    [Description(@"Place of settlement is not recognised or is invalid.")]
     SettlementPlace,
     
     /// <summary>
-    /// ??
+    /// Identification of the security is not recognised or is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_Yu0vUdp-Ed-ak6NoX_4Aeg_-1404400421")]
-    [Description(@"??")]
+    [Description(@"Identification of the security is not recognised or is invalid.")]
     FinancialInstrumentIdentification,
     
     /// <summary>
-    /// ??
+    /// There are not enough securities in the account to process the instruction.
     /// Encoded/decoded by serializers as "NotEnoughFinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_Yu0vUtp-Ed-ak6NoX_4Aeg_-1404400396")]
-    [Description(@"??")]
+    [Description(@"There are not enough securities in the account to process the instruction.")]
     NotEnoughFinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// One or several settlement parties are not recognised or are invalid.
     /// Encoded/decoded by serializers as "SettlementParties".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISTP")]
     [IsoId("_Yu0vU9p-Ed-ak6NoX_4Aeg_-1404400379")]
-    [Description(@"??")]
+    [Description(@"One or several settlement parties are not recognised or are invalid.")]
     SettlementParties,
     
     /// <summary>
-    /// ??
+    /// Certificate number is not recognised or is invalid.
     /// Encoded/decoded by serializers as "CertificateNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICTN")]
     [IsoId("_Yu0vVNp-Ed-ak6NoX_4Aeg_-1404400361")]
-    [Description(@"??")]
+    [Description(@"Certificate number is not recognised or is invalid.")]
     CertificateNumber,
     
     /// <summary>
-    /// ??
+    /// Investment account identification is not recognised or is invalid.
     /// Encoded/decoded by serializers as "InvestmentAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_Yu0vVdp-Ed-ak6NoX_4Aeg_-1404400319")]
-    [Description(@"??")]
+    [Description(@"Investment account identification is not recognised or is invalid.")]
     InvestmentAccount,
     
     /// <summary>
-    /// ??
+    /// Acquisition date is not recognised or is invalid.
     /// Encoded/decoded by serializers as "AcquisitionDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IAQD")]
     [IsoId("_Yu0vVtp-Ed-ak6NoX_4Aeg_-1404400301")]
-    [Description(@"??")]
+    [Description(@"Acquisition date is not recognised or is invalid.")]
     AcquisitionDate,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked due to a corporate action.
     /// Encoded/decoded by serializers as "AccountBlockedForCorporateAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCA")]
     [IsoId("_Yu0vV9p-Ed-ak6NoX_4Aeg_-1404400241")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked due to a corporate action.")]
     AccountBlockedForCorporateAction,
     
     /// <summary>
-    /// ??
+    /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
     /// Encoded/decoded by serializers as "AccountBlockedMissingDocuments".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_Yu0vWNp-Ed-ak6NoX_4Aeg_-1404400224")]
-    [Description(@"??")]
+    [Description(@"Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.")]
     AccountBlockedMissingDocuments,
     
     /// <summary>
-    /// ??
+    /// Identification of the security and the security name are not the same.
     /// Encoded/decoded by serializers as "FinancialInstrumentIdentificationAndName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDNA")]
     [IsoId("_Yu0vWdp-Ed-ak6NoX_4Aeg_-1404400206")]
-    [Description(@"??")]
+    [Description(@"Identification of the security and the security name are not the same.")]
     FinancialInstrumentIdentificationAndName,
     
     /// <summary>
-    /// ??
+    /// Order contains physical delivery details but the fund can not be physically delivered.
     /// Encoded/decoded by serializers as "PhysicalDeliveryImpossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLVY")]
     [IsoId("_Yu-gUNp-Ed-ak6NoX_4Aeg_-1404399964")]
-    [Description(@"??")]
+    [Description(@"Order contains physical delivery details but the fund can not be physically delivered.")]
     PhysicalDeliveryImpossible,
     
     /// <summary>
-    /// ??
+    /// Legally impossible to cancel.
     /// Encoded/decoded by serializers as "LegallyImpossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEGL")]
     [IsoId("_Yu-gUdp-Ed-ak6NoX_4Aeg_-1404399947")]
-    [Description(@"??")]
+    [Description(@"Legally impossible to cancel.")]
     LegallyImpossible,
     
     /// <summary>
-    /// ??
+    /// Instruction is not compliant with the service level agreement.
     /// Encoded/decoded by serializers as "NotCompliantWithSLA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSLA")]
     [IsoId("_Yu-gUtp-Ed-ak6NoX_4Aeg_-1404399912")]
-    [Description(@"??")]
+    [Description(@"Instruction is not compliant with the service level agreement.")]
     NotCompliantWithSLA,
     
     /// <summary>
-    /// ??
+    /// Financial instrument quantity is invalid.
     /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_Yu-gU9p-Ed-ak6NoX_4Aeg_-1404399834")]
-    [Description(@"??")]
+    [Description(@"Financial instrument quantity is invalid.")]
     FinancialInstrumentQuantity,
     
     /// <summary>
-    /// ??
+    /// Investor name and address is not recognised.
     /// Encoded/decoded by serializers as "InvestorNameAddressUnknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INUK")]
     [IsoId("_Yu-gVNp-Ed-ak6NoX_4Aeg_-940729188")]
-    [Description(@"??")]
+    [Description(@"Investor name and address is not recognised.")]
     InvestorNameAddressUnknown,
     
     /// <summary>
-    /// ??
+    /// Investor data is insufficient. Applicable when the mandated market practice is not followed.
     /// Encoded/decoded by serializers as "InsufficientInvestorData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INID")]
     [IsoId("_Yu-gVdp-Ed-ak6NoX_4Aeg_-940729163")]
-    [Description(@"??")]
+    [Description(@"Investor data is insufficient. Applicable when the mandated market practice is not followed.")]
     InsufficientInvestorData,
     
     /// <summary>
-    /// ??
+    /// Account servicer is not recognised or is invalid.
     /// Encoded/decoded by serializers as "InvalidAccountServicer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INAC")]
     [IsoId("_Yu-gVtp-Ed-ak6NoX_4Aeg_-940729146")]
-    [Description(@"??")]
+    [Description(@"Account servicer is not recognised or is invalid.")]
     InvalidAccountServicer,
     
     /// <summary>
-    /// ??
+    /// Nominee account is not recognised or is invalid.
     /// Encoded/decoded by serializers as "InvalidNomineeAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INNA")]
     [IsoId("_Yu-gV9p-Ed-ak6NoX_4Aeg_-940728863")]
-    [Description(@"??")]
+    [Description(@"Nominee account is not recognised or is invalid.")]
     InvalidNomineeAccount,
     
     /// <summary>
-    /// ??
+    /// New plan manager is not recognised or is invalid.
     /// Encoded/decoded by serializers as "InvalidNewPlanManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPM")]
     [IsoId("_Yu-gWNp-Ed-ak6NoX_4Aeg_-940728845")]
-    [Description(@"??")]
+    [Description(@"New plan manager is not recognised or is invalid.")]
     InvalidNewPlanManager,
     
     /// <summary>
-    /// ??
+    /// Partial transfer of current year is not allowed, that is, it is not possible to transfer one asset for the current year as other assets are held for the current year.
     /// Encoded/decoded by serializers as "CurrentYearPartial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CYPA")]
     [IsoId("_YvIRUNp-Ed-ak6NoX_4Aeg_-940728760")]
-    [Description(@"??")]
+    [Description(@"Partial transfer of current year is not allowed, that is, it is not possible to transfer one asset for the current year as other assets are held for the current year.")]
     CurrentYearPartial,
     
     /// <summary>
-    /// ??
+    /// Partial transfer is not supported. Applicable when tax years are rolled up and because, for example, a transfer request for tax year 2000 only is received, it is not possible to process the transfer as the investor holds other tax years as well.
     /// Encoded/decoded by serializers as "PartialNotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTNS")]
     [IsoId("_YvIRUdp-Ed-ak6NoX_4Aeg_-940728743")]
-    [Description(@"??")]
+    [Description(@"Partial transfer is not supported. Applicable when tax years are rolled up and because, for example, a transfer request for tax year 2000 only is received, it is not possible to process the transfer as the investor holds other tax years as well.")]
     PartialNotSupported,
     
     /// <summary>
-    /// ??
+    /// Financial instrument is not valid for the requested tax year.
     /// Encoded/decoded by serializers as "FinancialInstrumentTaxYear".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FTAX")]
     [IsoId("_YvIRUtp-Ed-ak6NoX_4Aeg_-940728665")]
-    [Description(@"??")]
+    [Description(@"Financial instrument is not valid for the requested tax year.")]
     FinancialInstrumentTaxYear,
     
     /// <summary>
-    /// ??
+    /// ISA type is not recognised or invalid.
     /// Encoded/decoded by serializers as "InvalidISAType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISAT")]
     [IsoId("_YvIRU9p-Ed-ak6NoX_4Aeg_-940728353")]
-    [Description(@"??")]
+    [Description(@"ISA type is not recognised or invalid.")]
     InvalidISAType,
     
     /// <summary>
-    /// ??
+    /// Cash account is not recognised or invalid.
     /// Encoded/decoded by serializers as "InvalidCashAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_YvIRVNp-Ed-ak6NoX_4Aeg_-940728336")]
-    [Description(@"??")]
+    [Description(@"Cash account is not recognised or invalid.")]
     InvalidCashAccount,
     
     /// <summary>
-    /// ??
+    /// Transfer reference is a duplicate of a previously received transfer.
     /// Encoded/decoded by serializers as "DuplicateTransferReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TREF")]
     [IsoId("_YvIRVdp-Ed-ak6NoX_4Aeg_-659603425")]
-    [Description(@"??")]
+    [Description(@"Transfer reference is a duplicate of a previously received transfer.")]
     DuplicateTransferReference,
     
 }

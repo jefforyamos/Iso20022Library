@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType5Code
 {
     /// <summary>
-    /// ??
+    /// Point Of Interaction initiating the card payment transaction.
     /// Encoded/decoded by serializers as "OriginatingPOI".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPOI")]
     [IsoId("_KTB_yH1DEeCF8NjrBemJWQ_1219111491")]
-    [Description(@"??")]
+    [Description(@"Point Of Interaction initiating the card payment transaction.")]
     OriginatingPOI,
     
     /// <summary>
-    /// ??
+    /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
     /// Encoded/decoded by serializers as "Acceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_KTB_yX1DEeCF8NjrBemJWQ_990949228")]
-    [Description(@"??")]
+    [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
     Acceptor,
     
     /// <summary>
-    /// ??
+    /// Merchant providing goods and service in the card payment transaction.
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_KTLwwH1DEeCF8NjrBemJWQ_-6123125")]
-    [Description(@"??")]
+    [Description(@"Merchant providing goods and service in the card payment transaction.")]
     Merchant,
     
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_KTLwwX1DEeCF8NjrBemJWQ_-1003195478")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Party acting on behalf of other parties to process or forward data to other parties.
     /// Encoded/decoded by serializers as "IntermediaryAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ITAG")]
     [IsoId("_KTLwwn1DEeCF8NjrBemJWQ_-2000267831")]
-    [Description(@"??")]
+    [Description(@"Party acting on behalf of other parties to process or forward data to other parties.")]
     IntermediaryAgent,
     
     /// <summary>
-    /// ??
+    /// Responsible for the maintenance of a card payment acceptance terminal.
     /// Encoded/decoded by serializers as "MasterTerminalManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTMG")]
     [IsoId("_KTLww31DEeCF8NjrBemJWQ_1297627112")]
-    [Description(@"??")]
+    [Description(@"Responsible for the maintenance of a card payment acceptance terminal.")]
     MasterTerminalManager,
     
     /// <summary>
-    /// ??
+    /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
     /// Encoded/decoded by serializers as "TerminalManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMGT")]
     [IsoId("_KTLwxH1DEeCF8NjrBemJWQ_8597021")]
-    [Description(@"??")]
+    [Description(@"Responsible for one or several maintenance functions of a card payment acceptance terminal.")]
     TerminalManager,
     
 }

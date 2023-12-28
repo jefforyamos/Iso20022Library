@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RelativeSize1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the relative size is small.
     /// Encoded/decoded by serializers as "Small".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAL")]
     [IsoId("_ZsEauNp-Ed-ak6NoX_4Aeg_-1702072394")]
-    [Description(@"??")]
+    [Description(@"Indicates that the relative size is small.")]
     Small,
     
     /// <summary>
-    /// ??
+    /// Indicates that the relative size is medium.
     /// Encoded/decoded by serializers as "Medium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEDI")]
     [IsoId("_ZsEaudp-Ed-ak6NoX_4Aeg_-1702072377")]
-    [Description(@"??")]
+    [Description(@"Indicates that the relative size is medium.")]
     Medium,
     
     /// <summary>
-    /// ??
+    /// Indicates that the relative size is large.
     /// Encoded/decoded by serializers as "Large".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LARG")]
     [IsoId("_ZsOLsNp-Ed-ak6NoX_4Aeg_-1702072334")]
-    [Description(@"??")]
+    [Description(@"Indicates that the relative size is large.")]
     Large,
     
     /// <summary>
-    /// ??
+    /// Indicates that the quantity is undisclosed.
     /// Encoded/decoded by serializers as "Undisclosed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNDI")]
     [IsoId("_ZsOLsdp-Ed-ak6NoX_4Aeg_-1702072317")]
-    [Description(@"??")]
+    [Description(@"Indicates that the quantity is undisclosed.")]
     Undisclosed,
     
 }

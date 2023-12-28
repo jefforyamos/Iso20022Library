@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ServiceAdjustmentType1Code
 {
     /// <summary>
-    /// ??
+    /// Adjustment applies to a service which is balance compensable. Earnings credits based on average balances maintained in the account can be used to offset the service charge.
     /// Encoded/decoded by serializers as "Compensable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_6V6hwJqlEeGSON8vddiWzQ_1688850679")]
-    [Description(@"??")]
+    [Description(@"Adjustment applies to a service which is balance compensable. Earnings credits based on average balances maintained in the account can be used to offset the service charge.")]
     Compensable,
     
     /// <summary>
-    /// ??
+    /// Adjustment applies to a service which is not balance compensable. Balance based credits cannot be used to offset the service charge.
     /// Encoded/decoded by serializers as "NonCompensable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCMP")]
     [IsoId("_6V6hwZqlEeGSON8vddiWzQ_1677751902")]
-    [Description(@"??")]
+    [Description(@"Adjustment applies to a service which is not balance compensable. Balance based credits cannot be used to offset the service charge.")]
     NonCompensable,
     
 }

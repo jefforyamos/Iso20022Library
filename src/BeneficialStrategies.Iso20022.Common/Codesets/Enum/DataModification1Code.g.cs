@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataModification1Code
 {
     /// <summary>
-    /// ??
+    /// Insert a new set of data.
     /// Encoded/decoded by serializers as "InsertNewDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSE")]
     [IsoId("_ax9Esdp-Ed-ak6NoX_4Aeg_-1785750283")]
-    [Description(@"??")]
+    [Description(@"Insert a new set of data.")]
     InsertNewDataSet,
     
     /// <summary>
-    /// ??
+    /// Update the details of an existing set of data.
     /// Encoded/decoded by serializers as "UpdateDataSetDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDT")]
     [IsoId("_ax9Estp-Ed-ak6NoX_4Aeg_-1785750265")]
-    [Description(@"??")]
+    [Description(@"Update the details of an existing set of data.")]
     UpdateDataSetDetails,
     
     /// <summary>
-    /// ??
+    /// Delete an existing set of data.
     /// Encoded/decoded by serializers as "DeleteDataSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELT")]
     [IsoId("_ax9Es9p-Ed-ak6NoX_4Aeg_-1785749975")]
-    [Description(@"??")]
+    [Description(@"Delete an existing set of data.")]
     DeleteDataSet,
     
 }

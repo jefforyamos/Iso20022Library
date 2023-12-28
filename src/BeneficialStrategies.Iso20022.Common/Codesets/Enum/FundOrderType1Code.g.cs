@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundOrderType1Code
 {
     /// <summary>
-    /// ??
+    /// Investment fund order is a subscription.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_atCvgtp-Ed-ak6NoX_4Aeg_1645076282")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a subscription.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a redemption.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_atCvg9p-Ed-ak6NoX_4Aeg_1645076559")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a redemption.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a switch.
     /// Encoded/decoded by serializers as "Switch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIT")]
     [IsoId("_atCvhNp-Ed-ak6NoX_4Aeg_1645076612")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a switch.")]
     Switch,
     
 }

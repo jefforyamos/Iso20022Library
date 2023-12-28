@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AmountType1Code
 {
     /// <summary>
-    /// ??
+    /// The amount is open.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_be0Kstp-Ed-ak6NoX_4Aeg_334790348")]
-    [Description(@"??")]
+    [Description(@"The amount is open.")]
     Open,
     
     /// <summary>
-    /// ??
+    /// The amount is unkown.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_be0Ks9p-Ed-ak6NoX_4Aeg_334790370")]
-    [Description(@"??")]
+    [Description(@"The amount is unkown.")]
     Unknown,
     
 }

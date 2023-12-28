@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TimeFrame2Code
 {
     /// <summary>
-    /// ??
+    /// Hold to maturity.
     /// Encoded/decoded by serializers as "Hold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_ft5hQcztEeq1WLK5fVzKiQ")]
-    [Description(@"??")]
+    [Description(@"Hold to maturity.")]
     Hold,
     
     /// <summary>
-    /// ??
+    /// Greater than five years.
     /// Encoded/decoded by serializers as "LongTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LONG")]
     [IsoId("_f1VmAcztEeq1WLK5fVzKiQ")]
-    [Description(@"??")]
+    [Description(@"Greater than five years.")]
     LongTerm,
     
     /// <summary>
-    /// ??
+    /// Greater than or equal to three years.
     /// Encoded/decoded by serializers as "MediumTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEDM")]
     [IsoId("_f9OWscztEeq1WLK5fVzKiQ")]
-    [Description(@"??")]
+    [Description(@"Greater than or equal to three years.")]
     MediumTerm,
     
     /// <summary>
-    /// ??
+    /// Greater than or equal to one year.
     /// Encoded/decoded by serializers as "ShortTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHOR")]
     [IsoId("_gHCaAcztEeq1WLK5fVzKiQ")]
-    [Description(@"??")]
+    [Description(@"Greater than or equal to one year.")]
     ShortTerm,
     
     /// <summary>
-    /// ??
+    /// Less than one year.
     /// Encoded/decoded by serializers as "VeryShortTerm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VSHT")]
     [IsoId("_gM_4EcztEeq1WLK5fVzKiQ")]
-    [Description(@"??")]
+    [Description(@"Less than one year.")]
     VeryShortTerm,
     
 }

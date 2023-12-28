@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EmbeddedType1Code
 {
     /// <summary>
-    /// ??
+    /// Option can be cancelled.
     /// Encoded/decoded by serializers as "Cancellable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_LgjXkYcQEeu4rpsqTt37Pg")]
-    [Description(@"??")]
+    [Description(@"Option can be cancelled.")]
     Cancellable,
     
     /// <summary>
-    /// ??
+    /// Option can be extended.
     /// Encoded/decoded by serializers as "Extendible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTD")]
     [IsoId("_Ll808YcQEeu4rpsqTt37Pg")]
-    [Description(@"??")]
+    [Description(@"Option can be extended.")]
     Extendible,
     
     /// <summary>
-    /// ??
+    /// Option can be early terminated.
     /// Encoded/decoded by serializers as "OptionalEarlyTermination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPET")]
     [IsoId("_LzfhsYcQEeu4rpsqTt37Pg")]
-    [Description(@"??")]
+    [Description(@"Option can be early terminated.")]
     OptionalEarlyTermination,
     
     /// <summary>
-    /// ??
+    /// Option type is other.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_L5WSEYcQEeu4rpsqTt37Pg")]
-    [Description(@"??")]
+    [Description(@"Option type is other.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Option must be early terminated.
     /// Encoded/decoded by serializers as "MandatoryEarlyTermination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDET")]
     [IsoId("_r1K6MZibEeyBPr8ozNGJLg")]
-    [Description(@"??")]
+    [Description(@"Option must be early terminated.")]
     MandatoryEarlyTermination,
     
 }

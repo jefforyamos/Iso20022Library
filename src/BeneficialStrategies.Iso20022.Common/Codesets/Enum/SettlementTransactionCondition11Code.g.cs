@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementTransactionCondition11Code
 {
     /// <summary>
-    /// ??
+    /// No market claim should be automatically generated.
     /// Encoded/decoded by serializers as "NoAutomaticMarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMC")]
     [IsoId("_87Lz4Uc8EeaBWtcfqEyXyw")]
-    [Description(@"??")]
+    [Description(@"No market claim should be automatically generated.")]
     NoAutomaticMarketClaim,
     
 }

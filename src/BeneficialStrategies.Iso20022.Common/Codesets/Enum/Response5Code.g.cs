@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response5Code
 {
     /// <summary>
-    /// ??
+    /// Processing OK. Information related to the result of the processing is contained in other parts of the response message.
     /// Encoded/decoded by serializers as "Success".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_GZQ5UdxXEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Processing OK. Information related to the result of the processing is contained in other parts of the response message.")]
     Success,
     
     /// <summary>
-    /// ??
+    /// Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.
     /// Encoded/decoded by serializers as "Failure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_Gf9-QdxXEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.")]
     Failure,
     
     /// <summary>
-    /// ??
+    /// Service has been partialy provided.
     /// Encoded/decoded by serializers as "PartialApproved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_G0YvEdxXEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Service has been partialy provided.")]
     PartialApproved,
     
 }

@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum WeekDay3Code
 {
     /// <summary>
-    /// ??
+    /// All Days of the week.
     /// Encoded/decoded by serializers as "AllDays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLD")]
     [IsoId("_2ZZdUZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"All Days of the week.")]
     AllDays,
     
     /// <summary>
-    /// ??
+    /// Days of the week excluding bank holidays.
     /// Encoded/decoded by serializers as "DaysExcludingBankHolidays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XBHL")]
     [IsoId("_2iXMEZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Days of the week excluding bank holidays.")]
     DaysExcludingBankHolidays,
     
     /// <summary>
-    /// ??
+    /// Days of the week Including bank holidays.
     /// Encoded/decoded by serializers as "DaysIncludingBankHolidays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IBHL")]
     [IsoId("_2jueAZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Days of the week Including bank holidays.")]
     DaysIncludingBankHolidays,
     
     /// <summary>
-    /// ??
+    /// Friday.
     /// Encoded/decoded by serializers as "Friday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRID")]
     [IsoId("_25D00ZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Friday.")]
     Friday,
     
     /// <summary>
-    /// ??
+    /// Monday.
     /// Encoded/decoded by serializers as "Monday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOND")]
     [IsoId("_26Z4oZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Monday.")]
     Monday,
     
     /// <summary>
-    /// ??
+    /// Saturday.
     /// Encoded/decoded by serializers as "Saturday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SATD")]
     [IsoId("_27wjgZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Saturday.")]
     Saturday,
     
     /// <summary>
-    /// ??
+    /// Sunday.
     /// Encoded/decoded by serializers as "Sunday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUND")]
     [IsoId("_29GnUZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Sunday.")]
     Sunday,
     
     /// <summary>
-    /// ??
+    /// Thursday.
     /// Encoded/decoded by serializers as "Thursday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THUD")]
     [IsoId("_3HItEZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Thursday.")]
     Thursday,
     
     /// <summary>
-    /// ??
+    /// Tuesday.
     /// Encoded/decoded by serializers as "Tuesday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TUED")]
     [IsoId("_3KAa4ZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Tuesday.")]
     Tuesday,
     
     /// <summary>
-    /// ??
+    /// Wednesday.
     /// Encoded/decoded by serializers as "Wednesday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEDD")]
     [IsoId("_3gdzEZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Wednesday.")]
     Wednesday,
     
     /// <summary>
-    /// ??
+    /// Weekdays.
     /// Encoded/decoded by serializers as "Weekdays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WDAY")]
     [IsoId("_3h-2AZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Weekdays.")]
     Weekdays,
     
     /// <summary>
-    /// ??
+    /// Weekend.
     /// Encoded/decoded by serializers as "Weekend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEND")]
     [IsoId("_3jSdkZDpEeiZrojxmnmDSQ")]
-    [Description(@"??")]
+    [Description(@"Weekend.")]
     Weekend,
     
 }

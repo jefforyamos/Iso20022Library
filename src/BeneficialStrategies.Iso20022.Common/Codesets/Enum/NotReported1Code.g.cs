@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NotReported1Code
 {
     /// <summary>
-    /// ??
+    /// Value not reported by the party.
     /// Encoded/decoded by serializers as "NotReported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORP")]
     [IsoId("_WhKP8dGfEeaQk737TH1Fzw")]
-    [Description(@"??")]
+    [Description(@"Value not reported by the party.")]
     NotReported,
     
 }

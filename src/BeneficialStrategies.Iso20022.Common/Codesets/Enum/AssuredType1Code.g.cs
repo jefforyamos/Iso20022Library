@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssuredType1Code
 {
     /// <summary>
-    /// ??
+    /// The buyer should be the assured.
     /// Encoded/decoded by serializers as "Buyer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYE")]
     [IsoId("_bjRz8Np-Ed-ak6NoX_4Aeg_1342444833")]
-    [Description(@"??")]
+    [Description(@"The buyer should be the assured.")]
     Buyer,
     
     /// <summary>
-    /// ??
+    /// The seller should be the assured.
     /// Encoded/decoded by serializers as "Seller".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_bjRz8dp-Ed-ak6NoX_4Aeg_1345214881")]
-    [Description(@"??")]
+    [Description(@"The seller should be the assured.")]
     Seller,
     
     /// <summary>
-    /// ??
+    /// The buyer's bank should be the assured.
     /// Encoded/decoded by serializers as "BuyerBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUBA")]
     [IsoId("_bjRz8tp-Ed-ak6NoX_4Aeg_1370148507")]
-    [Description(@"??")]
+    [Description(@"The buyer's bank should be the assured.")]
     BuyerBank,
     
     /// <summary>
-    /// ??
+    /// The seller's bank should be the assured.
     /// Encoded/decoded by serializers as "SellerBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEBA")]
     [IsoId("_bjRz89p-Ed-ak6NoX_4Aeg_1384000890")]
-    [Description(@"??")]
+    [Description(@"The seller's bank should be the assured.")]
     SellerBank,
     
 }

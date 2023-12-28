@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentMethod4Code
 {
     /// <summary>
-    /// ??
+    /// Written order to a bank to pay a certain amount of money from one person to another person.
     /// Encoded/decoded by serializers as "Cheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHK")]
     [IsoId("_Z0kPYtp-Ed-ak6NoX_4Aeg_-2121115778")]
-    [Description(@"??")]
+    [Description(@"Written order to a bank to pay a certain amount of money from one person to another person.")]
     Cheque,
     
     /// <summary>
-    /// ??
+    /// Transfer of an amount of money in the books of the account servicer.
     /// Encoded/decoded by serializers as "CreditTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRF")]
     [IsoId("_Z0kPY9p-Ed-ak6NoX_4Aeg_-2121115388")]
-    [Description(@"??")]
+    [Description(@"Transfer of an amount of money in the books of the account servicer.")]
     CreditTransfer,
     
     /// <summary>
-    /// ??
+    /// Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.
     /// Encoded/decoded by serializers as "DirectDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DD")]
     [IsoId("_Z0kPZNp-Ed-ak6NoX_4Aeg_-2121115346")]
-    [Description(@"??")]
+    [Description(@"Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.")]
     DirectDebit,
     
     /// <summary>
-    /// ??
+    /// Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.
     /// Encoded/decoded by serializers as "TransferAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRA")]
     [IsoId("_Z0kPZdp-Ed-ak6NoX_4Aeg_-2121115311")]
-    [Description(@"??")]
+    [Description(@"Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.")]
     TransferAdvice,
     
 }

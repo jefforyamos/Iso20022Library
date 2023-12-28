@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction45Code
 {
     /// <summary>
-    /// ??
+    /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
     /// Encoded/decoded by serializers as "Advice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADVC")]
     [IsoId("_W-cvoUGLEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. ")]
     Advice,
     
     /// <summary>
-    /// ??
+    /// Informs of an action to be taken.
     /// Encoded/decoded by serializers as "Instructure".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_Yc5qoUGLEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Informs of an action to be taken.")]
     Instructure,
     
     /// <summary>
-    /// ??
+    /// Information about the transaction.
     /// Encoded/decoded by serializers as "Notification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTI")]
     [IsoId("_ZC56sUGLEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Information about the transaction.")]
     Notification,
     
     /// <summary>
-    /// ??
+    /// Message function is a request.
     /// Encoded/decoded by serializers as "Request".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REQU")]
     [IsoId("_ZphOwUGLEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Message function is a request.")]
     Request,
     
     /// <summary>
-    /// ??
+    /// Advice about the status of a transaction.
     /// Encoded/decoded by serializers as "StatusAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAD")]
     [IsoId("_a0AE4UGLEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Advice about the status of a transaction.")]
     StatusAdvice,
     
     /// <summary>
-    /// ??
+    /// Notification about the status of a transaction.
     /// Encoded/decoded by serializers as "StatusNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNO")]
     [IsoId("_bOKRUUGLEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Notification about the status of a transaction.")]
     StatusNotification,
     
     /// <summary>
-    /// ??
+    /// Message function is a status request.
     /// Encoded/decoded by serializers as "StatusRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STRQ")]
     [IsoId("_b7BXUUGLEeyZG7AU5fJYtQ")]
-    [Description(@"??")]
+    [Description(@"Message function is a status request.")]
     StatusRequest,
     
 }

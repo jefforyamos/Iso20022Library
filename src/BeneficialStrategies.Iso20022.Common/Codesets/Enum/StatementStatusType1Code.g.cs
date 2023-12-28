@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatementStatusType1Code
 {
     /// <summary>
-    /// ??
+    /// Transactions reported are confirmed.
     /// Encoded/decoded by serializers as "Confirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_raAf8dBVEeiirviLm7P0IA")]
-    [Description(@"??")]
+    [Description(@"Transactions reported are confirmed.")]
     Confirmed,
     
     /// <summary>
-    /// ??
+    /// Instructions or transactions  reported are pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_riiw4dBVEeiirviLm7P0IA")]
-    [Description(@"??")]
+    [Description(@"Instructions or transactions  reported are pending.")]
     Pending,
     
 }

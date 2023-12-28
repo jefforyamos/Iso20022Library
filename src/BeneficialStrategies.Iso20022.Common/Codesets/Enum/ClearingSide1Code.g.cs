@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClearingSide1Code
 {
     /// <summary>
-    /// ??
+    /// Clearing member is on the buying side.
     /// Encoded/decoded by serializers as "Buy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYI")]
     [IsoId("__1DJtdojEeC60axPepSq7g_-1447578854")]
-    [Description(@"??")]
+    [Description(@"Clearing member is on the buying side.")]
     Buy,
     
     /// <summary>
-    /// ??
+    /// Clearing member is on the selling side.
     /// Encoded/decoded by serializers as "Sell".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("__1M6sNojEeC60axPepSq7g_-1458677631")]
-    [Description(@"??")]
+    [Description(@"Clearing member is on the selling side.")]
     Sell,
     
     /// <summary>
-    /// ??
+    /// Clearing member is on the lending side.
     /// Encoded/decoded by serializers as "Lend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEND")]
     [IsoId("__1M6sdojEeC60axPepSq7g_8471132")]
-    [Description(@"??")]
+    [Description(@"Clearing member is on the lending side.")]
     Lend,
     
     /// <summary>
-    /// ??
+    /// Clearing member is on the borrowing side.
     /// Encoded/decoded by serializers as "Borrow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BORW")]
     [IsoId("__1M6stojEeC60axPepSq7g_-407544559")]
-    [Description(@"??")]
+    [Description(@"Clearing member is on the borrowing side.")]
     Borrow,
     
 }

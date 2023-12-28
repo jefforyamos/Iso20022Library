@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargeType8Code
 {
     /// <summary>
-    /// ??
+    /// Charge is for signature services.
     /// Encoded/decoded by serializers as "SignatureService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGN")]
     [IsoId("_a9SK9dp-Ed-ak6NoX_4Aeg_-1526379993")]
-    [Description(@"??")]
+    [Description(@"Charge is for signature services.")]
     SignatureService,
     
     /// <summary>
-    /// ??
+    /// Charge is for storage of goods at destination.
     /// Encoded/decoded by serializers as "StorageAtDestination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STDE")]
     [IsoId("_a9SK9tp-Ed-ak6NoX_4Aeg_-1526379992")]
-    [Description(@"??")]
+    [Description(@"Charge is for storage of goods at destination.")]
     StorageAtDestination,
     
     /// <summary>
-    /// ??
+    /// Charge is for storage of goods at origin.
     /// Encoded/decoded by serializers as "StorageAtOrigin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOR")]
     [IsoId("_a9SK99p-Ed-ak6NoX_4Aeg_-1526379976")]
-    [Description(@"??")]
+    [Description(@"Charge is for storage of goods at origin.")]
     StorageAtOrigin,
     
     /// <summary>
-    /// ??
+    /// Charge is for packaging of goods.
     /// Encoded/decoded by serializers as "Packaging".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_a9SK-Np-Ed-ak6NoX_4Aeg_-1526379958")]
-    [Description(@"??")]
+    [Description(@"Charge is for packaging of goods.")]
     Packaging,
     
     /// <summary>
-    /// ??
+    /// Charge is for pick-up of goods.
     /// Encoded/decoded by serializers as "PickUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PICK")]
     [IsoId("_a9b78Np-Ed-ak6NoX_4Aeg_-1526379933")]
-    [Description(@"??")]
+    [Description(@"Charge is for pick-up of goods.")]
     PickUp,
     
     /// <summary>
-    /// ??
+    /// Charge is for dangerous goods.
     /// Encoded/decoded by serializers as "DangerousGoodsFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DNGR")]
     [IsoId("_a9b78dp-Ed-ak6NoX_4Aeg_-1526379932")]
-    [Description(@"??")]
+    [Description(@"Charge is for dangerous goods.")]
     DangerousGoodsFee,
     
     /// <summary>
-    /// ??
+    /// Charge is for security.
     /// Encoded/decoded by serializers as "SecurityCharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_a9b78tp-Ed-ak6NoX_4Aeg_-1526379916")]
-    [Description(@"??")]
+    [Description(@"Charge is for security.")]
     SecurityCharge,
     
     /// <summary>
-    /// ??
+    /// Charge is a premium for insurance.
     /// Encoded/decoded by serializers as "InsurancePremium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_a9b789p-Ed-ak6NoX_4Aeg_-1526379898")]
-    [Description(@"??")]
+    [Description(@"Charge is a premium for insurance.")]
     InsurancePremium,
     
     /// <summary>
-    /// ??
+    /// Charge is for the collection of the freight.
     /// Encoded/decoded by serializers as "CollectFreight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLF")]
     [IsoId("_a9b79Np-Ed-ak6NoX_4Aeg_-1526379873")]
-    [Description(@"??")]
+    [Description(@"Charge is for the collection of the freight.")]
     CollectFreight,
     
     /// <summary>
-    /// ??
+    /// Charge is for clearance and handling of goods at origin.
     /// Encoded/decoded by serializers as "ClearanceAndHandlingAtOrigin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHOR")]
     [IsoId("_a9b79dp-Ed-ak6NoX_4Aeg_-1526379872")]
-    [Description(@"??")]
+    [Description(@"Charge is for clearance and handling of goods at origin.")]
     ClearanceAndHandlingAtOrigin,
     
     /// <summary>
-    /// ??
+    /// Charge is for clearance and handling of goods at destination.
     /// Encoded/decoded by serializers as "ClearanceAndHandlingAtDestination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHDE")]
     [IsoId("_a9b79tp-Ed-ak6NoX_4Aeg_-1526379856")]
-    [Description(@"??")]
+    [Description(@"Charge is for clearance and handling of goods at destination.")]
     ClearanceAndHandlingAtDestination,
     
     /// <summary>
-    /// ??
+    /// Charge is an airway bill fee.
     /// Encoded/decoded by serializers as "AirWayBillFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIRF")]
     [IsoId("_a9b799p-Ed-ak6NoX_4Aeg_-1526379838")]
-    [Description(@"??")]
+    [Description(@"Charge is an airway bill fee.")]
     AirWayBillFee,
     
     /// <summary>
-    /// ??
+    /// Charge is for transport.
     /// Encoded/decoded by serializers as "TransportCharges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPT")]
     [IsoId("_a9b7-Np-Ed-ak6NoX_4Aeg_1348844149")]
-    [Description(@"??")]
+    [Description(@"Charge is for transport.")]
     TransportCharges,
     
 }

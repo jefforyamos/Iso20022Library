@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementTransactionCondition13Code
 {
     /// <summary>
-    /// ??
+    /// Tax-exempt financial instruments are to be settled.
     /// Encoded/decoded by serializers as "Clean".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLEN")]
     [IsoId("_tm2EEgzVEeuUZuaHWzkTew")]
-    [Description(@"??")]
+    [Description(@"Tax-exempt financial instruments are to be settled.")]
     Clean,
     
     /// <summary>
-    /// ??
+    /// Taxable financial instruments are to be settled.
     /// Encoded/decoded by serializers as "Dirty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRT")]
     [IsoId("_tm2EFAzVEeuUZuaHWzkTew")]
-    [Description(@"??")]
+    [Description(@"Taxable financial instruments are to be settled.")]
     Dirty,
     
     /// <summary>
-    /// ??
+    /// Matching receipt instruction not required (only for concerned international or national central securities depositories).
     /// Encoded/decoded by serializers as "DeliveryWithoutMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLWM")]
     [IsoId("_tm2EEQzVEeuUZuaHWzkTew")]
-    [Description(@"??")]
+    [Description(@"Matching receipt instruction not required (only for concerned international or national central securities depositories).")]
     DeliveryWithoutMatching,
     
     /// <summary>
-    /// ??
+    /// Securities are to be physically settled.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_tm2EFQzVEeuUZuaHWzkTew")]
-    [Description(@"??")]
+    [Description(@"Securities are to be physically settled.")]
     Physical,
     
     /// <summary>
-    /// ??
+    /// Settlement transactions to be settled with special delivery.
     /// Encoded/decoded by serializers as "SpecialDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPDL")]
     [IsoId("_tm2EFgzVEeuUZuaHWzkTew")]
-    [Description(@"??")]
+    [Description(@"Settlement transactions to be settled with special delivery.")]
     SpecialDelivery,
     
     /// <summary>
-    /// ??
+    /// Money and financial instruments settle in different locations.
     /// Encoded/decoded by serializers as "SplitSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPST")]
     [IsoId("_tm2EFwzVEeuUZuaHWzkTew")]
-    [Description(@"??")]
+    [Description(@"Money and financial instruments settle in different locations.")]
     SplitSettlement,
     
     /// <summary>
-    /// ??
+    /// No market claim should be automatically generated.
     /// Encoded/decoded by serializers as "NoAutomaticMarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMC")]
     [IsoId("_tm2EEwzVEeuUZuaHWzkTew")]
-    [Description(@"??")]
+    [Description(@"No market claim should be automatically generated.")]
     NoAutomaticMarketClaim,
     
     /// <summary>
-    /// ??
+    /// Identification of settlement instructions created as a result of a partial successful buy-in.
     /// Encoded/decoded by serializers as "PartialSuccessfulBuyIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BPSS")]
     [IsoId("_ySxnsAzVEeuUZuaHWzkTew")]
-    [Description(@"??")]
+    [Description(@"Identification of settlement instructions created as a result of a partial successful buy-in.")]
     PartialSuccessfulBuyIn,
     
 }

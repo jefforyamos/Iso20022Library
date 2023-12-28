@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingReason22Code
 {
     /// <summary>
-    /// ??
+    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_l2_wwRHpEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_l2_wwxHpEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in your account.
     /// Encoded/decoded by serializers as "InsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONY")]
     [IsoId("_l2_wyRHpEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in your account.")]
     InsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Insufficient financial instruments in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_l2_wyxHpEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Insufficient financial instruments in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_l2_wzRHpEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable financial instruments in counterparty's account or counterparty does not hold financial instruments.
     /// Encoded/decoded by serializers as "CounterpartyInsufficientSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAC")]
     [IsoId("_1tV-YRHpEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable financial instruments in counterparty's account or counterparty does not hold financial instruments.")]
     CounterpartyInsufficientSecurities,
     
     /// <summary>
-    /// ??
+    /// Insufficient money in counterparty's account.
     /// Encoded/decoded by serializers as "CounterpartyInsufficientMoney".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMON")]
     [IsoId("_3BZnQRHpEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Insufficient money in counterparty's account.")]
     CounterpartyInsufficientMoney,
     
     /// <summary>
-    /// ??
+    /// Your instruction is a preadvice, that is, for matching only.
     /// Encoded/decoded by serializers as "YourInstructionOnHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREA")]
     [IsoId("_Ii5b8RUHEeuZw7VHHgrHLg")]
-    [Description(@"??")]
+    [Description(@"Your instruction is a preadvice, that is, for matching only.")]
     YourInstructionOnHold,
     
     /// <summary>
-    /// ??
+    /// Your instruction is pending settlement because the instruction linked to it is pending.
     /// Encoded/decoded by serializers as "PendingLinkedInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LINK")]
     [IsoId("_JpaYERUHEeuZw7VHHgrHLg")]
-    [Description(@"??")]
+    [Description(@"Your instruction is pending settlement because the instruction linked to it is pending.")]
     PendingLinkedInstruction,
     
     /// <summary>
-    /// ??
+    /// Your instruction is confirmed in the local market or is ready for settlement, awaiting next settlement cycle.
     /// Encoded/decoded by serializers as "AwaitingNextSettlementCycle".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CYCL")]
     [IsoId("_Lh7Y4RUHEeuZw7VHHgrHLg")]
-    [Description(@"??")]
+    [Description(@"Your instruction is confirmed in the local market or is ready for settlement, awaiting next settlement cycle.")]
     AwaitingNextSettlementCycle,
     
     /// <summary>
-    /// ??
+    /// Counterparty's instruction and your instruction are on hold/frozen/ in a preadvice mode.
     /// Encoded/decoded by serializers as "BothInstructionsOnHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOTH")]
     [IsoId("_NA_X4RUHEeuZw7VHHgrHLg")]
-    [Description(@"??")]
+    [Description(@"Counterparty's instruction and your instruction are on hold/frozen/ in a preadvice mode.")]
     BothInstructionsOnHold,
     
     /// <summary>
-    /// ??
+    /// Counterparty's instruction is a preadvice, that is, for matching only.
     /// Encoded/decoded by serializers as "CounterpartyInstructionOnHold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCY")]
     [IsoId("_Or9r8RUHEeuZw7VHHgrHLg")]
-    [Description(@"??")]
+    [Description(@"Counterparty's instruction is a preadvice, that is, for matching only.")]
     CounterpartyInstructionOnHold,
     
     /// <summary>
-    /// ??
+    /// Awaiting settlement date. No settlement problems to be reported.
     /// Encoded/decoded by serializers as "AwaitingSettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUTU")]
     [IsoId("_bPtwgS2qEeuVt5XRmyhHiA")]
-    [Description(@"??")]
+    [Description(@"Awaiting settlement date. No settlement problems to be reported.")]
     AwaitingSettlementDate,
     
 }

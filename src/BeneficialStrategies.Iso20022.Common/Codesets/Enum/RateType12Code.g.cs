@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateType12Code
 {
     /// <summary>
-    /// ??
+    /// Rate has not been established.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_ZZJesdp-Ed-ak6NoX_4Aeg_-1551942185")]
-    [Description(@"??")]
+    [Description(@"Rate has not been established.")]
     Open,
     
     /// <summary>
-    /// ??
+    /// Rate is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_ZZJestp-Ed-ak6NoX_4Aeg_-1551942164")]
-    [Description(@"??")]
+    [Description(@"Rate is unknown by the sender or has not been established.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Rate will not be paid.
     /// Encoded/decoded by serializers as "NilPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NILP")]
     [IsoId("_ZZJes9p-Ed-ak6NoX_4Aeg_-1551942163")]
-    [Description(@"??")]
+    [Description(@"Rate will not be paid.")]
     NilPayment,
     
 }

@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashSettlementSystem1Code
 {
     /// <summary>
-    /// ??
+    /// Settle money through Bank of Korea Wire.
     /// Encoded/decoded by serializers as "BankOfKoreaWire".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOKW")]
     [IsoId("_a7MgRdp-Ed-ak6NoX_4Aeg_-523743781")]
-    [Description(@"??")]
+    [Description(@"Settle money through Bank of Korea Wire.")]
     BankOfKoreaWire,
     
     /// <summary>
-    /// ??
+    /// Settle money through cheque.
     /// Encoded/decoded by serializers as "Cheque".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHEC")]
     [IsoId("_a7MgRtp-Ed-ak6NoX_4Aeg_-462790539")]
-    [Description(@"??")]
+    [Description(@"Settle money through cheque.")]
     Cheque,
     
     /// <summary>
-    /// ??
+    /// Settle money through UK domestic.
     /// Encoded/decoded by serializers as "UKDomestic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GBSC")]
     [IsoId("_a7MgR9p-Ed-ak6NoX_4Aeg_-461866430")]
-    [Description(@"??")]
+    [Description(@"Settle money through UK domestic.")]
     UKDomestic,
     
     /// <summary>
-    /// ??
+    /// Settle money through gross settlement system.
     /// Encoded/decoded by serializers as "GrossSettlementSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GROS")]
     [IsoId("_a7MgSNp-Ed-ak6NoX_4Aeg_-454477927")]
-    [Description(@"??")]
+    [Description(@"Settle money through gross settlement system.")]
     GrossSettlementSystem,
     
     /// <summary>
-    /// ??
+    /// Settle money through net settlement system.
     /// Encoded/decoded by serializers as "NetSettlementSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETS")]
     [IsoId("_a7WRQNp-Ed-ak6NoX_4Aeg_-453554748")]
-    [Description(@"??")]
+    [Description(@"Settle money through net settlement system.")]
     NetSettlementSystem,
     
     /// <summary>
-    /// ??
+    /// Settle money through CHIPS (US).
     /// Encoded/decoded by serializers as "USChips".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USCH")]
     [IsoId("_a7WRQdp-Ed-ak6NoX_4Aeg_-452631692")]
-    [Description(@"??")]
+    [Description(@"Settle money through CHIPS (US).")]
     USChips,
     
     /// <summary>
-    /// ??
+    /// Settle money through Fedwire (US).
     /// Encoded/decoded by serializers as "FedWireUS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USFW")]
     [IsoId("_a7WRQtp-Ed-ak6NoX_4Aeg_-449859823")]
-    [Description(@"??")]
+    [Description(@"Settle money through Fedwire (US).")]
     FedWireUS,
     
 }

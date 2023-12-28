@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ServiceRequestStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Service request is accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_PZY4sfF6EemQ7oqCO5NTQw")]
-    [Description(@"??")]
+    [Description(@"Service request is accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Service request has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_PtECofF6EemQ7oqCO5NTQw")]
-    [Description(@"??")]
+    [Description(@"Service request has been rejected.")]
     Rejected,
     
 }

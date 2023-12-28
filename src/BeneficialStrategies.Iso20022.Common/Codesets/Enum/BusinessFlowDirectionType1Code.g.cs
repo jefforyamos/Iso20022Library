@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BusinessFlowDirectionType1Code
 {
     /// <summary>
-    /// ??
+    /// Assets to be delivered.
     /// Encoded/decoded by serializers as "AssetstoBeDelivered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADLV")]
     [IsoId("_ShZ7tv8yEeC-e_lDNJKWcg")]
-    [Description(@"??")]
+    [Description(@"Assets to be delivered.")]
     AssetstoBeDelivered,
     
     /// <summary>
-    /// ??
+    /// Assets to be received.
     /// Encoded/decoded by serializers as "AssetsToBeReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARCV")]
     [IsoId("_SlRvHv8yEeC-e_lDNJKWcg")]
-    [Description(@"??")]
+    [Description(@"Assets to be received.")]
     AssetsToBeReceived,
     
 }

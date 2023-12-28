@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExPostCostCalculationBasis1Code
 {
     /// <summary>
-    /// ??
+    /// Basic for cost calculation is fixed, that is calendar year.
     /// Encoded/decoded by serializers as "FixedBasis".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXB")]
     [IsoId("_QMy0sbVQEeqkjqDuFVh1-A")]
-    [Description(@"??")]
+    [Description(@"Basic for cost calculation is fixed, that is calendar year.")]
     FixedBasis,
     
     /// <summary>
-    /// ??
+    /// Basis for cost calculation is rolling, that is, the last twelve months.
     /// Encoded/decoded by serializers as "RollingBasis".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLL")]
     [IsoId("_QTDNsbVQEeqkjqDuFVh1-A")]
-    [Description(@"??")]
+    [Description(@"Basis for cost calculation is rolling, that is, the last twelve months.")]
     RollingBasis,
     
 }

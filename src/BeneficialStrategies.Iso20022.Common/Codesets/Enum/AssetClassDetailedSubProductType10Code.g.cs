@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType10Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type aluminium.
     /// Encoded/decoded by serializers as "Aluminium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALUM")]
     [IsoId("_TEO2sQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type aluminium.")]
     Aluminium,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type aluminium alloy.
     /// Encoded/decoded by serializers as "AluminiumAlloy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALUA")]
     [IsoId("_TLYAgQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type aluminium alloy.")]
     AluminiumAlloy,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type cobalt.
     /// Encoded/decoded by serializers as "Cobalt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBLT")]
     [IsoId("_TtvGsQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type cobalt.")]
     Cobalt,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type copper.
     /// Encoded/decoded by serializers as "Copper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COPR")]
     [IsoId("_UcwI0Q2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type copper.")]
     Copper,
     
     /// <summary>
-    /// ??
+    ///  Commodity attribute of type iron ore.
     /// Encoded/decoded by serializers as "IronOre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IRON")]
     [IsoId("_XdkOcQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@" Commodity attribute of type iron ore.")]
     IronOre,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type molybdenum.
     /// Encoded/decoded by serializers as "Molybdenum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOLY")]
     [IsoId("_YP_w8Q2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type molybdenum.")]
     Molybdenum,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type NASAAC (North American Special Aluminum Alloy Contract).
     /// Encoded/decoded by serializers as "NASAAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NASC")]
     [IsoId("_b7pjUQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type NASAAC (North American Special Aluminum Alloy Contract).")]
     NASAAC,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type nickel.
     /// Encoded/decoded by serializers as "Nickel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NICK")]
     [IsoId("_cfgeUQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type nickel.")]
     Nickel,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type steel.
     /// Encoded/decoded by serializers as "Steel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEL")]
     [IsoId("_fS7oMQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type steel.")]
     Steel,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type tin.
     /// Encoded/decoded by serializers as "Tin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TINN")]
     [IsoId("_gj3EkQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type tin.")]
     Tin,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type zinc.
     /// Encoded/decoded by serializers as "Zinc".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZINC")]
     [IsoId("_h6mOAQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type zinc.")]
     Zinc,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_jKfIkQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type lead.
     /// Encoded/decoded by serializers as "Lead".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEAD")]
     [IsoId("_j32xUVrDEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type lead.")]
     Lead,
     
 }

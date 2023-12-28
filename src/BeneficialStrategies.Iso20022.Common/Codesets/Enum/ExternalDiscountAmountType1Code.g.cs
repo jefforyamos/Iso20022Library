@@ -22,30 +22,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalDiscountAmountType1Code
 {
     /// <summary>
-    /// ??
+    /// Addition discount based on third-party agreed business promotional activity, i.e., extra 10 percent discount for 15 days)
     /// Encoded/decoded by serializers as "AdditionalPromotionalDiscount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APDS")]
     [IsoId("_uMAesvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Addition discount based on third-party agreed business promotional activity, i.e., extra 10 percent discount for 15 days)")]
     AdditionalPromotionalDiscount,
     
     /// <summary>
-    /// ??
+    /// Discount based on volume purchased.
     /// Encoded/decoded by serializers as "StandingDiscount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STDS")]
     [IsoId("_uMAetfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Discount based on volume purchased.")]
     StandingDiscount,
     
     /// <summary>
-    /// ??
+    /// Discount based on terms negotiated for payment within a specified time period, i.e., 2/10 Net 30 (2 percent discount if paid in 10 days; otherwise, net amount is due in 30 days).
     /// Encoded/decoded by serializers as "TermsDiscount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TMDS")]
     [IsoId("_uMAeuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Discount based on terms negotiated for payment within a specified time period, i.e., 2/10 Net 30 (2 percent discount if paid in 10 days; otherwise, net amount is due in 30 days).")]
     TermsDiscount,
     
 }

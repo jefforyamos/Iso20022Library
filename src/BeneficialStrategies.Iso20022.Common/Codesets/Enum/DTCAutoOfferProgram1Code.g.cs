@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCAutoOfferProgram1Code
 {
     /// <summary>
-    /// ??
+    /// No automated interface. Hardcopy reporting required.
     /// Encoded/decoded by serializers as "Offine".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFL")]
     [IsoId("_1pa8kzL3EeKU9IrkkToqcw_1972857518")]
-    [Description(@"??")]
+    [Description(@"No automated interface. Hardcopy reporting required.")]
     Offine,
     
     /// <summary>
-    /// ??
+    /// Automated interface for instruction processing is present.
     /// Encoded/decoded by serializers as "Online".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONLN")]
     [IsoId("_1pa8lDL3EeKU9IrkkToqcw_-2041250817")]
-    [Description(@"??")]
+    [Description(@"Automated interface for instruction processing is present.")]
     Online,
     
 }

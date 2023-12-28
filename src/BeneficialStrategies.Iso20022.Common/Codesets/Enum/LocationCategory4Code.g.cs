@@ -20,39 +20,41 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LocationCategory4Code
 {
     /// <summary>
-    /// ??
+    /// Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane,
+    /// taxi, etc).
     /// Encoded/decoded by serializers as "Aboard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABRD")]
     [IsoId("_nvDDhFDfEeu8Rss-tto59A")]
-    [Description(@"??")]
+    [Description(@"Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane, taxi, etc).")]
     Aboard,
     
     /// <summary>
-    /// ??
+    /// Nomadic is used when the merchant is traveling to different locations (e.g fair or
+    /// sport events, home delivery, food truck).
     /// Encoded/decoded by serializers as "Nomadic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMDC")]
     [IsoId("_nvMNcFDfEeu8Rss-tto59A")]
-    [Description(@"??")]
+    [Description(@"Nomadic is used when the merchant is traveling to different locations (e.g fair or sport events, home delivery, food truck).")]
     Nomadic,
     
     /// <summary>
-    /// ??
+    /// Fixed location, for example in a shop.
     /// Encoded/decoded by serializers as "PhysicalShop".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIXD")]
     [IsoId("_nvMNcVDfEeu8Rss-tto59A")]
-    [Description(@"??")]
+    [Description(@"Fixed location, for example in a shop.")]
     PhysicalShop,
     
     /// <summary>
-    /// ??
+    /// Virtual Shop is used for any ecommerce solution.
     /// Encoded/decoded by serializers as "VirtualShop".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VIRT")]
     [IsoId("_nvMNclDfEeu8Rss-tto59A")]
-    [Description(@"??")]
+    [Description(@"Virtual Shop is used for any ecommerce solution.")]
     VirtualShop,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DetailAmount2Code
 {
     /// <summary>
-    /// ??
+    /// Other type of amount defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_ioqzEVjpEeiTlKUpxxSxEw")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_ixNEAVjpEeiTlKUpxxSxEw")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at private level")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Fee charged by the acceptor for the transaction.
     /// Encoded/decoded by serializers as "Surcharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRCH")]
     [IsoId("_i-ZLcVjpEeiTlKUpxxSxEw")]
-    [Description(@"??")]
+    [Description(@"Fee charged by the acceptor for the transaction.")]
     Surcharge,
     
 }

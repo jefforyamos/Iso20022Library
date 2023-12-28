@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType40Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type diammonium phosphate.
     /// Encoded/decoded by serializers as "DiammoniumPhosphate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAPH")]
     [IsoId("_VOFt81r3EeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type diammonium phosphate.")]
     DiammoniumPhosphate,
     
 }

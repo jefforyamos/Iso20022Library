@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RegistrationProcessingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Registration has been acknowledged/accepted by the issuer/registrar.
     /// Encoded/decoded by serializers as "AcknowledgedAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_ZbFYYdp-Ed-ak6NoX_4Aeg_-586829178")]
-    [Description(@"??")]
+    [Description(@"Registration has been acknowledged/accepted by the issuer/registrar.")]
     AcknowledgedAccepted,
     
     /// <summary>
-    /// ??
+    /// Registration has been rejected by the issuer/registrar.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_ZbFYYtp-Ed-ak6NoX_4Aeg_-586829177")]
-    [Description(@"??")]
+    [Description(@"Registration has been rejected by the issuer/registrar.")]
     Rejected,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxType6Code
 {
     /// <summary>
-    /// ??
+    /// Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.
     /// Encoded/decoded by serializers as "InterimProfitTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPO")]
     [IsoId("_VfGrBNp-Ed-ak6NoX_4Aeg_1202035473")]
-    [Description(@"??")]
+    [Description(@"Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.")]
     InterimProfitTax,
     
     /// <summary>
-    /// ??
+    /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
     /// Encoded/decoded by serializers as "EUTaxRetention".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUTR")]
     [IsoId("_VfGrBdp-Ed-ak6NoX_4Aeg_1214962922")]
-    [Description(@"??")]
+    [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
     EUTaxRetention,
     
     /// <summary>
-    /// ??
+    /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).
     /// Encoded/decoded by serializers as "Aktiengewinn1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AKT1")]
     [IsoId("_VfGrBtp-Ed-ak6NoX_4Aeg_-629185374")]
-    [Description(@"??")]
+    [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).")]
     Aktiengewinn1,
     
     /// <summary>
-    /// ??
+    /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).
     /// Encoded/decoded by serializers as "Aktiengewinn2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AKT2")]
     [IsoId("_VfGrB9p-Ed-ak6NoX_4Aeg_-629185365")]
-    [Description(@"??")]
+    [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).")]
     Aktiengewinn2,
     
     /// <summary>
-    /// ??
+    /// Zwischengewinn.
     /// Encoded/decoded by serializers as "Zwischengewinn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZWIS")]
     [IsoId("_VfGrCNp-Ed-ak6NoX_4Aeg_-629183703")]
-    [Description(@"??")]
+    [Description(@"Zwischengewinn.")]
     Zwischengewinn,
     
     /// <summary>
-    /// ??
+    /// Another type of tax.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_VfGrCdp-Ed-ak6NoX_4Aeg_-1567419793")]
-    [Description(@"??")]
+    [Description(@"Another type of tax.")]
     Other,
     
 }

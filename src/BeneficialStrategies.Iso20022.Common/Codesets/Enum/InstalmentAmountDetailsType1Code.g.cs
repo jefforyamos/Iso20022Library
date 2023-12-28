@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InstalmentAmountDetailsType1Code
 {
     /// <summary>
-    /// ??
+    /// Instalment amount tax
     /// Encoded/decoded by serializers as "Tax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXX")]
     [IsoId("_N8-YETEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Instalment amount tax")]
     Tax,
     
     /// <summary>
-    /// ??
+    /// Requested amount
     /// Encoded/decoded by serializers as "Requested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQST")]
     [IsoId("_ORPX4TEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Requested amount")]
     Requested,
     
     /// <summary>
-    /// ??
+    /// Grace period unit type
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_Olz5sTEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Grace period unit type")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Grace period unit type
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_O6hlcTEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Grace period unit type")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other amounts
     /// Encoded/decoded by serializers as "OtherCharges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHC")]
     [IsoId("_PO8WQTEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other amounts")]
     OtherCharges,
     
     /// <summary>
-    /// ??
+    /// Insurance amount
     /// Encoded/decoded by serializers as "Insurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_PjXHETEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Insurance amount")]
     Insurance,
     
     /// <summary>
-    /// ??
+    /// Funded amount
     /// Encoded/decoded by serializers as "Funded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUNA")]
     [IsoId("_P4N8wTEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Funded amount")]
     Funded,
     
     /// <summary>
-    /// ??
+    /// Fees amount
     /// Encoded/decoded by serializers as "Fees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEES")]
     [IsoId("_QNYUcTEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Fees amount")]
     Fees,
     
     /// <summary>
-    /// ??
+    /// Expense Amount
     /// Encoded/decoded by serializers as "Expense".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPN")]
     [IsoId("_QiZiMTEqEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Expense Amount")]
     Expense,
     
     /// <summary>
-    /// ??
+    /// Total financing cost per annum.
     /// Encoded/decoded by serializers as "AnnualFinancingCost".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AFCO")]
     [IsoId("_DL1y4ekYEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Total financing cost per annum.")]
     AnnualFinancingCost,
     
 }

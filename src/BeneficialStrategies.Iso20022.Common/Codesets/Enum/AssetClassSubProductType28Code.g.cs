@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType28Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type renewable energy.
     /// Encoded/decoded by serializers as "RenewableEnergy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RNNG")]
     [IsoId("_sQ1KRVrKEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type renewable energy.")]
     RenewableEnergy,
     
 }

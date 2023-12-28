@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UndertakingName1Code
 {
     /// <summary>
-    /// ??
+    /// Undertaking is a standby letter of credit.
     /// Encoded/decoded by serializers as "StandbyLetterOfCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STBY")]
     [IsoId("_NKQpRnykEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Undertaking is a standby letter of credit.")]
     StandbyLetterOfCredit,
     
     /// <summary>
-    /// ??
+    /// Undertaking is a demand guarantee.
     /// Encoded/decoded by serializers as "DemandGuarantee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DGAR")]
     [IsoId("_qkAn4doiEeGA-6DT389Lyw")]
-    [Description(@"??")]
+    [Description(@"Undertaking is a demand guarantee.")]
     DemandGuarantee,
     
 }

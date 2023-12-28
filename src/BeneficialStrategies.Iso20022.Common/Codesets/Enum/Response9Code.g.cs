@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response9Code
 {
     /// <summary>
-    /// ??
+    /// Service has been successfuly provided.
     /// Encoded/decoded by serializers as "Approved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_7ORlMQ1PEeqjM-rxn3HuXQ")]
-    [Description(@"??")]
+    [Description(@"Service has been successfuly provided.")]
     Approved,
     
     /// <summary>
-    /// ??
+    /// Service is declined.
     /// Encoded/decoded by serializers as "Declined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DECL")]
     [IsoId("_7ORlMw1PEeqjM-rxn3HuXQ")]
-    [Description(@"??")]
+    [Description(@"Service is declined.")]
     Declined,
     
     /// <summary>
-    /// ??
+    /// Service has been partialy provided.
     /// Encoded/decoded by serializers as "PartialApproved".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_7ORlNQ1PEeqjM-rxn3HuXQ")]
-    [Description(@"??")]
+    [Description(@"Service has been partialy provided.")]
     PartialApproved,
     
     /// <summary>
-    /// ??
+    /// Transaction has been received but hasn't been processed.
     /// Encoded/decoded by serializers as "Suspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_9uQ1sQ1PEeqjM-rxn3HuXQ")]
-    [Description(@"??")]
+    [Description(@"Transaction has been received but hasn't been processed.")]
     Suspended,
     
     /// <summary>
-    /// ??
+    /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
     /// Encoded/decoded by serializers as "TechnicalError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TECH")]
     [IsoId("_92_68Q1PEeqjM-rxn3HuXQ")]
-    [Description(@"??")]
+    [Description(@"Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).")]
     TechnicalError,
     
 }

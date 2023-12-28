@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMDevice1Code
 {
     /// <summary>
-    /// ??
+    /// Customer display and keyboard.
     /// Encoded/decoded by serializers as "CustomerConsole".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDIS")]
     [IsoId("_dJrg0YqIEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Customer display and keyboard.")]
     CustomerConsole,
     
     /// <summary>
-    /// ??
+    /// Printer for full-size forms documents and supporting the printing of text and graphic.
     /// Encoded/decoded by serializers as "DocumentPrinter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRN")]
     [IsoId("_dOmdEYqIEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Printer for full-size forms documents and supporting the printing of text and graphic.")]
     DocumentPrinter,
     
     /// <summary>
-    /// ??
+    /// Event log.
     /// Encoded/decoded by serializers as "Journal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JRNL")]
     [IsoId("_dTqjQYqIEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Event log.")]
     Journal,
     
     /// <summary>
-    /// ??
+    /// Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.
     /// Encoded/decoded by serializers as "JournalPrinter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JPRN")]
     [IsoId("_dY4acYqIEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.")]
     JournalPrinter,
     
     /// <summary>
-    /// ??
+    /// Receipt printer used to print cut sheet documents.
     /// Encoded/decoded by serializers as "ReceiptPrinter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPRN")]
     [IsoId("_desukYqIEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Receipt printer used to print cut sheet documents.")]
     ReceiptPrinter,
     
     /// <summary>
-    /// ??
+    /// Receipt of the withdrawal transactions.
     /// Encoded/decoded by serializers as "WithdrawalReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RWDR")]
     [IsoId("_djnDwYqIEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Receipt of the withdrawal transactions.")]
     WithdrawalReceipt,
     
 }

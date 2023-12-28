@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NewSecuritiesIssuanceType1Code
 {
     /// <summary>
-    /// ??
+    /// Securities proceeds are not new issues.
     /// Encoded/decoded by serializers as "ExistingIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXIS")]
     [IsoId("_hPR4URH1EeKKuerhIbkpig")]
-    [Description(@"??")]
+    [Description(@"Securities proceeds are not new issues.")]
     ExistingIssue,
     
     /// <summary>
-    /// ??
+    /// Securities proceeds are newly issued.
     /// Encoded/decoded by serializers as "NewIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEIS")]
     [IsoId("_hXeLARH1EeKKuerhIbkpig")]
-    [Description(@"??")]
+    [Description(@"Securities proceeds are newly issued.")]
     NewIssue,
     
     /// <summary>
-    /// ??
+    /// Not known whether the securities proceeds are newly issued or not.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_hlxswxH1EeKKuerhIbkpig")]
-    [Description(@"??")]
+    [Description(@"Not known whether the securities proceeds are newly issued or not.")]
     Unknown,
     
 }

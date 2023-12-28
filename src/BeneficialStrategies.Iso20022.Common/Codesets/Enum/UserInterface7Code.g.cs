@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UserInterface7Code
 {
     /// <summary>
-    /// ??
+    /// Data dedicated to another interface maintained by the clearing agent.
     /// Encoded/decoded by serializers as "OtherClearingAgentInterface".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCAI")]
     [IsoId("_cwZIEVBAEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Data dedicated to another interface maintained by the clearing agent.")]
     OtherClearingAgentInterface,
     
     /// <summary>
-    /// ??
+    /// Data dedicated to a log maintained by the clearing agent.
     /// Encoded/decoded by serializers as "ClearingAgentLog".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRL")]
     [IsoId("_dHTzQlBAEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Data dedicated to a log maintained by the clearing agent.")]
     ClearingAgentLog,
     
     /// <summary>
-    /// ??
+    /// Data dedicated to an application maintained by a clearing agent.
     /// Encoded/decoded by serializers as "ClearingAgentApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLRA")]
     [IsoId("_dRH2klBAEeedyPuM0kK2EQ")]
-    [Description(@"??")]
+    [Description(@"Data dedicated to an application maintained by a clearing agent.")]
     ClearingAgentApplication,
     
 }

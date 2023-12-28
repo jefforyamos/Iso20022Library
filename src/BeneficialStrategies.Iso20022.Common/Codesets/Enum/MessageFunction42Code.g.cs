@@ -20,309 +20,309 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction42Code
 {
     /// <summary>
-    /// ??
+    /// The initiator requests an authorisation without financial impact to complete the transaction.
     /// Encoded/decoded by serializers as "AuthorisationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTQ")]
     [IsoId("_Bbd_4S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"The initiator requests an authorisation without financial impact to complete the transaction.")]
     AuthorisationRequest,
     
     /// <summary>
-    /// ??
+    /// Response for authorisation without financial capture.
     /// Encoded/decoded by serializers as "AuthorisationResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTP")]
     [IsoId("_Bbd_4y_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response for authorisation without financial capture.")]
     AuthorisationResponse,
     
     /// <summary>
-    /// ??
+    /// Advice for cancellation.
     /// Encoded/decoded by serializers as "CancellationAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAV")]
     [IsoId("_Bbd_5S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice for cancellation.")]
     CancellationAdvice,
     
     /// <summary>
-    /// ??
+    /// Advice response for cancellation.
     /// Encoded/decoded by serializers as "CancellationAdviceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAK")]
     [IsoId("_Bbd_5y_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice response for cancellation.")]
     CancellationAdviceResponse,
     
     /// <summary>
-    /// ??
+    /// Request for cancellation.
     /// Encoded/decoded by serializers as "CancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAQ")]
     [IsoId("_Bbd_6S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Request for cancellation.")]
     CancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Response for cancellation.
     /// Encoded/decoded by serializers as "CancellationResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCAP")]
     [IsoId("_Bbd_6y_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response for cancellation.")]
     CancellationResponse,
     
     /// <summary>
-    /// ??
+    /// Advice for completion without financial capture.
     /// Encoded/decoded by serializers as "CompletionAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMPV")]
     [IsoId("_Bbd_7S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice for completion without financial capture.")]
     CompletionAdvice,
     
     /// <summary>
-    /// ??
+    /// Advice response for completion without financial capture.
     /// Encoded/decoded by serializers as "CompletionAdviceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMPK")]
     [IsoId("_Bbd_7y_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice response for completion without financial capture.")]
     CompletionAdviceResponse,
     
     /// <summary>
-    /// ??
+    /// Advice for dynamic currency conversion.
     /// Encoded/decoded by serializers as "CurrencyConversionAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAV")]
     [IsoId("_Bbd_8S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice for dynamic currency conversion.")]
     CurrencyConversionAdvice,
     
     /// <summary>
-    /// ??
+    /// Advice response for the currency conversion from the service provider to the acceptor.
     /// Encoded/decoded by serializers as "CurrencyConversionAdviceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCRR")]
     [IsoId("_Bbd_8y_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice response for the currency conversion from the service provider to the acceptor.")]
     CurrencyConversionAdviceResponse,
     
     /// <summary>
-    /// ??
+    /// Request for dynamic currency conversion.
     /// Encoded/decoded by serializers as "CurrencyConversionRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCQ")]
     [IsoId("_Bbd_9S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Request for dynamic currency conversion.")]
     CurrencyConversionRequest,
     
     /// <summary>
-    /// ??
+    /// Response from a dynamic currency conversion.
     /// Encoded/decoded by serializers as "CurrencyConversionResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCP")]
     [IsoId("_Bbd_9y_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response from a dynamic currency conversion.")]
     CurrencyConversionResponse,
     
     /// <summary>
-    /// ??
+    /// Request for diagnostic.
     /// Encoded/decoded by serializers as "DiagnosticRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DGNP")]
     [IsoId("_Bbd_-S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Request for diagnostic.")]
     DiagnosticRequest,
     
     /// <summary>
-    /// ??
+    /// Response for diagnostic.
     /// Encoded/decoded by serializers as "DiagnosticResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DGNQ")]
     [IsoId("_Bbd_-y_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response for diagnostic.")]
     DiagnosticResponse,
     
     /// <summary>
-    /// ??
+    /// Request for authorisation with financial capture.
     /// Encoded/decoded by serializers as "FinancialAuthorisationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAUQ")]
     [IsoId("_Bbd__S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Request for authorisation with financial capture.")]
     FinancialAuthorisationRequest,
     
     /// <summary>
-    /// ??
+    /// Response for authorisation with financial capture.
     /// Encoded/decoded by serializers as "FinancialAuthorisationResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAUP")]
     [IsoId("_Bbd__y_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response for authorisation with financial capture.")]
     FinancialAuthorisationResponse,
     
     /// <summary>
-    /// ??
+    /// Advice for completion with financial capture.
     /// Encoded/decoded by serializers as "FinancialCompletionAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCMV")]
     [IsoId("_BbeAAS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice for completion with financial capture.")]
     FinancialCompletionAdvice,
     
     /// <summary>
-    /// ??
+    /// Advice response for completion with financial capture.
     /// Encoded/decoded by serializers as "FinancialCompletionAdviceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCMK")]
     [IsoId("_BbeAAy_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice response for completion with financial capture.")]
     FinancialCompletionAdviceResponse,
     
     /// <summary>
-    /// ??
+    /// Advice for reversal with financial capture.
     /// Encoded/decoded by serializers as "FinancialReversalAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRVA")]
     [IsoId("_BbeABS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice for reversal with financial capture.")]
     FinancialReversalAdvice,
     
     /// <summary>
-    /// ??
+    /// Advice response for reversal with financial capture.
     /// Encoded/decoded by serializers as "FinancialReversalAdviceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRVR")]
     [IsoId("_BbeABy_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice response for reversal with financial capture.")]
     FinancialReversalAdviceResponse,
     
     /// <summary>
-    /// ??
+    /// Request for reconciliation.
     /// Encoded/decoded by serializers as "ReconciliationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCLQ")]
     [IsoId("_BbeACS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Request for reconciliation.")]
     ReconciliationRequest,
     
     /// <summary>
-    /// ??
+    /// Response for reconciliation.
     /// Encoded/decoded by serializers as "ReconciliationResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCLP")]
     [IsoId("_BbeACy_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response for reconciliation.")]
     ReconciliationResponse,
     
     /// <summary>
-    /// ??
+    /// Advice for reversal without financial capture.
     /// Encoded/decoded by serializers as "ReversalAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVRA")]
     [IsoId("_BbeADS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice for reversal without financial capture.")]
     ReversalAdvice,
     
     /// <summary>
-    /// ??
+    /// Advice response for reversal without financial capture.
     /// Encoded/decoded by serializers as "ReversalAdviceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVRR")]
     [IsoId("_BbeADy_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice response for reversal without financial capture.")]
     ReversalAdviceResponse,
     
     /// <summary>
-    /// ??
+    /// Advice for a Card Direct Debit.
     /// Encoded/decoded by serializers as "CardDebitAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDDQ")]
     [IsoId("_BbeAES_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advice for a Card Direct Debit.")]
     CardDebitAdvice,
     
     /// <summary>
-    /// ??
+    /// Response to a Card Direct Debit Advice.
     /// Encoded/decoded by serializers as "CardDebitAdviceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDDK")]
     [IsoId("_BbeAEy_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response to a Card Direct Debit Advice.")]
     CardDebitAdviceResponse,
     
     /// <summary>
-    /// ??
+    /// Request to initiate a Card Direct Debit.
     /// Encoded/decoded by serializers as "CardDebitRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDDR")]
     [IsoId("_BbeAFS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Request to initiate a Card Direct Debit.")]
     CardDebitRequest,
     
     /// <summary>
-    /// ??
+    /// Response to a Card Direct Debit Request.
     /// Encoded/decoded by serializers as "CardDebitResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDDP")]
     [IsoId("_BbeAFy_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response to a Card Direct Debit Request.")]
     CardDebitResponse,
     
     /// <summary>
-    /// ??
+    /// Response to a transaction advice.
     /// Encoded/decoded by serializers as "TransactionAdviceResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRNR")]
     [IsoId("_BbeAGS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response to a transaction advice.")]
     TransactionAdviceResponse,
     
     /// <summary>
-    /// ??
+    /// Advise of the transaction's processing.
     /// Encoded/decoded by serializers as "TransactionAdvice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRNA")]
     [IsoId("_BbeAGy_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Advise of the transaction's processing.")]
     TransactionAdvice,
     
     /// <summary>
-    /// ??
+    /// Initiator of the message requests additional information to the receiver.
     /// Encoded/decoded by serializers as "NonFinancialRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFRQ")]
     [IsoId("_JjlWgS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Initiator of the message requests additional information to the receiver.")]
     NonFinancialRequest,
     
     /// <summary>
-    /// ??
+    /// Provision of additional information to the issuer of a NonFinancialRequest.
     /// Encoded/decoded by serializers as "NonFinancialResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFRP")]
     [IsoId("_Jo57YS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Provision of additional information to the issuer of a NonFinancialRequest.")]
     NonFinancialResponse,
     
     /// <summary>
-    /// ??
+    /// Request to receive of a report of transaction from the issuer to the receiver.
     /// Encoded/decoded by serializers as "TransactionReportRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPQ")]
     [IsoId("_KTaQ8S_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Request to receive of a report of transaction from the issuer to the receiver.")]
     TransactionReportRequest,
     
     /// <summary>
-    /// ??
+    /// Response to provide a sanitized report of transactions.
     /// Encoded/decoded by serializers as "TransactionReportResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPP")]
     [IsoId("_KeBlgS_aEeugIJ3Gvoevmg")]
-    [Description(@"??")]
+    [Description(@"Response to provide a sanitized report of transactions.")]
     TransactionReportResponse,
     
 }

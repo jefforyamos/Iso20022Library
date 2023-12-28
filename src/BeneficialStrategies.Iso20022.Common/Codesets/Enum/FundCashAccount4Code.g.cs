@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundCashAccount4Code
 {
     /// <summary>
-    /// ??
+    /// Hedge fund account.
     /// Encoded/decoded by serializers as "HedgeFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HEDG")]
     [IsoId("_o_Z3gSC7EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Hedge fund account.")]
     HedgeFund,
     
     /// <summary>
-    /// ??
+    /// Central Provident Fund (CPF) ordinary account.
     /// Encoded/decoded by serializers as "PensionFundOrdinary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPFO")]
     [IsoId("_pGldkSC7EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Central Provident Fund (CPF) ordinary account.")]
     PensionFundOrdinary,
     
     /// <summary>
-    /// ??
+    /// Central Provident Fund (CPF) special account.
     /// Encoded/decoded by serializers as "PensionFundSpecial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPFS")]
     [IsoId("_pL-T4SC7EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Central Provident Fund (CPF) special account.")]
     PensionFundSpecial,
     
     /// <summary>
-    /// ??
+    /// Supplementary Retirement Scheme (SRS) account.
     /// Encoded/decoded by serializers as "RetirementScheme".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRSA")]
     [IsoId("_pRzPESC7EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Supplementary Retirement Scheme (SRS) account.")]
     RetirementScheme,
     
     /// <summary>
-    /// ??
+    /// Account operated by a CSD in cross-CSD settlement context.
     /// Encoded/decoded by serializers as "CSDOmnibusAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDO")]
     [IsoId("_I6ZNcSC8EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Account operated by a CSD in cross-CSD settlement context.")]
     CSDOmnibusAccount,
     
     /// <summary>
-    /// ??
+    /// Account operated by a CSD in a direct holding market context.
     /// Encoded/decoded by serializers as "TechnicalOffsetAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOFF")]
     [IsoId("_JQ7eISC8EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Account operated by a CSD in a direct holding market context.")]
     TechnicalOffsetAccount,
     
     /// <summary>
-    /// ??
+    /// Account operated by a CSD for settlement of securities legs for instructions involving internal CSDs.
     /// Encoded/decoded by serializers as "InterCSDAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICSA")]
     [IsoId("_JWmBQSC8EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Account operated by a CSD for settlement of securities legs for instructions involving internal CSDs.")]
     InterCSDAccount,
     
     /// <summary>
-    /// ??
+    /// Account operated by a CSD for mirroring positions.
     /// Encoded/decoded by serializers as "CSDMirrorAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDM")]
     [IsoId("_JeNFISC8EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Account operated by a CSD for mirroring positions.")]
     CSDMirrorAccount,
     
     /// <summary>
-    /// ??
+    /// Account owned by a CSD participant.
     /// Encoded/decoded by serializers as "CSDParticipantAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDP")]
     [IsoId("_JoWfoSC8EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Account owned by a CSD participant.")]
     CSDParticipantAccount,
     
     /// <summary>
-    /// ??
+    /// Private pension account.
     /// Encoded/decoded by serializers as "PrivatePensionScheme".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPEN")]
     [IsoId("_JvqokSC8EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Private pension account.")]
     PrivatePensionScheme,
     
     /// <summary>
-    /// ??
+    /// Workplace or company pension account.
     /// Encoded/decoded by serializers as "WorkplacePensionSchema".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPEN")]
     [IsoId("_J2YUkSC8EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Workplace or company pension account.")]
     WorkplacePensionSchema,
     
 }

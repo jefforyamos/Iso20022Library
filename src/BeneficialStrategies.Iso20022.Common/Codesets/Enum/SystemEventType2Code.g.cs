@@ -20,201 +20,201 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SystemEventType2Code
 {
     /// <summary>
-    /// ??
+    /// Event is the cutoff time for low value payments processed by the system.
     /// Encoded/decoded by serializers as "LVPCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVCO")]
     [IsoId("_ZRZQ5tp-Ed-ak6NoX_4Aeg_1212494689")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff time for low value payments processed by the system.")]
     LVPCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff time after which low value payments can no longer be cancelled.
     /// Encoded/decoded by serializers as "LVPCancellationCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVCC")]
     [IsoId("_ZRZQ59p-Ed-ak6NoX_4Aeg_1212495290")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff time after which low value payments can no longer be cancelled.")]
     LVPCancellationCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the time at which the members will be provided with the report corresponding to the processing of low value payments.
     /// Encoded/decoded by serializers as "LVPCutOffReportTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVRT")]
     [IsoId("_ZRZQ6Np-Ed-ak6NoX_4Aeg_1212495602")]
-    [Description(@"??")]
+    [Description(@"Event is the time at which the members will be provided with the report corresponding to the processing of low value payments.")]
     LVPCutOffReportTime,
     
     /// <summary>
-    /// ??
+    /// Event is the opening of the Euro 1 system operation.
     /// Encoded/decoded by serializers as "Euro1StartUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUSU")]
     [IsoId("_ZRjB4Np-Ed-ak6NoX_4Aeg_1212495637")]
-    [Description(@"??")]
+    [Description(@"Event is the opening of the Euro 1 system operation.")]
     Euro1StartUp,
     
     /// <summary>
-    /// ??
+    /// Event is the start of the Step 1 system operation.
     /// Encoded/decoded by serializers as "Step1StartUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STSU")]
     [IsoId("_ZRjB4dp-Ed-ak6NoX_4Aeg_1212495662")]
-    [Description(@"??")]
+    [Description(@"Event is the start of the Step 1 system operation.")]
     Step1StartUp,
     
     /// <summary>
-    /// ??
+    /// Event is the start of the limit warning period.
     /// Encoded/decoded by serializers as "LimitWarningStartUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LWSU")]
     [IsoId("_ZRjB4tp-Ed-ak6NoX_4Aeg_1212495697")]
-    [Description(@"??")]
+    [Description(@"Event is the start of the limit warning period.")]
     LimitWarningStartUp,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff time for the Euro1 system, that is, the deadline for processing Euro1 transactions.
     /// Encoded/decoded by serializers as "Euro1CutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUCO")]
     [IsoId("_ZRjB49p-Ed-ak6NoX_4Aeg_1212495722")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff time for the Euro1 system, that is, the deadline for processing Euro1 transactions.")]
     Euro1CutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the report after all operations have ceased in the system.
     /// Encoded/decoded by serializers as "FinalReporting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIRE")]
     [IsoId("_ZRjB5Np-Ed-ak6NoX_4Aeg_1213415728")]
-    [Description(@"??")]
+    [Description(@"Event is the report after all operations have ceased in the system.")]
     FinalReporting,
     
     /// <summary>
-    /// ??
+    /// Event is the start of the operating day.
     /// Encoded/decoded by serializers as "StartOfDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STDY")]
     [IsoId("_ZRjB5dp-Ed-ak6NoX_4Aeg_1213415771")]
-    [Description(@"??")]
+    [Description(@"Event is the start of the operating day.")]
     StartOfDay,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for the settlement of the cash multilateral balances resulting from the overnight cycle of the securities settlement system.
     /// Encoded/decoded by serializers as "LTNCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTNC")]
     [IsoId("_ZRjB5tp-Ed-ak6NoX_4Aeg_1213415806")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for the settlement of the cash multilateral balances resulting from the overnight cycle of the securities settlement system.")]
     LTNCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for the cash reservation window.
     /// Encoded/decoded by serializers as "CashReservationCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCO")]
     [IsoId("_ZRjB59p-Ed-ak6NoX_4Aeg_1213415841")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for the cash reservation window.")]
     CashReservationCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for the settlement of the multilateral balances stemming from the retail clearing system.
     /// Encoded/decoded by serializers as "RecCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECC")]
     [IsoId("_ZRsy4Np-Ed-ak6NoX_4Aeg_1213415866")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for the settlement of the multilateral balances stemming from the retail clearing system.")]
     RecCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for the daytime cycle of the securities settlement system.
     /// Encoded/decoded by serializers as "LTGCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTGC")]
     [IsoId("_ZRsy4dp-Ed-ak6NoX_4Aeg_1213415926")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for the daytime cycle of the securities settlement system.")]
     LTGCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for the settlement of the cash multilateral balances resulting from the daylight cycle of the securities settlement system.
     /// Encoded/decoded by serializers as "LTDCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTDC")]
     [IsoId("_ZRsy4tp-Ed-ak6NoX_4Aeg_1213415961")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for the settlement of the cash multilateral balances resulting from the daylight cycle of the securities settlement system.")]
     LTDCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for customer payments.
     /// Encoded/decoded by serializers as "CustomerCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUSC")]
     [IsoId("_ZRsy49p-Ed-ak6NoX_4Aeg_1213415978")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for customer payments.")]
     CustomerCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for interbank payments.
     /// Encoded/decoded by serializers as "InterbankCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IBKC")]
     [IsoId("_ZRsy5Np-Ed-ak6NoX_4Aeg_1213416239")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for interbank payments.")]
     InterbankCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for the system.
     /// Encoded/decoded by serializers as "SystemCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYSC")]
     [IsoId("_ZRsy5dp-Ed-ak6NoX_4Aeg_1213416274")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for the system.")]
     SystemCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff for the securities settlement system cash reservation window.
     /// Encoded/decoded by serializers as "NetSSSReservationCutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSSC")]
     [IsoId("_ZRsy5tp-Ed-ak6NoX_4Aeg_1213416299")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff for the securities settlement system cash reservation window.")]
     NetSSSReservationCutOff,
     
     /// <summary>
-    /// ??
+    /// Event is the expected resume time for a TARGET component.
     /// Encoded/decoded by serializers as "ResumeOperation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REOP")]
     [IsoId("_ZRsy59p-Ed-ak6NoX_4Aeg_1213416334")]
-    [Description(@"??")]
+    [Description(@"Event is the expected resume time for a TARGET component.")]
     ResumeOperation,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff time for the processing of payments.
     /// Encoded/decoded by serializers as "ProcessingCutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCOT")]
     [IsoId("_ZRsy6Np-Ed-ak6NoX_4Aeg_1213416359")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff time for the processing of payments.")]
     ProcessingCutOffTime,
     
     /// <summary>
-    /// ??
+    /// Event is the cutoff time for the receipt of new commercial payments.
     /// Encoded/decoded by serializers as "NewPaymentCutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPCT")]
     [IsoId("_ZRsy6dp-Ed-ak6NoX_4Aeg_1213416394")]
-    [Description(@"??")]
+    [Description(@"Event is the cutoff time for the receipt of new commercial payments.")]
     NewPaymentCutOffTime,
     
     /// <summary>
-    /// ??
+    /// Event is the cut off for the standing facilities.
     /// Encoded/decoded by serializers as "EndOfStandingFacilities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTF")]
     [IsoId("_ZRsy6tp-Ed-ak6NoX_4Aeg_1213416677")]
-    [Description(@"??")]
+    [Description(@"Event is the cut off for the standing facilities.")]
     EndOfStandingFacilities,
     
 }

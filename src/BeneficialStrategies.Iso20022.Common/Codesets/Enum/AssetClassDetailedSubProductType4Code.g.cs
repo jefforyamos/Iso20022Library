@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType4Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type lampante.
     /// Encoded/decoded by serializers as "Lampante".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAMP")]
     [IsoId("_6BOAsVq5EeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type lampante.")]
     Lampante,
     
 }

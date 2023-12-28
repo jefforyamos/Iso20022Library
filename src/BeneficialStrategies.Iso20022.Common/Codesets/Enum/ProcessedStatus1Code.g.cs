@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProcessedStatus1Code
 {
     /// <summary>
-    /// ??
+    /// The instruction/request has been received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_aKeN8dp-Ed-ak6NoX_4Aeg_-236563833")]
-    [Description(@"??")]
+    [Description(@"The instruction/request has been received.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// The advice has been sent to the market.
     /// Encoded/decoded by serializers as "SentToMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SENT")]
     [IsoId("_aKeN8tp-Ed-ak6NoX_4Aeg_-236563832")]
-    [Description(@"??")]
+    [Description(@"The advice has been sent to the market.")]
     SentToMarket,
     
     /// <summary>
-    /// ??
+    /// The announcement has been accepted but another source has provided different information.
     /// Encoded/decoded by serializers as "AcceptedWithWarning".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WARN")]
     [IsoId("_aKeN89p-Ed-ak6NoX_4Aeg_-236563803")]
-    [Description(@"??")]
+    [Description(@"The announcement has been accepted but another source has provided different information.")]
     AcceptedWithWarning,
     
     /// <summary>
-    /// ??
+    /// The request is accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_aKeN9Np-Ed-ak6NoX_4Aeg_-236563802")]
-    [Description(@"??")]
+    [Description(@"The request is accepted.")]
     Accepted,
     
 }

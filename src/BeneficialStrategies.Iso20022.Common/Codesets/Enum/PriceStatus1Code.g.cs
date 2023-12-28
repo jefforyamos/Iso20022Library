@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Price is pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PNDG")]
     [IsoId("_O0HaIezYEeSBf_ghFpb9rQ")]
-    [Description(@"??")]
+    [Description(@"Price is pending.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// No price for transaction (e.g. transfer between accounts).
     /// Encoded/decoded by serializers as "NotApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAP")]
     [IsoId("_Cc6kEI-TEeWtN7rsKJRs8Q")]
-    [Description(@"??")]
+    [Description(@"No price for transaction (e.g. transfer between accounts).")]
     NotApplicable,
     
 }

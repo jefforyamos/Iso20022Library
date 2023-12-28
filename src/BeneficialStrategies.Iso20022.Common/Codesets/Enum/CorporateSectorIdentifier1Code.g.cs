@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateSectorIdentifier1Code
 {
     /// <summary>
-    /// ??
+    /// Alternative investment fund managed by an Alternative Investment Fund Manager (AIFM) authorised or registered in accordance with European Securities and Markets Authority (ESMA) Directive 2011/61/EU.
     /// Encoded/decoded by serializers as "AlternativeInvestmentFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "L")]
     [IsoId("_h9rJUVBdEeOenoknK_-H2g")]
-    [Description(@"??")]
+    [Description(@"Alternative investment fund managed by an Alternative Investment Fund Manager (AIFM) authorised or registered in accordance with European Securities and Markets Authority (ESMA) Directive 2011/61/EU.")]
     AlternativeInvestmentFund,
     
     /// <summary>
-    /// ??
+    /// Assurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2002/83/EC.
     /// Encoded/decoded by serializers as "Assurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "A")]
     [IsoId("_iEFTUVBdEeOenoknK_-H2g")]
-    [Description(@"??")]
+    [Description(@"Assurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2002/83/EC.")]
     Assurance,
     
     /// <summary>
-    /// ??
+    /// Credit Institution authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2006/48/EC.
     /// Encoded/decoded by serializers as "CreditInstitution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "C")]
     [IsoId("_iKonQVBdEeOenoknK_-H2g")]
-    [Description(@"??")]
+    [Description(@"Credit Institution authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2006/48/EC.")]
     CreditInstitution,
     
     /// <summary>
-    /// ??
+    /// Insurance undertaking in accordance with European Securities and Markets Authority (ESMA) Directive 73/239/EEC.
     /// Encoded/decoded by serializers as "Insurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "I")]
     [IsoId("_iQJZYVBdEeOenoknK_-H2g")]
-    [Description(@"??")]
+    [Description(@"Insurance undertaking in accordance with European Securities and Markets Authority (ESMA) Directive 73/239/EEC.")]
     Insurance,
     
     /// <summary>
-    /// ??
+    /// Investment firm in accordance with European Securities and Markets Authority (ESMA) Directive 2004/39/EC.
     /// Encoded/decoded by serializers as "InvestmentFirm".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F")]
     [IsoId("_iXc7QVBdEeOenoknK_-H2g")]
-    [Description(@"??")]
+    [Description(@"Investment firm in accordance with European Securities and Markets Authority (ESMA) Directive 2004/39/EC.")]
     InvestmentFirm,
     
     /// <summary>
-    /// ??
+    /// Institution for occupational retirement provision within the meaning of Article 6(a) of European Securities and Markets Authority (ESMA) Directive 2003/41/EC.
     /// Encoded/decoded by serializers as "OccupationalRetirementProvision".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "O")]
     [IsoId("_ihSMsVBdEeOenoknK_-H2g")]
-    [Description(@"??")]
+    [Description(@"Institution for occupational retirement provision within the meaning of Article 6(a) of European Securities and Markets Authority (ESMA) Directive 2003/41/EC.")]
     OccupationalRetirementProvision,
     
     /// <summary>
-    /// ??
+    /// Reinsurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2005/68/EC.
     /// Encoded/decoded by serializers as "Reinsurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "R")]
     [IsoId("_inGg0VBdEeOenoknK_-H2g")]
-    [Description(@"??")]
+    [Description(@"Reinsurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2005/68/EC.")]
     Reinsurance,
     
     /// <summary>
-    /// ??
+    /// Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2009/95/EC.
     /// Encoded/decoded by serializers as "UCITS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "U")]
     [IsoId("_itD-4VBdEeOenoknK_-H2g")]
-    [Description(@"??")]
+    [Description(@"Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2009/95/EC.")]
     UCITS,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InformationType1Code
 {
     /// <summary>
-    /// ??
+    /// Instructions used to ease automatic request processing.
     /// Encoded/decoded by serializers as "ProcessingInstructions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_aWsFANp-Ed-ak6NoX_4Aeg_1720047685")]
-    [Description(@"??")]
+    [Description(@"Instructions used to ease automatic request processing.")]
     ProcessingInstructions,
     
     /// <summary>
-    /// ??
+    /// Instructions used to ease automatic request relay.
     /// Encoded/decoded by serializers as "RelayInstructions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RELY")]
     [IsoId("_aWsFAdp-Ed-ak6NoX_4Aeg_1720047911")]
-    [Description(@"??")]
+    [Description(@"Instructions used to ease automatic request relay.")]
     RelayInstructions,
     
 }

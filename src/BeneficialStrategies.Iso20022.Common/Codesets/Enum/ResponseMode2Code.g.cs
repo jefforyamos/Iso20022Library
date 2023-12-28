@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResponseMode2Code
 {
     /// <summary>
-    /// ??
+    /// The Response is required at the end of play.
     /// Encoded/decoded by serializers as "EndOfPlay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEND")]
     [IsoId("_25zPEVDiEeuzhPLt3qllKA")]
-    [Description(@"??")]
+    [Description(@"The Response is required at the end of play.")]
     EndOfPlay,
     
     /// <summary>
-    /// ??
+    /// The Message Response is immediate, after taking into account the request.
     /// Encoded/decoded by serializers as "Immediate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMMD")]
     [IsoId("_3A8_8VDiEeuzhPLt3qllKA")]
-    [Description(@"??")]
+    [Description(@"The Message Response is immediate, after taking into account the request.")]
     Immediate,
     
     /// <summary>
-    /// ??
+    /// The Message Response is not required, except in case of error.
     /// Encoded/decoded by serializers as "NotRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREQ")]
     [IsoId("_3W2XcVDiEeuzhPLt3qllKA")]
-    [Description(@"??")]
+    [Description(@"The Message Response is not required, except in case of error.")]
     NotRequired,
     
     /// <summary>
-    /// ??
+    /// The Print Response is required at the end of print.
     /// Encoded/decoded by serializers as "PrintEnd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_3qhhYVDiEeuzhPLt3qllKA")]
-    [Description(@"??")]
+    [Description(@"The Print Response is required at the end of print.")]
     PrintEnd,
     
 }

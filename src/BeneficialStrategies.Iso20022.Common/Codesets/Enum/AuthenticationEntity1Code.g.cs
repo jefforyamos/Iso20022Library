@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AuthenticationEntity1Code
 {
     /// <summary>
-    /// ??
+    /// Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.
     /// Encoded/decoded by serializers as "ICC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICCD")]
     [IsoId("_TSESjgEcEeCQm6a_G2yO_w_2010756602")]
-    [Description(@"??")]
+    [Description(@"Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.")]
     ICC,
     
     /// <summary>
-    /// ??
+    /// Authorisation agent of the issuer.
     /// Encoded/decoded by serializers as "AuthorisedAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_TSESjwEcEeCQm6a_G2yO_w_1127523315")]
-    [Description(@"??")]
+    [Description(@"Authorisation agent of the issuer.")]
     AuthorisedAgent,
     
     /// <summary>
-    /// ??
+    /// Merchant (for example signature verification by the attendant).
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_TSESkAEcEeCQm6a_G2yO_w_-1384309028")]
-    [Description(@"??")]
+    [Description(@"Merchant (for example signature verification by the attendant).")]
     Merchant,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType34Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type manufacturing.
     /// Encoded/decoded by serializers as "Manufacturing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MFTG")]
     [IsoId("_z68wwVrfEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type manufacturing.")]
     Manufacturing,
     
 }

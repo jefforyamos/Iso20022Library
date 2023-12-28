@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Authorisation1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates a file has been pre authorised or approved within the originating customer environment and no further approval is required.
     /// Encoded/decoded by serializers as "PreAuthorisedFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_bjbk9dp-Ed-ak6NoX_4Aeg_300324481")]
-    [Description(@"??")]
+    [Description(@"Indicates a file has been pre authorised or approved within the originating customer environment and no further approval is required.")]
     PreAuthorisedFile,
     
     /// <summary>
-    /// ??
+    /// Indicates that a file requires additional file level approval, with the ability to view both the payment information block and supporting customer credit transaction detail.
     /// Encoded/decoded by serializers as "FileLevelAuthorisationDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDET")]
     [IsoId("_bjbk9tp-Ed-ak6NoX_4Aeg_300324503")]
-    [Description(@"??")]
+    [Description(@"Indicates that a file requires additional file level approval, with the ability to view both the payment information block and supporting customer credit transaction detail.")]
     FileLevelAuthorisationDetails,
     
     /// <summary>
-    /// ??
+    /// Indicates that a file requires additional file level approval, with the ability to view only the payment information block level information.
     /// Encoded/decoded by serializers as "FileLevelAuthorisationSummary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FSUM")]
     [IsoId("_bjbk99p-Ed-ak6NoX_4Aeg_300324534")]
-    [Description(@"??")]
+    [Description(@"Indicates that a file requires additional file level approval, with the ability to view only the payment information block level information.")]
     FileLevelAuthorisationSummary,
     
     /// <summary>
-    /// ??
+    /// Indicates that a file requires all customer transactions to be authorised or approved.
     /// Encoded/decoded by serializers as "InstructionLevelAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ILEV")]
     [IsoId("_bjbk-Np-Ed-ak6NoX_4Aeg_300324565")]
-    [Description(@"??")]
+    [Description(@"Indicates that a file requires all customer transactions to be authorised or approved.")]
     InstructionLevelAuthorisation,
     
 }

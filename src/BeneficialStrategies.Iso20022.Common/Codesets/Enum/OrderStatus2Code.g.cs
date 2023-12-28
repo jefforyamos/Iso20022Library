@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Order is accepted and is ready for execution (execution is the moment when pricing is applied).
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_Veg1J9p-Ed-ak6NoX_4Aeg_1339886390")]
-    [Description(@"??")]
+    [Description(@"Order is accepted and is ready for execution (execution is the moment when pricing is applied).")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Order is already executed and confirmation has been sent.
     /// Encoded/decoded by serializers as "AlreadyExecuted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COSE")]
     [IsoId("_Veg1KNp-Ed-ak6NoX_4Aeg_222160179")]
-    [Description(@"??")]
+    [Description(@"Order is already executed and confirmation has been sent.")]
     AlreadyExecuted,
     
     /// <summary>
-    /// ??
+    /// Order has been sent to the next party, eg, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_Vep_ENp-Ed-ak6NoX_4Aeg_1015729936")]
-    [Description(@"??")]
+    [Description(@"Order has been sent to the next party, eg, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_Vep_Edp-Ed-ak6NoX_4Aeg_1045282174")]
-    [Description(@"??")]
+    [Description(@"Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.")]
     Received,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderCancellationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Order cancellation request has been sent to the next party, eg, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_aQk18Np-Ed-ak6NoX_4Aeg_-1213961837")]
-    [Description(@"??")]
+    [Description(@"Order cancellation request has been sent to the next party, eg, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Order cancellation request is pending, The order cancellation request has been received but this does not indicate the order has been cancelled.
     /// Encoded/decoded by serializers as "CancellationPending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_aQk18dp-Ed-ak6NoX_4Aeg_-1213961821")]
-    [Description(@"??")]
+    [Description(@"Order cancellation request is pending, The order cancellation request has been received but this does not indicate the order has been cancelled.")]
     CancellationPending,
     
     /// <summary>
-    /// ??
+    /// Status of the order cancellation request is completed. The cancellation request has been accepted and processed; the order has been cancelled.
     /// Encoded/decoded by serializers as "CancellationCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_aQk18tp-Ed-ak6NoX_4Aeg_288864191")]
-    [Description(@"??")]
+    [Description(@"Status of the order cancellation request is completed. The cancellation request has been accepted and processed; the order has been cancelled.")]
     CancellationCompleted,
     
 }

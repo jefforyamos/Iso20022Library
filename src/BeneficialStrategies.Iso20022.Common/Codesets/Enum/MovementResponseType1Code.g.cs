@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MovementResponseType1Code
 {
     /// <summary>
-    /// ??
+    /// Response will include full details on the movements reported.
     /// Encoded/decoded by serializers as "Full".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_jQ9WgO5NEeCisYr99QEiWA_-739401767")]
-    [Description(@"??")]
+    [Description(@"Response will include full details on the movements reported.")]
     Full,
     
     /// <summary>
-    /// ??
+    /// Response will include limited details including the status on the movements reported.
     /// Encoded/decoded by serializers as "Status".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STTS")]
     [IsoId("_jQ9Wge5NEeCisYr99QEiWA_424690481")]
-    [Description(@"??")]
+    [Description(@"Response will include limited details including the status on the movements reported.")]
     Status,
     
 }

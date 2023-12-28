@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderStatus8Code
 {
     /// <summary>
-    /// ??
+    /// Cancelled order with or without executions.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_3C5jcYv6EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Cancelled order with or without executions.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Outstanding order with no executions.
     /// Encoded/decoded by serializers as "New".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWW")]
     [IsoId("_3ZYw0Yv6EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Outstanding order with no executions.")]
     New,
     
     /// <summary>
-    /// ??
+    /// Order has been replaced.
     /// Encoded/decoded by serializers as "Replaced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPL")]
     [IsoId("_4Z7n0Yv6EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Order has been replaced.")]
     Replaced,
     
     /// <summary>
-    /// ??
+    /// Order has been stopped at the exchange. Used when guaranteeing or protecting a price and quantity.
     /// Encoded/decoded by serializers as "Stopped".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOP")]
     [IsoId("_40GbUYv6EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Order has been stopped at the exchange. Used when guaranteeing or protecting a price and quantity.")]
     Stopped,
     
     /// <summary>
-    /// ??
+    /// Order has been rejected by sell-side. NOTE: An order can be rejected subsequent to order acknowledgment, i.e. an order can pass from New to Rejected status.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_6C1fUIv6EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Order has been rejected by sell-side. NOTE: An order can be rejected subsequent to order acknowledgment, i.e. an order can pass from New to Rejected status.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Order has been cancelled in the broker's system due to time in force instructions.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("__Trt4Yv6EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Order has been cancelled in the broker's system due to time in force instructions.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// Order has been sent to the next party, eg, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_DrW4wYv7EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Order has been sent to the next party, eg, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_YmKewYv7EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.
     /// Encoded/decoded by serializers as "PendingCancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_bh_WsYv7EeSJHZdigg3NTg")]
-    [Description(@"??")]
+    [Description(@"Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.")]
     PendingCancel,
     
 }

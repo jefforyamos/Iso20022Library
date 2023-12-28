@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RateType10Code
 {
     /// <summary>
-    /// ??
+    /// Any and all rate is sought.
     /// Encoded/decoded by serializers as "AnyAndAll".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANYA")]
     [IsoId("_uBZyFQCoEeGt2odvTAOpog")]
-    [Description(@"??")]
+    [Description(@"Any and all rate is sought.")]
     AnyAndAll,
     
     /// <summary>
-    /// ??
+    /// Rate is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_wN7UAgCoEeGt2odvTAOpog")]
-    [Description(@"??")]
+    [Description(@"Rate is unknown by the sender or has not been established.")]
     Unknown,
     
 }

@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CompanyAssigner2Code
 {
     /// <summary>
-    /// ??
+    /// Any relevant association in charge of assigning an identification to a company.
     /// Encoded/decoded by serializers as "Association".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASSO")]
     [IsoId("_qVBv0WMaEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Any relevant association in charge of assigning an identification to a company.")]
     Association,
     
     /// <summary>
-    /// ??
+    /// Legal authority assigning an identification to a company (for example, a local, regional or national authority).
     /// Encoded/decoded by serializers as "Authority".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUTH")]
     [IsoId("_qeFlMWMaEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Legal authority assigning an identification to a company (for example, a local, regional or national authority).")]
     Authority,
     
     /// <summary>
-    /// ??
+    /// Identification assigned by the company itself.
     /// Encoded/decoded by serializers as "Company".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPNY")]
     [IsoId("_qrDqMWMaEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Identification assigned by the company itself.")]
     Company,
     
     /// <summary>
-    /// ??
+    /// Legal Entity Identifier.
     /// Encoded/decoded by serializers as "LEI".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEII")]
     [IsoId("_q6aU0WMaEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Legal Entity Identifier.")]
     LEI,
     
     /// <summary>
-    /// ??
+    /// Identification assigned by a travel agency.
     /// Encoded/decoded by serializers as "TravelAgency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAG")]
     [IsoId("_rC_pEWMaEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Identification assigned by a travel agency.")]
     TravelAgency,
     
     /// <summary>
-    /// ??
+    /// Other company assigner entity defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_9vdIMWMaEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Other company assigner entity defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other company assigner entity defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_97L3EWMaEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Other company assigner entity defined at national level.")]
     OtherNational,
     
 }

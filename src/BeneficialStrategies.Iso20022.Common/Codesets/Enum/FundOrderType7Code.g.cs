@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundOrderType7Code
 {
     /// <summary>
-    /// ??
+    /// All type of orders.
     /// Encoded/decoded by serializers as "All".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLL")]
     [IsoId("_tpCoUVxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"All type of orders.")]
     All,
     
     /// <summary>
-    /// ??
+    /// Purchase of securities.
     /// Encoded/decoded by serializers as "SecuritiesPurchase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYI")]
     [IsoId("_uF5jcVxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"Purchase of securities.")]
     SecuritiesPurchase,
     
     /// <summary>
-    /// ??
+    /// Sale of securities.
     /// Encoded/decoded by serializers as "SecuritiesSale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_uNMeQVxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"Sale of securities.")]
     SecuritiesSale,
     
     /// <summary>
-    /// ??
+    /// Switch out or switch from.
     /// Encoded/decoded by serializers as "SwitchFrom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWII")]
     [IsoId("_vcMoAVxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"Switch out or switch from.")]
     SwitchFrom,
     
     /// <summary>
-    /// ??
+    /// Switch in or switch to.
     /// Encoded/decoded by serializers as "SwitchTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIO")]
     [IsoId("_vilj4VxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"Switch in or switch to.")]
     SwitchTo,
     
     /// <summary>
-    /// ??
+    /// Transfer in.
     /// Encoded/decoded by serializers as "TransferIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAI")]
     [IsoId("_vvO4wVxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"Transfer in.")]
     TransferIn,
     
     /// <summary>
-    /// ??
+    /// Transfer out.
     /// Encoded/decoded by serializers as "TransferOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAO")]
     [IsoId("_v5NUIVxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"Transfer out.")]
     TransferOut,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a subscription.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_xDTIsVxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a subscription.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a redemption.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_xf3I4VxUEeWvPv3PXpS3fw")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a redemption.")]
     Redemption,
     
 }

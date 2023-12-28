@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProtectInstructionStatus4Code
 {
     /// <summary>
-    /// ??
+    /// Protect instruction which has not been fully covered. Will include partial covers.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_BshVMbpcEeilsanBGAzy4A")]
-    [Description(@"??")]
+    [Description(@"Protect instruction which has not been fully covered. Will include partial covers.")]
     Open,
     
 }

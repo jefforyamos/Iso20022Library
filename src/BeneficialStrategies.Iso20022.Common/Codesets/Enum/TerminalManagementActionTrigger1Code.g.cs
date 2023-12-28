@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalManagementActionTrigger1Code
 {
     /// <summary>
-    /// ??
+    /// Date and time trigger the terminal management action.
     /// Encoded/decoded by serializers as "DateTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DATE")]
     [IsoId("_KUOSln1DEeCF8NjrBemJWQ_-370493014")]
-    [Description(@"??")]
+    [Description(@"Date and time trigger the terminal management action.")]
     DateTime,
     
     /// <summary>
-    /// ??
+    /// Acquirer triggers the terminal management action.
     /// Encoded/decoded by serializers as "HostEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOST")]
     [IsoId("_KUOSl31DEeCF8NjrBemJWQ_1411431502")]
-    [Description(@"??")]
+    [Description(@"Acquirer triggers the terminal management action.")]
     HostEvent,
     
     /// <summary>
-    /// ??
+    /// Acceptor triggers the terminal management action.
     /// Encoded/decoded by serializers as "Manual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MANU")]
     [IsoId("_KUYDkH1DEeCF8NjrBemJWQ_-1262025415")]
-    [Description(@"??")]
+    [Description(@"Acceptor triggers the terminal management action.")]
     Manual,
     
     /// <summary>
-    /// ??
+    /// Sale system triggers the terminal management action.
     /// Encoded/decoded by serializers as "SaleEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SALE")]
     [IsoId("_KUYDkX1DEeCF8NjrBemJWQ_-2047159303")]
-    [Description(@"??")]
+    [Description(@"Sale system triggers the terminal management action.")]
     SaleEvent,
     
 }

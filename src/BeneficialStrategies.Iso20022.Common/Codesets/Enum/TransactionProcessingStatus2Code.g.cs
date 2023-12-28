@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionProcessingStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_YsJOx9p-Ed-ak6NoX_4Aeg_1783970831")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Cancellation request from yourself for this instruction is pending waiting for further processing.
     /// Encoded/decoded by serializers as "PendingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_YsJOyNp-Ed-ak6NoX_4Aeg_1783971358")]
-    [Description(@"??")]
+    [Description(@"Cancellation request from yourself for this instruction is pending waiting for further processing.")]
     PendingCancellation,
     
     /// <summary>
-    /// ??
+    /// Cancellation request from the counterparty is awaiting for your cancellation request or your consent.
     /// Encoded/decoded by serializers as "CancellationRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPRC")]
     [IsoId("_YsS_wNp-Ed-ak6NoX_4Aeg_1783971359")]
-    [Description(@"??")]
+    [Description(@"Cancellation request from the counterparty is awaiting for your cancellation request or your consent.")]
     CancellationRequested,
     
     /// <summary>
-    /// ??
+    /// Processing of the instruction is pending.
     /// Encoded/decoded by serializers as "PendingProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPRC")]
     [IsoId("_YsS_wdp-Ed-ak6NoX_4Aeg_1783971393")]
-    [Description(@"??")]
+    [Description(@"Processing of the instruction is pending.")]
     PendingProcessing,
     
     /// <summary>
-    /// ??
+    /// Instruction has been acknowledged/accepted for further processing by the account servicer.
     /// Encoded/decoded by serializers as "AcknowledgedAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_YsS_wtp-Ed-ak6NoX_4Aeg_1783971418")]
-    [Description(@"??")]
+    [Description(@"Instruction has been acknowledged/accepted for further processing by the account servicer.")]
     AcknowledgedAccepted,
     
     /// <summary>
-    /// ??
+    /// Account servicer or third party created the transaction. It was not instructed directly by the account owner.
     /// Encoded/decoded by serializers as "Generated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CGEN")]
     [IsoId("_YsS_w9p-Ed-ak6NoX_4Aeg_1783971419")]
-    [Description(@"??")]
+    [Description(@"Account servicer or third party created the transaction. It was not instructed directly by the account owner.")]
     Generated,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but in repair.
     /// Encoded/decoded by serializers as "InRepair".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPR")]
     [IsoId("_YsS_xNp-Ed-ak6NoX_4Aeg_1783971435")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but in repair.")]
     InRepair,
     
 }

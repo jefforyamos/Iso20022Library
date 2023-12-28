@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransparencyMethodology2Code
 {
     /// <summary>
-    /// ??
+    /// Calculation based on yearly cycle.
     /// Encoded/decoded by serializers as "Year".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_IUk-oXvuEeanCNPcMT7sSg")]
-    [Description(@"??")]
+    [Description(@"Calculation based on yearly cycle.")]
     Year,
     
     /// <summary>
-    /// ??
+    /// Results of calculations supporting Systematic Internaliser regime.
     /// Encoded/decoded by serializers as "SystematicInternaliser".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SINT")]
     [IsoId("_IYpmUXvuEeanCNPcMT7sSg")]
-    [Description(@"??")]
+    [Description(@"Results of calculations supporting Systematic Internaliser regime.")]
     SystematicInternaliser,
     
     /// <summary>
-    /// ??
+    /// Calculation based on first Four Weeks of Trading for Equity Instruments.
     /// Encoded/decoded by serializers as "FirstFourWeeks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FFWK")]
     [IsoId("_IcsY0XvuEeanCNPcMT7sSg")]
-    [Description(@"??")]
+    [Description(@"Calculation based on first Four Weeks of Trading for Equity Instruments.")]
     FirstFourWeeks,
     
     /// <summary>
-    /// ??
+    /// Estimation for New Equity Instruments.
     /// Encoded/decoded by serializers as "Estimated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTM")]
     [IsoId("_IgesoXvuEeanCNPcMT7sSg")]
-    [Description(@"??")]
+    [Description(@"Estimation for New Equity Instruments.")]
     Estimated,
     
 }

@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BlockedReason2Code
 {
     /// <summary>
-    /// ??
+    /// Bankruptcy.
     /// Encoded/decoded by serializers as "Bankruptcy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BKRP")]
     [IsoId("_pAggcFsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Bankruptcy.")]
     Bankruptcy,
     
     /// <summary>
-    /// ??
+    /// Commitment.
     /// Encoded/decoded by serializers as "Commitment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMMT")]
     [IsoId("_pFkmoVsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Commitment.")]
     Commitment,
     
     /// <summary>
-    /// ??
+    /// Confiscation.
     /// Encoded/decoded by serializers as "Confiscation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNFS")]
     [IsoId("_pMHTgVsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Confiscation.")]
     Confiscation,
     
     /// <summary>
-    /// ??
+    /// Reserved in contemplation of death.
     /// Encoded/decoded by serializers as "MortisCausa".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MORT")]
     [IsoId("_pSXFcVsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Reserved in contemplation of death.")]
     MortisCausa,
     
     /// <summary>
-    /// ??
+    /// Pending compliance verification.
     /// Encoded/decoded by serializers as "PendingComplianceVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCOM")]
     [IsoId("_pZNUUVsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Pending compliance verification.")]
     PendingComplianceVerification,
     
     /// <summary>
-    /// ??
+    /// Pledged.
     /// Encoded/decoded by serializers as "Pledged".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLDG")]
     [IsoId("_pfdGQVsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Pledged.")]
     Pledged,
     
     /// <summary>
-    /// ??
+    /// Reregistration.
     /// Encoded/decoded by serializers as "Reregistration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPE")]
     [IsoId("_pjxlkVsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Reregistration.")]
     Reregistration,
     
     /// <summary>
-    /// ??
+    /// Sanctions are in place.
     /// Encoded/decoded by serializers as "Sanctions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SANC")]
     [IsoId("_poiJwVsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Sanctions are in place.")]
     Sanctions,
     
     /// <summary>
-    /// ??
+    /// Transfer.
     /// Encoded/decoded by serializers as "Transfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_pvhikVsMEeaY86V9afpFqA")]
-    [Description(@"??")]
+    [Description(@"Transfer.")]
     Transfer,
     
 }

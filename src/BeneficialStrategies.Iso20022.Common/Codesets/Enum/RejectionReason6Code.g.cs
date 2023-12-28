@@ -20,192 +20,192 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason6Code
 {
     /// <summary>
-    /// ??
+    /// The validation of the advice/instruction/request failed.
     /// Encoded/decoded by serializers as "FailedValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_ZlhGxtp-Ed-ak6NoX_4Aeg_-394875620")]
-    [Description(@"??")]
+    [Description(@"The validation of the advice/instruction/request failed.")]
     FailedValidation,
     
     /// <summary>
-    /// ??
+    /// A second option is mandatory.
     /// Encoded/decoded by serializers as "MissingOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECO")]
     [IsoId("_ZlhGx9p-Ed-ak6NoX_4Aeg_-394875589")]
-    [Description(@"??")]
+    [Description(@"A second option is mandatory.")]
     MissingOption,
     
     /// <summary>
-    /// ??
+    /// Party is not defined as an agent.
     /// Encoded/decoded by serializers as "NotDefinedAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGID")]
     [IsoId("_ZlhGyNp-Ed-ak6NoX_4Aeg_-394875558")]
-    [Description(@"??")]
+    [Description(@"Party is not defined as an agent.")]
     NotDefinedAgent,
     
     /// <summary>
-    /// ??
+    /// Period Ending Date or Code is missing.
     /// Encoded/decoded by serializers as "MissingPeriodEndDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENDP")]
     [IsoId("_ZlqQsNp-Ed-ak6NoX_4Aeg_-394875557")]
-    [Description(@"??")]
+    [Description(@"Period Ending Date or Code is missing.")]
     MissingPeriodEndDate,
     
     /// <summary>
-    /// ??
+    /// Period Starting Date or Code is missing.
     /// Encoded/decoded by serializers as "MissingPeriodStartDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAR")]
     [IsoId("_ZlqQsdp-Ed-ak6NoX_4Aeg_-394875527")]
-    [Description(@"??")]
+    [Description(@"Period Starting Date or Code is missing.")]
     MissingPeriodStartDate,
     
     /// <summary>
-    /// ??
+    /// Resulting amount must be filled in as Exchange rate is present.
     /// Encoded/decoded by serializers as "MissingResultingAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESU")]
     [IsoId("_ZlqQstp-Ed-ak6NoX_4Aeg_-394875497")]
-    [Description(@"??")]
+    [Description(@"Resulting amount must be filled in as Exchange rate is present.")]
     MissingResultingAmount,
     
     /// <summary>
-    /// ??
+    /// Security type does not match with the type of corporate action.
     /// Encoded/decoded by serializers as "WrongSecurityType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECT")]
     [IsoId("_ZlqQs9p-Ed-ak6NoX_4Aeg_-394875466")]
-    [Description(@"??")]
+    [Description(@"Security type does not match with the type of corporate action.")]
     WrongSecurityType,
     
     /// <summary>
-    /// ??
+    /// The disperse security is not eligible in the I(CSD) Service Provider Owner.
     /// Encoded/decoded by serializers as "NotEligibleDisperseSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISP")]
     [IsoId("_ZlqQtNp-Ed-ak6NoX_4Aeg_-394875435")]
-    [Description(@"??")]
+    [Description(@"The disperse security is not eligible in the I(CSD) Service Provider Owner.")]
     NotEligibleDisperseSecurity,
     
     /// <summary>
-    /// ??
+    /// The security is not eligible.
     /// Encoded/decoded by serializers as "NonEligibleSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELIG")]
     [IsoId("_ZlqQtdp-Ed-ak6NoX_4Aeg_-394875404")]
-    [Description(@"??")]
+    [Description(@"The security is not eligible.")]
     NonEligibleSecurity,
     
     /// <summary>
-    /// ??
+    /// There cannot be a resulting amount without an exchange rate.
     /// Encoded/decoded by serializers as "MissingExchangeRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XRAT")]
     [IsoId("_ZlqQttp-Ed-ak6NoX_4Aeg_-394875157")]
-    [Description(@"??")]
+    [Description(@"There cannot be a resulting amount without an exchange rate.")]
     MissingExchangeRate,
     
     /// <summary>
-    /// ??
+    /// Value date is before payment date.
     /// Encoded/decoded by serializers as "ValueDateBeforePaymentDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALU")]
     [IsoId("_ZlqQt9p-Ed-ak6NoX_4Aeg_-394875126")]
-    [Description(@"??")]
+    [Description(@"Value date is before payment date.")]
     ValueDateBeforePaymentDate,
     
     /// <summary>
-    /// ??
+    /// Accrued interest is not applicable for this type of security.
     /// Encoded/decoded by serializers as "UnexpectedAccruedInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACRU")]
     [IsoId("_ZlqQuNp-Ed-ak6NoX_4Aeg_-394875064")]
-    [Description(@"??")]
+    [Description(@"Accrued interest is not applicable for this type of security.")]
     UnexpectedAccruedInterest,
     
     /// <summary>
-    /// ??
+    /// Agent has no access to the service.
     /// Encoded/decoded by serializers as "NoAccessToService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAC")]
     [IsoId("_ZlqQudp-Ed-ak6NoX_4Aeg_-393955062")]
-    [Description(@"??")]
+    [Description(@"Agent has no access to the service.")]
     NoAccessToService,
     
     /// <summary>
-    /// ??
+    /// Certification Indicator is not filled in.
     /// Encoded/decoded by serializers as "MissingCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCER")]
     [IsoId("_Zl0BsNp-Ed-ak6NoX_4Aeg_-393955031")]
-    [Description(@"??")]
+    [Description(@"Certification Indicator is not filled in.")]
     MissingCertification,
     
     /// <summary>
-    /// ??
+    /// Date is not a business day for the security market.
     /// Encoded/decoded by serializers as "NotBusinessDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BDAY")]
     [IsoId("_Zl0Bsdp-Ed-ak6NoX_4Aeg_-393955000")]
-    [Description(@"??")]
+    [Description(@"Date is not a business day for the security market.")]
     NotBusinessDay,
     
     /// <summary>
-    /// ??
+    /// Effective date is after the payment date.
     /// Encoded/decoded by serializers as "EffectiveDayAfterPaymentDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDAY")]
     [IsoId("_Zl0Bstp-Ed-ak6NoX_4Aeg_-393954908")]
-    [Description(@"??")]
+    [Description(@"Effective date is after the payment date.")]
     EffectiveDayAfterPaymentDate,
     
     /// <summary>
-    /// ??
+    /// Gross amount is less than net amount.
     /// Encoded/decoded by serializers as "GrossAmountLessThanNetAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAMN")]
     [IsoId("_Zl0Bs9p-Ed-ak6NoX_4Aeg_-393954877")]
-    [Description(@"??")]
+    [Description(@"Gross amount is less than net amount.")]
     GrossAmountLessThanNetAmount,
     
     /// <summary>
-    /// ??
+    /// One option must be marked as the default.
     /// Encoded/decoded by serializers as "MissingDefaultOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_Zl0BtNp-Ed-ak6NoX_4Aeg_-393954816")]
-    [Description(@"??")]
+    [Description(@"One option must be marked as the default.")]
     MissingDefaultOption,
     
     /// <summary>
-    /// ??
+    /// Party is not active.
     /// Encoded/decoded by serializers as "NonActiveParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPAT")]
     [IsoId("_Zl0Btdp-Ed-ak6NoX_4Aeg_-393954785")]
-    [Description(@"??")]
+    [Description(@"Party is not active.")]
     NonActiveParty,
     
     /// <summary>
-    /// ??
+    /// Period Ending date is before Period Starting date.
     /// Encoded/decoded by serializers as "PeriodEndDateBeforeStartDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PERI")]
     [IsoId("_Zl0Bttp-Ed-ak6NoX_4Aeg_-393954507")]
-    [Description(@"??")]
+    [Description(@"Period Ending date is before Period Starting date.")]
     PeriodEndDateBeforeStartDate,
     
     /// <summary>
-    /// ??
+    /// Record date is after payment date.
     /// Encoded/decoded by serializers as "RecordDateAfterPaymentDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDTE")]
     [IsoId("_Zl0Bt9p-Ed-ak6NoX_4Aeg_-393954476")]
-    [Description(@"??")]
+    [Description(@"Record date is after payment date.")]
     RecordDateAfterPaymentDate,
     
 }

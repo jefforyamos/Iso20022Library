@@ -20,129 +20,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementTransactionCondition7Code
 {
     /// <summary>
-    /// ??
+    /// Transfer of ownership of the asset to another party during the closing of an option.
     /// Encoded/decoded by serializers as "Assignment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASGN")]
     [IsoId("__wuqZdojEeC60axPepSq7g_724870590")]
-    [Description(@"??")]
+    [Description(@"Transfer of ownership of the asset to another party during the closing of an option.")]
     Assignment,
     
     /// <summary>
-    /// ??
+    /// Indicates that the trade was executed clean, ie government tax must not be paid on the accrued interest on the bond.
     /// Encoded/decoded by serializers as "Clean".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLEN")]
     [IsoId("__w30UNojEeC60axPepSq7g_-650054422")]
-    [Description(@"??")]
+    [Description(@"Indicates that the trade was executed clean, ie government tax must not be paid on the accrued interest on the bond.")]
     Clean,
     
     /// <summary>
-    /// ??
+    /// Indicates that the trade was executed dirty, ie government tax must be paid on the accrued interest on the bond.
     /// Encoded/decoded by serializers as "Dirty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRT")]
     [IsoId("__w30UdojEeC60axPepSq7g_874013874")]
-    [Description(@"??")]
+    [Description(@"Indicates that the trade was executed dirty, ie government tax must be paid on the accrued interest on the bond.")]
     Dirty,
     
     /// <summary>
-    /// ??
+    /// Matching receipt instruction not required (only for concerned international or national central securities depositories).
     /// Encoded/decoded by serializers as "DeliveryWithoutMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLWM")]
     [IsoId("__w30UtojEeC60axPepSq7g_402380554")]
-    [Description(@"??")]
+    [Description(@"Matching receipt instruction not required (only for concerned international or national central securities depositories).")]
     DeliveryWithoutMatching,
     
     /// <summary>
-    /// ??
+    /// Settlement transactions relates to drawn securities.
     /// Encoded/decoded by serializers as "Drawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRAW")]
     [IsoId("__w30U9ojEeC60axPepSq7g_1926448850")]
-    [Description(@"??")]
+    [Description(@"Settlement transactions relates to drawn securities.")]
     Drawn,
     
     /// <summary>
-    /// ??
+    /// Settlement transaction relates to options, futures or derivatives that are exercised.
     /// Encoded/decoded by serializers as "Exercised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXER")]
     [IsoId("__xBlUNojEeC60axPepSq7g_1480400892")]
-    [Description(@"??")]
+    [Description(@"Settlement transaction relates to options, futures or derivatives that are exercised.")]
     Exercised,
     
     /// <summary>
-    /// ??
+    /// Delivery will be made free of payment but a clean payment order will be sent.
     /// Encoded/decoded by serializers as "FreeCleanSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRCL")]
     [IsoId("__xBlUdojEeC60axPepSq7g_-1290498108")]
-    [Description(@"??")]
+    [Description(@"Delivery will be made free of payment but a clean payment order will be sent.")]
     FreeCleanSettlement,
     
     /// <summary>
-    /// ??
+    /// Settlement transaction relates to options, futures or derivatives that are expired worthless.
     /// Encoded/decoded by serializers as "KnockedOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KNOC")]
     [IsoId("__xBlUtojEeC60axPepSq7g_2066347918")]
-    [Description(@"??")]
+    [Description(@"Settlement transaction relates to options, futures or derivatives that are expired worthless.")]
     KnockedOut,
     
     /// <summary>
-    /// ??
+    /// Securities are to be physically settled.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("__xBlU9ojEeC60axPepSq7g_687664975")]
-    [Description(@"??")]
+    [Description(@"Securities are to be physically settled.")]
     Physical,
     
     /// <summary>
-    /// ??
+    /// Transaction on a security that is not eligible at the Central Securities Depository (CSD) but for which the payment will be enacted by the CSD.
     /// Encoded/decoded by serializers as "CSDPaymentOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSDP")]
     [IsoId("__xBlVNojEeC60axPepSq7g_1823372701")]
-    [Description(@"??")]
+    [Description(@"Transaction on a security that is not eligible at the Central Securities Depository (CSD) but for which the payment will be enacted by the CSD.")]
     CSDPaymentOnly,
     
     /// <summary>
-    /// ??
+    /// Settlement is in two different currencies.
     /// Encoded/decoded by serializers as "SplitCurrencySettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCS")]
     [IsoId("__xBlVdojEeC60axPepSq7g_-1322468872")]
-    [Description(@"??")]
+    [Description(@"Settlement is in two different currencies.")]
     SplitCurrencySettlement,
     
     /// <summary>
-    /// ??
+    /// Settlement transactions to be settled with special delivery.
     /// Encoded/decoded by serializers as "SpecialDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPDL")]
     [IsoId("__xBlVtojEeC60axPepSq7g_1130653467")]
-    [Description(@"??")]
+    [Description(@"Settlement transactions to be settled with special delivery.")]
     SpecialDelivery,
     
     /// <summary>
-    /// ??
+    /// Money and financial instruments settle in different locations.
     /// Encoded/decoded by serializers as "SplitSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPST")]
     [IsoId("__xBlV9ojEeC60axPepSq7g_-561526730")]
-    [Description(@"??")]
+    [Description(@"Money and financial instruments settle in different locations.")]
     SplitSettlement,
     
     /// <summary>
-    /// ??
+    /// Delivery cannot be performed until money is received.
     /// Encoded/decoded by serializers as "Unexposed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNEX")]
     [IsoId("__xLWUNojEeC60axPepSq7g_962541566")]
-    [Description(@"??")]
+    [Description(@"Delivery cannot be performed until money is received.")]
     Unexposed,
     
 }

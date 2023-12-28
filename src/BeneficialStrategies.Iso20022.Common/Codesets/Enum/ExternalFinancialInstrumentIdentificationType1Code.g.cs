@@ -22,219 +22,219 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalFinancialInstrumentIdentificationType1Code
 {
     /// <summary>
-    /// ??
+    /// National securities identification number for BE issued by the National Numbering Association SIX Telekurs Belgium.
     /// Encoded/decoded by serializers as "CodeSRWSecretariaatVoorRoerendeWaardenOrSVMSecrétariatDesValeursMobilières".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BELC")]
     [IsoId("_uI4SM_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"National securities identification number for BE issued by the National Numbering Association SIX Telekurs Belgium.")]
     CodeSRWSecretariaatVoorRoerendeWaardenOrSVMSecrétariatDesValeursMobilières,
     
     /// <summary>
-    /// ??
+    /// Ticker-like code assigned by Bloomberg to identify financial instruments.
     /// Encoded/decoded by serializers as "Bloomberg".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLOM")]
     [IsoId("_uI4SN_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker-like code assigned by Bloomberg to identify financial instruments.")]
     Bloomberg,
     
     /// <summary>
-    /// ??
+    /// National Securities Identification Number issued by the National Numbering Association for a country for which no specific financial instrument identification type code already yet. The first two letters of the code represents the country code (for example, EGDC for Egyptian NSIN). To be used only until the code is added to the ISO ExternalFinancialInstrumentIdentificationType1Code list.
     /// Encoded/decoded by serializers as "OtherNationalSecuritiesIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCCD")]
     [IsoId("_uI4SO_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"National Securities Identification Number issued by the National Numbering Association for a country for which no specific financial instrument identification type code already yet. The first two letters of the code represents the country code (for example, EGDC for Egyptian NSIN). To be used only until the code is added to the ISO ExternalFinancialInstrumentIdentificationType1Code list.")]
     OtherNationalSecuritiesIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Ticker-like code assigned by the Chicago Mercantile Exchange to identify listed-derivatives instruments.
     /// Encoded/decoded by serializers as "ChicagoMercantileExchangeCME".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMED")]
     [IsoId("_uJCDM_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker-like code assigned by the Chicago Mercantile Exchange to identify listed-derivatives instruments.")]
     ChicagoMercantileExchangeCME,
     
     /// <summary>
-    /// ??
+    /// National securities identification number for ICSDs issued by the National Numbering Association Clearstream and Euroclear.
     /// Encoded/decoded by serializers as "CommonCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_uJCDN_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"National securities identification number for ICSDs issued by the National Numbering Association Clearstream and Euroclear.")]
     CommonCode,
     
     /// <summary>
-    /// ??
+    /// Ticker-like code assigned by the Consolidated Tape Association to identify financial instruments.
     /// Encoded/decoded by serializers as "ConsolidatedTapeAssociationCTA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTAC")]
     [IsoId("_uJCDO_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker-like code assigned by the Consolidated Tape Association to identify financial instruments.")]
     ConsolidatedTapeAssociationCTA,
     
     /// <summary>
-    /// ??
+    /// National securities identification number for US and CA issued by the National Numbering Association Standard & Poor´s - CUSIP Global Services.
     /// Encoded/decoded by serializers as "CommitteeOnUniformSecurityIdentificationProceduresCUSIP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUSP")]
     [IsoId("_uJLNI_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"National securities identification number for US and CA issued by the National Numbering Association Standard & Poor´s - CUSIP Global Services.")]
     CommitteeOnUniformSecurityIdentificationProceduresCUSIP,
     
     /// <summary>
-    /// ??
+    /// A Financial Instrument Global Identifier Composite (FIGC) is a unique, persistent twelve character string that serves to identify financial instruments across asset classes at the composite level, is associated with one or more FIGI venue level ID’s and a single Share Class level ID.
     /// Encoded/decoded by serializers as "FinancialInstrumentGlobalIdentifierComposite".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIGC")]
     [IsoId("_uJLNJ_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A Financial Instrument Global Identifier Composite (FIGC) is a unique, persistent twelve character string that serves to identify financial instruments across asset classes at the composite level, is associated with one or more FIGI venue level ID’s and a single Share Class level ID.")]
     FinancialInstrumentGlobalIdentifierComposite,
     
     /// <summary>
-    /// ??
+    /// A Financial Instrument Global Identifier Share Class (FIGG) is a unique, persistent twelve character string that serves to identify financial instruments across asset classes at the global share class level, and is associated with one or more Composite level ID’s.
     /// Encoded/decoded by serializers as "FinancialInstrumentGlobalIdentifierShareClass".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIGG")]
     [IsoId("_uJLNK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A Financial Instrument Global Identifier Share Class (FIGG) is a unique, persistent twelve character string that serves to identify financial instruments across asset classes at the global share class level, and is associated with one or more Composite level ID’s.")]
     FinancialInstrumentGlobalIdentifierShareClass,
     
     /// <summary>
-    /// ??
+    /// A Financial Instrument Global Identifier (FIGI) is a unique, persistent twelve character string that serves to identify financial instruments across asset classes at the venue level. It is associated with one Composite ID.
     /// Encoded/decoded by serializers as "FinancialInstrumentGlobalIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIGI")]
     [IsoId("_uJLNL_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"A Financial Instrument Global Identifier (FIGI) is a unique, persistent twelve character string that serves to identify financial instruments across asset classes at the venue level. It is associated with one Composite ID.")]
     FinancialInstrumentGlobalIdentifier,
     
     /// <summary>
-    /// ??
+    /// URL in Description to identify OTC derivatives instruments.
     /// Encoded/decoded by serializers as "ISDAAndFpMLProductURLInSecurityID".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISDU")]
     [IsoId("_uJU-I_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"URL in Description to identify OTC derivatives instruments.")]
     ISDAAndFpMLProductURLInSecurityID,
     
     /// <summary>
-    /// ??
+    /// XML in Description to identify OTC derivatives instruments.
     /// Encoded/decoded by serializers as "ISDAAndFpMLProductSpecificationXMLInEncodedSecurityDesc".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISDX")]
     [IsoId("_uJU-J_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"XML in Description to identify OTC derivatives instruments.")]
     ISDAAndFpMLProductSpecificationXMLInEncodedSecurityDesc,
     
     /// <summary>
-    /// ??
+    /// Ticker-like code assigned by LCH to identify listed-derivatives instruments.
     /// Encoded/decoded by serializers as "LCHClearnet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LCHD")]
     [IsoId("_uJU-K_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker-like code assigned by LCH to identify listed-derivatives instruments.")]
     LCHClearnet,
     
     /// <summary>
-    /// ??
+    /// Ticker-like code assigned by the Options Clearing Corporation to identify financial instruments.
     /// Encoded/decoded by serializers as "OptionsClearingCorpOCC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCCS")]
     [IsoId("_uJU-L_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker-like code assigned by the Options Clearing Corporation to identify financial instruments.")]
     OptionsClearingCorpOCC,
     
     /// <summary>
-    /// ??
+    /// Ticker-like code assigned by the Options Price Reporting Authority to identify financial instruments.
     /// Encoded/decoded by serializers as "OptionsPriceReportingAuthorityOPRA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPRA")]
     [IsoId("_uJU-M_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker-like code assigned by the Options Price Reporting Authority to identify financial instruments.")]
     OptionsPriceReportingAuthorityOPRA,
     
     /// <summary>
-    /// ??
+    /// Ticker-like code assigned by Markit to identify listed-derivatives instruments.
     /// Encoded/decoded by serializers as "MarkitRedCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCMD")]
     [IsoId("_uJeIE_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker-like code assigned by Markit to identify listed-derivatives instruments.")]
     MarkitRedCode,
     
     /// <summary>
-    /// ??
+    /// Ticker-like code assigned by Thomson Reuters to identify financial instruments.
     /// Encoded/decoded by serializers as "ReutersInstrumentCodeRIC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RICC")]
     [IsoId("_uJeIF_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker-like code assigned by Thomson Reuters to identify financial instruments.")]
     ReutersInstrumentCodeRIC,
     
     /// <summary>
-    /// ??
+    /// National securities identification number for GB issued by the National Numbering Association London Stock Exchange.
     /// Encoded/decoded by serializers as "StockExchangeDailyOfficialListSEDOL".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEDL")]
     [IsoId("_uJeIG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"National securities identification number for GB issued by the National Numbering Association London Stock Exchange.")]
     StockExchangeDailyOfficialListSEDOL,
     
     /// <summary>
-    /// ??
+    /// National securities identification number for JP issued by the National Numbering Association 6 Stock Exchanges and JASDEC (Securities Identification Ticker-like code Committee)
     /// Encoded/decoded by serializers as "SecuritiesIdentificationCodeCommittee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SICC")]
     [IsoId("_uJeIH_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"National securities identification number for JP issued by the National Numbering Association 6 Stock Exchanges and JASDEC (Securities Identification Ticker-like code Committee)")]
     SecuritiesIdentificationCodeCommittee,
     
     /// <summary>
-    /// ??
+    /// Ticker Code assigned by an exchange to identify financial instruments.
     /// Encoded/decoded by serializers as "TickerSymbolTS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIKR")]
     [IsoId("_uJn5E_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ticker Code assigned by an exchange to identify financial instruments.")]
     TickerSymbolTS,
     
     /// <summary>
-    /// ??
+    /// National securities identification number for CH and LI issued by the National Numbering Association SIX Telekurs Ltd.
     /// Encoded/decoded by serializers as "VALOR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALO")]
     [IsoId("_uJn5F_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"National securities identification number for CH and LI issued by the National Numbering Association SIX Telekurs Ltd.")]
     VALOR,
     
     /// <summary>
-    /// ??
+    /// National securities identification number for DE issued by the National Numbering Association WM Datenservice.
     /// Encoded/decoded by serializers as "WertpapierkennummerWKN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WKNR")]
     [IsoId("_uJn5G_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"National securities identification number for DE issued by the National Numbering Association WM Datenservice.")]
     WertpapierkennummerWKN,
     
     /// <summary>
-    /// ??
+    /// National Bond identification number for China issued by CHINA CENTRAL DEPOSITORY & CLEARING CO., Limited.
     /// Encoded/decoded by serializers as "BondIdentificationCodeListChina".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCDC")]
     [IsoId("_opiOcY5EEeyANo-d7JlQ1A")]
-    [Description(@"??")]
+    [Description(@"National Bond identification number for China issued by CHINA CENTRAL DEPOSITORY & CLEARING CO., Limited.")]
     BondIdentificationCodeListChina,
     
     /// <summary>
-    /// ??
+    /// Digital Token Identifier, as defined in ISO 24165.
     /// Encoded/decoded by serializers as "DigitalTokenIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTID")]
     [IsoId("_8WZMImvWEe2F6NrIyOmXcA")]
-    [Description(@"??")]
+    [Description(@"Digital Token Identifier, as defined in ISO 24165.")]
     DigitalTokenIdentifier,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType46Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type container ships.
     /// Encoded/decoded by serializers as "ContainerShip".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHP")]
     [IsoId("_9F9MIfwfEeW4Wthd0Ze_kA")]
-    [Description(@"??")]
+    [Description(@"Commodity of type container ships.")]
     ContainerShip,
     
 }

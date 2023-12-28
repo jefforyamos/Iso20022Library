@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RestrictionReference1Code
 {
     /// <summary>
-    /// ??
+    /// Addition of a cash restriction reference representing a cash sub-balance to be utilised within the settlement instruction for the debiting or crediting of cash.
     /// Encoded/decoded by serializers as "AddCashRestrictionReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDC")]
     [IsoId("_jGoHcdj7EeiHnvcp3FV_5w")]
-    [Description(@"??")]
+    [Description(@"Addition of a cash restriction reference representing a cash sub-balance to be utilised within the settlement instruction for the debiting or crediting of cash.")]
     AddCashRestrictionReference,
     
     /// <summary>
-    /// ??
+    /// Addition of a securities restriction reference representing a securities sub-position to be utilised within the settlement instruction for the delivery or receipt of securities.
     /// Encoded/decoded by serializers as "AddSecuritiesRestrictionReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDS")]
     [IsoId("_jNngQdj7EeiHnvcp3FV_5w")]
-    [Description(@"??")]
+    [Description(@"Addition of a securities restriction reference representing a securities sub-position to be utilised within the settlement instruction for the delivery or receipt of securities.")]
     AddSecuritiesRestrictionReference,
     
     /// <summary>
-    /// ??
+    /// Removal of a cash restriction reference, already present within the settlement instruction, representing a cash sub-balance to be utilised within the settlement instruction for the debiting or crediting of cash.
     /// Encoded/decoded by serializers as "RemoveCashRestrictionReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REMC")]
     [IsoId("_jTuIQdj7EeiHnvcp3FV_5w")]
-    [Description(@"??")]
+    [Description(@"Removal of a cash restriction reference, already present within the settlement instruction, representing a cash sub-balance to be utilised within the settlement instruction for the debiting or crediting of cash.")]
     RemoveCashRestrictionReference,
     
     /// <summary>
-    /// ??
+    /// Removal of a securities restriction reference, already present within the settlement instruction, representing a securities sub-position to be utilised within the settlement instruction for the delivery or receipt of securities. 
     /// Encoded/decoded by serializers as "RemoveSecuritiesRestrictionReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REMS")]
     [IsoId("_jdPQodj7EeiHnvcp3FV_5w")]
-    [Description(@"??")]
+    [Description(@"Removal of a securities restriction reference, already present within the settlement instruction, representing a securities sub-position to be utilised within the settlement instruction for the delivery or receipt of securities. ")]
     RemoveSecuritiesRestrictionReference,
     
 }

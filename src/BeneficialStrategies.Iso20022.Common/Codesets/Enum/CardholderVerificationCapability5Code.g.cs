@@ -20,156 +20,156 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardholderVerificationCapability5Code
 {
     /// <summary>
-    /// ??
+    /// Account based digital signature.
     /// Encoded/decoded by serializers as "AccountDigitalSignature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APKI")]
     [IsoId("_3CLlwX0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Account based digital signature.")]
     AccountDigitalSignature,
     
     /// <summary>
-    /// ??
+    /// No cardholder verification capability.
     /// Encoded/decoded by serializers as "NoCapabilities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOVF")]
     [IsoId("_3CLlw30kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"No cardholder verification capability.")]
     NoCapabilities,
     
     /// <summary>
-    /// ??
+    /// Offline biographics.
     /// Encoded/decoded by serializers as "OfflineBiographics".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FBIG")]
     [IsoId("_3CLlxX0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Offline biographics.")]
     OfflineBiographics,
     
     /// <summary>
-    /// ??
+    /// Offline biometrics.
     /// Encoded/decoded by serializers as "OfflineBiometrics".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FBIO")]
     [IsoId("_3CLlx30kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Offline biometrics.")]
     OfflineBiometrics,
     
     /// <summary>
-    /// ??
+    /// Offline digital signature analysis.
     /// Encoded/decoded by serializers as "OfflineDigitalSignature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDSG")]
     [IsoId("_3CLlyX0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Offline digital signature analysis.")]
     OfflineDigitalSignature,
     
     /// <summary>
-    /// ??
+    /// Offline PIN in clear (Personal Identification Number).
     /// Encoded/decoded by serializers as "OfflinePINClear".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCPN")]
     [IsoId("_3CLly30kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Offline PIN in clear (Personal Identification Number).")]
     OfflinePINClear,
     
     /// <summary>
-    /// ??
+    /// Offline PIN encrypted (Personal Identification Number).
     /// Encoded/decoded by serializers as "OfflinePINEncrypted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEPN")]
     [IsoId("_3CLlzX0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Offline PIN encrypted (Personal Identification Number).")]
     OfflinePINEncrypted,
     
     /// <summary>
-    /// ??
+    /// Online biometrics.
     /// Encoded/decoded by serializers as "OnLineBiometrics".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NBIO")]
     [IsoId("_3CLlz30kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Online biometrics.")]
     OnLineBiometrics,
     
     /// <summary>
-    /// ??
+    /// Online PIN (Personal Identification Number).
     /// Encoded/decoded by serializers as "OnLinePIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPIN")]
     [IsoId("_3CLl0X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Online PIN (Personal Identification Number).")]
     OnLinePIN,
     
     /// <summary>
-    /// ??
+    /// Other type of cardholder verification defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_3CLl030kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of cardholder verification defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of cardholder verification defined in a private manner.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_3CLl1X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of cardholder verification defined in a private manner.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Handwritten signature verification
     /// Encoded/decoded by serializers as "Signature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGN")]
     [IsoId("_3CLl130kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Handwritten signature verification")]
     Signature,
     
     /// <summary>
-    /// ??
+    /// Cardholder verification capability unspecified.
     /// Encoded/decoded by serializers as "Unspecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_3CLl2X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Cardholder verification capability unspecified.")]
     Unspecified,
     
     /// <summary>
-    /// ??
+    /// Recognition by voice.
     /// Encoded/decoded by serializers as "VoiceRecognition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VORN")]
     [IsoId("_3CLl230kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Recognition by voice.")]
     VoiceRecognition,
     
     /// <summary>
-    /// ??
+    /// PKI (Public Key Infrastructure) based digital signature.
     /// Encoded/decoded by serializers as "PKISignature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PKIS")]
     [IsoId("_3CLl3X0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"PKI (Public Key Infrastructure) based digital signature.")]
     PKISignature,
     
     /// <summary>
-    /// ??
+    /// Device has no pin entry capability.
     /// Encoded/decoded by serializers as "NoPINEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOPN")]
     [IsoId("_9pG7EZKcEempjNUC7bi_Ng")]
-    [Description(@"??")]
+    [Description(@"Device has no pin entry capability.")]
     NoPINEntry,
     
     /// <summary>
-    /// ??
+    /// Device has no online pin entry capability.
     /// Encoded/decoded by serializers as "NoOnLinePINEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOOP")]
     [IsoId("_ZEDeQRqaEeqH1IQNpbVpEw")]
-    [Description(@"??")]
+    [Description(@"Device has no online pin entry capability.")]
     NoOnLinePINEntry,
     
 }

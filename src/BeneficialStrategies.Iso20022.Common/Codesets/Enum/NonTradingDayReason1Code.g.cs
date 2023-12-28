@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum NonTradingDayReason1Code
 {
     /// <summary>
-    /// ??
+    /// The date is a full day trading holiday with no trades performed.
     /// Encoded/decoded by serializers as "TradingHoliday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THOL")]
     [IsoId("_izC5MWw5EeWD9e8QDBgUOw")]
-    [Description(@"??")]
+    [Description(@"The date is a full day trading holiday with no trades performed.")]
     TradingHoliday,
     
     /// <summary>
-    /// ??
+    /// Other reasons a day is a non-trading day e.g. technical fault, company specific non-trading day not known in advance.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_i4INgWw5EeWD9e8QDBgUOw")]
-    [Description(@"??")]
+    [Description(@"Other reasons a day is a non-trading day e.g. technical fault, company specific non-trading day not known in advance.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Trading venue was open for an amount of time, up to half the day.
     /// Encoded/decoded by serializers as "HalfDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HALF")]
     [IsoId("_i9bkQWw5EeWD9e8QDBgUOw")]
-    [Description(@"??")]
+    [Description(@"Trading venue was open for an amount of time, up to half the day.")]
     HalfDay,
     
     /// <summary>
-    /// ??
+    /// Date is a public holiday.
     /// Encoded/decoded by serializers as "PublicHoliday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHOL")]
     [IsoId("_SD17gWw6EeWD9e8QDBgUOw")]
-    [Description(@"??")]
+    [Description(@"Date is a public holiday.")]
     PublicHoliday,
     
     /// <summary>
-    /// ??
+    /// Date is a bank holiday.
     /// Encoded/decoded by serializers as "BankHoliday".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BHOL")]
     [IsoId("_SJIrMWw6EeWD9e8QDBgUOw")]
-    [Description(@"??")]
+    [Description(@"Date is a bank holiday.")]
     BankHoliday,
     
     /// <summary>
-    /// ??
+    /// Date being reported falls during the weekend.
     /// Encoded/decoded by serializers as "Weekend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WKND")]
     [IsoId("_SPS9kWw6EeWD9e8QDBgUOw")]
-    [Description(@"??")]
+    [Description(@"Date being reported falls during the weekend.")]
     Weekend,
     
 }

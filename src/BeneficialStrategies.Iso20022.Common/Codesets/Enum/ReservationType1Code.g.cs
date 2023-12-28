@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReservationType1Code
 {
     /// <summary>
-    /// ??
+    /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing cash withdrawals.
     /// Encoded/decoded by serializers as "CashReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CARE")]
     [IsoId("_ZUiEddp-Ed-ak6NoX_4Aeg_937272384")]
-    [Description(@"??")]
+    [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing cash withdrawals.")]
     CashReservation,
     
     /// <summary>
-    /// ??
+    /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing critical payments called urgent payments.
     /// Encoded/decoded by serializers as "UrgentPaymentReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPAR")]
     [IsoId("_ZUiEdtp-Ed-ak6NoX_4Aeg_952974761")]
-    [Description(@"??")]
+    [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing critical payments called urgent payments.")]
     UrgentPaymentReservation,
     
     /// <summary>
-    /// ??
+    /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for the settlement of the multilateral cash balance stemming from the Net Security Settlement System.
     /// Encoded/decoded by serializers as "NetSSSReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSSR")]
     [IsoId("_ZUiEd9p-Ed-ak6NoX_4Aeg_998225402")]
-    [Description(@"??")]
+    [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for the settlement of the multilateral cash balance stemming from the Net Security Settlement System.")]
     NetSSSReservation,
     
     /// <summary>
-    /// ??
+    /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing highly urgent payments.
     /// Encoded/decoded by serializers as "HighlyUrgentPaymentReservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HPAR")]
     [IsoId("_ZUiEeNp-Ed-ak6NoX_4Aeg_1227258206")]
-    [Description(@"??")]
+    [Description(@"Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing highly urgent payments.")]
     HighlyUrgentPaymentReservation,
     
     /// <summary>
-    /// ??
+    /// Amount above which funds will be destined for investment.
     /// Encoded/decoded by serializers as "ThresholdForInvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THRE")]
     [IsoId("_ZUiEedp-Ed-ak6NoX_4Aeg_1253119695")]
-    [Description(@"??")]
+    [Description(@"Amount above which funds will be destined for investment.")]
     ThresholdForInvestment,
     
 }

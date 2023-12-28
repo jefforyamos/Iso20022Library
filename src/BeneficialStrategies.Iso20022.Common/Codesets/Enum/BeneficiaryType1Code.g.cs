@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BeneficiaryType1Code
 {
     /// <summary>
-    /// ??
+    /// Beneficiary is a dependent.
     /// Encoded/decoded by serializers as "Dependent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPE")]
     [IsoId("_Opuc0VNhEeijdq8ilaxyOA")]
-    [Description(@"??")]
+    [Description(@"Beneficiary is a dependent.")]
     Dependent,
     
     /// <summary>
-    /// ??
+    /// Beneficiary is a nominee.
     /// Encoded/decoded by serializers as "Nominee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMI")]
     [IsoId("_OtcfMVNhEeijdq8ilaxyOA")]
-    [Description(@"??")]
+    [Description(@"Beneficiary is a nominee.")]
     Nominee,
     
     /// <summary>
-    /// ??
+    /// Beneficiary is a successor.
     /// Encoded/decoded by serializers as "Successor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_OxnNgVNhEeijdq8ilaxyOA")]
-    [Description(@"??")]
+    [Description(@"Beneficiary is a successor.")]
     Successor,
     
 }

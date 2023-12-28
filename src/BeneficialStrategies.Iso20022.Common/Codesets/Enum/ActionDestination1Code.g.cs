@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ActionDestination1Code
 {
     /// <summary>
-    /// ??
+    /// Data file
     /// Encoded/decoded by serializers as "File".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FILE")]
     [IsoId("_3O1WAU0wEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Data file")]
     File,
     
     /// <summary>
-    /// ??
+    /// Mobile telephone
     /// Encoded/decoded by serializers as "Mobile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOBL")]
     [IsoId("_3bOMMk0wEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Mobile telephone")]
     Mobile,
     
     /// <summary>
-    /// ??
+    /// Other type of destination for action defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_3jrkok0wEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Other type of destination for action defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of destination for action defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_3tJCok0wEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Other type of destination for action defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Personal computer.
     /// Encoded/decoded by serializers as "PersonalComputer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PECR")]
     [IsoId("_39Imck0wEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Personal computer.")]
     PersonalComputer,
     
     /// <summary>
-    /// ??
+    /// Point of sale terminal.
     /// Encoded/decoded by serializers as "PointOfSale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POFS")]
     [IsoId("_4Fl-4U0wEeea0Mdu1TOzDQ")]
-    [Description(@"??")]
+    [Description(@"Point of sale terminal.")]
     PointOfSale,
     
 }

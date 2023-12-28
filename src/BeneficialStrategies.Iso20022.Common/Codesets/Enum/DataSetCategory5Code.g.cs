@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DataSetCategory5Code
 {
     /// <summary>
-    /// ??
+    /// Acquirer specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "AcquirerParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AQPR")]
     [IsoId("_gSqqcWpcEeS4r8z7dKyh1g")]
-    [Description(@"??")]
+    [Description(@"Acquirer specific configuration parameters for the point of interaction (POI) system.")]
     AcquirerParameters,
     
     /// <summary>
-    /// ??
+    /// Payment application specific configuration parameters for the point of interaction (POI) system.
     /// Encoded/decoded by serializers as "ApplicationParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPR")]
     [IsoId("_gb0mcWpcEeS4r8z7dKyh1g")]
-    [Description(@"??")]
+    [Description(@"Payment application specific configuration parameters for the point of interaction (POI) system.")]
     ApplicationParameters,
     
     /// <summary>
-    /// ??
+    /// The terminal manager is the master.
     /// Encoded/decoded by serializers as "MasterTerminalManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTMG")]
     [IsoId("_hYUq8WpcEeS4r8z7dKyh1g")]
-    [Description(@"??")]
+    [Description(@"The terminal manager is the master.")]
     MasterTerminalManager,
     
     /// <summary>
-    /// ??
+    /// Merchant configuration parameters for the point of interaction (POI).
     /// Encoded/decoded by serializers as "MerchantParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRPR")]
     [IsoId("_hj8sIWpcEeS4r8z7dKyh1g")]
-    [Description(@"??")]
+    [Description(@"Merchant configuration parameters for the point of interaction (POI).")]
     MerchantParameters,
     
     /// <summary>
-    /// ??
+    /// Monitoring of the terminal estate.
     /// Encoded/decoded by serializers as "Monitoring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTOR")]
     [IsoId("_hrsS4WpcEeS4r8z7dKyh1g")]
-    [Description(@"??")]
+    [Description(@"Monitoring of the terminal estate.")]
     Monitoring,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters related to the security of software application and application protocol.
     /// Encoded/decoded by serializers as "SecurityParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCPR")]
     [IsoId("_ixk84WpcEeS4r8z7dKyh1g")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters related to the security of software application and application protocol.")]
     SecurityParameters,
     
     /// <summary>
-    /// ??
+    /// Software module.
     /// Encoded/decoded by serializers as "SoftwareModule".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWPK")]
     [IsoId("_i6OikWpcEeS4r8z7dKyh1g")]
-    [Description(@"??")]
+    [Description(@"Software module.")]
     SoftwareModule,
     
     /// <summary>
-    /// ??
+    /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
     /// Encoded/decoded by serializers as "TerminalParameters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRPR")]
     [IsoId("_jPr1MWpcEeS4r8z7dKyh1g")]
-    [Description(@"??")]
+    [Description(@"Point of interaction parameters attached to the terminal as serial number or physical capabilities.")]
     TerminalParameters,
     
 }

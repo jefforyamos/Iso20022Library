@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferType4Code
 {
     /// <summary>
-    /// ??
+    /// Transfer as cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_y8KKgaxWEemRcYBAkJyjkg")]
-    [Description(@"??")]
+    [Description(@"Transfer as cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// ISIN is converted to another ISIN and then transferred.
     /// Encoded/decoded by serializers as "Conversion".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONV")]
     [IsoId("_zABW0axWEemRcYBAkJyjkg")]
-    [Description(@"??")]
+    [Description(@"ISIN is converted to another ISIN and then transferred.")]
     Conversion,
     
     /// <summary>
-    /// ??
+    /// Asset excluded from transfer.
     /// Encoded/decoded by serializers as "Excluded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCL")]
     [IsoId("_zE7sAaxWEemRcYBAkJyjkg")]
-    [Description(@"??")]
+    [Description(@"Asset excluded from transfer.")]
     Excluded,
     
     /// <summary>
-    /// ??
+    /// Transfer the security as an asset in specie, that is, 'in its actual form'.
     /// Encoded/decoded by serializers as "InSpecie".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_zJGaUaxWEemRcYBAkJyjkg")]
-    [Description(@"??")]
+    [Description(@"Transfer the security as an asset in specie, that is, 'in its actual form'.")]
     InSpecie,
     
 }

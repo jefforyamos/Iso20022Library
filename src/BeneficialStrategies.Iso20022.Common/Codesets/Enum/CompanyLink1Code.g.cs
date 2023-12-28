@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CompanyLink1Code
 {
     /// <summary>
-    /// ??
+    /// Autonomous agent accredited by the broker.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGEN")]
     [IsoId("_4wnUASCbEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Autonomous agent accredited by the broker.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Employee, operator or agent of the broker.
     /// Encoded/decoded by serializers as "Broker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BROK")]
     [IsoId("_43di4SCbEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Employee, operator or agent of the broker.")]
     Broker,
     
     /// <summary>
-    /// ??
+    /// Brokerage partner or shareholder, individual or entity who holds a direct or an indirect control function and the holder of a management or an administration position.
     /// Encoded/decoded by serializers as "BrokeragePartner".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_4-KAwSCbEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Brokerage partner or shareholder, individual or entity who holds a direct or an indirect control function and the holder of a management or an administration position.")]
     BrokeragePartner,
     
     /// <summary>
-    /// ??
+    /// Member broker of a financial conglomerate (person is a board member, director, officer and employee of a member company of the conglomerate).
     /// Encoded/decoded by serializers as "MemberBroker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEMB")]
     [IsoId("_5E2eoSCbEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Member broker of a financial conglomerate (person is a board member, director, officer and employee of a member company of the conglomerate).")]
     MemberBroker,
     
     /// <summary>
-    /// ??
+    /// Parent company of the broker.
     /// Encoded/decoded by serializers as "ParentCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCOM")]
     [IsoId("_5NL7QSCbEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Parent company of the broker.")]
     ParentCompany,
     
     /// <summary>
-    /// ??
+    /// Spouse or partner and child of an employee, operator or agent of the broker; agent of the broker; brokerage partners or shareholders; individual or entity who holds a direct or an indirect control function and the holder of a management or an administration position.
     /// Encoded/decoded by serializers as "Relative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RELA")]
     [IsoId("_5U668SCbEeWJd9HF2tO7BA")]
-    [Description(@"??")]
+    [Description(@"Spouse or partner and child of an employee, operator or agent of the broker; agent of the broker; brokerage partners or shareholders; individual or entity who holds a direct or an indirect control function and the holder of a management or an administration position.")]
     Relative,
     
 }

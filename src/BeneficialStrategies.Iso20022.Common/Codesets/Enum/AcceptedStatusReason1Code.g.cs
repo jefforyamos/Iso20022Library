@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AcceptedStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Status of the account modification instruction is accepted but modification of the account data will not be carried out for the place.
     /// Encoded/decoded by serializers as "PlaceNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLAC")]
     [IsoId("_T391cWBnEeaR1OOiVxm3Gg")]
-    [Description(@"??")]
+    [Description(@"Status of the account modification instruction is accepted but modification of the account data will not be carried out for the place.")]
     PlaceNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Status of the account modification instruction is accepted but modification of the account data will not be carried out for the sector code.
     /// Encoded/decoded by serializers as "SectorNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECT")]
     [IsoId("_UBVz4WBnEeaR1OOiVxm3Gg")]
-    [Description(@"??")]
+    [Description(@"Status of the account modification instruction is accepted but modification of the account data will not be carried out for the sector code.")]
     SectorNotAllowed,
     
 }

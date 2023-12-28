@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TerminalManagementActionResult2Code
 {
     /// <summary>
-    /// ??
+    /// Problem to connect while performing the action.
     /// Encoded/decoded by serializers as "ConnectionError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTE")]
     [IsoId("_wh7IcYr3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Problem to connect while performing the action.")]
     ConnectionError,
     
     /// <summary>
-    /// ??
+    /// Data transferred has a wrong format.
     /// Encoded/decoded by serializers as "FormatError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FMTE")]
     [IsoId("_ws0w44r3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Data transferred has a wrong format.")]
     FormatError,
     
     /// <summary>
-    /// ??
+    /// Hardware error.
     /// Encoded/decoded by serializers as "Hardware".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HRDW")]
     [IsoId("_w1T-g4r3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Hardware error.")]
     Hardware,
     
     /// <summary>
-    /// ??
+    /// Action is not supported.
     /// Encoded/decoded by serializers as "NotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSUP")]
     [IsoId("_x7CQcor3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Action is not supported.")]
     NotSupported,
     
     /// <summary>
-    /// ??
+    /// Security error.
     /// Encoded/decoded by serializers as "Security".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECR")]
     [IsoId("_yF5co4r3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Security error.")]
     Security,
     
     /// <summary>
-    /// ??
+    /// Action was successfully performed.
     /// Encoded/decoded by serializers as "Success".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUCC")]
     [IsoId("_yNUTQYr3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Action was successfully performed.")]
     Success,
     
     /// <summary>
-    /// ??
+    /// Data transferred has a wrong syntax.
     /// Encoded/decoded by serializers as "SyntaxError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYNE")]
     [IsoId("_zAQME4r3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Data transferred has a wrong syntax.")]
     SyntaxError,
     
     /// <summary>
-    /// ??
+    /// Timeout expired during the data transfer.
     /// Encoded/decoded by serializers as "Timeout".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIMO")]
     [IsoId("_zG0HE4r3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Timeout expired during the data transfer.")]
     Timeout,
     
     /// <summary>
-    /// ??
+    /// Cryptographic key reference used for the data signature is not valid.
     /// Encoded/decoded by serializers as "UnknownKeyReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKRF")]
     [IsoId("_zbnSY4r3EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Cryptographic key reference used for the data signature is not valid.")]
     UnknownKeyReference,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UndertakingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Accepted in accordance with technical validation.
     /// Encoded/decoded by serializers as "AcceptedTechnicalValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTC")]
     [IsoId("_gYwzlnymEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Accepted in accordance with technical validation.")]
     AcceptedTechnicalValidation,
     
     /// <summary>
-    /// ??
+    /// Pending further processing.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_i6nFRnymEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Pending further processing.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCVD")]
     [IsoId("_kDL25nymEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Received.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// Rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_kTSIZnymEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Rejected.")]
     Rejected,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BalanceTransferWindow1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates in business hours processing.
     /// Encoded/decoded by serializers as "InHours".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAYH")]
     [IsoId("_MQ4kgX6qEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Indicates in business hours processing.")]
     InHours,
     
     /// <summary>
-    /// ??
+    /// Indicates out of business hours processing.
     /// Encoded/decoded by serializers as "OutOfHours".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EARL")]
     [IsoId("_MYPwwX6qEeePx-IqKegQ8Q")]
-    [Description(@"??")]
+    [Description(@"Indicates out of business hours processing.")]
     OutOfHours,
     
 }

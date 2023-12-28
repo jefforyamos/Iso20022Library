@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation instruction/request has been sent to the next party, that is, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_bYs7qNp-Ed-ak6NoX_4Aeg_-1024226245")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction/request has been sent to the next party, that is, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_bY2soNp-Ed-ak6NoX_4Aeg_-1024226221")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
     Accepted,
     
 }

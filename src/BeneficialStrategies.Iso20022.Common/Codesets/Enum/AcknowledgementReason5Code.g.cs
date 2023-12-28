@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AcknowledgementReason5Code
 {
     /// <summary>
-    /// ??
+    /// Received after the account servicer's deadline. Processed on best effort basis.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_bpPSBtp-Ed-ak6NoX_4Aeg_-27223806")]
-    [Description(@"??")]
+    [Description(@"Received after the account servicer's deadline. Processed on best effort basis.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
     /// Encoded/decoded by serializers as "MarketPracticeRuleDiscrepency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMPG")]
     [IsoId("_bpPSB9p-Ed-ak6NoX_4Aeg_1110394808")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.")]
     MarketPracticeRuleDiscrepency,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_bpPSCNp-Ed-ak6NoX_4Aeg_180042807")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process linked to the currency of the transaction.
     /// Encoded/decoded by serializers as "ConditionalCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCY")]
     [IsoId("_bpZDANp-Ed-ak6NoX_4Aeg_1232765698")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process linked to the currency of the transaction.")]
     ConditionalCurrency,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process at the registrar.
     /// Encoded/decoded by serializers as "ConditionalRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRG")]
     [IsoId("_bpZDAdp-Ed-ak6NoX_4Aeg_1991941032")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process at the registrar.")]
     ConditionalRegistrar,
     
     /// <summary>
-    /// ??
+    /// Execution is conditional to the execution of a process of realignment at the issuer CSD.
     /// Encoded/decoded by serializers as "ConditionalRealignement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDRE")]
     [IsoId("_bpZDAtp-Ed-ak6NoX_4Aeg_148072043")]
-    [Description(@"??")]
+    [Description(@"Execution is conditional to the execution of a process of realignment at the issuer CSD.")]
     ConditionalRealignement,
     
     /// <summary>
-    /// ??
+    /// Instruction was not straight through processing and had to be processed manually.
     /// Encoded/decoded by serializers as "NotStraightThroughProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSTP")]
     [IsoId("_bpZDA9p-Ed-ak6NoX_4Aeg_-780265528")]
-    [Description(@"??")]
+    [Description(@"Instruction was not straight through processing and had to be processed manually.")]
     NotStraightThroughProcessing,
     
     /// <summary>
-    /// ??
+    /// Instruction registration is accepted but the registration is not in full, that is, not with voting rights.
     /// Encoded/decoded by serializers as "AcceptedWithoutVotingRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQWV")]
     [IsoId("_bpZDBNp-Ed-ak6NoX_4Aeg_865001907")]
-    [Description(@"??")]
+    [Description(@"Instruction registration is accepted but the registration is not in full, that is, not with voting rights.")]
     AcceptedWithoutVotingRights,
     
     /// <summary>
-    /// ??
+    /// Instruction was received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_bpZDBdp-Ed-ak6NoX_4Aeg_-1891176947")]
-    [Description(@"??")]
+    [Description(@"Instruction was received after market deadline.")]
     MarketDeadlineMissed,
     
 }

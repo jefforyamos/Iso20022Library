@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BeneficiaryCertificationType2Code
 {
     /// <summary>
-    /// ??
+    /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
     /// Encoded/decoded by serializers as "AccreditedInvestor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCI")]
     [IsoId("_bd6y0dp-Ed-ak6NoX_4Aeg_-941139863")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.")]
     AccreditedInvestor,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to certify his domicile.
     /// Encoded/decoded by serializers as "DomicileCountry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOMI")]
     [IsoId("_bd6y0tp-Ed-ak6NoX_4Aeg_-911589219")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to certify his domicile.")]
     DomicileCountry,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// Encoded/decoded by serializers as "NonDomicileCountry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDOM")]
     [IsoId("_bd6y09p-Ed-ak6NoX_4Aeg_1124028988")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.")]
     NonDomicileCountry,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.
     /// Encoded/decoded by serializers as "FullBeneficialOwnerBreakdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_bd6y1Np-Ed-ak6NoX_4Aeg_-882036050")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.")]
     FullBeneficialOwnerBreakdown,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to certify he is an Non-Company related person.
     /// Encoded/decoded by serializers as "NonCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCOM")]
     [IsoId("_bd6y1dp-Ed-ak6NoX_4Aeg_-602210666")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to certify he is an Non-Company related person.")]
     NonCompany,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
     /// Encoded/decoded by serializers as "QIBCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QIBB")]
     [IsoId("_bd6y1tp-Ed-ak6NoX_4Aeg_-568963910")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
     QIBCertification,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.
     /// Encoded/decoded by serializers as "TaxRateBreakdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRBD")]
     [IsoId("_bd6y19p-Ed-ak6NoX_4Aeg_-509857541")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.")]
     TaxRateBreakdown,
     
     /// <summary>
-    /// ??
+    /// Indicates if the Beneficial Owner is responsible to fill in the paperwork.
     /// Encoded/decoded by serializers as "BeneficialOwnerPaperwork".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAPW")]
     [IsoId("_bd6y2Np-Ed-ak6NoX_4Aeg_1696566755")]
-    [Description(@"??")]
+    [Description(@"Indicates if the Beneficial Owner is responsible to fill in the paperwork.")]
     BeneficialOwnerPaperwork,
     
     /// <summary>
-    /// ??
+    /// The (I)CSD has to provide its participants' details for disclosure purpose to the issuer/issuer’s agent.
     /// Encoded/decoded by serializers as "ICSDParticipantBreakdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PABD")]
     [IsoId("_bd6y2dp-Ed-ak6NoX_4Aeg_1414201130")]
-    [Description(@"??")]
+    [Description(@"The (I)CSD has to provide its participants' details for disclosure purpose to the issuer/issuer’s agent.")]
     ICSDParticipantBreakdown,
     
     /// <summary>
-    /// ??
+    /// See narrative field for certification requirements.
     /// Encoded/decoded by serializers as "NarrativeDescription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NARR")]
     [IsoId("_beD8wNp-Ed-ak6NoX_4Aeg_-1388770382")]
-    [Description(@"??")]
+    [Description(@"See narrative field for certification requirements.")]
     NarrativeDescription,
     
 }

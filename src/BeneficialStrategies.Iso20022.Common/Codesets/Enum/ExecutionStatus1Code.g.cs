@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExecutionStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction which has been initiated and has not yet closed.
     /// Encoded/decoded by serializers as "Initiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTD")]
     [IsoId("_68mnMcX5EeiSF9q-coWegA")]
-    [Description(@"??")]
+    [Description(@"Transaction which has been initiated and has not yet closed.")]
     Initiated,
     
     /// <summary>
-    /// ??
+    /// Pending Initiation.
     /// Encoded/decoded by serializers as "PendingInitiation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINT")]
     [IsoId("_7CGyQcX5EeiSF9q-coWegA")]
-    [Description(@"??")]
+    [Description(@"Pending Initiation.")]
     PendingInitiation,
     
 }

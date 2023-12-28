@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AllocationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been fully covered by collateral.
     /// Encoded/decoded by serializers as "FullyAllocated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AOLF")]
     [IsoId("_boymENp-Ed-ak6NoX_4Aeg_1464332565")]
-    [Description(@"??")]
+    [Description(@"Instruction has been fully covered by collateral.")]
     FullyAllocated,
     
     /// <summary>
-    /// ??
+    /// Instruction has been partially covered by collateral.
     /// Encoded/decoded by serializers as "PartiallyAllocated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AOLP")]
     [IsoId("_boymEdp-Ed-ak6NoX_4Aeg_1464332594")]
-    [Description(@"??")]
+    [Description(@"Instruction has been partially covered by collateral.")]
     PartiallyAllocated,
     
 }

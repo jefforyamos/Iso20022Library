@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepurchaseType6Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a Swap/Substitution.
     /// Encoded/decoded by serializers as "Swap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADJ")]
     [IsoId("_q5t_JWtdEeCY4-KZ9JEyUQ_1110886064")]
-    [Description(@"??")]
+    [Description(@"Relates to a Swap/Substitution.")]
     Swap,
     
     /// <summary>
-    /// ??
+    /// Relates to a repo rollover of a position extending the closing or maturity date.
     /// Encoded/decoded by serializers as "TopUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOPU")]
     [IsoId("_q53wIGtdEeCY4-KZ9JEyUQ_-1569933634")]
-    [Description(@"??")]
+    [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
     TopUp,
     
     /// <summary>
-    /// ??
+    /// Relates to a repo rollover of a position extending the closing or maturity date.
     /// Encoded/decoded by serializers as "Withdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHD")]
     [IsoId("_q53wIWtdEeCY4-KZ9JEyUQ_1727961309")]
-    [Description(@"??")]
+    [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
     Withdrawal,
     
 }

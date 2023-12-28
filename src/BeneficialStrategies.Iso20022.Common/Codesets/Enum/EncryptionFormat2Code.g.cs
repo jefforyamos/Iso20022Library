@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EncryptionFormat2Code
 {
     /// <summary>
-    /// ??
+    /// Format of a cryptographic key specified by the ANSI X9 TR-31 standard.
     /// Encoded/decoded by serializers as "TR31".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TR31")]
     [IsoId("_-pI2EdtnEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-31 standard.")]
     TR31,
     
     /// <summary>
-    /// ??
+    /// Format of a cryptographic key specified by the ANSI X9 TR-34 standard.
     /// Encoded/decoded by serializers as "TR34".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TR34")]
     [IsoId("_-pI2E9tnEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Format of a cryptographic key specified by the ANSI X9 TR-34 standard.")]
     TR34,
     
     /// <summary>
-    /// ??
+    /// Format of a cryptographic key specified by the ISO20038 standard.
     /// Encoded/decoded by serializers as "ISO20038KeyWrap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "I238")]
     [IsoId("__uLLgdtnEee9e6xduATmQg")]
-    [Description(@"??")]
+    [Description(@"Format of a cryptographic key specified by the ISO20038 standard.")]
     ISO20038KeyWrap,
     
 }

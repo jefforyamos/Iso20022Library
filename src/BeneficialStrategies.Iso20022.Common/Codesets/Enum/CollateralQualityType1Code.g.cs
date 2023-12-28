@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralQualityType1Code
 {
     /// <summary>
-    /// ??
+    /// Security that is classified as investment grade according to external ratings.
     /// Encoded/decoded by serializers as "InvestmentGrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVG")]
     [IsoId("_zUP6kckVEeeiAIB1i4AlQw")]
-    [Description(@"??")]
+    [Description(@"Security that is classified as investment grade according to external ratings.")]
     InvestmentGrade,
     
     /// <summary>
-    /// ??
+    /// Security with a rating different than investment grade.
     /// Encoded/decoded by serializers as "NonInvestmentGrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NIVG")]
     [IsoId("_zeO9AckVEeeiAIB1i4AlQw")]
-    [Description(@"??")]
+    [Description(@"Security with a rating different than investment grade.")]
     NonInvestmentGrade,
     
     /// <summary>
-    /// ??
+    /// Security without a rating assigned.
     /// Encoded/decoded by serializers as "NotRated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTR")]
     [IsoId("_zkWMEckVEeeiAIB1i4AlQw")]
-    [Description(@"??")]
+    [Description(@"Security without a rating assigned.")]
     NotRated,
     
     /// <summary>
-    /// ??
+    /// Collateral quality type is not applicable.
     /// Encoded/decoded by serializers as "NonApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAP")]
     [IsoId("_xAID4dQuEee86YlULvwLbQ")]
-    [Description(@"??")]
+    [Description(@"Collateral quality type is not applicable.")]
     NonApplicable,
     
 }

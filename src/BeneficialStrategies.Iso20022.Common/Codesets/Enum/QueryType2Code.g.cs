@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QueryType2Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the query requests that all matching items be returned.
     /// Encoded/decoded by serializers as "All".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLL")]
     [IsoId("_ZXqQ8tp-Ed-ak6NoX_4Aeg_-1313851984")]
-    [Description(@"??")]
+    [Description(@"Specifies that the query requests that all matching items be returned.")]
     All,
     
     /// <summary>
-    /// ??
+    /// Specifies that the query requests that only new matching items since the last similar query be returned.
     /// Encoded/decoded by serializers as "Changed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHNG")]
     [IsoId("_ZXqQ89p-Ed-ak6NoX_4Aeg_-1313851983")]
-    [Description(@"??")]
+    [Description(@"Specifies that the query requests that only new matching items since the last similar query be returned.")]
     Changed,
     
     /// <summary>
-    /// ??
+    /// Specifies that the query requests that only items that have changed since the last query be returned.
     /// Encoded/decoded by serializers as "Modified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODF")]
     [IsoId("_ZXqQ9Np-Ed-ak6NoX_4Aeg_-1313851982")]
-    [Description(@"??")]
+    [Description(@"Specifies that the query requests that only items that have changed since the last query be returned.")]
     Modified,
     
     /// <summary>
-    /// ??
+    /// Specifies that the query requests that items that have been deleted since the last query be returned.
     /// Encoded/decoded by serializers as "Deleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELD")]
     [IsoId("_ZXqQ9dp-Ed-ak6NoX_4Aeg_-1313851954")]
-    [Description(@"??")]
+    [Description(@"Specifies that the query requests that items that have been deleted since the last query be returned.")]
     Deleted,
     
 }

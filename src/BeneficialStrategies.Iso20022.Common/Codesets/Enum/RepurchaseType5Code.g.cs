@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepurchaseType5Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a change in the closing or maturity date.
     /// Encoded/decoded by serializers as "RepurchaseCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALL")]
     [IsoId("_q5t_IWtdEeCY4-KZ9JEyUQ_-410922395")]
-    [Description(@"??")]
+    [Description(@"Relates to a change in the closing or maturity date.")]
     RepurchaseCall,
     
     /// <summary>
-    /// ??
+    /// Is part of a pair-off.
     /// Encoded/decoded by serializers as "RepoRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RATE")]
     [IsoId("_q5t_ImtdEeCY4-KZ9JEyUQ_114905717")]
-    [Description(@"??")]
+    [Description(@"Is part of a pair-off.")]
     RepoRate,
     
     /// <summary>
-    /// ??
+    /// Relates to a repo rollover of a position extending the closing or maturity date.
     /// Encoded/decoded by serializers as "Rollover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLP")]
     [IsoId("_q5t_I2tdEeCY4-KZ9JEyUQ_-882166636")]
-    [Description(@"??")]
+    [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
     Rollover,
     
     /// <summary>
-    /// ??
+    /// Relates to a principal adjustment.
     /// Encoded/decoded by serializers as "PrincipalExposureAdjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PADJ")]
     [IsoId("_q5t_JGtdEeCY4-KZ9JEyUQ_568992986")]
-    [Description(@"??")]
+    [Description(@"Relates to a principal adjustment.")]
     PrincipalExposureAdjustment,
     
 }

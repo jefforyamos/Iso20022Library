@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DemandType1Code
 {
     /// <summary>
-    /// ??
+    /// Pay only.
     /// Encoded/decoded by serializers as "PayOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYM")]
     [IsoId("_hAxXJnyYEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Pay only.")]
     PayOnly,
     
     /// <summary>
-    /// ??
+    /// Pay or extend.
     /// Encoded/decoded by serializers as "PayOrExtend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAEX")]
     [IsoId("_hJ3BtnyYEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Pay or extend.")]
     PayOrExtend,
     
 }

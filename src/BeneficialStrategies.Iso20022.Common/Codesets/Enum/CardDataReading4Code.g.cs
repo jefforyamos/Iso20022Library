@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardDataReading4Code
 {
     /// <summary>
-    /// ??
+    /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
     /// Encoded/decoded by serializers as "EMVProximityReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECTL")]
     [IsoId("_KJE4wYn7EeShMpas3885ww")]
-    [Description(@"??")]
+    [Description(@"Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).")]
     EMVProximityReader,
     
     /// <summary>
-    /// ??
+    /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
     /// Encoded/decoded by serializers as "ICC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CICC")]
     [IsoId("_KP7HoYn7EeShMpas3885ww")]
-    [Description(@"??")]
+    [Description(@"ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.")]
     ICC,
     
     /// <summary>
-    /// ??
+    /// Magnetic stripe.
     /// Encoded/decoded by serializers as "MagneticStripe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGST")]
     [IsoId("_KX-QYYn7EeShMpas3885ww")]
-    [Description(@"??")]
+    [Description(@"Magnetic stripe.")]
     MagneticStripe,
     
     /// <summary>
-    /// ??
+    /// Contactless proximity reader.
     /// Encoded/decoded by serializers as "ProximityReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTLS")]
     [IsoId("_LaEmkYn7EeShMpas3885ww")]
-    [Description(@"??")]
+    [Description(@"Contactless proximity reader.")]
     ProximityReader,
     
 }

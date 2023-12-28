@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustodianRecordAgreementType1Code
 {
     /// <summary>
-    /// ??
+    /// Custodian record agrees with the composite record.
     /// Encoded/decoded by serializers as "Agree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGRE")]
     [IsoId("_11fpsjL3EeKU9IrkkToqcw_-291543411")]
-    [Description(@"??")]
+    [Description(@"Custodian record agrees with the composite record.")]
     Agree,
     
     /// <summary>
-    /// ??
+    /// Custodian record disagrees with the composite record.
     /// Encoded/decoded by serializers as "Disagree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAGR")]
     [IsoId("_11fpszL3EeKU9IrkkToqcw_151445081")]
-    [Description(@"??")]
+    [Description(@"Custodian record disagrees with the composite record.")]
     Disagree,
     
     /// <summary>
-    /// ??
+    /// No composite record available.
     /// Encoded/decoded by serializers as "NoComposite".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCOP")]
     [IsoId("_11fptDL3EeKU9IrkkToqcw_1073608391")]
-    [Description(@"??")]
+    [Description(@"No composite record available.")]
     NoComposite,
     
 }

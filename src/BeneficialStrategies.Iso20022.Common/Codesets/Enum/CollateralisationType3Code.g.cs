@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralisationType3Code
 {
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that both counterparties post initial margin and regularly post variation margin with respect to the derivative transaction.
     /// Encoded/decoded by serializers as "FullyCollateralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLCL")]
     [IsoId("_vOs4cV51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that both counterparties post initial margin and regularly post variation margin with respect to the derivative transaction.")]
     FullyCollateralised,
     
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that one counterparty posts the initial margin and regularly posts variation margin and that the other counterparty does not post any margin with respect to the derivative transaction.
     /// Encoded/decoded by serializers as "OneWayCollateralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWCL")]
     [IsoId("_vTza4V51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that one counterparty posts the initial margin and regularly posts variation margin and that the other counterparty does not post any margin with respect to the derivative transaction.")]
     OneWayCollateralised,
     
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that the reporting counterparty posts the initial margin and regularly posts variation margin and that the other counterparty does not post any margin with respect to the derivative transaction.
     /// Encoded/decoded by serializers as "OneWayCollateralisedCounterparty1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWC1")]
     [IsoId("_vX_-YV51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that the reporting counterparty posts the initial margin and regularly posts variation margin and that the other counterparty does not post any margin with respect to the derivative transaction.")]
     OneWayCollateralisedCounterparty1,
     
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that the other counterparty posts the initial margin and regularly posts variation margin and that the reporting counterparty does not post any margin with respect to the derivative transaction.
     /// Encoded/decoded by serializers as "OneWayCollateralisedCounterparty2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWC2")]
     [IsoId("_vck8YV51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that the other counterparty posts the initial margin and regularly posts variation margin and that the reporting counterparty does not post any margin with respect to the derivative transaction.")]
     OneWayCollateralisedCounterparty2,
     
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that the reporting counterparty posts the initial margin and regularly posts variation margin and that the other counterparty regularly posts only variation margin. 
     /// Encoded/decoded by serializers as "OneWayPartiallyCollateralisedCounterparty1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWP1")]
     [IsoId("_vhMWoV51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that the reporting counterparty posts the initial margin and regularly posts variation margin and that the other counterparty regularly posts only variation margin. ")]
     OneWayPartiallyCollateralisedCounterparty1,
     
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that the other counterparty posts the initial margin and regularly posts variation margin and that the reporting counterparty regularly posts only variation margin.
     /// Encoded/decoded by serializers as "OneWayPartiallyCollateralisedCounterparty2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWP2")]
     [IsoId("_vl860V51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that the other counterparty posts the initial margin and regularly posts variation margin and that the reporting counterparty regularly posts only variation margin.")]
     OneWayPartiallyCollateralisedCounterparty2,
     
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that both counterparties regularly post only variation margin with respect to the derivative transaction.
     /// Encoded/decoded by serializers as "PartiallyCollateralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCL")]
     [IsoId("_vqomgV51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that both counterparties regularly post only variation margin with respect to the derivative transaction.")]
     PartiallyCollateralised,
     
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that the reporting counterparty regularly  posts only variation margin and that the other counterparty does not post any margin with respect to the derivative transaction.
     /// Encoded/decoded by serializers as "PartiallyCollateralisedCounterparty1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRC1")]
     [IsoId("_vvppYV51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that the reporting counterparty regularly  posts only variation margin and that the other counterparty does not post any margin with respect to the derivative transaction.")]
     PartiallyCollateralisedCounterparty1,
     
     /// <summary>
-    /// ??
+    /// The collateral agreement between the counterparties stipulates that the other counterparty regularly posts only variation margin and that the reporting counterparty does not post any margin with respect to the derivative transaction.
     /// Encoded/decoded by serializers as "PartiallyCollateralisedCounterparty2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRC2")]
     [IsoId("_v0d38V51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"The collateral agreement between the counterparties stipulates that the other counterparty regularly posts only variation margin and that the reporting counterparty does not post any margin with respect to the derivative transaction.")]
     PartiallyCollateralisedCounterparty2,
     
     /// <summary>
-    /// ??
+    /// There is no collateral agreement between the counterparties or the collateral agreement between the counterparties stipulates that no collateral (neither initial margin nor variation margin) has to be posted with respect to the derivative transaction.
     /// Encoded/decoded by serializers as "Uncollateralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNCL")]
     [IsoId("_v_LTIV51Ee2a_-MvhEjKmA")]
-    [Description(@"??")]
+    [Description(@"There is no collateral agreement between the counterparties or the collateral agreement between the counterparties stipulates that no collateral (neither initial margin nor variation margin) has to be posted with respect to the derivative transaction.")]
     Uncollateralised,
     
 }

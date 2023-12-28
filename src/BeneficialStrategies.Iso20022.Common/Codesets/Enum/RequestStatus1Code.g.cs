@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RequestStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Single Invoice/Instalment financing request has been financed.
     /// Encoded/decoded by serializers as "Financed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNCD")]
     [IsoId("_ZUFYgNp-Ed-ak6NoX_4Aeg_783372870")]
-    [Description(@"??")]
+    [Description(@"Single Invoice/Instalment financing request has been financed.")]
     Financed,
     
     /// <summary>
-    /// ??
+    /// Single Invoice/Instalment financing request is in a pending status and more checks are ongoing.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_ZUFYgdp-Ed-ak6NoX_4Aeg_783372871")]
-    [Description(@"??")]
+    [Description(@"Single Invoice/Instalment financing request is in a pending status and more checks are ongoing.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Single Invoice/Instalment financing request has not been financed.
     /// Encoded/decoded by serializers as "NotFinanced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTFD")]
     [IsoId("_ZUFYgtp-Ed-ak6NoX_4Aeg_783372900")]
-    [Description(@"??")]
+    [Description(@"Single Invoice/Instalment financing request has not been financed.")]
     NotFinanced,
     
 }

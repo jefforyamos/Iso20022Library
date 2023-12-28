@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderDriverCode
 {
     /// <summary>
-    /// ??
+    /// Order is buy driven.
     /// Encoded/decoded by serializers as "Buy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYI")]
     [IsoId("_aRBh4tp-Ed-ak6NoX_4Aeg_1502724820")]
-    [Description(@"??")]
+    [Description(@"Order is buy driven.")]
     Buy,
     
     /// <summary>
-    /// ??
+    /// Order is sell driven.
     /// Encoded/decoded by serializers as "Sell".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_aRBh49p-Ed-ak6NoX_4Aeg_1502725190")]
-    [Description(@"??")]
+    [Description(@"Order is sell driven.")]
     Sell,
     
 }

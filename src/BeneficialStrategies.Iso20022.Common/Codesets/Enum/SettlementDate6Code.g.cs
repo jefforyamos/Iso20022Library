@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementDate6Code
 {
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus five business days.
     /// Encoded/decoded by serializers as "TPlusFive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFIV")]
     [IsoId("_aDXucbbwEeaqL_M7XFD7PQ")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus five business days.")]
     TPlusFive,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus four business days.
     /// Encoded/decoded by serializers as "TPlusFour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFOR")]
     [IsoId("_aLtLEbbwEeaqL_M7XFD7PQ")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus four business days.")]
     TPlusFour,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus one business day.
     /// Encoded/decoded by serializers as "TPlusOne".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TONE")]
     [IsoId("_aU7YgbbwEeaqL_M7XFD7PQ")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus one business day.")]
     TPlusOne,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus three business days.
     /// Encoded/decoded by serializers as "TPlusThree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTRE")]
     [IsoId("_ahIBcbbwEeaqL_M7XFD7PQ")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus three business days.")]
     TPlusThree,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus two business days.
     /// Encoded/decoded by serializers as "TPlusTwo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTWO")]
     [IsoId("_apKjIbbwEeaqL_M7XFD7PQ")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus two business days.")]
     TPlusTwo,
     
     /// <summary>
-    /// ??
+    /// Event occurs on the same day or at time T.
     /// Encoded/decoded by serializers as "SameDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAMD")]
     [IsoId("_nfpGUbbwEeaqL_M7XFD7PQ")]
-    [Description(@"??")]
+    [Description(@"Event occurs on the same day or at time T.")]
     SameDay,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CustomerOrderCapacity1Code
 {
     /// <summary>
-    /// ??
+    /// Member trading for their own account.
     /// Encoded/decoded by serializers as "MemberOwnAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWNE")]
     [IsoId("_axz6wdp-Ed-ak6NoX_4Aeg_-1833251929")]
-    [Description(@"??")]
+    [Description(@"Member trading for their own account.")]
     MemberOwnAccount,
     
     /// <summary>
-    /// ??
+    /// Clearing firm trading for its proprietary account.
     /// Encoded/decoded by serializers as "ClearingProprietary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAR")]
     [IsoId("_axz6wtp-Ed-ak6NoX_4Aeg_-1833251887")]
-    [Description(@"??")]
+    [Description(@"Clearing firm trading for its proprietary account.")]
     ClearingProprietary,
     
     /// <summary>
-    /// ??
+    /// Member trading for another member.
     /// Encoded/decoded by serializers as "MemberOtherMember".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHM")]
     [IsoId("_axz6w9p-Ed-ak6NoX_4Aeg_-1833251869")]
-    [Description(@"??")]
+    [Description(@"Member trading for another member.")]
     MemberOtherMember,
     
 }

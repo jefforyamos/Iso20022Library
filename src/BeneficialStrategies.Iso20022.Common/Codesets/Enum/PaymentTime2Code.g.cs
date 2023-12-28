@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentTime2Code
 {
     /// <summary>
-    /// ??
+    /// Code for payment on delivery.
     /// Encoded/decoded by serializers as "PaymentOnDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_Z7uAQ9p-Ed-ak6NoX_4Aeg_1319644773")]
-    [Description(@"??")]
+    [Description(@"Code for payment on delivery.")]
     PaymentOnDelivery,
     
     /// <summary>
-    /// ??
+    /// Code for payment at end of month of delivery.
     /// Encoded/decoded by serializers as "EndOfMonthOfDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMTD")]
     [IsoId("_Z7uARNp-Ed-ak6NoX_4Aeg_1319644774")]
-    [Description(@"??")]
+    [Description(@"Code for payment at end of month of delivery.")]
     EndOfMonthOfDelivery,
     
     /// <summary>
-    /// ??
+    /// Code for payment at end of period after delivery.
     /// Encoded/decoded by serializers as "EndOfPeriodAfterDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPRD")]
     [IsoId("_Z7uARdp-Ed-ak6NoX_4Aeg_1319644804")]
-    [Description(@"??")]
+    [Description(@"Code for payment at end of period after delivery.")]
     EndOfPeriodAfterDelivery,
     
     /// <summary>
-    /// ??
+    /// Code for payment at end of period after end of month of delivery.
     /// Encoded/decoded by serializers as "EndOfPeriodAfterEndOfDeliveryMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRMD")]
     [IsoId("_Z7uARtp-Ed-ak6NoX_4Aeg_1319645052")]
-    [Description(@"??")]
+    [Description(@"Code for payment at end of period after end of month of delivery.")]
     EndOfPeriodAfterEndOfDeliveryMonth,
     
     /// <summary>
-    /// ??
+    /// Code for payment on receipt of invoice.
     /// Encoded/decoded by serializers as "PaymentOnReceiptOfInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IREC")]
     [IsoId("_Z7uAR9p-Ed-ak6NoX_4Aeg_1319645053")]
-    [Description(@"??")]
+    [Description(@"Code for payment on receipt of invoice.")]
     PaymentOnReceiptOfInvoice,
     
     /// <summary>
-    /// ??
+    /// Code for payment at end of period after end of month of receipt of invoice.
     /// Encoded/decoded by serializers as "EndOfPeriodAfterEndOfReceiptMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRMR")]
     [IsoId("_Z7uASNp-Ed-ak6NoX_4Aeg_1319645082")]
-    [Description(@"??")]
+    [Description(@"Code for payment at end of period after end of month of receipt of invoice.")]
     EndOfPeriodAfterEndOfReceiptMonth,
     
     /// <summary>
-    /// ??
+    /// Code for payment at end of period after receipt of invoice.
     /// Encoded/decoded by serializers as "EndOfPeriodAfterReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPRR")]
     [IsoId("_Z73xQNp-Ed-ak6NoX_4Aeg_1319645083")]
-    [Description(@"??")]
+    [Description(@"Code for payment at end of period after receipt of invoice.")]
     EndOfPeriodAfterReceipt,
     
     /// <summary>
-    /// ??
+    /// Code for payment at end of month of receipt of invoice.
     /// Encoded/decoded by serializers as "EndOfMonthOfReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMTR")]
     [IsoId("_Z73xQdp-Ed-ak6NoX_4Aeg_1319645113")]
-    [Description(@"??")]
+    [Description(@"Code for payment at end of month of receipt of invoice.")]
     EndOfMonthOfReceipt,
     
     /// <summary>
-    /// ??
+    /// Code for payment at end of period after match or mismatch acceptance.
     /// Encoded/decoded by serializers as "EndOfPeriodAfterMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPAM")]
     [IsoId("_Z73xQtp-Ed-ak6NoX_4Aeg_1348277168")]
-    [Description(@"??")]
+    [Description(@"Code for payment at end of period after match or mismatch acceptance.")]
     EndOfPeriodAfterMatch,
     
 }

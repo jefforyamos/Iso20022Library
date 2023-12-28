@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DistributionPolicy1Code
 {
     /// <summary>
-    /// ??
+    /// Income is distributed to the investors in the fund.
     /// Encoded/decoded by serializers as "Distribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIST")]
     [IsoId("_awwx49p-Ed-ak6NoX_4Aeg_-433302196")]
-    [Description(@"??")]
+    [Description(@"Income is distributed to the investors in the fund.")]
     Distribution,
     
     /// <summary>
-    /// ??
+    /// Income is added to the capital of the fund.
     /// Encoded/decoded by serializers as "Accumulation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCU")]
     [IsoId("_awwx5Np-Ed-ak6NoX_4Aeg_-433302187")]
-    [Description(@"??")]
+    [Description(@"Income is added to the capital of the fund.")]
     Accumulation,
     
 }

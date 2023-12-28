@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionOperationType1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction amends a previously sent transaction.
     /// Encoded/decoded by serializers as "Amendment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMND")]
     [IsoId("_MjJJsZfsEeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"Transaction amends a previously sent transaction.")]
     Amendment,
     
     /// <summary>
-    /// ??
+    /// Transaction requests the deletion/cancellation of a previously sent transaction.
     /// Encoded/decoded by serializers as "Cancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_Mn2DgZfsEeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"Transaction requests the deletion/cancellation of a previously sent transaction.")]
     Cancellation,
     
     /// <summary>
-    /// ??
+    /// Transaction corrects errors in a previously sent transaction.
     /// Encoded/decoded by serializers as "Correction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORR")]
     [IsoId("_MwUDAZfsEeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"Transaction corrects errors in a previously sent transaction.")]
     Correction,
     
     /// <summary>
-    /// ??
+    /// Transaction is a new transaction.
     /// Encoded/decoded by serializers as "NewTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWT")]
     [IsoId("_M3ELQZfsEeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"Transaction is a new transaction.")]
     NewTransaction,
     
 }

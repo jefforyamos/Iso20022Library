@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxType4Code
 {
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfForeignTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITF")]
     [IsoId("_Yksi8Np-Ed-ak6NoX_4Aeg_-858031567")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfForeignTax,
     
     /// <summary>
-    /// ??
+    /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// Encoded/decoded by serializers as "WithholdingOfLocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITL")]
     [IsoId("_Yksi8dp-Ed-ak6NoX_4Aeg_-858031464")]
-    [Description(@"??")]
+    [Description(@"Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.")]
     WithholdingOfLocalTax,
     
 }

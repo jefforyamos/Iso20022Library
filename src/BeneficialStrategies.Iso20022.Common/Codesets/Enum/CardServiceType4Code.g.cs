@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardServiceType4Code
 {
     /// <summary>
-    /// ??
+    /// Partial reconciliation of the day.
     /// Encoded/decoded by serializers as "CheckPoint".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_GQgWgU-DEeePXdaAO32Uew")]
-    [Description(@"??")]
+    [Description(@"Partial reconciliation of the day.")]
     CheckPoint,
     
     /// <summary>
-    /// ??
+    /// Final reconciliation.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_HStaYk-DEeePXdaAO32Uew")]
-    [Description(@"??")]
+    [Description(@"Final reconciliation.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// National defined code.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_H7LIkk-DEeePXdaAO32Uew")]
-    [Description(@"??")]
+    [Description(@"National defined code.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Private defined code.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_IH-Ock-DEeePXdaAO32Uew")]
-    [Description(@"??")]
+    [Description(@"Private defined code.")]
     OtherPrivate,
     
 }

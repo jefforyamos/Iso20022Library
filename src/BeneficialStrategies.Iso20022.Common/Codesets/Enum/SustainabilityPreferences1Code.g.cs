@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SustainabilityPreferences1Code
 {
     /// <summary>
-    /// ??
+    /// Preference for products having environmental, social and corporate governance (ESG) characteristics.
     /// Encoded/decoded by serializers as "ESGPreference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CESG")]
     [IsoId("_MmV30c0VEeuAE-cYsQdwHQ")]
-    [Description(@"??")]
+    [Description(@"Preference for products having environmental, social and corporate governance (ESG) characteristics.")]
     ESGPreference,
     
     /// <summary>
-    /// ??
+    /// Neutral or has no impact.
     /// Encoded/decoded by serializers as "Neutral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEUT")]
     [IsoId("_MyNwoc0VEeuAE-cYsQdwHQ")]
-    [Description(@"??")]
+    [Description(@"Neutral or has no impact.")]
     Neutral,
     
     /// <summary>
-    /// ??
+    /// Preference for products having sustainable objectives.
     /// Encoded/decoded by serializers as "SustainablePreference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OSUS")]
     [IsoId("_M6uzcc0VEeuAE-cYsQdwHQ")]
-    [Description(@"??")]
+    [Description(@"Preference for products having sustainable objectives.")]
     SustainablePreference,
     
 }

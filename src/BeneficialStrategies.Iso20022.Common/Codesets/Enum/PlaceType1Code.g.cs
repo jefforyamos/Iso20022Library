@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PlaceType1Code
 {
     /// <summary>
-    /// ??
+    /// The type of place is unknown.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_aHWBctp-Ed-ak6NoX_4Aeg_-1566893880")]
-    [Description(@"??")]
+    [Description(@"The type of place is unknown.")]
     Unknown,
     
 }

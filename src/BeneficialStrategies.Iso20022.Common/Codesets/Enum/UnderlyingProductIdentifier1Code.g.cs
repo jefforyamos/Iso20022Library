@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnderlyingProductIdentifier1Code
 {
     /// <summary>
-    /// ??
+    /// Underlying product type of the transaction is a Foreign Exchange Forward.
     /// Encoded/decoded by serializers as "ForeignExchangeForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORW")]
     [IsoId("_iRz_kSjvEeK1Sbo8NpBROA")]
-    [Description(@"??")]
+    [Description(@"Underlying product type of the transaction is a Foreign Exchange Forward.")]
     ForeignExchangeForward,
     
     /// <summary>
-    /// ??
+    /// Underlying product type of the transaction is a Foreign Exchange Non Deliverable Forward.
     /// Encoded/decoded by serializers as "ForeignExchangeNonDeliverableForward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDFO")]
     [IsoId("_iWttsSjvEeK1Sbo8NpBROA")]
-    [Description(@"??")]
+    [Description(@"Underlying product type of the transaction is a Foreign Exchange Non Deliverable Forward.")]
     ForeignExchangeNonDeliverableForward,
     
     /// <summary>
-    /// ??
+    /// Underlying product type of the transaction is Foreign Exchange Spot.
     /// Encoded/decoded by serializers as "ForeignExchangeSpot".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPOT")]
     [IsoId("_ibYyUSjvEeK1Sbo8NpBROA")]
-    [Description(@"??")]
+    [Description(@"Underlying product type of the transaction is Foreign Exchange Spot.")]
     ForeignExchangeSpot,
     
     /// <summary>
-    /// ??
+    /// Underlying product type of the transaction is a Foreign Exchange SWAP.
     /// Encoded/decoded by serializers as "ForeignExchangeSWAP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWAP")]
     [IsoId("_ij84cSjvEeK1Sbo8NpBROA")]
-    [Description(@"??")]
+    [Description(@"Underlying product type of the transaction is a Foreign Exchange SWAP.")]
     ForeignExchangeSWAP,
     
 }

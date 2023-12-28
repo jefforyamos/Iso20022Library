@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GovernanceProcessType1Code
 {
     /// <summary>
-    /// ??
+    /// Product governance procedure is comparable to MiFID II.
     /// Encoded/decoded by serializers as "ComparibleMiFID".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BMIF")]
     [IsoId("_z5Y1oYD5Eeiw-daIkkmMqQ")]
-    [Description(@"??")]
+    [Description(@"Product governance procedure is comparable to MiFID II.")]
     ComparibleMiFID,
     
     /// <summary>
-    /// ??
+    /// No information is requested from the issuer.
     /// Encoded/decoded by serializers as "NoInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NINF")]
     [IsoId("_z-SjwYD5Eeiw-daIkkmMqQ")]
-    [Description(@"??")]
+    [Description(@"No information is requested from the issuer.")]
     NoInformation,
     
     /// <summary>
-    /// ??
+    /// Product governance procedure is not in accordance with MiFID II.
     /// Encoded/decoded by serializers as "NotMiFID".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMIF")]
     [IsoId("_0CwNAYD5Eeiw-daIkkmMqQ")]
-    [Description(@"??")]
+    [Description(@"Product governance procedure is not in accordance with MiFID II.")]
     NotMiFID,
     
     /// <summary>
-    /// ??
+    /// Product governance procedure is pursuant to MiFID II.
     /// Encoded/decoded by serializers as "PursuantMiFID".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMIF")]
     [IsoId("_0HN2QYD5Eeiw-daIkkmMqQ")]
-    [Description(@"??")]
+    [Description(@"Product governance procedure is pursuant to MiFID II.")]
     PursuantMiFID,
     
 }

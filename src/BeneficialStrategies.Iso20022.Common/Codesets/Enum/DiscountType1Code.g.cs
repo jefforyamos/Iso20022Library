@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DiscountType1Code
 {
     /// <summary>
-    /// ??
+    /// Quantity discount.
     /// Encoded/decoded by serializers as "QuantityDiscount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUAN")]
     [IsoId("_TQ3_sQEcEeCQm6a_G2yO_w_1171814968")]
-    [Description(@"??")]
+    [Description(@"Quantity discount.")]
     QuantityDiscount,
     
     /// <summary>
-    /// ??
+    /// Promotional discount.
     /// Encoded/decoded by serializers as "PromotionalDiscount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROM")]
     [IsoId("_TQ3_sgEcEeCQm6a_G2yO_w_-1656003565")]
-    [Description(@"??")]
+    [Description(@"Promotional discount.")]
     PromotionalDiscount,
     
     /// <summary>
-    /// ??
+    /// Pricing discount.
     /// Encoded/decoded by serializers as "PricingDiscount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIC")]
     [IsoId("_TQ3_swEcEeCQm6a_G2yO_w_1625902237")]
-    [Description(@"??")]
+    [Description(@"Pricing discount.")]
     PricingDiscount,
     
     /// <summary>
-    /// ??
+    /// Special agreement discount.
     /// Encoded/decoded by serializers as "SpecialAgreementDiscount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPAG")]
     [IsoId("_TQ3_tAEcEeCQm6a_G2yO_w_-1201916296")]
-    [Description(@"??")]
+    [Description(@"Special agreement discount.")]
     SpecialAgreementDiscount,
     
     /// <summary>
-    /// ??
+    /// End-of-range discount.
     /// Encoded/decoded by serializers as "EndOfRangeDiscount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENOR")]
     [IsoId("_TQ3_tQEcEeCQm6a_G2yO_w_1614803460")]
-    [Description(@"??")]
+    [Description(@"End-of-range discount.")]
     EndOfRangeDiscount,
     
 }

@@ -20,21 +20,22 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount9Code
 {
     /// <summary>
-    /// ??
+    /// Actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.
     /// Encoded/decoded by serializers as "ConfirmedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_hQXZYaHjEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"Actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.")]
     ConfirmedAmount,
     
     /// <summary>
-    /// ??
+    /// Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
+    /// Usage: This amount has to be transported unchanged through the transaction chain.
     /// Encoded/decoded by serializers as "InstructedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_jbtPkqHjEeagRbKvRt3LnA")]
-    [Description(@"??")]
+    [Description(@"Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party. Usage: This amount has to be transported unchanged through the transaction chain.")]
     InstructedAmount,
     
 }

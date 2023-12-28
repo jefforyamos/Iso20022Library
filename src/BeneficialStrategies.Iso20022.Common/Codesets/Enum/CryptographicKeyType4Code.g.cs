@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CryptographicKeyType4Code
 {
     /// <summary>
-    /// ??
+    /// Key used to protect application information.
     /// Encoded/decoded by serializers as "Application".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APPL")]
     [IsoId("_VAq5oYtJEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Key used to protect application information.")]
     Application,
     
     /// <summary>
-    /// ??
+    /// Key used to protect data in the messages.
     /// Encoded/decoded by serializers as "Data".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DATA")]
     [IsoId("_VKNQI4tJEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Key used to protect data in the messages.")]
     Data,
     
     /// <summary>
-    /// ??
+    /// Any cryptographic key that can be downloaded.
     /// Encoded/decoded by serializers as "Dynamic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DYNC")]
     [IsoId("_VcPbU4tJEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Any cryptographic key that can be downloaded.")]
     Dynamic,
     
     /// <summary>
-    /// ??
+    /// Key used to encrypt other keys.
     /// Encoded/decoded by serializers as "KeyEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KENC")]
     [IsoId("_Vntrg4tJEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Key used to encrypt other keys.")]
     KeyEncryption,
     
     /// <summary>
-    /// ??
+    /// Key used to generate the MAC of a message.
     /// Encoded/decoded by serializers as "MAC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACK")]
     [IsoId("_V28aU4tJEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Key used to generate the MAC of a message.")]
     MAC,
     
     /// <summary>
-    /// ??
+    /// Key used to encrypt a PIN.
     /// Encoded/decoded by serializers as "PIN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINK")]
     [IsoId("_WBHC84tJEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Key used to encrypt a PIN.")]
     PIN,
     
     /// <summary>
-    /// ??
+    /// Temporary key used to download keys.
     /// Encoded/decoded by serializers as "Working".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WRKG")]
     [IsoId("_WJwBk4tJEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Temporary key used to download keys.")]
     Working,
     
 }

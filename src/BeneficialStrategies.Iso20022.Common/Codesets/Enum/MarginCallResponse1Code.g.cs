@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarginCallResponse1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the margin call request was sent on a non valuation day.
     /// Encoded/decoded by serializers as "NonValuationDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NVDA")]
     [IsoId("_Yc8VJ9p-Ed-ak6NoX_4Aeg_661474467")]
-    [Description(@"??")]
+    [Description(@"Indicates that the margin call request was sent on a non valuation day.")]
     NonValuationDay,
     
     /// <summary>
-    /// ??
+    /// Indicates that the margin call request was sent after the notification time.
     /// Encoded/decoded by serializers as "ReceivedAfterNotificationTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RANT")]
     [IsoId("_Yc8VKNp-Ed-ak6NoX_4Aeg_-631136566")]
-    [Description(@"??")]
+    [Description(@"Indicates that the margin call request was sent after the notification time.")]
     ReceivedAfterNotificationTime,
     
 }

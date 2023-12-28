@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashAccountType2Code
 {
     /// <summary>
-    /// ??
+    /// Account used for the payment of cash.
     /// Encoded/decoded by serializers as "CashPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_a24A9tp-Ed-ak6NoX_4Aeg_1132707296")]
-    [Description(@"??")]
+    [Description(@"Account used for the payment of cash.")]
     CashPayment,
     
     /// <summary>
-    /// ??
+    /// Account used for charges if different from the account for payment.
     /// Encoded/decoded by serializers as "Charges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHAR")]
     [IsoId("_a24A99p-Ed-ak6NoX_4Aeg_1132707297")]
-    [Description(@"??")]
+    [Description(@"Account used for charges if different from the account for payment.")]
     Charges,
     
     /// <summary>
-    /// ??
+    /// Account used for commission if different from the account for payment.
     /// Encoded/decoded by serializers as "Commission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_a24A-Np-Ed-ak6NoX_4Aeg_1132707523")]
-    [Description(@"??")]
+    [Description(@"Account used for commission if different from the account for payment.")]
     Commission,
     
     /// <summary>
-    /// ??
+    /// Account used for taxes if different from the account for payment.
     /// Encoded/decoded by serializers as "Tax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXE")]
     [IsoId("_a24A-dp-Ed-ak6NoX_4Aeg_1132707524")]
-    [Description(@"??")]
+    [Description(@"Account used for taxes if different from the account for payment.")]
     Tax,
     
     /// <summary>
-    /// ??
+    /// Account used for payment of income if different from the current cash account.
     /// Encoded/decoded by serializers as "CashIncome".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISH")]
     [IsoId("_a3Bx8Np-Ed-ak6NoX_4Aeg_1132707525")]
-    [Description(@"??")]
+    [Description(@"Account used for payment of income if different from the current cash account.")]
     CashIncome,
     
     /// <summary>
-    /// ??
+    /// Account used for trading if different from the current cash account.
     /// Encoded/decoded by serializers as "CashTrading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAS")]
     [IsoId("_a3Bx8dp-Ed-ak6NoX_4Aeg_1132707526")]
-    [Description(@"??")]
+    [Description(@"Account used for trading if different from the current cash account.")]
     CashTrading,
     
     /// <summary>
-    /// ??
+    /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
     /// Encoded/decoded by serializers as "Settlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SACC")]
     [IsoId("_a3Bx8tp-Ed-ak6NoX_4Aeg_1132707528")]
-    [Description(@"??")]
+    [Description(@"Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.")]
     Settlement,
     
     /// <summary>
-    /// ??
+    /// Account used to post debits and credits when no specific account has been nominated.
     /// Encoded/decoded by serializers as "Current".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACC")]
     [IsoId("_a3Bx89p-Ed-ak6NoX_4Aeg_1132707529")]
-    [Description(@"??")]
+    [Description(@"Account used to post debits and credits when no specific account has been nominated.")]
     Current,
     
     /// <summary>
-    /// ??
+    /// Account used for savings.
     /// Encoded/decoded by serializers as "Savings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVGS")]
     [IsoId("_a3Bx9Np-Ed-ak6NoX_4Aeg_1132707530")]
-    [Description(@"??")]
+    [Description(@"Account used for savings.")]
     Savings,
     
     /// <summary>
-    /// ??
+    /// Account used for overnight deposits.
     /// Encoded/decoded by serializers as "OverNightDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONDP")]
     [IsoId("_a3Bx9dp-Ed-ak6NoX_4Aeg_1132707531")]
-    [Description(@"??")]
+    [Description(@"Account used for overnight deposits.")]
     OverNightDeposit,
     
     /// <summary>
-    /// ??
+    /// Account used for a marginal lending facility.
     /// Encoded/decoded by serializers as "MarginalLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGLD")]
     [IsoId("_a3Bx9tp-Ed-ak6NoX_4Aeg_1132707532")]
-    [Description(@"??")]
+    [Description(@"Account used for a marginal lending facility.")]
     MarginalLending,
     
 }

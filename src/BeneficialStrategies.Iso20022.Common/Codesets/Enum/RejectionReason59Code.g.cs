@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason59Code
 {
     /// <summary>
-    /// ??
+    /// Transaction/instruction received after the account servicer's specified deadline.
     /// Encoded/decoded by serializers as "AccountServicerDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADEA")]
     [IsoId("_MsI1YRHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Transaction/instruction received after the account servicer's specified deadline.")]
     AccountServicerDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Invalid option type.
     /// Encoded/decoded by serializers as "InvalidOptionType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPTY")]
     [IsoId("_MsI1ZxHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Invalid option type.")]
     InvalidOptionType,
     
     /// <summary>
-    /// ??
+    /// Linked reference is unknown.
     /// Encoded/decoded by serializers as "InvalidReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULNK")]
     [IsoId("_MsI1aRHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Linked reference is unknown.")]
     InvalidReference,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid financial instrument identification.
     /// Encoded/decoded by serializers as "InvalidSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_MsI1axHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid financial instrument identification.")]
     InvalidSecurity,
     
     /// <summary>
-    /// ??
+    /// Received after market deadline.
     /// Encoded/decoded by serializers as "MarketDeadlineMissed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_MsI1bxHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Received after market deadline.")]
     MarketDeadlineMissed,
     
     /// <summary>
-    /// ??
+    /// Mismatch between option number and option type.
     /// Encoded/decoded by serializers as "Mismatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMTY")]
     [IsoId("_MsI1cRHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Mismatch between option number and option type.")]
     Mismatch,
     
     /// <summary>
-    /// ??
+    /// Unrecognised option number.
     /// Encoded/decoded by serializers as "OptionNumberRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPNM")]
     [IsoId("_MsI1eRHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised option number.")]
     OptionNumberRejection,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_MsI1exHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_MsI1fRHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid message sender's safekeeping account.
     /// Encoded/decoded by serializers as "SafekeepingAccountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SAFE")]
     [IsoId("_MsI1gRHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid message sender's safekeeping account.")]
     SafekeepingAccountRejection,
     
     /// <summary>
-    /// ??
+    /// Unrecognised event number.
     /// Encoded/decoded by serializers as "UnrecognisedIdentification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EVNM")]
     [IsoId("_MsI1gxHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised event number.")]
     UnrecognisedIdentification,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed cash amount.
     /// Encoded/decoded by serializers as "AmountRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQCS")]
     [IsoId("_MsI1hRHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed cash amount.")]
     AmountRejection,
     
     /// <summary>
-    /// ??
+    /// Invalid instructed currency.
     /// Encoded/decoded by serializers as "CurrencyRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQCC")]
     [IsoId("_MsI1hxHqEeuE0Pnt-OcNOA")]
-    [Description(@"??")]
+    [Description(@"Invalid instructed currency.")]
     CurrencyRejection,
     
 }

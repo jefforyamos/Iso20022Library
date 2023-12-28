@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundOrderType6Code
 {
     /// <summary>
-    /// ??
+    /// All type of orders.
     /// Encoded/decoded by serializers as "All".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLL")]
     [IsoId("_oC2e0RKuEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"All type of orders.")]
     All,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a redemption.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_oh_48RKuEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a redemption.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a subscription.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_o6vJERKuEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a subscription.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Switch out or switch from.
     /// Encoded/decoded by serializers as "SwitchFrom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWII")]
     [IsoId("_pct0wRKuEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Switch out or switch from.")]
     SwitchFrom,
     
     /// <summary>
-    /// ??
+    /// Switch in or switch to.
     /// Encoded/decoded by serializers as "SwitchTo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIO")]
     [IsoId("_pt_yARKuEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Switch in or switch to.")]
     SwitchTo,
     
     /// <summary>
-    /// ??
+    /// Transfer in.
     /// Encoded/decoded by serializers as "TransferIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAI")]
     [IsoId("_p4ubURKuEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Transfer in.")]
     TransferIn,
     
     /// <summary>
-    /// ??
+    /// Transfer out.
     /// Encoded/decoded by serializers as "TransferOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAO")]
     [IsoId("_qBEfARKuEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Transfer out.")]
     TransferOut,
     
 }

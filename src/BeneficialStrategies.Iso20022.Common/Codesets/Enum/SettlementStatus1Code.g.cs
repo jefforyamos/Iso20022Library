@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Settlement is awaiting authorisation.
     /// Encoded/decoded by serializers as "AwaitingAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AAUT")]
     [IsoId("_ZMe7sNp-Ed-ak6NoX_4Aeg_-1312946614")]
-    [Description(@"??")]
+    [Description(@"Settlement is awaiting authorisation.")]
     AwaitingAuthorisation,
     
     /// <summary>
-    /// ??
+    /// Settlement is accepted for settlement.
     /// Encoded/decoded by serializers as "AcceptedForSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTL")]
     [IsoId("_ZMe7sdp-Ed-ak6NoX_4Aeg_-1312946613")]
-    [Description(@"??")]
+    [Description(@"Settlement is accepted for settlement.")]
     AcceptedForSettlement,
     
     /// <summary>
-    /// ??
+    /// Settlement has been created.
     /// Encoded/decoded by serializers as "SettlementTransactionCreated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STCR")]
     [IsoId("_ZMe7stp-Ed-ak6NoX_4Aeg_-1312946596")]
-    [Description(@"??")]
+    [Description(@"Settlement has been created.")]
     SettlementTransactionCreated,
     
     /// <summary>
-    /// ??
+    /// Settlement is rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_ZMe7s9p-Ed-ak6NoX_4Aeg_-1312946579")]
-    [Description(@"??")]
+    [Description(@"Settlement is rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Settlement is split.
     /// Encoded/decoded by serializers as "Split".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLT")]
     [IsoId("_ZMe7tNp-Ed-ak6NoX_4Aeg_-1312946553")]
-    [Description(@"??")]
+    [Description(@"Settlement is split.")]
     Split,
     
     /// <summary>
-    /// ??
+    /// Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.
     /// Encoded/decoded by serializers as "PartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSTL")]
     [IsoId("_ZMe7tdp-Ed-ak6NoX_4Aeg_-1312946552")]
-    [Description(@"??")]
+    [Description(@"Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.")]
     PartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Settlement is complete.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLD")]
     [IsoId("_ZMe7ttp-Ed-ak6NoX_4Aeg_-1312946535")]
-    [Description(@"??")]
+    [Description(@"Settlement is complete.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Settlement is awaiting confirmation of creation.
     /// Encoded/decoded by serializers as "AwaitingCreationConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCF")]
     [IsoId("_ZMe7t9p-Ed-ak6NoX_4Aeg_-1312946518")]
-    [Description(@"??")]
+    [Description(@"Settlement is awaiting confirmation of creation.")]
     AwaitingCreationConfirmation,
     
     /// <summary>
-    /// ??
+    /// Settlement is awaiting confirmation of rescind.
     /// Encoded/decoded by serializers as "AwaitingRescindConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ARCF")]
     [IsoId("_ZMe7uNp-Ed-ak6NoX_4Aeg_-1312946500")]
-    [Description(@"??")]
+    [Description(@"Settlement is awaiting confirmation of rescind.")]
     AwaitingRescindConfirmation,
     
 }

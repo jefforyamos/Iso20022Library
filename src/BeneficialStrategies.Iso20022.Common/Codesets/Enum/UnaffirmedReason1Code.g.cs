@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnaffirmedReason1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies the reason the counterparty has not affirmed.
     /// Encoded/decoded by serializers as "CounterpartyNotAffirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAFF")]
     [IsoId("__qxMU9ojEeC60axPepSq7g_2031513196")]
-    [Description(@"??")]
+    [Description(@"Specifies the reason the counterparty has not affirmed.")]
     CounterpartyNotAffirmed,
     
 }

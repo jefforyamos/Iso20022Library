@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Quantity1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction applies to the entire eligible balance of underlying securities.
     /// Encoded/decoded by serializers as "AllSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QALL")]
     [IsoId("_ZXWu9dp-Ed-ak6NoX_4Aeg_1332281018")]
-    [Description(@"??")]
+    [Description(@"Instruction applies to the entire eligible balance of underlying securities.")]
     AllSecurities,
     
 }

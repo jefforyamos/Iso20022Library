@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReconciliationStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.
     /// Encoded/decoded by serializers as "NonReconciled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREC")]
     [IsoId("_oQJDcZSZEeyTze01ewG2Qw")]
-    [Description(@"??")]
+    [Description(@"Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.")]
     NonReconciled,
     
     /// <summary>
-    /// ??
+    /// Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
     /// Encoded/decoded by serializers as "Reconciled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECO")]
     [IsoId("_oU6OsZSZEeyTze01ewG2Qw")]
-    [Description(@"??")]
+    [Description(@"Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.")]
     Reconciled,
     
 }

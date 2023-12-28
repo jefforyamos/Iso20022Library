@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesEntryType1Code
 {
     /// <summary>
-    /// ??
+    /// Balance of securities that are blocked or frozen. A financial instrument may be unavailable due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.
     /// Encoded/decoded by serializers as "Blocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLOK")]
     [IsoId("_Vo78cNp-Ed-ak6NoX_4Aeg_-3409008")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that are blocked or frozen. A financial instrument may be unavailable due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.")]
     Blocked,
     
     /// <summary>
-    /// ??
+    /// Total number of securities eligible for this event.
     /// Encoded/decoded by serializers as "Eligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELIG")]
     [IsoId("_Vo78cdp-Ed-ak6NoX_4Aeg_-3408991")]
-    [Description(@"??")]
+    [Description(@"Total number of securities eligible for this event.")]
     Eligible,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that are pending delivery.
     /// Encoded/decoded by serializers as "PendingDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_Vo78ctp-Ed-ak6NoX_4Aeg_-3408990")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that are pending delivery.")]
     PendingDelivery,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that are pending receipt.
     /// Encoded/decoded by serializers as "PendingReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENR")]
     [IsoId("_Vo78c9p-Ed-ak6NoX_4Aeg_-3408973")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that are pending receipt.")]
     PendingReceipt,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that are registered (in the name of a nominee or of the beneficial owner).
     /// Encoded/decoded by serializers as "Registered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMI")]
     [IsoId("_Vo78dNp-Ed-ak6NoX_4Aeg_-3408956")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that are registered (in the name of a nominee or of the beneficial owner).")]
     Registered,
     
     /// <summary>
-    /// ??
+    /// Balance of securities representing only settled transactions.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETD")]
     [IsoId("_VpFtcNp-Ed-ak6NoX_4Aeg_464815535")]
-    [Description(@"??")]
+    [Description(@"Balance of securities representing only settled transactions.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that have been borrowed from another party.
     /// Encoded/decoded by serializers as "Borrowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BORR")]
     [IsoId("_VpFtcdp-Ed-ak6NoX_4Aeg_935568190")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that have been borrowed from another party.")]
     Borrowed,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that have been loaned to a third party.
     /// Encoded/decoded by serializers as "OnLoan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOAN")]
     [IsoId("_VpFtctp-Ed-ak6NoX_4Aeg_1188610881")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that have been loaned to a third party.")]
     OnLoan,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that remain registered in the name of the prior beneficial owner of securities.
     /// Encoded/decoded by serializers as "StreetPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPOS")]
     [IsoId("_VpFtc9p-Ed-ak6NoX_4Aeg_1695625369")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that remain registered in the name of the prior beneficial owner of securities.")]
     StreetPosition,
     
     /// <summary>
-    /// ??
+    /// Balance of securities representing traded transactions.
     /// Encoded/decoded by serializers as "Traded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAD")]
     [IsoId("_VpFtdNp-Ed-ak6NoX_4Aeg_1761193858")]
-    [Description(@"??")]
+    [Description(@"Balance of securities representing traded transactions.")]
     Traded,
     
 }

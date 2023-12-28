@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SpecialCollateral2Code
 {
     /// <summary>
-    /// ??
+    /// Identifies that all repurchase agreements are conducted against general collateral.
     /// Encoded/decoded by serializers as "GeneralCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENE")]
     [IsoId("_wac01MEaEea7jLfvGi1PDw")]
-    [Description(@"??")]
+    [Description(@"Identifies that all repurchase agreements are conducted against general collateral.")]
     GeneralCollateral,
     
     /// <summary>
-    /// ??
+    /// Identifies that all repurchase agreements are conducted against special collateral.
     /// Encoded/decoded by serializers as "SpecialCollateral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEC")]
     [IsoId("_wac01cEaEea7jLfvGi1PDw")]
-    [Description(@"??")]
+    [Description(@"Identifies that all repurchase agreements are conducted against special collateral.")]
     SpecialCollateral,
     
     /// <summary>
-    /// ??
+    /// Identifies that this is a securities lending transaction, made of repurchase agreements and reverse repurchase agreements versus cash.
     /// Encoded/decoded by serializers as "MatchedAndReverseRepurchaseAgreement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRRP")]
     [IsoId("_1CXbIcEaEea7jLfvGi1PDw")]
-    [Description(@"??")]
+    [Description(@"Identifies that this is a securities lending transaction, made of repurchase agreements and reverse repurchase agreements versus cash.")]
     MatchedAndReverseRepurchaseAgreement,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VotingParticipationMethod2Code
 {
     /// <summary>
-    /// ??
+    /// Participation to the meeting is in person but the person is not voting.
     /// Encoded/decoded by serializers as "NotVoting".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHNV")]
     [IsoId("_F2nkAfNqEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Participation to the meeting is in person but the person is not voting.")]
     NotVoting,
     
 }

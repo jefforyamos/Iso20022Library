@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm7Code
 {
     /// <summary>
-    /// ??
+    /// RSA encryption algorithm - (ASN.1 Object Identifier: rsaEncryption).
     /// Encoded/decoded by serializers as "RSAEncryption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERSA")]
     [IsoId("_NyQccQmFEeKKaIHo7gv4XA")]
-    [Description(@"??")]
+    [Description(@"RSA encryption algorithm - (ASN.1 Object Identifier: rsaEncryption).")]
     RSAEncryption,
     
     /// <summary>
-    /// ??
+    /// RSA encryption scheme based on Optimal Asymmetric Encryption scheme (PKCS #1 version 2.1) - (ASN.1 Object Identifier: id-RSAES-OAEP).
     /// Encoded/decoded by serializers as "RSAES_OAEP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSAO")]
     [IsoId("_OC6uoQmFEeKKaIHo7gv4XA")]
-    [Description(@"??")]
+    [Description(@"RSA encryption scheme based on Optimal Asymmetric Encryption scheme (PKCS #1 version 2.1) - (ASN.1 Object Identifier: id-RSAES-OAEP).")]
     RSAES_OAEP,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionNotificationType1Code
 {
     /// <summary>
-    /// ??
+    /// New notification.
     /// Encoded/decoded by serializers as "New".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWM")]
     [IsoId("_bK_Pxtp-Ed-ak6NoX_4Aeg_724518620")]
-    [Description(@"??")]
+    [Description(@"New notification.")]
     New,
     
     /// <summary>
-    /// ??
+    /// Notification replacing a previously sent notification.
     /// Encoded/decoded by serializers as "Replacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPL")]
     [IsoId("_bK_Px9p-Ed-ak6NoX_4Aeg_724518628")]
-    [Description(@"??")]
+    [Description(@"Notification replacing a previously sent notification.")]
     Replacement,
     
     /// <summary>
-    /// ??
+    /// Notification sent as a reminder of an event taking place.
     /// Encoded/decoded by serializers as "Reminder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMDR")]
     [IsoId("_bK_PyNp-Ed-ak6NoX_4Aeg_724518629")]
-    [Description(@"??")]
+    [Description(@"Notification sent as a reminder of an event taking place.")]
     Reminder,
     
 }

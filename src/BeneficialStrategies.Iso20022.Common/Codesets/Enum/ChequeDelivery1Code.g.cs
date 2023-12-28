@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChequeDelivery1Code
 {
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through mail services to debtor.
     /// Encoded/decoded by serializers as "MailToDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLDB")]
     [IsoId("_a-UsyNp-Ed-ak6NoX_4Aeg_740702059")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through mail services to debtor.")]
     MailToDebtor,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through mail services to creditor.
     /// Encoded/decoded by serializers as "MailToCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLCD")]
     [IsoId("_a-edwNp-Ed-ak6NoX_4Aeg_740702112")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through mail services to creditor.")]
     MailToCreditor,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through mail services to creditor agent.
     /// Encoded/decoded by serializers as "MailToFinalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MLFA")]
     [IsoId("_a-edwdp-Ed-ak6NoX_4Aeg_740702197")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through mail services to creditor agent.")]
     MailToFinalAgent,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through courier services to debtor.
     /// Encoded/decoded by serializers as "CourierToDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDB")]
     [IsoId("_a-edwtp-Ed-ak6NoX_4Aeg_740702267")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through courier services to debtor.")]
     CourierToDebtor,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through courier services to creditor.
     /// Encoded/decoded by serializers as "CourierToCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCD")]
     [IsoId("_a-edw9p-Ed-ak6NoX_4Aeg_740702569")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through courier services to creditor.")]
     CourierToCreditor,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through courier services to creditor agent.
     /// Encoded/decoded by serializers as "CourierToFinalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRFA")]
     [IsoId("_a-edxNp-Ed-ak6NoX_4Aeg_740702664")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through courier services to creditor agent.")]
     CourierToFinalAgent,
     
     /// <summary>
-    /// ??
+    /// Cheque will be picked up by the debtor.
     /// Encoded/decoded by serializers as "PickUpByDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUDB")]
     [IsoId("_a-edxdp-Ed-ak6NoX_4Aeg_740702989")]
-    [Description(@"??")]
+    [Description(@"Cheque will be picked up by the debtor.")]
     PickUpByDebtor,
     
     /// <summary>
-    /// ??
+    /// Cheque will be picked up by the creditor.
     /// Encoded/decoded by serializers as "PickUpByCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUCD")]
     [IsoId("_a-edxtp-Ed-ak6NoX_4Aeg_740703067")]
-    [Description(@"??")]
+    [Description(@"Cheque will be picked up by the creditor.")]
     PickUpByCreditor,
     
     /// <summary>
-    /// ??
+    /// Cheque will be picked up by the creditor agent.
     /// Encoded/decoded by serializers as "PickUpByFinalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUFA")]
     [IsoId("_a-edx9p-Ed-ak6NoX_4Aeg_740703144")]
-    [Description(@"??")]
+    [Description(@"Cheque will be picked up by the creditor agent.")]
     PickUpByFinalAgent,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through registered mail services to debtor.
     /// Encoded/decoded by serializers as "RegisteredMailToDebtor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RGDB")]
     [IsoId("_a-edyNp-Ed-ak6NoX_4Aeg_740703222")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through registered mail services to debtor.")]
     RegisteredMailToDebtor,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through registered mail services to creditor.
     /// Encoded/decoded by serializers as "RegisteredMailToCreditor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RGCD")]
     [IsoId("_a-edydp-Ed-ak6NoX_4Aeg_740703534")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through registered mail services to creditor.")]
     RegisteredMailToCreditor,
     
     /// <summary>
-    /// ??
+    /// Cheque is to be sent through registered mail services to creditor agent.
     /// Encoded/decoded by serializers as "RegisteredMailToFinalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RGFA")]
     [IsoId("_a-edytp-Ed-ak6NoX_4Aeg_740703629")]
-    [Description(@"??")]
+    [Description(@"Cheque is to be sent through registered mail services to creditor agent.")]
     RegisteredMailToFinalAgent,
     
 }

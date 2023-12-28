@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FrankingClass1Code
 {
     /// <summary>
-    /// ??
+    /// Franking information applies to ordinary cash dividend.
     /// Encoded/decoded by serializers as "CashDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVCA")]
     [IsoId("_0eNjIVfuEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Franking information applies to ordinary cash dividend.")]
     CashDividend,
     
     /// <summary>
-    /// ??
+    /// Franking information applies to interest payment.
     /// Encoded/decoded by serializers as "Interest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTR")]
     [IsoId("_0l8i0VfuEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Franking information applies to interest payment.")]
     Interest,
     
     /// <summary>
-    /// ??
+    /// Franking information applies to NZD Declared dividend/distributions - supplementary dividend/distribution.
     /// Encoded/decoded by serializers as "NZDDeclared".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NZDD")]
     [IsoId("_0tYnkVfuEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Franking information applies to NZD Declared dividend/distributions - supplementary dividend/distribution.")]
     NZDDeclared,
     
     /// <summary>
-    /// ??
+    /// Franking information applies to scrip dividend.
     /// Encoded/decoded by serializers as "ScripDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVSC")]
     [IsoId("_00O2cVfuEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Franking information applies to scrip dividend.")]
     ScripDividend,
     
     /// <summary>
-    /// ??
+    /// Franking information applies to special dividend.
     /// Encoded/decoded by serializers as "SpecialDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPEC")]
     [IsoId("_07YAQVfuEeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Franking information applies to special dividend.")]
     SpecialDividend,
     
 }

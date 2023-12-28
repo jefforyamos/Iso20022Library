@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReplacementProcessingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Replacement request cannot be executed.
     /// Encoded/decoded by serializers as "Denied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEND")]
     [IsoId("_ZwPwGNp-Ed-ak6NoX_4Aeg_-1450819609")]
-    [Description(@"??")]
+    [Description(@"Replacement request cannot be executed.")]
     Denied,
     
     /// <summary>
-    /// ??
+    /// Replacement request previously received from you has been received at the stock exchange.
     /// Encoded/decoded by serializers as "ReceivedAtStockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCH")]
     [IsoId("_ZwPwGdp-Ed-ak6NoX_4Aeg_-1450819608")]
-    [Description(@"??")]
+    [Description(@"Replacement request previously received from you has been received at the stock exchange.")]
     ReceivedAtStockExchange,
     
     /// <summary>
-    /// ??
+    /// Replacement request previously received from you has been received at intermediary (if not stock exchange).
     /// Encoded/decoded by serializers as "ReceivedAtIntermediary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_ZwY6ANp-Ed-ak6NoX_4Aeg_-1450819607")]
-    [Description(@"??")]
+    [Description(@"Replacement request previously received from you has been received at intermediary (if not stock exchange).")]
     ReceivedAtIntermediary,
     
     /// <summary>
-    /// ??
+    /// Replacement request has been accepted for further processing by the account servicer (technical receipt).
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_ZwY6Adp-Ed-ak6NoX_4Aeg_-1450819587")]
-    [Description(@"??")]
+    [Description(@"Replacement request has been accepted for further processing by the account servicer (technical receipt).")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Order is partially filled, replacement processing accepted for the remaining.
     /// Encoded/decoded by serializers as "PartialReplacementAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_ZwY6Atp-Ed-ak6NoX_4Aeg_-1450819578")]
-    [Description(@"??")]
+    [Description(@"Order is partially filled, replacement processing accepted for the remaining.")]
     PartialReplacementAccepted,
     
     /// <summary>
-    /// ??
+    /// Replacement request is pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_ZwY6A9p-Ed-ak6NoX_4Aeg_-1450819556")]
-    [Description(@"??")]
+    [Description(@"Replacement request is pending.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Replacement request has been rejected for further processing.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_ZwY6BNp-Ed-ak6NoX_4Aeg_-1450819547")]
-    [Description(@"??")]
+    [Description(@"Replacement request has been rejected for further processing.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Replacement request has been completed.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPL")]
     [IsoId("_ZwY6Bdp-Ed-ak6NoX_4Aeg_-1450819525")]
-    [Description(@"??")]
+    [Description(@"Replacement request has been completed.")]
     Completed,
     
     /// <summary>
-    /// ??
+    /// Replacement request previously received from you is in repair.
     /// Encoded/decoded by serializers as "InRepair".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPR")]
     [IsoId("_ZwY6Btp-Ed-ak6NoX_4Aeg_-1450819516")]
-    [Description(@"??")]
+    [Description(@"Replacement request previously received from you is in repair.")]
     InRepair,
     
 }

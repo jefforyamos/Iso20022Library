@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateTaxType1Code
 {
     /// <summary>
-    /// ??
+    /// Small Business
     /// Encoded/decoded by serializers as "SmallBusiness".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMBS")]
     [IsoId("_aEAucS7REemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Small Business")]
     SmallBusiness,
     
     /// <summary>
-    /// ??
+    /// Other
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_aIZfMS7REemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Other")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Corporate
     /// Encoded/decoded by serializers as "Corporate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("_aMSgsS7REemIy6A-26wnAg")]
-    [Description(@"??")]
+    [Description(@"Corporate")]
     Corporate,
     
 }

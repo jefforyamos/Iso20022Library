@@ -20,264 +20,264 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason5Code
 {
     /// <summary>
-    /// ??
+    /// Exchange on which the financial instrument is traded is closed.
     /// Encoded/decoded by serializers as "ClosedExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCL")]
     [IsoId("_ZlEa1Np-Ed-ak6NoX_4Aeg_-2083157274")]
-    [Description(@"??")]
+    [Description(@"Exchange on which the financial instrument is traded is closed.")]
     ClosedExchange,
     
     /// <summary>
-    /// ??
+    /// Financial instrument's symbol has not been recognized.
     /// Encoded/decoded by serializers as "UnknownSymbol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_ZlEa1dp-Ed-ak6NoX_4Aeg_-2078541558")]
-    [Description(@"??")]
+    [Description(@"Financial instrument's symbol has not been recognized.")]
     UnknownSymbol,
     
     /// <summary>
-    /// ??
+    /// Countervalue of the order exceeds the allowed trading limit or quote exceeds limit.
     /// Encoded/decoded by serializers as "ExceedsLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXLI")]
     [IsoId("_ZlEa1tp-Ed-ak6NoX_4Aeg_-2064686590")]
-    [Description(@"??")]
+    [Description(@"Countervalue of the order exceeds the allowed trading limit or quote exceeds limit.")]
     ExceedsLimit,
     
     /// <summary>
-    /// ??
+    /// Request has exceeded the allowed time frame.
     /// Encoded/decoded by serializers as "TooLate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOLA")]
     [IsoId("_ZlEa19p-Ed-ak6NoX_4Aeg_-2053605493")]
-    [Description(@"??")]
+    [Description(@"Request has exceeded the allowed time frame.")]
     TooLate,
     
     /// <summary>
-    /// ??
+    /// Price does not comply with the financial instrument's characteristics.
     /// Encoded/decoded by serializers as "InvalidPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPR")]
     [IsoId("_ZlEa2Np-Ed-ak6NoX_4Aeg_-2040676063")]
-    [Description(@"??")]
+    [Description(@"Price does not comply with the financial instrument's characteristics.")]
     InvalidPrice,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid instructed quantity.
     /// Encoded/decoded by serializers as "QuantityRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_ZlOL0Np-Ed-ak6NoX_4Aeg_-1736835393")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid instructed quantity.")]
     QuantityRejection,
     
     /// <summary>
-    /// ??
+    /// Agreement start date is missing or invalid.
     /// Encoded/decoded by serializers as "AgreementStartDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTM")]
     [IsoId("_ZlOL0dp-Ed-ak6NoX_4Aeg_-1592766517")]
-    [Description(@"??")]
+    [Description(@"Agreement start date is missing or invalid.")]
     AgreementStartDate,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid transaction call delay.
     /// Encoded/decoded by serializers as "TransactionCallDelay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADE")]
     [IsoId("_ZlOL0tp-Ed-ak6NoX_4Aeg_-1592766474")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid transaction call delay.")]
     TransactionCallDelay,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid cash account.
     /// Encoded/decoded by serializers as "CashAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_ZlOL09p-Ed-ak6NoX_4Aeg_-1592766414")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid cash account.")]
     CashAccount,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid deal price.
     /// Encoded/decoded by serializers as "DealPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDEA")]
     [IsoId("_ZlOL1Np-Ed-ak6NoX_4Aeg_-1592766379")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid deal price.")]
     DealPrice,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid forfeit amount.
     /// Encoded/decoded by serializers as "ForfeitAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORF")]
     [IsoId("_ZlOL1dp-Ed-ak6NoX_4Aeg_-1592766102")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid forfeit amount.")]
     ForfeitAmount,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid delivering custodian.
     /// Encoded/decoded by serializers as "DeliveringCustodian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCUS")]
     [IsoId("_ZlOL1tp-Ed-ak6NoX_4Aeg_-1592766067")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid delivering custodian.")]
     DeliveringCustodian,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid receiving agent.
     /// Encoded/decoded by serializers as "ReceivingCustodian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCUS")]
     [IsoId("_ZlOL19p-Ed-ak6NoX_4Aeg_-1592766006")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid receiving agent.")]
     ReceivingCustodian,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been rejected since the instruction could not be found.
     /// Encoded/decoded by serializers as "NotFoundRejection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRGN")]
     [IsoId("_ZlOL2Np-Ed-ak6NoX_4Aeg_-1591845975")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been rejected since the instruction could not be found.")]
     NotFoundRejection,
     
     /// <summary>
-    /// ??
+    /// Quantity unit type is not provided.
     /// Encoded/decoded by serializers as "QuantityUnitType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUNP")]
     [IsoId("_ZlOL2dp-Ed-ak6NoX_4Aeg_-1591845915")]
-    [Description(@"??")]
+    [Description(@"Quantity unit type is not provided.")]
     QuantityUnitType,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid termination transaction amount.
     /// Encoded/decoded by serializers as "TerminationTransactionAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPA")]
     [IsoId("_ZlXVwNp-Ed-ak6NoX_4Aeg_-1591845862")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid termination transaction amount.")]
     TerminationTransactionAmount,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid repurchase rate.
     /// Encoded/decoded by serializers as "RepurchaseRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPO")]
     [IsoId("_ZlXVwdp-Ed-ak6NoX_4Aeg_-1591845820")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid repurchase rate.")]
     RepurchaseRate,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid premium amount.
     /// Encoded/decoded by serializers as "PremiumAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPP")]
     [IsoId("_ZlXVwtp-Ed-ak6NoX_4Aeg_-1591845802")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid premium amount.")]
     PremiumAmount,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid repurchase rate type.
     /// Encoded/decoded by serializers as "RepurchaseRateType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RERT")]
     [IsoId("_ZlXVw9p-Ed-ak6NoX_4Aeg_-1591845777")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid repurchase rate type.")]
     RepurchaseRateType,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid spread rate.
     /// Encoded/decoded by serializers as "SpreadRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSPR")]
     [IsoId("_ZlXVxNp-Ed-ak6NoX_4Aeg_-1591845742")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid spread rate.")]
     SpreadRate,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid trade date or requested trade date or future trade date.
     /// Encoded/decoded by serializers as "TradeDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTRD")]
     [IsoId("_ZlXVxdp-Ed-ak6NoX_4Aeg_-1591845490")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid trade date or requested trade date or future trade date.")]
     TradeDate,
     
     /// <summary>
-    /// ??
+    /// Receiving agent is not recognised or is invalid.
     /// Encoded/decoded by serializers as "ReceivingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IVAG")]
     [IsoId("_ZlXVxtp-Ed-ak6NoX_4Aeg_-1591845448")]
-    [Description(@"??")]
+    [Description(@"Receiving agent is not recognised or is invalid.")]
     ReceivingAgent,
     
     /// <summary>
-    /// ??
+    /// Intermediary is not recognised or is invalid.
     /// Encoded/decoded by serializers as "Intermediary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_ZlXVx9p-Ed-ak6NoX_4Aeg_-1591845353")]
-    [Description(@"??")]
+    [Description(@"Intermediary is not recognised or is invalid.")]
     Intermediary,
     
     /// <summary>
-    /// ??
+    /// Delivering agent is not recognised or is invalid.
     /// Encoded/decoded by serializers as "DeliveringAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICAG")]
     [IsoId("_ZlXVyNp-Ed-ak6NoX_4Aeg_-1591845335")]
-    [Description(@"??")]
+    [Description(@"Delivering agent is not recognised or is invalid.")]
     DeliveringAgent,
     
     /// <summary>
-    /// ??
+    /// Unrecognised or invalid place of trade.
     /// Encoded/decoded by serializers as "PlaceOfTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLCE")]
     [IsoId("_ZlhGwNp-Ed-ak6NoX_4Aeg_-1591845002")]
-    [Description(@"??")]
+    [Description(@"Unrecognised or invalid place of trade.")]
     PlaceOfTrade,
     
     /// <summary>
-    /// ??
+    /// Investor name and address is not recognised.
     /// Encoded/decoded by serializers as "InvestorNameAddressUnknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INUK")]
     [IsoId("_ZlhGwdp-Ed-ak6NoX_4Aeg_-1591844985")]
-    [Description(@"??")]
+    [Description(@"Investor name and address is not recognised.")]
     InvestorNameAddressUnknown,
     
     /// <summary>
-    /// ??
+    /// Cancellation request was rejected since the instruction has already been cancelled.
     /// Encoded/decoded by serializers as "RejectedSinceAlreadyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCAN")]
     [IsoId("_ZlhGwtp-Ed-ak6NoX_4Aeg_-380186469")]
-    [Description(@"??")]
+    [Description(@"Cancellation request was rejected since the instruction has already been cancelled.")]
     RejectedSinceAlreadyCancelled,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
     /// Encoded/decoded by serializers as "RejectedSinceInProgress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPRG")]
     [IsoId("_ZlhGw9p-Ed-ak6NoX_4Aeg_-375566929")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been rejected because the instruction process is in progress or has been processed.")]
     RejectedSinceInProgress,
     
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid message reference, reference is unknown.
     /// Encoded/decoded by serializers as "InvalidReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ULNK")]
     [IsoId("_ZlhGxNp-Ed-ak6NoX_4Aeg_1943381003")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid message reference, reference is unknown.")]
     InvalidReference,
     
 }

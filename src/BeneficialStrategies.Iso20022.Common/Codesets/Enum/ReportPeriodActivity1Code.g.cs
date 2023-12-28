@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReportPeriodActivity1Code
 {
     /// <summary>
-    /// ??
+    /// No transaction has been identified during the period.
     /// Encoded/decoded by serializers as "NoTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTX")]
     [IsoId("_Lbu1sZfsEeSfnc-VXAEapg")]
-    [Description(@"??")]
+    [Description(@"No transaction has been identified during the period.")]
     NoTransaction,
     
 }

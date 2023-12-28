@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesTransactionType11Code
 {
     /// <summary>
-    /// ??
+    /// Relates to the issue of medium and short term paper (CP, CD, MTN, notes.) under a program and without syndication arrangement.
     /// Encoded/decoded by serializers as "NonSyndicated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSYN")]
     [IsoId("_ha_UsmliEeGaMcKyqKNRfQ_-1686330340")]
-    [Description(@"??")]
+    [Description(@"Relates to the issue of medium and short term paper (CP, CD, MTN, notes.) under a program and without syndication arrangement.")]
     NonSyndicated,
     
     /// <summary>
-    /// ??
+    /// Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.
     /// Encoded/decoded by serializers as "SyndicateUnderwriters".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYND")]
     [IsoId("_ha_Us2liEeGaMcKyqKNRfQ_835025507")]
-    [Description(@"??")]
+    [Description(@"Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.")]
     SyndicateUnderwriters,
     
 }

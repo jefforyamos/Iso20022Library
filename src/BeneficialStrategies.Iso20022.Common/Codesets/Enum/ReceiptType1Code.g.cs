@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReceiptType1Code
 {
     /// <summary>
-    /// ??
+    /// Receipt transmitted by Email.
     /// Encoded/decoded by serializers as "EMail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_SvbgEUrHEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Receipt transmitted by Email.")]
     EMail,
     
     /// <summary>
-    /// ??
+    /// Other type of channel to transmit receipt information to the recipient.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_S7lFskrHEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Other type of channel to transmit receipt information to the recipient.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Receipt in a paper form.
     /// Encoded/decoded by serializers as "Paper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAPR")]
     [IsoId("_TKaL4krHEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Receipt in a paper form.")]
     Paper,
     
     /// <summary>
-    /// ??
+    /// Receipt transmitted by SMS message.
     /// Encoded/decoded by serializers as "SMS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMSM")]
     [IsoId("_TV5DIkrHEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Receipt transmitted by SMS message.")]
     SMS,
     
     /// <summary>
-    /// ??
+    /// Receipt transmitted to a Uniform Resource Identifier (URI) address.
     /// Encoded/decoded by serializers as "UniformResourceIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URID")]
     [IsoId("_TnSVIkrHEeenp6hmNprBHg")]
-    [Description(@"??")]
+    [Description(@"Receipt transmitted to a Uniform Resource Identifier (URI) address.")]
     UniformResourceIdentifier,
     
 }

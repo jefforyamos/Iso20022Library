@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Eligible1Code
 {
     /// <summary>
-    /// ??
+    /// Item is eligible.
     /// Encoded/decoded by serializers as "Eligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELIG")]
     [IsoId("_RBY30SC-EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Item is eligible.")]
     Eligible,
     
     /// <summary>
-    /// ??
+    /// Item is not eligible.
     /// Encoded/decoded by serializers as "NotEligible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NELI")]
     [IsoId("_RIY3sSC-EeWPMvNwVtiMsA")]
-    [Description(@"??")]
+    [Description(@"Item is not eligible.")]
     NotEligible,
     
 }

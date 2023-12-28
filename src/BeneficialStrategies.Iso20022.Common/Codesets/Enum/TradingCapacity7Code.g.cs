@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradingCapacity7Code
 {
     /// <summary>
-    /// ??
+    /// Trading as Agent on behalf of a customer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGEN")]
     [IsoId("_yxDyIfP1EeS_qLctCs2aRQ")]
-    [Description(@"??")]
+    [Description(@"Trading as Agent on behalf of a customer.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Trading as Principal.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIN")]
     [IsoId("_zMIkk_P1EeS_qLctCs2aRQ")]
-    [Description(@"??")]
+    [Description(@"Trading as Principal.")]
     Principal,
     
 }

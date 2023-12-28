@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestigationExecutionConfirmation3Code
 {
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation is successful.
     /// Encoded/decoded by serializers as "CancelledAsPerRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNCL")]
     [IsoId("_abKVUdp-Ed-ak6NoX_4Aeg_-2079093124")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation is successful.")]
     CancelledAsPerRequest,
     
     /// <summary>
-    /// ??
+    /// Used when a requested modification is successful.
     /// Encoded/decoded by serializers as "ModifiedAsPerRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_abKVUtp-Ed-ak6NoX_4Aeg_-2079092879")]
-    [Description(@"??")]
+    [Description(@"Used when a requested modification is successful.")]
     ModifiedAsPerRequest,
     
     /// <summary>
-    /// ??
+    /// Used when the result of an investigation is, or will be, the initiation of a payment instruction.
     /// Encoded/decoded by serializers as "PaymentInitiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPAY")]
     [IsoId("_abKVU9p-Ed-ak6NoX_4Aeg_-2079092848")]
-    [Description(@"??")]
+    [Description(@"Used when the result of an investigation is, or will be, the initiation of a payment instruction.")]
     PaymentInitiated,
     
     /// <summary>
-    /// ??
+    /// Used when a transfer of funds has been initiated (a cover payment) to resolve a case.
     /// Encoded/decoded by serializers as "CoverInitiated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ICOV")]
     [IsoId("_abKVVNp-Ed-ak6NoX_4Aeg_-2079092847")]
-    [Description(@"??")]
+    [Description(@"Used when a transfer of funds has been initiated (a cover payment) to resolve a case.")]
     CoverInitiated,
     
     /// <summary>
-    /// ??
+    /// Used when a transfer of funds has been modified (a cover payment) to resolve a case.
     /// Encoded/decoded by serializers as "CoverModified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCOV")]
     [IsoId("_abKVVdp-Ed-ak6NoX_4Aeg_-2079092818")]
-    [Description(@"??")]
+    [Description(@"Used when a transfer of funds has been modified (a cover payment) to resolve a case.")]
     CoverModified,
     
     /// <summary>
-    /// ??
+    /// Used when additional information has been sent to the beneficiary of a payment.
     /// Encoded/decoded by serializers as "AdditionalInformationSent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFO")]
     [IsoId("_abKVVtp-Ed-ak6NoX_4Aeg_-2079092817")]
-    [Description(@"??")]
+    [Description(@"Used when additional information has been sent to the beneficiary of a payment.")]
     AdditionalInformationSent,
     
     /// <summary>
-    /// ??
+    /// Used when a payment has been checked and was correctly executed without any intervention.
     /// Encoded/decoded by serializers as "ConfirmationOfPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_abKVV9p-Ed-ak6NoX_4Aeg_-2079092787")]
-    [Description(@"??")]
+    [Description(@"Used when a payment has been checked and was correctly executed without any intervention.")]
     ConfirmationOfPayment,
     
     /// <summary>
-    /// ??
+    /// Used when a payment will be cancelled to solve an investigation case.
     /// Encoded/decoded by serializers as "CancellationWillFollow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CWFW")]
     [IsoId("_abKVWNp-Ed-ak6NoX_4Aeg_-2079092786")]
-    [Description(@"??")]
+    [Description(@"Used when a payment will be cancelled to solve an investigation case.")]
     CancellationWillFollow,
     
     /// <summary>
-    /// ??
+    /// Used when the payment will be modified to solve an investigation case.
     /// Encoded/decoded by serializers as "ModificationWillFollow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWFW")]
     [IsoId("_abKVWdp-Ed-ak6NoX_4Aeg_-2079092756")]
-    [Description(@"??")]
+    [Description(@"Used when the payment will be modified to solve an investigation case.")]
     ModificationWillFollow,
     
     /// <summary>
-    /// ??
+    /// Used when sender wants to respond to an assignment with an Unable To Apply workflow.
     /// Encoded/decoded by serializers as "UnableToApplyWillFollow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UWFW")]
     [IsoId("_abTfQNp-Ed-ak6NoX_4Aeg_-2079092726")]
-    [Description(@"??")]
+    [Description(@"Used when sender wants to respond to an assignment with an Unable To Apply workflow.")]
     UnableToApplyWillFollow,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation has been partially executed.
     /// Encoded/decoded by serializers as "PartiallyExecutedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PECR")]
     [IsoId("_abTfQdp-Ed-ak6NoX_4Aeg_-1345816597")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation has been partially executed.")]
     PartiallyExecutedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation is pending.
     /// Encoded/decoded by serializers as "PendingCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDCR")]
     [IsoId("_abTfQtp-Ed-ak6NoX_4Aeg_-296799305")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation is pending.")]
     PendingCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Used when a requested cancellation has been rejected.
     /// Encoded/decoded by serializers as "RejectedCancellationRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCR")]
     [IsoId("_abTfQ9p-Ed-ak6NoX_4Aeg_-1345816567")]
-    [Description(@"??")]
+    [Description(@"Used when a requested cancellation has been rejected.")]
     RejectedCancellationRequest,
     
     /// <summary>
-    /// ??
+    /// Used when the entry in the statement is correct.
     /// Encoded/decoded by serializers as "StatementEntryCorrect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMTC")]
     [IsoId("_abTfRNp-Ed-ak6NoX_4Aeg_-468064811")]
-    [Description(@"??")]
+    [Description(@"Used when the entry in the statement is correct.")]
     StatementEntryCorrect,
     
     /// <summary>
-    /// ??
+    /// Used when the entry in the statement is incorrect and further information is provided with the resolution.
     /// Encoded/decoded by serializers as "StatementEntryIncorrect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMTI")]
     [IsoId("_abTfRdp-Ed-ak6NoX_4Aeg_-508698788")]
-    [Description(@"??")]
+    [Description(@"Used when the entry in the statement is incorrect and further information is provided with the resolution.")]
     StatementEntryIncorrect,
     
     /// <summary>
-    /// ??
+    /// Further charges details are provided to resolve the case.
     /// Encoded/decoded by serializers as "ChargesDetailsProvided".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHRG")]
     [IsoId("_abTfRtp-Ed-ak6NoX_4Aeg_-508698479")]
-    [Description(@"??")]
+    [Description(@"Further charges details are provided to resolve the case.")]
     ChargesDetailsProvided,
     
     /// <summary>
-    /// ??
+    /// Further purpose details are provided to resolve the case.
     /// Encoded/decoded by serializers as "PurposeDetailsProvided".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PURP")]
     [IsoId("_abTfR9p-Ed-ak6NoX_4Aeg_-508698449")]
-    [Description(@"??")]
+    [Description(@"Further purpose details are provided to resolve the case.")]
     PurposeDetailsProvided,
     
     /// <summary>
-    /// ??
+    /// Used when the requested check for a possible duplicate instruction is confirmed.
     /// Encoded/decoded by serializers as "InstructionIsDuplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDUP")]
     [IsoId("_abTfSNp-Ed-ak6NoX_4Aeg_-192405012")]
-    [Description(@"??")]
+    [Description(@"Used when the requested check for a possible duplicate instruction is confirmed.")]
     InstructionIsDuplicate,
     
 }

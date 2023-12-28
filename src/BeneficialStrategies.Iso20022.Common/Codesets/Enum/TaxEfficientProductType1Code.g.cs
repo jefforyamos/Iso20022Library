@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxEfficientProductType1Code
 {
     /// <summary>
-    /// ??
+    /// Cash individual savings account. In the UK, this is known as a cash ISA.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_YiM6EU4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Cash individual savings account. In the UK, this is known as a cash ISA.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Non-stakeholder child trust fund individual savings account. In the UK, this is known as a non-stakeholder CTF ISA.
     /// Encoded/decoded by serializers as "NonStakeholderChildTrustFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CCTF")]
     [IsoId("_YoWlYU4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Non-stakeholder child trust fund individual savings account. In the UK, this is known as a non-stakeholder CTF ISA.")]
     NonStakeholderChildTrustFund,
     
     /// <summary>
-    /// ??
+    /// Flexible individual savings account. In the UK, this is known as a FISA.
     /// Encoded/decoded by serializers as "Flexible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FISA")]
     [IsoId("_YuGoEU4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Flexible individual savings account. In the UK, this is known as a FISA.")]
     Flexible,
     
     /// <summary>
-    /// ??
+    /// Help to buy individual savings account. In the UK, this is known as a HISA.
     /// Encoded/decoded by serializers as "HelpToBuy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HISA")]
     [IsoId("_Y0QTYU4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Help to buy individual savings account. In the UK, this is known as a HISA.")]
     HelpToBuy,
     
     /// <summary>
-    /// ??
+    /// Innovative finance individual savings account. In the UK, this is known as an innovative ISA.
     /// Encoded/decoded by serializers as "InnovativeFinance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INNF")]
     [IsoId("_Y41RYU4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Innovative finance individual savings account. In the UK, this is known as an innovative ISA.")]
     InnovativeFinance,
     
     /// <summary>
-    /// ??
+    /// Junior cash individual savings account. In the UK, this is known as a cash JISA.
     /// Encoded/decoded by serializers as "JuniorCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JCSH")]
     [IsoId("_ZAO54U4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Junior cash individual savings account. In the UK, this is known as a cash JISA.")]
     JuniorCash,
     
     /// <summary>
-    /// ??
+    /// Junior stocks and shares individual savings account. In the UK, this is known as a stocks and shares  JISA.
     /// Encoded/decoded by serializers as "JuniorStocksAndSharesISA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JISA")]
     [IsoId("_ZFB6UU4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Junior stocks and shares individual savings account. In the UK, this is known as a stocks and shares  JISA.")]
     JuniorStocksAndSharesISA,
     
     /// <summary>
-    /// ??
+    /// Stocks and shares lifetime individual savings account. In the UK, this is known as a stocks and shares LISA.
     /// Encoded/decoded by serializers as "Lifetime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LISA")]
     [IsoId("_ZKgQMU4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Stocks and shares lifetime individual savings account. In the UK, this is known as a stocks and shares LISA.")]
     Lifetime,
     
     /// <summary>
-    /// ??
+    /// Stakeholder child trust fund individual savings account. In the UK, this is known as a stakeholder CTF ISA.
     /// Encoded/decoded by serializers as "StakeholderChildTrustFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCTF")]
     [IsoId("_ZO5oAU4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Stakeholder child trust fund individual savings account. In the UK, this is known as a stakeholder CTF ISA.")]
     StakeholderChildTrustFund,
     
     /// <summary>
-    /// ??
+    /// Stocks and shares individual savings account. In the UK, this is known as a stocks and shares ISA.
     /// Encoded/decoded by serializers as "StocksAndShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUI")]
     [IsoId("_ZU_o8U4MEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Stocks and shares individual savings account. In the UK, this is known as a stocks and shares ISA.")]
     StocksAndShares,
     
     /// <summary>
-    /// ??
+    /// General investment savings account. (Known as Investeringssparkonto (ISK) in some markets.)
     /// Encoded/decoded by serializers as "GeneralInvestmentSavingsAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GISK")]
     [IsoId("_EAWtYaFgEei_VZq-6SQkuQ")]
-    [Description(@"??")]
+    [Description(@"General investment savings account. (Known as Investeringssparkonto (ISK) in some markets.)")]
     GeneralInvestmentSavingsAccount,
     
     /// <summary>
-    /// ??
+    /// General shares or equity savings account. (Known as ASK in some markets.)
     /// Encoded/decoded by serializers as "GeneralShareSavingsAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GASK")]
     [IsoId("_0csswaVFEeiYMvosZPzV4g")]
-    [Description(@"??")]
+    [Description(@"General shares or equity savings account. (Known as ASK in some markets.)")]
     GeneralShareSavingsAccount,
     
 }

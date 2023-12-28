@@ -20,201 +20,201 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BalanceType5Code
 {
     /// <summary>
-    /// ??
+    /// Book balance of the account at the beginning of the account servicer's business day. It always equals the closing book balance from the previous business day. Note: the available balance at the beginning of the account servicer's business day may be different from the closing book balance from the previous business day.
     /// Encoded/decoded by serializers as "Opening".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPNG")]
     [IsoId("_VoMVktp-Ed-ak6NoX_4Aeg_-1849039104")]
-    [Description(@"??")]
+    [Description(@"Book balance of the account at the beginning of the account servicer's business day. It always equals the closing book balance from the previous business day. Note: the available balance at the beginning of the account servicer's business day may be different from the closing book balance from the previous business day.")]
     Opening,
     
     /// <summary>
-    /// ??
+    /// Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTM")]
     [IsoId("_VoMVk9p-Ed-ak6NoX_4Aeg_-1849038096")]
-    [Description(@"??")]
+    [Description(@"Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.")]
     Interim,
     
     /// <summary>
-    /// ??
+    /// Balance of the account at the end of the account servicer's business day. It is the sum of the opening balance at the beginning of the day and all entries booked to the account during the account servicer's business day.
     /// Encoded/decoded by serializers as "Closing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLSG")]
     [IsoId("_VoMVlNp-Ed-ak6NoX_4Aeg_-1849037805")]
-    [Description(@"??")]
+    [Description(@"Balance of the account at the end of the account servicer's business day. It is the sum of the opening balance at the beginning of the day and all entries booked to the account during the account servicer's business day.")]
     Closing,
     
     /// <summary>
-    /// ??
+    /// Balance that is registered in the books of the account servicer.
     /// Encoded/decoded by serializers as "Book".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOOK")]
     [IsoId("_VoMVldp-Ed-ak6NoX_4Aeg_-1849037770")]
-    [Description(@"??")]
+    [Description(@"Balance that is registered in the books of the account servicer.")]
     Book,
     
     /// <summary>
-    /// ??
+    /// Balance of the account at a precise moment in time.
     /// Encoded/decoded by serializers as "Current".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRRT")]
     [IsoId("_VoMVltp-Ed-ak6NoX_4Aeg_-1849037728")]
-    [Description(@"??")]
+    [Description(@"Balance of the account at a precise moment in time.")]
     Current,
     
     /// <summary>
-    /// ??
+    /// Balance of securities pending delivery, eg, orders to sell securities have been executed but settlement of the open transactions has not been confirmed.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_VoMVl9p-Ed-ak6NoX_4Aeg_-1849037693")]
-    [Description(@"??")]
+    [Description(@"Balance of securities pending delivery, eg, orders to sell securities have been executed but settlement of the open transactions has not been confirmed.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Balance of a specific limit value, eg, a bilateral balance is calculated in relation to a given bilateral limit.
     /// Encoded/decoded by serializers as "LimitRelated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LRLD")]
     [IsoId("_VoMVmNp-Ed-ak6NoX_4Aeg_-1849037650")]
-    [Description(@"??")]
+    [Description(@"Balance of a specific limit value, eg, a bilateral balance is calculated in relation to a given bilateral limit.")]
     LimitRelated,
     
     /// <summary>
-    /// ??
+    /// Balance of money or securities that is at the disposal of the account owner on the date specified.
     /// Encoded/decoded by serializers as "Available".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVLB")]
     [IsoId("_VoWGkNp-Ed-ak6NoX_4Aeg_-1849037633")]
-    [Description(@"??")]
+    [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
     Available,
     
     /// <summary>
-    /// ??
+    /// Balance composed of the sum of all liquidity transfers made to or from an account.
     /// Encoded/decoded by serializers as "LiquidityTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTSF")]
     [IsoId("_VoWGkdp-Ed-ak6NoX_4Aeg_-1849037590")]
-    [Description(@"??")]
+    [Description(@"Balance composed of the sum of all liquidity transfers made to or from an account.")]
     LiquidityTransfer,
     
     /// <summary>
-    /// ??
+    /// Balance representing the sum of all credit entries booked to an account.
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_VoWGktp-Ed-ak6NoX_4Aeg_-1849037555")]
-    [Description(@"??")]
+    [Description(@"Balance representing the sum of all credit entries booked to an account.")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, eg, securities available and eligible as collateral with the Central Bank.
     /// Encoded/decoded by serializers as "EligibleAssets".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EAST")]
     [IsoId("_VoWGk9p-Ed-ak6NoX_4Aeg_-1849037520")]
-    [Description(@"??")]
+    [Description(@"Balance representing the potential loan a Central Bank would make in cash if the collateral is pledged, eg, securities available and eligible as collateral with the Central Bank.")]
     EligibleAssets,
     
     /// <summary>
-    /// ??
+    /// Balance representing the sum of entries as a result of payments processing. Entries relating to fees, interest, or other movements not a result of payments sent or received by the account owner are not included.
     /// Encoded/decoded by serializers as "Payment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PYMT")]
     [IsoId("_VoWGlNp-Ed-ak6NoX_4Aeg_-1849037278")]
-    [Description(@"??")]
+    [Description(@"Balance representing the sum of entries as a result of payments processing. Entries relating to fees, interest, or other movements not a result of payments sent or received by the account owner are not included.")]
     Payment,
     
     /// <summary>
-    /// ??
+    /// Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.
     /// Encoded/decoded by serializers as "Blocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCK")]
     [IsoId("_VoWGldp-Ed-ak6NoX_4Aeg_-1849037243")]
-    [Description(@"??")]
+    [Description(@"Balance representing the regulatory reserve that a financial institution must have with the account servicing institution, eg, the minimum credit balance a financial institution is to keep with its Central Bank for mandatory reserve purposes. In some countries, a blocked balance is known as a 'reserve' balance.")]
     Blocked,
     
     /// <summary>
-    /// ??
+    /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted.
     /// Encoded/decoded by serializers as "Expected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XPCD")]
     [IsoId("_VoWGltp-Ed-ak6NoX_4Aeg_-1849037201")]
-    [Description(@"??")]
+    [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted.")]
     Expected,
     
     /// <summary>
-    /// ??
+    /// Balance representing the intra day overdraft granted by the Central Bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.
     /// Encoded/decoded by serializers as "DaylightOverdraft".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLOD")]
     [IsoId("_VoWGl9p-Ed-ak6NoX_4Aeg_-1841652505")]
-    [Description(@"??")]
+    [Description(@"Balance representing the intra day overdraft granted by the Central Bank to financial institutions participating in a RTGS system. This balance may vary over time and shall be offset at the end of the day.")]
     DaylightOverdraft,
     
     /// <summary>
-    /// ??
+    /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day credit balance if everything books to the account and no other credit entry is posted.
     /// Encoded/decoded by serializers as "ExpectedCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XCRD")]
     [IsoId("_VoWGmNp-Ed-ak6NoX_4Aeg_-1841652470")]
-    [Description(@"??")]
+    [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day credit balance if everything books to the account and no other credit entry is posted.")]
     ExpectedCredit,
     
     /// <summary>
-    /// ??
+    /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day debit balance if everything books to the account and no other debit entry is posted.
     /// Encoded/decoded by serializers as "ExpectedDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XDBT")]
     [IsoId("_VoWGmdp-Ed-ak6NoX_4Aeg_-1841652452")]
-    [Description(@"??")]
+    [Description(@"Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day debit balance if everything books to the account and no other debit entry is posted.")]
     ExpectedDebit,
     
     /// <summary>
-    /// ??
+    /// Balance to be held in the settlement account in order to comply with the average reserve due, in the event that the bank's balance is equal to the reserve due during the remaining days of the maintenance period.
     /// Encoded/decoded by serializers as "Adjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADJT")]
     [IsoId("_Vof3kNp-Ed-ak6NoX_4Aeg_-1841652410")]
-    [Description(@"??")]
+    [Description(@"Balance to be held in the settlement account in order to comply with the average reserve due, in the event that the bank's balance is equal to the reserve due during the remaining days of the maintenance period.")]
     Adjustment,
     
     /// <summary>
-    /// ??
+    /// Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.
     /// Encoded/decoded by serializers as "ProgressiveAverage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAV")]
     [IsoId("_Vof3kdp-Ed-ak6NoX_4Aeg_-1841652367")]
-    [Description(@"??")]
+    [Description(@"Average of the daily balances on the account used to fulfil the reserve requirements calculated from the beginning of the maintenance period.")]
     ProgressiveAverage,
     
     /// <summary>
-    /// ??
+    /// Balance representing the sum of all debit entries booked to an account.
     /// Encoded/decoded by serializers as "Debit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBIT")]
     [IsoId("_Vof3ktp-Ed-ak6NoX_4Aeg_-1841652332")]
-    [Description(@"??")]
+    [Description(@"Balance representing the sum of all debit entries booked to an account.")]
     Debit,
     
     /// <summary>
-    /// ??
+    /// Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.
     /// Encoded/decoded by serializers as "Threshold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THRE")]
     [IsoId("_Vof3k9p-Ed-ak6NoX_4Aeg_-1841652297")]
-    [Description(@"??")]
+    [Description(@"Balance representing the amount that will be destined for investment. Difference between available balance and threshold for investment limit.")]
     Threshold,
     
     /// <summary>
-    /// ??
+    /// Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available.
     /// Encoded/decoded by serializers as "Noted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOTE")]
     [IsoId("_Vof3lNp-Ed-ak6NoX_4Aeg_-1841652255")]
-    [Description(@"??")]
+    [Description(@"Balance representing the amount that a financial institution has set aside for a specific reason and which is therefore not available.")]
     Noted,
     
 }

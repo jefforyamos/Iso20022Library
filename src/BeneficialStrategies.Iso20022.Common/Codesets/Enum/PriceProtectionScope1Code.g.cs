@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceProtectionScope1Code
 {
     /// <summary>
-    /// ??
+    /// Price protection is local (for example, Exchange, ECN, ATS).
     /// Encoded/decoded by serializers as "Local".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCA")]
     [IsoId("_aIreN9p-Ed-ak6NoX_4Aeg_-469828845")]
-    [Description(@"??")]
+    [Description(@"Price protection is local (for example, Exchange, ECN, ATS).")]
     Local,
     
     /// <summary>
-    /// ??
+    /// Price protection is national (across all national markets).
     /// Encoded/decoded by serializers as "National".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NATI")]
     [IsoId("_aIreONp-Ed-ak6NoX_4Aeg_-469828551")]
-    [Description(@"??")]
+    [Description(@"Price protection is national (across all national markets).")]
     National,
     
     /// <summary>
-    /// ??
+    /// Price protection is global (across all markets).
     /// Encoded/decoded by serializers as "Global".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GLOB")]
     [IsoId("_aI1PMNp-Ed-ak6NoX_4Aeg_-469828498")]
-    [Description(@"??")]
+    [Description(@"Price protection is global (across all markets).")]
     Global,
     
 }

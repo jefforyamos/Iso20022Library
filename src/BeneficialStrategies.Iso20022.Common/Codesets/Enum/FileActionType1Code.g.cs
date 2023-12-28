@@ -21,84 +21,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FileActionType1Code
 {
     /// <summary>
-    /// ??
+    /// Add a new record or file.
     /// Encoded/decoded by serializers as "Add".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADDD")]
     [IsoId("_EN-rgVDrEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Add a new record or file.")]
     Add,
     
     /// <summary>
-    /// ??
+    /// Delete an existing record or file.
     /// Encoded/decoded by serializers as "Delete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELT")]
     [IsoId("_EZL18lDrEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Delete an existing record or file.")]
     Delete,
     
     /// <summary>
-    /// ??
+    /// Request the content of an existing record or file.
     /// Encoded/decoded by serializers as "Enquire".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENQR")]
     [IsoId("_EllTMlDrEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Request the content of an existing record or file.")]
     Enquire,
     
     /// <summary>
-    /// ??
+    /// Other type of file action defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_ExLfMlDrEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Other type of file action defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of file action defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_E_JCslDrEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Other type of file action defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Add a new record or file if none exists or replace an existing record or file if one exists.
     /// Encoded/decoded by serializers as "Replace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPL")]
     [IsoId("_FHxaQlDrEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Add a new record or file if none exists or replace an existing record or file if one exists.")]
     Replace,
     
     /// <summary>
-    /// ??
+    /// Update an existing record or file.
     /// Encoded/decoded by serializers as "Update".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDT")]
     [IsoId("_FUKQclDrEee94_dUz-hvgw")]
-    [Description(@"??")]
+    [Description(@"Update an existing record or file.")]
     Update,
     
     /// <summary>
-    /// ??
+    /// Replacing  previously added records.
     /// Encoded/decoded by serializers as "BulkReplacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRPT")]
     [IsoId("_UkIbwekVEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"Replacing  previously added records.")]
     BulkReplacement,
     
     /// <summary>
-    /// ??
+    /// System purge.
     /// Encoded/decoded by serializers as "DeleteRecordSystemPurge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLSP")]
     [IsoId("_Ux-DcukVEemeDPHh-U9b6w")]
-    [Description(@"??")]
+    [Description(@"System purge.")]
     DeleteRecordSystemPurge,
     
 }

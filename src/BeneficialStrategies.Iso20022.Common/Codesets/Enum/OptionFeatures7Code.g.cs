@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionFeatures7Code
 {
     /// <summary>
-    /// ??
+    /// Option applicability is not subject to the account owner decision but depends on the terms defined by the issuer, for example in the case of equity linked notes or warrants.
     /// Encoded/decoded by serializers as "OptionApplicability".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAOS")]
     [IsoId("_38a0EWOQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Option applicability is not subject to the account owner decision but depends on the terms defined by the issuer, for example in the case of equity linked notes or warrants.")]
     OptionApplicability,
     
     /// <summary>
-    /// ??
+    /// Feature whereby the holder can elect to place a condition on the acceptance of the option.
     /// Encoded/decoded by serializers as "Conditional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COND")]
     [IsoId("_38a0E2OQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Feature whereby the holder can elect to place a condition on the acceptance of the option.")]
     Conditional,
     
     /// <summary>
-    /// ??
+    /// Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.
     /// Encoded/decoded by serializers as "MaximumCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXC")]
     [IsoId("_38a0FWOQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.")]
     MaximumCash,
     
     /// <summary>
-    /// ??
+    /// Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.
     /// Encoded/decoded by serializers as "MaximumSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXS")]
     [IsoId("_38a0F2OQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.")]
     MaximumSecurities,
     
     /// <summary>
-    /// ??
+    /// Tender or exchange with the odd lot preference.
     /// Encoded/decoded by serializers as "OddLotPreference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPLF")]
     [IsoId("_38a0GWOQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Tender or exchange with the odd lot preference.")]
     OddLotPreference,
     
     /// <summary>
-    /// ??
+    /// Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.
     /// Encoded/decoded by serializers as "Proration".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROR")]
     [IsoId("_38a0G2OQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.")]
     Proration,
     
     /// <summary>
-    /// ??
+    /// Reduced withholding tax rate applies to the option.
     /// Encoded/decoded by serializers as "ReducedWithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VVPR")]
     [IsoId("_38a0IWOQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Reduced withholding tax rate applies to the option.")]
     ReducedWithholdingTax,
     
     /// <summary>
-    /// ??
+    /// Feature whereby the holder must elect directly to the issuer's agent (issuer only supported option).
     /// Encoded/decoded by serializers as "NoServiceOffered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOSE")]
     [IsoId("_38a0I2OQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Feature whereby the holder must elect directly to the issuer's agent (issuer only supported option).")]
     NoServiceOffered,
     
     /// <summary>
-    /// ??
+    /// Indicates the previously sent instructions becomes invalid. This is only applicable after a market deadline extension.
     /// Encoded/decoded by serializers as "PreviousInstructionInvalidity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINS")]
     [IsoId("_38a0JWOQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Indicates the previously sent instructions becomes invalid. This is only applicable after a market deadline extension.")]
     PreviousInstructionInvalidity,
     
     /// <summary>
-    /// ??
+    /// Option is offered by the account servicer only.
     /// Encoded/decoded by serializers as "AccountServicerOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASVO")]
     [IsoId("_38a0J2OQEeW4z96Yfj3Wng")]
-    [Description(@"??")]
+    [Description(@"Option is offered by the account servicer only.")]
     AccountServicerOption,
     
 }

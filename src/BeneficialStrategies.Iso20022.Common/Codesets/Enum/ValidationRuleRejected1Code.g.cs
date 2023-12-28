@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ValidationRuleRejected1Code
 {
     /// <summary>
-    /// ??
+    /// Rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_uY6bcR-zEeuxStysDTgLiw")]
-    [Description(@"??")]
+    [Description(@"Rejected.")]
     Rejected,
     
 }

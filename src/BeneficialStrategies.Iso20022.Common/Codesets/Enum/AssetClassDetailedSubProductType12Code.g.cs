@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType12Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type tanker.
     /// Encoded/decoded by serializers as "Tanker".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TNKR")]
     [IsoId("_qaGXhVrdEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type tanker.")]
     Tanker,
     
 }

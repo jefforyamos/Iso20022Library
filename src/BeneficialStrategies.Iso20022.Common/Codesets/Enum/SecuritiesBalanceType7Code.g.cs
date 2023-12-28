@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesBalanceType7Code
 {
     /// <summary>
-    /// ??
+    /// Balance of securities that are eligible for use for collateral purposes.
     /// Encoded/decoded by serializers as "EligibleForCollateralPurposes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLA")]
     [IsoId("_ZCpqQdp-Ed-ak6NoX_4Aeg_1990825070")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that are eligible for use for collateral purposes.")]
     EligibleForCollateralPurposes,
     
     /// <summary>
-    /// ??
+    /// Other. See Narrative.
     /// Encoded/decoded by serializers as "Unclassified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_ZCpqQtp-Ed-ak6NoX_4Aeg_1990825425")]
-    [Description(@"??")]
+    [Description(@"Other. See Narrative.")]
     Unclassified,
     
     /// <summary>
-    /// ??
+    /// Tax-exempt financial instruments are to be settled.
     /// Encoded/decoded by serializers as "TaxExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLEN")]
     [IsoId("_ZCpqQ9p-Ed-ak6NoX_4Aeg_1990825442")]
-    [Description(@"??")]
+    [Description(@"Tax-exempt financial instruments are to be settled.")]
     TaxExempt,
     
     /// <summary>
-    /// ??
+    /// Taxable financial instruments are to be settled.
     /// Encoded/decoded by serializers as "NonTaxExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIRT")]
     [IsoId("_ZCpqRNp-Ed-ak6NoX_4Aeg_1990825476")]
-    [Description(@"??")]
+    [Description(@"Taxable financial instruments are to be settled.")]
     NonTaxExempt,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).
     /// Encoded/decoded by serializers as "Registered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOMI")]
     [IsoId("_ZCpqRdp-Ed-ak6NoX_4Aeg_1990825477")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).")]
     Registered,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
     /// Encoded/decoded by serializers as "StreetPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPOS")]
     [IsoId("_ZCpqRtp-Ed-ak6NoX_4Aeg_1990825494")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that remain registered in the name of the prior beneficial owner.")]
     StreetPosition,
     
     /// <summary>
-    /// ??
+    /// Balance of securities that could not be registered due to foreign ownership limitation.
     /// Encoded/decoded by serializers as "Unregistered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRG")]
     [IsoId("_ZCpqR9p-Ed-ak6NoX_4Aeg_1990825495")]
-    [Description(@"??")]
+    [Description(@"Balance of securities that could not be registered due to foreign ownership limitation.")]
     Unregistered,
     
     /// <summary>
-    /// ??
+    /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.
     /// Encoded/decoded by serializers as "Issued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("_ZCpqSNp-Ed-ak6NoX_4Aeg_-740716487")]
-    [Description(@"??")]
+    [Description(@"In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.")]
     Issued,
     
     /// <summary>
-    /// ??
+    /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has not yet been received.
     /// Encoded/decoded by serializers as "QuasiIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUAS")]
     [IsoId("_ZCpqSdp-Ed-ak6NoX_4Aeg_-740716214")]
-    [Description(@"??")]
+    [Description(@"In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has not yet been received.")]
     QuasiIssued,
     
 }

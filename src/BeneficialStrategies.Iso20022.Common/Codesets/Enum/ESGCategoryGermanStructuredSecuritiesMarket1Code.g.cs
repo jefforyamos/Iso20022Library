@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ESGCategoryGermanStructuredSecuritiesMarket1Code
 {
     /// <summary>
-    /// ??
+    /// Netural or has no impact.
     /// Encoded/decoded by serializers as "Neutral".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEUT")]
     [IsoId("_v07ggdAKEeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Netural or has no impact.")]
     Neutral,
     
     /// <summary>
-    /// ??
+    /// Impact-related bond according to recognised market standards (for example, Green/Social Bond Principles, EU Green Bond Standards).
     /// Encoded/decoded by serializers as "ImpactSS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMPS")]
     [IsoId("_v7CvkdAKEeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Impact-related bond according to recognised market standards (for example, Green/Social Bond Principles, EU Green Bond Standards).")]
     ImpactSS,
     
     /// <summary>
-    /// ??
+    /// Product manufacturer attains at least with one rating agency the status of a sustainable company.
     /// Encoded/decoded by serializers as "ESGStrategySS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESGS")]
     [IsoId("_v_9r0dAKEeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Product manufacturer attains at least with one rating agency the status of a sustainable company.")]
     ESGStrategySS,
     
     /// <summary>
-    /// ??
+    /// Product manufacturer follows environmental, social and corporate governance (ESG) product and transparency standard.
     /// Encoded/decoded by serializers as "BasicCategorySS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BASS")]
     [IsoId("_wHHcsdAKEeuSBa1PsnseFg")]
-    [Description(@"??")]
+    [Description(@"Product manufacturer follows environmental, social and corporate governance (ESG) product and transparency standard.")]
     BasicCategorySS,
     
 }

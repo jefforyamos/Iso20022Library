@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CounterpartyResponseStatusReason1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the response is related to an allegement from the counterparty.
     /// Encoded/decoded by serializers as "CounterpartyTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPTR")]
     [IsoId("_0mWuhQlIEeGATtfOBToyew_1912527419")]
-    [Description(@"??")]
+    [Description(@"Specifies that the response is related to an allegement from the counterparty.")]
     CounterpartyTransaction,
     
     /// <summary>
-    /// ??
+    /// Specifies that the response is related to the cancellation request of the counterparty.
     /// Encoded/decoded by serializers as "CounterpartyCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPCX")]
     [IsoId("_0mgfgAlIEeGATtfOBToyew_1029294132")]
-    [Description(@"??")]
+    [Description(@"Specifies that the response is related to the cancellation request of the counterparty.")]
     CounterpartyCancellation,
     
     /// <summary>
-    /// ??
+    /// Specifies that the response is related to the modification request of the counterparty.
     /// Encoded/decoded by serializers as "CounterpartyModification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPMD")]
     [IsoId("_0mgfgQlIEeGATtfOBToyew_2030398404")]
-    [Description(@"??")]
+    [Description(@"Specifies that the response is related to the modification request of the counterparty.")]
     CounterpartyModification,
     
 }

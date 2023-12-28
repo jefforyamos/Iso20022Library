@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TriggerType1Code
 {
     /// <summary>
-    /// ??
+    /// Trigger Instructions come into effect in case of partial execution.
     /// Encoded/decoded by serializers as "PartialExecution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAEX")]
     [IsoId("_YwKzJtp-Ed-ak6NoX_4Aeg_256297454")]
-    [Description(@"??")]
+    [Description(@"Trigger Instructions come into effect in case of partial execution.")]
     PartialExecution,
     
     /// <summary>
-    /// ??
+    /// Trigger Instructions come into effect at specified trading session.
     /// Encoded/decoded by serializers as "SpecifiedTradingSession".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPTS")]
     [IsoId("_YwKzJ9p-Ed-ak6NoX_4Aeg_256297489")]
-    [Description(@"??")]
+    [Description(@"Trigger Instructions come into effect at specified trading session.")]
     SpecifiedTradingSession,
     
     /// <summary>
-    /// ??
+    /// Trigger Instructions come into effect at next auction.
     /// Encoded/decoded by serializers as "NextAuction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEAU")]
     [IsoId("_YwKzKNp-Ed-ak6NoX_4Aeg_256297531")]
-    [Description(@"??")]
+    [Description(@"Trigger Instructions come into effect at next auction.")]
     NextAuction,
     
     /// <summary>
-    /// ??
+    /// Trigger Instructions come into effect in case of price movement.
     /// Encoded/decoded by serializers as "PriceMovement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRMO")]
     [IsoId("_YwUkINp-Ed-ak6NoX_4Aeg_256297814")]
-    [Description(@"??")]
+    [Description(@"Trigger Instructions come into effect in case of price movement.")]
     PriceMovement,
     
 }

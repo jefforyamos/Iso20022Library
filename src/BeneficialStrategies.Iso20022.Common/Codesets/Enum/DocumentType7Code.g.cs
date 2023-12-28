@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DocumentType7Code
 {
     /// <summary>
-    /// ??
+    /// When the POI or the Sale System wants to store a message on the journal printer or electronic journal of the Sale Terminal (it is sometimes a Sale Logging/Journal Printer).
     /// Encoded/decoded by serializers as "Journal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JNRL")]
     [IsoId("_nHof4NxKEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"When the POI or the Sale System wants to store a message on the journal printer or electronic journal of the Sale Terminal (it is sometimes a Sale Logging/Journal Printer).")]
     Journal,
     
     /// <summary>
-    /// ??
+    /// When the Sale System requires	the POI system to print the Customer receipt.
     /// Encoded/decoded by serializers as "CustomerReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCP")]
     [IsoId("_nQrHIdxKEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"When the Sale System requires	the POI system to print the Customer receipt.")]
     CustomerReceipt,
     
     /// <summary>
-    /// ??
+    /// When the Sale system print the Cashier copy of the Payment receipt.
     /// Encoded/decoded by serializers as "CashierReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HRCP")]
     [IsoId("_nXT6oNxKEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"When the Sale system print the Cashier copy of the Payment receipt.")]
     CashierReceipt,
     
     /// <summary>
-    /// ??
+    /// When the Sale System requires the POI system to print the Sale receipt.
     /// Encoded/decoded by serializers as "SaleReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRCP")]
     [IsoId("_ndpzMdxKEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"When the Sale System requires the POI system to print the Sale receipt.")]
     SaleReceipt,
     
     /// <summary>
-    /// ??
+    /// Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.
     /// Encoded/decoded by serializers as "RelatedPaymentInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPIN")]
     [IsoId("_pANyIdxKEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.")]
     RelatedPaymentInstruction,
     
     /// <summary>
-    /// ??
+    /// Document is an electronic payment document.
     /// Encoded/decoded by serializers as "Voucher".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VCHR")]
     [IsoId("_qXypEdxKEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Document is an electronic payment document.")]
     Voucher,
     
 }

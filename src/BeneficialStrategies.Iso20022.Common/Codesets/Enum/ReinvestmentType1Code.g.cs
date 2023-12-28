@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReinvestmentType1Code
 {
     /// <summary>
-    /// ??
+    /// Other type of reinvestment.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_U2eIgckgEeeiAIB1i4AlQw")]
-    [Description(@"??")]
+    [Description(@"Other type of reinvestment.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Reinvestment type is a pool of commingled assets.
     /// Encoded/decoded by serializers as "OtherCommingledPool".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OCMP")]
     [IsoId("_U8uhgskgEeeiAIB1i4AlQw")]
-    [Description(@"??")]
+    [Description(@"Reinvestment type is a pool of commingled assets.")]
     OtherCommingledPool,
     
     /// <summary>
-    /// ??
+    /// Reinvestment type is registered money market fund that is a public debt constant net asset value money market fund, low volatility net asset value money market fund or variable net asset value money market fund.
     /// Encoded/decoded by serializers as "RegisteredMoneyMarketFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMFT")]
     [IsoId("_VAKQAckgEeeiAIB1i4AlQw")]
-    [Description(@"??")]
+    [Description(@"Reinvestment type is registered money market fund that is a public debt constant net asset value money market fund, low volatility net asset value money market fund or variable net asset value money market fund.")]
     RegisteredMoneyMarketFund,
     
     /// <summary>
-    /// ??
+    /// Reinvestment type is market where repurchase agreements are traded. 
     /// Encoded/decoded by serializers as "RepurchaseAgreementMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPM")]
     [IsoId("_VIzOoskgEeeiAIB1i4AlQw")]
-    [Description(@"??")]
+    [Description(@"Reinvestment type is market where repurchase agreements are traded. ")]
     RepurchaseAgreementMarket,
     
     /// <summary>
-    /// ??
+    /// Reinvestment type is direct purchase of securities.
     /// Encoded/decoded by serializers as "SecuritiesDirectPurchase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDPU")]
     [IsoId("_VPz1kskgEeeiAIB1i4AlQw")]
-    [Description(@"??")]
+    [Description(@"Reinvestment type is direct purchase of securities.")]
     SecuritiesDirectPurchase,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceSource1Code
 {
     /// <summary>
-    /// ??
+    /// Source of price quotation is a fund, eg, transfer agent, fund itself.
     /// Encoded/decoded by serializers as "Fund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUND")]
     [IsoId("_aJIKINp-Ed-ak6NoX_4Aeg_-1087782704")]
-    [Description(@"??")]
+    [Description(@"Source of price quotation is a fund, eg, transfer agent, fund itself.")]
     Fund,
     
     /// <summary>
-    /// ??
+    /// Source of price quotation is a theoretical value based on the market yield.
     /// Encoded/decoded by serializers as "Theoretical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THEO")]
     [IsoId("_aJIKIdp-Ed-ak6NoX_4Aeg_-1073007545")]
-    [Description(@"??")]
+    [Description(@"Source of price quotation is a theoretical value based on the market yield.")]
     Theoretical,
     
     /// <summary>
-    /// ??
+    /// Source of price quotation is an external vendor.
     /// Encoded/decoded by serializers as "Vendor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VEND")]
     [IsoId("_aJIKItp-Ed-ak6NoX_4Aeg_-1060076665")]
-    [Description(@"??")]
+    [Description(@"Source of price quotation is an external vendor.")]
     Vendor,
     
 }

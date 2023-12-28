@@ -20,183 +20,183 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardAccountType2Code
 {
     /// <summary>
-    /// ??
+    /// Certificate of deposit saving account.
     /// Encoded/decoded by serializers as "CertificateOfDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTDP")]
     [IsoId("_4Q354WkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Certificate of deposit saving account.")]
     CertificateOfDeposit,
     
     /// <summary>
-    /// ??
+    /// Checking account.
     /// Encoded/decoded by serializers as "Checking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHCK")]
     [IsoId("_4WziwWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Checking account.")]
     Checking,
     
     /// <summary>
-    /// ??
+    /// Credit card account.
     /// Encoded/decoded by serializers as "CreditCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_4dNswWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Credit card account.")]
     CreditCard,
     
     /// <summary>
-    /// ??
+    /// Current account.
     /// Encoded/decoded by serializers as "Current".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_4kKpUWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Current account.")]
     Current,
     
     /// <summary>
-    /// ??
+    /// Debit card account.
     /// Encoded/decoded by serializers as "DebitCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDBT")]
     [IsoId("_4uAh0WkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Debit card account.")]
     DebitCard,
     
     /// <summary>
-    /// ??
+    /// Default account.
     /// Encoded/decoded by serializers as "Default".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_41VR0WkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Default account.")]
     Default,
     
     /// <summary>
-    /// ??
+    /// Electronic purse card account.
     /// Encoded/decoded by serializers as "EpurseCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPRS")]
     [IsoId("_48Mu0WkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Electronic purse card account.")]
     EpurseCard,
     
     /// <summary>
-    /// ??
+    /// Home equity loan credit account.
     /// Encoded/decoded by serializers as "HomeEquityLoan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HEQL")]
     [IsoId("_6KsiQWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Home equity loan credit account.")]
     HomeEquityLoan,
     
     /// <summary>
-    /// ??
+    /// Instalment loan credit account.
     /// Encoded/decoded by serializers as "InstalmentLoan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISTL")]
     [IsoId("_6QpZQWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Instalment loan credit account.")]
     InstalmentLoan,
     
     /// <summary>
-    /// ??
+    /// Investment account.
     /// Encoded/decoded by serializers as "Investment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVS")]
     [IsoId("_6X0_UWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Investment account.")]
     Investment,
     
     /// <summary>
-    /// ??
+    /// Line of credit account.
     /// Encoded/decoded by serializers as "LineOfCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LCDT")]
     [IsoId("_6hvJQWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Line of credit account.")]
     LineOfCredit,
     
     /// <summary>
-    /// ??
+    /// Mobile Station Integrated Services Digital Network Number (MSISDN).
     /// Encoded/decoded by serializers as "MobilePhoneAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MBNW")]
     [IsoId("_6tftUWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Mobile Station Integrated Services Digital Network Number (MSISDN).")]
     MobilePhoneAccount,
     
     /// <summary>
-    /// ??
+    /// Money market saving account.
     /// Encoded/decoded by serializers as "MoneyMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNMK")]
     [IsoId("_70cHQWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Money market saving account.")]
     MoneyMarket,
     
     /// <summary>
-    /// ??
+    /// Money market checking account.
     /// Encoded/decoded by serializers as "MoneyMarketChecking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNMC")]
     [IsoId("_77nGQWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Money market checking account.")]
     MoneyMarketChecking,
     
     /// <summary>
-    /// ??
+    /// Mortgage loan credit account.
     /// Encoded/decoded by serializers as "MortgageLoan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTGL")]
     [IsoId("_8DeBwWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Mortgage loan credit account.")]
     MortgageLoan,
     
     /// <summary>
-    /// ??
+    /// Retirement account.
     /// Encoded/decoded by serializers as "RetirementAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTRM")]
     [IsoId("_8LU9QWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Retirement account.")]
     RetirementAccount,
     
     /// <summary>
-    /// ??
+    /// Revolving loan account.
     /// Encoded/decoded by serializers as "RevolvingLoanAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVLV")]
     [IsoId("_8VPuQWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Revolving loan account.")]
     RevolvingLoanAccount,
     
     /// <summary>
-    /// ??
+    /// Savings account.
     /// Encoded/decoded by serializers as "Savings".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVNG")]
     [IsoId("_89JbwWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Savings account.")]
     Savings,
     
     /// <summary>
-    /// ??
+    /// Stock or bond investment account.
     /// Encoded/decoded by serializers as "StockOrBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STBD")]
     [IsoId("_9CVdwWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Stock or bond investment account.")]
     StockOrBond,
     
     /// <summary>
-    /// ??
+    /// Universal account.
     /// Encoded/decoded by serializers as "Universal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UVRL")]
     [IsoId("_9IXNQWkFEeS7zPBpvm732w")]
-    [Description(@"??")]
+    [Description(@"Universal account.")]
     Universal,
     
 }

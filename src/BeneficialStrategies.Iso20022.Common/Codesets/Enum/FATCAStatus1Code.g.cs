@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FATCAStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Account holder type is an owner-documented financial institution with specified US owner(s).
     /// Encoded/decoded by serializers as "FATCA101".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F101")]
     [IsoId("_XFWYwQjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account holder type is an owner-documented financial institution with specified US owner(s).")]
     FATCA101,
     
     /// <summary>
-    /// ??
+    /// Account holder type is a passive non-financial entity with substantial US owner(s).
     /// Encoded/decoded by serializers as "FATCA102".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F102")]
     [IsoId("_XN1mYQjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account holder type is a passive non-financial entity with substantial US owner(s).")]
     FATCA102,
     
     /// <summary>
-    /// ??
+    /// Account holder type is a non-participating financial institution.
     /// Encoded/decoded by serializers as "FATCA103".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F103")]
     [IsoId("_XWw44QjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account holder type is a non-participating financial institution.")]
     FATCA103,
     
     /// <summary>
-    /// ??
+    /// Account holder type is a specified US person.
     /// Encoded/decoded by serializers as "FATCA104".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F104")]
     [IsoId("_XfFucQjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account holder type is a specified US person.")]
     FATCA104,
     
     /// <summary>
-    /// ??
+    /// Account holder type is a direct reporting non-financial foreign entity (NFFE).
     /// Encoded/decoded by serializers as "FATCA105".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F105")]
     [IsoId("_Xnk8EQjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account holder type is a direct reporting non-financial foreign entity (NFFE).")]
     FATCA105,
     
     /// <summary>
-    /// ??
+    /// Account pool reporting type is a recalcitrant account holder with US indicia.
     /// Encoded/decoded by serializers as "FATCA201".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F201")]
     [IsoId("_Xv5xoQjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account pool reporting type is a recalcitrant account holder with US indicia.")]
     FATCA201,
     
     /// <summary>
-    /// ??
+    /// Account pool reporting type is a recalcitrant account holder without US indicia.
     /// Encoded/decoded by serializers as "FATCA202".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F202")]
     [IsoId("_X4POQQjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account pool reporting type is a recalcitrant account holder without US indicia.")]
     FATCA202,
     
     /// <summary>
-    /// ??
+    /// Account pool reporting type is a dormant account.
     /// Encoded/decoded by serializers as "FATCA203".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F203")]
     [IsoId("_YAt00QjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account pool reporting type is a dormant account.")]
     FATCA203,
     
     /// <summary>
-    /// ??
+    /// Account pool reporting type is a non-participating foreign financial institution.
     /// Encoded/decoded by serializers as "FATCA204".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F204")]
     [IsoId("_YDjGYQjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account pool reporting type is a non-participating foreign financial institution.")]
     FATCA204,
     
     /// <summary>
-    /// ??
+    /// Account pool reporting type is a recalcitrant account holder that is a US person.
     /// Encoded/decoded by serializers as "FATCA205".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F205")]
     [IsoId("_YL378QjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account pool reporting type is a recalcitrant account holder that is a US person.")]
     FATCA205,
     
     /// <summary>
-    /// ??
+    /// Account pool reporting type is recalcitrant account holder that is a passive non-financial foreign entity (NFFE).
     /// Encoded/decoded by serializers as "FATCA206".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "F206")]
     [IsoId("_YUWigQjUEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Account pool reporting type is recalcitrant account holder that is a passive non-financial foreign entity (NFFE).")]
     FATCA206,
     
 }

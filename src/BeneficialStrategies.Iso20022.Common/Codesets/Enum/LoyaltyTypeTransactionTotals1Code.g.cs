@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LoyaltyTypeTransactionTotals1Code
 {
     /// <summary>
-    /// ??
+    /// Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of a payment resulting on rebates.
     /// Encoded/decoded by serializers as "Award".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWRD")]
     [IsoId("_PsWX0dxjEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of a payment resulting on rebates.")]
     Award,
     
     /// <summary>
-    /// ??
+    /// Rebate on a total amount, sale item amount, or sale items.
     /// Encoded/decoded by serializers as "Rebate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REBA")]
     [IsoId("_PybxsdxjEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Rebate on a total amount, sale item amount, or sale items.")]
     Rebate,
     
     /// <summary>
-    /// ??
+    /// Redemption on a loyalty account.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDE")]
     [IsoId("_P1z10dxjEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Redemption on a loyalty account.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Refund of a loyalty award transaction.
     /// Encoded/decoded by serializers as "ReverseAward".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWRR")]
     [IsoId("_P5Vq8dxjEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Refund of a loyalty award transaction.")]
     ReverseAward,
     
     /// <summary>
-    /// ??
+    /// Refund of a loyalty rebate transaction.
     /// Encoded/decoded by serializers as "ReverseRebate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REBR")]
     [IsoId("_P8sg8dxjEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Refund of a loyalty rebate transaction.")]
     ReverseRebate,
     
     /// <summary>
-    /// ??
+    /// Refund of a loyalty redemption transaction.
     /// Encoded/decoded by serializers as "ReverseRedemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDR")]
     [IsoId("_QAElEdxjEeioifFt1dhnJA")]
-    [Description(@"??")]
+    [Description(@"Refund of a loyalty redemption transaction.")]
     ReverseRedemption,
     
 }

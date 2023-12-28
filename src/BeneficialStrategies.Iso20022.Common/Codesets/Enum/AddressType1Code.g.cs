@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AddressType1Code
 {
     /// <summary>
-    /// ??
+    /// Address is the home address.
     /// Encoded/decoded by serializers as "Residential".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOME")]
     [IsoId("_bmtidtp-Ed-ak6NoX_4Aeg_-1758352550")]
-    [Description(@"??")]
+    [Description(@"Address is the home address.")]
     Residential,
     
     /// <summary>
-    /// ??
+    /// Address is the business address.
     /// Encoded/decoded by serializers as "Business".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIZZ")]
     [IsoId("_bmtid9p-Ed-ak6NoX_4Aeg_-1742653638")]
-    [Description(@"??")]
+    [Description(@"Address is the business address.")]
     Business,
     
 }

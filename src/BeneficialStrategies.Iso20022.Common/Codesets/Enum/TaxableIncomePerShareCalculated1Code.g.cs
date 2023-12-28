@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxableIncomePerShareCalculated1Code
 {
     /// <summary>
-    /// ??
+    /// Fund is calculating the taxable interest per share with the NAV.
     /// Encoded/decoded by serializers as "FundCalculates".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TSIY")]
     [IsoId("_VlEJFNp-Ed-ak6NoX_4Aeg_-1901338896")]
-    [Description(@"??")]
+    [Description(@"Fund is calculating the taxable interest per share with the NAV.")]
     FundCalculates,
     
     /// <summary>
-    /// ??
+    /// Fund is not calculating the taxable interest per share with the NAV.
     /// Encoded/decoded by serializers as "FundDoesNotCalculate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TSIN")]
     [IsoId("_VlEJFdp-Ed-ak6NoX_4Aeg_-1901338871")]
-    [Description(@"??")]
+    [Description(@"Fund is not calculating the taxable interest per share with the NAV.")]
     FundDoesNotCalculate,
     
     /// <summary>
-    /// ??
+    /// Unknown whether the fund is calculating the taxable interest per share with the NAV.
     /// Encoded/decoded by serializers as "FundCalculatesUnknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_VlEJFtp-Ed-ak6NoX_4Aeg_-1901338854")]
-    [Description(@"??")]
+    [Description(@"Unknown whether the fund is calculating the taxable interest per share with the NAV.")]
     FundCalculatesUnknown,
     
     /// <summary>
-    /// ??
+    /// Another type of taxable income per share.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_VlEJF9p-Ed-ak6NoX_4Aeg_-721697044")]
-    [Description(@"??")]
+    [Description(@"Another type of taxable income per share.")]
     Other,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VoteChannel1Code
 {
     /// <summary>
-    /// ??
+    /// Vote is as per described in the processing text for next intermediary information field.
     /// Encoded/decoded by serializers as "VoteAsPerIntermediaryInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VOPI")]
     [IsoId("_k3lkkTT9Ee2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Vote is as per described in the processing text for next intermediary information field.")]
     VoteAsPerIntermediaryInformation,
     
     /// <summary>
-    /// ??
+    /// Vote is via the chain of intermediaries.
     /// Encoded/decoded by serializers as "VoteThroughChain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VOCI")]
     [IsoId("_k-cagTT9Ee2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Vote is via the chain of intermediaries.")]
     VoteThroughChain,
     
 }

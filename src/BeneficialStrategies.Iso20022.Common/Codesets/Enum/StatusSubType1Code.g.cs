@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatusSubType1Code
 {
     /// <summary>
-    /// ??
+    /// No flag has been set for the sub status of the trade notification.
     /// Encoded/decoded by serializers as "NoFlagsSet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NONE")]
     [IsoId("_95DRkR3cEeKXIbeXfdPzuw")]
-    [Description(@"??")]
+    [Description(@"No flag has been set for the sub status of the trade notification.")]
     NoFlagsSet,
     
     /// <summary>
-    /// ??
+    /// Pending flag has been set to true for the sub status of the trade notification.
     /// Encoded/decoded by serializers as "OnlyPendingFlagTrue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_99_b8R3cEeKXIbeXfdPzuw")]
-    [Description(@"??")]
+    [Description(@"Pending flag has been set to true for the sub status of the trade notification.")]
     OnlyPendingFlagTrue,
     
     /// <summary>
-    /// ??
+    /// Same day flag has been set to true for the sub status of the trade notification.
     /// Encoded/decoded by serializers as "OnlySameDayFlagTrue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMDY")]
     [IsoId("_-INu8R3cEeKXIbeXfdPzuw")]
-    [Description(@"??")]
+    [Description(@"Same day flag has been set to true for the sub status of the trade notification.")]
     OnlySameDayFlagTrue,
     
     /// <summary>
-    /// ??
+    /// Both the same day and pending flags have been set to true for the sub status of the trade notification.
     /// Encoded/decoded by serializers as "SameDayAndPendingFlagsTrue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDPG")]
     [IsoId("_-NepcR3cEeKXIbeXfdPzuw")]
-    [Description(@"??")]
+    [Description(@"Both the same day and pending flags have been set to true for the sub status of the trade notification.")]
     SameDayAndPendingFlagsTrue,
     
 }

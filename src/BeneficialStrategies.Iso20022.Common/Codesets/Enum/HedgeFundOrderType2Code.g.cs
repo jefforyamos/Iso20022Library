@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum HedgeFundOrderType2Code
 {
     /// <summary>
-    /// ??
+    /// Investment fund order is for a limited partnership instrument.
     /// Encoded/decoded by serializers as "NonUnitized".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NUNI")]
     [IsoId("_avIaNtp-Ed-ak6NoX_4Aeg_1497408498")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is for a limited partnership instrument.")]
     NonUnitized,
     
     /// <summary>
-    /// ??
+    /// Investment fund order contains a side pocket component.
     /// Encoded/decoded by serializers as "SidePocketComponent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCM")]
     [IsoId("_avIaN9p-Ed-ak6NoX_4Aeg_1497408529")]
-    [Description(@"??")]
+    [Description(@"Investment fund order contains a side pocket component.")]
     SidePocketComponent,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is part of a bed and breakfast transaction.
     /// Encoded/decoded by serializers as "BedAndBreakfast".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEDB")]
     [IsoId("_avIaONp-Ed-ak6NoX_4Aeg_1497408560")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is part of a bed and breakfast transaction.")]
     BedAndBreakfast,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is a side pocket order.
     /// Encoded/decoded by serializers as "SidePocketOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPOR")]
     [IsoId("_avIaOdp-Ed-ak6NoX_4Aeg_1497408561")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is a side pocket order.")]
     SidePocketOrder,
     
     /// <summary>
-    /// ??
+    /// Investment fund order is for a unitized instrument.
     /// Encoded/decoded by serializers as "Unitized".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIT")]
     [IsoId("_avRkINp-Ed-ak6NoX_4Aeg_1497408590")]
-    [Description(@"??")]
+    [Description(@"Investment fund order is for a unitized instrument.")]
     Unitized,
     
     /// <summary>
-    /// ??
+    /// Investment fund order specifies a top up.
     /// Encoded/decoded by serializers as "TopUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOPU")]
     [IsoId("_avRkIdp-Ed-ak6NoX_4Aeg_1497408591")]
-    [Description(@"??")]
+    [Description(@"Investment fund order specifies a top up.")]
     TopUp,
     
     /// <summary>
-    /// ??
+    /// Investment fund order specifies a hold back.
     /// Encoded/decoded by serializers as "HoldBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOLD")]
     [IsoId("_avRkItp-Ed-ak6NoX_4Aeg_-1544341372")]
-    [Description(@"??")]
+    [Description(@"Investment fund order specifies a hold back.")]
     HoldBack,
     
 }

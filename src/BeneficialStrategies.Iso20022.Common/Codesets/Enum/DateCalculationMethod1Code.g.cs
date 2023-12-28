@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateCalculationMethod1Code
 {
     /// <summary>
-    /// ??
+    /// First in, first out. 
     /// Encoded/decoded by serializers as "Fifo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FIFO")]
     [IsoId("_U1m4wVSVEempisJfoIfvvQ")]
-    [Description(@"??")]
+    [Description(@"First in, first out. ")]
     Fifo,
     
     /// <summary>
-    /// ??
+    /// Last in, first out. 
     /// Encoded/decoded by serializers as "Lifo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIFO")]
     [IsoId("_U6qX4VSVEempisJfoIfvvQ")]
-    [Description(@"??")]
+    [Description(@"Last in, first out. ")]
     Lifo,
     
 }

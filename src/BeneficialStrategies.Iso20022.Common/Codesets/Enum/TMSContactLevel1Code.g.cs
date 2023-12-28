@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TMSContactLevel1Code
 {
     /// <summary>
-    /// ??
+    /// Terminal management system has to be contacted before the next transaction.
     /// Encoded/decoded by serializers as "Critical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRIT")]
     [IsoId("_TUAMNgEcEeCQm6a_G2yO_w_-1249727148")]
-    [Description(@"??")]
+    [Description(@"Terminal management system has to be contacted before the next transaction.")]
     Critical,
     
     /// <summary>
-    /// ??
+    /// Terminal management system has to be contacted as soon as possible (for example after reconciliation).
     /// Encoded/decoded by serializers as "AsSoonAsPossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASAP")]
     [IsoId("_TUAMNwEcEeCQm6a_G2yO_w_-1944834992")]
-    [Description(@"??")]
+    [Description(@"Terminal management system has to be contacted as soon as possible (for example after reconciliation).")]
     AsSoonAsPossible,
     
     /// <summary>
-    /// ??
+    /// Terminal management system has to be contacted at the date and time provided.
     /// Encoded/decoded by serializers as "DateTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTIM")]
     [IsoId("_TUAMOAEcEeCQm6a_G2yO_w_2032355643")]
-    [Description(@"??")]
+    [Description(@"Terminal management system has to be contacted at the date and time provided.")]
     DateTime,
     
 }

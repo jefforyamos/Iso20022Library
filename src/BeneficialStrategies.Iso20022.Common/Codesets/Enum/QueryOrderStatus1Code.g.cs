@@ -20,48 +20,49 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QueryOrderStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Query for orders which are not confirmed by a party.
     /// Encoded/decoded by serializers as "QueryUnconfirmedOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUCO")]
     [IsoId("_TUJ7sQ2NEeSwB74WgTbh4Q")]
-    [Description(@"??")]
+    [Description(@"Query for orders which are not confirmed by a party.")]
     QueryUnconfirmedOrder,
     
     /// <summary>
-    /// ??
+    /// Query for all orders for a party.
     /// Encoded/decoded by serializers as "QueryOrdersForTheParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QOFP")]
     [IsoId("_ThlTsQ2NEeSwB74WgTbh4Q")]
-    [Description(@"??")]
+    [Description(@"Query for all orders for a party.")]
     QueryOrdersForTheParty,
     
     /// <summary>
-    /// ??
+    /// Query for orders have been completely executed.
     /// Encoded/decoded by serializers as "QueryFullyExecutedOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QFEO")]
     [IsoId("_HaAlAQ4pEeSvVsudrRLaVg")]
-    [Description(@"??")]
+    [Description(@"Query for orders have been completely executed.")]
     QueryFullyExecutedOrder,
     
     /// <summary>
-    /// ??
+    /// Query for orders have been partially executed.
     /// Encoded/decoded by serializers as "QueryPartiallyExecutedOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QPEO")]
     [IsoId("_HcB-QQ4pEeSvVsudrRLaVg")]
-    [Description(@"??")]
+    [Description(@"Query for orders have been partially executed.")]
     QueryPartiallyExecutedOrder,
     
     /// <summary>
-    /// ??
+    /// Query for all orders.
+    /// 
     /// Encoded/decoded by serializers as "QueryAllOrders".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUAO")]
     [IsoId("_V2KK8YA3EeSUJZYcWGKkkw")]
-    [Description(@"??")]
+    [Description(@"Query for all orders. ")]
     QueryAllOrders,
     
 }

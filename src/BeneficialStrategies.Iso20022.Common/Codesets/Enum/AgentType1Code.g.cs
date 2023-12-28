@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AgentType1Code
 {
     /// <summary>
-    /// ??
+    /// Trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person. Specific to bearer securities.
     /// Encoded/decoded by serializers as "DropAgentBearer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAGB")]
     [IsoId("_1sQOJDL3EeKU9IrkkToqcw_38160419")]
-    [Description(@"??")]
+    [Description(@"Trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person. Specific to bearer securities.")]
     DropAgentBearer,
     
     /// <summary>
-    /// ??
+    /// Agent that cannot be classified as any listed type of agent.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTAG")]
     [IsoId("_1sQOJTL3EeKU9IrkkToqcw_108929944")]
-    [Description(@"??")]
+    [Description(@"Agent that cannot be classified as any listed type of agent.")]
     Other,
     
 }

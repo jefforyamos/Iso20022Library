@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CashAssetType1Code
 {
     /// <summary>
-    /// ??
+    /// Cash is cash in the holding not yet invested.
     /// Encoded/decoded by serializers as "CashInHolding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSH2")]
     [IsoId("_z92S0UyLEeiepssxrmRw1A")]
-    [Description(@"??")]
+    [Description(@"Cash is cash in the holding not yet invested.")]
     CashInHolding,
     
     /// <summary>
-    /// ??
+    /// Cash is attributed to a cash investment.
     /// Encoded/decoded by serializers as "CashInvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSH1")]
     [IsoId("_0EGEwUyLEeiepssxrmRw1A")]
-    [Description(@"??")]
+    [Description(@"Cash is attributed to a cash investment.")]
     CashInvestment,
     
 }

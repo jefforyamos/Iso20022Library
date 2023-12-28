@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InputSource1Code
 {
     /// <summary>
-    /// ??
+    /// File has been encoded.
     /// Encoded/decoded by serializers as "Encoded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCOD")]
     [IsoId("_uWkrscmMEeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"File has been encoded.")]
     Encoded,
     
     /// <summary>
-    /// ??
+    /// File has been uploaded manually.
     /// Encoded/decoded by serializers as "UploadedManually".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UMNL")]
     [IsoId("_uiBGssmMEeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"File has been uploaded manually.")]
     UploadedManually,
     
     /// <summary>
-    /// ??
+    /// File has been uploaded through the CIS (Customer Identification System) system.
     /// Encoded/decoded by serializers as "UploadedViaCIS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCIS")]
     [IsoId("_utUXwsmMEeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"File has been uploaded through the CIS (Customer Identification System) system.")]
     UploadedViaCIS,
     
 }

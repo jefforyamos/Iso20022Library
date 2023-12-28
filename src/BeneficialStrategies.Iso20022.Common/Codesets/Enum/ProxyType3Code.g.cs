@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProxyType3Code
 {
     /// <summary>
-    /// ??
+    /// Chairman of the meeting is the proxy.
     /// Encoded/decoded by serializers as "Chairman".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHRM")]
     [IsoId("_cpOisRrfEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Chairman of the meeting is the proxy.")]
     Chairman,
     
     /// <summary>
-    /// ??
+    /// Any type of proxy is allowed.
     /// Encoded/decoded by serializers as "Discretionary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_ctjCARrfEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Any type of proxy is allowed.")]
     Discretionary,
     
     /// <summary>
-    /// ??
+    /// Neutral proxy nominated by the issuer to execute votes on behalf of investors at the meeting.
     /// Encoded/decoded by serializers as "NeutralProxy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEPR")]
     [IsoId("_cyUNQRrfEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Neutral proxy nominated by the issuer to execute votes on behalf of investors at the meeting.")]
     NeutralProxy,
     
     /// <summary>
-    /// ??
+    /// Proxy can only be a security holder.
     /// Encoded/decoded by serializers as "SecurityHolder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HLDR")]
     [IsoId("_c2ydkRrfEeyhRdHRjakS2w")]
-    [Description(@"??")]
+    [Description(@"Proxy can only be a security holder.")]
     SecurityHolder,
     
 }

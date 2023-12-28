@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SequenceType1Code
 {
     /// <summary>
-    /// ??
+    /// First collection of a series of direct debit instructions.
     /// Encoded/decoded by serializers as "First".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRST")]
     [IsoId("_ZKPgA9p-Ed-ak6NoX_4Aeg_650235429")]
-    [Description(@"??")]
+    [Description(@"First collection of a series of direct debit instructions.")]
     First,
     
     /// <summary>
-    /// ??
+    /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
     /// Encoded/decoded by serializers as "Recurring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCUR")]
     [IsoId("_ZKPgBNp-Ed-ak6NoX_4Aeg_650235490")]
-    [Description(@"??")]
+    [Description(@"Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.")]
     Recurring,
     
     /// <summary>
-    /// ??
+    /// Final collection of a series of direct debit instructions.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FNAL")]
     [IsoId("_ZKPgBdp-Ed-ak6NoX_4Aeg_650235532")]
-    [Description(@"??")]
+    [Description(@"Final collection of a series of direct debit instructions.")]
     Final,
     
     /// <summary>
-    /// ??
+    /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
     /// Encoded/decoded by serializers as "OneOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OOFF")]
     [IsoId("_ZKPgBtp-Ed-ak6NoX_4Aeg_650235798")]
-    [Description(@"??")]
+    [Description(@"Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.")]
     OneOff,
     
 }

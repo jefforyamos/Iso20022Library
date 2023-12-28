@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount21Code
 {
     /// <summary>
-    /// ??
+    /// Interchange fee.
     /// Encoded/decoded by serializers as "InterchangeFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTC")]
     [IsoId("_EL_NsaH_EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Interchange fee.")]
     InterchangeFee,
     
     /// <summary>
-    /// ??
+    /// Processing fees.
     /// Encoded/decoded by serializers as "ProcessingFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEP")]
     [IsoId("_EL_Ns6H_EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Processing fees.")]
     ProcessingFees,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_EL_NtaH_EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_EL_Nt6H_EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// International service assessment fees.
     /// Encoded/decoded by serializers as "InternationalServiceAssessmentFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEA")]
     [IsoId("_EL_NuaH_EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"International service assessment fees.")]
     InternationalServiceAssessmentFees,
     
     /// <summary>
-    /// ??
+    /// Interchange fee applicable to cash back amount.
     /// Encoded/decoded by serializers as "CashBackInterchangeFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSIF")]
     [IsoId("_UQGKgaH_EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Interchange fee applicable to cash back amount.")]
     CashBackInterchangeFee,
     
     /// <summary>
-    /// ??
+    /// Maximum applicable interchange fee.
     /// Encoded/decoded by serializers as "MaximumInterchangeFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MXIF")]
     [IsoId("_WF3ZUaH_EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Maximum applicable interchange fee.")]
     MaximumInterchangeFee,
     
     /// <summary>
-    /// ??
+    /// Minimum interchange fee applicable.
     /// Encoded/decoded by serializers as "MinimumInterchangeFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNIF")]
     [IsoId("_WpWg4aH_EeuiuNcvKhXmNQ")]
-    [Description(@"??")]
+    [Description(@"Minimum interchange fee applicable.")]
     MinimumInterchangeFee,
     
 }

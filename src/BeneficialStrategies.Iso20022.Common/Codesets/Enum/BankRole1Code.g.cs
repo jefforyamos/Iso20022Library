@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BankRole1Code
 {
     /// <summary>
-    /// ??
+    /// Bank of the buyer.
     /// Encoded/decoded by serializers as "BuyersBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYB")]
     [IsoId("_ReWlMdmCEeKjKfTom1JlPQ")]
-    [Description(@"??")]
+    [Description(@"Bank of the buyer.")]
     BuyersBank,
     
     /// <summary>
-    /// ??
+    /// Obligor bank.
     /// Encoded/decoded by serializers as "ObligorBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OBLB")]
     [IsoId("_RnCnIdmCEeKjKfTom1JlPQ")]
-    [Description(@"??")]
+    [Description(@"Obligor bank.")]
     ObligorBank,
     
     /// <summary>
-    /// ??
+    /// Recipient bank.
     /// Encoded/decoded by serializers as "RecipientBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECB")]
     [IsoId("_RvpwkdmCEeKjKfTom1JlPQ")]
-    [Description(@"??")]
+    [Description(@"Recipient bank.")]
     RecipientBank,
     
     /// <summary>
-    /// ??
+    /// Bank of the seller.
     /// Encoded/decoded by serializers as "SellersBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELB")]
     [IsoId("_R4wCMdmCEeKjKfTom1JlPQ")]
-    [Description(@"??")]
+    [Description(@"Bank of the seller.")]
     SellersBank,
     
 }

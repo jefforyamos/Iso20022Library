@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType9Code
 {
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_-H_xIXrTEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Entity providing acquiring card payment processing services on behalf on an acquirer.
     /// Encoded/decoded by serializers as "AcquirerProcessor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQP")]
     [IsoId("_-SnFsXrTEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Entity providing acquiring card payment processing services on behalf on an acquirer.")]
     AcquirerProcessor,
     
     /// <summary>
-    /// ??
+    /// Party that issues cards.
     /// Encoded/decoded by serializers as "CardIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISS")]
     [IsoId("_-mj8cXrTEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Party that issues cards.")]
     CardIssuer,
     
     /// <summary>
-    /// ??
+    /// Entity providing issuing card payment processing services on behalf on an issuer.
     /// Encoded/decoded by serializers as "CardIssuerProcessor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CISP")]
     [IsoId("_-v1NMXrTEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Entity providing issuing card payment processing services on behalf on an issuer.")]
     CardIssuerProcessor,
     
     /// <summary>
-    /// ??
+    /// Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.
     /// Encoded/decoded by serializers as "CardScheme".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSCH")]
     [IsoId("_-5uJAXrTEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.")]
     CardScheme,
     
     /// <summary>
-    /// ??
+    /// Entity providing card payment processing services acting on behalf of a card scheme.
     /// Encoded/decoded by serializers as "CardSchemeProcessor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCHP")]
     [IsoId("_AAaEQXrUEeSfJf8ETXpBxg")]
-    [Description(@"??")]
+    [Description(@"Entity providing card payment processing services acting on behalf of a card scheme.")]
     CardSchemeProcessor,
     
 }

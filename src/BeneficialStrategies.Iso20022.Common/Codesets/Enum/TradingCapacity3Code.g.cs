@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradingCapacity3Code
 {
     /// <summary>
-    /// ??
+    /// Trading as Principal.
     /// Encoded/decoded by serializers as "Principal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIN")]
     [IsoId("_YqgQB9p-Ed-ak6NoX_4Aeg_-72074817")]
-    [Description(@"??")]
+    [Description(@"Trading as Principal.")]
     Principal,
     
     /// <summary>
-    /// ??
+    /// Crossing as a principal.
     /// Encoded/decoded by serializers as "CrossingPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPRN")]
     [IsoId("_YqgQCNp-Ed-ak6NoX_4Aeg_-72074799")]
-    [Description(@"??")]
+    [Description(@"Crossing as a principal.")]
     CrossingPrincipal,
     
     /// <summary>
-    /// ??
+    /// Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.
     /// Encoded/decoded by serializers as "RisklessPrincipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RISP")]
     [IsoId("_YqqBANp-Ed-ak6NoX_4Aeg_-72074774")]
-    [Description(@"??")]
+    [Description(@"Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.")]
     RisklessPrincipal,
     
     /// <summary>
-    /// ??
+    /// Trading for its firm. The transaction affects the firm's own account, not that of its customers.
     /// Encoded/decoded by serializers as "Proprietary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROP")]
     [IsoId("_YqqBAdp-Ed-ak6NoX_4Aeg_-72074773")]
-    [Description(@"??")]
+    [Description(@"Trading for its firm. The transaction affects the firm's own account, not that of its customers.")]
     Proprietary,
     
     /// <summary>
-    /// ??
+    /// Trading as Agent on behalf of a customer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGEN")]
     [IsoId("_YqqBAtp-Ed-ak6NoX_4Aeg_-72074757")]
-    [Description(@"??")]
+    [Description(@"Trading as Agent on behalf of a customer.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Crossing as an agent.
     /// Encoded/decoded by serializers as "CrossingAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAGN")]
     [IsoId("_YqqBA9p-Ed-ak6NoX_4Aeg_-72074739")]
-    [Description(@"??")]
+    [Description(@"Crossing as an agent.")]
     CrossingAgent,
     
     /// <summary>
-    /// ??
+    /// Acting as an agent for a party other than a customer.
     /// Encoded/decoded by serializers as "OtherAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OAGN")]
     [IsoId("_YqqBBNp-Ed-ak6NoX_4Aeg_-72074738")]
-    [Description(@"??")]
+    [Description(@"Acting as an agent for a party other than a customer.")]
     OtherAgent,
     
     /// <summary>
-    /// ??
+    /// Acting as an agent for some executions and principal for others in the same transaction.
     /// Encoded/decoded by serializers as "PrincipalAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRAG")]
     [IsoId("_YqqBBdp-Ed-ak6NoX_4Aeg_-71154750")]
-    [Description(@"??")]
+    [Description(@"Acting as an agent for some executions and principal for others in the same transaction.")]
     PrincipalAgent,
     
 }

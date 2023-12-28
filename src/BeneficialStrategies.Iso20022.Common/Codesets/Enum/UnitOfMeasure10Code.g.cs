@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UnitOfMeasure10Code
 {
     /// <summary>
-    /// ??
+    /// Unit of measure that is equal to 1, 000 meters.
     /// Encoded/decoded by serializers as "Kilometre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KMET")]
     [IsoId("_l6goQX0mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Unit of measure that is equal to 1, 000 meters.")]
     Kilometre,
     
     /// <summary>
-    /// ??
+    /// Unit of length equal to 1, 760 yards.
     /// Encoded/decoded by serializers as "Mile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MILE")]
     [IsoId("_l6goQ30mEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Unit of length equal to 1, 760 yards.")]
     Mile,
     
 }

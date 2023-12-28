@@ -20,147 +20,147 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum QuoteStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the quote is accepted for further negotiation.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_ZYQG09p-Ed-ak6NoX_4Aeg_710683030")]
-    [Description(@"??")]
+    [Description(@"Indicates that the quote is accepted for further negotiation.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are cancelled for a financial instrument's symbol.
     /// Encoded/decoded by serializers as "CancelSymbol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYMB")]
     [IsoId("_ZYQG1Np-Ed-ak6NoX_4Aeg_710683065")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are cancelled for a financial instrument's symbol.")]
     CancelSymbol,
     
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are cancelled for a specific security.
     /// Encoded/decoded by serializers as "CancelSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_ZYQG1dp-Ed-ak6NoX_4Aeg_710683125")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are cancelled for a specific security.")]
     CancelSecurity,
     
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are cancelled for an underlying financial instrument.
     /// Encoded/decoded by serializers as "CancelUnderlying".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSY")]
     [IsoId("_ZYQG1tp-Ed-ak6NoX_4Aeg_710683160")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are cancelled for an underlying financial instrument.")]
     CancelUnderlying,
     
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are cancelled.
     /// Encoded/decoded by serializers as "CancelAll".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLE")]
     [IsoId("_ZYQG19p-Ed-ak6NoX_4Aeg_710683437")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are cancelled.")]
     CancelAll,
     
     /// <summary>
-    /// ??
+    /// Indicates that the quote is not accepted.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_ZYQG2Np-Ed-ak6NoX_4Aeg_710683472")]
-    [Description(@"??")]
+    [Description(@"Indicates that the quote is not accepted.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Indicates that all quotes are removed from the market.
     /// Encoded/decoded by serializers as "RemovedFromMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REMO")]
     [IsoId("_ZYQG2dp-Ed-ak6NoX_4Aeg_710683917")]
-    [Description(@"??")]
+    [Description(@"Indicates that all quotes are removed from the market.")]
     RemovedFromMarket,
     
     /// <summary>
-    /// ??
+    /// Indicates that the quote is not valid anymore.
     /// Encoded/decoded by serializers as "Expired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXPI")]
     [IsoId("_ZYZ30Np-Ed-ak6NoX_4Aeg_710683977")]
-    [Description(@"??")]
+    [Description(@"Indicates that the quote is not valid anymore.")]
     Expired,
     
     /// <summary>
-    /// ??
+    /// Indicates that the quote is being requested.
     /// Encoded/decoded by serializers as "Query".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUER")]
     [IsoId("_ZYZ30dp-Ed-ak6NoX_4Aeg_710684012")]
-    [Description(@"??")]
+    [Description(@"Indicates that the quote is being requested.")]
     Query,
     
     /// <summary>
-    /// ??
+    /// Indicates that no quote can be computed or communicated.
     /// Encoded/decoded by serializers as "QuoteNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NQUO")]
     [IsoId("_ZYZ30tp-Ed-ak6NoX_4Aeg_710684013")]
-    [Description(@"??")]
+    [Description(@"Indicates that no quote can be computed or communicated.")]
     QuoteNotFound,
     
     /// <summary>
-    /// ??
+    /// Indicates that the quote is being processed.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_ZYZ309p-Ed-ak6NoX_4Aeg_710684030")]
-    [Description(@"??")]
+    [Description(@"Indicates that the quote is being processed.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Indicates that the counterparty is not interested in the transaction.
     /// Encoded/decoded by serializers as "Pass".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_ZYZ31Np-Ed-ak6NoX_4Aeg_710684055")]
-    [Description(@"??")]
+    [Description(@"Indicates that the counterparty is not interested in the transaction.")]
     Pass,
     
     /// <summary>
-    /// ??
+    /// Warning due to a situation of locked market.
     /// Encoded/decoded by serializers as "LockedMarketWarning".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LMWA")]
     [IsoId("_ZYZ31dp-Ed-ak6NoX_4Aeg_710684072")]
-    [Description(@"??")]
+    [Description(@"Warning due to a situation of locked market.")]
     LockedMarketWarning,
     
     /// <summary>
-    /// ??
+    /// Warning due to a situation of cross market.
     /// Encoded/decoded by serializers as "CrossMarketWarning".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMWA")]
     [IsoId("_ZYZ31tp-Ed-ak6NoX_4Aeg_710684115")]
-    [Description(@"??")]
+    [Description(@"Warning due to a situation of cross market.")]
     CrossMarketWarning,
     
     /// <summary>
-    /// ??
+    /// Indicates that the quote is canceled due to a situation of locked market.
     /// Encoded/decoded by serializers as "CanceledDueToLockMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDLM")]
     [IsoId("_ZYZ319p-Ed-ak6NoX_4Aeg_710684132")]
-    [Description(@"??")]
+    [Description(@"Indicates that the quote is canceled due to a situation of locked market.")]
     CanceledDueToLockMarket,
     
     /// <summary>
-    /// ??
+    /// Indicates that the quote is canceled due to a situation of cross market.
     /// Encoded/decoded by serializers as "CanceledDueToCrossMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCM")]
     [IsoId("_ZYZ32Np-Ed-ak6NoX_4Aeg_710684150")]
-    [Description(@"??")]
+    [Description(@"Indicates that the quote is canceled due to a situation of cross market.")]
     CanceledDueToCrossMarket,
     
 }

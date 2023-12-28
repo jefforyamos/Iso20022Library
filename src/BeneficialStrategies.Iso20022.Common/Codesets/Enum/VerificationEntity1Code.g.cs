@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VerificationEntity1Code
 {
     /// <summary>
-    /// ??
+    /// Acceptor (for example signature verification by the attendant).
     /// Encoded/decoded by serializers as "Acceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_NSJxcRZOEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Acceptor (for example signature verification by the attendant).")]
     Acceptor,
     
     /// <summary>
-    /// ??
+    /// Acquirer of the transaction.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_Ne8QQhZOEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Acquirer of the transaction.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Entity providing card payment processing services acting as an intermediary between (or on behalf of) an acquirer and an issuer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_NonJohZOEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Entity providing card payment processing services acting as an intermediary between (or on behalf of) an acquirer and an issuer.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Card issuer.
     /// Encoded/decoded by serializers as "Issuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSR")]
     [IsoId("_OG95khZOEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Card issuer.")]
     Issuer,
     
     /// <summary>
-    /// ??
+    /// Other type of authentication entity defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_OVPmIhZOEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Other type of authentication entity defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of authentication entity defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_OifX8hZOEeiXa46FI4OtcQ")]
-    [Description(@"??")]
+    [Description(@"Other type of authentication entity defined at private level.")]
     OtherPrivate,
     
 }

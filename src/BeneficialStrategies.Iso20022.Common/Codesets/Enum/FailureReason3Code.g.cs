@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FailureReason3Code
 {
     /// <summary>
-    /// ??
+    /// Integrated circuit card declines the transaction before or after the authorisation.
     /// Encoded/decoded by serializers as "CardDeclined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDCL")]
     [IsoId("_QwmRQTG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Integrated circuit card declines the transaction before or after the authorisation.")]
     CardDeclined,
     
     /// <summary>
-    /// ??
+    /// Customer cancellation, for example removing the card before the end of the transaction.
     /// Encoded/decoded by serializers as "CustomerCancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUCL")]
     [IsoId("_QwmRQzG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Customer cancellation, for example removing the card before the end of the transaction.")]
     CustomerCancel,
     
     /// <summary>
-    /// ??
+    /// Suspected malfunction.
     /// Encoded/decoded by serializers as "Malfunction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MALF")]
     [IsoId("_QwmRRTG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Suspected malfunction.")]
     Malfunction,
     
     /// <summary>
-    /// ??
+    /// Offline authorisation declined the transaction.
     /// Encoded/decoded by serializers as "OfflineDeclined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDCL")]
     [IsoId("_QwmRRzG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Offline authorisation declined the transaction.")]
     OfflineDeclined,
     
     /// <summary>
-    /// ??
+    /// Online authorisation declined the transaction.
     /// Encoded/decoded by serializers as "OnLineDeclined".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDCL")]
     [IsoId("_QwmRSTG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Online authorisation declined the transaction.")]
     OnLineDeclined,
     
     /// <summary>
-    /// ??
+    /// Completed partially.
     /// Encoded/decoded by serializers as "Partial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_QwmRSzG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Completed partially.")]
     Partial,
     
     /// <summary>
-    /// ??
+    /// Card payment transaction fails because the merchant suspect a fraud.
     /// Encoded/decoded by serializers as "SuspectedFraud".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SFRD")]
     [IsoId("_QwmRTTG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Card payment transaction fails because the merchant suspect a fraud.")]
     SuspectedFraud,
     
     /// <summary>
-    /// ??
+    /// Timeout while waiting for a response to a request message, or no response was received (for example connection release before receiving the response).
     /// Encoded/decoded by serializers as "TimeOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIMO")]
     [IsoId("_QwmRTzG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Timeout while waiting for a response to a request message, or no response was received (for example connection release before receiving the response).")]
     TimeOut,
     
     /// <summary>
-    /// ??
+    /// Response to the previous message was received too late.
     /// Encoded/decoded by serializers as "TooLateResponse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATE")]
     [IsoId("_QwmRUTG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Response to the previous message was received too late.")]
     TooLateResponse,
     
     /// <summary>
-    /// ??
+    /// Unable to complete the transaction after the authorisation response.
     /// Encoded/decoded by serializers as "UnableToComplete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCMP")]
     [IsoId("_QwmRUzG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Unable to complete the transaction after the authorisation response.")]
     UnableToComplete,
     
     /// <summary>
-    /// ??
+    /// Unable to deliver the request message to the recipient party.
     /// Encoded/decoded by serializers as "UnableToSend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USND")]
     [IsoId("_QwmRVTG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Unable to deliver the request message to the recipient party.")]
     UnableToSend,
     
     /// <summary>
-    /// ??
+    /// Security error has occurred in the authorisation response message sent by the acquirer.
     /// Encoded/decoded by serializers as "SecurityError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_SbRDUTG8EeOH78pE3LSlGw")]
-    [Description(@"??")]
+    [Description(@"Security error has occurred in the authorisation response message sent by the acquirer.")]
     SecurityError,
     
 }

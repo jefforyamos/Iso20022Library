@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxIdentificationNumberType1Code
 {
     /// <summary>
-    /// ??
+    /// Global intermediary tax identification number.
     /// Encoded/decoded by serializers as "GlobalIntermediaryIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIIN")]
     [IsoId("_i_F3EQhJEeSUPbC7DbLJpQ")]
-    [Description(@"??")]
+    [Description(@"Global intermediary tax identification number.")]
     GlobalIntermediaryIdentificationNumber,
     
     /// <summary>
-    /// ??
+    /// Tax identification number.
     /// Encoded/decoded by serializers as "TaxIdentificationNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GTIN")]
     [IsoId("_jIUEgQhJEeSUPbC7DbLJpQ")]
-    [Description(@"??")]
+    [Description(@"Tax identification number.")]
     TaxIdentificationNumber,
     
 }

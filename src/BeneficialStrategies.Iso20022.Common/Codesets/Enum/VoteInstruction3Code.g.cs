@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VoteInstruction3Code
 {
     /// <summary>
-    /// ??
+    /// Active vote expressed as abstain (no opinion).
     /// Encoded/decoded by serializers as "Abstain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABST")]
     [IsoId("_8Cq8gV69EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Active vote expressed as abstain (no opinion).")]
     Abstain,
     
     /// <summary>
-    /// ??
+    /// Vote against a meeting resolution.
     /// Encoded/decoded by serializers as "Against".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAGS")]
     [IsoId("_8IxkgV69EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Vote against a meeting resolution.")]
     Against,
     
     /// <summary>
-    /// ??
+    /// Vote instruction is in against the voting recommendations of the management.
     /// Encoded/decoded by serializers as "AgainstManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMGT")]
     [IsoId("_8Pw9UV69EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Vote instruction is in against the voting recommendations of the management.")]
     AgainstManagement,
     
     /// <summary>
-    /// ??
+    /// Voting party is assigned discretionary right to vote for one resolution.
     /// Encoded/decoded by serializers as "Discretionary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_-kjDYV69EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Voting party is assigned discretionary right to vote for one resolution.")]
     Discretionary,
     
     /// <summary>
-    /// ??
+    /// Vote in favour of a meeting resolution.
     /// Encoded/decoded by serializers as "For".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFOR")]
     [IsoId("_-sSDEV69EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Vote in favour of a meeting resolution.")]
     For,
     
     /// <summary>
-    /// ??
+    /// Indicates a recommendation to take no action.
     /// Encoded/decoded by serializers as "NoAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAC")]
     [IsoId("_-y1XAV69EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Indicates a recommendation to take no action.")]
     NoAction,
     
     /// <summary>
-    /// ??
+    /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
     /// Encoded/decoded by serializers as "Withhold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHH")]
     [IsoId("__8LksV69EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).")]
     Withhold,
     
     /// <summary>
-    /// ??
+    /// Vote instruction is in line with the voting recommendations of the management.
     /// Encoded/decoded by serializers as "WithManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WMGT")]
     [IsoId("_ABrvwV6-EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Vote instruction is in line with the voting recommendations of the management.")]
     WithManagement,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for one year for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "OneYear".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONEY")]
     [IsoId("_AP0SYV6-EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for one year for ""say on pay"" type of resolution.")]
     OneYear,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for three years for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "ThreeYears".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THRY")]
     [IsoId("_AVVEgV6-EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for three years for ""say on pay"" type of resolution.")]
     ThreeYears,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for two years for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "TwoYears".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWOY")]
     [IsoId("_AbR7gV6-EeSjaerr_EM7AQ")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for two years for ""say on pay"" type of resolution.")]
     TwoYears,
     
 }

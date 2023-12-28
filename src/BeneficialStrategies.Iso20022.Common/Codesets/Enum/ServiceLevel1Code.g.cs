@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ServiceLevel1Code
 {
     /// <summary>
-    /// ??
+    /// Payment must be executed following the Single Euro Payments Area scheme.
     /// Encoded/decoded by serializers as "SingleEuroPaymentsArea".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEPA")]
     [IsoId("_ZKZRB9p-Ed-ak6NoX_4Aeg_798217531")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
     SingleEuroPaymentsArea,
     
     /// <summary>
-    /// ??
+    /// Payment must be executed with same day value to the creditor.
     /// Encoded/decoded by serializers as "SameDayValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDVA")]
     [IsoId("_ZKZRCNp-Ed-ak6NoX_4Aeg_798217556")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed with same day value to the creditor.")]
     SameDayValue,
     
     /// <summary>
-    /// ??
+    /// Transaction must be processed according to the EBA|Priority Service.
     /// Encoded/decoded by serializers as "EBAPriorityService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPT")]
     [IsoId("_ZKjCANp-Ed-ak6NoX_4Aeg_1645064833")]
-    [Description(@"??")]
+    [Description(@"Transaction must be processed according to the EBA|Priority Service.")]
     EBAPriorityService,
     
 }

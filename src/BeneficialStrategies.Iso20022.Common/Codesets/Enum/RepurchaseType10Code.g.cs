@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RepurchaseType10Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a transaction that is paired off and netted against one or more previous transactions. A paired off transaction is a buyback to offset and effectively liquidate a prior sale of securities or a sellback to offset and effectively liquidate a prior buy of securities.
     /// Encoded/decoded by serializers as "Pairoff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAIR")]
     [IsoId("_62sFEY-UEeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to a transaction that is paired off and netted against one or more previous transactions. A paired off transaction is a buyback to offset and effectively liquidate a prior sale of securities or a sellback to offset and effectively liquidate a prior buy of securities.")]
     Pairoff,
     
     /// <summary>
-    /// ??
+    /// Relates to a repo rollover of a contract extending the closing or maturity date without the underlying collateral impacted.
     /// Encoded/decoded by serializers as "RepoContractRollover".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROLP")]
     [IsoId("_691O4Y-UEeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to a repo rollover of a contract extending the closing or maturity date without the underlying collateral impacted.")]
     RepoContractRollover,
     
     /// <summary>
-    /// ??
+    /// Is part of a pair-off.
     /// Encoded/decoded by serializers as "RepoRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RATE")]
     [IsoId("_7E0nsY-UEeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Is part of a pair-off.")]
     RepoRate,
     
     /// <summary>
-    /// ??
+    /// Relates to the early closing/maturity date for a term repo or a termination date of an open repo with the underlying collateral.
     /// Encoded/decoded by serializers as "RepurchaseCall".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CALL")]
     [IsoId("_7Prz4Y-UEeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to the early closing/maturity date for a term repo or a termination date of an open repo with the underlying collateral.")]
     RepurchaseCall,
     
     /// <summary>
-    /// ??
+    /// Relates to a swap/substitution.
     /// Encoded/decoded by serializers as "Swap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CADJ")]
     [IsoId("_7WhbsY-UEeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to a swap/substitution.")]
     Swap,
     
     /// <summary>
-    /// ??
+    /// Relates to a repo rollover of a position extending the closing or maturity date.
     /// Encoded/decoded by serializers as "TopUp".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOPU")]
     [IsoId("_7b4c0Y-UEeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
     TopUp,
     
     /// <summary>
-    /// ??
+    /// Relates to a repo rollover of a position extending the closing or maturity date.
     /// Encoded/decoded by serializers as "Withdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHD")]
     [IsoId("_7gyyAY-UEeaVK-2bgpxeYw")]
-    [Description(@"??")]
+    [Description(@"Relates to a repo rollover of a position extending the closing or maturity date.")]
     Withdrawal,
     
 }

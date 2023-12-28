@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BidType1Code
 {
     /// <summary>
-    /// ??
+    /// Bid type is non disclosed.
     /// Encoded/decoded by serializers as "NonDisclosed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NDIS")]
     [IsoId("_beXexdp-Ed-ak6NoX_4Aeg_943753955")]
-    [Description(@"??")]
+    [Description(@"Bid type is non disclosed.")]
     NonDisclosed,
     
     /// <summary>
-    /// ??
+    /// Bid type is disclosed.
     /// Encoded/decoded by serializers as "Disclosed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISC")]
     [IsoId("_beXextp-Ed-ak6NoX_4Aeg_943753997")]
-    [Description(@"??")]
+    [Description(@"Bid type is disclosed.")]
     Disclosed,
     
     /// <summary>
-    /// ??
+    /// List order is not related to a bid.
     /// Encoded/decoded by serializers as "NoBid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOBI")]
     [IsoId("_beXex9p-Ed-ak6NoX_4Aeg_943754015")]
-    [Description(@"??")]
+    [Description(@"List order is not related to a bid.")]
     NoBid,
     
 }

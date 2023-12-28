@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount1Code
 {
     /// <summary>
-    /// ??
+    /// Actual amount.
     /// Encoded/decoded by serializers as "Actual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTL")]
     [IsoId("_TUJ9NAEcEeCQm6a_G2yO_w_1589618959")]
-    [Description(@"??")]
+    [Description(@"Actual amount.")]
     Actual,
     
     /// <summary>
-    /// ??
+    /// Estimated amount (the final amount could be above or below).
     /// Encoded/decoded by serializers as "Estimated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESTM")]
     [IsoId("_TUJ9NQEcEeCQm6a_G2yO_w_-630255646")]
-    [Description(@"??")]
+    [Description(@"Estimated amount (the final amount could be above or below).")]
     Estimated,
     
     /// <summary>
-    /// ??
+    /// Maximum amount (the final amount must be less or equal).
     /// Encoded/decoded by serializers as "Maximum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAXI")]
     [IsoId("_TUJ9NgEcEeCQm6a_G2yO_w_1200667523")]
-    [Description(@"??")]
+    [Description(@"Maximum amount (the final amount must be less or equal).")]
     Maximum,
     
     /// <summary>
-    /// ??
+    /// Default amount.
     /// Encoded/decoded by serializers as "Default".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_TUJ9NwEcEeCQm6a_G2yO_w_-1157074600")]
-    [Description(@"??")]
+    [Description(@"Default amount.")]
     Default,
     
     /// <summary>
-    /// ??
+    /// Replacement amount.
     /// Encoded/decoded by serializers as "Replacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RPLT")]
     [IsoId("_TUJ9OAEcEeCQm6a_G2yO_w_-952745682")]
-    [Description(@"??")]
+    [Description(@"Replacement amount.")]
     Replacement,
     
 }

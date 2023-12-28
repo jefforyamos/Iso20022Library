@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyRole3Code
 {
     /// <summary>
-    /// ??
+    /// Legal entity, other than the issuer, who gives a guarantee. The guarantor becomes liable in case of default.
     /// Encoded/decoded by serializers as "Guarantor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GATR")]
     [IsoId("_0BtyYfRCEeqAradXpAelDQ")]
-    [Description(@"??")]
+    [Description(@"Legal entity, other than the issuer, who gives a guarantee. The guarantor becomes liable in case of default.")]
     Guarantor,
     
 }

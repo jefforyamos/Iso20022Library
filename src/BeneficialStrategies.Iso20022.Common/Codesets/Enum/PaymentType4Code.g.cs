@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentType4Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is an initial payment made by one of the counterparties  either to bring a transaction to fair value or for any other reason that may be the cause of an off-market transaction.
     /// Encoded/decoded by serializers as "Upfront".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UFRO")]
     [IsoId("_99VlIekAEemV35DUs8L82Q")]
-    [Description(@"??")]
+    [Description(@"Transaction is an initial payment made by one of the counterparties  either to bring a transaction to fair value or for any other reason that may be the cause of an off-market transaction.")]
     Upfront,
     
     /// <summary>
-    /// ??
+    /// Transaction is the final settlement payment made when a transaction is unwound prior to its end date or a payment that may result due to the full termination of derivative transaction(s).
     /// Encoded/decoded by serializers as "UnWind".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UWIN")]
     [IsoId("_-BgTcekAEemV35DUs8L82Q")]
-    [Description(@"??")]
+    [Description(@"Transaction is the final settlement payment made when a transaction is unwound prior to its end date or a payment that may result due to the full termination of derivative transaction(s).")]
     UnWind,
     
     /// <summary>
-    /// ??
+    /// Transaction is an exchange of notional values for cross-currency swaps.
     /// Encoded/decoded by serializers as "PrincipalExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEXH")]
     [IsoId("__VvigekAEemV35DUs8L82Q")]
-    [Description(@"??")]
+    [Description(@"Transaction is an exchange of notional values for cross-currency swaps.")]
     PrincipalExchange,
     
 }

@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TMSContactLevel2Code
 {
     /// <summary>
-    /// ??
+    /// Terminal management system has to be contacted as soon as possible (for example after reconciliation).
     /// Encoded/decoded by serializers as "AsSoonAsPossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASAP")]
     [IsoId("_fZ92gYqKEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Terminal management system has to be contacted as soon as possible (for example after reconciliation).")]
     AsSoonAsPossible,
     
     /// <summary>
-    /// ??
+    /// Terminal management system has to be contacted before the next transaction.
     /// Encoded/decoded by serializers as "Critical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRIT")]
     [IsoId("_feJL4YqKEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Terminal management system has to be contacted before the next transaction.")]
     Critical,
     
     /// <summary>
-    /// ??
+    /// Terminal management system has to be contacted at the date and time provided.
     /// Encoded/decoded by serializers as "DateTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DTIM")]
     [IsoId("_fidrMYqKEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Terminal management system has to be contacted at the date and time provided.")]
     DateTime,
     
     /// <summary>
-    /// ??
+    /// After the end of the customer session.
     /// Encoded/decoded by serializers as "EndCustomerSession".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENCS")]
     [IsoId("_fn1TYYqKEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"After the end of the customer session.")]
     EndCustomerSession,
     
 }

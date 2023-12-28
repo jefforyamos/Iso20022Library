@@ -20,48 +20,50 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ICCFallbackReason1Code
 {
     /// <summary>
-    /// ??
+    /// Choosing incorrect IC application.
     /// Encoded/decoded by serializers as "ChoosingIncorrectICApplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CIIA")]
     [IsoId("_P4yAATxSEeyuG4d2lhAp-w")]
-    [Description(@"??")]
+    [Description(@"Choosing incorrect IC application.")]
     ChoosingIncorrectICApplication,
     
     /// <summary>
-    /// ??
+    /// Error during IC app processing.
+    /// 
     /// Encoded/decoded by serializers as "ErrorDuringICAppProcessing.".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDIP")]
     [IsoId("_P96-sTxSEeyuG4d2lhAp-w")]
-    [Description(@"??")]
+    [Description(@"Error during IC app processing. ")]
     ErrorDuringICAppProcessing,
     
     /// <summary>
-    /// ??
+    /// Other ICC fallback reason defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_QCJXYTxSEeyuG4d2lhAp-w")]
-    [Description(@"??")]
+    [Description(@"Other ICC fallback reason defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other ICC fallback reason defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_QJDQoTxSEeyuG4d2lhAp-w")]
-    [Description(@"??")]
+    [Description(@"Other ICC fallback reason defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Terminal error reading IC data.
+    /// 
     /// Encoded/decoded by serializers as "TerminalErrorReadingICData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERI")]
     [IsoId("_QPGOQTxSEeyuG4d2lhAp-w")]
-    [Description(@"??")]
+    [Description(@"Terminal error reading IC data. ")]
     TerminalErrorReadingICData,
     
 }

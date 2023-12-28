@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Account can be used for its intended purpose.
     /// Encoded/decoded by serializers as "Enabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENAB")]
     [IsoId("_brets9p-Ed-ak6NoX_4Aeg_-910847163")]
-    [Description(@"??")]
+    [Description(@"Account can be used for its intended purpose.")]
     Enabled,
     
     /// <summary>
-    /// ??
+    /// Account cannot be used for its intended purpose, either temporarily or permanently.
     /// Encoded/decoded by serializers as "Disabled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISA")]
     [IsoId("_brettNp-Ed-ak6NoX_4Aeg_-898842246")]
-    [Description(@"??")]
+    [Description(@"Account cannot be used for its intended purpose, either temporarily or permanently.")]
     Disabled,
     
     /// <summary>
-    /// ??
+    /// Account cannot be used any longer.
     /// Encoded/decoded by serializers as "Deleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELE")]
     [IsoId("_brettdp-Ed-ak6NoX_4Aeg_-885910656")]
-    [Description(@"??")]
+    [Description(@"Account cannot be used any longer.")]
     Deleted,
     
 }

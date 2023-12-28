@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementAdviceType1Code
 {
     /// <summary>
-    /// ??
+    /// Settlement advice related to an undertaking amendment.
     /// Encoded/decoded by serializers as "UndertakingAmendment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMND")]
     [IsoId("_KhLZFnyiEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Settlement advice related to an undertaking amendment.")]
     UndertakingAmendment,
     
     /// <summary>
-    /// ??
+    /// Settlement advice related to an automatic booking of charges.
     /// Encoded/decoded by serializers as "AutomaticChargesBooking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACHG")]
     [IsoId("_Km_tNnyiEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Settlement advice related to an automatic booking of charges.")]
     AutomaticChargesBooking,
     
     /// <summary>
-    /// ??
+    /// Settlement advice related to a claim for payment.
     /// Encoded/decoded by serializers as "PaymentClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAM")]
     [IsoId("_Ks9LRnyiEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Settlement advice related to a claim for payment.")]
     PaymentClaim,
     
     /// <summary>
-    /// ??
+    /// Settlement advice related to correspondent bank charges.
     /// Encoded/decoded by serializers as "CorrespondentBankCharges".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("_KzNkRnyiEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Settlement advice related to correspondent bank charges.")]
     CorrespondentBankCharges,
     
     /// <summary>
-    /// ??
+    /// Settlement advice related to an undertaking issuance.
     /// Encoded/decoded by serializers as "UndertakingIssuance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISSU")]
     [IsoId("_K5xfRnyiEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Settlement advice related to an undertaking issuance.")]
     UndertakingIssuance,
     
     /// <summary>
-    /// ??
+    /// Settlement advice related to a manual booking of charges.
     /// Encoded/decoded by serializers as "ManualChargesBooking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCHG")]
     [IsoId("_LALpRnyiEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Settlement advice related to a manual booking of charges.")]
     ManualChargesBooking,
     
     /// <summary>
-    /// ??
+    /// Settlement advice related to a refund.
     /// Encoded/decoded by serializers as "Refund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFD")]
     [IsoId("_LHfLJnyiEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Settlement advice related to a refund.")]
     Refund,
     
     /// <summary>
-    /// ??
+    /// Settlement advice related to an undertaking termination.
     /// Encoded/decoded by serializers as "Termination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("_LOCfFnyiEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Settlement advice related to an undertaking termination.")]
     Termination,
     
 }

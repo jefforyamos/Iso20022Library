@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BeneficiaryCertificationType1Code
 {
     /// <summary>
-    /// ??
+    /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
     /// Encoded/decoded by serializers as "AccreditedInvestor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCI")]
     [IsoId("_bdxB09p-Ed-ak6NoX_4Aeg_609609119")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.")]
     AccreditedInvestor,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to certify his domicile.
     /// Encoded/decoded by serializers as "DomicileCountry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOMI")]
     [IsoId("_bdxB1Np-Ed-ak6NoX_4Aeg_609609150")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to certify his domicile.")]
     DomicileCountry,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.
     /// Encoded/decoded by serializers as "FullBeneficialOwnerBreakdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULL")]
     [IsoId("_bdxB1dp-Ed-ak6NoX_4Aeg_609609151")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.")]
     FullBeneficialOwnerBreakdown,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
     /// Encoded/decoded by serializers as "QIBCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QIBB")]
     [IsoId("_bdxB1tp-Ed-ak6NoX_4Aeg_609609160")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
     QIBCertification,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.
     /// Encoded/decoded by serializers as "TaxRateBreakdown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRBD")]
     [IsoId("_bdxB19p-Ed-ak6NoX_4Aeg_609609180")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.")]
     TaxRateBreakdown,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to certify he is an Non-Company related person.
     /// Encoded/decoded by serializers as "NonCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCOM")]
     [IsoId("_bdxB2Np-Ed-ak6NoX_4Aeg_609609181")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to certify he is an Non-Company related person.")]
     NonCompany,
     
 }

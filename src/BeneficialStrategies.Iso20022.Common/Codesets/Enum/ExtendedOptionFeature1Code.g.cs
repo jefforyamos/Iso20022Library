@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExtendedOptionFeature1Code
 {
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. Option to select unfavourable tax rate. The Foreign Tax Unfavourable option is the default option.
     /// Encoded/decoded by serializers as "ForeignTaxUnfavorable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORU")]
     [IsoId("_146xIjL3EeKU9IrkkToqcw_-255037301")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. Option to select unfavourable tax rate. The Foreign Tax Unfavourable option is the default option.")]
     ForeignTaxUnfavorable,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. An election into this option ensures the participant receives their payment at a favourable tax withholding rate.
     /// Encoded/decoded by serializers as "ForeignTaxFavorable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORF")]
     [IsoId("_146xIzL3EeKU9IrkkToqcw_-1138270588")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. An election into this option ensures the participant receives their payment at a favourable tax withholding rate.")]
     ForeignTaxFavorable,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. An election into this option ensures the participant is exempt from any tax withholding.
     /// Encoded/decoded by serializers as "ForeignTaxExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORX")]
     [IsoId("_146xJDL3EeKU9IrkkToqcw_199049968")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. An election into this option ensures the participant is exempt from any tax withholding.")]
     ForeignTaxExempt,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and Foreign Tax services at DTC. Participants electing this option will receive additional shares and the tax withholding on those shares will be at the unfavourable tax rate.
     /// Encoded/decoded by serializers as "DRIPUnfavorable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRPU")]
     [IsoId("_146xJTL3EeKU9IrkkToqcw_-684183319")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and Foreign Tax services at DTC. Participants electing this option will receive additional shares and the tax withholding on those shares will be at the unfavourable tax rate.")]
     DRIPUnfavorable,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and Foreign Tax Relief services at DTC. Participants electing this option will receive additional shares and the tax withholding on those shares will be at the favourable tax rate.
     /// Encoded/decoded by serializers as "DRIPFavorable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRPF")]
     [IsoId("_15EiIDL3EeKU9IrkkToqcw_784996994")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and Foreign Tax Relief services at DTC. Participants electing this option will receive additional shares and the tax withholding on those shares will be at the favourable tax rate.")]
     DRIPFavorable,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and the Foreign Tax Relief services at DTC. Participants electing this option will receive additional shares and will be exempt from any tax withholding.
     /// Encoded/decoded by serializers as "DRIPExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRPX")]
     [IsoId("_15EiITL3EeKU9IrkkToqcw_-2036135404")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and the Foreign Tax Relief services at DTC. Participants electing this option will receive additional shares and will be exempt from any tax withholding.")]
     DRIPExempt,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for Foreign Currency Payment service at DTC. Participants electing this option will receive their distribution in the foreign currency instructed.
     /// Encoded/decoded by serializers as "ForeignCurrencyPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCPP")]
     [IsoId("_15EiIjL3EeKU9IrkkToqcw_1375598605")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for Foreign Currency Payment service at DTC. Participants electing this option will receive their distribution in the foreign currency instructed.")]
     ForeignCurrencyPayment,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing this option will receive their distribution in a foreign currency and the tax withholding on that distribution will be subject to unfavourable tax withholding.
     /// Encoded/decoded by serializers as "ForeignCurrencyPaymentUnfavorable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCPU")]
     [IsoId("_15EiIzL3EeKU9IrkkToqcw_-604784726")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing this option will receive their distribution in a foreign currency and the tax withholding on that distribution will be subject to unfavourable tax withholding.")]
     ForeignCurrencyPaymentUnfavorable,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing the option will receive their distribution in foreign currency and the tax withholding on that distribution will be subject to favourable tax withholding.
     /// Encoded/decoded by serializers as "ForeignCurrencyPaymentFavorable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCPF")]
     [IsoId("_15EiJDL3EeKU9IrkkToqcw_-1488018013")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing the option will receive their distribution in foreign currency and the tax withholding on that distribution will be subject to favourable tax withholding.")]
     ForeignCurrencyPaymentFavorable,
     
     /// <summary>
-    /// ??
+    /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing this option will receive their distribution in a foreign currency and will be exempt from any tax withholding.
     /// Encoded/decoded by serializers as "ForeignCurrencyPaymentExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCPX")]
     [IsoId("_15EiJTL3EeKU9IrkkToqcw_809451896")]
-    [Description(@"??")]
+    [Description(@"DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing this option will receive their distribution in a foreign currency and will be exempt from any tax withholding.")]
     ForeignCurrencyPaymentExempt,
     
 }

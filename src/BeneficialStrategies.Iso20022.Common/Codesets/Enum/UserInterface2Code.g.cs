@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UserInterface2Code
 {
     /// <summary>
-    /// ??
+    /// Merchant display or interface.
     /// Encoded/decoded by serializers as "MerchantDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MDSP")]
     [IsoId("_TUmCEwEcEeCQm6a_G2yO_w_-1877868390")]
-    [Description(@"??")]
+    [Description(@"Merchant display or interface.")]
     MerchantDisplay,
     
     /// <summary>
-    /// ??
+    /// Cardholder display or interface.
     /// Encoded/decoded by serializers as "CardholderDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDSP")]
     [IsoId("_TUmCFAEcEeCQm6a_G2yO_w_-44704637")]
-    [Description(@"??")]
+    [Description(@"Cardholder display or interface.")]
     CardholderDisplay,
     
 }

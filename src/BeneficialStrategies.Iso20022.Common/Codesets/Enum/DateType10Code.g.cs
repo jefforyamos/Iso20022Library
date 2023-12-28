@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateType10Code
 {
     /// <summary>
-    /// ??
+    /// Blocking occurs until and inclusive of the meeting date.
     /// Encoded/decoded by serializers as "BlockingTillMeetingDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEET")]
     [IsoId("_vqyAYTUIEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Blocking occurs until and inclusive of the meeting date.")]
     BlockingTillMeetingDate,
     
     /// <summary>
-    /// ??
+    /// Date is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_xUSU0TUIEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Date is unknown by the sender or has not been established.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Refer to additional information element for the date until when the securities are blocked.
     /// Encoded/decoded by serializers as "NarrativeUnblockingDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NARR")]
     [IsoId("_xjoYYTUIEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Refer to additional information element for the date until when the securities are blocked.")]
     NarrativeUnblockingDate,
     
     /// <summary>
-    /// ??
+    /// Blocking occurs until and inclusive of the record date of the event.
     /// Encoded/decoded by serializers as "BlockingTillRecordDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDTE")]
     [IsoId("_yZbX8TUIEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Blocking occurs until and inclusive of the record date of the event.")]
     BlockingTillRecordDate,
     
     /// <summary>
-    /// ??
+    /// Unblocking will occur on payment date of the premium.
     /// Encoded/decoded by serializers as "BlockingTillPremiumPaymentDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPYD")]
     [IsoId("_p3ogkTUJEe2tRf29bleifQ")]
-    [Description(@"??")]
+    [Description(@"Unblocking will occur on payment date of the premium.")]
     BlockingTillPremiumPaymentDate,
     
 }

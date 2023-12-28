@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BalanceAdjustmentType1Code
 {
     /// <summary>
-    /// ??
+    /// Adjustment applies to the average ledger (book) balance.
     /// Encoded/decoded by serializers as "Ledger".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LDGR")]
     [IsoId("_6URjBZqlEeGSON8vddiWzQ_-1813350112")]
-    [Description(@"??")]
+    [Description(@"Adjustment applies to the average ledger (book) balance.")]
     Ledger,
     
     /// <summary>
-    /// ??
+    /// Adjustment applies to the average float (unavailable) balance.
     /// Encoded/decoded by serializers as "Float".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLOT")]
     [IsoId("_6URjBpqlEeGSON8vddiWzQ_-1052584959")]
-    [Description(@"??")]
+    [Description(@"Adjustment applies to the average float (unavailable) balance.")]
     Float,
     
     /// <summary>
-    /// ??
+    /// Adjustment applies to the average collected (book less float) balance.
     /// Encoded/decoded by serializers as "Collected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLLD")]
     [IsoId("_6URjB5qlEeGSON8vddiWzQ_414563804")]
-    [Description(@"??")]
+    [Description(@"Adjustment applies to the average collected (book less float) balance.")]
     Collected,
     
 }

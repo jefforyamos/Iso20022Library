@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SubscriptionRequest1Code
 {
     /// <summary>
-    /// ??
+    /// Specifies that the request is to subscribe to snapshots.
     /// Encoded/decoded by serializers as "Snapshot".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNAP")]
     [IsoId("_ZQpqBdp-Ed-ak6NoX_4Aeg_-1044305239")]
-    [Description(@"??")]
+    [Description(@"Specifies that the request is to subscribe to snapshots.")]
     Snapshot,
     
     /// <summary>
-    /// ??
+    /// Specifies that the request is to subscribe to snapshots and updates.
     /// Encoded/decoded by serializers as "Subscribe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_ZQpqBtp-Ed-ak6NoX_4Aeg_-1044305197")]
-    [Description(@"??")]
+    [Description(@"Specifies that the request is to subscribe to snapshots and updates.")]
     Subscribe,
     
     /// <summary>
-    /// ??
+    /// Specifies that the request is to disable the previous snapshot subscription and to update the request (unsubscribe).
     /// Encoded/decoded by serializers as "Unsubscribe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSU")]
     [IsoId("_ZQpqB9p-Ed-ak6NoX_4Aeg_-1044305162")]
-    [Description(@"??")]
+    [Description(@"Specifies that the request is to disable the previous snapshot subscription and to update the request (unsubscribe).")]
     Unsubscribe,
     
 }

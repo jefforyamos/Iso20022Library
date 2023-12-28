@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceValueType9Code
 {
     /// <summary>
-    /// ??
+    /// Price to be specified by account owner.
     /// Encoded/decoded by serializers as "ToBeSpecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBSP")]
     [IsoId("_q5bEM2tdEeCY4-KZ9JEyUQ_-401797513")]
-    [Description(@"??")]
+    [Description(@"Price to be specified by account owner.")]
     ToBeSpecified,
     
     /// <summary>
-    /// ??
+    /// Price is not required to be specified by account owner.
     /// Encoded/decoded by serializers as "Unspecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_q5bENGtdEeCY4-KZ9JEyUQ_-519195689")]
-    [Description(@"??")]
+    [Description(@"Price is not required to be specified by account owner.")]
     Unspecified,
     
     /// <summary>
-    /// ??
+    /// Price is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_q5bENWtdEeCY4-KZ9JEyUQ_-1516268042")]
-    [Description(@"??")]
+    [Description(@"Price is unknown by the sender or has not been established.")]
     Unknown,
     
 }

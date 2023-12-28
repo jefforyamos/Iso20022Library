@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentFundPlanType1Code
 {
     /// <summary>
-    /// ??
+    /// Savings investment plan.
     /// Encoded/decoded by serializers as "SavingsInvestmentPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVP")]
     [IsoId("_ORZ8sV9EEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Savings investment plan.")]
     SavingsInvestmentPlan,
     
     /// <summary>
-    /// ??
+    /// Switch plan.
     /// Encoded/decoded by serializers as "SwitchPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIP")]
     [IsoId("_OW2dYV9EEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Switch plan.")]
     SwitchPlan,
     
     /// <summary>
-    /// ??
+    /// Withdrawal plan.
     /// Encoded/decoded by serializers as "WithdrawalPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHP")]
     [IsoId("_Oc3l0V9EEeicg40_9gK9vQ")]
-    [Description(@"??")]
+    [Description(@"Withdrawal plan.")]
     WithdrawalPlan,
     
 }

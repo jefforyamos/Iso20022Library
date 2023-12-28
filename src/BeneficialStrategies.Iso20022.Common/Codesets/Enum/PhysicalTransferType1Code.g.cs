@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PhysicalTransferType1Code
 {
     /// <summary>
-    /// ??
+    /// Dematerialised transfer.
     /// Encoded/decoded by serializers as "Dematerialised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEMT")]
     [IsoId("_kzEcnv8vEeCuNd2SpsBr7g")]
-    [Description(@"??")]
+    [Description(@"Dematerialised transfer.")]
     Dematerialised,
     
     /// <summary>
-    /// ??
+    /// Physical transfer.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_k2gLHv8vEeCuNd2SpsBr7g")]
-    [Description(@"??")]
+    [Description(@"Physical transfer.")]
     Physical,
     
 }

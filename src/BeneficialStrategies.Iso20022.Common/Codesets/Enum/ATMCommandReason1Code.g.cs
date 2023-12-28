@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMCommandReason1Code
 {
     /// <summary>
-    /// ??
+    /// Request the status of or action from the ATM to perform a diagnostic.
     /// Encoded/decoded by serializers as "Diagnostic".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIAG")]
     [IsoId("_Z7ffwYtHEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Request the status of or action from the ATM to perform a diagnostic.")]
     Diagnostic,
     
     /// <summary>
-    /// ??
+    /// Supervise the ATM.
     /// Encoded/decoded by serializers as "Monitoring".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONI")]
     [IsoId("_aBKC4YtHEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Supervise the ATM.")]
     Monitoring,
     
     /// <summary>
-    /// ??
+    /// Security error.
     /// Encoded/decoded by serializers as "SecurityError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_aLIeQ4tHEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Security error.")]
     SecurityError,
     
     /// <summary>
-    /// ??
+    /// Desynchronisation of dialogue between entities.
     /// Encoded/decoded by serializers as "Synchronisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SYNC")]
     [IsoId("_aQWVc4tHEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Desynchronisation of dialogue between entities.")]
     Synchronisation,
     
     /// <summary>
-    /// ??
+    /// Update the ATM.
     /// Encoded/decoded by serializers as "Update".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPDT")]
     [IsoId("_aW6QcYtHEeSxlKlAGYErFg")]
-    [Description(@"??")]
+    [Description(@"Update the ATM.")]
     Update,
     
 }

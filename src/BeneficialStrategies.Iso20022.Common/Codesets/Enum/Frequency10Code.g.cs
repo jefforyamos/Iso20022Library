@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Frequency10Code
 {
     /// <summary>
-    /// ??
+    /// Event does never take place.
     /// Encoded/decoded by serializers as "Never".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEVR")]
     [IsoId("_ns-iwWoEEearR-CA7eRZXQ")]
-    [Description(@"??")]
+    [Description(@"Event does never take place.")]
     Never,
     
     /// <summary>
-    /// ??
+    /// Event takes place every year or once a year.
     /// Encoded/decoded by serializers as "Annual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_vQ94oWoEEearR-CA7eRZXQ")]
-    [Description(@"??")]
+    [Description(@"Event takes place every year or once a year.")]
     Annual,
     
     /// <summary>
-    /// ??
+    /// Event takes place based on a change of a rate.
     /// Encoded/decoded by serializers as "Rate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RATE")]
     [IsoId("_5MNZwWoEEearR-CA7eRZXQ")]
-    [Description(@"??")]
+    [Description(@"Event takes place based on a change of a rate.")]
     Rate,
     
     /// <summary>
-    /// ??
+    /// Event takes place every six months or two times a year.
     /// Encoded/decoded by serializers as "SemiAnnual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIAN")]
     [IsoId("_6xlcIWoEEearR-CA7eRZXQ")]
-    [Description(@"??")]
+    [Description(@"Event takes place every six months or two times a year.")]
     SemiAnnual,
     
     /// <summary>
-    /// ??
+    /// Event takes place every three months or four times a year.
     /// Encoded/decoded by serializers as "Quarterly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QURT")]
     [IsoId("_7SZDIWoEEearR-CA7eRZXQ")]
-    [Description(@"??")]
+    [Description(@"Event takes place every three months or four times a year.")]
     Quarterly,
     
 }

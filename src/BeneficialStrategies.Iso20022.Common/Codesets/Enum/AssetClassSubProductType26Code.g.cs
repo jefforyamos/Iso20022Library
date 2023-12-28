@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType26Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type inter energy.
     /// Encoded/decoded by serializers as "InterEnergy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INRG")]
     [IsoId("_kgdlQ1rKEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type inter energy.")]
     InterEnergy,
     
 }

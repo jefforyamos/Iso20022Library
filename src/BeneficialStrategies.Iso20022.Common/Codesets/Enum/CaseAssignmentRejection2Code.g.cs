@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CaseAssignmentRejection2Code
 {
     /// <summary>
-    /// ??
+    /// Underlying instruction can not be found.
     /// Encoded/decoded by serializers as "UnderlyingPaymentNotFound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NFND")]
     [IsoId("_a2IaEtp-Ed-ak6NoX_4Aeg_-2044862916")]
-    [Description(@"??")]
+    [Description(@"Underlying instruction can not be found.")]
     UnderlyingPaymentNotFound,
     
     /// <summary>
-    /// ??
+    /// Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).
     /// Encoded/decoded by serializers as "NotAuthorisedToInvestigate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAUT")]
     [IsoId("_a2IaE9p-Ed-ak6NoX_4Aeg_-2044862899")]
-    [Description(@"??")]
+    [Description(@"Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).")]
     NotAuthorisedToInvestigate,
     
     /// <summary>
-    /// ??
+    /// Case has never been assigned before.
     /// Encoded/decoded by serializers as "UnknownCase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKNW")]
     [IsoId("_a2IaFNp-Ed-ak6NoX_4Aeg_-2044862857")]
-    [Description(@"??")]
+    [Description(@"Case has never been assigned before.")]
     UnknownCase,
     
     /// <summary>
-    /// ??
+    /// Used when the payment instruction has previously been cancelled or rejected.
     /// Encoded/decoded by serializers as "PaymentPreviouslyCancelledOrRejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCOR")]
     [IsoId("_a2IaFdp-Ed-ak6NoX_4Aeg_-2044862530")]
-    [Description(@"??")]
+    [Description(@"Used when the payment instruction has previously been cancelled or rejected.")]
     PaymentPreviouslyCancelledOrRejected,
     
 }

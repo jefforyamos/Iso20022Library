@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PartyType28Code
 {
     /// <summary>
-    /// ??
+    /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
     /// Encoded/decoded by serializers as "Acceptor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCP")]
     [IsoId("_GNPvMdwBEeeOusYHZbyj7w")]
-    [Description(@"??")]
+    [Description(@"Card acceptor, party accepting the card and presenting transaction data to the acquirer.")]
     Acceptor,
     
     /// <summary>
-    /// ??
+    /// Entity acquiring card transactions.
     /// Encoded/decoded by serializers as "Acquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACQR")]
     [IsoId("_GNPvM9wBEeeOusYHZbyj7w")]
-    [Description(@"??")]
+    [Description(@"Entity acquiring card transactions.")]
     Acquirer,
     
     /// <summary>
-    /// ??
+    /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
     /// Encoded/decoded by serializers as "Agent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_GNPvO9wBEeeOusYHZbyj7w")]
-    [Description(@"??")]
+    [Description(@"Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.")]
     Agent,
     
     /// <summary>
-    /// ??
+    /// Other card payment entity type defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_GNPvPdwBEeeOusYHZbyj7w")]
-    [Description(@"??")]
+    [Description(@"Other card payment entity type defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other card payment entity type defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_GNPvP9wBEeeOusYHZbyj7w")]
-    [Description(@"??")]
+    [Description(@"Other card payment entity type defined at private level")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Provider of an electronic wallet
     /// Encoded/decoded by serializers as "WalletProvider".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WLPR")]
     [IsoId("_KYSzUdwBEeeOusYHZbyj7w")]
-    [Description(@"??")]
+    [Description(@"Provider of an electronic wallet")]
     WalletProvider,
     
     /// <summary>
-    /// ??
+    /// Issuer is the entitled party.
     /// Encoded/decoded by serializers as "Issuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISUR")]
     [IsoId("_0Hsb0UNKEeiut6dbx3wnBg")]
-    [Description(@"??")]
+    [Description(@"Issuer is the entitled party.")]
     Issuer,
     
 }

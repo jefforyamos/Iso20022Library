@@ -20,255 +20,255 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LodgingService1Code
 {
     /// <summary>
-    /// ??
+    /// Room accommodation
     /// Encoded/decoded by serializers as "Accommodation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCO")]
     [IsoId("_y7qT0WMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Room accommodation")]
     Accommodation,
     
     /// <summary>
-    /// ??
+    /// Audio visual lodging service.
     /// Encoded/decoded by serializers as "AudioVisual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUDI")]
     [IsoId("_zM08UmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Audio visual lodging service.")]
     AudioVisual,
     
     /// <summary>
-    /// ??
+    /// Banquet lodging service.
     /// Encoded/decoded by serializers as "Banquet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BANQ")]
     [IsoId("_zbOksmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Banquet lodging service.")]
     Banquet,
     
     /// <summary>
-    /// ??
+    /// Breakfast lodging service.
     /// Encoded/decoded by serializers as "Breakfast".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BREK")]
     [IsoId("_zoAccmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Breakfast lodging service.")]
     Breakfast,
     
     /// <summary>
-    /// ??
+    /// Business centre lodging service.
     /// Encoded/decoded by serializers as "BusinessCentre".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSS")]
     [IsoId("_z1EoEmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Business centre lodging service.")]
     BusinessCentre,
     
     /// <summary>
-    /// ??
+    /// Concierge lodging service.
     /// Encoded/decoded by serializers as "Concierge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONC")]
     [IsoId("_0BX-smMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Concierge lodging service.")]
     Concierge,
     
     /// <summary>
-    /// ??
+    /// Early arrival lodging service.
     /// Encoded/decoded by serializers as "EarlyArrival".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EARA")]
     [IsoId("_0TUqUmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Early arrival lodging service.")]
     EarlyArrival,
     
     /// <summary>
-    /// ??
+    /// Early departure lodging service.
     /// Encoded/decoded by serializers as "EarlyDeparture".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EARD")]
     [IsoId("_0mfd8mMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Early departure lodging service.")]
     EarlyDeparture,
     
     /// <summary>
-    /// ??
+    /// Entertainment lodging service.
     /// Encoded/decoded by serializers as "Entertainment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENTR")]
     [IsoId("_05LwcmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Entertainment lodging service.")]
     Entertainment,
     
     /// <summary>
-    /// ??
+    /// Folio cash advance lodging service.
     /// Encoded/decoded by serializers as "FolioCashAdvance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCAA")]
     [IsoId("_1IohsmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Folio cash advance lodging service.")]
     FolioCashAdvance,
     
     /// <summary>
-    /// ??
+    /// Games lodging service.
     /// Encoded/decoded by serializers as "Games".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAME")]
     [IsoId("_1Xy_EmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Games lodging service.")]
     Games,
     
     /// <summary>
-    /// ??
+    /// Garage lodging service.
     /// Encoded/decoded by serializers as "Garage".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GARA")]
     [IsoId("_1nJpsmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Garage lodging service.")]
     Garage,
     
     /// <summary>
-    /// ??
+    /// Gift shop lodging service.
     /// Encoded/decoded by serializers as "GiftShop".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIFT")]
     [IsoId("_1zdAUmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Gift shop lodging service.")]
     GiftShop,
     
     /// <summary>
-    /// ??
+    /// Health lodging service.
     /// Encoded/decoded by serializers as "Health".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HEAL")]
     [IsoId("_1-5bUmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Health lodging service.")]
     Health,
     
     /// <summary>
-    /// ??
+    /// Internet lodging service.
     /// Encoded/decoded by serializers as "Internet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_2saBkmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Internet lodging service.")]
     Internet,
     
     /// <summary>
-    /// ??
+    /// Laundry lodging service.
     /// Encoded/decoded by serializers as "Laundry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LAUN")]
     [IsoId("_25L5UmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Laundry lodging service.")]
     Laundry,
     
     /// <summary>
-    /// ??
+    /// Lounge bar lodging service.
     /// Encoded/decoded by serializers as "LoungeBar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LONG")]
     [IsoId("_3HroUmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Lounge bar lodging service.")]
     LoungeBar,
     
     /// <summary>
-    /// ??
+    /// Mini bar lodging service.
     /// Encoded/decoded by serializers as "MiniBar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINI")]
     [IsoId("_3Vgo8mMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Mini bar lodging service.")]
     MiniBar,
     
     /// <summary>
-    /// ??
+    /// No show lodging service.
     /// Encoded/decoded by serializers as "NoShow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOSH")]
     [IsoId("_3slsMmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"No show lodging service.")]
     NoShow,
     
     /// <summary>
-    /// ??
+    /// Other type of service.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_4AnbcmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Other type of service.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Parking lodging service.
     /// Encoded/decoded by serializers as "Parking".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PARK")]
     [IsoId("_4LxikmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Parking lodging service.")]
     Parking,
     
     /// <summary>
-    /// ??
+    /// Phone lodging service.
     /// Encoded/decoded by serializers as "Phone".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHON")]
     [IsoId("_4YYbMmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Phone lodging service.")]
     Phone,
     
     /// <summary>
-    /// ??
+    /// Restaurant lodging service.
     /// Encoded/decoded by serializers as "Restaurant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REST")]
     [IsoId("_4kfkkmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Restaurant lodging service.")]
     Restaurant,
     
     /// <summary>
-    /// ??
+    /// Room service.
     /// Encoded/decoded by serializers as "RoomService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RMSE")]
     [IsoId("_4pvQ8WMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Room service.")]
     RoomService,
     
     /// <summary>
-    /// ??
+    /// Spa lodging service.
     /// Encoded/decoded by serializers as "Spa".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPAS")]
     [IsoId("_5X_eEmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Spa lodging service.")]
     Spa,
     
     /// <summary>
-    /// ??
+    /// Third-party lodging service.
     /// Encoded/decoded by serializers as "ThirdParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THRD")]
     [IsoId("_5o95UmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Third-party lodging service.")]
     ThirdParty,
     
     /// <summary>
-    /// ??
+    /// Transportation lodging service.
     /// Encoded/decoded by serializers as "Transportation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRAN")]
     [IsoId("_50UNsmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Transportation lodging service.")]
     Transportation,
     
     /// <summary>
-    /// ??
+    /// Video on demand lodging service.
     /// Encoded/decoded by serializers as "VideoOnDemand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VODS")]
     [IsoId("_6AzxkmMtEeexSYCBvAp_qA")]
-    [Description(@"??")]
+    [Description(@"Video on demand lodging service.")]
     VideoOnDemand,
     
 }

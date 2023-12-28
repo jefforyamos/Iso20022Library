@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FlowDirectionType1Code
 {
     /// <summary>
-    /// ??
+    /// Amount of money received.
     /// Encoded/decoded by serializers as "Incoming".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCG")]
     [IsoId("_aq9E09p-Ed-ak6NoX_4Aeg_124504902")]
-    [Description(@"??")]
+    [Description(@"Amount of money received.")]
     Incoming,
     
     /// <summary>
-    /// ??
+    /// Amount of money paid out.
     /// Encoded/decoded by serializers as "Outgoing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OUTG")]
     [IsoId("_aq9E1Np-Ed-ak6NoX_4Aeg_124504903")]
-    [Description(@"??")]
+    [Description(@"Amount of money paid out.")]
     Outgoing,
     
 }

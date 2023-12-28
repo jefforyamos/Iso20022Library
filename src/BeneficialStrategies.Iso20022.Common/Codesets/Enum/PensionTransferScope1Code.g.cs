@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PensionTransferScope1Code
 {
     /// <summary>
-    /// ??
+    /// Transfer is for the crystallised portion.
     /// Encoded/decoded by serializers as "CrystallisedPart".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRYS")]
     [IsoId("_6W9-oU4YEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Transfer is for the crystallised portion.")]
     CrystallisedPart,
     
     /// <summary>
-    /// ??
+    /// Transfer is for a specific drawdown tranche.
     /// Encoded/decoded by serializers as "DrawdownTranche".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDDT")]
     [IsoId("_6b_okU4YEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Transfer is for a specific drawdown tranche.")]
     DrawdownTranche,
     
     /// <summary>
-    /// ??
+    /// Transfer is for the full pension.
     /// Encoded/decoded by serializers as "FullPension".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FULP")]
     [IsoId("_6hnvcU4YEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Transfer is for the full pension.")]
     FullPension,
     
     /// <summary>
-    /// ??
+    /// Transfer is for the uncrystallised portion.
     /// Encoded/decoded by serializers as "UncrystallisedPart".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCRY")]
     [IsoId("_6lp64U4YEeiQHa-q1Uephw")]
-    [Description(@"??")]
+    [Description(@"Transfer is for the uncrystallised portion.")]
     UncrystallisedPart,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationStatus4Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_a0VqUdp-Ed-ak6NoX_4Aeg_-927683854")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Cancellation instruction / request has been rejected / denied for further processing.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_a0VqUtp-Ed-ak6NoX_4Aeg_-831637751")]
-    [Description(@"??")]
+    [Description(@"Cancellation instruction / request has been rejected / denied for further processing.")]
     Rejected,
     
 }

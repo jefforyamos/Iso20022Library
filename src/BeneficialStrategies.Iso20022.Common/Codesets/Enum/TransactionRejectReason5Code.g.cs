@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionRejectReason5Code
 {
     /// <summary>
-    /// ??
+    /// Format of the account number specified is not correct.
     /// Encoded/decoded by serializers as "IncorrectAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC01")]
     [IsoId("_Yt7-g9p-Ed-ak6NoX_4Aeg_-68063242")]
-    [Description(@"??")]
+    [Description(@"Format of the account number specified is not correct.")]
     IncorrectAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account number specified has been closed on the Receiver's books.
     /// Encoded/decoded by serializers as "ClosedAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC04")]
     [IsoId("_Yt7-hNp-Ed-ak6NoX_4Aeg_-68063199")]
-    [Description(@"??")]
+    [Description(@"Account number specified has been closed on the Receiver's books.")]
     ClosedAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account specified is blocked, prohibiting posting of transactions against it.
     /// Encoded/decoded by serializers as "BlockedAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC06")]
     [IsoId("_Yt7-hdp-Ed-ak6NoX_4Aeg_-68063139")]
-    [Description(@"??")]
+    [Description(@"Account specified is blocked, prohibiting posting of transactions against it.")]
     BlockedAccount,
     
     /// <summary>
-    /// ??
+    /// Transaction forbidden on this type of account (formerly NoAgreement).
     /// Encoded/decoded by serializers as "TransactionForbidden".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AG01")]
     [IsoId("_Yt7-htp-Ed-ak6NoX_4Aeg_-68063069")]
-    [Description(@"??")]
+    [Description(@"Transaction forbidden on this type of account (formerly NoAgreement).")]
     TransactionForbidden,
     
     /// <summary>
-    /// ??
+    /// Amount of funds available to cover specified message amount is insufficient.
     /// Encoded/decoded by serializers as "InsufficientFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM04")]
     [IsoId("_Yt7-h9p-Ed-ak6NoX_4Aeg_-68063009")]
-    [Description(@"??")]
+    [Description(@"Amount of funds available to cover specified message amount is insufficient.")]
     InsufficientFunds,
     
     /// <summary>
-    /// ??
+    /// This message appears to have been duplicated.
     /// Encoded/decoded by serializers as "Duplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM05")]
     [IsoId("_Yt7-iNp-Ed-ak6NoX_4Aeg_-68062967")]
-    [Description(@"??")]
+    [Description(@"This message appears to have been duplicated.")]
     Duplication,
     
     /// <summary>
-    /// ??
+    /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
     /// Encoded/decoded by serializers as "MissingCreditorAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BE04")]
     [IsoId("_YuFIcNp-Ed-ak6NoX_4Aeg_-68063104")]
-    [Description(@"??")]
+    [Description(@"Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).")]
     MissingCreditorAddress,
     
     /// <summary>
-    /// ??
+    /// Mandate is cancelled or invalid.
     /// Encoded/decoded by serializers as "NoMandate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD01")]
     [IsoId("_YuFIcdp-Ed-ak6NoX_4Aeg_-68062672")]
-    [Description(@"??")]
+    [Description(@"Mandate is cancelled or invalid.")]
     NoMandate,
     
     /// <summary>
-    /// ??
+    /// Return of funds requested by end customer.
     /// Encoded/decoded by serializers as "RefundRequestByEndCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD06")]
     [IsoId("_YuFIctp-Ed-ak6NoX_4Aeg_-68062595")]
-    [Description(@"??")]
+    [Description(@"Return of funds requested by end customer.")]
     RefundRequestByEndCustomer,
     
     /// <summary>
-    /// ??
+    /// End customer is deceased.
     /// Encoded/decoded by serializers as "EndCustomerDeceased".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD07")]
     [IsoId("_YuFIc9p-Ed-ak6NoX_4Aeg_-68062252")]
-    [Description(@"??")]
+    [Description(@"End customer is deceased.")]
     EndCustomerDeceased,
     
     /// <summary>
-    /// ??
+    /// Reason has not been specified by end customer.
     /// Encoded/decoded by serializers as "NotSpecifiedReasonCustomerGenerated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS02")]
     [IsoId("_YuFIdNp-Ed-ak6NoX_4Aeg_-68062637")]
-    [Description(@"??")]
+    [Description(@"Reason has not been specified by end customer.")]
     NotSpecifiedReasonCustomerGenerated,
     
     /// <summary>
-    /// ??
+    /// Reason has not been specified by agent.
     /// Encoded/decoded by serializers as "NotSpecifiedReasonAgentGenerated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS03")]
     [IsoId("_YuFIddp-Ed-ak6NoX_4Aeg_-68062209")]
-    [Description(@"??")]
+    [Description(@"Reason has not been specified by agent.")]
     NotSpecifiedReasonAgentGenerated,
     
 }

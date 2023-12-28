@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementDate1Code
 {
     /// <summary>
-    /// ??
+    /// Transfer is to be effected as soon as possible.
     /// Encoded/decoded by serializers as "AsSoonAsPossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASAP")]
     [IsoId("_ZK_t99p-Ed-ak6NoX_4Aeg_581713029")]
-    [Description(@"??")]
+    [Description(@"Transfer is to be effected as soon as possible.")]
     AsSoonAsPossible,
     
     /// <summary>
-    /// ??
+    /// Transfer is to be effected at the end of the contract.
     /// Encoded/decoded by serializers as "AtEndOfContract".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENDC")]
     [IsoId("_ZK_t-Np-Ed-ak6NoX_4Aeg_581713038")]
-    [Description(@"??")]
+    [Description(@"Transfer is to be effected at the end of the contract.")]
     AtEndOfContract,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place when the financial instrument is issued by the issuer.
     /// Encoded/decoded by serializers as "WhenAndIfIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHIF")]
     [IsoId("_ZLI34Np-Ed-ak6NoX_4Aeg_-732074064")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place when the financial instrument is issued by the issuer.")]
     WhenAndIfIssued,
     
 }

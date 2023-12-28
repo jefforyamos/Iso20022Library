@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesFinancingTransactionType2Code
 {
     /// <summary>
-    /// ??
+    /// Relates to a repurchase agreement transaction.
     /// Encoded/decoded by serializers as "Repo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPU")]
     [IsoId("_MNulQY7YEeaa5_S8lsRKCQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a repurchase agreement transaction.")]
     Repo,
     
     /// <summary>
-    /// ??
+    /// Relates to a reverse repurchase agreement transaction.
     /// Encoded/decoded by serializers as "ReverseRepo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVPO")]
     [IsoId("_MNulQ47YEeaa5_S8lsRKCQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a reverse repurchase agreement transaction.")]
     ReverseRepo,
     
     /// <summary>
-    /// ??
+    /// Relates to a securities borrowing operation.
     /// Encoded/decoded by serializers as "SecuritiesBorrowing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECB")]
     [IsoId("_MNulRY7YEeaa5_S8lsRKCQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a securities borrowing operation.")]
     SecuritiesBorrowing,
     
     /// <summary>
-    /// ??
+    /// Relates to a securities lending operation.
     /// Encoded/decoded by serializers as "SecuritiesLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECL")]
     [IsoId("_MNulR47YEeaa5_S8lsRKCQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a securities lending operation.")]
     SecuritiesLending,
     
     /// <summary>
-    /// ??
+    /// Relates to a buy sell back transaction.
     /// Encoded/decoded by serializers as "BuySellBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSBK")]
     [IsoId("_NiYrEY7YEeaa5_S8lsRKCQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a buy sell back transaction.")]
     BuySellBack,
     
     /// <summary>
-    /// ??
+    /// Relates to a sell buy back transaction.
     /// Encoded/decoded by serializers as "SellBuyBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBBK")]
     [IsoId("_O0WpQY7YEeaa5_S8lsRKCQ")]
-    [Description(@"??")]
+    [Description(@"Relates to a sell buy back transaction.")]
     SellBuyBack,
     
 }

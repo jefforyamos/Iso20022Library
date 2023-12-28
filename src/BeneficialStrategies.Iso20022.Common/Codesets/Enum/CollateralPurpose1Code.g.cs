@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralPurpose1Code
 {
     /// <summary>
-    /// ??
+    /// Collateral has been posted against the variation margin.
     /// Encoded/decoded by serializers as "VariationMargin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VAMA")]
     [IsoId("_YZXcttp-Ed-ak6NoX_4Aeg_-761638906")]
-    [Description(@"??")]
+    [Description(@"Collateral has been posted against the variation margin.")]
     VariationMargin,
     
     /// <summary>
-    /// ??
+    /// Collateral has been posted against the segregated independent amount.
     /// Encoded/decoded by serializers as "SegregatedIndependentAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SINA")]
     [IsoId("_YZXct9p-Ed-ak6NoX_4Aeg_2062598685")]
-    [Description(@"??")]
+    [Description(@"Collateral has been posted against the segregated independent amount.")]
     SegregatedIndependentAmount,
     
 }

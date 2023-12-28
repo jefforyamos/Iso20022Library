@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Reporting2Code
 {
     /// <summary>
-    /// ??
+    /// Trade details are to be reported to a stock exchange.
     /// Encoded/decoded by serializers as "StockExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STEX")]
     [IsoId("_ZTMAo9p-Ed-ak6NoX_4Aeg_-495638960")]
-    [Description(@"??")]
+    [Description(@"Trade details are to be reported to a stock exchange.")]
     StockExchange,
     
     /// <summary>
-    /// ??
+    /// Trade details are to be reported to a regulatory organisation.
     /// Encoded/decoded by serializers as "RegulatoryOrganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGU")]
     [IsoId("_ZTMApNp-Ed-ak6NoX_4Aeg_-255523631")]
-    [Description(@"??")]
+    [Description(@"Trade details are to be reported to a regulatory organisation.")]
     RegulatoryOrganisation,
     
     /// <summary>
-    /// ??
+    /// Report is deferred, for example, because the order was executed in partial fills.
     /// Encoded/decoded by serializers as "DeferredReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFR")]
     [IsoId("_ZTMApdp-Ed-ak6NoX_4Aeg_-210271843")]
-    [Description(@"??")]
+    [Description(@"Report is deferred, for example, because the order was executed in partial fills.")]
     DeferredReport,
     
 }

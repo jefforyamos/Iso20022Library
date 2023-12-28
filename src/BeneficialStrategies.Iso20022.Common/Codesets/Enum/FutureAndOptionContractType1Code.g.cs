@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FutureAndOptionContractType1Code
 {
     /// <summary>
-    /// ??
+    /// Ordinary future and option contract.
     /// Encoded/decoded by serializers as "Ordinary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORDY")]
     [IsoId("__2sIcNojEeC60axPepSq7g_-842269814")]
-    [Description(@"??")]
+    [Description(@"Ordinary future and option contract.")]
     Ordinary,
     
     /// <summary>
-    /// ??
+    /// Future and option contract on an index as opposed to an underlying equity.
     /// Encoded/decoded by serializers as "Index".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDX")]
     [IsoId("__2sIcdojEeC60axPepSq7g_-1031487263")]
-    [Description(@"??")]
+    [Description(@"Future and option contract on an index as opposed to an underlying equity.")]
     Index,
     
     /// <summary>
-    /// ??
+    /// Receipt of future contract when an option on a future is exercised.
     /// Encoded/decoded by serializers as "ExercisedFuture".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXFU")]
     [IsoId("__2sIctojEeC60axPepSq7g_19645809")]
-    [Description(@"??")]
+    [Description(@"Receipt of future contract when an option on a future is exercised.")]
     ExercisedFuture,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Payment2Code
 {
     /// <summary>
-    /// ??
+    /// The cash payment occurs or will occur upon receipt of proceeds from the issuer.
     /// Encoded/decoded by serializers as "ActualPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTU")]
     [IsoId("_KIs2sbXPEeiTob_PrFFUxA")]
-    [Description(@"??")]
+    [Description(@"The cash payment occurs or will occur upon receipt of proceeds from the issuer.")]
     ActualPayment,
     
 }

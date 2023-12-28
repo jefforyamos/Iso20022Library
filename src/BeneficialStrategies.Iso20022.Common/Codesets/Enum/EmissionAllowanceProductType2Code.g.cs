@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EmissionAllowanceProductType2Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type emissions allowance CER (Certified Emission Reduction).
     /// Encoded/decoded by serializers as "CER".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERE")]
     [IsoId("_mibXEWlHEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type emissions allowance CER (Certified Emission Reduction).")]
     CER,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type emissions allowance ERU (European Reduction Unit).
     /// Encoded/decoded by serializers as "ERU".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERUE")]
     [IsoId("_m3pZIWlHEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type emissions allowance ERU (European Reduction Unit).")]
     ERU,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type emissions allowance EUA (European Union Allowance).
     /// Encoded/decoded by serializers as "EUA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUAE")]
     [IsoId("_nHB48WlHEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type emissions allowance EUA (European Union Allowance).")]
     EUA,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type emissions allowance EUAA (European Union Aviation Allowance).
     /// Encoded/decoded by serializers as "EUAA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUAA")]
     [IsoId("_nNFdoWlHEeaLAKoEUNsD9g")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type emissions allowance EUAA (European Union Aviation Allowance).")]
     EUAA,
     
 }

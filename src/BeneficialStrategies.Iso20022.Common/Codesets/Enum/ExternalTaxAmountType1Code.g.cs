@@ -22,48 +22,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalTaxAmountType1Code
 {
     /// <summary>
-    /// ??
+    /// Tax accessed by city jurisdications within a country.
     /// Encoded/decoded by serializers as "CityTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CITY")]
     [IsoId("_uMAeu_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tax accessed by city jurisdications within a country.")]
     CityTax,
     
     /// <summary>
-    /// ??
+    /// Tax accessed by county jurisdications within a country.
     /// Encoded/decoded by serializers as "CountyTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTY")]
     [IsoId("_uMAevvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tax accessed by county jurisdications within a country.")]
     CountyTax,
     
     /// <summary>
-    /// ??
+    /// Tax accessed by local jurisdications within a country.
     /// Encoded/decoded by serializers as "LocalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOCL")]
     [IsoId("_uMKPsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tax accessed by local jurisdications within a country.")]
     LocalTax,
     
     /// <summary>
-    /// ??
+    /// Tax accessed by province jurisdications within a country.
     /// Encoded/decoded by serializers as "ProvinceTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROV")]
     [IsoId("_uMKPtfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tax accessed by province jurisdications within a country.")]
     ProvinceTax,
     
     /// <summary>
-    /// ??
+    /// Tax accessed by state jurisdications within a country.
     /// Encoded/decoded by serializers as "StateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAT")]
     [IsoId("_uMKPuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Tax accessed by state jurisdications within a country.")]
     StateTax,
     
 }

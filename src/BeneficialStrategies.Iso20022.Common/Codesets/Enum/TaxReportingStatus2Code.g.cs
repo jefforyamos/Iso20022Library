@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxReportingStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Transaction or report has been accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_tLFPcWufEeaRcazd7EYKFQ")]
-    [Description(@"??")]
+    [Description(@"Transaction or report has been accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Transaction or report has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_tLFPc2ufEeaRcazd7EYKFQ")]
-    [Description(@"??")]
+    [Description(@"Transaction or report has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Transaction has been accepted with warnings.
     /// Encoded/decoded by serializers as "Warning".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WARN")]
     [IsoId("_tLFPdWufEeaRcazd7EYKFQ")]
-    [Description(@"??")]
+    [Description(@"Transaction has been accepted with warnings.")]
     Warning,
     
 }

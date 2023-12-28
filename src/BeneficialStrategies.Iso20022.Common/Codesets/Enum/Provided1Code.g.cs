@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Provided1Code
 {
     /// <summary>
-    /// ??
+    /// Not provided.
     /// Encoded/decoded by serializers as "NotProvided".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPRO")]
     [IsoId("_ba2ZIRKFEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Not provided.")]
     NotProvided,
     
     /// <summary>
-    /// ??
+    /// Provided.
     /// Encoded/decoded by serializers as "Provided".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROV")]
     [IsoId("_bllCcRKFEeKj15WxqwlXPw")]
-    [Description(@"??")]
+    [Description(@"Provided.")]
     Provided,
     
 }

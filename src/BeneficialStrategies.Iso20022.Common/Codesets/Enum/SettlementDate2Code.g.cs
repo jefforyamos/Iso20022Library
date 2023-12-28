@@ -20,156 +20,156 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementDate2Code
 {
     /// <summary>
-    /// ??
+    /// Settlement takes place under the standard rules applicable to the market and instrument.
     /// Encoded/decoded by serializers as "Regular".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REGU")]
     [IsoId("_ZLI34tp-Ed-ak6NoX_4Aeg_1279807839")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place under the standard rules applicable to the market and instrument.")]
     Regular,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_ZLI349p-Ed-ak6NoX_4Aeg_1309359964")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the day after trade date.
     /// Encoded/decoded by serializers as "NextDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NXTD")]
     [IsoId("_ZLI35Np-Ed-ak6NoX_4Aeg_1313055335")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the day after trade date.")]
     NextDay,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus one business day.
     /// Encoded/decoded by serializers as "TPlusOne".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TONE")]
     [IsoId("_ZLI35dp-Ed-ak6NoX_4Aeg_1322291660")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus one business day.")]
     TPlusOne,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus two business days.
     /// Encoded/decoded by serializers as "TPlusTwo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTWO")]
     [IsoId("_ZLI35tp-Ed-ak6NoX_4Aeg_1371237173")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus two business days.")]
     TPlusTwo,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus three business days.
     /// Encoded/decoded by serializers as "TPlusThree".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTRE")]
     [IsoId("_ZLI359p-Ed-ak6NoX_4Aeg_1384166063")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus three business days.")]
     TPlusThree,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus four business days.
     /// Encoded/decoded by serializers as "TPlusFour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFOR")]
     [IsoId("_ZLI36Np-Ed-ak6NoX_4Aeg_1597497895")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus four business days.")]
     TPlusFour,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus five business days.
     /// Encoded/decoded by serializers as "TPlusFive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TFIV")]
     [IsoId("_ZLI36dp-Ed-ak6NoX_4Aeg_1609504771")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus five business days.")]
     TPlusFive,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place at the choice/option of the seller.
     /// Encoded/decoded by serializers as "SellersOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_ZLSo4Np-Ed-ak6NoX_4Aeg_1625207043")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place at the choice/option of the seller.")]
     SellersOption,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place on the trade date plus six or more business days.
     /// Encoded/decoded by serializers as "Future".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUTU")]
     [IsoId("_ZLSo4dp-Ed-ak6NoX_4Aeg_1638134322")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place on the trade date plus six or more business days.")]
     Future,
     
     /// <summary>
-    /// ??
+    /// Transfer is to be effected as soon as possible.
     /// Encoded/decoded by serializers as "AsSoonAsPossible".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASAP")]
     [IsoId("_ZLSo4tp-Ed-ak6NoX_4Aeg_1651989075")]
-    [Description(@"??")]
+    [Description(@"Transfer is to be effected as soon as possible.")]
     AsSoonAsPossible,
     
     /// <summary>
-    /// ??
+    /// Transfer is to be effected at the end of the contract.
     /// Encoded/decoded by serializers as "AtEndOfContract".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENDC")]
     [IsoId("_ZLSo49p-Ed-ak6NoX_4Aeg_1666763553")]
-    [Description(@"??")]
+    [Description(@"Transfer is to be effected at the end of the contract.")]
     AtEndOfContract,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place when the financial instrument is issued by the issuer.
     /// Encoded/decoded by serializers as "WhenAndIfIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHIF")]
     [IsoId("_ZLSo5Np-Ed-ak6NoX_4Aeg_1681541811")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place when the financial instrument is issued by the issuer.")]
     WhenAndIfIssued,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place when the financial instrument is distributed.
     /// Encoded/decoded by serializers as "WhenDistributed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WDIS")]
     [IsoId("_ZLSo5dp-Ed-ak6NoX_4Aeg_1694470501")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place when the financial instrument is distributed.")]
     WhenDistributed,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place when the financial instrument is issued or distributed.
     /// Encoded/decoded by serializers as "WhenIssuedOrDistributed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHID")]
     [IsoId("_ZLSo5tp-Ed-ak6NoX_4Aeg_1712016132")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place when the financial instrument is issued or distributed.")]
     WhenIssuedOrDistributed,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place as a result of a "to be announced" trade.
     /// Encoded/decoded by serializers as "ToBeAnnouncedTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBAT")]
     [IsoId("_ZLSo59p-Ed-ak6NoX_4Aeg_1727715906")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place as a result of a ""to be announced"" trade.")]
     ToBeAnnouncedTrade,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place at the end of the month.
     /// Encoded/decoded by serializers as "EndOfMonth".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MONT")]
     [IsoId("_ZLSo6Np-Ed-ak6NoX_4Aeg_1751726432")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place at the end of the month.")]
     EndOfMonth,
     
 }

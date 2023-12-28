@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Grouping1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that for each occurrences of the payment information block, exactly one occurrence of the payment transaction block is present.
     /// Encoded/decoded by serializers as "Single".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNGL")]
     [IsoId("_au04MNp-Ed-ak6NoX_4Aeg_-1275607481")]
-    [Description(@"??")]
+    [Description(@"Indicates that for each occurrences of the payment information block, exactly one occurrence of the payment transaction block is present.")]
     Single,
     
     /// <summary>
-    /// ??
+    /// Indicates that there is only one occurrence of the payment information block and several occurrences of the payment transaction block.
     /// Encoded/decoded by serializers as "Grouped".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRPD")]
     [IsoId("_au04Mdp-Ed-ak6NoX_4Aeg_-1275607464")]
-    [Description(@"??")]
+    [Description(@"Indicates that there is only one occurrence of the payment information block and several occurrences of the payment transaction block.")]
     Grouped,
     
     /// <summary>
-    /// ??
+    /// Indicates that there are one or several occurrences of the payment information block where each of the occurrences might contain one or several occurrences of the payment transaction block.
     /// Encoded/decoded by serializers as "Mixed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MIXD")]
     [IsoId("_au04Mtp-Ed-ak6NoX_4Aeg_-1275607446")]
-    [Description(@"??")]
+    [Description(@"Indicates that there are one or several occurrences of the payment information block where each of the occurrences might contain one or several occurrences of the payment transaction block.")]
     Mixed,
     
 }

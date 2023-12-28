@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransportType1Code
 {
     /// <summary>
-    /// ??
+    /// Air
     /// Encoded/decoded by serializers as "Air".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIRR")]
     [IsoId("_VCaiATEwEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Air")]
     Air,
     
     /// <summary>
-    /// ??
+    /// Bus
     /// Encoded/decoded by serializers as "Bus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUSS")]
     [IsoId("_VW-cwTEwEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Bus")]
     Bus,
     
     /// <summary>
-    /// ??
+    /// Other National
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_VX30oTEwEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other National")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other Private
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_VuhaETEwEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other Private")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Rail
     /// Encoded/decoded by serializers as "Rail".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RAIL")]
     [IsoId("_Vvki8TEwEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Rail")]
     Rail,
     
     /// <summary>
-    /// ??
+    /// Ship
     /// Encoded/decoded by serializers as "Ship".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHIP")]
     [IsoId("_V6JbQTEwEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Ship")]
     Ship,
     
 }

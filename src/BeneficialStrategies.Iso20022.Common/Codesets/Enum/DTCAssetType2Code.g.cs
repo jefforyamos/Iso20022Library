@@ -20,858 +20,858 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCAssetType2Code
 {
     /// <summary>
-    /// ??
+    /// ABS Denomination in "Units" or "Undivided Interest".
     /// Encoded/decoded by serializers as "ABSDenominUnitsorUndividedInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S041")]
     [IsoId("_MiAtYZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"ABS Denomination in ""Units"" or ""Undivided Interest"".")]
     ABSDenominUnitsorUndividedInterest,
     
     /// <summary>
-    /// ??
+    /// American Depositary Receipt (ADR).
     /// Encoded/decoded by serializers as "AmericanDepositaryReceiptADR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S110")]
     [IsoId("_MmoHoZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"American Depositary Receipt (ADR).")]
     AmericanDepositaryReceiptADR,
     
     /// <summary>
-    /// ??
+    /// Asset-Backed security (ABS) or global ABS (GABS).
     /// Encoded/decoded by serializers as "AssetBackedSecurityABSorGlobalABSGABS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S541")]
     [IsoId("_MqpE8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Asset-Backed security (ABS) or global ABS (GABS).")]
     AssetBackedSecurityABSorGlobalABSGABS,
     
     /// <summary>
-    /// ??
+    /// Auction Rate Preferred Stock (ARPS).
     /// Encoded/decoded by serializers as "AuctionRatePreferredStockARPS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S102")]
     [IsoId("_My0wkZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Auction Rate Preferred Stock (ARPS).")]
     AuctionRatePreferredStockARPS,
     
     /// <summary>
-    /// ??
+    /// Certificated Money Market Instrument.
     /// Encoded/decoded by serializers as "CertificatedMoneyMarketInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S505")]
     [IsoId("_M342wZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Certificated Money Market Instrument.")]
     CertificatedMoneyMarketInstrument,
     
     /// <summary>
-    /// ??
+    /// Bearer, Callable Zero Coupon Bond.
     /// Encoded/decoded by serializers as "BearerCallableZeroCouponBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S340")]
     [IsoId("_NCvb4Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Bearer, Callable Zero Coupon Bond.")]
     BearerCallableZeroCouponBond,
     
     /// <summary>
-    /// ??
+    /// Certificated Money Market - Periodic Payer.
     /// Encoded/decoded by serializers as "CertificatedMoneyMarketPeriodicPayer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S506")]
     [IsoId("_NNmoEZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Certificated Money Market - Periodic Payer.")]
     CertificatedMoneyMarketPeriodicPayer,
     
     /// <summary>
-    /// ??
+    /// Certificates of Deposit.
     /// Encoded/decoded by serializers as "CertificatesOfDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S507")]
     [IsoId("_NSERUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Certificates of Deposit.")]
     CertificatesOfDeposit,
     
     /// <summary>
-    /// ??
+    /// Closed End Fund.
     /// Encoded/decoded by serializers as "ClosedEndFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S761")]
     [IsoId("_NVpJwZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Closed End Fund.")]
     ClosedEndFund,
     
     /// <summary>
-    /// ??
+    /// CMO Denomination in "Units" or "Undivided Interest".
     /// Encoded/decoded by serializers as "CMODenominUnitsorUndividedInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S040")]
     [IsoId("_NZDqIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"CMO Denomination in ""Units"" or ""Undivided Interest"".")]
     CMODenominUnitsorUndividedInterest,
     
     /// <summary>
-    /// ??
+    /// Collateralized Mortgage Obligation or Global CMO.
     /// Encoded/decoded by serializers as "CollateralizedMtgeObligationorGlobalCMO".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S540")]
     [IsoId("_NeHwUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Collateralized Mortgage Obligation or Global CMO.")]
     CollateralizedMtgeObligationorGlobalCMO,
     
     /// <summary>
-    /// ??
+    /// Common Stock.
     /// Encoded/decoded by serializers as "CommonStock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S010")]
     [IsoId("_NmJq8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Common Stock.")]
     CommonStock,
     
     /// <summary>
-    /// ??
+    /// Common Stock REIT.
     /// Encoded/decoded by serializers as "CommonStockREIT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S012")]
     [IsoId("_NqLPUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Common Stock REIT.")]
     CommonStockREIT,
     
     /// <summary>
-    /// ??
+    /// Convertible Common Stock.
     /// Encoded/decoded by serializers as "ConvertibleCommonStock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S011")]
     [IsoId("_NuyCgZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Convertible Common Stock.")]
     ConvertibleCommonStock,
     
     /// <summary>
-    /// ??
+    /// Convertible Corporate Debt.
     /// Encoded/decoded by serializers as "ConvertibleCorporateDebt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S572")]
     [IsoId("_Nyp14Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Convertible Corporate Debt.")]
     ConvertibleCorporateDebt,
     
     /// <summary>
-    /// ??
+    /// Convertible Preferred Stock.
     /// Encoded/decoded by serializers as "ConvertiblePreferredStock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S023")]
     [IsoId("_N1xbUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Convertible Preferred Stock.")]
     ConvertiblePreferredStock,
     
     /// <summary>
-    /// ??
+    /// Corporate debt, subject to 144a, designated investors.
     /// Encoded/decoded by serializers as "Corporate144aDesignatedInvestors".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S545")]
     [IsoId("_N6Y1kZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate debt, subject to 144a, designated investors.")]
     Corporate144aDesignatedInvestors,
     
     /// <summary>
-    /// ??
+    /// Corporate Auction Rate Note.
     /// Encoded/decoded by serializers as "CorporateAuctionRateNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S571")]
     [IsoId("_N-Qo8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate Auction Rate Note.")]
     CorporateAuctionRateNote,
     
     /// <summary>
-    /// ??
+    /// Corporate Bond (CB) or Global Corp Bond (GCB).
     /// Encoded/decoded by serializers as "CorporateBondCBorGlobalCorpBondGCB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S500")]
     [IsoId("_OCkhMZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate Bond (CB) or Global Corp Bond (GCB).")]
     CorporateBondCBorGlobalCorpBondGCB,
     
     /// <summary>
-    /// ??
+    /// Corporate Debenture.
     /// Encoded/decoded by serializers as "CorporateDebenture".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S575")]
     [IsoId("_OPXnEZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate Debenture.")]
     CorporateDebenture,
     
     /// <summary>
-    /// ??
+    /// Corporate Debt Derivative.
     /// Encoded/decoded by serializers as "CorporateDebtDerivative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S704")]
     [IsoId("_OThuUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate Debt Derivative.")]
     CorporateDebtDerivative,
     
     /// <summary>
-    /// ??
+    /// Corporate Insured Custodial Receipt.
     /// Encoded/decoded by serializers as "CorporateInsuredCustodialReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S577")]
     [IsoId("_OXjSsZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate Insured Custodial Receipt.")]
     CorporateInsuredCustodialReceipt,
     
     /// <summary>
-    /// ??
+    /// Corporate debt, classified as other, subject to tax exempt.
     /// Encoded/decoded by serializers as "CorporateOtherTaxExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S546")]
     [IsoId("_OdMnsZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate debt, classified as other, subject to tax exempt.")]
     CorporateOtherTaxExempt,
     
     /// <summary>
-    /// ??
+    /// Corporate Short-Term Note.
     /// Encoded/decoded by serializers as "CorporateShortTermNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S574")]
     [IsoId("_OjdAsZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate Short-Term Note.")]
     CorporateShortTermNote,
     
     /// <summary>
-    /// ??
+    /// Corporate Variable Mode Obligation (CVMO).
     /// Encoded/decoded by serializers as "CorporateVariableModeObligationCVMO".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S573")]
     [IsoId("_OnnH8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate Variable Mode Obligation (CVMO).")]
     CorporateVariableModeObligationCVMO,
     
     /// <summary>
-    /// ??
+    /// Corporate VRDO / Municipal VRDO (MMD).
     /// Encoded/decoded by serializers as "CorporateVRDOMunicipalVRDOMMD".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S576")]
     [IsoId("_OrosUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Corporate VRDO / Municipal VRDO (MMD).")]
     CorporateVRDOMunicipalVRDOMMD,
     
     /// <summary>
-    /// ??
+    /// CPI Discount Commercial Paper (CP).
     /// Encoded/decoded by serializers as "CPIDiscountCommercialPaperCP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S520")]
     [IsoId("_OvyzkZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"CPI Discount Commercial Paper (CP).")]
     CPIDiscountCommercialPaperCP,
     
     /// <summary>
-    /// ??
+    /// CPI Interest at Maturity (IAM) Commercial Paper.
     /// Encoded/decoded by serializers as "CPIInterestAtMaturityIAMCommercialPaper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S510")]
     [IsoId("_O0tIwZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"CPI Interest at Maturity (IAM) Commercial Paper.")]
     CPIInterestAtMaturityIAMCommercialPaper,
     
     /// <summary>
-    /// ??
+    /// Custody User CUSIP.
     /// Encoded/decoded by serializers as "CustodyUserCUSIP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S126")]
     [IsoId("_P0FiIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Custody User CUSIP.")]
     CustodyUserCUSIP,
     
     /// <summary>
-    /// ??
+    /// Debt Unit.
     /// Encoded/decoded by serializers as "DebtUnit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S781")]
     [IsoId("_P3gpkZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Debt Unit.")]
     DebtUnit,
     
     /// <summary>
-    /// ??
+    /// Depositary Share.
     /// Encoded/decoded by serializers as "DepositaryShare".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S111")]
     [IsoId("_P6yAAZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Depositary Share.")]
     DepositaryShare,
     
     /// <summary>
-    /// ??
+    /// Equity.
     /// Encoded/decoded by serializers as "Equity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S005")]
     [IsoId("_P-NHcZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Equity.")]
     Equity,
     
     /// <summary>
-    /// ??
+    /// Equity, subject to 144a, designated investors.
     /// Encoded/decoded by serializers as "Equity144aDesignatedInvestors".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S121")]
     [IsoId("_QBoO4Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Equity, subject to 144a, designated investors.")]
     Equity144aDesignatedInvestors,
     
     /// <summary>
-    /// ??
+    /// Equity Derivative.
     /// Encoded/decoded by serializers as "EquityDerivative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S705")]
     [IsoId("_QFCvQZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Equity Derivative.")]
     EquityDerivative,
     
     /// <summary>
-    /// ??
+    /// Exchange Traded Funds.
     /// Encoded/decoded by serializers as "ExchangeTradedFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S117")]
     [IsoId("_QOatsZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Exchange Traded Funds.")]
     ExchangeTradedFunds,
     
     /// <summary>
-    /// ??
+    /// GNMA Pass-through securities.
     /// Encoded/decoded by serializers as "GNMAPassThroughSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S451")]
     [IsoId("_QR_mIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"GNMA Pass-through securities.")]
     GNMAPassThroughSecurities,
     
     /// <summary>
-    /// ??
+    /// Government Nat'l Mortgage Association (GNMA).
     /// Encoded/decoded by serializers as "GovernmentNatlMortgageAssociationGNMA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S650")]
     [IsoId("_Qd5UIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Government Nat'l Mortgage Association (GNMA).")]
     GovernmentNatlMortgageAssociationGNMA,
     
     /// <summary>
-    /// ??
+    /// Government security.
     /// Encoded/decoded by serializers as "GovernmentSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S601")]
     [IsoId("_Qgt-oZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Government security.")]
     GovernmentSecurity,
     
     /// <summary>
-    /// ??
+    /// Issue Denomination in "Units" or "Undivided Interest".
     /// Encoded/decoded by serializers as "IssueDenominUnitsorUndividedInterest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S042")]
     [IsoId("_QpzCIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Issue Denomination in ""Units"" or ""Undivided Interest"".")]
     IssueDenominUnitsorUndividedInterest,
     
     /// <summary>
-    /// ??
+    /// Equity Unit.
     /// Encoded/decoded by serializers as "EquityUnit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S780")]
     [IsoId("_Q40VkZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Equity Unit.")]
     EquityUnit,
     
     /// <summary>
-    /// ??
+    /// Global Unit Trust.
     /// Encoded/decoded by serializers as "GlobalUnitTrust".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S791")]
     [IsoId("_RBJyMZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Global Unit Trust.")]
     GlobalUnitTrust,
     
     /// <summary>
-    /// ??
+    /// GNMA Serial note securities.
     /// Encoded/decoded by serializers as "GNMASerialNoteSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S452")]
     [IsoId("_ROY88Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"GNMA Serial note securities.")]
     GNMASerialNoteSecurities,
     
     /// <summary>
-    /// ??
+    /// GNMA Serial Note.
     /// Encoded/decoded by serializers as "GNMASerialNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S652")]
     [IsoId("_RTdDIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"GNMA Serial Note.")]
     GNMASerialNote,
     
     /// <summary>
-    /// ??
+    /// GNMA REMIC securities.
     /// Encoded/decoded by serializers as "GNMAREMICSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S450")]
     [IsoId("_RXUPcZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"GNMA REMIC securities.")]
     GNMAREMICSecurities,
     
     /// <summary>
-    /// ??
+    /// Government Trust Certificate.
     /// Encoded/decoded by serializers as "GovernmentTrustCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S602")]
     [IsoId("_Rok-kZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Government Trust Certificate.")]
     GovernmentTrustCertificate,
     
     /// <summary>
-    /// ??
+    /// (IMMI) Institutional MMI Mutual Fund Shares.
     /// Encoded/decoded by serializers as "IMMIInstitutionalMMIMutualFundShares".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S762")]
     [IsoId("_Rsl74Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"(IMMI) Institutional MMI Mutual Fund Shares.")]
     IMMIInstitutionalMMIMutualFundShares,
     
     /// <summary>
-    /// ??
+    /// Junk and Treasury Growth Receipt (JGR).
     /// Encoded/decoded by serializers as "JunkAndTreasuryGrowthReceiptJGR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S603")]
     [IsoId("_Rx89AZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Junk and Treasury Growth Receipt (JGR).")]
     JunkAndTreasuryGrowthReceiptJGR,
     
     /// <summary>
-    /// ??
+    /// Limited Partnership.
     /// Encoded/decoded by serializers as "LimitedPartnership".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S030")]
     [IsoId("_R10JUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Limited Partnership.")]
     LimitedPartnership,
     
     /// <summary>
-    /// ??
+    /// MMI Bankers' Acceptance Note (BA).
     /// Encoded/decoded by serializers as "MMIBankersAcceptanceNoteBA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S502")]
     [IsoId("_R6IooZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Bankers' Acceptance Note (BA).")]
     MMIBankersAcceptanceNoteBA,
     
     /// <summary>
-    /// ??
+    /// MMI Corporate Commercial Paper.
     /// Encoded/decoded by serializers as "MMICorporateCommercialPaper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S525")]
     [IsoId("_R9Z_EZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Corporate Commercial Paper.")]
     MMICorporateCommercialPaper,
     
     /// <summary>
-    /// ??
+    /// MMI Corporate VRDO/CP.
     /// Encoded/decoded by serializers as "MMICorporateVRDOCP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S526")]
     [IsoId("_SA-QcZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Corporate VRDO/CP.")]
     MMICorporateVRDOCP,
     
     /// <summary>
-    /// ??
+    /// MMI Deposit Note.
     /// Encoded/decoded by serializers as "MMIDepositNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S531")]
     [IsoId("_SEZX4Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Deposit Note.")]
     MMIDepositNote,
     
     /// <summary>
-    /// ??
+    /// MMI Discount Note.
     /// Encoded/decoded by serializers as "MMIDiscountNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S560")]
     [IsoId("_SI3BIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Discount Note.")]
     MMIDiscountNote,
     
     /// <summary>
-    /// ??
+    /// MMI Institutional Certificates of Deposit.
     /// Encoded/decoded by serializers as "MMIInstitutionalCertificatesofDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S504")]
     [IsoId("_SM4lgZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Institutional Certificates of Deposit.")]
     MMIInstitutionalCertificatesofDeposit,
     
     /// <summary>
-    /// ??
+    /// MMI Medium-Term Bank Note.
     /// Encoded/decoded by serializers as "MMIMediumTermBankNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S532")]
     [IsoId("_SRMdwZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Medium-Term Bank Note.")]
     MMIMediumTermBankNote,
     
     /// <summary>
-    /// ??
+    /// MMI Medium Term Note.
     /// Encoded/decoded by serializers as "MMIMediumTermNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S533")]
     [IsoId("_Ty79UZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Medium Term Note.")]
     MMIMediumTermNote,
     
     /// <summary>
-    /// ??
+    /// MMI Municipal Commercial Paper.
     /// Encoded/decoded by serializers as "MMIMunicipalCommercialPaper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S330")]
     [IsoId("_T32SgZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Municipal Commercial Paper.")]
     MMIMunicipalCommercialPaper,
     
     /// <summary>
-    /// ??
+    /// MMI Municipal VRDO/CP.
     /// Encoded/decoded by serializers as "MMIMunicipalVRDOCP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S320")]
     [IsoId("_T8Kx0Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Municipal VRDO/CP.")]
     MMIMunicipalVRDOCP,
     
     /// <summary>
-    /// ??
+    /// MMI Preferred Stock (in CP-like mode).
     /// Encoded/decoded by serializers as "MMIPreferredStockinCPlikemode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S120")]
     [IsoId("_UALvIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Preferred Stock (in CP-like mode).")]
     MMIPreferredStockinCPlikemode,
     
     /// <summary>
-    /// ??
+    /// MMI Short-Term Bank Note.
     /// Encoded/decoded by serializers as "MMIShortTermBankNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S550")]
     [IsoId("_UEWdcZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MMI Short-Term Bank Note.")]
     MMIShortTermBankNote,
     
     /// <summary>
-    /// ??
+    /// MTN Medium Term Note.
     /// Encoded/decoded by serializers as "MTNMediumTermNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S530")]
     [IsoId("_UIgksZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"MTN Medium Term Note.")]
     MTNMediumTermNote,
     
     /// <summary>
-    /// ??
+    /// Municipal Amortized Issue.
     /// Encoded/decoded by serializers as "MunicipalAmortizedIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S708")]
     [IsoId("_UNa54Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Amortized Issue.")]
     MunicipalAmortizedIssue,
     
     /// <summary>
-    /// ??
+    /// Municipal Auction Rate Note (ARN).
     /// Encoded/decoded by serializers as "MunicipalAuctionRateNoteARN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S312")]
     [IsoId("_USLeEZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Auction Rate Note (ARN).")]
     MunicipalAuctionRateNoteARN,
     
     /// <summary>
-    /// ??
+    /// Municipal Bond.
     /// Encoded/decoded by serializers as "MunicipalBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S310")]
     [IsoId("_UVdbkZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Bond.")]
     MunicipalBond,
     
     /// <summary>
-    /// ??
+    /// Municipal Derivative.
     /// Encoded/decoded by serializers as "MunicipalDerivative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S706")]
     [IsoId("_UZBs8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Derivative.")]
     MunicipalDerivative,
     
     /// <summary>
-    /// ??
+    /// Municipal Insured Custodial Receipt.
     /// Encoded/decoded by serializers as "MunicipalInsuredCustodialReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S315")]
     [IsoId("_UcvvUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Insured Custodial Receipt.")]
     MunicipalInsuredCustodialReceipt,
     
     /// <summary>
-    /// ??
+    /// Municipal Note.
     /// Encoded/decoded by serializers as "MunicipalNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S311")]
     [IsoId("_UgUAsZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Note.")]
     MunicipalNote,
     
     /// <summary>
-    /// ??
+    /// Municipal debt, classified as other, subject to tax exempt.
     /// Encoded/decoded by serializers as "MunicipalOtherTaxExempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S346")]
     [IsoId("_UkCDEZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal debt, classified as other, subject to tax exempt.")]
     MunicipalOtherTaxExempt,
     
     /// <summary>
-    /// ??
+    /// Municipal Option Call Right.
     /// Encoded/decoded by serializers as "MunicipalOptionCallRight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S112")]
     [IsoId("_Up1wIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Option Call Right.")]
     MunicipalOptionCallRight,
     
     /// <summary>
-    /// ??
+    /// Municipal Variable Mode Obligation (VMO).
     /// Encoded/decoded by serializers as "MunicipalVariableModeObligationVMO".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S313")]
     [IsoId("_U6gCUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Variable Mode Obligation (VMO).")]
     MunicipalVariableModeObligationVMO,
     
     /// <summary>
-    /// ??
+    /// Municipal Variable Rate Demand Obligation (VRDO).
     /// Encoded/decoded by serializers as "MunicipalVariableRateDemandObligationVRDO".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S314")]
     [IsoId("_U-g_oZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Municipal Variable Rate Demand Obligation (VRDO).")]
     MunicipalVariableRateDemandObligationVRDO,
     
     /// <summary>
-    /// ??
+    /// Mutual Fund.
     /// Encoded/decoded by serializers as "MutualFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S760")]
     [IsoId("_VC1e8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Mutual Fund.")]
     MutualFund,
     
     /// <summary>
-    /// ??
+    /// Non-CMO/ABS Amortizing Issue.
     /// Encoded/decoded by serializers as "NonCMOABSAmortizingIssue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S542")]
     [IsoId("_VHJXMZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Non-CMO/ABS Amortizing Issue.")]
     NonCMOABSAmortizingIssue,
     
     /// <summary>
-    /// ??
+    /// Non standard asset user CUSIP.
     /// Encoded/decoded by serializers as "NonStandardAssetUserCUSIP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S127")]
     [IsoId("_VLKUgZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Non standard asset user CUSIP.")]
     NonStandardAssetUserCUSIP,
     
     /// <summary>
-    /// ??
+    /// Option Derivative.
     /// Encoded/decoded by serializers as "OptionDerivative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S710")]
     [IsoId("_VRQ8gZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Option Derivative.")]
     OptionDerivative,
     
     /// <summary>
-    /// ??
+    /// Package.
     /// Encoded/decoded by serializers as "Package".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S700")]
     [IsoId("_VVulwZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Package.")]
     Package,
     
     /// <summary>
-    /// ??
+    /// Periodic Payment Commercial Paper.
     /// Encoded/decoded by serializers as "PeriodicPaymentCommercialPaper".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S511")]
     [IsoId("_VaCeAZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Periodic Payment Commercial Paper.")]
     PeriodicPaymentCommercialPaper,
     
     /// <summary>
-    /// ??
+    /// Preferred Stock.
     /// Encoded/decoded by serializers as "PreferredStock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S020")]
     [IsoId("_VeECYZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Preferred Stock.")]
     PreferredStock,
     
     /// <summary>
-    /// ??
+    /// Preferred Stock REIT.
     /// Encoded/decoded by serializers as "PreferredStockREIT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S022")]
     [IsoId("_VjaccZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Preferred Stock REIT.")]
     PreferredStockREIT,
     
     /// <summary>
-    /// ??
+    /// Real-Estate Investment Trust (REIT).
     /// Encoded/decoded by serializers as "RealEstateInvestmentTrustREIT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S130")]
     [IsoId("_WCp9MZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Real-Estate Investment Trust (REIT).")]
     RealEstateInvestmentTrustREIT,
     
     /// <summary>
-    /// ??
+    /// REMIC (Real Estate Mortgage Investment Conduit).
     /// Encoded/decoded by serializers as "REMICRealEstateMtgeInvestmentConduit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S651")]
     [IsoId("_WF7ToZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"REMIC (Real Estate Mortgage Investment Conduit).")]
     REMICRealEstateMtgeInvestmentConduit,
     
     /// <summary>
-    /// ??
+    /// Right.
     /// Encoded/decoded by serializers as "Right".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S730")]
     [IsoId("_WJNRIZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Right.")]
     Right,
     
     /// <summary>
-    /// ??
+    /// Sealed Envelope.
     /// Encoded/decoded by serializers as "SealedEnvelope".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S125")]
     [IsoId("_WN0EUZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Sealed Envelope.")]
     SealedEnvelope,
     
     /// <summary>
-    /// ??
+    /// Tender Rate Note.
     /// Encoded/decoded by serializers as "TenderRateNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S578")]
     [IsoId("_WX7poZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Tender Rate Note.")]
     TenderRateNote,
     
     /// <summary>
-    /// ??
+    /// Tender Rate Preferred Stock.
     /// Encoded/decoded by serializers as "TenderRatePreferredStock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S024")]
     [IsoId("_Wb8m8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Tender Rate Preferred Stock.")]
     TenderRatePreferredStock,
     
     /// <summary>
-    /// ??
+    /// Unit Investment Trust (UIT).
     /// Encoded/decoded by serializers as "UnitInvestmentTrustUIT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S795")]
     [IsoId("_WgHVQZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Unit Investment Trust (UIT).")]
     UnitInvestmentTrustUIT,
     
     /// <summary>
-    /// ??
+    /// Unit Investment Trust (UIT) - Nuveen Only.
     /// Encoded/decoded by serializers as "UnitInvestmentTrustUITNuveenOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S790")]
     [IsoId("_Wj1XoZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Unit Investment Trust (UIT) - Nuveen Only.")]
     UnitInvestmentTrustUITNuveenOnly,
     
     /// <summary>
-    /// ??
+    /// U.S. government agency security.
     /// Encoded/decoded by serializers as "USGovernmentAgencySecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S620")]
     [IsoId("_Wn2U8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"U.S. government agency security.")]
     USGovernmentAgencySecurity,
     
     /// <summary>
-    /// ??
+    /// US Treasury Bill.
     /// Encoded/decoded by serializers as "USTreasuryBill".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S611")]
     [IsoId("_WsT-MZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"US Treasury Bill.")]
     USTreasuryBill,
     
     /// <summary>
-    /// ??
+    /// US Treasury Bond.
     /// Encoded/decoded by serializers as "USTreasuryBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S613")]
     [IsoId("_WwodgZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"US Treasury Bond.")]
     USTreasuryBond,
     
     /// <summary>
-    /// ??
+    /// U.S. Treasury security.
     /// Encoded/decoded by serializers as "USTreasurySecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S610")]
     [IsoId("_W0pa0Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"U.S. Treasury security.")]
     USTreasurySecurity,
     
     /// <summary>
-    /// ??
+    /// US Treasury Note.
     /// Encoded/decoded by serializers as "USTreasuryNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S612")]
     [IsoId("_W6mR0Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"US Treasury Note.")]
     USTreasuryNote,
     
     /// <summary>
-    /// ??
+    /// Warrant.
     /// Encoded/decoded by serializers as "Warrant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S720")]
     [IsoId("_W_9S8Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Warrant.")]
     Warrant,
     
     /// <summary>
-    /// ??
+    /// Z CPN Denomination in Initial Principal Amt.
     /// Encoded/decoded by serializers as "ZCPNDenominInitialPrincipalAmt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S551")]
     [IsoId("_XGDT4Z2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Z CPN Denomination in Initial Principal Amt.")]
     ZCPNDenominInitialPrincipalAmt,
     
     /// <summary>
-    /// ??
+    /// Zero Coupon Bond.
     /// Encoded/decoded by serializers as "ZeroCouponBond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "S579")]
     [IsoId("_XJxWQZ2MEeW-bsa36JFb9A")]
-    [Description(@"??")]
+    [Description(@"Zero Coupon Bond.")]
     ZeroCouponBond,
     
 }

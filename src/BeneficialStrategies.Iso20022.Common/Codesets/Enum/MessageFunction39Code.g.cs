@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageFunction39Code
 {
     /// <summary>
-    /// ??
+    /// Notification of a rejected message.
     /// Encoded/decoded by serializers as "RejectNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RENO")]
     [IsoId("_XATzEPGrEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Notification of a rejected message.")]
     RejectNotification,
     
     /// <summary>
-    /// ??
+    /// Notification of a message containing errors.
     /// Encoded/decoded by serializers as "ErrorNotification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERNO")]
     [IsoId("_XF6r0fGrEeiGNursv3uE_g")]
-    [Description(@"??")]
+    [Description(@"Notification of a message containing errors.")]
     ErrorNotification,
     
 }

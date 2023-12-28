@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MandateCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Agent details are incorrect or have changed.
     /// Encoded/decoded by serializers as "IncorrectAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGNT")]
     [IsoId("_afxvlNp-Ed-ak6NoX_4Aeg_1808299688")]
-    [Description(@"??")]
+    [Description(@"Agent details are incorrect or have changed.")]
     IncorrectAgent,
     
     /// <summary>
-    /// ??
+    /// Currency for the mandate is incorrect or has changed.
     /// Encoded/decoded by serializers as "IncorrectCurrency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CURR")]
     [IsoId("_afxvldp-Ed-ak6NoX_4Aeg_1808299933")]
-    [Description(@"??")]
+    [Description(@"Currency for the mandate is incorrect or has changed.")]
     IncorrectCurrency,
     
     /// <summary>
-    /// ??
+    /// Customer requested the change.
     /// Encoded/decoded by serializers as "RequestedByCustomer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_afxvltp-Ed-ak6NoX_4Aeg_1808299934")]
-    [Description(@"??")]
+    [Description(@"Customer requested the change.")]
     RequestedByCustomer,
     
     /// <summary>
-    /// ??
+    /// Insufficient or incoherent details about the debtor.
     /// Encoded/decoded by serializers as "InsufficientDebtorDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBTR")]
     [IsoId("_afxvl9p-Ed-ak6NoX_4Aeg_1808299964")]
-    [Description(@"??")]
+    [Description(@"Insufficient or incoherent details about the debtor.")]
     InsufficientDebtorDetails,
     
     /// <summary>
-    /// ??
+    /// Insufficient or incoherent details about the creditor.
     /// Encoded/decoded by serializers as "InsufficientCreditorDetails".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDTR")]
     [IsoId("_afxvmNp-Ed-ak6NoX_4Aeg_1808299965")]
-    [Description(@"??")]
+    [Description(@"Insufficient or incoherent details about the creditor.")]
     InsufficientCreditorDetails,
     
 }

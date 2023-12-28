@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesSettlementStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Instruction is pending. Settlement at the instructed settlement date is still possible.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_JhIYp0ABEeCaq78Ig8ATcA")]
-    [Description(@"??")]
+    [Description(@"Instruction is pending. Settlement at the instructed settlement date is still possible.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Instruction is failing. Settlement at the instructed settlement date is no longer possible.
     /// Encoded/decoded by serializers as "Failing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PENF")]
     [IsoId("_JhIYq0ABEeCaq78Ig8ATcA")]
-    [Description(@"??")]
+    [Description(@"Instruction is failing. Settlement at the instructed settlement date is no longer possible.")]
     Failing,
     
     /// <summary>
-    /// ??
+    /// Instruction is unsettled.
     /// Encoded/decoded by serializers as "Unsettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USET")]
     [IsoId("_q2JGs2tdEeCY4-KZ9JEyUQ_1848862818")]
-    [Description(@"??")]
+    [Description(@"Instruction is unsettled.")]
     Unsettled,
     
     /// <summary>
-    /// ??
+    /// Full settlement.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_q2JGtGtdEeCY4-KZ9JEyUQ_371262845")]
-    [Description(@"??")]
+    [Description(@"Full settlement.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Part of the instruction remains unsettled.
     /// Encoded/decoded by serializers as "PartialSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAIN")]
     [IsoId("_q2JGtWtdEeCY4-KZ9JEyUQ_-263558716")]
-    [Description(@"??")]
+    [Description(@"Part of the instruction remains unsettled.")]
     PartialSettlement,
     
 }

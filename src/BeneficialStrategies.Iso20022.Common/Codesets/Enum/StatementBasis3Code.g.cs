@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StatementBasis3Code
 {
     /// <summary>
-    /// ??
+    /// Mark-to-Market report sent after settlement. All transactions which have been initiated.
     /// Encoded/decoded by serializers as "EndOfSettlementPositions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EOSP")]
     [IsoId("_s7hSMcRxEeij-rSPpvD-Tw")]
-    [Description(@"??")]
+    [Description(@"Mark-to-Market report sent after settlement. All transactions which have been initiated.")]
     EndOfSettlementPositions,
     
     /// <summary>
-    /// ??
+    /// Mark-to-market report taking into account collateral management actions which are still pending initiation and initiated transactions.
     /// Encoded/decoded by serializers as "FutureMarkToMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FUTM")]
     [IsoId("_tDs90cRxEeij-rSPpvD-Tw")]
-    [Description(@"??")]
+    [Description(@"Mark-to-market report taking into account collateral management actions which are still pending initiation and initiated transactions.")]
     FutureMarkToMarket,
     
 }

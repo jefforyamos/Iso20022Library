@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType25Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type distillates.
     /// Encoded/decoded by serializers as "Distillates".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIST")]
     [IsoId("_h7wM2VrKEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type distillates.")]
     Distillates,
     
 }

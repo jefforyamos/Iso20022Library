@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BillingSubServiceQualifier1Code
 {
     /// <summary>
-    /// ??
+    /// Subservice code contains a lockbox number which identifies the lockbox using the service.
     /// Encoded/decoded by serializers as "Lockbox".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LBOX")]
     [IsoId("_6WgXpZqlEeGSON8vddiWzQ_-1508305482")]
-    [Description(@"??")]
+    [Description(@"Subservice code contains a lockbox number which identifies the lockbox using the service.")]
     Lockbox,
     
     /// <summary>
-    /// ??
+    /// Subservice code contains a store number which identifies the store using the service.
     /// Encoded/decoded by serializers as "Store".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOR")]
     [IsoId("_6WgXppqlEeGSON8vddiWzQ_-430285144")]
-    [Description(@"??")]
+    [Description(@"Subservice code contains a store number which identifies the store using the service.")]
     Store,
     
     /// <summary>
-    /// ??
+    /// Meaning of the subservice code is established by the trading partners.
     /// Encoded/decoded by serializers as "BilaterallyAgreed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BILA")]
     [IsoId("_6WgXp5qlEeGSON8vddiWzQ_1036863619")]
-    [Description(@"??")]
+    [Description(@"Meaning of the subservice code is established by the trading partners.")]
     BilaterallyAgreed,
     
     /// <summary>
-    /// ??
+    /// Subservice code is an arbitrary sequence number used to uniquely identify this Service and prevent duplicate services within this statement.
     /// Encoded/decoded by serializers as "SequenceNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEQN")]
     [IsoId("_6WgXqJqlEeGSON8vddiWzQ_620847928")]
-    [Description(@"??")]
+    [Description(@"Subservice code is an arbitrary sequence number used to uniquely identify this Service and prevent duplicate services within this statement.")]
     SequenceNumber,
     
     /// <summary>
-    /// ??
+    /// Subservice code is the account number of a member of a relationship structure. This allows a parent statement to include the same service as rolled up from its member accounts and still avoid duplicate service identification within the statement.
     /// Encoded/decoded by serializers as "MemberAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACT")]
     [IsoId("_6WqIoJqlEeGSON8vddiWzQ_-1223021061")]
-    [Description(@"??")]
+    [Description(@"Subservice code is the account number of a member of a relationship structure. This allows a parent statement to include the same service as rolled up from its member accounts and still avoid duplicate service identification within the statement.")]
     MemberAccount,
     
 }

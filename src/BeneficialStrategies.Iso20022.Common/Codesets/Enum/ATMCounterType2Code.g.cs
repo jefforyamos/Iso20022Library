@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMCounterType2Code
 {
     /// <summary>
-    /// ??
+    /// Counters since the beginning of the business day.
     /// Encoded/decoded by serializers as "BusinessDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BDAY")]
     [IsoId("_1uqAseg5EeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Counters since the beginning of the business day.")]
     BusinessDay,
     
     /// <summary>
-    /// ??
+    /// Counters since the last counters inquiry.
     /// Encoded/decoded by serializers as "CountersInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INQU")]
     [IsoId("_14WIMeg5EeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Counters since the last counters inquiry.")]
     CountersInquiry,
     
     /// <summary>
-    /// ??
+    /// Counters since the last cut-off.
     /// Encoded/decoded by serializers as "CutOff".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTOF")]
     [IsoId("_2Osyseg5EeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Counters since the last cut-off.")]
     CutOff,
     
     /// <summary>
-    /// ??
+    /// Counters since the last update by an operator on the ATM.
     /// Encoded/decoded by serializers as "OperatorAdjust".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPER")]
     [IsoId("_2iEaoeg5EeSbwP3G-MV9YA")]
-    [Description(@"??")]
+    [Description(@"Counters since the last update by an operator on the ATM.")]
     OperatorAdjust,
     
 }

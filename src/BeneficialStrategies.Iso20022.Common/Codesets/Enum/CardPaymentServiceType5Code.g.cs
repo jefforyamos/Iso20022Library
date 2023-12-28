@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardPaymentServiceType5Code
 {
     /// <summary>
-    /// ??
+    /// Balance enquiry.
     /// Encoded/decoded by serializers as "Balance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BALC")]
     [IsoId("_pM_VVTAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Balance enquiry.")]
     Balance,
     
     /// <summary>
-    /// ??
+    /// Card activation.
     /// Encoded/decoded by serializers as "CardActivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACT")]
     [IsoId("_pM_VVzAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Card activation.")]
     CardActivation,
     
     /// <summary>
-    /// ??
+    /// Card payment.
     /// Encoded/decoded by serializers as "CardPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDP")]
     [IsoId("_pM_VWTAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Card payment.")]
     CardPayment,
     
     /// <summary>
-    /// ??
+    /// Transfer of funds to a card or an account.
     /// Encoded/decoded by serializers as "CardsFundTransferPush".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAFH")]
     [IsoId("_pM_VWzAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Transfer of funds to a card or an account.")]
     CardsFundTransferPush,
     
     /// <summary>
-    /// ??
+    /// Card verification.
     /// Encoded/decoded by serializers as "CardVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAVR")]
     [IsoId("_pNIfQTAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Card verification.")]
     CardVerification,
     
     /// <summary>
-    /// ??
+    /// Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.
     /// Encoded/decoded by serializers as "CashAdvance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHW")]
     [IsoId("_pNIfQzAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.")]
     CashAdvance,
     
     /// <summary>
-    /// ??
+    /// Cash deposit.
     /// Encoded/decoded by serializers as "CashDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHD")]
     [IsoId("_pNIfRzAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Cash deposit.")]
     CashDeposit,
     
     /// <summary>
-    /// ??
+    /// Deferred payment.
     /// Encoded/decoded by serializers as "DeferredPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEFR")]
     [IsoId("_pNIfSTAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Deferred payment.")]
     DeferredPayment,
     
     /// <summary>
-    /// ??
+    /// Loading or reloading non-financial account.
     /// Encoded/decoded by serializers as "Loading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOAD")]
     [IsoId("_pNIfSzAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Loading or reloading non-financial account.")]
     Loading,
     
     /// <summary>
-    /// ??
+    /// Original credit.
     /// Encoded/decoded by serializers as "OriginalCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORCR")]
     [IsoId("_pNIfTTAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Original credit.")]
     OriginalCredit,
     
     /// <summary>
-    /// ??
+    /// PIN (Personal Identification Number) change.
     /// Encoded/decoded by serializers as "PINChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINC")]
     [IsoId("_pNIfTzAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"PIN (Personal Identification Number) change.")]
     PINChange,
     
     /// <summary>
-    /// ??
+    /// Quasi-cash.
     /// Encoded/decoded by serializers as "QuasiCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUCH")]
     [IsoId("_pNIfUTAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Quasi-cash.")]
     QuasiCash,
     
     /// <summary>
-    /// ??
+    /// Refund transaction.
     /// Encoded/decoded by serializers as "Refund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RFND")]
     [IsoId("_pNIfUzAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Refund transaction.")]
     Refund,
     
     /// <summary>
-    /// ??
+    /// Reservation (pre-authorisation).
     /// Encoded/decoded by serializers as "Reservation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RESA")]
     [IsoId("_pNIfVTAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Reservation (pre-authorisation).")]
     Reservation,
     
     /// <summary>
-    /// ??
+    /// Card validity check.
     /// Encoded/decoded by serializers as "ValidityCheck".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VALC")]
     [IsoId("_pNIfVzAUEeOqioR9srQH1g")]
-    [Description(@"??")]
+    [Description(@"Card validity check.")]
     ValidityCheck,
     
     /// <summary>
-    /// ??
+    /// Unloading non-financial account.
     /// Encoded/decoded by serializers as "Unloading".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNLD")]
     [IsoId("_cjJaoTGuEeOAS49rwg4CIQ")]
-    [Description(@"??")]
+    [Description(@"Unloading non-financial account.")]
     Unloading,
     
     /// <summary>
-    /// ??
+    /// Transfer of funds to and/or from a card account.
     /// Encoded/decoded by serializers as "CardsFundTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAFT")]
     [IsoId("_gvYlsUuFEeOC3MFxIpMwug")]
-    [Description(@"??")]
+    [Description(@"Transfer of funds to and/or from a card account.")]
     CardsFundTransfer,
     
     /// <summary>
-    /// ??
+    /// Transfer of funds from a card or an account.
     /// Encoded/decoded by serializers as "CardsFundTransferPull".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAFL")]
     [IsoId("_hBaw4UuFEeOC3MFxIpMwug")]
-    [Description(@"??")]
+    [Description(@"Transfer of funds from a card or an account.")]
     CardsFundTransferPull,
     
 }

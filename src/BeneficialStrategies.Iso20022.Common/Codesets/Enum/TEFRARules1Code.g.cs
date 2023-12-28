@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TEFRARules1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the security is issued under the TEFRA rule C.
     /// Encoded/decoded by serializers as "C".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RULC")]
     [IsoId("_Yg95hNp-Ed-ak6NoX_4Aeg_-1859434425")]
-    [Description(@"??")]
+    [Description(@"Indicates that the security is issued under the TEFRA rule C.")]
     C,
     
     /// <summary>
-    /// ??
+    /// Indicates that the security is issued under the TEFRA rule D.
     /// Encoded/decoded by serializers as "D".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RULD")]
     [IsoId("_Yg95hdp-Ed-ak6NoX_4Aeg_1396824143")]
-    [Description(@"??")]
+    [Description(@"Indicates that the security is issued under the TEFRA rule D.")]
     D,
     
 }

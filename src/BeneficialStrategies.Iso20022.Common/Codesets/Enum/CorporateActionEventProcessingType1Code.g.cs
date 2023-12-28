@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionEventProcessingType1Code
 {
     /// <summary>
-    /// ??
+    /// No debit or credit of resources.
     /// Encoded/decoded by serializers as "General".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENL")]
     [IsoId("_bDij8tp-Ed-ak6NoX_4Aeg_-1292636681")]
-    [Description(@"??")]
+    [Description(@"No debit or credit of resources.")]
     General,
     
     /// <summary>
-    /// ??
+    /// Holder of the relevant security on a certain date, for example, the record date, will receive a benefit without giving up the underlying security.
     /// Encoded/decoded by serializers as "Distribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISN")]
     [IsoId("_bDij89p-Ed-ak6NoX_4Aeg_-1292636650")]
-    [Description(@"??")]
+    [Description(@"Holder of the relevant security on a certain date, for example, the record date, will receive a benefit without giving up the underlying security.")]
     Distribution,
     
     /// <summary>
-    /// ??
+    /// Underlying security will be debited and may be replaced by another resource (or resources).
     /// Encoded/decoded by serializers as "Reorganisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REOR")]
     [IsoId("_bDij9Np-Ed-ak6NoX_4Aeg_-1292636649")]
-    [Description(@"??")]
+    [Description(@"Underlying security will be debited and may be replaced by another resource (or resources).")]
     Reorganisation,
     
 }

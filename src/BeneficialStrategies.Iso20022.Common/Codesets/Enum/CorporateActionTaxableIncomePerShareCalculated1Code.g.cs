@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionTaxableIncomePerShareCalculated1Code
 {
     /// <summary>
-    /// ??
+    /// Fund is calculating the taxable income per dividend/taxable income per share.
     /// Encoded/decoded by serializers as "Calculated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TDIY")]
     [IsoId("_bTVTcdp-Ed-ak6NoX_4Aeg_-1786544873")]
-    [Description(@"??")]
+    [Description(@"Fund is calculating the taxable income per dividend/taxable income per share.")]
     Calculated,
     
     /// <summary>
-    /// ??
+    /// Fund is not calculating the taxable income per dividend/taxable income per share.
     /// Encoded/decoded by serializers as "NotCalculated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TDIN")]
     [IsoId("_bTVTctp-Ed-ak6NoX_4Aeg_-1786544858")]
-    [Description(@"??")]
+    [Description(@"Fund is not calculating the taxable income per dividend/taxable income per share.")]
     NotCalculated,
     
     /// <summary>
-    /// ??
+    /// Unknown whether the fund is calculating the taxable income per dividend/taxable income per share.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_bTVTc9p-Ed-ak6NoX_4Aeg_-1786544857")]
-    [Description(@"??")]
+    [Description(@"Unknown whether the fund is calculating the taxable income per dividend/taxable income per share.")]
     Unknown,
     
 }

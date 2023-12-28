@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionActivity1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction relates to lending/borrowing.
     /// Encoded/decoded by serializers as "BorrowingLendingActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOLE")]
     [IsoId("_YrP24dp-Ed-ak6NoX_4Aeg_166271038")]
-    [Description(@"??")]
+    [Description(@"Transaction relates to lending/borrowing.")]
     BorrowingLendingActivity,
     
     /// <summary>
-    /// ??
+    /// Transaction relates to a market claim following a corporate action.
     /// Encoded/decoded by serializers as "MarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAI")]
     [IsoId("_YrP24tp-Ed-ak6NoX_4Aeg_166271039")]
-    [Description(@"??")]
+    [Description(@"Transaction relates to a market claim following a corporate action.")]
     MarketClaim,
     
     /// <summary>
-    /// ??
+    /// Transaction relates to collateral.
     /// Encoded/decoded by serializers as "CollateralActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_YrP249p-Ed-ak6NoX_4Aeg_166271040")]
-    [Description(@"??")]
+    [Description(@"Transaction relates to collateral.")]
     CollateralActivity,
     
     /// <summary>
-    /// ??
+    /// Transaction relates to corporate action.
     /// Encoded/decoded by serializers as "CorporateActionActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CORP")]
     [IsoId("_YrP25Np-Ed-ak6NoX_4Aeg_166271069")]
-    [Description(@"??")]
+    [Description(@"Transaction relates to corporate action.")]
     CorporateActionActivity,
     
     /// <summary>
-    /// ??
+    /// Transaction relates to settlement and clearing.
     /// Encoded/decoded by serializers as "SettlementandClearingActivity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_YrP25dp-Ed-ak6NoX_4Aeg_166271070")]
-    [Description(@"??")]
+    [Description(@"Transaction relates to settlement and clearing.")]
     SettlementandClearingActivity,
     
 }

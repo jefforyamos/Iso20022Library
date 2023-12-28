@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCCorporateActionInstructionType1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction on a option in corporate action.
     /// Encoded/decoded by serializers as "ElectionInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELCT")]
     [IsoId("_12iLhDL3EeKU9IrkkToqcw_2002789136")]
-    [Description(@"??")]
+    [Description(@"Instruction on a option in corporate action.")]
     ElectionInstruction,
     
     /// <summary>
-    /// ??
+    /// Instruction for a protect on a corporate action.
     /// Encoded/decoded by serializers as "ProtectInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRTC")]
     [IsoId("_12iLhTL3EeKU9IrkkToqcw_1976970213")]
-    [Description(@"??")]
+    [Description(@"Instruction for a protect on a corporate action.")]
     ProtectInstruction,
     
     /// <summary>
-    /// ??
+    /// Instruction on covering a protect at the service provider.
     /// Encoded/decoded by serializers as "CoverProtectSystem".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPSY")]
     [IsoId("_12iLhjL3EeKU9IrkkToqcw_738877285")]
-    [Description(@"??")]
+    [Description(@"Instruction on covering a protect at the service provider.")]
     CoverProtectSystem,
     
     /// <summary>
-    /// ??
+    /// Instruction on covering a protect at the agent.
     /// Encoded/decoded by serializers as "CoverProtectAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPAG")]
     [IsoId("_12r8gDL3EeKU9IrkkToqcw_727778508")]
-    [Description(@"??")]
+    [Description(@"Instruction on covering a protect at the agent.")]
     CoverProtectAgent,
     
 }

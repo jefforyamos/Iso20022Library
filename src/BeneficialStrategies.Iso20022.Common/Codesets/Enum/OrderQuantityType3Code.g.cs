@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderQuantityType3Code
 {
     /// <summary>
-    /// ??
+    /// Order is placed by unit.
     /// Encoded/decoded by serializers as "Unit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIT")]
     [IsoId("_aRVD5Np-Ed-ak6NoX_4Aeg_-122386355")]
-    [Description(@"??")]
+    [Description(@"Order is placed by unit.")]
     Unit,
     
     /// <summary>
-    /// ??
+    /// Order is placed by amount of money.
     /// Encoded/decoded by serializers as "Amount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_aRVD5dp-Ed-ak6NoX_4Aeg_-122386320")]
-    [Description(@"??")]
+    [Description(@"Order is placed by amount of money.")]
     Amount,
     
     /// <summary>
-    /// ??
+    /// For futures - units of Measure per Time Unit (if used - must specify UnitofMeasure and TimeUnit.
     /// Encoded/decoded by serializers as "UnitsOfMeasurePerTimeUnit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UMPU")]
     [IsoId("_aRVD5tp-Ed-ak6NoX_4Aeg_-122385935")]
-    [Description(@"??")]
+    [Description(@"For futures - units of Measure per Time Unit (if used - must specify UnitofMeasure and TimeUnit.")]
     UnitsOfMeasurePerTimeUnit,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum LegalStructure1Code
 {
     /// <summary>
-    /// ??
+    /// Legal structure is a state.
     /// Encoded/decoded by serializers as "State".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAE")]
     [IsoId("_VbY_4X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Legal structure is a state.")]
     State,
     
     /// <summary>
-    /// ??
+    /// Legal structure is a province.
     /// Encoded/decoded by serializers as "Province".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PVIN")]
     [IsoId("_VbY_430lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Legal structure is a province.")]
     Province,
     
     /// <summary>
-    /// ??
+    /// Legal structure is a municipal.
     /// Encoded/decoded by serializers as "Municipal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUNI")]
     [IsoId("_VbY_5X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Legal structure is a municipal.")]
     Municipal,
     
     /// <summary>
-    /// ??
+    /// Legal structure is a county.
     /// Encoded/decoded by serializers as "County".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTY")]
     [IsoId("_VbY_530lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Legal structure is a county.")]
     County,
     
     /// <summary>
-    /// ??
+    /// Legal structure is a state.
     /// Encoded/decoded by serializers as "National".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NATI")]
     [IsoId("_VbY_6X0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Legal structure is a state.")]
     National,
     
 }

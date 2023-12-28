@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Trade is invalid.
     /// Encoded/decoded by serializers as "Invalid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVA")]
     [IsoId("_TRnmmQEcEeCQm6a_G2yO_w_-2124514623")]
-    [Description(@"??")]
+    [Description(@"Trade is invalid.")]
     Invalid,
     
     /// <summary>
-    /// ??
+    /// Trade is unmatched.
     /// Encoded/decoded by serializers as "Unmatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UMTC")]
     [IsoId("_TRnmmgEcEeCQm6a_G2yO_w_-585726181")]
-    [Description(@"??")]
+    [Description(@"Trade is unmatched.")]
     Unmatched,
     
     /// <summary>
-    /// ??
+    /// Trade is rescinded.
     /// Encoded/decoded by serializers as "Rescinded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSCD")]
     [IsoId("_TRnmmwEcEeCQm6a_G2yO_w_-1391920767")]
-    [Description(@"??")]
+    [Description(@"Trade is rescinded.")]
     Rescinded,
     
     /// <summary>
-    /// ??
+    /// Settlement is complete.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLD")]
     [IsoId("_TRnmnAEcEeCQm6a_G2yO_w_-1213802095")]
-    [Description(@"??")]
+    [Description(@"Settlement is complete.")]
     Settled,
     
     /// <summary>
-    /// ??
+    /// Trade is matched.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FMTC")]
     [IsoId("_TRnmnQEcEeCQm6a_G2yO_w_294069135")]
-    [Description(@"??")]
+    [Description(@"Trade is matched.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Trade is rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_TRnmngEcEeCQm6a_G2yO_w_180230069")]
-    [Description(@"??")]
+    [Description(@"Trade is rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Trade has been authorised by the settlement member guaranteeing payment.
     /// Encoded/decoded by serializers as "SettlementMemberAuthorised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAU")]
     [IsoId("_TRnmnwEcEeCQm6a_G2yO_w_173185354")]
-    [Description(@"??")]
+    [Description(@"Trade has been authorised by the settlement member guaranteeing payment.")]
     SettlementMemberAuthorised,
     
     /// <summary>
-    /// ??
+    /// Trade has not been authorised by the settlement member guaranteeing payment.
     /// Encoded/decoded by serializers as "SettlementMemberNotAuthorised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMNA")]
     [IsoId("_TRnmoAEcEeCQm6a_G2yO_w_-1014049298")]
-    [Description(@"??")]
+    [Description(@"Trade has not been authorised by the settlement member guaranteeing payment.")]
     SettlementMemberNotAuthorised,
     
     /// <summary>
-    /// ??
+    /// Trade has been selected for settlement.
     /// Encoded/decoded by serializers as "SettlementMature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMAT")]
     [IsoId("_TRnmoQEcEeCQm6a_G2yO_w_-1159465200")]
-    [Description(@"??")]
+    [Description(@"Trade has been selected for settlement.")]
     SettlementMature,
     
     /// <summary>
-    /// ??
+    /// Trade has been split into subtrades for settlement efficiency.
     /// Encoded/decoded by serializers as "Split".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLI")]
     [IsoId("_TRxXkAEcEeCQm6a_G2yO_w_-1058596210")]
-    [Description(@"??")]
+    [Description(@"Trade has been split into subtrades for settlement efficiency.")]
     Split,
     
     /// <summary>
-    /// ??
+    /// Trade has been marked not ready for settlement.
     /// Encoded/decoded by serializers as "Suspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_TRxXkQEcEeCQm6a_G2yO_w_1842556854")]
-    [Description(@"??")]
+    [Description(@"Trade has been marked not ready for settlement.")]
     Suspended,
     
     /// <summary>
-    /// ??
+    /// Trade is not authorised.
     /// Encoded/decoded by serializers as "NotAuthorised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAUT")]
     [IsoId("_TRxXkgEcEeCQm6a_G2yO_w_1517398805")]
-    [Description(@"??")]
+    [Description(@"Trade is not authorised.")]
     NotAuthorised,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettledStatusReason2Code
 {
     /// <summary>
-    /// ??
+    /// Cash is partially settled.
     /// Encoded/decoded by serializers as "CashPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPST")]
     [IsoId("_Bf1BsUgXEea9YuSvQGoi-w")]
-    [Description(@"??")]
+    [Description(@"Cash is partially settled.")]
     CashPartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Redemption has been gated. Multiple redemptions and multiple prices will be required.
     /// Encoded/decoded by serializers as "GatedMultipleNAV".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GATM")]
     [IsoId("_BlVMwUgXEea9YuSvQGoi-w")]
-    [Description(@"??")]
+    [Description(@"Redemption has been gated. Multiple redemptions and multiple prices will be required.")]
     GatedMultipleNAV,
     
     /// <summary>
-    /// ??
+    /// Redemption has been gated, all settlement will be done at the same price.
     /// Encoded/decoded by serializers as "GatedOneNAV".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAT1")]
     [IsoId("_BrbNsUgXEea9YuSvQGoi-w")]
-    [Description(@"??")]
+    [Description(@"Redemption has been gated, all settlement will be done at the same price.")]
     GatedOneNAV,
     
     /// <summary>
-    /// ??
+    /// Units and cash are both partially settled.
     /// Encoded/decoded by serializers as "UnitsCashPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCPS")]
     [IsoId("_BwfT4UgXEea9YuSvQGoi-w")]
-    [Description(@"??")]
+    [Description(@"Units and cash are both partially settled.")]
     UnitsCashPartiallySettled,
     
     /// <summary>
-    /// ??
+    /// Units are partially settled.
     /// Encoded/decoded by serializers as "UnitsPartiallySettled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPST")]
     [IsoId("_B11t8UgXEea9YuSvQGoi-w")]
-    [Description(@"??")]
+    [Description(@"Units are partially settled.")]
     UnitsPartiallySettled,
     
 }

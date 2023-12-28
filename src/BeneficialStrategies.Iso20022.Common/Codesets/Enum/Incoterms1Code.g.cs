@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Incoterms1Code
 {
     /// <summary>
-    /// ??
+    /// Ex Works (any mode of transport, including multimodal).
     /// Encoded/decoded by serializers as "ExWorks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXW")]
     [IsoId("_aWGPJdp-Ed-ak6NoX_4Aeg_-435821229")]
-    [Description(@"??")]
+    [Description(@"Ex Works (any mode of transport, including multimodal).")]
     ExWorks,
     
     /// <summary>
-    /// ??
+    /// Free Carrier (any mode of transport, including multimodal).
     /// Encoded/decoded by serializers as "FreeCarrier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCA")]
     [IsoId("_aWGPJtp-Ed-ak6NoX_4Aeg_-435821204")]
-    [Description(@"??")]
+    [Description(@"Free Carrier (any mode of transport, including multimodal).")]
     FreeCarrier,
     
     /// <summary>
-    /// ??
+    /// Free Alongside Ship (sea and inland waterway transport).
     /// Encoded/decoded by serializers as "FreeAlongsideShip".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAS")]
     [IsoId("_aWGPJ9p-Ed-ak6NoX_4Aeg_-435821203")]
-    [Description(@"??")]
+    [Description(@"Free Alongside Ship (sea and inland waterway transport).")]
     FreeAlongsideShip,
     
     /// <summary>
-    /// ??
+    /// Free On Board (sea and inland waterway transport).
     /// Encoded/decoded by serializers as "FreeOnBoard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FOB")]
     [IsoId("_aWGPKNp-Ed-ak6NoX_4Aeg_-435820952")]
-    [Description(@"??")]
+    [Description(@"Free On Board (sea and inland waterway transport).")]
     FreeOnBoard,
     
     /// <summary>
-    /// ??
+    /// Cost and Freight (sea and inland waterway transport).
     /// Encoded/decoded by serializers as "CostAndFreight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFR")]
     [IsoId("_aWPZENp-Ed-ak6NoX_4Aeg_-435820935")]
-    [Description(@"??")]
+    [Description(@"Cost and Freight (sea and inland waterway transport).")]
     CostAndFreight,
     
     /// <summary>
-    /// ??
+    /// Cost, Insurance and Freight (sea and inland waterway transport).
     /// Encoded/decoded by serializers as "CostInsuranceAndFreight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CIF")]
     [IsoId("_aWPZEdp-Ed-ak6NoX_4Aeg_-435820926")]
-    [Description(@"??")]
+    [Description(@"Cost, Insurance and Freight (sea and inland waterway transport).")]
     CostInsuranceAndFreight,
     
     /// <summary>
-    /// ??
+    /// Carriage Paid To (any mode of transport, including multimodal).
     /// Encoded/decoded by serializers as "CarriagePaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPT")]
     [IsoId("_aWPZEtp-Ed-ak6NoX_4Aeg_-435820892")]
-    [Description(@"??")]
+    [Description(@"Carriage Paid To (any mode of transport, including multimodal).")]
     CarriagePaid,
     
     /// <summary>
-    /// ??
+    /// Carriage and Insurance Paid to (any mode of transport, including multimodal).
     /// Encoded/decoded by serializers as "CarriageAndInsurancePaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CIP")]
     [IsoId("_aWPZE9p-Ed-ak6NoX_4Aeg_-435820875")]
-    [Description(@"??")]
+    [Description(@"Carriage and Insurance Paid to (any mode of transport, including multimodal).")]
     CarriageAndInsurancePaid,
     
     /// <summary>
-    /// ??
+    /// Delivered At Frontier (any mode of transport, including multimodal).
     /// Encoded/decoded by serializers as "DeliveredAtFrontier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAF")]
     [IsoId("_aWPZFNp-Ed-ak6NoX_4Aeg_-435820832")]
-    [Description(@"??")]
+    [Description(@"Delivered At Frontier (any mode of transport, including multimodal).")]
     DeliveredAtFrontier,
     
     /// <summary>
-    /// ??
+    /// Delivered Ex Ship (sea and inland waterway transport).
     /// Encoded/decoded by serializers as "DeliveredExShip".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DES")]
     [IsoId("_aWPZFdp-Ed-ak6NoX_4Aeg_-435820831")]
-    [Description(@"??")]
+    [Description(@"Delivered Ex Ship (sea and inland waterway transport).")]
     DeliveredExShip,
     
     /// <summary>
-    /// ??
+    /// Delivered Ex Quay (sea and inland waterway transport).
     /// Encoded/decoded by serializers as "DeliveredExQuay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEQ")]
     [IsoId("_aWPZFtp-Ed-ak6NoX_4Aeg_-434900826")]
-    [Description(@"??")]
+    [Description(@"Delivered Ex Quay (sea and inland waterway transport).")]
     DeliveredExQuay,
     
     /// <summary>
-    /// ??
+    /// Delivered Duty Unpaid (any mode of transport, including multimodal).
     /// Encoded/decoded by serializers as "DeliveredDutyUnpaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDU")]
     [IsoId("_aWPZF9p-Ed-ak6NoX_4Aeg_-434900825")]
-    [Description(@"??")]
+    [Description(@"Delivered Duty Unpaid (any mode of transport, including multimodal).")]
     DeliveredDutyUnpaid,
     
     /// <summary>
-    /// ??
+    /// Delivered Duty Paid (any mode of transport, including multimodal).
     /// Encoded/decoded by serializers as "DeliveredDutyPaid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDP")]
     [IsoId("_aWPZGNp-Ed-ak6NoX_4Aeg_-434900808")]
-    [Description(@"??")]
+    [Description(@"Delivered Duty Paid (any mode of transport, including multimodal).")]
     DeliveredDutyPaid,
     
 }

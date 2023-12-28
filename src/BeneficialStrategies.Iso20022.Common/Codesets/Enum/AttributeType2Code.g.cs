@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AttributeType2Code
 {
     /// <summary>
-    /// ??
+    /// Email address of the certificate subject.
     /// Encoded/decoded by serializers as "EmailAddress".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMAL")]
     [IsoId("_56IUsY4TEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"Email address of the certificate subject.")]
     EmailAddress,
     
     /// <summary>
-    /// ??
+    /// Password by which an entity may request certificate revocation.
     /// Encoded/decoded by serializers as "ChallengePassword".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHLG")]
     [IsoId("_6f_a044TEeW6h7rGyYlyTg")]
-    [Description(@"??")]
+    [Description(@"Password by which an entity may request certificate revocation.")]
     ChallengePassword,
     
 }

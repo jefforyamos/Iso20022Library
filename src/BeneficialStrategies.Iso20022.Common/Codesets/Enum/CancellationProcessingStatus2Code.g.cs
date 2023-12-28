@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancellationProcessingStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation has been completed.
     /// Encoded/decoded by serializers as "CancellationCompleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_bXqZ1dp-Ed-ak6NoX_4Aeg_-827273380")]
-    [Description(@"??")]
+    [Description(@"Cancellation has been completed.")]
     CancellationCompleted,
     
     /// <summary>
-    /// ??
+    /// Cancellation is pending. It is not known at this time whether cancellation can be affected.
     /// Encoded/decoded by serializers as "PendingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_bXqZ1tp-Ed-ak6NoX_4Aeg_-827273349")]
-    [Description(@"??")]
+    [Description(@"Cancellation is pending. It is not known at this time whether cancellation can be affected.")]
     PendingCancellation,
     
     /// <summary>
-    /// ??
+    /// Cancellation will not be executed.
     /// Encoded/decoded by serializers as "Denied".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEND")]
     [IsoId("_bXqZ19p-Ed-ak6NoX_4Aeg_-827273319")]
-    [Description(@"??")]
+    [Description(@"Cancellation will not be executed.")]
     Denied,
     
     /// <summary>
-    /// ??
+    /// Cancellation request has been acknowledged for further processing by the account servicer.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_bXqZ2Np-Ed-ak6NoX_4Aeg_-827273257")]
-    [Description(@"??")]
+    [Description(@"Cancellation request has been acknowledged for further processing by the account servicer.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Cancellation has been rejected for further processing.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_bXqZ2dp-Ed-ak6NoX_4Aeg_-827272979")]
-    [Description(@"??")]
+    [Description(@"Cancellation has been rejected for further processing.")]
     Rejected,
     
 }

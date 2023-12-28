@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DemandStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Demand refused.
     /// Encoded/decoded by serializers as "Refused".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFD")]
     [IsoId("_kDeoRnyaEeGWJuGCfvwOsQ")]
-    [Description(@"??")]
+    [Description(@"Demand refused.")]
     Refused,
     
 }

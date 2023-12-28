@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardDataReading6Code
 {
     /// <summary>
-    /// ??
+    /// Tag reading capabilities (RFID, etc.).
     /// Encoded/decoded by serializers as "Tag".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAGC")]
     [IsoId("_0I634dkIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Tag reading capabilities (RFID, etc.).")]
     Tag,
     
     /// <summary>
-    /// ??
+    /// Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.
     /// Encoded/decoded by serializers as "Physical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_0I6349kIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.")]
     Physical,
     
     /// <summary>
-    /// ??
+    /// Bar code.
     /// Encoded/decoded by serializers as "BarCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRCD")]
     [IsoId("_0I635dkIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Bar code.")]
     BarCode,
     
     /// <summary>
-    /// ??
+    /// Magnetic stripe.
     /// Encoded/decoded by serializers as "MagneticStripe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGST")]
     [IsoId("_0I6359kIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Magnetic stripe.")]
     MagneticStripe,
     
     /// <summary>
-    /// ??
+    /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
     /// Encoded/decoded by serializers as "ICC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CICC")]
     [IsoId("_0I636dkIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.")]
     ICC,
     
     /// <summary>
-    /// ??
+    /// Account data on file.
     /// Encoded/decoded by serializers as "AccountData".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLE")]
     [IsoId("_0I6369kIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Account data on file.")]
     AccountData,
     
     /// <summary>
-    /// ??
+    /// Contactless proximity reader.
     /// Encoded/decoded by serializers as "ProximityReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTLS")]
     [IsoId("_0I637dkIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Contactless proximity reader.")]
     ProximityReader,
     
     /// <summary>
-    /// ??
+    /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
     /// Encoded/decoded by serializers as "EMVProximityReader".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ECTL")]
     [IsoId("_0I6379kIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).")]
     EMVProximityReader,
     
     /// <summary>
-    /// ??
+    /// Card information are stored on a file.
     /// Encoded/decoded by serializers as "CardOnFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDFL")]
     [IsoId("_0I638dkIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Card information are stored on a file.")]
     CardOnFile,
     
     /// <summary>
-    /// ??
+    /// Synchronous ICC - (Integrated Circuit Card) with contact.
     /// Encoded/decoded by serializers as "SynchronousIntegratedCircuitCard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SICC")]
     [IsoId("_1QCQ8dkIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Synchronous ICC - (Integrated Circuit Card) with contact.")]
     SynchronousIntegratedCircuitCard,
     
     /// <summary>
-    /// ??
+    /// Unknown card reading capability.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNKW")]
     [IsoId("_1eTWcdkIEeiojJsa6FYyew")]
-    [Description(@"??")]
+    [Description(@"Unknown card reading capability.")]
     Unknown,
     
 }

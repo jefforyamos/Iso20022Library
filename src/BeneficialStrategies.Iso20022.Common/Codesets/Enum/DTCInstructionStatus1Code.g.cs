@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCInstructionStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.
     /// Encoded/decoded by serializers as "Recycle".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECY")]
     [IsoId("_121thTL3EeKU9IrkkToqcw_1047722971")]
-    [Description(@"??")]
+    [Description(@"Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.")]
     Recycle,
     
     /// <summary>
-    /// ??
+    /// Fully processed instruction.
     /// Encoded/decoded by serializers as "Made".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MADE")]
     [IsoId("_121thjL3EeKU9IrkkToqcw_-1664224946")]
-    [Description(@"??")]
+    [Description(@"Fully processed instruction.")]
     Made,
     
     /// <summary>
-    /// ??
+    /// Instruction dropped due to insufficient position.
     /// Encoded/decoded by serializers as "Dropped".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DROP")]
     [IsoId("_12-3cDL3EeKU9IrkkToqcw_1558737291")]
-    [Description(@"??")]
+    [Description(@"Instruction dropped due to insufficient position.")]
     Dropped,
     
     /// <summary>
-    /// ??
+    /// Transaction rejected.
     /// Encoded/decoded by serializers as "EditReject".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EDRJ")]
     [IsoId("_12-3cTL3EeKU9IrkkToqcw_-1269081242")]
-    [Description(@"??")]
+    [Description(@"Transaction rejected.")]
     EditReject,
     
 }

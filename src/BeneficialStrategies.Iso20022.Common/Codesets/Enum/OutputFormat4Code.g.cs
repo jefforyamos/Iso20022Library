@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OutputFormat4Code
 {
     /// <summary>
-    /// ??
+    /// File name and location identification for stored messages or data.
     /// Encoded/decoded by serializers as "FileName".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLNM")]
     [IsoId("_zz2zIX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"File name and location identification for stored messages or data.")]
     FileName,
     
     /// <summary>
-    /// ??
+    /// Predefined configured messages, identified by a reference.
     /// Encoded/decoded by serializers as "MessageReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MREF")]
     [IsoId("_zz2zI30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Predefined configured messages, identified by a reference.")]
     MessageReference,
     
     /// <summary>
-    /// ??
+    /// Other type of output of message defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_zz2zJX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of output of message defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of output format defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_zz2zJ30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other type of output format defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Short message service
     /// Encoded/decoded by serializers as "ShortMessageService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMSI")]
     [IsoId("_zz2zKX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Short message service")]
     ShortMessageService,
     
     /// <summary>
-    /// ??
+    /// Text without format attributes.
     /// Encoded/decoded by serializers as "SimpleText".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEXT")]
     [IsoId("_zz2zK30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Text without format attributes.")]
     SimpleText,
     
     /// <summary>
-    /// ??
+    /// Uniform Resource Locator (URL) reference for the message.
     /// Encoded/decoded by serializers as "UniformResourceLocator".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URLI")]
     [IsoId("_zz2zLX0lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Uniform Resource Locator (URL) reference for the message.")]
     UniformResourceLocator,
     
     /// <summary>
-    /// ??
+    /// XHTML document which includes a subset of the XHTML output tag.
     /// Encoded/decoded by serializers as "XHTML".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HTML")]
     [IsoId("_zz2zL30lEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
     XHTML,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancelledStatusReason8Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by a party other than the instructing party, eg, a market infrastructure such as a stock exchange.
     /// Encoded/decoded by serializers as "CancelledByOther".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANO")]
     [IsoId("_WOybg9p-Ed-ak6NoX_4Aeg_-1191324296")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by a party other than the instructing party, eg, a market infrastructure such as a stock exchange.")]
     CancelledByOther,
     
 }

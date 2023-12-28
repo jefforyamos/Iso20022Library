@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm4Code
 {
     /// <summary>
-    /// ??
+    /// Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).
     /// Encoded/decoded by serializers as "SHA256WithRSA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERS2")]
     [IsoId("_3MPT4QiqEeKn9O5oyej_zw")]
-    [Description(@"??")]
+    [Description(@"Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).")]
     SHA256WithRSA,
     
 }

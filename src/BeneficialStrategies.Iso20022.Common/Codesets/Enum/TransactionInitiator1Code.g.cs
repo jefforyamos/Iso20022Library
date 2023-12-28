@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionInitiator1Code
 {
     /// <summary>
-    /// ??
+    /// Merchant initiated transaction.
     /// Encoded/decoded by serializers as "Merchant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MERC")]
     [IsoId("_KWdxcWzgEemD24gVaMSpeA")]
-    [Description(@"??")]
+    [Description(@"Merchant initiated transaction.")]
     Merchant,
     
     /// <summary>
-    /// ??
+    /// Customer initiated transaction.
     /// Encoded/decoded by serializers as "Customer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_KicX8WzgEemD24gVaMSpeA")]
-    [Description(@"??")]
+    [Description(@"Customer initiated transaction.")]
     Customer,
     
 }

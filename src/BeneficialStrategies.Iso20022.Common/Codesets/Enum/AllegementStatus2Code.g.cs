@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AllegementStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Allegement has been accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_75fyMa3DEeeBVbuVcoH9Nw")]
-    [Description(@"??")]
+    [Description(@"Allegement has been accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Allegement is pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_7_5VIa3DEeeBVbuVcoH9Nw")]
-    [Description(@"??")]
+    [Description(@"Allegement is pending.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Transaction or report has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_8LgIMa3DEeeBVbuVcoH9Nw")]
-    [Description(@"??")]
+    [Description(@"Transaction or report has been rejected.")]
     Rejected,
     
 }

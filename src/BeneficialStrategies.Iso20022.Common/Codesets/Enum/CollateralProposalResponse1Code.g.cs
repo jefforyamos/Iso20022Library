@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralProposalResponse1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates that the collateral proposal response is an initial proposal.
     /// Encoded/decoded by serializers as "InitialProposal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPR")]
     [IsoId("_YbwCVNp-Ed-ak6NoX_4Aeg_542981423")]
-    [Description(@"??")]
+    [Description(@"Indicates that the collateral proposal response is an initial proposal.")]
     InitialProposal,
     
     /// <summary>
-    /// ??
+    /// Indicates that the collateral proposal response is a counter proposal.
     /// Encoded/decoded by serializers as "CounterProposal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COPR")]
     [IsoId("_YbwCVdp-Ed-ak6NoX_4Aeg_531882646")]
-    [Description(@"??")]
+    [Description(@"Indicates that the collateral proposal response is a counter proposal.")]
     CounterProposal,
     
 }

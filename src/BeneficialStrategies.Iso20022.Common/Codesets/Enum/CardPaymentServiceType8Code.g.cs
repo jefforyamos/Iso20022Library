@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardPaymentServiceType8Code
 {
     /// <summary>
-    /// ??
+    /// Aggregation of low payments.
     /// Encoded/decoded by serializers as "Aggregation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGGR")]
     [IsoId("_LBMBwXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Aggregation of low payments.")]
     Aggregation,
     
     /// <summary>
-    /// ??
+    /// Card payment with cash-back.
     /// Encoded/decoded by serializers as "CashBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHB")]
     [IsoId("_LlfosXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Card payment with cash-back.")]
     CashBack,
     
     /// <summary>
-    /// ??
+    /// Amount and notes values are chosen by the customer.
     /// Encoded/decoded by serializers as "ChosenWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSWD")]
     [IsoId("_L0wMsXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Amount and notes values are chosen by the customer.")]
     ChosenWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Dynamic currency conversion (DCC).
     /// Encoded/decoded by serializers as "DCC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCV")]
     [IsoId("_NKkJEXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Dynamic currency conversion (DCC).")]
     DCC,
     
     /// <summary>
-    /// ??
+    /// Card payment with gratuity.
     /// Encoded/decoded by serializers as "Gratuity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRTT")]
     [IsoId("_NYAvMXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Card payment with gratuity.")]
     Gratuity,
     
     /// <summary>
-    /// ??
+    /// Instalment payment transaction performed by the acceptor or the acquirer.
     /// Encoded/decoded by serializers as "AcceptorInstalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSA")]
     [IsoId("_NtmksXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Instalment payment transaction performed by the acceptor or the acquirer.")]
     AcceptorInstalment,
     
     /// <summary>
-    /// ??
+    /// Instalment payment transaction performed by the card issuer.
     /// Encoded/decoded by serializers as "IssuerInstalment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSI")]
     [IsoId("_ROSdMXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Instalment payment transaction performed by the card issuer.")]
     IssuerInstalment,
     
     /// <summary>
-    /// ??
+    /// Loyalty services.
     /// Encoded/decoded by serializers as "Loyalty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOYT")]
     [IsoId("_SVeHsXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Loyalty services.")]
     Loyalty,
     
     /// <summary>
-    /// ??
+    /// No show after reservation.
     /// Encoded/decoded by serializers as "NoShow".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRES")]
     [IsoId("_S7FWMXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"No show after reservation.")]
     NoShow,
     
     /// <summary>
-    /// ??
+    /// Withdrawal transaction was pre-authorised by another channel (amount could be absent).
     /// Encoded/decoded by serializers as "PreAuthorisedWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AUWS")]
     [IsoId("_Te2xoXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Withdrawal transaction was pre-authorised by another channel (amount could be absent).")]
     PreAuthorisedWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Amount and Notes Values are pre-defined by the customer profile.
     /// Encoded/decoded by serializers as "ProfileWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PFWD")]
     [IsoId("_UwHlMXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Amount and Notes Values are pre-defined by the customer profile.")]
     ProfileWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Purchase and corporate data.
     /// Encoded/decoded by serializers as "PurchaseCorporate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUCO")]
     [IsoId("_U4bzsXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Purchase and corporate data.")]
     PurchaseCorporate,
     
     /// <summary>
-    /// ??
+    /// Recurring payment.
     /// Encoded/decoded by serializers as "RecurringPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECP")]
     [IsoId("_VxRgMXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Recurring payment.")]
     RecurringPayment,
     
     /// <summary>
-    /// ??
+    /// Solicited available funds.
     /// Encoded/decoded by serializers as "SolicitedAvailableFunds".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOAF")]
     [IsoId("_V9jBoXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Solicited available funds.")]
     SolicitedAvailableFunds,
     
     /// <summary>
-    /// ??
+    /// Customer pressed a button associated with a withdrawal of unique amount and notes mix.
     /// Encoded/decoded by serializers as "StandardWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDWD")]
     [IsoId("_W3BAQXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Customer pressed a button associated with a withdrawal of unique amount and notes mix.")]
     StandardWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Voice authorisation.
     /// Encoded/decoded by serializers as "VoiceAuthorisation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VCAU")]
     [IsoId("_XGMEsXsvEeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Voice authorisation.")]
     VoiceAuthorisation,
     
     /// <summary>
-    /// ??
+    /// Payment of goods or services which are not refundable, for instance low cost airline tickets.
     /// Encoded/decoded by serializers as "NonRefundable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRFD")]
     [IsoId("_PZpogYIOEeSvPp7yXrNQIw")]
-    [Description(@"??")]
+    [Description(@"Payment of goods or services which are not refundable, for instance low cost airline tickets.")]
     NonRefundable,
     
     /// <summary>
-    /// ??
+    /// Instant transaction.
     /// Encoded/decoded by serializers as "Instant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_qWNyQS-JEeWfYucYWs4iQg")]
-    [Description(@"??")]
+    [Description(@"Instant transaction.")]
     Instant,
     
 }

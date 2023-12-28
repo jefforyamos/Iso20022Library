@@ -22,30 +22,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalSecuritiesPurpose1Code
 {
     /// <summary>
-    /// ??
+    /// Relates to collateral management.
     /// Encoded/decoded by serializers as "CollateralManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COLL")]
     [IsoId("_uU8YS_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Relates to collateral management.")]
     CollateralManagement,
     
     /// <summary>
-    /// ??
+    /// Relates to securities lending.
     /// Encoded/decoded by serializers as "SecuritiesLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECL")]
     [IsoId("_uVGJQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Relates to securities lending.")]
     SecuritiesLending,
     
     /// <summary>
-    /// ??
+    /// Relates to settlements.
     /// Encoded/decoded by serializers as "Settlements".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STMT")]
     [IsoId("_uVGJRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Relates to settlements.")]
     Settlements,
     
 }

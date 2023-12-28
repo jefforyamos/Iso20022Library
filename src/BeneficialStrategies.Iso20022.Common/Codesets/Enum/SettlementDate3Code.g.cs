@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementDate3Code
 {
     /// <summary>
-    /// ??
+    /// Settlement takes place at the choice/option of the seller.
     /// Encoded/decoded by serializers as "SellersOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_ZLby0Np-Ed-ak6NoX_4Aeg_-219579438")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place at the choice/option of the seller.")]
     SellersOption,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place as a result of a "to be announced" trade.
     /// Encoded/decoded by serializers as "ToBeAnnouncedTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBAT")]
     [IsoId("_ZLby0dp-Ed-ak6NoX_4Aeg_-73663569")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place as a result of a ""to be announced"" trade.")]
     ToBeAnnouncedTrade,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place when the financial instrument is distributed.
     /// Encoded/decoded by serializers as "WhenDistributed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WDIS")]
     [IsoId("_ZLby0tp-Ed-ak6NoX_4Aeg_341923237")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place when the financial instrument is distributed.")]
     WhenDistributed,
     
     /// <summary>
-    /// ??
+    /// Settlement takes place when the financial instrument is issued or distributed.
     /// Encoded/decoded by serializers as "WhenIssuedOrDistributed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHID")]
     [IsoId("_ZLby09p-Ed-ak6NoX_4Aeg_372397488")]
-    [Description(@"??")]
+    [Description(@"Settlement takes place when the financial instrument is issued or distributed.")]
     WhenIssuedOrDistributed,
     
     /// <summary>
-    /// ??
+    /// Settlement is to be done when the security is issued.
     /// Encoded/decoded by serializers as "WhenIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WISS")]
     [IsoId("_ZLby1Np-Ed-ak6NoX_4Aeg_671619815")]
-    [Description(@"??")]
+    [Description(@"Settlement is to be done when the security is issued.")]
     WhenIssued,
     
 }

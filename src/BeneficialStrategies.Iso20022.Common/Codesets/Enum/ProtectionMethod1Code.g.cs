@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProtectionMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Other code assigned by national organisation.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_UuoZgZyBEeuo7tDc4CDHXg")]
-    [Description(@"??")]
+    [Description(@"Other code assigned by national organisation.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other privately assigned code.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_U3W3sZyBEeuo7tDc4CDHXg")]
-    [Description(@"??")]
+    [Description(@"Other privately assigned code.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Secure element method.
     /// Encoded/decoded by serializers as "SecureElement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELM")]
     [IsoId("_VdBJgZyBEeuo7tDc4CDHXg")]
-    [Description(@"??")]
+    [Description(@"Secure element method.")]
     SecureElement,
     
     /// <summary>
-    /// ??
+    /// Secure enclave method.
     /// Encoded/decoded by serializers as "SecureEnclave".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SNCL")]
     [IsoId("_VdwJUZyBEeuo7tDc4CDHXg")]
-    [Description(@"??")]
+    [Description(@"Secure enclave method.")]
     SecureEnclave,
     
     /// <summary>
-    /// ??
+    /// Software protection method.
     /// Encoded/decoded by serializers as "Software".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOFT")]
     [IsoId("_VegXQZyBEeuo7tDc4CDHXg")]
-    [Description(@"??")]
+    [Description(@"Software protection method.")]
     Software,
     
     /// <summary>
-    /// ??
+    /// Trusted execution environment method.
     /// Encoded/decoded by serializers as "TrustedExectutionEnvironment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEEN")]
     [IsoId("_VfMTwZyBEeuo7tDc4CDHXg")]
-    [Description(@"??")]
+    [Description(@"Trusted execution environment method.")]
     TrustedExectutionEnvironment,
     
 }

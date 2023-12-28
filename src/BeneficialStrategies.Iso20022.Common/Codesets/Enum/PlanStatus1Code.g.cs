@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PlanStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Plan is active.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_RvyIoQjcEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Plan is active.")]
     Active,
     
     /// <summary>
-    /// ??
+    /// Plan is closed.
     /// Encoded/decoded by serializers as "Closed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLOS")]
     [IsoId("_R4tbIQjcEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Plan is closed.")]
     Closed,
     
     /// <summary>
-    /// ??
+    /// Plan is suspended.
     /// Encoded/decoded by serializers as "Suspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_SBC3wQjcEeS5F6qHcKOrew")]
-    [Description(@"??")]
+    [Description(@"Plan is suspended.")]
     Suspended,
     
 }

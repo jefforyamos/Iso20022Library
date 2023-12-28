@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EquityReturnParameter1Code
 {
     /// <summary>
-    /// ??
+    /// Equity derivative parameter Return Dividend.
     /// Encoded/decoded by serializers as "ParameterReturnDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRDV")]
     [IsoId("_eyxSAQneEeWa7rBfPECYsw")]
-    [Description(@"??")]
+    [Description(@"Equity derivative parameter Return Dividend.")]
     ParameterReturnDividend,
     
     /// <summary>
-    /// ??
+    /// Equity derivative parameter Return Variance.
     /// Encoded/decoded by serializers as "ParameterReturnVariance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRVA")]
     [IsoId("_e3rnMQneEeWa7rBfPECYsw")]
-    [Description(@"??")]
+    [Description(@"Equity derivative parameter Return Variance.")]
     ParameterReturnVariance,
     
     /// <summary>
-    /// ??
+    /// Equity derivative parameter Return Volatility.
     /// Encoded/decoded by serializers as "ParameterReturnVolatility".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRVO")]
     [IsoId("_e_kX4QneEeWa7rBfPECYsw")]
-    [Description(@"??")]
+    [Description(@"Equity derivative parameter Return Volatility.")]
     ParameterReturnVolatility,
     
     /// <summary>
-    /// ??
+    /// Equity derivative parameter Price Return Basis Performance.
     /// Encoded/decoded by serializers as "PriceReturnBasicPerformanceParameter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRBP")]
     [IsoId("_fD4QIQneEeWa7rBfPECYsw")]
-    [Description(@"??")]
+    [Description(@"Equity derivative parameter Price Return Basis Performance.")]
     PriceReturnBasicPerformanceParameter,
     
 }

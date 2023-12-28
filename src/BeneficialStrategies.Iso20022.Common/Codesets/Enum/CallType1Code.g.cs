@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CallType1Code
 {
     /// <summary>
-    /// ??
+    /// Type of execution of the call feature is a lottery.
     /// Encoded/decoded by serializers as "Lottery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOTT")]
     [IsoId("_ha1jv2liEeGaMcKyqKNRfQ_1557320145")]
-    [Description(@"??")]
+    [Description(@"Type of execution of the call feature is a lottery.")]
     Lottery,
     
     /// <summary>
-    /// ??
+    /// Type of execution of the call feature is pro-rata.
     /// Encoded/decoded by serializers as "ProRata".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRTA")]
     [IsoId("_ha1jwGliEeGaMcKyqKNRfQ_-906723982")]
-    [Description(@"??")]
+    [Description(@"Type of execution of the call feature is pro-rata.")]
     ProRata,
     
 }

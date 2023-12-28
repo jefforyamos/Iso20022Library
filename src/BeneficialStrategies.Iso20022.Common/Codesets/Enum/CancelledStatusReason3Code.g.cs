@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancelledStatusReason3Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the transfer agent.
     /// Encoded/decoded by serializers as "CancelledByTransferAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTA")]
     [IsoId("_a0yWQ9p-Ed-ak6NoX_4Aeg_2105332427")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the transfer agent.")]
     CancelledByTransferAgent,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the client.
     /// Encoded/decoded by serializers as "CancelledByClient".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNCL")]
     [IsoId("_a0yWRNp-Ed-ak6NoX_4Aeg_2105332450")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the client.")]
     CancelledByClient,
     
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by the intermediary.
     /// Encoded/decoded by serializers as "CancelledByIntermediary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNIN")]
     [IsoId("_a0yWRdp-Ed-ak6NoX_4Aeg_2105332467")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by the intermediary.")]
     CancelledByIntermediary,
     
 }

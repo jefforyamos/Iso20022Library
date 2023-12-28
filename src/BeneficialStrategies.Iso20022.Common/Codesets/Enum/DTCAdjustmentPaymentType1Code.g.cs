@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCAdjustmentPaymentType1Code
 {
     /// <summary>
-    /// ??
+    /// Stock loan transaction.
     /// Encoded/decoded by serializers as "StockLoanPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOK")]
     [IsoId("_16HD8jL3EeKU9IrkkToqcw_-1873975027")]
-    [Description(@"??")]
+    [Description(@"Stock loan transaction.")]
     StockLoanPayment,
     
     /// <summary>
-    /// ??
+    /// REPO (repurchase agreement) transaction.
     /// Encoded/decoded by serializers as "RepoPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPO")]
     [IsoId("_16HD8zL3EeKU9IrkkToqcw_-990741740")]
-    [Description(@"??")]
+    [Description(@"REPO (repurchase agreement) transaction.")]
     RepoPayment,
     
     /// <summary>
-    /// ??
+    /// FAIL (undelivered securities) transaction.
     /// Encoded/decoded by serializers as "FailPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_16HD9DL3EeKU9IrkkToqcw_-1315859247")]
-    [Description(@"??")]
+    [Description(@"FAIL (undelivered securities) transaction.")]
     FailPayment,
     
     /// <summary>
-    /// ??
+    /// Miscellaneous (adjustment) transaction.
     /// Encoded/decoded by serializers as "MiscellaneousPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MISC")]
     [IsoId("_16HD9TL3EeKU9IrkkToqcw_-872870755")]
-    [Description(@"??")]
+    [Description(@"Miscellaneous (adjustment) transaction.")]
     MiscellaneousPayment,
     
 }

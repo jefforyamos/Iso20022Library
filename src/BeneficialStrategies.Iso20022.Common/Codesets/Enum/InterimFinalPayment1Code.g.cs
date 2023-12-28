@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InterimFinalPayment1Code
 {
     /// <summary>
-    /// ??
+    /// Interim payment. Pending possible future payments.
     /// Encoded/decoded by serializers as "Interim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTE")]
     [IsoId("_1tcg9TL3EeKU9IrkkToqcw_579708614")]
-    [Description(@"??")]
+    [Description(@"Interim payment. Pending possible future payments.")]
     Interim,
     
     /// <summary>
-    /// ??
+    /// Final payment positions will be debited.
     /// Encoded/decoded by serializers as "Final".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_1tcg9jL3EeKU9IrkkToqcw_465869548")]
-    [Description(@"??")]
+    [Description(@"Final payment positions will be debited.")]
     Final,
     
 }

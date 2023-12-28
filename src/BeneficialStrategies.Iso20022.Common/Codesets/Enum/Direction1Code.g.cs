@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Direction1Code
 {
     /// <summary>
-    /// ??
+    /// Down.
     /// Encoded/decoded by serializers as "Down".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRDW")]
     [IsoId("_awK8Atp-Ed-ak6NoX_4Aeg_1520758160")]
-    [Description(@"??")]
+    [Description(@"Down.")]
     Down,
     
     /// <summary>
-    /// ??
+    /// Up.
     /// Encoded/decoded by serializers as "Up".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRUP")]
     [IsoId("_awK8A9p-Ed-ak6NoX_4Aeg_1752561964")]
-    [Description(@"??")]
+    [Description(@"Up.")]
     Up,
     
 }

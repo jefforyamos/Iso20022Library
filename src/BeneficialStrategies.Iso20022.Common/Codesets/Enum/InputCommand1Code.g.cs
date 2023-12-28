@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InputCommand1Code
 {
     /// <summary>
-    /// ??
+    /// Wait for a string of digit characters with a decimal point, the length range could be specified.
     /// Encoded/decoded by serializers as "DecimalString".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCSG")]
     [IsoId("_ezGMUO2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Wait for a string of digit characters with a decimal point, the length range could be specified.")]
     DecimalString,
     
     /// <summary>
-    /// ??
+    /// Wait for a string of digit characters.
     /// Encoded/decoded by serializers as "DigitString".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DGSG")]
     [IsoId("_e4fCoe2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Wait for a string of digit characters.")]
     DigitString,
     
     /// <summary>
-    /// ??
+    /// Wait for a key pressed on the Terminal, to be able to read the message displayed on the Terminal.
     /// Encoded/decoded by serializers as "GetAnyKey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GAKY")]
     [IsoId("_e-ztEe2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Wait for a key pressed on the Terminal, to be able to read the message displayed on the Terminal.")]
     GetAnyKey,
     
     /// <summary>
-    /// ??
+    /// Wait for a confirmation Yes (Y) or No (N) on the Sale System. Wait for a confirmation (Valid or Cancel button) on the POI Terminal. The result of the command is a Boolean: True or False.
     /// Encoded/decoded by serializers as "GetConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GCNF")]
     [IsoId("_fFTWoe2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Wait for a confirmation Yes (Y) or No (N) on the Sale System. Wait for a confirmation (Valid or Cancel button) on the POI Terminal. The result of the command is a Boolean: True or False.")]
     GetConfirmation,
     
     /// <summary>
-    /// ??
+    /// Wait for a function key pressed on the Terminal: From POI, Valid, Clear, Correct, Generic Function key number. From Sale, Generic Function key.
     /// Encoded/decoded by serializers as "GetFunctionKey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GFKY")]
     [IsoId("_fL8xMe2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Wait for a function key pressed on the Terminal: From POI, Valid, Clear, Correct, Generic Function key number. From Sale, Generic Function key.")]
     GetFunctionKey,
     
     /// <summary>
-    /// ??
+    /// To choose an entry among a list of entries (all of them are not necessary selectable). The OutputFormat has to be MenuEntry.
     /// Encoded/decoded by serializers as "GetMenuEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GMNE")]
     [IsoId("_fQxm0e2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"To choose an entry among a list of entries (all of them are not necessary selectable). The OutputFormat has to be MenuEntry.")]
     GetMenuEntry,
     
     /// <summary>
-    /// ??
+    /// Request to enter a password with masked characters while typing the password.
     /// Encoded/decoded by serializers as "Password".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PSWD")]
     [IsoId("_fV1tAe2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Request to enter a password with masked characters while typing the password.")]
     Password,
     
     /// <summary>
-    /// ??
+    /// Wait for a confirmation Yes (Y) or No (N) of the Site Manager on the Sale System.
     /// Encoded/decoded by serializers as "SiteManager".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SITE")]
     [IsoId("_faotce2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Wait for a confirmation Yes (Y) or No (N) of the Site Manager on the Sale System.")]
     SiteManager,
     
     /// <summary>
-    /// ??
+    /// Wait for a string of alphanumeric characters.
     /// Encoded/decoded by serializers as "TextString".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TXSG")]
     [IsoId("_ffbG0e2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Wait for a string of alphanumeric characters.")]
     TextString,
     
     /// <summary>
-    /// ??
+    /// Wait for a XHTML data.
     /// Encoded/decoded by serializers as "XHTMLText".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HTML")]
     [IsoId("_fkPVYO2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Wait for a XHTML data.")]
     XHTMLText,
     
     /// <summary>
-    /// ??
+    /// Request to wait for signature.
     /// Encoded/decoded by serializers as "Signature".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIGN")]
     [IsoId("_v0ROUe2tEei-V5h0ja04AA")]
-    [Description(@"??")]
+    [Description(@"Request to wait for signature.")]
     Signature,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReorganisationWithdrawalTransactionType2Code
 {
     /// <summary>
-    /// ??
+    /// The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.
     /// Encoded/decoded by serializers as "WithdrawalProtectOnBehalfOfAnotherParticipant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRPW")]
     [IsoId("_Nax0kecpEei5aPS232E3Mw")]
-    [Description(@"??")]
+    [Description(@"The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.")]
     WithdrawalProtectOnBehalfOfAnotherParticipant,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeRegulatoryConditions1Code
 {
     /// <summary>
-    /// ??
+    /// Trade was solicited by the executing broker. The broker has suggested to his client to buy/sell financial instruments.
     /// Encoded/decoded by serializers as "Solicited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOLI")]
     [IsoId("__yXpINojEeC60axPepSq7g_-382114460")]
-    [Description(@"??")]
+    [Description(@"Trade was solicited by the executing broker. The broker has suggested to his client to buy/sell financial instruments.")]
     Solicited,
     
     /// <summary>
-    /// ??
+    /// Trade was unsolicited. The client acts on its own without advice from the executing broker.
     /// Encoded/decoded by serializers as "Unsolicited".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USOL")]
     [IsoId("__yXpIdojEeC60axPepSq7g_-393213237")]
-    [Description(@"??")]
+    [Description(@"Trade was unsolicited. The client acts on its own without advice from the executing broker.")]
     Unsolicited,
     
 }

@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMNoteType1Code
 {
     /// <summary>
-    /// ??
+    /// All fit bank note types.
     /// Encoded/decoded by serializers as "All".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLT")]
     [IsoId("_V2iWcYqgEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"All fit bank note types.")]
     All,
     
     /// <summary>
-    /// ??
+    /// Detected counterfeit notes.
     /// Encoded/decoded by serializers as "Counterfeit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTR")]
     [IsoId("_V7mcoYqgEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Detected counterfeit notes.")]
     Counterfeit,
     
     /// <summary>
-    /// ??
+    /// All types of fit bank notes specified in an individual list.
     /// Encoded/decoded by serializers as "Individual".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IDVD")]
     [IsoId("_WAqi0YqgEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"All types of fit bank notes specified in an individual list.")]
     Individual,
     
     /// <summary>
-    /// ??
+    /// Suspected counterfeit notes.
     /// Encoded/decoded by serializers as "SuspectedCounterfeit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCNT")]
     [IsoId("_WHEs0YqgEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Suspected counterfeit notes.")]
     SuspectedCounterfeit,
     
     /// <summary>
-    /// ??
+    /// Unfit bank notes (unacceptable quality).
     /// Encoded/decoded by serializers as "Unfit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNFT")]
     [IsoId("_WNL74YqgEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Unfit bank notes (unacceptable quality).")]
     Unfit,
     
 }

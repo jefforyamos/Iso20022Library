@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceValueType8Code
 {
     /// <summary>
-    /// ??
+    /// Price to be specified by account owner.
     /// Encoded/decoded by serializers as "ToBeSpecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBSP")]
     [IsoId("_q5RTNmtdEeCY4-KZ9JEyUQ_2120036301")]
-    [Description(@"??")]
+    [Description(@"Price to be specified by account owner.")]
     ToBeSpecified,
     
     /// <summary>
-    /// ??
+    /// Price is not required to be specified by account owner.
     /// Encoded/decoded by serializers as "Unspecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_q5bEMGtdEeCY4-KZ9JEyUQ_945022265")]
-    [Description(@"??")]
+    [Description(@"Price is not required to be specified by account owner.")]
     Unspecified,
     
     /// <summary>
-    /// ??
+    /// Price is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_q5bEMWtdEeCY4-KZ9JEyUQ_-52050088")]
-    [Description(@"??")]
+    [Description(@"Price is unknown by the sender or has not been established.")]
     Unknown,
     
     /// <summary>
-    /// ??
+    /// Price will not be paid.
     /// Encoded/decoded by serializers as "NilPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NILP")]
     [IsoId("_q5bEMmtdEeCY4-KZ9JEyUQ_1399109534")]
-    [Description(@"??")]
+    [Description(@"Price will not be paid.")]
     NilPayment,
     
 }

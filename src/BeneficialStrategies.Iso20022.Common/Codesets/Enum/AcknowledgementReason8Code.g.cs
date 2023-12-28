@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AcknowledgementReason8Code
 {
     /// <summary>
-    /// ??
+    /// See narrative field for reason.
     /// Encoded/decoded by serializers as "NarrativeReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NARR")]
     [IsoId("__j-uESz2EeOsiuMH68so7Q")]
-    [Description(@"??")]
+    [Description(@"See narrative field for reason.")]
     NarrativeReason,
     
 }

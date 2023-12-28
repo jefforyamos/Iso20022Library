@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CollateralType2Code
 {
     /// <summary>
-    /// ??
+    /// Collateral type is cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_YZhNt9p-Ed-ak6NoX_4Aeg_-490160893")]
-    [Description(@"??")]
+    [Description(@"Collateral type is cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Collateral type is securities.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_YZhNuNp-Ed-ak6NoX_4Aeg_-2046528295")]
-    [Description(@"??")]
+    [Description(@"Collateral type is securities.")]
     Securities,
     
 }

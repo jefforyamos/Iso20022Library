@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType22Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type livestock.
     /// Encoded/decoded by serializers as "Livestock".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LSTK")]
     [IsoId("_kxU3UVrAEeWN79Bl6BUd3g")]
-    [Description(@"??")]
+    [Description(@"Commodity of type livestock.")]
     Livestock,
     
 }

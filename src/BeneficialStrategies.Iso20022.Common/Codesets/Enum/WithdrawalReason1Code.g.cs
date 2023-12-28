@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum WithdrawalReason1Code
 {
     /// <summary>
-    /// ??
+    /// Alleged trade is rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_3S_I0ZElEeKcLcxonNWTXg")]
-    [Description(@"??")]
+    [Description(@"Alleged trade is rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Alleged trade is rescinded.
     /// Encoded/decoded by serializers as "Rescinded".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RSCD")]
     [IsoId("_3dH8QZElEeKcLcxonNWTXg")]
-    [Description(@"??")]
+    [Description(@"Alleged trade is rescinded.")]
     Rescinded,
     
     /// <summary>
-    /// ??
+    /// Alleged trade is withdrawn due to an amendment.
     /// Encoded/decoded by serializers as "Withdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTDN")]
     [IsoId("_3nQIoZElEeKcLcxonNWTXg")]
-    [Description(@"??")]
+    [Description(@"Alleged trade is withdrawn due to an amendment.")]
     Withdrawn,
     
 }

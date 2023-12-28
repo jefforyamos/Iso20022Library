@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecurityStatus2Code
 {
     /// <summary>
-    /// ??
+    /// The status is active.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_ha1jsGliEeGaMcKyqKNRfQ_1830027418")]
-    [Description(@"??")]
+    [Description(@"The status is active.")]
     Active,
     
     /// <summary>
-    /// ??
+    /// The status is inactive.
     /// Encoded/decoded by serializers as "Inactive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INAC")]
     [IsoId("_ha1jsWliEeGaMcKyqKNRfQ_-1878992852")]
-    [Description(@"??")]
+    [Description(@"The status is inactive.")]
     Inactive,
     
     /// <summary>
-    /// ??
+    /// The status is suspended.
     /// Encoded/decoded by serializers as "Suspended".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUSP")]
     [IsoId("_ha1jsmliEeGaMcKyqKNRfQ_-387389187")]
-    [Description(@"??")]
+    [Description(@"The status is suspended.")]
     Suspended,
     
 }

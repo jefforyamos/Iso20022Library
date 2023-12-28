@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceReportFunction1Code
 {
     /// <summary>
-    /// ??
+    /// The price report conveys the correction of the complete set of prices previously sent for the same price report identification.
     /// Encoded/decoded by serializers as "CompleteReplacementPriceReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPL")]
     [IsoId("_mYciARl-EeKxsrht2duUcg")]
-    [Description(@"??")]
+    [Description(@"The price report conveys the correction of the complete set of prices previously sent for the same price report identification.")]
     CompleteReplacementPriceReport,
     
     /// <summary>
-    /// ??
+    /// The price report is ‘new’, that is the report is not being used as a correction of previously sent prices.
     /// Encoded/decoded by serializers as "NewPriceReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWP")]
     [IsoId("_mibkcRl-EeKxsrht2duUcg")]
-    [Description(@"??")]
+    [Description(@"The price report is ‘new’, that is the report is not being used as a correction of previously sent prices.")]
     NewPriceReport,
     
     /// <summary>
-    /// ??
+    /// The price report conveys the correction of some of the prices previously sent for the same price report identification.
     /// Encoded/decoded by serializers as "PartialCorrectionPriceReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_mrhPARl-EeKxsrht2duUcg")]
-    [Description(@"??")]
+    [Description(@"The price report conveys the correction of some of the prices previously sent for the same price report identification.")]
     PartialCorrectionPriceReport,
     
 }

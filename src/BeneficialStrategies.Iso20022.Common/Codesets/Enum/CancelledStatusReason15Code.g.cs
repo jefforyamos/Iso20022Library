@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancelledStatusReason15Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is cancelled by yourself.
     /// Encoded/decoded by serializers as "CancelledByYourself".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANI")]
     [IsoId("_l1VXEZHsEeWL7bXuV2k5pg")]
-    [Description(@"??")]
+    [Description(@"Transaction is cancelled by yourself.")]
     CancelledByYourself,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled by the agent due to an event deadline extension.
     /// Encoded/decoded by serializers as "CancelledByAgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSUB")]
     [IsoId("_mcSCUpHsEeWL7bXuV2k5pg")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled by the agent due to an event deadline extension.")]
     CancelledByAgent,
     
 }

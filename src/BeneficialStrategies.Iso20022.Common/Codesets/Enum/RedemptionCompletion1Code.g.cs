@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RedemptionCompletion1Code
 {
     /// <summary>
-    /// ??
+    /// It is not necessary to send more redemption order instructions to the executing party to complete the redemption, the executing will generate redemption confirmations automatically.
     /// Encoded/decoded by serializers as "RedemptionNo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RED0")]
     [IsoId("_MMME0TwxEeaFzejt0Yw_3A")]
-    [Description(@"??")]
+    [Description(@"It is not necessary to send more redemption order instructions to the executing party to complete the redemption, the executing will generate redemption confirmations automatically.")]
     RedemptionNo,
     
     /// <summary>
-    /// ??
+    /// Additional redemption order instructions must be sent to the executing party order to have the rest of the redemption executed.
     /// Encoded/decoded by serializers as "RedemptionYes".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RED1")]
     [IsoId("_MWTqITwxEeaFzejt0Yw_3A")]
-    [Description(@"??")]
+    [Description(@"Additional redemption order instructions must be sent to the executing party order to have the rest of the redemption executed.")]
     RedemptionYes,
     
 }

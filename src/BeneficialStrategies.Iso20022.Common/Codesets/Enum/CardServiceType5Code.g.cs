@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardServiceType5Code
 {
     /// <summary>
-    /// ??
+    /// Convey the key to the receiver.
     /// Encoded/decoded by serializers as "DeliverKey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KYDL")]
     [IsoId("_8u0YcX0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Convey the key to the receiver.")]
     DeliverKey,
     
     /// <summary>
-    /// ??
+    /// National defined code.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_8u0Yd30kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"National defined code.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Private defined code.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_8u0YeX0kEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Private defined code.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Deactivate the specified key.
     /// Encoded/decoded by serializers as "DeactivateKey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEKY")]
     [IsoId("_XFuv8ZJcEemtzI0l4QED6w")]
-    [Description(@"??")]
+    [Description(@"Deactivate the specified key.")]
     DeactivateKey,
     
     /// <summary>
-    /// ??
+    /// Request new key to be generated and conveyed.
     /// Encoded/decoded by serializers as "RequestKey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RQKY")]
     [IsoId("_FFXUMa4bEemYtqDpusmLsQ")]
-    [Description(@"??")]
+    [Description(@"Request new key to be generated and conveyed.")]
     RequestKey,
     
 }

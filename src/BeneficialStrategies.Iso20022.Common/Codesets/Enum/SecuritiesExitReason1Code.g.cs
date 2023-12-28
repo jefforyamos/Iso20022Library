@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesExitReason1Code
 {
     /// <summary>
-    /// ??
+    /// Shares are restricted.
     /// Encoded/decoded by serializers as "Restricted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REST")]
     [IsoId("_10TW5TL3EeKU9IrkkToqcw_480606307")]
-    [Description(@"??")]
+    [Description(@"Shares are restricted.")]
     Restricted,
     
     /// <summary>
-    /// ??
+    /// Shares are non transferable.
     /// Encoded/decoded by serializers as "NonTransferable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTRN")]
     [IsoId("_10dH4DL3EeKU9IrkkToqcw_1947755070")]
-    [Description(@"??")]
+    [Description(@"Shares are non transferable.")]
     NonTransferable,
     
     /// <summary>
-    /// ??
+    /// Other reason.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_10dH4TL3EeKU9IrkkToqcw_1012448860")]
-    [Description(@"??")]
+    [Description(@"Other reason.")]
     Other,
     
 }

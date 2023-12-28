@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ClearingExemptionException1Code
 {
     /// <summary>
-    /// ??
+    /// Cooperative exemption.
     /// Encoded/decoded by serializers as "CooperativeExemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COOP")]
     [IsoId("_S5p20YJUEeuDe9SyRl5qeg")]
-    [Description(@"??")]
+    [Description(@"Cooperative exemption.")]
     CooperativeExemption,
     
     /// <summary>
-    /// ??
+    /// End user exemption.
     /// Encoded/decoded by serializers as "EndUserException".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENDU")]
     [IsoId("_S-7YYYJUEeuDe9SyRl5qeg")]
-    [Description(@"??")]
+    [Description(@"End user exemption.")]
     EndUserException,
     
     /// <summary>
-    /// ??
+    /// Inter affiliate exemption.
     /// Encoded/decoded by serializers as "InterAffiliateExemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AFFL")]
     [IsoId("_TEueYYJUEeuDe9SyRl5qeg")]
-    [Description(@"??")]
+    [Description(@"Inter affiliate exemption.")]
     InterAffiliateExemption,
     
     /// <summary>
-    /// ??
+    /// No action letter relief.
     /// Encoded/decoded by serializers as "NoActionLetterRelief".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAL")]
     [IsoId("_TMvK4YJUEeuDe9SyRl5qeg")]
-    [Description(@"??")]
+    [Description(@"No action letter relief.")]
     NoActionLetterRelief,
     
     /// <summary>
-    /// ??
+    /// No reason.
     /// Encoded/decoded by serializers as "NoReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORE")]
     [IsoId("_TR5-wYJUEeuDe9SyRl5qeg")]
-    [Description(@"??")]
+    [Description(@"No reason.")]
     NoReason,
     
     /// <summary>
-    /// ??
+    /// Other.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_TaAK0YJUEeuDe9SyRl5qeg")]
-    [Description(@"??")]
+    [Description(@"Other.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Small bank exemption
     /// Encoded/decoded by serializers as "SmallBankExemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SMBK")]
     [IsoId("_RAOj8YKVEeyorOAHyQphIA")]
-    [Description(@"??")]
+    [Description(@"Small bank exemption")]
     SmallBankExemption,
     
 }

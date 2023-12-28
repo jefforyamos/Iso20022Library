@@ -20,84 +20,88 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradingMethodType1Code
 {
     /// <summary>
-    /// ??
+    /// Taker submits a bilateral request, maker replys the quotation, and taker accepts the quotation to complete a bilateral trade.
     /// Encoded/decoded by serializers as "BilateralTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BITR")]
     [IsoId("_Anv-cYHiEeSY3ulMDfpmvA")]
-    [Description(@"??")]
+    [Description(@"Taker submits a bilateral request, maker replys the quotation, and taker accepts the quotation to complete a bilateral trade.")]
     BilateralTrade,
     
     /// <summary>
-    /// ??
+    /// Members submit orders, and trading system uses matchmaking mechanism of Centralized Price Bidding to match orders.
+    /// 
     /// Encoded/decoded by serializers as "CentralizedPriceBidding".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CERB")]
     [IsoId("_Ask0EYHiEeSY3ulMDfpmvA")]
-    [Description(@"??")]
+    [Description(@"Members submit orders, and trading system uses matchmaking mechanism of Centralized Price Bidding to match orders. ")]
     CentralizedPriceBidding,
     
     /// <summary>
-    /// ??
+    /// Members submit orders, and trading system uses continuous matchmaking mechanism to match orders.
+    /// 
     /// Encoded/decoded by serializers as "ContinuousMatching".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUMA")]
     [IsoId("_AxX0gYHiEeSY3ulMDfpmvA")]
-    [Description(@"??")]
+    [Description(@"Members submit orders, and trading system uses continuous matchmaking mechanism to match orders. ")]
     ContinuousMatching,
     
     /// <summary>
-    /// ??
+    /// Member activate an order, and if order matches with market maker's quotationa, the order will be filled automatically.
     /// Encoded/decoded by serializers as "LimitOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LIOR")]
     [IsoId("_A3UrgYHiEeSY3ulMDfpmvA")]
-    [Description(@"??")]
+    [Description(@"Member activate an order, and if order matches with market maker's quotationa, the order will be filled automatically.")]
     LimitOrder,
     
     /// <summary>
-    /// ??
+    /// Member completes product elements and submits, and the counterpart just confirms the deal to complete a negotiation trade.
     /// Encoded/decoded by serializers as "NegotiationTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NETR")]
     [IsoId("_A8opUYHiEeSY3ulMDfpmvA")]
-    [Description(@"??")]
+    [Description(@"Member completes product elements and submits, and the counterpart just confirms the deal to complete a negotiation trade.")]
     NegotiationTrade,
     
     /// <summary>
-    /// ??
+    /// When market makers quote continuously, members could just click the quotation to make a deal with market makers.
     /// Encoded/decoded by serializers as "OneClickTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONCT")]
     [IsoId("_B2gQkYHiEeSY3ulMDfpmvA")]
-    [Description(@"??")]
+    [Description(@"When market makers quote continuously, members could just click the quotation to make a deal with market makers.")]
     OneClickTrade,
     
     /// <summary>
-    /// ??
+    /// Market members can click the predetermined price setted by issuer to make a deal， and then the subscription amount will deduct in time.
+    /// 
     /// Encoded/decoded by serializers as "QuotationAuction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUAU")]
     [IsoId("_B4DvwYHiEeSY3ulMDfpmvA")]
-    [Description(@"??")]
+    [Description(@"Market members can click the predetermined price setted by issuer to make a deal， and then the subscription amount will deduct in time. ")]
     QuotationAuction,
     
     /// <summary>
-    /// ??
+    /// Administrator reviews the deposit that filled by issuer, and sends it to the tenderers as reference. Atfer this, the issuer confirms the tendering result.
+    /// 
     /// Encoded/decoded by serializers as "TenderingAuction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEAU")]
     [IsoId("_CATFwYHiEeSY3ulMDfpmvA")]
-    [Description(@"??")]
+    [Description(@"Administrator reviews the deposit that filled by issuer, and sends it to the tenderers as reference. Atfer this, the issuer confirms the tendering result. ")]
     TenderingAuction,
     
     /// <summary>
-    /// ??
+    /// Trades are executed any click anonymously.
     /// Encoded/decoded by serializers as "AnonymousClick".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANCL")]
     [IsoId("_I2Ls4aUrEeSgR8TUIX6rXQ")]
-    [Description(@"??")]
+    [Description(@"Trades are executed any click anonymously.")]
     AnonymousClick,
     
 }

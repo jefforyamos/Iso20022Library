@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResolutionType1Code
 {
     /// <summary>
-    /// ??
+    /// Meeting resolution is extraordinary and may be subject to specific voting requirements.
     /// Encoded/decoded by serializers as "Extraordinary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTR")]
     [IsoId("_ZU-JU9p-Ed-ak6NoX_4Aeg_1357307111")]
-    [Description(@"??")]
+    [Description(@"Meeting resolution is extraordinary and may be subject to specific voting requirements.")]
     Extraordinary,
     
     /// <summary>
-    /// ??
+    /// Meeting resolution is ordinary and is not subject to any specific voting requirements.
     /// Encoded/decoded by serializers as "Ordinary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORDI")]
     [IsoId("_ZU-JVNp-Ed-ak6NoX_4Aeg_1357307136")]
-    [Description(@"??")]
+    [Description(@"Meeting resolution is ordinary and is not subject to any specific voting requirements.")]
     Ordinary,
     
     /// <summary>
-    /// ??
+    /// Resolution that is neither ordinary nor extraordinary (eg. decision on an investment strategy).
     /// Encoded/decoded by serializers as "Special".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCL")]
     [IsoId("_ZU-JVdp-Ed-ak6NoX_4Aeg_-689950721")]
-    [Description(@"??")]
+    [Description(@"Resolution that is neither ordinary nor extraordinary (eg. decision on an investment strategy).")]
     Special,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ConfirmationRequest1Code
 {
     /// <summary>
-    /// ??
+    /// To confirm the trade.
     /// Encoded/decoded by serializers as "Confirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONF")]
     [IsoId("_lrBcsX6IEeSAlrUr1Vow5g")]
-    [Description(@"??")]
+    [Description(@"To confirm the trade.")]
     Confirmation,
     
     /// <summary>
-    /// ??
+    /// To reject the confirmation of the trade.
     /// Encoded/decoded by serializers as "ConfirmationRequestRejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNRR")]
     [IsoId("_lwYd0X6IEeSAlrUr1Vow5g")]
-    [Description(@"??")]
+    [Description(@"To reject the confirmation of the trade.")]
     ConfirmationRequestRejected,
     
     /// <summary>
-    /// ??
+    /// To inquire about the status of the trade confirmation.
     /// Encoded/decoded by serializers as "Status".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAT")]
     [IsoId("_l1rNgX6IEeSAlrUr1Vow5g")]
-    [Description(@"??")]
+    [Description(@"To inquire about the status of the trade confirmation.")]
     Status,
     
 }

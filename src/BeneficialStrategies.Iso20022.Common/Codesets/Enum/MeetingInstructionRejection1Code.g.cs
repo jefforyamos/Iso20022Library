@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MeetingInstructionRejection1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid meeting reference.
     /// Encoded/decoded by serializers as "InvalidMeetingReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INMR")]
     [IsoId("_VpPeedp-Ed-ak6NoX_4Aeg_700506198")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid meeting reference.")]
     InvalidMeetingReference,
     
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid account identification.
     /// Encoded/decoded by serializers as "InvalidAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INAC")]
     [IsoId("_VpYoYNp-Ed-ak6NoX_4Aeg_704197272")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid account identification.")]
     InvalidAccount,
     
     /// <summary>
-    /// ??
+    /// Position is less than required threshold to be allowed to vote.
     /// Encoded/decoded by serializers as "InsufficientSecurityPosition".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOS")]
     [IsoId("_VpYoYdp-Ed-ak6NoX_4Aeg_1494487379")]
-    [Description(@"??")]
+    [Description(@"Position is less than required threshold to be allowed to vote.")]
     InsufficientSecurityPosition,
     
     /// <summary>
-    /// ??
+    /// Instruction contains an invalid instructed quantity (eg the instructed quantity is greater than the entitlement).
     /// Encoded/decoded by serializers as "InvalidInstructedQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INQY")]
     [IsoId("_VpYoYtp-Ed-ak6NoX_4Aeg_714356552")]
-    [Description(@"??")]
+    [Description(@"Instruction contains an invalid instructed quantity (eg the instructed quantity is greater than the entitlement).")]
     InvalidInstructedQuantity,
     
     /// <summary>
-    /// ??
+    /// Instruction received after the specified deadline.
     /// Encoded/decoded by serializers as "InvalidDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INDT")]
     [IsoId("_VpYoY9p-Ed-ak6NoX_4Aeg_717129391")]
-    [Description(@"??")]
+    [Description(@"Instruction received after the specified deadline.")]
     InvalidDate,
     
     /// <summary>
-    /// ??
+    /// Split voting is not allowed.
     /// Encoded/decoded by serializers as "SplitVoteNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPLT")]
     [IsoId("_VpYoZNp-Ed-ak6NoX_4Aeg_1091710118")]
-    [Description(@"??")]
+    [Description(@"Split voting is not allowed.")]
     SplitVoteNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Partial voting is not allowed.
     /// Encoded/decoded by serializers as "PartialVoteNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_VpYoZdp-Ed-ak6NoX_4Aeg_1122184465")]
-    [Description(@"??")]
+    [Description(@"Partial voting is not allowed.")]
     PartialVoteNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Missing or invalid power of attorney.
     /// Encoded/decoded by serializers as "MissingOrInvalidPOA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IPOA")]
     [IsoId("_VpYoZtp-Ed-ak6NoX_4Aeg_1349369580")]
-    [Description(@"??")]
+    [Description(@"Missing or invalid power of attorney.")]
     MissingOrInvalidPOA,
     
     /// <summary>
-    /// ??
+    /// Invalid proxy information.
     /// Encoded/decoded by serializers as "ProxyCardDiscrepancy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRXY")]
     [IsoId("_VpYoZ9p-Ed-ak6NoX_4Aeg_1367840945")]
-    [Description(@"??")]
+    [Description(@"Invalid proxy information.")]
     ProxyCardDiscrepancy,
     
     /// <summary>
-    /// ??
+    /// Issuer has rejected the instruction.
     /// Encoded/decoded by serializers as "RejectedByIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RBIS")]
     [IsoId("_VpYoaNp-Ed-ak6NoX_4Aeg_534839775")]
-    [Description(@"??")]
+    [Description(@"Issuer has rejected the instruction.")]
     RejectedByIssuer,
     
     /// <summary>
-    /// ??
+    /// Other errors.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_VpYoadp-Ed-ak6NoX_4Aeg_1423253062")]
-    [Description(@"??")]
+    [Description(@"Other errors.")]
     Other,
     
 }

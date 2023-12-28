@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProcessedStatus3Code
 {
     /// <summary>
-    /// ??
+    /// The instruction/request has been received.
     /// Encoded/decoded by serializers as "Received".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RECE")]
     [IsoId("_aKnX4Np-Ed-ak6NoX_4Aeg_-807236817")]
-    [Description(@"??")]
+    [Description(@"The instruction/request has been received.")]
     Received,
     
     /// <summary>
-    /// ??
+    /// The processing of the request is pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_aKnX4dp-Ed-ak6NoX_4Aeg_-807236816")]
-    [Description(@"??")]
+    [Description(@"The processing of the request is pending.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// The request is accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_aKnX4tp-Ed-ak6NoX_4Aeg_-807236786")]
-    [Description(@"??")]
+    [Description(@"The request is accepted.")]
     Accepted,
     
 }

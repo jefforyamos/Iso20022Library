@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionReversalReason2Code
 {
     /// <summary>
-    /// ??
+    /// This message appears to have been duplicated.
     /// Encoded/decoded by serializers as "Duplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM05")]
     [IsoId("_YuO5dNp-Ed-ak6NoX_4Aeg_1711187306")]
-    [Description(@"??")]
+    [Description(@"This message appears to have been duplicated.")]
     Duplication,
     
 }

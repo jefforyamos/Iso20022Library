@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxAdvantageType1Code
 {
     /// <summary>
-    /// ??
+    /// Tax advantage type is: Concessional Goods and Services Tax.
     /// Encoded/decoded by serializers as "ConcessionalGST".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CGST")]
     [IsoId("_PeElYVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Tax advantage type is: Concessional Goods and Services Tax.")]
     ConcessionalGST,
     
     /// <summary>
-    /// ??
+    /// Tax advantage type is not applicable.
     /// Encoded/decoded by serializers as "NotApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAP")]
     [IsoId("_PlNvMVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Tax advantage type is not applicable.")]
     NotApplicable,
     
     /// <summary>
-    /// ??
+    /// Tax advantage type is not available.
     /// Encoded/decoded by serializers as "NotAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAV")]
     [IsoId("_PqROUVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Tax advantage type is not available.")]
     NotAvailable,
     
     /// <summary>
-    /// ??
+    /// Other type of tax advantage type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_PyJ_AVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Other type of tax advantage type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Tax advantage type is: pooled development fund Rebta.
     /// Encoded/decoded by serializers as "PooledDevelopmentFundRebta".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDFR")]
     [IsoId("_P3qKEVf7EeOuDtoQo1qilA")]
-    [Description(@"??")]
+    [Description(@"Tax advantage type is: pooled development fund Rebta.")]
     PooledDevelopmentFundRebta,
     
 }

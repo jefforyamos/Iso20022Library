@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason8Code
 {
     /// <summary>
-    /// ??
+    /// Amendment is not allowed.
     /// Encoded/decoded by serializers as "AmendmentNotAllowed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAMD")]
     [IsoId("_ZmG8pdp-Ed-ak6NoX_4Aeg_792769687")]
-    [Description(@"??")]
+    [Description(@"Amendment is not allowed.")]
     AmendmentNotAllowed,
     
     /// <summary>
-    /// ??
+    /// Instruction/Request arrives too late.
     /// Encoded/decoded by serializers as "Late".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LATT")]
     [IsoId("_ZmG8ptp-Ed-ak6NoX_4Aeg_792769717")]
-    [Description(@"??")]
+    [Description(@"Instruction/Request arrives too late.")]
     Late,
     
     /// <summary>
-    /// ??
+    /// The election advice is already cancelled.
     /// Encoded/decoded by serializers as "ElectionAlreadyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_ZmQtoNp-Ed-ak6NoX_4Aeg_792769718")]
-    [Description(@"??")]
+    [Description(@"The election advice is already cancelled.")]
     ElectionAlreadyCancelled,
     
     /// <summary>
-    /// ??
+    /// The validation of the advice/instruction/request failed.
     /// Encoded/decoded by serializers as "FailedValidation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FAIL")]
     [IsoId("_ZmQtodp-Ed-ak6NoX_4Aeg_792769965")]
-    [Description(@"??")]
+    [Description(@"The validation of the advice/instruction/request failed.")]
     FailedValidation,
     
 }

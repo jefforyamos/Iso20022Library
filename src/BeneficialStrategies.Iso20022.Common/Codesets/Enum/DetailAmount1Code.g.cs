@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DetailAmount1Code
 {
     /// <summary>
-    /// ??
+    /// Cashback amount
     /// Encoded/decoded by serializers as "Cashback".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHB")]
     [IsoId("_eFR94RbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Cashback amount")]
     Cashback,
     
     /// <summary>
-    /// ??
+    /// Donation amount
     /// Encoded/decoded by serializers as "Donation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DONN")]
     [IsoId("_ef6rcRbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Donation amount")]
     Donation,
     
     /// <summary>
-    /// ??
+    /// Dynamic Currency Conversion type of amount
     /// Encoded/decoded by serializers as "DynamicCurrencyConversionFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCF")]
     [IsoId("_eqBpsRbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Dynamic Currency Conversion type of amount")]
     DynamicCurrencyConversionFee,
     
     /// <summary>
-    /// ??
+    /// Extra charges (for example, minibar, etc.)
     /// Encoded/decoded by serializers as "Extra".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTR")]
     [IsoId("_e4BCYRbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Extra charges (for example, minibar, etc.)")]
     Extra,
     
     /// <summary>
-    /// ??
+    /// Fee applicable to a foreign exchange (Forex) transaction
     /// Encoded/decoded by serializers as "ForeignExchangeFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FORX")]
     [IsoId("_fCkskRbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Fee applicable to a foreign exchange (Forex) transaction")]
     ForeignExchangeFee,
     
     /// <summary>
-    /// ??
+    /// Gratuity amount
     /// Encoded/decoded by serializers as "Gratuity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRTY")]
     [IsoId("_fOVQoRbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Gratuity amount")]
     Gratuity,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_fcBHURbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_fogrMRbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at private level")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Fee charged by the acceptor for the transaction.
     /// Encoded/decoded by serializers as "Surcharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRCH")]
     [IsoId("_f0aZMRbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Fee charged by the acceptor for the transaction.")]
     Surcharge,
     
     /// <summary>
-    /// ??
+    /// Tax applicable to the transaction
     /// Encoded/decoded by serializers as "Tax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAXT")]
     [IsoId("_gECJkRbyEeit0dtP9bTmEg")]
-    [Description(@"??")]
+    [Description(@"Tax applicable to the transaction")]
     Tax,
     
 }

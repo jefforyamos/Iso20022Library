@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMNoteType2Code
 {
     /// <summary>
-    /// ??
+    /// Detected counterfeit notes.
     /// Encoded/decoded by serializers as "Counterfeit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CNTR")]
     [IsoId("_lznowYqhEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Detected counterfeit notes.")]
     Counterfeit,
     
     /// <summary>
-    /// ??
+    /// Fit bank notes.
     /// Encoded/decoded by serializers as "Fit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FITN")]
     [IsoId("_l5u30YqhEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Fit bank notes.")]
     Fit,
     
     /// <summary>
-    /// ??
+    /// Fit and unfit bank notes, if fitness cannot be determined.
     /// Encoded/decoded by serializers as "FitAndUnfit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FITU")]
     [IsoId("_mBByoYqhEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Fit and unfit bank notes, if fitness cannot be determined.")]
     FitAndUnfit,
     
     /// <summary>
-    /// ??
+    /// Notes stained by dye pack.
     /// Encoded/decoded by serializers as "Neutralised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NTRL")]
     [IsoId("_m4m64YqhEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Notes stained by dye pack.")]
     Neutralised,
     
     /// <summary>
-    /// ??
+    /// Suspect notes.
     /// Encoded/decoded by serializers as "Suspect".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPCT")]
     [IsoId("_m_dw0YqhEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Suspect notes.")]
     Suspect,
     
     /// <summary>
-    /// ??
+    /// Unfit bank notes (unacceptable quality).
     /// Encoded/decoded by serializers as "Unfit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNFT")]
     [IsoId("_nI29YYqhEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Unfit bank notes (unacceptable quality).")]
     Unfit,
     
     /// <summary>
-    /// ??
+    /// Unrecognised notes.
     /// Encoded/decoded by serializers as "Unrecognised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRG")]
     [IsoId("_nPaRUYqhEeS4a4abTJTSSw")]
-    [Description(@"??")]
+    [Description(@"Unrecognised notes.")]
     Unrecognised,
     
 }

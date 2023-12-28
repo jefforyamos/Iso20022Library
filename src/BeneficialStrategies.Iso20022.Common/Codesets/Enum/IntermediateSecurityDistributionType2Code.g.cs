@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum IntermediateSecurityDistributionType2Code
 {
     /// <summary>
-    /// ??
+    /// Distribution of reverser rights.
     /// Encoded/decoded by serializers as "ReverseRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIDS")]
     [IsoId("_aaQ9ctp-Ed-ak6NoX_4Aeg_-1090801611")]
-    [Description(@"??")]
+    [Description(@"Distribution of reverser rights.")]
     ReverseRights,
     
     /// <summary>
-    /// ??
+    /// Distribution of bonus rights.
     /// Encoded/decoded by serializers as "BonusRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BONU")]
     [IsoId("_aaQ9c9p-Ed-ak6NoX_4Aeg_-1090801593")]
-    [Description(@"??")]
+    [Description(@"Distribution of bonus rights.")]
     BonusRights,
     
     /// <summary>
-    /// ??
+    /// Distribution of dividend reinvestment securities.
     /// Encoded/decoded by serializers as "DividendReinvestment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRIP")]
     [IsoId("_aaQ9dNp-Ed-ak6NoX_4Aeg_-1090801568")]
-    [Description(@"??")]
+    [Description(@"Distribution of dividend reinvestment securities.")]
     DividendReinvestment,
     
     /// <summary>
-    /// ??
+    /// Distribution of dividend option.
     /// Encoded/decoded by serializers as "DividendOption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVOP")]
     [IsoId("_aaQ9ddp-Ed-ak6NoX_4Aeg_-1090801551")]
-    [Description(@"??")]
+    [Description(@"Distribution of dividend option.")]
     DividendOption,
     
     /// <summary>
-    /// ??
+    /// Distribution of subscription rights.
     /// Encoded/decoded by serializers as "SubscriptionRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXRI")]
     [IsoId("_aaQ9dtp-Ed-ak6NoX_4Aeg_-1090801291")]
-    [Description(@"??")]
+    [Description(@"Distribution of subscription rights.")]
     SubscriptionRights,
     
     /// <summary>
-    /// ??
+    /// Distribution of open offer rights.
     /// Encoded/decoded by serializers as "OpenOfferRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRIO")]
     [IsoId("_aaQ9d9p-Ed-ak6NoX_4Aeg_-1090801274")]
-    [Description(@"??")]
+    [Description(@"Distribution of open offer rights.")]
     OpenOfferRights,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountOwnershipType5Code
 {
     /// <summary>
-    /// ??
+    /// The person is ...
     /// Encoded/decoded by serializers as "Usufructuary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USUF")]
     [IsoId("_WUASAZNiEem9mu_a5rvrBw")]
-    [Description(@"??")]
+    [Description(@"The person is ...")]
     Usufructuary,
     
     /// <summary>
-    /// ??
+    /// A person has full ownership on the asset. 
     /// Encoded/decoded by serializers as "Owner".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OWNR")]
     [IsoId("_YKOz0ZNiEem9mu_a5rvrBw")]
-    [Description(@"??")]
+    [Description(@"A person has full ownership on the asset. ")]
     Owner,
     
     /// <summary>
-    /// ??
+    /// A person has bare ownership on the asset.
     /// Encoded/decoded by serializers as "BareOwner".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOWN")]
     [IsoId("_Yr5WcZNiEem9mu_a5rvrBw")]
-    [Description(@"??")]
+    [Description(@"A person has bare ownership on the asset.")]
     BareOwner,
     
 }

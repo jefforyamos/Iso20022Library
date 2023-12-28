@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageRejectedReason2Code
 {
     /// <summary>
-    /// ??
+    /// Sending party is not allowed to send this request.
     /// Encoded/decoded by serializers as "NotAllowedRequest".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NALO")]
     [IsoId("_QFfXQUpJEe2Kv_AXFg3f7A")]
-    [Description(@"??")]
+    [Description(@"Sending party is not allowed to send this request.")]
     NotAllowedRequest,
     
     /// <summary>
-    /// ??
+    /// Request contains an invalid or unrecognised business reference.
     /// Encoded/decoded by serializers as "InvalidOrUnrecognisedReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REFE")]
     [IsoId("_Tb6ggUpJEe2Kv_AXFg3f7A")]
-    [Description(@"??")]
+    [Description(@"Request contains an invalid or unrecognised business reference.")]
     InvalidOrUnrecognisedReference,
     
 }

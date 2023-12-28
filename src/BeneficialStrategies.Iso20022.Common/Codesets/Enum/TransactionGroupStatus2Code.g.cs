@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionGroupStatus2Code
 {
     /// <summary>
-    /// ??
+    /// A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.
     /// Encoded/decoded by serializers as "PartiallyAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_YrjY5tp-Ed-ak6NoX_4Aeg_14174990")]
-    [Description(@"??")]
+    [Description(@"A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.")]
     PartiallyAccepted,
     
     /// <summary>
-    /// ??
+    /// Payment initiation or individual transaction included in the payment initiation has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_YrjY59p-Ed-ak6NoX_4Aeg_14175042")]
-    [Description(@"??")]
+    [Description(@"Payment initiation or individual transaction included in the payment initiation has been rejected.")]
     Rejected,
     
 }

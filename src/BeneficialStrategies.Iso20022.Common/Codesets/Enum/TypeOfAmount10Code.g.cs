@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount10Code
 {
     /// <summary>
-    /// ??
+    /// Interchange fee.
     /// Encoded/decoded by serializers as "InterchangeFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTC")]
     [IsoId("_jvU-AVKOEeeHVODnW-1ONQ")]
-    [Description(@"??")]
+    [Description(@"Interchange fee.")]
     InterchangeFee,
     
     /// <summary>
-    /// ??
+    /// Processing fees.
     /// Encoded/decoded by serializers as "ProcessingFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEP")]
     [IsoId("_oXifQVKOEeeHVODnW-1ONQ")]
-    [Description(@"??")]
+    [Description(@"Processing fees.")]
     ProcessingFees,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_pN11IVKOEeeHVODnW-1ONQ")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of amount defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_pR2ycVKOEeeHVODnW-1ONQ")]
-    [Description(@"??")]
+    [Description(@"Other type of amount defined at private level.")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// International service assessment fees.
     /// Encoded/decoded by serializers as "InternationalServiceAssessmentFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEA")]
     [IsoId("_rf7I4X03Eem0U9m89kippg")]
-    [Description(@"??")]
+    [Description(@"International service assessment fees.")]
     InternationalServiceAssessmentFees,
     
 }

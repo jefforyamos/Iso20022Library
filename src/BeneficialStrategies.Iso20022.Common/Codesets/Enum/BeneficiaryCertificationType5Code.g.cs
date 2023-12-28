@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BeneficiaryCertificationType5Code
 {
     /// <summary>
-    /// ??
+    /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
     /// Encoded/decoded by serializers as "AccreditedInvestor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCI")]
     [IsoId("_zJKBtQE6EeG43uL-ROUO3A")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.")]
     AccreditedInvestor,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to certify he is an Non-Company related person.
     /// Encoded/decoded by serializers as "NonCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NCOM")]
     [IsoId("_zJKBuQE6EeG43uL-ROUO3A")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to certify he is an Non-Company related person.")]
     NonCompany,
     
     /// <summary>
-    /// ??
+    /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
     /// Encoded/decoded by serializers as "QIBCertification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QIBB")]
     [IsoId("_zJKBvQE6EeG43uL-ROUO3A")]
-    [Description(@"??")]
+    [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
     QIBCertification,
     
 }

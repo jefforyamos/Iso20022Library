@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassDetailedSubProductType11Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type gold.
     /// Encoded/decoded by serializers as "Gold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GOLD")]
     [IsoId("_lDcOQQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type gold.")]
     Gold,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of other type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_mf1TwQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of other type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type palladium.
     /// Encoded/decoded by serializers as "Palladium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PLDM")]
     [IsoId("_mnaicQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type palladium.")]
     Palladium,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type platinum.
     /// Encoded/decoded by serializers as "Platinum".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTNM")]
     [IsoId("_my3kgQ2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type platinum.")]
     Platinum,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type silver.
     /// Encoded/decoded by serializers as "Silver".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLVR")]
     [IsoId("_naSw4Q2hEeW72qLtWESimw")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type silver.")]
     Silver,
     
 }

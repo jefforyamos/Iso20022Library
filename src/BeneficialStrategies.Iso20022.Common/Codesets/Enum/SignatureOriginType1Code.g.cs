@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SignatureOriginType1Code
 {
     /// <summary>
-    /// ??
+    /// Signature is provided for the value validation of the file.
     /// Encoded/decoded by serializers as "Value".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VLUE")]
     [IsoId("_q_EtIcnIEeWI4cSIO9foRA")]
-    [Description(@"??")]
+    [Description(@"Signature is provided for the value validation of the file.")]
     Value,
     
     /// <summary>
-    /// ??
+    /// Signature is provided for the technical validation of the file.
     /// Encoded/decoded by serializers as "Technical".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TECH")]
     [IsoId("_rD_CUcnIEeWI4cSIO9foRA")]
-    [Description(@"??")]
+    [Description(@"Signature is provided for the technical validation of the file.")]
     Technical,
     
     /// <summary>
-    /// ??
+    /// Signature is provided for the contract validation of the file.
     /// Encoded/decoded by serializers as "Contract".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTRC")]
     [IsoId("_rI5XgcnIEeWI4cSIO9foRA")]
-    [Description(@"??")]
+    [Description(@"Signature is provided for the contract validation of the file.")]
     Contract,
     
     /// <summary>
-    /// ??
+    /// Signature is provided for the bank validation of the file.
     /// Encoded/decoded by serializers as "Bank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BANK")]
     [IsoId("_rNgKscnIEeWI4cSIO9foRA")]
-    [Description(@"??")]
+    [Description(@"Signature is provided for the bank validation of the file.")]
     Bank,
     
 }

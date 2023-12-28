@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMServiceType6Code
 {
     /// <summary>
-    /// ??
+    /// Making change between media types.
     /// Encoded/decoded by serializers as "MakingChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCHG")]
     [IsoId("_P5EiUa3_EeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Making change between media types.")]
     MakingChange,
     
     /// <summary>
-    /// ??
+    /// Deposit of media items unverified by the ATM, for instance in an envelope.
     /// Encoded/decoded by serializers as "NonVerifiedDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPSN")]
     [IsoId("_QHYEE63_EeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Deposit of media items unverified by the ATM, for instance in an envelope.")]
     NonVerifiedDeposit,
     
     /// <summary>
-    /// ??
+    /// Deposit of media items verified by the ATM.
     /// Encoded/decoded by serializers as "VerifiedDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPSV")]
     [IsoId("_QbvKg63_EeWL1uap3dNhCQ")]
-    [Description(@"??")]
+    [Description(@"Deposit of media items verified by the ATM.")]
     VerifiedDeposit,
     
 }

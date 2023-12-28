@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxWithholdingMethod3Code
 {
     /// <summary>
-    /// ??
+    /// Minority interest tax is withheld.
     /// Encoded/decoded by serializers as "MinorityInterestTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MITX")]
     [IsoId("_rHlbQb-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Minority interest tax is withheld.")]
     MinorityInterestTax,
     
     /// <summary>
-    /// ??
+    /// Withholding tax is applied to an investment company.
     /// Encoded/decoded by serializers as "InvestmentCompany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INVE")]
     [IsoId("_sBdCgb-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Withholding tax is applied to an investment company.")]
     InvestmentCompany,
     
     /// <summary>
-    /// ??
+    /// Dividend tax is exempt according to the accountant.
     /// Encoded/decoded by serializers as "Accountant".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_shvsIb-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Dividend tax is exempt according to the accountant.")]
     Accountant,
     
     /// <summary>
-    /// ??
+    /// Dividend tax is exempt.
     /// Encoded/decoded by serializers as "Exempt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXMT")]
     [IsoId("_tfyBsb-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Dividend tax is exempt.")]
     Exempt,
     
     /// <summary>
-    /// ??
+    /// Tax information is reported to the tax authorities and therefore not withheld at source.
     /// Encoded/decoded by serializers as "ReportTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPT")]
     [IsoId("_y3UHEb-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Tax information is reported to the tax authorities and therefore not withheld at source.")]
     ReportTax,
     
     /// <summary>
-    /// ??
+    /// Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.
     /// Encoded/decoded by serializers as "TaxCertificate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRTF")]
     [IsoId("_y_WBsb-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.")]
     TaxCertificate,
     
     /// <summary>
-    /// ??
+    /// Withholding tax is applied to a corporate.
     /// Encoded/decoded by serializers as "WithholdingCorporateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WHCO")]
     [IsoId("_zLZgsb-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Withholding tax is applied to a corporate.")]
     WithholdingCorporateTax,
     
     /// <summary>
-    /// ??
+    /// Tax is withheld at source.
     /// Encoded/decoded by serializers as "WithholdTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHD")]
     [IsoId("_zSr0cb-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Tax is withheld at source.")]
     WithholdTax,
     
     /// <summary>
-    /// ??
+    /// Tax is withheld at source and the tax information is also reported to the tax authorities.
     /// Encoded/decoded by serializers as "WithholdTaxAndReport".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTRE")]
     [IsoId("_zauWIL-IEeWfsa741pI6WA")]
-    [Description(@"??")]
+    [Description(@"Tax is withheld at source and the tax information is also reported to the tax authorities.")]
     WithholdTaxAndReport,
     
 }

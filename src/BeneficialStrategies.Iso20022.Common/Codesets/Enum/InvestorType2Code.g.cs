@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestorType2Code
 {
     /// <summary>
-    /// ??
+    /// Investor is both professional per se and elective professional.
     /// Encoded/decoded by serializers as "BothProfessionalPerSeAndElectiveProfessional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOT3")]
     [IsoId("_Rk308ddbEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Investor is both professional per se and elective professional.")]
     BothProfessionalPerSeAndElectiveProfessional,
     
     /// <summary>
-    /// ??
+    /// Investor is an elective professional.
     /// Encoded/decoded by serializers as "ElectiveProfessional".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPRO")]
     [IsoId("_SH1YEddbEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Investor is an elective professional.")]
     ElectiveProfessional,
     
     /// <summary>
-    /// ??
+    /// Investor is professional or professional per se.
     /// Encoded/decoded by serializers as "ProfessionalOrPerSe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRF2")]
     [IsoId("_TMkLgddbEeibyvRfU9vJ7w")]
-    [Description(@"??")]
+    [Description(@"Investor is professional or professional per se.")]
     ProfessionalOrPerSe,
     
 }

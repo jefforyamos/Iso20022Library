@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum UserInterface5Code
 {
     /// <summary>
-    /// ??
+    /// Cardholder display or interface.
     /// Encoded/decoded by serializers as "CardholderDisplay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDSP")]
     [IsoId("_7SQisa13EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Cardholder display or interface.")]
     CardholderDisplay,
     
     /// <summary>
-    /// ??
+    /// Cardholder receipt.
     /// Encoded/decoded by serializers as "CardholderReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRCP")]
     [IsoId("_7SQis613EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Cardholder receipt.")]
     CardholderReceipt,
     
     /// <summary>
-    /// ??
+    /// Other interface of the cardholder, for instance e-mail or smartphone message.
     /// Encoded/decoded by serializers as "OtherCardholderInterface".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDO")]
     [IsoId("_7SQiua13EeWMg5rOByfExw")]
-    [Description(@"??")]
+    [Description(@"Other interface of the cardholder, for instance e-mail or smartphone message.")]
     OtherCardholderInterface,
     
 }

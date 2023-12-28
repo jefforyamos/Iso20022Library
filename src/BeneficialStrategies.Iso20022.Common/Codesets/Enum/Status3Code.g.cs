@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Status3Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_ZQggE9p-Ed-ak6NoX_4Aeg_-780737301")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Instruction has been accepted and is validated for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_ZQggFNp-Ed-ak6NoX_4Aeg_-763187538")]
-    [Description(@"??")]
+    [Description(@"Instruction has been accepted and is validated for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// No instruction has been received (to be used in a reminder).
     /// Encoded/decoded by serializers as "NotReceived".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOIN")]
     [IsoId("_ZQggFdp-Ed-ak6NoX_4Aeg_-748412104")]
-    [Description(@"??")]
+    [Description(@"No instruction has been received (to be used in a reminder).")]
     NotReceived,
     
     /// <summary>
-    /// ??
+    /// Processing has been completed.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_ZQggFtp-Ed-ak6NoX_4Aeg_-734560081")]
-    [Description(@"??")]
+    [Description(@"Processing has been completed.")]
     Completed,
     
     /// <summary>
-    /// ??
+    /// Instruction has been received by Issuer.
     /// Encoded/decoded by serializers as "ReceivedByIssuerOrRegistrar".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RCIS")]
     [IsoId("_ZQggF9p-Ed-ak6NoX_4Aeg_-719784966")]
-    [Description(@"??")]
+    [Description(@"Instruction has been received by Issuer.")]
     ReceivedByIssuerOrRegistrar,
     
     /// <summary>
-    /// ??
+    /// Standing instruction is applied.
     /// Encoded/decoded by serializers as "StandingInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STIN")]
     [IsoId("_ZQggGNp-Ed-ak6NoX_4Aeg_-695771510")]
-    [Description(@"??")]
+    [Description(@"Standing instruction is applied.")]
     StandingInstruction,
     
 }

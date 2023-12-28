@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Status5Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_Yaalk9p-Ed-ak6NoX_4Aeg_1715573718")]
-    [Description(@"??")]
+    [Description(@"Instruction has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Instruction has been accepted and is validated for further processing.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_YaallNp-Ed-ak6NoX_4Aeg_832340431")]
-    [Description(@"??")]
+    [Description(@"Instruction has been accepted and is validated for further processing.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Instruction is pending.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDNG")]
     [IsoId("_Yaalldp-Ed-ak6NoX_4Aeg_-1533344004")]
-    [Description(@"??")]
+    [Description(@"Instruction is pending.")]
     Pending,
     
 }

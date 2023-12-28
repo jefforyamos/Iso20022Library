@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StampDutyType1Code
 {
     /// <summary>
-    /// ??
+    /// SDRT paid outside of CSD on corporate action.
     /// Encoded/decoded by serializers as "OutsideCSD".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDRU")]
     [IsoId("_ZPdXM9p-Ed-ak6NoX_4Aeg_497267445")]
-    [Description(@"??")]
+    [Description(@"SDRT paid outside of CSD on corporate action.")]
     OutsideCSD,
     
     /// <summary>
-    /// ??
+    /// SDRT paid on another transaction.
     /// Encoded/decoded by serializers as "Paid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDRT")]
     [IsoId("_ZPdXNNp-Ed-ak6NoX_4Aeg_514814980")]
-    [Description(@"??")]
+    [Description(@"SDRT paid on another transaction.")]
     Paid,
     
     /// <summary>
-    /// ??
+    /// Stamp duty not applicable.
     /// Encoded/decoded by serializers as "NotApplicable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDRN")]
     [IsoId("_ZPdXNdp-Ed-ak6NoX_4Aeg_775244648")]
-    [Description(@"??")]
+    [Description(@"Stamp duty not applicable.")]
     NotApplicable,
     
     /// <summary>
-    /// ??
+    /// Exempt, for any other reason.
     /// Encoded/decoded by serializers as "Exemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDRQ")]
     [IsoId("_ZPdXNtp-Ed-ak6NoX_4Aeg_814957832")]
-    [Description(@"??")]
+    [Description(@"Exempt, for any other reason.")]
     Exemption,
     
 }

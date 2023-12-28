@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum KnowYourCustomerCheckType1Code
 {
     /// <summary>
-    /// ??
+    /// Enhanced check, typically carried out on accounts that are considered high risk.
     /// Encoded/decoded by serializers as "Enhanced".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ENHA")]
     [IsoId("_965EoRRxEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Enhanced check, typically carried out on accounts that are considered high risk.")]
     Enhanced,
     
     /// <summary>
-    /// ??
+    /// Ordinary check, typically carried out on standard accounts.
     /// Encoded/decoded by serializers as "Ordinary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORDN")]
     [IsoId("_-CrHoRRxEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Ordinary check, typically carried out on standard accounts.")]
     Ordinary,
     
     /// <summary>
-    /// ??
+    /// Simple check, typically carried out on accounts that have a low risk of anti-money laundering, such as an account owned by a financial institution.
     /// Encoded/decoded by serializers as "Simple".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIMP")]
     [IsoId("_-KhcERRxEeOKWo1NF21OVw")]
-    [Description(@"??")]
+    [Description(@"Simple check, typically carried out on accounts that have a low risk of anti-money laundering, such as an account owned by a financial institution.")]
     Simple,
     
 }

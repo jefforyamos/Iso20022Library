@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Response8Code
 {
     /// <summary>
-    /// ??
+    /// Advice message is processed.
     /// Encoded/decoded by serializers as "Processed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCS")]
     [IsoId("_jM8mwZi4EeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Advice message is processed.")]
     Processed,
     
     /// <summary>
-    /// ??
+    /// Advice message could not be processed.
     /// Encoded/decoded by serializers as "NotProcessed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNPR")]
     [IsoId("_kcIWspi4EeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Advice message could not be processed.")]
     NotProcessed,
     
     /// <summary>
-    /// ??
+    /// Service is under review.
     /// Encoded/decoded by serializers as "UnderReview".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNRV")]
     [IsoId("_pd2kIZi4EeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Service is under review.")]
     UnderReview,
     
     /// <summary>
-    /// ??
+    /// Service was rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_pytZ0pi4EeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Service was rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
     /// Encoded/decoded by serializers as "TechnicalError".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TECH")]
     [IsoId("_tmwTMpi4EeefZKJHxQTztg")]
-    [Description(@"??")]
+    [Description(@"Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).")]
     TechnicalError,
     
     /// <summary>
-    /// ??
+    /// Other type of processing result defined at national level.
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_2vGpgfB1EeelHbulxf2Z9A")]
-    [Description(@"??")]
+    [Description(@"Other type of processing result defined at national level.")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of processing result defined at private level.
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_25X_0fB1EeelHbulxf2Z9A")]
-    [Description(@"??")]
+    [Description(@"Other type of processing result defined at private level.")]
     OtherPrivate,
     
 }

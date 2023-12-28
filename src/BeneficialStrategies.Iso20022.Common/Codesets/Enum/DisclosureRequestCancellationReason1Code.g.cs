@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DisclosureRequestCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// The cancellation of the disclosure request is due to a processsing error.
     /// Encoded/decoded by serializers as "Processing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROC")]
     [IsoId("_uyAM8UV5EemRx7jyevcLwg")]
-    [Description(@"??")]
+    [Description(@"The cancellation of the disclosure request is due to a processsing error.")]
     Processing,
     
     /// <summary>
-    /// ??
+    /// The cancellation of the discolure request is due to the withdrawal of the request  by the issuer.
     /// Encoded/decoded by serializers as "Withdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_u4Zv4UV5EemRx7jyevcLwg")]
-    [Description(@"??")]
+    [Description(@"The cancellation of the discolure request is due to the withdrawal of the request  by the issuer.")]
     Withdrawal,
     
 }

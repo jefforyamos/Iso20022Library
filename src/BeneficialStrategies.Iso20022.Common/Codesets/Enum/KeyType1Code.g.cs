@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum KeyType1Code
 {
     /// <summary>
-    /// ??
+    /// Other national
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_EnKX4TEtEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other national")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other private
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_E7SNwTEtEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"Other private")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// PIN translation key applicable to the acquirer
     /// Encoded/decoded by serializers as "PINTranslationKeyAcquirer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTKA")]
     [IsoId("_FP-EUTEtEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"PIN translation key applicable to the acquirer")]
     PINTranslationKeyAcquirer,
     
     /// <summary>
-    /// ??
+    /// PIN translation key applicable to the issuer
     /// Encoded/decoded by serializers as "PINTranslationKeyIssuer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTKI")]
     [IsoId("_FluR4TEtEemzCpWiCwK4aQ")]
-    [Description(@"??")]
+    [Description(@"PIN translation key applicable to the issuer")]
     PINTranslationKeyIssuer,
     
 }

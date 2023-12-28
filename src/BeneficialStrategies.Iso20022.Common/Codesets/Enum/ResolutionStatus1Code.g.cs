@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResolutionStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Meeting resolution has to be voted for by the participants to a general meeting.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_ZU0_Ztp-Ed-ak6NoX_4Aeg_268414544")]
-    [Description(@"??")]
+    [Description(@"Meeting resolution has to be voted for by the participants to a general meeting.")]
     Active,
     
     /// <summary>
-    /// ??
+    /// Meeting resolution has been withdrawn.
     /// Encoded/decoded by serializers as "Withdrawn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WDRA")]
     [IsoId("_ZU0_Z9p-Ed-ak6NoX_4Aeg_268414545")]
-    [Description(@"??")]
+    [Description(@"Meeting resolution has been withdrawn.")]
     Withdrawn,
     
 }

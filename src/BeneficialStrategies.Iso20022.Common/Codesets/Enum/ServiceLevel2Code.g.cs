@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ServiceLevel2Code
 {
     /// <summary>
-    /// ??
+    /// Payment must be executed following the Single Euro Payments Area scheme.
     /// Encoded/decoded by serializers as "SingleEuroPaymentsArea".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEPA")]
     [IsoId("_ZKjCAtp-Ed-ak6NoX_4Aeg_757139776")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed following the Single Euro Payments Area scheme.")]
     SingleEuroPaymentsArea,
     
     /// <summary>
-    /// ??
+    /// Payment must be executed with same day value to the creditor.
     /// Encoded/decoded by serializers as "SameDayValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDVA")]
     [IsoId("_ZKjCA9p-Ed-ak6NoX_4Aeg_757140285")]
-    [Description(@"??")]
+    [Description(@"Payment must be executed with same day value to the creditor.")]
     SameDayValue,
     
 }

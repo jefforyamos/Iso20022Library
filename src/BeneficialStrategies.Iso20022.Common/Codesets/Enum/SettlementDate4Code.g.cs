@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementDate4Code
 {
     /// <summary>
-    /// ??
+    /// Settlement is to be done when the security is issued.
     /// Encoded/decoded by serializers as "WhenIssued".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WISS")]
     [IsoId("_ZLby1tp-Ed-ak6NoX_4Aeg_1853523100")]
-    [Description(@"??")]
+    [Description(@"Settlement is to be done when the security is issued.")]
     WhenIssued,
     
 }

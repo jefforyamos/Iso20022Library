@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetFXSubProductType1Code
 {
     /// <summary>
-    /// ??
+    /// Commodity attribute of type foreign exchange cross rate.
     /// Encoded/decoded by serializers as "ForeignExchangeCrossRate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FXCR")]
     [IsoId("_LWWI4dDjEeSv_Pll20DdbA")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type foreign exchange cross rate.")]
     ForeignExchangeCrossRate,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type foreign exchange emerging markets.
     /// Encoded/decoded by serializers as "ForeignExchangeEmergingMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FXEM")]
     [IsoId("_LeFIkdDjEeSv_Pll20DdbA")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type foreign exchange emerging markets.")]
     ForeignExchangeEmergingMarket,
     
     /// <summary>
-    /// ??
+    /// Commodity attribute of type foreign exchange majors.
     /// Encoded/decoded by serializers as "ForeignExchangeMajor".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FXMJ")]
     [IsoId("_Lj4OkdDjEeSv_Pll20DdbA")]
-    [Description(@"??")]
+    [Description(@"Commodity attribute of type foreign exchange majors.")]
     ForeignExchangeMajor,
     
 }

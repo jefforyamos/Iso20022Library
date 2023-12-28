@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OfferType1Code
 {
     /// <summary>
-    /// ??
+    /// Securities holder has the right to disagree with a mandatory event. This right is not inherent in all offers and therefore must be noted in announcements only when applicable.
     /// Encoded/decoded by serializers as "DissenterRights".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISS")]
     [IsoId("_aOMQVNp-Ed-ak6NoX_4Aeg_-426518453")]
-    [Description(@"??")]
+    [Description(@"Securities holder has the right to disagree with a mandatory event. This right is not inherent in all offers and therefore must be noted in announcements only when applicable.")]
     DissenterRights,
     
     /// <summary>
-    /// ??
+    /// Exchange of Restricted to Unrestricted (or vice versa).
     /// Encoded/decoded by serializers as "RestrictionExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERUN")]
     [IsoId("_aOMQVdp-Ed-ak6NoX_4Aeg_-426518452")]
-    [Description(@"??")]
+    [Description(@"Exchange of Restricted to Unrestricted (or vice versa).")]
     RestrictionExchange,
     
     /// <summary>
-    /// ??
+    /// Securities will be accepted in the order they have been submitted until the target number of quantity sought is reached.
     /// Encoded/decoded by serializers as "FirstComeFirstServed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCFS")]
     [IsoId("_aOMQVtp-Ed-ak6NoX_4Aeg_-426518451")]
-    [Description(@"??")]
+    [Description(@"Securities will be accepted in the order they have been submitted until the target number of quantity sought is reached.")]
     FirstComeFirstServed,
     
     /// <summary>
-    /// ??
+    /// Final or last offer to holders subject to offer conditions being reached, for example, 50 percent accepted on a tender.
     /// Encoded/decoded by serializers as "FinalOffer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINL")]
     [IsoId("_aOMQV9p-Ed-ak6NoX_4Aeg_-426518431")]
-    [Description(@"??")]
+    [Description(@"Final or last offer to holders subject to offer conditions being reached, for example, 50 percent accepted on a tender.")]
     FinalOffer,
     
     /// <summary>
-    /// ??
+    /// Tender offer for a security that is priced below the current trading price of that instrument.
     /// Encoded/decoded by serializers as "MiniTender".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINI")]
     [IsoId("_aOWBUNp-Ed-ak6NoX_4Aeg_-426518422")]
-    [Description(@"??")]
+    [Description(@"Tender offer for a security that is priced below the current trading price of that instrument.")]
     MiniTender,
     
     /// <summary>
-    /// ??
+    /// Offer made by the offeror for a portion of the outstanding shares not already owned by the offeror.
     /// Encoded/decoded by serializers as "PartialOffer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PART")]
     [IsoId("_aOWBUdp-Ed-ak6NoX_4Aeg_-426518400")]
-    [Description(@"??")]
+    [Description(@"Offer made by the offeror for a portion of the outstanding shares not already owned by the offeror.")]
     PartialOffer,
     
     /// <summary>
-    /// ??
+    /// Offer launched by a company, in possession of a large number of the shares (90% - 95%) of a company (generally as a result of a tender offer), in order to acquire the remaining shares of that company.
     /// Encoded/decoded by serializers as "SqueezeOutBid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SQUE")]
     [IsoId("_aOWBUtp-Ed-ak6NoX_4Aeg_-426518391")]
-    [Description(@"??")]
+    [Description(@"Offer launched by a company, in possession of a large number of the shares (90% - 95%) of a company (generally as a result of a tender offer), in order to acquire the remaining shares of that company.")]
     SqueezeOutBid,
     
 }

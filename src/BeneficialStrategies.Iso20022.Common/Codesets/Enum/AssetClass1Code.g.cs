@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClass1Code
 {
     /// <summary>
-    /// ??
+    /// Debt instrument issued by a corporation.
     /// Encoded/decoded by serializers as "CorporateDebt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPB")]
     [IsoId("_1rqYQzL3EeKU9IrkkToqcw_-1331446987")]
-    [Description(@"??")]
+    [Description(@"Debt instrument issued by a corporation.")]
     CorporateDebt,
     
     /// <summary>
-    /// ??
+    /// Equity issued by a corporation.
     /// Encoded/decoded by serializers as "CorporateEquity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPE")]
     [IsoId("_1rqYRDL3EeKU9IrkkToqcw_-1445286053")]
-    [Description(@"??")]
+    [Description(@"Equity issued by a corporation.")]
     CorporateEquity,
     
     /// <summary>
-    /// ??
+    /// Debt instrument issued by municipality.
     /// Encoded/decoded by serializers as "MunicipalDebt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUNB")]
     [IsoId("_1rqYRTL3EeKU9IrkkToqcw_-1006329480")]
-    [Description(@"??")]
+    [Description(@"Debt instrument issued by municipality.")]
     MunicipalDebt,
     
 }

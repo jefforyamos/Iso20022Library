@@ -21,66 +21,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalUnderlyingTradeTransactionType1Code
 {
     /// <summary>
-    /// ??
+    /// Underlying transaction is a contract.
     /// Encoded/decoded by serializers as "Contract".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CONT")]
     [IsoId("_uQn48vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Underlying transaction is a contract.")]
     Contract,
     
     /// <summary>
-    /// ??
+    /// Underlying transaction is a delivery order.
     /// Encoded/decoded by serializers as "DeliveryOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELV")]
     [IsoId("_uQn49fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Underlying transaction is a delivery order.")]
     DeliveryOrder,
     
     /// <summary>
-    /// ??
+    /// Underlying transaction is a proforma invoice.
     /// Encoded/decoded by serializers as "ProformaInvoice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROF")]
     [IsoId("_uQn4-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Underlying transaction is a proforma invoice.")]
     ProformaInvoice,
     
     /// <summary>
-    /// ??
+    /// Underlying transaction is a project.
     /// Encoded/decoded by serializers as "Project".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROJ")]
     [IsoId("_uQn4-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Underlying transaction is a project.")]
     Project,
     
     /// <summary>
-    /// ??
+    /// Underlying transaction is a purchase order.
     /// Encoded/decoded by serializers as "PurchaseOrder".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PUOR")]
     [IsoId("_uQxp8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Underlying transaction is a purchase order.")]
     PurchaseOrder,
     
     /// <summary>
-    /// ??
+    /// Underlying transaction is a quotation.
     /// Encoded/decoded by serializers as "Quotation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUOT")]
     [IsoId("_uQxp9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Underlying transaction is a quotation.")]
     Quotation,
     
     /// <summary>
-    /// ??
+    /// Underlying transaction is a tender.
     /// Encoded/decoded by serializers as "Tender".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEND")]
     [IsoId("_uQxp-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Underlying transaction is a tender.")]
     Tender,
     
 }

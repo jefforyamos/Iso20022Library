@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateType7Code
 {
     /// <summary>
-    /// ??
+    /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
     /// Encoded/decoded by serializers as "Ongoing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONGO")]
     [IsoId("_ayjhptp-Ed-ak6NoX_4Aeg_24028541")]
-    [Description(@"??")]
+    [Description(@"Ongoing basis, which indicates that the date is determined by ""ongoing basis"" process, for example ""au fil de l'eau"".")]
     Ongoing,
     
 }

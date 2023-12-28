@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BillingCurrencyType1Code
 {
     /// <summary>
-    /// ??
+    /// Currency type used for the billing is the account currency.
     /// Encoded/decoded by serializers as "Account".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACCT")]
     [IsoId("_6WXNtJqlEeGSON8vddiWzQ_42035703")]
-    [Description(@"??")]
+    [Description(@"Currency type used for the billing is the account currency.")]
     Account,
     
     /// <summary>
-    /// ??
+    /// Currency type used for the billing is the settlement currency.
     /// Encoded/decoded by serializers as "Settlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STLM")]
     [IsoId("_6WXNtZqlEeGSON8vddiWzQ_-2111377502")]
-    [Description(@"??")]
+    [Description(@"Currency type used for the billing is the settlement currency.")]
     Settlement,
     
     /// <summary>
-    /// ??
+    /// Currency type used for the billing is the pricing currency.
     /// Encoded/decoded by serializers as "Pricing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCG")]
     [IsoId("_6WXNtpqlEeGSON8vddiWzQ_-644228739")]
-    [Description(@"??")]
+    [Description(@"Currency type used for the billing is the pricing currency.")]
     Pricing,
     
 }

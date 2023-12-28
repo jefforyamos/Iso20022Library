@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CommissionType5Code
 {
     /// <summary>
-    /// ??
+    /// Type of service for which the commission is asked or paid.
     /// Encoded/decoded by serializers as "FrontEnd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEND")]
     [IsoId("_VkKxN9p-Ed-ak6NoX_4Aeg_445405236")]
-    [Description(@"??")]
+    [Description(@"Type of service for which the commission is asked or paid.")]
     FrontEnd,
     
     /// <summary>
-    /// ??
+    /// Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.
     /// Encoded/decoded by serializers as "BackEnd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEND")]
     [IsoId("_VkKxONp-Ed-ak6NoX_4Aeg_446328819")]
-    [Description(@"??")]
+    [Description(@"Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.")]
     BackEnd,
     
     /// <summary>
-    /// ??
+    /// Commission is another type of transaction.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_VkUiMNp-Ed-ak6NoX_4Aeg_449101350")]
-    [Description(@"??")]
+    [Description(@"Commission is another type of transaction.")]
     Other,
     
 }

@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionProcessingStatus4Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been acknowledged/accepted for further processing by the account servicer.
     /// Encoded/decoded by serializers as "AcknowledgedAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_j3smZu5NEeCisYr99QEiWA_1509485244")]
-    [Description(@"??")]
+    [Description(@"Instruction has been acknowledged/accepted for further processing by the account servicer.")]
     AcknowledgedAccepted,
     
     /// <summary>
-    /// ??
+    /// Processing of the instruction is pending.
     /// Encoded/decoded by serializers as "PendingProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PPRC")]
     [IsoId("_j3smZ-5NEeCisYr99QEiWA_405378159")]
-    [Description(@"??")]
+    [Description(@"Processing of the instruction is pending.")]
     PendingProcessing,
     
     /// <summary>
-    /// ??
+    /// Instruction has been rejected for further processing.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_j32XYO5NEeCisYr99QEiWA_87601498")]
-    [Description(@"??")]
+    [Description(@"Instruction has been rejected for further processing.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but in repair.
     /// Encoded/decoded by serializers as "InRepair".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPR")]
     [IsoId("_j32XYe5NEeCisYr99QEiWA_-398456535")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but in repair.")]
     InRepair,
     
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_j32XYu5NEeCisYr99QEiWA_563889893")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Cancellation request from yourself for this instruction is pending waiting for further processing.
     /// Encoded/decoded by serializers as "PendingCancellation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_j32XY-5NEeCisYr99QEiWA_826912670")]
-    [Description(@"??")]
+    [Description(@"Cancellation request from yourself for this instruction is pending waiting for further processing.")]
     PendingCancellation,
     
     /// <summary>
-    /// ??
+    /// Cancellation request from the counterparty is awaiting for your cancellation request or your consent.
     /// Encoded/decoded by serializers as "CancellationRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPRC")]
     [IsoId("_j32XZO5NEeCisYr99QEiWA_1615433270")]
-    [Description(@"??")]
+    [Description(@"Cancellation request from the counterparty is awaiting for your cancellation request or your consent.")]
     CancellationRequested,
     
     /// <summary>
-    /// ??
+    /// Modification request from the counterparty is awaiting for your modification request or your consent.
     /// Encoded/decoded by serializers as "ModificationRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MPRC")]
     [IsoId("_j32XZe5NEeCisYr99QEiWA_1449930477")]
-    [Description(@"??")]
+    [Description(@"Modification request from the counterparty is awaiting for your modification request or your consent.")]
     ModificationRequested,
     
 }

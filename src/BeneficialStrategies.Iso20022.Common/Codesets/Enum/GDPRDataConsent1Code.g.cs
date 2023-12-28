@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GDPRDataConsent1Code
 {
     /// <summary>
-    /// ??
+    /// Consent to authorise the controller of personal data processing to process personal data for marketing purposes.
     /// Encoded/decoded by serializers as "ConsentMarketing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DP00")]
     [IsoId("_0hh6cZUsEemIb43KZS2tHA")]
-    [Description(@"??")]
+    [Description(@"Consent to authorise the controller of personal data processing to process personal data for marketing purposes.")]
     ConsentMarketing,
     
     /// <summary>
-    /// ??
+    /// Consent to authorise the controller of personal data processing to process personal data for profiling purposes in order to formulate customised and targeted product and service offers.
     /// Encoded/decoded by serializers as "ConsentProfilingTargeted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DP03")]
     [IsoId("_0wQ6AZUsEemIb43KZS2tHA")]
-    [Description(@"??")]
+    [Description(@"Consent to authorise the controller of personal data processing to process personal data for profiling purposes in order to formulate customised and targeted product and service offers.")]
     ConsentProfilingTargeted,
     
     /// <summary>
-    /// ??
+    /// Consent to authorise the controller of personal data processing to transfer personal data to other companies belonging to the same group for independent processing for marketing purposes.
     /// Encoded/decoded by serializers as "ConsentTransferSameMarketing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DP01")]
     [IsoId("_01KoIZUsEemIb43KZS2tHA")]
-    [Description(@"??")]
+    [Description(@"Consent to authorise the controller of personal data processing to transfer personal data to other companies belonging to the same group for independent processing for marketing purposes.")]
     ConsentTransferSameMarketing,
     
     /// <summary>
-    /// ??
+    /// Consent to authorise the controller of personal data processing to transfer personal data to third party companies for independent processing for marketing purposes.
     /// Encoded/decoded by serializers as "ConsentTransferThirdPartyMarketing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DP02")]
     [IsoId("_1E8JgZUsEemIb43KZS2tHA")]
-    [Description(@"??")]
+    [Description(@"Consent to authorise the controller of personal data processing to transfer personal data to third party companies for independent processing for marketing purposes.")]
     ConsentTransferThirdPartyMarketing,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OrderStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Order has been sent to the next party, eg, the next intermediary.
     /// Encoded/decoded by serializers as "SentToNextParty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STNP")]
     [IsoId("_Vep_E9p-Ed-ak6NoX_4Aeg_-913662626")]
-    [Description(@"??")]
+    [Description(@"Order has been sent to the next party, eg, the next intermediary.")]
     SentToNextParty,
     
     /// <summary>
-    /// ??
+    /// Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.
     /// Encoded/decoded by serializers as "PendingCancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANP")]
     [IsoId("_Vep_FNp-Ed-ak6NoX_4Aeg_-887802624")]
-    [Description(@"??")]
+    [Description(@"Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.")]
     PendingCancel,
     
     /// <summary>
-    /// ??
+    /// Request for cancellation instruction for the order has been accepted and processed; the order has been cancelled.
     /// Encoded/decoded by serializers as "Completed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_Vep_Fdp-Ed-ak6NoX_4Aeg_-672621299")]
-    [Description(@"??")]
+    [Description(@"Request for cancellation instruction for the order has been accepted and processed; the order has been cancelled.")]
     Completed,
     
 }

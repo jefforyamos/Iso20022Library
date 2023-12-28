@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum VoteInstruction7Code
 {
     /// <summary>
-    /// ??
+    /// Active vote expressed as abstain (no opinion).
     /// Encoded/decoded by serializers as "Abstain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABST")]
     [IsoId("_JWnx8fNoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Active vote expressed as abstain (no opinion).")]
     Abstain,
     
     /// <summary>
-    /// ??
+    /// Vote against a meeting resolution.
     /// Encoded/decoded by serializers as "Against".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAGS")]
     [IsoId("_JWnx8_NoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Vote against a meeting resolution.")]
     Against,
     
     /// <summary>
-    /// ??
+    /// Vote instruction is in against the voting recommendations of the management.
     /// Encoded/decoded by serializers as "AgainstManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMGT")]
     [IsoId("_JWnx9fNoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Vote instruction is in against the voting recommendations of the management.")]
     AgainstManagement,
     
     /// <summary>
-    /// ??
+    /// Vote is cast as empty but the vote is counted.
     /// Encoded/decoded by serializers as "Blank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLNK")]
     [IsoId("_JWnx9_NoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Vote is cast as empty but the vote is counted.")]
     Blank,
     
     /// <summary>
-    /// ??
+    /// Vote in favour of a meeting resolution.
     /// Encoded/decoded by serializers as "For".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFOR")]
     [IsoId("_JWnx_fNoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Vote in favour of a meeting resolution.")]
     For,
     
     /// <summary>
-    /// ??
+    /// Do not vote.
     /// Encoded/decoded by serializers as "NoAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAC")]
     [IsoId("_JWnx__NoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Do not vote.")]
     NoAction,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for one year for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "OneYear".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONEY")]
     [IsoId("_JWnyAfNoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for one year for ""say on pay"" type of resolution.")]
     OneYear,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for three years for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "ThreeYears".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THRY")]
     [IsoId("_JWnyA_NoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for three years for ""say on pay"" type of resolution.")]
     ThreeYears,
     
     /// <summary>
-    /// ??
+    /// Vote in favour for two years for "say on pay" type of resolution.
     /// Encoded/decoded by serializers as "TwoYears".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TWOY")]
     [IsoId("_JWnyBfNoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Vote in favour for two years for ""say on pay"" type of resolution.")]
     TwoYears,
     
     /// <summary>
-    /// ??
+    /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
     /// Encoded/decoded by serializers as "Withhold".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTHH")]
     [IsoId("_JWnyB_NoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).")]
     Withhold,
     
     /// <summary>
-    /// ??
+    /// Vote instruction is in line with the voting recommendations of the management.
     /// Encoded/decoded by serializers as "WithManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WMGT")]
     [IsoId("_JWnyCfNoEeqRfth943bvEA")]
-    [Description(@"??")]
+    [Description(@"Vote instruction is in line with the voting recommendations of the management.")]
     WithManagement,
     
 }

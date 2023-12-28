@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DateType4Code
 {
     /// <summary>
-    /// ??
+    /// Open-dated, which indicates that the date has not been established.
     /// Encoded/decoded by serializers as "Open".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_ayZwpdp-Ed-ak6NoX_4Aeg_-753628532")]
-    [Description(@"??")]
+    [Description(@"Open-dated, which indicates that the date has not been established.")]
     Open,
     
     /// <summary>
-    /// ??
+    /// Date is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_ayZwptp-Ed-ak6NoX_4Aeg_-739775519")]
-    [Description(@"??")]
+    [Description(@"Date is unknown by the sender or has not been established.")]
     Unknown,
     
 }

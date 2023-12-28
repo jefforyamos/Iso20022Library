@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProductType6Code
 {
     /// <summary>
-    /// ??
+    /// The asset type is bond.
     /// Encoded/decoded by serializers as "Bond".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOND")]
     [IsoId("_5QytoTXvEemdWfjs3tykFQ")]
-    [Description(@"??")]
+    [Description(@"The asset type is bond.")]
     Bond,
     
     /// <summary>
-    /// ??
+    /// The asset type is cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_5YreUTXvEemdWfjs3tykFQ")]
-    [Description(@"??")]
+    [Description(@"The asset type is cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Other asset type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_6Mv_kTXvEemdWfjs3tykFQ")]
-    [Description(@"??")]
+    [Description(@"Other asset type.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Identifies the nature or type of an equity.
     /// Encoded/decoded by serializers as "Equity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUI")]
     [IsoId("_8fJgATXvEemdWfjs3tykFQ")]
-    [Description(@"??")]
+    [Description(@"Identifies the nature or type of an equity.")]
     Equity,
     
 }

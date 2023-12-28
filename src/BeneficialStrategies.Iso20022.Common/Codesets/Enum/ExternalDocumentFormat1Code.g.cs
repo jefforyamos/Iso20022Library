@@ -21,48 +21,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalDocumentFormat1Code
 {
     /// <summary>
-    /// ??
+    /// Document format is PDF.
     /// Encoded/decoded by serializers as "PDF".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPDF")]
     [IsoId("_uPIrNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document format is PDF.")]
     PDF,
     
     /// <summary>
-    /// ??
+    /// Document format is XML.
     /// Encoded/decoded by serializers as "XML".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DXML")]
     [IsoId("_uPIrOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document format is XML.")]
     XML,
     
     /// <summary>
-    /// ??
+    /// Document format is a spreadsheet.
     /// Encoded/decoded by serializers as "Spreadsheet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDSH")]
     [IsoId("_uPIrO_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document format is a spreadsheet.")]
     Spreadsheet,
     
     /// <summary>
-    /// ??
+    /// Document format is Word.
     /// Encoded/decoded by serializers as "Word".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WORD")]
     [IsoId("_uPIrPvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document format is Word.")]
     Word,
     
     /// <summary>
-    /// ??
+    /// Document format is XSLT.
     /// Encoded/decoded by serializers as "XSLT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XSLT")]
     [IsoId("_uPScMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Document format is XSLT.")]
     XSLT,
     
 }

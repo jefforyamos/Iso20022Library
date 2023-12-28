@@ -20,165 +20,165 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TaxType5Code
 {
     /// <summary>
-    /// ??
+    /// Tax is a provincial tax.
     /// Encoded/decoded by serializers as "Provincial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROV")]
     [IsoId("_VfQcAdp-Ed-ak6NoX_4Aeg_7390246")]
-    [Description(@"??")]
+    [Description(@"Tax is a provincial tax.")]
     Provincial,
     
     /// <summary>
-    /// ??
+    /// Tax is a national tax.
     /// Encoded/decoded by serializers as "NationalTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NATI")]
     [IsoId("_VfQcAtp-Ed-ak6NoX_4Aeg_7390271")]
-    [Description(@"??")]
+    [Description(@"Tax is a national tax.")]
     NationalTax,
     
     /// <summary>
-    /// ??
+    /// Tax is a state tax.
     /// Encoded/decoded by serializers as "StateTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAT")]
     [IsoId("_VfQcA9p-Ed-ak6NoX_4Aeg_7390272")]
-    [Description(@"??")]
+    [Description(@"Tax is a state tax.")]
     StateTax,
     
     /// <summary>
-    /// ??
+    /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
     /// Encoded/decoded by serializers as "WithholdingTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_VfQcBNp-Ed-ak6NoX_4Aeg_7390288")]
-    [Description(@"??")]
+    [Description(@"Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.")]
     WithholdingTax,
     
     /// <summary>
-    /// ??
+    /// Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.
     /// Encoded/decoded by serializers as "CapitalGainTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KAPA")]
     [IsoId("_VfQcBdp-Ed-ak6NoX_4Aeg_7390306")]
-    [Description(@"??")]
+    [Description(@"Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.")]
     CapitalGainTax,
     
     /// <summary>
-    /// ??
+    /// Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.
     /// Encoded/decoded by serializers as "InterimProfitTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPO")]
     [IsoId("_VfQcBtp-Ed-ak6NoX_4Aeg_7390307")]
-    [Description(@"??")]
+    [Description(@"Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.")]
     InterimProfitTax,
     
     /// <summary>
-    /// ??
+    /// Tax is on certain documents and transactions.
     /// Encoded/decoded by serializers as "StampDuty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAM")]
     [IsoId("_VfQcB9p-Ed-ak6NoX_4Aeg_7390331")]
-    [Description(@"??")]
+    [Description(@"Tax is on certain documents and transactions.")]
     StampDuty,
     
     /// <summary>
-    /// ??
+    /// Tax is a special tax imposed, applicable only when the value of assets or categories of assets owned by an entity are above a given ceiling defined by the tax authority. Wealth tax is not linked to income.
     /// Encoded/decoded by serializers as "WealthTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTAX")]
     [IsoId("_VfQcCNp-Ed-ak6NoX_4Aeg_7390348")]
-    [Description(@"??")]
+    [Description(@"Tax is a special tax imposed, applicable only when the value of assets or categories of assets owned by an entity are above a given ceiling defined by the tax authority. Wealth tax is not linked to income.")]
     WealthTax,
     
     /// <summary>
-    /// ??
+    /// Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.
     /// Encoded/decoded by serializers as "InheritanceTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INHT")]
     [IsoId("_VfQcCdp-Ed-ak6NoX_4Aeg_7390349")]
-    [Description(@"??")]
+    [Description(@"Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.")]
     InheritanceTax,
     
     /// <summary>
-    /// ??
+    /// Tax that is levied by legal authorities for solidarity purposes.
     /// Encoded/decoded by serializers as "SolidaritySurcharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SOSU")]
     [IsoId("_Vgcu0Np-Ed-ak6NoX_4Aeg_7390366")]
-    [Description(@"??")]
+    [Description(@"Tax that is levied by legal authorities for solidarity purposes.")]
     SolidaritySurcharge,
     
     /// <summary>
-    /// ??
+    /// Direct reduction of an individual's tax liability.
     /// Encoded/decoded by serializers as "TaxCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CTAX")]
     [IsoId("_Vgcu0dp-Ed-ak6NoX_4Aeg_7390383")]
-    [Description(@"??")]
+    [Description(@"Direct reduction of an individual's tax liability.")]
     TaxCredit,
     
     /// <summary>
-    /// ??
+    /// Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.
     /// Encoded/decoded by serializers as "GiftTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIFT")]
     [IsoId("_Vgcu0tp-Ed-ak6NoX_4Aeg_7390618")]
-    [Description(@"??")]
+    [Description(@"Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.")]
     GiftTax,
     
     /// <summary>
-    /// ??
+    /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
     /// Encoded/decoded by serializers as "ConsumptionTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COAX")]
     [IsoId("_Vgcu09p-Ed-ak6NoX_4Aeg_7390643")]
-    [Description(@"??")]
+    [Description(@"Tax that is levied on goods and services purchased by customers, and is added to the retail price.")]
     ConsumptionTax,
     
     /// <summary>
-    /// ??
+    /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
     /// Encoded/decoded by serializers as "EUTaxRetention".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EUTR")]
     [IsoId("_Vgcu1Np-Ed-ak6NoX_4Aeg_7390660")]
-    [Description(@"??")]
+    [Description(@"Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.")]
     EUTaxRetention,
     
     /// <summary>
-    /// ??
+    /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).
     /// Encoded/decoded by serializers as "Aktiengewinn1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AKT1")]
     [IsoId("_Vgl4wNp-Ed-ak6NoX_4Aeg_7390661")]
-    [Description(@"??")]
+    [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).")]
     Aktiengewinn1,
     
     /// <summary>
-    /// ??
+    /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).
     /// Encoded/decoded by serializers as "Aktiengewinn2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AKT2")]
     [IsoId("_Vgl4wdp-Ed-ak6NoX_4Aeg_7390678")]
-    [Description(@"??")]
+    [Description(@"Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).")]
     Aktiengewinn2,
     
     /// <summary>
-    /// ??
+    /// Zwischengewinn.
     /// Encoded/decoded by serializers as "Zwischengewinn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZWIS")]
     [IsoId("_Vgl4wtp-Ed-ak6NoX_4Aeg_7390703")]
-    [Description(@"??")]
+    [Description(@"Zwischengewinn.")]
     Zwischengewinn,
     
     /// <summary>
-    /// ??
+    /// Another type of tax.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_Vgl4w9p-Ed-ak6NoX_4Aeg_7390720")]
-    [Description(@"??")]
+    [Description(@"Another type of tax.")]
     Other,
     
 }

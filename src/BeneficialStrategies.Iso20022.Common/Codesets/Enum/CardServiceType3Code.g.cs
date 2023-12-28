@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CardServiceType3Code
 {
     /// <summary>
-    /// ??
+    /// Convey the key to the receiver.
     /// Encoded/decoded by serializers as "DeliverKey".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KYDL")]
     [IsoId("_a-8UIXvNEeSCJdwgzb6SFw")]
-    [Description(@"??")]
+    [Description(@"Convey the key to the receiver.")]
     DeliverKey,
     
     /// <summary>
-    /// ??
+    /// Request the keys that the receiver must send in the response.
     /// Encoded/decoded by serializers as "KeyChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KYCG")]
     [IsoId("_baEJ43vNEeSCJdwgzb6SFw")]
-    [Description(@"??")]
+    [Description(@"Request the keys that the receiver must send in the response.")]
     KeyChange,
     
     /// <summary>
-    /// ??
+    /// Request the receiver to verify the key check value.
     /// Encoded/decoded by serializers as "KeyVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KYVF")]
     [IsoId("_ugAgAXvNEeSCJdwgzb6SFw")]
-    [Description(@"??")]
+    [Description(@"Request the receiver to verify the key check value.")]
     KeyVerification,
     
 }

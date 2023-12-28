@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MessageItemCondition1Code
 {
     /// <summary>
-    /// ??
+    /// Message item must be present.
     /// Encoded/decoded by serializers as "Mandatory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNDT")]
     [IsoId("_KS410X1DEeCF8NjrBemJWQ_-1674698087")]
-    [Description(@"??")]
+    [Description(@"Message item must be present.")]
     Mandatory,
     
     /// <summary>
-    /// ??
+    /// Message item must be present with the configured value.
     /// Encoded/decoded by serializers as "ConfiguredValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CFVL")]
     [IsoId("_KS410n1DEeCF8NjrBemJWQ_-1280588997")]
-    [Description(@"??")]
+    [Description(@"Message item must be present with the configured value.")]
     ConfiguredValue,
     
     /// <summary>
-    /// ??
+    /// Message item has the configured value if the item is absent.
     /// Encoded/decoded by serializers as "DefaultValue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DFLT")]
     [IsoId("_KS41031DEeCF8NjrBemJWQ_-510773471")]
-    [Description(@"??")]
+    [Description(@"Message item has the configured value if the item is absent.")]
     DefaultValue,
     
     /// <summary>
-    /// ??
+    /// Message item must have one of the configured values.
     /// Encoded/decoded by serializers as "AllowedValues".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALWV")]
     [IsoId("_KS411H1DEeCF8NjrBemJWQ_1799018238")]
-    [Description(@"??")]
+    [Description(@"Message item must have one of the configured values.")]
     AllowedValues,
     
     /// <summary>
-    /// ??
+    /// Message item has to be present if available.
     /// Encoded/decoded by serializers as "IfAvailable".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IFAV")]
     [IsoId("_KS411X1DEeCF8NjrBemJWQ_-1781360870")]
-    [Description(@"??")]
+    [Description(@"Message item has to be present if available.")]
     IfAvailable,
     
     /// <summary>
-    /// ??
+    /// Message item is present if it was present in a previous related message with the same value.
     /// Encoded/decoded by serializers as "Copy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COPY")]
     [IsoId("_KS411n1DEeCF8NjrBemJWQ_-1229199954")]
-    [Description(@"??")]
+    [Description(@"Message item is present if it was present in a previous related message with the same value.")]
     Copy,
     
     /// <summary>
-    /// ??
+    /// Message item is not supported and has to be absent.
     /// Encoded/decoded by serializers as "NotSupported".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_KS41131DEeCF8NjrBemJWQ_1780165628")]
-    [Description(@"??")]
+    [Description(@"Message item is not supported and has to be absent.")]
     NotSupported,
     
 }

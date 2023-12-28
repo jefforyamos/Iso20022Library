@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum BarcodeType1Code
 {
     /// <summary>
-    /// ??
+    /// Barcode encoded according to the 2Dimensions Quick Response Code Standard.
     /// Encoded/decoded by serializers as "BarcodeEncodedAs2DQRCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COQR")]
     [IsoId("_0H1FMduZEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode encoded according to the 2Dimensions Quick Response Code Standard.")]
     BarcodeEncodedAs2DQRCode,
     
     /// <summary>
-    /// ??
+    /// Barcode encoded according to the Code 128 standard.
     /// Encoded/decoded by serializers as "BarcodeEncodedAsCode128".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "C128")]
     [IsoId("_0L5s4duZEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode encoded according to the Code 128 standard.")]
     BarcodeEncodedAsCode128,
     
     /// <summary>
-    /// ??
+    /// Barcode encoded according to the Code 25 standard.
     /// Encoded/decoded by serializers as "BarcodeEncodedAsCode25".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "C025")]
     [IsoId("_0Pz8gduZEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode encoded according to the Code 25 standard.")]
     BarcodeEncodedAsCode25,
     
     /// <summary>
-    /// ??
+    /// Barcode encoded according to the Code 39 standard.
     /// Encoded/decoded by serializers as "BarcodeEncodedAsCode39".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "C039")]
     [IsoId("_0TuMIduZEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode encoded according to the Code 39 standard.")]
     BarcodeEncodedAsCode39,
     
     /// <summary>
-    /// ??
+    /// Barcode encoded according to the EAN13 standard.
     /// Encoded/decoded by serializers as "BarcodeEncodedAsEA13".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EA13")]
     [IsoId("_0XfR0duZEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode encoded according to the EAN13 standard.")]
     BarcodeEncodedAsEA13,
     
     /// <summary>
-    /// ??
+    /// Barcode encoded according to the EAN8 standard.
     /// Encoded/decoded by serializers as "BarcodeEncodedAsEAN8".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EAN8")]
     [IsoId("_0d1KYduZEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode encoded according to the EAN8 standard.")]
     BarcodeEncodedAsEAN8,
     
     /// <summary>
-    /// ??
+    /// Barcode encoded according to the PDF417 standard.
     /// Encoded/decoded by serializers as "BarcodeEncodedAsPDF417".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "P417")]
     [IsoId("_0h0SgduZEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode encoded according to the PDF417 standard.")]
     BarcodeEncodedAsPDF417,
     
     /// <summary>
-    /// ??
+    /// Barcode encoded according to the UPCA standard.
     /// Encoded/decoded by serializers as "BarcodeEncodedAsUPCA".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UPCA")]
     [IsoId("_0mNqUduZEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode encoded according to the UPCA standard.")]
     BarcodeEncodedAsUPCA,
     
 }

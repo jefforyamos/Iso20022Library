@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SoundAction1Code
 {
     /// <summary>
-    /// ??
+    /// Set the default volume of sounds.
     /// Encoded/decoded by serializers as "SetDefaultVolume".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DVOL")]
     [IsoId("_qbO3Qd6-Eeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Set the default volume of sounds.")]
     SetDefaultVolume,
     
     /// <summary>
-    /// ??
+    /// Start the sound as specified in the message.
     /// Encoded/decoded by serializers as "StartSound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STAS")]
     [IsoId("_qhPYoN6-Eeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Start the sound as specified in the message.")]
     StartSound,
     
     /// <summary>
-    /// ??
+    /// Stop the sound in progress.
     /// Encoded/decoded by serializers as "StopSound".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STOS")]
     [IsoId("_qkcdod6-Eeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"Stop the sound in progress.")]
     StopSound,
     
 }

@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeCertificateType1Code
 {
     /// <summary>
-    /// ??
+    /// Certificate of analysis.
     /// Encoded/decoded by serializers as "Analysis".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ANLY")]
     [IsoId("_YmLwsNp-Ed-ak6NoX_4Aeg_133463751")]
-    [Description(@"??")]
+    [Description(@"Certificate of analysis.")]
     Analysis,
     
     /// <summary>
-    /// ??
+    /// Certificate of quality.
     /// Encoded/decoded by serializers as "Quality".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUAL")]
     [IsoId("_YmLwsdp-Ed-ak6NoX_4Aeg_171327058")]
-    [Description(@"??")]
+    [Description(@"Certificate of quality.")]
     Quality,
     
     /// <summary>
-    /// ??
+    /// Certificate of quantity.
     /// Encoded/decoded by serializers as "Quantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QUAN")]
     [IsoId("_YmLwstp-Ed-ak6NoX_4Aeg_199955222")]
-    [Description(@"??")]
+    [Description(@"Certificate of quantity.")]
     Quantity,
     
     /// <summary>
-    /// ??
+    /// Certificate of weight.
     /// Encoded/decoded by serializers as "Weight".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEIG")]
     [IsoId("_YmLws9p-Ed-ak6NoX_4Aeg_476088181")]
-    [Description(@"??")]
+    [Description(@"Certificate of weight.")]
     Weight,
     
     /// <summary>
-    /// ??
+    /// Certificate of origin.
     /// Encoded/decoded by serializers as "Origin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ORIG")]
     [IsoId("_YmLwtNp-Ed-ak6NoX_4Aeg_489018208")]
-    [Description(@"??")]
+    [Description(@"Certificate of origin.")]
     Origin,
     
     /// <summary>
-    /// ??
+    /// Certificate of health.
     /// Encoded/decoded by serializers as "Health".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HEAL")]
     [IsoId("_YmLwtdp-Ed-ak6NoX_4Aeg_501024056")]
-    [Description(@"??")]
+    [Description(@"Certificate of health.")]
     Health,
     
     /// <summary>
-    /// ??
+    /// Phytosanitary certificate.
     /// Encoded/decoded by serializers as "Phytosanitary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYT")]
     [IsoId("_YmLwttp-Ed-ak6NoX_4Aeg_504719603")]
-    [Description(@"??")]
+    [Description(@"Phytosanitary certificate.")]
     Phytosanitary,
     
 }

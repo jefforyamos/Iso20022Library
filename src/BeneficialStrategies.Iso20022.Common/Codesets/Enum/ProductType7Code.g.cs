@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProductType7Code
 {
     /// <summary>
-    /// ??
+    /// Asset type is sovereign.
     /// Encoded/decoded by serializers as "Sovereign".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SVGN")]
     [IsoId("_1dWbwTXwEemdWfjs3tykFQ")]
-    [Description(@"??")]
+    [Description(@"Asset type is sovereign.")]
     Sovereign,
     
     /// <summary>
-    /// ??
+    /// Identifies the nature or type of an equity.
     /// Encoded/decoded by serializers as "Equity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EQUI")]
     [IsoId("_25u6MTXwEemdWfjs3tykFQ")]
-    [Description(@"??")]
+    [Description(@"Identifies the nature or type of an equity.")]
     Equity,
     
     /// <summary>
-    /// ??
+    /// Other asset type.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_3aUewTXwEemdWfjs3tykFQ")]
-    [Description(@"??")]
+    [Description(@"Other asset type.")]
     Other,
     
 }

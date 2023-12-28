@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesBalanceType9Code
 {
     /// <summary>
-    /// ??
+    /// Balance of money or securities that is at the disposal of the account owner on the date specified.
     /// Encoded/decoded by serializers as "Available".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVLB")]
     [IsoId("_ZC8lONp-Ed-ak6NoX_4Aeg_-1937993977")]
-    [Description(@"??")]
+    [Description(@"Balance of money or securities that is at the disposal of the account owner on the date specified.")]
     Available,
     
     /// <summary>
-    /// ??
+    /// Balance of instructed position.
     /// Encoded/decoded by serializers as "Elected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELEC")]
     [IsoId("_ZC8lOdp-Ed-ak6NoX_4Aeg_-1937993976")]
-    [Description(@"??")]
+    [Description(@"Balance of instructed position.")]
     Elected,
     
     /// <summary>
-    /// ??
+    /// Balance of uninstructed position.
     /// Encoded/decoded by serializers as "Unelected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNEL")]
     [IsoId("_ZDFvINp-Ed-ak6NoX_4Aeg_-1937993948")]
-    [Description(@"??")]
+    [Description(@"Balance of uninstructed position.")]
     Unelected,
     
     /// <summary>
-    /// ??
+    /// Balance of financial instruments that are reserved for the distribution of the proceeds.
     /// Encoded/decoded by serializers as "ReservedForDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDIS")]
     [IsoId("_ZDFvIdp-Ed-ak6NoX_4Aeg_-1937993947")]
-    [Description(@"??")]
+    [Description(@"Balance of financial instruments that are reserved for the distribution of the proceeds.")]
     ReservedForDistribution,
     
     /// <summary>
-    /// ??
+    /// Balance of securities which are reserved temporarily in the SPA account before they will effectively be exchanged.
     /// Encoded/decoded by serializers as "ReservedForRemoval".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RREM")]
     [IsoId("_ZDFvItp-Ed-ak6NoX_4Aeg_-1937993918")]
-    [Description(@"??")]
+    [Description(@"Balance of securities which are reserved temporarily in the SPA account before they will effectively be exchanged.")]
     ReservedForRemoval,
     
 }

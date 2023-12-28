@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionCancellationReason1Code
 {
     /// <summary>
-    /// ??
+    /// Cancellation due to the corporate action event being cancelled by the issuer.
     /// Encoded/decoded by serializers as "Withrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WITH")]
     [IsoId("_bCpMFNp-Ed-ak6NoX_4Aeg_-232047422")]
-    [Description(@"??")]
+    [Description(@"Cancellation due to the corporate action event being cancelled by the issuer.")]
     Withrawal,
     
     /// <summary>
-    /// ??
+    /// Cancellation due to a processing error.
     /// Encoded/decoded by serializers as "Processing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PROC")]
     [IsoId("_bCpMFdp-Ed-ak6NoX_4Aeg_167838210")]
-    [Description(@"??")]
+    [Description(@"Cancellation due to a processing error.")]
     Processing,
     
 }

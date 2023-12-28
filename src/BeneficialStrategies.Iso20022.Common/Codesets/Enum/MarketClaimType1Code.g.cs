@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MarketClaimType1Code
 {
     /// <summary>
-    /// ??
+    /// Market claim that has been created due to a pending/failing settlement transaction, to ensure the event proceeds are delivered from the seller to the buyer.
     /// Encoded/decoded by serializers as "MarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MKTC")]
     [IsoId("_vZwygS2rEeuVt5XRmyhHiA")]
-    [Description(@"??")]
+    [Description(@"Market claim that has been created due to a pending/failing settlement transaction, to ensure the event proceeds are delivered from the seller to the buyer.")]
     MarketClaim,
     
     /// <summary>
-    /// ??
+    /// Market claim that has been created due to a settled settlement transaction, to ensure the event proceeds are delivered from the buyer to the seller.
     /// Encoded/decoded by serializers as "ReverseMarketClaim".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RVMC")]
     [IsoId("_vgJuYS2rEeuVt5XRmyhHiA")]
-    [Description(@"??")]
+    [Description(@"Market claim that has been created due to a settled settlement transaction, to ensure the event proceeds are delivered from the buyer to the seller.")]
     ReverseMarketClaim,
     
 }

@@ -20,120 +20,120 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EnergyQuantityUnit1Code
 {
     /// <summary>
-    /// ??
+    /// Therm per day.
     /// Encoded/decoded by serializers as "ThermPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THMD")]
     [IsoId("_1m7AcRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Therm per day.")]
     ThermPerDay,
     
     /// <summary>
-    /// ??
+    /// Mega Watt hour per hour.
     /// Encoded/decoded by serializers as "MWhPerHour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWHH")]
     [IsoId("_1zjuQRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Mega Watt hour per hour.")]
     MWhPerHour,
     
     /// <summary>
-    /// ??
+    /// Mega Watt hour per day.
     /// Encoded/decoded by serializers as "MWhPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWHD")]
     [IsoId("_13uckRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Mega Watt hour per day.")]
     MWhPerDay,
     
     /// <summary>
-    /// ??
+    /// Mega Watt.
     /// Encoded/decoded by serializers as "MW".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MWAT")]
     [IsoId("_2EXxcRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Mega Watt.")]
     MW,
     
     /// <summary>
-    /// ??
+    /// MTherm per day.
     /// Encoded/decoded by serializers as "MThermPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MTMD")]
     [IsoId("_2IifwRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"MTherm per day.")]
     MThermPerDay,
     
     /// <summary>
-    /// ??
+    /// Mcm per day.
     /// Encoded/decoded by serializers as "MCMPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MCMD")]
     [IsoId("_2VLNkRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Mcm per day.")]
     MCMPerDay,
     
     /// <summary>
-    /// ??
+    /// Kilo Watt hour per hour.
     /// Encoded/decoded by serializers as "KWhPerHour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KWHH")]
     [IsoId("_2ZV74RYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Kilo Watt hour per hour.")]
     KWhPerHour,
     
     /// <summary>
-    /// ??
+    /// Kilo Watt hour per day.
     /// Encoded/decoded by serializers as "KWhPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KWHD")]
     [IsoId("_2l1fwRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Kilo Watt hour per day.")]
     KWhPerDay,
     
     /// <summary>
-    /// ??
+    /// Kilo Watt.
     /// Encoded/decoded by serializers as "KW".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KWAT")]
     [IsoId("_2yL5sRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Kilo Watt.")]
     KW,
     
     /// <summary>
-    /// ??
+    /// KTherm per day.
     /// Encoded/decoded by serializers as "KThermPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KTMD")]
     [IsoId("_22WoARYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"KTherm per day.")]
     KThermPerDay,
     
     /// <summary>
-    /// ??
+    /// Giga Watt hour per hour.
     /// Encoded/decoded by serializers as "GWhPerHour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GWHH")]
     [IsoId("_3DJG0RYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Giga Watt hour per hour.")]
     GWhPerHour,
     
     /// <summary>
-    /// ??
+    /// Giga Watt hour per day.
     /// Encoded/decoded by serializers as "GWhPerDay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GWHD")]
     [IsoId("_3HT1IRYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Giga Watt hour per day.")]
     GWhPerDay,
     
     /// <summary>
-    /// ??
+    /// Giga Watt.
     /// Encoded/decoded by serializers as "GW".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GWAT")]
     [IsoId("_3TgeERYtEeWK8am9Oj92Tg")]
-    [Description(@"??")]
+    [Description(@"Giga Watt.")]
     GW,
     
 }

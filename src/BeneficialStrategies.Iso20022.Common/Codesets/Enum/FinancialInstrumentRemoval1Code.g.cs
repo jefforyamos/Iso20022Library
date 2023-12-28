@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FinancialInstrumentRemoval1Code
 {
     /// <summary>
-    /// ??
+    /// Removal period for the financial instrument from the collateral pool must be extended.
     /// Encoded/decoded by serializers as "Extension".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXTN")]
     [IsoId("_YxHEgfkNEeicy5Zn42b9bg")]
-    [Description(@"??")]
+    [Description(@"Removal period for the financial instrument from the collateral pool must be extended.")]
     Extension,
     
     /// <summary>
-    /// ??
+    /// Financial instrument must be removed from the collateral pool.
     /// Encoded/decoded by serializers as "Removal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REMO")]
     [IsoId("_ZAgycvkNEeicy5Zn42b9bg")]
-    [Description(@"??")]
+    [Description(@"Financial instrument must be removed from the collateral pool.")]
     Removal,
     
     /// <summary>
-    /// ??
+    /// Financial instrument removal is termintated.
     /// Encoded/decoded by serializers as "Termination".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TERM")]
     [IsoId("_ZGSDQfkNEeicy5Zn42b9bg")]
-    [Description(@"??")]
+    [Description(@"Financial instrument removal is termintated.")]
     Termination,
     
 }

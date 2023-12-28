@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecuritiesSettlementStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Instruction is pending. Settlement at the instructed settlement date is still possible.
     /// Encoded/decoded by serializers as "Pending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_YKVI0cX-EeiSF9q-coWegA")]
-    [Description(@"??")]
+    [Description(@"Instruction is pending. Settlement at the instructed settlement date is still possible.")]
     Pending,
     
     /// <summary>
-    /// ??
+    /// Full settlement.
     /// Encoded/decoded by serializers as "Settled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SETT")]
     [IsoId("_YSXqgcX-EeiSF9q-coWegA")]
-    [Description(@"??")]
+    [Description(@"Full settlement.")]
     Settled,
     
 }

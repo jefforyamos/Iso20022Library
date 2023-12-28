@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CommissionValueType1Code
 {
     /// <summary>
-    /// ??
+    /// Price expressed per unit.
     /// Encoded/decoded by serializers as "PerUnit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEUN")]
     [IsoId("_bAkIctp-Ed-ak6NoX_4Aeg_-559114087")]
-    [Description(@"??")]
+    [Description(@"Price expressed per unit.")]
     PerUnit,
     
     /// <summary>
-    /// ??
+    /// Price is expressed as absolute.
     /// Encoded/decoded by serializers as "Absolute".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABSO")]
     [IsoId("_bAkIc9p-Ed-ak6NoX_4Aeg_-555420258")]
-    [Description(@"??")]
+    [Description(@"Price is expressed as absolute.")]
     Absolute,
     
 }

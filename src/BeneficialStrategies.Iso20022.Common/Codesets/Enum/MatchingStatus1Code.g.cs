@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum MatchingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been matched.
     /// Encoded/decoded by serializers as "Matched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MACH")]
     [IsoId("_aVDGRNp-Ed-ak6NoX_4Aeg_189804200")]
-    [Description(@"??")]
+    [Description(@"Instruction has been matched.")]
     Matched,
     
     /// <summary>
-    /// ??
+    /// Instruction has not been matched.
     /// Encoded/decoded by serializers as "Unmatched".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMAT")]
     [IsoId("_aVDGRdp-Ed-ak6NoX_4Aeg_234135671")]
-    [Description(@"??")]
+    [Description(@"Instruction has not been matched.")]
     Unmatched,
     
 }

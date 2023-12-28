@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeFinanceService2Code
 {
     /// <summary>
-    /// ??
+    /// Code for level 1 services.
     /// Encoded/decoded by serializers as "Level1Services".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEV1")]
     [IsoId("_Ymocptp-Ed-ak6NoX_4Aeg_-547265145")]
-    [Description(@"??")]
+    [Description(@"Code for level 1 services.")]
     Level1Services,
     
     /// <summary>
-    /// ??
+    /// Code for level 2 services.
     /// Encoded/decoded by serializers as "Level2Services".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEV2")]
     [IsoId("_Ymocp9p-Ed-ak6NoX_4Aeg_-543571648")]
-    [Description(@"??")]
+    [Description(@"Code for level 2 services.")]
     Level2Services,
     
     /// <summary>
-    /// ??
+    /// Code for level 3 services.
     /// Encoded/decoded by serializers as "Level3Services".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LEV3")]
     [IsoId("_YmocqNp-Ed-ak6NoX_4Aeg_-530643751")]
-    [Description(@"??")]
+    [Description(@"Code for level 3 services.")]
     Level3Services,
     
 }

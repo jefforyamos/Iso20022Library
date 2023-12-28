@@ -20,201 +20,201 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentFundTransactionType1Code
 {
     /// <summary>
-    /// ??
+    /// All types of transactions.
     /// Encoded/decoded by serializers as "All".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALLL")]
     [IsoId("_6nRqMVsJEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"All types of transactions.")]
     All,
     
     /// <summary>
-    /// ??
+    /// Sale of securities.
     /// Encoded/decoded by serializers as "SecuritiesSale".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SELL")]
     [IsoId("_9GhT0VsJEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Sale of securities.")]
     SecuritiesSale,
     
     /// <summary>
-    /// ??
+    /// Purchase of securities.
     /// Encoded/decoded by serializers as "SecuritiesPurchase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BUYI")]
     [IsoId("_9MVA4VsJEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Purchase of securities.")]
     SecuritiesPurchase,
     
     /// <summary>
-    /// ??
+    /// Transaction is a subscription leg of a switch order execution.
     /// Encoded/decoded by serializers as "SwitchOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWIO")]
     [IsoId("_-p81cVsJEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription leg of a switch order execution.")]
     SwitchOut,
     
     /// <summary>
-    /// ??
+    /// Transaction is an incoming credit to an account on the shareholders register, and is not linked to a shift in investment (subscription or switch), but to account management.
     /// Encoded/decoded by serializers as "TransferIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TRIN")]
     [IsoId("_AJptoVsKEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is an incoming credit to an account on the shareholders register, and is not linked to a shift in investment (subscription or switch), but to account management.")]
     TransferIn,
     
     /// <summary>
-    /// ??
+    /// Transaction is a debit to an account on the shareholders register, and is not linked to a shift in investment (redemption or switch), but to account management.
     /// Encoded/decoded by serializers as "TransferOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOUT")]
     [IsoId("_APvukVsKEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a debit to an account on the shareholders register, and is not linked to a shift in investment (redemption or switch), but to account management.")]
     TransferOut,
     
     /// <summary>
-    /// ??
+    /// Transaction is a subscription to an investment fund.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_BTnmYVsKEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription to an investment fund.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Transaction is a redemption of an investment fund.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_CCzAkVsKEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a redemption of an investment fund.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Transaction is a cash deposit.
     /// Encoded/decoded by serializers as "CashDeposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CDEP")]
     [IsoId("_ngYcYVsKEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a cash deposit.")]
     CashDeposit,
     
     /// <summary>
-    /// ??
+    /// Transaction is a cash withdrawal.
     /// Encoded/decoded by serializers as "CashWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CWIT")]
     [IsoId("_npTu4VsKEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a cash withdrawal.")]
     CashWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Transaction is the payment of dividends and other proceeds.
     /// Encoded/decoded by serializers as "DividendPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVP")]
     [IsoId("_2rbqQVsKEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is the payment of dividends and other proceeds.")]
     DividendPayment,
     
     /// <summary>
-    /// ??
+    /// Transaction is the result of a corporate action.
     /// Encoded/decoded by serializers as "CorporationActionEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAEV")]
     [IsoId("_L1LrMVsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is the result of a corporate action.")]
     CorporationActionEvent,
     
     /// <summary>
-    /// ??
+    /// Transaction is a cross-in.
     /// Encoded/decoded by serializers as "CrossIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CROI")]
     [IsoId("_L-jpoVsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a cross-in.")]
     CrossIn,
     
     /// <summary>
-    /// ??
+    /// Transaction is a cross out.
     /// Encoded/decoded by serializers as "CrossOut".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CROO")]
     [IsoId("_MEqRoVsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a cross out.")]
     CrossOut,
     
     /// <summary>
-    /// ??
+    /// Transaction is a dividend.
     /// Encoded/decoded by serializers as "Dividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DIVI")]
     [IsoId("_MI-J4VsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a dividend.")]
     Dividend,
     
     /// <summary>
-    /// ??
+    /// Transaction is an InSpecie.
     /// Encoded/decoded by serializers as "InSpecie".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSP")]
     [IsoId("_MQHTsVsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is an InSpecie.")]
     InSpecie,
     
     /// <summary>
-    /// ??
+    /// Transaction is another type of transaction.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_MVBo4VsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is another type of transaction.")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Transaction is a redemption in an asset allocation plan which enables investors to withdraw, by percentage a certain amount of cash from several sub-funds of a same umbrella structure.
     /// Encoded/decoded by serializers as "RedemptionAssetAllocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REAA")]
     [IsoId("_MaO5AVsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a redemption in an asset allocation plan which enables investors to withdraw, by percentage a certain amount of cash from several sub-funds of a same umbrella structure.")]
     RedemptionAssetAllocation,
     
     /// <summary>
-    /// ??
+    /// Transaction is a withdrawal by individuals in the framework of a structured plan for investments made in the past.
     /// Encoded/decoded by serializers as "RedemptionWithdrawingPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RWPL")]
     [IsoId("_Mgob8VsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a withdrawal by individuals in the framework of a structured plan for investments made in the past.")]
     RedemptionWithdrawingPlan,
     
     /// <summary>
-    /// ??
+    /// Transaction is a reinvestment of dividend.
     /// Encoded/decoded by serializers as "ReinvestmentOfDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDIV")]
     [IsoId("_MlP2MVsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a reinvestment of dividend.")]
     ReinvestmentOfDividend,
     
     /// <summary>
-    /// ??
+    /// Transaction is a subscription for a savings plan, that is, money set aside by individuals in the framework of a structured plan for a special purpose, for example, retirement.
     /// Encoded/decoded by serializers as "SubscriptionSavingsPlan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSPL")]
     [IsoId("_MyV3AVsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription for a savings plan, that is, money set aside by individuals in the framework of a structured plan for a special purpose, for example, retirement.")]
     SubscriptionSavingsPlan,
     
     /// <summary>
-    /// ??
+    /// Transaction is a subscription in an asset allocation plan that enables investors to allocate, by percentage a certain amount of cash into several sub-funds of a same umbrella structure.
     /// Encoded/decoded by serializers as "SubscriptionAssetAllocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUAA")]
     [IsoId("_M4I9AVsLEea4y99eritluQ")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription in an asset allocation plan that enables investors to allocate, by percentage a certain amount of cash into several sub-funds of a same umbrella structure.")]
     SubscriptionAssetAllocation,
     
 }

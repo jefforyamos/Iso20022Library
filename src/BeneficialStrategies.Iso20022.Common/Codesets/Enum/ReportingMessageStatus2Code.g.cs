@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReportingMessageStatus2Code
 {
     /// <summary>
-    /// ??
+    /// Whole message has been accepted.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPT")]
     [IsoId("_Wl48AT5-Ee2Z1_pdMHu4SA")]
-    [Description(@"??")]
+    [Description(@"Whole message has been accepted.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Message has been rejected.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RJCT")]
     [IsoId("_Wl48CT5-Ee2Z1_pdMHu4SA")]
-    [Description(@"??")]
+    [Description(@"Message has been rejected.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// File containing the report has an incorrect filename.
     /// Encoded/decoded by serializers as "IncorrectFilename".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCF")]
     [IsoId("_Wl48Dz5-Ee2Z1_pdMHu4SA")]
-    [Description(@"??")]
+    [Description(@"File containing the report has an incorrect filename.")]
     IncorrectFilename,
     
     /// <summary>
-    /// ??
+    /// File containing the report is corrupted.
     /// Encoded/decoded by serializers as "CorruptedFile".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRPT")]
     [IsoId("_Wl48ET5-Ee2Z1_pdMHu4SA")]
-    [Description(@"??")]
+    [Description(@"File containing the report is corrupted.")]
     CorruptedFile,
     
     /// <summary>
-    /// ??
+    /// Message was rejected due to authorisation/permission issues.
     /// Encoded/decoded by serializers as "NotAuthorised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAUT")]
     [IsoId("_zlZYQT5-Ee2Z1_pdMHu4SA")]
-    [Description(@"??")]
+    [Description(@"Message was rejected due to authorisation/permission issues.")]
     NotAuthorised,
     
 }

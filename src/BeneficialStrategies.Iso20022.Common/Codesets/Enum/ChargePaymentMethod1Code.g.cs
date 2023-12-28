@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ChargePaymentMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Payment is with cash.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_T2UeMRXzEeOBE-jZfcm4KQ")]
-    [Description(@"??")]
+    [Description(@"Payment is with cash.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Units are redeemed to cover payment.
     /// Encoded/decoded by serializers as "Unit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNIT")]
     [IsoId("_UAJIkRXzEeOBE-jZfcm4KQ")]
-    [Description(@"??")]
+    [Description(@"Units are redeemed to cover payment.")]
     Unit,
     
 }

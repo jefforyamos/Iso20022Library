@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SwapType1Code
 {
     /// <summary>
-    /// ??
+    /// Overnight Index Single Currency Swap.
     /// Encoded/decoded by serializers as "OvernightIndexSingleCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OSSC")]
     [IsoId("_jZap0SS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Overnight Index Single Currency Swap.")]
     OvernightIndexSingleCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Fixed to Float Single Currency Swap.
     /// Encoded/decoded by serializers as "FixedToFloatSingleCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XFSC")]
     [IsoId("_j4gZkSS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Fixed to Float Single Currency Swap.")]
     FixedToFloatSingleCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Fixed to Float Multi Currency Swap.
     /// Encoded/decoded by serializers as "FixedToFloatMultiCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XFMC")]
     [IsoId("_j-IgcSS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Fixed to Float Multi Currency Swap.")]
     FixedToFloatMultiCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Fixed to Fixed Single Currency Swap.
     /// Encoded/decoded by serializers as "FixedToFixedSingleCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XXSC")]
     [IsoId("_kC_yUSS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Fixed to Fixed Single Currency Swap.")]
     FixedToFixedSingleCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Fixed to Fixed Multi Currency Swap.
     /// Encoded/decoded by serializers as "FixedToFixedMultiCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XXMC")]
     [IsoId("_kSQWUSS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Fixed to Fixed Multi Currency Swap.")]
     FixedToFixedMultiCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Inflation Multi Currency Swap.
     /// Encoded/decoded by serializers as "InflationMultiCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IFMC")]
     [IsoId("_k1EIcSS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Inflation Multi Currency Swap.")]
     InflationMultiCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Float to Float Single Currency Swap.
     /// Encoded/decoded by serializers as "FloatToFloatSingleCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FFSC")]
     [IsoId("_lOVkESS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Float to Float Single Currency Swap.")]
     FloatToFloatSingleCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Float to Float Multi Currency Swap.
     /// Encoded/decoded by serializers as "FloatToFloatMultiCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FFMC")]
     [IsoId("_lTAosSS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Float to Float Multi Currency Swap.")]
     FloatToFloatMultiCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Inflation Single Currency Swap.
     /// Encoded/decoded by serializers as "InflationSingleCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IFSC")]
     [IsoId("_l9cs0SS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Inflation Single Currency Swap.")]
     InflationSingleCurrencySwap,
     
     /// <summary>
-    /// ??
+    /// Overnight Index Multi Currency Swap.
     /// Encoded/decoded by serializers as "OvernightIndexMultiCurrencySwap".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OSMC")]
     [IsoId("_mCT-sSS1EeWsI5Sp3-B3zg")]
-    [Description(@"??")]
+    [Description(@"Overnight Index Multi Currency Swap.")]
     OvernightIndexMultiCurrencySwap,
     
 }

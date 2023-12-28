@@ -21,57 +21,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalInformationType1Code
 {
     /// <summary>
-    /// ??
+    /// Instructions used to ease automatic request processing.
     /// Encoded/decoded by serializers as "ProcessingInstructions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INST")]
     [IsoId("_uIbmQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instructions used to ease automatic request processing.")]
     ProcessingInstructions,
     
     /// <summary>
-    /// ??
+    /// Additional information not otherwise specified.
     /// Encoded/decoded by serializers as "OtherInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_uIbmRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Additional information not otherwise specified.")]
     OtherInformation,
     
     /// <summary>
-    /// ??
+    /// Instructions used to ease automatic request relay.
     /// Encoded/decoded by serializers as "RelayInstructions".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RELY")]
     [IsoId("_uIbmSPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Instructions used to ease automatic request relay.")]
     RelayInstructions,
     
     /// <summary>
-    /// ??
+    /// Additional shipping information not otherwise specified.
     /// Encoded/decoded by serializers as "ShippingInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHPG")]
     [IsoId("_uIlXQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Additional shipping information not otherwise specified.")]
     ShippingInformation,
     
     /// <summary>
-    /// ??
+    /// Information concerning the letters, numbers or other symbols placed on the outside of cargo to facilitate identification.
     /// Encoded/decoded by serializers as "ShippingMarks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHPM")]
     [IsoId("_uIlXRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Information concerning the letters, numbers or other symbols placed on the outside of cargo to facilitate identification.")]
     ShippingMarks,
     
     /// <summary>
-    /// ??
+    /// Information concerning the domicile location of the seller.
     /// Encoded/decoded by serializers as "SellerDomicileLocation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLDC")]
     [IsoId("_uIlXSPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Information concerning the domicile location of the seller.")]
     SellerDomicileLocation,
     
 }

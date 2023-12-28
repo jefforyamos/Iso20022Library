@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Algorithm20Code
 {
     /// <summary>
-    /// ??
+    /// Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).
     /// Encoded/decoded by serializers as "SHA256".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HS25")]
     [IsoId("_ER020aRHEeeWXKXf3KjtmQ")]
-    [Description(@"??")]
+    [Description(@"Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).")]
     SHA256,
     
     /// <summary>
-    /// ??
+    /// Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).
     /// Encoded/decoded by serializers as "SHA384".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HS38")]
     [IsoId("_ER0206RHEeeWXKXf3KjtmQ")]
-    [Description(@"??")]
+    [Description(@"Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).")]
     SHA384,
     
     /// <summary>
-    /// ??
+    /// Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).
     /// Encoded/decoded by serializers as "SHA512".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HS51")]
     [IsoId("_ER021aRHEeeWXKXf3KjtmQ")]
-    [Description(@"??")]
+    [Description(@"Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).")]
     SHA512,
     
 }

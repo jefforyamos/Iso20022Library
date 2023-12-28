@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DTCCLinkType1Code
 {
     /// <summary>
-    /// ??
+    /// Events that are concurrent and affect the same underlying security (for example: Stock Split followed by a Reverse Split).
     /// Encoded/decoded by serializers as "CorrespondingEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COEV")]
     [IsoId("_1r9TNjL3EeKU9IrkkToqcw_1305917374")]
-    [Description(@"??")]
+    [Description(@"Events that are concurrent and affect the same underlying security (for example: Stock Split followed by a Reverse Split).")]
     CorrespondingEvent,
     
     /// <summary>
-    /// ??
+    /// Events (event records) are duplicate of each other.
     /// Encoded/decoded by serializers as "Duplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DUPE")]
     [IsoId("_1sHEMDL3EeKU9IrkkToqcw_1192078308")]
-    [Description(@"??")]
+    [Description(@"Events (event records) are duplicate of each other.")]
     Duplicate,
     
     /// <summary>
-    /// ??
+    /// Events that are consecutive and evolve from a Voluntary Event to a Mandatory Event but of the same basic GCA (Global Corporate Actions validation service) event type. For example Exchange - Voluntary to Exchange - Mandatory. Note: The old and new events should not overlap and the older event will remain in an "approved" state.
     /// Encoded/decoded by serializers as "EventChangeToMandatory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHMA")]
     [IsoId("_1sHEMTL3EeKU9IrkkToqcw_1294818597")]
-    [Description(@"??")]
+    [Description(@"Events that are consecutive and evolve from a Voluntary Event to a Mandatory Event but of the same basic GCA (Global Corporate Actions validation service) event type. For example Exchange - Voluntary to Exchange - Mandatory. Note: The old and new events should not overlap and the older event will remain in an ""approved"" state.")]
     EventChangeToMandatory,
     
     /// <summary>
-    /// ??
+    /// Event that are consecutive and evolve from a Mandatory Event to a voluntary event (for example Merger-Mandatory becomes a Merger-Voluntary).
     /// Encoded/decoded by serializers as "EventChangeToVoluntary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHVO")]
     [IsoId("_1sHEMjL3EeKU9IrkkToqcw_1748905866")]
-    [Description(@"??")]
+    [Description(@"Event that are consecutive and evolve from a Mandatory Event to a voluntary event (for example Merger-Mandatory becomes a Merger-Voluntary).")]
     EventChangeToVoluntary,
     
     /// <summary>
-    /// ??
+    /// Events are linked because of fractional security.
     /// Encoded/decoded by serializers as "FractionalSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FRSE")]
     [IsoId("_1sHEMzL3EeKU9IrkkToqcw_1635066800")]
-    [Description(@"??")]
+    [Description(@"Events are linked because of fractional security.")]
     FractionalSecurity,
     
     /// <summary>
-    /// ??
+    /// Events are linked because of underlying security is part of hybrid security. Hybrid securities have underlying securities. As an example Telecom hybrid security is made of various Telecom securities, example ATT, Verizon etc. When there is a dividend on the underlying security the hybrid pays as well. Announcements are linked under the hybrid security payment announcement to the underlying security that is paying that event. This is the way the holders of the hybrid are informed where this income is being derived from, since on many occasions there can be multiple announcements under the hybrid at the same time since the underlying securities are paying a distribution.
     /// Encoded/decoded by serializers as "PartOfHybridSecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HYBS")]
     [IsoId("_1sHENDL3EeKU9IrkkToqcw_56725669")]
-    [Description(@"??")]
+    [Description(@"Events are linked because of underlying security is part of hybrid security. Hybrid securities have underlying securities. As an example Telecom hybrid security is made of various Telecom securities, example ATT, Verizon etc. When there is a dividend on the underlying security the hybrid pays as well. Announcements are linked under the hybrid security payment announcement to the underlying security that is paying that event. This is the way the holders of the hybrid are informed where this income is being derived from, since on many occasions there can be multiple announcements under the hybrid at the same time since the underlying securities are paying a distribution.")]
     PartOfHybridSecurity,
     
     /// <summary>
-    /// ??
+    /// Events are linked because of an intermediary security (for example Rights Distribution to a Rights Subscription; Rights Subscription to an Assimilation).
     /// Encoded/decoded by serializers as "EventOnIntermediarySecurity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ISEV")]
     [IsoId("_1sHENTL3EeKU9IrkkToqcw_-261050992")]
-    [Description(@"??")]
+    [Description(@"Events are linked because of an intermediary security (for example Rights Distribution to a Rights Subscription; Rights Subscription to an Assimilation).")]
     EventOnIntermediarySecurity,
     
     /// <summary>
-    /// ??
+    /// Events are linked because of insured or uninsured securities. In the market there are many securities where a municipality or issuer will insure a portion of their outstanding principal. It technically is the same security, however, there are two different CUSIPs one for the insured piece and the other for the un insured part.
     /// Encoded/decoded by serializers as "InsuredUninsuredSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IUNS")]
     [IsoId("_1sHENjL3EeKU9IrkkToqcw_-374890058")]
-    [Description(@"??")]
+    [Description(@"Events are linked because of insured or uninsured securities. In the market there are many securities where a municipality or issuer will insure a portion of their outstanding principal. It technically is the same security, however, there are two different CUSIPs one for the insured piece and the other for the un insured part.")]
     InsuredUninsuredSecurities,
     
     /// <summary>
-    /// ??
+    /// Event that are consecutive but of a different GCA (Global Corporate actions validation service) event type. For example Tender converts to Merger Voluntary when 429 Notice issued. Note: the old and new events should not overlap and the older event will remain in an "approved" state.
     /// Encoded/decoded by serializers as "EventConvertedToNewEvent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TONU")]
     [IsoId("_1sQOIDL3EeKU9IrkkToqcw_1096759964")]
-    [Description(@"??")]
+    [Description(@"Event that are consecutive but of a different GCA (Global Corporate actions validation service) event type. For example Tender converts to Merger Voluntary when 429 Notice issued. Note: the old and new events should not overlap and the older event will remain in an ""approved"" state.")]
     EventConvertedToNewEvent,
     
     /// <summary>
-    /// ??
+    /// Events are linked because event security is listed in another market under another market security.
     /// Encoded/decoded by serializers as "MultiMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMKT")]
     [IsoId("_1sQOITL3EeKU9IrkkToqcw_-1201915425")]
-    [Description(@"??")]
+    [Description(@"Events are linked because event security is listed in another market under another market security.")]
     MultiMarket,
     
     /// <summary>
-    /// ??
+    /// Cannot be classified by any of the link types.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_1sQOIjL3EeKU9IrkkToqcw_2105408816")]
-    [Description(@"??")]
+    [Description(@"Cannot be classified by any of the link types.")]
     Other,
     
 }

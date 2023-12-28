@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StrategyStressType1Code
 {
     /// <summary>
-    /// ??
+    /// Scenario, either by design or otherwise, that primarily tests the sensitivity of a portfolio of derivatives with a common underlying to differences in the valuation of such derivatives caused by differences in the maturity of such contracts. Typically, flex scenarios are aimed at stressing the valuation of portfolios that are insensitive to small movements in an underlying but sensitive to differences in the reaction of such portfolios in time space. For instance, calendar spreads or flattening or steeping positions in interest rate space.
     /// Encoded/decoded by serializers as "Flex".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FLEX")]
     [IsoId("_H9vpkasuEeayv9XxdmMwKQ")]
-    [Description(@"??")]
+    [Description(@"Scenario, either by design or otherwise, that primarily tests the sensitivity of a portfolio of derivatives with a common underlying to differences in the valuation of such derivatives caused by differences in the maturity of such contracts. Typically, flex scenarios are aimed at stressing the valuation of portfolios that are insensitive to small movements in an underlying but sensitive to differences in the reaction of such portfolios in time space. For instance, calendar spreads or flattening or steeping positions in interest rate space.")]
     Flex,
     
     /// <summary>
-    /// ??
+    /// Scenario, either by design or otherwise, that primarily tests the sensitivity of a portfolio of derivatives to changes in the value of a common underlying. For example as parallel shift of an interest rate curve.
     /// Encoded/decoded by serializers as "Parallel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRLL")]
     [IsoId("_ICXD0asuEeayv9XxdmMwKQ")]
-    [Description(@"??")]
+    [Description(@"Scenario, either by design or otherwise, that primarily tests the sensitivity of a portfolio of derivatives to changes in the value of a common underlying. For example as parallel shift of an interest rate curve.")]
     Parallel,
     
     /// <summary>
-    /// ??
+    /// Scenario, either by design or otherwise, that primarily tests the sensitivity of a portfolio of derivatives with differing, but correlated underlyings. Typically, spread scenarios are aimed at stressing the valuation of portfolios that are insensitive to small co-movements in a set of underlyings but sensitive to differences in the reaction of such portfolios to breakdowns in historical correlations or covariance.
     /// Encoded/decoded by serializers as "Spread".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPRD")]
     [IsoId("_tGJkMeonEeadseq5W5YLvQ")]
-    [Description(@"??")]
+    [Description(@"Scenario, either by design or otherwise, that primarily tests the sensitivity of a portfolio of derivatives with differing, but correlated underlyings. Typically, spread scenarios are aimed at stressing the valuation of portfolios that are insensitive to small co-movements in a set of underlyings but sensitive to differences in the reaction of such portfolios to breakdowns in historical correlations or covariance.")]
     Spread,
     
 }

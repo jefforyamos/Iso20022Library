@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SettlementSystemMethod1Code
 {
     /// <summary>
-    /// ??
+    /// Settle through the default settlement system/method. If there is a standing instruction in place for settlement through the alternate settlement system/method, then this standing instruction is to be ignored.
     /// Encoded/decoded by serializers as "Default".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NSET")]
     [IsoId("_ZMx2oNp-Ed-ak6NoX_4Aeg_-1225226401")]
-    [Description(@"??")]
+    [Description(@"Settle through the default settlement system/method. If there is a standing instruction in place for settlement through the alternate settlement system/method, then this standing instruction is to be ignored.")]
     Default,
     
     /// <summary>
-    /// ??
+    /// Settle through the alternate settlement system/method. If there is a standing instruction in place for settlement through the default settlement system/method, then this standing instruction is to be ignored.
     /// Encoded/decoded by serializers as "Alternative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YSET")]
     [IsoId("_ZMx2odp-Ed-ak6NoX_4Aeg_-1170737712")]
-    [Description(@"??")]
+    [Description(@"Settle through the alternate settlement system/method. If there is a standing instruction in place for settlement through the default settlement system/method, then this standing instruction is to be ignored.")]
     Alternative,
     
 }

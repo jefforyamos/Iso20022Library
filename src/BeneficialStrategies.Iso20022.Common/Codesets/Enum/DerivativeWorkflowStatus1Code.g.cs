@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DerivativeWorkflowStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Notice is an advance warning that an adjustment may be applied.
     /// Encoded/decoded by serializers as "Preliminary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREL")]
     [IsoId("_12PQkzL3EeKU9IrkkToqcw_-1279574546")]
-    [Description(@"??")]
+    [Description(@"Notice is an advance warning that an adjustment may be applied.")]
     Preliminary,
     
     /// <summary>
-    /// ??
+    /// Notice confirms that an adjustment will be applied.
     /// Encoded/decoded by serializers as "Adjustment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADJU")]
     [IsoId("_12PQlDL3EeKU9IrkkToqcw_1932288914")]
-    [Description(@"??")]
+    [Description(@"Notice confirms that an adjustment will be applied.")]
     Adjustment,
     
     /// <summary>
-    /// ??
+    /// Notice confirms that no adjustment will be applied.
     /// Encoded/decoded by serializers as "NoAction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOAC")]
     [IsoId("_12PQlTL3EeKU9IrkkToqcw_-1908591113")]
-    [Description(@"??")]
+    [Description(@"Notice confirms that no adjustment will be applied.")]
     NoAction,
     
     /// <summary>
-    /// ??
+    /// GCA VS (Global Corporate Actions Validation Service) is unable to confirm that there is a corporate action corresponding to this notice.
     /// Encoded/decoded by serializers as "Unconfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UCON")]
     [IsoId("_12ZBkDL3EeKU9IrkkToqcw_-77667944")]
-    [Description(@"??")]
+    [Description(@"GCA VS (Global Corporate Actions Validation Service) is unable to confirm that there is a corporate action corresponding to this notice.")]
     Unconfirmed,
     
     /// <summary>
-    /// ??
+    /// Details were entered in error. All data should be ignored.
     /// Encoded/decoded by serializers as "Deleted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DLTD")]
     [IsoId("_12ZBkTL3EeKU9IrkkToqcw_247449563")]
-    [Description(@"??")]
+    [Description(@"Details were entered in error. All data should be ignored.")]
     Deleted,
     
 }

@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType5Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type grain.
     /// Encoded/decoded by serializers as "Grain".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GRIN")]
     [IsoId("_5hvpgQnzEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type grain.")]
     Grain,
     
 }

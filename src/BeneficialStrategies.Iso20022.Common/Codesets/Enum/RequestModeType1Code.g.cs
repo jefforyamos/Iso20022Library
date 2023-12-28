@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RequestModeType1Code
 {
     /// <summary>
-    /// ??
+    /// Forecast query type and mode.
     /// Encoded/decoded by serializers as "Forecast".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FCST")]
     [IsoId("_qNDQwcm8EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Forecast query type and mode.")]
     Forecast,
     
     /// <summary>
-    /// ??
+    /// Day information query type, in on-demand mode.
     /// Encoded/decoded by serializers as "OnDemandDayInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONDD")]
     [IsoId("_qcFLQsm8EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Day information query type, in on-demand mode.")]
     OnDemandDayInformation,
     
     /// <summary>
-    /// ??
+    /// Future information query type, in on-demand mode.
     /// Encoded/decoded by serializers as "OnDemandFutureInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ONDF")]
     [IsoId("_qfzNocm8EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Future information query type, in on-demand mode.")]
     OnDemandFutureInformation,
     
     /// <summary>
-    /// ??
+    /// Day information query type, in scheduled mode.
     /// Encoded/decoded by serializers as "ScheduledDayInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCHD")]
     [IsoId("_qscigsm8EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Day information query type, in scheduled mode.")]
     ScheduledDayInformation,
     
     /// <summary>
-    /// ??
+    /// Future information query type, in scheduled mode.
     /// Encoded/decoded by serializers as "ScheduledFutureInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCHF")]
     [IsoId("_qtfEUcm8EeWAGphE2LvqeA")]
-    [Description(@"??")]
+    [Description(@"Future information query type, in scheduled mode.")]
     ScheduledFutureInformation,
     
 }

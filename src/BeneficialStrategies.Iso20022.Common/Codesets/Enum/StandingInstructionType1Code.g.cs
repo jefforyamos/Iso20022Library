@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum StandingInstructionType1Code
 {
     /// <summary>
-    /// ??
+    /// Standing instruction for a cash distribution.
     /// Encoded/decoded by serializers as "CashDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_ZPw5Ndp-Ed-ak6NoX_4Aeg_-438291265")]
-    [Description(@"??")]
+    [Description(@"Standing instruction for a cash distribution.")]
     CashDistribution,
     
     /// <summary>
-    /// ??
+    /// Standing instruction for the payment modality, gross or net.
     /// Encoded/decoded by serializers as "GrossNet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYM")]
     [IsoId("_ZPw5Ntp-Ed-ak6NoX_4Aeg_-200022240")]
-    [Description(@"??")]
+    [Description(@"Standing instruction for the payment modality, gross or net.")]
     GrossNet,
     
     /// <summary>
-    /// ??
+    /// Standing instruction for a securities distribution.
     /// Encoded/decoded by serializers as "SecuritiesDistribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_ZPw5N9p-Ed-ak6NoX_4Aeg_1211066353")]
-    [Description(@"??")]
+    [Description(@"Standing instruction for a securities distribution.")]
     SecuritiesDistribution,
     
 }

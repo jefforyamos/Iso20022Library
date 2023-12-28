@@ -21,30 +21,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalLetterType1Code
 {
     /// <summary>
-    /// ??
+    /// Document is a letter from the bank.
     /// Encoded/decoded by serializers as "LetterFromBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LFBK")]
     [IsoId("_T0320SqmEeyXnMF3dld6dw")]
-    [Description(@"??")]
+    [Description(@"Document is a letter from the bank.")]
     LetterFromBank,
     
     /// <summary>
-    /// ??
+    /// Document is a letter to the bank.
     /// Encoded/decoded by serializers as "LetterToBank".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LTBK")]
     [IsoId("_T63xISqmEeyXnMF3dld6dw")]
-    [Description(@"??")]
+    [Description(@"Document is a letter to the bank.")]
     LetterToBank,
     
     /// <summary>
-    /// ??
+    /// Document is a supporting document.
     /// Encoded/decoded by serializers as "SupportingDocument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUPP")]
     [IsoId("_UDEq4SqmEeyXnMF3dld6dw")]
-    [Description(@"??")]
+    [Description(@"Document is a supporting document.")]
     SupportingDocument,
     
 }

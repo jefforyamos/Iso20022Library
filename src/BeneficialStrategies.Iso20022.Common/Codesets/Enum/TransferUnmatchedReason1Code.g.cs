@@ -20,93 +20,93 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransferUnmatchedReason1Code
 {
     /// <summary>
-    /// ??
+    /// No potential match has been found.
     /// Encoded/decoded by serializers as "NoMatch".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CMIS")]
     [IsoId("_VkBnQNp-Ed-ak6NoX_4Aeg_-384771592")]
-    [Description(@"??")]
+    [Description(@"No potential match has been found.")]
     NoMatch,
     
     /// <summary>
-    /// ??
+    /// Counterparty has cancelled the transaction/instruction.
     /// Encoded/decoded by serializers as "CounterpartyCancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CPCA")]
     [IsoId("_VkBnQdp-Ed-ak6NoX_4Aeg_-384771575")]
-    [Description(@"??")]
+    [Description(@"Counterparty has cancelled the transaction/instruction.")]
     CounterpartyCancelled,
     
     /// <summary>
-    /// ??
+    /// Direction of transaction does not match: delivery instead of receipt or vice versa.
     /// Encoded/decoded by serializers as "TransactionDirection".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DELN")]
     [IsoId("_VkBnQtp-Ed-ak6NoX_4Aeg_-384771557")]
-    [Description(@"??")]
+    [Description(@"Direction of transaction does not match: delivery instead of receipt or vice versa.")]
     TransactionDirection,
     
     /// <summary>
-    /// ??
+    /// Financial instrument identification does not match or a financial instrument attribute differs.
     /// Encoded/decoded by serializers as "FinancialInstrument".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DSEC")]
     [IsoId("_VkBnQ9p-Ed-ak6NoX_4Aeg_-384771515")]
-    [Description(@"??")]
+    [Description(@"Financial instrument identification does not match or a financial instrument attribute differs.")]
     FinancialInstrument,
     
     /// <summary>
-    /// ??
+    /// Settlement does not match: counterparty's instruction is for physical settlement, your instruction is not, or vice versa.
     /// Encoded/decoded by serializers as "PhysicalSettlement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHYS")]
     [IsoId("_VkBnRNp-Ed-ak6NoX_4Aeg_-384771497")]
-    [Description(@"??")]
+    [Description(@"Settlement does not match: counterparty's instruction is for physical settlement, your instruction is not, or vice versa.")]
     PhysicalSettlement,
     
     /// <summary>
-    /// ??
+    /// Instruction has not been matched: it is a possible duplicate instruction.
     /// Encoded/decoded by serializers as "Duplicate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PODU")]
     [IsoId("_VkBnRdp-Ed-ak6NoX_4Aeg_-377386836")]
-    [Description(@"??")]
+    [Description(@"Instruction has not been matched: it is a possible duplicate instruction.")]
     Duplicate,
     
     /// <summary>
-    /// ??
+    /// Place of settlement does not match.
     /// Encoded/decoded by serializers as "SettlementPlace".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEPT")]
     [IsoId("_VkBnRtp-Ed-ak6NoX_4Aeg_-377386819")]
-    [Description(@"??")]
+    [Description(@"Place of settlement does not match.")]
     SettlementPlace,
     
     /// <summary>
-    /// ??
+    /// Settlement date or transfer date does not match.
     /// Encoded/decoded by serializers as "SettlementDate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDAT")]
     [IsoId("_VkBnR9p-Ed-ak6NoX_4Aeg_-377386801")]
-    [Description(@"??")]
+    [Description(@"Settlement date or transfer date does not match.")]
     SettlementDate,
     
     /// <summary>
-    /// ??
+    /// Financial instrument quantity does not match.
     /// Encoded/decoded by serializers as "FinancialInstrumentQuantity".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DQUA")]
     [IsoId("_VkBnSNp-Ed-ak6NoX_4Aeg_-1926778684")]
-    [Description(@"??")]
+    [Description(@"Financial instrument quantity does not match.")]
     FinancialInstrumentQuantity,
     
     /// <summary>
-    /// ??
+    /// Another unmatched reason.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_VkBnSdp-Ed-ak6NoX_4Aeg_-871193861")]
-    [Description(@"??")]
+    [Description(@"Another unmatched reason.")]
     Other,
     
 }

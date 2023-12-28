@@ -22,885 +22,885 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalMarketInfrastructure1Code
 {
     /// <summary>
-    /// ??
+    /// EBA Euro1/Step1.
     /// Encoded/decoded by serializers as "EBAEuro1Step1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ABE")]
     [IsoId("_uiNYOPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"EBA Euro1/Step1.")]
     EBAEuro1Step1,
     
     /// <summary>
-    /// ??
+    /// Automated Clearing House. Payment system that clears cash transfers and settles the proceeds in a lump sum, usually on a multilateral netting basis.
     /// Encoded/decoded by serializers as "ACH".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACH")]
     [IsoId("_uiXJMvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Automated Clearing House. Payment system that clears cash transfers and settles the proceeds in a lump sum, usually on a multilateral netting basis.")]
     ACH,
     
     /// <summary>
-    /// ??
+    /// Canadian Dollar (CAD)  - Automated Clearing Settlement System (ACSS) 
     /// Encoded/decoded by serializers as "CanadaACSS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACS")]
     [IsoId("_uiXJNfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Canadian Dollar (CAD)  - Automated Clearing Settlement System (ACSS) ")]
     CanadaACSS,
     
     /// <summary>
-    /// ??
+    /// AL (Albania) -  Albania Interbank Payment System.
     /// Encoded/decoded by serializers as "Albania".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AIP")]
     [IsoId("_uigTIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"AL (Albania) -  Albania Interbank Payment System.")]
     Albania,
     
     /// <summary>
-    /// ??
+    /// AT (Austria) - Austrian RTGS (ARTIS).
     /// Encoded/decoded by serializers as "Austrian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ART")]
     [IsoId("_uigTJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"AT (Austria) - Austrian RTGS (ARTIS).")]
     Austrian,
     
     /// <summary>
-    /// ??
+    /// NZ (New Zealand) - New Zealand Assured Value Payments.
     /// Encoded/decoded by serializers as "NewZealand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AVP")]
     [IsoId("_uigTKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"NZ (New Zealand) - New Zealand Assured Value Payments.")]
     NewZealand,
     
     /// <summary>
-    /// ??
+    /// AZ (Azerbaijan) - Azerbaijan Interbank Payment System (AZIPS).
     /// Encoded/decoded by serializers as "Azerbaijan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AZM")]
     [IsoId("_uigTK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"AZ (Azerbaijan) - Azerbaijan Interbank Payment System (AZIPS).")]
     Azerbaijan,
     
     /// <summary>
-    /// ??
+    /// BA (Bosnia and Herzegovina).
     /// Encoded/decoded by serializers as "BosniaHerzegovina".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BAP")]
     [IsoId("_uiqEIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"BA (Bosnia and Herzegovina).")]
     BosniaHerzegovina,
     
     /// <summary>
-    /// ??
+    /// SE (Sweden) - Sweden BGC Clearing CUG.
     /// Encoded/decoded by serializers as "SwedenBGC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCC")]
     [IsoId("_uiqEJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"SE (Sweden) - Sweden BGC Clearing CUG.")]
     SwedenBGC,
     
     /// <summary>
-    /// ??
+    /// EC (Ecuador) - Ecuadorian Central Payment System (Sistema Central de Pagos Ecuatoriano)
     /// Encoded/decoded by serializers as "Ecuador".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BCE")]
     [IsoId("_uiz1IvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"EC (Ecuador) - Ecuadorian Central Payment System (Sistema Central de Pagos Ecuatoriano)")]
     Ecuador,
     
     /// <summary>
-    /// ??
+    /// BB (Barbados) - Barbados RTGS (CBRTGS).
     /// Encoded/decoded by serializers as "Barbados".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BDS")]
     [IsoId("_uiz1JfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"BB (Barbados) - Barbados RTGS (CBRTGS).")]
     Barbados,
     
     /// <summary>
-    /// ??
+    /// BE (Belgium) - Belgium RTGS (ELLIPS).
     /// Encoded/decoded by serializers as "Belgium".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEL")]
     [IsoId("_uiz1KPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"BE (Belgium) - Belgium RTGS (ELLIPS).")]
     Belgium,
     
     /// <summary>
-    /// ??
+    /// BG (Bulgaria) - Bulgaria RTGS.
     /// Encoded/decoded by serializers as "Bulgaria".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BGN")]
     [IsoId("_ui8_EvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"BG (Bulgaria) - Bulgaria RTGS.")]
     Bulgaria,
     
     /// <summary>
-    /// ??
+    /// BS (Bahamas) - Bahamas RTGS.
     /// Encoded/decoded by serializers as "Bahamas".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BHS")]
     [IsoId("_ui8_FfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"BS (Bahamas) - Bahamas RTGS.")]
     Bahamas,
     
     /// <summary>
-    /// ??
+    /// BW (Botswana) - Botswana Interbank Settlement System.
     /// Encoded/decoded by serializers as "Botswana".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BIS")]
     [IsoId("_ujGwEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"BW (Botswana) - Botswana Interbank Settlement System.")]
     Botswana,
     
     /// <summary>
-    /// ??
+    /// FI (Finland) - RTGS (BOF).
     /// Encoded/decoded by serializers as "Finland".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOF")]
     [IsoId("_ujGwFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FI (Finland) - RTGS (BOF).")]
     Finland,
     
     /// <summary>
-    /// ??
+    /// the Bank of Japan clearing system.
     /// Encoded/decoded by serializers as "BankOfJapanNet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BOJ")]
     [IsoId("_ujGwGPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"the Bank of Japan clearing system.")]
     BankOfJapanNet,
     
     /// <summary>
-    /// ??
+    /// IT (Italy) - Italy RTGS (BIREL).
     /// Encoded/decoded by serializers as "Italy".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BRL")]
     [IsoId("_ujGwG_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"IT (Italy) - Italy RTGS (BIREL).")]
     Italy,
     
     /// <summary>
-    /// ??
+    /// PH (Philippines) - Philippines Payment System.
     /// Encoded/decoded by serializers as "Philippines".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BSP")]
     [IsoId("_ujP6AvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"PH (Philippines) - Philippines Payment System.")]
     Philippines,
     
     /// <summary>
-    /// ??
+    /// CA (Canada) - Canadian Large Value Transfer System (LVTS)
     /// Encoded/decoded by serializers as "CanadaCAD".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAD")]
     [IsoId("_ujP6BfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CA (Canada) - Canadian Large Value Transfer System (LVTS)")]
     CanadaCAD,
     
     /// <summary>
-    /// ??
+    /// ES (Spain).
     /// Encoded/decoded by serializers as "SpainCAM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAM")]
     [IsoId("_ujZrAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ES (Spain).")]
     SpainCAM,
     
     /// <summary>
-    /// ??
+    /// AW (Aruba) - Central Bank of Aruba CSM
     /// Encoded/decoded by serializers as "CentralBankOfArubaCSM".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBA")]
     [IsoId("_ujZrBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"AW (Aruba) - Central Bank of Aruba CSM")]
     CentralBankOfArubaCSM,
     
     /// <summary>
-    /// ??
+    /// IE (Ireland) - Irish RTGS (IRIS).
     /// Encoded/decoded by serializers as "Ireland".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CBJ")]
     [IsoId("_ujjcAvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"IE (Ireland) - Irish RTGS (IRIS).")]
     Ireland,
     
     /// <summary>
-    /// ??
+    /// US - The Clearing House CHIPS
     /// Encoded/decoded by serializers as "USTCHChips".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHI")]
     [IsoId("_ujjcBfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"US - The Clearing House CHIPS")]
     USTCHChips,
     
     /// <summary>
-    /// ??
+    /// GB (UK) - British Euro RTGS (CHAPS).
     /// Encoded/decoded by serializers as "UnitedKingdom".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHP")]
     [IsoId("_ujjcCPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"GB (UK) - British Euro RTGS (CHAPS).")]
     UnitedKingdom,
     
     /// <summary>
-    /// ??
+    /// Central Interoperability Service of the EACHA Clearing Cooperative, for exchanging SEPA payments between Automated Clearing Houses in the EEA.
     /// Encoded/decoded by serializers as "CentralInteroperabilityService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CIS")]
     [IsoId("_ujjcC_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Central Interoperability Service of the EACHA Clearing Cooperative, for exchanging SEPA payments between Automated Clearing Houses in the EEA.")]
     CentralInteroperabilityService,
     
     /// <summary>
-    /// ??
+    /// Payments and cash management system that settles individual payments and cash transfers in central bank money.
     /// Encoded/decoded by serializers as "CentralLiquidityManagement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLM")]
     [IsoId("_ujjcDvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Payments and cash management system that settles individual payments and cash transfers in central bank money.")]
     CentralLiquidityManagement,
     
     /// <summary>
-    /// ??
+    /// CO (Columbia) - Colombian Electronic Cheque System named CEDEC (Compensación Electrónica De Cheques).
     /// Encoded/decoded by serializers as "ColumbiaCEDEC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COE")]
     [IsoId("_ujsl8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CO (Columbia) - Colombian Electronic Cheque System named CEDEC (Compensación Electrónica De Cheques).")]
     ColumbiaCEDEC,
     
     /// <summary>
-    /// ??
+    /// CO (Columbia) - Colombian Central Bank´s ACH named CENIT (Compensación Electrónica Nacional Interbancaria).
     /// Encoded/decoded by serializers as "ColumbiaCENIT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COI")]
     [IsoId("_ujsl9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CO (Columbia) - Colombian Central Bank´s ACH named CENIT (Compensación Electrónica Nacional Interbancaria).")]
     ColumbiaCENIT,
     
     /// <summary>
-    /// ??
+    /// CO (Columbia) - Colombian RTGS System named CUD (Cuentas de Depósito).
     /// Encoded/decoded by serializers as "ColumbiaRTGS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COU")]
     [IsoId("_uj2W8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CO (Columbia) - Colombian RTGS System named CUD (Cuentas de Depósito).")]
     ColumbiaRTGS,
     
     /// <summary>
-    /// ??
+    /// DK (Denmark) - Danish Krone RTGS (KRONOS)
     /// Encoded/decoded by serializers as "DenmarkDDK".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DDK")]
     [IsoId("_uj2W9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"DK (Denmark) - Danish Krone RTGS (KRONOS)")]
     DenmarkDDK,
     
     /// <summary>
-    /// ??
+    /// DK (Denmark) - Danish Euro RTGS (KRONOS)
     /// Encoded/decoded by serializers as "Denmark".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DKC")]
     [IsoId("_ukAH8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"DK (Denmark) - Danish Euro RTGS (KRONOS)")]
     Denmark,
     
     /// <summary>
-    /// ??
+    /// EBA Euro1.
     /// Encoded/decoded by serializers as "EBAEuro1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EBA")]
     [IsoId("_ukAH9fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"EBA Euro1.")]
     EBAEuro1,
     
     /// <summary>
-    /// ??
+    /// DE (Germany).
     /// Encoded/decoded by serializers as "GermanyELS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ELS")]
     [IsoId("_ukAH-PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"DE (Germany).")]
     GermanyELS,
     
     /// <summary>
-    /// ??
+    /// Elektronischer Massenzahlungsverkehr (EMZ)
     /// Encoded/decoded by serializers as "Germany".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EMZ")]
     [IsoId("_ukAH-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Elektronischer Massenzahlungsverkehr (EMZ)")]
     Germany,
     
     /// <summary>
-    /// ??
+    /// ECB (European Central Bank) - ECB Payment Mechanism.
     /// Encoded/decoded by serializers as "ECB".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPM")]
     [IsoId("_ukAH_vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ECB (European Central Bank) - ECB Payment Mechanism.")]
     ECB,
     
     /// <summary>
-    /// ??
+    /// US - The Clearing House EPN
     /// Encoded/decoded by serializers as "USTCHEPN".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EPN")]
     [IsoId("_ukJR4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"US - The Clearing House EPN")]
     USTCHEPN,
     
     /// <summary>
-    /// ??
+    /// EBA step 1 (members).
     /// Encoded/decoded by serializers as "EBAStep1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ERP")]
     [IsoId("_ukJR5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"EBA step 1 (members).")]
     EBAStep1,
     
     /// <summary>
-    /// ??
+    /// US (United States) - FED-ACH
     /// Encoded/decoded by serializers as "USFedACH".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDA")]
     [IsoId("_ukTC4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"US (United States) - FED-ACH")]
     USFedACH,
     
     /// <summary>
-    /// ??
+    /// FedNet is a link to a Federal Bank account via the internet.  FedNet enables checking of account balance, transactions, take print outs of account statement, transfer funds to third party accounts, E-shopping, BSNL Payments, Deposit opening, Deposit Renewal, Request for Demand Draft, Cheque Book etc.
     /// Encoded/decoded by serializers as "FedNet".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDN")]
     [IsoId("_ukTC5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FedNet is a link to a Federal Bank account via the internet.  FedNet enables checking of account balance, transactions, take print outs of account statement, transfer funds to third party accounts, E-shopping, BSNL Payments, Deposit opening, Deposit Renewal, Request for Demand Draft, Cheque Book etc.")]
     FedNet,
     
     /// <summary>
-    /// ??
+    /// US (United States) – FEDWIRE
     /// Encoded/decoded by serializers as "USFedwire".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FDW")]
     [IsoId("_ukTC6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"US (United States) – FEDWIRE")]
     USFedwire,
     
     /// <summary>
-    /// ??
+    /// JP (Japan) the Foreign Exchange Yen Clearing system (FEYCS). It is the Japanese electronic interbank system for sending guaranteed and unconditional yen payments of FX deals for same day settlement from one settlement bank, on behalf of itself or its customers, to another settlement bank.
     /// Encoded/decoded by serializers as "ForeignExchangeYenClearing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEY")]
     [IsoId("_ukTC6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"JP (Japan) the Foreign Exchange Yen Clearing system (FEYCS). It is the Japanese electronic interbank system for sending guaranteed and unconditional yen payments of FX deals for same day settlement from one settlement bank, on behalf of itself or its customers, to another settlement bank.")]
     ForeignExchangeYenClearing,
     
     /// <summary>
-    /// ??
+    /// GH (Ghana) - Ghana Interbank Settlement System (GISS).
     /// Encoded/decoded by serializers as "Ghana".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GIS")]
     [IsoId("_ukTC7vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"GH (Ghana) - Ghana Interbank Settlement System (GISS).")]
     Ghana,
     
     /// <summary>
-    /// ??
+    /// HR (Croatia) - HSVP.
     /// Encoded/decoded by serializers as "Croatia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HRK")]
     [IsoId("_ukcz4vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"HR (Croatia) - HSVP.")]
     Croatia,
     
     /// <summary>
-    /// ??
+    /// GR (Greece) - Greek RTGS (HERMES).
     /// Encoded/decoded by serializers as "Greece".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HRM")]
     [IsoId("_ukcz5fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"GR (Greece) - Greek RTGS (HERMES).")]
     Greece,
     
     /// <summary>
-    /// ??
+    /// HU (Hungary) - VIBER.
     /// Encoded/decoded by serializers as "Hungary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HUF")]
     [IsoId("_ukcz6PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"HU (Hungary) - VIBER.")]
     Hungary,
     
     /// <summary>
-    /// ??
+    /// DE and NL - Equens 
     /// Encoded/decoded by serializers as "DEandNLEquens".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INC")]
     [IsoId("_ukcz6_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"DE and NL - Equens ")]
     DEandNLEquens,
     
     /// <summary>
-    /// ??
+    /// JO (Jordan) - Jordan RTGS.
     /// Encoded/decoded by serializers as "Jordan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "JOD")]
     [IsoId("_ukcz7vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"JO (Jordan) - Jordan RTGS.")]
     Jordan,
     
     /// <summary>
-    /// ??
+    /// KE (Kenya) - Kenyan Electronic Payment Settlement System.
     /// Encoded/decoded by serializers as "Kenya".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "KPS")]
     [IsoId("_ukl90vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"KE (Kenya) - Kenyan Electronic Payment Settlement System.")]
     Kenya,
     
     /// <summary>
-    /// ??
+    /// LU (Luxemburg) - Luxembourg RTGS (LIPS).
     /// Encoded/decoded by serializers as "Luxemburg".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LGS")]
     [IsoId("_ukl91fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"LU (Luxemburg) - Luxembourg RTGS (LIPS).")]
     Luxemburg,
     
     /// <summary>
-    /// ??
+    /// LK (Sri Lanka) - Sri Lanka (Lankasettle).
     /// Encoded/decoded by serializers as "SriLanka".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LKB")]
     [IsoId("_ukvu0vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"LK (Sri Lanka) - Sri Lanka (Lankasettle).")]
     SriLanka,
     
     /// <summary>
-    /// ??
+    /// LV (Latvia).
     /// Encoded/decoded by serializers as "Latvia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVL")]
     [IsoId("_ukvu1fRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"LV (Latvia).")]
     Latvia,
     
     /// <summary>
-    /// ??
+    /// CA (Canada) - Large Value Transfer System (LVTS).  Replaces CAD.
     /// Encoded/decoded by serializers as "CanadaLVTS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LVT")]
     [IsoId("_ukvu2PRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CA (Canada) - Large Value Transfer System (LVTS).  Replaces CAD.")]
     CanadaLVTS,
     
     /// <summary>
-    /// ??
+    /// SG (Singapore) - Singapore RTGS (MEPS+).
     /// Encoded/decoded by serializers as "Singapore".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MEP")]
     [IsoId("_ukvu2_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"SG (Singapore) - Singapore RTGS (MEPS+).")]
     Singapore,
     
     /// <summary>
-    /// ??
+    /// ZA (South Africa) - South-African Multiple Option Settlement.
     /// Encoded/decoded by serializers as "SouthAfrica".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MOS")]
     [IsoId("_ukvu3vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ZA (South Africa) - South-African Multiple Option Settlement.")]
     SouthAfrica,
     
     /// <summary>
-    /// ??
+    /// MT (Malta) - Malta Realtime Interbank Settlement System.
     /// Encoded/decoded by serializers as "Malta".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MRS")]
     [IsoId("_uk44wvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"MT (Malta) - Malta Realtime Interbank Settlement System.")]
     Malta,
     
     /// <summary>
-    /// ??
+    /// MU (Mauritius).
     /// Encoded/decoded by serializers as "Mauritius".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MUP")]
     [IsoId("_uk44xfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"MU (Mauritius).")]
     Mauritius,
     
     /// <summary>
-    /// ??
+    /// NA (Namibian) - Namibian Interbank Settlement System.
     /// Encoded/decoded by serializers as "Namibia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAM")]
     [IsoId("_ulCpwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"NA (Namibian) - Namibian Interbank Settlement System.")]
     Namibia,
     
     /// <summary>
-    /// ??
+    /// NO (Norway).
     /// Encoded/decoded by serializers as "Norway".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOC")]
     [IsoId("_ulCpxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"NO (Norway).")]
     Norway,
     
     /// <summary>
-    /// ??
+    /// AU (Australia) - New Payments Platform (NPP)
     /// Encoded/decoded by serializers as "AustraliaNPP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NPP")]
     [IsoId("_ulLzsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"AU (Australia) - New Payments Platform (NPP)")]
     AustraliaNPP,
     
     /// <summary>
-    /// ??
+    /// CH (Switzerland).
     /// Encoded/decoded by serializers as "Switzerland".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PCH")]
     [IsoId("_ulLztfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CH (Switzerland).")]
     Switzerland,
     
     /// <summary>
-    /// ??
+    /// AU (Australia).
     /// Encoded/decoded by serializers as "AustraliaPDS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PDS")]
     [IsoId("_ulLzuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"AU (Australia).")]
     AustraliaPDS,
     
     /// <summary>
-    /// ??
+    /// EG (Egypt).
     /// Encoded/decoded by serializers as "Egypt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEG")]
     [IsoId("_ulVksvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"EG (Egypt).")]
     Egypt,
     
     /// <summary>
-    /// ??
+    /// FR (France).
     /// Encoded/decoded by serializers as "FrancePNS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PNS")]
     [IsoId("_ulVktfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FR (France).")]
     FrancePNS,
     
     /// <summary>
-    /// ??
+    /// AO (Angola) - Angola RTGS.
     /// Encoded/decoded by serializers as "Angola".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PTR")]
     [IsoId("_ulVkuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"AO (Angola) - Angola RTGS.")]
     Angola,
     
     /// <summary>
-    /// ??
+    /// Ve (Venezuela).
     /// Encoded/decoded by serializers as "Venezuela".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PVE")]
     [IsoId("_ulVku_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Ve (Venezuela).")]
     Venezuela,
     
     /// <summary>
-    /// ??
+    /// RO (Romania) - Romanian Electronic Payment Operations RT.
     /// Encoded/decoded by serializers as "RomaniaEPO".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROL")]
     [IsoId("_ulfVsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"RO (Romania) - Romanian Electronic Payment Operations RT.")]
     RomaniaEPO,
     
     /// <summary>
-    /// ??
+    /// RO (Romania) - Romanian GSRS.
     /// Encoded/decoded by serializers as "RomaniaGSRS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ROS")]
     [IsoId("_ulfVtfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"RO (Romania) - Romanian GSRS.")]
     RomaniaGSRS,
     
     /// <summary>
-    /// ??
+    /// Real Time Gross Settlement System. Payment system that simultaneously clears individual transfers and settles them in central bank money.
     /// Encoded/decoded by serializers as "RTGS".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTG")]
     [IsoId("_ulfVuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Real Time Gross Settlement System. Payment system that simultaneously clears individual transfers and settles them in central bank money.")]
     RTGS,
     
     /// <summary>
-    /// ??
+    /// DE (Germany).
     /// Encoded/decoded by serializers as "GermanyRTGSPlus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RTP")]
     [IsoId("_ulpGsvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"DE (Germany).")]
     GermanyRTGSPlus,
     
     /// <summary>
-    /// ??
+    /// DE – SEPA-Clearer of the Retail Payment System operated by Deutsche Bundesbank
     /// Encoded/decoded by serializers as "RPSAndSEPAClearer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCL")]
     [IsoId("_ulpGtfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"DE – SEPA-Clearer of the Retail Payment System operated by Deutsche Bundesbank")]
     RPSAndSEPAClearer,
     
     /// <summary>
-    /// ??
+    /// CL (Chile) - Chilean Interbank Payment System.
     /// Encoded/decoded by serializers as "Chili".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SCP")]
     [IsoId("_ulpGuPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CL (Chile) - Chilean Interbank Payment System.")]
     Chili,
     
     /// <summary>
-    /// ??
+    /// SE (Sweden) - Swedish Euro RTGS (SEC).
     /// Encoded/decoded by serializers as "SwedenSEC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEC")]
     [IsoId("_ulpGu_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"SE (Sweden) - Swedish Euro RTGS (SEC).")]
     SwedenSEC,
     
     /// <summary>
-    /// ??
+    /// CH (Switzerland) – Swiss EUR RTGS named euroSIC.
     /// Encoded/decoded by serializers as "euroSIC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEU")]
     [IsoId("_ulyQovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CH (Switzerland) – Swiss EUR RTGS named euroSIC.")]
     euroSIC,
     
     /// <summary>
-    /// ??
+    /// CH (Switzerland) – Swiss CHF RTGS named SIC.
     /// Encoded/decoded by serializers as "SIC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIC")]
     [IsoId("_ulyQpfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CH (Switzerland) – Swiss CHF RTGS named SIC.")]
     SIC,
     
     /// <summary>
-    /// ??
+    /// CH (Switzerland) – Swiss Instant Payment service in CHF operated by SIX Interbank Clearing.
     /// Encoded/decoded by serializers as "SICIP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIP")]
     [IsoId("_ulyQqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"CH (Switzerland) – Swiss Instant Payment service in CHF operated by SIX Interbank Clearing.")]
     SICIP,
     
     /// <summary>
-    /// ??
+    /// SI (Slovenia).
     /// Encoded/decoded by serializers as "Slovania".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SIT")]
     [IsoId("_ulyQq_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"SI (Slovenia).")]
     Slovania,
     
     /// <summary>
-    /// ??
+    /// ES (Spain) - Spanish RTGS (SLBE).
     /// Encoded/decoded by serializers as "SpainES".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLB")]
     [IsoId("_ul8BovRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ES (Spain) - Spanish RTGS (SLBE).")]
     SpainES,
     
     /// <summary>
-    /// ??
+    /// PT (Portugal) - Portuguese RTGS (SPGT).
     /// Encoded/decoded by serializers as "Portugal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SPG")]
     [IsoId("_ul8BpfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"PT (Portugal) - Portuguese RTGS (SPGT).")]
     Portugal,
     
     /// <summary>
-    /// ??
+    /// SE (Sweden) - SEK RTGS (RIX).
     /// Encoded/decoded by serializers as "SwedenSSK".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SSK")]
     [IsoId("_ul8BqPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"SE (Sweden) - SEK RTGS (RIX).")]
     SwedenSSK,
     
     /// <summary>
-    /// ??
+    /// EBA Clearing STEP 2.
     /// Encoded/decoded by serializers as "EBAClearingStep2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ST2")]
     [IsoId("_ul8Bq_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"EBA Clearing STEP 2.")]
     EBAClearingStep2,
     
     /// <summary>
-    /// ??
+    /// UK (United Kingdom) - CHAPS Sterling RTGS.
     /// Encoded/decoded by serializers as "UnitedKingdomGBP".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STG")]
     [IsoId("_ul8BrvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"UK (United Kingdom) - CHAPS Sterling RTGS.")]
     UnitedKingdomGBP,
     
     /// <summary>
-    /// ??
+    /// T2S.
     /// Encoded/decoded by serializers as "T2S".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "T2S")]
     [IsoId("_ul8BsfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"T2S.")]
     T2S,
     
     /// <summary>
-    /// ??
+    /// FR (France) - French RTGS (TBF).
     /// Encoded/decoded by serializers as "FranceFR".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBF")]
     [IsoId("_umFLkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"FR (France) - French RTGS (TBF).")]
     FranceFR,
     
     /// <summary>
-    /// ??
+    /// US - The Clearing House Real-TimePayment System
     /// Encoded/decoded by serializers as "USTCHRealTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TCH")]
     [IsoId("_umFLlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"US - The Clearing House Real-TimePayment System")]
     USTCHRealTime,
     
     /// <summary>
-    /// ??
+    /// Target.
     /// Encoded/decoded by serializers as "Target".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TGT")]
     [IsoId("_umO8kvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Target.")]
     Target,
     
     /// <summary>
-    /// ??
+    /// TH (Thailand) - Thailand Payment System (BAHTNET).
     /// Encoded/decoded by serializers as "Thailand".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THB")]
     [IsoId("_umO8lfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"TH (Thailand) - Thailand Payment System (BAHTNET).")]
     Thailand,
     
     /// <summary>
-    /// ??
+    /// TH (Thailand) - National ITMX Payment System
     /// Encoded/decoded by serializers as "ThailandNITMX".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "THN")]
     [IsoId("_umO8mPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"TH (Thailand) - National ITMX Payment System")]
     ThailandNITMX,
     
     /// <summary>
-    /// ??
+    /// TZ (Tanzania) - Tanzania Interbank Settlement System (TISS).
     /// Encoded/decoded by serializers as "Tanzania".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TIS")]
     [IsoId("_umO8m_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"TZ (Tanzania) - Tanzania Interbank Settlement System (TISS).")]
     Tanzania,
     
     /// <summary>
-    /// ??
+    /// NL (Netherlands) - Dutch RTGS (TOP) 
     /// Encoded/decoded by serializers as "Netherlands".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOP")]
     [IsoId("_umO8nvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"NL (Netherlands) - Dutch RTGS (TOP) ")]
     Netherlands,
     
     /// <summary>
-    /// ??
+    /// TT (Trinidad and Tobago ) - Trinidad and Tobago SAFE-TT.
     /// Encoded/decoded by serializers as "TrinidadAndTobago".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TTD")]
     [IsoId("_umYtkvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"TT (Trinidad and Tobago ) - Trinidad and Tobago SAFE-TT.")]
     TrinidadAndTobago,
     
     /// <summary>
-    /// ??
+    /// United States Dollar  (USD)
     /// Encoded/decoded by serializers as "CanadaUSDUSBE".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UBE")]
     [IsoId("_umYtlfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"United States Dollar  (USD)")]
     CanadaUSDUSBE,
     
     /// <summary>
-    /// ??
+    /// UG (Uganda) - Uganda National Interbank Settlement System.
     /// Encoded/decoded by serializers as "Uganda".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UIS")]
     [IsoId("_umYtmPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"UG (Uganda) - Uganda National Interbank Settlement System.")]
     Uganda,
     
     /// <summary>
-    /// ??
+    /// VocaLink Clearing System
     /// Encoded/decoded by serializers as "VocaLink".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VCS")]
     [IsoId("_umYtm_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"VocaLink Clearing System")]
     VocaLink,
     
     /// <summary>
-    /// ??
+    /// EBA step 2.
     /// Encoded/decoded by serializers as "EBAStep2XCT".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XCT")]
     [IsoId("_umYtnvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"EBA step 2.")]
     EBAStep2XCT,
     
     /// <summary>
-    /// ??
+    /// JP (Japan) the Zengin system. The electronic payment system for domestic third party transfers managed by the Tokyo Bankers Association.
     /// Encoded/decoded by serializers as "Zengin".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZEN")]
     [IsoId("_umh3gvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"JP (Japan) the Zengin system. The electronic payment system for domestic third party transfers managed by the Tokyo Bankers Association.")]
     Zengin,
     
     /// <summary>
-    /// ??
+    /// ZW (Zimbabwe) - Zimbabwe Electronic Transfer & Settlement System.
     /// Encoded/decoded by serializers as "Zimbabwe".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZET")]
     [IsoId("_umh3hfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ZW (Zimbabwe) - Zimbabwe Electronic Transfer & Settlement System.")]
     Zimbabwe,
     
     /// <summary>
-    /// ??
+    /// ZM (Zambia) - Zambian Interbank Payment &Settlement System.
     /// Encoded/decoded by serializers as "Zambia".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ZIS")]
     [IsoId("_umh3iPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"ZM (Zambia) - Zambian Interbank Payment &Settlement System.")]
     Zambia,
     
 }

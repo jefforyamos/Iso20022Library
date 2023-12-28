@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RemarketingMarginType1Code
 {
     /// <summary>
-    /// ??
+    /// Agreed margin.
     /// Encoded/decoded by serializers as "Agreed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGRE")]
     [IsoId("_aUJuZdp-Ed-ak6NoX_4Aeg_818404999")]
-    [Description(@"??")]
+    [Description(@"Agreed margin.")]
     Agreed,
     
     /// <summary>
-    /// ??
+    /// Alternative margin.
     /// Encoded/decoded by serializers as "Alternative".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ALTE")]
     [IsoId("_aUJuZtp-Ed-ak6NoX_4Aeg_1072371865")]
-    [Description(@"??")]
+    [Description(@"Alternative margin.")]
     Alternative,
     
 }

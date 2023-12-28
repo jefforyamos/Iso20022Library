@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PriceValueType4Code
 {
     /// <summary>
-    /// ??
+    /// Price has not been established.
     /// Encoded/decoded by serializers as "OpenDated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OPEN")]
     [IsoId("_aJbFGdp-Ed-ak6NoX_4Aeg_-1213536998")]
-    [Description(@"??")]
+    [Description(@"Price has not been established.")]
     OpenDated,
     
     /// <summary>
-    /// ??
+    /// Price to be specified by account owner.
     /// Encoded/decoded by serializers as "ToBeSpecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TBSP")]
     [IsoId("_aJk2ENp-Ed-ak6NoX_4Aeg_-1196914941")]
-    [Description(@"??")]
+    [Description(@"Price to be specified by account owner.")]
     ToBeSpecified,
     
     /// <summary>
-    /// ??
+    /// Price is not required to be specified by account owner.
     /// Encoded/decoded by serializers as "Unspecified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSP")]
     [IsoId("_aJk2Edp-Ed-ak6NoX_4Aeg_-942945763")]
-    [Description(@"??")]
+    [Description(@"Price is not required to be specified by account owner.")]
     Unspecified,
     
     /// <summary>
-    /// ??
+    /// Price is unknown by the sender or has not been established.
     /// Encoded/decoded by serializers as "Unknown".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_aJk2Etp-Ed-ak6NoX_4Aeg_-927245276")]
-    [Description(@"??")]
+    [Description(@"Price is unknown by the sender or has not been established.")]
     Unknown,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PreConfirmation1Code
 {
     /// <summary>
-    /// ??
+    /// Pre-confirmation of the movement of the cash, pending the movement of securities.
     /// Encoded/decoded by serializers as "PreConfirmCash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRCA")]
     [IsoId("_zdcnYA93EeGeV5vP7Mvdig_1988763861")]
-    [Description(@"??")]
+    [Description(@"Pre-confirmation of the movement of the cash, pending the movement of securities.")]
     PreConfirmCash,
     
     /// <summary>
-    /// ??
+    /// Pre-confirmation of the movement of the securities, pending the movement of cash.
     /// Encoded/decoded by serializers as "PreConfirmSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRSE")]
     [IsoId("_zdcnYQ93EeGeV5vP7Mvdig_-1228183097")]
-    [Description(@"??")]
+    [Description(@"Pre-confirmation of the movement of the securities, pending the movement of cash.")]
     PreConfirmSecurities,
     
 }

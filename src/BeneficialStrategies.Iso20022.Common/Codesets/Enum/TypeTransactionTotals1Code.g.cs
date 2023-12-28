@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeTransactionTotals1Code
 {
     /// <summary>
-    /// ??
+    /// Debit transactions on the cardholder account.
     /// Encoded/decoded by serializers as "Debit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DEBT")]
     [IsoId("_TUJ9QAEcEeCQm6a_G2yO_w_-1120595523")]
-    [Description(@"??")]
+    [Description(@"Debit transactions on the cardholder account.")]
     Debit,
     
     /// <summary>
-    /// ??
+    /// Reversal of debit transactions (cancellation).
     /// Encoded/decoded by serializers as "DebitReverse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DBTR")]
     [IsoId("_TUTHIAEcEeCQm6a_G2yO_w_-2003828810")]
-    [Description(@"??")]
+    [Description(@"Reversal of debit transactions (cancellation).")]
     DebitReverse,
     
     /// <summary>
-    /// ??
+    /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
     /// Encoded/decoded by serializers as "Credit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDT")]
     [IsoId("_TUTHIQEcEeCQm6a_G2yO_w_1152384112")]
-    [Description(@"??")]
+    [Description(@"Credit transactions (refund, account, cash service, as defined in the transaction service type).")]
     Credit,
     
     /// <summary>
-    /// ??
+    /// Reversal of credit transactions (cancellation).
     /// Encoded/decoded by serializers as "CreditReverse".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDR")]
     [IsoId("_TUTHIgEcEeCQm6a_G2yO_w_-1205358011")]
-    [Description(@"??")]
+    [Description(@"Reversal of credit transactions (cancellation).")]
     CreditReverse,
     
 }

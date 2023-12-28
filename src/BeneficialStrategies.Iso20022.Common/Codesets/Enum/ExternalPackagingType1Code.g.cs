@@ -21,39 +21,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalPackagingType1Code
 {
     /// <summary>
-    /// ??
+    /// Packaging is high density polyethylene.
     /// Encoded/decoded by serializers as "HighDensityPolyethylene".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HDPE")]
     [IsoId("_uIlXS_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Packaging is high density polyethylene.")]
     HighDensityPolyethylene,
     
     /// <summary>
-    /// ??
+    /// Packaging is low density polyethylene.
     /// Encoded/decoded by serializers as "LowDensityPolyethylene".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LDPE")]
     [IsoId("_uIlXTvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Packaging is low density polyethylene.")]
     LowDensityPolyethylene,
     
     /// <summary>
-    /// ??
+    /// Packaging is linear low density polyethylene.
     /// Encoded/decoded by serializers as "LinearLowDensityPolyethylene".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LLDP")]
     [IsoId("_uIvIQvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Packaging is linear low density polyethylene.")]
     LinearLowDensityPolyethylene,
     
     /// <summary>
-    /// ??
+    /// Other packaging type not otherwise specified.
     /// Encoded/decoded by serializers as "OtherPackagingType".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_uIvIRfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Other packaging type not otherwise specified.")]
     OtherPackagingType,
     
 }

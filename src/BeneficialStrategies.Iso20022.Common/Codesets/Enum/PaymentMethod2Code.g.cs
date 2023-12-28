@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PaymentMethod2Code
 {
     /// <summary>
-    /// ??
+    /// Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.
     /// Encoded/decoded by serializers as "DirectDebit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DD")]
     [IsoId("_Z0aeYdp-Ed-ak6NoX_4Aeg_-15953576")]
-    [Description(@"??")]
+    [Description(@"Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.")]
     DirectDebit,
     
 }

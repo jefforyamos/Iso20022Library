@@ -21,102 +21,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalReversalReason1Code
 {
     /// <summary>
-    /// ??
+    /// Wrong IBAN in  SCT
     /// Encoded/decoded by serializers as "InvalidCreditorAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC03")]
     [IsoId("_t8gqIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Wrong IBAN in  SCT")]
     InvalidCreditorAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Account number specified has been closed on the Receiver's books
     /// Encoded/decoded by serializers as "ClosedAccountNumber".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AC04")]
     [IsoId("_t8gqJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Account number specified has been closed on the Receiver's books")]
     ClosedAccountNumber,
     
     /// <summary>
-    /// ??
+    /// Bank Operation code specified in the message is not valid for receiver
     /// Encoded/decoded by serializers as "InvalidBankOperationCode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AG02")]
     [IsoId("_t8gqKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Bank Operation code specified in the message is not valid for receiver")]
     InvalidBankOperationCode,
     
     /// <summary>
-    /// ??
+    /// Duplication
     /// Encoded/decoded by serializers as "Duplication".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM05")]
     [IsoId("_t8gqK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Duplication")]
     Duplication,
     
     /// <summary>
-    /// ??
+    /// Wrong amount in SCT
     /// Encoded/decoded by serializers as "WrongAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AM09")]
     [IsoId("_t8qbIvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Wrong amount in SCT")]
     WrongAmount,
     
     /// <summary>
-    /// ??
+    /// No Mandate
     /// Encoded/decoded by serializers as "NoMandate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD01")]
     [IsoId("_t8qbJfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"No Mandate")]
     NoMandate,
     
     /// <summary>
-    /// ??
+    /// Creditor or creditor's agent should not have collected the direct debit
     /// Encoded/decoded by serializers as "CollectionNotDue".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MD05")]
     [IsoId("_t8qbKPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Creditor or creditor's agent should not have collected the direct debit")]
     CollectionNotDue,
     
     /// <summary>
-    /// ??
+    /// Reason has not been specified by end customer
     /// Encoded/decoded by serializers as "NotSpecifiedReasonCustomerGenerated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS02")]
     [IsoId("_t8qbK_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Reason has not been specified by end customer")]
     NotSpecifiedReasonCustomerGenerated,
     
     /// <summary>
-    /// ??
+    /// Reason has not been specified by agent.
     /// Encoded/decoded by serializers as "NotSpecifiedReasonAgentGenerated".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MS03")]
     [IsoId("_t8qbLvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Reason has not been specified by agent.")]
     NotSpecifiedReasonAgentGenerated,
     
     /// <summary>
-    /// ??
+    /// Wrong BIC in SCT
     /// Encoded/decoded by serializers as "InvalidCreditorBICIdentifier".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RC07")]
     [IsoId("_t8zlEvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Wrong BIC in SCT")]
     InvalidCreditorBICIdentifier,
     
     /// <summary>
-    /// ??
+    /// Associated message was received after agreed processing cut-off time.
     /// Encoded/decoded by serializers as "CutOffTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TM01")]
     [IsoId("_t8zlFfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Associated message was received after agreed processing cut-off time.")]
     CutOffTime,
     
 }

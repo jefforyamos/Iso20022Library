@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExposureType10Code
 {
     /// <summary>
-    /// ??
+    /// Securities buy sell back.
     /// Encoded/decoded by serializers as "SecuritiesBuySellSellBuyBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBSC")]
     [IsoId("_6abEMRe2EeyPHpqpKwtFdw")]
-    [Description(@"??")]
+    [Description(@"Securities buy sell back.")]
     SecuritiesBuySellSellBuyBack,
     
     /// <summary>
-    /// ??
+    /// Margin lending transaction. 
     /// Encoded/decoded by serializers as "MarginLending".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MGLD")]
     [IsoId("_6abEMxe2EeyPHpqpKwtFdw")]
-    [Description(@"??")]
+    [Description(@"Margin lending transaction. ")]
     MarginLending,
     
     /// <summary>
-    /// ??
+    /// Exposure is linked to a securities lending or borrowing activity.
     /// Encoded/decoded by serializers as "SecuritiesLendingAndBorrowing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SLEB")]
     [IsoId("_6abENRe2EeyPHpqpKwtFdw")]
-    [Description(@"??")]
+    [Description(@"Exposure is linked to a securities lending or borrowing activity.")]
     SecuritiesLendingAndBorrowing,
     
     /// <summary>
-    /// ??
+    /// Relates to repurchase agreement trading.
     /// Encoded/decoded by serializers as "Repo".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPO")]
     [IsoId("__sPjIRe2EeyPHpqpKwtFdw")]
-    [Description(@"??")]
+    [Description(@"Relates to repurchase agreement trading.")]
     Repo,
     
 }

@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ForeignCurrencyPaymentElection1Code
 {
     /// <summary>
-    /// ??
+    /// Foreign currency payment is offered.
     /// Encoded/decoded by serializers as "Offered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OFFD")]
     [IsoId("_1zs58zL3EeKU9IrkkToqcw_-629605202")]
-    [Description(@"??")]
+    [Description(@"Foreign currency payment is offered.")]
     Offered,
     
     /// <summary>
-    /// ??
+    /// Foreign currency payment is not offered.
     /// Encoded/decoded by serializers as "NotOffered".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NOFD")]
     [IsoId("_1zs59DL3EeKU9IrkkToqcw_-1264637048")]
-    [Description(@"??")]
+    [Description(@"Foreign currency payment is not offered.")]
     NotOffered,
     
     /// <summary>
-    /// ??
+    /// Foreign currency payment is mandatory.
     /// Encoded/decoded by serializers as "Mandatory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAND")]
     [IsoId("_1zs59TL3EeKU9IrkkToqcw_202511715")]
-    [Description(@"??")]
+    [Description(@"Foreign currency payment is mandatory.")]
     Mandatory,
     
 }

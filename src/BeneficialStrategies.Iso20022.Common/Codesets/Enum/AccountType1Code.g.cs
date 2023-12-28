@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AccountType1Code
 {
     /// <summary>
-    /// ??
+    /// Cash account.
     /// Encoded/decoded by serializers as "Cash".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CASH")]
     [IsoId("_brn3p9p-Ed-ak6NoX_4Aeg_-1349793499")]
-    [Description(@"??")]
+    [Description(@"Cash account.")]
     Cash,
     
     /// <summary>
-    /// ??
+    /// Securities account.
     /// Encoded/decoded by serializers as "Securities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_brn3qNp-Ed-ak6NoX_4Aeg_-1327628324")]
-    [Description(@"??")]
+    [Description(@"Securities account.")]
     Securities,
     
 }

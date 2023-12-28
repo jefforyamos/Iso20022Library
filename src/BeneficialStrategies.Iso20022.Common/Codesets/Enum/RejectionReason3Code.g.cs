@@ -20,102 +20,102 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RejectionReason3Code
 {
     /// <summary>
-    /// ??
+    /// Financial instrument's symbol has not been recognized.
     /// Encoded/decoded by serializers as "UnknownSymbol".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UKWN")]
     [IsoId("_Zk6p0dp-Ed-ak6NoX_4Aeg_336258984")]
-    [Description(@"??")]
+    [Description(@"Financial instrument's symbol has not been recognized.")]
     UnknownSymbol,
     
     /// <summary>
-    /// ??
+    /// Exchange on which the financial instrument is traded is closed.
     /// Encoded/decoded by serializers as "ClosedExchange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXCL")]
     [IsoId("_Zk6p0tp-Ed-ak6NoX_4Aeg_336258985")]
-    [Description(@"??")]
+    [Description(@"Exchange on which the financial instrument is traded is closed.")]
     ClosedExchange,
     
     /// <summary>
-    /// ??
+    /// Countervalue of the order exceeds the allowed trading limit or quote exceeds limit.
     /// Encoded/decoded by serializers as "ExceedsLimit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXLI")]
     [IsoId("_Zk6p09p-Ed-ak6NoX_4Aeg_336258986")]
-    [Description(@"??")]
+    [Description(@"Countervalue of the order exceeds the allowed trading limit or quote exceeds limit.")]
     ExceedsLimit,
     
     /// <summary>
-    /// ??
+    /// Request has exceeded the allowed time frame.
     /// Encoded/decoded by serializers as "TooLate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TOLA")]
     [IsoId("_Zk6p1Np-Ed-ak6NoX_4Aeg_336258987")]
-    [Description(@"??")]
+    [Description(@"Request has exceeded the allowed time frame.")]
     TooLate,
     
     /// <summary>
-    /// ??
+    /// Price does not comply with the financial instrument's characteristics.
     /// Encoded/decoded by serializers as "InvalidPrice".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INPR")]
     [IsoId("_Zk6p1dp-Ed-ak6NoX_4Aeg_336258988")]
-    [Description(@"??")]
+    [Description(@"Price does not comply with the financial instrument's characteristics.")]
     InvalidPrice,
     
     /// <summary>
-    /// ??
+    /// Permission to be processed is not granted.
     /// Encoded/decoded by serializers as "NotAuthorised".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NAUT")]
     [IsoId("_Zk6p1tp-Ed-ak6NoX_4Aeg_336258989")]
-    [Description(@"??")]
+    [Description(@"Permission to be processed is not granted.")]
     NotAuthorised,
     
     /// <summary>
-    /// ??
+    /// No counterparty order has been identified.
     /// Encoded/decoded by serializers as "NoMatchInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NMAT")]
     [IsoId("_Zk6p19p-Ed-ak6NoX_4Aeg_336258998")]
-    [Description(@"??")]
+    [Description(@"No counterparty order has been identified.")]
     NoMatchInquiry,
     
     /// <summary>
-    /// ??
+    /// Referred instrument does not exist in combination with the mentioned market.
     /// Encoded/decoded by serializers as "NoInstrumentMarket".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NINS")]
     [IsoId("_Zk6p2Np-Ed-ak6NoX_4Aeg_336258999")]
-    [Description(@"??")]
+    [Description(@"Referred instrument does not exist in combination with the mentioned market.")]
     NoInstrumentMarket,
     
     /// <summary>
-    /// ??
+    /// Requested financial instrument is not available.
     /// Encoded/decoded by serializers as "NoInventory".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NINV")]
     [IsoId("_ZlEa0Np-Ed-ak6NoX_4Aeg_336259000")]
-    [Description(@"??")]
+    [Description(@"Requested financial instrument is not available.")]
     NoInventory,
     
     /// <summary>
-    /// ??
+    /// Counterparty is not interested in the transaction.
     /// Encoded/decoded by serializers as "Pass".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PASS")]
     [IsoId("_ZlEa0dp-Ed-ak6NoX_4Aeg_336259001")]
-    [Description(@"??")]
+    [Description(@"Counterparty is not interested in the transaction.")]
     Pass,
     
     /// <summary>
-    /// ??
+    /// Requestor has no insufficient credit to make the trade.
     /// Encoded/decoded by serializers as "InsufficientCredit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCR")]
     [IsoId("_ZlEa0tp-Ed-ak6NoX_4Aeg_-941797784")]
-    [Description(@"??")]
+    [Description(@"Requestor has no insufficient credit to make the trade.")]
     InsufficientCredit,
     
 }

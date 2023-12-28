@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TransactionProcessingStatus3Code
 {
     /// <summary>
-    /// ??
+    /// Instruction has been cancelled.
     /// Encoded/decoded by serializers as "Cancelled".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAND")]
     [IsoId("_jWxDkO5NEeCisYr99QEiWA_796529657")]
-    [Description(@"??")]
+    [Description(@"Instruction has been cancelled.")]
     Cancelled,
     
     /// <summary>
-    /// ??
+    /// Instruction has been acknowledged/accepted for further processing by the account servicer.
     /// Encoded/decoded by serializers as "AcknowledgedAccepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PACK")]
     [IsoId("_jWxDke5NEeCisYr99QEiWA_-200542696")]
-    [Description(@"??")]
+    [Description(@"Instruction has been acknowledged/accepted for further processing by the account servicer.")]
     AcknowledgedAccepted,
     
     /// <summary>
-    /// ??
+    /// Instruction has been rejected for further processing.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_jWxDku5NEeCisYr99QEiWA_-1261894655")]
-    [Description(@"??")]
+    [Description(@"Instruction has been rejected for further processing.")]
     Rejected,
     
     /// <summary>
-    /// ??
+    /// Instruction is accepted but in repair.
     /// Encoded/decoded by serializers as "InRepair".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPR")]
     [IsoId("_jWxDk-5NEeCisYr99QEiWA_-1083775983")]
-    [Description(@"??")]
+    [Description(@"Instruction is accepted but in repair.")]
     InRepair,
     
 }

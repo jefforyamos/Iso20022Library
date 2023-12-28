@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CorporateActionPreliminaryAdviceType1Code
 {
     /// <summary>
-    /// ??
+    /// New movement preliminary advice.
     /// Encoded/decoded by serializers as "New".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NEWM")]
     [IsoId("_bRs7yNp-Ed-ak6NoX_4Aeg_1528787514")]
-    [Description(@"??")]
+    [Description(@"New movement preliminary advice.")]
     New,
     
     /// <summary>
-    /// ??
+    /// Movement preliminary advice replacing a previously sent preliminary advice.
     /// Encoded/decoded by serializers as "Replacement".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REPL")]
     [IsoId("_bRs7ydp-Ed-ak6NoX_4Aeg_-1299031019")]
-    [Description(@"??")]
+    [Description(@"Movement preliminary advice replacing a previously sent preliminary advice.")]
     Replacement,
     
 }

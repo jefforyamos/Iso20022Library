@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum DurationType1Code
 {
     /// <summary>
-    /// ??
+    /// Duration is a year.
     /// Encoded/decoded by serializers as "Year".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_J_AT8RVqEeWkV7eOBXXT7Q")]
-    [Description(@"??")]
+    [Description(@"Duration is a year.")]
     Year,
     
     /// <summary>
-    /// ??
+    /// Event takes place every week.
     /// Encoded/decoded by serializers as "Week".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_KNSAgRVqEeWkV7eOBXXT7Q")]
-    [Description(@"??")]
+    [Description(@"Event takes place every week.")]
     Week,
     
     /// <summary>
-    /// ??
+    /// Event takes place every six months or two times a year.
     /// Encoded/decoded by serializers as "Season".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEAS")]
     [IsoId("_KTiZgRVqEeWkV7eOBXXT7Q")]
-    [Description(@"??")]
+    [Description(@"Event takes place every six months or two times a year.")]
     Season,
     
     /// <summary>
-    /// ??
+    /// Event takes place every three months or four times a year.
     /// Encoded/decoded by serializers as "Quarter".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "QURT")]
     [IsoId("_KfbgcRVqEeWkV7eOBXXT7Q")]
-    [Description(@"??")]
+    [Description(@"Event takes place every three months or four times a year.")]
     Quarter,
     
     /// <summary>
-    /// ??
+    /// Event takes place every month or once a month.
     /// Encoded/decoded by serializers as "Month".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_Kta5IRVqEeWkV7eOBXXT7Q")]
-    [Description(@"??")]
+    [Description(@"Event takes place every month or once a month.")]
     Month,
     
     /// <summary>
-    /// ??
+    /// Duration is a minute.
     /// Encoded/decoded by serializers as "Minute".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNUT")]
     [IsoId("_Kxb2cRVqEeWkV7eOBXXT7Q")]
-    [Description(@"??")]
+    [Description(@"Duration is a minute.")]
     Minute,
     
     /// <summary>
-    /// ??
+    /// Duration is an hour.
     /// Encoded/decoded by serializers as "Hour".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HOUR")]
     [IsoId("_K9euYRVqEeWkV7eOBXXT7Q")]
-    [Description(@"??")]
+    [Description(@"Duration is an hour.")]
     Hour,
     
     /// <summary>
-    /// ??
+    /// Duration is a day.
     /// Encoded/decoded by serializers as "Day".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DASD")]
     [IsoId("_LLdgARVqEeWkV7eOBXXT7Q")]
-    [Description(@"??")]
+    [Description(@"Duration is a day.")]
     Day,
     
     /// <summary>
-    /// ??
+    /// Duration is expressed in another unit.
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_g4ZDwUDeEeWt96EosbOZ-w")]
-    [Description(@"??")]
+    [Description(@"Duration is expressed in another unit.")]
     Other,
     
 }

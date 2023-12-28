@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum GlobalNote1Code
 {
     /// <summary>
-    /// ??
+    /// Form of global certificate which refers to the books and records of the ICSDs to determine the Issue Outstanding Amount (IOA).
     /// Encoded/decoded by serializers as "NewGlobalNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NGNO")]
     [IsoId("_hbcApGliEeGaMcKyqKNRfQ_526655547")]
-    [Description(@"??")]
+    [Description(@"Form of global certificate which refers to the books and records of the ICSDs to determine the Issue Outstanding Amount (IOA).")]
     NewGlobalNote,
     
     /// <summary>
-    /// ??
+    /// Form of global certificate which requires physical annotation on the attached schedule to reflect changes in the Issue Outstanding Amount (IOA).
     /// Encoded/decoded by serializers as "ClassicalGlobalNote".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CGNO")]
     [IsoId("_hbcApWliEeGaMcKyqKNRfQ_-108376299")]
-    [Description(@"??")]
+    [Description(@"Form of global certificate which requires physical annotation on the attached schedule to reflect changes in the Issue Outstanding Amount (IOA).")]
     ClassicalGlobalNote,
     
 }

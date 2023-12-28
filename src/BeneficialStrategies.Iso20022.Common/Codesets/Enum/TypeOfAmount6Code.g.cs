@@ -20,111 +20,111 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TypeOfAmount6Code
 {
     /// <summary>
-    /// ??
+    /// Commission that the issuer will charge to the cardholder, which should be shown and accepted by the cardholder before the money is disbursed.
     /// Encoded/decoded by serializers as "ATMCommissionFee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ATMF")]
     [IsoId("_ch5l0Xs3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Commission that the issuer will charge to the cardholder, which should be shown and accepted by the cardholder before the money is disbursed.")]
     ATMCommissionFee,
     
     /// <summary>
-    /// ??
+    /// Transaction amount that has been authorised.
     /// Encoded/decoded by serializers as "AuthorisedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTH")]
     [IsoId("_crbVQ3s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Transaction amount that has been authorised.")]
     AuthorisedAmount,
     
     /// <summary>
-    /// ??
+    /// Remaining allowed amount for this type of transaction with this card, after the transaction, until the end of the card limit period.
     /// Encoded/decoded by serializers as "CardRemainingBalance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CRDB")]
     [IsoId("_dpya83s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Remaining allowed amount for this type of transaction with this card, after the transaction, until the end of the card limit period.")]
     CardRemainingBalance,
     
     /// <summary>
-    /// ??
+    /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
     /// Encoded/decoded by serializers as "Discount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCNT")]
     [IsoId("_euupw3s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.")]
     Discount,
     
     /// <summary>
-    /// ??
+    /// Fees.
     /// Encoded/decoded by serializers as "Fees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEES")]
     [IsoId("_e8LP43s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Fees.")]
     Fees,
     
     /// <summary>
-    /// ??
+    /// Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.
     /// Encoded/decoded by serializers as "MaximumAllowedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTX")]
     [IsoId("_fJJ783s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.")]
     MaximumAllowedAmount,
     
     /// <summary>
-    /// ??
+    /// Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.
     /// Encoded/decoded by serializers as "MinimumAllowedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTN")]
     [IsoId("_fP3n83s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.")]
     MinimumAllowedAmount,
     
     /// <summary>
-    /// ??
+    /// Transaction amount that has been requested to be authorised.
     /// Encoded/decoded by serializers as "RequestedAmount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMTQ")]
     [IsoId("_greqU3s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Transaction amount that has been requested to be authorised.")]
     RequestedAmount,
     
     /// <summary>
-    /// ??
+    /// Extra fee for a purchase or a withdrawal.
     /// Encoded/decoded by serializers as "Surcharge".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SRCH")]
     [IsoId("_g34Hk3s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Extra fee for a purchase or a withdrawal.")]
     Surcharge,
     
     /// <summary>
-    /// ??
+    /// Value added tax amount.
     /// Encoded/decoded by serializers as "ValueAddedTax".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VATX")]
     [IsoId("_hFQcQ3s3EeSTS7uHCe8FPQ")]
-    [Description(@"??")]
+    [Description(@"Value added tax amount.")]
     ValueAddedTax,
     
     /// <summary>
-    /// ??
+    /// Commission from the card issuer.
     /// Encoded/decoded by serializers as "IssuerCommission".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMI")]
     [IsoId("_UJEOkYN6EeSNofOeou9G3A")]
-    [Description(@"??")]
+    [Description(@"Commission from the card issuer.")]
     IssuerCommission,
     
     /// <summary>
-    /// ??
+    /// Fees amount from the card issuer.
     /// Encoded/decoded by serializers as "IssuerFees".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEEI")]
     [IsoId("_UUHA8YN6EeSNofOeou9G3A")]
-    [Description(@"??")]
+    [Description(@"Fees amount from the card issuer.")]
     IssuerFees,
     
 }

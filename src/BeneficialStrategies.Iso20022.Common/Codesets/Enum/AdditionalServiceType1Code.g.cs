@@ -20,84 +20,84 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AdditionalServiceType1Code
 {
     /// <summary>
-    /// ??
+    /// Card activation
     /// Encoded/decoded by serializers as "CardActivation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CACT")]
     [IsoId("_l_7U8RZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Card activation")]
     CardActivation,
     
     /// <summary>
-    /// ??
+    /// Purchase of goods or services with cashback
     /// Encoded/decoded by serializers as "CashBack".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CSHB")]
     [IsoId("_mLhg8RZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Purchase of goods or services with cashback")]
     CashBack,
     
     /// <summary>
-    /// ??
+    /// Dynamic Currency Conversion (DCC)
     /// Encoded/decoded by serializers as "DCC".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DCCV")]
     [IsoId("_mcVkIRZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Dynamic Currency Conversion (DCC)")]
     DCC,
     
     /// <summary>
-    /// ??
+    /// Instant payment from a cardholder's account to an acceptor's account
     /// Encoded/decoded by serializers as "InstantPayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTP")]
     [IsoId("_mmdJcRZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Instant payment from a cardholder's account to an acceptor's account")]
     InstantPayment,
     
     /// <summary>
-    /// ??
+    /// Instant transfer of funds from a payer's account to a payee's account.
     /// Encoded/decoded by serializers as "InstantTransfer".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INTT")]
     [IsoId("_mw3psRZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Instant transfer of funds from a payer's account to a payee's account.")]
     InstantTransfer,
     
     /// <summary>
-    /// ??
+    /// Loyalty services
     /// Encoded/decoded by serializers as "Loyalty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LOYT")]
     [IsoId("_m-jgYRZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Loyalty services")]
     Loyalty,
     
     /// <summary>
-    /// ??
+    /// Other type of additional service at national level
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_nMi5ERZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Other type of additional service at national level")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Other type of additional service at private level
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_narbsRZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Other type of additional service at private level")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Withdrawal transaction was pre-authorised by another channel (amount could be absent).
     /// Encoded/decoded by serializers as "PreStagedTransaction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRST")]
     [IsoId("_nl1i0RZdEeiwvuY-sPnsNg")]
-    [Description(@"??")]
+    [Description(@"Withdrawal transaction was pre-authorised by another channel (amount could be absent).")]
     PreStagedTransaction,
     
 }

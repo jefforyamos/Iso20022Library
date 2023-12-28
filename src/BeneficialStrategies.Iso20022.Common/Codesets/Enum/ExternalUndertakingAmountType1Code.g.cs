@@ -21,21 +21,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalUndertakingAmountType1Code
 {
     /// <summary>
-    /// ??
+    /// Amount is an increase.
     /// Encoded/decoded by serializers as "Increase".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INCR")]
     [IsoId("_uQxp-_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Amount is an increase.")]
     Increase,
     
     /// <summary>
-    /// ??
+    /// Amount is a reduction.
     /// Encoded/decoded by serializers as "Reduction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDC")]
     [IsoId("_uQ7a8vRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Amount is a reduction.")]
     Reduction,
     
 }

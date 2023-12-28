@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TriggerAction1Code
 {
     /// <summary>
-    /// ??
+    /// Trigger action is activate.
     /// Encoded/decoded by serializers as "Activate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTI")]
     [IsoId("_YvuHN9p-Ed-ak6NoX_4Aeg_353594698")]
-    [Description(@"??")]
+    [Description(@"Trigger action is activate.")]
     Activate,
     
     /// <summary>
-    /// ??
+    /// Trigger action is modify.
     /// Encoded/decoded by serializers as "Modify".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MODI")]
     [IsoId("_Yv34MNp-Ed-ak6NoX_4Aeg_353594733")]
-    [Description(@"??")]
+    [Description(@"Trigger action is modify.")]
     Modify,
     
     /// <summary>
-    /// ??
+    /// Trigger action is cancel.
     /// Encoded/decoded by serializers as "Cancel".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CANC")]
     [IsoId("_Yv34Mdp-Ed-ak6NoX_4Aeg_353594985")]
-    [Description(@"??")]
+    [Description(@"Trigger action is cancel.")]
     Cancel,
     
 }

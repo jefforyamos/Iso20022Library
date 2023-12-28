@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ThresholdType1Code
 {
     /// <summary>
-    /// ??
+    /// Means that once the threshold is breached, collateral must be posted to cover the full exposure.
     /// Encoded/decoded by serializers as "Secured".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECU")]
     [IsoId("_YgYDo9p-Ed-ak6NoX_4Aeg_-1711823422")]
-    [Description(@"??")]
+    [Description(@"Means that once the threshold is breached, collateral must be posted to cover the full exposure.")]
     Secured,
     
     /// <summary>
-    /// ??
+    /// Means that the threshold provides a predetermined level of free trading. Once the threshold is breached, collateral must be posted to cover the exposure over and above the threshold level.
     /// Encoded/decoded by serializers as "Unsecured".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "UNSE")]
     [IsoId("_YgYDpNp-Ed-ak6NoX_4Aeg_-244674659")]
-    [Description(@"??")]
+    [Description(@"Means that the threshold provides a predetermined level of free trading. Once the threshold is breached, collateral must be posted to cover the exposure over and above the threshold level.")]
     Unsecured,
     
 }

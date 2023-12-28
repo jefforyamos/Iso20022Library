@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ReportItemStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Entry has been accepted by the receiver of the report.
     /// Encoded/decoded by serializers as "Accepted".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACPD")]
     [IsoId("_VMcTwUi5EeSlHoYg_EudVQ")]
-    [Description(@"??")]
+    [Description(@"Entry has been accepted by the receiver of the report.")]
     Accepted,
     
     /// <summary>
-    /// ??
+    /// Entry has been rejected by the receiver of the report.
     /// Encoded/decoded by serializers as "Rejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REJT")]
     [IsoId("_VbdnMUi5EeSlHoYg_EudVQ")]
-    [Description(@"??")]
+    [Description(@"Entry has been rejected by the receiver of the report.")]
     Rejected,
     
 }

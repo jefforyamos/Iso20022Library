@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum EventGroup4Code
 {
     /// <summary>
-    /// ??
+    /// Distribution domain events.
     /// Encoded/decoded by serializers as "Distribution".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DISN")]
     [IsoId("_mGuugQB8EeqouY-yI_q3qQ")]
-    [Description(@"??")]
+    [Description(@"Distribution domain events.")]
     Distribution,
     
     /// <summary>
-    /// ??
+    /// General domain events.
     /// Encoded/decoded by serializers as "General".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GENL")]
     [IsoId("_mLWIwQB8EeqouY-yI_q3qQ")]
-    [Description(@"??")]
+    [Description(@"General domain events.")]
     General,
     
     /// <summary>
-    /// ??
+    /// Redemption domain events.
     /// Encoded/decoded by serializers as "Redemption".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REDM")]
     [IsoId("_mPg3EQB8EeqouY-yI_q3qQ")]
-    [Description(@"??")]
+    [Description(@"Redemption domain events.")]
     Redemption,
     
     /// <summary>
-    /// ??
+    /// Reorganization domain events.
     /// Encoded/decoded by serializers as "Reorganization".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REOR")]
     [IsoId("_mT0vUQB8EeqouY-yI_q3qQ")]
-    [Description(@"??")]
+    [Description(@"Reorganization domain events.")]
     Reorganization,
     
 }

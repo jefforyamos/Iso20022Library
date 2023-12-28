@@ -21,129 +21,129 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ExternalUndertakingType1Code
 {
     /// <summary>
-    /// ??
+    /// Undertaking in support of an advance payment obligation.
     /// Encoded/decoded by serializers as "AdvancePayment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "APAY")]
     [IsoId("_uR0Ly_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of an advance payment obligation.")]
     AdvancePayment,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a commercial obligation.
     /// Encoded/decoded by serializers as "Commercial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMM")]
     [IsoId("_uR98wvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a commercial obligation.")]
     Commercial,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a customs duty obligation.
     /// Encoded/decoded by serializers as "Customs".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CUST")]
     [IsoId("_uR98xfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a customs duty obligation.")]
     Customs,
     
     /// <summary>
-    /// ??
+    /// Undertaking representing the primary means of payment.
     /// Encoded/decoded by serializers as "DirectPay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPAY")]
     [IsoId("_uR98yPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking representing the primary means of payment.")]
     DirectPay,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a financial obligation.
     /// Encoded/decoded by serializers as "Financial".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FINC")]
     [IsoId("_uR98y_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a financial obligation.")]
     Financial,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a insurance obligation.
     /// Encoded/decoded by serializers as "Insurance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSU")]
     [IsoId("_uR98zvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a insurance obligation.")]
     Insurance,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of an Industrial Revenue Board (IRB) obligation.
     /// Encoded/decoded by serializers as "IndustrialRevenueBoard".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IRBO")]
     [IsoId("_uSHtwvRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of an Industrial Revenue Board (IRB) obligation.")]
     IndustrialRevenueBoard,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a maintenance obligation.
     /// Encoded/decoded by serializers as "Maintenance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MAIN")]
     [IsoId("_uSHtxfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a maintenance obligation.")]
     Maintenance,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a payment obligation.
     /// Encoded/decoded by serializers as "Payment".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PAYM")]
     [IsoId("_uSHtyPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a payment obligation.")]
     Payment,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a performance obligation.
     /// Encoded/decoded by serializers as "Performance".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PERF")]
     [IsoId("_uSHty_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a performance obligation.")]
     Performance,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a monetary retention obligation.
     /// Encoded/decoded by serializers as "Retention".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RETN")]
     [IsoId("_uSQ3svRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a monetary retention obligation.")]
     Retention,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a sea transportation obligation.
     /// Encoded/decoded by serializers as "Shipping".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SHIP")]
     [IsoId("_uSQ3tfRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a sea transportation obligation.")]
     Shipping,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a tender or bid obligation.
     /// Encoded/decoded by serializers as "TenderOrBid".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEND")]
     [IsoId("_uSQ3uPRYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a tender or bid obligation.")]
     TenderOrBid,
     
     /// <summary>
-    /// ??
+    /// Undertaking in support of a warranty obligation.
     /// Encoded/decoded by serializers as "Warranty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WARR")]
     [IsoId("_uSQ3u_RYEeuLhpyIdtJzwg")]
-    [Description(@"??")]
+    [Description(@"Undertaking in support of a warranty obligation.")]
     Warranty,
     
 }

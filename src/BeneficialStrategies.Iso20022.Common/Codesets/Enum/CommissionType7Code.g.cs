@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CommissionType7Code
 {
     /// <summary>
-    /// ??
+    /// Commission for subscribing to an investment, paid at the time of the subscription.
     /// Encoded/decoded by serializers as "FrontEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FEND")]
     [IsoId("_a_9riNp-Ed-ak6NoX_4Aeg_1912267481")]
-    [Description(@"??")]
+    [Description(@"Commission for subscribing to an investment, paid at the time of the subscription.")]
     FrontEndLoad,
     
     /// <summary>
-    /// ??
+    /// Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.
     /// Encoded/decoded by serializers as "BackEndLoad".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BEND")]
     [IsoId("_bAHcgNp-Ed-ak6NoX_4Aeg_1912267490")]
-    [Description(@"??")]
+    [Description(@"Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.")]
     BackEndLoad,
     
 }

@@ -20,336 +20,336 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PendingSettlementStatusReason2Code
 {
     /// <summary>
-    /// ??
+    /// Securities have not yet been received from the counterparty.
     /// Encoded/decoded by serializers as "AwaitingSharesFromCounterparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AWSH")]
     [IsoId("_aDxJBNp-Ed-ak6NoX_4Aeg_-1233849291")]
-    [Description(@"??")]
+    [Description(@"Securities have not yet been received from the counterparty.")]
     AwaitingSharesFromCounterparty,
     
     /// <summary>
-    /// ??
+    /// Your account is blocked, no instruction can settle over the account.
     /// Encoded/decoded by serializers as "AccountBlocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLOC")]
     [IsoId("_aDxJBdp-Ed-ak6NoX_4Aeg_-1233849275")]
-    [Description(@"??")]
+    [Description(@"Your account is blocked, no instruction can settle over the account.")]
     AccountBlocked,
     
     /// <summary>
-    /// ??
+    /// Awaiting securities from corporate action issue or other procedures, for example, conversion, dematerialisation, exchange, registration, stamping, splitting, etc.
     /// Encoded/decoded by serializers as "AwaitingSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAIS")]
     [IsoId("_aDxJBtp-Ed-ak6NoX_4Aeg_-1233849257")]
-    [Description(@"??")]
+    [Description(@"Awaiting securities from corporate action issue or other procedures, for example, conversion, dematerialisation, exchange, registration, stamping, splitting, etc.")]
     AwaitingSecurities,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable securities in the counterparty's account, or counterparty does not hold the securities.
     /// Encoded/decoded by serializers as "CounterpartyInsufficientSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CLAC")]
     [IsoId("_aDxJB9p-Ed-ak6NoX_4Aeg_-1233849232")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable securities in the counterparty's account, or counterparty does not hold the securities.")]
     CounterpartyInsufficientSecurities,
     
     /// <summary>
-    /// ??
+    /// Awaiting documents or endorsements from the counterparty.
     /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromCounterparty".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCC")]
     [IsoId("_aDxJCNp-Ed-ak6NoX_4Aeg_-1233849215")]
-    [Description(@"??")]
+    [Description(@"Awaiting documents or endorsements from the counterparty.")]
     AwaitingDocumentsOrEndorsementsFromCounterparty,
     
     /// <summary>
-    /// ??
+    /// Awaiting documents or endorsements from you.
     /// Encoded/decoded by serializers as "AwaitingDocumentsOrEndorsementsFromYou".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DOCY")]
     [IsoId("_aDxJCdp-Ed-ak6NoX_4Aeg_-1233849196")]
-    [Description(@"??")]
+    [Description(@"Awaiting documents or endorsements from you.")]
     AwaitingDocumentsOrEndorsementsFromYou,
     
     /// <summary>
-    /// ??
+    /// Pending reason is being investigated.
     /// Encoded/decoded by serializers as "StatusReasonInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IAAD")]
     [IsoId("_aD6S8Np-Ed-ak6NoX_4Aeg_-1233849171")]
-    [Description(@"??")]
+    [Description(@"Pending reason is being investigated.")]
     StatusReasonInvestigation,
     
     /// <summary>
-    /// ??
+    /// Insufficient deliverable securities in your account.
     /// Encoded/decoded by serializers as "LackOfSecurities".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LACK")]
     [IsoId("_aD6S8dp-Ed-ak6NoX_4Aeg_-1233849154")]
-    [Description(@"??")]
+    [Description(@"Insufficient deliverable securities in your account.")]
     LackOfSecurities,
     
     /// <summary>
-    /// ??
+    /// Your instruction is pending settlement because the instruction linked to it is pending.
     /// Encoded/decoded by serializers as "PendingLinkedInstruction".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LINK")]
     [IsoId("_aD6S8tp-Ed-ak6NoX_4Aeg_-1233849136")]
-    [Description(@"??")]
+    [Description(@"Your instruction is pending settlement because the instruction linked to it is pending.")]
     PendingLinkedInstruction,
     
     /// <summary>
-    /// ??
+    /// Physical shares have been received and are being checked for authenticity.
     /// Encoded/decoded by serializers as "PhysicalSecuritiesVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHCK")]
     [IsoId("_aD6S89p-Ed-ak6NoX_4Aeg_-1233848853")]
-    [Description(@"??")]
+    [Description(@"Physical shares have been received and are being checked for authenticity.")]
     PhysicalSecuritiesVerification,
     
     /// <summary>
-    /// ??
+    /// Settlement is physical and securities are being delivered.
     /// Encoded/decoded by serializers as "PhysicalDeliveryDelay".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PHSE")]
     [IsoId("_aD6S9Np-Ed-ak6NoX_4Aeg_-1233848828")]
-    [Description(@"??")]
+    [Description(@"Settlement is physical and securities are being delivered.")]
     PhysicalDeliveryDelay,
     
     /// <summary>
-    /// ??
+    /// Settlement is pending. The securities are blocked due to, for example, a corporate action event, re-alignment.
     /// Encoded/decoded by serializers as "SecuritiesBlocked".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SBLO")]
     [IsoId("_aD6S9dp-Ed-ak6NoX_4Aeg_-1233848811")]
-    [Description(@"??")]
+    [Description(@"Settlement is pending. The securities are blocked due to, for example, a corporate action event, re-alignment.")]
     SecuritiesBlocked,
     
     /// <summary>
-    /// ??
+    /// Information, for example, telephone number, contact person, is missing.
     /// Encoded/decoded by serializers as "MissingInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MINF")]
     [IsoId("_aD6S9tp-Ed-ak6NoX_4Aeg_-1233848793")]
-    [Description(@"??")]
+    [Description(@"Information, for example, telephone number, contact person, is missing.")]
     MissingInformation,
     
     /// <summary>
-    /// ??
+    /// Account must already be opened in order to process the transfer.
     /// Encoded/decoded by serializers as "AccountNotOpen".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACOP")]
     [IsoId("_aD6S99p-Ed-ak6NoX_4Aeg_-2010200617")]
-    [Description(@"??")]
+    [Description(@"Account must already be opened in order to process the transfer.")]
     AccountNotOpen,
     
     /// <summary>
-    /// ??
+    /// Intermediary is investigating the reason why the transfer is pending.
     /// Encoded/decoded by serializers as "UnderInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IINV")]
     [IsoId("_aD6S-Np-Ed-ak6NoX_4Aeg_-1483792246")]
-    [Description(@"??")]
+    [Description(@"Intermediary is investigating the reason why the transfer is pending.")]
     UnderInvestigation,
     
     /// <summary>
-    /// ??
+    /// Client has been informed of a problem and is investigating.
     /// Encoded/decoded by serializers as "UnderClientInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CINV")]
     [IsoId("_aD6S-dp-Ed-ak6NoX_4Aeg_1492449293")]
-    [Description(@"??")]
+    [Description(@"Client has been informed of a problem and is investigating.")]
     UnderClientInvestigation,
     
     /// <summary>
-    /// ??
+    /// Transfer agent is investigating.
     /// Encoded/decoded by serializers as "UnderTransferAgentInvestigation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AINV")]
     [IsoId("_aEED8Np-Ed-ak6NoX_4Aeg_1868323412")]
-    [Description(@"??")]
+    [Description(@"Transfer agent is investigating.")]
     UnderTransferAgentInvestigation,
     
     /// <summary>
-    /// ??
+    /// Transfer is being processed by the transfer agent, awaiting status from transfer agent.
     /// Encoded/decoded by serializers as "AwaitingTransferAgentStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WTRF")]
     [IsoId("_aEED8dp-Ed-ak6NoX_4Aeg_-1972271569")]
-    [Description(@"??")]
+    [Description(@"Transfer is being processed by the transfer agent, awaiting status from transfer agent.")]
     AwaitingTransferAgentStatus,
     
     /// <summary>
-    /// ??
+    /// Usual transfer agent's processing timeframe.
     /// Encoded/decoded by serializers as "UsualTransactionTime".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "USUA")]
     [IsoId("_aEED8tp-Ed-ak6NoX_4Aeg_-192646664")]
-    [Description(@"??")]
+    [Description(@"Usual transfer agent's processing timeframe.")]
     UsualTransactionTime,
     
     /// <summary>
-    /// ??
+    /// At your request, the Intermediary is checking the status of your instruction with the transfer agent.
     /// Encoded/decoded by serializers as "AwaitingStatus".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTA")]
     [IsoId("_aEED89p-Ed-ak6NoX_4Aeg_180454812")]
-    [Description(@"??")]
+    [Description(@"At your request, the Intermediary is checking the status of your instruction with the transfer agent.")]
     AwaitingStatus,
     
     /// <summary>
-    /// ??
+    /// Application form has been sent to the transfer agent.
     /// Encoded/decoded by serializers as "ApplicationFormSent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AFST")]
     [IsoId("_aEED9Np-Ed-ak6NoX_4Aeg_116465332")]
-    [Description(@"??")]
+    [Description(@"Application form has been sent to the transfer agent.")]
     ApplicationFormSent,
     
     /// <summary>
-    /// ??
+    /// Stock transfer form has been sent to the counterparty to sign and forward to the transfer agent.
     /// Encoded/decoded by serializers as "StockTransferFormSent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STST")]
     [IsoId("_aEED9dp-Ed-ak6NoX_4Aeg_521891765")]
-    [Description(@"??")]
+    [Description(@"Stock transfer form has been sent to the counterparty to sign and forward to the transfer agent.")]
     StockTransferFormSent,
     
     /// <summary>
-    /// ??
+    /// Longer processing timeframe for this type of transfer, due to documentation requirements.
     /// Encoded/decoded by serializers as "LongerProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "LPRO")]
     [IsoId("_aEED9tp-Ed-ak6NoX_4Aeg_1023363327")]
-    [Description(@"??")]
+    [Description(@"Longer processing timeframe for this type of transfer, due to documentation requirements.")]
     LongerProcessing,
     
     /// <summary>
-    /// ??
+    /// Additional documents have been requested by the transfer agent.
     /// Encoded/decoded by serializers as "AdditionalDocumentsRequested".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADRQ")]
     [IsoId("_aEED99p-Ed-ak6NoX_4Aeg_-797492601")]
-    [Description(@"??")]
+    [Description(@"Additional documents have been requested by the transfer agent.")]
     AdditionalDocumentsRequested,
     
     /// <summary>
-    /// ??
+    /// Additional documents have been sent.
     /// Encoded/decoded by serializers as "AdditionalDocumentsSent1".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADS1")]
     [IsoId("_aEED-Np-Ed-ak6NoX_4Aeg_-553683232")]
-    [Description(@"??")]
+    [Description(@"Additional documents have been sent.")]
     AdditionalDocumentsSent1,
     
     /// <summary>
-    /// ??
+    /// Upon request of the transfer agent, the intermediary has sent additional documents. The transfer agent has confirmed that all the necessary information is now in place.
     /// Encoded/decoded by serializers as "AdditionalDocumentsSent2".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ADS2")]
     [IsoId("_aEED-dp-Ed-ak6NoX_4Aeg_-181502211")]
-    [Description(@"??")]
+    [Description(@"Upon request of the transfer agent, the intermediary has sent additional documents. The transfer agent has confirmed that all the necessary information is now in place.")]
     AdditionalDocumentsSent2,
     
     /// <summary>
-    /// ??
+    /// Documents are rejected by the transfer agent.
     /// Encoded/decoded by serializers as "DocumentsRejected".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DRJC")]
     [IsoId("_aEED-tp-Ed-ak6NoX_4Aeg_-93440871")]
-    [Description(@"??")]
+    [Description(@"Documents are rejected by the transfer agent.")]
     DocumentsRejected,
     
     /// <summary>
-    /// ??
+    /// Counterparty has not sent an instruction to receive. Check with counterparty.
     /// Encoded/decoded by serializers as "AwaitingCounterpartyReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CYIN")]
     [IsoId("_aEN08Np-Ed-ak6NoX_4Aeg_-1586114201")]
-    [Description(@"??")]
+    [Description(@"Counterparty has not sent an instruction to receive. Check with counterparty.")]
     AwaitingCounterpartyReceipt,
     
     /// <summary>
-    /// ??
+    /// Counterparty has not sent an instruction to deliver or delivered the shares. Check with counterparty.
     /// Encoded/decoded by serializers as "AwaitingCounterpartyDelivery".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CYDV")]
     [IsoId("_aEN08dp-Ed-ak6NoX_4Aeg_-626574858")]
-    [Description(@"??")]
+    [Description(@"Counterparty has not sent an instruction to deliver or delivered the shares. Check with counterparty.")]
     AwaitingCounterpartyDelivery,
     
     /// <summary>
-    /// ??
+    /// Normal processing period for the instruction has lapsed. The transfer agent has been or will be contacted.
     /// Encoded/decoded by serializers as "NormalProcessingPeriodLapsed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OVER")]
     [IsoId("_aEN08tp-Ed-ak6NoX_4Aeg_233223132")]
-    [Description(@"??")]
+    [Description(@"Normal processing period for the instruction has lapsed. The transfer agent has been or will be contacted.")]
     NormalProcessingPeriodLapsed,
     
     /// <summary>
-    /// ??
+    /// Wrong counterparty account details.
     /// Encoded/decoded by serializers as "WrongCounterpartyAccount".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WCPA")]
     [IsoId("_aEN089p-Ed-ak6NoX_4Aeg_633107237")]
-    [Description(@"??")]
+    [Description(@"Wrong counterparty account details.")]
     WrongCounterpartyAccount,
     
     /// <summary>
-    /// ??
+    /// Instruction is pending as stamp duty information is missing.
     /// Encoded/decoded by serializers as "LackOfStampDutyInformation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SDUT")]
     [IsoId("_aEN09Np-Ed-ak6NoX_4Aeg_1897405770")]
-    [Description(@"??")]
+    [Description(@"Instruction is pending as stamp duty information is missing.")]
     LackOfStampDutyInformation,
     
     /// <summary>
-    /// ??
+    /// Transfer is being processed by transfer agent.
     /// Encoded/decoded by serializers as "TransferAgentProcessing".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TAPR")]
     [IsoId("_aFGlwNp-Ed-ak6NoX_4Aeg_-1973666314")]
-    [Description(@"??")]
+    [Description(@"Transfer is being processed by transfer agent.")]
     TransferAgentProcessing,
     
     /// <summary>
-    /// ??
+    /// Confirmation is expected from transfer agent.
     /// Encoded/decoded by serializers as "ExpectedConfirmation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "XCNF")]
     [IsoId("_aFGlwdp-Ed-ak6NoX_4Aeg_-1442639559")]
-    [Description(@"??")]
+    [Description(@"Confirmation is expected from transfer agent.")]
     ExpectedConfirmation,
     
     /// <summary>
-    /// ??
+    /// Special follow-up is taking place.
     /// Encoded/decoded by serializers as "Escalation".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ESCA")]
     [IsoId("_aFGlwtp-Ed-ak6NoX_4Aeg_-1442639421")]
-    [Description(@"??")]
+    [Description(@"Special follow-up is taking place.")]
     Escalation,
     
     /// <summary>
-    /// ??
+    /// Transfer agent claims non-receipt of physical shares.
     /// Encoded/decoded by serializers as "TransferAgentNonReceipt".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NRCP")]
     [IsoId("_aFGlw9p-Ed-ak6NoX_4Aeg_-1442639043")]
-    [Description(@"??")]
+    [Description(@"Transfer agent claims non-receipt of physical shares.")]
     TransferAgentNonReceipt,
     
     /// <summary>
-    /// ??
+    /// Confirmed but finality is to be verified.
     /// Encoded/decoded by serializers as "FinalVerification".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "FVER")]
     [IsoId("_aFGlxNp-Ed-ak6NoX_4Aeg_-1442638983")]
-    [Description(@"??")]
+    [Description(@"Confirmed but finality is to be verified.")]
     FinalVerification,
     
 }

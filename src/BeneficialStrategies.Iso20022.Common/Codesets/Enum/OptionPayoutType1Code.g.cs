@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionPayoutType1Code
 {
     /// <summary>
-    /// ??
+    /// Indicates the type of binaryoption.
     /// Encoded/decoded by serializers as "Binary".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BINA")]
     [IsoId("_ImTYgabFEeSxuMLA5o46jQ")]
-    [Description(@"??")]
+    [Description(@"Indicates the type of binaryoption.")]
     Binary,
     
     /// <summary>
-    /// ??
+    /// Indicates the type of capped option.
     /// Encoded/decoded by serializers as "Capped".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CAPP")]
     [IsoId("_IsFQYabFEeSxuMLA5o46jQ")]
-    [Description(@"??")]
+    [Description(@"Indicates the type of capped option.")]
     Capped,
     
     /// <summary>
-    /// ??
+    /// Indicates the type of vanilla option.
     /// Encoded/decoded by serializers as "Vanilla".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VANI")]
     [IsoId("_IuUsEabFEeSxuMLA5o46jQ")]
-    [Description(@"??")]
+    [Description(@"Indicates the type of vanilla option.")]
     Vanilla,
     
 }

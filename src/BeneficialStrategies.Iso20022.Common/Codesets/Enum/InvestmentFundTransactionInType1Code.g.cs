@@ -20,48 +20,48 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum InvestmentFundTransactionInType1Code
 {
     /// <summary>
-    /// ??
+    /// Transaction is a subscription to an investment fund.
     /// Encoded/decoded by serializers as "Subscription".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SUBS")]
     [IsoId("_acpjGNp-Ed-ak6NoX_4Aeg_99517208")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription to an investment fund.")]
     Subscription,
     
     /// <summary>
-    /// ??
+    /// Transaction is a subscription leg of a switch order execution.
     /// Encoded/decoded by serializers as "SwitchIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SWII")]
     [IsoId("_acpjGdp-Ed-ak6NoX_4Aeg_99517562")]
-    [Description(@"??")]
+    [Description(@"Transaction is a subscription leg of a switch order execution.")]
     SwitchIn,
     
     /// <summary>
-    /// ??
+    /// Transaction is an InSpecie.
     /// Encoded/decoded by serializers as "InSpecie".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSP")]
     [IsoId("_aczUENp-Ed-ak6NoX_4Aeg_100437611")]
-    [Description(@"??")]
+    [Description(@"Transaction is an InSpecie.")]
     InSpecie,
     
     /// <summary>
-    /// ??
+    /// Transaction is a cross-in.
     /// Encoded/decoded by serializers as "CrossIn".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CROI")]
     [IsoId("_aczUEdp-Ed-ak6NoX_4Aeg_100437629")]
-    [Description(@"??")]
+    [Description(@"Transaction is a cross-in.")]
     CrossIn,
     
     /// <summary>
-    /// ??
+    /// Transaction is a reinvestment of dividend.
     /// Encoded/decoded by serializers as "ReinvestmentOfDividend".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RDIV")]
     [IsoId("_aczUEtp-Ed-ak6NoX_4Aeg_711808534")]
-    [Description(@"??")]
+    [Description(@"Transaction is a reinvestment of dividend.")]
     ReinvestmentOfDividend,
     
 }

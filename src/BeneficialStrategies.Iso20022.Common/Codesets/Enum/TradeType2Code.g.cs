@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum TradeType2Code
 {
     /// <summary>
-    /// ??
+    /// Trade involving risk.
     /// Encoded/decoded by serializers as "RiskTrade".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "RISK")]
     [IsoId("_YqDkGNp-Ed-ak6NoX_4Aeg_-865863561")]
-    [Description(@"??")]
+    [Description(@"Trade involving risk.")]
     RiskTrade,
     
     /// <summary>
-    /// ??
+    /// Trade whose price is guaranteed as the weighted average of the trade prices on a specific day.
     /// Encoded/decoded by serializers as "VWAPGuarantee".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "VWAP")]
     [IsoId("_YqNVENp-Ed-ak6NoX_4Aeg_-865863544")]
-    [Description(@"??")]
+    [Description(@"Trade whose price is guaranteed as the weighted average of the trade prices on a specific day.")]
     VWAPGuarantee,
     
     /// <summary>
-    /// ??
+    /// Trade in which an agent intermediates between a buyer and a seller.
     /// Encoded/decoded by serializers as "Agency".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AGEN")]
     [IsoId("_YqNVEdp-Ed-ak6NoX_4Aeg_-865863526")]
-    [Description(@"??")]
+    [Description(@"Trade in which an agent intermediates between a buyer and a seller.")]
     Agency,
     
     /// <summary>
-    /// ??
+    /// Trade which is guaranteed to be finalized.
     /// Encoded/decoded by serializers as "GuaranteedClose".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "GUAR")]
     [IsoId("_YqNVEtp-Ed-ak6NoX_4Aeg_-865863509")]
-    [Description(@"??")]
+    [Description(@"Trade which is guaranteed to be finalized.")]
     GuaranteedClose,
     
 }

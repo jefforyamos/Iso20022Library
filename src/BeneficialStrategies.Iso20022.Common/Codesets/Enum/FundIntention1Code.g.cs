@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundIntention1Code
 {
     /// <summary>
-    /// ??
+    /// Qualified.
     /// Encoded/decoded by serializers as "Qualified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YQUA")]
     [IsoId("_YBiiASDYEeWCLu74WLgP4w")]
-    [Description(@"??")]
+    [Description(@"Qualified.")]
     Qualified,
     
     /// <summary>
-    /// ??
+    /// Not qualified.
     /// Encoded/decoded by serializers as "NotQualified".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NQUA")]
     [IsoId("_uOC44TavEeWxoIK_IhudJg")]
-    [Description(@"??")]
+    [Description(@"Not qualified.")]
     NotQualified,
     
 }

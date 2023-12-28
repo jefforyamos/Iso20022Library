@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum SecurityStatus1Code
 {
     /// <summary>
-    /// ??
+    /// The status is active.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_ZKGWENp-Ed-ak6NoX_4Aeg_243065")]
-    [Description(@"??")]
+    [Description(@"The status is active.")]
     Active,
     
     /// <summary>
-    /// ??
+    /// The status is inactive.
     /// Encoded/decoded by serializers as "Inactive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INAC")]
     [IsoId("_ZKGWEdp-Ed-ak6NoX_4Aeg_243066")]
-    [Description(@"??")]
+    [Description(@"The status is inactive.")]
     Inactive,
     
 }

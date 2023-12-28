@@ -20,39 +20,41 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FundType2Code
 {
     /// <summary>
-    /// ??
+    /// Fund of which at least one unit or share class is traded throughout the day on at
+    /// least one trading venue and with at least one market maker which takes action to ensure that the price of its units or shares on the trading venue does not vary significantly from its net asset value and, where applicable, from its indicative net asset value.|
+    /// 
     /// Encoded/decoded by serializers as "ExchangeTradedFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ETFT")]
     [IsoId("_gipicVKVEee26cwI-oG0JQ")]
-    [Description(@"??")]
+    [Description(@"Fund of which at least one unit or share class is traded throughout the day on at least one trading venue and with at least one market maker which takes action to ensure that the price of its units or shares on the trading venue does not vary significantly from its net asset value and, where applicable, from its indicative net asset value.| ")]
     ExchangeTradedFund,
     
     /// <summary>
-    /// ??
+    /// Indication that a fund is a public debt constant net asset value money market fund, low volatility net asset value money market fund or variable net asset value money market fund.
     /// Encoded/decoded by serializers as "MoneyMarketFund".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MMFT")]
     [IsoId("_gowxgVKVEee26cwI-oG0JQ")]
-    [Description(@"??")]
+    [Description(@"Indication that a fund is a public debt constant net asset value money market fund, low volatility net asset value money market fund or variable net asset value money market fund.")]
     MoneyMarketFund,
     
     /// <summary>
-    /// ??
+    /// Other type of an investment fund. 
     /// Encoded/decoded by serializers as "Other".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHR")]
     [IsoId("_gukekVKVEee26cwI-oG0JQ")]
-    [Description(@"??")]
+    [Description(@"Other type of an investment fund. ")]
     Other,
     
     /// <summary>
-    /// ??
+    /// Listed real investment company.
     /// Encoded/decoded by serializers as "RealEstateInvestmentTrust".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "REIT")]
     [IsoId("_g0YysVKVEee26cwI-oG0JQ")]
-    [Description(@"??")]
+    [Description(@"Listed real investment company.")]
     RealEstateInvestmentTrust,
     
 }

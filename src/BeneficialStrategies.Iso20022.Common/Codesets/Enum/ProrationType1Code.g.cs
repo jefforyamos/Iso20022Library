@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProrationType1Code
 {
     /// <summary>
-    /// ??
+    /// Pro ration is not decided.
     /// Encoded/decoded by serializers as "PRND".
     /// </summary>
     [EnumMember(Value = "PRND")]
     [IsoId("_d7XV5jFsEeGKkIZzgd38VA")]
-    [Description(@"??")]
+    [Description(@"Pro ration is not decided.")]
     NotDecided,
     
     /// <summary>
-    /// ??
+    /// Pro ration is not used.
     /// Encoded/decoded by serializers as "PRNU".
     /// </summary>
     [EnumMember(Value = "PRNU")]
     [IsoId("_DIpHtjVFEeGIoujPqYSZDw")]
-    [Description(@"??")]
+    [Description(@"Pro ration is not used.")]
     NotUsed,
     
 }

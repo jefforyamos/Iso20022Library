@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OptionStyle6Code
 {
     /// <summary>
-    /// ??
+    /// Option that can be exercised on expiry date only.
     /// Encoded/decoded by serializers as "European".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EURO")]
     [IsoId("_QKsI4c2GEeS6sY79p-9Zxw")]
-    [Description(@"??")]
+    [Description(@"Option that can be exercised on expiry date only.")]
     European,
     
     /// <summary>
-    /// ??
+    /// Option that can be exercised on multiple discrete dates prior to, or on expiry date.
     /// Encoded/decoded by serializers as "Bermudan".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BERM")]
     [IsoId("_QTUgc82GEeS6sY79p-9Zxw")]
-    [Description(@"??")]
+    [Description(@"Option that can be exercised on multiple discrete dates prior to, or on expiry date.")]
     Bermudan,
     
     /// <summary>
-    /// ??
+    /// Option where the payoff is not determined by the underlying price at maturity but by the average underlying price over some pre-set period of time.
     /// Encoded/decoded by serializers as "Asian".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASIA")]
     [IsoId("_QaKvU82GEeS6sY79p-9Zxw")]
-    [Description(@"??")]
+    [Description(@"Option where the payoff is not determined by the underlying price at maturity but by the average underlying price over some pre-set period of time.")]
     Asian,
     
     /// <summary>
-    /// ??
+    /// Option can be exercised before or on expiry date.
     /// Encoded/decoded by serializers as "American".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "AMER")]
     [IsoId("_QiWa882GEeS6sY79p-9Zxw")]
-    [Description(@"??")]
+    [Description(@"Option can be exercised before or on expiry date.")]
     American,
     
 }

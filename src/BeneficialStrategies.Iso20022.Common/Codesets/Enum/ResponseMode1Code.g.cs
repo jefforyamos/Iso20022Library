@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ResponseMode1Code
 {
     /// <summary>
-    /// ??
+    /// The Message Response is immediate, after taking into account the request.
     /// Encoded/decoded by serializers as "Immediate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "IMMD")]
     [IsoId("_Q6JkUd6rEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Message Response is immediate, after taking into account the request.")]
     Immediate,
     
     /// <summary>
-    /// ??
+    /// The Message Response is not required, except in case of error.
     /// Encoded/decoded by serializers as "NotRequired".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NREQ")]
     [IsoId("_Q-JTgd6rEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Message Response is not required, except in case of error.")]
     NotRequired,
     
     /// <summary>
-    /// ??
+    /// The Print Response is required at the end of print.
     /// Encoded/decoded by serializers as "PrintEnd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PEND")]
     [IsoId("_RCfA8d6rEeiwsev40qZGEQ")]
-    [Description(@"??")]
+    [Description(@"The Print Response is required at the end of print.")]
     PrintEnd,
     
     /// <summary>
-    /// ??
+    /// The Sound Response is required at the end of play.
     /// Encoded/decoded by serializers as "SoundEnd".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SEND")]
     [IsoId("_Er0_EVDkEeu39vke54yxqA")]
-    [Description(@"??")]
+    [Description(@"The Sound Response is required at the end of play.")]
     SoundEnd,
     
 }

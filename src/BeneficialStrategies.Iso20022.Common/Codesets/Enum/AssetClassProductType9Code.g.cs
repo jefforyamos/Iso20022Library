@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassProductType9Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type polypropylene.
     /// Encoded/decoded by serializers as "Polypropylene".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "POLY")]
     [IsoId("_sc03IQnyEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type polypropylene.")]
     Polypropylene,
     
 }

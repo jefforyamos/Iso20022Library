@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum RestrictionStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Status of the restriction is active.
     /// Encoded/decoded by serializers as "Active".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ACTV")]
     [IsoId("_yA_goSFnEeW9XJWqfgXIIA")]
-    [Description(@"??")]
+    [Description(@"Status of the restriction is active.")]
     Active,
     
     /// <summary>
-    /// ??
+    /// Status of the restriction is inactive.
     /// Encoded/decoded by serializers as "Inactive".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INAC")]
     [IsoId("_yH-5cSFnEeW9XJWqfgXIIA")]
-    [Description(@"??")]
+    [Description(@"Status of the restriction is inactive.")]
     Inactive,
     
 }

@@ -20,57 +20,57 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum OutputFormat3Code
 {
     /// <summary>
-    /// ??
+    /// Barcode to output in several possible format.
     /// Encoded/decoded by serializers as "Barcode".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BARC")]
     [IsoId("_A6E6kduYEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Barcode to output in several possible format.")]
     Barcode,
     
     /// <summary>
-    /// ??
+    /// A text to display as a menu before requesting an input.
     /// Encoded/decoded by serializers as "MenuEntry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MENT")]
     [IsoId("_A-QP8duYEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"A text to display as a menu before requesting an input.")]
     MenuEntry,
     
     /// <summary>
-    /// ??
+    /// Predefined configured messages, identified by a reference.
     /// Encoded/decoded by serializers as "MessageReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MREF")]
     [IsoId("_BFHF4duYEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Predefined configured messages, identified by a reference.")]
     MessageReference,
     
     /// <summary>
-    /// ??
+    /// Screen to display identified by a reference.
     /// Encoded/decoded by serializers as "ScreenReference".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SREF")]
     [IsoId("_CYgAYduYEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Screen to display identified by a reference.")]
     ScreenReference,
     
     /// <summary>
-    /// ??
+    /// Text without format attributes.
     /// Encoded/decoded by serializers as "SimpleText".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "TEXT")]
     [IsoId("_CfgAQduYEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"Text without format attributes.")]
     SimpleText,
     
     /// <summary>
-    /// ??
+    /// XHTML document which includes a subset of the XHTML output tag.
     /// Encoded/decoded by serializers as "XHTML".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HTML")]
     [IsoId("_CmojAduYEeiB5uLfkg9ZJA")]
-    [Description(@"??")]
+    [Description(@"XHTML document which includes a subset of the XHTML output tag.")]
     XHTML,
     
 }

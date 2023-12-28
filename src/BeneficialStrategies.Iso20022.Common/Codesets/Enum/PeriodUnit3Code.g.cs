@@ -20,66 +20,66 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum PeriodUnit3Code
 {
     /// <summary>
-    /// ??
+    /// Other Private
     /// Encoded/decoded by serializers as "OtherPrivate".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHP")]
     [IsoId("_Lp06QXyYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other Private")]
     OtherPrivate,
     
     /// <summary>
-    /// ??
+    /// Other National
     /// Encoded/decoded by serializers as "OtherNational".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OTHN")]
     [IsoId("_Lp06Q3yYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Other National")]
     OtherNational,
     
     /// <summary>
-    /// ??
+    /// Counted in months.
     /// Encoded/decoded by serializers as "Months".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "MNTH")]
     [IsoId("_Lp06RXyYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in months.")]
     Months,
     
     /// <summary>
-    /// ??
+    /// Counted in weeks.
     /// Encoded/decoded by serializers as "Weeks".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "WEEK")]
     [IsoId("_Lp06R3yYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in weeks.")]
     Weeks,
     
     /// <summary>
-    /// ??
+    /// Counted in years.
     /// Encoded/decoded by serializers as "Years".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "YEAR")]
     [IsoId("_Lp06SXyYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in years.")]
     Years,
     
     /// <summary>
-    /// ??
+    /// Counted in days.
     /// Encoded/decoded by serializers as "Days".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DAYS")]
     [IsoId("_Lp06S3yYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Counted in days.")]
     Days,
     
     /// <summary>
-    /// ??
+    /// Extra Days
     /// Encoded/decoded by serializers as "ExtraDays".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "EXDY")]
     [IsoId("_Lp06TXyYEemfrNOe0zHQyg")]
-    [Description(@"??")]
+    [Description(@"Extra Days")]
     ExtraDays,
     
 }

@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Component is in service.
     /// Encoded/decoded by serializers as "InService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INSV")]
     [IsoId("_pVnK0YqLEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"Component is in service.")]
     InService,
     
     /// <summary>
-    /// ??
+    /// ATM out of service.
     /// Encoded/decoded by serializers as "OutOfService".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "OUTS")]
     [IsoId("_pZx5IYqLEeSRT5rEzcAHEw")]
-    [Description(@"??")]
+    [Description(@"ATM out of service.")]
     OutOfService,
     
 }

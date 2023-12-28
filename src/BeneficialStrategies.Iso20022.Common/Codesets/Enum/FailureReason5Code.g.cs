@@ -20,21 +20,21 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum FailureReason5Code
 {
     /// <summary>
-    /// ??
+    /// General security error.
     /// Encoded/decoded by serializers as "Security".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "SECR")]
     [IsoId("_4Y2kQYr-EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"General security error.")]
     Security,
     
     /// <summary>
-    /// ??
+    /// Hardware error on the device.
     /// Encoded/decoded by serializers as "Hardware".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HRDW")]
     [IsoId("_-lfssYr-EeSvuOJS0mmL0g")]
-    [Description(@"??")]
+    [Description(@"Hardware error on the device.")]
     Hardware,
     
 }

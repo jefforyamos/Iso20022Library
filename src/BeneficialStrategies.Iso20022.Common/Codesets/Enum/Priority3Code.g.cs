@@ -20,30 +20,30 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum Priority3Code
 {
     /// <summary>
-    /// ??
+    /// Priority level is urgent (highest priority possible).
     /// Encoded/decoded by serializers as "Urgent".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "URGT")]
     [IsoId("_aKUc8dp-Ed-ak6NoX_4Aeg_1584820280")]
-    [Description(@"??")]
+    [Description(@"Priority level is urgent (highest priority possible).")]
     Urgent,
     
     /// <summary>
-    /// ??
+    /// Priority level is high.
     /// Encoded/decoded by serializers as "High".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "HIGH")]
     [IsoId("_aKUc8tp-Ed-ak6NoX_4Aeg_1584820309")]
-    [Description(@"??")]
+    [Description(@"Priority level is high.")]
     High,
     
     /// <summary>
-    /// ??
+    /// Priority level is normal.
     /// Encoded/decoded by serializers as "Normal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NORM")]
     [IsoId("_aKUc89p-Ed-ak6NoX_4Aeg_1584820310")]
-    [Description(@"??")]
+    [Description(@"Priority level is normal.")]
     Normal,
     
 }

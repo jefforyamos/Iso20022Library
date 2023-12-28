@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum CancelledStatusReason14Code
 {
     /// <summary>
-    /// ??
+    /// See narrative field for reason.
     /// Encoded/decoded by serializers as "NarrativeReason".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NARR")]
     [IsoId("_LqRR0Sz0EeOsiuMH68so7Q")]
-    [Description(@"??")]
+    [Description(@"See narrative field for reason.")]
     NarrativeReason,
     
 }

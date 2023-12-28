@@ -20,12 +20,12 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum AssetClassSubProductType7Code
 {
     /// <summary>
-    /// ??
+    /// Commodity of type natural gas.
     /// Encoded/decoded by serializers as "NaturalGas".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "NGAS")]
     [IsoId("_8eix0QnzEeWnS-yHF1QhNQ")]
-    [Description(@"??")]
+    [Description(@"Commodity of type natural gas.")]
     NaturalGas,
     
 }

@@ -20,75 +20,75 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ATMServiceType4Code
 {
     /// <summary>
-    /// ??
+    /// Ask for account statement information to a related custumer account.
     /// Encoded/decoded by serializers as "AccountStatements".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "ASTS")]
     [IsoId("_q0NdsYq1EeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Ask for account statement information to a related custumer account.")]
     AccountStatements,
     
     /// <summary>
-    /// ??
+    /// Balance inquiry.
     /// Encoded/decoded by serializers as "BalanceInquiry".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "BLCQ")]
     [IsoId("_rAu2w4q1EeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Balance inquiry.")]
     BalanceInquiry,
     
     /// <summary>
-    /// ??
+    /// Deposit of items.
     /// Encoded/decoded by serializers as "Deposit".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "DPST")]
     [IsoId("_r33TE4q1EeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Deposit of items.")]
     Deposit,
     
     /// <summary>
-    /// ??
+    /// Modification of the card PIN value.
     /// Encoded/decoded by serializers as "PINChange".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PINC")]
     [IsoId("_sHXHo4q1EeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Modification of the card PIN value.")]
     PINChange,
     
     /// <summary>
-    /// ??
+    /// Standard withdrawal of items.
     /// Encoded/decoded by serializers as "StandardWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "STDR")]
     [IsoId("_tePbA4q1EeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Standard withdrawal of items.")]
     StandardWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Amount and notes Values are pre-defined by the customer profile.
     /// Encoded/decoded by serializers as "ProfileWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PRFL")]
     [IsoId("_ttIyo4q1EeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Amount and notes Values are pre-defined by the customer profile.")]
     ProfileWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.
     /// Encoded/decoded by serializers as "PreAuthorisedWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PATH")]
     [IsoId("_uqYeA4q1EeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.")]
     PreAuthorisedWithdrawal,
     
     /// <summary>
-    /// ??
+    /// Amount and notes values are chosen by the customer.
     /// Encoded/decoded by serializers as "ChosenWithdrawal".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "CHSN")]
     [IsoId("_-zpAkYq1EeSIDtZ76p6McQ")]
-    [Description(@"??")]
+    [Description(@"Amount and notes values are chosen by the customer.")]
     ChosenWithdrawal,
     
 }

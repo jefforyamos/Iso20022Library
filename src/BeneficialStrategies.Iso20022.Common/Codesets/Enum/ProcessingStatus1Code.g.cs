@@ -20,39 +20,39 @@ namespace BeneficialStrategies.Iso20222.Common;
 public enum ProcessingStatus1Code
 {
     /// <summary>
-    /// ??
+    /// Message contains complete details of the corporate action event at the time the event is communicated and the occurrence of the event has been confirmed by the account servicer's chosen official source. Further updates to the event are still possible.
     /// Encoded/decoded by serializers as "Complete".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "COMP")]
     [IsoId("_aLED2Np-Ed-ak6NoX_4Aeg_-1833350782")]
-    [Description(@"??")]
+    [Description(@"Message contains complete details of the corporate action event at the time the event is communicated and the occurrence of the event has been confirmed by the account servicer's chosen official source. Further updates to the event are still possible.")]
     Complete,
     
     /// <summary>
-    /// ??
+    /// Message may not contain complete details of the corporate action event,|however, the occurrence of the event is confirmed.
     /// Encoded/decoded by serializers as "PreliminaryConfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREC")]
     [IsoId("_aLN00Np-Ed-ak6NoX_4Aeg_-1833350781")]
-    [Description(@"??")]
+    [Description(@"Message may not contain complete details of the corporate action event,|however, the occurrence of the event is confirmed.")]
     PreliminaryConfirmed,
     
     /// <summary>
-    /// ??
+    /// Message may not contain complete details of the corporate action event and|the occurrence of the event is not yet confirmed.
     /// Encoded/decoded by serializers as "PreliminaryUnconfirmed".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "PREU")]
     [IsoId("_aLN00dp-Ed-ak6NoX_4Aeg_-1833350780")]
-    [Description(@"??")]
+    [Description(@"Message may not contain complete details of the corporate action event and|the occurrence of the event is not yet confirmed.")]
     PreliminaryUnconfirmed,
     
     /// <summary>
-    /// ??
+    /// The message is for information only.
     /// Encoded/decoded by serializers as "ForInformationOnly".
     /// </summary>
-    [EnumMember(Value = "")]
+    [EnumMember(Value = "INFO")]
     [IsoId("_aLN00tp-Ed-ak6NoX_4Aeg_-1833350752")]
-    [Description(@"??")]
+    [Description(@"The message is for information only.")]
     ForInformationOnly,
     
 }
