@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace BeneficialStrategies.Iso20022.Repository;
 
-public class Codesets
+public class CodesetGeneralTesting
 {
     private readonly ITestOutputHelper _output;
 
-    public Codesets(ITestOutputHelper testOutputHelper)
+    public CodesetGeneralTesting(ITestOutputHelper testOutputHelper)
     {
         _output = testOutputHelper; 
     }
@@ -37,7 +37,7 @@ public class Codesets
     [Fact(DisplayName = "WorkflowStatus1Code should use Description from DerivedFrom")]
     public void WorkFlowStatus1CodeShouldHaveDescription()
     {
-        LoadedRepository.Load();
+        LoadedRepository.Reload();
         var superclass = LoadedRepository.Instance.DataDictionary.CodeSets.Where(c => c.Name == "WorkflowStatusCode").First();
         var subclass = LoadedRepository.Instance.DataDictionary.CodeSets
             .Where(c => c.Name == "WorkflowStatus1Code")

@@ -1,4 +1,6 @@
-﻿namespace BeneficialStrategies.Iso20022.Repository;
+﻿using System.Linq;
+
+namespace BeneficialStrategies.Iso20022.Repository;
 
 public static class TestingExtensions
 {

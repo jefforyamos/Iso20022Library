@@ -4,14 +4,14 @@ public static class LoadedRepository
 {
     static LoadedRepository()
     {
-        Load();
+        Instance = Reload();
     }
 
-    public static void Load()
+    public static IsoRepository Reload()
     {
         var expectedFolder = "/Users/Jeff/Downloads";
         var fullPath = Path.Combine(expectedFolder, IsoRepository.CurrentlySupportedRepoFile);
-        Instance = IsoRepository.Load(fullPath);
+        return Instance = IsoRepository.Load(fullPath);
     }
 
     public static IsoRepository Instance { get; private set; }
