@@ -18,21 +18,17 @@ public record InitiatingPartyRec
     public static class MemberNames
     {
         public static XName Name = Helper.CreateXName( "Nm");
-        public static XName PostalAddress = Helper.CreateXName("PstlAdr");
-        public static XName ContactDetails = Helper.CreateXName("CtctDtls");
     }
 
     public static async Task<InitiatingPartyRec> DeserializeAsync(XmlReader reader)
     {
-        // XElement root = await XElement.LoadAsync(reader, new LoadOptions { }, CancellationToken.None);
-        // return Deserialize(root);
         return await Helper.DeserializeAsync(reader);
     }
 
     public async Task SerializeAsync(XmlWriter writer)
     {
         await writer.WriteStartElementAsync(null, RootElement.LocalName, null);
-        await writer.WriteElementStringAsync(null, MemberNames.Name.LocalName, null, Name);
+        await Helper.WriteElementStringAsync(writer, MemberNames.Name, Name);
         await PostalAddress.SerializeAsync(writer);
         await ContactDetails.SerializeAsync(writer);
         await writer.WriteEndElementAsync();
@@ -42,15 +38,11 @@ public record InitiatingPartyRec
     {
         return new InitiatingPartyRec
         {
-            Name = element.Element(MemberNames.Name)?.Value
-                ?? throw new IsoDeserializationMissingElementException(typeof(ContactDetailsRec), MemberNames.Name.LocalName),
+            Name = Helper.GetStringValue(element, MemberNames.Name),
 
-            PostalAddress = PostalAddresRec.Deserialize(element.Element(MemberNames.PostalAddress)
-                ?? throw new IsoDeserializationMissingElementException(typeof(ContactDetailsRec), MemberNames.PostalAddress.LocalName)),
+            PostalAddress = Helper.GetChildMember<PostalAddresRec>(element),
 
-            ContactDetails = ContactDetailsRec.Deserialize(element.Element(MemberNames.ContactDetails)
-                ?? throw new IsoDeserializationMissingElementException(typeof(ContactDetailsRec), MemberNames.ContactDetails.LocalName))
-
+            ContactDetails = Helper.GetChildMember<ContactDetailsRec>(element)
         };
     }
 }
