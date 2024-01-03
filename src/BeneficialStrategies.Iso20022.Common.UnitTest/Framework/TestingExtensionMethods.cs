@@ -1,8 +1,9 @@
 ﻿using System.Text;
+using System.Text.Json;
 using System.Xml;
 using Xunit.Abstractions;
 
-namespace BeneficialStrategies.Iso20022.Common;
+namespace BeneficialStrategies.Iso20022.Common.Framework;
 
 public static class TestingExtensionMethods
 {
@@ -70,4 +71,20 @@ public static class TestingExtensionMethods
         ouputForXmlSerialization?.WriteLine(sbActual.ToString());
         Assert.Equal(sbExpected.ToString(), sbActual.ToString());
     }
+
+    public static async Task AssertJsonSerializationRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
+        where T : IIsoXmlSerilizable<T>
+    {
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            PreferredObjectCreationHandling = System.Text.Json.Serialization.JsonObjectCreationHandling.Populate
+        };
+        var myJson = JsonSerializer.Serialize(dataObjectToSerialize, options);
+        outputHelper?.WriteLine(myJson);
+        var memStream = new MemoryStream(Encoding.UTF8.GetBytes(myJson));
+        var copy = await JsonSerializer.DeserializeAsync<T>(memStream, options, CancellationToken.None);
+        Assert.Equal(dataObjectToSerialize, copy);
+    }
 }
+

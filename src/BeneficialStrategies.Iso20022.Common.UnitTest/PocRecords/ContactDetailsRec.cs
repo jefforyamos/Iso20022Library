@@ -1,34 +1,34 @@
 ﻿using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.ContactDetailsRec>;
+using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.ContactDetailsRec>;
 
 //	<CtctDtls>
 //		<Nm>J.Thompson</Nm>
 //		<EmailAdr>Thompson @virgay.com</EmailAdr>
 //	</CtctDtls>
 
-namespace BeneficialStrategies.Iso20022.Common;
+namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
 public record ContactDetailsRec : IIsoXmlSerilizable<ContactDetailsRec>
 {
-	public required string Name { get; init; }
+    public required string Name { get; init; }
 
-	public required string Email { get; init; }
+    public required string Email { get; init; }
 
     public static XName RootElement => Helper.CreateXName("CtctDtls");
 
     public static class MemberNames
     {
-        public static XName Name = Helper.CreateXName( "Nm" );
-        public static XName Email = Helper.CreateXName( "EmailAdr");
+        public static XName Name = Helper.CreateXName("Nm");
+        public static XName Email = Helper.CreateXName("EmailAdr");
     }
 
     public virtual async Task SerializeAsync(XmlWriter writer)
     {
-        await writer.WriteStartElementAsync(null, RootElement.LocalName, null);
+        await Helper.WriteStartElementAsync(writer, RootElement);
         await Helper.WriteElementStringAsync(writer, MemberNames.Name, Name);
         await Helper.WriteElementStringAsync(writer, MemberNames.Email, Email);
-        await writer.WriteEndElementAsync();
+        await Helper.WriteEndElementAsync(writer);
     }
 
     public static async Task<ContactDetailsRec> DeserializeAsync(XmlReader reader)

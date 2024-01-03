@@ -1,9 +1,9 @@
 ﻿using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PostalAddresRec>;
+using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.PostalAddresRec>;
 
 
-namespace BeneficialStrategies.Iso20022.Common;
+namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
 //	<PstlAdr>
 //		<StrtNm>Virginia Lane</StrtNm>
@@ -51,13 +51,13 @@ public record PostalAddresRec() : IIsoXmlSerilizable<PostalAddresRec>
 
     public async Task SerializeAsync(XmlWriter writer)
     {
-        await writer.WriteStartElementAsync(null, RootElement.LocalName, null);
+        await Helper.WriteStartElementAsync(writer, RootElement);
         await Helper.WriteElementStringAsync(writer, MemberNames.StreetName, StreetName);
         await Helper.WriteElementStringAsync(writer, MemberNames.BuildingNumber, BuildingNumber);
         await Helper.WriteElementStringAsync(writer, MemberNames.PostalCode, PostalCode);
         await Helper.WriteElementStringAsync(writer, MemberNames.TownName, TownName);
         await Helper.WriteElementStringAsync(writer, MemberNames.Country, Country);
-        await writer.WriteEndElementAsync();
+        await Helper.WriteEndElementAsync(writer);
     }
 }
 

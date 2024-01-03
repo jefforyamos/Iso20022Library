@@ -65,8 +65,12 @@ public static class IsoXmlSerializationHelper<TTypeToSerialize>
     /// <param name="name"></param>
     /// <param name="value"></param>
     /// <returns></returns>
-    public static Task WriteElementStringAsync(XmlWriter xmlWriter, XName name, string value)
-    {
-        return xmlWriter.WriteElementStringAsync(null, name.LocalName, null, value);
-    }
+    public static Task WriteElementStringAsync(XmlWriter xmlWriter, XName name, string value) => xmlWriter.WriteElementStringAsync(null, name.LocalName, null, value);
+    
+
+    public static Task WriteStartElementAsync(XmlWriter xmlWriter, XName name) => xmlWriter.WriteStartElementAsync(null, name.LocalName, name.NamespaceName);
+    
+
+    public static Task WriteEndElementAsync(XmlWriter xmlWriter) => xmlWriter.WriteEndElementAsync();
+
 }

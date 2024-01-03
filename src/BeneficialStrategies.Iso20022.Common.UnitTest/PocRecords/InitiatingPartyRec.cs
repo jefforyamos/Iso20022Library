@@ -1,23 +1,23 @@
 ﻿using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.InitiatingPartyRec>;
+using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.InitiatingPartyRec>;
 
-namespace BeneficialStrategies.Iso20022.Common;
+namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
 public record InitiatingPartyRec
-	: IIsoXmlSerilizable<InitiatingPartyRec>
+    : IIsoXmlSerilizable<InitiatingPartyRec>
 {
     public required string Name { get; init; }
 
     public required PostalAddresRec PostalAddress { get; init; }
 
-	public required ContactDetailsRec ContactDetails { get; init; }
+    public required ContactDetailsRec ContactDetails { get; init; }
 
     public static XName RootElement => Helper.CreateXName("InitgPty");
 
     public static class MemberNames
     {
-        public static XName Name = Helper.CreateXName( "Nm");
+        public static XName Name = Helper.CreateXName("Nm");
     }
 
     public static async Task<InitiatingPartyRec> DeserializeAsync(XmlReader reader)
@@ -27,11 +27,11 @@ public record InitiatingPartyRec
 
     public async Task SerializeAsync(XmlWriter writer)
     {
-        await writer.WriteStartElementAsync(null, RootElement.LocalName, null);
+        await Helper.WriteStartElementAsync(writer, RootElement);
         await Helper.WriteElementStringAsync(writer, MemberNames.Name, Name);
         await PostalAddress.SerializeAsync(writer);
         await ContactDetails.SerializeAsync(writer);
-        await writer.WriteEndElementAsync();
+        await Helper.WriteEndElementAsync(writer);
     }
 
     public static InitiatingPartyRec Deserialize(XElement element)

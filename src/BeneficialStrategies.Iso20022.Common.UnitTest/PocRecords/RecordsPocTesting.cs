@@ -1,10 +1,9 @@
-﻿using System.IO;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Text;
 using System.Xml;
 using Xunit.Abstractions;
 
-namespace BeneficialStrategies.Iso20022.Common;
+namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
 public class RecordsPocTesting
 {
@@ -57,19 +56,19 @@ public class RecordsPocTesting
 
         _output.WriteLine(party.ToString());
 
-		var sb = new StringBuilder();
+        var sb = new StringBuilder();
         using (var xmlWriter = XmlWriter.Create(sb, new XmlWriterSettings { Indent = true, OmitXmlDeclaration = true, Async = true }))
         {
             await party.SerializeAsync(xmlWriter);
             xmlWriter.Flush();
         }
-		_output.WriteLine(sb.ToString());
+        _output.WriteLine(sb.ToString());
 
         await SampleRec.AssertSerializationMatchesArtifact(SampleRecText, _output);
 
-		// Now for Deserialization
+        // Now for Deserialization
 
-		// using (var XmlReader = new XmlReader())
+        // using (var XmlReader = new XmlReader())
     }
 
     [Fact]
@@ -96,6 +95,25 @@ public class RecordsPocTesting
     {
         await SampleRec.ContactDetails.AssertSerializationRoundTripWorks(_output);
     }
+
+    [Fact]
+    public async Task InitiatingPartyJsonSerialization()
+    {
+        await SampleRec.AssertJsonSerializationRoundTrip(_output);
+    }
+
+    [Fact]
+    public async Task ContactDetailsJsonSerialization()
+    {
+        await SampleRec.ContactDetails.AssertJsonSerializationRoundTrip(_output);
+    }
+
+    [Fact]
+    public async Task PostalAddressJsonSerialization()
+    {
+        await SampleRec.PostalAddress.AssertJsonSerializationRoundTrip(_output);
+    }
+
 }
 
 # region Probably not
