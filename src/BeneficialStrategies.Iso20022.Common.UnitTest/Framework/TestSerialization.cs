@@ -25,29 +25,52 @@ public abstract class TestSerialization<T>
     /// </summary>
     protected abstract string ExpectedSampleXml { get; }
 
-    [Fact(DisplayName = "Test fixture naming")]
+    [Fact(DisplayName = "_Test fixture naming")]
     public void TestFixtureNaming()
     {
         var expectedName = $"{typeof(T).Name}TestSerialization";
         Assert.Equal(expectedName, GetType().Name);
     }
 
-    [Fact(DisplayName = "Serialization ISO Serialize")]
-    public async Task SerializeIsoSerialize()
+    [Fact(DisplayName = "ISO Serialize")]
+    public async Task IsoSerialize()
     {
         await Sample.AssertSerializationMatchesArtifact(ExpectedSampleXml, Output);
     }
 
-    [Fact(DisplayName = "Serialization ISO Round-Trip")]
-    public async Task SerializeIsoRoundTrip()
+    [Fact(DisplayName = "ISO Round-Trip")]
+    public async Task IsoRoundTrip()
     {
         await Sample.AssertSerializationRoundTripWorks(Output);
     }
 
-    [Fact(DisplayName = "Serialization JsonSerializer Round-Trip (System.Text.Json)")]
-    public async Task SerializeSystemTextJsonRoundTrip()
+    [Fact(DisplayName = "JsonSerializer Round-Trip (System.Text.Json)")]
+    public async Task SystemTextJsonRoundTrip()
     {
         await Sample.AssertJsonSerializationRoundTrip(Output);
     }
+
+    [Fact(DisplayName = "BinaryFormatter dangerous, disabled")]
+    public void BinaryFormatterRoundTrip()
+    {
+        Assert.Throws<NotSupportedException>(() =>  
+            Sample.AssertBinaryFormatterRoundTrip(Output) 
+        );
+    }
+
+    [Fact(DisplayName = "DataContractSerializer Round-Trip")]
+    public void DataContractSerializerRoundTrip()
+    {
+        Sample.AssertDataContractSerializerRoundTrip(Output);
+    }
+
+    [Fact(DisplayName = "XmlSerializer Round-Trip")]
+    public void XmlSerializerRoundTrip()
+    {
+        Sample.AssertXmlSerializerRoundTrip(Output);
+    }
+
+
+
 }
 

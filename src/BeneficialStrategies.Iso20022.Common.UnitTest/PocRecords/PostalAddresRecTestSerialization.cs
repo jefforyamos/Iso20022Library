@@ -1,7 +1,12 @@
-﻿namespace BeneficialStrategies.Iso20022.Common.PocRecords;
+﻿using Xunit.Abstractions;
+
+namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
 public class PostalAddresRecTestSerialization : TestSerialization<PostalAddresRec>
 {
+    public PostalAddresRecTestSerialization(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
+    {
+    }
     protected override PostalAddresRec Sample => new PostalAddresRec
     {
         StreetName = "Virginia Lane",

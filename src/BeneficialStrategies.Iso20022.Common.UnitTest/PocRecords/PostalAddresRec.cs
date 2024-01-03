@@ -15,11 +15,11 @@ namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
 public record PostalAddresRec() : IIsoXmlSerilizable<PostalAddresRec>
 {
-    public required string StreetName;
-    public required string BuildingNumber;
-    public required string PostalCode;
-    public required string TownName;
-    public required string Country;
+    public required string StreetName { get; init; }
+    public required string BuildingNumber { get; init; }
+    public required string PostalCode { get; init; }
+    public required string TownName { get; init; }
+    public required string Country { get; init; }
 
     public static XName RootElement => Helper.CreateXName("PstlAdr");
 

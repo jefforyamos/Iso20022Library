@@ -89,31 +89,6 @@ public class RecordsPocTesting
         Assert.Equal("Virginia Lane", copy.PostalAddress.StreetName);
         Assert.Equal(SampleRec, copy);
     }
-
-    [Fact]
-    public async Task ContactDetailsRoundTrip()
-    {
-        await SampleRec.ContactDetails.AssertSerializationRoundTripWorks(_output);
-    }
-
-    [Fact]
-    public async Task InitiatingPartyJsonSerialization()
-    {
-        await SampleRec.AssertJsonSerializationRoundTrip(_output);
-    }
-
-    [Fact]
-    public async Task ContactDetailsJsonSerialization()
-    {
-        await SampleRec.ContactDetails.AssertJsonSerializationRoundTrip(_output);
-    }
-
-    [Fact]
-    public async Task PostalAddressJsonSerialization()
-    {
-        await SampleRec.PostalAddress.AssertJsonSerializationRoundTrip(_output);
-    }
-
 }
 
 # region Probably not

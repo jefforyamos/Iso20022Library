@@ -86,5 +86,51 @@ public static class TestingExtensionMethods
         var copy = await JsonSerializer.DeserializeAsync<T>(memStream, options, CancellationToken.None);
         Assert.Equal(dataObjectToSerialize, copy);
     }
-}
 
+    // Dangerous per https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide
+    public static void AssertBinaryFormatterRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
+       where T : IIsoXmlSerilizable<T>
+    {
+#pragma warning disable SYSLIB0011
+        var memoryStream = new MemoryStream();
+        var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+        binaryFormatter.Serialize(memoryStream, dataObjectToSerialize);
+        memoryStream.Position = 0;
+        var copy = binaryFormatter.Deserialize(memoryStream);
+        Assert.Equal(dataObjectToSerialize, copy);
+#pragma warning restore SYSLIB0011
+    }
+
+    public static void AssertDataContractSerializerRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
+       where T : IIsoXmlSerilizable<T>
+    {
+        var serializer = new System.Runtime.Serialization.DataContractSerializer(typeof(T));
+        var memoryStream = new MemoryStream();
+        serializer.WriteObject(memoryStream, dataObjectToSerialize);
+        memoryStream.Position = 0;
+        var copy = serializer.ReadObject(memoryStream);
+        Assert.Equal(dataObjectToSerialize, copy);
+    }
+
+    public static void AssertXmlSerializerRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
+     where T : IIsoXmlSerilizable<T>
+    {
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
+        var memoryStream = new MemoryStream();
+        serializer.Serialize(memoryStream, dataObjectToSerialize);
+        memoryStream.Position = 0;
+        var copy = serializer.Deserialize(memoryStream);
+        Assert.Equal(dataObjectToSerialize, copy);
+    }
+
+    public static void AssertBinaryWriterAndReaderRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
+ where T : IIsoXmlSerilizable<T>
+    {
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
+        var memoryStream = new MemoryStream();
+        serializer.Serialize(memoryStream, dataObjectToSerialize);
+        memoryStream.Position = 0;
+        var copy = serializer.Deserialize(memoryStream);
+        Assert.Equal(dataObjectToSerialize, copy);
+    }
+}
