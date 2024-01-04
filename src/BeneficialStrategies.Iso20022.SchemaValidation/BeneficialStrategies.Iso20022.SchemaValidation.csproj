@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+   <ItemGroup>
+    <Content Remove="Schema\pain.001.001.11.xsd" />
+    <Content Remove="Schema\pain.002.001.13.xsd" />
+    <Content Remove="Schema\pain.007.001.11.xsd" />
+    <Content Remove="Schema\pain.008.001.10.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Schema\pain.001.001.11.xsd" />
+    <EmbeddedResource Include="Schema\pain.002.001.13.xsd" />
+    <EmbeddedResource Include="Schema\pain.007.001.11.xsd" />
+    <EmbeddedResource Include="Schema\pain.008.001.10.xsd" />
+  </ItemGroup>
+
+</Project>

@@ -6,6 +6,7 @@ using System.Xml.Schema;
 using System.Xml.Linq;
 using System.Reflection;
 using Microsoft.VisualBasic;
+using BeneficialStrategies.Iso20022.SchemaValidation;
 
 namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
@@ -362,17 +363,3 @@ public class Iso20022XmlNameTable : NameTable
     } 
 }
 
-public class Iso20022SchemaSet : XmlSchemaSet
-{
-    public Iso20022SchemaSet() : base(new Iso20022XmlNameTable())
-    {
-        var assembly = Assembly.GetExecutingAssembly();
-        var xsdResources = assembly.GetManifestResourceNames().Where( n => n.ToLowerInvariant().EndsWith(".xsd"));
-        foreach(var resourceName in xsdResources)
-        {
-            using Stream stream = assembly.GetManifestResourceStream(resourceName) ?? throw new FileNotFoundException(resourceName);
-            using var schemaReader = XmlReader.Create(stream);
-            Add(null, schemaReader);
-        }
-    }
-}
