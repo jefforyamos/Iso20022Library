@@ -2,10 +2,13 @@
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using BeneficialStrategies.Iso20222.Common;
 using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.PostalAddresRec>;
 
 
 namespace BeneficialStrategies.Iso20022.Common.PocRecords;
+
+// https://www.iso20022.org/standardsrepository/type/PostalAddress1
 
 //	<PstlAdr>
 //		<StrtNm>Virginia Lane</StrtNm>
@@ -19,25 +22,37 @@ namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 [XmlRoot(ElementName = "PstlAdr", Namespace = "")]
 public record PostalAddresRec() : IIsoXmlSerilizable<PostalAddresRec>
 {
-    [DataMember(Name = "StrtNm", Order = 0)]
-    [XmlElement(ElementName = "StrtNm", Order = 0)]
-    public required string StreetName { get; init; }
+    [DataMember(Name ="AdrTp", Order = 0)]
+    [XmlElement(ElementName = "AdrTp", Order = 0)]
+    public AddressType2Code? AddressType { get; init; }
 
-    [DataMember(Name = "BldgNb", Order = 1)]
-    [XmlElement(ElementName = "BldgNb", Order =1)]
-    public required string BuildingNumber { get; init; }
+    [DataMember(Name ="AdrLine", Order = 1)]
+    [XmlElement(ElementName = "AdrLine", Order = 1)]
+    public Max70Text? AddressLine { get; init; }
 
-    [DataMember(Name = "PstCd", Order = 2)]
-    [XmlElement(ElementName = "PstCd", Order = 2)]
-    public required string PostalCode { get; init; }
+    [DataMember(Name = "StrtNm", Order = 2)]
+    [XmlElement(ElementName = "StrtNm", Order = 2)]
+    public required Max70Text? StreetName { get; init; }
 
-    [DataMember(Name ="TwnNm", Order = 3)]
-    [XmlElement(ElementName = "TwnNm", Order = 3)]
-    public required string TownName { get; init; }
+    [DataMember(Name = "BldgNb", Order = 3)]
+    [XmlElement(ElementName = "BldgNb", Order =3)]
+    public required Max16Text? BuildingNumber { get; init; }
 
-    [DataMember(Name = "Ctry", Order = 4)]
-    [XmlElement(ElementName = "Ctry", Order = 4)]
-    public required string Country { get; init; }
+    [DataMember(Name = "PstCd", Order = 4)]
+    [XmlElement(ElementName = "PstCd", Order = 4)]
+    public required Max16Text? PostalCode { get; init; }
+
+    [DataMember(Name ="TwnNm", Order = 5)]
+    [XmlElement(ElementName = "TwnNm", Order = 5)]
+    public required Max35Text? TownName { get; init; }
+
+    [DataMember(Name ="TwnLctnNm", Order = 6)]
+    [XmlElement(ElementName = "TwnLctnNm", Order = 6)]
+    public Max35Text? CountrySubDivision { get; init; }
+
+    [DataMember(Name = "Ctry", Order = 7)]
+    [XmlElement(ElementName = "Ctry", Order = 7)]
+    public required CountryCode Country { get; init; }
 
     public static XName RootElement => Helper.CreateXName("PstlAdr");
 
