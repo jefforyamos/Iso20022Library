@@ -1,7 +1,11 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Schema;
+using BeneficialStrategies.Iso20022.SchemaValidation;
 using Xunit.Abstractions;
 
 namespace BeneficialStrategies.Iso20022.Common.Framework;
@@ -193,4 +197,40 @@ public static class TestingExtensionMethods
         var copy = serializer.Deserialize(memoryStream);
         Assert.Equal(dataObjectToSerialize, copy);
     }
+
+    public record ValErrorRec ( object? OffendingObject, ValidationEventArgs Info);
+
+    public static IEnumerable<ValErrorRec> GetIsoValidateErrors(this Iso20022SchemaSet schemaSet, string outerNamespace, string innerContent)
+    {
+        Assert.True(schemaSet.NameTable.Get(outerNamespace) != null, $"The outer namespace {outerNamespace} is not supported.");
+        var doc = CreateXDocumentWithInnerContent(outerNamespace, innerContent);
+        var list = new List<ValErrorRec>();
+        doc.Validate(schemaSet, (o, e) => 
+        { 
+            var rec = new ValErrorRec(o,e);
+            list.Add( rec );
+        }
+        );
+        return list;
+    }
+
+    private static XDocument CreateXDocumentWithInnerContent(string outerNamespace, string innerContent)
+    {
+        return XDocument.Parse(@$"
+        <Document xmlns=""{outerNamespace}"">
+            {innerContent}
+        </Document>");   
+    }
+
+    public static void AssertNoIsoValidateErrors(this Iso20022SchemaSet schemaSet, string outerNamespace, string innerContent, ITestOutputHelper? outputHelper = null)
+    {
+        var errors = schemaSet.GetIsoValidateErrors(outerNamespace,innerContent);
+        foreach(var err in errors)
+        {
+            outputHelper?.WriteLine($"{err.OffendingObject}={err.Info.Severity}:{err.Info.Message}");
+        }
+        Assert.False(errors.Any(), "Errors occurred, validation failed.  See output for details");
+    }
+
+
 }
