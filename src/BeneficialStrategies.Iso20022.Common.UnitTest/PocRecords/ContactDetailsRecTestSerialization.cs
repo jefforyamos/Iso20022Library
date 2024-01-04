@@ -11,7 +11,7 @@ public class ContactDetailsRecTestSerialization : TestSerialization<ContactDetai
     protected override ContactDetailsRec Sample => new ContactDetailsRec { Name = "Jeff", Email = "jeff@somedomain.com" };
 
     protected override string ExpectedSampleXml => @"
-        <CtctDtls xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"">
+        <CtctDtls>
             <Nm>Jeff</Nm>
     	    <EmailAdr>jeff@somedomain.com</EmailAdr>
         </CtctDtls>
@@ -19,4 +19,4 @@ public class ContactDetailsRecTestSerialization : TestSerialization<ContactDetai
 }
 
 //          <CtctDtls xmlns:i=""http://www.w3.org/2001/XMLSchema-instance""><EmailAdr>jeff@somedomain.com</EmailAdr><Nm>Jeff</Nm></CtctDtls>
-
+// xmlns:i=""http://www.w3.org/2001/XMLSchema-instance""

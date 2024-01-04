@@ -88,7 +88,7 @@ public static class TestingExtensionMethods
     }
 
     public static async Task AssertJsonSerializationRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
-        where T : IIsoXmlSerilizable<T>
+        where T : Iso20022Certified<T>
     {
         var options = new JsonSerializerOptions
         {
@@ -104,7 +104,7 @@ public static class TestingExtensionMethods
 
     // Dangerous per https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide
     public static void AssertBinaryFormatterRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
-       where T : IIsoXmlSerilizable<T>
+       where T : Iso20022Certified<T>
     {
 #pragma warning disable SYSLIB0011
         var memoryStream = new MemoryStream();
@@ -126,7 +126,7 @@ public static class TestingExtensionMethods
     }
 
     public static void AssertDataContractSerializerRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
-       where T : IIsoXmlSerilizable<T>
+       where T : Iso20022Certified<T>
     {
         var serializer = new System.Runtime.Serialization.DataContractSerializer(typeof(T));
         var memoryStream = new MemoryStream();
@@ -145,7 +145,7 @@ public static class TestingExtensionMethods
     }
 
     public static void AssertDataContractSerializerDeserializesValidISO20022<T>(this T dataObjectToSerialize, string knownValidXml, ITestOutputHelper? outputHelper = null)
-       where T : IIsoXmlSerilizable<T>
+       where T : Iso20022Certified<T>
     {
         var normalizedXml = GetSampleXmlWithWhitespaceNormalized(knownValidXml);
         outputHelper?.WriteLine($"DataContractSerializer is attempting to deserialize this: \r\n {normalizedXml} \r\n");
@@ -162,7 +162,7 @@ public static class TestingExtensionMethods
     }
 
     public static void AssertXmlSerializerRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
-     where T : IIsoXmlSerilizable<T>
+     where T : Iso20022Certified<T>
     {
         var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
         var memoryStream = new MemoryStream();
@@ -173,7 +173,7 @@ public static class TestingExtensionMethods
     }
 
     public static void AssertXmlSerializerDeserializesValidIso20022<T>(this T dataObjectToSerialize, string knownValidXml, ITestOutputHelper? outputHelper = null)
-     where T : IIsoXmlSerilizable<T>
+     where T : Iso20022Certified<T>
     {
         var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
         var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(knownValidXml));
@@ -184,7 +184,7 @@ public static class TestingExtensionMethods
     }
 
     public static void AssertBinaryWriterAndReaderRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
- where T : IIsoXmlSerilizable<T>
+        where T : Iso20022Certified<T>
     {
         var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
         var memoryStream = new MemoryStream();
