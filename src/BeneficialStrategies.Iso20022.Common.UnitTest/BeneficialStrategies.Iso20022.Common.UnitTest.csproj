@@ -29,6 +29,21 @@
   <ItemGroup>
     <ProjectReference Include="..\BeneficialStrategies.Iso20022.Common\BeneficialStrategies.Iso20022.Common.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Schema\pain.001.001.11.xsd" />
+    <Content Remove="Schema\pain.002.001.13.xsd" />
+    <Content Remove="Schema\pain.007.001.11.xsd" / >
+    <Content Remove="Schema\pain.008.001.10.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Schema\pain.001.001.11.xsd" />
+    <EmbeddedResource Include="Schema\pain.002.001.13.xsd" />
+    <EmbeddedResource Include="Schema\pain.007.001.11.xsd" />
+    <EmbeddedResource Include="Schema\pain.008.001.10.xsd" />
+  </ItemGroup>
+
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>

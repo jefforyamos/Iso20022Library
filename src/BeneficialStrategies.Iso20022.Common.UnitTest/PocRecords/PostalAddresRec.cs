@@ -3,13 +3,13 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using BeneficialStrategies.Iso20222.Common;
-using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.PostalAddresRec>;
 
 
 namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
 // https://www.iso20022.org/standardsrepository/type/PostalAddress1
 
+// From an example found in an analysis document.  
 //	<PstlAdr>
 //		<StrtNm>Virginia Lane</StrtNm>
 //		<BldgNb>36</BldgNb>
@@ -20,7 +20,7 @@ namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
 [DataContract(Name = "PstlAdr", Namespace ="")]
 [XmlRoot(ElementName = "PstlAdr", Namespace = "")]
-public record PostalAddresRec() : IIsoXmlSerilizable<PostalAddresRec>
+public record PostalAddresRec() : Iso20022Certified<PostalAddresRec>
 {
     [DataMember(Name ="AdrTp", Order = 0)]
     [XmlElement(ElementName = "AdrTp", Order = 0)]
@@ -53,44 +53,5 @@ public record PostalAddresRec() : IIsoXmlSerilizable<PostalAddresRec>
     [DataMember(Name = "Ctry", Order = 7)]
     [XmlElement(ElementName = "Ctry", Order = 7)]
     public required CountryCode Country { get; init; }
-
-    public static XName RootElement => Helper.CreateXName("PstlAdr");
-
-    public static class MemberNames
-    {
-        public static readonly XName StreetName = Helper.CreateXName("StrtNm");
-        public static readonly XName BuildingNumber = Helper.CreateXName("BldgNb");
-        public static readonly XName PostalCode = Helper.CreateXName("PstCd");
-        public static readonly XName TownName = Helper.CreateXName("TwnNm");
-        public static readonly XName Country = Helper.CreateXName("Ctry");
-    }
-
-    public static PostalAddresRec Deserialize(XElement element)
-    {
-        return new PostalAddresRec()
-        {
-            StreetName = Helper.GetStringValue(element, MemberNames.StreetName),
-            BuildingNumber = Helper.GetStringValue(element, MemberNames.BuildingNumber),
-            PostalCode = Helper.GetStringValue(element, MemberNames.PostalCode),
-            TownName = Helper.GetStringValue(element, MemberNames.TownName),
-            Country = Helper.GetStringValue(element, MemberNames.Country),
-        };
-    }
-
-    public static async Task<PostalAddresRec> DeserializeAsync(XmlReader reader)
-    {
-        return await Helper.DeserializeAsync(reader);
-    }
-
-    public async Task SerializeAsync(XmlWriter writer)
-    {
-        await Helper.WriteStartElementAsync(writer, RootElement);
-        await Helper.WriteElementStringAsync(writer, MemberNames.StreetName, StreetName);
-        await Helper.WriteElementStringAsync(writer, MemberNames.BuildingNumber, BuildingNumber);
-        await Helper.WriteElementStringAsync(writer, MemberNames.PostalCode, PostalCode);
-        await Helper.WriteElementStringAsync(writer, MemberNames.TownName, TownName);
-        await Helper.WriteElementStringAsync(writer, MemberNames.Country, Country);
-        await Helper.WriteEndElementAsync(writer);
-    }
 }
 
