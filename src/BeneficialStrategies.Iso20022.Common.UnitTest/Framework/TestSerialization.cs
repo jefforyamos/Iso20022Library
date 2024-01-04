@@ -64,12 +64,23 @@ public abstract class TestSerialization<T>
         Sample.AssertDataContractSerializerRoundTrip(Output);
     }
 
+    [Fact(DisplayName = "DataContractSerializer ISO20022 Deserialize")]
+    public void DataContractSerializerIso20022Deserialize()
+    {
+        Sample.AssertDataContractSerializerDeserializesValidISO20022(ExpectedSampleXml, Output);
+    }
+
     [Fact(DisplayName = "XmlSerializer Round-Trip")]
     public void XmlSerializerRoundTrip()
     {
         Sample.AssertXmlSerializerRoundTrip(Output);
     }
 
+    [Fact(DisplayName = "XmlSerializer ISO20022 Deserialize")]
+    public void XmlSerializerIso20022Deserialize()
+    {
+        Sample.AssertXmlSerializerDeserializesValidIso20022(ExpectedSampleXml, Output);
+    }
 
 
 }

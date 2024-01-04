@@ -4,58 +4,36 @@ using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Common.Framework;
 
-//public interface IIsoXmlSerializer<TTypeToSerialize>
-//{
-//    static abstract Task SerializeAsync(XmlWriter xmlWriter, TTypeToSerialize objectToSerialize);
-//    static abstract Task<TTypeToSerialize> DeserializeAsync(XmlReader reader);
-//    static abstract TTypeToSerialize Deserialize(XElement element);
-//}
-
+/// <summary>
+/// Denotes the container as being self-serializable in a ISO20022-compliant syntax.
+/// </summary>
+/// <typeparam name="TSelf">The type we are decorating with this interface.</typeparam>
 public interface IIsoXmlSerilizable<TSelf>
 {
+    /// <summary>
+    /// Serialize this instance to the xml writer in ISO20022 format.
+    /// </summary>
+    /// <param name="xmlWriter"></param>
+    /// <returns></returns>
     Task SerializeAsync(XmlWriter xmlWriter);
+
+    /// <summary>
+    /// Deserializes the specified element into an instance of this record.
+    /// </summary>
+    /// <param name="element"></param>
+    /// <returns></returns>
     static abstract TSelf Deserialize(XElement element);
+
+    /// <summary>
+    /// Deserializes from the reader by placing the subtree in a <seeAlso cref="XElement"/> and calling <see cref="Deserialize(XElement)"/>.
+    /// </summary>
+    /// <param name="reader"></param>
+    /// <returns></returns>
     static abstract Task<TSelf> DeserializeAsync(XmlReader reader);
+
+    /// <summary>
+    /// Returns the normal root element for this record type.
+    /// </summary>
     static abstract XName RootElement { get; }
 }
 
-//public static class IsoXmlSerializerExtensionMethods<TTypeToSerialize>
-//    where TTypeToSerialize : IIsoXmlSerilizable<TTypeToSerialize>
-//{
-
-//    public static async Task<TTypeToSerialize> DeserializeAsync(XmlReader reader)
-//    {
-//        var xDoc = await XDocument.LoadAsync(reader, new LoadOptions { }, CancellationToken.None);
-
-//        return TTypeToSerialize.Deserialize(xDoc.Root ?? throw new Exception("No root"));
-//    }
-//}
-
-//public record MyClass
-//{
-//    public required string Name { get; init; }
-//}
-
-//public class MyClassSerializer : IIsoXmlSerializer<MyClass>
-//{
-//    public static async Task<MyClass> DeserializeAsync(XmlReader reader)
-//    {
-//        var xDoc = await XDocument.LoadAsync(reader, new LoadOptions { }, CancellationToken.None);
-
-//        return Deserialize(xDoc.Root ?? throw new Exception("No root"));
-//    }
-
-//    public static MyClass Deserialize(XElement element)
-//    { 
-//        var value = new MyClass
-//        {
-//            Name = element.Value
-//        };
-//        return value;
-//    }
-
-//    public static async Task SerializeAsync(XmlWriter xmlWriter, MyClass objectToSerialize)
-//    {
-//        await xmlWriter.WriteElementStringAsync(null, "abc",null, objectToSerialize.Name);
-//    }
-//}

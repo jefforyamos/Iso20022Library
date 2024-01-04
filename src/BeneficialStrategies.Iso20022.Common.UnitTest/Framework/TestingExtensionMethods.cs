@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using System.Text.Json;
 using System.Xml;
 using Xunit.Abstractions;
@@ -72,6 +73,19 @@ public static class TestingExtensionMethods
         Assert.Equal(sbExpected.ToString(), sbActual.ToString());
     }
 
+    private static string GetSampleXmlWithWhitespaceNormalized(string knownValidXml)
+    {
+        var xDoc = new XmlDocument();
+        xDoc.LoadXml(knownValidXml);
+        var sbExpected = new StringBuilder();
+        using (var xmlWriter = XmlWriter.Create(sbExpected, StandardIndentedSettings))
+        {
+            xDoc.WriteTo(xmlWriter);
+            xmlWriter.Flush();
+        }
+        return sbExpected.ToString();
+    }
+
     public static async Task AssertJsonSerializationRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
         where T : IIsoXmlSerilizable<T>
     {
@@ -112,12 +126,38 @@ public static class TestingExtensionMethods
         Assert.Equal(dataObjectToSerialize, copy);
     }
 
+    public static void AssertDataContractSerializerDeserializesValidISO20022<T>(this T dataObjectToSerialize, string knownValidXml, ITestOutputHelper? outputHelper = null)
+       where T : IIsoXmlSerilizable<T>
+    {
+        var settings = new System.Runtime.Serialization.DataContractSerializerSettings{ };
+        var serializer = new System.Runtime.Serialization.DataContractSerializer(typeof(T), settings);
+        var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(knownValidXml));
+        memoryStream.Flush();
+        memoryStream.Position = 0;
+        var copy = serializer.ReadObject(memoryStream);
+        // memoryStream.Position = 0;
+        // var copyText = new StreamReader(memoryStream).ReadToEnd();
+        // Debug.Assert(knownValidXml == copyText); // Just making sure stream contents are right
+        Assert.Equal(dataObjectToSerialize, copy);
+    }
+
     public static void AssertXmlSerializerRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
      where T : IIsoXmlSerilizable<T>
     {
         var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
         var memoryStream = new MemoryStream();
         serializer.Serialize(memoryStream, dataObjectToSerialize);
+        memoryStream.Position = 0;
+        var copy = serializer.Deserialize(memoryStream);
+        Assert.Equal(dataObjectToSerialize, copy);
+    }
+
+    public static void AssertXmlSerializerDeserializesValidIso20022<T>(this T dataObjectToSerialize, string knownValidXml, ITestOutputHelper? outputHelper = null)
+     where T : IIsoXmlSerilizable<T>
+    {
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
+        var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(knownValidXml));
+        memoryStream.Flush();
         memoryStream.Position = 0;
         var copy = serializer.Deserialize(memoryStream);
         Assert.Equal(dataObjectToSerialize, copy);
