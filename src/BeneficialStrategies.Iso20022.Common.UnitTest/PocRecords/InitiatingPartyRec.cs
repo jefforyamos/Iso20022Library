@@ -1,16 +1,22 @@
-﻿using System.Xml;
+﻿using System.Runtime.Serialization;
+using System.Xml;
 using System.Xml.Linq;
 using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.InitiatingPartyRec>;
 
 namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
+
+[DataContract(Name = "InitgPty", Namespace ="")]
 public record InitiatingPartyRec
     : IIsoXmlSerilizable<InitiatingPartyRec>
 {
+    [DataMember(Name = "Nm", Order = 0)]
     public required string Name { get; init; }
 
+    [DataMember(Name = "PstlAdr", Order = 1)]
     public required PostalAddresRec PostalAddress { get; init; }
 
+    [DataMember(Name = "CtctDtls", Order = 2)]
     public required ContactDetailsRec ContactDetails { get; init; }
 
     public static XName RootElement => Helper.CreateXName("InitgPty");

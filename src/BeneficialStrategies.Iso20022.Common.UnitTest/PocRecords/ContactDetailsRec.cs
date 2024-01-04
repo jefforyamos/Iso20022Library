@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Runtime.Serialization;
+using System.Xml;
 using System.Xml.Linq;
 using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.ContactDetailsRec>;
 
@@ -9,10 +10,13 @@ using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializatio
 
 namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 
+[DataContract(Name = "CtctDtls", Namespace ="")]
 public record ContactDetailsRec : IIsoXmlSerilizable<ContactDetailsRec>
 {
+    [DataMember(Name = "Nm", Order = 0)]
     public required string Name { get; init; }
 
+    [DataMember(Name = "EmailAdr", Order = 1)]
     public required string Email { get; init; }
 
     public static XName RootElement => Helper.CreateXName("CtctDtls");

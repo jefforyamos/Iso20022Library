@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Runtime.Serialization;
+using System.Xml;
 using System.Xml.Linq;
 using Helper = BeneficialStrategies.Iso20022.Common.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Common.PocRecords.PostalAddresRec>;
 
@@ -13,12 +14,22 @@ namespace BeneficialStrategies.Iso20022.Common.PocRecords;
 //		<Ctry>US</Ctry>
 //	</PstlAdr>
 
+[DataContract(Name = "PstlAdr", Namespace ="")]
 public record PostalAddresRec() : IIsoXmlSerilizable<PostalAddresRec>
 {
+    [DataMember(Name = "StrtNm", Order = 0)]
     public required string StreetName { get; init; }
+
+    [DataMember(Name = "BldgNb", Order = 1)]
     public required string BuildingNumber { get; init; }
+
+    [DataMember(Name = "PstCd", Order = 2)]
     public required string PostalCode { get; init; }
+
+    [DataMember(Name ="TwnNm", Order = 3)]
     public required string TownName { get; init; }
+
+    [DataMember(Name = "Ctry", Order = 4)]
     public required string Country { get; init; }
 
     public static XName RootElement => Helper.CreateXName("PstlAdr");
