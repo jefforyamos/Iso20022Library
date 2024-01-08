@@ -17,6 +17,20 @@
             "cwd": "${workspaceFolder}/BeneficialStrategies.Iso20022.Gen.CSharp",
             "stopAtEntry": false,
             "console": "internalConsole"
+        },
+        {
+            "name": "Generate Documentation",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/BeneficialStrategies.Iso20022.Gen.CSharp/bin/Debug/net8.0/BeneficialStrategies.Iso20022.Gen.CSharp.dll",
+            "args": [ 
+                "/Users/Jeff/Downloads",
+                "doc"
+            ],
+            "cwd": "${workspaceFolder}/BeneficialStrategies.Iso20022.Gen.CSharp",
+            "stopAtEntry": false,
+            "console": "internalConsole"
         }
     ]
 }
