@@ -21,6 +21,8 @@ public static class IsoXmlAttributes
         public static readonly XName CodeName = XName.Get("codeName", IsoXmlNamespaces.Default);
         public static readonly XName SubType = XName.Get("subType", IsoXmlNamespaces.Default);
         public static readonly XName Derivation = XName.Get("derivation", IsoXmlNamespaces.Default);
+        public static readonly XName Value = XName.Get("value", IsoXmlNamespaces.Default);
+        
     }
 }
 
@@ -30,5 +32,12 @@ public static class IsoXmlElements
     {
         public static readonly XName Example = XName.Get("example", IsoXmlNamespaces.Default);
         public static readonly XName Code = XName.Get("code", IsoXmlNamespaces.Default);
+        public static readonly XName DataDictionary = XName.Get("dataDictionary", IsoXmlNamespaces.Default);
+        public static readonly XName TopLevelCatalogueEntry = XName.Get("topLevelCatalogueEntry", IsoXmlNamespaces.Default);
+        public static readonly XName BusinessProcessCatalogue = XName.Get("businessProcessCatalogue", IsoXmlNamespaces.Default);
+
+        public static readonly XName BusinessRole = XName.Get("businessRole", IsoXmlNamespaces.Default);
+
+        public static readonly XName SymanticMarkup = XName.Get("semanticMarkup", IsoXmlNamespaces.Default);
     }
 }
