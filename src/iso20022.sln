@@ -9,15 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Repository", "BeneficialStrategies.Iso20022.Repository\BeneficialStrategies.Iso20022.Repository.csproj", "{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Gen.CSharp", "BeneficialStrategies.Iso20022.Gen.CSharp\BeneficialStrategies.Iso20022.Gen.CSharp.csproj", "{3A377558-8DEF-4BB5-835C-CD468B5F70D7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Common", "BeneficialStrategies.Iso20022.Common\BeneficialStrategies.Iso20022.Common.csproj", "{009AB480-B3D2-4A80-A3D2-8CE73359E172}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Common.UnitTest", "BeneficialStrategies.Iso20022.Common.UnitTest\BeneficialStrategies.Iso20022.Common.UnitTest.csproj", "{0262728B-563D-4150-B1AE-1FDE2618B997}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.Repository.UnitTest", "BeneficialStrategies.Iso20022.Repository.UnitTest\BeneficialStrategies.Iso20022.Repository.UnitTest.csproj", "{929534ED-D776-4F3E-9AF8-5E8B316553E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeneficialStrategies.Iso20022.SchemaValidation", "BeneficialStrategies.Iso20022.SchemaValidation\BeneficialStrategies.Iso20022.SchemaValidation.csproj", "{1966DEF5-53EA-4BE2-A5E6-D17515B36B88}"
 EndProject
@@ -30,14 +24,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DAEA651-1195-49D3-A5B2-0DF54BAB7818}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A377558-8DEF-4BB5-835C-CD468B5F70D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A377558-8DEF-4BB5-835C-CD468B5F70D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A377558-8DEF-4BB5-835C-CD468B5F70D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A377558-8DEF-4BB5-835C-CD468B5F70D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{009AB480-B3D2-4A80-A3D2-8CE73359E172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{009AB480-B3D2-4A80-A3D2-8CE73359E172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{009AB480-B3D2-4A80-A3D2-8CE73359E172}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -46,15 +32,9 @@ Global
 		{0262728B-563D-4150-B1AE-1FDE2618B997}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0262728B-563D-4150-B1AE-1FDE2618B997}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0262728B-563D-4150-B1AE-1FDE2618B997}.Release|Any CPU.Build.0 = Release|Any CPU
-		{929534ED-D776-4F3E-9AF8-5E8B316553E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{929534ED-D776-4F3E-9AF8-5E8B316553E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{929534ED-D776-4F3E-9AF8-5E8B316553E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{929534ED-D776-4F3E-9AF8-5E8B316553E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1966DEF5-53EA-4BE2-A5E6-D17515B36B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1966DEF5-53EA-4BE2-A5E6-D17515B36B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1966DEF5-53EA-4BE2-A5E6-D17515B36B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1966DEF5-53EA-4BE2-A5E6-D17515B36B88}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
