@@ -29,7 +29,35 @@ public partial record MandateCopyRequestV03 : IOuterRecord
     public const string XmlTag = "MndtCpyReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the mandate copy request, but which are not part of the mandate.
+    /// </summary>
+    [IsoId("_rUYOJ9cBEeq_l4BJLVUF2Q")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the mandate copy request, but which are not part of the mandate.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of information used to identify the mandate for which a copy is requested.
+    /// </summary>
+    [IsoId("_rUYOKdcBEeq_l4BJLVUF2Q")]
+    [Description(@"Set of information used to identify the mandate for which a copy is requested.")]
+    [DataMember(Name="UndrlygCpyReqDtls")]
+    [XmlElement(ElementName="UndrlygCpyReqDtls")]
+    [Required]
+    public required SomeUnderlyingCopyRequestDetailsRecord UnderlyingCopyRequestDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rUYOK9cBEeq_l4BJLVUF2Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +70,8 @@ public partial record MandateCopyRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MandateCopyRequest message is sent by the initiator of the request to his agent. The initiator can either be the debtor or the creditor.
-/// The MandateCopyRequest message is forwarded by the agent of the initiator to the agent of the counterparty.
-/// A MandateCopyRequest message is used to request a copy of an existing mandate. If accepted, the mandate copy can be sent using the MandateAcceptanceReport message.
-/// Usage
-/// The MandateCopyRequest message can contain one or more copy requests.
-/// The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.
-/// The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.
-/// The MandateCopyRequest message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="MandateCopyRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateCopyRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

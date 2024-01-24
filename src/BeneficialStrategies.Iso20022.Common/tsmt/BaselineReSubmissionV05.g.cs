@@ -29,7 +29,82 @@ public partial record BaselineReSubmissionV05 : IOuterRecord
     public const string XmlTag = "BaselnReSubmissn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the submitted information.
+    /// </summary>
+    [IsoId("_XtCPdQgGEeSeS5xdjFfOTw")]
+    [Description(@"Identifies the submitted information.")]
+    [DataMember(Name="SubmissnId")]
+    [XmlElement(ElementName="SubmissnId")]
+    [Required]
+    public required SomeSubmissionIdentificationRecord SubmissionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_XtCPdwgGEeSeS5xdjFfOTw")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_XtCPeQgGEeSeS5xdjFfOTw")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Specifies the commercial details of the underlying transaction.
+    /// </summary>
+    [IsoId("_XtCPewgGEeSeS5xdjFfOTw")]
+    [Description(@"Specifies the commercial details of the underlying transaction.")]
+    [DataMember(Name="Baseln")]
+    [XmlElement(ElementName="Baseln")]
+    [Required]
+    public required SomeBaselineRecord Baseline { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the organisation of the buyer.
+    /// </summary>
+    [IsoId("_XtCPfQgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the organisation of the buyer.")]
+    [DataMember(Name="BuyrCtctPrsn")]
+    [XmlElement(ElementName="BuyrCtctPrsn")]
+    public SomeBuyerContactPersonRecord? BuyerContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the organisation of the seller.
+    /// </summary>
+    [IsoId("_XtCPfwgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the organisation of the seller.")]
+    [DataMember(Name="SellrCtctPrsn")]
+    [XmlElement(ElementName="SellrCtctPrsn")]
+    public SomeSellerContactPersonRecord? SellerContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the seller's bank or buyer's bank.
+    /// </summary>
+    [IsoId("_XtCPgQgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the seller's bank or buyer's bank.")]
+    [DataMember(Name="BkCtctPrsn")]
+    [XmlElement(ElementName="BkCtctPrsn")]
+    [Required]
+    public required SomeBankContactPersonRecord BankContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in another bank than the seller or buyer's bank.
+    /// </summary>
+    [IsoId("_XtCPgwgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in another bank than the seller or buyer's bank.")]
+    [DataMember(Name="OthrBkCtctPrsn")]
+    [XmlElement(ElementName="OthrBkCtctPrsn")]
+    public SomeOtherBankContactPersonRecord? OtherBankContactPerson { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +117,8 @@ public partial record BaselineReSubmissionV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The BaselineReSubmission message is sent by either the counterparty or the initiator of a transaction (baseline) to the matching application.
-/// This message is used by the counterparty to respond on the registration of a push-through transaction in the matching application or by the initiator or counterparty to re-send earlier mis-matched baseline information.
-/// Usage
-/// The BaselineReSubmission message can be sent by the counterparty of a transaction to the matching application in response to a FullPushThroughReport message received from the matching application conveying the details of an InitialBaselineSubmission message. The objective of the BaselineReSubmission message sent in the outlined scenario is to achieve a successful match of two baseline initiation messages in order to establish a transaction in the matching application.
-/// or
-/// The BaselineReSubmission message can be sent by the initiator of a transaction to the matching application in response to a BaselineMatchReport message indicating mis-matches. The objective of the BaselineReSubmission message sent in the outlined scenario is to correct an InitialBaselineSubmission or BaselineReSubmission message submitted earlier in order to achieve the establishment of a transaction in the matching application.
-/// or
-/// The BaselineReSubmission message can be sent by the counterparty of a transaction to the matching application in response to a BaselineMatchReport message indicating mis-matches. The objective of the BaselineReSubmission message sent in the outlined scenario is to correct a BaselineReSubmission message submitted earlier in order to achieve the establishment of a transaction in the matching application.
-/// This is the outer document that contains <seealso cref="BaselineReSubmissionV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BaselineReSubmissionV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

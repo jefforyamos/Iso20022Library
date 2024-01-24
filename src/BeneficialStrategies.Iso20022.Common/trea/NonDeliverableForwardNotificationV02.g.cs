@@ -24,7 +24,63 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
     public const string XmlTag = "NDFNtfctnV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Specifies the trading side of the non deliverable trade which is reported.
+    /// </summary>
+    [IsoId("_URegMdE8Ed-BzquC8wXy7w_942299240")]
+    [Description(@"Specifies the trading side of the non deliverable trade which is reported.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the non deliverable trade which is reported.
+    /// </summary>
+    [IsoId("_URegMtE8Ed-BzquC8wXy7w_945996128")]
+    [Description(@"Specifies the counterparty of the non deliverable trade which is reported.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Set of data specified for the opening of a non deliverable trade.
+    /// </summary>
+    [IsoId("_URegM9E8Ed-BzquC8wXy7w_159065050")]
+    [Description(@"Set of data specified for the opening of a non deliverable trade.")]
+    [DataMember(Name="OpngData")]
+    [XmlElement(ElementName="OpngData")]
+    public SomeOpeningDataRecord? OpeningData { get; init; }
+    
+    /// <summary>
+    /// Set of data specified for the valuation of a non deliverable trade.
+    /// </summary>
+    [IsoId("_URegNNE8Ed-BzquC8wXy7w_1474183734")]
+    [Description(@"Set of data specified for the valuation of a non deliverable trade.")]
+    [DataMember(Name="ValtnData")]
+    [XmlElement(ElementName="ValtnData")]
+    public SomeValuationDataRecord? ValuationData { get; init; }
+    
+    /// <summary>
+    /// Provides information on the status of a trade in a central system.
+    /// </summary>
+    [IsoId("_URegNdE8Ed-BzquC8wXy7w_1332886078")]
+    [Description(@"Provides information on the status of a trade in a central system.")]
+    [DataMember(Name="TradInfAndSts")]
+    [XmlElement(ElementName="TradInfAndSts")]
+    [Required]
+    public required SomeTradeInformationAndStatusRecord TradeInformationAndStatus { get; init; }
+    
+    /// <summary>
+    /// Provides information on the settlement of a trade.
+    /// </summary>
+    [IsoId("_URoRMNE8Ed-BzquC8wXy7w_941311999")]
+    [Description(@"Provides information on the settlement of a trade.")]
+    [DataMember(Name="SttlmData")]
+    [XmlElement(ElementName="SttlmData")]
+    public SomeSettlementDataRecord? SettlementData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +93,8 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The NonDeliverableForwardNotification message is sent by a central system to a participant to provide details of a non deliverable forward trade.
-/// Usage
-/// The notification is sent by a central settlement system to the two trading parties after it has received create, amend or cancel messages from both. The message may also contain information on the settlement of the trade.
-/// This is the outer document that contains <seealso cref="NonDeliverableForwardNotificationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NonDeliverableForwardNotificationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

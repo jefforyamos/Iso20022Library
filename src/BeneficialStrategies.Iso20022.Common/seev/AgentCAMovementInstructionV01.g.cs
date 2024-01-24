@@ -33,7 +33,72 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     public const string XmlTag = "AgtCAMvmntInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the instruction.
+    /// </summary>
+    [IsoId("_TQbwbdEwEd-BzquC8wXy7w_-1830305628")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the instruction.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the Agent CA ElectionAdvice when the movements are the result of an ElectionAdvice.
+    /// </summary>
+    [IsoId("_TQbwbtEwEd-BzquC8wXy7w_1167684393")]
+    [Description(@"Identification of the Agent CA ElectionAdvice when the movements are the result of an ElectionAdvice.")]
+    [DataMember(Name="AgtCAElctnAdvcId")]
+    [XmlElement(ElementName="AgtCAElctnAdvcId")]
+    public SomeAgentCAElectionAdviceIdentificationRecord? AgentCAElectionAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TQlhYNEwEd-BzquC8wXy7w_-1064437187")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides general information about the movement.
+    /// </summary>
+    [IsoId("_TQlhYdEwEd-BzquC8wXy7w_1865905670")]
+    [Description(@"Provides general information about the movement.")]
+    [DataMember(Name="MvmntGnlInf")]
+    [XmlElement(ElementName="MvmntGnlInf")]
+    [Required]
+    public required SomeMovementGeneralInformationRecord MovementGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information related to the movement of the underlying securities.
+    /// </summary>
+    [IsoId("_TQlhYtEwEd-BzquC8wXy7w_-380692038")]
+    [Description(@"Information related to the movement of the underlying securities.")]
+    [DataMember(Name="UndrlygSctiesMvmntDtls")]
+    [XmlElement(ElementName="UndrlygSctiesMvmntDtls")]
+    public SomeUnderlyingSecuritiesMovementDetailsRecord? UnderlyingSecuritiesMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the movement of the underlying cash.
+    /// </summary>
+    [IsoId("_TQlhY9EwEd-BzquC8wXy7w_940386448")]
+    [Description(@"Information related to the movement of the underlying cash.")]
+    [DataMember(Name="UndrlygCshMvmntDtls")]
+    [XmlElement(ElementName="UndrlygCshMvmntDtls")]
+    public SomeUnderlyingCashMovementDetailsRecord? UnderlyingCashMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the movement of the CA proceeds.
+    /// </summary>
+    [IsoId("_TQlhZNEwEd-BzquC8wXy7w_1511604786")]
+    [Description(@"Information related to the movement of the CA proceeds.")]
+    [DataMember(Name="PrcdsMvmntDtls")]
+    [XmlElement(ElementName="PrcdsMvmntDtls")]
+    public SomeProceedsMovementDetailsRecord? ProceedsMovementDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -46,20 +111,8 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to a CSD to order:
-/// - the global or individual debit of exercised resources (cash and/or securities), per event and optionally per option and per resource for all or individual CSD client's accounts;
-/// - and/or the individual credits of the outturn resources per event and optionally per option and per resource for a given CSD client's account.
-/// Usage
-/// This message is used to instruct:
-/// - the global debit of the exercised resources from the CSD client's available or sequestered balance, in which case, the order type must be 'global debit order';
-/// - the individual debits and credits:
-/// - the individual debit of the exercised resources from the CSD client's available or sequestered balance and/or
-/// - the individual credit of the outturn resources to the CSD client's account.
-/// The order type must be 'individual order';
-/// - a return order, in the case of a scaleback, i.e. the return of the exercised resources to the CSD client's account. The order type must be either 'global return order' or 'individual return order'; and
-/// change of option, e.g. in the case of the closure of an option, by moving the exercised resources from one option to another option within the sequestered balances in accordance to the new option conditions. The order type must be 'option change order'.
-/// This is the outer document that contains <seealso cref="AgentCAMovementInstructionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAMovementInstructionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

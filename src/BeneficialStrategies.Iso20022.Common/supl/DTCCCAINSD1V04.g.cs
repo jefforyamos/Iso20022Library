@@ -21,7 +21,42 @@ public partial record DTCCCAINSD1V04 : IOuterRecord
     public const string XmlTag = "DTCCCAINSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) optional dividend service election.
+    /// </summary>
+    [IsoId("_LAGyMb5MEeexmbB7KsjCwA")]
+    [Description(@"DTC (The Depository Trust Corporation) optional dividend service election.")]
+    [DataMember(Name="OptnlDvdd")]
+    [XmlElement(ElementName="OptnlDvdd")]
+    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) tax exempt service election.
+    /// </summary>
+    [IsoId("_LAGyOb5MEeexmbB7KsjCwA")]
+    [Description(@"DTC (The Depository Trust Corporation) tax exempt service election.")]
+    [DataMember(Name="TaxXmpt")]
+    [XmlElement(ElementName="TaxXmpt")]
+    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.
+    /// </summary>
+    [IsoId("_LAGyQb5MEeexmbB7KsjCwA")]
+    [Description(@"DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.")]
+    [DataMember(Name="WireInstr")]
+    [XmlElement(ElementName="WireInstr")]
+    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    
+    /// <summary>
+    /// Supplementary data extending corporate action reorganisation instruction message with corporate action elements not covered in the standard message.
+    /// </summary>
+    [IsoId("_aEKXsMU2EeeWeZMpNX1JUQ")]
+    [Description(@"Supplementary data extending corporate action reorganisation instruction message with corporate action elements not covered in the standard message.")]
+    [DataMember(Name="ReorgInstrDtls")]
+    [XmlElement(ElementName="ReorgInstrDtls")]
+    public required IReadonlyCollection<SomeReorganisationInstructionDetailsRecord> ReorganisationInstructionDetails { get; init; } // Min=0, Max=12
+    
     */
     
     /// <summary>
@@ -34,8 +69,8 @@ public partial record DTCCCAINSD1V04 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAINSD1 message extends ISO corporate action instruction message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAINSD1V04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAINSD1V04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

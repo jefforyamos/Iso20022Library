@@ -21,7 +21,43 @@ public partial record ATMDeviceControlV03 : IOuterRecord
     public const string XmlTag = "ATMDvcCtrl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_NrPX41_YEeeD0NpJQPACzA")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_NrPX5V_YEeeD0NpJQPACzA")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMDvcCtrl")]
+    [XmlElement(ElementName="PrtctdATMDvcCtrl")]
+    public SomeProtectedATMDeviceControlRecord? ProtectedATMDeviceControl { get; init; }
+    
+    /// <summary>
+    /// Information related to the control of an ATM device.
+    /// </summary>
+    [IsoId("_NrPX51_YEeeD0NpJQPACzA")]
+    [Description(@"Information related to the control of an ATM device.")]
+    [DataMember(Name="ATMDvcCtrl")]
+    [XmlElement(ElementName="ATMDvcCtrl")]
+    public SomeATMDeviceControlRecord? ATMDeviceControl { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_NrPX6V_YEeeD0NpJQPACzA")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMDeviceControlV03 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMDeviceControl message is sent by a maintenance host to an ATM in response to an ATMDeviceReport message. The message contains a sequence of maintenance commands the ATM must perform.
-/// This is the outer document that contains <seealso cref="ATMDeviceControlV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDeviceControlV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

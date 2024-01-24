@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingMissingCollateralRequestV02 : 
     public const string XmlTag = "SctiesFincgRptgMssngCollReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of information identifying the missing transactions that are to be supplemented. 
+    /// </summary>
+    [IsoId("_EGxyI8KvEeuzU9S_IANlog")]
+    [Description(@"Set of information identifying the missing transactions that are to be supplemented. ")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_EGxyJcKvEeuzU9S_IANlog")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingMissingCollateralRequestV02 : 
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingMissingCollateralRequest is made available by the trade repository (TR) to the  report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, with a request to submit collateral information for a given trade. 
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingMissingCollateralRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingMissingCollateralRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -33,7 +33,118 @@ public partial record IntraPositionMovementInstructionV01 : IOuterRecord
     public const string XmlTag = "IntraPosMvmntInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies an IntraPositionMovementTransaction and an IntraPositionMovementInstruction message as known by the account owner (or the instructing party acting on its behalf).
+    /// </summary>
+    [IsoId("_MeYVU9FSEd-BzquC8wXy7w_1357657870")]
+    [Description(@"Information that unambiguously identifies an IntraPositionMovementTransaction and an IntraPositionMovementInstruction message as known by the account owner (or the instructing party acting on its behalf).")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
+    /// </summary>
+    [IsoId("_MeYVVNFSEd-BzquC8wXy7w_1998610678")]
+    [Description(@"Identification assigned by the account servicer to unambiguously identify a corporate action event.")]
+    [DataMember(Name="CorpActnEvtId")]
+    [XmlElement(ElementName="CorpActnEvtId")]
+    public SomeCorporateActionEventIdentificationRecord? CorporateActionEventIdentification { get; init; }
+    
+    /// <summary>
+    /// Link to another transaction that must be processed after, before or at the same time.
+    /// </summary>
+    [IsoId("_MeYVVdFSEd-BzquC8wXy7w_-1755201479")]
+    [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
+    [DataMember(Name="Lnkgs")]
+    [XmlElement(ElementName="Lnkgs")]
+    public SomeLinkagesRecord? Linkages { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_MeYVVtFSEd-BzquC8wXy7w_526818881")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_MeYVV9FSEd-BzquC8wXy7w_595160334")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
+    /// </summary>
+    [IsoId("_MeYVWNFSEd-BzquC8wXy7w_879603869")]
+    [Description(@"Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).")]
+    [DataMember(Name="SfkpgPlc")]
+    [XmlElement(ElementName="SfkpgPlc")]
+    public SomeSafekeepingPlaceRecord? SafekeepingPlace { get; init; }
+    
+    /// <summary>
+    /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
+    /// </summary>
+    [IsoId("_MeYVWdFSEd-BzquC8wXy7w_-1911472219")]
+    [Description(@"Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    [Required]
+    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Elements characterising a financial instrument.
+    /// </summary>
+    [IsoId("_MeiGUNFSEd-BzquC8wXy7w_-823369735")]
+    [Description(@"Elements characterising a financial instrument.")]
+    [DataMember(Name="FinInstrmAttrbts")]
+    [XmlElement(ElementName="FinInstrmAttrbts")]
+    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    
+    /// <summary>
+    /// Intra-position movement transaction details.
+    /// </summary>
+    [IsoId("_MeiGUdFSEd-BzquC8wXy7w_-536356522")]
+    [Description(@"Intra-position movement transaction details.")]
+    [DataMember(Name="IntraPosDtls")]
+    [XmlElement(ElementName="IntraPosDtls")]
+    [Required]
+    public required SomeIntraPositionDetailsRecord IntraPositionDetails { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_MeiGUtFSEd-BzquC8wXy7w_436110801")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_MeiGU9FSEd-BzquC8wXy7w_476744082")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_MeiGVNFSEd-BzquC8wXy7w_-177108198")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -46,20 +157,8 @@ public partial record IntraPositionMovementInstructionV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends a IntraPositionMovementInstruction to an account servicer to instruct the movement of securities within its holding from one sub-balance to another, for example, blocking of securities.
-/// The account owner/servicer relationship may be:
-/// - a global custodian which has an account with its local agent (sub-custodian), or
-/// - an investment management institution which manage a fund account opened at a custodian, or
-/// - broker which has an account with a custodian, or
-/// - a central securities depository participant which has an account with a central securities depository, or
-/// - a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="IntraPositionMovementInstructionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementInstructionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -31,7 +31,43 @@ public partial record SecurityCreationStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "SctyCreStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_Jyh98ZIxEeuAlLVx8pyt3w")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identification of the financial instrument.
+    /// </summary>
+    [IsoId("_jTt_yR62Eeu31YsWNiv_cw")]
+    [Description(@"Identification of the financial instrument.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    public SomeFinancialInstrumentIdentificationRecord? FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Represents the processing status.
+    /// </summary>
+    [IsoId("_jTt_yx62Eeu31YsWNiv_cw")]
+    [Description(@"Represents the processing status.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    [Required]
+    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jTt_0R62Eeu31YsWNiv_cw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +80,8 @@ public partial record SecurityCreationStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// SCOPE
-/// An executing/servicing party sends a SecurityCreationStatusAdvice message to an instructing party to report the status of a SecurityCreationRequest message previously sent by the instructing party. 
-/// The SecurityCreationStatusAdvice message may be sent as a response to the request of the instructing party or not.
-/// The instructing party - executing/servicing party relationship may be:
-/// - Central Securities Depositories (CSD) who would like to publish security static data, or 
-/// - a Corporate, or
-/// - a Bank, or
-/// - a Market Infrastructure, or 
-/// - a Market Data Provider.
-/// USAGE
-/// Initiator: executing/servicing party.
-/// This is the outer document that contains <seealso cref="SecurityCreationStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityCreationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -26,7 +26,43 @@ public partial record ReversalOfTransferInConfirmation : IOuterRecord
     public const string XmlTag = "sese.008.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_onAWSdE5Ed-BzquC8wXy7w_1341163383")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_onJgMNE5Ed-BzquC8wXy7w_331507312")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_onJgMdE5Ed-BzquC8wXy7w_-139488409")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Copy of the transfer in confirmation to reverse.
+    /// </summary>
+    [IsoId("_onJgMtE5Ed-BzquC8wXy7w_-66143947")]
+    [Description(@"Copy of the transfer in confirmation to reverse.")]
+    [DataMember(Name="TrfInConfToBeRvsd")]
+    [XmlElement(ElementName="TrfInConfToBeRvsd")]
+    public SomeTransferInConfirmationToBeReversedRecord? TransferInConfirmationToBeReversed { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +75,8 @@ public partial record ReversalOfTransferInConfirmation : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ReversalOfTransferInConfirmation message is sent by an executing party to the instructing party or the instructing party's designated agent.
-/// This message is used to reverse a TransferInConfirmation that was previously sent by the instructing party.
-/// Usage
-/// The ReversalOfTransferInConfirmation message is sent by an executing party to reverse a previously sent TransferInConfirmation.
-/// This message must contain the reference of the message to be reversed. The message may also contain all the details of the reversed message, but this is not recommended.
-/// This is the outer document that contains <seealso cref="ReversalOfTransferInConfirmation"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalOfTransferInConfirmation"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

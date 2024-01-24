@@ -25,7 +25,53 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     public const string XmlTag = "FXTradCaptrRptAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the acknowledgement message.
+    /// </summary>
+    [IsoId("_BoI5cHO1EeSG-OV0nXMl5w")]
+    [Description(@"Identifies the acknowledgement message.")]
+    [DataMember(Name="AckId")]
+    [XmlElement(ElementName="AckId")]
+    public SomeAcknowledgementIdentificationRecord? AcknowledgementIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.
+    /// </summary>
+    [IsoId("_EnLdcHO1EeSG-OV0nXMl5w")]
+    [Description(@"Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.")]
+    [DataMember(Name="TradId")]
+    [XmlElement(ElementName="TradId")]
+    [Required]
+    public required SomeTradeIdentificationRecord TradeIdentification { get; init; }
+    
+    /// <summary>
+    /// Acknowlegement status of recevied trade capture report.
+    /// </summary>
+    [IsoId("_I7vC4HO1EeSG-OV0nXMl5w")]
+    [Description(@"Acknowlegement status of recevied trade capture report.")]
+    [DataMember(Name="Sts")]
+    [XmlElement(ElementName="Sts")]
+    [Required]
+    public required SomeStatusRecord Status { get; init; }
+    
+    /// <summary>
+    /// Reference of the acknowledge, specifies the message this acknowledge responds to.
+    /// </summary>
+    [IsoId("_OS-0YHO1EeSG-OV0nXMl5w")]
+    [Description(@"Reference of the acknowledge, specifies the message this acknowledge responds to.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    public SomeReferenceRecord? Reference { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_ankbAKHiEeS69KkQis5bYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +84,8 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
 }
 
 /// <summary>
-/// Scope
-/// The ForeignExchangeTradeCaptureReportAcknowledgement message is sent by trading members to the trading system for notifying the trade capture report is received.
-/// Usage
-/// The acknowledgement is sent by the trading member to the trading system after they received the trade capture report. 
-/// Note that one capture acknowledgement responds to one capture report.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeCaptureReportAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeCaptureReportAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

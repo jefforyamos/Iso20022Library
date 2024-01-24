@@ -25,7 +25,45 @@ public partial record AgentCAMovementCancellationRequestV01 : IOuterRecord
     public const string XmlTag = "AgtCAMvmntCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the cancellation request.
+    /// </summary>
+    [IsoId("_TOf2sNEwEd-BzquC8wXy7w_1790490668")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the cancellation request.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the Agent CA Movement Instruction to be cancelled.
+    /// </summary>
+    [IsoId("_TOf2sdEwEd-BzquC8wXy7w_1808039955")]
+    [Description(@"Identification of the Agent CA Movement Instruction to be cancelled.")]
+    [DataMember(Name="AgtCAMvmntInstrId")]
+    [XmlElement(ElementName="AgtCAMvmntInstrId")]
+    [Required]
+    public required SomeAgentCAMovementInstructionIdentificationRecord AgentCAMovementInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TOf2stEwEd-BzquC8wXy7w_2016403103")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Details of the movement instructions to be cancelled.
+    /// </summary>
+    [IsoId("_TOf2s9EwEd-BzquC8wXy7w_1913625535")]
+    [Description(@"Details of the movement instructions to be cancelled.")]
+    [DataMember(Name="MvmntDtls")]
+    [XmlElement(ElementName="MvmntDtls")]
+    public SomeMovementDetailsRecord? MovementDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +76,8 @@ public partial record AgentCAMovementCancellationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to a CSD to request the cancellation of (a) movement(s) previously sent via an Agent Corporate Action Movement Instruction.
-/// Usage
-/// This message may be used to cancel an entire Agent Corporate Action Movement Instruction message that was previously sent by the issuer (or its agent) or specific movements.
-/// This message must contain the identification of the Agent Corporate Action Movement Instruction containing the movement(s) to be cancelled, the agent identification and the corporate action references. This message must also contain details of the movement(s) to be cancelled.
-/// This is the outer document that contains <seealso cref="AgentCAMovementCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAMovementCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

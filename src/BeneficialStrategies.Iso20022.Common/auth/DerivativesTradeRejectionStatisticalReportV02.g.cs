@@ -21,7 +21,25 @@ public partial record DerivativesTradeRejectionStatisticalReportV02 : IOuterReco
     public const string XmlTag = "DerivsTradRjctnSttstclRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Detailed information on statistics per combination of counterparties.
+    /// </summary>
+    [IsoId("_F_KeA91bEeqxpKDfBZC1vg")]
+    [Description(@"Detailed information on statistics per combination of counterparties.")]
+    [DataMember(Name="SttstcsPerCtrPty")]
+    [XmlElement(ElementName="SttstcsPerCtrPty")]
+    [Required]
+    public required SomeStatisticsPerCounterpartyRecord StatisticsPerCounterparty { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_F_KeBd1bEeqxpKDfBZC1vg")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record DerivativesTradeRejectionStatisticalReportV02 : IOuterReco
 }
 
 /// <summary>
-/// The DerivativesTradeRejectionStatisticalReport message is sent by the the trade repositories to the supervisory authority system, to report statistical information on derivatives submissions.
-/// This is the outer document that contains <seealso cref="DerivativesTradeRejectionStatisticalReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeRejectionStatisticalReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

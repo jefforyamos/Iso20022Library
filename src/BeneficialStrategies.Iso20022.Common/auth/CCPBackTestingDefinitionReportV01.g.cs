@@ -21,7 +21,25 @@ public partial record CCPBackTestingDefinitionReportV01 : IOuterRecord
     public const string XmlTag = "CCPBckTstgDefRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details parameters and methodology used to conduct the back test.
+    /// </summary>
+    [IsoId("_lfCcNzW0EemdWfjs3tykFQ")]
+    [Description(@"Details parameters and methodology used to conduct the back test.")]
+    [DataMember(Name="Mthdlgy")]
+    [XmlElement(ElementName="Mthdlgy")]
+    [Required]
+    public required SomeMethodologyRecord Methodology { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_lfCcODW0EemdWfjs3tykFQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPBackTestingDefinitionReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CCPBackTestingDefinitionReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the methodology used to carry out backtesting.
-/// This is the outer document that contains <seealso cref="CCPBackTestingDefinitionReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPBackTestingDefinitionReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

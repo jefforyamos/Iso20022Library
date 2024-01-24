@@ -25,7 +25,66 @@ public partial record MeetingVoteExecutionConfirmationV03 : IOuterRecord
     public const string XmlTag = "MtgVoteExctnConf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the vote execution confirmation message.
+    /// </summary>
+    [IsoId("_TuFVsdEwEd-BzquC8wXy7w_-1220424664")]
+    [Description(@"Identifies the vote execution confirmation message.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identifies the meeting instruction message.
+    /// </summary>
+    [IsoId("_TuFVstEwEd-BzquC8wXy7w_-1202876694")]
+    [Description(@"Identifies the meeting instruction message.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    [Required]
+    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Series of elements which allow to identify a meeting.
+    /// </summary>
+    [IsoId("_TuFVs9EwEd-BzquC8wXy7w_-1149311795")]
+    [Description(@"Series of elements which allow to identify a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    [Required]
+    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Party confirming the votes.
+    /// </summary>
+    [IsoId("_TuFVtNEwEd-BzquC8wXy7w_-1117911897")]
+    [Description(@"Party confirming the votes.")]
+    [DataMember(Name="RptgPty")]
+    [XmlElement(ElementName="RptgPty")]
+    [Required]
+    public required SomeReportingPartyRecord ReportingParty { get; init; }
+    
+    /// <summary>
+    /// Identifies the securities for which the meeting is organised.
+    /// </summary>
+    [IsoId("_TuFVtdEwEd-BzquC8wXy7w_-1078202603")]
+    [Description(@"Identifies the securities for which the meeting is organised.")]
+    [DataMember(Name="SctyId")]
+    [XmlElement(ElementName="SctyId")]
+    [Required]
+    public required SomeSecurityIdentificationRecord SecurityIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies how a party has voted for each agenda item.
+    /// </summary>
+    [IsoId("_TuFVttEwEd-BzquC8wXy7w_1618914221")]
+    [Description(@"Specifies how a party has voted for each agenda item.")]
+    [DataMember(Name="VoteInstrs")]
+    [XmlElement(ElementName="VoteInstrs")]
+    [Required]
+    public required SomeVoteInstructionsRecord VoteInstructions { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +97,8 @@ public partial record MeetingVoteExecutionConfirmationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An issuer, its agent or an intermediary sends the MeetingVoteExecutionConfirmation message to confirm to the Sender of the MeetingInstruction message, the execution of their voting instruction.
-/// Usage
-/// This message is sent after the shareholders meeting has taken place. The Sender of this message confirms the execution of the vote at the meeting and confirms that the vote has been processed as instructed via the MeetingInstruction message.
-/// This messages is sent if the Sender of the MeetingInstruction message has requested such a confirmation or if market practice or regulation stipulates the need for a full audit trail.
-/// This is the outer document that contains <seealso cref="MeetingVoteExecutionConfirmationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingVoteExecutionConfirmationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

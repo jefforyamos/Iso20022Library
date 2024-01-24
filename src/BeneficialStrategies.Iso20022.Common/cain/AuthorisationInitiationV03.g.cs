@@ -21,7 +21,35 @@ public partial record AuthorisationInitiationV03 : IOuterRecord
     public const string XmlTag = "AuthstnInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_eVcbo4EKEeu6D49Gi-ZPwQ")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the authorisation initiation.
+    /// </summary>
+    [IsoId("_eVcbpYEKEeu6D49Gi-ZPwQ")]
+    [Description(@"Information related to the authorisation initiation.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_eVcbp4EKEeu6D49Gi-ZPwQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AuthorisationInitiationV03 : IOuterRecord
 }
 
 /// <summary>
-/// AuthorisationInitiation message is sent by an acquirer or an agent to an issuer to request approval of a card transaction by the issuer or to inform the issuer about the completion of the authorisation. It can also be sent by an issuer to an acquirer or agent to advise about the result of an authorisation already performed.
-/// This is the outer document that contains <seealso cref="AuthorisationInitiationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AuthorisationInitiationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

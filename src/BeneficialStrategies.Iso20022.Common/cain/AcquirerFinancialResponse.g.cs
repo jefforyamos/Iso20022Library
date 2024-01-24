@@ -21,7 +21,35 @@ public partial record AcquirerFinancialResponse : IOuterRecord
     public const string XmlTag = "AcqrrFinRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management.
+    /// </summary>
+    [IsoId("_V0OZAHucEeSBS-QFUaKA-g")]
+    [Description(@"Information related to the protocol management.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a financial authorisation.
+    /// </summary>
+    [IsoId("_oMbT0HumEeSBS-QFUaKA-g")]
+    [Description(@"Information related to the response of a financial authorisation.")]
+    [DataMember(Name="FinRspn")]
+    [XmlElement(ElementName="FinRspn")]
+    [Required]
+    public required SomeFinancialResponseRecord FinancialResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_7ieigHumEeSBS-QFUaKA-g")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcquirerFinancialResponse : IOuterRecord
 }
 
 /// <summary>
-/// The AcquirerFinancialResponse message is sent by an issuer or an agent to answer to an AcquirerFinancialInitiation message.
-/// This is the outer document that contains <seealso cref="AcquirerFinancialResponse"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcquirerFinancialResponse"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

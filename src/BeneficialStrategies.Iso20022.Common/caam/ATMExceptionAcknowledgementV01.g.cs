@@ -21,7 +21,43 @@ public partial record ATMExceptionAcknowledgementV01 : IOuterRecord
     public const string XmlTag = "ATMXcptnAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_fpPXMK5GEeWCgYcWSNgX5g")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_k_u6wK5GEeWCgYcWSNgX5g")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMXcptnAck")]
+    [XmlElement(ElementName="PrtctdATMXcptnAck")]
+    public SomeProtectedATMExceptionAcknowledgementRecord? ProtectedATMExceptionAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Information related to the acknowledgement of an ATM exception.
+    /// </summary>
+    [IsoId("_ogUFkK5GEeWCgYcWSNgX5g")]
+    [Description(@"Information related to the acknowledgement of an ATM exception.")]
+    [DataMember(Name="ATMXcptnAck")]
+    [XmlElement(ElementName="ATMXcptnAck")]
+    public SomeATMExceptionAcknowledgementRecord? ATMExceptionAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_kRgtYK5HEeWCgYcWSNgX5g")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMExceptionAcknowledgementV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMExceptionAcknowledgement message is sent by an acquirer or its agent to an ATM to acknowledge the receipt of an ATMExceptionAdvice message.
-/// This is the outer document that contains <seealso cref="ATMExceptionAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMExceptionAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

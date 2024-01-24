@@ -21,7 +21,43 @@ public partial record ATMTransferRequestV01 : IOuterRecord
     public const string XmlTag = "ATMTrfReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_7z5qYK4rEeWLdt0vLARX2Q")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_Ag7aMK4sEeWLdt0vLARX2Q")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMTrfReq")]
+    [XmlElement(ElementName="PrtctdATMTrfReq")]
+    public SomeProtectedATMTransferRequestRecord? ProtectedATMTransferRequest { get; init; }
+    
+    /// <summary>
+    /// Information related to the request of a fund transfer from an ATM.
+    /// </summary>
+    [IsoId("_HwpwQK4sEeWLdt0vLARX2Q")]
+    [Description(@"Information related to the request of a fund transfer from an ATM.")]
+    [DataMember(Name="ATMTrfReq")]
+    [XmlElement(ElementName="ATMTrfReq")]
+    public SomeATMTransferRequestRecord? ATMTransferRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_A9cA8K41EeWpsoxRhdX-8A")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMTransferRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMTransferRequest message is sent by an ATM to an ATM manager to request the approval of a fund transfer at the ATM.
-/// This is the outer document that contains <seealso cref="ATMTransferRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMTransferRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

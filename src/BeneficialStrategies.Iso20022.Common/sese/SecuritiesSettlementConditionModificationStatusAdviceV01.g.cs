@@ -33,7 +33,90 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     public const string XmlTag = "SctiesSttlmCondModStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies a SecuritiesSettlementConditionModificationStatusAdvice message as known by the account servicer.
+    /// </summary>
+    [IsoId("_1MtSidE5Ed-BzquC8wXy7w_-909459027")]
+    [Description(@"Information that unambiguously identifies a SecuritiesSettlementConditionModificationStatusAdvice message as known by the account servicer.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the SecuritiesSettlementConditionsModificationRequest.
+    /// </summary>
+    [IsoId("_1MtSitE5Ed-BzquC8wXy7w_686324124")]
+    [Description(@"Identification of the SecuritiesSettlementConditionsModificationRequest.")]
+    [DataMember(Name="ReqRef")]
+    [XmlElement(ElementName="ReqRef")]
+    [Required]
+    public required SomeRequestReferenceRecord RequestReference { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_1MtSi9E5Ed-BzquC8wXy7w_-444926450")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_1M3DgNE5Ed-BzquC8wXy7w_-1178239149")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Details of the request.
+    /// </summary>
+    [IsoId("_1M3DgdE5Ed-BzquC8wXy7w_1414149203")]
+    [Description(@"Details of the request.")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    public SomeRequestDetailsRecord? RequestDetails { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the request.
+    /// </summary>
+    [IsoId("_1M3DgtE5Ed-BzquC8wXy7w_-14563881")]
+    [Description(@"Provides details on the processing status of the request.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    [Required]
+    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_1M3Dg9E5Ed-BzquC8wXy7w_-1853560413")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_1M3DhNE5Ed-BzquC8wXy7w_-1768597367")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_1M3DhdE5Ed-BzquC8wXy7w_-1483229932")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -46,20 +129,8 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesSettlementConditionsModificationStatusAdvice to an account owner to advise the status of a modification request previously instructed by the account owner.
-/// |The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or 
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// |Usage
-/// A SecuritiesSettlementConditionsModificatioRequest may contain requests on multiple transactions. However, one SecuritiesSettlementConditionsModificationStatusAdvice must be sent per transaction modified unless the SecuritiesSettlementConditionsModificationRequest is rejected as a whole.			
-/// |The message may also be used to: |
-/// - re-send a message previously sent (the sub-function of the message is Duplicate) |
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy) |
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).
-/// ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.|.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementConditionModificationStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementConditionModificationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

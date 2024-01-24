@@ -21,7 +21,25 @@ public partial record CCPClearingMemberReportV01 : IOuterRecord
     public const string XmlTag = "CCPClrMmbRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Legal counterpart to trades cleared through a central counterparty.
+    /// </summary>
+    [IsoId("_yw5rmeUTEem3X-64-NKdqg")]
+    [Description(@"Legal counterpart to trades cleared through a central counterparty.")]
+    [DataMember(Name="ClrMmb")]
+    [XmlElement(ElementName="ClrMmb")]
+    [Required]
+    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_yw5rm-UTEem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPClearingMemberReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CCPClearingMemberReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the central counterparties clearing members and their clients, and the related account structures.
-/// This is the outer document that contains <seealso cref="CCPClearingMemberReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPClearingMemberReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

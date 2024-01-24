@@ -25,7 +25,53 @@ public partial record CustodyStatementOfHoldingsCancellationV02 : IOuterRecord
     public const string XmlTag = "CtdyStmtOfHldgsCxlV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_Mb_vvdFSEd-BzquC8wXy7w_682925728")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_Mb_vvtFSEd-BzquC8wXy7w_-145472685")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_Mb_vv9FSEd-BzquC8wXy7w_-145472650")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).
+    /// </summary>
+    [IsoId("_McJgsNFSEd-BzquC8wXy7w_-145472572")]
+    [Description(@"Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// The Custody Statement of Holdings message to cancel.
+    /// </summary>
+    [IsoId("_McJgsdFSEd-BzquC8wXy7w_-145472607")]
+    [Description(@"The Custody Statement of Holdings message to cancel.")]
+    [DataMember(Name="StmtToBeCanc")]
+    [XmlElement(ElementName="StmtToBeCanc")]
+    public SomeStatementToBeCancelledRecord? StatementToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +84,8 @@ public partial record CustodyStatementOfHoldingsCancellationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer, for example, a transfer agent, sends the CustodyStatementOfHoldingsCancellation message to the account owner, for example, an investment manager or its authorised representative to cancel a previously sent CustodyStatementOfHoldings message.
-/// Usage
-/// The CustodyStatementOfHoldingsCancellation message is used to cancel a previously sent CustodyStatementOfHoldings message. This message must contain the reference of the message to be cancelled.
-/// This message may also contain details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="CustodyStatementOfHoldingsCancellationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustodyStatementOfHoldingsCancellationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

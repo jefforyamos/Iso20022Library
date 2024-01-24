@@ -21,7 +21,25 @@ public partial record UndertakingTerminationNotificationV01 : IOuterRecord
     public const string XmlTag = "UdrtkgTermntnNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the termination notification.
+    /// </summary>
+    [IsoId("_9gdfZnltEeG7BsjMvd1mEw_-908071833")]
+    [Description(@"Details of the termination notification.")]
+    [DataMember(Name="UdrtkgTermntnNtfctnDtls")]
+    [XmlElement(ElementName="UdrtkgTermntnNtfctnDtls")]
+    [Required]
+    public required SomeUndertakingTerminationNotificationDetailsRecord UndertakingTerminationNotificationDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the notification.
+    /// </summary>
+    [IsoId("_9gdfZ3ltEeG7BsjMvd1mEw_-1175318209")]
+    [Description(@"Digital signature of the notification.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record UndertakingTerminationNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingTerminationNotification message is sent to the applicant by the party that issued the undertaking to give notification of the termination or cancelation of the referenced undertaking.
-/// This is the outer document that contains <seealso cref="UndertakingTerminationNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingTerminationNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

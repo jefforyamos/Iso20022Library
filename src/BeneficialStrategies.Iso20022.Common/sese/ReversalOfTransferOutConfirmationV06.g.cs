@@ -28,7 +28,53 @@ public partial record ReversalOfTransferOutConfirmationV06 : IOuterRecord
     public const string XmlTag = "RvslOfTrfOutConf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_1PNtIz57EeSIqOPJHpnleA")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.
+    /// </summary>
+    [IsoId("_1PNtJT57EeSIqOPJHpnleA")]
+    [Description(@"Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    public SomeReferencesRecord? References { get; init; }
+    
+    /// <summary>
+    /// Choice between reversal by reference or by reversal details.
+    /// </summary>
+    [IsoId("_1PNtJz57EeSIqOPJHpnleA")]
+    [Description(@"Choice between reversal by reference or by reversal details.")]
+    [DataMember(Name="Rvsl")]
+    [XmlElement(ElementName="Rvsl")]
+    [Required]
+    public required SomeReversalRecord Reversal { get; init; }
+    
+    /// <summary>
+    /// Identifies the market practice to which the message conforms.
+    /// </summary>
+    [IsoId("_1PNtKT57EeSIqOPJHpnleA")]
+    [Description(@"Identifies the market practice to which the message conforms.")]
+    [DataMember(Name="MktPrctcVrsn")]
+    [XmlElement(ElementName="MktPrctcVrsn")]
+    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_1PNtKz57EeSIqOPJHpnleA")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +87,8 @@ public partial record ReversalOfTransferOutConfirmationV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a transfer agent, sends the ReversalOfTransferOutConfirmation message to the instructing party, for example, an investment manager or its authorised representative, to cancel a previously sent TransferOutConfirmation message.
-/// Usage
-/// The ReversalOfTransferOutConfirmation message is used to reverse a previously sent TransferOutConfirmation.
-/// There are two ways to specify the reversal of the transfer out confirmation. Either:
-/// - the business references, for example, TransferReference, TransferConfirmationIdentification, of the transfer confirmation are quoted, or,
-/// - all the details of the transfer confirmation (this includes TransferReference and TransferConfirmationIdentification) are quoted but this is not recommended.
-/// The message identification of the TransferOutConfirmation message in which the transfer out confirmation was conveyed may also be quoted in PreviousReference. The message identification of the TransferOutInstruction message in which the transfer out instruction was conveyed may also be quoted in RelatedReference.
-/// This is the outer document that contains <seealso cref="ReversalOfTransferOutConfirmationV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalOfTransferOutConfirmationV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

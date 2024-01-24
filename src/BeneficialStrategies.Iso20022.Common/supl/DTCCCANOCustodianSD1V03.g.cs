@@ -21,7 +21,24 @@ public partial record DTCCCANOCustodianSD1V03 : IOuterRecord
     public const string XmlTag = "DTCCCANOCtdnSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as custodian details supplementary data to corporate action notification.
+    /// </summary>
+    [IsoId("_1LBwZzL3EeKU9IrkkToqcw_764430494")]
+    [Description(@"Information to be extended as custodian details supplementary data to corporate action notification.")]
+    [DataMember(Name="CtdnDtls")]
+    [XmlElement(ElementName="CtdnDtls")]
+    public SomeCustodianDetailsRecord? CustodianDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as custodian service supplementary data to option details.
+    /// </summary>
+    [IsoId("_1LK6UDL3EeKU9IrkkToqcw_780588655")]
+    [Description(@"Information to be extended as custodian service supplementary data to option details.")]
+    [DataMember(Name="CtdnOptnDtDtls")]
+    [XmlElement(ElementName="CtdnOptnDtDtls")]
+    public SomeCustodianOptionDateDetailsRecord? CustodianOptionDateDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +51,8 @@ public partial record DTCCCANOCustodianSD1V03 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCANOCustodianSD1 message extends ISO corporate action notification (CANO) message with DTCC validation custodian service specific data elements that are not covered by the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCANOCustodianSD1V03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOCustodianSD1V03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

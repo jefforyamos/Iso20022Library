@@ -22,7 +22,34 @@ public partial record PartyReportV01 : IOuterRecord
     public const string XmlTag = "PtyRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.
+    /// </summary>
+    [IsoId("_6SbBI5eSEeen_cyMrluY4w")]
+    [Description(@"Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Provides information on report or error resulting from the originating query message.
+    /// </summary>
+    [IsoId("_6SbBKZeSEeen_cyMrluY4w")]
+    [Description(@"Provides information on report or error resulting from the originating query message.")]
+    [DataMember(Name="RptOrErr")]
+    [XmlElement(ElementName="RptOrErr")]
+    [Required]
+    public required SomeReportOrErrorRecord ReportOrError { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_6SbBK5eSEeen_cyMrluY4w")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +62,8 @@ public partial record PartyReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:
-/// The PartyReport message is sent by the executing party to a central securities depository, a national central bank, a central securities depository participant, a central counter party, a payment bank, a trading party or a stock exchange to provide detailed information on the requested party reference data of the party defined in the system.
-/// This is the outer document that contains <seealso cref="PartyReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

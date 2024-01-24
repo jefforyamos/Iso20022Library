@@ -21,7 +21,35 @@ public partial record ChargesPaymentNotificationV01 : IOuterRecord
     public const string XmlTag = "ChrgsPmtNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual charges records included in the message.
+    /// </summary>
+    [IsoId("_6g9sYSm5EeutWNGMV2XKIQ")]
+    [Description(@"Set of characteristics shared by all individual charges records included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Provides information on the charges to be paid by the charge bearer(s) related to the processing of the underlying transaction.
+    /// </summary>
+    [IsoId("_DgpvxrSAEeq3lpO-mRtrig")]
+    [Description(@"Provides information on the charges to be paid by the charge bearer(s) related to the processing of the underlying transaction.")]
+    [DataMember(Name="Chrgs")]
+    [XmlElement(ElementName="Chrgs")]
+    [Required]
+    public required SomeChargesRecord Charges { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Dgpvx7SAEeq3lpO-mRtrig")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ChargesPaymentNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ChargesPaymentNotification message is sent by the account servicing institution to the account owner to advise charges, interest or other adjustments to the owner's account.  It provides details of charges which are previously unknown to the Receiver.
-/// This is the outer document that contains <seealso cref="ChargesPaymentNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChargesPaymentNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

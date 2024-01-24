@@ -21,7 +21,35 @@ public partial record SecuritiesFinancingReportingTransactionQueryV01 : IOuterRe
     public const string XmlTag = "SctiesFincgRptgTxQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Indicates the authority that requests the query report.
+    /// </summary>
+    [IsoId("_2zvMFwuAEeqVvtu9Ny8FDA")]
+    [Description(@"Indicates the authority that requests the query report.")]
+    [DataMember(Name="RqstngAuthrty")]
+    [XmlElement(ElementName="RqstngAuthrty")]
+    [Required]
+    public required SomeRequestingAuthorityRecord RequestingAuthority { get; init; }
+    
+    /// <summary>
+    /// Criteria for defining recurrent and ad-hoc queries.
+    /// </summary>
+    [IsoId("_2zvMGQuAEeqVvtu9Ny8FDA")]
+    [Description(@"Criteria for defining recurrent and ad-hoc queries.")]
+    [DataMember(Name="TradQryData")]
+    [XmlElement(ElementName="TradQryData")]
+    [Required]
+    public required SomeTradeQueryDataRecord TradeQueryData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2zvMGwuAEeqVvtu9Ny8FDA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SecuritiesFinancingReportingTransactionQueryV01 : IOuterRe
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingTransactionQuery message is sent by the authority to the trade repositories, to query data based on the search criteria for the  transactions as defined by the system user.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingTransactionQueryV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingTransactionQueryV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

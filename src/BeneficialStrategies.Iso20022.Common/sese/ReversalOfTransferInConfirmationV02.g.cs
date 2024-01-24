@@ -30,7 +30,70 @@ public partial record ReversalOfTransferInConfirmationV02 : IOuterRecord
     public const string XmlTag = "RvslOfTrfInConfV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_pHChMdE5Ed-BzquC8wXy7w_600695807")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_pHChMtE5Ed-BzquC8wXy7w_-604499531")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_pHChM9E5Ed-BzquC8wXy7w_-604499189")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_pHChNNE5Ed-BzquC8wXy7w_-604499479")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Reference of the transfer in confirmation to be reversed.
+    /// </summary>
+    [IsoId("_pHChNdE5Ed-BzquC8wXy7w_-191780069")]
+    [Description(@"Reference of the transfer in confirmation to be reversed.")]
+    [DataMember(Name="RvslByRef")]
+    [XmlElement(ElementName="RvslByRef")]
+    public SomeReversalByReferenceRecord? ReversalByReference { get; init; }
+    
+    /// <summary>
+    /// Copy of the transfer in confirmation to reverse.
+    /// </summary>
+    [IsoId("_pHChNtE5Ed-BzquC8wXy7w_-604499497")]
+    [Description(@"Copy of the transfer in confirmation to reverse.")]
+    [DataMember(Name="RvslByTrfInConfDtls")]
+    [XmlElement(ElementName="RvslByTrfInConfDtls")]
+    public SomeReversalByTransferInConfirmationDetailsRecord? ReversalByTransferInConfirmationDetails { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_pHChN9E5Ed-BzquC8wXy7w_739904383")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +106,8 @@ public partial record ReversalOfTransferInConfirmationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, eg, a transfer agent, sends the ReversalOfTransferInConfirmation message to the instructing party, eg, an investment manager or its authorised representative, to cancel a previously sent TransferInConfirmation message.
-/// Usage
-/// The ReversalOfTransferInConfirmation message is used to reverse a previously sent TransferInConfirmation.
-/// There are two ways to specify the reversal of the transfer in confirmation. Either:
-/// - the business references, eg, TransferReference, TransferConfirmationIdentification, of the transfer confirmation are quoted, or,
-/// - all the details of the transfer confirmation (this includes TransferReference and TransferConfirmationIdentification) are quoted but this is not recommended.
-/// The message identification of the TransferInConfirmation message in which the transfer confirmation was conveyed may also be quoted in PreviousReference.
-/// The message reference (MessageIdentification) of the TransferInInstruction message in which the transfer instruction was conveyed may also be quoted in RelatedReference.
-/// It is also possible to request a reversal of a TransferInConfirmation by quoting its message reference (MessageIdentification) in PreviousReference.
-/// This is the outer document that contains <seealso cref="ReversalOfTransferInConfirmationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalOfTransferInConfirmationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

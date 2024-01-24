@@ -21,7 +21,25 @@ public partial record UndertakingNonExtensionNotificationV01 : IOuterRecord
     public const string XmlTag = "UdrtkgNonXtnsnNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the non-extension notification.
+    /// </summary>
+    [IsoId("_9i_O83ltEeG7BsjMvd1mEw_1181398282")]
+    [Description(@"Details of the non-extension notification.")]
+    [DataMember(Name="UdrtkgNonXtnsnNtfctnDtls")]
+    [XmlElement(ElementName="UdrtkgNonXtnsnNtfctnDtls")]
+    [Required]
+    public required SomeUndertakingNonExtensionNotificationDetailsRecord UndertakingNonExtensionNotificationDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the notification.
+    /// </summary>
+    [IsoId("_9i_O9HltEeG7BsjMvd1mEw_-676227762")]
+    [Description(@"Digital signature of the notification.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record UndertakingNonExtensionNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingNonExtensionNotification message is sent by the party that issued the undertaking to the beneficiary, either directly or via one or more advising parties, to notify it of the non-extension of the referenced undertaking beyond the current expiry date.
-/// This is the outer document that contains <seealso cref="UndertakingNonExtensionNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingNonExtensionNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -26,7 +26,36 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     public const string XmlTag = "AgtCAGblDstrbtnAuthstnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the request.
+    /// </summary>
+    [IsoId("_TNwP1tEwEd-BzquC8wXy7w_1189279537")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the request.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TNwP19EwEd-BzquC8wXy7w_806676079")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides detailed information about the global distribution.
+    /// </summary>
+    [IsoId("_TNwP2NEwEd-BzquC8wXy7w_959712876")]
+    [Description(@"Provides detailed information about the global distribution.")]
+    [DataMember(Name="GblDstrbtnDtls")]
+    [XmlElement(ElementName="GblDstrbtnDtls")]
+    [Required]
+    public required SomeGlobalDistributionDetailsRecord GlobalDistributionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +68,8 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to an issuer (or its agent) to request the authorisation to process the entitlement movements (cash and/or securities) calculated by the CSD for a given corporate action entire event, a given corporate action option and optionally a given resource.
-/// This message can also be sent to request the issuer (or its agent) to make available / deliver the relevant resources to the CSD.
-/// Usage
-/// This message is used to request the authorisation to process the entitlement movements calculated by the CSD for a given corporate action event and option. An Agent Corporate Action Global Distribution Authorisation Request message must be sent for each option and if several resources are associated to an option, an Agent Corporate Action Global Distribution Authorisation Request message can be sent for each resource.
-/// This message can also be used to pre-advise a global distribution authorisation request, in which case the value of the field pre-advice indicator must be set to yes.
-/// This is the outer document that contains <seealso cref="AgentCAGlobalDistributionAuthorisationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAGlobalDistributionAuthorisationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

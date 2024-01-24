@@ -21,7 +21,34 @@ public partial record SecuritiesAccountAuditTrailReportV01 : IOuterRecord
     public const string XmlTag = "SctiesAcctAudtTrlRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_Ejzy4J5PEemQg7pJhFUUYg")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Provides information on report or error resulting from the originating query message.
+    /// </summary>
+    [IsoId("_KAlNyZ2fEem_Be8NuxvF7Q")]
+    [Description(@"Provides information on report or error resulting from the originating query message.")]
+    [DataMember(Name="RptOrErr")]
+    [XmlElement(ElementName="RptOrErr")]
+    [Required]
+    public required SomeReportOrErrorRecord ReportOrError { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_KAlNy52fEem_Be8NuxvF7Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record SecuritiesAccountAuditTrailReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecuritiesAccountAuditTrailReport message is sent by the executing party to an instructing party to provide detailed information on the requested securities account audit trail recorded in the system.
-/// This is the outer document that contains <seealso cref="SecuritiesAccountAuditTrailReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountAuditTrailReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

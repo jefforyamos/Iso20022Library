@@ -26,7 +26,75 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
     public const string XmlTag = "AgtCAElctnAmdmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the request.
+    /// </summary>
+    [IsoId("_TNAo_9EwEd-BzquC8wXy7w_32107139")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the request.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Election Advice for which an amendment is requested.
+    /// </summary>
+    [IsoId("_TNApANEwEd-BzquC8wXy7w_61660705")]
+    [Description(@"Identification of the linked Agent CA Election Advice for which an amendment is requested.")]
+    [DataMember(Name="AgtCAElctnAdvcId")]
+    [XmlElement(ElementName="AgtCAElctnAdvcId")]
+    [Required]
+    public required SomeAgentCAElectionAdviceIdentificationRecord AgentCAElectionAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TNApAdEwEd-BzquC8wXy7w_-1916344559")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides information about the account.
+    /// </summary>
+    [IsoId("_TNJy4NEwEd-BzquC8wXy7w_-148394854")]
+    [Description(@"Provides information about the account.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Provides information about the original election to be amended.
+    /// </summary>
+    [IsoId("_TNJy4dEwEd-BzquC8wXy7w_915892144")]
+    [Description(@"Provides information about the original election to be amended.")]
+    [DataMember(Name="OrgnlElctnDtls")]
+    [XmlElement(ElementName="OrgnlElctnDtls")]
+    [Required]
+    public required SomeOriginalElectionDetailsRecord OriginalElectionDetails { get; init; }
+    
+    /// <summary>
+    /// Provides information about the amendments to the election.
+    /// </summary>
+    [IsoId("_TNJy4tEwEd-BzquC8wXy7w_934364367")]
+    [Description(@"Provides information about the amendments to the election.")]
+    [DataMember(Name="AmddElctnDtls")]
+    [XmlElement(ElementName="AmddElctnDtls")]
+    [Required]
+    public required SomeAmendedElectionDetailsRecord AmendedElectionDetails { get; init; }
+    
+    /// <summary>
+    /// Contact responsible for the transaction identified in the message.
+    /// </summary>
+    [IsoId("_TNJy49EwEd-BzquC8wXy7w_459673267")]
+    [Description(@"Contact responsible for the transaction identified in the message.")]
+    [DataMember(Name="CtctDtls")]
+    [XmlElement(ElementName="CtctDtls")]
+    public SomeContactDetailsRecord? ContactDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +107,8 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to the issuer (or its agent) to request the authorisation of an amendment of a previously sent Agent Corporate Action Election Advice message.
-/// Usage
-/// This message is used to request the amendment of a previously sent Agent Corporate Action Election Advice message.
-/// Once the amendment request has been accepted by the issuer (or its agent), the CSD will process any resource movement and send an Agent Corporate Action Election Advice message with the function, option change, to confirm that the amendment has been booked at the CSD.
-/// This message is used when the terms and conditions of the corporate action event allow amendments.
-/// This is the outer document that contains <seealso cref="AgentCAElectionAmendmentRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionAmendmentRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

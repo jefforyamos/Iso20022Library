@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingPairingRequestV01 : IOuterReco
     public const string XmlTag = "SctiesFincgRptgPairgReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to transactions that are to be paired.
+    /// </summary>
+    [IsoId("_2zvL_wuAEeqVvtu9Ny8FDA")]
+    [Description(@"Information related to transactions that are to be paired.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2zvMAQuAEeqVvtu9Ny8FDA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingPairingRequestV01 : IOuterReco
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingPairingRequest is sent by the trade repository (TR) to the other trade repositories (TRs) in order to identify the trade repository (TR) holding information on a second leg of a given transaction.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingPairingRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingPairingRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

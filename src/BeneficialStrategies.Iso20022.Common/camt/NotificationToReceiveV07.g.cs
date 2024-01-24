@@ -24,7 +24,35 @@ public partial record NotificationToReceiveV07 : IOuterRecord
     public const string XmlTag = "NtfctnToRcv";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements used to provide further details on the message.
+    /// </summary>
+    [IsoId("_dvOmx9cBEeq_l4BJLVUF2Q")]
+    [Description(@"Set of elements used to provide further details on the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to provide further details on the account notification.
+    /// </summary>
+    [IsoId("_dvOmydcBEeq_l4BJLVUF2Q")]
+    [Description(@"Set of elements used to provide further details on the account notification.")]
+    [DataMember(Name="Ntfctn")]
+    [XmlElement(ElementName="Ntfctn")]
+    [Required]
+    public required SomeNotificationRecord Notification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_dvOmy9cBEeq_l4BJLVUF2Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +65,8 @@ public partial record NotificationToReceiveV07 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The NotificationToReceive message is sent by an account owner or by a party acting on the account owner's behalf to one of the account owner's account servicing institutions. It is an advance notice that the account servicing institution will receive funds to be credited to the account of the account owner.
-/// Usage
-/// The NotificationToReceive message is used to advise the account servicing institution of funds that the account owner expects to have credited to its account. The message can be used in either a direct or a relay scenario.
-/// This is the outer document that contains <seealso cref="NotificationToReceiveV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationToReceiveV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

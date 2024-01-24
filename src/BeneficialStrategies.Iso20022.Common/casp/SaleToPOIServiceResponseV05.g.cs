@@ -21,7 +21,35 @@ public partial record SaleToPOIServiceResponseV05 : IOuterRecord
     public const string XmlTag = "SaleToPOISvcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the response.
+    /// </summary>
+    [IsoId("_Hpr9InNdEe2stM_kHP4m6A")]
+    [Description(@"Set of characteristics related to the transfer of the response.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a service request.
+    /// </summary>
+    [IsoId("_HptLQXNdEe2stM_kHP4m6A")]
+    [Description(@"Information related to the response of a service request.")]
+    [DataMember(Name="SvcRspn")]
+    [XmlElement(ElementName="SvcRspn")]
+    [Required]
+    public required SomeServiceResponseRecord ServiceResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_HpuZYXNdEe2stM_kHP4m6A")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIServiceResponseV05 : IOuterRecord
 }
 
 /// <summary>
-/// The SaleToPOIServiceResponse message is sent by a POI to provide the outcome of a financial service.
-/// This is the outer document that contains <seealso cref="SaleToPOIServiceResponseV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIServiceResponseV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

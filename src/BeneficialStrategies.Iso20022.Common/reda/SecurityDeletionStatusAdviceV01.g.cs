@@ -31,7 +31,43 @@ public partial record SecurityDeletionStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "SctyDeltnStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_OqBRUZIxEeuAlLVx8pyt3w")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identification of the financial instrument.
+    /// </summary>
+    [IsoId("_jTum2R62Eeu31YsWNiv_cw")]
+    [Description(@"Identification of the financial instrument.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    public SomeFinancialInstrumentIdentificationRecord? FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Represents the processing status.
+    /// </summary>
+    [IsoId("_jTum2x62Eeu31YsWNiv_cw")]
+    [Description(@"Represents the processing status.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    [Required]
+    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jTum4R62Eeu31YsWNiv_cw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +80,8 @@ public partial record SecurityDeletionStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// SCOPE
-/// An executing/servicing party sends a SecurityDeletionStatusAdvice message to an instructing party to report the status of a SecurityDeletionRequest message previously sent by the instructing party. 
-/// The SecurityDeletionStatusAdvice message is sent as a response to the request of the instructing party.
-/// The instructing party - executing/servicing party relationship may be:
-/// - Central Securities Depositories (CSD) who would like to publish security static data, or 
-/// - a Corporate, or
-/// - a Bank, or
-/// - a Market Infrastructure, or 
-/// - a Market Data Provider.
-/// USAGE
-/// Initiator: executing/servicing party.
-/// This is the outer document that contains <seealso cref="SecurityDeletionStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityDeletionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

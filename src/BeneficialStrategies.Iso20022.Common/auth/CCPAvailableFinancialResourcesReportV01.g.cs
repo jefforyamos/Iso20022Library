@@ -21,7 +21,34 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord
     public const string XmlTag = "CCPAvlblFinRsrcsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Construct used by a central counterparty to define the size of the aggregate quantum of resources available from a clearing member.
+    /// </summary>
+    [IsoId("_omGWaeUREem3X-64-NKdqg")]
+    [Description(@"Construct used by a central counterparty to define the size of the aggregate quantum of resources available from a clearing member.")]
+    [DataMember(Name="AvlblFinRsrcsAmt")]
+    [XmlElement(ElementName="AvlblFinRsrcsAmt")]
+    [Required]
+    public required SomeAvailableFinancialResourcesAmountRecord AvailableFinancialResourcesAmount { get; init; }
+    
+    /// <summary>
+    /// Breakdown of other CCP prefunded resources required as part of the default waterfall.
+    /// </summary>
+    [IsoId("_omGWa-UREem3X-64-NKdqg")]
+    [Description(@"Breakdown of other CCP prefunded resources required as part of the default waterfall.")]
+    [DataMember(Name="OthrPrfnddRsrcs")]
+    [XmlElement(ElementName="OthrPrfnddRsrcs")]
+    public SomeOtherPrefundedResourcesRecord? OtherPrefundedResources { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_omGWbeUREem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CCPAvailableFinancialResourcesReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the aggregate quantum of resources available in each default waterfall to absorb losses resulting from the failure of one or more clearing member(s).
-/// This is the outer document that contains <seealso cref="CCPAvailableFinancialResourcesReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPAvailableFinancialResourcesReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,26 @@ public partial record AcquirerRejection : IOuterRecord
     public const string XmlTag = "AcqrrRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management.
+    /// </summary>
+    [IsoId("_DiKccHvUEeS7Wv4oKCO8_A")]
+    [Description(@"Information related to the protocol management.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reject.
+    /// </summary>
+    [IsoId("_e8V5oHvUEeS7Wv4oKCO8_A")]
+    [Description(@"Information related to the reject.")]
+    [DataMember(Name="Rjct")]
+    [XmlElement(ElementName="Rjct")]
+    [Required]
+    public required SomeRejectRecord Reject { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +53,8 @@ public partial record AcquirerRejection : IOuterRecord
 }
 
 /// <summary>
-/// The AcquirerRejection message is sent by any party, to reject an Acquirer to Issuer message.
-/// This is the outer document that contains <seealso cref="AcquirerRejection"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcquirerRejection"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

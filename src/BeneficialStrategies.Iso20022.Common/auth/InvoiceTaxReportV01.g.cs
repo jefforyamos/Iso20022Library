@@ -21,7 +21,35 @@ public partial record InvoiceTaxReportV01 : IOuterRecord
     public const string XmlTag = "InvcTaxRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Defines message level identification, number of individual tax reports and tax authority.
+    /// </summary>
+    [IsoId("_riLtAGn0Eea5EcY2TpG1mw")]
+    [Description(@"Defines message level identification, number of individual tax reports and tax authority.")]
+    [DataMember(Name="InvcTaxRptHdr")]
+    [XmlElement(ElementName="InvcTaxRptHdr")]
+    [Required]
+    public required SomeInvoiceTaxReportHeaderRecord InvoiceTaxReportHeader { get; init; }
+    
+    /// <summary>
+    /// Contains all needed party details for tax agency (sender of the TaxReport) and tax authority (receiver of the TaxReport) and the details of the reported sales transaction and calculated tax related that specific business transaction.
+    /// </summary>
+    [IsoId("_DiX4YFm8EeOQYsoJizpkVw")]
+    [Description(@"Contains all needed party details for tax agency (sender of the TaxReport) and tax authority (receiver of the TaxReport) and the details of the reported sales transaction and calculated tax related that specific business transaction.")]
+    [DataMember(Name="TaxRpt")]
+    [XmlElement(ElementName="TaxRpt")]
+    [Required]
+    public required SomeTaxReportRecord TaxReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_YqO7oEjvEeaOe8w0NJ11wQ")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record InvoiceTaxReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The InvoiceTaxReport message is sent by tax responsible to tax authority. Tax authorities require corporates to report their sales based value added tax (VAT). This message is targeted to this reporting based on information in sales invoices and card transactions.
-/// This is the outer document that contains <seealso cref="InvoiceTaxReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceTaxReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,35 @@ public partial record KeyExchangeInitiationV02 : IOuterRecord
     public const string XmlTag = "KeyXchgInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_2CqhVlWVEeeiG_nL4vgKnQ")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to a key exchange activity.
+    /// </summary>
+    [IsoId("_2CqhWVWVEeeiG_nL4vgKnQ")]
+    [Description(@"Information related to a key exchange activity.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC
+    /// </summary>
+    [IsoId("_2CqhWFWVEeeiG_nL4vgKnQ")]
+    [Description(@"Trailer of the message containing a MAC")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record KeyExchangeInitiationV02 : IOuterRecord
 }
 
 /// <summary>
-/// The KeyExchangeInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer). This message is used to initiate a cryptographic key activity (request of a key change, request of the verification of a key, etc.).|
-/// This is the outer document that contains <seealso cref="KeyExchangeInitiationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="KeyExchangeInitiationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

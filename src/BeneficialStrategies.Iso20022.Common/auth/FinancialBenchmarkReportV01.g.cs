@@ -21,7 +21,25 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord
     public const string XmlTag = "FinBchmkRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides appropriate instructions to update or cancel information about a benchmark in the scope of the local regulation.
+    /// </summary>
+    [IsoId("_mm5ioTrVEeedCZZ8dIPp6g")]
+    [Description(@"Provides appropriate instructions to update or cancel information about a benchmark in the scope of the local regulation.")]
+    [DataMember(Name="BchmkData")]
+    [XmlElement(ElementName="BchmkData")]
+    [Required]
+    public required SomeBenchmarkDataRecord BenchmarkData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_rFkoUTbuEeeYhaZ6bvG1Xg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// This FinancialBenchmarkReport message is sent by the competent institution to report benchmarks used for the purpose of the local regulation.
-/// This is the outer document that contains <seealso cref="FinancialBenchmarkReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialBenchmarkReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

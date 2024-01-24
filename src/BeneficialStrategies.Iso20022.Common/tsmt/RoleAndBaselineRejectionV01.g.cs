@@ -24,7 +24,45 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
     public const string XmlTag = "RoleAndBaselnRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the rejection message.
+    /// </summary>
+    [IsoId("_uJ5PudE8Ed-BzquC8wXy7w_1408620914")]
+    [Description(@"Identifies the rejection message.")]
+    [DataMember(Name="RjctnId")]
+    [XmlElement(ElementName="RjctnId")]
+    [Required]
+    public required SomeRejectionIdentificationRecord RejectionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the message that contained the baseline and is rejected.
+    /// </summary>
+    [IsoId("_uJ5PutE8Ed-BzquC8wXy7w_-1800452718")]
+    [Description(@"Reference to the message that contained the baseline and is rejected.")]
+    [DataMember(Name="RltdMsgRef")]
+    [XmlElement(ElementName="RltdMsgRef")]
+    [Required]
+    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_uKCZoNE8Ed-BzquC8wXy7w_1408620999")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reason why the user cannot accept the request.
+    /// </summary>
+    [IsoId("_uKCZodE8Ed-BzquC8wXy7w_1408621387")]
+    [Description(@"Reason why the user cannot accept the request.")]
+    [DataMember(Name="RjctnRsn")]
+    [XmlElement(ElementName="RjctnRsn")]
+    public SomeRejectionReasonRecord? RejectionReason { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +75,8 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The RoleAndBaselineRejection message is sent by a secondary bank to the matching application if it rejects to join the transaction based on the baseline and the role that it is expected to play.
-/// Usage
-/// The RoleAndBaselineRejection message is sent in response to a message that is a direct request to join a transaction.
-/// This is the outer document that contains <seealso cref="RoleAndBaselineRejectionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RoleAndBaselineRejectionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

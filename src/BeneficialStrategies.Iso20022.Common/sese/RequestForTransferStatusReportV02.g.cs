@@ -26,7 +26,35 @@ public partial record RequestForTransferStatusReportV02 : IOuterRecord
     public const string XmlTag = "ReqForTrfStsRptV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_oGN9ZtE5Ed-BzquC8wXy7w_1731455646")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Information to identify the transfer for which the status is requested.|.
+    /// </summary>
+    [IsoId("_oGN9Z9E5Ed-BzquC8wXy7w_2033838559")]
+    [Description(@"Information to identify the transfer for which the status is requested.|.")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    [Required]
+    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_oGN9aNE5Ed-BzquC8wXy7w_240300067")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +67,8 @@ public partial record RequestForTransferStatusReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, eg, an investment manager or its authorised representative, sends the RequestForTransferStatusReport to the executing party, eg, a transfer agent to request the status of a previously instructed transfer.
-/// Usage
-/// The RequestForTransferStatusReport is used to request either:
-/// - the status of one or several transfer instructions or,
-/// - the status of one or several transfer cancellation instructions.
-/// This is the outer document that contains <seealso cref="RequestForTransferStatusReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForTransferStatusReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

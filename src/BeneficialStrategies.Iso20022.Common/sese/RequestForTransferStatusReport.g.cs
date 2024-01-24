@@ -27,7 +27,16 @@ public partial record RequestForTransferStatusReport : IOuterRecord
     public const string XmlTag = "sese.009.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to identify the transfer for which the status is requested.|.
+    /// </summary>
+    [IsoId("_nnEjSdE5Ed-BzquC8wXy7w_-359483453")]
+    [Description(@"Information to identify the transfer for which the status is requested.|.")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    [Required]
+    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +49,8 @@ public partial record RequestForTransferStatusReport : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The RequestForTransferStatusReport is sent by an instructing party to the executing party.
-/// This message requests the status of a transfer instruction or the status of a transfer cancellation instruction.
-/// Usage
-/// The RequestForTransferStatusReport is sent by an instructing party to the executing party to request
-/// - the status of one or several transfer instructions or
-/// - the status of one or several transfer cancellation instructions.
-/// This is the outer document that contains <seealso cref="RequestForTransferStatusReport"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForTransferStatusReport"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

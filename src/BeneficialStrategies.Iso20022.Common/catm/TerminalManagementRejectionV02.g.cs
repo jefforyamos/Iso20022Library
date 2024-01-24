@@ -21,7 +21,26 @@ public partial record TerminalManagementRejectionV02 : IOuterRecord
     public const string XmlTag = "TermnlMgmtRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Rejection message management information.
+    /// </summary>
+    [IsoId("_DWVHgzZ9EeOP_KvUKe29ng")]
+    [Description(@"Rejection message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reject.
+    /// </summary>
+    [IsoId("_DWVHhTZ9EeOP_KvUKe29ng")]
+    [Description(@"Information related to the reject.")]
+    [DataMember(Name="Rjct")]
+    [XmlElement(ElementName="Rjct")]
+    [Required]
+    public required SomeRejectRecord Reject { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +53,8 @@ public partial record TerminalManagementRejectionV02 : IOuterRecord
 }
 
 /// <summary>
-/// The TerminalManagementRejection message is sent by the terminal manager to reject a message request sent by an acceptor, to indicate that the received message could not be processed.
-/// This is the outer document that contains <seealso cref="TerminalManagementRejectionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TerminalManagementRejectionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

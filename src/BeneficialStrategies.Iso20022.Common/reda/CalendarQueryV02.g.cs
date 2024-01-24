@@ -21,7 +21,34 @@ public partial record CalendarQueryV02 : IOuterRecord
     public const string XmlTag = "CalQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_DRJNKVuDEe29lKnE5APnfA")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Defines the criteria to extract the calendar information.
+    /// </summary>
+    [IsoId("_DRJNKluDEe29lKnE5APnfA")]
+    [Description(@"Defines the criteria to extract the calendar information.")]
+    [DataMember(Name="SchCrit")]
+    [XmlElement(ElementName="SchCrit")]
+    public SomeSearchCriteriaRecord? SearchCriteria { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_DRJNK1uDEe29lKnE5APnfA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record CalendarQueryV02 : IOuterRecord
 }
 
 /// <summary>
-/// The CalendarQuery message is sent by the system member to the system administrator to request information on the the system status for specific calendar days.
-/// This is the outer document that contains <seealso cref="CalendarQueryV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CalendarQueryV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

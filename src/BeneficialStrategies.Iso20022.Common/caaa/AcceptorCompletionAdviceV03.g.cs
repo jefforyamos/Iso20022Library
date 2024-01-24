@@ -22,7 +22,36 @@ public partial record AcceptorCompletionAdviceV03 : IOuterRecord
     public const string XmlTag = "AccptrCmpltnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Completion advice message management information.
+    /// </summary>
+    [IsoId("_AZsHQzJLEeOkpIB9tKITlw")]
+    [Description(@"Completion advice message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the completion advice.
+    /// </summary>
+    [IsoId("_AZsHRTJLEeOkpIB9tKITlw")]
+    [Description(@"Information related to the completion advice.")]
+    [DataMember(Name="CmpltnAdvc")]
+    [XmlElement(ElementName="CmpltnAdvc")]
+    [Required]
+    public required SomeCompletionAdviceRecord CompletionAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_AZsHRzJLEeOkpIB9tKITlw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +64,8 @@ public partial record AcceptorCompletionAdviceV03 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorCompletionAdvice message is sent by an acceptor (or its agent) to notify the acquirer (or its agent) of the outcome of the payment at the acceptor, and to transfer the financial data of the transaction to the acquirer (capture).
-/// A AcceptorCompletionAdvice message is also sent to reverse an approved authorisation and any associated financial transfer (capture), if the card payment transaction could not be completed successfully.
-/// This is the outer document that contains <seealso cref="AcceptorCompletionAdviceV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCompletionAdviceV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

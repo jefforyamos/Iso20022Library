@@ -24,7 +24,110 @@ public partial record ForeignExchangeTradeInstructionV04 : IOuterRecord
     public const string XmlTag = "FXTradInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// General information related to the trade.
+    /// </summary>
+    [IsoId("_lxHWU5RyEeak6e8_Fc5fQg")]
+    [Description(@"General information related to the trade.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Party(ies) on the trading side of the trade.
+    /// </summary>
+    [IsoId("_lxHWVZRyEeak6e8_Fc5fQg")]
+    [Description(@"Party(ies) on the trading side of the trade.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Party(ies) on the counterparty side of the trade.
+    /// </summary>
+    [IsoId("_lxHWV5RyEeak6e8_Fc5fQg")]
+    [Description(@"Party(ies) on the counterparty side of the trade.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Amounts of the trade.
+    /// </summary>
+    [IsoId("_lxHWWZRyEeak6e8_Fc5fQg")]
+    [Description(@"Amounts of the trade.")]
+    [DataMember(Name="TradAmts")]
+    [XmlElement(ElementName="TradAmts")]
+    [Required]
+    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    
+    /// <summary>
+    /// Exchange rate as agreed by the traders.
+    /// </summary>
+    [IsoId("_lxHWW5RyEeak6e8_Fc5fQg")]
+    [Description(@"Exchange rate as agreed by the traders.")]
+    [DataMember(Name="AgrdRate")]
+    [XmlElement(ElementName="AgrdRate")]
+    [Required]
+    public required SomeAgreedRateRecord AgreedRate { get; init; }
+    
+    /// <summary>
+    /// Specifies the conditions for a non deliverable opening or fixing confirmation.
+    /// </summary>
+    [IsoId("_H6EN0JUREea7vKctaoIyEQ")]
+    [Description(@"Specifies the conditions for a non deliverable opening or fixing confirmation.")]
+    [DataMember(Name="NDFConds")]
+    [XmlElement(ElementName="NDFConds")]
+    public SomeNonDeliverableForwardConditionsRecord? NonDeliverableForwardConditions { get; init; }
+    
+    /// <summary>
+    /// Settlement instructions for the amounts received by the trading side.
+    /// </summary>
+    [IsoId("_lxHWXZRyEeak6e8_Fc5fQg")]
+    [Description(@"Settlement instructions for the amounts received by the trading side.")]
+    [DataMember(Name="TradgSdSttlmInstrs")]
+    [XmlElement(ElementName="TradgSdSttlmInstrs")]
+    public SomeTradingSideSettlementInstructionsRecord? TradingSideSettlementInstructions { get; init; }
+    
+    /// <summary>
+    /// Settlement instructions for the amounts received by the counterparty.
+    /// </summary>
+    [IsoId("_lxHWX5RyEeak6e8_Fc5fQg")]
+    [Description(@"Settlement instructions for the amounts received by the counterparty.")]
+    [DataMember(Name="CtrPtySdSttlmInstrs")]
+    [XmlElement(ElementName="CtrPtySdSttlmInstrs")]
+    public SomeCounterpartySideSettlementInstructionsRecord? CounterpartySideSettlementInstructions { get; init; }
+    
+    /// <summary>
+    /// Specifies whether the trade is a block or an individual trade. It also contains supplementary information such as free format information, broker's identification, dealing branches and references.
+    /// </summary>
+    [IsoId("_lxHWYZRyEeak6e8_Fc5fQg")]
+    [Description(@"Specifies whether the trade is a block or an individual trade. It also contains supplementary information such as free format information, broker's identification, dealing branches and references.")]
+    [DataMember(Name="OptnlGnlInf")]
+    [XmlElement(ElementName="OptnlGnlInf")]
+    public SomeOptionalGeneralInformationRecord? OptionalGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.
+    /// </summary>
+    [IsoId("_lxHWY5RyEeak6e8_Fc5fQg")]
+    [Description(@"Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.")]
+    [DataMember(Name="RgltryRptg")]
+    [XmlElement(ElementName="RgltryRptg")]
+    public SomeRegulatoryReportingRecord? RegulatoryReporting { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_lxQgQZRyEeak6e8_Fc5fQg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +140,8 @@ public partial record ForeignExchangeTradeInstructionV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope|
-/// The ForeignExchangeTradeInstruction message is sent by a participant to a central settlement system to notify the creation of the foreign exchange trade agreed by both trading parties.|
-/// Usage|
-/// The ForeignExchangeTradeInstruction message is sent from a participant to a central settlement system to advise of the creation of a foreign exchange trade.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeInstructionV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeInstructionV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

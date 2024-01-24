@@ -28,7 +28,43 @@ public partial record FIToFIPaymentStatusReportV12 : IOuterRecord
     public const string XmlTag = "FIToFIPmtStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the status report message.
+    /// </summary>
+    [IsoId("_jMYzGdcBEeq_l4BJLVUF2Q")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the status report message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Original group information concerning the group of transactions, to which the status report message refers to.
+    /// </summary>
+    [IsoId("_jMYzG9cBEeq_l4BJLVUF2Q")]
+    [Description(@"Original group information concerning the group of transactions, to which the status report message refers to.")]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
+    [XmlElement(ElementName="OrgnlGrpInfAndSts")]
+    public SomeOriginalGroupInformationAndStatusRecord? OriginalGroupInformationAndStatus { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original transactions, to which the status report message refers.
+    /// </summary>
+    [IsoId("_jMYzHdcBEeq_l4BJLVUF2Q")]
+    [Description(@"Information concerning the original transactions, to which the status report message refers.")]
+    [DataMember(Name="TxInfAndSts")]
+    [XmlElement(ElementName="TxInfAndSts")]
+    public SomeTransactionInformationAndStatusRecord? TransactionInformationAndStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jMYzH9cBEeq_l4BJLVUF2Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +77,8 @@ public partial record FIToFIPaymentStatusReportV12 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The FIToFIPaymentStatusReport message is sent by an instructed agent to the previous party in the payment chain. It is used to inform this party about the positive or negative status of an instruction (either single or file). It is also used to report on a pending instruction.
-/// Usage
-/// The FIToFIPaymentStatusReport message is exchanged between agents to provide status information about instructions previously sent. Its usage will always be governed by a bilateral agreement between the agents.
-/// The FIToFIPaymentStatusReport message can be used to provide information about the status (e.g. rejection, acceptance) of a credit transfer instruction, a direct debit instruction, as well as other intra-agent instructions (for example FIToFIPaymentCancellationRequest).
-/// The FIToFIPaymentStatusReport message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.
-/// The FIToFIPaymentStatusReport message can be used in domestic and cross-border scenarios.
-/// The FIToFIPaymentStatusReport may also be sent to the receiver of the payment in a real time payment scenario, as both sides of the transactions must be informed of the status of the transaction (for example either the beneficiary is credited, or the transaction is rejected).
-/// This is the outer document that contains <seealso cref="FIToFIPaymentStatusReportV12"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFIPaymentStatusReportV12"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

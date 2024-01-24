@@ -25,7 +25,35 @@ public partial record StatusReportV03 : IOuterRecord
     public const string XmlTag = "StsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the report.
+    /// </summary>
+    [IsoId("_1C-AWdE8Ed-BzquC8wXy7w_-145028770")]
+    [Description(@"Identifies the report.")]
+    [DataMember(Name="RptId")]
+    [XmlElement(ElementName="RptId")]
+    [Required]
+    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the previous message requesting the report.
+    /// </summary>
+    [IsoId("_1C-AWtE8Ed-BzquC8wXy7w_-145028740")]
+    [Description(@"Reference to the previous message requesting the report.")]
+    [DataMember(Name="RltdMsgRef")]
+    [XmlElement(ElementName="RltdMsgRef")]
+    [Required]
+    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    
+    /// <summary>
+    /// Describes a transaction and its status.
+    /// </summary>
+    [IsoId("_1C-AW9E8Ed-BzquC8wXy7w_-145028829")]
+    [Description(@"Describes a transaction and its status.")]
+    [DataMember(Name="RptdItms")]
+    [XmlElement(ElementName="RptdItms")]
+    public SomeReportedItemsRecord? ReportedItems { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +66,8 @@ public partial record StatusReportV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusReport message is sent by the matching application to the requester of a status report.
-/// This message is used to report on the status of transactions registered in the matching application.
-/// Usage
-/// The StatusReport message can be sent by the matching application to report on the status and sub-status of all transactions that the requester of the report is involved in. The message can be sent in response to a StatusReportRequest message.
-/// This is the outer document that contains <seealso cref="StatusReportV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusReportV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

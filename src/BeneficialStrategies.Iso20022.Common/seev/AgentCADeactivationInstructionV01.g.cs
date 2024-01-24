@@ -29,7 +29,36 @@ public partial record AgentCADeactivationInstructionV01 : IOuterRecord
     public const string XmlTag = "AgtCADeactvtnInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the instruction.
+    /// </summary>
+    [IsoId("_TMQbANEwEd-BzquC8wXy7w_-840620052")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the instruction.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TMQbAdEwEd-BzquC8wXy7w_-1767832374")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information related to the deactivation of a CA event.
+    /// </summary>
+    [IsoId("_TMQbAtEwEd-BzquC8wXy7w_-1426185033")]
+    [Description(@"Information related to the deactivation of a CA event.")]
+    [DataMember(Name="DeactvtnDtls")]
+    [XmlElement(ElementName="DeactvtnDtls")]
+    [Required]
+    public required SomeDeactivationDetailsRecord DeactivationDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +71,8 @@ public partial record AgentCADeactivationInstructionV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to the CSD to instruct the deactivation of a corporate action event or to deactivate one or more specific options of the corporate action. As of the deactivation date, the CSD is allowed to reject any related election instruction received from clients.
-/// Usage
-/// Deactivation refers only to the empowerment of the CSD to reject further elections. To withdraw an event, the Agent Corporate Action Notification Advice message must be used.
-/// This message can be used to deactivate all the options of a corporate action event, in which case, no option should be mentioned in the message.
-/// This message can also be used to deactivate one or more specific corporate action options, in which case, the option type and option number must be present.
-/// This message can only be used when the deactivation date is after the market deadline. Before the market deadline, an updated notification advice message must be sent with option availability status: inactive or cancelled.
-/// An un-effected deactivation (pending deactivation date/time) can be cancelled with an Agent Corporate Action Deactivation Cancellation Request.
-/// The amendment of a deactivation is effected by cancel/replace mechanism.
-/// This is the outer document that contains <seealso cref="AgentCADeactivationInstructionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCADeactivationInstructionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

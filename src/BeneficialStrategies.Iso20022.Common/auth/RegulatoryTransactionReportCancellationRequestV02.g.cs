@@ -24,7 +24,65 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     public const string XmlTag = "RgltryTxRptCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of the RegulatoryTransactionReportCancellationRequest document.
+    /// </summary>
+    [IsoId("_gJYVEMIFEeGllrOKQRUTYA_-2116922142")]
+    [Description(@"Identification of the RegulatoryTransactionReportCancellationRequest document.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the firm that executed the transaction.|.
+    /// </summary>
+    [IsoId("_gJYVEcIFEeGllrOKQRUTYA_-2116922021")]
+    [Description(@"Identification of the firm that executed the transaction.|.")]
+    [DataMember(Name="RptgInstn")]
+    [XmlElement(ElementName="RptgInstn")]
+    [Required]
+    public required SomeReportingInstitutionRecord ReportingInstitution { get; init; }
+    
+    /// <summary>
+    /// Identifies the intermediary which is reporting on behalf on the reporting institution.
+    /// </summary>
+    [IsoId("_gJYVEsIFEeGllrOKQRUTYA_-2116921978")]
+    [Description(@"Identifies the intermediary which is reporting on behalf on the reporting institution.")]
+    [DataMember(Name="RptgAgt")]
+    [XmlElement(ElementName="RptgAgt")]
+    public SomeReportingAgentRecord? ReportingAgent { get; init; }
+    
+    /// <summary>
+    /// Provides all the details of the transaction report that needs to be cancelled. More than one set of details can be provided.||.
+    /// </summary>
+    [IsoId("_gJYVE8IFEeGllrOKQRUTYA_-2116922081")]
+    [Description(@"Provides all the details of the transaction report that needs to be cancelled. More than one set of details can be provided.||.")]
+    [DataMember(Name="CxlByTxDtls")]
+    [XmlElement(ElementName="CxlByTxDtls")]
+    [Required]
+    public required SomeCancellationByTransactionDetailsRecord CancellationByTransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Provides the reference of the RegulatoryTransactionReport document that was previously sent and that needs to be cancelled in its entirety.
+    /// </summary>
+    [IsoId("_gJYVFMIFEeGllrOKQRUTYA_-2116922099")]
+    [Description(@"Provides the reference of the RegulatoryTransactionReport document that was previously sent and that needs to be cancelled in its entirety.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Provides the trade reference of the transaction report that needs to be cancelled. More than one reference may be provided.
+    /// </summary>
+    [IsoId("_gJiGEMIFEeGllrOKQRUTYA_-2116922038")]
+    [Description(@"Provides the trade reference of the transaction report that needs to be cancelled. More than one reference may be provided.")]
+    [DataMember(Name="CxlByTradRef")]
+    [XmlElement(ElementName="CxlByTradRef")]
+    [Required]
+    public required SomeCancellationByTradeReferenceRecord CancellationByTradeReference { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +95,8 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
 }
 
 /// <summary>
-/// Scope
-/// A reporting institution, eg, an investment bank, sends the RegulatoryTransactionReportCancellationRequest to a regulator or to an intermediary (eg a reporting agent), to request a cancellation of a previously sent RegulatoryTransactionReport.
-/// Usage
-/// The message definition can be used to cancel an entire RegulatoryTransactionReport or to cancel one or more individual transactions in a previously sent RegulatoryTransactionReport.
-/// This is the outer document that contains <seealso cref="RegulatoryTransactionReportCancellationRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RegulatoryTransactionReportCancellationRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -24,7 +24,26 @@ public partial record AccountReportingRequestV02 : IOuterRecord
     public const string XmlTag = "AcctRptgReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements used to provide further details on the message.
+    /// </summary>
+    [IsoId("_sd2raWtdEeCY4-KZ9JEyUQ_1191907994")]
+    [Description(@"Set of elements used to provide further details on the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to provide further details on the reporting request.
+    /// </summary>
+    [IsoId("_seAcYGtdEeCY4-KZ9JEyUQ_308674707")]
+    [Description(@"Set of elements used to provide further details on the reporting request.")]
+    [DataMember(Name="RptgReq")]
+    [XmlElement(ElementName="RptgReq")]
+    [Required]
+    public required SomeReportingRequestRecord ReportingRequest { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +56,8 @@ public partial record AccountReportingRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AccountReportingRequest message is sent by the account owner, either directly or through a forwarding agent, to one of its account servicing institutions. It is used to ask the account servicing institution to send a report on the account owner's account in a BankToCustomerAccountReport (camt.052.001.02), a BankToCustomerStatement (camt.053.001.02) or a BankToCustomerDebitCreditNotification (camt.054.001.02).
-/// Usage
-/// The AccountReportingRequest message is used to advise the account servicing institution of funds that the account owner expects to have credited to its account. The message can be used in either a direct or a relay scenario.
-/// This is the outer document that contains <seealso cref="AccountReportingRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountReportingRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

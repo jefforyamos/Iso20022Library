@@ -32,7 +32,63 @@ public partial record SecuritiesTransactionPendingReport002V10 : IOuterRecord
     public const string XmlTag = "SctiesTxPdgRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_iE4K5_fZEeiNZp_PtLohLw")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides general information on the report.
+    /// </summary>
+    [IsoId("_iE4K6ffZEeiNZp_PtLohLw")]
+    [Description(@"Provides general information on the report.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_iE4K6_fZEeiNZp_PtLohLw")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_iE4K7ffZEeiNZp_PtLohLw")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Status information.
+    /// </summary>
+    [IsoId("_iE4K7_fZEeiNZp_PtLohLw")]
+    [Description(@"Status information.")]
+    [DataMember(Name="Sts")]
+    [XmlElement(ElementName="Sts")]
+    public SomeStatusRecord? Status { get; init; }
+    
+    /// <summary>
+    /// Details of the transactions reported.
+    /// </summary>
+    [IsoId("_iE4K8ffZEeiNZp_PtLohLw")]
+    [Description(@"Details of the transactions reported.")]
+    [DataMember(Name="Txs")]
+    [XmlElement(ElementName="Txs")]
+    public SomeTransactionsRecord? Transactions { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +101,8 @@ public partial record SecuritiesTransactionPendingReport002V10 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesTransactionPendingReport to an account owner to provide, as at a specified time, the details of pending increases and decreases of holdings, for all or selected securities in a specified safekeeping account, for all or selected reasons why the transaction is pending. 
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or 
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// The statement may also include future settlement or forward transactions which have become binding on the account owner.
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesTransactionPendingReport002V10"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTransactionPendingReport002V10"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

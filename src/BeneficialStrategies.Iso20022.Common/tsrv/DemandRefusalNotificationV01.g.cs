@@ -21,7 +21,24 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord
     public const string XmlTag = "DmndRfslNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the demand refusal notification.
+    /// </summary>
+    [IsoId("_9iijAXltEeG7BsjMvd1mEw_1591105840")]
+    [Description(@"Details of the demand refusal notification.")]
+    [DataMember(Name="DmndRfslNtfctnDtls")]
+    [XmlElement(ElementName="DmndRfslNtfctnDtls")]
+    public SomeDemandRefusalNotificationDetailsRecord? DemandRefusalNotificationDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the notification.
+    /// </summary>
+    [IsoId("_9iijAnltEeG7BsjMvd1mEw_-509775412")]
+    [Description(@"Digital signature of the notification.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +51,8 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The DemandRefusalNotification message is sent to the beneficiary or presenter by the party obligated on the undertaking and to whom a demand for payment has been made, either directly or via one or more advising parties. It notifies the beneficiary or presenter that the demand has been refused.
-/// This is the outer document that contains <seealso cref="DemandRefusalNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DemandRefusalNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

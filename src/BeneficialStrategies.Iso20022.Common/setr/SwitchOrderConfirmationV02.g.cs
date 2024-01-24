@@ -25,7 +25,80 @@ public partial record SwitchOrderConfirmationV02 : IOuterRecord
     public const string XmlTag = "setr.015.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// </summary>
+    [IsoId("_7Txsh9E7Ed-BzquC8wXy7w_433338806")]
+    [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_7TxsiNE7Ed-BzquC8wXy7w_444423035")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_7TxsidE7Ed-BzquC8wXy7w_428723166")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_7T7dgNE7Ed-BzquC8wXy7w_442574644")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    [Required]
+    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Information related to a switch execution.
+    /// </summary>
+    [IsoId("_7T7dgdE7Ed-BzquC8wXy7w_-1414365507")]
+    [Description(@"Information related to a switch execution.")]
+    [DataMember(Name="SwtchExctnDtls")]
+    [XmlElement(ElementName="SwtchExctnDtls")]
+    [Required]
+    public required SomeSwitchExecutionDetailsRecord SwitchExecutionDetails { get; init; }
+    
+    /// <summary>
+    /// Confirmation of the information related to an intermediary.
+    /// </summary>
+    [IsoId("_7T7dgtE7Ed-BzquC8wXy7w_1133369220")]
+    [Description(@"Confirmation of the information related to an intermediary.")]
+    [DataMember(Name="IntrmyDtls")]
+    [XmlElement(ElementName="IntrmyDtls")]
+    public required IReadonlyCollection<SomeIntermediaryDetailsRecord> IntermediaryDetails { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_7T7dg9E7Ed-BzquC8wXy7w_976977118")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_7T7dhNE7Ed-BzquC8wXy7w_147041061")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +111,8 @@ public partial record SwitchOrderConfirmationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SwitchOrderConfirmation message is sent by an executing party, eg, a transfer agent, to an instruction party, eg, an investment manager or its authorised representative. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.
-/// This message is used to confirm the details of the execution of a SwitchOrder message.
-/// Usage
-/// The SwitchOrderConfirmation message is sent to confirm that all the legs of the switch have been executed.
-/// This is the outer document that contains <seealso cref="SwitchOrderConfirmationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderConfirmationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

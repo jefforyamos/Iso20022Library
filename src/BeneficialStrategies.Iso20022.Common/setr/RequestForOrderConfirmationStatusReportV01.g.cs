@@ -30,7 +30,35 @@ public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
     public const string XmlTag = "ReqForOrdrConfStsRptV01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_v72yANE7Ed-BzquC8wXy7w_1937667668")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Information to identify the order confirmation for which the status is requested.
+    /// </summary>
+    [IsoId("_v72yAdE7Ed-BzquC8wXy7w_-374664944")]
+    [Description(@"Information to identify the order confirmation for which the status is requested.")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    [Required]
+    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_v72yAtE7Ed-BzquC8wXy7w_-2086704739")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +71,8 @@ public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a transfer agent, send the RequestForOrderConfirmationStatusReport message to the instructing party, for example, an investment manager or its authorised representative, to request the status of one or several order confirmations.
-/// Usage
-/// The RequestForOrderConfirmationStatusReport message is used to request the status of either:
-/// - one or several individual order confirmations, or,
-/// - one or several order confirmation messages.
-/// The response to a RequestForOrderConfirmationStatusReport message is the OrderConfirmationStatusReport message.
-/// When the RequestForOrderConfirmationStatusReport message is used to request the status of several individual order confirmations or one or more order confirmation messages, the executing party may receive several OrderConfirmationStatusReport messages from the instructing party.
-/// When the RequestForOrderConfirmationStatusReport is used to request the status of one or more individual order confirmations, each individual order confirmation is identified with its order reference. The message identification of the message in which the individual order confirmation was conveyed may also be quoted in PreviousReference.
-/// When the RequestForOrderConfirmationStatusReport is used to request the status of an order confirmation message, then the message identification of the order confirmation message is identified in PreviousReference.
-/// This is the outer document that contains <seealso cref="RequestForOrderConfirmationStatusReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForOrderConfirmationStatusReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

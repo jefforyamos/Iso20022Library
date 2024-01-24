@@ -21,7 +21,25 @@ public partial record CCPBackTestingResultReportV01 : IOuterRecord
     public const string XmlTag = "CCPBckTstgRsltRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reports the results of the central counterparties production backtesting.
+    /// </summary>
+    [IsoId("_mLRn2eUTEem3X-64-NKdqg")]
+    [Description(@"Reports the results of the central counterparties production backtesting.")]
+    [DataMember(Name="MnthlyRslt")]
+    [XmlElement(ElementName="MnthlyRslt")]
+    [Required]
+    public required SomeMonthlyResultRecord MonthlyResult { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_mLRn2-UTEem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPBackTestingResultReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CCPBackTestingResultReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the results of the back test carried out by the central counterparty.
-/// This is the outer document that contains <seealso cref="CCPBackTestingResultReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPBackTestingResultReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

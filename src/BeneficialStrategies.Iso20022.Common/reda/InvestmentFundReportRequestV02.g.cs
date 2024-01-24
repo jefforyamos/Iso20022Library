@@ -25,7 +25,44 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord
     public const string XmlTag = "InvstmtFndRptReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_Zsax2dEvEd-BzquC8wXy7w_-760876160")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_Zsax2tEvEd-BzquC8wXy7w_62177576")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_Zsax29EvEd-BzquC8wXy7w_1615234816")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Parameters for which the fund processing passport report is requested.
+    /// </summary>
+    [IsoId("_Zsax3NEvEd-BzquC8wXy7w_436796647")]
+    [Description(@"Parameters for which the fund processing passport report is requested.")]
+    [DataMember(Name="FPPRpt")]
+    [XmlElement(ElementName="FPPRpt")]
+    [Required]
+    public required SomeFundProcessingPassportReportRecord FundProcessingPassportReport { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +75,8 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A report user, for example, a professional investor, investment fund distributor, market data provider, regulator or other interested party sends the InvestmentFundReportRequest message to the report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider to request a report.
-/// The InvestmentFundReportRequest message can be used to request one or many fund processing passport reports.
-/// Usage
-/// If the InvestmentFundReportRequest message is used to request a fund processing passport then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund processing passport report that is specified as "no criteria" means that the request is a request for all fund processing passports.
-/// This is the outer document that contains <seealso cref="InvestmentFundReportRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvestmentFundReportRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

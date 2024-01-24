@@ -21,7 +21,35 @@ public partial record DerivativesTradeMarginDataTransactionStateReportV01 : IOut
     public const string XmlTag = "DerivsTradMrgnDataTxStatRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Header information related to metadata of report message.
+    /// </summary>
+    [IsoId("_pVVvg2mFEe2DRvVJM2Qy-g")]
+    [Description(@"Header information related to metadata of report message.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Set of data concerning the reporting trade.
+    /// </summary>
+    [IsoId("_pVVvhWmFEe2DRvVJM2Qy-g")]
+    [Description(@"Set of data concerning the reporting trade.")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_pVVvh2mFEe2DRvVJM2Qy-g")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record DerivativesTradeMarginDataTransactionStateReportV01 : IOut
 }
 
 /// <summary>
-/// The DerivativesTradeMarginDataTransactionStateReport message is sent by the trade repository (TR) to the competent authority or made available to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, containing latest state of the margins exchanged in relation to the derivatives transactions.
-/// This is the outer document that contains <seealso cref="DerivativesTradeMarginDataTransactionStateReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeMarginDataTransactionStateReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

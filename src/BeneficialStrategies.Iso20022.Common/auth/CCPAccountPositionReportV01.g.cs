@@ -21,7 +21,25 @@ public partial record CCPAccountPositionReportV01 : IOuterRecord
     public const string XmlTag = "CCPAcctPosRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Position accounts of a central counterparty containing a portfolio of financial instruments.
+    /// </summary>
+    [IsoId("_1-TtqeUREem3X-64-NKdqg")]
+    [Description(@"Position accounts of a central counterparty containing a portfolio of financial instruments.")]
+    [DataMember(Name="Prtfl")]
+    [XmlElement(ElementName="Prtfl")]
+    [Required]
+    public required SomePortfolioRecord Portfolio { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_1-Ttq-UREem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPAccountPositionReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CCPAccountPositionReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the positions of the clearing members of the central counterparty.
-/// This is the outer document that contains <seealso cref="CCPAccountPositionReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPAccountPositionReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

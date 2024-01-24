@@ -22,7 +22,35 @@ public partial record RequestToPayCreditorEnrolmentCancellationRequestV01 : IOut
     public const string XmlTag = "ReqToPayCdtrEnrlmntCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the cancellation of the creditor enrolment.
+    /// </summary>
+    [IsoId("_rNNBn-HzEeqbls7Gk4-ckA")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the cancellation of the creditor enrolment.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to provide details on the cancellation request.
+    /// </summary>
+    [IsoId("_rNNBoeHzEeqbls7Gk4-ckA")]
+    [Description(@"Set of elements used to provide details on the cancellation request.")]
+    [DataMember(Name="CxlData")]
+    [XmlElement(ElementName="CxlData")]
+    [Required]
+    public required SomeCancellationDataRecord CancellationData { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rNNBo-HzEeqbls7Gk4-ckA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +63,8 @@ public partial record RequestToPayCreditorEnrolmentCancellationRequestV01 : IOut
 }
 
 /// <summary>
-/// The RequestToPayCreditorEnrolmentCancellationRequest message is sent by the creditor RTP (Request To Pay) provider to an RTP directory provider and optionally by the creditor to a creditor RTP provider to request for the cancellation of the creditor registration in the RTP directory. 
-/// The message may also be forwarded to any authorised third party, as defined in the local scheme
-/// This is the outer document that contains <seealso cref="RequestToPayCreditorEnrolmentCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayCreditorEnrolmentCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

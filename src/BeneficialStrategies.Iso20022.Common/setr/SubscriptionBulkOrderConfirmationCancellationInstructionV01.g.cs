@@ -39,7 +39,70 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     public const string XmlTag = "SbcptBlkOrdrConfCxlInstrV01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_ygXWKdE7Ed-BzquC8wXy7w_1701643993")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_ygXWKtE7Ed-BzquC8wXy7w_1700718953")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_ygggENE7Ed-BzquC8wXy7w_1700720004")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_ygggEdE7Ed-BzquC8wXy7w_372102168")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// References of the orders confirmations to be cancelled.
+    /// </summary>
+    [IsoId("_ygggEtE7Ed-BzquC8wXy7w_1701642090")]
+    [Description(@"References of the orders confirmations to be cancelled.")]
+    [DataMember(Name="CxlByRef")]
+    [XmlElement(ElementName="CxlByRef")]
+    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    
+    /// <summary>
+    /// Common information related to all the orders confirmations to be cancelled.
+    /// </summary>
+    [IsoId("_ygggE9E7Ed-BzquC8wXy7w_1699796593")]
+    [Description(@"Common information related to all the orders confirmations to be cancelled.")]
+    [DataMember(Name="CxlByOrdrConfDtls")]
+    [XmlElement(ElementName="CxlByOrdrConfDtls")]
+    public SomeCancellationByOrderConfirmationDetailsRecord? CancellationByOrderConfirmationDetails { get; init; }
+    
+    /// <summary>
+    /// Message is a copy.
+    /// </summary>
+    [IsoId("_ygggFNE7Ed-BzquC8wXy7w_1702565188")]
+    [Description(@"Message is a copy.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -52,26 +115,8 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a transfer agent sends the SubscriptionBulkOrderConfirmationCancellationInstruction message to the instructing party, for example, an investment manager or its authorised representative to cancel a previously sent SubscriptionBulkOrderConfirmation.
-/// Usage
-/// The SubscriptionBulkOrderConfirmationCancellationInstruction message is used to cancel one or more previously sent subscription bulk order confirmations.
-/// The amendment indicator element is used to specify whether the subscription bulk order confirmation cancellation is to be followed by a SubscriptionBulkOrderConfirmationAmendment.
-/// The SubscriptionBulkOrderConfirmationCancellationInstruction message is used to either:
-/// - cancel an entire SubscriptionBulkOrderConfirmation message, that is, all the individual order confirmations that it contained, or,
-/// - request the cancellation of one or more individual confirmations.
-/// There are two ways to use the message.
-/// (1) When the SubscriptionBulkOrderConfirmationCancellationInstruction message is used to cancel an entire message, this can be done by either:
-/// - quoting the business references, for example, OrderReference, Deal Reference, of all the individual order confirmations listed in the SubscriptionBulkOrderConfirmation message, or,
-/// - quoting the details of all the individual order confirmations (this includes the OrderReference and DealReference) listed in SubscriptionBulkOrderConfirmation message but this is not recommended.
-/// The message identification of the SubscriptionOrderConfirmation message may also be quoted in PreviousReference.
-/// It is also possible to instruct the cancellation of an entire confirmation message by quoting its message identification in PreviousReference, but this is not recommended.
-/// (2) When the SubscriptionBulkOrderConfirmationCancellationInstruction message is used to cancel one or more individual order confirmations, this can be done by either:
-/// - quoting the business references, for example, OrderReference, Deal Reference, of each individual order confirmation listed in the SubscriptionBulkOrderConfirmation message, or,
-/// - quoting the details of each individual order execution (this includes the OrderReference and DealReference) listed in SubscriptionBulkOrderConfirmation message but this is not recommended.
-/// The message identification of the SubscriptionBulkOrderConfirmation message in which the individual order confirmation was conveyed may also be quoted in PreviousReference.
-/// The rejection or acceptance of a SubscriptionBulkOrderConfirmationCancellationInstruction is made using an OrderConfirmationStatusReport message.
-/// This is the outer document that contains <seealso cref="SubscriptionBulkOrderConfirmationCancellationInstructionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionBulkOrderConfirmationCancellationInstructionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -39,7 +39,101 @@ public partial record SecuritiesFinancingModificationInstructionV02 : IOuterReco
     public const string XmlTag = "SctiesFincgModInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Securities financing transaction identification information, type (repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing), modification information and other parameters.
+    /// </summary>
+    [IsoId("_xJ2m1dtaEd-RF5yaMAVhAw")]
+    [Description(@"Securities financing transaction identification information, type (repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing), modification information and other parameters.")]
+    [DataMember(Name="TxTpAndModAddtlParams")]
+    [XmlElement(ElementName="TxTpAndModAddtlParams")]
+    [Required]
+    public required SomeTransactionTypeAndModificationAdditionalParametersRecord TransactionTypeAndModificationAdditionalParameters { get; init; }
+    
+    /// <summary>
+    /// Details of the securities financing deal.
+    /// </summary>
+    [IsoId("_xJ2m19taEd-RF5yaMAVhAw")]
+    [Description(@"Details of the securities financing deal.")]
+    [DataMember(Name="TradDtls")]
+    [XmlElement(ElementName="TradDtls")]
+    [Required]
+    public required SomeTradeDetailsRecord TradeDetails { get; init; }
+    
+    /// <summary>
+    /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
+    /// </summary>
+    [IsoId("_xJ2m2dtaEd-RF5yaMAVhAw")]
+    [Description(@"Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    [Required]
+    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Details related to the account and quantity involved in the transaction.
+    /// </summary>
+    [IsoId("_xJ2m29taEd-RF5yaMAVhAw")]
+    [Description(@"Details related to the account and quantity involved in the transaction.")]
+    [DataMember(Name="QtyAndAcctDtls")]
+    [XmlElement(ElementName="QtyAndAcctDtls")]
+    [Required]
+    public required SomeQuantityAndAccountDetailsRecord QuantityAndAccountDetails { get; init; }
+    
+    /// <summary>
+    /// Details of the closing of the securities financing transaction.
+    /// </summary>
+    [IsoId("_xJ2m3dtaEd-RF5yaMAVhAw")]
+    [Description(@"Details of the closing of the securities financing transaction.")]
+    [DataMember(Name="SctiesFincgAddtlDtls")]
+    [XmlElement(ElementName="SctiesFincgAddtlDtls")]
+    [Required]
+    public required SomeSecuritiesFinancingAdditionalDetailsRecord SecuritiesFinancingAdditionalDetails { get; init; }
+    
+    /// <summary>
+    /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
+    /// </summary>
+    [IsoId("_xJ2m39taEd-RF5yaMAVhAw")]
+    [Description(@"Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.")]
+    [DataMember(Name="SttlmParams")]
+    [XmlElement(ElementName="SttlmParams")]
+    public SomeSettlementParametersRecord? SettlementParameters { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of delivering settlement parties.
+    /// </summary>
+    [IsoId("_xJ2m4dtaEd-RF5yaMAVhAw")]
+    [Description(@"Identifies the chain of delivering settlement parties.")]
+    [DataMember(Name="DlvrgSttlmPties")]
+    [XmlElement(ElementName="DlvrgSttlmPties")]
+    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of receiving settlement parties.
+    /// </summary>
+    [IsoId("_xJ2m49taEd-RF5yaMAVhAw")]
+    [Description(@"Identifies the chain of receiving settlement parties.")]
+    [DataMember(Name="RcvgSttlmPties")]
+    [XmlElement(ElementName="RcvgSttlmPties")]
+    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    
+    /// <summary>
+    /// Total amount of money to be paid or received in exchange for the securities at the opening of a securities financing transaction.
+    /// </summary>
+    [IsoId("_xJ2m5dtaEd-RF5yaMAVhAw")]
+    [Description(@"Total amount of money to be paid or received in exchange for the securities at the opening of a securities financing transaction.")]
+    [DataMember(Name="OpngSttlmAmt")]
+    [XmlElement(ElementName="OpngSttlmAmt")]
+    public SomeOpeningSettlementAmountRecord? OpeningSettlementAmount { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_xJ2m69taEd-RF5yaMAVhAw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -52,26 +146,8 @@ public partial record SecuritiesFinancingModificationInstructionV02 : IOuterReco
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends a SecuritiesFinancingModificationInstruction to a securities financing transaction account servicer to notify the securities financing transaction account servicer of an update in the details of a repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing transaction that does not impact the original transaction securities quantity.
-/// Such a change may be:
-/// - the providing of closing details not available at the time of the sending of the Securities Financing Instruction, for example, termination date for an open repo,
-/// - the providing of a new rate, for example, a repo rate,
-/// - the rollover of a position extending the closing or maturity date.
-/// The account owner/servicer relationship may be:
-/// - a global custodian which has an account with a local custodian, or
-/// - an investment management institution which manage a fund account opened at a custodian, or
-/// - a broker which has an account with a custodian, or
-/// - a central securities depository participant which has an account with a central securities depository, or
-/// - a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure, or
-/// - a central counterparty or a stock exchange or a trade matching utility which need to instruct the settlement of securities financing transactions to a central securities depository or another settlement market infrastructure.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information.
-/// using the relevant elements in the Business Application Header.|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingModificationInstructionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingModificationInstructionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

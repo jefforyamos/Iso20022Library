@@ -23,7 +23,35 @@ public partial record VerificationInitiationV02 : IOuterRecord
     public const string XmlTag = "VrfctnInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_3L3tM4ELEeu6D49Gi-ZPwQ")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the verification initiation.
+    /// </summary>
+    [IsoId("_3L3tNYELEeu6D49Gi-ZPwQ")]
+    [Description(@"Information related to the verification initiation.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC
+    /// </summary>
+    [IsoId("_3L3tN4ELEeu6D49Gi-ZPwQ")]
+    [Description(@"Trailer of the message containing a MAC")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +64,8 @@ public partial record VerificationInitiationV02 : IOuterRecord
 }
 
 /// <summary>
-/// The VerificationInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer). It conveys information to a receiver requiring verification or authentication. |
-/// |
-/// Examples of usages are: authentication of certificates, assurance levels of tokens, certificate management, address verification, account verification and cheque verification. It is also used to inform the receiver of a verification that has been completed on its behalf.
-/// This is the outer document that contains <seealso cref="VerificationInitiationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="VerificationInitiationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

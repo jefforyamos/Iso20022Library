@@ -24,7 +24,45 @@ public partial record CreateReservationV01 : IOuterRecord
     public const string XmlTag = "CretRsvatn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_P8tol8kHEem3UrxZgQhVAw")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identification of the default reservation.
+    /// </summary>
+    [IsoId("_P8tomckHEem3UrxZgQhVAw")]
+    [Description(@"Identification of the default reservation.")]
+    [DataMember(Name="RsvatnId")]
+    [XmlElement(ElementName="RsvatnId")]
+    [Required]
+    public required SomeReservationIdentificationRecord ReservationIdentification { get; init; }
+    
+    /// <summary>
+    /// New reservation values.
+    /// </summary>
+    [IsoId("_P8tom8kHEem3UrxZgQhVAw")]
+    [Description(@"New reservation values.")]
+    [DataMember(Name="ValSet")]
+    [XmlElement(ElementName="ValSet")]
+    [Required]
+    public required SomeValueSetRecord ValueSet { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_P8tonckHEem3UrxZgQhVAw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +75,8 @@ public partial record CreateReservationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CreateReservation message is used to create one particular reservation by the member and managed by the transaction administrator.
-/// Usage
-/// Based on the criteria defined in the CreateReservation message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.
-/// This is the outer document that contains <seealso cref="CreateReservationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateReservationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

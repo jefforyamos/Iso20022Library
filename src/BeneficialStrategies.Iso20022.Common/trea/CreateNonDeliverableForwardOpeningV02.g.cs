@@ -24,7 +24,66 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord
     public const string XmlTag = "CretNDFOpngV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides identification and date of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_OzAFVtE8Ed-BzquC8wXy7w_579998049")]
+    [Description(@"Provides identification and date of the non deliverable trade which is created.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_OzAFV9E8Ed-BzquC8wXy7w_1458268305")]
+    [Description(@"Specifies the trading side of the non deliverable trade which is created.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_OzAFWNE8Ed-BzquC8wXy7w_1612496357")]
+    [Description(@"Specifies the counterparty of the non deliverable trade which is created.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the amounts of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_OzAFWdE8Ed-BzquC8wXy7w_-659367564")]
+    [Description(@"Specifies the amounts of the non deliverable trade which is created.")]
+    [DataMember(Name="TradAmts")]
+    [XmlElement(ElementName="TradAmts")]
+    [Required]
+    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    
+    /// <summary>
+    /// Specifies the rate agreed at the opening of a non deliverable trade.
+    /// </summary>
+    [IsoId("_OzAFWtE8Ed-BzquC8wXy7w_497805144")]
+    [Description(@"Specifies the rate agreed at the opening of a non deliverable trade.")]
+    [DataMember(Name="AgrdRate")]
+    [XmlElement(ElementName="AgrdRate")]
+    [Required]
+    public required SomeAgreedRateRecord AgreedRate { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation conditions of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_OzJ2UNE8Ed-BzquC8wXy7w_1979703277")]
+    [Description(@"Specifies the valuation conditions of the non deliverable trade which is created.")]
+    [DataMember(Name="ValtnConds")]
+    [XmlElement(ElementName="ValtnConds")]
+    [Required]
+    public required SomeValuationConditionsRecord ValuationConditions { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +96,8 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CreateNonDeliverableForwardOpening message is sent by a participant to a central system or to a counterparty to notify the opening of a non deliverable trade.
-/// Usage
-/// The trading parties will send similar messages to the central settlement system and the central settlement system will send notifications to both parties.
-/// This is the outer document that contains <seealso cref="CreateNonDeliverableForwardOpeningV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateNonDeliverableForwardOpeningV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

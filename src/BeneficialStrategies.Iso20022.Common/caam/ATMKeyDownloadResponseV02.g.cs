@@ -21,7 +21,43 @@ public partial record ATMKeyDownloadResponseV02 : IOuterRecord
     public const string XmlTag = "ATMKeyDwnldRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("__AA4s645EeWRfYPBaeOY8w")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("__AA4ta45EeWRfYPBaeOY8w")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMKeyDwnldRspn")]
+    [XmlElement(ElementName="PrtctdATMKeyDwnldRspn")]
+    public SomeProtectedATMKeyDownloadResponseRecord? ProtectedATMKeyDownloadResponse { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of an ATM key download from an ATM manager.
+    /// </summary>
+    [IsoId("__AA4t645EeWRfYPBaeOY8w")]
+    [Description(@"Information related to the response of an ATM key download from an ATM manager.")]
+    [DataMember(Name="ATMKeyDwnldRspn")]
+    [XmlElement(ElementName="ATMKeyDwnldRspn")]
+    public SomeATMKeyDownloadResponseRecord? ATMKeyDownloadResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("__AA4ua45EeWRfYPBaeOY8w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMKeyDownloadResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMKeyDownloadResponse message is sent from an acquirer to an ATM in response to an ATMKeyDownloadRequest message, to download of one or several cryptographic keys.
-/// This is the outer document that contains <seealso cref="ATMKeyDownloadResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMKeyDownloadResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

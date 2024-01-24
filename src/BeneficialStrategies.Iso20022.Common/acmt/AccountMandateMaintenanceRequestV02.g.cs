@@ -24,7 +24,119 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
     public const string XmlTag = "AcctMndtMntncReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements for the identification of the message and related references.
+    /// </summary>
+    [IsoId("_Yex38w1TEeKGXqvMN6jpiw")]
+    [Description(@"Set of elements for the identification of the message and related references.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.
+    /// </summary>
+    [IsoId("_TABW8A1YEeKGXqvMN6jpiw")]
+    [Description(@"Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.")]
+    [DataMember(Name="Fr")]
+    [XmlElement(ElementName="Fr")]
+    public SomeFromRecord? From { get; init; }
+    
+    /// <summary>
+    /// Specifies target dates.
+    /// </summary>
+    [IsoId("_Yex39w1TEeKGXqvMN6jpiw")]
+    [Description(@"Specifies target dates.")]
+    [DataMember(Name="CtrctDts")]
+    [XmlElement(ElementName="CtrctDts")]
+    public SomeContractDatesRecord? ContractDates { get; init; }
+    
+    /// <summary>
+    /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
+    /// </summary>
+    [IsoId("_Yex3-w1TEeKGXqvMN6jpiw")]
+    [Description(@"Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.")]
+    [DataMember(Name="UndrlygMstrAgrmt")]
+    [XmlElement(ElementName="UndrlygMstrAgrmt")]
+    public SomeUnderlyingMasterAgreementRecord? UnderlyingMasterAgreement { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account between the account owner and the account servicer.
+    /// </summary>
+    [IsoId("_Yex3_w1TEeKGXqvMN6jpiw")]
+    [Description(@"Unique and unambiguous identification of the account between the account owner and the account servicer.")]
+    [DataMember(Name="AcctId")]
+    [XmlElement(ElementName="AcctId")]
+    [Required]
+    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
+    /// </summary>
+    [IsoId("_Yex4Aw1TEeKGXqvMN6jpiw")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the organisation requesting the change.
+    /// </summary>
+    [IsoId("_Yex4Bw1TEeKGXqvMN6jpiw")]
+    [Description(@"Identification of the organisation requesting the change.")]
+    [DataMember(Name="OrgId")]
+    [XmlElement(ElementName="OrgId")]
+    [Required]
+    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    
+    /// <summary>
+    /// Information specifying the account mandate.
+    /// </summary>
+    [IsoId("_Yex4Cw1TEeKGXqvMN6jpiw")]
+    [Description(@"Information specifying the account mandate.")]
+    [DataMember(Name="Mndt")]
+    [XmlElement(ElementName="Mndt")]
+    [Required]
+    public required SomeMandateRecord Mandate { get; init; }
+    
+    /// <summary>
+    /// Definition of a group of parties.
+    /// </summary>
+    [IsoId("_gEgTIA4XEeKGXqvMN6jpiw")]
+    [Description(@"Definition of a group of parties.")]
+    [DataMember(Name="Grp")]
+    [XmlElement(ElementName="Grp")]
+    public SomeGroupRecord? Group { get; init; }
+    
+    /// <summary>
+    /// Contains additional information related to the message.
+    /// </summary>
+    [IsoId("_Yex4Dw1TEeKGXqvMN6jpiw")]
+    [Description(@"Contains additional information related to the message.")]
+    [DataMember(Name="AddtlMsgInf")]
+    [XmlElement(ElementName="AddtlMsgInf")]
+    public SomeAdditionalMessageInformationRecord? AdditionalMessageInformation { get; init; }
+    
+    /// <summary>
+    /// Contains the signature with its components, namely signed info, signature value, key info and the object.
+    /// </summary>
+    [IsoId("_Yex4Ew1TEeKGXqvMN6jpiw")]
+    [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_qNAEkA4AEeKGXqvMN6jpiw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +149,8 @@ public partial record AccountMandateMaintenanceRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// The AccountMandateMaintenanceRequest message is sent from an organisation to a financial institution as part of the account maintenance process. It is the initial request message to update one or several accounts. Usage: this update is only about mandate information. 
-/// If modification codes are not used: the organisation will specify under the “Mandate” and “Group” tags the complete information as it should be in the financial institution’s records after processing the update request. 
-/// If modification codes are used (in that case, they must be used everywhere): the organisation will specify under the “Mandate” and “Group” tags which elements must be added, deleted, modified, or if they are unchanged.
-/// It is not possible to update the account characteristics or organisation information with this message.
-/// This is the outer document that contains <seealso cref="AccountMandateMaintenanceRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountMandateMaintenanceRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -27,7 +27,63 @@ public partial record CollateralAndExposureReportV05 : IOuterRecord
     public const string XmlTag = "CollAndXpsrRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides information about the report such as the report identification, the report date and time or the report frequency.
+    /// </summary>
+    [IsoId("_J4YlAygrEeyB747fKu7_rw")]
+    [Description(@"Provides information about the report such as the report identification, the report date and time or the report frequency.")]
+    [DataMember(Name="RptParams")]
+    [XmlElement(ElementName="RptParams")]
+    [Required]
+    public required SomeReportParametersRecord ReportParameters { get; init; }
+    
+    /// <summary>
+    /// Specifies the page number and an indicator of whether it is the only or last page, or if there are additional pages. 
+    /// </summary>
+    [IsoId("_J4YlBSgrEeyB747fKu7_rw")]
+    [Description(@"Specifies the page number and an indicator of whether it is the only or last page, or if there are additional pages. |")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    public SomePaginationRecord? Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_J4YlBygrEeyB747fKu7_rw")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Agreement details for the over the counter market.
+    /// </summary>
+    [IsoId("_J4YlCSgrEeyB747fKu7_rw")]
+    [Description(@"Agreement details for the over the counter market.")]
+    [DataMember(Name="Agrmt")]
+    [XmlElement(ElementName="Agrmt")]
+    public SomeAgreementRecord? Agreement { get; init; }
+    
+    /// <summary>
+    /// Details of the collateral.
+    /// </summary>
+    [IsoId("_J4YlCygrEeyB747fKu7_rw")]
+    [Description(@"Details of the collateral.")]
+    [DataMember(Name="CollRpt")]
+    [XmlElement(ElementName="CollRpt")]
+    [Required]
+    public required SomeCollateralReportRecord CollateralReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_J4YlDSgrEeyB747fKu7_rw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +96,8 @@ public partial record CollateralAndExposureReportV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CollateralAndExposureReport message is sent by:
-/// - the collateral giver, or its collateral manager, to the collateral taker, or its collateral manager, 
-/// - the collateral taker, or its collateral manager to the collateral giver, or its collateral manager
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The CollateralAndExposureReport message is used to provide the details of the valuation of the collateral, that is, the valuation of securities collateral, cash collateral or other type of collateral, posted at a specific calculation date.
-/// This is the outer document that contains <seealso cref="CollateralAndExposureReportV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralAndExposureReportV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

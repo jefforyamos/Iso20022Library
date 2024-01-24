@@ -28,7 +28,46 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
     public const string XmlTag = "RgltryTxRptStsV01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of the RegulatoryTransactionReportStatus document.
+    /// </summary>
+    [IsoId("_gJ-K8cIFEeGllrOKQRUTYA_-1414225965")]
+    [Description(@"Identification of the RegulatoryTransactionReportStatus document.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the firm that is legally responsible for sending the transaction report.
+    /// </summary>
+    [IsoId("_gJ-K8sIFEeGllrOKQRUTYA_1208200865")]
+    [Description(@"Identification of the firm that is legally responsible for sending the transaction report.")]
+    [DataMember(Name="RptgInstn")]
+    [XmlElement(ElementName="RptgInstn")]
+    [Required]
+    public required SomeReportingInstitutionRecord ReportingInstitution { get; init; }
+    
+    /// <summary>
+    /// Provides the status of the entire RegulatoryTransactionReport that was previously sent by the reporting institution.
+    /// </summary>
+    [IsoId("_gJ-K88IFEeGllrOKQRUTYA_963266001")]
+    [Description(@"Provides the status of the entire RegulatoryTransactionReport that was previously sent by the reporting institution.")]
+    [DataMember(Name="RptSts")]
+    [XmlElement(ElementName="RptSts")]
+    [Required]
+    public required SomeReportStatusRecord ReportStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the status of one or more transactions that were previously sent within a RegulatoryTransactionReport by the reporting institution.
+    /// </summary>
+    [IsoId("_gJ-K9MIFEeGllrOKQRUTYA_1351125442")]
+    [Description(@"Provides the status of one or more transactions that were previously sent within a RegulatoryTransactionReport by the reporting institution.")]
+    [DataMember(Name="IndvTxSts")]
+    [XmlElement(ElementName="IndvTxSts")]
+    [Required]
+    public required SomeIndividualTransactionStatusRecord IndividualTransactionStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +80,8 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A regulator or an intermediary sends the RegulatoryTransactionReportStatus to a reporting institution to provide the status of a RegulatoryTransactionReport previously sent by the reporting institution.
-/// Usage
-/// The message definition may be used to provide a status for the entire report or to provide a status at the level of individual transactions within the report. One of the following statuses can be reported:
-/// - Completed, or,
-/// - Pending, or,
-/// - Rejected.
-/// If the status is rejected, then reason for the rejection must be specified.
-/// This is the outer document that contains <seealso cref="RegulatoryTransactionReportStatusV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RegulatoryTransactionReportStatusV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

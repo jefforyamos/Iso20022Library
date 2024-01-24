@@ -25,7 +25,65 @@ public partial record NetPositionV03 : IOuterRecord
     public const string XmlTag = "NetPos";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides parameters of the margin report such as the creation date and time, the report currency or the calculation date and time.
+    /// </summary>
+    [IsoId("_9C7fsy0lEeSRe9rElPHBfg")]
+    [Description(@"Provides parameters of the margin report such as the creation date and time, the report currency or the calculation date and time.")]
+    [DataMember(Name="RptParams")]
+    [XmlElement(ElementName="RptParams")]
+    [Required]
+    public required SomeReportParametersRecord ReportParameters { get; init; }
+    
+    /// <summary>
+    /// Provides information about the number of used pages.
+    /// </summary>
+    [IsoId("_9C7ftS0lEeSRe9rElPHBfg")]
+    [Description(@"Provides information about the number of used pages.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
+    /// </summary>
+    [IsoId("_9C7fty0lEeSRe9rElPHBfg")]
+    [Description(@"Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).")]
+    [DataMember(Name="ClrMmb")]
+    [XmlElement(ElementName="ClrMmb")]
+    [Required]
+    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    
+    /// <summary>
+    /// Clearing organisation that will clear the trade.
+    /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
+    /// </summary>
+    [IsoId("_9C7fuS0lEeSRe9rElPHBfg")]
+    [Description(@"Clearing organisation that will clear the trade.||Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.")]
+    [DataMember(Name="ClrSgmt")]
+    [XmlElement(ElementName="ClrSgmt")]
+    public SomeClearingSegmentRecord? ClearingSegment { get; init; }
+    
+    /// <summary>
+    /// Provides the net position details such as the average deal price and net quantity.
+    /// </summary>
+    [IsoId("_9C7fuy0lEeSRe9rElPHBfg")]
+    [Description(@"Provides the net position details such as the average deal price and net quantity.")]
+    [DataMember(Name="NetPosRpt")]
+    [XmlElement(ElementName="NetPosRpt")]
+    [Required]
+    public required SomeNetPositionReportRecord NetPositionReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_9C7fvS0lEeSRe9rElPHBfg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +96,8 @@ public partial record NetPositionV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Net Position Report message is sent by the central counterparty (CCP) to a clearing member to confirm the net position of all trade legs reported during the day.
-/// The message definition is intended for use with the ISO 20022 Business Application Header.
-/// Usage
-/// The central counterparty (CCP) nets all the positions per clearing account and sends the Net Position report message to the Clearing member.
-/// This is the outer document that contains <seealso cref="NetPositionV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetPositionV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

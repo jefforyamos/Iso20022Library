@@ -21,7 +21,25 @@ public partial record FinancialInstrumentReportingCurrencyCodeReportV01 : IOuter
     public const string XmlTag = "FinInstrmRptgCcyCdRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Report all currencies and countries which use that currency.
+    /// </summary>
+    [IsoId("_4LK8OURNEee7JdgA9zPESA")]
+    [Description(@"Report all currencies and countries which use that currency.")]
+    [DataMember(Name="CcyData")]
+    [XmlElement(ElementName="CcyData")]
+    [Required]
+    public required SomeCurrencyDataRecord CurrencyData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_4LK8O0RNEee7JdgA9zPESA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record FinancialInstrumentReportingCurrencyCodeReportV01 : IOuter
 }
 
 /// <summary>
-/// The MiFIRCurrencyCodeReport message provides the details the ISO 4217 currency codes and is created by ESMA for distribution to National Competent Authorities.
-/// This is the outer document that contains <seealso cref="FinancialInstrumentReportingCurrencyCodeReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingCurrencyCodeReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

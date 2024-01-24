@@ -21,7 +21,42 @@ public partial record DTCCCACNSD1V02 : IOuterRecord
     public const string XmlTag = "DTCCCACNSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as supplementary data to cancellation advice.
+    /// </summary>
+    [IsoId("_1OTt5DL3EeKU9IrkkToqcw_-1238632619")]
+    [Description(@"Information to be extended as supplementary data to cancellation advice.")]
+    [DataMember(Name="NtfctnXtnsn")]
+    [XmlElement(ElementName="NtfctnXtnsn")]
+    public SomeNotificationExtensionRecord? NotificationExtension { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to cancellation advice general information.
+    /// </summary>
+    [IsoId("_1OTt5TL3EeKU9IrkkToqcw_-2042507692")]
+    [Description(@"Information to be extended as supplementary data to cancellation advice general information.")]
+    [DataMember(Name="GnlInfXtnsn")]
+    [XmlElement(ElementName="GnlInfXtnsn")]
+    public SomeGeneralInformationExtensionRecord? GeneralInformationExtension { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as events linkage supplementary data to events to cancellation advice.
+    /// </summary>
+    [IsoId("_1OTt5jL3EeKU9IrkkToqcw_-1867503343")]
+    [Description(@"Information to be extended as events linkage supplementary data to events to cancellation advice.")]
+    [DataMember(Name="EvtsLkgXtnsn")]
+    [XmlElement(ElementName="EvtsLkgXtnsn")]
+    public SomeEventsLinkageExtensionRecord? EventsLinkageExtension { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as external comments to cancellation advice.
+    /// </summary>
+    [IsoId("_1OTt5zL3EeKU9IrkkToqcw_-551563388")]
+    [Description(@"Information to be extended as external comments to cancellation advice.")]
+    [DataMember(Name="XtrnlCmntsXtnsn")]
+    [XmlElement(ElementName="XtrnlCmntsXtnsn")]
+    public SomeExternalCommentsExtensionRecord? ExternalCommentsExtension { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +69,8 @@ public partial record DTCCCACNSD1V02 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCACNSD1 message extends ISO corporate action cancellation advise (CACN) message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCACNSD1V02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCACNSD1V02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

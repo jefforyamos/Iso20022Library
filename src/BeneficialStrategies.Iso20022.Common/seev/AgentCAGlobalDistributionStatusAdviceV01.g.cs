@@ -28,7 +28,56 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCAGblDstrbtnStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the status advice.
+    /// </summary>
+    [IsoId("_TN5ZxtEwEd-BzquC8wXy7w_1263163020")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the status advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Global Distribution Authorisation Request for which a status is given.
+    /// </summary>
+    [IsoId("_TN5Zx9EwEd-BzquC8wXy7w_1294561939")]
+    [Description(@"Identification of the linked Agent CA Global Distribution Authorisation Request for which a status is given.")]
+    [DataMember(Name="AgtCAGblDstrbtnAuthstnReqId")]
+    [XmlElement(ElementName="AgtCAGblDstrbtnAuthstnReqId")]
+    [Required]
+    public required SomeAgentCAGlobalDistributionAuthorisationRequestIdentificationRecord AgentCAGlobalDistributionAuthorisationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TN5ZyNEwEd-BzquC8wXy7w_1839061522")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides information about the status of the global movement.
+    /// </summary>
+    [IsoId("_TN5ZydEwEd-BzquC8wXy7w_-2081880842")]
+    [Description(@"Provides information about the status of the global movement.")]
+    [DataMember(Name="GblMvmntSts")]
+    [XmlElement(ElementName="GblMvmntSts")]
+    [Required]
+    public required SomeGlobalMovementStatusRecord GlobalMovementStatus { get; init; }
+    
+    /// <summary>
+    /// Provides information about the status of an individual movement.
+    /// </summary>
+    [IsoId("_TN5ZytEwEd-BzquC8wXy7w_-1885018018")]
+    [Description(@"Provides information about the status of an individual movement.")]
+    [DataMember(Name="IndvMvmntSts")]
+    [XmlElement(ElementName="IndvMvmntSts")]
+    [Required]
+    public required SomeIndividualMovementStatusRecord IndividualMovementStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +90,8 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to the CSD to authorise/prohibit the CSD to process the entitlement movements.
-/// Usage
-/// This message is used to authorise/prohibit the CSD to process the movements requested in the Global Distribution Authorisation Request message.
-/// Once the amendment request has been accepted by the issuer (or its agent), the CSD will process any resource movement and send an Agent Corporate Action Election Advice message with the function, option change, to confirm that the amendment has been booked at the CSD.
-/// The issuer (or its agent) can provide the status in 2 different ways:
-/// - Provide a global status, in which case the building block Global Movement Status must be present; or
-/// - Provide a status by individual movements, in which case, the building block Individual Movement Status must be present. An individual movement cannot be rejected.
-/// This is the outer document that contains <seealso cref="AgentCAGlobalDistributionStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAGlobalDistributionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

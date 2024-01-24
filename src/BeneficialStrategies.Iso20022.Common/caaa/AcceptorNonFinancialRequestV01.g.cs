@@ -21,7 +21,35 @@ public partial record AcceptorNonFinancialRequestV01 : IOuterRecord
     public const string XmlTag = "AccptrNonFinReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Non Financial request message management information.
+    /// </summary>
+    [IsoId("_jSU6sy_cEeugIJ3Gvoevmg")]
+    [Description(@"Non Financial request message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the non financial request.
+    /// </summary>
+    [IsoId("_mpdbUC_sEeugIJ3Gvoevmg")]
+    [Description(@"Information related to the non financial request.")]
+    [DataMember(Name="NonFinReq")]
+    [XmlElement(ElementName="NonFinReq")]
+    [Required]
+    public required SomeNonFinancialRequestRecord NonFinancialRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_jSU6tS_cEeugIJ3Gvoevmg")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorNonFinancialRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorNonFinancialRequest message is sent by the POI to receive additional information from the Acquirer (or its agent).
-/// This is the outer document that contains <seealso cref="AcceptorNonFinancialRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorNonFinancialRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

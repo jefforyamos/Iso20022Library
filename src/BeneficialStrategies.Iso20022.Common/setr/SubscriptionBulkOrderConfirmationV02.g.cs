@@ -28,7 +28,80 @@ public partial record SubscriptionBulkOrderConfirmationV02 : IOuterRecord
     public const string XmlTag = "setr.009.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// </summary>
+    [IsoId("_y7Cf-dE7Ed-BzquC8wXy7w_786016250")]
+    [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_y7Cf-tE7Ed-BzquC8wXy7w_772163807")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_y7Cf-9E7Ed-BzquC8wXy7w_783244126")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_y7Lp4NE7Ed-BzquC8wXy7w_788786679")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    [Required]
+    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    
+    /// <summary>
+    /// General information related to the execution of investment orders.
+    /// </summary>
+    [IsoId("_y7Lp4dE7Ed-BzquC8wXy7w_-168002725")]
+    [Description(@"General information related to the execution of investment orders.")]
+    [DataMember(Name="BlkExctnDtls")]
+    [XmlElement(ElementName="BlkExctnDtls")]
+    [Required]
+    public required SomeBulkExecutionDetailsRecord BulkExecutionDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to an intermediary.
+    /// </summary>
+    [IsoId("_y7Lp4tE7Ed-BzquC8wXy7w_-355126411")]
+    [Description(@"Information related to an intermediary.")]
+    [DataMember(Name="IntrmyDtls")]
+    [XmlElement(ElementName="IntrmyDtls")]
+    public required IReadonlyCollection<SomeIntermediaryDetailsRecord> IntermediaryDetails { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_y7Lp49E7Ed-BzquC8wXy7w_-1785604561")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_y7Lp5NE7Ed-BzquC8wXy7w_1147481101")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +114,8 @@ public partial record SubscriptionBulkOrderConfirmationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SubscriptionBulkOrderConfirmation message is sent by an executing party, eg, a transfer agent, to an instructing party, eg, an investment manager or its authorised representative. There may be one or more intermediary parties between the executing party and the instructing party. The intermediary party is, for example, an intermediary or a concentrator.
-/// This message is used to confirm the details of the execution of a SubscriptionBulkOrder message.
-/// Usage
-/// The SubscriptionBulkOrderConfirmation message is sent, after the price has been determined, to confirm the execution of all individual orders.
-/// There is usually one bulk confirmation message for one bulk order message.
-/// A SubscriptionBulkOrder must in all cases be responded to by a SubscriptionBulkOrderConfirmation and in no circumstances by a SubscriptionMultipleOrderConfirmation.
-/// If the executing party needs to confirm a SubscriptionMultipleOrder message, then the SubscriptionMultipleOrderConfirmation message must be used.
-/// This is the outer document that contains <seealso cref="SubscriptionBulkOrderConfirmationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionBulkOrderConfirmationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

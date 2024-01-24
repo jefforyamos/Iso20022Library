@@ -21,7 +21,35 @@ public partial record AccountSwitchTechnicalRejectionV01 : IOuterRecord
     public const string XmlTag = "AcctSwtchTechRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification for the message.
+    /// </summary>
+    [IsoId("_ZlIe8a5kEee17eDA_q0a9g")]
+    [Description(@"Unique identification for the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains information about the details of the account switch, including reasons for the technical rejection of the account switch.
+    /// </summary>
+    [IsoId("_a9W2Ia5kEee17eDA_q0a9g")]
+    [Description(@"Contains information about the details of the account switch, including reasons for the technical rejection of the account switch.")]
+    [DataMember(Name="AcctSwtchDtls")]
+    [XmlElement(ElementName="AcctSwtchDtls")]
+    [Required]
+    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_x2EGwA8EEeeJ4ZumUkzG4Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AccountSwitchTechnicalRejectionV01 : IOuterRecord
 }
 
 /// <summary>
-/// The AccountSwitchTechnicalRejection message is sent by the account switch servicer to the new account servicer when it has not been able to validate a previously sent message.
-/// This is the outer document that contains <seealso cref="AccountSwitchTechnicalRejectionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchTechnicalRejectionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

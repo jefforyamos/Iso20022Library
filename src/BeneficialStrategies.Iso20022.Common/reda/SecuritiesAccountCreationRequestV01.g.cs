@@ -24,7 +24,34 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord
     public const string XmlTag = "SctiesAcctCreReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_gl0bMJ5GEemQg7pJhFUUYg")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Securities account to be created in the executing party system.
+    /// </summary>
+    [IsoId("_KAu-l52fEem_Be8NuxvF7Q")]
+    [Description(@"Securities account to be created in the executing party system.")]
+    [DataMember(Name="SctiesAcct")]
+    [XmlElement(ElementName="SctiesAcct")]
+    [Required]
+    public required SomeSecuritiesAccountRecord SecuritiesAccount { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_KAu-mZ2fEem_Be8NuxvF7Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +64,8 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecuritiesAccountCreationRequest message message is sent by an instructing party to the executing party to instruct the creation of a new securities account with the required account attributes details.
-/// |
-/// Usage:|
-/// Processing and confirmation of the securities account creation request message are provided via a SecuritiesAccountStatusAdvice message.
-/// This is the outer document that contains <seealso cref="SecuritiesAccountCreationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountCreationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

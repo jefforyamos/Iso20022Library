@@ -25,7 +25,62 @@ public partial record FundConfirmedCashForecastReportCancellationV03 : IOuterRec
     public const string XmlTag = "FndConfdCshFcstRptCxl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_Q7mCEwasEeSrXeb3pHPmbg")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_Q7mCFQasEeSrXeb3pHPmbg")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_Q7mCFwasEeSrXeb3pHPmbg")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_Q7mCGQasEeSrXeb3pHPmbg")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_Q7mCGwasEeSrXeb3pHPmbg")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// The FundDetailedConfirmedCashForecastReport to be cancelled.
+    /// </summary>
+    [IsoId("_Q7mCHQasEeSrXeb3pHPmbg")]
+    [Description(@"The FundDetailedConfirmedCashForecastReport to be cancelled.")]
+    [DataMember(Name="CshFcstRptToBeCanc")]
+    [XmlElement(ElementName="CshFcstRptToBeCanc")]
+    public SomeCashForecastReportToBeCancelledRecord? CashForecastReportToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +93,8 @@ public partial record FundConfirmedCashForecastReportCancellationV03 : IOuterRec
 }
 
 /// <summary>
-/// Scope
-/// A report provider, such as a transfer agent, sends the FundConfirmedCashForecastReportCancellation message to the report user, such as an investment manager or pricing agent, to cancel a previously sent FundConfirmedCashForecastReport message.
-/// Usage
-/// The FundConfirmedCashForecastReportCancellation message is used to cancel an entire FundConfirmedCashForecastReport message that was previously sent by the report provider. This message must contain reference to the of the message being cancelled.
-/// This message may also contain details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="FundConfirmedCashForecastReportCancellationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundConfirmedCashForecastReportCancellationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

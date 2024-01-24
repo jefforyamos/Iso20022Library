@@ -24,7 +24,66 @@ public partial record AgentCADeactivationStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCADeactvtnStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the status advice.
+    /// </summary>
+    [IsoId("_TMQbDdEwEd-BzquC8wXy7w_-540475327")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the status advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Deactivation Instruction for which a status is given.
+    /// </summary>
+    [IsoId("_TMaMANEwEd-BzquC8wXy7w_-214470974")]
+    [Description(@"Identification of the linked Agent CA Deactivation Instruction for which a status is given.")]
+    [DataMember(Name="AgtCADeactvtnInstrId")]
+    [XmlElement(ElementName="AgtCADeactvtnInstrId")]
+    [Required]
+    public required SomeAgentCADeactivationInstructionIdentificationRecord AgentCADeactivationInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Deactivation Cancellation Request for which a status is given.
+    /// </summary>
+    [IsoId("_TMaMAdEwEd-BzquC8wXy7w_965193756")]
+    [Description(@"Identification of the linked Agent CA Deactivation Cancellation Request for which a status is given.")]
+    [DataMember(Name="AgtCADeactvtnCxlReqId")]
+    [XmlElement(ElementName="AgtCADeactvtnCxlReqId")]
+    [Required]
+    public required SomeAgentCADeactivationCancellationRequestIdentificationRecord AgentCADeactivationCancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TMaMAtEwEd-BzquC8wXy7w_-1294066154")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Status of the deactivation instruction sent by the issuer (agent).
+    /// </summary>
+    [IsoId("_TMaMA9EwEd-BzquC8wXy7w_861232790")]
+    [Description(@"Status of the deactivation instruction sent by the issuer (agent).")]
+    [DataMember(Name="DeactvtnInstrSts")]
+    [XmlElement(ElementName="DeactvtnInstrSts")]
+    [Required]
+    public required SomeDeactivationInstructionStatusRecord DeactivationInstructionStatus { get; init; }
+    
+    /// <summary>
+    /// Status of the deactivation cancellation request sent by the issuer (agent).
+    /// </summary>
+    [IsoId("_TMaMBNEwEd-BzquC8wXy7w_1319300008")]
+    [Description(@"Status of the deactivation cancellation request sent by the issuer (agent).")]
+    [DataMember(Name="DeactvtnCxlReqSts")]
+    [XmlElement(ElementName="DeactvtnCxlReqSts")]
+    [Required]
+    public required SomeDeactivationCancellationRequestStatusRecord DeactivationCancellationRequestStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +96,8 @@ public partial record AgentCADeactivationStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to an issuer (or its agent) to report the status, or a change in status, of a corporate action deactivation instruction or the status of a deactivation cancellation request.
-/// Usage
-/// This message is used to provide a status on the deactivation instruction, especially to confirm the deactivation of a Corporate Action event or option.
-/// This is the outer document that contains <seealso cref="AgentCADeactivationStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCADeactivationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

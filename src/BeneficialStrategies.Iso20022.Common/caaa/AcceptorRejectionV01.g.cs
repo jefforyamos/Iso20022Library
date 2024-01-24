@@ -24,7 +24,26 @@ public partial record AcceptorRejectionV01 : IOuterRecord
     public const string XmlTag = "AccptrRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Rejection message management information.
+    /// </summary>
+    [IsoId("_NR9PhqMVEeCJ6YNENx4h-w_-1188630353")]
+    [Description(@"Rejection message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reject.
+    /// </summary>
+    [IsoId("_NR9Ph6MVEeCJ6YNENx4h-w_-377399680")]
+    [Description(@"Information related to the reject.")]
+    [DataMember(Name="Rjct")]
+    [XmlElement(ElementName="Rjct")]
+    [Required]
+    public required SomeRejectRecord Reject { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +56,8 @@ public partial record AcceptorRejectionV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorRejection message is used by the acquirer to reject a message received from the card acceptor. The acquirer uses this message as a substitute to a response or an advice response message sent to the card acceptor.
-/// Usage
-/// The AcceptorRejection message is used to indicate that the received message could not be processed by the acquirer (for example, unable to read or process the message, security error, duplicate message).
-/// This is the outer document that contains <seealso cref="AcceptorRejectionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorRejectionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

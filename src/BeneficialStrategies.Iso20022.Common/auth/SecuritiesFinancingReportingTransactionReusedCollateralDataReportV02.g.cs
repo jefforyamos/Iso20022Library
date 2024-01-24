@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingTransactionReusedCollateralDat
     public const string XmlTag = "SctiesFincgRptgTxReusdCollDataRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Data concerning the reporting trade.
+    /// </summary>
+    [IsoId("_48U2c8KvEeuzU9S_IANlog")]
+    [Description(@"Data concerning the reporting trade.")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_48U2dcKvEeuzU9S_IANlog")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingTransactionReusedCollateralDat
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingTransactionReusedCollateralDataReport message is sent by the report submitting entity to the trade repository (TR) to report the collateral reused/reinvested or sent by the trade repository (TR) to the authority or made available by the trade repository (TR) to the  report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingTransactionReusedCollateralDataReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingTransactionReusedCollateralDataReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

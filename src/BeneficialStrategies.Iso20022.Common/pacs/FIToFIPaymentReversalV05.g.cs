@@ -27,7 +27,43 @@ public partial record FIToFIPaymentReversalV05 : IOuterRecord
     public const string XmlTag = "FIToFIPmtRvsl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_fTgMHRPeEeSVo-TFVwFHvA")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original group of transactions, to which the message refers.
+    /// </summary>
+    [IsoId("_fTgMHxPeEeSVo-TFVwFHvA")]
+    [Description(@"Information concerning the original group of transactions, to which the message refers.")]
+    [DataMember(Name="OrgnlGrpInf")]
+    [XmlElement(ElementName="OrgnlGrpInf")]
+    public SomeOriginalGroupInformationRecord? OriginalGroupInformation { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original transactions, to which the reversal message refers.
+    /// </summary>
+    [IsoId("_fTgMIRPeEeSVo-TFVwFHvA")]
+    [Description(@"Information concerning the original transactions, to which the reversal message refers.")]
+    [DataMember(Name="TxInf")]
+    [XmlElement(ElementName="TxInf")]
+    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_fTgMIxPeEeSVo-TFVwFHvA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +76,8 @@ public partial record FIToFIPaymentReversalV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The FinancialInstitutionToFinancialInstitutionPaymentReversal message is sent by an agent to the next party in the payment chain. It is used to reverse a payment previously executed.
-/// Usage
-/// The FIToFIPaymentReversal message is exchanged between agents to reverse a payment message that has been settled. The result will be a credit on the debtor account (when the reversed payment was a Direct Debit) or a debit on the creditor account (when the reversed payment was a Credit Transfer).
-/// The FIToFIPaymentReversal message may or may not be the follow-up of a payment message.
-/// The FIToFIPaymentReversal message refers to the original payment message by means of references only or by means of references and a set of elements from the original instruction.
-/// The FIToFIPaymentReversal message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="FIToFIPaymentReversalV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFIPaymentReversalV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

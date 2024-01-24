@@ -25,7 +25,66 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCANtfctnStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the status advice.
+    /// </summary>
+    [IsoId("_TReSOtEwEd-BzquC8wXy7w_-885544808")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the status advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Notification Advice for which a status is given.
+    /// </summary>
+    [IsoId("_TReSO9EwEd-BzquC8wXy7w_-867070991")]
+    [Description(@"Identification of the linked Agent CA Notification Advice for which a status is given.")]
+    [DataMember(Name="AgtCANtfctnAdvcId")]
+    [XmlElement(ElementName="AgtCANtfctnAdvcId")]
+    [Required]
+    public required SomeAgentCANotificationAdviceIdentificationRecord AgentCANotificationAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Notification Cancellation Request for which a status is given.
+    /// </summary>
+    [IsoId("_TReSPNEwEd-BzquC8wXy7w_-853220988")]
+    [Description(@"Identification of the linked Agent CA Notification Cancellation Request for which a status is given.")]
+    [DataMember(Name="AgtCANtfctnCxlReqId")]
+    [XmlElement(ElementName="AgtCANtfctnCxlReqId")]
+    [Required]
+    public required SomeAgentCANotificationCancellationRequestIdentificationRecord AgentCANotificationCancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TRoDMNEwEd-BzquC8wXy7w_-1070148838")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Status of the Notification Cancellation Request sent by the issuer (agent).
+    /// </summary>
+    [IsoId("_TRoDMdEwEd-BzquC8wXy7w_-979644850")]
+    [Description(@"Status of the Notification Cancellation Request sent by the issuer (agent).")]
+    [DataMember(Name="NtfctnCxlReqSts")]
+    [XmlElement(ElementName="NtfctnCxlReqSts")]
+    [Required]
+    public required SomeNotificationCancellationRequestStatusRecord NotificationCancellationRequestStatus { get; init; }
+    
+    /// <summary>
+    /// Status of the notification advice sent by the issuer (agent).
+    /// </summary>
+    [IsoId("_TRoDMtEwEd-BzquC8wXy7w_-982413026")]
+    [Description(@"Status of the notification advice sent by the issuer (agent).")]
+    [DataMember(Name="NtfctnAdvcSts")]
+    [XmlElement(ElementName="NtfctnAdvcSts")]
+    [Required]
+    public required SomeNotificationAdviceStatusRecord NotificationAdviceStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +97,8 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to an issuer (or its agent) to report the status, or change in status, of a notification advice or notification cancellation request.
-/// Usage
-/// When this message is used to report the status of a notification advice then the building block Agent Corporate Action Notification Advice Identification must be present.
-/// When this message is used to provide the status of a notification cancellation request then the building block Notification Cancellation Request Identification must be present.
-/// This is the outer document that contains <seealso cref="AgentCANotificationStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCANotificationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

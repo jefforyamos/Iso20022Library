@@ -21,7 +21,35 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV01 : IOuterRec
     public const string XmlTag = "MnyMktUscrdMktSttstclRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides the elements specific to the report.
+    /// </summary>
+    [IsoId("_zmNG46ieEeWHO_l3hf2rlA")]
+    [Description(@"Provides the elements specific to the report.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Provides the reason why no activity is reported or the required list of transactions for the unsecured market segment.
+    /// </summary>
+    [IsoId("_zmNG5aieEeWHO_l3hf2rlA")]
+    [Description(@"Provides the reason why no activity is reported or the required list of transactions for the unsecured market segment.")]
+    [DataMember(Name="UscrdMktRpt")]
+    [XmlElement(ElementName="UscrdMktRpt")]
+    [Required]
+    public required SomeUnsecuredMarketReportRecord UnsecuredMarketReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_zmNG56ieEeWHO_l3hf2rlA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV01 : IOuterRec
 }
 
 /// <summary>
-/// The MoneyMarketUnsecuredMarketStatisticalReport message is sent by the reporting agents to the relevant competent authority, to report all relevant unsecured money market transactions.
-/// This is the outer document that contains <seealso cref="MoneyMarketUnsecuredMarketStatisticalReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketUnsecuredMarketStatisticalReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

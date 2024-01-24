@@ -21,7 +21,34 @@ public partial record PartyActivityAdviceV01 : IOuterRecord
     public const string XmlTag = "PtyActvtyAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_BZywcVhGEeih3fUfzR38Ig")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Activity report of changes occurred for a party defined in the system.
+    /// </summary>
+    [IsoId("__JD_-ZeSEeen_cyMrluY4w")]
+    [Description(@"Activity report of changes occurred for a party defined in the system.")]
+    [DataMember(Name="PtyActvty")]
+    [XmlElement(ElementName="PtyActvty")]
+    [Required]
+    public required SomePartyActivityRecord PartyActivity { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("__JD_-5eSEeen_cyMrluY4w")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record PartyActivityAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The PartyActivityReport message is sent by the executing party to an instructing party containing information about changes on party reference data.||Scope and usage:|It aims at informing about the changes occurred during a business date for party reference data.
-/// This is the outer document that contains <seealso cref="PartyActivityAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyActivityAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

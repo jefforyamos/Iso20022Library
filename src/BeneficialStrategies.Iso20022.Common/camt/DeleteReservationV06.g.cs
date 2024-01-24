@@ -21,7 +21,34 @@ public partial record DeleteReservationV06 : IOuterRecord
     public const string XmlTag = "DelRsvatn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_ThNXzdb6Eeq_l4BJLVUF2Q")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identifies the current reservation to delete.
+    /// </summary>
+    [IsoId("_ThNXz9b6Eeq_l4BJLVUF2Q")]
+    [Description(@"Identifies the current reservation to delete.")]
+    [DataMember(Name="CurRsvatn")]
+    [XmlElement(ElementName="CurRsvatn")]
+    public SomeCurrentReservationRecord? CurrentReservation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_ThNX0db6Eeq_l4BJLVUF2Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record DeleteReservationV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope|The DeleteReservation message is used to request the deletion of one particular reservation by the member and managed by the transaction administrator.|Usage|The deletion of a reservation in the system, will not only reset the reserved liquidity to zero, but also delete the reservation itself from the system: only the default reservation for the current business day remains in the system.
-/// This is the outer document that contains <seealso cref="DeleteReservationV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DeleteReservationV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

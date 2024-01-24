@@ -21,7 +21,37 @@ public partial record FeeCollectionResponseV02 : IOuterRecord
     public const string XmlTag = "FeeColltnRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management.
+    /// ISO 8583 MTI
+    /// </summary>
+    [IsoId("_6oy9Q4aAEeuSbct6WWD-Ng")]
+    [Description(@"Information related to the protocol management.|ISO 8583 MTI")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a fee collection initiation message..
+    /// </summary>
+    [IsoId("_6oy9RYaAEeuSbct6WWD-Ng")]
+    [Description(@"Information related to the response of a fee collection initiation message..")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.
+    /// </summary>
+    [IsoId("_6oy9R4aAEeuSbct6WWD-Ng")]
+    [Description(@"Trailer of the message containing a MAC.|It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +64,8 @@ public partial record FeeCollectionResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The FeeCollectionResponse message is sent by any party to any party (acquirer, agent or issuer) in response to a FeeCollectionInitiation message.
-/// This is the outer document that contains <seealso cref="FeeCollectionResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FeeCollectionResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

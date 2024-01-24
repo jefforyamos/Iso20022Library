@@ -26,7 +26,44 @@ public partial record StatementOfInvestmentFundTransactionsCancellation : IOuter
     public const string XmlTag = "semt.007.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_MX-LWdFSEd-BzquC8wXy7w_1237385407")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_MX-LWtFSEd-BzquC8wXy7w_1242003243")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_MX-LW9FSEd-BzquC8wXy7w_1077848759")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// The Statement of Investment Fund Transactions message to cancel.
+    /// </summary>
+    [IsoId("_MX-LXNFSEd-BzquC8wXy7w_1536922196")]
+    [Description(@"The Statement of Investment Fund Transactions message to cancel.")]
+    [DataMember(Name="StmtToBeCanc")]
+    [XmlElement(ElementName="StmtToBeCanc")]
+    public SomeStatementToBeCancelledRecord? StatementToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +76,8 @@ public partial record StatementOfInvestmentFundTransactionsCancellation : IOuter
 }
 
 /// <summary>
-/// Scope
-/// The StatementOfInvestmentFundTransactionsCancellation message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a fund administrator or fund intermediary, trustee or registrar, etc.
-/// This message is used to cancel a previously sent StatementOfInvestmentFundTransactions message.
-/// Usage
-/// The StatementOfInvestmentFundTransactionsCancellation message is sent by an account servicer to the account owner to cancel a previously sent StatementOfInvestmentFundTransactions message.
-/// This message must contain the reference of the message to be cancelled. This message may also contain all the details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="StatementOfInvestmentFundTransactionsCancellation"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatementOfInvestmentFundTransactionsCancellation"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

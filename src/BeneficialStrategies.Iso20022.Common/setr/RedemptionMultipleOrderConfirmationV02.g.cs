@@ -29,7 +29,80 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
     public const string XmlTag = "setr.006.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// </summary>
+    [IsoId("_rWctKdE7Ed-BzquC8wXy7w_1820938179")]
+    [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_rWmeINE7Ed-BzquC8wXy7w_1857877983")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_rWmeIdE7Ed-BzquC8wXy7w_1844950048")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_rWmeItE7Ed-BzquC8wXy7w_1847721622")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    [Required]
+    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    
+    /// <summary>
+    /// General information related to the execution of investment fund orders.
+    /// </summary>
+    [IsoId("_rWmeI9E7Ed-BzquC8wXy7w_191564288")]
+    [Description(@"General information related to the execution of investment fund orders.")]
+    [DataMember(Name="MltplExctnDtls")]
+    [XmlElement(ElementName="MltplExctnDtls")]
+    [Required]
+    public required SomeMultipleExecutionDetailsRecord MultipleExecutionDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to an intermediary.
+    /// </summary>
+    [IsoId("_rWmeJNE7Ed-BzquC8wXy7w_-1031425681")]
+    [Description(@"Information related to an intermediary.")]
+    [DataMember(Name="IntrmyDtls")]
+    [XmlElement(ElementName="IntrmyDtls")]
+    public required IReadonlyCollection<SomeIntermediaryDetailsRecord> IntermediaryDetails { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_rWmeJdE7Ed-BzquC8wXy7w_-2143929681")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rWmeJtE7Ed-BzquC8wXy7w_-8767689")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +115,8 @@ public partial record RedemptionMultipleOrderConfirmationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The RedemptionMultipleOrderConfirmation message is sent by an exacting party, eg, a transfer agent, to an instructing party, eg, an investment manager or its authorised representative. There may be one or more intermediary parties between the executing party and the instructing party. The intermediary party is, for example, an intermediary or a concentrator.
-/// This message is used to confirm the details of the execution of a RedemptionMultipleOrder message.
-/// Usage
-/// The RedemptionMultipleOrderConfirmation message is sent, after the price has been determined, to confirm the execution of all individual orders.
-/// A RedemptionMultipleOrder may be responded to by more than one RedemptionMultipleOrderConfirmation, as the valuation cycle of the financial instruments in each individual order may be different.
-/// When the executing party sends several confirmations, there is no specific indication in the message that it is an incomplete confirmation. Reconciliation must be based on the references.
-/// A RedemptionMultipleOrder must in all cases be responded to by a RedemptionMultipleOrderConfirmation message/s and in no circumstances by a RedemptionBulkOrderConfirmation message/s.
-/// If the executing party needs to confirm a RedemptionBulkOrder message, then a RedemptionBulkOrderConfirmation message must be used.
-/// This is the outer document that contains <seealso cref="RedemptionMultipleOrderConfirmationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionMultipleOrderConfirmationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -26,7 +26,71 @@ public partial record SwitchOrderConfirmationAmendmentV01 : IOuterRecord
     public const string XmlTag = "SwtchOrdrConfAmdmntV01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_6dPGEdE7Ed-BzquC8wXy7w_-633288534")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_6dPGEtE7Ed-BzquC8wXy7w_-634211438")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_6dPGE9E7Ed-BzquC8wXy7w_-634211065")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_6dPGFNE7Ed-BzquC8wXy7w_-634210463")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Information related to a switch execution.
+    /// </summary>
+    [IsoId("_6dPGFdE7Ed-BzquC8wXy7w_-633289446")]
+    [Description(@"Information related to a switch execution.")]
+    [DataMember(Name="SwtchExctnDtls")]
+    [XmlElement(ElementName="SwtchExctnDtls")]
+    [Required]
+    public required SomeSwitchExecutionDetailsRecord SwitchExecutionDetails { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_6dPGFtE7Ed-BzquC8wXy7w_-633289972")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_6dPGF9E7Ed-BzquC8wXy7w_-633289776")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +103,8 @@ public partial record SwitchOrderConfirmationAmendmentV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a transfer agent, sends the SwitchOrderConfirmationAmendment message to the instructing party, for example, an investment manager or its authorised representative to amend a previously sent SwitchOrderConfirmation message.
-/// Usage
-/// The SwitchOrderConfirmationAmendment message is used to amend a previously sent switch order confirmation.
-/// Each order confirmation amendment specified is identified in DealReference. The reference of the original order is specified in OrderReference.
-/// The message identification of the SwitchOrder message in which the switch order was conveyed may also be quoted in RelatedReference. The message identification of the SwitchOrderConfirmation message in which the original switch order confirmation was conveyed may also be quoted in PreviousReference.
-/// This is the outer document that contains <seealso cref="SwitchOrderConfirmationAmendmentV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderConfirmationAmendmentV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

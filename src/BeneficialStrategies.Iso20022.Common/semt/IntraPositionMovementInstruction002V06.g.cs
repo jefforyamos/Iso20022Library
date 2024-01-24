@@ -34,7 +34,117 @@ public partial record IntraPositionMovementInstruction002V06 : IOuterRecord
     public const string XmlTag = "IntraPosMvmntInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as known by the instructing party.
+    /// </summary>
+    [IsoId("_cboTvzi8Eeydid5dcNPKvg")]
+    [Description(@"Unambiguous identification of the transaction as known by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
+    /// </summary>
+    [IsoId("_cboTwTi8Eeydid5dcNPKvg")]
+    [Description(@"Identification assigned by the account servicer to unambiguously identify a corporate action event.")]
+    [DataMember(Name="CorpActnEvtId")]
+    [XmlElement(ElementName="CorpActnEvtId")]
+    public SomeCorporateActionEventIdentificationRecord? CorporateActionEventIdentification { get; init; }
+    
+    /// <summary>
+    /// Count of the number of transactions linked.
+    /// </summary>
+    [IsoId("_cboTwzi8Eeydid5dcNPKvg")]
+    [Description(@"Count of the number of transactions linked.")]
+    [DataMember(Name="NbCounts")]
+    [XmlElement(ElementName="NbCounts")]
+    public SomeNumberCountsRecord? NumberCounts { get; init; }
+    
+    /// <summary>
+    /// Link to another transaction that must be processed after, before or at the same time.
+    /// </summary>
+    [IsoId("_cboTxTi8Eeydid5dcNPKvg")]
+    [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
+    [DataMember(Name="Lnkgs")]
+    [XmlElement(ElementName="Lnkgs")]
+    public SomeLinkagesRecord? Linkages { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_cboTxzi8Eeydid5dcNPKvg")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_cboTyTi8Eeydid5dcNPKvg")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
+    /// </summary>
+    [IsoId("_cboTyzi8Eeydid5dcNPKvg")]
+    [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
+    [DataMember(Name="BlckChainAdrOrWllt")]
+    [XmlElement(ElementName="BlckChainAdrOrWllt")]
+    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    
+    /// <summary>
+    /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
+    /// </summary>
+    [IsoId("_cboTzTi8Eeydid5dcNPKvg")]
+    [Description(@"Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).")]
+    [DataMember(Name="SfkpgPlc")]
+    [XmlElement(ElementName="SfkpgPlc")]
+    public SomeSafekeepingPlaceRecord? SafekeepingPlace { get; init; }
+    
+    /// <summary>
+    /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
+    /// </summary>
+    [IsoId("_cboTzzi8Eeydid5dcNPKvg")]
+    [Description(@"Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    [Required]
+    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Elements characterising a financial instrument.
+    /// </summary>
+    [IsoId("_cboT0Ti8Eeydid5dcNPKvg")]
+    [Description(@"Elements characterising a financial instrument.")]
+    [DataMember(Name="FinInstrmAttrbts")]
+    [XmlElement(ElementName="FinInstrmAttrbts")]
+    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    
+    /// <summary>
+    /// Intra-position movement transaction details.
+    /// </summary>
+    [IsoId("_cboT0zi8Eeydid5dcNPKvg")]
+    [Description(@"Intra-position movement transaction details.")]
+    [DataMember(Name="IntraPosDtls")]
+    [XmlElement(ElementName="IntraPosDtls")]
+    [Required]
+    public required SomeIntraPositionDetailsRecord IntraPositionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_cboT1Ti8Eeydid5dcNPKvg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -47,21 +157,8 @@ public partial record IntraPositionMovementInstruction002V06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends a IntraPositionMovementInstruction to an account servicer to instruct the movement of securities within its holding from one sub-balance to another, for example, blocking of securities.
-/// The account owner/servicer relationship may be:
-/// - a global custodian which has an account with its local agent (sub-custodian), or
-/// - an investment management institution which manage a fund account opened at a custodian, or
-/// - a broker which has an account with a custodian, or
-/// - a central securities depository participant which has an account with a central securities depository, or
-/// - a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information.
-/// using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="IntraPositionMovementInstruction002V06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementInstruction002V06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

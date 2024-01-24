@@ -25,7 +25,109 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
     public const string XmlTag = "FXTradCaptrRptReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the capture request message.
+    /// </summary>
+    [IsoId("_VzU_oIHHEeSY3ulMDfpmvA")]
+    [Description(@"Identifies the capture request message.")]
+    [DataMember(Name="QryReqId")]
+    [XmlElement(ElementName="QryReqId")]
+    [Required]
+    public required SomeQueryRequestIdentificationRecord QueryRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Range of the trade for the inquire.
+    /// </summary>
+    [IsoId("_bTutIIHHEeSY3ulMDfpmvA")]
+    [Description(@"Range of the trade for the inquire.")]
+    [DataMember(Name="QryOrdrSts")]
+    [XmlElement(ElementName="QryOrdrSts")]
+    [Required]
+    public required SomeQueryOrderStatusRecord QueryOrderStatus { get; init; }
+    
+    /// <summary>
+    /// Specifies the inquiry type of the data.
+    /// </summary>
+    [IsoId("_JCuBAKbAEeSxuMLA5o46jQ")]
+    [Description(@"Specifies the inquiry type of the data.")]
+    [DataMember(Name="QryTp")]
+    [XmlElement(ElementName="QryTp")]
+    public SomeQueryTypeRecord? QueryType { get; init; }
+    
+    /// <summary>
+    /// Start number in request result.
+    /// </summary>
+    [IsoId("_e_2ZkIHHEeSY3ulMDfpmvA")]
+    [Description(@"Start number in request result.")]
+    [DataMember(Name="QryStartNb")]
+    [XmlElement(ElementName="QryStartNb")]
+    [Required]
+    public required SomeQueryStartNumberRecord QueryStartNumber { get; init; }
+    
+    /// <summary>
+    /// Indicates whether the request is query trade for a period of time.
+    /// </summary>
+    [IsoId("_iSHbkIHHEeSY3ulMDfpmvA")]
+    [Description(@"Indicates whether the request is query trade for a period of time.")]
+    [DataMember(Name="QryByPrd")]
+    [XmlElement(ElementName="QryByPrd")]
+    [Required]
+    public required SomeQueryByPeriodRecord QueryByPeriod { get; init; }
+    
+    /// <summary>
+    /// Period of the inquiry.
+    /// </summary>
+    [IsoId("_uLTQEIHHEeSY3ulMDfpmvA")]
+    [Description(@"Period of the inquiry.")]
+    [DataMember(Name="QryPrd")]
+    [XmlElement(ElementName="QryPrd")]
+    public SomeQueryPeriodRecord? QueryPeriod { get; init; }
+    
+    /// <summary>
+    /// States the identification of the trade which the trading member inquires.
+    /// </summary>
+    [IsoId("_r0UKkIHHEeSY3ulMDfpmvA")]
+    [Description(@"States the identification of the trade which the trading member inquires.")]
+    [DataMember(Name="QryTradId")]
+    [XmlElement(ElementName="QryTradId")]
+    public SomeQueryTradeIdentificationRecord? QueryTradeIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the end of the request result.
+    /// </summary>
+    [IsoId("_BOrPMKa7EeSxuMLA5o46jQ")]
+    [Description(@"Identifies the end of the request result.")]
+    [DataMember(Name="QryEndId")]
+    [XmlElement(ElementName="QryEndId")]
+    public SomeQueryEndIdentificationRecord? QueryEndIdentification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_a2e2MKHhEeS69KkQis5bYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
+    /// <summary>
+    /// Largest number of request result.
+    /// </summary>
+    [IsoId("_eP9iMKa9EeSxuMLA5o46jQ")]
+    [Description(@"Largest number of request result.")]
+    [DataMember(Name="QryPgSz")]
+    [XmlElement(ElementName="QryPgSz")]
+    public SomeQueryPageSizeRecord? QueryPageSize { get; init; }
+    
+    /// <summary>
+    /// Specifies the inquiry value of the parameter.
+    /// </summary>
+    [IsoId("_Ex-IEKbBEeSxuMLA5o46jQ")]
+    [Description(@"Specifies the inquiry value of the parameter.")]
+    [DataMember(Name="QryParamVal")]
+    [XmlElement(ElementName="QryParamVal")]
+    public SomeQueryParameterValueRecord? QueryParameterValue { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +140,8 @@ public partial record ForeignExchangeTradeCaptureReportRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ForeignExchangeTradeCaptureReportRequest message is sent by a trading member to the trading system for inquiry of trade capture report. 
-/// Usage
-/// The request is sent by the trading member to the trading system to inquire trade capture report. 
-/// Note a capture request could be rejected.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeCaptureReportRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeCaptureReportRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

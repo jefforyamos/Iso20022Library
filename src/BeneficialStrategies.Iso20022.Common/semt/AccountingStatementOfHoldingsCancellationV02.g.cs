@@ -25,7 +25,53 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
     public const string XmlTag = "AcctgStmtOfHldgsCxlV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_McSqoNFSEd-BzquC8wXy7w_-312284977")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_McSqodFSEd-BzquC8wXy7w_-1129601449")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_McSqotFSEd-BzquC8wXy7w_-1129601408")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_McSqo9FSEd-BzquC8wXy7w_-1129601090")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// The Accounting Statement of Holdings message to cancel.
+    /// </summary>
+    [IsoId("_McSqpNFSEd-BzquC8wXy7w_-1129601373")]
+    [Description(@"The Accounting Statement of Holdings message to cancel.")]
+    [DataMember(Name="StmtToBeCanc")]
+    [XmlElement(ElementName="StmtToBeCanc")]
+    public SomeStatementToBeCancelledRecord? StatementToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +84,8 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
 }
 
 /// <summary>
-/// Scope
-/// An account servicer, for example, a transfer agent, sends the AccountingStatementofHoldingsCancellation message to the account owner, for example, a fund manager or an account owner's designated agent, to notify the cancellation of a previously sent AccountingStatementOfHoldings message.
-/// Usage
-/// The AccountingStatementOfHoldingsCancellation message is used to cancel a previously sent AccountingStatementOfHoldings message. This message must contain the reference of the message to be cancelled.
-/// This message may also contain all the details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="AccountingStatementOfHoldingsCancellationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountingStatementOfHoldingsCancellationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

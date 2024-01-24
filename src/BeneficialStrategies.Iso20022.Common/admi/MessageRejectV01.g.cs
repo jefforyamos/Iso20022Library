@@ -24,7 +24,26 @@ public partial record MessageRejectV01 : IOuterRecord
     public const string XmlTag = "admi.002.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Refers to the identification of the message previously received and for which the rejection is notified.
+    /// </summary>
+    [IsoId("_8LH5WdE9Ed-BzquC8wXy7w_-1383804009")]
+    [Description(@"Refers to the identification of the message previously received and for which the rejection is notified.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    [Required]
+    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    
+    /// <summary>
+    /// General information about the reason of the message rejection.
+    /// </summary>
+    [IsoId("_8LH5WtE9Ed-BzquC8wXy7w_-223860119")]
+    [Description(@"General information about the reason of the message rejection.")]
+    [DataMember(Name="Rsn")]
+    [XmlElement(ElementName="Rsn")]
+    [Required]
+    public required SomeReasonRecord Reason { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +56,8 @@ public partial record MessageRejectV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MessageReject message is sent by a central system to notify the rejection of a previously received message.
-/// Usage
-/// The message provides specific information about the rejection reason.
-/// This is the outer document that contains <seealso cref="MessageRejectV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MessageRejectV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

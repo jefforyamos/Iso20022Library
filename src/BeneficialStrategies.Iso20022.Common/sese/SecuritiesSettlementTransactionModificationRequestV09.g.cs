@@ -32,7 +32,25 @@ public partial record SecuritiesSettlementTransactionModificationRequestV09 : IO
     public const string XmlTag = "SctiesSttlmTxModReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the details of the transaction that is being modified.
+    /// </summary>
+    [IsoId("__Jm7_ygkEey2k_sfZmJz4g")]
+    [Description(@"Identifies the details of the transaction that is being modified.")]
+    [DataMember(Name="ModfdTxDtls")]
+    [XmlElement(ElementName="ModfdTxDtls")]
+    [Required]
+    public required SomeModifiedTransactionDetailsRecord ModifiedTransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Specifies the type of update requested.
+    /// </summary>
+    [IsoId("__Jm8ASgkEey2k_sfZmJz4g")]
+    [Description(@"Specifies the type of update requested.")]
+    [DataMember(Name="UpdTp")]
+    [XmlElement(ElementName="UpdTp")]
+    public required IReadonlyCollection<SomeUpdateTypeRecord> UpdateType { get; init; } // Min=1, Max=3
+    
     */
     
     /// <summary>
@@ -45,19 +63,8 @@ public partial record SecuritiesSettlementTransactionModificationRequestV09 : IO
 }
 
 /// <summary>
-/// Scope
-/// The SecuritiesSettlementTransactionModificationRequest is sent by an account owner to an account servicer. 
-/// The account owner will generally be:
-/// - a central securities depository participant which has an account with a central securities depository or a market infrastructure
-/// - an investment manager which has an account with a custodian acting as accounting and/or settlement agent.
-/// It is used to request the modification of non core business data (matching or non-matching) information in a pending or settled instruction. It can also be used for the enrichment of an incomplete transaction.
-/// Usage
-/// The modification must only contain the data to be modified.
-/// The message may also be used to:
-/// - re-send a message sent by the account owner to the account servicer,
-/// - provide a third party with a copy of a message being sent by the account owner for information,
-/// - re-send to a third party a copy of a message being sent by the account owner for information using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionModificationRequestV09"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionModificationRequestV09"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

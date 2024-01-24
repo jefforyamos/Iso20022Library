@@ -21,7 +21,55 @@ public partial record AccountSwitchRequestRedirectionV02 : IOuterRecord
     public const string XmlTag = "AcctSwtchReqRdrctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification for the message.
+    /// </summary>
+    [IsoId("_7HT_hW42EeiU9cctagi5ow")]
+    [Description(@"Unique identification for the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains information about the details of the account switch.
+    /// </summary>
+    [IsoId("_7HT_h242EeiU9cctagi5ow")]
+    [Description(@"Contains information about the details of the account switch.")]
+    [DataMember(Name="AcctSwtchDtls")]
+    [XmlElement(ElementName="AcctSwtchDtls")]
+    [Required]
+    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    
+    /// <summary>
+    /// Account servicer holding the account to which the switch will be made for example the acquiring account servicer.
+    /// </summary>
+    [IsoId("_7HT_iW42EeiU9cctagi5ow")]
+    [Description(@"Account servicer holding the account to which the switch will be made for example the acquiring account servicer.")]
+    [DataMember(Name="NewAcct")]
+    [XmlElement(ElementName="NewAcct")]
+    [Required]
+    public required SomeNewAccountRecord NewAccount { get; init; }
+    
+    /// <summary>
+    /// Account held at the old account servicer being switched to the new account servicer.
+    /// </summary>
+    [IsoId("_7HT_i242EeiU9cctagi5ow")]
+    [Description(@"Account held at the old account servicer being switched to the new account servicer.")]
+    [DataMember(Name="OdAcct")]
+    [XmlElement(ElementName="OdAcct")]
+    [Required]
+    public required SomeOldAccountRecord OldAccount { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_7HT_jW42EeiU9cctagi5ow")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +82,8 @@ public partial record AccountSwitchRequestRedirectionV02 : IOuterRecord
 }
 
 /// <summary>
-/// The AccountSwitchRequestRedirection message is sent by the new account servicer to a central account switch servicer to set up the redirection of payment and collection transactions that are processed after completion of the account switch.  It is routed to the previous account servicer to signal that it should schedule the cancellation of all payment arrangements on the old account. This message may also be used by the new bank to amend the new account details, if the details previously provided were incorrect.
-/// This is the outer document that contains <seealso cref="AccountSwitchRequestRedirectionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchRequestRedirectionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

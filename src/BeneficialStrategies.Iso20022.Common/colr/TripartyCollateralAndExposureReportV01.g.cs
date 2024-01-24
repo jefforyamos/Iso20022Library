@@ -26,7 +26,90 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     public const string XmlTag = "TrptyCollAndXpsrRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
+    /// </summary>
+    [IsoId("_2uaM2Ss7EeySlt9bF77XfA")]
+    [Description(@"Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides general information on the report.
+    /// </summary>
+    [IsoId("_2uaM2ys7EeySlt9bF77XfA")]
+    [Description(@"Provides general information on the report.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of collateral parties.
+    /// </summary>
+    [IsoId("_2uaM3Ss7EeySlt9bF77XfA")]
+    [Description(@"Identifies the chain of collateral parties.|")]
+    [DataMember(Name="CollPties")]
+    [XmlElement(ElementName="CollPties")]
+    [Required]
+    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    
+    /// <summary>
+    /// Overall Collateral  contains the global collateral status of all transactions covered in the message, in the reporting currency, that is, the total of the exposure amount, of the posted collateral, of the margin amounts, of the accrued interest, of the fees or commissions and of the principals. In addition, it provides collateral-specific information.
+    /// </summary>
+    [IsoId("_2uaM3ys7EeySlt9bF77XfA")]
+    [Description(@"Overall Collateral  contains the global collateral status of all transactions covered in the message, in the reporting currency, that is, the total of the exposure amount, of the posted collateral, of the margin amounts, of the accrued interest, of the fees or commissions and of the principals. In addition, it provides collateral-specific information.|")]
+    [DataMember(Name="OvrllCollAggtn")]
+    [XmlElement(ElementName="OvrllCollAggtn")]
+    public SomeOverallCollateralAggregationRecord? OverallCollateralAggregation { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation details per exposure type aggregation.
+    /// </summary>
+    [IsoId("_2uaM4Ss7EeySlt9bF77XfA")]
+    [Description(@"Specifies the valuation details per exposure type aggregation.")]
+    [DataMember(Name="XpsrTpAggtn")]
+    [XmlElement(ElementName="XpsrTpAggtn")]
+    public SomeExposureTypeAggregationRecord? ExposureTypeAggregation { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation details per counterparty aggregation.
+    /// </summary>
+    [IsoId("_2uaM4ys7EeySlt9bF77XfA")]
+    [Description(@"Specifies the valuation details per counterparty aggregation.")]
+    [DataMember(Name="CtrPtyAggtn")]
+    [XmlElement(ElementName="CtrPtyAggtn")]
+    public SomeCounterpartyAggregationRecord? CounterpartyAggregation { get; init; }
+    
+    /// <summary>
+    /// Specifies the transaction,  the collateral and related valuation details.
+    /// </summary>
+    [IsoId("_2uaM5Ss7EeySlt9bF77XfA")]
+    [Description(@"Specifies the transaction,  the collateral and related valuation details.|")]
+    [DataMember(Name="Txs")]
+    [XmlElement(ElementName="Txs")]
+    public SomeTransactionsRecord? Transactions { get; init; }
+    
+    /// <summary>
+    /// Total valuation amounts provided in the base currency of the account
+    /// </summary>
+    [IsoId("_2uaM5ys7EeySlt9bF77XfA")]
+    [Description(@"Total valuation amounts provided in the base currency of the account")]
+    [DataMember(Name="AcctBaseCcyTtlAmts")]
+    [XmlElement(ElementName="AcctBaseCcyTtlAmts")]
+    public SomeAccountBaseCurrencyTotalAmountsRecord? AccountBaseCurrencyTotalAmounts { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_2uaM6Ss7EeySlt9bF77XfA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +122,8 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:
-/// This message is sent by a triparty agent to both the collateral giver and the collateral taker or to an account servicer, who manage the account at the triparty agent on behalf of a trading party, in the following circumstances:
-/// - after all collateral movements have been affected (after settlement-initiated) to show the end (fixed) positions (current status) or,
-/// - taking into account all collateral management instructions (including pending initiation and/or initiated.
-/// Usage:
-/// This message is sent to provide the details of the valuation of both the collateral and the exposure.
-/// This is the outer document that contains <seealso cref="TripartyCollateralAndExposureReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralAndExposureReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

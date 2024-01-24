@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01 
     public const string XmlTag = "SctiesFincgRptgRcncltnStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Data concerning the reconciliation results.
+    /// </summary>
+    [IsoId("_2zvMBQuAEeqVvtu9Ny8FDA")]
+    [Description(@"Data concerning the reconciliation results.")]
+    [DataMember(Name="RcncltnData")]
+    [XmlElement(ElementName="RcncltnData")]
+    [Required]
+    public required SomeReconciliationDataRecord ReconciliationData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2zvMBwuAEeqVvtu9Ny8FDA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01 
 }
 
 /// <summary>
-/// The SecuritesFinancingReportingReconciliationStatusAdvice message is sent by the trade repositories (TRs) ) to other TR and to the authority or made available to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, to provide a status advice for reconciliation.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingReconciliationStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingReconciliationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

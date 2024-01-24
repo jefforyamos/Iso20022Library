@@ -21,7 +21,15 @@ public partial record DTCCCAPCSD1V02 : IOuterRecord
     public const string XmlTag = "DTCCCAPCSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as supplementary data to notification general information.
+    /// </summary>
+    [IsoId("_x6QSXQB6EeqouY-yI_q3qQ")]
+    [Description(@"Information to be extended as supplementary data to notification general information.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +42,8 @@ public partial record DTCCCAPCSD1V02 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAPCSD1 message extends ISO corporate action Movement Preliminary Advice Cancellation Advice (CAPC) message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAPCSD1V02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAPCSD1V02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

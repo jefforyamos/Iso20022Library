@@ -28,7 +28,90 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     public const string XmlTag = "CorpActnEvtPrcgStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies a CorporateActionEventProcessingStatusAdvice message as know by the account servicer.
+    /// </summary>
+    [IsoId("_TT230NEwEd-BzquC8wXy7w_-1592190322")]
+    [Description(@"Information that unambiguously identifies a CorporateActionEventProcessingStatusAdvice message as know by the account servicer.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of a previously sent notification document.
+    /// </summary>
+    [IsoId("_TT230dEwEd-BzquC8wXy7w_-1492451379")]
+    [Description(@"Identification of a previously sent notification document.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    public SomeNotificationIdentificationRecord? NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of other documents as well as the document number.
+    /// </summary>
+    [IsoId("_TT230tEwEd-BzquC8wXy7w_-1377010390")]
+    [Description(@"Identification of other documents as well as the document number.")]
+    [DataMember(Name="OthrDocId")]
+    [XmlElement(ElementName="OthrDocId")]
+    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TT2309EwEd-BzquC8wXy7w_328731625")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information about the status of a corporate action.
+    /// </summary>
+    [IsoId("_TT231NEwEd-BzquC8wXy7w_577475720")]
+    [Description(@"Information about the status of a corporate action.")]
+    [DataMember(Name="EvtPrcgSts")]
+    [XmlElement(ElementName="EvtPrcgSts")]
+    [Required]
+    public required SomeEventProcessingStatusRecord EventProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_TT231dEwEd-BzquC8wXy7w_-1625349929")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_TT231tEwEd-BzquC8wXy7w_-475652267")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_TT2319EwEd-BzquC8wXy7w_-220760440")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_TUAo0NEwEd-BzquC8wXy7w_-555998656")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +124,8 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends the CorporateActionEventProcessingStatusAdvice message to an account owner or its designated agent to report processing status of a corporate action event.
-/// The account servicer uses this message to provide a reason as to why a corporate action event has not been completed by the announced payment dates.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="CorporateActionEventProcessingStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionEventProcessingStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -25,7 +25,84 @@ public partial record SpecialNotificationV01 : IOuterRecord
     public const string XmlTag = "SpclNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification message.
+    /// </summary>
+    [IsoId("_ulm7UNE8Ed-BzquC8wXy7w_7576915")]
+    [Description(@"Identifies the notification message.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    [Required]
+    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_ulm7UdE8Ed-BzquC8wXy7w_8501968")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_ulm7UtE8Ed-BzquC8wXy7w_8499489")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    [Required]
+    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_ulm7U9E8Ed-BzquC8wXy7w_8500107")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the financial institution that is the sender of the acknowledged message.
+    /// </summary>
+    [IsoId("_ulm7VNE8Ed-BzquC8wXy7w_8502400")]
+    [Description(@"Reference to the transaction for the financial institution that is the sender of the acknowledged message.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Party that has sent the special request.
+    /// </summary>
+    [IsoId("_ulm7VdE8Ed-BzquC8wXy7w_1354069290")]
+    [Description(@"Party that has sent the special request.")]
+    [DataMember(Name="Initr")]
+    [XmlElement(ElementName="Initr")]
+    [Required]
+    public required SomeInitiatorRecord Initiator { get; init; }
+    
+    /// <summary>
+    /// Notification received by the matching application and forwarded to another party.
+    /// </summary>
+    [IsoId("_ulm7VtE8Ed-BzquC8wXy7w_1253406214")]
+    [Description(@"Notification received by the matching application and forwarded to another party.")]
+    [DataMember(Name="Ntfctn")]
+    [XmlElement(ElementName="Ntfctn")]
+    [Required]
+    public required SomeNotificationRecord Notification { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_ulm7V9E8Ed-BzquC8wXy7w_8500865")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +115,8 @@ public partial record SpecialNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SpecialNotification message is sent by the matching application to parties to the transaction, following the receipt of a SpecialRequest message.
-/// The SpecialRequest message is sent by a party to the transaction to the matching application if special circumstances are such that it cannot take part any longer to a specific transaction or that it cannot fulfill its role in the transaction.
-/// Usage
-/// The SpecialNotification message is sent to the parties to the transaction so that they can take appropriate action.
-/// This is the outer document that contains <seealso cref="SpecialNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SpecialNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

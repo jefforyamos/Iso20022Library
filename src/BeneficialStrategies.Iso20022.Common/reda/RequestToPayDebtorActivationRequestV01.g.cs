@@ -21,7 +21,45 @@ public partial record RequestToPayDebtorActivationRequestV01 : IOuterRecord
     public const string XmlTag = "ReqToPayDbtrActvtnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Header data for the creditor enrolment request.
+    /// </summary>
+    [IsoId("_rNNBz-HzEeqbls7Gk4-ckA")]
+    [Description(@"Header data for the creditor enrolment request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Specific attributes provided the debtor, as requested by the creditor, for the activation request.
+    /// </summary>
+    [IsoId("_rNNB0eHzEeqbls7Gk4-ckA")]
+    [Description(@"Specific attributes provided the debtor, as requested by the creditor, for the activation request.")]
+    [DataMember(Name="DbtrActvtn")]
+    [XmlElement(ElementName="DbtrActvtn")]
+    [Required]
+    public required SomeDebtorActivationRecord DebtorActivation { get; init; }
+    
+    /// <summary>
+    /// Further data related to the electronic invoice (e-invoice).
+    /// </summary>
+    [IsoId("_rNNB0-HzEeqbls7Gk4-ckA")]
+    [Description(@"Further data related to the electronic invoice (e-invoice).")]
+    [DataMember(Name="ElctrncInvcData")]
+    [XmlElement(ElementName="ElctrncInvcData")]
+    [Required]
+    public required SomeElectronicInvoiceDataRecord ElectronicInvoiceData { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rNNB1eHzEeqbls7Gk4-ckA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +72,8 @@ public partial record RequestToPayDebtorActivationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The RequestToPayDebtorActivationRequest message is sent by the debtor RTP (Request To Pay) provider to the creditor RTP provider and optionally from the debtor to its RTP provider and from the creditor RTP provider to the creditor to request the debtor activation of the RTP service with that specific creditor.
-/// This is the outer document that contains <seealso cref="RequestToPayDebtorActivationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayDebtorActivationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,43 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord
     public const string XmlTag = "ATMPINMgmtRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_52hnc64aEeW_TaP-ygI0SQ")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_52hnda4aEeW_TaP-ygI0SQ")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMPINMgmtRspn")]
+    [XmlElement(ElementName="PrtctdATMPINMgmtRspn")]
+    public SomeProtectedATMPINManagementResponseRecord? ProtectedATMPINManagementResponse { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of an ATM PIN Management from an ATM manager.
+    /// </summary>
+    [IsoId("_52hnd64aEeW_TaP-ygI0SQ")]
+    [Description(@"Information related to the response of an ATM PIN Management from an ATM manager.")]
+    [DataMember(Name="ATMPINMgmtRspn")]
+    [XmlElement(ElementName="ATMPINMgmtRspn")]
+    public SomeATMPINManagementResponseRecord? ATMPINManagementResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_52hnea4aEeW_TaP-ygI0SQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMPINManagementResponse message is sent by an ATM manager or its agent to the ATM to provide the information and the outcome of the cardholder PIN operation requested in the ATMPINManagementRequest.
-/// This is the outer document that contains <seealso cref="ATMPINManagementResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMPINManagementResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

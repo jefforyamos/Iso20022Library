@@ -31,7 +31,61 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord
     public const string XmlTag = "SwtchOrdrCxlReqV03";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_6CayWdE7Ed-BzquC8wXy7w_264063025")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_6CayWtE7Ed-BzquC8wXy7w_1787145131")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_6Cj8QNE7Ed-BzquC8wXy7w_1787145191")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// References of the switch orders to be cancelled.
+    /// </summary>
+    [IsoId("_6Cj8QdE7Ed-BzquC8wXy7w_1302905087")]
+    [Description(@"References of the switch orders to be cancelled.")]
+    [DataMember(Name="CxlByRef")]
+    [XmlElement(ElementName="CxlByRef")]
+    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    
+    /// <summary>
+    /// Common information related to all the switch orders to be cancelled.
+    /// </summary>
+    [IsoId("_6Cj8QtE7Ed-BzquC8wXy7w_1787145055")]
+    [Description(@"Common information related to all the switch orders to be cancelled.")]
+    [DataMember(Name="CxlByOrdrDtls")]
+    [XmlElement(ElementName="CxlByOrdrDtls")]
+    public SomeCancellationByOrderDetailsRecord? CancellationByOrderDetails { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_6Cj8Q9E7Ed-BzquC8wXy7w_-925024126")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +98,8 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, for example, an investment manager or its authorised representative, sends the SwitchOrderCancellationRequest message to the executing party, for example, a transfer agent, to request the cancellation of a previously sent SwitchOrder instruction.
-/// Usage
-/// The SwitchOrderCancellationRequest is used to cancel the entire previously sent SwitchOrder instruction and all the individual legs that it contains. There is no amendment, but a cancellation and re-instruct policy.
-/// There are two ways to specify the switch cancellation. Either:
-/// - the order reference of the original switch order is quoted, or,
-/// - all the details of the original switch order (this includes the OrderReference) are quoted, but this is not recommended.
-/// The message identification of the SwitchOrder message may also be quoted in PreviousReference.
-/// It is also possible to request the cancellation of a SwitchOrder message by quoting its message identification in PreviousReference, but this is not recommended.
-/// The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation request.
-/// The rejection or acceptance of a SwitchOrderCancellationRequest is made using an OrderCancellationStatusReport message.
-/// This is the outer document that contains <seealso cref="SwitchOrderCancellationRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderCancellationRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -27,7 +27,62 @@ public partial record PortfolioTransferCancellationRequestV06 : IOuterRecord
     public const string XmlTag = "PrtflTrfCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_-zqTYwgLEeSFYfyUKDXKaw")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgRef")]
+    [XmlElement(ElementName="MsgRef")]
+    [Required]
+    public required SomeMessageReferenceRecord MessageReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_-zqTZQgLEeSFYfyUKDXKaw")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_-zqTZwgLEeSFYfyUKDXKaw")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_-zqTaQgLEeSFYfyUKDXKaw")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Choice between cancellation by transfer details or reference.
+    /// </summary>
+    [IsoId("_-zqTawgLEeSFYfyUKDXKaw")]
+    [Description(@"Choice between cancellation by transfer details or reference.")]
+    [DataMember(Name="Cxl")]
+    [XmlElement(ElementName="Cxl")]
+    [Required]
+    public required SomeCancellationRecord Cancellation { get; init; }
+    
+    /// <summary>
+    /// Identifies the market practice to which the message conforms.
+    /// </summary>
+    [IsoId("_-zqTbQgLEeSFYfyUKDXKaw")]
+    [Description(@"Identifies the market practice to which the message conforms.")]
+    [DataMember(Name="MktPrctcVrsn")]
+    [XmlElement(ElementName="MktPrctcVrsn")]
+    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +95,8 @@ public partial record PortfolioTransferCancellationRequestV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, for example, a (new) plan manager (Transferee), sends the PortfolioTransferCancellationRequest message to the executing party, for example, a (old) plan manager (Transferor), to request the cancellation of a previously sent PortfolioTransferInstruction.
-/// Usage
-/// The PortfolioTransferCancellationRequest message is used to request the cancellation of an entire PortfolioTransferInstruction message, ie, all the product transfers that it contained. The cancellation request can be specified either by:
-/// - quoting the transfer references of all the product transfers listed in the PortfolioTransferInstruction message, or,
-/// - quoting the details of all the product transfers (this includes TransferReference) listed in PortfolioTransferInstruction message.
-/// The message identification of the PortfolioTransferInstruction may also be quoted in PreviousReference. It is also possible to request the cancellation of PortfolioTransferInstruction by just quoting its message identification in PreviousReference.
-/// This is the outer document that contains <seealso cref="PortfolioTransferCancellationRequestV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PortfolioTransferCancellationRequestV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

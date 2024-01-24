@@ -34,7 +34,26 @@ public partial record CustomerCreditTransferInitiationV03 : IOuterRecord
     public const string XmlTag = "CstmrCdtTrfInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_GWk-itEvEd-BzquC8wXy7w_-923555699")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of characteristics that applies to the debit side of the payment transactions included in the credit transfer initiation.
+    /// </summary>
+    [IsoId("_GWk-i9EvEd-BzquC8wXy7w_-916171020")]
+    [Description(@"Set of characteristics that applies to the debit side of the payment transactions included in the credit transfer initiation.")]
+    [DataMember(Name="PmtInf")]
+    [XmlElement(ElementName="PmtInf")]
+    [Required]
+    public required SomePaymentInformationRecord PaymentInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -47,21 +66,8 @@ public partial record CustomerCreditTransferInitiationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CustomerCreditTransferInitiation message is sent by the initiating party to the forwarding agent or debtor agent. It is used to request movement of funds from the debtor account to a creditor.
-/// Usage
-/// The CustomerCreditTransferInitiation message can contain one or more customer credit transfer instructions.
-/// The CustomerCreditTransferInitiation message is used to exchange:
-/// - One or more instances of a credit transfer initiation;
-/// - Payment transactions that result in book transfers at the debtor agent or payments to another financial institution;
-/// - Payment transactions that result in an electronic cash transfer to the creditor account or in the emission of a cheque.
-/// The message can be used in a direct or a relay scenario:
-/// - In a direct scenario, the message is sent directly to the debtor agent. The debtor agent is the account servicer of the debtor.
-/// - In a relay scenario, the message is sent to a forwarding agent. The forwarding agent acts as a concentrating financial institution. It will forward the CustomerCreditTransferInitiation message to the debtor agent.
-/// The message can also be used by an initiating party that has authority to send the message on behalf of the debtor. This caters for example for the scenario of a payments factory initiating all payments on behalf of a large corporate.
-/// The CustomerCreditTransferInitiation message can be used in domestic and cross-border scenarios.
-/// The CustomerCreditTransferInitiation message must not be used by the debtor agent to execute the credit transfer instruction(s). The FIToFICustomerCreditTransfer message must be used instead.
-/// This is the outer document that contains <seealso cref="CustomerCreditTransferInitiationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerCreditTransferInitiationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

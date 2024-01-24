@@ -27,7 +27,36 @@ public partial record AcceptorCompletionAdviceV01 : IOuterRecord
     public const string XmlTag = "AccptrCmpltnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Completion advice message management information.
+    /// </summary>
+    [IsoId("_W9_P8KMVEeCJ6YNENx4h-w_-1929143436")]
+    [Description(@"Completion advice message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the completion advice.
+    /// </summary>
+    [IsoId("_W9_P8aMVEeCJ6YNENx4h-w_808377335")]
+    [Description(@"Information related to the completion advice.")]
+    [DataMember(Name="CmpltnAdvc")]
+    [XmlElement(ElementName="CmpltnAdvc")]
+    [Required]
+    public required SomeCompletionAdviceRecord CompletionAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_W9_P8qMVEeCJ6YNENx4h-w_-83776970")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +69,8 @@ public partial record AcceptorCompletionAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorCompletionAdvice message is sent by a card acceptor to notify an acquirer about the completion and final outcome of a card payment transaction. The message can be sent directly to the acquirer or through an agent.
-/// Usage
-/// The AcceptorCompletionAdvice message is used either to:
-/// - inform the acquirer about the successful end of a transaction;
-/// - reverse a transaction which was not successfully completed (for example, cancellation of transaction by the cardholder), but where an authorisation had been previously given.
-/// The AcceptorCompletionAdvice message may also embed the information required for transferring to the acquirer all data needed to perform the financial settlement of the transaction (capture). Should the acquirer not receive a correct response to an AcceptorCompletionAdvice message; the card acceptor sends back an AcceptorCompletionAdvice message to the acquirer.
-/// This is the outer document that contains <seealso cref="AcceptorCompletionAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCompletionAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

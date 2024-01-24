@@ -23,7 +23,44 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
     public const string XmlTag = "SctiesAcctModReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_Za_90J5HEemQg7pJhFUUYg")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identification of the securities account to be updated in the executing party system.
+    /// </summary>
+    [IsoId("_KAu-u52fEem_Be8NuxvF7Q")]
+    [Description(@"Identification of the securities account to be updated in the executing party system.")]
+    [DataMember(Name="AcctId")]
+    [XmlElement(ElementName="AcctId")]
+    [Required]
+    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    
+    /// <summary>
+    /// Further details about the requested modification.
+    /// </summary>
+    [IsoId("_KAu-vZ2fEem_Be8NuxvF7Q")]
+    [Description(@"Further details about the requested modification.")]
+    [DataMember(Name="Mod")]
+    [XmlElement(ElementName="Mod")]
+    [Required]
+    public required SomeModificationRecord Modification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_KAu-v52fEem_Be8NuxvF7Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +73,8 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecuritiesAccountModificationRequest message is sent by an instructing party to the executing party to instruct the update of an existing securities account by amending its existing attributes or by providing additional attibutes details.
-/// Usage:
-/// Processing and confirmation of the securities account creation request message are provided via a SecuritiesAccountStatusAdvice message.
-/// This is the outer document that contains <seealso cref="SecuritiesAccountModificationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountModificationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

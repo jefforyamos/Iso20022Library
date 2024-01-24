@@ -24,7 +24,34 @@ public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "SctiesAcctStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_EqxEkJ5REemQg7pJhFUUYg")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Status of the securities account involved in the originating message.
+    /// </summary>
+    [IsoId("_KAu--52fEem_Be8NuxvF7Q")]
+    [Description(@"Status of the securities account involved in the originating message.")]
+    [DataMember(Name="SctiesAcctSts")]
+    [XmlElement(ElementName="SctiesAcctSts")]
+    [Required]
+    public required SomeSecuritiesAccountStatusRecord SecuritiesAccountStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_KAu-_Z2fEem_Be8NuxvF7Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +64,8 @@ public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecuritiesAccountStatusAdvice message is send by the the executing party to an instructing party to provide the status of the execution of an creation, modification or deletion of securities account reference data.
-/// Usage: 
-/// When processing information is negative – a failure occurred in applying the changes the message accordingly also delivers information about the reason why the creation or update could not be processed. 
-/// When the processing is succesfully performed, the message includes the related securities account identification.
-/// This is the outer document that contains <seealso cref="SecuritiesAccountStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

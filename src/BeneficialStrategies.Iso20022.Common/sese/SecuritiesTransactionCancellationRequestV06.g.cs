@@ -40,7 +40,98 @@ public partial record SecuritiesTransactionCancellationRequestV06 : IOuterRecord
     public const string XmlTag = "SctiesTxCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
+    /// </summary>
+    [IsoId("_3njkZ-wAEeiazoAmcoGsBQ")]
+    [Description(@"Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).")]
+    [DataMember(Name="AcctOwnrTxId")]
+    [XmlElement(ElementName="AcctOwnrTxId")]
+    [Required]
+    public required SomeAccountOwnerTransactionIdentificationRecord AccountOwnerTransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unambiguous identification of the transaction as known by the account servicer.
+    /// </summary>
+    [IsoId("_3njkaewAEeiazoAmcoGsBQ")]
+    [Description(@"Unambiguous identification of the transaction as known by the account servicer.")]
+    [DataMember(Name="AcctSvcrTxId")]
+    [XmlElement(ElementName="AcctSvcrTxId")]
+    public SomeAccountServicerTransactionIdentificationRecord? AccountServicerTransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
+    /// </summary>
+    [IsoId("_3njka-wAEeiazoAmcoGsBQ")]
+    [Description(@"Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.")]
+    [DataMember(Name="MktInfrstrctrTxId")]
+    [XmlElement(ElementName="MktInfrstrctrTxId")]
+    public SomeMarketInfrastructureTransactionIdentificationRecord? MarketInfrastructureTransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Message Reference identifying the Processor of the transaction.
+    /// </summary>
+    [IsoId("_3njkbewAEeiazoAmcoGsBQ")]
+    [Description(@"Message Reference identifying the Processor of the transaction.")]
+    [DataMember(Name="PrcrTxId")]
+    [XmlElement(ElementName="PrcrTxId")]
+    public SomeProcessorTransactionIdentificationRecord? ProcessorTransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_3njkb-wAEeiazoAmcoGsBQ")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_3njkcewAEeiazoAmcoGsBQ")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Identifies the details of the transaction.
+    /// </summary>
+    [IsoId("_3njkc-wAEeiazoAmcoGsBQ")]
+    [Description(@"Identifies the details of the transaction.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Specifies the reason of the cancellation.
+    /// </summary>
+    [IsoId("_3njkdewAEeiazoAmcoGsBQ")]
+    [Description(@"Specifies the reason of the cancellation.")]
+    [DataMember(Name="CxlRsn")]
+    [XmlElement(ElementName="CxlRsn")]
+    public SomeCancellationReasonRecord? CancellationReason { get; init; }
+    
+    /// <summary>
+    /// Specifies whether an associated FX should be cancelled.
+    /// </summary>
+    [IsoId("_3njkd-wAEeiazoAmcoGsBQ")]
+    [Description(@"Specifies whether an associated FX should be cancelled.")]
+    [DataMember(Name="FxCxl")]
+    [XmlElement(ElementName="FxCxl")]
+    public SomeFXCancellationRecord? FXCancellation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_3njkeewAEeiazoAmcoGsBQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -53,27 +144,8 @@ public partial record SecuritiesTransactionCancellationRequestV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends a SecuritiesTransactionCancellationRequest to an account servicer to request the cancellation of a securities transaction.
-/// The account owner/servicer relationship may be:
-/// - a global custodian which has an account with a local custodian, or
-/// - an investment management institution which manage a fund account opened at a custodian, or - a broker which has an account with a custodian, or
-/// - a central securities depository participant which has an account with a central securities depository, or
-/// - a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure, or
-/// - a central counterparty or a stock exchange or a trade matching utility which need to instruct to a central securities depository or another settlement market infrastructure.
-/// Usage
-/// The transaction may be:
-/// - a securities settlement transaction
-/// - an intra-position movement
-/// - a securities financing transaction
-/// The instruction cannot be:
-/// - a securities settlement conditions modification (another transaction processing command should be sent to reverse a processing change previously requested).
-/// - a securities financing modification
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesTransactionCancellationRequestV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTransactionCancellationRequestV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

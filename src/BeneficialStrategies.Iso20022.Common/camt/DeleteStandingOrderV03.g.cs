@@ -21,7 +21,35 @@ public partial record DeleteStandingOrderV03 : IOuterRecord
     public const string XmlTag = "DelStgOrdr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_jwlbYRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identifies one particular limit set by the member and managed by the transaction administrator.
+    /// </summary>
+    [IsoId("_jwlbYxbvEeiyVv5j1vf1VQ")]
+    [Description(@"Identifies one particular limit set by the member and managed by the transaction administrator.")]
+    [DataMember(Name="StgOrdrDtls")]
+    [XmlElement(ElementName="StgOrdrDtls")]
+    [Required]
+    public required SomeStandingOrderDetailsRecord StandingOrderDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jwlbZRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record DeleteStandingOrderV03 : IOuterRecord
 }
 
 /// <summary>
-/// The DeleteStandingOrder message is sent by the system member to delete one or more standing orders within the static data held by the system transaction administrator.
-/// This is the outer document that contains <seealso cref="DeleteStandingOrderV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DeleteStandingOrderV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

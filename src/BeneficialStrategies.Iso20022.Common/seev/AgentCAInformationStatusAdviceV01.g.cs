@@ -25,7 +25,45 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCAInfStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the status advice.
+    /// </summary>
+    [IsoId("_TOM7zNEwEd-BzquC8wXy7w_1654735985")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the status advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Information Advice for which a status is given.
+    /// </summary>
+    [IsoId("_TOWFsNEwEd-BzquC8wXy7w_1665816866")]
+    [Description(@"Identification of the linked Agent CA Information Advice for which a status is given.")]
+    [DataMember(Name="AgtCAInfAdvcId")]
+    [XmlElement(ElementName="AgtCAInfAdvcId")]
+    [Required]
+    public required SomeAgentCAInformationAdviceIdentificationRecord AgentCAInformationAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// Additional information about the corporate action such as the delivery details.
+    /// </summary>
+    [IsoId("_TOWFsdEwEd-BzquC8wXy7w_693722719")]
+    [Description(@"Additional information about the corporate action such as the delivery details.")]
+    [DataMember(Name="CorpActnAddtlInf")]
+    [XmlElement(ElementName="CorpActnAddtlInf")]
+    public SomeCorporateActionAdditionalInformationRecord? CorporateActionAdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Status of the information advice sent by the CSD.
+    /// </summary>
+    [IsoId("_TOWFstEwEd-BzquC8wXy7w_-904563755")]
+    [Description(@"Status of the information advice sent by the CSD.")]
+    [DataMember(Name="InfStsDtls")]
+    [XmlElement(ElementName="InfStsDtls")]
+    [Required]
+    public required SomeInformationStatusDetailsRecord InformationStatusDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +76,8 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to a CSD to report the status, or change in status, of an information advice.
-/// Usage
-/// This message must be used in response to an Agent Corporate Action Information Advice in the case of a rejection. However, it may also be used to report other statuses.
-/// The information advice identification must be present to link this message to the information advice for which the status is provided.
-/// This is the outer document that contains <seealso cref="AgentCAInformationStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAInformationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

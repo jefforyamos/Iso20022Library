@@ -28,7 +28,26 @@ public partial record FIToFICustomerDirectDebitV01 : IOuterRecord
     public const string XmlTag = "pacs.003.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_ejOlMNEuEd-BzquC8wXy7w_-469555249")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements providing information specific to the individual direct debit(s).
+    /// </summary>
+    [IsoId("_ejOlMdEuEd-BzquC8wXy7w_-847540007")]
+    [Description(@"Set of elements providing information specific to the individual direct debit(s).")]
+    [DataMember(Name="DrctDbtTxInf")]
+    [XmlElement(ElementName="DrctDbtTxInf")]
+    [Required]
+    public required SomeDirectDebitTransactionInformationRecord DirectDebitTransactionInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +60,8 @@ public partial record FIToFICustomerDirectDebitV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The FinancialInstitutionToFinancialInstitutionCustomerDirectDebit message is sent by the creditor agent to the debtor agent, directly or through other agents and/or a payment clearing and settlement system.
-/// It is used to collect funds from a debtor account for a creditor.
-/// Usage
-/// The FItoFICustomerDirectDebit message can contain one or more customer direct debit instructions.
-/// The FIToFICustomerDirectDebit message does not allow for grouping: the PaymentInformation block must be present once per occurrence of a DirectDebitTransactionInformation block.
-/// The FItoFICustomerDirectDebit message may or may not contain mandate related information, i.e. extracts from a mandate, such as the MandateIdentification or DateOfSignature. The FIToFICustomerDirectDebit message must not be considered as a mandate.
-/// The FItoFICustomerDirectDebit message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="FIToFICustomerDirectDebitV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFICustomerDirectDebitV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

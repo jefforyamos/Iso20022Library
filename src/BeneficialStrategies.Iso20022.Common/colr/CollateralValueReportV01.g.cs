@@ -21,7 +21,35 @@ public partial record CollateralValueReportV01 : IOuterRecord
     public const string XmlTag = "CollValRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements to identify the collateral value report message.
+    /// </summary>
+    [IsoId("_5Sj0ATooEemaN9GkhmGkfg")]
+    [Description(@"Set of elements to identify the collateral value report message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Report on collateral value information or operational error.
+    /// </summary>
+    [IsoId("_5Sj0AzooEemaN9GkhmGkfg")]
+    [Description(@"Report on collateral value information or operational error.")]
+    [DataMember(Name="RptOrErr")]
+    [XmlElement(ElementName="RptOrErr")]
+    [Required]
+    public required SomeReportOrErrorRecord ReportOrError { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_5Sj0BTooEemaN9GkhmGkfg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record CollateralValueReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CollateralValueReport message is sent by the system transaction administrator to a system member (such as a directly connected party) to provide further information the current available value of securities for auto collateralisation for one specific or several cash accounts.
-/// This is the outer document that contains <seealso cref="CollateralValueReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralValueReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

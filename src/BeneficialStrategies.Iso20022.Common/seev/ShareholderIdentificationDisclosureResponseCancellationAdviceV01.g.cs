@@ -21,7 +21,46 @@ public partial record ShareholderIdentificationDisclosureResponseCancellationAdv
     public const string XmlTag = "ShrhldrIdDsclsrRspnCxlAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification of the disclosure response for which a cancellation advice is sent.
+    /// The same disclosure response identification number is to be used when cancelling a response which is split in multiple messages.
+    /// </summary>
+    [IsoId("_1ZW-okV9EemRx7jyevcLwg")]
+    [Description(@"Unique identification of the disclosure response for which a cancellation advice is sent.|The same disclosure response identification number is to be used when cancelling a response which is split in multiple messages.")]
+    [DataMember(Name="DsclsrRspnId")]
+    [XmlElement(ElementName="DsclsrRspnId")]
+    [Required]
+    public required SomeDisclosureResponseIdentificationRecord DisclosureResponseIdentification { get; init; }
+    
+    /// <summary>
+    /// Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.
+    /// </summary>
+    [IsoId("_s9Y_YbRAEem2T48lBgJbww")]
+    [Description(@"Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.")]
+    [DataMember(Name="IssrDsclsrReqRef")]
+    [XmlElement(ElementName="IssrDsclsrReqRef")]
+    [Required]
+    public required SomeIssuerDisclosureRequestReferenceRecord IssuerDisclosureRequestReference { get; init; }
+    
+    /// <summary>
+    /// Unique identification of the intermediary party responding to the shareholders identification disclosure request.
+    /// </summary>
+    [IsoId("_1ZW-o0V9EemRx7jyevcLwg")]
+    [Description(@"Unique identification of the intermediary party responding to the shareholders identification disclosure request.")]
+    [DataMember(Name="RspndgIntrmy")]
+    [XmlElement(ElementName="RspndgIntrmy")]
+    [Required]
+    public required SomeRespondingIntermediaryRecord RespondingIntermediary { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_1__BQbRAEem2T48lBgJbww")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +73,8 @@ public partial record ShareholderIdentificationDisclosureResponseCancellationAdv
 }
 
 /// <summary>
-/// The ShareholdersIdentificationDisclosureResponseCancellationAdvice message is sent by any intermediaries to the recipient designated by the issuer (such as an issuer's agent) in the disclosure request message in order to cancel the shareholder identification disclosure response whether previously sent in a single message or in a set of multipart/paginated response messages.
-/// This is the outer document that contains <seealso cref="ShareholderIdentificationDisclosureResponseCancellationAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ShareholderIdentificationDisclosureResponseCancellationAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

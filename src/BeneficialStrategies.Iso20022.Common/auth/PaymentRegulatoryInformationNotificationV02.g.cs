@@ -22,7 +22,35 @@ public partial record PaymentRegulatoryInformationNotificationV02 : IOuterRecord
     public const string XmlTag = "PmtRgltryInfNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Characteristics shared by all individual items included in the message.
+    /// </summary>
+    [IsoId("_bf9R7W2PEei3KuUgpx7Xcw")]
+    [Description(@"Characteristics shared by all individual items included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Notification of information related to a regulatory reporting on a payment.
+    /// </summary>
+    [IsoId("_bf9R722PEei3KuUgpx7Xcw")]
+    [Description(@"Notification of information related to a regulatory reporting on a payment.")]
+    [DataMember(Name="TxNtfctn")]
+    [XmlElement(ElementName="TxNtfctn")]
+    [Required]
+    public required SomeTransactionNotificationRecord TransactionNotification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_bf9R8W2PEei3KuUgpx7Xcw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +63,8 @@ public partial record PaymentRegulatoryInformationNotificationV02 : IOuterRecord
 }
 
 /// <summary>
-/// The PaymentRegulatoryInformationNotification message is sent by the reporting party to the registration agent to provide details on the transaction, when a payment has to be recorded against the registered currency control contract. 
-/// In some cases, the registration agent may also sent this message to the reporting party.
-/// This is the outer document that contains <seealso cref="PaymentRegulatoryInformationNotificationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentRegulatoryInformationNotificationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

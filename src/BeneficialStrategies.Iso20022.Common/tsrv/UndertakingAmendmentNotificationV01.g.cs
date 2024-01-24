@@ -21,7 +21,25 @@ public partial record UndertakingAmendmentNotificationV01 : IOuterRecord
     public const string XmlTag = "UdrtkgAmdmntNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details related to the notification of the proposed amended undertaking.
+    /// </summary>
+    [IsoId("_9g6LU3ltEeG7BsjMvd1mEw_1612122638")]
+    [Description(@"Details related to the notification of the proposed amended undertaking.")]
+    [DataMember(Name="UdrtkgAmdmntNtfctnDtls")]
+    [XmlElement(ElementName="UdrtkgAmdmntNtfctnDtls")]
+    [Required]
+    public required SomeUndertakingAmendmentNotificationDetailsRecord UndertakingAmendmentNotificationDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the notification.
+    /// </summary>
+    [IsoId("_9g6LVHltEeG7BsjMvd1mEw_1241284917")]
+    [Description(@"Digital signature of the notification.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record UndertakingAmendmentNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingAmendmentNotification message is sent by the party that issued the undertaking to the applicant to notify it of the contents of a proposed amendment to the undertaking (issued electronically or on paper). The undertaking could be a demand guarantee, standby letter of credit, counter-undertaking (counter-guarantee or counter-standby), or suretyship undertaking. In addition to providing the proposed terms of the amendment and details on proposed changes to the undertaking, the message may provide other supporting information from the sender. It may also be used to notify the proposed termination or cancellation of the undertaking.
-/// This is the outer document that contains <seealso cref="UndertakingAmendmentNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

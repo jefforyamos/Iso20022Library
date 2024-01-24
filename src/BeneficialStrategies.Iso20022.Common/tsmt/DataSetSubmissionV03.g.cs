@@ -31,7 +31,111 @@ public partial record DataSetSubmissionV03 : IOuterRecord
     public const string XmlTag = "DataSetSubmissn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the submitted information.
+    /// </summary>
+    [IsoId("_nQ9pA9E8Ed-BzquC8wXy7w_2054512310")]
+    [Description(@"Identifies the submitted information.")]
+    [DataMember(Name="SubmissnId")]
+    [XmlElement(ElementName="SubmissnId")]
+    [Required]
+    public required SomeSubmissionIdentificationRecord SubmissionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the transactions that this submission relates to and provides associated information.
+    /// </summary>
+    [IsoId("_nQ9pBNE8Ed-BzquC8wXy7w_2054512233")]
+    [Description(@"Identifies the transactions that this submission relates to and provides associated information.")]
+    [DataMember(Name="RltdTxRefs")]
+    [XmlElement(ElementName="RltdTxRefs")]
+    [Required]
+    public required SomeRelatedTransactionReferencesRecord RelatedTransactionReferences { get; init; }
+    
+    /// <summary>
+    /// This reference must be used for all data sets belonging to the same submission group.
+    /// </summary>
+    [IsoId("_nQ9pBdE8Ed-BzquC8wXy7w_645845159")]
+    [Description(@"This reference must be used for all data sets belonging to the same submission group.")]
+    [DataMember(Name="CmonSubmissnRef")]
+    [XmlElement(ElementName="CmonSubmissnRef")]
+    [Required]
+    public required SomeCommonSubmissionReferenceRecord CommonSubmissionReference { get; init; }
+    
+    /// <summary>
+    /// Specifies the instruction given by the submitter.
+    /// </summary>
+    [IsoId("_nQ9pBtE8Ed-BzquC8wXy7w_2054512725")]
+    [Description(@"Specifies the instruction given by the submitter.")]
+    [DataMember(Name="Instr")]
+    [XmlElement(ElementName="Instr")]
+    [Required]
+    public required SomeInstructionRecord Instruction { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the buyer, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_nQ9pB9E8Ed-BzquC8wXy7w_2054511535")]
+    [Description(@"The financial institution of the buyer, uniquely identified by its BIC.")]
+    [DataMember(Name="BuyrBk")]
+    [XmlElement(ElementName="BuyrBk")]
+    [Required]
+    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the seller, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_nQ9pCNE8Ed-BzquC8wXy7w_2054511830")]
+    [Description(@"The financial institution of the seller, uniquely identified by its BIC.")]
+    [DataMember(Name="SellrBk")]
+    [XmlElement(ElementName="SellrBk")]
+    [Required]
+    public required SomeSellerBankRecord SellerBank { get; init; }
+    
+    /// <summary>
+    /// Commercial information that is submitted to the matching application for processing.
+    /// </summary>
+    [IsoId("_nRHaANE8Ed-BzquC8wXy7w_2054511458")]
+    [Description(@"Commercial information that is submitted to the matching application for processing.")]
+    [DataMember(Name="ComrclDataSet")]
+    [XmlElement(ElementName="ComrclDataSet")]
+    public SomeCommercialDataSetRecord? CommercialDataSet { get; init; }
+    
+    /// <summary>
+    /// Transport information that is submitted to the matching application for processing.
+    /// </summary>
+    [IsoId("_nRHaAdE8Ed-BzquC8wXy7w_2054512430")]
+    [Description(@"Transport information that is submitted to the matching application for processing.")]
+    [DataMember(Name="TrnsprtDataSet")]
+    [XmlElement(ElementName="TrnsprtDataSet")]
+    public SomeTransportDataSetRecord? TransportDataSet { get; init; }
+    
+    /// <summary>
+    /// Insurance information that is submitted to the matching application for processing.
+    /// </summary>
+    [IsoId("_nRHaAtE8Ed-BzquC8wXy7w_-215437655")]
+    [Description(@"Insurance information that is submitted to the matching application for processing.")]
+    [DataMember(Name="InsrncDataSet")]
+    [XmlElement(ElementName="InsrncDataSet")]
+    public SomeInsuranceDataSetRecord? InsuranceDataSet { get; init; }
+    
+    /// <summary>
+    /// Certificate information that is submitted to the matching application for processing.
+    /// </summary>
+    [IsoId("_nRHaA9E8Ed-BzquC8wXy7w_-73215564")]
+    [Description(@"Certificate information that is submitted to the matching application for processing.")]
+    [DataMember(Name="CertDataSet")]
+    [XmlElement(ElementName="CertDataSet")]
+    public SomeCertificateDataSetRecord? CertificateDataSet { get; init; }
+    
+    /// <summary>
+    /// Other certificate information that is submitted to the matching application for processing.
+    /// </summary>
+    [IsoId("_nRHaBNE8Ed-BzquC8wXy7w_1984114743")]
+    [Description(@"Other certificate information that is submitted to the matching application for processing.")]
+    [DataMember(Name="OthrCertDataSet")]
+    [XmlElement(ElementName="OthrCertDataSet")]
+    public SomeOtherCertificateDataSetRecord? OtherCertificateDataSet { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +148,8 @@ public partial record DataSetSubmissionV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The DataSetSubmission message is sent by a party involved in the transaction to the matching application.
-/// This message is used to trigger either a match or a pre-match of the information submitted with the message.
-/// Usage
-/// The DataSetSubmission message can be sent by either party with the instruction pre-match. In the outlined scenario, the matching application will compare the data set(s) conveyed by the DataSetSubmission message with the established baseline and report the matching result to the requester of the data set pre-match by sending a DataSetMatchReport message.
-/// or
-/// The DataSetSubmission message can be sent by the party specified in the baseline as data set submitter with the instruction match. In the outlined scenario, the matching application will compare the data set(s) conveyed by the DataSetSubmission message with the established baseline and report the matching result to
-/// - the parties involved in a transaction established in the push-through mode, or
-/// - the initiator of a transaction established in the lodge mode.
-/// The DataSetSubmission message can be used to submit multiple data sets for multiple transactions (baselines) at the same time. However, all transactions (baselines) covered by the message must be for the same parties, that is transaction initiator and counterparty, as well as for the same buyer and seller.
-/// The DataSetSubmission message consists of data reflecting trade information related to the purchasing agreement covered by the transaction(s), for example shipment date, invoice amount.
-/// This is the outer document that contains <seealso cref="DataSetSubmissionV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DataSetSubmissionV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

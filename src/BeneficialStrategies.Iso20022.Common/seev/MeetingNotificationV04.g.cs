@@ -26,7 +26,147 @@ public partial record MeetingNotificationV04 : IOuterRecord
     public const string XmlTag = "MtgNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the meeting notification message.
+    /// </summary>
+    [IsoId("_TsTNDNEwEd-BzquC8wXy7w_-2037621454")]
+    [Description(@"Identifies the meeting notification message.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Information specific to an amendment.
+    /// </summary>
+    [IsoId("_TsTNDdEwEd-BzquC8wXy7w_2083259089")]
+    [Description(@"Information specific to an amendment.")]
+    [DataMember(Name="Amdmnt")]
+    [XmlElement(ElementName="Amdmnt")]
+    public SomeAmendmentRecord? Amendment { get; init; }
+    
+    /// <summary>
+    /// Defines the global status of the event contained in the notification.
+    /// </summary>
+    [IsoId("_TscW8NEwEd-BzquC8wXy7w_-797471585")]
+    [Description(@"Defines the global status of the event contained in the notification.")]
+    [DataMember(Name="NtfctnSts")]
+    [XmlElement(ElementName="NtfctnSts")]
+    [Required]
+    public required SomeNotificationStatusRecord NotificationStatus { get; init; }
+    
+    /// <summary>
+    /// Specifies information about the meeting. This component contains meeting identifications, various deadlines, contact persons, electronic and postal locations for accessing information and proxy assignment parameters.
+    /// </summary>
+    [IsoId("_TscW8dEwEd-BzquC8wXy7w_1033451584")]
+    [Description(@"Specifies information about the meeting. This component contains meeting identifications, various deadlines, contact persons, electronic and postal locations for accessing information and proxy assignment parameters.")]
+    [DataMember(Name="Mtg")]
+    [XmlElement(ElementName="Mtg")]
+    [Required]
+    public required SomeMeetingRecord Meeting { get; init; }
+    
+    /// <summary>
+    /// Dates and details of the shareholders meeting.
+    /// </summary>
+    [IsoId("_TscW8tEwEd-BzquC8wXy7w_1487538853")]
+    [Description(@"Dates and details of the shareholders meeting.")]
+    [DataMember(Name="MtgDtls")]
+    [XmlElement(ElementName="MtgDtls")]
+    public required IReadonlyCollection<SomeMeetingDetailsRecord> MeetingDetails { get; init; } // Min=1, Max=5
+    
+    /// <summary>
+    /// Party notifying the meeting.
+    /// </summary>
+    [IsoId("_TscW89EwEd-BzquC8wXy7w_1476440076")]
+    [Description(@"Party notifying the meeting.")]
+    [DataMember(Name="NtifngPty")]
+    [XmlElement(ElementName="NtifngPty")]
+    [Required]
+    public required SomeNotifyingPartyRecord NotifyingParty { get; init; }
+    
+    /// <summary>
+    /// Specifies the institution that is the issuer of the security to which the meeting applies.
+    /// </summary>
+    [IsoId("_TscW9NEwEd-BzquC8wXy7w_-232527808")]
+    [Description(@"Specifies the institution that is the issuer of the security to which the meeting applies.")]
+    [DataMember(Name="Issr")]
+    [XmlElement(ElementName="Issr")]
+    [Required]
+    public required SomeIssuerRecord Issuer { get; init; }
+    
+    /// <summary>
+    /// Agents of the issuer.
+    /// </summary>
+    [IsoId("_TscW9dEwEd-BzquC8wXy7w_-1304532867")]
+    [Description(@"Agents of the issuer.")]
+    [DataMember(Name="IssrAgt")]
+    [XmlElement(ElementName="IssrAgt")]
+    public required IReadonlyCollection<SomeIssuerAgentRecord> IssuerAgent { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
+    /// </summary>
+    [IsoId("_TscW9tEwEd-BzquC8wXy7w_-1315631644")]
+    [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
+    [DataMember(Name="Scty")]
+    [XmlElement(ElementName="Scty")]
+    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    
+    /// <summary>
+    /// Detailed information of a resolution proposed to the vote.
+    /// </summary>
+    [IsoId("_TscW99EwEd-BzquC8wXy7w_-861544375")]
+    [Description(@"Detailed information of a resolution proposed to the vote.")]
+    [DataMember(Name="Rsltn")]
+    [XmlElement(ElementName="Rsltn")]
+    public required IReadonlyCollection<SomeResolutionRecord> Resolution { get; init; } // Min=0, Max=1000
+    
+    /// <summary>
+    /// Specifies the conditions to be allowed to vote, the different voting methods and options, the voting deadlines and the parameters of the incentive premium.
+    /// </summary>
+    [IsoId("_TsmH8NEwEd-BzquC8wXy7w_969378794")]
+    [Description(@"Specifies the conditions to be allowed to vote, the different voting methods and options, the voting deadlines and the parameters of the incentive premium.")]
+    [DataMember(Name="Vote")]
+    [XmlElement(ElementName="Vote")]
+    public SomeVoteRecord? Vote { get; init; }
+    
+    /// <summary>
+    /// Specifies the entitlement ratio and the different deadlines for calculating the entitlement.
+    /// </summary>
+    [IsoId("_TsmH8dEwEd-BzquC8wXy7w_-1911351880")]
+    [Description(@"Specifies the entitlement ratio and the different deadlines for calculating the entitlement.")]
+    [DataMember(Name="EntitlmntSpcfctn")]
+    [XmlElement(ElementName="EntitlmntSpcfctn")]
+    [Required]
+    public required SomeEntitlementSpecificationRecord EntitlementSpecification { get; init; }
+    
+    /// <summary>
+    /// Specifies requirements relative to the use of Power of Attorney.
+    /// </summary>
+    [IsoId("_TsmH8tEwEd-BzquC8wXy7w_-1949337923")]
+    [Description(@"Specifies requirements relative to the use of Power of Attorney.")]
+    [DataMember(Name="PwrOfAttnyRqrmnts")]
+    [XmlElement(ElementName="PwrOfAttnyRqrmnts")]
+    public SomePowerOfAttorneyRequirementsRecord? PowerOfAttorneyRequirements { get; init; }
+    
+    /// <summary>
+    /// Provides additional narrative information about the corporate event.
+    /// </summary>
+    [IsoId("_TsmH89EwEd-BzquC8wXy7w_-870758796")]
+    [Description(@"Provides additional narrative information about the corporate event.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_TsmH9NEwEd-BzquC8wXy7w_1561886891")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +179,8 @@ public partial record MeetingNotificationV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A notifying party, eg, an issuer, its agent or an intermediary, sends the MeetingNotification message to a party holding the right to vote, to announce a shareholders meeting.
-/// Usage
-/// The MeetingNotification message is used to announce a shareholders meeting, for example, it provides information on the participation details and requirements for the meeting, the vote parameters and the resolutions. The MeetingNotification message may also be used to announce an update.
-/// To notify an update, the Amendment building block must be filled in. Any building block that is modified must be included in the amendment message. The information previously notified and not repeated in the amendment message remains valid.
-/// To update the resolutions of the agenda, the complete list of resolutions must be repeated in the amendment message. The resolutions that are deleted should be assigned the status Withdrawn.
-/// This is the outer document that contains <seealso cref="MeetingNotificationV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingNotificationV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

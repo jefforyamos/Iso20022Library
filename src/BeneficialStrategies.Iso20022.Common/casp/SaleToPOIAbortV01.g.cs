@@ -21,7 +21,35 @@ public partial record SaleToPOIAbortV01 : IOuterRecord
     public const string XmlTag = "SaleToPOIAbrt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_ehPRUYX9EemxIqbaFEE8-w")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to an abort request.
+    /// </summary>
+    [IsoId("_ehPRU4X9EemxIqbaFEE8-w")]
+    [Description(@"Information related to an abort request.")]
+    [DataMember(Name="Abrt")]
+    [XmlElement(ElementName="Abrt")]
+    [Required]
+    public required SomeAbortRecord Abort { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_ehPRVYX9EemxIqbaFEE8-w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIAbortV01 : IOuterRecord
 }
 
 /// <summary>
-/// This is the Abort message in System Services.
-/// This is the outer document that contains <seealso cref="SaleToPOIAbortV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIAbortV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,35 @@ public partial record AcceptorTransactionLogReportResponseV02 : IOuterRecord
     public const string XmlTag = "AccptrTxLgRptRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_hV8pA00-Eeybj420QgWBkA")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a report request.
+    /// </summary>
+    [IsoId("_hV8pBU0-Eeybj420QgWBkA")]
+    [Description(@"Information related to the response of a report request.")]
+    [DataMember(Name="RptRspn")]
+    [XmlElement(ElementName="RptRspn")]
+    [Required]
+    public required SomeReportResponseRecord ReportResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_hV8pB00-Eeybj420QgWBkA")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorTransactionLogReportResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// This AcceptorTransactionLogReportResponse message is sent by an Acquirer or its IntermediaryAgent to provide the report previously expected by a POI.
-/// This is the outer document that contains <seealso cref="AcceptorTransactionLogReportResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorTransactionLogReportResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

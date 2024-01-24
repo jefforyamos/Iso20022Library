@@ -22,7 +22,64 @@ public partial record CorporateActionInstructionCancellationRequestV04 : IOuterR
     public const string XmlTag = "CorpActnInstrCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// When used in a corporate action instruction, indicates that the current instruction is replacing a previous one that was cancelled earlier. When used in a corporate action instruction cancellation request, indicates that cancelled instruction will be replaced by a new corporate action instruction to be sent later.
+    /// </summary>
+    [IsoId("_dK0IMwx1EeKMmbvHOtE4SA")]
+    [Description(@"When used in a corporate action instruction, indicates that the current instruction is replacing a previous one that was cancelled earlier. When used in a corporate action instruction cancellation request, indicates that cancelled instruction will be replaced by a new corporate action instruction to be sent later.")]
+    [DataMember(Name="ChngInstrInd")]
+    [XmlElement(ElementName="ChngInstrInd")]
+    public SomeChangeInstructionIndicatorRecord? ChangeInstructionIndicator { get; init; }
+    
+    /// <summary>
+    /// Identification of a previously sent instruction document.
+    /// </summary>
+    [IsoId("_dK0INwx1EeKMmbvHOtE4SA")]
+    [Description(@"Identification of a previously sent instruction document.")]
+    [DataMember(Name="InstrId")]
+    [XmlElement(ElementName="InstrId")]
+    [Required]
+    public required SomeInstructionIdentificationRecord InstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_dK0IOwx1EeKMmbvHOtE4SA")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account and the account owner.
+    /// </summary>
+    [IsoId("_dK0IPwx1EeKMmbvHOtE4SA")]
+    [Description(@"General information about the safekeeping account and the account owner.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action option.
+    /// </summary>
+    [IsoId("_dK0IQwx1EeKMmbvHOtE4SA")]
+    [Description(@"Information about the corporate action option.")]
+    [DataMember(Name="CorpActnInstr")]
+    [XmlElement(ElementName="CorpActnInstr")]
+    [Required]
+    public required SomeCorporateActionInstructionRecord CorporateActionInstruction { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_dK0IRwx1EeKMmbvHOtE4SA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +92,8 @@ public partial record CorporateActionInstructionCancellationRequestV04 : IOuterR
 }
 
 /// <summary>
-/// Scope|An account owner sends the CorporateActionInstructionCancellationRequest message to an account servicer to request cancellation of a previously sent corporate action election instruction.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate),|using the relevant elements in the business application header (BAH).|ISO 15022 - 20022 COEXISTENCE
-/// This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="CorporateActionInstructionCancellationRequestV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionInstructionCancellationRequestV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

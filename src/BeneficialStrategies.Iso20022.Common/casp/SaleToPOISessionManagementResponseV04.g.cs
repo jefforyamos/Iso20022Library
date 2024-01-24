@@ -21,7 +21,35 @@ public partial record SaleToPOISessionManagementResponseV04 : IOuterRecord
     public const string XmlTag = "SaleToPOISsnMgmtRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_b97aI06sEeyGi9JAv6wq7Q")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a session management request.
+    /// </summary>
+    [IsoId("_b97aJU6sEeyGi9JAv6wq7Q")]
+    [Description(@"Information related to the response of a session management request.")]
+    [DataMember(Name="SsnMgmtRspn")]
+    [XmlElement(ElementName="SsnMgmtRspn")]
+    [Required]
+    public required SomeSessionManagementResponseRecord SessionManagementResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_b97aJ06sEeyGi9JAv6wq7Q")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOISessionManagementResponseV04 : IOuterRecord
 }
 
 /// <summary>
-/// The SaleToPOISessionManagementResponse message is sent by a POI to provide the result of an administrative service related to session management.
-/// This is the outer document that contains <seealso cref="SaleToPOISessionManagementResponseV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOISessionManagementResponseV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

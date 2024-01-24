@@ -21,7 +21,16 @@ public partial record PaymentSD1V01 : IOuterRecord
     public const string XmlTag = "PmtSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Structured card remittance information supplied in a payment.
+    /// </summary>
+    [IsoId("_ZAIu0fwLEeGHDMP28rpT3g_-1719162242")]
+    [Description(@"Structured card remittance information supplied in a payment.")]
+    [DataMember(Name="CardRmtInf")]
+    [XmlElement(ElementName="CardRmtInf")]
+    [Required]
+    public required SomeCardRemittanceInformationRecord CardRemittanceInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +43,8 @@ public partial record PaymentSD1V01 : IOuterRecord
 }
 
 /// <summary>
-/// Supplementary data for payment message definitions.
-/// This is the outer document that contains <seealso cref="PaymentSD1V01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentSD1V01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

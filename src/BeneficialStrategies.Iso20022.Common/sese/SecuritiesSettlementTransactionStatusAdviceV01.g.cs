@@ -32,7 +32,98 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     public const string XmlTag = "SctiesSttlmTxStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies a SecuritiesSettlementTransactionStatusAdvice message as know by the account servicer.
+    /// </summary>
+    [IsoId("_-O32kNE5Ed-BzquC8wXy7w_-2697574")]
+    [Description(@"Information that unambiguously identifies a SecuritiesSettlementTransactionStatusAdvice message as know by the account servicer.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Provides unambiguous transaction identification information.
+    /// </summary>
+    [IsoId("_-O32kdE5Ed-BzquC8wXy7w_1091020086")]
+    [Description(@"Provides unambiguous transaction identification information.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the transaction.
+    /// </summary>
+    [IsoId("_-O32ktE5Ed-BzquC8wXy7w_-870476362")]
+    [Description(@"Provides details on the processing status of the transaction.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    public SomeProcessingStatusRecord? ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
+    /// </summary>
+    [IsoId("_-O32k9E5Ed-BzquC8wXy7w_-1260207055")]
+    [Description(@"Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).")]
+    [DataMember(Name="IfrrdMtchgSts")]
+    [XmlElement(ElementName="IfrrdMtchgSts")]
+    public SomeInferredMatchingStatusRecord? InferredMatchingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the matching status of the instruction.
+    /// </summary>
+    [IsoId("_-O32lNE5Ed-BzquC8wXy7w_-774432316")]
+    [Description(@"Provides the matching status of the instruction.")]
+    [DataMember(Name="MtchgSts")]
+    [XmlElement(ElementName="MtchgSts")]
+    public SomeMatchingStatusRecord? MatchingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the status of settlement of a transaction.
+    /// </summary>
+    [IsoId("_-O32ldE5Ed-BzquC8wXy7w_-628514065")]
+    [Description(@"Provides the status of settlement of a transaction.")]
+    [DataMember(Name="SttlmSts")]
+    [XmlElement(ElementName="SttlmSts")]
+    public SomeSettlementStatusRecord? SettlementStatus { get; init; }
+    
+    /// <summary>
+    /// Identifies the details of the transaction.
+    /// </summary>
+    [IsoId("_-O32ltE5Ed-BzquC8wXy7w_971620055")]
+    [Description(@"Identifies the details of the transaction.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_-PBnkNE5Ed-BzquC8wXy7w_1643953790")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_-PBnkdE5Ed-BzquC8wXy7w_1641184188")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_-PBnktE5Ed-BzquC8wXy7w_-1864635035")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +136,8 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesSettlementTransactionStatusAdvice to an account owner to advise the status of a securities settlement transaction instruction previously sent by the account owner or the status of a settlement transaction existing in the books of the servicer for the account of the owner. The status may be a processing, pending processing, internal matching, matching and/or settlement status.
-/// The status advice may be sent as a response to the request of the account owner or not.
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

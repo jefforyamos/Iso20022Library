@@ -29,7 +29,108 @@ public partial record CorporateActionInstructionV02 : IOuterRecord
     public const string XmlTag = "CorpActnInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// When used in a corporate action instruction, indicates that the current instruction is replacing a previous one that was cancelled earlier. When used in a corporate action instruction cancellation request, indicates that cancelled instruction will be replaced by a new corporate action instruction to be sent later.
+    /// </summary>
+    [IsoId("_XZfjAffpEd-w7f1j9x-Ugw")]
+    [Description(@"When used in a corporate action instruction, indicates that the current instruction is replacing a previous one that was cancelled earlier. When used in a corporate action instruction cancellation request, indicates that cancelled instruction will be replaced by a new corporate action instruction to be sent later.")]
+    [DataMember(Name="ChngInstrInd")]
+    [XmlElement(ElementName="ChngInstrInd")]
+    public SomeChangeInstructionIndicatorRecord? ChangeInstructionIndicator { get; init; }
+    
+    /// <summary>
+    /// Identification of a previously sent cancelled instruction document.
+    /// </summary>
+    [IsoId("_z2q99d3BEd-KAqAOGQOnnw")]
+    [Description(@"Identification of a previously sent cancelled instruction document.")]
+    [DataMember(Name="CancInstrId")]
+    [XmlElement(ElementName="CancInstrId")]
+    public SomeCancelledInstructionIdentificationRecord? CancelledInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of a previously sent instruction cancellation request document.
+    /// </summary>
+    [IsoId("_z2q9993BEd-KAqAOGQOnnw")]
+    [Description(@"Identification of a previously sent instruction cancellation request document.")]
+    [DataMember(Name="InstrCxlReqId")]
+    [XmlElement(ElementName="InstrCxlReqId")]
+    public SomeInstructionCancellationRequestIdentificationRecord? InstructionCancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of other documents as well as the document number.
+    /// </summary>
+    [IsoId("_z2q9-d3BEd-KAqAOGQOnnw")]
+    [Description(@"Identification of other documents as well as the document number.")]
+    [DataMember(Name="OthrDocId")]
+    [XmlElement(ElementName="OthrDocId")]
+    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.
+    /// </summary>
+    [IsoId("_z2q9-93BEd-KAqAOGQOnnw")]
+    [Description(@"Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
+    [DataMember(Name="EvtsLkg")]
+    [XmlElement(ElementName="EvtsLkg")]
+    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_z2q9_d3BEd-KAqAOGQOnnw")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account, owner and account balance.
+    /// </summary>
+    [IsoId("_z2q9_93BEd-KAqAOGQOnnw")]
+    [Description(@"General information about the safekeeping account, owner and account balance.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Provides information about the beneficial owner of the securities.
+    /// </summary>
+    [IsoId("_z2q-Ad3BEd-KAqAOGQOnnw")]
+    [Description(@"Provides information about the beneficial owner of the securities.")]
+    [DataMember(Name="BnfclOwnrDtls")]
+    [XmlElement(ElementName="BnfclOwnrDtls")]
+    public SomeBeneficialOwnerDetailsRecord? BeneficialOwnerDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action instruction.
+    /// </summary>
+    [IsoId("_z2q-A93BEd-KAqAOGQOnnw")]
+    [Description(@"Information about the corporate action instruction.")]
+    [DataMember(Name="CorpActnInstr")]
+    [XmlElement(ElementName="CorpActnInstr")]
+    [Required]
+    public required SomeCorporateActionInstructionRecord CorporateActionInstruction { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_z2q-Bd3BEd-KAqAOGQOnnw")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_z2q-C93BEd-KAqAOGQOnnw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +143,8 @@ public partial record CorporateActionInstructionV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends the CorporateActionInstruction message to an account servicer to instruct election on a corporate action event.
-/// This message is used to provide the custodian with instructions on how the account owner wishes to proceed with a corporate action event. Instructions include investment decisions regarding the exercise of rights issues, the election of stock or cash when the option is available, and decisions on the conversion or tendering of securities.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate),
-/// using the relevant elements in the business application header (BAH).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="CorporateActionInstructionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionInstructionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,43 @@ public partial record ATMDiagnosticRequestV01 : IOuterRecord
     public const string XmlTag = "ATMDgnstcReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_kpsE0ItoEeSDLd7nI4Quzw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_qo84kItoEeSDLd7nI4Quzw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMDgnstcReq")]
+    [XmlElement(ElementName="PrtctdATMDgnstcReq")]
+    public SomeProtectedATMDiagnosticRequestRecord? ProtectedATMDiagnosticRequest { get; init; }
+    
+    /// <summary>
+    /// Information related to the request of a diagnostic from an ATM.
+    /// </summary>
+    [IsoId("_yPB5IItoEeSDLd7nI4Quzw")]
+    [Description(@"Information related to the request of a diagnostic from an ATM.")]
+    [DataMember(Name="ATMDgnstcReq")]
+    [XmlElement(ElementName="ATMDgnstcReq")]
+    public SomeATMDiagnosticRequestRecord? ATMDiagnosticRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_19OpMItoEeSDLd7nI4Quzw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMDiagnosticRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMDiagnosticRequest message is sent from an ATM to an acquirer to verify the availability of the acquirer. The acquirer will also validate that this ATM is a valid ATM for its particular network.
-/// This is the outer document that contains <seealso cref="ATMDiagnosticRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDiagnosticRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

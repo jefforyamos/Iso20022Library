@@ -24,7 +24,36 @@ public partial record AcceptorCancellationAdviceV01 : IOuterRecord
     public const string XmlTag = "AccptrCxlAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Cancellation advice message management information.
+    /// </summary>
+    [IsoId("_dGffQKMVEeCJ6YNENx4h-w_1875096659")]
+    [Description(@"Cancellation advice message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the cancellation advice.
+    /// </summary>
+    [IsoId("_dGffQaMVEeCJ6YNENx4h-w_2120079647")]
+    [Description(@"Information related to the cancellation advice.")]
+    [DataMember(Name="CxlAdvc")]
+    [XmlElement(ElementName="CxlAdvc")]
+    [Required]
+    public required SomeCancellationAdviceRecord CancellationAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_dGffQqMVEeCJ6YNENx4h-w_-1140931739")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +66,8 @@ public partial record AcceptorCancellationAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorCancellationAdvice message is sent by a card acceptor to notify the cancellation of a successfully completed card payment transaction. The message can be sent directly to the acquirer or through an agent.
-/// Usage
-/// The AcceptorCancellationAdvice message is sent by the card acceptor to an acquirer when the acquirer did not receive a correct response to the AcceptorCompletionAdvice message.
-/// This is the outer document that contains <seealso cref="AcceptorCancellationAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCancellationAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

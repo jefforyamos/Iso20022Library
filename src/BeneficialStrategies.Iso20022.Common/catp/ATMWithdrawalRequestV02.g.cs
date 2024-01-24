@@ -21,7 +21,43 @@ public partial record ATMWithdrawalRequestV02 : IOuterRecord
     public const string XmlTag = "ATMWdrwlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_TYmxQ61wEeWMg5rOByfExw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_TYmxRa1wEeWMg5rOByfExw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMWdrwlReq")]
+    [XmlElement(ElementName="PrtctdATMWdrwlReq")]
+    public SomeProtectedATMWithdrawalRequestRecord? ProtectedATMWithdrawalRequest { get; init; }
+    
+    /// <summary>
+    /// Information related to the request of a withdrawal transaction from an ATM.
+    /// </summary>
+    [IsoId("_TYmxR61wEeWMg5rOByfExw")]
+    [Description(@"Information related to the request of a withdrawal transaction from an ATM.")]
+    [DataMember(Name="ATMWdrwlReq")]
+    [XmlElement(ElementName="ATMWdrwlReq")]
+    public SomeATMWithdrawalRequestRecord? ATMWithdrawalRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_TYmxSa1wEeWMg5rOByfExw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMWithdrawalRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMWithdrawalRequest message is sent by an ATM to an acquirer or its agent to request the approval of a withdrawal transaction at an ATM.
-/// This is the outer document that contains <seealso cref="ATMWithdrawalRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMWithdrawalRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

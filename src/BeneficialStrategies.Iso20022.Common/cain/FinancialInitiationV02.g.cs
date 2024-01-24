@@ -21,7 +21,35 @@ public partial record FinancialInitiationV02 : IOuterRecord
     public const string XmlTag = "FinInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_TwBNBlTQEeeeIYOiLZFQGg")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the financial initiation.
+    /// </summary>
+    [IsoId("_TwBNCFTQEeeeIYOiLZFQGg")]
+    [Description(@"Information related to the financial initiation.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC
+    /// </summary>
+    [IsoId("_TwBNB1TQEeeeIYOiLZFQGg")]
+    [Description(@"Trailer of the message containing a MAC")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record FinancialInitiationV02 : IOuterRecord
 }
 
 /// <summary>
-/// The FinancialInitiation message is sent by an acquirer or an agent to an issuer to request approval of a card transaction or to inform about the completion of an authorisation. It allows the approved transaction amount to be billed or posted on the cardholder's account. It can also be sent by an issuer to an acquirer or agent to advise that an authorisation has been successfully completed for the final amount and requests the clearing of the transaction.
-/// This is the outer document that contains <seealso cref="FinancialInitiationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInitiationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

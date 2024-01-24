@@ -31,7 +31,100 @@ public partial record CustodyStatementOfHoldingsV02 : IOuterRecord
     public const string XmlTag = "CtdyStmtOfHldgsV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_Magh_tFSEd-BzquC8wXy7w_-51538454")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_Magh_9FSEd-BzquC8wXy7w_1153922222")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_Mapr4NFSEd-BzquC8wXy7w_1153922204")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_Mapr4dFSEd-BzquC8wXy7w_1153922479")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// General information related to the custody statement of holdings.
+    /// </summary>
+    [IsoId("_Mapr4tFSEd-BzquC8wXy7w_1153922264")]
+    [Description(@"General information related to the custody statement of holdings.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// The safekeeping or investment account.
+    /// </summary>
+    [IsoId("_Mapr49FSEd-BzquC8wXy7w_1153922307")]
+    [Description(@"The safekeeping or investment account.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
+    /// </summary>
+    [IsoId("_Mapr5NFSEd-BzquC8wXy7w_1153922402")]
+    [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
+    [DataMember(Name="BalForAcct")]
+    [XmlElement(ElementName="BalForAcct")]
+    public SomeBalanceForAccountRecord? BalanceForAccount { get; init; }
+    
+    /// <summary>
+    /// The sub-account of the safekeeping or investment account.
+    /// </summary>
+    [IsoId("_Mapr5dFSEd-BzquC8wXy7w_1153922324")]
+    [Description(@"The sub-account of the safekeeping or investment account.")]
+    [DataMember(Name="SubAcctDtls")]
+    [XmlElement(ElementName="SubAcctDtls")]
+    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    
+    /// <summary>
+    /// Value of total holdings reported.
+    /// </summary>
+    [IsoId("_Mapr5tFSEd-BzquC8wXy7w_1153922359")]
+    [Description(@"Value of total holdings reported.")]
+    [DataMember(Name="TtlVals")]
+    [XmlElement(ElementName="TtlVals")]
+    public SomeTotalValuesRecord? TotalValues { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Mapr59FSEd-BzquC8wXy7w_1153922437")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +137,8 @@ public partial record CustodyStatementOfHoldingsV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer, for example, a transfer agent sends the CustodyStatementOfHoldings message to the account owner, for example, a fund manager or an account owner's designated agent to provide detailed holdings of the portfolio at a specified moment in time.
-/// The message provides, at a moment in time, the quantity and identification of the financial instruments that the account servicer holds for the account owner. The message can also include availability and the location of holdings to facilitate trading and minimise settlement issues.
-/// The message reports all information per financial instrument, ie, when a financial instrument is held at multiple places of safekeeping, the total holdings for all locations can be provided.
-/// Usage
-/// The CustodyStatementOfHoldings message is used to provide detailed quantity and availability information for financial instrument holdings of a portfolio. The message should be sent at a frequency agreed bi-laterally between the account servicer and the account owner.
-/// This message can be also be used to report where the financial instruments are safe-kept, physically or notionally. If a security is held in more than one safekeeping place, this can also be indicated.
-/// This message can reflect all outstanding holding information or may only contain changes since the previously sent statement.
-/// The CustodyStatementOfHoldings message can only be used to list the holdings of a single (master) account. However, it is possible to break down these holdings into one or several sub-accounts. Therefore, this message can be used to either specify holdings at
-/// - the main account level, or,
-/// - the sub-account level.
-/// This is the outer document that contains <seealso cref="CustodyStatementOfHoldingsV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustodyStatementOfHoldingsV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

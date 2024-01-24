@@ -24,7 +24,73 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord
     public const string XmlTag = "RoleAndBaselnAccptncNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification message.
+    /// </summary>
+    [IsoId("_s3o9qdE8Ed-BzquC8wXy7w_1220286630")]
+    [Description(@"Identifies the notification message.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    [Required]
+    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_s3yHkNE8Ed-BzquC8wXy7w_1220287199")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_s3yHkdE8Ed-BzquC8wXy7w_1220286725")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_s3yHktE8Ed-BzquC8wXy7w_-799125810")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for each financial institution which is a party to the transaction.
+    /// </summary>
+    [IsoId("_s3yHk9E8Ed-BzquC8wXy7w_1220286880")]
+    [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Party that has accepted.
+    /// </summary>
+    [IsoId("_s3yHlNE8Ed-BzquC8wXy7w_-1814999420")]
+    [Description(@"Party that has accepted.")]
+    [DataMember(Name="Initr")]
+    [XmlElement(ElementName="Initr")]
+    [Required]
+    public required SomeInitiatorRecord Initiator { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_s3yHldE8Ed-BzquC8wXy7w_1220287294")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +103,8 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The RoleAndBaselineAcceptanceNotification message is sent by the matching application to the primary banks to inform about role and baseline acceptance by a secondary bank.
-/// Usage
-/// The RoleAndBaselineAcceptanceNotification message is used to inform that a secondary bank has accepted the role and baseline. No response is expected.
-/// This is the outer document that contains <seealso cref="RoleAndBaselineAcceptanceNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RoleAndBaselineAcceptanceNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

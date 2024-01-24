@@ -25,7 +25,62 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord
     public const string XmlTag = "InvcAssgnmtSts";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics that unambiguously identify the assignment status, common parameters, documents and identifications.
+    /// </summary>
+    [IsoId("_OTgzNDUw-AOSNFX-8224505")]
+    [Description(@"Set of characteristics that unambiguously identify the assignment status, common parameters, documents and identifications.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// List of assignments of financial items.
+    /// </summary>
+    [IsoId("_OTgzNDUx-AOSNFX-8224505")]
+    [Description(@"List of assignments of financial items.")]
+    [DataMember(Name="AssgnmtList")]
+    [XmlElement(ElementName="AssgnmtList")]
+    [Required]
+    public required SomeAssignmentListRecord AssignmentList { get; init; }
+    
+    /// <summary>
+    /// Number of assignments.
+    /// </summary>
+    [IsoId("_OTgzNDUy-AOSNFX-8224505")]
+    [Description(@"Number of assignments.")]
+    [DataMember(Name="AssgnmtCnt")]
+    [XmlElement(ElementName="AssgnmtCnt")]
+    public SomeAssignmentCountRecord? AssignmentCount { get; init; }
+    
+    /// <summary>
+    /// Total number of individual items in all assignments.
+    /// </summary>
+    [IsoId("_OTgzNDUz-AOSNFX-8224505")]
+    [Description(@"Total number of individual items in all assignments.")]
+    [DataMember(Name="ItmCnt")]
+    [XmlElement(ElementName="ItmCnt")]
+    public SomeItemCountRecord? ItemCount { get; init; }
+    
+    /// <summary>
+    /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
+    /// </summary>
+    [IsoId("_OTgzNDU0-AOSNFX-8224505")]
+    [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
+    [DataMember(Name="CtrlSum")]
+    [XmlElement(ElementName="CtrlSum")]
+    public SomeControlSumRecord? ControlSum { get; init; }
+    
+    /// <summary>
+    /// Referenced or related business message.
+    /// </summary>
+    [IsoId("_OTgzNDU1-AOSNFX-8224505")]
+    [Description(@"Referenced or related business message.")]
+    [DataMember(Name="AttchdMsg")]
+    [XmlElement(ElementName="AttchdMsg")]
+    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +93,8 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord
 }
 
 /// <summary>
-/// The message InvoiceAssignmentStatus is sent by a factoring service provider to a factoring client and, optionally, to an interested party as a response to assignments requests.
-/// The factoring service provider returns a copy of items of corresponding requests together with an information about the status of treatment, for example acceptance, rejection or treatment not yet finished. A rejection can be the result of bad message syntax, but also for other motives such as risk, compliance or covenants.
-/// For each reported financial item, the factoring service provider includes a reference to the corresponding item of the InvoiceFinancingRequest message and may include the referenced item as well as data from other related and referenced messages.
-/// The message contains information about other parties to be notified and whether these parties are required to acknowledge the assignment.
-/// The message can carry digital signatures if required by context.
-/// This is the outer document that contains <seealso cref="InvoiceAssignmentStatusV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceAssignmentStatusV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

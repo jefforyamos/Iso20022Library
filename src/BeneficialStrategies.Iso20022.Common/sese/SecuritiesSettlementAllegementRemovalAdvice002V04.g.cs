@@ -32,7 +32,62 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V04 : IOuter
     public const string XmlTag = "SctiesSttlmAllgmtRmvlAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides transaction type and identification information.
+    /// </summary>
+    [IsoId("_6FTz5ZNLEeWGlc8L7oPDIg")]
+    [Description(@"Provides transaction type and identification information.")]
+    [DataMember(Name="AcctSvcrTxId")]
+    [XmlElement(ElementName="AcctSvcrTxId")]
+    [Required]
+    public required SomeAccountServicerTransactionIdentificationRecord AccountServicerTransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
+    /// </summary>
+    [IsoId("_6FTz55NLEeWGlc8L7oPDIg")]
+    [Description(@"Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.")]
+    [DataMember(Name="MktInfrstrctrTxId")]
+    [XmlElement(ElementName="MktInfrstrctrTxId")]
+    public SomeMarketInfrastructureTransactionIdentificationRecord? MarketInfrastructureTransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_6FTz6ZNLEeWGlc8L7oPDIg")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_6FTz65NLEeWGlc8L7oPDIg")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Identifies the details of the transaction.
+    /// </summary>
+    [IsoId("_6FTz7ZNLEeWGlc8L7oPDIg")]
+    [Description(@"Identifies the details of the transaction.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_6FTz75NLEeWGlc8L7oPDIg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +100,8 @@ public partial record SecuritiesSettlementAllegementRemovalAdvice002V04 : IOuter
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesSettlementAllegementRemovalAdvice to an account owner to acknowledge that a previously sent allegement is no longer outstanding, because the alleged party sent its instruction.
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information
-/// using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementAllegementRemovalAdvice002V04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementAllegementRemovalAdvice002V04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

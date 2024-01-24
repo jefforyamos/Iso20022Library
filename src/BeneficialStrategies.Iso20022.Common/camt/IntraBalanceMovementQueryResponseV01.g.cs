@@ -25,7 +25,44 @@ public partial record IntraBalanceMovementQueryResponseV01 : IOuterRecord
     public const string XmlTag = "IntraBalMvmntQryRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the message as known by the account servicer or settlement infrastructure.
+    /// </summary>
+    [IsoId("_DLtLWzncEem7JZMuWtwtsg")]
+    [Description(@"Unambiguous identification of the message as known by the account servicer or settlement infrastructure.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    public SomeIdentificationRecord? Identification { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_DLtLXTncEem7JZMuWtwtsg")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// General characteristics related to the report information.
+    /// </summary>
+    [IsoId("_DLtLXzncEem7JZMuWtwtsg")]
+    [Description(@"General characteristics related to the report information.")]
+    [DataMember(Name="RptGnlDtls")]
+    [XmlElement(ElementName="RptGnlDtls")]
+    [Required]
+    public required SomeReportGeneralDetailsRecord ReportGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Provides information on report or error resulting from the originating query message.
+    /// </summary>
+    [IsoId("_DLtLYTncEem7JZMuWtwtsg")]
+    [Description(@"Provides information on report or error resulting from the originating query message.")]
+    [DataMember(Name="RptOrErr")]
+    [XmlElement(ElementName="RptOrErr")]
+    public SomeReportOrErrorRecord? ReportOrError { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +75,8 @@ public partial record IntraBalanceMovementQueryResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// The IntraBalanceMovementQueryResponse message is sent from a settlement infrastructure to an account owner/requestor to provide all intra-balance movement instructions satisfying the selection criteria, as defined within the query, returning current attributes and latest status.
-/// The message may also be used to: 
-/// - re-send a message sent by the account owner to the account servicer (the sub-function of the message is "Duplicate") 
-/// - provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy") 
-/// - re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy Duplicate").
-/// This is the outer document that contains <seealso cref="IntraBalanceMovementQueryResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementQueryResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

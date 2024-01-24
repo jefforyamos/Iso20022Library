@@ -27,7 +27,45 @@ public partial record MeetingInstructionV05 : IOuterRecord
     public const string XmlTag = "MtgInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Series of elements which allow to identify a meeting.
+    /// </summary>
+    [IsoId("_xDAOVVtcEeSwKe7KuKvXhg")]
+    [Description(@"Series of elements which allow to identify a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    [Required]
+    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Identifies the security for which the meeting is organised.
+    /// </summary>
+    [IsoId("_xDAOWVtcEeSwKe7KuKvXhg")]
+    [Description(@"Identifies the security for which the meeting is organised.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    [Required]
+    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the position of the instructing party and the action that they want to take.
+    /// </summary>
+    [IsoId("_xDAOW1tcEeSwKe7KuKvXhg")]
+    [Description(@"Identifies the position of the instructing party and the action that they want to take.")]
+    [DataMember(Name="Instr")]
+    [XmlElement(ElementName="Instr")]
+    [Required]
+    public required SomeInstructionRecord Instruction { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_vE2o0VtoEeSwKe7KuKvXhg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +78,8 @@ public partial record MeetingInstructionV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A party holding the right to vote sends the MeetingInstruction message to an intermediary, the issuer or its agent to request the receiving party to act upon one or several instructions.
-/// Usage
-/// The MeetingInstruction message is used to register for a shareholders meeting, request blocking or registration of securities. It is used to assign a proxy, to specify the names of meeting attendees and to relay vote instructions per resolution electronically.
-/// The MeetingInstruction message may only be sent for one security, though several safekeeping places may be specified.
-/// Once the message is sent, it cannot be modified. It must be cancelled by a MeetingInstructionCancellationRequest. Only after receipt of a confirmed cancelled status via the MeetingInstructionStatus message, a new MeetingInstruction message can be sent.
-/// This message definition is intended for use with the Business Application Header.
-/// This is the outer document that contains <seealso cref="MeetingInstructionV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

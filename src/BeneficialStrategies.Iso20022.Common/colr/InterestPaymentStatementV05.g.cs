@@ -25,7 +25,73 @@ public partial record InterestPaymentStatementV05 : IOuterRecord
     public const string XmlTag = "IntrstPmtStmt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_J4Yk6SgrEeyB747fKu7_rw")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Agreement details for the over the counter market.
+    /// </summary>
+    [IsoId("_J4Yk6ygrEeyB747fKu7_rw")]
+    [Description(@"Agreement details for the over the counter market.")]
+    [DataMember(Name="Agrmt")]
+    [XmlElement(ElementName="Agrmt")]
+    public SomeAgreementRecord? Agreement { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_J4Yk7SgrEeyB747fKu7_rw")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Provides general information on the report such as the statement identification.
+    /// </summary>
+    [IsoId("_J4Yk7ygrEeyB747fKu7_rw")]
+    [Description(@"Provides general information on the report such as the statement identification.")]
+    [DataMember(Name="StmtParams")]
+    [XmlElement(ElementName="StmtParams")]
+    [Required]
+    public required SomeStatementParametersRecord StatementParameters { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_J4Yk8SgrEeyB747fKu7_rw")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    public SomePaginationRecord? Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides details on the interest statement.
+    /// </summary>
+    [IsoId("_J4Yk8ygrEeyB747fKu7_rw")]
+    [Description(@"Provides details on the interest statement.")]
+    [DataMember(Name="IntrstStmt")]
+    [XmlElement(ElementName="IntrstStmt")]
+    [Required]
+    public required SomeInterestStatementRecord InterestStatement { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_J4Yk9SgrEeyB747fKu7_rw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +104,8 @@ public partial record InterestPaymentStatementV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The InterestPaymentStatement message is sent by either the collateral giver or its collateral manager to the collateral taker or its collateral manager. It is used to report the interest amounts calculated based on the effective posted collateral amount, over a specific period of time agreed by both parties.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The InterestPaymentStatement message is used for reporting the interest per period on collateral held.
-/// This is the outer document that contains <seealso cref="InterestPaymentStatementV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InterestPaymentStatementV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

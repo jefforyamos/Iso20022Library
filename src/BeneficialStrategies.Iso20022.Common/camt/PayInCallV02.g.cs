@@ -21,7 +21,44 @@ public partial record PayInCallV02 : IOuterRecord
     public const string XmlTag = "PayInCall";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Party for which the PayInCall is generated.
+    /// </summary>
+    [IsoId("_FsXYxS43EeK7-OZOLIksSw")]
+    [Description(@"Party for which the PayInCall is generated.")]
+    [DataMember(Name="PtyId")]
+    [XmlElement(ElementName="PtyId")]
+    [Required]
+    public required SomePartyIdentificationRecord PartyIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains the report generation information and the report items.
+    /// </summary>
+    [IsoId("_FsXYyS43EeK7-OZOLIksSw")]
+    [Description(@"Contains the report generation information and the report items.")]
+    [DataMember(Name="RptData")]
+    [XmlElement(ElementName="RptData")]
+    [Required]
+    public required SomeReportDataRecord ReportData { get; init; }
+    
+    /// <summary>
+    /// To indicate the requested CLS Settlement Session that the related trade is part of.
+    /// </summary>
+    [IsoId("_-6XNzzqdEeKqTf3MbquCbA")]
+    [Description(@"To indicate the requested CLS Settlement Session that the related trade is part of.")]
+    [DataMember(Name="SttlmSsnIdr")]
+    [XmlElement(ElementName="SttlmSsnIdr")]
+    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_CGzMPS53EeKwTrPDLMbLxA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +71,8 @@ public partial record PayInCallV02 : IOuterRecord
 }
 
 /// <summary>
-/// The PayInCall message is sent by a central settlement system to request additional funding from a settlement member impacted by a failure situation.
-/// This is the outer document that contains <seealso cref="PayInCallV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PayInCallV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

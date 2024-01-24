@@ -21,7 +21,25 @@ public partial record DerivativesTradeWarningsReportV01 : IOuterRecord
     public const string XmlTag = "DerivsTradWrnngsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Detailed information on missing valuations of outstanding derivatives, missing margin information of outstanding derivatives, as well as on abnormal values reported in the fields.
+    /// </summary>
+    [IsoId("_pVW9sWmFEe2DRvVJM2Qy-g")]
+    [Description(@"Detailed information on missing valuations of outstanding derivatives, missing margin information of outstanding derivatives, as well as on abnormal values reported in the fields.")]
+    [DataMember(Name="WrnngsSttstcs")]
+    [XmlElement(ElementName="WrnngsSttstcs")]
+    [Required]
+    public required SomeWarningsStatisticsRecord WarningsStatistics { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_pVW9s2mFEe2DRvVJM2Qy-g")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record DerivativesTradeWarningsReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The DerivativesTradeWarningsReport is sent by the trade repository (TR) to the authority or made available by the trade repository (TR) to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable.
-/// This is the outer document that contains <seealso cref="DerivativesTradeWarningsReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeWarningsReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

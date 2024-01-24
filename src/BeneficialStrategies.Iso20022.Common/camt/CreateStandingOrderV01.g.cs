@@ -25,7 +25,45 @@ public partial record CreateStandingOrderV01 : IOuterRecord
     public const string XmlTag = "CretStgOrdr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_P8uPmckHEem3UrxZgQhVAw")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identifies the standing order.
+    /// </summary>
+    [IsoId("_P8uPm8kHEem3UrxZgQhVAw")]
+    [Description(@"Identifies the standing order.")]
+    [DataMember(Name="StgOrdrId")]
+    [XmlElement(ElementName="StgOrdrId")]
+    [Required]
+    public required SomeStandingOrderIdentificationRecord StandingOrderIdentification { get; init; }
+    
+    /// <summary>
+    /// Set of values for the standing order.
+    /// </summary>
+    [IsoId("_P8uPnckHEem3UrxZgQhVAw")]
+    [Description(@"Set of values for the standing order.")]
+    [DataMember(Name="ValSet")]
+    [XmlElement(ElementName="ValSet")]
+    [Required]
+    public required SomeValueSetRecord ValueSet { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_P8uPn8kHEem3UrxZgQhVAw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +76,8 @@ public partial record CreateStandingOrderV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CreateStandingOrder message is sent by a member to the transaction administrator.
-/// It is used to create a permanent order for the transfer of funds between two accounts belonging to the same member and being held at the transaction administrator.
-/// Usage
-/// Based on the criteria defined in the CreateStandingOrder message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.
-/// This is the outer document that contains <seealso cref="CreateStandingOrderV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateStandingOrderV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

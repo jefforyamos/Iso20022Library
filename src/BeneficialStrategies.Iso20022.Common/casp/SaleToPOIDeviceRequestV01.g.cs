@@ -21,7 +21,35 @@ public partial record SaleToPOIDeviceRequestV01 : IOuterRecord
     public const string XmlTag = "SaleToPOIDvcReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_OUYZc4YDEemxIqbaFEE8-w")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to a device request.
+    /// </summary>
+    [IsoId("_OUYZdYYDEemxIqbaFEE8-w")]
+    [Description(@"Information related to a device request.")]
+    [DataMember(Name="DvcReq")]
+    [XmlElement(ElementName="DvcReq")]
+    [Required]
+    public required SomeDeviceRequestRecord DeviceRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_OUYZd4YDEemxIqbaFEE8-w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIDeviceRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// This message is a request for several kind of device services exchanged between the Sale System (Merchant I.S.) and the POI system (Card Acceptor system).
-/// This is the outer document that contains <seealso cref="SaleToPOIDeviceRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIDeviceRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

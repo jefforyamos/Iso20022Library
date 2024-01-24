@@ -21,7 +21,35 @@ public partial record CreditorPaymentActivationRequestV04 : IOuterRecord
     public const string XmlTag = "CdtrPmtActvtnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_BK4QRU_HEeSNduMozFyRUg")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of characteristics that applies to the debit side of the payment transactions included in the creditor payment initiation.
+    /// </summary>
+    [IsoId("_BK4QR0_HEeSNduMozFyRUg")]
+    [Description(@"Set of characteristics that applies to the debit side of the payment transactions included in the creditor payment initiation.")]
+    [DataMember(Name="PmtInf")]
+    [XmlElement(ElementName="PmtInf")]
+    [Required]
+    public required SomePaymentInformationRecord PaymentInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_BK4QSU_HEeSNduMozFyRUg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record CreditorPaymentActivationRequestV04 : IOuterRecord
 }
 
 /// <summary>
-/// The CreditorPaymentActivationRequest message is sent by the Creditor sending party to the Debtor receiving party, directly or through agents. It is used to initiate a creditor payment activation request.
-/// This is the outer document that contains <seealso cref="CreditorPaymentActivationRequestV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreditorPaymentActivationRequestV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

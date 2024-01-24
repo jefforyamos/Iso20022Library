@@ -26,7 +26,54 @@ public partial record StatusChangeRequestV02 : IOuterRecord
     public const string XmlTag = "StsChngReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the request message.
+    /// </summary>
+    [IsoId("_xjvgadE8Ed-BzquC8wXy7w_-2117703678")]
+    [Description(@"Identifies the request message.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_xjvgatE8Ed-BzquC8wXy7w_-2117703649")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_xjvga9E8Ed-BzquC8wXy7w_-2117703588")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Specifies the baseline status requested by the submitter by means of a code.
+    /// </summary>
+    [IsoId("_xjvgbNE8Ed-BzquC8wXy7w_-2117703618")]
+    [Description(@"Specifies the baseline status requested by the submitter by means of a code.")]
+    [DataMember(Name="ReqdSts")]
+    [XmlElement(ElementName="ReqdSts")]
+    [Required]
+    public required SomeRequestedStatusRecord RequestedStatus { get; init; }
+    
+    /// <summary>
+    /// Specifies the reason for the request to change status.
+    /// </summary>
+    [IsoId("_xjvgbdE8Ed-BzquC8wXy7w_-2117703557")]
+    [Description(@"Specifies the reason for the request to change status.")]
+    [DataMember(Name="ReqRsn")]
+    [XmlElement(ElementName="ReqRsn")]
+    public SomeRequestReasonRecord? RequestReason { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +86,8 @@ public partial record StatusChangeRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusChangeRequest message is sent by a party involved in a transaction to the matching application.
-/// This message is used to request a change in the status of a transaction.
-/// Usage
-/// The StatusChangeRequest message can be sent by either party involved in a transaction to the matching application to request a change in the status of a transaction.
-/// The matching application will pass on the request by sending a StatusChangeRequestNotification message to the counterparty which can accept or reject the request by sending a SatausChangeRequestAcceptance or StatusChangeRequestRejection message.
-/// This is the outer document that contains <seealso cref="StatusChangeRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusChangeRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -25,7 +25,120 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord
     public const string XmlTag = "FwdDataSetSubmissnRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the report.
+    /// </summary>
+    [IsoId("_kTZ6FQgGEeSeS5xdjFfOTw")]
+    [Description(@"Identifies the report.")]
+    [DataMember(Name="RptId")]
+    [XmlElement(ElementName="RptId")]
+    [Required]
+    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the transactions that this submission relates to and provides associated information.
+    /// </summary>
+    [IsoId("_kTZ6FwgGEeSeS5xdjFfOTw")]
+    [Description(@"Identifies the transactions that this submission relates to and provides associated information.")]
+    [DataMember(Name="RltdTxRefs")]
+    [XmlElement(ElementName="RltdTxRefs")]
+    [Required]
+    public required SomeRelatedTransactionReferencesRecord RelatedTransactionReferences { get; init; }
+    
+    /// <summary>
+    /// This reference must be used for all data sets belonging to the same submission group.
+    /// </summary>
+    [IsoId("_kTZ6GQgGEeSeS5xdjFfOTw")]
+    [Description(@"This reference must be used for all data sets belonging to the same submission group.")]
+    [DataMember(Name="CmonSubmissnRef")]
+    [XmlElement(ElementName="CmonSubmissnRef")]
+    [Required]
+    public required SomeCommonSubmissionReferenceRecord CommonSubmissionReference { get; init; }
+    
+    /// <summary>
+    /// The financial institution that has submitted the data sets to the matching engine.
+    /// </summary>
+    [IsoId("_kTZ6GwgGEeSeS5xdjFfOTw")]
+    [Description(@"The financial institution that has submitted the data sets to the matching engine.")]
+    [DataMember(Name="Submitr")]
+    [XmlElement(ElementName="Submitr")]
+    [Required]
+    public required SomeSubmitterRecord Submitter { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the buyer, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_kTZ6HQgGEeSeS5xdjFfOTw")]
+    [Description(@"The financial institution of the buyer, uniquely identified by its BIC.")]
+    [DataMember(Name="BuyrBk")]
+    [XmlElement(ElementName="BuyrBk")]
+    [Required]
+    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the seller, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_kTZ6HwgGEeSeS5xdjFfOTw")]
+    [Description(@"The financial institution of the seller, uniquely identified by its BIC.")]
+    [DataMember(Name="SellrBk")]
+    [XmlElement(ElementName="SellrBk")]
+    [Required]
+    public required SomeSellerBankRecord SellerBank { get; init; }
+    
+    /// <summary>
+    /// Commercial information that has been submitted to the matching application by the other party.
+    /// </summary>
+    [IsoId("_kTZ6IQgGEeSeS5xdjFfOTw")]
+    [Description(@"Commercial information that has been submitted to the matching application by the other party.")]
+    [DataMember(Name="ComrclDataSet")]
+    [XmlElement(ElementName="ComrclDataSet")]
+    public SomeCommercialDataSetRecord? CommercialDataSet { get; init; }
+    
+    /// <summary>
+    /// Transport information that has been submitted to the matching application by the other party.
+    /// </summary>
+    [IsoId("_kTZ6IwgGEeSeS5xdjFfOTw")]
+    [Description(@"Transport information that has been submitted to the matching application by the other party.")]
+    [DataMember(Name="TrnsprtDataSet")]
+    [XmlElement(ElementName="TrnsprtDataSet")]
+    public SomeTransportDataSetRecord? TransportDataSet { get; init; }
+    
+    /// <summary>
+    /// Insurance information that has been submitted to the matching application by the other party.
+    /// </summary>
+    [IsoId("_kTZ6JQgGEeSeS5xdjFfOTw")]
+    [Description(@"Insurance information that has been submitted to the matching application by the other party.")]
+    [DataMember(Name="InsrncDataSet")]
+    [XmlElement(ElementName="InsrncDataSet")]
+    public SomeInsuranceDataSetRecord? InsuranceDataSet { get; init; }
+    
+    /// <summary>
+    /// Certificate information that has been submitted to the matching application by the other party.
+    /// </summary>
+    [IsoId("_kTZ6JwgGEeSeS5xdjFfOTw")]
+    [Description(@"Certificate information that has been submitted to the matching application by the other party.")]
+    [DataMember(Name="CertDataSet")]
+    [XmlElement(ElementName="CertDataSet")]
+    public SomeCertificateDataSetRecord? CertificateDataSet { get; init; }
+    
+    /// <summary>
+    /// Other certificate information that has been submitted to the matching application by the other party.
+    /// </summary>
+    [IsoId("_kTZ6KQgGEeSeS5xdjFfOTw")]
+    [Description(@"Other certificate information that has been submitted to the matching application by the other party.")]
+    [DataMember(Name="OthrCertDataSet")]
+    [XmlElement(ElementName="OthrCertDataSet")]
+    public SomeOtherCertificateDataSetRecord? OtherCertificateDataSet { get; init; }
+    
+    /// <summary>
+    /// Next processing step required.
+    /// </summary>
+    [IsoId("_kTZ6KwgGEeSeS5xdjFfOTw")]
+    [Description(@"Next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +151,8 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ForwardDataSetSubmissionReport message is sent by the matching application to the counterparty(ies) of the submitter of data sets.
-/// This message is used to pass on information related to the purchasing agreement(s) covered by the transaction(s) referred to in the message.
-/// Usage
-/// The ForwardDataSetSubmission message can be sent by the matching application to forward the details of a DataSetSubmission message that it has obtained.
-/// This is the outer document that contains <seealso cref="ForwardDataSetSubmissionReportV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForwardDataSetSubmissionReportV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

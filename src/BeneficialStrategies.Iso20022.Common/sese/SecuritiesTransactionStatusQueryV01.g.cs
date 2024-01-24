@@ -34,7 +34,72 @@ public partial record SecuritiesTransactionStatusQueryV01 : IOuterRecord
     public const string XmlTag = "SctiesTxStsQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies a SecuritiesTransactionStatusQuery message as know by the account owner (or the instructing party acting on its behalf).
+    /// </summary>
+    [IsoId("_GDGn6dE6Ed-BzquC8wXy7w_-1331732681")]
+    [Description(@"Information that unambiguously identifies a SecuritiesTransactionStatusQuery message as know by the account owner (or the instructing party acting on its behalf).")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Description of the status advise requested.
+    /// </summary>
+    [IsoId("_GDGn6tE6Ed-BzquC8wXy7w_800677212")]
+    [Description(@"Description of the status advise requested.")]
+    [DataMember(Name="StsAdvcReqd")]
+    [XmlElement(ElementName="StsAdvcReqd")]
+    [Required]
+    public required SomeStatusAdviceRequestedRecord StatusAdviceRequested { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_GDGn69E6Ed-BzquC8wXy7w_-583681608")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_GDGn7NE6Ed-BzquC8wXy7w_1201089256")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_GDGn7dE6Ed-BzquC8wXy7w_843684538")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_GDQY4NE6Ed-BzquC8wXy7w_882473953")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_GDQY4dE6Ed-BzquC8wXy7w_2132989694")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -47,21 +112,8 @@ public partial record SecuritiesTransactionStatusQueryV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends a SecuritiesTransactionStatusQuery to an account servicer to request a status on a securities transaction.
-/// The account owner/servicer relationship may be:
-/// - a global custodian which has an account with a local custodian, or
-/// - an investment management institution which manage a fund account opened at a custodian, or
-/// - a broker which has an account with a custodian, or
-/// - a central securities depository participant which has an account with a central securities depository, or
-/// - a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure, or
-/// - a central counterparty or a stock exchange or a trade matching utility which need to instruct to a central securities depository or another settlement market infrastructure.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="SecuritiesTransactionStatusQueryV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTransactionStatusQueryV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

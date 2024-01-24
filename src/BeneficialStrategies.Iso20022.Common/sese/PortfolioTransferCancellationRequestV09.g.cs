@@ -29,7 +29,71 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
     public const string XmlTag = "PrtflTrfCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies the message from a business application standpoint.
+    /// </summary>
+    [IsoId("_OSc-83hFEeij0vbhRaNJcw")]
+    [Description(@"Reference that uniquely identifies the message from a business application standpoint.")]
+    [DataMember(Name="MsgRef")]
+    [XmlElement(ElementName="MsgRef")]
+    [Required]
+    public required SomeMessageReferenceRecord MessageReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_OSc-9XhFEeij0vbhRaNJcw")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_OSc-93hFEeij0vbhRaNJcw")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_OSc--XhFEeij0vbhRaNJcw")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
+    /// </summary>
+    [IsoId("_OSc--3hFEeij0vbhRaNJcw")]
+    [Description(@"Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Reference of the portfolio transfer instruction to be cancelled.
+    /// </summary>
+    [IsoId("_OSc-_XhFEeij0vbhRaNJcw")]
+    [Description(@"Reference of the portfolio transfer instruction to be cancelled.")]
+    [DataMember(Name="TrfRefs")]
+    [XmlElement(ElementName="TrfRefs")]
+    [Required]
+    public required SomeTransferReferencesRecord TransferReferences { get; init; }
+    
+    /// <summary>
+    /// Identifies the market practice to which the message conforms.
+    /// </summary>
+    [IsoId("_OSc-_3hFEeij0vbhRaNJcw")]
+    [Description(@"Identifies the market practice to which the message conforms.")]
+    [DataMember(Name="MktPrctcVrsn")]
+    [XmlElement(ElementName="MktPrctcVrsn")]
+    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +106,8 @@ public partial record PortfolioTransferCancellationRequestV09 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The PortfolioTransferCancellationRequest message is sent by, for example, an investment manager or its authorised representative, to the executing party, for example, a transfer agent, to request the cancellation of a previously sent PortfolioTransferInstruction message.
-/// Usage
-/// The PortfolioTransferCancellationRequest message is used to request the cancellation of a portfolio transfer instruction.
-/// There is no amendment, but a cancellation and re-instruct policy.
-/// To request the cancellation of a portfolio transfer instruction, the transfer reference of the portfolio transfer, as specified in the original PortfolioTransferInstruction message, is specified in the transfer reference element.
-/// The message identification of the original PortfolioTransferInstruction message may also be quoted in PreviousReference but this is not recommended.
-/// The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation.
-/// The rejection or acceptance of a PortfolioTransferCancellationRequest is made using an TransferCancellationStatusReport message.
-/// This is the outer document that contains <seealso cref="PortfolioTransferCancellationRequestV09"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PortfolioTransferCancellationRequestV09"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

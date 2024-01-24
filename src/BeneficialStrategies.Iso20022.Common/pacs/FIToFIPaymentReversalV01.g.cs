@@ -27,7 +27,35 @@ public partial record FIToFIPaymentReversalV01 : IOuterRecord
     public const string XmlTag = "pacs.007.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_elKe5tEuEd-BzquC8wXy7w_421348727")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original group of transactions, to which the message refers.
+    /// </summary>
+    [IsoId("_elKe59EuEd-BzquC8wXy7w_357436312")]
+    [Description(@"Information concerning the original group of transactions, to which the message refers.")]
+    [DataMember(Name="OrgnlGrpInf")]
+    [XmlElement(ElementName="OrgnlGrpInf")]
+    [Required]
+    public required SomeOriginalGroupInformationRecord OriginalGroupInformation { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original transactions, to which the reversal message refers.
+    /// </summary>
+    [IsoId("_elKe6NEuEd-BzquC8wXy7w_-191011416")]
+    [Description(@"Information concerning the original transactions, to which the reversal message refers.")]
+    [DataMember(Name="TxInf")]
+    [XmlElement(ElementName="TxInf")]
+    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +68,8 @@ public partial record FIToFIPaymentReversalV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The FinancialInstitutionToFinancialInstitutionPaymentReversal message is sent by an agent to the next party in the payment chain. It is used to reverse a payment previously executed.
-/// Usage
-/// The FIToFIPaymentReversal message is exchanged between agents to reverse a FIToFICustomerDirectDebit message that has been settled. The result will be a credit on the debtor account.
-/// The FIToFIPaymentReversal message may or may not be the follow-up of a CustomerDirectDebitInitiation message.
-/// The FIToFIPaymentReversal message refers to the original FIToFICustomerDirectDebit message by means of references only or by means of references and a set of elements from the original instruction.
-/// The FIToFIPaymentReversal message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="FIToFIPaymentReversalV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFIPaymentReversalV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

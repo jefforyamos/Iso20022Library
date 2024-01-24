@@ -27,7 +27,64 @@ public partial record TradeLegStatementV03 : IOuterRecord
     public const string XmlTag = "TradLegStmt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides various statement parameters such as the statement identification, the statement date and time or the statement frequency.
+    /// </summary>
+    [IsoId("_DlZuMS0mEeSRe9rElPHBfg")]
+    [Description(@"Provides various statement parameters such as the statement identification, the statement date and time or the statement frequency.")]
+    [DataMember(Name="StmtParams")]
+    [XmlElement(ElementName="StmtParams")]
+    [Required]
+    public required SomeStatementParametersRecord StatementParameters { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_DlZuMy0mEeSRe9rElPHBfg")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
+    /// </summary>
+    [IsoId("_DlZuNS0mEeSRe9rElPHBfg")]
+    [Description(@"Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).")]
+    [DataMember(Name="ClrMmb")]
+    [XmlElement(ElementName="ClrMmb")]
+    [Required]
+    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    
+    /// <summary>
+    /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).
+    /// </summary>
+    [IsoId("_DlZuNy0mEeSRe9rElPHBfg")]
+    [Description(@"Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).")]
+    [DataMember(Name="ClrAcct")]
+    [XmlElement(ElementName="ClrAcct")]
+    public SomeClearingAccountRecord? ClearingAccount { get; init; }
+    
+    /// <summary>
+    /// Provides the statement details.
+    /// </summary>
+    [IsoId("_DlZuOS0mEeSRe9rElPHBfg")]
+    [Description(@"Provides the statement details.")]
+    [DataMember(Name="StmtDtls")]
+    [XmlElement(ElementName="StmtDtls")]
+    [Required]
+    public required SomeStatementDetailsRecord StatementDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_DlZuOy0mEeSRe9rElPHBfg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +97,8 @@ public partial record TradeLegStatementV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The TradeLegStatement message is sent by the central counterparty (CCP) to a clearing member to report all trades that have been executed by the trading platform.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The TradeLegStatement message may be either sent:
-/// - during the day (to report trades execution by batch) or
-/// - as an end of day report.
-/// This is the outer document that contains <seealso cref="TradeLegStatementV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TradeLegStatementV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

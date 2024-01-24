@@ -23,7 +23,63 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
     public const string XmlTag = "PtyRegnAndGrntAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics that unambiguously identify the acknowlegement, common parameters, documents and identifications.
+    /// </summary>
+    [IsoId("_OTgzNDky-AOSNFX-8224507")]
+    [Description(@"Set of characteristics that unambiguously identify the acknowlegement, common parameters, documents and identifications.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// List of party management acknowledgements.
+    /// </summary>
+    [IsoId("_OTgzNDkz-AOSNFX-8224507")]
+    [Description(@"List of party management acknowledgements.")]
+    [DataMember(Name="AckList")]
+    [XmlElement(ElementName="AckList")]
+    [Required]
+    public required SomeAcknowledgementListRecord AcknowledgementList { get; init; }
+    
+    /// <summary>
+    /// Number of acknowledgement lists as control value.
+    /// </summary>
+    [IsoId("_OTgzNDk0-AOSNFX-8224507")]
+    [Description(@"Number of acknowledgement lists as control value.")]
+    [DataMember(Name="AckCnt")]
+    [XmlElement(ElementName="AckCnt")]
+    [Required]
+    public required SomeAcknowledgementCountRecord AcknowledgementCount { get; init; }
+    
+    /// <summary>
+    /// Total number of individual items in all lists.
+    /// </summary>
+    [IsoId("_OTgzNDk1-AOSNFX-8224507")]
+    [Description(@"Total number of individual items in all lists.")]
+    [DataMember(Name="ItmCnt")]
+    [XmlElement(ElementName="ItmCnt")]
+    public SomeItemCountRecord? ItemCount { get; init; }
+    
+    /// <summary>
+    /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
+    /// </summary>
+    [IsoId("_OTgzNDk2-AOSNFX-8224507")]
+    [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
+    [DataMember(Name="CtrlSum")]
+    [XmlElement(ElementName="CtrlSum")]
+    public SomeControlSumRecord? ControlSum { get; init; }
+    
+    /// <summary>
+    /// Referenced or related business message.
+    /// </summary>
+    [IsoId("_OTgzNDk3-AOSNFX-8224507")]
+    [Description(@"Referenced or related business message.")]
+    [DataMember(Name="AttchdMsg")]
+    [XmlElement(ElementName="AttchdMsg")]
+    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +92,8 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
 }
 
 /// <summary>
-/// The message PartyManagementPaymentAcknowledgement is sent from a trade partner to any partner requested through a PartyManagementPaymentAcknowledgemenNotification message to acknowledge the notified factoring service agreement. Depending on legal contexts, the acknowledgement may be required in order for the financial service agreement to become effective.
-/// The message references related messages and may include referenced data.
-/// The message can carry digital signatures if required by context.
-/// This is the outer document that contains <seealso cref="PartyRegistrationAndGuaranteeAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyRegistrationAndGuaranteeAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

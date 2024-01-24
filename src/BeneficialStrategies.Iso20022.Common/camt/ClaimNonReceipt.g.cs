@@ -21,7 +21,45 @@ public partial record ClaimNonReceipt : IOuterRecord
     public const string XmlTag = "camt.027.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies an assignment.
+    /// </summary>
+    [IsoId("_QSlW0NE-Ed-BzquC8wXy7w_830291630")]
+    [Description(@"Identifies an assignment.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Identifies a case.
+    /// </summary>
+    [IsoId("_QSlW0dE-Ed-BzquC8wXy7w_843221783")]
+    [Description(@"Identifies a case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    [Required]
+    public required SomeCaseRecord Case { get; init; }
+    
+    /// <summary>
+    /// Identifies the payment instruction for which the Creditor has not received the funds.|Note: |In case of a missing cover, it must be the Field 20 of the received MT103.|In case of a claim non receipt initiated by the Debtor, it must be the identification of the instruction (Field 20 of MT103, Instruction Identification of the Payment Initiation or the Bulk Credit Transfer).
+    /// </summary>
+    [IsoId("_QSlW0tE-Ed-BzquC8wXy7w_857073686")]
+    [Description(@"Identifies the payment instruction for which the Creditor has not received the funds.|Note: |In case of a missing cover, it must be the Field 20 of the received MT103.|In case of a claim non receipt initiated by the Debtor, it must be the identification of the instruction (Field 20 of MT103, Instruction Identification of the Payment Initiation or the Bulk Credit Transfer).")]
+    [DataMember(Name="Undrlyg")]
+    [XmlElement(ElementName="Undrlyg")]
+    [Required]
+    public required SomeUnderlyingRecord Underlying { get; init; }
+    
+    /// <summary>
+    /// Indicates if the claim non receipt is a missing cover. The absence of the component means that the message is not for a missing cover.
+    /// </summary>
+    [IsoId("_QSlW09E-Ed-BzquC8wXy7w_-476196427")]
+    [Description(@"Indicates if the claim non receipt is a missing cover. The absence of the component means that the message is not for a missing cover.")]
+    [DataMember(Name="MssngCover")]
+    [XmlElement(ElementName="MssngCover")]
+    public SomeMissingCoverRecord? MissingCover { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +72,8 @@ public partial record ClaimNonReceipt : IOuterRecord
 }
 
 /// <summary>
-/// Scope|The Claim Non Receipt message is sent by a case creator/case assigner to a case assignee.|This message allows to initiate an investigation in case the beneficiary of a payment has not received an expected payment.|Usage|Note 1: Although there are cases where a creditor would contact the creditor's bank when claiming non-receipt, the activity only retained the scenario where the beneficiary claims non-receipt with its debtor, the debtor in its turn contacting the first agent. Therefore the investigation follows the same route as the original instruction.|Note 2: This message is also used to report a missing cover. The rationale behind this is that the beneficiary of the cover (receiver of the payment instruction) missing the cover would be in the very same position as a beneficiary expecting a credit to its account and would therefore trigger the same processes.|In case of a Missing cover, the case will be assigned to the sender of the payment instruction, before following the route of the payment instruction.
-/// This is the outer document that contains <seealso cref="ClaimNonReceipt"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ClaimNonReceipt"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

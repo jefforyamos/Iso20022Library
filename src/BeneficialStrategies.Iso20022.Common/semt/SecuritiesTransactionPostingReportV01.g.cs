@@ -32,7 +32,91 @@ public partial record SecuritiesTransactionPostingReportV01 : IOuterRecord
     public const string XmlTag = "SctiesTxPstngRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that uniquely identifies the SecuritiesTransactionPostingReport message as known by the account servicer. When the report has multiple pages, one message equals one page. Therefore, Identification uniquely identifies the page.
+    /// </summary>
+    [IsoId("_Mf3jENFSEd-BzquC8wXy7w_5088897")]
+    [Description(@"Information that uniquely identifies the SecuritiesTransactionPostingReport message as known by the account servicer. When the report has multiple pages, one message equals one page. Therefore, Identification uniquely identifies the page.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_Mf3jEdFSEd-BzquC8wXy7w_631565036")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides general information on the report.
+    /// </summary>
+    [IsoId("_Mf3jEtFSEd-BzquC8wXy7w_1935359119")]
+    [Description(@"Provides general information on the report.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_Mf3jE9FSEd-BzquC8wXy7w_-29882015")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_Mf3jFNFSEd-BzquC8wXy7w_237515228")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Reporting per financial instrument.
+    /// </summary>
+    [IsoId("_Mf3jFdFSEd-BzquC8wXy7w_1852964584")]
+    [Description(@"Reporting per financial instrument.")]
+    [DataMember(Name="FinInstrmDtls")]
+    [XmlElement(ElementName="FinInstrmDtls")]
+    public SomeFinancialInstrumentDetailsRecord? FinancialInstrumentDetails { get; init; }
+    
+    /// <summary>
+    /// Details at sub-account level.
+    /// </summary>
+    [IsoId("_Mf3jFtFSEd-BzquC8wXy7w_-638429612")]
+    [Description(@"Details at sub-account level.")]
+    [DataMember(Name="SubAcctDtls")]
+    [XmlElement(ElementName="SubAcctDtls")]
+    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_Mf3jF9FSEd-BzquC8wXy7w_-1649407110")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_MgBUENFSEd-BzquC8wXy7w_-1722365117")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +129,8 @@ public partial record SecuritiesTransactionPostingReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesTransactionPostingReport to an account owner to provide the details of increases and decreases of holdings which occurred during a specified period, for all or selected securities in the specified safekeeping account or sub-safekeeping account which the account servicer holds for the account owner.
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// This message may be used as a trade date based or a settlement date based statement.
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="SecuritiesTransactionPostingReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTransactionPostingReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

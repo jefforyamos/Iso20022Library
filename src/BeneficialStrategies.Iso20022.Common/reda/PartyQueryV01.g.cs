@@ -21,7 +21,43 @@ public partial record PartyQueryV01 : IOuterRecord
     public const string XmlTag = "PtyQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Point to point reference elements, as assigned by the instructing party, to unambiguously identify the query message.
+    /// </summary>
+    [IsoId("_6z5Wg5eSEeen_cyMrluY4w")]
+    [Description(@"Point to point reference elements, as assigned by the instructing party, to unambiguously identify the query message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Defines the criteria to be used to query the party reference data by the executing system.
+    /// </summary>
+    [IsoId("_6z5WiZeSEeen_cyMrluY4w")]
+    [Description(@"Defines the criteria to be used to query the party reference data by the executing system.")]
+    [DataMember(Name="SchCrit")]
+    [XmlElement(ElementName="SchCrit")]
+    [Required]
+    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    
+    /// <summary>
+    /// Defines the expected party reference data to be returned.
+    /// </summary>
+    [IsoId("_6z5Wi5eSEeen_cyMrluY4w")]
+    [Description(@"Defines the expected party reference data to be returned.")]
+    [DataMember(Name="RtrCrit")]
+    [XmlElement(ElementName="RtrCrit")]
+    public SomeReturnCriteriaRecord? ReturnCriteria { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_6z5WjZeSEeen_cyMrluY4w")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record PartyQueryV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:|The PartyQuery message is sent by a central securities depository, a national central bank, a central securities depository participant, a central counter party, a payment bank, a trading party or a stock exchange to the executing party to query for the party reference data of a party defined in the system.
-/// This is the outer document that contains <seealso cref="PartyQueryV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyQueryV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

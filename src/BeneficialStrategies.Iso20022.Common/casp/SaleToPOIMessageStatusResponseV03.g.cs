@@ -21,7 +21,35 @@ public partial record SaleToPOIMessageStatusResponseV03 : IOuterRecord
     public const string XmlTag = "SaleToPOIMsgStsRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_6qEo4y5KEeunNvJlR_vCbg")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a status request.
+    /// </summary>
+    [IsoId("_6qEo5S5KEeunNvJlR_vCbg")]
+    [Description(@"Information related to the response of a status request.")]
+    [DataMember(Name="StsRspn")]
+    [XmlElement(ElementName="StsRspn")]
+    [Required]
+    public required SomeStatusResponseRecord StatusResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_6qEo5y5KEeunNvJlR_vCbg")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIMessageStatusResponseV03 : IOuterRecord
 }
 
 /// <summary>
-/// The SaleToPOIMessageStatusResponse message is sent by a POI System to respond to the sale system at a previous message status request.
-/// This is the outer document that contains <seealso cref="SaleToPOIMessageStatusResponseV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIMessageStatusResponseV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

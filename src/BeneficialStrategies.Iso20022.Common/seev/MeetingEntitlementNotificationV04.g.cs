@@ -26,7 +26,73 @@ public partial record MeetingEntitlementNotificationV04 : IOuterRecord
     public const string XmlTag = "MtgEntitlmntNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification of entitlement instruction.
+    /// </summary>
+    [IsoId("_Tme46tEwEd-BzquC8wXy7w_847313667")]
+    [Description(@"Identifies the notification of entitlement instruction.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identifies the meeting entitlement message to be modified.
+    /// </summary>
+    [IsoId("_Tmop4NEwEd-BzquC8wXy7w_1924457442")]
+    [Description(@"Identifies the meeting entitlement message to be modified.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Series of elements which allow to identify a meeting.
+    /// </summary>
+    [IsoId("_Tmop4dEwEd-BzquC8wXy7w_-2017625191")]
+    [Description(@"Series of elements which allow to identify a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    [Required]
+    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Party notifying the entitlement.
+    /// </summary>
+    [IsoId("_Tmop4tEwEd-BzquC8wXy7w_-2028723968")]
+    [Description(@"Party notifying the entitlement.")]
+    [DataMember(Name="NtifngPty")]
+    [XmlElement(ElementName="NtifngPty")]
+    [Required]
+    public required SomeNotifyingPartyRecord NotifyingParty { get; init; }
+    
+    /// <summary>
+    /// Identifies the security for which the meeting is organised, the account and the positions of the security holder.
+    /// </summary>
+    [IsoId("_Tmop49EwEd-BzquC8wXy7w_-1091429962")]
+    [Description(@"Identifies the security for which the meeting is organised, the account and the positions of the security holder.")]
+    [DataMember(Name="Scty")]
+    [XmlElement(ElementName="Scty")]
+    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    
+    /// <summary>
+    /// Defines the dates determining eligibility.
+    /// </summary>
+    [IsoId("_Tmop5NEwEd-BzquC8wXy7w_1359668345")]
+    [Description(@"Defines the dates determining eligibility.")]
+    [DataMember(Name="Elgblty")]
+    [XmlElement(ElementName="Elgblty")]
+    [Required]
+    public required SomeEligibilityRecord Eligibility { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_Tmop5dEwEd-BzquC8wXy7w_113285778")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +105,8 @@ public partial record MeetingEntitlementNotificationV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends the MeetingEntitlementNotification to an issuer, its agent, an intermediary or an account owner to advise the entitlement in relation to a shareholders meeting.
-/// Usage
-/// This message is sent to advise the quantity of securities held by an account owner. The balance is specified for the securities for which the meeting is taking place.
-/// This entitlement message is sent by the account servicer or the registrar to an intermediary, the issuer's agent or the issuer. It is also sent between the account servicer and the account owner or the party holding the right to vote.
-/// The message is also used to amend a previously sent MeetingEntitlementNotification. To notify an update, the RelatedReference must be included in the message.
-/// This is the outer document that contains <seealso cref="MeetingEntitlementNotificationV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingEntitlementNotificationV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -29,7 +29,55 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord
     public const string XmlTag = "CollMgmtCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_Z6K7c4FrEeWtPe6Crjmeug")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the message advised to be cancelled.
+    /// </summary>
+    [IsoId("_Z6K7dYFrEeWtPe6Crjmeug")]
+    [Description(@"Reference to the message advised to be cancelled.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    [Required]
+    public required SomeReferenceRecord Reference { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_Z6K7d4FrEeWtPe6Crjmeug")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// It is used to detail the reason for the cancellation of a previously sent request.
+    /// </summary>
+    [IsoId("_Z6K7eYFrEeWtPe6Crjmeug")]
+    [Description(@"It is used to detail the reason for the cancellation of a previously sent request.")]
+    [DataMember(Name="CxlRsn")]
+    [XmlElement(ElementName="CxlRsn")]
+    [Required]
+    public required SomeCancellationReasonRecord CancellationReason { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_Z6K7e4FrEeWtPe6Crjmeug")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +90,8 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CollateralManagementCancellationRequest message is sent by:
-/// - the collateral taker or its collateral manager to the collateral giver or its collateral manager,
-/// - the collateral giver or its collateral manager to the collateral taker or its collateral manager
-/// This message is used to request the cancellation of a previously sent MarginCallRequest message, MarginCallResponse message, CollateralProposal message, CollateralProposalResponse message, MarginCallDisputeNotification message or a CollateralSubstitutionRequest message.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The CollateralManagementCancellationRequest message is used to request the cancellation of a collateral message. When requesting the cancellation of a message there must be a cancellation reason specified.
-/// When the CollateralManagementCancellationRequest message is used to cancel a collateral message the reference of the original message must be specified. The rejection or acceptance of a CollateralManagementCancellationRequest message is made using a CollateralManagementCancellationStatus message.
-/// This is the outer document that contains <seealso cref="CollateralManagementCancellationRequestV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralManagementCancellationRequestV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

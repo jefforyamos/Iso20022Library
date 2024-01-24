@@ -25,7 +25,43 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord
     public const string XmlTag = "CclFXOptnV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides reference and date of the foreign exchange option trade which is cancelled.
+    /// </summary>
+    [IsoId("_KP1cKdE8Ed-BzquC8wXy7w_1862314429")]
+    [Description(@"Provides reference and date of the foreign exchange option trade which is cancelled.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the currency option trade which is cancelled.
+    /// </summary>
+    [IsoId("_KP1cKtE8Ed-BzquC8wXy7w_-332565898")]
+    [Description(@"Specifies the trading side of the currency option trade which is cancelled.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    public SomeTradingSideIdentificationRecord? TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the currency option trade which is cancelled.
+    /// </summary>
+    [IsoId("_KP1cK9E8Ed-BzquC8wXy7w_-131240239")]
+    [Description(@"Specifies the counterparty of the currency option trade which is cancelled.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    public SomeCounterpartySideIdentificationRecord? CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the parameters of the currency option which is bought by the trading side.
+    /// </summary>
+    [IsoId("_KP1cLNE8Ed-BzquC8wXy7w_-743534321")]
+    [Description(@"Specifies the parameters of the currency option which is bought by the trading side.")]
+    [DataMember(Name="Optn")]
+    [XmlElement(ElementName="Optn")]
+    public SomeOptionRecord? Option { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +74,8 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CancelForeignExchangeOption message is sent by a participant to a central system or to a counterparty to notify the cancellation of a foreign currency option contract.
-/// Usage
-/// The message will contain a Related Reference to link it to the previously sent notification. It may contain a reason for cancellation.
-/// This message is only suitable for Simple (i.e. not Barrier) Vanilla (i.e. not Binary, Digital, Notouch) Foreign Exchange Options.
-/// This is the outer document that contains <seealso cref="CancelForeignExchangeOptionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CancelForeignExchangeOptionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

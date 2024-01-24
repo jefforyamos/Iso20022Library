@@ -21,7 +21,73 @@ public partial record AccountSwitchInformationResponseV02 : IOuterRecord
     public const string XmlTag = "AcctSwtchInfRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification for the message.
+    /// </summary>
+    [IsoId("_7HK1nW42EeiU9cctagi5ow")]
+    [Description(@"Unique identification for the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains information about the details of the account switch.
+    /// </summary>
+    [IsoId("_7HK1n242EeiU9cctagi5ow")]
+    [Description(@"Contains information about the details of the account switch.")]
+    [DataMember(Name="AcctSwtchDtls")]
+    [XmlElement(ElementName="AcctSwtchDtls")]
+    [Required]
+    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    
+    /// <summary>
+    /// New account to which the switch will be made (destination account).
+    /// </summary>
+    [IsoId("_7HK1oW42EeiU9cctagi5ow")]
+    [Description(@"New account to which the switch will be made (destination account).")]
+    [DataMember(Name="NewAcct")]
+    [XmlElement(ElementName="NewAcct")]
+    [Required]
+    public required SomeNewAccountRecord NewAccount { get; init; }
+    
+    /// <summary>
+    /// Account held at the old account servicer being switched to the new account servicer.
+    /// </summary>
+    [IsoId("_7HK1o242EeiU9cctagi5ow")]
+    [Description(@"Account held at the old account servicer being switched to the new account servicer.")]
+    [DataMember(Name="OdAcct")]
+    [XmlElement(ElementName="OdAcct")]
+    [Required]
+    public required SomeOldAccountRecord OldAccount { get; init; }
+    
+    /// <summary>
+    /// Details of debit payment arrangements associated with the old account. For example the payment may be a standing order, a bill payment arrangement or a future dated payment.
+    /// </summary>
+    [IsoId("_7HK1pW42EeiU9cctagi5ow")]
+    [Description(@"Details of debit payment arrangements associated with the old account. For example the payment may be a standing order, a bill payment arrangement or a future dated payment.")]
+    [DataMember(Name="PmtInstr")]
+    [XmlElement(ElementName="PmtInstr")]
+    public SomePaymentInstructionRecord? PaymentInstruction { get; init; }
+    
+    /// <summary>
+    /// Details of a direct debit instruction associated with the old account.
+    /// </summary>
+    [IsoId("_7HK1p242EeiU9cctagi5ow")]
+    [Description(@"Details of a direct debit instruction associated with the old account.")]
+    [DataMember(Name="DrctDbtInstr")]
+    [XmlElement(ElementName="DrctDbtInstr")]
+    public SomeDirectDebitInstructionRecord? DirectDebitInstruction { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_7HK1qW42EeiU9cctagi5ow")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +100,8 @@ public partial record AccountSwitchInformationResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The AccountSwitchInformationResponse message is sent by the account servicer that previously held the account to the new account servicer to signal whether the account owner's account can be switched and to pass details of payment arrangements to be transferred to the new account servicer if the account may be switched. Confirmation of the balance transfer window is permitted by the old account servicer.
-/// This is the outer document that contains <seealso cref="AccountSwitchInformationResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchInformationResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

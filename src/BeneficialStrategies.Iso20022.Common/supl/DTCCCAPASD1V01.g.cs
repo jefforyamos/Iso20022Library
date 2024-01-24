@@ -21,7 +21,33 @@ public partial record DTCCCAPASD1V01 : IOuterRecord
     public const string XmlTag = "DTCCCAPASD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Extension block for the information to be extended as corporate action general information.
+    /// </summary>
+    [IsoId("_1Njf8jL3EeKU9IrkkToqcw_-1573085315")]
+    [Description(@"Extension block for the information to be extended as corporate action general information.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Extension block for the information to be extended as corporate action movement securities movement details.
+    /// </summary>
+    [IsoId("_1Njf8zL3EeKU9IrkkToqcw_1688378389")]
+    [Description(@"Extension block for the information to be extended as corporate action movement securities movement details.")]
+    [DataMember(Name="CorpActnMvmntSctiesMvmntDtls")]
+    [XmlElement(ElementName="CorpActnMvmntSctiesMvmntDtls")]
+    public SomeCorporateActionMovementSecuritiesMovementDetailsRecord? CorporateActionMovementSecuritiesMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Extension block for the information to be extended as corporate action movement cash movement details.
+    /// </summary>
+    [IsoId("_1Njf9DL3EeKU9IrkkToqcw_51361216")]
+    [Description(@"Extension block for the information to be extended as corporate action movement cash movement details.")]
+    [DataMember(Name="CorpActnMvmntCshMvmntDtls")]
+    [XmlElement(ElementName="CorpActnMvmntCshMvmntDtls")]
+    public SomeCorporateActionMovementCashMovementDetailsRecord? CorporateActionMovementCashMovementDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +60,8 @@ public partial record DTCCCAPASD1V01 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAPASD1 messge extends ISO corporate action movement preliminary advice message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAPASD1V01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAPASD1V01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

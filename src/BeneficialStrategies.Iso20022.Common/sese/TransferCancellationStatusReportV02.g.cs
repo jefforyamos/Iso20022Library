@@ -32,7 +32,53 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     public const string XmlTag = "TrfCxlStsRptV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_HnZFIdE6Ed-BzquC8wXy7w_-2063886787")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_HnZFItE6Ed-BzquC8wXy7w_1645958501")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Reference to the linked message sent in a proprietary way or the reference of a system.
+    /// </summary>
+    [IsoId("_HnZFI9E6Ed-BzquC8wXy7w_1645958519")]
+    [Description(@"Reference to the linked message sent in a proprietary way or the reference of a system.")]
+    [DataMember(Name="OthrRef")]
+    [XmlElement(ElementName="OthrRef")]
+    public required IReadonlyCollection<SomeOtherReferenceRecord> OtherReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Status of the transfer cancellation instruction.
+    /// </summary>
+    [IsoId("_HnZFJNE6Ed-BzquC8wXy7w_-665648289")]
+    [Description(@"Status of the transfer cancellation instruction.")]
+    [DataMember(Name="StsRpt")]
+    [XmlElement(ElementName="StsRpt")]
+    [Required]
+    public required SomeStatusReportRecord StatusReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_HnZFJdE6Ed-BzquC8wXy7w_97152090")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +91,8 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, eg, a transfer agent, sends the TransferCancellationStatusReport message to the instructing party, eg, an investment manager or one of its authorised representatives to provide the status of a previously received transfer cancellation instruction.
-/// Usage
-/// The TransferCancellationStatusReport message is used to report on the status of a transfer in or transfer out cancellation request.
-/// The reference of the transfer instruction for which the cancellation status is reported is identified in TransferReference. The message identification of the transfer cancellation request message in which the transfer instruction was conveyed may also be quoted in RelatedReference.
-/// The message identification of the transfer instruction request message in which the transfer instruction was conveyed may also be quoted in RelatedReference.
-/// One of the following statuses can be reported:
-/// - the transfer cancellation is accepted, or,
-/// - the transfer cancellation has been sent to the next party, or,
-/// - the transfer cancellation is complete and the reason for the status,
-/// - the transfer cancellation pending and the reason for the status,
-/// - the transfer cancellation is rejected and the reason for the status.
-/// This is the outer document that contains <seealso cref="TransferCancellationStatusReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferCancellationStatusReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

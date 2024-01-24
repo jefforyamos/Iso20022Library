@@ -21,7 +21,25 @@ public partial record UndertakingStatusReportV01 : IOuterRecord
     public const string XmlTag = "UdrtkgStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the undertaking status report.
+    /// </summary>
+    [IsoId("_9h8tJnltEeG7BsjMvd1mEw_-1217857261")]
+    [Description(@"Details of the undertaking status report.")]
+    [DataMember(Name="UdrtkgStsRptDtls")]
+    [XmlElement(ElementName="UdrtkgStsRptDtls")]
+    [Required]
+    public required SomeUndertakingStatusReportDetailsRecord UndertakingStatusReportDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the report.
+    /// </summary>
+    [IsoId("_9h8tJ3ltEeG7BsjMvd1mEw_1390197264")]
+    [Description(@"Digital signature of the report.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record UndertakingStatusReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingStatusReport message is exchanged between parties that have an interest in the referenced undertaking transaction. It notifies the recipient of the status of the transaction, such as acceptance or rejection, withdrawal, or non-conformation. The sender may add additional information, as appropriate.
-/// This is the outer document that contains <seealso cref="UndertakingStatusReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingStatusReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

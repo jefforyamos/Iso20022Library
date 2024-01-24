@@ -28,7 +28,134 @@ public partial record DeltaReportV03 : IOuterRecord
     public const string XmlTag = "DltaRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the report.
+    /// </summary>
+    [IsoId("_nsPPwNE8Ed-BzquC8wXy7w_1762925372")]
+    [Description(@"Identifies the report.")]
+    [DataMember(Name="RptId")]
+    [XmlElement(ElementName="RptId")]
+    [Required]
+    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_nsPPwdE8Ed-BzquC8wXy7w_1762924912")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_nsPPwtE8Ed-BzquC8wXy7w_1762925433")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    [Required]
+    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_nsPPw9E8Ed-BzquC8wXy7w_1762925188")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Sequence number of the proposed baseline amendment.
+    /// </summary>
+    [IsoId("_nsPPxNE8Ed-BzquC8wXy7w_1762925826")]
+    [Description(@"Sequence number of the proposed baseline amendment.")]
+    [DataMember(Name="AmdmntNb")]
+    [XmlElement(ElementName="AmdmntNb")]
+    [Required]
+    public required SomeAmendmentNumberRecord AmendmentNumber { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for each financial institution which is a party to the transaction.
+    /// </summary>
+    [IsoId("_nsPPxdE8Ed-BzquC8wXy7w_1762925311")]
+    [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Party that buys goods or services, or a financial instrument.
+    /// </summary>
+    [IsoId("_nsPPxtE8Ed-BzquC8wXy7w_1762925464")]
+    [Description(@"Party that buys goods or services, or a financial instrument.")]
+    [DataMember(Name="Buyr")]
+    [XmlElement(ElementName="Buyr")]
+    [Required]
+    public required SomeBuyerRecord Buyer { get; init; }
+    
+    /// <summary>
+    /// Party that sells goods or services, or a financial instrument.
+    /// </summary>
+    [IsoId("_nsPPx9E8Ed-BzquC8wXy7w_1762925711")]
+    [Description(@"Party that sells goods or services, or a financial instrument.")]
+    [DataMember(Name="Sellr")]
+    [XmlElement(ElementName="Sellr")]
+    [Required]
+    public required SomeSellerRecord Seller { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the buyer, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_nsYZsNE8Ed-BzquC8wXy7w_1762925280")]
+    [Description(@"The financial institution of the buyer, uniquely identified by its BIC.")]
+    [DataMember(Name="BuyrBk")]
+    [XmlElement(ElementName="BuyrBk")]
+    [Required]
+    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the seller, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_nsYZsdE8Ed-BzquC8wXy7w_1762925221")]
+    [Description(@"The financial institution of the seller, uniquely identified by its BIC.")]
+    [DataMember(Name="SellrBk")]
+    [XmlElement(ElementName="SellrBk")]
+    [Required]
+    public required SomeSellerBankRecord SellerBank { get; init; }
+    
+    /// <summary>
+    /// Reference to the identification of the baseline included in the amendment request.
+    /// </summary>
+    [IsoId("_nsYZstE8Ed-BzquC8wXy7w_1762925795")]
+    [Description(@"Reference to the identification of the baseline included in the amendment request.")]
+    [DataMember(Name="SubmitrPropsdBaselnRef")]
+    [XmlElement(ElementName="SubmitrPropsdBaselnRef")]
+    [Required]
+    public required SomeSubmitterProposedBaselineReferenceRecord SubmitterProposedBaselineReference { get; init; }
+    
+    /// <summary>
+    /// Detailed comparison between the currently established baseline elements and the proposed ones.
+    /// </summary>
+    [IsoId("_nsYZs9E8Ed-BzquC8wXy7w_1762925773")]
+    [Description(@"Detailed comparison between the currently established baseline elements and the proposed ones.")]
+    [DataMember(Name="UpdtdElmt")]
+    [XmlElement(ElementName="UpdtdElmt")]
+    [Required]
+    public required SomeUpdatedElementRecord UpdatedElement { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_nsYZtNE8Ed-BzquC8wXy7w_1762925341")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +168,8 @@ public partial record DeltaReportV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The DeltaReport message is sent by the matching application to the parties involved in the request of a baseline amendment.
-/// The message is used to list the differences between the established and the newly proposed baseline.
-/// Usage
-/// The DeltaReport message can be sent by the matching application to
-/// - the parties involved in the amendment of a baseline that has been established in the push-through mode. In the outlined scenario the message is sent to the requester of the amendment to acknowledge the receipt of the request and to list the differences between the established and the newly proposed baseline and to the counterparty to list the differences between the established and the newly proposed baseline and to request the acceptance or rejection of the amendment request,
-/// or
-/// - the party that has requested the amendment of a baseline established in the lodge mode. In the outlined scenario the message is used to confirm the changes to the baseline and to list the differences between the amended baseline and the baseline established earlier.
-/// This is the outer document that contains <seealso cref="DeltaReportV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DeltaReportV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

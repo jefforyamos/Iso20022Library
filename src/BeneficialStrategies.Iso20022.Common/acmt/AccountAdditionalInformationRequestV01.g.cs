@@ -24,7 +24,55 @@ public partial record AccountAdditionalInformationRequestV01 : IOuterRecord
     public const string XmlTag = "AcctAddtlInfReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements for the identification of the message and related references.
+    /// </summary>
+    [IsoId("_mso-idE9Ed-BzquC8wXy7w_1354481909")]
+    [Description(@"Set of elements for the identification of the message and related references.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Identifier for an organisation.
+    /// </summary>
+    [IsoId("_msyIcNE9Ed-BzquC8wXy7w_844276535")]
+    [Description(@"Identifier for an organisation.")]
+    [DataMember(Name="OrgId")]
+    [XmlElement(ElementName="OrgId")]
+    [Required]
+    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
+    /// </summary>
+    [IsoId("_msyIcdE9Ed-BzquC8wXy7w_-1890306852")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account between the account owner and the account servicer.
+    /// </summary>
+    [IsoId("_msyIctE9Ed-BzquC8wXy7w_-672125053")]
+    [Description(@"Unique and unambiguous identification of the account between the account owner and the account servicer.")]
+    [DataMember(Name="AcctId")]
+    [XmlElement(ElementName="AcctId")]
+    [Required]
+    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains the signature with its components, namely signed info, signature value, key info and the object.
+    /// </summary>
+    [IsoId("_msyIc9E9Ed-BzquC8wXy7w_-516297795")]
+    [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +85,8 @@ public partial record AccountAdditionalInformationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AccountAdditionalInformationRequest message is sent from a financial institution to an organisation as part of maintenance process. This message is sent in response to a request message from the organisation, if the business content is valid, but additional information is required.
-/// Usage
-/// This message should only be sent if additional information is required as part of the account maintenance process.
-/// This is the outer document that contains <seealso cref="AccountAdditionalInformationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountAdditionalInformationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

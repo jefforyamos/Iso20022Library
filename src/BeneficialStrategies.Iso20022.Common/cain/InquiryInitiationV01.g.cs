@@ -21,7 +21,35 @@ public partial record InquiryInitiationV01 : IOuterRecord
     public const string XmlTag = "NqryInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_ggro11dREeeIAMBcVOw01w")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the inquiry initiation.
+    /// </summary>
+    [IsoId("_ggro2FdREeeIAMBcVOw01w")]
+    [Description(@"Information related to the inquiry initiation.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC
+    /// </summary>
+    [IsoId("_ggro1ldREeeIAMBcVOw01w")]
+    [Description(@"Trailer of the message containing a MAC")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record InquiryInitiationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The InquiryInitiation message is sent by an acquirer or agent to an issuer to request information related to the card (e.g. about a cardholder, the availability of funds, etc.).
-/// This is the outer document that contains <seealso cref="InquiryInitiationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InquiryInitiationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

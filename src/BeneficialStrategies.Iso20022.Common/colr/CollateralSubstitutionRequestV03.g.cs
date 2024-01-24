@@ -25,7 +25,63 @@ public partial record CollateralSubstitutionRequestV03 : IOuterRecord
     public const string XmlTag = "CollSbstitnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_w4W-A1nMEeSPgY23yCMQSQ")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_YF0qkGNmEeSIWbZ6by9dnA")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Agreement details for the over the counter market.
+    /// </summary>
+    [IsoId("_w4W-DVnMEeSPgY23yCMQSQ")]
+    [Description(@"Agreement details for the over the counter market.")]
+    [DataMember(Name="Agrmt")]
+    [XmlElement(ElementName="Agrmt")]
+    public SomeAgreementRecord? Agreement { get; init; }
+    
+    /// <summary>
+    /// Provides details about the collateral that will be returned.
+    /// </summary>
+    [IsoId("_w4W-D1nMEeSPgY23yCMQSQ")]
+    [Description(@"Provides details about the collateral that will be returned.")]
+    [DataMember(Name="CollSbstitnRtr")]
+    [XmlElement(ElementName="CollSbstitnRtr")]
+    [Required]
+    public required SomeCollateralSubstitutionReturnRecord CollateralSubstitutionReturn { get; init; }
+    
+    /// <summary>
+    /// Provides details about the collateral that will be delivered.
+    /// </summary>
+    [IsoId("_w4W-EVnMEeSPgY23yCMQSQ")]
+    [Description(@"Provides details about the collateral that will be delivered.")]
+    [DataMember(Name="CollSbstitnDlvr")]
+    [XmlElement(ElementName="CollSbstitnDlvr")]
+    public SomeCollateralSubstitutionDeliverRecord? CollateralSubstitutionDeliver { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_w4W-E1nMEeSPgY23yCMQSQ")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +94,8 @@ public partial record CollateralSubstitutionRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This CollateralSubstitutionRequest message is sent by either the collateral giver or its collateral manager to the collateral taker or its collateral manager. It is used to request a substitution of collateral by specifying the collateral to be returned and proposing the new type(s) of collateral to be delivered. Note: There are cases where the collateral taker can initiate the CollateralSubstitutionRequest message, for example in case of breach in the concentration limit.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The CollateralSubstitutionRequest message can be sent by either the collateral giver or collateral taker in order to substitute collateral that is already held by the other party.
-/// This is the outer document that contains <seealso cref="CollateralSubstitutionRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralSubstitutionRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -32,7 +32,35 @@ public partial record DeleteLimitV07 : IOuterRecord
     public const string XmlTag = "DelLmt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_jwlbURbvEeiyVv5j1vf1VQ")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identifies one particular limit set by the member and managed by the transaction administrator.
+    /// </summary>
+    [IsoId("_jwlbUxbvEeiyVv5j1vf1VQ")]
+    [Description(@"Identifies one particular limit set by the member and managed by the transaction administrator.")]
+    [DataMember(Name="LmtDtls")]
+    [XmlElement(ElementName="LmtDtls")]
+    [Required]
+    public required SomeLimitDetailsRecord LimitDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jwlbVRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +73,8 @@ public partial record DeleteLimitV07 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The DeleteLimit message is sent by a member to the transaction administrator.
-/// It is used to request the deletion of one particular, several or all limits set by the member and managed by the transaction administrator.
-/// The DeleteLimit message may delete several types of current limits (risk or liquidity management limit), based on a multiple requests.
-/// Usage
-/// The member will submit a DeleteLimit message identifying which limit(s) it wants to delete (current limit risk/liquidity limit concepts have been merged) based on following criteria:
-/// - type of limit(s) (current/default)
-/// - value of the limit(s) (default and/or current limit(s))
-/// - identification of the counterparty (bilateral limit)
-/// Based on the criteria received within the DeleteLimit message, the transaction administrator will execute or reject the requested modifications.
-/// The transaction administrator may send a Receipt message as a reply to the DeleteLimit request.
-/// To verify the outcome of the request, the member may submit a GetLimit message with the appropriate search criteria.
-/// This is the outer document that contains <seealso cref="DeleteLimitV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DeleteLimitV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

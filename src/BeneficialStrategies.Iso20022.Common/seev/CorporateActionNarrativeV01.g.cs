@@ -27,7 +27,81 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
     public const string XmlTag = "CorpActnNrrtv";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies a CorporateActionNarrative message as know by the account servicer.
+    /// </summary>
+    [IsoId("_ThH3wNEwEd-BzquC8wXy7w_1605480798")]
+    [Description(@"Information that unambiguously identifies a CorporateActionNarrative message as know by the account servicer.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account and the account owner.
+    /// </summary>
+    [IsoId("_ThH3wdEwEd-BzquC8wXy7w_1905626370")]
+    [Description(@"General information about the safekeeping account and the account owner.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    public SomeAccountDetailsRecord? AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Provides information about the securitised right for entitlement.
+    /// </summary>
+    [IsoId("_ThH3wtEwEd-BzquC8wXy7w_-1863858180")]
+    [Description(@"Provides information about the securitised right for entitlement.")]
+    [DataMember(Name="UndrlygScty")]
+    [XmlElement(ElementName="UndrlygScty")]
+    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_ThH3w9EwEd-BzquC8wXy7w_-1362916961")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_ThH3xNEwEd-BzquC8wXy7w_-60220810")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    [Required]
+    public required SomeAdditionalInformationRecord AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_ThH3xdEwEd-BzquC8wXy7w_-228303987")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_ThH3xtEwEd-BzquC8wXy7w_-186746212")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_ThH3x9EwEd-BzquC8wXy7w_-1301348994")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +114,8 @@ public partial record CorporateActionNarrativeV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CorporateActionNarrative message is sent between an account servicer and an account owner or its designated agent to cater for tax reclaims, restrictions, documentation requirements. This message is bi-directional.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.|.
-/// This is the outer document that contains <seealso cref="CorporateActionNarrativeV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionNarrativeV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

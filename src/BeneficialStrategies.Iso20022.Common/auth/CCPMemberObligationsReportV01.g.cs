@@ -21,7 +21,25 @@ public partial record CCPMemberObligationsReportV01 : IOuterRecord
     public const string XmlTag = "CCPMmbOblgtnsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Operational construct used by a central counterparty to define the size of collateral called from a clearing member. Settlement accounts will often be linked to deposit accounts at the central counterparties payment agents.
+    /// </summary>
+    [IsoId("_YdmheeUUEem3X-64-NKdqg")]
+    [Description(@"Operational construct used by a central counterparty to define the size of collateral called from a clearing member. Settlement accounts will often be linked to deposit accounts at the central counterparties payment agents.")]
+    [DataMember(Name="SttlmAcct")]
+    [XmlElement(ElementName="SttlmAcct")]
+    [Required]
+    public required SomeSettlementAccountRecord SettlementAccount { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Ydmhe-UUEem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPMemberObligationsReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CCPInvestmentsReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about how the central counterparty invests the cash balances deposited with it as collateral by its clearing members. Details the source and size of the liquidity requirements CCPs are placing on clearing members as a result of their membership of the CCP.
-/// This is the outer document that contains <seealso cref="CCPMemberObligationsReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPMemberObligationsReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

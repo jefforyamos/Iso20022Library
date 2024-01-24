@@ -21,7 +21,35 @@ public partial record AcceptorCurrencyConversionAdviceResponseV06 : IOuterRecord
     public const string XmlTag = "AccptrCcyConvsAdvcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Cancellation advice response message management information.
+    /// </summary>
+    [IsoId("_h7qd9XMiEe2vXY6MoVq19w")]
+    [Description(@"Cancellation advice response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the currency conversion advice response.
+    /// </summary>
+    [IsoId("_h7qd93MiEe2vXY6MoVq19w")]
+    [Description(@"Information related to the currency conversion advice response.")]
+    [DataMember(Name="CcyConvsAdvcRspn")]
+    [XmlElement(ElementName="CcyConvsAdvcRspn")]
+    [Required]
+    public required SomeCurrencyConversionAdviceResponseRecord CurrencyConversionAdviceResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_h7qd-XMiEe2vXY6MoVq19w")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorCurrencyConversionAdviceResponseV06 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorCurrencyConversionAdviceResponse message is sent by the service provider to acknowledge the acceptor about the notification of the reception of the currency conversion advice.
-/// This is the outer document that contains <seealso cref="AcceptorCurrencyConversionAdviceResponseV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCurrencyConversionAdviceResponseV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

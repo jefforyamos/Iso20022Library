@@ -24,7 +24,36 @@ public partial record AcceptorReconciliationResponseV01 : IOuterRecord
     public const string XmlTag = "AccptrRcncltnRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reconciliation response message management information.
+    /// </summary>
+    [IsoId("_OV5_1qMVEeCJ6YNENx4h-w_1779414946")]
+    [Description(@"Reconciliation response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to thereconciliation response.
+    /// </summary>
+    [IsoId("_OV5_16MVEeCJ6YNENx4h-w_2117740989")]
+    [Description(@"Information related to thereconciliation response.")]
+    [DataMember(Name="RcncltnRspn")]
+    [XmlElement(ElementName="RcncltnRspn")]
+    [Required]
+    public required SomeReconciliationResponseRecord ReconciliationResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_OV5_2KMVEeCJ6YNENx4h-w_-1540723473")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +66,8 @@ public partial record AcceptorReconciliationResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorReconciliationResponse message is sent by the acquirer to communicate to the card acceptor the totals of the card payment transaction performed for the reconciliation period. An agent never forwards the message.
-/// Usage
-/// The AcceptorReconciliationResponse message is used to compare the totals between a card acceptor and an acquirer for the reconciliation period.
-/// This is the outer document that contains <seealso cref="AcceptorReconciliationResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorReconciliationResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

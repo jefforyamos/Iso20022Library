@@ -28,7 +28,100 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     public const string XmlTag = "AltrntvFndsAcctgStmtOfHldgs";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a technical application standpoint.
+    /// </summary>
+    [IsoId("_MeFaZ9FSEd-BzquC8wXy7w_-1816902269")]
+    [Description(@"Reference that uniquely identifies a message from a technical application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_MeFaaNFSEd-BzquC8wXy7w_-1627236244")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_MeFaadFSEd-BzquC8wXy7w_1666808091")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_MeFaatFSEd-BzquC8wXy7w_1676967953")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// The safekeeping or investment account.
+    /// </summary>
+    [IsoId("_MeFaa9FSEd-BzquC8wXy7w_792258549")]
+    [Description(@"The safekeeping or investment account.")]
+    [DataMember(Name="InvstmtAcctDtls")]
+    [XmlElement(ElementName="InvstmtAcctDtls")]
+    [Required]
+    public required SomeInvestmentAccountDetailsRecord InvestmentAccountDetails { get; init; }
+    
+    /// <summary>
+    /// General information related to the hedge fund accounting statement of holdings.|.
+    /// </summary>
+    [IsoId("_MeOkUNFSEd-BzquC8wXy7w_-1677323565")]
+    [Description(@"General information related to the hedge fund accounting statement of holdings.|.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Party that provides services to investors relating to financial products.
+    /// </summary>
+    [IsoId("_MeOkUdFSEd-BzquC8wXy7w_2081162206")]
+    [Description(@"Party that provides services to investors relating to financial products.")]
+    [DataMember(Name="RltdPtyDtls")]
+    [XmlElement(ElementName="RltdPtyDtls")]
+    public required IReadonlyCollection<SomeRelatedPartyDetailsRecord> RelatedPartyDetails { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
+    /// </summary>
+    [IsoId("_MeOkUtFSEd-BzquC8wXy7w_433316011")]
+    [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
+    [DataMember(Name="BalForAcct")]
+    [XmlElement(ElementName="BalForAcct")]
+    public SomeBalanceForAccountRecord? BalanceForAccount { get; init; }
+    
+    /// <summary>
+    /// Value of total holdings reported.
+    /// </summary>
+    [IsoId("_MeOkU9FSEd-BzquC8wXy7w_46360620")]
+    [Description(@"Value of total holdings reported.")]
+    [DataMember(Name="TtlVals")]
+    [XmlElement(ElementName="TtlVals")]
+    public SomeTotalValuesRecord? TotalValues { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_MeOkVNFSEd-BzquC8wXy7w_-108817498")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +134,8 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
 }
 
 /// <summary>
-/// Scope
-/// An account servicer, for example, a transfer agent or administrator, sends the AlternativeFundsAccountingStatementOfHoldings message to the account owner, for example, an investment manager, custodian, fund manager or an account owner's designated agent, to provide detailed holdings of the portfolio at a specified moment in time.
-/// There may be one or more parties between the account servicer and the account owner.
-/// The message provides, at a moment in time, valuations of the portfolio together with details of each financial instrument holding.
-/// Usage
-/// The AlternativeFundsAccountingStatementOfHoldings message is sent by the account servicer to the account owner:
-/// - at a frequency agreed bilaterally between the account servicer and the account owner,
-/// - as a response to a request for statement sent by the account owner.
-/// This is the outer document that contains <seealso cref="AlternativeFundsAccountingStatementOfHoldingsV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AlternativeFundsAccountingStatementOfHoldingsV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

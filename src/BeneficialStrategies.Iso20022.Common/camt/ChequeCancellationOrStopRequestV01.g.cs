@@ -21,7 +21,35 @@ public partial record ChequeCancellationOrStopRequestV01 : IOuterRecord
     public const string XmlTag = "ChqCxlOrStopReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual cheques included in the message.
+    /// </summary>
+    [IsoId("_-sAwgSm5EeutWNGMV2XKIQ")]
+    [Description(@"Set of characteristics shared by all individual cheques included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Specifies the details of the cheque.
+    /// </summary>
+    [IsoId("_euIoobtuEeq_cfXrH83Rcw")]
+    [Description(@"Specifies the details of the cheque.")]
+    [DataMember(Name="Chq")]
+    [XmlElement(ElementName="Chq")]
+    [Required]
+    public required SomeChequeRecord Cheque { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_U-kiI7tlEeq_cfXrH83Rcw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ChequeCancellationOrStopRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ChequeCancellationOrStopRequest message is sent by a drawer bank, or a bank acting on behalf of the drawer bank, to the agent on which a cheque has been drawn (the drawee bank) to request for the cancellation of the presentment and/or stop the payment of the cheque referred to in the message.
-/// This is the outer document that contains <seealso cref="ChequeCancellationOrStopRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChequeCancellationOrStopRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

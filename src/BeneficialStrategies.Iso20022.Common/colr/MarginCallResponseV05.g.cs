@@ -30,7 +30,89 @@ public partial record MarginCallResponseV05 : IOuterRecord
     public const string XmlTag = "MrgnCallRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_J4YkNSgrEeyB747fKu7_rw")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_J4YkNygrEeyB747fKu7_rw")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Agreement details for the over the counter market.
+    /// </summary>
+    [IsoId("_J4YkOSgrEeyB747fKu7_rw")]
+    [Description(@"Agreement details for the over the counter market.")]
+    [DataMember(Name="Agrmt")]
+    [XmlElement(ElementName="Agrmt")]
+    public SomeAgreementRecord? Agreement { get; init; }
+    
+    /// <summary>
+    /// Provides details about the margin calculation that would be due to party A.
+    /// </summary>
+    [IsoId("_J4YkOygrEeyB747fKu7_rw")]
+    [Description(@"Provides details about the margin calculation that would be due to party A.")]
+    [DataMember(Name="MrgnDtlsDueToA")]
+    [XmlElement(ElementName="MrgnDtlsDueToA")]
+    public SomeMarginDetailsDueToARecord? MarginDetailsDueToA { get; init; }
+    
+    /// <summary>
+    /// Provides details about the margin calculation that would be due to party B.
+    /// </summary>
+    [IsoId("_J4YkPSgrEeyB747fKu7_rw")]
+    [Description(@"Provides details about the margin calculation that would be due to party B.")]
+    [DataMember(Name="MrgnDtlsDueToB")]
+    [XmlElement(ElementName="MrgnDtlsDueToB")]
+    public SomeMarginDetailsDueToBRecord? MarginDetailsDueToB { get; init; }
+    
+    /// <summary>
+    /// Provides details about the agreed amount that would be due to party A.
+    /// </summary>
+    [IsoId("_J4YkPygrEeyB747fKu7_rw")]
+    [Description(@"Provides details about the agreed amount that would be due to party A.")]
+    [DataMember(Name="AgrdAmtDueToA")]
+    [XmlElement(ElementName="AgrdAmtDueToA")]
+    public SomeAgreedAmountDueToARecord? AgreedAmountDueToA { get; init; }
+    
+    /// <summary>
+    /// Provides details about the agreed amount that would be due to party B.
+    /// </summary>
+    [IsoId("_J4YkQSgrEeyB747fKu7_rw")]
+    [Description(@"Provides details about the agreed amount that would be due to party B.")]
+    [DataMember(Name="AgrdAmtDueToB")]
+    [XmlElement(ElementName="AgrdAmtDueToB")]
+    public SomeAgreedAmountDueToBRecord? AgreedAmountDueToB { get; init; }
+    
+    /// <summary>
+    /// Provides response details about the margin call.
+    /// </summary>
+    [IsoId("_J4YkQygrEeyB747fKu7_rw")]
+    [Description(@"Provides response details about the margin call.")]
+    [DataMember(Name="RspnDtls")]
+    [XmlElement(ElementName="RspnDtls")]
+    public SomeResponseDetailsRecord? ResponseDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_J4YkRSgrEeyB747fKu7_rw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +125,8 @@ public partial record MarginCallResponseV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MarginCallResponse message is sent by the collateral giver or its collateral manager to the collateral taker or its collateral manager or vice versa. This is a response to the MarginCallRequest message. The margin call can be accepted, fully disputed or partially disputed.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// When sent by the collateral giver the MarginCallResponse message is used to:
-/// - fully accept the MarginCallRequest
-/// - or partially accept the MarginCallRequest.
-/// When sent by the collateral taker the MarginCallResponse message is used to:
-/// - fully accept the recall of collateral
-/// - or partially accept the recall of collateral.
-/// This is the outer document that contains <seealso cref="MarginCallResponseV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarginCallResponseV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

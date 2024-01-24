@@ -28,7 +28,72 @@ public partial record InterestPaymentRequestV05 : IOuterRecord
     public const string XmlTag = "IntrstPmtReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_J4YkvSgrEeyB747fKu7_rw")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_J4YkvygrEeyB747fKu7_rw")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Agreement details for the over the counter market.
+    /// </summary>
+    [IsoId("_J4YkwSgrEeyB747fKu7_rw")]
+    [Description(@"Agreement details for the over the counter market.")]
+    [DataMember(Name="Agrmt")]
+    [XmlElement(ElementName="Agrmt")]
+    [Required]
+    public required SomeAgreementRecord Agreement { get; init; }
+    
+    /// <summary>
+    /// Provides details on the interest amount due to party A.
+    /// </summary>
+    [IsoId("_J4YkwygrEeyB747fKu7_rw")]
+    [Description(@"Provides details on the interest amount due to party A.")]
+    [DataMember(Name="IntrstDueToA")]
+    [XmlElement(ElementName="IntrstDueToA")]
+    public SomeInterestDueToARecord? InterestDueToA { get; init; }
+    
+    /// <summary>
+    /// Provides details on the interest amount due to party B.
+    /// </summary>
+    [IsoId("_J4YkxSgrEeyB747fKu7_rw")]
+    [Description(@"Provides details on the interest amount due to party B.")]
+    [DataMember(Name="IntrstDueToB")]
+    [XmlElement(ElementName="IntrstDueToB")]
+    public SomeInterestDueToBRecord? InterestDueToB { get; init; }
+    
+    /// <summary>
+    /// Provides the net interest amount due to A or due to B in case of collateral held and posted during a period.
+    /// </summary>
+    [IsoId("_J4YkxygrEeyB747fKu7_rw")]
+    [Description(@"Provides the net interest amount due to A or due to B in case of collateral held and posted during a period.")]
+    [DataMember(Name="NetAmtDtls")]
+    [XmlElement(ElementName="NetAmtDtls")]
+    public SomeNetAmountDetailsRecord? NetAmountDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_J4YkySgrEeyB747fKu7_rw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +106,8 @@ public partial record InterestPaymentRequestV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The InterestPaymentRequest message is sent by either;
-/// - the collateral taker or its collateral manager to the collateral giver or its collateral manager, or
-/// - the collateral giver or its collateral manager to the collateral taker or its collateral manager
-/// It is used to request payment or advise the amount due for interest calculated for a specified period. The interest is based on the amount of collateral that has been held during the calculation period. It is possible to send these messages on a bi-lateral basis for matching.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The InterestPaymentRequest message is used to advise the interest amount calculated for a specific period or request payment for an interest amount for a specific period.
-/// This is the outer document that contains <seealso cref="InterestPaymentRequestV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InterestPaymentRequestV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -28,7 +28,35 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord
     public const string XmlTag = "pacs.006.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_eoccYNEuEd-BzquC8wXy7w_-45030390")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original group of transactions, to which the message refers.
+    /// </summary>
+    [IsoId("_eoccYdEuEd-BzquC8wXy7w_1160897113")]
+    [Description(@"Information concerning the original group of transactions, to which the message refers.")]
+    [DataMember(Name="OrgnlGrpInf")]
+    [XmlElement(ElementName="OrgnlGrpInf")]
+    [Required]
+    public required SomeOriginalGroupInformationRecord OriginalGroupInformation { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original transactions, to which the cancellation request message refers.
+    /// </summary>
+    [IsoId("_eoccYtEuEd-BzquC8wXy7w_1545316731")]
+    [Description(@"Information concerning the original transactions, to which the cancellation request message refers.")]
+    [DataMember(Name="TxInf")]
+    [XmlElement(ElementName="TxInf")]
+    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +69,8 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The PaymentCancellationRequest message is sent by the initiating party or any agent, to the next party in the payment chain. It is used to request the cancellation of an instruction previously sent.
-/// Usage
-/// The PaymentCancellationRequest message is exchanged between agents to request the cancellation of a payment message previously sent (i.e. FIToFICustomerCreditTransfer, FIToFICustomerDirectDebit, and FinancialInstitutionCreditTransfer).
-/// The PaymentCancellationRequest message can be used to request the cancellation of single instructions or multiple instructions, from one or multiple files.
-/// The PaymentCancellationRequest message can be used in domestic and cross-border scenarios.
-/// The PaymentCancellationRequest message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.
-/// The PaymentCancellationRequest message exchanged between agents is identified in the schema as follows: |urn: iso: std: iso: 20022: tech: xsd: pacs.006.001.01|.
-/// This is the outer document that contains <seealso cref="PaymentCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -22,7 +22,35 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord
     public const string XmlTag = "ChqPresntmntNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual cheques included in the message.
+    /// </summary>
+    [IsoId("_GCVd0Sm6EeutWNGMV2XKIQ")]
+    [Description(@"Set of characteristics shared by all individual cheques included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Specifies the details of the cheque.
+    /// </summary>
+    [IsoId("_tGFUsbtlEeq_cfXrH83Rcw")]
+    [Description(@"Specifies the details of the cheque.")]
+    [DataMember(Name="Chq")]
+    [XmlElement(ElementName="Chq")]
+    [Required]
+    public required SomeChequeRecord Cheque { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_V-H6o7tlEeq_cfXrH83Rcw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +63,8 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ChequePresentmentNotification message is sent by a drawer bank, or a bank acting on behalf of the drawer bank to the bank on which a/several cheque(s) has been drawn (the drawee bank).
-/// It is used to advise the drawee bank, or confirm to an enquiring bank, the details concerning the cheque(s) referred to in the message.
-/// This is the outer document that contains <seealso cref="ChequePresentmentNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChequePresentmentNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

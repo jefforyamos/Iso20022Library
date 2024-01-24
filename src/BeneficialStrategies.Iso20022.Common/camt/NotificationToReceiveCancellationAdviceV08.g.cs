@@ -24,7 +24,44 @@ public partial record NotificationToReceiveCancellationAdviceV08 : IOuterRecord
     public const string XmlTag = "NtfctnToRcvCxlAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements used to provide further details on the message.
+    /// </summary>
+    [IsoId("_XwxH0StuEeysar7zFstVmw")]
+    [Description(@"Set of elements used to provide further details on the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to identify the original notification, to which the cancellation advice refers.
+    /// </summary>
+    [IsoId("_XwxH0ytuEeysar7zFstVmw")]
+    [Description(@"Set of elements used to identify the original notification, to which the cancellation advice refers.")]
+    [DataMember(Name="OrgnlNtfctn")]
+    [XmlElement(ElementName="OrgnlNtfctn")]
+    [Required]
+    public required SomeOriginalNotificationRecord OriginalNotification { get; init; }
+    
+    /// <summary>
+    /// Reason for the cancellation of the notification.
+    /// </summary>
+    [IsoId("_tX3SYCt2Eeysar7zFstVmw")]
+    [Description(@"Reason for the cancellation of the notification.")]
+    [DataMember(Name="CxlRsn")]
+    [XmlElement(ElementName="CxlRsn")]
+    public SomeCancellationReasonRecord? CancellationReason { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_XwxH1StuEeysar7zFstVmw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +74,8 @@ public partial record NotificationToReceiveCancellationAdviceV08 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The NotificationToReceiveCancellationAdvice message is sent by an account owner or by a party acting on the account owner's behalf to one of the account owner's account servicing institutions. It is used to advise the account servicing institution about the cancellation of one or more notifications in a previous NotificationToReceive message.
-/// Usage
-/// The NotificationToReceiveCancellationAdvice message is used to advise the account servicing institution that the funds are no longer expected. The message can be used in either a direct or a relay scenario.
-/// This is the outer document that contains <seealso cref="NotificationToReceiveCancellationAdviceV08"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationToReceiveCancellationAdviceV08"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

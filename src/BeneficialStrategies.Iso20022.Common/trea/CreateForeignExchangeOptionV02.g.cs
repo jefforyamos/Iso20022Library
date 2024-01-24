@@ -25,7 +25,46 @@ public partial record CreateForeignExchangeOptionV02 : IOuterRecord
     public const string XmlTag = "CretFXOptnV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides identification and date of the foreign exchange option trade which is created.
+    /// </summary>
+    [IsoId("_NMokedE8Ed-BzquC8wXy7w_538111256")]
+    [Description(@"Provides identification and date of the foreign exchange option trade which is created.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the currency option trade which is created.
+    /// </summary>
+    [IsoId("_NMoketE8Ed-BzquC8wXy7w_-1232874677")]
+    [Description(@"Specifies the trading side of the currency option trade which is created.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the currency option trade which is created.
+    /// </summary>
+    [IsoId("_NMoke9E8Ed-BzquC8wXy7w_-1637375932")]
+    [Description(@"Specifies the counterparty of the currency option trade which is created.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the parameters of the currency option which is sold by the trading side.
+    /// </summary>
+    [IsoId("_NMxuYNE8Ed-BzquC8wXy7w_2080302723")]
+    [Description(@"Specifies the parameters of the currency option which is sold by the trading side.")]
+    [DataMember(Name="Optn")]
+    [XmlElement(ElementName="Optn")]
+    [Required]
+    public required SomeOptionRecord Option { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +77,8 @@ public partial record CreateForeignExchangeOptionV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CreateForeignExchangeOption message is sent by a participant to a central system or to a counterparty to confirm a foreign currency option contract.
-/// Usage
-/// Both trading parties will send a notification to the central settlement system. The central settlement system will then send a ForeignExchangeOptionNotification to both.
-/// This message is only suitable for Simple (i.e. not Barrier) Vanilla (i.e. not Binary, Digital, Notouch) Foreign Exchange Options.
-/// This is the outer document that contains <seealso cref="CreateForeignExchangeOptionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateForeignExchangeOptionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

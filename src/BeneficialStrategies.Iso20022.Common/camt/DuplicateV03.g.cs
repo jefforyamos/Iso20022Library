@@ -25,7 +25,36 @@ public partial record DuplicateV03 : IOuterRecord
     public const string XmlTag = "Dplct";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
+    /// </summary>
+    [IsoId("_X-6wY9E-Ed-BzquC8wXy7w_-1056990922")]
+    [Description(@"Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Identifies the investigation case.
+    /// </summary>
+    [IsoId("_X-6wZNE-Ed-BzquC8wXy7w_-1056990861")]
+    [Description(@"Identifies the investigation case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    [Required]
+    public required SomeCaseRecord Case { get; init; }
+    
+    /// <summary>
+    /// Duplicate of a previously sent message.
+    /// </summary>
+    [IsoId("_X-6wZdE-Ed-BzquC8wXy7w_654549710")]
+    [Description(@"Duplicate of a previously sent message.")]
+    [DataMember(Name="Dplct")]
+    [XmlElement(ElementName="Dplct")]
+    [Required]
+    public required SomeDuplicateRecord Duplicate { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +67,8 @@ public partial record DuplicateV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Duplicate message is used by financial institutions, with their own offices, and/or with other financial institutions with which they have established bilateral agreements. It allows to exchange duplicate payment instructions.
-/// Usage
-/// This message must be sent in response to a Request For Duplicate message.
-/// The Duplicate Data element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|.
-/// This is the outer document that contains <seealso cref="DuplicateV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DuplicateV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

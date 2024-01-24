@@ -33,7 +33,26 @@ public partial record CaseStatusReportRequest : IOuterRecord
     public const string XmlTag = "camt.038.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the party requesting the status, the requested party, the identification and the date of the status.
+    /// </summary>
+    [IsoId("_OXDeQdE-Ed-BzquC8wXy7w_-669475545")]
+    [Description(@"Identifies the party requesting the status, the requested party, the identification and the date of the status.")]
+    [DataMember(Name="ReqHdr")]
+    [XmlElement(ElementName="ReqHdr")]
+    [Required]
+    public required SomeRequestHeaderRecord RequestHeader { get; init; }
+    
+    /// <summary>
+    /// Identifies the case.
+    /// </summary>
+    [IsoId("_OXDeQtE-Ed-BzquC8wXy7w_1781217793")]
+    [Description(@"Identifies the case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    [Required]
+    public required SomeCaseRecord Case { get; init; }
+    
     */
     
     /// <summary>
@@ -46,20 +65,8 @@ public partial record CaseStatusReportRequest : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Case Status Report Request message is sent by a case creator or case assigner to a case assignee.
-/// This message is used to request the status of a case.
-/// Usage
-/// The Case Status Report Request message must be answered with a Case Status Report message. It can be used to request the status of a:
-/// - request to cancel payment case
-/// - request to modify payment case
-/// - unable to apply case
-/// - claim non receipt case
-/// The Case Status Report Request message covers one and only one case at a time. If a case creator or case assigner needs the status of several cases, then multiple Case Status Report Request messages must be sent.
-/// The Case Status Report Request message may be forwarded to subsequent case assignee(s) in the case processing chain.
-/// The processing of a case generates Notification Of Case Assignment and/or Resolution Of Investigation messages to the case creator/case assigner. They alone should provide collaborating parties sufficient information about the progress of the investigation. The Case Status Report Request must therefore only be used when no information has been received from the case assignee within the expected time frame.
-/// An agent may suspense an investigation by classifying it as overdue if he, after sending the request for status, does not receive any response after a long time. Agents may set their individual threshold wait-time.
-/// This is the outer document that contains <seealso cref="CaseStatusReportRequest"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CaseStatusReportRequest"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

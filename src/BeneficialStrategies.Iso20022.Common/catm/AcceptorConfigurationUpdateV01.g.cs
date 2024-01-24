@@ -28,7 +28,36 @@ public partial record AcceptorConfigurationUpdateV01 : IOuterRecord
     public const string XmlTag = "AccptrCfgtnUpd";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the acceptor parameters.
+    /// </summary>
+    [IsoId("_AgFfYeQXEeCGktPI9k4Dlw_-1237434314")]
+    [Description(@"Set of characteristics related to the transfer of the acceptor parameters.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Acceptor configuration to be downloaded from the terminal management system.
+    /// </summary>
+    [IsoId("_AgFfYuQXEeCGktPI9k4Dlw_950623241")]
+    [Description(@"Acceptor configuration to be downloaded from the terminal management system.")]
+    [DataMember(Name="AccptrCfgtn")]
+    [XmlElement(ElementName="AccptrCfgtn")]
+    [Required]
+    public required SomeAcceptorConfigurationRecord AcceptorConfiguration { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_AgFfY-QXEeCGktPI9k4Dlw_543485283")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +70,8 @@ public partial record AcceptorConfigurationUpdateV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorConfigurationUpdate message is sent by the master terminal manager or delegated terminal manager to the acceptor system for the update of acquirer parameters, merchant parameters, vendor parameters or cryptographic keys of the acquirer.
-/// Usage
-/// The AcceptorConfigurationUpdate message may embed the information required by the acceptor system for the configuration of:
-/// - the application parameters necessary for software applications processed by the POI system,
-/// - the acquirer protocol parameters for the message content and message exchange behaviour of the acquirer protocol supported by the POI system,
-/// - the host communication parameters to define the addresses of the connected acquirer hosts, and
-/// - the merchant parameters needed for the retailer protocol settings of the POI system.
-/// This is the outer document that contains <seealso cref="AcceptorConfigurationUpdateV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorConfigurationUpdateV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,43 @@ public partial record HostToATMRequestV01 : IOuterRecord
     public const string XmlTag = "HstToATMReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_fivHMItqEeSDLd7nI4Quzw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_kvOaMItqEeSDLd7nI4Quzw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdHstToATMReq")]
+    [XmlElement(ElementName="PrtctdHstToATMReq")]
+    public SomeProtectedHostToATMRequestRecord? ProtectedHostToATMRequest { get; init; }
+    
+    /// <summary>
+    /// Information related to the request to an ATM to contact the ATM manager.
+    /// </summary>
+    [IsoId("_vd4VQItqEeSDLd7nI4Quzw")]
+    [Description(@"Information related to the request to an ATM to contact the ATM manager.")]
+    [DataMember(Name="HstToATMReq")]
+    [XmlElement(ElementName="HstToATMReq")]
+    public SomeHostToATMRequestRecord? HostToATMRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_0CZCQItqEeSDLd7nI4Quzw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record HostToATMRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The HostToATMRequest message is sent by a host to an ATM to request the ATM to contact a host by sending of a maintenance messages.
-/// This is the outer document that contains <seealso cref="HostToATMRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="HostToATMRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

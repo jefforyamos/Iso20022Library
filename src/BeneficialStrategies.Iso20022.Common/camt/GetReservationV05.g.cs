@@ -30,7 +30,34 @@ public partial record GetReservationV05 : IOuterRecord
     public const string XmlTag = "GetRsvatn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_jwlbmRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Definition of the reservation query.
+    /// </summary>
+    [IsoId("_jwlbmxbvEeiyVv5j1vf1VQ")]
+    [Description(@"Definition of the reservation query.")]
+    [DataMember(Name="RsvatnQryDef")]
+    [XmlElement(ElementName="RsvatnQryDef")]
+    public SomeReservationQueryDefinitionRecord? ReservationQueryDefinition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jwlbnRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +70,8 @@ public partial record GetReservationV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The GetReservation message is sent by a member to the transaction administrator.
-/// It is used to request information on the details of one or more reservation facilities set by the member and managed by the transaction administrator.
-/// Usage
-/// The member can request reservations information based on the following elements:
-/// - identification of the system;
-/// - identification of the account;
-/// - status of the reservation (default and/or current);
-/// - type of reservation.
-/// This message will be replied to by a ReturnReservation message.
-/// This is the outer document that contains <seealso cref="GetReservationV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetReservationV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

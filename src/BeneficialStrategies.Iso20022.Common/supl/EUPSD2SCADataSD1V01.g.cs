@@ -21,7 +21,16 @@ public partial record EUPSD2SCADataSD1V01 : IOuterRecord
     public const string XmlTag = "EUPSD2SCADataSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// EU PSD2 Strong Consumer Authentication data.
+    /// </summary>
+    [IsoId("_dWMeEAMnEeubkNI1IXQTVQ")]
+    [Description(@"EU PSD2 Strong Consumer Authentication data.")]
+    [DataMember(Name="StrngCstmrAuthntcn")]
+    [XmlElement(ElementName="StrngCstmrAuthntcn")]
+    [Required]
+    public required SomeStrongCustomerAuthenticationRecord StrongCustomerAuthentication { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +43,8 @@ public partial record EUPSD2SCADataSD1V01 : IOuterRecord
 }
 
 /// <summary>
-/// Extends the ATICA message set to address the requirement of the European Banking Authority (EBA) related to the Regulatory Technical Standard (RTS) on Strong Customer Authentication (SCA) imposed by the EU regulation.
-/// This is the outer document that contains <seealso cref="EUPSD2SCADataSD1V01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="EUPSD2SCADataSD1V01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

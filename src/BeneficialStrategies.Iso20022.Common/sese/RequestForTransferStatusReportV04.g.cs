@@ -26,7 +26,44 @@ public partial record RequestForTransferStatusReportV04 : IOuterRecord
     public const string XmlTag = "ReqForTrfStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_uTTqcxXfEeOocOqSQt5Jbw")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Information to identify the transfer for which the status is requested.|.
+    /// </summary>
+    [IsoId("_uTTqdRXfEeOocOqSQt5Jbw")]
+    [Description(@"Information to identify the transfer for which the status is requested.|.")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    [Required]
+    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    
+    /// <summary>
+    /// Identifies the market practice to which the message conforms.
+    /// </summary>
+    [IsoId("_6usDYRw9EeOIveEnnb_1-A")]
+    [Description(@"Identifies the market practice to which the message conforms.")]
+    [DataMember(Name="MktPrctcVrsn")]
+    [XmlElement(ElementName="MktPrctcVrsn")]
+    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_uTTqdxXfEeOocOqSQt5Jbw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +76,8 @@ public partial record RequestForTransferStatusReportV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, for example, an investment manager or its authorised representative, sends the RequestForTransferStatusReport to the executing party, for example, a transfer agent to request the status of a previously instructed transfer.
-/// Usage
-/// The RequestForTransferStatusReport is used to request either:
-/// - the status of one or several transfer instructions or,
-/// - the status of one or several transfer cancellation instructions.
-/// This is the outer document that contains <seealso cref="RequestForTransferStatusReportV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForTransferStatusReportV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

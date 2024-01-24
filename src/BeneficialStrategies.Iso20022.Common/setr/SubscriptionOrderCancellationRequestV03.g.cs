@@ -39,7 +39,61 @@ public partial record SubscriptionOrderCancellationRequestV03 : IOuterRecord
     public const string XmlTag = "SbcptOrdrCxlReqV03";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_2S829tE7Ed-BzquC8wXy7w_-537553524")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_2S8299E7Ed-BzquC8wXy7w_-1906672120")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_2S82-NE7Ed-BzquC8wXy7w_-1906672155")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// References of the orders to be cancelled.
+    /// </summary>
+    [IsoId("_2S82-dE7Ed-BzquC8wXy7w_1525410004")]
+    [Description(@"References of the orders to be cancelled.")]
+    [DataMember(Name="CxlByRef")]
+    [XmlElement(ElementName="CxlByRef")]
+    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    
+    /// <summary>
+    /// Common information related to all the orders to be cancelled.
+    /// </summary>
+    [IsoId("_2TGn8NE7Ed-BzquC8wXy7w_-1906672085")]
+    [Description(@"Common information related to all the orders to be cancelled.")]
+    [DataMember(Name="CxlByOrdrDtls")]
+    [XmlElement(ElementName="CxlByOrdrDtls")]
+    public SomeCancellationByOrderDetailsRecord? CancellationByOrderDetails { get; init; }
+    
+    /// <summary>
+    /// Message is a copy.
+    /// </summary>
+    [IsoId("_2TGn8dE7Ed-BzquC8wXy7w_-1747169345")]
+    [Description(@"Message is a copy.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -52,26 +106,8 @@ public partial record SubscriptionOrderCancellationRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, for example, an investment manager or its authorised representative, sends the SubscriptionOrderCancellationRequest message to the executing party, for example, a transfer agent, to request the cancellation of a previously sent SubscriptionOrder.
-/// Usage
-/// The SubscriptionOrderCancellationRequest message is used to either:
-/// - request the cancellation of an entire SubscriptionOrder message, that is, all the individual orders that it contained, or,
-/// - request the cancellation of one or more individual orders.
-/// There is no amendment, but a cancellation and re-instruct policy.
-/// There are two ways to use the message:
-/// (1) When the SubscriptionOrderCancellationRequest message is used to request the cancellation of an entire SubscriptionOrder message, this can be done by either:
-/// - quoting the order references of all the individual orders listed in the SubscriptionOrder message, or,
-/// - quoting the details of all the individual orders (this includes the OrderReference) listed in SubscriptionOrder message, but this is not recommended.
-/// The message identification of the SubscriptionOrder message may also be quoted in PreviousReference.
-/// It is also possible to request the cancellation of an entire SubscriptionOrder message by quoting its message identification in PreviousReference, but this is not recommended.
-/// (2) When the SubscriptionOrderCancellationRequest message is used to request the cancellation of one or more individual orders, this can be done by either:
-/// - quoting the OrderReference of each individual order listed in the SubscriptionOrder message, or,
-/// - quoting the details of each individual order (including the OrderReference) listed in SubscriptionOrder message, but this is not recommended.
-/// The message identification of the SubscriptionOrder message in which the individual order was conveyed may also be quoted in PreviousReference.
-/// The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation.
-/// The rejection or acceptance of a SubscriptionOrderCancellationRequest is made using an OrderCancellationStatusReport message.
-/// This is the outer document that contains <seealso cref="SubscriptionOrderCancellationRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionOrderCancellationRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

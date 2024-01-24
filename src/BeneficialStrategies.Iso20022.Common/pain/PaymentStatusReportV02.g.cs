@@ -28,7 +28,35 @@ public partial record PaymentStatusReportV02 : IOuterRecord
     public const string XmlTag = "pain.002.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the status report message.
+    /// </summary>
+    [IsoId("_GZkBEdEvEd-BzquC8wXy7w_-407499552")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the status report message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Original group information concerning the group of transactions, to which the status report message refers to.
+    /// </summary>
+    [IsoId("_GZkBEtEvEd-BzquC8wXy7w_-408419593")]
+    [Description(@"Original group information concerning the group of transactions, to which the status report message refers to.")]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
+    [XmlElement(ElementName="OrgnlGrpInfAndSts")]
+    [Required]
+    public required SomeOriginalGroupInformationAndStatusRecord OriginalGroupInformationAndStatus { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original transactions, to which the status report message refers.
+    /// </summary>
+    [IsoId("_GZkBE9EvEd-BzquC8wXy7w_-408419562")]
+    [Description(@"Information concerning the original transactions, to which the status report message refers.")]
+    [DataMember(Name="TxInfAndSts")]
+    [XmlElement(ElementName="TxInfAndSts")]
+    public SomeTransactionInformationAndStatusRecord? TransactionInformationAndStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +69,8 @@ public partial record PaymentStatusReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The PaymentStatusReport message is sent by an instructed agent to the previous party in the payment chain. It is used to inform this party about the positive or negative status of an instruction (either single or file). It is also used to report on a pending instruction.
-/// Usage
-/// The PaymentStatusReport message is exchanged between an agent and a non-financial institution customer to provide status information on instructions previously sent. Its usage will always be governed by a bilateral agreement between the agent and the non-financial institution customer.
-/// The PaymentStatusReport message can be used to provide information about the status (e.g. rejection, acceptance) of the initiation of a credit transfer, a direct debit, as well as on the initiation of other customer instructions (e.g. PaymentCancellationRequest).
-/// The PaymentStatusReport message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.
-/// The PaymentStatusReport message can be used in domestic and cross-border scenarios.
-/// The PaymentStatusReport message exchanged between agents and non-financial institution customers is identified in the schema as follows: urn:iso:std:iso:20022:tech:xsd:pain.002.001.02.
-/// This is the outer document that contains <seealso cref="PaymentStatusReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentStatusReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

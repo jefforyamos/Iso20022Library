@@ -25,7 +25,36 @@ public partial record AcceptorReconciliationRequestV01 : IOuterRecord
     public const string XmlTag = "AccptrRcncltnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reconciliation request message management information.
+    /// </summary>
+    [IsoId("_PNo5FqMVEeCJ6YNENx4h-w_734688010")]
+    [Description(@"Reconciliation request message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reconcilliation request.
+    /// </summary>
+    [IsoId("_PNo5F6MVEeCJ6YNENx4h-w_-572887118")]
+    [Description(@"Information related to the reconcilliation request.")]
+    [DataMember(Name="RcncltnReq")]
+    [XmlElement(ElementName="RcncltnReq")]
+    [Required]
+    public required SomeReconciliationRequestRecord ReconciliationRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_PNyDAKMVEeCJ6YNENx4h-w_654221226")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +67,8 @@ public partial record AcceptorReconciliationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorReconciliationRequest message is sent by the card acceptor to the acquirer or an agent to communicate the totals of the card payment transaction for a reconciliation period. An agent never forwards the message.
-/// Usage
-/// The AcceptorReconciliationRequest message is used to ensure that the debits and credits correspond to the balances computed by the acquirer or its agent for the same reconciliation period.
-/// The AcceptorReconciliationRequest message is also used to close a reconciliation period.
-/// This is the outer document that contains <seealso cref="AcceptorReconciliationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorReconciliationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

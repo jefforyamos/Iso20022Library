@@ -31,7 +31,80 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     public const string XmlTag = "SctiesSttlmTxModReqStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to the unambiguous identification of the cancellation request as per the account owner.
+    /// </summary>
+    [IsoId("_0BI1uSp0EeyR9JrVGfaMKw")]
+    [Description(@"Reference to the unambiguous identification of the cancellation request as per the account owner.")]
+    [DataMember(Name="ModReqRef")]
+    [XmlElement(ElementName="ModReqRef")]
+    [Required]
+    public required SomeModificationRequestReferenceRecord ModificationRequestReference { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_0BI1uyp0EeyR9JrVGfaMKw")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_0BI1vSp0EeyR9JrVGfaMKw")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
+    /// </summary>
+    [IsoId("_OuCz0yqOEeyR9JrVGfaMKw")]
+    [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
+    [DataMember(Name="BlckChainAdrOrWllt")]
+    [XmlElement(ElementName="BlckChainAdrOrWllt")]
+    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    
+    /// <summary>
+    /// Provides unambiguous transaction identification information.
+    /// </summary>
+    [IsoId("_0BI1vyp0EeyR9JrVGfaMKw")]
+    [Description(@"Provides unambiguous transaction identification information.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the request.
+    /// </summary>
+    [IsoId("_0BI1wSp0EeyR9JrVGfaMKw")]
+    [Description(@"Provides details on the processing status of the request.")]
+    [DataMember(Name="ModPrcgSts")]
+    [XmlElement(ElementName="ModPrcgSts")]
+    [Required]
+    public required SomeModificationProcessingStatusRecord ModificationProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Identifies the details of the transaction.
+    /// </summary>
+    [IsoId("_0BI1wyp0EeyR9JrVGfaMKw")]
+    [Description(@"Identifies the details of the transaction.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_0BI1xSp0EeyR9JrVGfaMKw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +117,8 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesSettlementTransactionModificationRequestStatusAdvice to an account owner to advise the status of a SecuritiesSettlementModificationRequest message previously sent by the account owner.
-/// The account servicer may be:
-/// - a central securities depository or another settlement market infrastructure managing securities settlement transactions on behalf of their participants
-/// - an custodian acting as an accounting and/or settlement agent.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message sent by the account owner to the account servicer,
-/// - provide a third party with a copy of a message being sent by the account owner for information,
-/// - re-send to a third party a copy of a message being sent by the account owner for information
-/// using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionModificationRequestStatusAdviceV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionModificationRequestStatusAdviceV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

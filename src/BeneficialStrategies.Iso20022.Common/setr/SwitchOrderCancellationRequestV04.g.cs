@@ -27,7 +27,62 @@ public partial record SwitchOrderCancellationRequestV04 : IOuterRecord
     public const string XmlTag = "SwtchOrdrCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies the message from a business application standpoint.
+    /// </summary>
+    [IsoId("_Aab7ATbLEead9bDRE_1DAQ")]
+    [Description(@"Reference that uniquely identifies the message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_Aab7AzbLEead9bDRE_1DAQ")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_Aab7BTbLEead9bDRE_1DAQ")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// </summary>
+    [IsoId("_W4-yglAYEea5nPE5ezGuuw")]
+    [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Identification of the individual order to be cancelled.
+    /// </summary>
+    [IsoId("_W4-yg1AYEea5nPE5ezGuuw")]
+    [Description(@"Identification of the individual order to be cancelled.")]
+    [DataMember(Name="OrdrRefs")]
+    [XmlElement(ElementName="OrdrRefs")]
+    [Required]
+    public required SomeOrderReferencesRecord OrderReferences { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_Aab7CzbLEead9bDRE_1DAQ")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +95,8 @@ public partial record SwitchOrderCancellationRequestV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SwitchOrderCancellationRequest message is sent by an instructing party, for example, an investment manager or its authorised representative, to the executing party, for example, a transfer agent, to request the cancellation of a previously sent SwitchOrder instruction.
-/// Usage
-/// The SwitchOrderCancellationRequest is used to cancel the entire previously sent SwitchOrder instruction/s and all the individual legs that it contains. There is no amendment, but a cancellation and re-instruct policy.
-/// To request the cancellation of a switch order, the order reference of the original switch order is quoted in the order reference element. The message identification of the SwitchOrder message may also be quoted in PreviousReference but this is not recommended.
-/// The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation request.
-/// The rejection or acceptance of a SwitchOrderCancellationRequest is made using an OrderCancellationStatusReport message.
-/// This is the outer document that contains <seealso cref="SwitchOrderCancellationRequestV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderCancellationRequestV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

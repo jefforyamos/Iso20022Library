@@ -31,7 +31,34 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord
     public const string XmlTag = "GetCcyXchgRate";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_jwlbeRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Definition of the currency exchange query.
+    /// </summary>
+    [IsoId("_jwlbexbvEeiyVv5j1vf1VQ")]
+    [Description(@"Definition of the currency exchange query.")]
+    [DataMember(Name="CcyQryDef")]
+    [XmlElement(ElementName="CcyQryDef")]
+    public SomeCurrencyQueryDefinitionRecord? CurrencyQueryDefinition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jwlbfRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +71,8 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The GetCurrencyExchangeRate message is sent by a member to the transaction administrator.
-/// It is used to request information on static data maintained by the transaction administrator and related to currency exchange details as maintained for the system operations by the transaction administrator.
-/// Usage
-/// The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, i.e., not related to the transactions created into the system. The type of business information available can vary depending on the system.
-/// When a system manages a pool of accounts in various currencies for a member, there is a need to maintain currency exchange details in between the various currencies and the reporting or base currency. The reporting or base currency is used to calculate the actual position of the members in terms of aggregate limits and balances and allow the system to contain risk within the defined and agreed boundaries. The currency exchange details can be fixed for the entire operational day, or regularly updated according to near real time market feeds.
-/// At any point in time during operating hours of the system, the member can query the transaction administrator to get information about the static data related to a currency exchange details.
-/// The member can request information based on the following elements:
-/// - the currency to be converted (source currency)
-/// - the currency into which the amount is converted (target currency)
-/// This message will be replied to by a ReturnCurrencyExchangeRate message.
-/// This is the outer document that contains <seealso cref="GetCurrencyExchangeRateV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetCurrencyExchangeRateV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -25,7 +25,70 @@ public partial record SwitchOrderV02 : IOuterRecord
     public const string XmlTag = "setr.013.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// </summary>
+    [IsoId("_8JIAIdE7Ed-BzquC8wXy7w_-63767357")]
+    [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_8JIAItE7Ed-BzquC8wXy7w_-65614926")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_8JIAI9E7Ed-BzquC8wXy7w_-61918547")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Information related to the switch order.
+    /// </summary>
+    [IsoId("_8JIAJNE7Ed-BzquC8wXy7w_-1318052005")]
+    [Description(@"Information related to the switch order.")]
+    [DataMember(Name="SwtchOrdrDtls")]
+    [XmlElement(ElementName="SwtchOrdrDtls")]
+    [Required]
+    public required SomeSwitchOrderDetailsRecord SwitchOrderDetails { get; init; }
+    
+    /// <summary>
+    /// The information related to an intermediary.
+    /// </summary>
+    [IsoId("_8JIAJdE7Ed-BzquC8wXy7w_383217301")]
+    [Description(@"The information related to an intermediary.")]
+    [DataMember(Name="IntrmyDtls")]
+    [XmlElement(ElementName="IntrmyDtls")]
+    public required IReadonlyCollection<SomeIntermediaryDetailsRecord> IntermediaryDetails { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_8JRKENE7Ed-BzquC8wXy7w_-578035973")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_8JRKEdE7Ed-BzquC8wXy7w_72236090")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +101,8 @@ public partial record SwitchOrderV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SwitchOrder message is sent by an instructing party, eg, an investment manager or its authorised representative, to an executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.
-/// This message is used to instruct the executing party to switch from a specified amount/quantity of specified financial instruments to a specified amount/quantity of different financial instruments.
-/// Usage
-/// The SwitchOrder message is used when the instructing party, ie, an investor, wants to change its investments within the same fund family, according to the terms of the prospectus.
-/// This is the outer document that contains <seealso cref="SwitchOrderV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

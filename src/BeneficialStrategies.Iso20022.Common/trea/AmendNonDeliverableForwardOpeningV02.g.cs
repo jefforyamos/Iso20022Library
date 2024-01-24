@@ -24,7 +24,66 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     public const string XmlTag = "AmdNDFOpngV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides references and date of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JB5pZdE8Ed-BzquC8wXy7w_993953355")]
+    [Description(@"Provides references and date of the non deliverable trade which is amended.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JB5pZtE8Ed-BzquC8wXy7w_305725624")]
+    [Description(@"Specifies the trading side of the non deliverable trade which is amended.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JB5pZ9E8Ed-BzquC8wXy7w_982933420")]
+    [Description(@"Specifies the counterparty of the non deliverable trade which is amended.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the amounts of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JB5paNE8Ed-BzquC8wXy7w_639319897")]
+    [Description(@"Specifies the amounts of the non deliverable trade which is amended.")]
+    [DataMember(Name="TradAmts")]
+    [XmlElement(ElementName="TradAmts")]
+    [Required]
+    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    
+    /// <summary>
+    /// Specifies the rate of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JB5padE8Ed-BzquC8wXy7w_-781054907")]
+    [Description(@"Specifies the rate of the non deliverable trade which is amended.")]
+    [DataMember(Name="AgrdRate")]
+    [XmlElement(ElementName="AgrdRate")]
+    [Required]
+    public required SomeAgreedRateRecord AgreedRate { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation conditions of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JB5patE8Ed-BzquC8wXy7w_-1055579338")]
+    [Description(@"Specifies the valuation conditions of the non deliverable trade which is amended.")]
+    [DataMember(Name="ValtnConds")]
+    [XmlElement(ElementName="ValtnConds")]
+    [Required]
+    public required SomeValuationConditionsRecord ValuationConditions { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +96,8 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AmendNonDeliverableForwardOpening message is sent by a participant to a central system or to a counterparty to notify the amendment of the opening of a non deliverable trade previously confirmed by the sender.
-/// Usage
-/// The message is sent from a participant to a central settlement system to advise of the update of a previously sent notification and it contains a "Related Reference" to link it to the previous notification.
-/// This is the outer document that contains <seealso cref="AmendNonDeliverableForwardOpeningV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendNonDeliverableForwardOpeningV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

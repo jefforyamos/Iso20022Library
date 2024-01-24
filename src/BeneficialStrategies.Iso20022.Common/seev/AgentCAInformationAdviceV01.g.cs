@@ -25,7 +25,64 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCAInfAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the advice.
+    /// </summary>
+    [IsoId("_TODKzNEwEd-BzquC8wXy7w_1736726928")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Election Advice Identification.
+    /// </summary>
+    [IsoId("_TODKzdEwEd-BzquC8wXy7w_1770899654")]
+    [Description(@"Identification of the linked Agent CA Election Advice Identification.")]
+    [DataMember(Name="AgtCAElctnAdvcId")]
+    [XmlElement(ElementName="AgtCAElctnAdvcId")]
+    public SomeAgentCAElectionAdviceIdentificationRecord? AgentCAElectionAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TODKztEwEd-BzquC8wXy7w_582576991")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information about the account for which additional information is provided.
+    /// </summary>
+    [IsoId("_TODKz9EwEd-BzquC8wXy7w_-559361420")]
+    [Description(@"Information about the account for which additional information is provided.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information about the corporate action such as the delivery details.
+    /// </summary>
+    [IsoId("_TOM7wNEwEd-BzquC8wXy7w_196544282")]
+    [Description(@"Additional information about the corporate action such as the delivery details.")]
+    [DataMember(Name="CorpActnAddtlInf")]
+    [XmlElement(ElementName="CorpActnAddtlInf")]
+    [Required]
+    public required SomeCorporateActionAdditionalInformationRecord CorporateActionAdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Contact responsible for the transaction identified in the message.
+    /// </summary>
+    [IsoId("_TOM7wdEwEd-BzquC8wXy7w_485761108")]
+    [Description(@"Contact responsible for the transaction identified in the message.")]
+    [DataMember(Name="CtctDtls")]
+    [XmlElement(ElementName="CtctDtls")]
+    public SomeContactDetailsRecord? ContactDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +95,8 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to an issuer (or its agent) to provide information about the certification and/or the delivery details to the issuer (or its agent).
-/// Usage
-/// This message can be used in the case of a corporate action event without an election.
-/// This message can also be used in the case of a corporate action event with election when the election details and the additional information cannot be provided in the same message. In this case, the Agent Corporate Action Election Advice Identification must be used to link this message to the election advice for which additional information is provided.
-/// This is the outer document that contains <seealso cref="AgentCAInformationAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAInformationAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

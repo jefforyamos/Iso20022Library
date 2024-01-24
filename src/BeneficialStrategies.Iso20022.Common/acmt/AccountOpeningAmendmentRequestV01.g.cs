@@ -25,7 +25,91 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
     public const string XmlTag = "AcctOpngAmdmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements for the identification of the message and related references.
+    /// </summary>
+    [IsoId("_tW9hedE9Ed-BzquC8wXy7w_588531419")]
+    [Description(@"Set of elements for the identification of the message and related references.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Specifies target dates.
+    /// </summary>
+    [IsoId("_tW9hetE9Ed-BzquC8wXy7w_1990365973")]
+    [Description(@"Specifies target dates.")]
+    [DataMember(Name="CtrctDts")]
+    [XmlElement(ElementName="CtrctDts")]
+    public SomeContractDatesRecord? ContractDates { get; init; }
+    
+    /// <summary>
+    /// Account contract established between the organisation or the Group to which the organisation belongs, and the account Servicer. This contract has to be applied for the new account to be opened and maintained.
+    /// </summary>
+    [IsoId("_tW9he9E9Ed-BzquC8wXy7w_-1823449748")]
+    [Description(@"Account contract established between the organisation or the Group to which the organisation belongs, and the account Servicer. This contract has to be applied for the new account to be opened and maintained.")]
+    [DataMember(Name="UndrlygMstrAgrmt")]
+    [XmlElement(ElementName="UndrlygMstrAgrmt")]
+    public SomeUnderlyingMasterAgreementRecord? UnderlyingMasterAgreement { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account between the account owner and the account servicer.
+    /// </summary>
+    [IsoId("_tXHScNE9Ed-BzquC8wXy7w_-994125532")]
+    [Description(@"Unique and unambiguous identification of the account between the account owner and the account servicer.")]
+    [DataMember(Name="Acct")]
+    [XmlElement(ElementName="Acct")]
+    [Required]
+    public required SomeAccountRecord Account { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
+    /// </summary>
+    [IsoId("_tXHScdE9Ed-BzquC8wXy7w_296956325")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
+    /// </summary>
+    [IsoId("_tXHSctE9Ed-BzquC8wXy7w_-1565255885")]
+    [Description(@"Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.")]
+    [DataMember(Name="Org")]
+    [XmlElement(ElementName="Org")]
+    [Required]
+    public required SomeOrganisationRecord Organisation { get; init; }
+    
+    /// <summary>
+    /// Information specifying the account mandate.
+    /// </summary>
+    [IsoId("_tXHSc9E9Ed-BzquC8wXy7w_961816593")]
+    [Description(@"Information specifying the account mandate.")]
+    [DataMember(Name="Mndt")]
+    [XmlElement(ElementName="Mndt")]
+    public SomeMandateRecord? Mandate { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account used as a reference for the opening of another account.
+    /// </summary>
+    [IsoId("_tXHSdNE9Ed-BzquC8wXy7w_757041048")]
+    [Description(@"Unique and unambiguous identification of the account used as a reference for the opening of another account.")]
+    [DataMember(Name="RefAcct")]
+    [XmlElement(ElementName="RefAcct")]
+    public SomeReferenceAccountRecord? ReferenceAccount { get; init; }
+    
+    /// <summary>
+    /// Contains the signature with its components, namely signed info, signature value, key info and the object.
+    /// </summary>
+    [IsoId("_tXHSddE9Ed-BzquC8wXy7w_1417761134")]
+    [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +122,8 @@ public partial record AccountOpeningAmendmentRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AccountOpeningAmendmentRequest message is sent from an organisation to a financial institution as part of the account opening process. It is sent in response to a request from the financial institution to provide additional information.
-/// Usage
-/// This message should only be sent if additional information is requested as part of the account opening process.
-/// It could be sent together with other related documents.
-/// This is the outer document that contains <seealso cref="AccountOpeningAmendmentRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountOpeningAmendmentRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

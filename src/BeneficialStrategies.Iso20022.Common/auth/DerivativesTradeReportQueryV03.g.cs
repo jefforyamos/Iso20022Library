@@ -21,7 +21,35 @@ public partial record DerivativesTradeReportQueryV03 : IOuterRecord
     public const string XmlTag = "DerivsTradRptQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Indicates the authority that requests the query report.
+    /// </summary>
+    [IsoId("_pVWWk2mFEe2DRvVJM2Qy-g")]
+    [Description(@"Indicates the authority that requests the query report.")]
+    [DataMember(Name="RqstngAuthrty")]
+    [XmlElement(ElementName="RqstngAuthrty")]
+    [Required]
+    public required SomeRequestingAuthorityRecord RequestingAuthority { get; init; }
+    
+    /// <summary>
+    /// Criteria for defining recurrent and ad-hoc queries.
+    /// </summary>
+    [IsoId("_pVWWlWmFEe2DRvVJM2Qy-g")]
+    [Description(@"Criteria for defining recurrent and ad-hoc queries.")]
+    [DataMember(Name="TradQryData")]
+    [XmlElement(ElementName="TradQryData")]
+    [Required]
+    public required SomeTradeQueryDataRecord TradeQueryData { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_pVWWl2mFEe2DRvVJM2Qy-g")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record DerivativesTradeReportQueryV03 : IOuterRecord
 }
 
 /// <summary>
-/// The DerivativesTradeReportQuery message is sent by the supervisory authority system to the trade repositories, to query data based on the search criteria for the trade transaction as defined by the system user.
-/// This is the outer document that contains <seealso cref="DerivativesTradeReportQueryV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeReportQueryV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

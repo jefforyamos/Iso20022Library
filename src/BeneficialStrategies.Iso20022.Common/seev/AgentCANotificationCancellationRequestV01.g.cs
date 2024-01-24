@@ -26,7 +26,45 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
     public const string XmlTag = "AgtCANtfctnCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the cancellation request.
+    /// </summary>
+    [IsoId("_TRVIStEwEd-BzquC8wXy7w_-958501125")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the cancellation request.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Provides information about the type of notification cancellation request and linked message.
+    /// </summary>
+    [IsoId("_TRVIS9EwEd-BzquC8wXy7w_604000016")]
+    [Description(@"Provides information about the type of notification cancellation request and linked message.")]
+    [DataMember(Name="NtfctnCxlTpAndLkg")]
+    [XmlElement(ElementName="NtfctnCxlTpAndLkg")]
+    [Required]
+    public required SomeNotificationCancellationTypeAndLinkageRecord NotificationCancellationTypeAndLinkage { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TRVITNEwEd-BzquC8wXy7w_-624173928")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Detailed information of the notification advice to be cancelled.
+    /// </summary>
+    [IsoId("_TRVITdEwEd-BzquC8wXy7w_807888623")]
+    [Description(@"Detailed information of the notification advice to be cancelled.")]
+    [DataMember(Name="CorpActnNtfctnDtls")]
+    [XmlElement(ElementName="CorpActnNtfctnDtls")]
+    public SomeCorporateActionNotificationDetailsRecord? CorporateActionNotificationDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +77,8 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to a CSD to request the cancellation of a notification advice message.
-/// Usage
-/// When this message is used to request the cancellation of a notification advice message, the function of the message must be cancellation.
-/// When this message is used to request the withdrawal of a Corporate Action event or option, then the function of the message must be withdrawal.
-/// In both cases, the building block notification advice identification must be present to link this cancellation request to the notification advice that was previously sent.
-/// This is the outer document that contains <seealso cref="AgentCANotificationCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCANotificationCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,35 @@ public partial record SaleToPOIReportRequestV01 : IOuterRecord
     public const string XmlTag = "SaleToPOIRptReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_I1wqE4YCEemxIqbaFEE8-w")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the report request.
+    /// </summary>
+    [IsoId("_I1wqFYYCEemxIqbaFEE8-w")]
+    [Description(@"Information related to the report request.")]
+    [DataMember(Name="RptReq")]
+    [XmlElement(ElementName="RptReq")]
+    [Required]
+    public required SomeReportRequestRecord ReportRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_I1wqF4YCEemxIqbaFEE8-w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIReportRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// This message is a request for several kind of Report services that the Sale System (Merchant I.S.) can request to the POI system (Card Acceptor system).
-/// This is the outer document that contains <seealso cref="SaleToPOIReportRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIReportRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

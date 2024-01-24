@@ -29,7 +29,26 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord
     public const string XmlTag = "InvcFincgCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique and unambiguous identification of the message.
+    /// </summary>
+    [IsoId("_BUjIP31LEeCF8NjrBemJWQ_-2121755534")]
+    [Description(@"Unique and unambiguous identification of the message.")]
+    [DataMember(Name="CxlReqId")]
+    [XmlElement(ElementName="CxlReqId")]
+    [Required]
+    public required SomeCancellationRequestIdentificationRecord CancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Set of information related to the cancellation request, such as actors involved and identification of the original invoice financing request to which the cancellation request refers.
+    /// </summary>
+    [IsoId("_BUsSIH1LEeCF8NjrBemJWQ_-1725175047")]
+    [Description(@"Set of information related to the cancellation request, such as actors involved and identification of the original invoice financing request to which the cancellation request refers.")]
+    [DataMember(Name="CxlReqInf")]
+    [XmlElement(ElementName="CxlReqInf")]
+    [Required]
+    public required SomeCancellationRequestInformationRecord CancellationRequestInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +61,8 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The InvoiceFinancingCancellationRequest message is sent by the Financing Requestor to the Intermediary Agent (relay scenario) or First Agent (direct scenario). It is used to request the cancellation of a previously sent financing request.
-/// Usage
-/// The InvoiceFinancingCancellationRequest message is used by the Financing Requestor to request the cancellation of a previously sent financing request.
-/// It is not possible to send a cancellation request for a single invoice contained in a bulk invoice financing request.
-/// The InvoiceFinancingCancellationRequest message contains references (original group identification and original creation date and time) of the original financing request message to which is referred.
-/// As for InvoiceFinancingRequest, the message can be used in a direct or a relay scenario:
-/// - In a direct scenario, the message is sent directly to the First Agent. The First Agent is the account servicer of the Financing Requestor.
-/// - In a relay scenario, the message is sent to an Intermediary Agent. The Intermediary Agent forwards the InvoiceFinancingCancellingRequest message to the First Agent.
-/// This is the outer document that contains <seealso cref="InvoiceFinancingCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceFinancingCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

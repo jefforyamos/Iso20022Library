@@ -21,7 +21,35 @@ public partial record SaleToPOIReconciliationResponseV05 : IOuterRecord
     public const string XmlTag = "SaleToPOIRcncltnRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_qanOs3O7Ee2pK6udhxEaHA")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a reconciliation request.
+    /// </summary>
+    [IsoId("_qanOtXO7Ee2pK6udhxEaHA")]
+    [Description(@"Information related to the response of a reconciliation request.")]
+    [DataMember(Name="RcncltnRspn")]
+    [XmlElement(ElementName="RcncltnRspn")]
+    [Required]
+    public required SomeReconciliationResponseRecord ReconciliationResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_qanOt3O7Ee2pK6udhxEaHA")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIReconciliationResponseV05 : IOuterRecord
 }
 
 /// <summary>
-/// The SaleToPOIReconciliationResponse message is sent by a POI to provide the result of reconciliation process between sale and POI systems.
-/// This is the outer document that contains <seealso cref="SaleToPOIReconciliationResponseV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIReconciliationResponseV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

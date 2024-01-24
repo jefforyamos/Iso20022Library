@@ -23,7 +23,62 @@ public partial record InvoiceAssignmentRequestV01 : IOuterRecord
     public const string XmlTag = "InvcAssgnmtReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics that unambiguously identify the invoice assigment request, such as group identification, creation date time, number of single invoice financing requests, totals and subtotals.
+    /// </summary>
+    [IsoId("_OTgzNDQz-AOSNFX-8224505")]
+    [Description(@"Set of characteristics that unambiguously identify the invoice assigment request, such as group identification, creation date time, number of single invoice financing requests, totals and subtotals.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// List of assignments of financial items.
+    /// </summary>
+    [IsoId("_OTgzNDQ0-AOSNFX-8224505")]
+    [Description(@"List of assignments of financial items.")]
+    [DataMember(Name="AssgnmtList")]
+    [XmlElement(ElementName="AssgnmtList")]
+    [Required]
+    public required SomeAssignmentListRecord AssignmentList { get; init; }
+    
+    /// <summary>
+    /// Number of assignments.
+    /// </summary>
+    [IsoId("_OTgzNDQ1-AOSNFX-8224505")]
+    [Description(@"Number of assignments.")]
+    [DataMember(Name="AssgnmtCnt")]
+    [XmlElement(ElementName="AssgnmtCnt")]
+    public SomeAssignmentCountRecord? AssignmentCount { get; init; }
+    
+    /// <summary>
+    /// Total number of individual items in all assignments.
+    /// </summary>
+    [IsoId("_OTgzNDQ2-AOSNFX-8224505")]
+    [Description(@"Total number of individual items in all assignments.")]
+    [DataMember(Name="ItmCnt")]
+    [XmlElement(ElementName="ItmCnt")]
+    public SomeItemCountRecord? ItemCount { get; init; }
+    
+    /// <summary>
+    /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
+    /// </summary>
+    [IsoId("_OTgzNDQ3-AOSNFX-8224505")]
+    [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
+    [DataMember(Name="CtrlSum")]
+    [XmlElement(ElementName="CtrlSum")]
+    public SomeControlSumRecord? ControlSum { get; init; }
+    
+    /// <summary>
+    /// Referenced or related business message.
+    /// </summary>
+    [IsoId("_OTgzNDQ4-AOSNFX-8224505")]
+    [Description(@"Referenced or related business message.")]
+    [DataMember(Name="AttchdMsg")]
+    [XmlElement(ElementName="AttchdMsg")]
+    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +91,8 @@ public partial record InvoiceAssignmentRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The InvoiceAssignmentRequest message is sent from a factoring client to a factoring service provider and, optionally, to an interested party. It indicates the transfer of payment obligations concerning financial documents.
-/// The message contains a list of financing requests together with data that are necessary to transfer the related rights for example regarding legal references for example jurisdiction, language or country. Furthermore, the message can reference related messages and can include data from other messages.
-/// A factoring client combines a set of financial documents with same characteristics and assigns them to a factoring service. The client can send several assignments in one message and combine them according to different criteria for example for different clients or different currencies.
-/// This is the outer document that contains <seealso cref="InvoiceAssignmentRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceAssignmentRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

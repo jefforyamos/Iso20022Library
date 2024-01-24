@@ -26,7 +26,80 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
     public const string XmlTag = "MtgRsltDssmntn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Type of dissemination report, that is, whether the report is new or a replacement.
+    /// </summary>
+    [IsoId("_sV77WfEkEeqRfth943bvEA")]
+    [Description(@"Type of dissemination report, that is, whether the report is new or a replacement.")]
+    [DataMember(Name="MtgRsltsDssmntnTp")]
+    [XmlElement(ElementName="MtgRsltsDssmntnTp")]
+    [Required]
+    public required SomeMeetingResultsDisseminationTypeRecord MeetingResultsDisseminationType { get; init; }
+    
+    /// <summary>
+    /// Identification of the previously sent meeting result dissemination message.
+    /// </summary>
+    [IsoId("_sV77YfEkEeqRfth943bvEA")]
+    [Description(@"Identification of the previously sent meeting result dissemination message.")]
+    [DataMember(Name="PrvsMtgRsltsDssmntnId")]
+    [XmlElement(ElementName="PrvsMtgRsltsDssmntnId")]
+    public SomePreviousMeetingResultsDisseminationIdentificationRecord? PreviousMeetingResultsDisseminationIdentification { get; init; }
+    
+    /// <summary>
+    /// Set of elements to allow the unambiguous identification of a meeting.
+    /// </summary>
+    [IsoId("_sV77Y_EkEeqRfth943bvEA")]
+    [Description(@"Set of elements to allow the unambiguous identification of a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    [Required]
+    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Securities for which the meeting is organised.
+    /// </summary>
+    [IsoId("_sV77ZfEkEeqRfth943bvEA")]
+    [Description(@"Securities for which the meeting is organised.")]
+    [DataMember(Name="Scty")]
+    [XmlElement(ElementName="Scty")]
+    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=1, Max=200
+    
+    /// <summary>
+    /// Results per resolution.
+    /// </summary>
+    [IsoId("_sV77Z_EkEeqRfth943bvEA")]
+    [Description(@"Results per resolution.")]
+    [DataMember(Name="VoteRslt")]
+    [XmlElement(ElementName="VoteRslt")]
+    public required IReadonlyCollection<SomeVoteResultRecord> VoteResult { get; init; } // Min=1, Max=1000
+    
+    /// <summary>
+    /// Information about the participation to the voting process.
+    /// </summary>
+    [IsoId("_sV77afEkEeqRfth943bvEA")]
+    [Description(@"Information about the participation to the voting process.")]
+    [DataMember(Name="Prtcptn")]
+    [XmlElement(ElementName="Prtcptn")]
+    public SomeParticipationRecord? Participation { get; init; }
+    
+    /// <summary>
+    /// Information on where additional information can be received.
+    /// </summary>
+    [IsoId("_sV77a_EkEeqRfth943bvEA")]
+    [Description(@"Information on where additional information can be received.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_sV77bfEkEeqRfth943bvEA")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +112,8 @@ public partial record MeetingResultDisseminationV07 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MeetingResultDissemination message is sent by an issuer, its agent or an intermediary to another intermediary, a party holding the right to vote, a registered security holder or to a beneficial holder to provide information on the voting results of a shareholders meeting.
-/// Usage
-/// The MeetingResultDissemination message is used to provide the vote results per resolution. It may also provide information on the level of participation.
-/// This message is also used to notify an update or amendment to a previously sent MeetingResultDissemination message.
-/// This message definition is intended for use with the Business Application Header (BAH).
-/// This is the outer document that contains <seealso cref="MeetingResultDisseminationV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingResultDisseminationV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -24,7 +24,74 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     public const string XmlTag = "FXTradConfReqCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Message management information.
+    /// </summary>
+    [IsoId("_vw3rcIHiEeSY3ulMDfpmvA")]
+    [Description(@"Message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Identifies the cancellation request messge.
+    /// </summary>
+    [IsoId("_wBWXcIHiEeSY3ulMDfpmvA")]
+    [Description(@"Identifies the cancellation request messge.")]
+    [DataMember(Name="CxlReqId")]
+    [XmlElement(ElementName="CxlReqId")]
+    public SomeCancellationRequestIdentificationRecord? CancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the treasury trade which is captured.
+    /// </summary>
+    [IsoId("_wPAY8IHiEeSY3ulMDfpmvA")]
+    [Description(@"Specifies the trading side of the treasury trade which is captured.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty side of the treasury trade which is captured.
+    /// </summary>
+    [IsoId("_wezIcIHiEeSY3ulMDfpmvA")]
+    [Description(@"Specifies the counterparty side of the treasury trade which is captured.")]
+    [DataMember(Name="CtrPtyRoleId")]
+    [XmlElement(ElementName="CtrPtyRoleId")]
+    [Required]
+    public required SomeCounterpartyRoleIdentificationRecord CounterpartyRoleIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifier of the trade that needs to be cancelled.
+    /// </summary>
+    [IsoId("_wvgd8IHiEeSY3ulMDfpmvA")]
+    [Description(@"Identifier of the trade that needs to be cancelled.")]
+    [DataMember(Name="TradId")]
+    [XmlElement(ElementName="TradId")]
+    [Required]
+    public required SomeTradeIdentificationRecord TradeIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the underlying product type.
+    /// </summary>
+    [IsoId("_w_JccIHiEeSY3ulMDfpmvA")]
+    [Description(@"Specifies the underlying product type.")]
+    [DataMember(Name="UndrlygPdctTp")]
+    [XmlElement(ElementName="UndrlygPdctTp")]
+    [Required]
+    public required SomeUnderlyingProductTypeRecord UnderlyingProductType { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_m-4V8KHiEeS69KkQis5bYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +104,8 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
 }
 
 /// <summary>
-/// Scope
-/// The ForeignExchangeTradeConfirmationRequestCancellationRequest message is sent from a market participant to a Central matching utility (CMU) to amend the ForeignExchangeTradeConfirmationRequest previously sent.
-/// Usage
-/// The request is sent by the market participants to the CMU after the confirmation is requested.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeConfirmationRequestCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeConfirmationRequestCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

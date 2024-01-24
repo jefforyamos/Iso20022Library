@@ -27,7 +27,35 @@ public partial record ActivityReportRequestV03 : IOuterRecord
     public const string XmlTag = "ActvtyReqRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the request message.
+    /// </summary>
+    [IsoId("_iE0UQdE8Ed-BzquC8wXy7w_1228841159")]
+    [Description(@"Identifies the request message.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the entities of the submitter for which the activities have to be reported.
+    /// </summary>
+    [IsoId("_iE0UQtE8Ed-BzquC8wXy7w_1228841591")]
+    [Description(@"Specifies the entities of the submitter for which the activities have to be reported.")]
+    [DataMember(Name="NttiesToBeRptd")]
+    [XmlElement(ElementName="NttiesToBeRptd")]
+    public SomeEntitiesToBeReportedRecord? EntitiesToBeReported { get; init; }
+    
+    /// <summary>
+    /// Specifies the period for which activities have to be reported.
+    /// </summary>
+    [IsoId("_iE0UQ9E8Ed-BzquC8wXy7w_1228841529")]
+    [Description(@"Specifies the period for which activities have to be reported.")]
+    [DataMember(Name="RptPrd")]
+    [XmlElement(ElementName="RptPrd")]
+    [Required]
+    public required SomeReportPeriodRecord ReportPeriod { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +68,8 @@ public partial record ActivityReportRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ActivityReportRequest message is sent by any party involved in a transaction to the matching application.
-/// This message is used to request a report on all transactions for which an activity has taken place within a given time span.
-/// Usage
-/// The ActivityReportRequest message can be sent
-/// - at a pre-determined time. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within the last 24 hours.
-/// - on demand. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within a time span specified by the requester.
-/// This is the outer document that contains <seealso cref="ActivityReportRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ActivityReportRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

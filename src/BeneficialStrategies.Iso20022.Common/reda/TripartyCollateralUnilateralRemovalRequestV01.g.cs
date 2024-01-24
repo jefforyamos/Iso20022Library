@@ -23,7 +23,74 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     public const string XmlTag = "TrptyCollUnltrlRmvlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
+    /// </summary>
+    [IsoId("_2uaNSSs7EeySlt9bF77XfA")]
+    [Description(@"Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.|")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Unambiguous identification of the removal request as known by the account owner (or the instructing party managing the account).
+    /// </summary>
+    [IsoId("_2uaNSys7EeySlt9bF77XfA")]
+    [Description(@"Unambiguous identification of the removal request as known by the account owner (or the instructing party managing the account).|")]
+    [DataMember(Name="RmvlReqId")]
+    [XmlElement(ElementName="RmvlReqId")]
+    [Required]
+    public required SomeRemovalRequestIdentificationRecord RemovalRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Instructing party sending the removal request.
+    /// </summary>
+    [IsoId("_2uaNTSs7EeySlt9bF77XfA")]
+    [Description(@"Instructing party sending the removal request.")]
+    [DataMember(Name="PtyA")]
+    [XmlElement(ElementName="PtyA")]
+    [Required]
+    public required SomePartyARecord PartyA { get; init; }
+    
+    /// <summary>
+    /// Party that instructs party A to send the message.
+    /// </summary>
+    [IsoId("_2uaNTys7EeySlt9bF77XfA")]
+    [Description(@"Party that instructs party A to send the message.")]
+    [DataMember(Name="ClntPtyA")]
+    [XmlElement(ElementName="ClntPtyA")]
+    public SomeClientPartyARecord? ClientPartyA { get; init; }
+    
+    /// <summary>
+    /// Specifies whether the client is the collateral taker or giver.
+    /// </summary>
+    [IsoId("_2uaNUSs7EeySlt9bF77XfA")]
+    [Description(@"Specifies whether the client is the collateral taker or giver.|")]
+    [DataMember(Name="CollSd")]
+    [XmlElement(ElementName="CollSd")]
+    [Required]
+    public required SomeCollateralSideRecord CollateralSide { get; init; }
+    
+    /// <summary>
+    /// Details of the request (the request details block is not repetitive to remove some complexity, only one removal request will be possible per message).
+    /// </summary>
+    [IsoId("_2uaNUys7EeySlt9bF77XfA")]
+    [Description(@"Details of the request (the request details block is not repetitive to remove some complexity, only one removal request will be possible per message).")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    [Required]
+    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2uaNVSs7EeySlt9bF77XfA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +103,8 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
 }
 
 /// <summary>
-/// Scope:
-/// A collateral giver/taker sends a TripartyCollateralFinancialInstrumentRemovalRequest to the Triparty Agent to remove a financial instrument from the collateral pool.
-/// The status of this request is provided with the reda.028 , the CollateralDataStatusAdvice.
-/// This is the outer document that contains <seealso cref="TripartyCollateralUnilateralRemovalRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralUnilateralRemovalRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -27,7 +27,36 @@ public partial record AcceptorDiagnosticResponseV01 : IOuterRecord
     public const string XmlTag = "AccptrDgnstcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Diagnostic response message management information.
+    /// </summary>
+    [IsoId("_QI8DtqMVEeCJ6YNENx4h-w_1563091658")]
+    [Description(@"Diagnostic response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the diagnostic response.
+    /// </summary>
+    [IsoId("_QI8Dt6MVEeCJ6YNENx4h-w_-853433637")]
+    [Description(@"Information related to the diagnostic response.")]
+    [DataMember(Name="DgnstcRspn")]
+    [XmlElement(ElementName="DgnstcRspn")]
+    [Required]
+    public required SomeDiagnosticResponseRecord DiagnosticResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_QI8DuKMVEeCJ6YNENx4h-w_37041844")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +69,8 @@ public partial record AcceptorDiagnosticResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorDiagnosticResponse message is sent by the acquirer to the card acceptor to confirm the availability of the acquirer. An agent never forwards the message.
-/// Usage
-/// The AcceptorDiagnosticResponse message is used to:
-/// - confirm the availability of the acquirer;
-/// - validate the security of the exchanges with the acquirer;
-/// - validate the version of the configuration parameters.
-/// This is the outer document that contains <seealso cref="AcceptorDiagnosticResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorDiagnosticResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

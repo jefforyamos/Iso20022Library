@@ -21,7 +21,35 @@ public partial record NetworkManagementInitiation : IOuterRecord
     public const string XmlTag = "NtwkMgmtInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management.
+    /// </summary>
+    [IsoId("_OAJuAHvDEeSKFIcWw3l4Yw")]
+    [Description(@"Information related to the protocol management.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the network management.
+    /// </summary>
+    [IsoId("_WcxVAHvDEeSKFIcWw3l4Yw")]
+    [Description(@"Information related to the network management.")]
+    [DataMember(Name="NtwkMgmtInitn")]
+    [XmlElement(ElementName="NtwkMgmtInitn")]
+    [Required]
+    public required SomeNetworkManagementInitiationRecord NetworkManagementInitiation { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_46J5wHvEEeSKFIcWw3l4Yw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record NetworkManagementInitiation : IOuterRecord
 }
 
 /// <summary>
-/// The NetworkManagementInitiation message covers the range of activities to control the operating condition of the network and may be initiated by any party to an acquirer, an issuer or an agent.
-/// This is the outer document that contains <seealso cref="NetworkManagementInitiation"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetworkManagementInitiation"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

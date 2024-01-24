@@ -27,7 +27,44 @@ public partial record IdentificationModificationAdviceV02 : IOuterRecord
     public const string XmlTag = "IdModAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the identification assignment.
+    /// </summary>
+    [IsoId("_sY77BFkyEeGeoaLUQk__nA_-300669747")]
+    [Description(@"Identifies the identification assignment.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Provides reference information on the original message.
+    /// </summary>
+    [IsoId("_sZFE8FkyEeGeoaLUQk__nA_-1297742100")]
+    [Description(@"Provides reference information on the original message.")]
+    [DataMember(Name="OrgnlTxRef")]
+    [XmlElement(ElementName="OrgnlTxRef")]
+    public SomeOriginalTransactionReferenceRecord? OriginalTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Information concerning the identification data that is advised to be modified.
+    /// </summary>
+    [IsoId("_sZFE8VkyEeGeoaLUQk__nA_2000152843")]
+    [Description(@"Information concerning the identification data that is advised to be modified.")]
+    [DataMember(Name="Mod")]
+    [XmlElement(ElementName="Mod")]
+    [Required]
+    public required SomeModificationRecord Modification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_sZO18FkyEeGeoaLUQk__nA_606246720")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +77,8 @@ public partial record IdentificationModificationAdviceV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The IdentificationModificationAdvice message is sent by an assigner to an assignee. The message is used to advice on the correct party and/or account identification information.
-/// Usage
-/// The IdentificationModificationAdvice message is sent after the receipt of one or several transaction messages that included no longer valid party and/or account identification information.
-/// The IdentificationModificationAdvice message is exchanged between financial institutions and between financial institutions and non financial institutions and can contain one or more modification advises.
-/// There is no time limit on the time between the sending of an IdentificationModificationAdvice message and the receipt of the transaction messages that the IdentificationModificationAdvice refers to.
-/// The IdentificationModificationAdvice includes the correct party and/or account identification information, the IdentificationModificationAdvice or the included information may be forwarded to the initiating party of the transaction messages.
-/// This is the outer document that contains <seealso cref="IdentificationModificationAdviceV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IdentificationModificationAdviceV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -29,7 +29,35 @@ public partial record ReceiptV05 : IOuterRecord
     public const string XmlTag = "Rct";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_jwlb8xbvEeiyVv5j1vf1VQ")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Details of the receipt.
+    /// </summary>
+    [IsoId("_jwlb9RbvEeiyVv5j1vf1VQ")]
+    [Description(@"Details of the receipt.")]
+    [DataMember(Name="RctDtls")]
+    [XmlElement(ElementName="RctDtls")]
+    [Required]
+    public required SomeReceiptDetailsRecord ReceiptDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jwlb9xbvEeiyVv5j1vf1VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +70,8 @@ public partial record ReceiptV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Receipt message is sent by the transaction administrator to a member of the system. It is sent to acknowledge the receipt of one or multiple messages sent previously.
-/// The Receipt message is an application receipt acknowledgement and conveys information about the processing of the original message(s).
-/// Usage
-/// The Receipt message is used when the exchange of messages takes place in an asynchronous manner.
-/// This may happen, for instance, when an action is requested from the transaction administrator (a deletion, modification or cancellation). The transaction administrator will first acknowledge the request (with a Receipt message) and then execute it.
-/// The message can contain information based on the following elements: reference of the message(s) it acknowledges, the status code (optional) and further explanation:
-/// - reference of the message it acknowledges
-/// - potentially, a status code and an explanation.
-/// This is the outer document that contains <seealso cref="ReceiptV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReceiptV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

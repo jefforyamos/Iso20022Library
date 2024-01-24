@@ -23,7 +23,64 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     public const string XmlTag = "MktClmCxlReqStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of the related market claim cancellation request document for which the status is provided.
+    /// </summary>
+    [IsoId("_r6OtoNx3EeqESbVR5AloZQ")]
+    [Description(@"Identification of the related market claim cancellation request document for which the status is provided.")]
+    [DataMember(Name="MktClmCxlReqId")]
+    [XmlElement(ElementName="MktClmCxlReqId")]
+    [Required]
+    public required SomeMarketClaimCancellationRequestIdentificationRecord MarketClaimCancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// References of the transaction for which the securities settlement condition modification is requested.
+    /// </summary>
+    [IsoId("_x1AqBNx3EeqESbVR5AloZQ")]
+    [Description(@"References of the transaction for which the securities settlement condition modification is requested.")]
+    [DataMember(Name="TxRef")]
+    [XmlElement(ElementName="TxRef")]
+    [Required]
+    public required SomeTransactionReferenceRecord TransactionReference { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_x1AqBdx3EeqESbVR5AloZQ")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Status information about the processing of the market claim cancellation request.
+    /// </summary>
+    [IsoId("_7H81ANx3EeqESbVR5AloZQ")]
+    [Description(@"Status information about the processing of the market claim cancellation request.")]
+    [DataMember(Name="MktClmCxlReqSts")]
+    [XmlElement(ElementName="MktClmCxlReqSts")]
+    [Required]
+    public required SomeMarketClaimCancellationRequestStatusRecord MarketClaimCancellationRequestStatus { get; init; }
+    
+    /// <summary>
+    /// Detailed information about the related corporate action option and related movements to which the market claim is linked.
+    /// </summary>
+    [IsoId("_x1AqBtx3EeqESbVR5AloZQ")]
+    [Description(@"Detailed information about the related corporate action option and related movements to which the market claim is linked.")]
+    [DataMember(Name="MktClmDtls")]
+    [XmlElement(ElementName="MktClmDtls")]
+    public SomeMarketClaimDetailsRecord? MarketClaimDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_S5Y80SgaEeuYwc3diVMizA")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +93,8 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
 }
 
 /// <summary>
-/// Scope and Usage
-/// The MarketClaimCancellationRequestStatusAdvice message is sent by an account servicer to an account holder to provide the status of a market claim transaction cancellation request.
-/// This message definition is intended for use with the Business Application Header (BAH).
-/// This is the outer document that contains <seealso cref="MarketClaimCancellationRequestStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarketClaimCancellationRequestStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

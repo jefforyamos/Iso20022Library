@@ -21,7 +21,46 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV01 
     public const string XmlTag = "FinInstrmRptgInvldRefDataRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Date period capturing when instruments in the report have been invalidated
+    /// Usage:
+    /// Within MiFIR, only the From Date To Date field will be used with the From Date corresponding to the date the first instrument was added to this report while the To Date is the date the last instrument was added to the file.
+    /// </summary>
+    [IsoId("_4LK8XURNEee7JdgA9zPESA")]
+    [Description(@"Date period capturing when instruments in the report have been invalidated||Usage:|Within MiFIR, only the From Date To Date field will be used with the From Date corresponding to the date the first instrument was added to this report while the To Date is the date the last instrument was added to the file.")]
+    [DataMember(Name="DtPrd")]
+    [XmlElement(ElementName="DtPrd")]
+    [Required]
+    public required SomeDatePeriodRecord DatePeriod { get; init; }
+    
+    /// <summary>
+    /// Number of invalid records in this message.
+    /// </summary>
+    [IsoId("_4LK8X0RNEee7JdgA9zPESA")]
+    [Description(@"Number of invalid records in this message.|")]
+    [DataMember(Name="NbOfRcrds")]
+    [XmlElement(ElementName="NbOfRcrds")]
+    public SomeNumberOfRecordsRecord? NumberOfRecords { get; init; }
+    
+    /// <summary>
+    /// Provides the details of the financial instruments.
+    /// </summary>
+    [IsoId("_4LK8YURNEee7JdgA9zPESA")]
+    [Description(@"Provides the details of the financial instruments.")]
+    [DataMember(Name="FinInstrms")]
+    [XmlElement(ElementName="FinInstrms")]
+    [Required]
+    public required SomeFinancialInstrumentsRecord FinancialInstruments { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_4LK8Y0RNEee7JdgA9zPESA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +73,8 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV01 
 }
 
 /// <summary>
-/// The FinancialInstrumentReportingInvalidReferenceDataReport message is sent by the trading venue to the national competent authority to report on all records that have become invalid based on updates that have been received or that have passed the termination date original set for the instrument.
-/// This is the outer document that contains <seealso cref="FinancialInstrumentReportingInvalidReferenceDataReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingInvalidReferenceDataReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

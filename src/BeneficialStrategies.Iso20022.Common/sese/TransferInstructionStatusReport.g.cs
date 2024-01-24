@@ -31,7 +31,36 @@ public partial record TransferInstructionStatusReport : IOuterRecord
     public const string XmlTag = "sese.011.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_K0uj3NE6Ed-BzquC8wXy7w_902110432")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    [Required]
+    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message sent in a proprietary way or the reference of a system.
+    /// </summary>
+    [IsoId("_K04U0NE6Ed-BzquC8wXy7w_900264708")]
+    [Description(@"Reference to a linked message sent in a proprietary way or the reference of a system.")]
+    [DataMember(Name="OthrRef")]
+    [XmlElement(ElementName="OthrRef")]
+    [Required]
+    public required SomeOtherReferenceRecord OtherReference { get; init; }
+    
+    /// <summary>
+    /// Status of the transfer instruction.
+    /// </summary>
+    [IsoId("_K04U0dE6Ed-BzquC8wXy7w_2104535600")]
+    [Description(@"Status of the transfer instruction.")]
+    [DataMember(Name="StsRpt")]
+    [XmlElement(ElementName="StsRpt")]
+    [Required]
+    public required SomeStatusReportRecord StatusReport { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +73,8 @@ public partial record TransferInstructionStatusReport : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The TransferInstructionStatusReport message is sent by an instructing party to the executing party. The instructing party may be an investor, a transfer agent, or an intermediary, etc. The executing party may be a transfer agent, or an intermediary, etc.
-/// This message gives the status of a transfer instruction, and can be used from the time the executing party receives the transfer instruction until its execution.
-/// Usage
-/// The TransferInstructionStatusReport message is sent by an executing party to the instructing party. The message can be used to report one of the following
-/// - the status of the transfer instruction (using a code)or
-/// - the repair status or
-/// - the unmatched status or
-/// - the rejection status or
-/// - the pending settlement status.
-/// Further information about repair, unmatched, rejected or pending settlement statuses must be specified using either codes or unstructured information.
-/// This is the outer document that contains <seealso cref="TransferInstructionStatusReport"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInstructionStatusReport"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

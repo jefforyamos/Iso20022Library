@@ -26,7 +26,145 @@ public partial record AccountOpeningInstructionV04 : IOuterRecord
     public const string XmlTag = "AcctOpngInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_A0sd0hQ6EeOKWo1NF21OVw")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies a related order.
+    /// </summary>
+    [IsoId("_A0sd1BQ6EeOKWo1NF21OVw")]
+    [Description(@"Identifies a related order.")]
+    [DataMember(Name="OrdrRef")]
+    [XmlElement(ElementName="OrdrRef")]
+    public SomeOrderReferenceRecord? OrderReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_A0sd1hQ6EeOKWo1NF21OVw")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Provides detailed information about the opening instruction.
+    /// </summary>
+    [IsoId("_A0sd2BQ6EeOKWo1NF21OVw")]
+    [Description(@"Provides detailed information about the opening instruction.")]
+    [DataMember(Name="InstrDtls")]
+    [XmlElement(ElementName="InstrDtls")]
+    [Required]
+    public required SomeInstructionDetailsRecord InstructionDetails { get; init; }
+    
+    /// <summary>
+    /// Detailed information about the investment account to be opened.
+    /// </summary>
+    [IsoId("_A0sd2hQ6EeOKWo1NF21OVw")]
+    [Description(@"Detailed information about the investment account to be opened.")]
+    [DataMember(Name="InvstmtAcct")]
+    [XmlElement(ElementName="InvstmtAcct")]
+    [Required]
+    public required SomeInvestmentAccountRecord InvestmentAccount { get; init; }
+    
+    /// <summary>
+    /// Information related to parties who are related to an investment account, for example, primary account owner.
+    /// </summary>
+    [IsoId("_A0sd3BQ6EeOKWo1NF21OVw")]
+    [Description(@"Information related to parties who are related to an investment account, for example, primary account owner.")]
+    [DataMember(Name="AcctPties")]
+    [XmlElement(ElementName="AcctPties")]
+    [Required]
+    public required SomeAccountPartiesRecord AccountParties { get; init; }
+    
+    /// <summary>
+    /// Information related to an intermediary.
+    /// </summary>
+    [IsoId("_A0sd3hQ6EeOKWo1NF21OVw")]
+    [Description(@"Information related to an intermediary.")]
+    [DataMember(Name="Intrmies")]
+    [XmlElement(ElementName="Intrmies")]
+    public required IReadonlyCollection<SomeIntermediariesRecord> Intermediaries { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Placement agent for the hedge fund industry.
+    /// </summary>
+    [IsoId("_A0sd4BQ6EeOKWo1NF21OVw")]
+    [Description(@"Placement agent for the hedge fund industry.")]
+    [DataMember(Name="Plcmnt")]
+    [XmlElement(ElementName="Plcmnt")]
+    public SomePlacementRecord? Placement { get; init; }
+    
+    /// <summary>
+    /// Eligibility conditions applicable when there is an allocation of new issues for hedge fund account opening.
+    /// </summary>
+    [IsoId("_A0sd4hQ6EeOKWo1NF21OVw")]
+    [Description(@"Eligibility conditions applicable when there is an allocation of new issues for hedge fund account opening.")]
+    [DataMember(Name="NewIsseAllcn")]
+    [XmlElement(ElementName="NewIsseAllcn")]
+    public SomeNewIssueAllocationRecord? NewIssueAllocation { get; init; }
+    
+    /// <summary>
+    /// Plan that allows individuals to set aside a fixed amount of money at specified intervals, usually for a special purpose, for example, retirement.
+    /// </summary>
+    [IsoId("_A0sd5BQ6EeOKWo1NF21OVw")]
+    [Description(@"Plan that allows individuals to set aside a fixed amount of money at specified intervals, usually for a special purpose, for example, retirement.")]
+    [DataMember(Name="SvgsInvstmtPlan")]
+    [XmlElement(ElementName="SvgsInvstmtPlan")]
+    public required IReadonlyCollection<SomeSavingsInvestmentPlanRecord> SavingsInvestmentPlan { get; init; } // Min=0, Max=50
+    
+    /// <summary>
+    /// Plan through which an investment fund investor's holdings are depleted through regular withdrawals at specified intervals.
+    /// </summary>
+    [IsoId("_A0sd5hQ6EeOKWo1NF21OVw")]
+    [Description(@"Plan through which an investment fund investor's holdings are depleted through regular withdrawals at specified intervals.")]
+    [DataMember(Name="WdrwlInvstmtPlan")]
+    [XmlElement(ElementName="WdrwlInvstmtPlan")]
+    public required IReadonlyCollection<SomeWithdrawalInvestmentPlanRecord> WithdrawalInvestmentPlan { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Cash settlement standing instruction associated to the investment fund transaction.
+    /// </summary>
+    [IsoId("_A0sd6BQ6EeOKWo1NF21OVw")]
+    [Description(@"Cash settlement standing instruction associated to the investment fund transaction.")]
+    [DataMember(Name="CshSttlm")]
+    [XmlElement(ElementName="CshSttlm")]
+    public required IReadonlyCollection<SomeCashSettlementRecord> CashSettlement { get; init; } // Min=0, Max=8
+    
+    /// <summary>
+    /// Identifies documents to be provided for the account opening.
+    /// </summary>
+    [IsoId("_A0sd6hQ6EeOKWo1NF21OVw")]
+    [Description(@"Identifies documents to be provided for the account opening.")]
+    [DataMember(Name="SvcLvlAgrmt")]
+    [XmlElement(ElementName="SvcLvlAgrmt")]
+    public required IReadonlyCollection<SomeServiceLevelAgreementRecord> ServiceLevelAgreement { get; init; } // Min=0, Max=30
+    
+    /// <summary>
+    /// Identifies the market practice to which the message conforms.
+    /// </summary>
+    [IsoId("_uLyU8RUVEeOIaq8KyCdIDQ")]
+    [Description(@"Identifies the market practice to which the message conforms.")]
+    [DataMember(Name="MktPrctcVrsn")]
+    [XmlElement(ElementName="MktPrctcVrsn")]
+    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_A0sd7BQ6EeOKWo1NF21OVw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +177,8 @@ public partial record AccountOpeningInstructionV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner, for example, an investor or its designated agent sends the AccountOpeningInstruction message to the account servicer, for example, a registrar, transfer agent or custodian to instruct the opening of an account or the opening of an account and establishing an investment plan.
-/// Usage
-/// The AccountOpeningInstruction is used to open an account directly or indirectly with the account servicer or an intermediary.
-/// In some markets, for example, Australia, and for some products in the United Kingdom, a first order (also known as a deposit instruction) is placed at the same time as the account opening. To cater for this scenario, an order message can be linked (via references in the message) to the AccountOpeningInstruction message when needed.
-/// Execution of the AccountOpeningInstruction is confirmed via an AccountDetailsConfirmation message.
-/// This is the outer document that contains <seealso cref="AccountOpeningInstructionV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountOpeningInstructionV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

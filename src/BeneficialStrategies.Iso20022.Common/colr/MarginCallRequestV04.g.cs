@@ -30,7 +30,117 @@ public partial record MarginCallRequestV04 : IOuterRecord
     public const string XmlTag = "MrgnCallReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_CRyfrYFsEeWtPe6Crjmeug")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_CRyfr4FsEeWtPe6Crjmeug")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Agreement details for the over the counter market.
+    /// </summary>
+    [IsoId("_CRyfsYFsEeWtPe6Crjmeug")]
+    [Description(@"Agreement details for the over the counter market.")]
+    [DataMember(Name="Agrmt")]
+    [XmlElement(ElementName="Agrmt")]
+    public SomeAgreementRecord? Agreement { get; init; }
+    
+    /// <summary>
+    /// Summation of the call amounts per margin type. It is provided for the purposes of carrying forward for future messages that are used to compare the margin call results to determine whether a call is agreed or full/partially disputed.
+    /// </summary>
+    [IsoId("_CRyfu4FsEeWtPe6Crjmeug")]
+    [Description(@"Summation of the call amounts per margin type. It is provided for the purposes of carrying forward for future messages that are used to compare the margin call results to determine whether a call is agreed or full/partially disputed.")]
+    [DataMember(Name="MrgnCallRslt")]
+    [XmlElement(ElementName="MrgnCallRslt")]
+    [Required]
+    public required SomeMarginCallResultRecord MarginCallResult { get; init; }
+    
+    /// <summary>
+    /// Provides details about the margin calculation that would be due to party A.
+    /// </summary>
+    [IsoId("_CRyfs4FsEeWtPe6Crjmeug")]
+    [Description(@"Provides details about the margin calculation that would be due to party A.")]
+    [DataMember(Name="MrgnDtlsDueToA")]
+    [XmlElement(ElementName="MrgnDtlsDueToA")]
+    public SomeMarginDetailsDueToARecord? MarginDetailsDueToA { get; init; }
+    
+    /// <summary>
+    /// Provides details about the margin calculation that would be due to party B.
+    /// </summary>
+    [IsoId("_CRyftYFsEeWtPe6Crjmeug")]
+    [Description(@"Provides details about the margin calculation that would be due to party B.")]
+    [DataMember(Name="MrgnDtlsDueToB")]
+    [XmlElement(ElementName="MrgnDtlsDueToB")]
+    public SomeMarginDetailsDueToBRecord? MarginDetailsDueToB { get; init; }
+    
+    /// <summary>
+    /// Amount of expected margin that will be either delivered to party A by party B or recalled to party A from party B.
+    /// </summary>
+    [IsoId("_CRyft4FsEeWtPe6Crjmeug")]
+    [Description(@"Amount of expected margin that will be either delivered to party A by party B or recalled to party A from party B.")]
+    [DataMember(Name="RqrmntDtlsDueToA")]
+    [XmlElement(ElementName="RqrmntDtlsDueToA")]
+    public SomeRequirementDetailsDueToARecord? RequirementDetailsDueToA { get; init; }
+    
+    /// <summary>
+    /// Amount of expected margin that will be either delivered to party B by party A or recalled to party B from party A.
+    /// </summary>
+    [IsoId("_CRyfuYFsEeWtPe6Crjmeug")]
+    [Description(@"Amount of expected margin that will be either delivered to party B by party A or recalled to party B from party A.")]
+    [DataMember(Name="RqrmntDtlsDueToB")]
+    [XmlElement(ElementName="RqrmntDtlsDueToB")]
+    public SomeRequirementDetailsDueToBRecord? RequirementDetailsDueToB { get; init; }
+    
+    /// <summary>
+    /// Provides details about the type of collateral that will be either delivered to party A by party B or recalled to party A from party B.
+    /// </summary>
+    [IsoId("_CRyfv4FsEeWtPe6Crjmeug")]
+    [Description(@"Provides details about the type of collateral that will be either delivered to party A by party B or recalled to party A from party B.")]
+    [DataMember(Name="XpctdCollDueToA")]
+    [XmlElement(ElementName="XpctdCollDueToA")]
+    public SomeExpectedCollateralDueToARecord? ExpectedCollateralDueToA { get; init; }
+    
+    /// <summary>
+    /// Provides details about the type of collateral that will be either delivered to party B by party A or recalled to party B from party A.
+    /// </summary>
+    [IsoId("_CRyfvYFsEeWtPe6Crjmeug")]
+    [Description(@"Provides details about the type of collateral that will be either delivered to party B by party A or recalled to party B from party A.")]
+    [DataMember(Name="XpctdCollDueToB")]
+    [XmlElement(ElementName="XpctdCollDueToB")]
+    public SomeExpectedCollateralDueToBRecord? ExpectedCollateralDueToB { get; init; }
+    
+    /// <summary>
+    /// Allows the reporting of the margin requirements for multiple accounts and report a single margin call amount made up of the aggregate of all the individual requirement amounts.
+    /// </summary>
+    [IsoId("_JCbdwILVEeWrrO9HojbPQA")]
+    [Description(@"Allows the reporting of the margin requirements for multiple accounts and report a single margin call amount made up of the aggregate of all the individual requirement amounts.")]
+    [DataMember(Name="MrgnCallDtls")]
+    [XmlElement(ElementName="MrgnCallDtls")]
+    public SomeMarginCallDetailsRecord? MarginCallDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_CRyfwYFsEeWtPe6Crjmeug")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +153,8 @@ public partial record MarginCallRequestV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MarginCallRequest message is sent by the collateral taker or its collateral manager to the collateral giver or its collateral manager
-/// This message is used to request new collateral at the initiation of an exposure or request additional collateral for an existing exposure. It can also be used to recall collateral upon the collateral giver or its collateral manager's request.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// When sent by the collateral taker the MarginCallRequest message is used to:
-/// - request new collateral at the initiation of an exposure
-/// - request additional collateral
-/// When sent by the collateral giver the MarginCallRequest message is used to:
-/// - request the return of collateral.
-/// This is the outer document that contains <seealso cref="MarginCallRequestV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarginCallRequestV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

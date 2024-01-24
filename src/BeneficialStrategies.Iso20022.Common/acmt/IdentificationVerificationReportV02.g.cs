@@ -27,7 +27,44 @@ public partial record IdentificationVerificationReportV02 : IOuterRecord
     public const string XmlTag = "IdVrfctnRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the identification assignment.
+    /// </summary>
+    [IsoId("_sZrh41kyEeGeoaLUQk__nA_160748117")]
+    [Description(@"Identifies the identification assignment.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Provides for the reference to the original identification assignment.
+    /// </summary>
+    [IsoId("_sZ0r0FkyEeGeoaLUQk__nA_-836324236")]
+    [Description(@"Provides for the reference to the original identification assignment.")]
+    [DataMember(Name="OrgnlAssgnmt")]
+    [XmlElement(ElementName="OrgnlAssgnmt")]
+    public SomeOriginalAssignmentRecord? OriginalAssignment { get; init; }
+    
+    /// <summary>
+    /// Information concerning the verification of the identification data for which verification was requested.
+    /// </summary>
+    [IsoId("_sZ0r0VkyEeGeoaLUQk__nA_-1833396589")]
+    [Description(@"Information concerning the verification of the identification data for which verification was requested.")]
+    [DataMember(Name="Rpt")]
+    [XmlElement(ElementName="Rpt")]
+    [Required]
+    public required SomeReportRecord Report { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_sZ-c0FkyEeGeoaLUQk__nA_-2142223267")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +77,8 @@ public partial record IdentificationVerificationReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The IdentificationVerificationReport message is sent by an assigner to an assignee. It is used to confirm whether or not the presented party and/or account identification information is correct.
-/// Usage
-/// The IdentificationVerificationReport message is sent as a response to an IdentificationVerificationRequest message.
-/// The IdentificationVerificationReport message can contain one or more reports.
-/// The IdentificationVerificationReport message may include a reason if the presented party and/or account identification information is confirmed to be incorrect.
-/// The IdentificationVerificationReport message may include the correct party and/or account identification information.
-/// This is the outer document that contains <seealso cref="IdentificationVerificationReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IdentificationVerificationReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

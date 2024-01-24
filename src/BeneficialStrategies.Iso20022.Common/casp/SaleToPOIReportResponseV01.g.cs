@@ -21,7 +21,35 @@ public partial record SaleToPOIReportResponseV01 : IOuterRecord
     public const string XmlTag = "SaleToPOIRptRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_TwGQs4YCEemxIqbaFEE8-w")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a report request.
+    /// </summary>
+    [IsoId("_TwGQtYYCEemxIqbaFEE8-w")]
+    [Description(@"Information related to the response of a report request.")]
+    [DataMember(Name="RptRspn")]
+    [XmlElement(ElementName="RptRspn")]
+    [Required]
+    public required SomeReportResponseRecord ReportResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_TwGQt4YCEemxIqbaFEE8-w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIReportResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// This message is a Response for several kind of Report services that the Sale System (Merchant I.S.) can Response to the POI system (Card Acceptor system).
-/// This is the outer document that contains <seealso cref="SaleToPOIReportResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIReportResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

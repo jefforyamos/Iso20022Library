@@ -21,7 +21,25 @@ public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecor
     public const string XmlTag = "CCPPrtflStrssTstgDefRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Contains high level data on a stress scenario being applied to portfolios in order to calculate stress losses.
+    /// </summary>
+    [IsoId("_kjFsmeUUEem3X-64-NKdqg")]
+    [Description(@"Contains high level data on a stress scenario being applied to portfolios in order to calculate stress losses.")]
+    [DataMember(Name="ScnroDef")]
+    [XmlElement(ElementName="ScnroDef")]
+    [Required]
+    public required SomeScenarioDefinitionRecord ScenarioDefinition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_kjFsm-UUEem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecor
 }
 
 /// <summary>
-/// The CCPPortfolioStressTestingDefinitionReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about how the central counterparty defines stress scenarios used to stress clearing member portfolios.
-/// This is the outer document that contains <seealso cref="CCPPortfolioStressTestingDefinitionReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPPortfolioStressTestingDefinitionReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

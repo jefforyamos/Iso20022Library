@@ -21,7 +21,35 @@ public partial record ReconciliationResponseV03 : IOuterRecord
     public const string XmlTag = "RcncltnRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_CFmNI4v_EeuC5632vxUfGg")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reconciliation response.
+    /// </summary>
+    [IsoId("_CFmNJYv_EeuC5632vxUfGg")]
+    [Description(@"Information related to the reconciliation response.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC
+    /// </summary>
+    [IsoId("_CFmNJ4v_EeuC5632vxUfGg")]
+    [Description(@"Trailer of the message containing a MAC")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ReconciliationResponseV03 : IOuterRecord
 }
 
 /// <summary>
-/// The ReconciliationResponse message is sent by any party to any party (acquirer, agent or issuer) in response to a ReconciliationInitiation message.
-/// This is the outer document that contains <seealso cref="ReconciliationResponseV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReconciliationResponseV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

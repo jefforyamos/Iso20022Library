@@ -21,7 +21,35 @@ public partial record RequestToPayCreditorEnrolmentStatusReportV01 : IOuterRecor
     public const string XmlTag = "ReqToPayCdtrEnrlmntStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the status report of the creditor enrolment.
+    /// </summary>
+    [IsoId("_rNNBs-HzEeqbls7Gk4-ckA")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the status report of the creditor enrolment.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Status of the creditor enrolment instruction (that is request, amendment or cancellation).
+    /// </summary>
+    [IsoId("_rNNBteHzEeqbls7Gk4-ckA")]
+    [Description(@"Status of the creditor enrolment instruction (that is request, amendment or cancellation).")]
+    [DataMember(Name="OrgnlEnrlmntAndSts")]
+    [XmlElement(ElementName="OrgnlEnrlmntAndSts")]
+    [Required]
+    public required SomeOriginalEnrolmentAndStatusRecord OriginalEnrolmentAndStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rNNBt-HzEeqbls7Gk4-ckA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record RequestToPayCreditorEnrolmentStatusReportV01 : IOuterRecor
 }
 
 /// <summary>
-/// The RequestToPayCreditorEnrolmentStatusReport message is sent from the RTP (Request To Pay) directory provider to the creditor RTP provider and optionally from the creditor RTP provider to the creditor or any of the forwarding agent to provide the status of the initial creation, amendment or cancellation request.
-/// This is the outer document that contains <seealso cref="RequestToPayCreditorEnrolmentStatusReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayCreditorEnrolmentStatusReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

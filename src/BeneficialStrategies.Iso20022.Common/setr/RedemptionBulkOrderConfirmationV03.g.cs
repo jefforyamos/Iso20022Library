@@ -28,7 +28,80 @@ public partial record RedemptionBulkOrderConfirmationV03 : IOuterRecord
     public const string XmlTag = "RedBlkOrdrConfV03";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_pkm8EdE7Ed-BzquC8wXy7w_1891903137")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_pkm8EtE7Ed-BzquC8wXy7w_-1579721033")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_pkm8E9E7Ed-BzquC8wXy7w_-1564944521")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_pkm8FNE7Ed-BzquC8wXy7w_-1577870531")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// General information related to the execution of investment fund orders.
+    /// </summary>
+    [IsoId("_pkm8FdE7Ed-BzquC8wXy7w_-260009400")]
+    [Description(@"General information related to the execution of investment fund orders.")]
+    [DataMember(Name="BlkExctnDtls")]
+    [XmlElement(ElementName="BlkExctnDtls")]
+    [Required]
+    public required SomeBulkExecutionDetailsRecord BulkExecutionDetails { get; init; }
+    
+    /// <summary>
+    /// Information about parties related to the transaction.
+    /// </summary>
+    [IsoId("_pkm8FtE7Ed-BzquC8wXy7w_-1123500614")]
+    [Description(@"Information about parties related to the transaction.")]
+    [DataMember(Name="RltdPtyDtls")]
+    [XmlElement(ElementName="RltdPtyDtls")]
+    public required IReadonlyCollection<SomeRelatedPartyDetailsRecord> RelatedPartyDetails { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_pkwGANE7Ed-BzquC8wXy7w_-1119805484")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_pkwGAdE7Ed-BzquC8wXy7w_-1117957647")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +114,8 @@ public partial record RedemptionBulkOrderConfirmationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a transfer agent, sends the RedemptionBulkOrderConfirmation message to the instructing party, for example, an investment manager or its authorised representative to confirm the details of execution for a previously received RedemptionBulkOrder message.
-/// Usage
-/// The RedemptionBulkOrderConfirmation message is used to confirm the execution of all individual orders included in a previously sent RedemptionBulkOrder message.
-/// There is usually one bulk confirmation message for one bulk order message.
-/// Each individual order confirmation specified is identified in DealReference. The reference of the original individual order is specified in OrderReference. The message identification of the RedemptionBulkOrder message in which the individual order was conveyed may also be quoted in RelatedReference, but this is not recommended.
-/// A RedemptionBulkOrder must in all cases be responded to by a RedemptionBulkOrderConfirmation and in no circumstances by a RedemptionOrderConfirmation.
-/// If the executing party needs to confirm a RedemptionOrder instruction, then the RedemptionOrderConfirmation must be used.
-/// This is the outer document that contains <seealso cref="RedemptionBulkOrderConfirmationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionBulkOrderConfirmationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

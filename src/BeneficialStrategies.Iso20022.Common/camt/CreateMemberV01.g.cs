@@ -25,7 +25,45 @@ public partial record CreateMemberV01 : IOuterRecord
     public const string XmlTag = "CretMmb";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_P8toickHEem3UrxZgQhVAw")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a system member, as assigned by the system, or the system administrator.
+    /// </summary>
+    [IsoId("_P8toi8kHEem3UrxZgQhVAw")]
+    [Description(@"Unique and unambiguous identifier of a system member, as assigned by the system, or the system administrator.")]
+    [DataMember(Name="MmbId")]
+    [XmlElement(ElementName="MmbId")]
+    [Required]
+    public required SomeMemberIdentificationRecord MemberIdentification { get; init; }
+    
+    /// <summary>
+    /// New member values.
+    /// </summary>
+    [IsoId("_P8tojckHEem3UrxZgQhVAw")]
+    [Description(@"New member values.")]
+    [DataMember(Name="ValSet")]
+    [XmlElement(ElementName="ValSet")]
+    [Required]
+    public required SomeValueSetRecord ValueSet { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_P8toj8kHEem3UrxZgQhVAw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +76,8 @@ public partial record CreateMemberV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ModifyMember message is sent by a member to the transaction administrator.
-/// It is used to create the profile of a member that the transaction administrator maintains.
-/// Usage
-/// Based on the criteria defined in the CreateLimit message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.
-/// This is the outer document that contains <seealso cref="CreateMemberV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateMemberV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

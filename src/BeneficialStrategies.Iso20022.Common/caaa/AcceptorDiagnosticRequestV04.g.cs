@@ -21,7 +21,36 @@ public partial record AcceptorDiagnosticRequestV04 : IOuterRecord
     public const string XmlTag = "AccptrDgnstcReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Diagnostic request message management information.
+    /// </summary>
+    [IsoId("_DZFgxWpAEeS4VPLpYyQgxQ")]
+    [Description(@"Diagnostic request message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the diagnostic request.
+    /// </summary>
+    [IsoId("_DZFgx2pAEeS4VPLpYyQgxQ")]
+    [Description(@"Information related to the diagnostic request.")]
+    [DataMember(Name="DgnstcReq")]
+    [XmlElement(ElementName="DgnstcReq")]
+    [Required]
+    public required SomeDiagnosticRequestRecord DiagnosticRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_DZFgyWpAEeS4VPLpYyQgxQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +63,8 @@ public partial record AcceptorDiagnosticRequestV04 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorDiagnosticRequest message is sent by an acceptor (or its agent) to the acquirer (or its agent), to check the end-to-end communication, to test the availability of this acquirer, or to validate the security environment.
-/// This is the outer document that contains <seealso cref="AcceptorDiagnosticRequestV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorDiagnosticRequestV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

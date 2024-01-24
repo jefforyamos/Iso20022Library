@@ -28,7 +28,118 @@ public partial record CorporateActionMovementReversalAdviceV03 : IOuterRecord
     public const string XmlTag = "CorpActnMvmntRvslAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of a previously sent movement confirmation document.
+    /// </summary>
+    [IsoId("_4OGxyfmMEeC_eLZALo-S0A")]
+    [Description(@"Identification of a previously sent movement confirmation document.")]
+    [DataMember(Name="MvmntConfId")]
+    [XmlElement(ElementName="MvmntConfId")]
+    [Required]
+    public required SomeMovementConfirmationIdentificationRecord MovementConfirmationIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of other documents as well as the document number.
+    /// </summary>
+    [IsoId("_4OGxzfmMEeC_eLZALo-S0A")]
+    [Description(@"Identification of other documents as well as the document number.")]
+    [DataMember(Name="OthrDocId")]
+    [XmlElement(ElementName="OthrDocId")]
+    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.
+    /// </summary>
+    [IsoId("_4OGx0fmMEeC_eLZALo-S0A")]
+    [Description(@"Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
+    [DataMember(Name="EvtsLkg")]
+    [XmlElement(ElementName="EvtsLkg")]
+    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    
+    /// <summary>
+    /// Reason for the reversal.
+    /// </summary>
+    [IsoId("_4OGx1fmMEeC_eLZALo-S0A")]
+    [Description(@"Reason for the reversal.")]
+    [DataMember(Name="RvslRsn")]
+    [XmlElement(ElementName="RvslRsn")]
+    public SomeReversalReasonRecord? ReversalReason { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_4OGx2fmMEeC_eLZALo-S0A")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account, owner and account balance.
+    /// </summary>
+    [IsoId("_4OGx3fmMEeC_eLZALo-S0A")]
+    [Description(@"General information about the safekeeping account, owner and account balance.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action option.
+    /// </summary>
+    [IsoId("_4OGx4fmMEeC_eLZALo-S0A")]
+    [Description(@"Information about the corporate action option.")]
+    [DataMember(Name="CorpActnConfDtls")]
+    [XmlElement(ElementName="CorpActnConfDtls")]
+    [Required]
+    public required SomeCorporateActionConfirmationDetailsRecord CorporateActionConfirmationDetails { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_4OGx5fmMEeC_eLZALo-S0A")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
+    /// </summary>
+    [IsoId("_4OGx6fmMEeC_eLZALo-S0A")]
+    [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
+    [DataMember(Name="IssrAgt")]
+    [XmlElement(ElementName="IssrAgt")]
+    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    
+    /// <summary>
+    /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
+    /// </summary>
+    [IsoId("_4OGx7fmMEeC_eLZALo-S0A")]
+    [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
+    [DataMember(Name="PngAgt")]
+    [XmlElement(ElementName="PngAgt")]
+    public SomePayingAgentRecord? PayingAgent { get; init; }
+    
+    /// <summary>
+    /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
+    /// </summary>
+    [IsoId("_4OGx8fmMEeC_eLZALo-S0A")]
+    [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
+    [DataMember(Name="SubPngAgt")]
+    [XmlElement(ElementName="SubPngAgt")]
+    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_4OGx9fmMEeC_eLZALo-S0A")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +152,8 @@ public partial record CorporateActionMovementReversalAdviceV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends the CorporateActionMovementReversalAdvice message to an account owner or its designated agent to reverse previously confirmed posting of securities or cash.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate),
-/// using the relevant elements in the business application header (BAH).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="CorporateActionMovementReversalAdviceV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionMovementReversalAdviceV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

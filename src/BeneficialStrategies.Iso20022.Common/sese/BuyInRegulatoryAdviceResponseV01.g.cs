@@ -31,7 +31,62 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
     public const string XmlTag = "BuyInRgltryAdvcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of the BuyInRegulatoryAdvice message for which the response is provided.
+    /// </summary>
+    [IsoId("_DFqK-ZwYEeqtp-LOti013g")]
+    [Description(@"Identification of the BuyInRegulatoryAdvice message for which the response is provided.")]
+    [DataMember(Name="AdvcRef")]
+    [XmlElement(ElementName="AdvcRef")]
+    [Required]
+    public required SomeAdviceReferenceRecord AdviceReference { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_DFqK-5wYEeqtp-LOti013g")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account used in the original failing transaction.
+    /// </summary>
+    [IsoId("_DFqK_ZwYEeqtp-LOti013g")]
+    [Description(@"Account used in the original failing transaction.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Details of the buy-in.
+    /// </summary>
+    [IsoId("_4Pp1QZwYEeqtp-LOti013g")]
+    [Description(@"Details of the buy-in.")]
+    [DataMember(Name="BuyInAttrbts")]
+    [XmlElement(ElementName="BuyInAttrbts")]
+    public SomeBuyInAttributesRecord? BuyInAttributes { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the advice.
+    /// </summary>
+    [IsoId("_DFqLAZwYEeqtp-LOti013g")]
+    [Description(@"Provides details on the processing status of the advice.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    [Required]
+    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_DFqLA5wYEeqtp-LOti013g")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +99,8 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// |An account servicer sends a BuyInRegulatoryAdviceResponse to an account owner to advise the status of a buy-in report previously instructed by the account owner.
-/// |The account servicer/owner relationship may be:|
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants|
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or|
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.||
-/// Usage
-/// |A BuyInRegulatpryReport may contain reports on multiple transactions. However, one BuyInRegulatoryReportStatusAdvice must be sent per transaction reported  unless the BuyInRegulatoryReport is rejected as a whole.||
-/// The message may also be used to:|- re-send a message previously sent,
-/// |- provide a third party with a copy of a message for information,|
-/// - re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="BuyInRegulatoryAdviceResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BuyInRegulatoryAdviceResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

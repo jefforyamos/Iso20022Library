@@ -21,7 +21,43 @@ public partial record ATMDepositRequestV01 : IOuterRecord
     public const string XmlTag = "ATMDpstReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_g4CPwK39EeWL1uap3dNhCQ")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_o-6QQK39EeWL1uap3dNhCQ")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMDpstReq")]
+    [XmlElement(ElementName="PrtctdATMDpstReq")]
+    public SomeProtectedATMDepositRequestRecord? ProtectedATMDepositRequest { get; init; }
+    
+    /// <summary>
+    /// Information related to the request of a deposit transaction from an ATM.
+    /// </summary>
+    [IsoId("_sJ93AK39EeWL1uap3dNhCQ")]
+    [Description(@"Information related to the request of a deposit transaction from an ATM.")]
+    [DataMember(Name="ATMDpstReq")]
+    [XmlElement(ElementName="ATMDpstReq")]
+    public SomeATMDepositRequestRecord? ATMDepositRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_zLRWkK39EeWL1uap3dNhCQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMDepositRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMDepositRequest message is sent by an ATM to an acquirer or its agent to request the approval of a deposit transaction at an ATM, before or after deposit media inside the ATM.
-/// This is the outer document that contains <seealso cref="ATMDepositRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDepositRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

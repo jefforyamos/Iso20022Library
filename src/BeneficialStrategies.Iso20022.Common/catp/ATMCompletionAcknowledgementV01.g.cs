@@ -21,7 +21,43 @@ public partial record ATMCompletionAcknowledgementV01 : IOuterRecord
     public const string XmlTag = "ATMCmpltnAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_6tbsEIqoEeS4a4abTJTSSw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("__ptY0IqoEeS4a4abTJTSSw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMCmpltnAck")]
+    [XmlElement(ElementName="PrtctdATMCmpltnAck")]
+    public SomeProtectedATMCompletionAcknowledgementRecord? ProtectedATMCompletionAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Information related to the acknowledgement of an ATM completion on the ATM. manager.
+    /// </summary>
+    [IsoId("_OHhtQIqpEeS4a4abTJTSSw")]
+    [Description(@"Information related to the acknowledgement of an ATM completion on the ATM. manager.")]
+    [DataMember(Name="ATMCmpltnAck")]
+    [XmlElement(ElementName="ATMCmpltnAck")]
+    public SomeATMCompletionAcknowledgementRecord? ATMCompletionAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_SU8v8IqpEeS4a4abTJTSSw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMCompletionAcknowledgementV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMCompletionAcknowledgement message is sent by an acquirer or its agent to an ATM to acknowledge the receipt of an ATMCompletionAdvice message.
-/// This is the outer document that contains <seealso cref="ATMCompletionAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMCompletionAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

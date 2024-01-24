@@ -29,7 +29,75 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     public const string XmlTag = "StgSttlmInstrStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Date on which the SSI is effective.
+    /// </summary>
+    [IsoId("_QP7bYPXrEeKpFY1yaoww4A")]
+    [Description(@"Date on which the SSI is effective.")]
+    [DataMember(Name="FctvDtDtls")]
+    [XmlElement(ElementName="FctvDtDtls")]
+    public SomeEffectiveDateDetailsRecord? EffectiveDateDetails { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous master identification known to the sender (or its authorised agent) and receiver (or its authorised agent), below which the SSI will be lodged. This may be an account number or reference to a fund.
+    /// If no account or reference is available then “NONREF” must be specified.
+    /// </summary>
+    [IsoId("_QP7bYfXrEeKpFY1yaoww4A")]
+    [Description(@"Unique and unambiguous master identification known to the sender (or its authorised agent) and receiver (or its authorised agent), below which the SSI will be lodged. This may be an account number or reference to a fund.|If no account or reference is available then “NONREF” must be specified.")]
+    [DataMember(Name="AcctId")]
+    [XmlElement(ElementName="AcctId")]
+    [Required]
+    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the market for the standing settlement instruction.
+    /// </summary>
+    [IsoId("_Va68wVK1EeOsJr32EK1NAQ")]
+    [Description(@"Identifies the market for the standing settlement instruction.")]
+    [DataMember(Name="MktId")]
+    [XmlElement(ElementName="MktId")]
+    [Required]
+    public required SomeMarketIdentificationRecord MarketIdentification { get; init; }
+    
+    /// <summary>
+    /// Settlement information that helps to identify the standing settlement instruction, cancellation or deletion for which the status is sent.
+    /// </summary>
+    [IsoId("_jd-AwVK1EeOsJr32EK1NAQ")]
+    [Description(@"Settlement information that helps to identify the standing settlement instruction, cancellation or deletion for which the status is sent.")]
+    [DataMember(Name="SttlmDtls")]
+    [XmlElement(ElementName="SttlmDtls")]
+    [Required]
+    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_z8NGwPm-EeKDvJTxb9tKVw")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdMsgRef")]
+    [XmlElement(ElementName="RltdMsgRef")]
+    [Required]
+    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    
+    /// <summary>
+    /// Status of the standing settlement instruction, deletion or cancellation.
+    /// </summary>
+    [IsoId("__JwQcFhJEeOMYfRGLS0NbA")]
+    [Description(@"Status of the standing settlement instruction, deletion or cancellation.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    [Required]
+    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_1jvlQfXtEeKpFY1yaoww4A")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +110,8 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
 }
 
 /// <summary>
-/// Scope
-/// The receiver of a StandingSettlementInstruction message sends the StandingSettlementInstructionStatusAdvice message to the instructing party (sender of the StandingSettlementInstruction message) to provide the status of a previously received StandingSettlementInstruction, StandingSettlementInstructionCancellation or StandingSettlementInstructionDeletion message.
-/// Usage
-/// The StandingSettlementInstructionStatusAdvice message is used to report one of the following statuses:
-/// -	a received status, or, 
-/// -	an accepted status, or,
-/// -	a rejected status, or,
-/// -	a pending processing status, or,
-/// -	a proprietary status.
-/// This is the outer document that contains <seealso cref="StandingSettlementInstructionStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StandingSettlementInstructionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

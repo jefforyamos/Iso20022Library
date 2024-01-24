@@ -21,7 +21,35 @@ public partial record RemittanceAdviceV04 : IOuterRecord
     public const string XmlTag = "RmtAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all remittance information included in the message.
+    /// </summary>
+    [IsoId("_bf9SU22PEei3KuUgpx7Xcw")]
+    [Description(@"Set of characteristics shared by all remittance information included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Provides information to enable the matching of an entry with the items that the associated payment is intended to settle, such as commercial invoices in an accounts' receivable system, tax obligations, or garnishment orders.
+    /// </summary>
+    [IsoId("_bf9SVW2PEei3KuUgpx7Xcw")]
+    [Description(@"Provides information to enable the matching of an entry with the items that the associated payment is intended to settle, such as commercial invoices in an accounts' receivable system, tax obligations, or garnishment orders.")]
+    [DataMember(Name="RmtInf")]
+    [XmlElement(ElementName="RmtInf")]
+    [Required]
+    public required SomeRemittanceInformationRecord RemittanceInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_bf9SV22PEei3KuUgpx7Xcw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record RemittanceAdviceV04 : IOuterRecord
 }
 
 /// <summary>
-/// The RemittanceAdvice message allows the originator to provide remittance details that can be associated with a payment.
-/// This is the outer document that contains <seealso cref="RemittanceAdviceV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RemittanceAdviceV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

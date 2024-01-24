@@ -24,7 +24,44 @@ public partial record PartyEventAdviceV01 : IOuterRecord
     public const string XmlTag = "PtyEvtAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics that unambiguously identify the event, common parameters, documents and identifications.
+    /// </summary>
+    [IsoId("_OTgzNTEz-AOSNFX-8224507")]
+    [Description(@"Set of characteristics that unambiguously identify the event, common parameters, documents and identifications.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Description of the event.
+    /// </summary>
+    [IsoId("_OTgzNTE0-AOSNFX-8224507")]
+    [Description(@"Description of the event.")]
+    [DataMember(Name="EvtNtce")]
+    [XmlElement(ElementName="EvtNtce")]
+    [Required]
+    public required SomeEventNoticeRecord EventNotice { get; init; }
+    
+    /// <summary>
+    /// Number of events as control value.
+    /// </summary>
+    [IsoId("_OTgzNTE1-AOSNFX-8224507")]
+    [Description(@"Number of events as control value.")]
+    [DataMember(Name="EvtCnt")]
+    [XmlElement(ElementName="EvtCnt")]
+    public SomeEventCountRecord? EventCount { get; init; }
+    
+    /// <summary>
+    /// Referenced or related business message.
+    /// </summary>
+    [IsoId("_OTgzNTE2-AOSNFX-8224507")]
+    [Description(@"Referenced or related business message.")]
+    [DataMember(Name="AttchdMsg")]
+    [XmlElement(ElementName="AttchdMsg")]
+    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +74,8 @@ public partial record PartyEventAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The PartyEventAdvice message can be sent by any party to any other party. It is used for business letters containing information for which treatment is not formally defined in order to keep partners informed and to maintain business traces, for example confirmations of information exchanged out-of band such as announcing a postal letter, confirming a telephone call or the exchange of contractual information. It can also be sent to verify the technical interoperability of the communicating IT-systems.
-/// The message can reference other message and include data from referenced messages.
-/// The message can report several events.
-/// The message can carry digital signatures if required by context.
-/// This is the outer document that contains <seealso cref="PartyEventAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyEventAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

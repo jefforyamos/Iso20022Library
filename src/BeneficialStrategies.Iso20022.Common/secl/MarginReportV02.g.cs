@@ -32,7 +32,64 @@ public partial record MarginReportV02 : IOuterRecord
     public const string XmlTag = "MrgnRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides parameters of the margin report such as the creation date and time, the report currency or the calculation date and time.
+    /// </summary>
+    [IsoId("_-hxndqMOEeCojJW5vEuTEQ_-1337157018")]
+    [Description(@"Provides parameters of the margin report such as the creation date and time, the report currency or the calculation date and time.")]
+    [DataMember(Name="RptParams")]
+    [XmlElement(ElementName="RptParams")]
+    [Required]
+    public required SomeReportParametersRecord ReportParameters { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
+    /// </summary>
+    [IsoId("_-h7YcKMOEeCojJW5vEuTEQ_1347382157")]
+    [Description(@"Page number of the message (within a report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
+    /// </summary>
+    [IsoId("_-h7YcaMOEeCojJW5vEuTEQ_1960737925")]
+    [Description(@"Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).")]
+    [DataMember(Name="ClrMmb")]
+    [XmlElement(ElementName="ClrMmb")]
+    [Required]
+    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    
+    /// <summary>
+    /// Provides details on the valuation of the collateral on deposit.
+    /// </summary>
+    [IsoId("_-h7YcqMOEeCojJW5vEuTEQ_-1484768145")]
+    [Description(@"Provides details on the valuation of the collateral on deposit.")]
+    [DataMember(Name="RptSummry")]
+    [XmlElement(ElementName="RptSummry")]
+    public SomeReportSummaryRecord? ReportSummary { get; init; }
+    
+    /// <summary>
+    /// Provides the margin report details.
+    /// </summary>
+    [IsoId("_-h7Yc6MOEeCojJW5vEuTEQ_963665572")]
+    [Description(@"Provides the margin report details.")]
+    [DataMember(Name="RptDtls")]
+    [XmlElement(ElementName="RptDtls")]
+    [Required]
+    public required SomeReportDetailsRecord ReportDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that can't be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_-h7YdKMOEeCojJW5vEuTEQ_-33406781")]
+    [Description(@"Additional information that can't be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +102,8 @@ public partial record MarginReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MarginReport message is sent by the central counterparty (CCP) to a clearing member to report on:
-/// - the exposure resulting from the trade positions
-/// - the value of the collateral held by the CCP (market value of this collateral) and
-/// - the resulting difference representing the risk encountered by the CCP.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// There are four possibilities to report the above information. Indeed, the margin report may be structured as follows:
-/// - per clearing member: the report will only show the information for the clearing member, or
-/// - per clearing member and per financial instrument: the report will show the information for the clearing member, structured by security identification, or
-/// - per clearing member and per non clearing member: the report will show the information for the clearing member (that is for global clearing member only) structured by non clearing member(s), or
-/// - per clearing member and per non clearing member and per security identification: the report will show the information for the clearing member (global clearing member only) structured by non clearing member(s) and by security identification.
-/// This is the outer document that contains <seealso cref="MarginReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarginReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

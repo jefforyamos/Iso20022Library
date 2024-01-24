@@ -21,7 +21,26 @@ public partial record SaleToPOIMessageRejectionV01 : IOuterRecord
     public const string XmlTag = "SaleToPOIMsgRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_4R49ht6cEeiwsev40qZGEQ")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reject.
+    /// </summary>
+    [IsoId("_vgCQ4d6dEeiwsev40qZGEQ")]
+    [Description(@"Information related to the reject.")]
+    [DataMember(Name="Rjct")]
+    [XmlElement(ElementName="Rjct")]
+    [Required]
+    public required SomeRejectRecord Reject { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +53,8 @@ public partial record SaleToPOIMessageRejectionV01 : IOuterRecord
 }
 
 /// <summary>
-/// A Message Rejection is sent by one of the parties when it detects a technical or functional error in a previous received message.
-/// This is the outer document that contains <seealso cref="SaleToPOIMessageRejectionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIMessageRejectionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

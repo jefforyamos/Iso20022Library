@@ -21,7 +21,44 @@ public partial record SecuritiesAccountActivityAdviceV01 : IOuterRecord
     public const string XmlTag = "SctiesAcctActvtyAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_yrjF8J5QEemQg7pJhFUUYg")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_KAlNnZ2fEem_Be8NuxvF7Q")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Activity report of changes occurred for a specific securities account defined in the system.
+    /// </summary>
+    [IsoId("_KAlNo52fEem_Be8NuxvF7Q")]
+    [Description(@"Activity report of changes occurred for a specific securities account defined in the system.")]
+    [DataMember(Name="SctiesAcctActvty")]
+    [XmlElement(ElementName="SctiesAcctActvty")]
+    [Required]
+    public required SomeSecuritiesAccountActivityRecord SecuritiesAccountActivity { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_KAlNpZ2fEem_Be8NuxvF7Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +71,8 @@ public partial record SecuritiesAccountActivityAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecuritieAccountActivityReport message is sent by the executing party to an instructing party containing information about changes on securities account reference data.||Scope and usage: |It aims at informing about the changes occurred during a business date for securities account reference data.
-/// This is the outer document that contains <seealso cref="SecuritiesAccountActivityAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountActivityAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

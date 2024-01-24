@@ -21,7 +21,35 @@ public partial record CurrencyControlSupportingDocumentDeliveryV03 : IOuterRecor
     public const string XmlTag = "CcyCtrlSpprtgDocDlvry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Characteristics shared by all individual items included in the message.
+    /// </summary>
+    [IsoId("_Nz8ayx3pEeuiRvbpCaJe6A")]
+    [Description(@"Characteristics shared by all individual items included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Details of the supporting document provided for the registered contract.
+    /// </summary>
+    [IsoId("_Nz8azR3pEeuiRvbpCaJe6A")]
+    [Description(@"Details of the supporting document provided for the registered contract.")]
+    [DataMember(Name="SpprtgDoc")]
+    [XmlElement(ElementName="SpprtgDoc")]
+    [Required]
+    public required SomeSupportingDocumentRecord SupportingDocument { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Nz8azx3pEeuiRvbpCaJe6A")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record CurrencyControlSupportingDocumentDeliveryV03 : IOuterRecor
 }
 
 /// <summary>
-/// The CurrencyControlSupportingDocumentDelivery message is sent by either the reporting party (respectively the registration agent) or the registration agent (respectively the reporting party) in response to the supporting document request.
-/// This is the outer document that contains <seealso cref="CurrencyControlSupportingDocumentDeliveryV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CurrencyControlSupportingDocumentDeliveryV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

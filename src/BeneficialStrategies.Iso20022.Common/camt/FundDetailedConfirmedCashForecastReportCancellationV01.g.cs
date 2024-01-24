@@ -26,7 +26,43 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV01 : I
     public const string XmlTag = "camt.045.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_a2gBgdE-Ed-BzquC8wXy7w_82888341")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_a2gBgtE-Ed-BzquC8wXy7w_953093677")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_a2gBg9E-Ed-BzquC8wXy7w_809025064")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// The FundDetailedConfirmedCashForecastReport to be cancelled.
+    /// </summary>
+    [IsoId("_a2gBhNE-Ed-BzquC8wXy7w_1682674827")]
+    [Description(@"The FundDetailedConfirmedCashForecastReport to be cancelled.")]
+    [DataMember(Name="CshFcstRptToBeCanc")]
+    [XmlElement(ElementName="CshFcstRptToBeCanc")]
+    public SomeCashForecastReportToBeCancelledRecord? CashForecastReportToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +75,8 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV01 : I
 }
 
 /// <summary>
-/// Scope
-/// The FundDetailedConfirmedCashForecastReportCancellation message is sent by a report provider, such as a transfer agent or a designated agent of the fund, to a report user, such as an investment manager, a fund accountant or any other interested party.
-/// This message is used to cancel a previously sent FundDetailedConfirmedCashForecastReport message.
-/// Usage
-/// The FundDetailedConfirmedCashForecastReportCancellation message is used to cancel an entire FundDetailedConfirmedCashForecastReport message that was previously sent by the report provider.
-/// This message must contain the reference of the message to be cancelled. This message may also contain details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="FundDetailedConfirmedCashForecastReportCancellationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundDetailedConfirmedCashForecastReportCancellationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

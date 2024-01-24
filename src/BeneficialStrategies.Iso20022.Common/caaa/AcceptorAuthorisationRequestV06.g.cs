@@ -21,7 +21,35 @@ public partial record AcceptorAuthorisationRequestV06 : IOuterRecord
     public const string XmlTag = "AccptrAuthstnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Authorisation request message management information.
+    /// </summary>
+    [IsoId("_ZqTRU6pyEeanIZ10Ka8PnA")]
+    [Description(@"Authorisation request message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the authorisation request.
+    /// </summary>
+    [IsoId("_ZqTRVapyEeanIZ10Ka8PnA")]
+    [Description(@"Information related to the authorisation request.")]
+    [DataMember(Name="AuthstnReq")]
+    [XmlElement(ElementName="AuthstnReq")]
+    [Required]
+    public required SomeAuthorisationRequestRecord AuthorisationRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_ZqTRV6pyEeanIZ10Ka8PnA")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorAuthorisationRequestV06 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorAuthorisationRequest message is sent by an acceptor (or its agent) to the acquirer (or its agent), to check with the issuer (or its agent) that the account associated to the card has the resources to fund the payment. This checking will include validation of the card data and any additional transaction data provided.
-/// This is the outer document that contains <seealso cref="AcceptorAuthorisationRequestV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorAuthorisationRequestV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

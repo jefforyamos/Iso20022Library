@@ -21,7 +21,43 @@ public partial record ATMInquiryRequestV02 : IOuterRecord
     public const string XmlTag = "ATMNqryReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_NsmBs64VEeW_TaP-ygI0SQ")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_NsmBta4VEeW_TaP-ygI0SQ")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMNqryReq")]
+    [XmlElement(ElementName="PrtctdATMNqryReq")]
+    public SomeProtectedATMInquiryRequestRecord? ProtectedATMInquiryRequest { get; init; }
+    
+    /// <summary>
+    /// Information related to the request of an inquiry from an ATM.
+    /// </summary>
+    [IsoId("_NsmBt64VEeW_TaP-ygI0SQ")]
+    [Description(@"Information related to the request of an inquiry from an ATM.")]
+    [DataMember(Name="ATMNqryReq")]
+    [XmlElement(ElementName="ATMNqryReq")]
+    public SomeATMInquiryRequestRecord? ATMInquiryRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_NsmBua4VEeW_TaP-ygI0SQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMInquiryRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMInquiryRequest message is sent by an ATM to an ATM manager to request information about a customer (for example card, account).
-/// This is the outer document that contains <seealso cref="ATMInquiryRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMInquiryRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

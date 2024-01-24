@@ -26,7 +26,111 @@ public partial record TripartyCollateralTransactionInstructionV01 : IOuterRecord
     public const string XmlTag = "TrptyCollTxInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the instruction or the transaction as known by the instructing  or the receiving party.
+    /// </summary>
+    [IsoId("_2uaNMSs7EeySlt9bF77XfA")]
+    [Description(@"Unambiguous identification of the instruction or the transaction as known by the instructing  or the receiving party.|")]
+    [DataMember(Name="TxInstrId")]
+    [XmlElement(ElementName="TxInstrId")]
+    [Required]
+    public required SomeTransactionInstructionIdentificationRecord TransactionInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Link to another transaction (or instruction) that must be processed after, before or at the same time.
+    /// </summary>
+    [IsoId("_2uaNMys7EeySlt9bF77XfA")]
+    [Description(@"Link to another transaction (or instruction) that must be processed after, before or at the same time.|")]
+    [DataMember(Name="Lnkgs")]
+    [XmlElement(ElementName="Lnkgs")]
+    public SomeLinkagesRecord? Linkages { get; init; }
+    
+    /// <summary>
+    /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
+    /// </summary>
+    [IsoId("_2uaNNSs7EeySlt9bF77XfA")]
+    [Description(@"Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Specifies the different parameters of the collateral transaction or instruction.
+    /// </summary>
+    [IsoId("_2uaNNys7EeySlt9bF77XfA")]
+    [Description(@"Specifies the different parameters of the collateral transaction or instruction.")]
+    [DataMember(Name="GnlParams")]
+    [XmlElement(ElementName="GnlParams")]
+    [Required]
+    public required SomeGeneralParametersRecord GeneralParameters { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of collateral parties.
+    /// </summary>
+    [IsoId("_2uaNOSs7EeySlt9bF77XfA")]
+    [Description(@"Identifies the chain of collateral parties.|")]
+    [DataMember(Name="CollPties")]
+    [XmlElement(ElementName="CollPties")]
+    [Required]
+    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    
+    /// <summary>
+    /// Specifies the information related to the deal.
+    /// </summary>
+    [IsoId("_2uaNOys7EeySlt9bF77XfA")]
+    [Description(@"Specifies the information related to the deal.|")]
+    [DataMember(Name="DealTxDtls")]
+    [XmlElement(ElementName="DealTxDtls")]
+    [Required]
+    public required SomeDealTransactionDetailsRecord DealTransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Identifies the dates related to the triparty collateral instruction or transactions.
+    /// </summary>
+    [IsoId("_2uaNPSs7EeySlt9bF77XfA")]
+    [Description(@"Identifies the dates related to the triparty collateral instruction or transactions.")]
+    [DataMember(Name="DealTxDt")]
+    [XmlElement(ElementName="DealTxDt")]
+    [Required]
+    public required SomeDealTransactionDateRecord DealTransactionDate { get; init; }
+    
+    /// <summary>
+    /// Securities movements.
+    /// </summary>
+    [IsoId("_2uaNPys7EeySlt9bF77XfA")]
+    [Description(@"Securities movements.")]
+    [DataMember(Name="SctiesMvmnt")]
+    [XmlElement(ElementName="SctiesMvmnt")]
+    public SomeSecuritiesMovementRecord? SecuritiesMovement { get; init; }
+    
+    /// <summary>
+    /// Cash movements.
+    /// </summary>
+    [IsoId("_2uaNQSs7EeySlt9bF77XfA")]
+    [Description(@"Cash movements.")]
+    [DataMember(Name="CshMvmnt")]
+    [XmlElement(ElementName="CshMvmnt")]
+    public SomeCashMovementRecord? CashMovement { get; init; }
+    
+    /// <summary>
+    /// Other business parties relevant to the transaction.
+    /// </summary>
+    [IsoId("_2uaNQys7EeySlt9bF77XfA")]
+    [Description(@"Other business parties relevant to the transaction.|")]
+    [DataMember(Name="OthrPties")]
+    [XmlElement(ElementName="OthrPties")]
+    public SomeOtherPartiesRecord? OtherParties { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_2uaNRSs7EeySlt9bF77XfA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +143,8 @@ public partial record TripartyCollateralTransactionInstructionV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:
-/// This message is sent by a trading party to its triparty agent to instruct the agent to perform a specific action on a collateral management transaction.
-/// It is also sent by an account owner to an account servicer where the account servicer manages the account at the triparty agent on behalf of the trading party. The account owner may be a global custodian which manages an account with a triparty agent on behalf of their client or an investment management institution or a broker/dealer which has an account with their custodian.
-/// Usage:
-/// The triparty collateral management service is used by two trading parties at the agreement of a business transaction (for example, a repo, a securities loan, ... ) when they want to secure the transaction with collateral. The management of this collateral (that is, agreeing on quantity and type, marking to market, ... ) is done by a third party, the triparty collateral manager.
-/// Before starting to use these services, the three parties will first sign a contract in which they stipulate the rules of the agreement.
-/// This is the outer document that contains <seealso cref="TripartyCollateralTransactionInstructionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralTransactionInstructionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

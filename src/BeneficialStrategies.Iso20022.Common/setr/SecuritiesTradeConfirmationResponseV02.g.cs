@@ -29,7 +29,63 @@ public partial record SecuritiesTradeConfirmationResponseV02 : IOuterRecord
     public const string XmlTag = "SctiesTradConfRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies an SecuritiesTradeConfirmationResponse message as known by the account owner (or the instructing party acting on its behalf).
+    /// </summary>
+    [IsoId("_s7RRxwNmEe2P7e2qGFFOGg")]
+    [Description(@"Information that unambiguously identifies an SecuritiesTradeConfirmationResponse message as known by the account owner (or the instructing party acting on its behalf).")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Link to another transaction that must be processed after, before or at the same time.
+    /// </summary>
+    [IsoId("_s7RRyQNmEe2P7e2qGFFOGg")]
+    [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the trade.
+    /// </summary>
+    [IsoId("_s7RRywNmEe2P7e2qGFFOGg")]
+    [Description(@"Provides details on the processing status of the trade.")]
+    [DataMember(Name="Sts")]
+    [XmlElement(ElementName="Sts")]
+    [Required]
+    public required SomeStatusRecord Status { get; init; }
+    
+    /// <summary>
+    /// Provides clearing member information.
+    /// </summary>
+    [IsoId("_s7RRzQNmEe2P7e2qGFFOGg")]
+    [Description(@"Provides clearing member information.")]
+    [DataMember(Name="ClrDtls")]
+    [XmlElement(ElementName="ClrDtls")]
+    public SomeClearingDetailsRecord? ClearingDetails { get; init; }
+    
+    /// <summary>
+    /// Parties involved in the confirmation of the details of a trade.
+    /// </summary>
+    [IsoId("_s7RRzwNmEe2P7e2qGFFOGg")]
+    [Description(@"Parties involved in the confirmation of the details of a trade.")]
+    [DataMember(Name="ConfPties")]
+    [XmlElement(ElementName="ConfPties")]
+    public SomeConfirmationPartiesRecord? ConfirmationParties { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_s7RR0QNmEe2P7e2qGFFOGg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +98,8 @@ public partial record SecuritiesTradeConfirmationResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// Sent by an instructing party, a custodian or an affirming party to an executing party (local matching) or to Central Matching Utility (CMU) to affirm (accept) or disaffirm (reject) (central matching) the SecuritiesTradeConfirmation message. If accepting the SecuritiesTradeConfirmation message, then the trade is ready for settlement processing. If rejecting the SecuritiesTradeConfirmation message, then the trade is not ready for settlement.
-/// The executing party is typically the broker/dealer or an intermediary system/vendor communicating on behalf of the broker/dealer.
-/// The instructing party is typically the investment manager or an intermediary system/vendor communicating on behalf of the investment manager or of other categories of investors.
-/// The custodian or an affirming party is typically the custodian, trustee, financial institution, intermediary system/vendor communicating on behalf of them, or their agent.
-/// The ISO 20022 Business Application Header must be used
-/// Usage
-/// Initiator: Both in local and central matching, the Initiator may be the Instructing Party, Custodian or Affirming party.
-/// Respondent: Executing party does not need to respond if an affirmation. Executing party may respond with modification or cancellation of the rejected SecuritiesTradeConfirmation message.
-/// This is the outer document that contains <seealso cref="SecuritiesTradeConfirmationResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTradeConfirmationResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

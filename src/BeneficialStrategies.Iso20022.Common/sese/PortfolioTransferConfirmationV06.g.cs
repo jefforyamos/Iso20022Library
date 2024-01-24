@@ -25,7 +25,163 @@ public partial record PortfolioTransferConfirmationV06 : IOuterRecord
     public const string XmlTag = "PrtflTrfConf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_8RfRnwgLEeSFYfyUKDXKaw")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgRef")]
+    [XmlElement(ElementName="MsgRef")]
+    [Required]
+    public required SomeMessageReferenceRecord MessageReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_8RfRoQgLEeSFYfyUKDXKaw")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_8RfRowgLEeSFYfyUKDXKaw")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_8RfRpQgLEeSFYfyUKDXKaw")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Information identifying the primary individual investor, for example, name, address, social security number and date of birth.
+    /// </summary>
+    [IsoId("_8RfRpwgLEeSFYfyUKDXKaw")]
+    [Description(@"Information identifying the primary individual investor, for example, name, address, social security number and date of birth.")]
+    [DataMember(Name="PmryIndvInvstr")]
+    [XmlElement(ElementName="PmryIndvInvstr")]
+    public SomePrimaryIndividualInvestorRecord? PrimaryIndividualInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the secondary individual investor, for example, name, address, social security number and date of birth.
+    /// </summary>
+    [IsoId("_8RfRqQgLEeSFYfyUKDXKaw")]
+    [Description(@"Information identifying the secondary individual investor, for example, name, address, social security number and date of birth.")]
+    [DataMember(Name="ScndryIndvInvstr")]
+    [XmlElement(ElementName="ScndryIndvInvstr")]
+    public SomeSecondaryIndividualInvestorRecord? SecondaryIndividualInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the other individual investors, for example, name, address, social security number and date of birth.
+    /// </summary>
+    [IsoId("_8RfRqwgLEeSFYfyUKDXKaw")]
+    [Description(@"Information identifying the other individual investors, for example, name, address, social security number and date of birth.")]
+    [DataMember(Name="OthrIndvInvstr")]
+    [XmlElement(ElementName="OthrIndvInvstr")]
+    public SomeOtherIndividualInvestorRecord? OtherIndividualInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the primary corporate investor, for example, name and address.
+    /// </summary>
+    [IsoId("_8RfRrQgLEeSFYfyUKDXKaw")]
+    [Description(@"Information identifying the primary corporate investor, for example, name and address.")]
+    [DataMember(Name="PmryCorpInvstr")]
+    [XmlElement(ElementName="PmryCorpInvstr")]
+    public SomePrimaryCorporateInvestorRecord? PrimaryCorporateInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the secondary corporate investor, for example, name and address.
+    /// </summary>
+    [IsoId("_8RfRrwgLEeSFYfyUKDXKaw")]
+    [Description(@"Information identifying the secondary corporate investor, for example, name and address.")]
+    [DataMember(Name="ScndryCorpInvstr")]
+    [XmlElement(ElementName="ScndryCorpInvstr")]
+    public SomeSecondaryCorporateInvestorRecord? SecondaryCorporateInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the other corporate investors, for example, name and address.
+    /// </summary>
+    [IsoId("_8RfRsQgLEeSFYfyUKDXKaw")]
+    [Description(@"Information identifying the other corporate investors, for example, name and address.")]
+    [DataMember(Name="OthrCorpInvstr")]
+    [XmlElement(ElementName="OthrCorpInvstr")]
+    public SomeOtherCorporateInvestorRecord? OtherCorporateInvestor { get; init; }
+    
+    /// <summary>
+    /// Identification of an account owned by the investor at the old plan manager (account servicer).
+    /// </summary>
+    [IsoId("_8RfRswgLEeSFYfyUKDXKaw")]
+    [Description(@"Identification of an account owned by the investor at the old plan manager (account servicer).")]
+    [DataMember(Name="TrfrAcct")]
+    [XmlElement(ElementName="TrfrAcct")]
+    [Required]
+    public required SomeTransferorAccountRecord TransferorAccount { get; init; }
+    
+    /// <summary>
+    /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
+    /// </summary>
+    [IsoId("_8RfRtQgLEeSFYfyUKDXKaw")]
+    [Description(@"Account held in the name of a party that is not the name of the beneficial owner of the shares.")]
+    [DataMember(Name="NmneeAcct")]
+    [XmlElement(ElementName="NmneeAcct")]
+    public SomeNomineeAccountRecord? NomineeAccount { get; init; }
+    
+    /// <summary>
+    /// Information related to the institution to which the financial instrument is to be transferred.
+    /// </summary>
+    [IsoId("_8RfRtwgLEeSFYfyUKDXKaw")]
+    [Description(@"Information related to the institution to which the financial instrument is to be transferred.")]
+    [DataMember(Name="Trfee")]
+    [XmlElement(ElementName="Trfee")]
+    [Required]
+    public required SomeTransfereeRecord Transferee { get; init; }
+    
+    /// <summary>
+    /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).
+    /// </summary>
+    [IsoId("_8RfRuQgLEeSFYfyUKDXKaw")]
+    [Description(@"Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).")]
+    [DataMember(Name="CshAcct")]
+    [XmlElement(ElementName="CshAcct")]
+    public SomeCashAccountRecord? CashAccount { get; init; }
+    
+    /// <summary>
+    /// Provides information related to the asset(s) transferred.
+    /// </summary>
+    [IsoId("_8RfRuwgLEeSFYfyUKDXKaw")]
+    [Description(@"Provides information related to the asset(s) transferred.")]
+    [DataMember(Name="PdctTrf")]
+    [XmlElement(ElementName="PdctTrf")]
+    [Required]
+    public required SomeProductTransferRecord ProductTransfer { get; init; }
+    
+    /// <summary>
+    /// Identifies the market practice to which the message conforms.
+    /// </summary>
+    [IsoId("_8RfRvQgLEeSFYfyUKDXKaw")]
+    [Description(@"Identifies the market practice to which the message conforms.")]
+    [DataMember(Name="MktPrctcVrsn")]
+    [XmlElement(ElementName="MktPrctcVrsn")]
+    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_8RfRvwgLEeSFYfyUKDXKaw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +194,8 @@ public partial record PortfolioTransferConfirmationV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a (old) plan manager (Transferor), sends the PortfolioTransferConfirmation message to the instructing party, for example, a (new) plan manager (Transferee), to confirm the transfer of one or more ISA or portfolio products from the client's account at the old plan manager (Transferor) to the client's account at the new plan manager (Transferee) through a nominee account.
-/// Usage
-/// The PortfolioTransferConfirmation message is used to confirm the transfer of one or more ISA or portfolio products.
-/// The reference of each product transfer confirmation is identified in TransferConfirmationIdentification. The reference of the original product transfer is specified in TransferInstructionReference. The message identification of the PortfolioTransferInstruction message in which the product transfers were conveyed may also be quoted in RelatedReference.
-/// This is the outer document that contains <seealso cref="PortfolioTransferConfirmationV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PortfolioTransferConfirmationV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

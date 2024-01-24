@@ -25,7 +25,26 @@ public partial record TransactionReportRequestV03 : IOuterRecord
     public const string XmlTag = "TxRptReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the request message.
+    /// </summary>
+    [IsoId("_15W1ydE8Ed-BzquC8wXy7w_-2039438961")]
+    [Description(@"Identifies the request message.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Parameters to be used as criteria for the content of the transaction report.
+    /// </summary>
+    [IsoId("_15W1ytE8Ed-BzquC8wXy7w_-2039439323")]
+    [Description(@"Parameters to be used as criteria for the content of the transaction report.")]
+    [DataMember(Name="RptSpcfctn")]
+    [XmlElement(ElementName="RptSpcfctn")]
+    [Required]
+    public required SomeReportSpecificationRecord ReportSpecification { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +57,8 @@ public partial record TransactionReportRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The TransactionReportRequest message is sent by a party involved in a transaction to the matching application.
-/// This message is used to request a report on details of transactions registered in the matching application.
-/// Usage
-/// The TransactionReportRequest message can be sent by either party involved in a transaction to request a report on a variety of details of all transactions that the requester is involved in. For example, the message can be used to request a report on all transactions that the requester is involved in with a certain customer.
-/// This is the outer document that contains <seealso cref="TransactionReportRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransactionReportRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

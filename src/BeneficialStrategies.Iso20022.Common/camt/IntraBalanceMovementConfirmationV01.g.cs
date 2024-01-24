@@ -21,7 +21,71 @@ public partial record IntraBalanceMovementConfirmationV01 : IOuterRecord
     public const string XmlTag = "IntraBalMvmntConf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the message as known by the account servicer or settlement infrastructure.
+    /// </summary>
+    [IsoId("_DLtKqzncEem7JZMuWtwtsg")]
+    [Description(@"Unambiguous identification of the message as known by the account servicer or settlement infrastructure.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    public SomeIdentificationRecord? Identification { get; init; }
+    
+    /// <summary>
+    /// Additional parameters to the transaction.
+    /// </summary>
+    [IsoId("_DLtKrTncEem7JZMuWtwtsg")]
+    [Description(@"Additional parameters to the transaction.")]
+    [DataMember(Name="AddtlParams")]
+    [XmlElement(ElementName="AddtlParams")]
+    public SomeAdditionalParametersRecord? AdditionalParameters { get; init; }
+    
+    /// <summary>
+    /// Account to or from which an entry is made.
+    /// </summary>
+    [IsoId("_DLtKrzncEem7JZMuWtwtsg")]
+    [Description(@"Account to or from which an entry is made.")]
+    [DataMember(Name="CshAcct")]
+    [XmlElement(ElementName="CshAcct")]
+    [Required]
+    public required SomeCashAccountRecord CashAccount { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the cash account.
+    /// </summary>
+    [IsoId("_CWqjEjp8EemwKdP955WBJQ")]
+    [Description(@"Party that legally owns the cash account.")]
+    [DataMember(Name="CshAcctOwnr")]
+    [XmlElement(ElementName="CshAcctOwnr")]
+    public SomeCashAccountOwnerRecord? CashAccountOwner { get; init; }
+    
+    /// <summary>
+    /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
+    /// </summary>
+    [IsoId("_CWqjEzp8EemwKdP955WBJQ")]
+    [Description(@"Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.")]
+    [DataMember(Name="CshAcctSvcr")]
+    [XmlElement(ElementName="CshAcctSvcr")]
+    public SomeCashAccountServicerRecord? CashAccountServicer { get; init; }
+    
+    /// <summary>
+    /// Intra-balance movement transaction details.
+    /// </summary>
+    [IsoId("_DLtKsTncEem7JZMuWtwtsg")]
+    [Description(@"Intra-balance movement transaction details.")]
+    [DataMember(Name="IntraBal")]
+    [XmlElement(ElementName="IntraBal")]
+    [Required]
+    public required SomeIntraBalanceRecord IntraBalance { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_DLtKszncEem7JZMuWtwtsg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +98,8 @@ public partial record IntraBalanceMovementConfirmationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The IntraBalanceMovementConfirmation message is sent from a settlement infrastructure to an account owner/requestor to confirm the movement of an amount of money within its holdings from one sub-balance to another. ||Usage: |The message may be used to: |- re-send a message previously sent (the sub-function of the message is "Duplicate")|- provide a third party with a copy of a message for information (the sub-function of the message is "Copy")|- re-send to a third party a copy of a message for information (the sub-function of the message is "CopyDuplicate").
-/// This is the outer document that contains <seealso cref="IntraBalanceMovementConfirmationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementConfirmationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

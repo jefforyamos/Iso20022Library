@@ -21,7 +21,25 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord
     public const string XmlTag = "UdrtkgNonXtnsnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the non extension request.
+    /// </summary>
+    [IsoId("_9gmpVnltEeG7BsjMvd1mEw_1337678372")]
+    [Description(@"Details of the non extension request.")]
+    [DataMember(Name="UdrtkgNonXtnsnReqDtls")]
+    [XmlElement(ElementName="UdrtkgNonXtnsnReqDtls")]
+    [Required]
+    public required SomeUndertakingNonExtensionRequestDetailsRecord UndertakingNonExtensionRequestDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the request.
+    /// </summary>
+    [IsoId("_9gmpV3ltEeG7BsjMvd1mEw_-238052912")]
+    [Description(@"Digital signature of the request.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingNonExtensionRequest message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking. It is used to request no further automatic extensions to the expiry of the referenced undertaking.
-/// This is the outer document that contains <seealso cref="UndertakingNonExtensionRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingNonExtensionRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

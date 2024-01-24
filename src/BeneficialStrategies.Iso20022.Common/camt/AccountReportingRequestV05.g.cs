@@ -22,7 +22,35 @@ public partial record AccountReportingRequestV05 : IOuterRecord
     public const string XmlTag = "AcctRptgReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements used to provide further details on the message.
+    /// </summary>
+    [IsoId("_eYI_lW2PEei3KuUgpx7Xcw")]
+    [Description(@"Set of elements used to provide further details on the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to provide further details on the reporting request.
+    /// </summary>
+    [IsoId("_eYI_l22PEei3KuUgpx7Xcw")]
+    [Description(@"Set of elements used to provide further details on the reporting request.")]
+    [DataMember(Name="RptgReq")]
+    [XmlElement(ElementName="RptgReq")]
+    [Required]
+    public required SomeReportingRequestRecord ReportingRequest { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_eYI_mW2PEei3KuUgpx7Xcw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +63,8 @@ public partial record AccountReportingRequestV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AccountReportingRequest message is sent by the account owner, either directly or through a forwarding agent, to one of its account servicing institutions. It is used to ask the account servicing institution to send a report on the account owner's account in a BankToCustomerAccountReport (camt.052), a BankToCustomerStatement (camt.053) or a BankToCustomerDebitCreditNotification (camt.054).
-/// This is the outer document that contains <seealso cref="AccountReportingRequestV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountReportingRequestV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

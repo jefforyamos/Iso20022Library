@@ -21,7 +21,25 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01 : IOuterR
     public const string XmlTag = "FinInstrmRptgCtryCdRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Report detailing all countries and their 2 character ISO 3166 code.
+    /// </summary>
+    [IsoId("_4LK8M0RNEee7JdgA9zPESA")]
+    [Description(@"Report detailing all countries and their 2 character ISO 3166 code.")]
+    [DataMember(Name="CtryData")]
+    [XmlElement(ElementName="CtryData")]
+    [Required]
+    public required SomeCountryDataRecord CountryData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_4LK8NURNEee7JdgA9zPESA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01 : IOuterR
 }
 
 /// <summary>
-/// The FinancialInstrumentReportingCountryCodeReport message provides the details of the two character country codes and is created by ESMA for distribution to national competent authorities.
-/// This is the outer document that contains <seealso cref="FinancialInstrumentReportingCountryCodeReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingCountryCodeReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

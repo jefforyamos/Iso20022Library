@@ -28,7 +28,64 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCAElctnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the advice.
+    /// </summary>
+    [IsoId("_TMtG-9EwEd-BzquC8wXy7w_-42698000")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Provides information about the type of election advice and linked messages.
+    /// </summary>
+    [IsoId("_TM238NEwEd-BzquC8wXy7w_-1990867488")]
+    [Description(@"Provides information about the type of election advice and linked messages.")]
+    [DataMember(Name="ElctnAdvcTpAndLkg")]
+    [XmlElement(ElementName="ElctnAdvcTpAndLkg")]
+    [Required]
+    public required SomeElectionAdviceTypeAndLinkageRecord ElectionAdviceTypeAndLinkage { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TM238dEwEd-BzquC8wXy7w_1272192692")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides information about the election(s).
+    /// </summary>
+    [IsoId("_TM238tEwEd-BzquC8wXy7w_-1547276927")]
+    [Description(@"Provides information about the election(s).")]
+    [DataMember(Name="ElctnDtls")]
+    [XmlElement(ElementName="ElctnDtls")]
+    [Required]
+    public required SomeElectionDetailsRecord ElectionDetails { get; init; }
+    
+    /// <summary>
+    /// Provides additional information about the delivery details, beneficial owner details, etc.
+    /// </summary>
+    [IsoId("_TM2389EwEd-BzquC8wXy7w_-1731981881")]
+    [Description(@"Provides additional information about the delivery details, beneficial owner details, etc.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Contact responsible for the transaction identified in the message.
+    /// </summary>
+    [IsoId("_TM239NEwEd-BzquC8wXy7w_-741674043")]
+    [Description(@"Contact responsible for the transaction identified in the message.")]
+    [DataMember(Name="CtctDtls")]
+    [XmlElement(ElementName="CtctDtls")]
+    public SomeContactDetailsRecord? ContactDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +98,8 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to the issuer (or its agent) to provide information about the clients' election instruction, the registration details, the delivery details, etc. In case of an election with underlying resource movements, it also confirms that these have been completed. This message may also be sent in case of an amendment of an election, once the CSD has completed the required resource movements.
-/// Usage
-/// This message can be used for a new election advice or an amended election advice.
-/// If this message is used for a new election advice, the function of the message must be 'new election'.
-/// If this message is used for an amended election advice, the function of the message must be 'option change' and the identification of the previously sent election advice must be present.
-/// This message can include the cash movements and/or securities movements in the case of an election with underlying resource movements. Additionally, this message can include delivery, certification and beneficial owner details.
-/// Note: this information can be also sent separately in the Agent Corporate Action Information advice message.
-/// This is the outer document that contains <seealso cref="AgentCAElectionAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

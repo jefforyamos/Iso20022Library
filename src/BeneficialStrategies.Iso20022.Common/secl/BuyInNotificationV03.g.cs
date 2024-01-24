@@ -25,7 +25,53 @@ public partial record BuyInNotificationV03 : IOuterRecord
     public const string XmlTag = "BuyInNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as known by the instructing party.
+    /// </summary>
+    [IsoId("_1K821S0lEeSRe9rElPHBfg")]
+    [Description(@"Unambiguous identification of the transaction as known by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides the identification of the clearing member (individual clearing member or general clearing member).
+    /// </summary>
+    [IsoId("_1K821y0lEeSRe9rElPHBfg")]
+    [Description(@"Provides the identification of the clearing member (individual clearing member or general clearing member).")]
+    [DataMember(Name="ClrMmb")]
+    [XmlElement(ElementName="ClrMmb")]
+    [Required]
+    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    
+    /// <summary>
+    /// Indicates if the message is a notification or a warning and gives the option to specify the buy in date.
+    /// </summary>
+    [IsoId("_1K822S0lEeSRe9rElPHBfg")]
+    [Description(@"Indicates if the message is a notification or a warning and gives the option to specify the buy in date.")]
+    [DataMember(Name="NtfctnDtls")]
+    [XmlElement(ElementName="NtfctnDtls")]
+    public SomeNotificationDetailsRecord? NotificationDetails { get; init; }
+    
+    /// <summary>
+    /// Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.
+    /// </summary>
+    [IsoId("_1K822y0lEeSRe9rElPHBfg")]
+    [Description(@"Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.")]
+    [DataMember(Name="OrgnlSttlmOblgtn")]
+    [XmlElement(ElementName="OrgnlSttlmOblgtn")]
+    [Required]
+    public required SomeOriginalSettlementObligationRecord OriginalSettlementObligation { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_1K823S0lEeSRe9rElPHBfg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +84,8 @@ public partial record BuyInNotificationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The BuyInNotification message is sent by the central counterparty (CCP) to a clearing member to notify the start of the buy in process.
-/// The message definition is intended for use with the ISO 20022 Business Application Header.
-/// Usage
-/// The buy in process is a process by which the CCP buys in stocks to cover failed transactions; the clearing member is notified that this process has started. Depending on each CCP internal rules, this message can also be sent, as a warning, by the central counterparty to the clearing member some days before the buy in process starts.
-/// This is the outer document that contains <seealso cref="BuyInNotificationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BuyInNotificationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -25,7 +25,35 @@ public partial record TransactionReportV03 : IOuterRecord
     public const string XmlTag = "TxRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the report.
+    /// </summary>
+    [IsoId("_2UxmedE8Ed-BzquC8wXy7w_-1389761119")]
+    [Description(@"Identifies the report.")]
+    [DataMember(Name="RptId")]
+    [XmlElement(ElementName="RptId")]
+    [Required]
+    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the previous message requesting the report.
+    /// </summary>
+    [IsoId("_2U6wYNE8Ed-BzquC8wXy7w_-1389760800")]
+    [Description(@"Reference to the previous message requesting the report.")]
+    [DataMember(Name="RltdMsgRef")]
+    [XmlElement(ElementName="RltdMsgRef")]
+    [Required]
+    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    
+    /// <summary>
+    /// Detailed description of the items that correspond to the parameters set in the request.
+    /// </summary>
+    [IsoId("_2U6wYdE8Ed-BzquC8wXy7w_-1389761189")]
+    [Description(@"Detailed description of the items that correspond to the parameters set in the request.")]
+    [DataMember(Name="RptdItms")]
+    [XmlElement(ElementName="RptdItms")]
+    public SomeReportedItemsRecord? ReportedItems { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +66,8 @@ public partial record TransactionReportV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The TransactionReport message is sent by the matching application to the requester of a transaction report.
-/// This message is used to report on various details of transactions registered in the matching application.
-/// Usage
-/// The TransactionReport message can be sent by the matching application to report on various details of transactions that the requester of the report asked for. The message is sent in response to a TransactionReportRequest message.
-/// This is the outer document that contains <seealso cref="TransactionReportV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransactionReportV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

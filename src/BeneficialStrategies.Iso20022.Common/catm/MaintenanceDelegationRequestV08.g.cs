@@ -21,7 +21,35 @@ public partial record MaintenanceDelegationRequestV08 : IOuterRecord
     public const string XmlTag = "MntncDlgtnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management.
+    /// </summary>
+    [IsoId("_Y3YAQ06pEeyGi9JAv6wq7Q")]
+    [Description(@"Information related to the protocol management.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    public SomeHeaderRecord? Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the request of maintenance delegations.
+    /// </summary>
+    [IsoId("_Y3YARU6pEeyGi9JAv6wq7Q")]
+    [Description(@"Information related to the request of maintenance delegations.")]
+    [DataMember(Name="MntncDlgtnReq")]
+    [XmlElement(ElementName="MntncDlgtnReq")]
+    [Required]
+    public required SomeMaintenanceDelegationRequestRecord MaintenanceDelegationRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_Y3YAR06pEeyGi9JAv6wq7Q")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record MaintenanceDelegationRequestV08 : IOuterRecord
 }
 
 /// <summary>
-/// The MaintenanceDelegationRequest message is sent by a terminal manager to the master terminal manager to request delegation of maintenance functions or maintenance operation on the terminal estate managed by the master terminal manager.
-/// This is the outer document that contains <seealso cref="MaintenanceDelegationRequestV08"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MaintenanceDelegationRequestV08"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,43 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord
     public const string XmlTag = "HstToATMAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_0sB_sItrEeSDLd7nI4Quzw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_7SogQItrEeSDLd7nI4Quzw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdHstToATMAck")]
+    [XmlElement(ElementName="PrtctdHstToATMAck")]
+    public SomeProtectedHostToATMAcknowledgementRecord? ProtectedHostToATMAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Information related to the acknowledgement from an ATM to contact the ATM manager.
+    /// </summary>
+    [IsoId("_FlTp8ItsEeSDLd7nI4Quzw")]
+    [Description(@"Information related to the acknowledgement from an ATM to contact the ATM manager.")]
+    [DataMember(Name="HstToATMAck")]
+    [XmlElement(ElementName="HstToATMAck")]
+    public SomeHostToATMAcknowledgementRecord? HostToATMAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_JNBXgItsEeSDLd7nI4Quzw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord
 }
 
 /// <summary>
-/// The HostToATMAcknowledgement message is sent by an ATM to a host to acknowledge the receipt of a HostToATMRequest message.
-/// This is the outer document that contains <seealso cref="HostToATMAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="HostToATMAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

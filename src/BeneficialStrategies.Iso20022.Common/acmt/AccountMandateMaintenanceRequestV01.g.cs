@@ -26,7 +26,92 @@ public partial record AccountMandateMaintenanceRequestV01 : IOuterRecord
     public const string XmlTag = "AcctMndtMntncReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements for the identification of the message and related references.
+    /// </summary>
+    [IsoId("_rkXiedE9Ed-BzquC8wXy7w_-571275315")]
+    [Description(@"Set of elements for the identification of the message and related references.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Specifies target dates.
+    /// </summary>
+    [IsoId("_rkXietE9Ed-BzquC8wXy7w_-1757073896")]
+    [Description(@"Specifies target dates.")]
+    [DataMember(Name="CtrctDts")]
+    [XmlElement(ElementName="CtrctDts")]
+    public SomeContractDatesRecord? ContractDates { get; init; }
+    
+    /// <summary>
+    /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
+    /// </summary>
+    [IsoId("_rkXie9E9Ed-BzquC8wXy7w_-1745991408")]
+    [Description(@"Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.")]
+    [DataMember(Name="UndrlygMstrAgrmt")]
+    [XmlElement(ElementName="UndrlygMstrAgrmt")]
+    public SomeUnderlyingMasterAgreementRecord? UnderlyingMasterAgreement { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account between the account owner and the account servicer.
+    /// </summary>
+    [IsoId("_rkhTcNE9Ed-BzquC8wXy7w_-1503372642")]
+    [Description(@"Unique and unambiguous identification of the account between the account owner and the account servicer.")]
+    [DataMember(Name="AcctId")]
+    [XmlElement(ElementName="AcctId")]
+    [Required]
+    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
+    /// </summary>
+    [IsoId("_rkhTcdE9Ed-BzquC8wXy7w_627189262")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the organisation requesting the change.
+    /// </summary>
+    [IsoId("_rkhTctE9Ed-BzquC8wXy7w_1142515469")]
+    [Description(@"Identification of the organisation requesting the change.")]
+    [DataMember(Name="OrgId")]
+    [XmlElement(ElementName="OrgId")]
+    [Required]
+    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    
+    /// <summary>
+    /// Information specifying the account mandate.
+    /// </summary>
+    [IsoId("_rkhTc9E9Ed-BzquC8wXy7w_176118407")]
+    [Description(@"Information specifying the account mandate.")]
+    [DataMember(Name="Mndt")]
+    [XmlElement(ElementName="Mndt")]
+    [Required]
+    public required SomeMandateRecord Mandate { get; init; }
+    
+    /// <summary>
+    /// Contains additional information related to the message.
+    /// </summary>
+    [IsoId("_rkhTdNE9Ed-BzquC8wXy7w_-470392981")]
+    [Description(@"Contains additional information related to the message.")]
+    [DataMember(Name="AddtlMsgInf")]
+    [XmlElement(ElementName="AddtlMsgInf")]
+    public SomeAdditionalMessageInformationRecord? AdditionalMessageInformation { get; init; }
+    
+    /// <summary>
+    /// Contains the signature with its components, namely signed info, signature value, key info and the object.
+    /// </summary>
+    [IsoId("_rkhTddE9Ed-BzquC8wXy7w_955139164")]
+    [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +124,8 @@ public partial record AccountMandateMaintenanceRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AccountMandateMaintenanceRequest message is sent from an organisation to a financial institution as part of the account maintenance process. It is the initial request message to update an account. This update is only about mandate information.
-/// Usage
-/// This message should only be used for initiating the maintenance process of mandate information. This update is only about mandate information. The organisation will specify under the Mandate tag the complete information as it should be in the financial institutions records after processing the update request. It is not possible to update the account characteristics or organisation information with this message.
-/// It is possible to request to update the mandate information of several accounts, if these accounts must have exactly the same mandates.
-/// This message could be sent together with other related documents.
-/// This is the outer document that contains <seealso cref="AccountMandateMaintenanceRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountMandateMaintenanceRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

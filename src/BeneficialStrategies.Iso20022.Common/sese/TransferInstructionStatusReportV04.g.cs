@@ -39,7 +39,62 @@ public partial record TransferInstructionStatusReportV04 : IOuterRecord
     public const string XmlTag = "TrfInstrStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_uh31eRXgEeOocOqSQt5Jbw")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Unambiguous identification of the transfer allocated by the counterparty.
+    /// </summary>
+    [IsoId("_uh31exXgEeOocOqSQt5Jbw")]
+    [Description(@"Unambiguous identification of the transfer allocated by the counterparty.")]
+    [DataMember(Name="CtrPtyRef")]
+    [XmlElement(ElementName="CtrPtyRef")]
+    public SomeCounterpartyReferenceRecord? CounterpartyReference { get; init; }
+    
+    /// <summary>
+    /// Reference to the message or communication that was previously received.
+    /// </summary>
+    [IsoId("_iGSV0R6kEeOolf0-cMYhrw")]
+    [Description(@"Reference to the message or communication that was previously received.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    public SomeReferenceRecord? Reference { get; init; }
+    
+    /// <summary>
+    /// Status of the transfer instruction.
+    /// </summary>
+    [IsoId("_uh31gRXgEeOocOqSQt5Jbw")]
+    [Description(@"Status of the transfer instruction.")]
+    [DataMember(Name="StsRpt")]
+    [XmlElement(ElementName="StsRpt")]
+    [Required]
+    public required SomeStatusReportRecord StatusReport { get; init; }
+    
+    /// <summary>
+    /// Identifies the market practice to which the message conforms.
+    /// </summary>
+    [IsoId("_sRG_gRw9EeOIveEnnb_1-A")]
+    [Description(@"Identifies the market practice to which the message conforms.")]
+    [DataMember(Name="MktPrctcVrsn")]
+    [XmlElement(ElementName="MktPrctcVrsn")]
+    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_uh31gxXgEeOocOqSQt5Jbw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -52,26 +107,8 @@ public partial record TransferInstructionStatusReportV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a transfer agent, sends the TransferInstructionStatusReport message to the instructing party, for example, an investment manager or one of its authorised representatives to provide the status of a previously received transfer instruction.
-/// Usage
-/// The TransferInstructionStatusReport message is used to report on the status of a transfer in or transfer out instruction. The reference of the transfer instruction for which the status is reported is identified in TransferReference.
-/// The message identification of the transfer instruction message in which the transfer instruction was conveyed may also be quoted in RelatedReference.
-/// One of the following statuses can be reported:
-/// - an accepted status, or,
-/// - an already executed status, or,
-/// - a sent to next party status, or,
-/// - a matched status, or,
-/// - a settled status, or,
-/// - a pending settlement status and the reason for the status, or,
-/// - an unmatched status and the reason for the status, or,
-/// - an in-repair status and the reason for the status, or,
-/// - a rejected status and the reason for the status, or,
-/// - a failed settlement status and the reason for the status, or,
-/// - a cancelled status and the reason for the status, or,
-/// - a cancelled status and the reason for the status, or,
-/// - a cancellation pending status and the reason for the status.
-/// This is the outer document that contains <seealso cref="TransferInstructionStatusReportV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInstructionStatusReportV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

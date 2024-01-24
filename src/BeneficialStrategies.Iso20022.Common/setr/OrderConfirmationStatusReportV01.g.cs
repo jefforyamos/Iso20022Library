@@ -40,7 +40,53 @@ public partial record OrderConfirmationStatusReportV01 : IOuterRecord
     public const string XmlTag = "OrdrConfStsRptV01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_hzzSMdE7Ed-BzquC8wXy7w_1729546836")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message sent in a proprietary way or reference of a system.
+    /// </summary>
+    [IsoId("_hzzSMtE7Ed-BzquC8wXy7w_-1840795261")]
+    [Description(@"Reference to a linked message sent in a proprietary way or reference of a system.")]
+    [DataMember(Name="OthrRef")]
+    [XmlElement(ElementName="OthrRef")]
+    public required IReadonlyCollection<SomeOtherReferenceRecord> OtherReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_hzzSM9E7Ed-BzquC8wXy7w_1545429452")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Status report details of an individual order confirmation.
+    /// </summary>
+    [IsoId("_hzzSNNE7Ed-BzquC8wXy7w_1394750346")]
+    [Description(@"Status report details of an individual order confirmation.")]
+    [DataMember(Name="IndvOrdrConfDtlsRpt")]
+    [XmlElement(ElementName="IndvOrdrConfDtlsRpt")]
+    [Required]
+    public required SomeIndividualOrderConfirmationDetailsReportRecord IndividualOrderConfirmationDetailsReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_hzzSNdE7Ed-BzquC8wXy7w_1567010081")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -53,27 +99,8 @@ public partial record OrderConfirmationStatusReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, for example, an investment manager or its authorised representative, sends the OrderConfirmationStatusReport message to the executing party, for example, a transfer agent, to report the status of an order confirmation or an order confirmation amendment.
-/// Usage
-/// The OrderConfirmationStatusReport message is used to report on the status of one or more individual:
-/// - subscription confirmations,
-/// - subscription confirmation amendments,
-/// - redemption confirmations,
-/// - redemption confirmation amendments,
-/// - switch order confirmations,
-/// - switch order confirmation amendments.
-/// One of the following statuses can be reported:
-/// - confirmation rejected, or,
-/// - amendment rejected, or,
-/// - sent to next party, or,
-/// - communication problem with next party, or,
-/// - confirmation accepted, or,
-/// - confirmation received.
-/// It is likely that the OrderConfirmationStatusReport is only sent by the order instructing party to the order executing party to reject an order confirmation or to reject an order confirmation amendment, although if an intermediary party is used, the statuses sent to next party and communication problem with next party are also likely be used. The statuses confirmation accepted and confirmation received would only be used in the event the order executing party sends a RequestForOrderConfirmationStatusReport message and one of the other statuses does not apply.
-/// If the status being reported is either confirmation rejected or amendment rejected, then a reason for the rejection must be given.
-/// The individual order confirmation or confirmation amendment for which the status is given is identified with its order reference. The message identification of the message in which the individual order confirmation or confirmation amendment was conveyed may also be quoted in RelatedReference, but this is not recommended.
-/// This is the outer document that contains <seealso cref="OrderConfirmationStatusReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderConfirmationStatusReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

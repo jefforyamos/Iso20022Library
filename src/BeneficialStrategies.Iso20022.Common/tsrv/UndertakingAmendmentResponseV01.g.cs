@@ -21,7 +21,25 @@ public partial record UndertakingAmendmentResponseV01 : IOuterRecord
     public const string XmlTag = "UdrtkgAmdmntRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details related to the proposed amendment response.
+    /// </summary>
+    [IsoId("_9iGeI3ltEeG7BsjMvd1mEw_1688211765")]
+    [Description(@"Details related to the proposed amendment response.")]
+    [DataMember(Name="UdrtkgAmdmntRspnDtls")]
+    [XmlElement(ElementName="UdrtkgAmdmntRspnDtls")]
+    [Required]
+    public required SomeUndertakingAmendmentResponseDetailsRecord UndertakingAmendmentResponseDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the response.
+    /// </summary>
+    [IsoId("_9iGeJHltEeG7BsjMvd1mEw_-106555432")]
+    [Description(@"Digital signature of the response.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record UndertakingAmendmentResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingAmendmentResponse message is sent by the beneficiary to the party that issued the undertaking, either directly or via one or more advising parties, to indicate acceptance or rejection by the beneficiary of the amendment.
-/// This is the outer document that contains <seealso cref="UndertakingAmendmentResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

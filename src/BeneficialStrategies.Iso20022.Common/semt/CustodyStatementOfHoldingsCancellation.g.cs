@@ -26,7 +26,44 @@ public partial record CustodyStatementOfHoldingsCancellation : IOuterRecord
     public const string XmlTag = "semt.004.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_MXYVfNFSEd-BzquC8wXy7w_1620345511")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_MXYVfdFSEd-BzquC8wXy7w_1938037635")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).
+    /// </summary>
+    [IsoId("_MXYVftFSEd-BzquC8wXy7w_1983699054")]
+    [Description(@"Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// The Custody Statement of Holdings message to cancel.
+    /// </summary>
+    [IsoId("_MXhfYNFSEd-BzquC8wXy7w_-1021887814")]
+    [Description(@"The Custody Statement of Holdings message to cancel.")]
+    [DataMember(Name="StmtToBeCanc")]
+    [XmlElement(ElementName="StmtToBeCanc")]
+    public SomeStatementToBeCancelledRecord? StatementToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +76,8 @@ public partial record CustodyStatementOfHoldingsCancellation : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CustodyStatementOfHoldingsCancellation message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a local agent (sub-custodian) acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.
-/// This message is used to cancel a previously sent CustodyStatementOfHoldings message.
-/// Usage
-/// The CustodyStatementOfHoldingsCancellation message is sent by an account servicer to the account owner to cancel a previously sent CustodyStatementOfHoldings message.
-/// This message must contain the reference of the message to be cancelled. This message may also contain details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="CustodyStatementOfHoldingsCancellation"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustodyStatementOfHoldingsCancellation"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

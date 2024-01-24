@@ -32,7 +32,35 @@ public partial record BankToCustomerDebitCreditNotificationV03 : IOuterRecord
     public const string XmlTag = "BkToCstmrDbtCdtNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common information for the message.
+    /// </summary>
+    [IsoId("_r9gjQVkyEeGeoaLUQk__nA_663181991")]
+    [Description(@"Common information for the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Notifies debit and credit entries for the account.
+    /// </summary>
+    [IsoId("_r9gjQlkyEeGeoaLUQk__nA_-220051296")]
+    [Description(@"Notifies debit and credit entries for the account.")]
+    [DataMember(Name="Ntfctn")]
+    [XmlElement(ElementName="Ntfctn")]
+    [Required]
+    public required SomeNotificationRecord Notification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_LPuYU59YEeGBX4a4yy-WHg_-2001686644")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +73,8 @@ public partial record BankToCustomerDebitCreditNotificationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The BankToCustomerDebitCreditNotification message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It can be used to inform the account owner, or authorised party, of single or multiple debit and/or credit entries reported to the account.
-/// Usage
-/// The BankToCustomerDebitCreditNotification message can contain reports for more than one account. It provides information for cash management and/or reconciliation.
-/// It can be used to:
-/// - report pending and booked items;
-/// - notify one or more debit entries;
-/// - notify one or more credit entries;
-/// - notify a combination of debit and credit entries.
-/// It can include underlying details of transactions that have been included in the entry.
-/// It is possible that the receiver of the message is not the account owner, but a party entitled by the account owner to receive the account information (also known as recipient).
-/// It does not contain balance information.
-/// This is the outer document that contains <seealso cref="BankToCustomerDebitCreditNotificationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankToCustomerDebitCreditNotificationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

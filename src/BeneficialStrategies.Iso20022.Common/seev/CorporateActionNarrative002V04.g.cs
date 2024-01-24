@@ -28,7 +28,53 @@ public partial record CorporateActionNarrative002V04 : IOuterRecord
     public const string XmlTag = "CorpActnNrrtv";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// General information about the safekeeping account and the account owner.
+    /// </summary>
+    [IsoId("_c4bT9ZKQEeWHWpTQn1FFVg")]
+    [Description(@"General information about the safekeeping account and the account owner.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    public SomeAccountDetailsRecord? AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Provides information about the securitised right for entitlement.
+    /// </summary>
+    [IsoId("_c4bT95KQEeWHWpTQn1FFVg")]
+    [Description(@"Provides information about the securitised right for entitlement.")]
+    [DataMember(Name="UndrlygScty")]
+    [XmlElement(ElementName="UndrlygScty")]
+    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_c4bT-ZKQEeWHWpTQn1FFVg")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_c4bT-5KQEeWHWpTQn1FFVg")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    [Required]
+    public required SomeAdditionalInformationRecord AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_c4bT_ZKQEeWHWpTQn1FFVg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +87,8 @@ public partial record CorporateActionNarrative002V04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CorporateActionNarrative message is sent between an account servicer and an account owner or its designated agent to cater for tax reclaims, restrictions, documentation requirements. This message is bi-directional.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate),
-/// using the relevant elements in the business application header (BAH).
-/// This is the outer document that contains <seealso cref="CorporateActionNarrative002V04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionNarrative002V04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

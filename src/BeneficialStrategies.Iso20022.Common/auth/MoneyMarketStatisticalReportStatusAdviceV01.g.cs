@@ -21,7 +21,34 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "MnyMktSttstclRptStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides the status on the global report.
+    /// </summary>
+    [IsoId("_1P-hE6ieEeWHO_l3hf2rlA")]
+    [Description(@"Provides the status on the global report.")]
+    [DataMember(Name="StsRptHdr")]
+    [XmlElement(ElementName="StsRptHdr")]
+    [Required]
+    public required SomeStatusReportHeaderRecord StatusReportHeader { get; init; }
+    
+    /// <summary>
+    /// Provides the status on an individual transaction and the related reason if required.
+    /// </summary>
+    [IsoId("_1P-hFaieEeWHO_l3hf2rlA")]
+    [Description(@"Provides the status on an individual transaction and the related reason if required.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    public SomeTransactionStatusRecord? TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_1P-hF6ieEeWHO_l3hf2rlA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The MoneyMarketStatisticalReportStatusAdvice message is sent by the relevant competent authority to the reporting agents to provide the status on the reported transactions.
-/// This is the outer document that contains <seealso cref="MoneyMarketStatisticalReportStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketStatisticalReportStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

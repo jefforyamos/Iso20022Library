@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingTransactionStateReportV01 : IO
     public const string XmlTag = "SctiesFincgRptgTxStatRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to trade state reporting.
+    /// </summary>
+    [IsoId("_2zvMKwuAEeqVvtu9Ny8FDA")]
+    [Description(@"Information related to trade state reporting.")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2zvMLQuAEeqVvtu9Ny8FDA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingTransactionStateReportV01 : IO
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingTransactionStateReport is sent by the trade repository (TR) to the other trade repository (TR) or the authority or made available to the  report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, containing latest state of the transaction.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingTransactionStateReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingTransactionStateReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

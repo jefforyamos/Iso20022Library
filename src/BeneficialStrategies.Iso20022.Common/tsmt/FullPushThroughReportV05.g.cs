@@ -28,7 +28,128 @@ public partial record FullPushThroughReportV05 : IOuterRecord
     public const string XmlTag = "FullPushThrghRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the report.
+    /// </summary>
+    [IsoId("_eIi6VQgGEeSeS5xdjFfOTw")]
+    [Description(@"Identifies the report.")]
+    [DataMember(Name="RptId")]
+    [XmlElement(ElementName="RptId")]
+    [Required]
+    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_eIi6VwgGEeSeS5xdjFfOTw")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_eIi6WQgGEeSeS5xdjFfOTw")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_eIi6WwgGEeSeS5xdjFfOTw")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the financial institution which submitted the baseline.
+    /// </summary>
+    [IsoId("_eIi6XQgGEeSeS5xdjFfOTw")]
+    [Description(@"Reference to the transaction for the financial institution which submitted the baseline.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Specifies the type of report.
+    /// </summary>
+    [IsoId("_eIi6XwgGEeSeS5xdjFfOTw")]
+    [Description(@"Specifies the type of report.")]
+    [DataMember(Name="RptPurp")]
+    [XmlElement(ElementName="RptPurp")]
+    [Required]
+    public required SomeReportPurposeRecord ReportPurpose { get; init; }
+    
+    /// <summary>
+    /// Specifies the commercial details of the underlying transaction.
+    /// </summary>
+    [IsoId("_eIi6YQgGEeSeS5xdjFfOTw")]
+    [Description(@"Specifies the commercial details of the underlying transaction.")]
+    [DataMember(Name="PushdThrghBaseln")]
+    [XmlElement(ElementName="PushdThrghBaseln")]
+    [Required]
+    public required SomePushedThroughBaselineRecord PushedThroughBaseline { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the organisation of the buyer.
+    /// </summary>
+    [IsoId("_eIi6YwgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the organisation of the buyer.")]
+    [DataMember(Name="BuyrCtctPrsn")]
+    [XmlElement(ElementName="BuyrCtctPrsn")]
+    public SomeBuyerContactPersonRecord? BuyerContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the organisation of the seller.
+    /// </summary>
+    [IsoId("_eIi6ZQgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the organisation of the seller.")]
+    [DataMember(Name="SellrCtctPrsn")]
+    [XmlElement(ElementName="SellrCtctPrsn")]
+    public SomeSellerContactPersonRecord? SellerContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the buyer's bank.
+    /// </summary>
+    [IsoId("_eIi6ZwgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the buyer's bank.")]
+    [DataMember(Name="BuyrBkCtctPrsn")]
+    [XmlElement(ElementName="BuyrBkCtctPrsn")]
+    public SomeBuyerBankContactPersonRecord? BuyerBankContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the seller's bank.
+    /// </summary>
+    [IsoId("_eIi6aQgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the seller's bank.")]
+    [DataMember(Name="SellrBkCtctPrsn")]
+    [XmlElement(ElementName="SellrBkCtctPrsn")]
+    public SomeSellerBankContactPersonRecord? SellerBankContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in another bank than the seller or buyer's bank.
+    /// </summary>
+    [IsoId("_eIi6awgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in another bank than the seller or buyer's bank.")]
+    [DataMember(Name="OthrBkCtctPrsn")]
+    [XmlElement(ElementName="OthrBkCtctPrsn")]
+    public SomeOtherBankContactPersonRecord? OtherBankContactPerson { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_eIi6bQgGEeSeS5xdjFfOTw")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +162,8 @@ public partial record FullPushThroughReportV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The FullPushThroughReport message is sent by the matching application to a party involved in a transaction.
-/// This message is used to pass on information that the matching application has received from the submitter. The forwarded information can originate from an InitialBaselineSubmission or BaselineReSubmission or BaselineAmendmentRequest message.
-/// Usage
-/// The FullPushThroughReport message can be sent by the matching application to a party to convey
-/// - the details of an InitialBaselineSubmission message that it has obtained, or
-/// - the details of a BaselineResubmission message that it has obtained, or
-/// - the details of a BaselineAmendmentRequest message that it has obtained.
-/// This is the outer document that contains <seealso cref="FullPushThroughReportV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FullPushThroughReportV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

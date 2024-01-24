@@ -25,7 +25,16 @@ public partial record WithdrawalNotificationV01 : IOuterRecord
     public const string XmlTag = "WdrwlNtfctnV01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference assigned by the central matching system which is notifying the deletion of a previously reported trade.
+    /// </summary>
+    [IsoId("_V5e_0NE8Ed-BzquC8wXy7w_-2008623152")]
+    [Description(@"Reference assigned by the central matching system which is notifying the deletion of a previously reported trade.")]
+    [DataMember(Name="MtchgSysUnqRef")]
+    [XmlElement(ElementName="MtchgSysUnqRef")]
+    [Required]
+    public required SomeMatchingSystemUniqueReferenceRecord MatchingSystemUniqueReference { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +47,8 @@ public partial record WithdrawalNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The WithdrawalNotification message is sent by a central system to notify the withdrawal of a trade which was previously notified to the receiver as an alleged trade.
-/// Usage
-/// The message is used to confirm the cancellation of a previously notified trade.
-/// This message is obsolete please use WithdrawalNotificationV02 - fxtr.013.001.02
-/// This is the outer document that contains <seealso cref="WithdrawalNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="WithdrawalNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

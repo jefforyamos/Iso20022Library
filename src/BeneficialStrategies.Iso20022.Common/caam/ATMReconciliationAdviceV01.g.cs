@@ -21,7 +21,43 @@ public partial record ATMReconciliationAdviceV01 : IOuterRecord
     public const string XmlTag = "ATMRcncltnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_TVDiAIttEeSLQutgI1Ulfw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_ZN6LwIttEeSLQutgI1Ulfw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMRcncltnAdvc")]
+    [XmlElement(ElementName="PrtctdATMRcncltnAdvc")]
+    public SomeProtectedATMReconciliationAdviceRecord? ProtectedATMReconciliationAdvice { get; init; }
+    
+    /// <summary>
+    /// Information related to the reconciliation of an ATM.
+    /// </summary>
+    [IsoId("_huUtoIttEeSLQutgI1Ulfw")]
+    [Description(@"Information related to the reconciliation of an ATM.")]
+    [DataMember(Name="ATMRcncltnAdvc")]
+    [XmlElement(ElementName="ATMRcncltnAdvc")]
+    public SomeATMReconciliationAdviceRecord? ATMReconciliationAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_lmlYoIttEeSLQutgI1Ulfw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMReconciliationAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMReconciliationAdvice message is sent by an ATM to an acquirer or its agent to send all the counters of the ATM. It can be sent by an operator function or as a response of a command sent by an agent or a server.
-/// This is the outer document that contains <seealso cref="ATMReconciliationAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMReconciliationAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

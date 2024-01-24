@@ -21,7 +21,43 @@ public partial record ATMCompletionAdviceV01 : IOuterRecord
     public const string XmlTag = "ATMCmpltnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_nsI3UIqmEeS4a4abTJTSSw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_rVpUoIqmEeS4a4abTJTSSw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMCmpltnAdvc")]
+    [XmlElement(ElementName="PrtctdATMCmpltnAdvc")]
+    public SomeProtectedATMCompletionAdviceRecord? ProtectedATMCompletionAdvice { get; init; }
+    
+    /// <summary>
+    /// Information related to the completion of an operation on the ATM.
+    /// </summary>
+    [IsoId("_4wqIQIqmEeS4a4abTJTSSw")]
+    [Description(@"Information related to the completion of an operation on the ATM.")]
+    [DataMember(Name="ATMCmpltnAdvc")]
+    [XmlElement(ElementName="ATMCmpltnAdvc")]
+    public SomeATMCompletionAdviceRecord? ATMCompletionAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_8YVZkIqmEeS4a4abTJTSSw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMCompletionAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMCompletionAdvice message is sent by an ATM to an acquirer or its agent to inform of the result of a transaction performed on the ATM.
-/// This is the outer document that contains <seealso cref="ATMCompletionAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMCompletionAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,34 @@ public partial record UndertakingApplicationV01 : IOuterRecord
     public const string XmlTag = "UdrtkgAppl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the application for an independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be collected on the presentation of documents that comply with its terms and conditions.
+    /// </summary>
+    [IsoId("_9fRMkXltEeG7BsjMvd1mEw_-1409870883")]
+    [Description(@"Details of the application for an independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be collected on the presentation of documents that comply with its terms and conditions.")]
+    [DataMember(Name="UdrtkgApplDtls")]
+    [XmlElement(ElementName="UdrtkgApplDtls")]
+    [Required]
+    public required SomeUndertakingApplicationDetailsRecord UndertakingApplicationDetails { get; init; }
+    
+    /// <summary>
+    /// Instructions specific to the bank receiving the message.
+    /// </summary>
+    [IsoId("__KBlo3_5EeGOn4dfTT_QdQ")]
+    [Description(@"Instructions specific to the bank receiving the message.")]
+    [DataMember(Name="InstrsToBk")]
+    [XmlElement(ElementName="InstrsToBk")]
+    public required IReadonlyCollection<SomeInstructionsToBankRecord> InstructionsToBank { get; init; } // Min=0, Max=5
+    
+    /// <summary>
+    /// Digital signature of the undertaking application.
+    /// </summary>
+    [IsoId("_9fRMknltEeG7BsjMvd1mEw_-448392239")]
+    [Description(@"Digital signature of the undertaking application.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record UndertakingApplicationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingApplication message is sent by the party requesting issuance of the undertaking (applicant or obligor) to the party issuing the undertaking. It is used to request the issuance of an undertaking (demand guarantee or standby letter of credit or suretyship) or counter-undertaking (counter-guarantee or counter-standby or suretyship), and provides details on the applicable rules, terms, conditions and content of the undertaking to be issued.
-/// This is the outer document that contains <seealso cref="UndertakingApplicationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingApplicationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,62 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV02 : IOute
     public const string XmlTag = "SctiesSttlmTxAudtTrlRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_ZpI-J1XWEeSTstivKW60Lg")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Identification of the SecuritiesStatusQuery message sent to request this report.
+    /// </summary>
+    [IsoId("_ZpI-KVXWEeSTstivKW60Lg")]
+    [Description(@"Identification of the SecuritiesStatusQuery message sent to request this report.")]
+    [DataMember(Name="QryRef")]
+    [XmlElement(ElementName="QryRef")]
+    public SomeQueryReferenceRecord? QueryReference { get; init; }
+    
+    /// <summary>
+    /// Provides unambiguous transaction identification information.
+    /// </summary>
+    [IsoId("_ZpI-K1XWEeSTstivKW60Lg")]
+    [Description(@"Provides unambiguous transaction identification information.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_ZpI-LVXWEeSTstivKW60Lg")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_ZpI-L1XWEeSTstivKW60Lg")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    ///  Provides the history of status and reasons for a pending, posted or cancelled transaction.
+    /// </summary>
+    [IsoId("_ZpI-MVXWEeSTstivKW60Lg")]
+    [Description(@" Provides the history of status and reasons for a pending, posted or cancelled transaction.")]
+    [DataMember(Name="StsTrl")]
+    [XmlElement(ElementName="StsTrl")]
+    public SomeStatusTrailRecord? StatusTrail { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +89,8 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV02 : IOute
 }
 
 /// <summary>
-/// Scope||This message is sent by the Market Infrastructure to the CSD to advise of the history of all the statuses, modifications, replacement and cancellation of a specific transaction during its whole life cycle when the instructing party is a direct participant to the Settlement Infrastructure.|||Usage||The message may also be used to: ||- re-send a message sent by the market infrastructure to the direct participant,||- provide a third party with a copy of a message being sent by the market infrastructure for information,||- re-send to a third party a copy of a message being sent by the market infrastructure for information|using the relevant elements in the Business Application Header.||ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionAuditTrailReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionAuditTrailReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

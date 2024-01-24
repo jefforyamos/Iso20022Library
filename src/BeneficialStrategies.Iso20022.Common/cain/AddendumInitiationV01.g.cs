@@ -22,7 +22,34 @@ public partial record AddendumInitiationV01 : IOuterRecord
     public const string XmlTag = "AdddmInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_RHF8wdkcEeizh_fAW7LywQ")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// The AddendumInitiation is used to provide supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. The supplemental data is associated with an authorization or financial message.
+    /// </summary>
+    [IsoId("_61gpsNkeEeizh_fAW7LywQ")]
+    [Description(@"The AddendumInitiation is used to provide supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. The supplemental data is associated with an authorization or financial message.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    public SomeBodyRecord? Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_RHF8xdkcEeizh_fAW7LywQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +62,8 @@ public partial record AddendumInitiationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The AddendumInitiation message is sent by an acquirer or an agent to an issuer to provide supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. 
-/// The supplemental data is associated with an authorization or financial message.
-/// This is the outer document that contains <seealso cref="AddendumInitiationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AddendumInitiationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

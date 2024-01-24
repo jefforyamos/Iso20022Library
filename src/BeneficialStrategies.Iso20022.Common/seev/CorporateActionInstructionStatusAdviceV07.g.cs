@@ -29,7 +29,71 @@ public partial record CorporateActionInstructionStatusAdviceV07 : IOuterRecord
     public const string XmlTag = "CorpActnInstrStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of a related instruction document.
+    /// </summary>
+    [IsoId("_Rc5pFzm_EeWENZE2jGFgGw")]
+    [Description(@"Identification of a related instruction document.")]
+    [DataMember(Name="InstrId")]
+    [XmlElement(ElementName="InstrId")]
+    public SomeInstructionIdentificationRecord? InstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of other documents as well as the document number.
+    /// </summary>
+    [IsoId("_Rc5pGTm_EeWENZE2jGFgGw")]
+    [Description(@"Identification of other documents as well as the document number.")]
+    [DataMember(Name="OthrDocId")]
+    [XmlElement(ElementName="OthrDocId")]
+    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_Rc5pGzm_EeWENZE2jGFgGw")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides information about the processing status of the instruction.
+    /// </summary>
+    [IsoId("_Rc5pHTm_EeWENZE2jGFgGw")]
+    [Description(@"Provides information about the processing status of the instruction.")]
+    [DataMember(Name="InstrPrcgSts")]
+    [XmlElement(ElementName="InstrPrcgSts")]
+    [Required]
+    public required SomeInstructionProcessingStatusRecord InstructionProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action instruction.
+    /// </summary>
+    [IsoId("_Rc5pHzm_EeWENZE2jGFgGw")]
+    [Description(@"Information about the corporate action instruction.")]
+    [DataMember(Name="CorpActnInstr")]
+    [XmlElement(ElementName="CorpActnInstr")]
+    public SomeCorporateActionInstructionRecord? CorporateActionInstruction { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_Rc5pITm_EeWENZE2jGFgGw")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_Rc5pIzm_EeWENZE2jGFgGw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +106,8 @@ public partial record CorporateActionInstructionStatusAdviceV07 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends the CorporateActionInstructionStatusAdvice message to an account owner or its designated agent, to report status of a received corporate action election instruction.|
-/// This message is used to advise the status, or a change in status, of a corporate action-related transaction previously instructed by, or executed on behalf of, the account owner. This will include the acknowledgement/rejection of a corporate action instruction.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate),
-/// using the relevant elements in the business application header (BAH).
-/// This is the outer document that contains <seealso cref="CorporateActionInstructionStatusAdviceV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionInstructionStatusAdviceV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

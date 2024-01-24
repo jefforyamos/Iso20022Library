@@ -21,7 +21,44 @@ public partial record ProcessingRequestV02 : IOuterRecord
     public const string XmlTag = "PrcgReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique and unambiguous identifier for the message, as assigned by the sender.
+    /// </summary>
+    [IsoId("_1Ms_8QR4Ee29PP19jELcvQ")]
+    [Description(@"Unique and unambiguous identifier for the message, as assigned by the sender.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Indicates the requested CLS Settlement Session that the related trade is part of.
+    /// </summary>
+    [IsoId("_1Ms_8wR4Ee29PP19jELcvQ")]
+    [Description(@"Indicates the requested CLS Settlement Session that the related trade is part of.")]
+    [DataMember(Name="SttlmSsnIdr")]
+    [XmlElement(ElementName="SttlmSsnIdr")]
+    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    
+    /// <summary>
+    /// Contains the details of the processing request.
+    /// </summary>
+    [IsoId("_1Ms_9QR4Ee29PP19jELcvQ")]
+    [Description(@"Contains the details of the processing request.")]
+    [DataMember(Name="Req")]
+    [XmlElement(ElementName="Req")]
+    [Required]
+    public required SomeRequestRecord Request { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_36KEsQR4Ee29PP19jELcvQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +71,8 @@ public partial record ProcessingRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// The Processing Request message is sent by a participant to a central system to request the initiation of a system process supported by a central system.
-/// This is the outer document that contains <seealso cref="ProcessingRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ProcessingRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

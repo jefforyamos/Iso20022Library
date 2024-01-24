@@ -24,7 +24,73 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
     public const string XmlTag = "AcctClsgAddtlInfReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements for the identification of the message and related references.
+    /// </summary>
+    [IsoId("_nIplF9E9Ed-BzquC8wXy7w_-143053244")]
+    [Description(@"Set of elements for the identification of the message and related references.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Identifier for an organisation.
+    /// </summary>
+    [IsoId("_nIplGNE9Ed-BzquC8wXy7w_952637886")]
+    [Description(@"Identifier for an organisation.")]
+    [DataMember(Name="OrgId")]
+    [XmlElement(ElementName="OrgId")]
+    [Required]
+    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account between the account owner and the account servicer.
+    /// </summary>
+    [IsoId("_nIplGdE9Ed-BzquC8wXy7w_1385367466")]
+    [Description(@"Unique and unambiguous identification of the account between the account owner and the account servicer.")]
+    [DataMember(Name="AcctId")]
+    [XmlElement(ElementName="AcctId")]
+    [Required]
+    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
+    /// </summary>
+    [IsoId("_nIplGtE9Ed-BzquC8wXy7w_591269078")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the account to which the remaining positive balance of the account to be closed must be transferred or account from which funds can be moved to the account to be closed and which balance is negative. This account must be held in the same financial institution as the account to be closed if the transfer account is used to compensate a negative balance. For a positive balance to be transferred, an account in another financial institution might be used. In that case the account servicer is mandatory.
+    /// </summary>
+    [IsoId("_nIzWENE9Ed-BzquC8wXy7w_-200311295")]
+    [Description(@"Identification of the account to which the remaining positive balance of the account to be closed must be transferred or account from which funds can be moved to the account to be closed and which balance is negative. This account must be held in the same financial institution as the account to be closed if the transfer account is used to compensate a negative balance. For a positive balance to be transferred, an account in another financial institution might be used. In that case the account servicer is mandatory.")]
+    [DataMember(Name="BalTrfAcct")]
+    [XmlElement(ElementName="BalTrfAcct")]
+    public SomeBalanceTransferAccountRecord? BalanceTransferAccount { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme, that is the servicer of the transfer account.
+    /// </summary>
+    [IsoId("_nIzWEdE9Ed-BzquC8wXy7w_-1228153357")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme, that is the servicer of the transfer account.")]
+    [DataMember(Name="TrfAcctSvcrId")]
+    [XmlElement(ElementName="TrfAcctSvcrId")]
+    public SomeTransferAccountServicerIdentificationRecord? TransferAccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains the signature with its components, namely signed info, signature value, key info and the object.
+    /// </summary>
+    [IsoId("_nIzWEtE9Ed-BzquC8wXy7w_-1121532495")]
+    [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +103,8 @@ public partial record AccountClosingAdditionalInformationRequestV01 : IOuterReco
 }
 
 /// <summary>
-/// Scope
-/// The AccountClosingAdditionalInformationRequest message is sent from a financial institution to an organisation as part of the account closing process.
-/// Usage
-/// This message is sent in response to an closing request message from the organisation, if the business content is valid, but additional information is required.
-/// This is the outer document that contains <seealso cref="AccountClosingAdditionalInformationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountClosingAdditionalInformationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

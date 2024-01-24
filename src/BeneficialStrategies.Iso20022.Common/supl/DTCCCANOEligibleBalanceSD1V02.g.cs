@@ -21,7 +21,15 @@ public partial record DTCCCANOEligibleBalanceSD1V02 : IOuterRecord
     public const string XmlTag = "DTCCCANOElgblBalSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Extension block for the information to be extended as account balance.
+    /// </summary>
+    [IsoId("_gI_aBUk9EeK8UrXTVVBVxw")]
+    [Description(@"Extension block for the information to be extended as account balance.")]
+    [DataMember(Name="AcctBal")]
+    [XmlElement(ElementName="AcctBal")]
+    public SomeAccountBalanceRecord? AccountBalance { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +42,8 @@ public partial record DTCCCANOEligibleBalanceSD1V02 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCANOEligibleBalanceSD1 message extends ISO corporate action notification (Eligible Balance market practice) message with DTCC corporate action eligible balance elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCANOEligibleBalanceSD1V02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOEligibleBalanceSD1V02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

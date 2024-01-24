@@ -21,7 +21,54 @@ public partial record NetReportV01 : IOuterRecord
     public const string XmlTag = "NetRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Specifies the meta data associated with the net report.
+    /// </summary>
+    [IsoId("_bs5gUJUrEeaYkf5FCqYMeA")]
+    [Description(@"Specifies the meta data associated with the net report.")]
+    [DataMember(Name="NetRptData")]
+    [XmlElement(ElementName="NetRptData")]
+    [Required]
+    public required SomeNetReportDataRecord NetReportData { get; init; }
+    
+    /// <summary>
+    /// Describes the participant receiving the net report.
+    /// </summary>
+    [IsoId("_TX-x4JUtEeaYkf5FCqYMeA")]
+    [Description(@"Describes the participant receiving the net report.")]
+    [DataMember(Name="NetSvcPtcptId")]
+    [XmlElement(ElementName="NetSvcPtcptId")]
+    [Required]
+    public required SomeNetServiceParticipantIdentificationRecord NetServiceParticipantIdentification { get; init; }
+    
+    /// <summary>
+    /// Describes the counterparty participant involved in (all of) the obligations of the report.
+    /// </summary>
+    [IsoId("_98aukJU0EeaYkf5FCqYMeA")]
+    [Description(@"Describes the counterparty participant involved in (all of) the obligations of the report.")]
+    [DataMember(Name="NetSvcCtrPtyId")]
+    [XmlElement(ElementName="NetSvcCtrPtyId")]
+    public SomeNetServiceCounterpartyIdentificationRecord? NetServiceCounterpartyIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides the amount, direct parties or netting groups involved in the obligation.
+    /// </summary>
+    [IsoId("_0OAIgJU0EeaYkf5FCqYMeA")]
+    [Description(@"Provides the amount, direct parties or netting groups involved in the obligation.")]
+    [DataMember(Name="NetOblgtn")]
+    [XmlElement(ElementName="NetOblgtn")]
+    [Required]
+    public required SomeNetObligationRecord NetObligation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_RA5FEJU1EeaYkf5FCqYMeA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +81,8 @@ public partial record NetReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The Net Report message is sent to a participant by a central system to provide details of the of the bi-lateral payment obligations, calculated by the central system per currency.
-/// This is the outer document that contains <seealso cref="NetReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

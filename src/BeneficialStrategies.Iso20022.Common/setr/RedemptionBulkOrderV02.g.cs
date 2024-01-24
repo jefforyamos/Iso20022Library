@@ -28,7 +28,70 @@ public partial record RedemptionBulkOrderV02 : IOuterRecord
     public const string XmlTag = "setr.001.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// </summary>
+    [IsoId("_p-h38dE7Ed-BzquC8wXy7w_-1390267861")]
+    [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_p-h38tE7Ed-BzquC8wXy7w_-1379184076")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_p-h389E7Ed-BzquC8wXy7w_-1381034585")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Common information related to all the orders.
+    /// </summary>
+    [IsoId("_p-h39NE7Ed-BzquC8wXy7w_-1057946997")]
+    [Description(@"Common information related to all the orders.")]
+    [DataMember(Name="BlkOrdrDtls")]
+    [XmlElement(ElementName="BlkOrdrDtls")]
+    [Required]
+    public required SomeBulkOrderDetailsRecord BulkOrderDetails { get; init; }
+    
+    /// <summary>
+    /// The information related to an intermediary.
+    /// </summary>
+    [IsoId("_p-h39dE7Ed-BzquC8wXy7w_-1159389506")]
+    [Description(@"The information related to an intermediary.")]
+    [DataMember(Name="IntrmyDtls")]
+    [XmlElement(ElementName="IntrmyDtls")]
+    public required IReadonlyCollection<SomeIntermediaryDetailsRecord> IntermediaryDetails { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_p-ro8NE7Ed-BzquC8wXy7w_-667614163")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_p-ro8dE7Ed-BzquC8wXy7w_-684127238")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +104,8 @@ public partial record RedemptionBulkOrderV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The RedemptionBulkOrder message is sent by an instructing party, eg, an investment manager or its authorised representative, to an executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.
-/// This message is used to instruct the executing party to redeem a financial instrument for two or more accounts.
-/// Usage
-/// The RedemptionBulkOrder message is used to bulk several individual orders into one bulk order. The individual orders come from different instructing parties, ie, account owners, but are the same financial instrument. The RedemptionBulkOrder can result in one single bulk cash settlement or several individual cash settlements.
-/// This message will be typically used by a party collecting orders and bulking these individual orders into one bulk order before sending it to another party.
-/// For a single redemption order, the RedemptionMultipleOrder message, not the RedemptionBulkOrder message, must be used.
-/// If there are redemption orders for different financial instruments but for the same account, then the RedemptionMultipleOrder must be used.
-/// This is the outer document that contains <seealso cref="RedemptionBulkOrderV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionBulkOrderV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

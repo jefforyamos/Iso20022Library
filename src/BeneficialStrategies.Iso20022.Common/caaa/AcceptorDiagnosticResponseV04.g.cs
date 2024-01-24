@@ -21,7 +21,36 @@ public partial record AcceptorDiagnosticResponseV04 : IOuterRecord
     public const string XmlTag = "AccptrDgnstcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Diagnostic response message management information.
+    /// </summary>
+    [IsoId("_hyw_hWpBEeS4VPLpYyQgxQ")]
+    [Description(@"Diagnostic response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the diagnostic response.
+    /// </summary>
+    [IsoId("_hyw_h2pBEeS4VPLpYyQgxQ")]
+    [Description(@"Information related to the diagnostic response.")]
+    [DataMember(Name="DgnstcRspn")]
+    [XmlElement(ElementName="DgnstcRspn")]
+    [Required]
+    public required SomeDiagnosticResponseRecord DiagnosticResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_hyw_iWpBEeS4VPLpYyQgxQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +63,8 @@ public partial record AcceptorDiagnosticResponseV04 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorDiagnosticResponse message is sent by the acquirer (or its agent) to provide to the acceptor the result of the diagnostic request.
-/// This is the outer document that contains <seealso cref="AcceptorDiagnosticResponseV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorDiagnosticResponseV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

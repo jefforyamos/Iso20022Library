@@ -28,7 +28,35 @@ public partial record BankToCustomerStatementV03 : IOuterRecord
     public const string XmlTag = "BkToCstmrStmt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common information for the message.
+    /// </summary>
+    [IsoId("_r8nycFkyEeGeoaLUQk__nA_-1372517778")]
+    [Description(@"Common information for the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Reports on booked entries and balances for a cash account.
+    /// </summary>
+    [IsoId("_r8nycVkyEeGeoaLUQk__nA_2039216231")]
+    [Description(@"Reports on booked entries and balances for a cash account.")]
+    [DataMember(Name="Stmt")]
+    [XmlElement(ElementName="Stmt")]
+    [Required]
+    public required SomeStatementRecord Statement { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_MA59pZ9YEeGBX4a4yy-WHg_53115797")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +69,8 @@ public partial record BankToCustomerStatementV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The BankToCustomerStatement message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It is used to inform the account owner, or authorised party, of the entries booked to the account, and to provide the owner with balance information on the account at a given point in time.
-/// Usage
-/// The BankToCustomerStatement message can contain reports for more than one account. It provides information for cash management and/or reconciliation.
-/// It contains information on booked entries only.
-/// It can include underlying details of transactions that have been included in the entry.
-/// The message is exchanged as defined between the account servicer and the account owner. It provides information on items that have been booked to the account and also balance information. Depending on services and schedule agreed between banks and their customers, statements may be generated and exchanged accordingly, for example for intraday or prior day periods.
-/// It is possible that the receiver of the message is not the account owner, but a party entitled through arrangement with the account owner to receive the account information (also known as recipient).
-/// This is the outer document that contains <seealso cref="BankToCustomerStatementV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankToCustomerStatementV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

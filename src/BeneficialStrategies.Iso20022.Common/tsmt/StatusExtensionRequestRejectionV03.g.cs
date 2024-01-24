@@ -27,7 +27,55 @@ public partial record StatusExtensionRequestRejectionV03 : IOuterRecord
     public const string XmlTag = "StsXtnsnReqRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the rejection message.
+    /// </summary>
+    [IsoId("_zwHRWdE8Ed-BzquC8wXy7w_1399062518")]
+    [Description(@"Identifies the rejection message.")]
+    [DataMember(Name="RjctnId")]
+    [XmlElement(ElementName="RjctnId")]
+    [Required]
+    public required SomeRejectionIdentificationRecord RejectionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_zwHRWtE8Ed-BzquC8wXy7w_1399062539")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_zwHRW9E8Ed-BzquC8wXy7w_1399062847")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Identifies the status that the submitter does not want to be extended.
+    /// </summary>
+    [IsoId("_zwHRXNE8Ed-BzquC8wXy7w_1399062786")]
+    [Description(@"Identifies the status that the submitter does not want to be extended.")]
+    [DataMember(Name="StsNotToBeXtnded")]
+    [XmlElement(ElementName="StsNotToBeXtnded")]
+    [Required]
+    public required SomeStatusNotToBeExtendedRecord StatusNotToBeExtended { get; init; }
+    
+    /// <summary>
+    /// Reason why the user cannot accept the request.
+    /// </summary>
+    [IsoId("_zwHRXdE8Ed-BzquC8wXy7w_1399062817")]
+    [Description(@"Reason why the user cannot accept the request.")]
+    [DataMember(Name="RjctnRsn")]
+    [XmlElement(ElementName="RjctnRsn")]
+    [Required]
+    public required SomeRejectionReasonRecord RejectionReason { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +88,8 @@ public partial record StatusExtensionRequestRejectionV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusExtensionRequestRejection message is sent by the party requested to accept or reject a request to extend the status of a transaction to the matching application.
-/// This message is used to inform about the rejection of a request to extend the status of a transaction.
-/// Usage
-/// The StatusExtensionRequestRejection message can be sent by the party requested to accept or reject the request to extend the status of a transaction to inform that it rejects the request.
-/// The message can be sent in response to a StatusExtensionRequestNotification message.
-/// The acceptance of a request to extend the status of a transaction can be achieved by sending a StatusExtensionRequestAcceptance message.
-/// This is the outer document that contains <seealso cref="StatusExtensionRequestRejectionV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusExtensionRequestRejectionV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

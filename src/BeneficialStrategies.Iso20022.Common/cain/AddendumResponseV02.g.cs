@@ -21,7 +21,35 @@ public partial record AddendumResponseV02 : IOuterRecord
     public const string XmlTag = "AdddmRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_SgZAQYdMEeuBS50MFjViNw")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to an addendum response.
+    /// </summary>
+    [IsoId("_SgZAQ4dMEeuBS50MFjViNw")]
+    [Description(@"Information related to an addendum response.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_SgZARYdMEeuBS50MFjViNw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AddendumResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The AddendumResponse message is sent by an issuer or an agent to an acquirer in response to an AddendumInitiation message.
-/// This is the outer document that contains <seealso cref="AddendumResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AddendumResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

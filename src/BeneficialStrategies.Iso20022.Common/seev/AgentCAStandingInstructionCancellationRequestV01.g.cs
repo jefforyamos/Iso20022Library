@@ -25,7 +25,45 @@ public partial record AgentCAStandingInstructionCancellationRequestV01 : IOuterR
     public const string XmlTag = "AgtCAStgInstrCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the cancellation request.
+    /// </summary>
+    [IsoId("_TRx0NtEwEd-BzquC8wXy7w_-454258628")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the cancellation request.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the Agent CA Standing Instruction Request to be cancelled.
+    /// </summary>
+    [IsoId("_TRx0N9EwEd-BzquC8wXy7w_-424704764")]
+    [Description(@"Identification of the Agent CA Standing Instruction Request to be cancelled.")]
+    [DataMember(Name="AgtCAStgInstrReqId")]
+    [XmlElement(ElementName="AgtCAStgInstrReqId")]
+    [Required]
+    public required SomeAgentCAStandingInstructionRequestIdentificationRecord AgentCAStandingInstructionRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the standing instruction.
+    /// </summary>
+    [IsoId("_TRx0ONEwEd-BzquC8wXy7w_813068966")]
+    [Description(@"General information about the standing instruction.")]
+    [DataMember(Name="StgInstrGnlInf")]
+    [XmlElement(ElementName="StgInstrGnlInf")]
+    [Required]
+    public required SomeStandingInstructionGeneralInformationRecord StandingInstructionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information related to the standing instruction.
+    /// </summary>
+    [IsoId("_TRx0OdEwEd-BzquC8wXy7w_881408508")]
+    [Description(@"Information related to the standing instruction.")]
+    [DataMember(Name="StgInstrDtls")]
+    [XmlElement(ElementName="StgInstrDtls")]
+    public SomeStandingInstructionDetailsRecord? StandingInstructionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +76,8 @@ public partial record AgentCAStandingInstructionCancellationRequestV01 : IOuterR
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to the issuer agent to request the cancellation of a previously sent Agent Corporate Action Standing Instruction.
-/// Usage
-/// This message is used to request the cancellation of a standing instruction.
-/// This message must contain the identification of the standing instruction to be cancelled. It may also contain details of the standing instruction to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="AgentCAStandingInstructionCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAStandingInstructionCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

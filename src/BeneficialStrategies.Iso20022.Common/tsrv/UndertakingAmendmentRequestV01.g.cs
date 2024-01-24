@@ -21,7 +21,34 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord
     public const string XmlTag = "UdrtkgAmdmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details related to the request for an amendment of an undertaking.
+    /// </summary>
+    [IsoId("_9f3Cd3ltEeG7BsjMvd1mEw_-1387733041")]
+    [Description(@"Details related to the request for an amendment of an undertaking.")]
+    [DataMember(Name="UdrtkgAmdmntReqDtls")]
+    [XmlElement(ElementName="UdrtkgAmdmntReqDtls")]
+    [Required]
+    public required SomeUndertakingAmendmentRequestDetailsRecord UndertakingAmendmentRequestDetails { get; init; }
+    
+    /// <summary>
+    /// Instructions specific to the bank receiving the message.
+    /// </summary>
+    [IsoId("_MZwWVX_6EeGOn4dfTT_QdQ")]
+    [Description(@"Instructions specific to the bank receiving the message.")]
+    [DataMember(Name="InstrsToBk")]
+    [XmlElement(ElementName="InstrsToBk")]
+    public required IReadonlyCollection<SomeInstructionsToBankRecord> InstructionsToBank { get; init; } // Min=0, Max=5
+    
+    /// <summary>
+    /// Digital signature of the undertaking amendment request.
+    /// </summary>
+    [IsoId("_9f3CeHltEeG7BsjMvd1mEw_-2129123977")]
+    [Description(@"Digital signature of the undertaking amendment request.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingAmendmentRequest message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking to request issuance of a proposed amendment to the undertaking. The undertaking could be a demand guarantee, standby letter of credit, counter-undertaking (counter-guarantee or counter-standby), or suretyship undertaking. The message provides details on proposed changes to the undertaking, for example, to the expiry date, amount, and/or terms and conditions. It may also be used to request termination or cancellation of the undertaking.
-/// This is the outer document that contains <seealso cref="UndertakingAmendmentRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

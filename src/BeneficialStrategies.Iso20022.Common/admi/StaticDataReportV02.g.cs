@@ -21,7 +21,44 @@ public partial record StaticDataReportV02 : IOuterRecord
     public const string XmlTag = "StatcDataRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique and unambiguous identifier for the message, as assigned by the sender.
+    /// </summary>
+    [IsoId("_y5aAVzp8EeKXK8qRvydwAw")]
+    [Description(@"Unique and unambiguous identifier for the message, as assigned by the sender.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// To indicate the requested CLS Settlement Session that the related trade is part of.
+    /// </summary>
+    [IsoId("_vSr6ox3bEeKXIbeXfdPzuw")]
+    [Description(@"To indicate the requested CLS Settlement Session that the related trade is part of.")]
+    [DataMember(Name="SttlmSsnIdr")]
+    [XmlElement(ElementName="SttlmSsnIdr")]
+    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    
+    /// <summary>
+    /// Report type and returned data.
+    /// </summary>
+    [IsoId("_Zy71lxnXEeKKXqHkeUjBbw")]
+    [Description(@"Report type and returned data.")]
+    [DataMember(Name="RptDtls")]
+    [XmlElement(ElementName="RptDtls")]
+    [Required]
+    public required SomeReportDetailsRecord ReportDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Dw3hYy53EeKwTrPDLMbLxA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +71,8 @@ public partial record StaticDataReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// The StaticDataReport message is sent by a central system to the participant to provide static data held in the system.
-/// This is the outer document that contains <seealso cref="StaticDataReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StaticDataReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

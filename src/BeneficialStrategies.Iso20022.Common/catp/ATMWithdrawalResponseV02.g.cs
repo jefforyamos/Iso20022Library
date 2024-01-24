@@ -21,7 +21,43 @@ public partial record ATMWithdrawalResponseV02 : IOuterRecord
     public const string XmlTag = "ATMWdrwlRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_q6Vxs616EeWMg5rOByfExw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_q6Vxta16EeWMg5rOByfExw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMWdrwlRspn")]
+    [XmlElement(ElementName="PrtctdATMWdrwlRspn")]
+    public SomeProtectedATMWithdrawalResponseRecord? ProtectedATMWithdrawalResponse { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of an ATM withdrawal transaction from an ATM manager.
+    /// </summary>
+    [IsoId("_q6Vxt616EeWMg5rOByfExw")]
+    [Description(@"Information related to the response of an ATM withdrawal transaction from an ATM manager.")]
+    [DataMember(Name="ATMWdrwlRspn")]
+    [XmlElement(ElementName="ATMWdrwlRspn")]
+    public SomeATMWithdrawalResponseRecord? ATMWithdrawalResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_q6Vxua16EeWMg5rOByfExw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMWithdrawalResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMWithdrawalResponse message is sent by an acquirer or its agent to an ATM in response to the ATMWithdrawalRequest to inform the ATM of the approval or decline of the withdrawal transaction.
-/// This is the outer document that contains <seealso cref="ATMWithdrawalResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMWithdrawalResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

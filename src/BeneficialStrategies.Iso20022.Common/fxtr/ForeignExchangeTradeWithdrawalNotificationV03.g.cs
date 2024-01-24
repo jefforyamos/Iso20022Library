@@ -24,7 +24,53 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     public const string XmlTag = "FXTradWdrwlNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of the present message assigned by the party issuing the message. This identification must be unique amongst all messages of same type sent by the same party.
+    /// </summary>
+    [IsoId("_oEmmtzqMEeKXK8qRvydwAw")]
+    [Description(@"Identification of the present message assigned by the party issuing the message. This identification must be unique amongst all messages of same type sent by the same party.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the unique system identification assigned to the trade by the central matching system.
+    /// </summary>
+    [IsoId("_g9h2VTqMEeKXK8qRvydwAw")]
+    [Description(@"Reference to the unique system identification assigned to the trade by the central matching system.")]
+    [DataMember(Name="MtchgSysUnqRef")]
+    [XmlElement(ElementName="MtchgSysUnqRef")]
+    [Required]
+    public required SomeMatchingSystemUniqueReferenceRecord MatchingSystemUniqueReference { get; init; }
+    
+    /// <summary>
+    /// Reason for the withdrawal notification.
+    /// </summary>
+    [IsoId("_eHZflZEkEeKcLcxonNWTXg")]
+    [Description(@"Reason for the withdrawal notification.")]
+    [DataMember(Name="WdrwlRsn")]
+    [XmlElement(ElementName="WdrwlRsn")]
+    public SomeWithdrawalReasonRecord? WithdrawalReason { get; init; }
+    
+    /// <summary>
+    /// To indicate the requested CLS Settlement Session that the related trade is part of.
+    /// </summary>
+    [IsoId("_QVqk05TkEeKShbaq9ixROw")]
+    [Description(@"To indicate the requested CLS Settlement Session that the related trade is part of.")]
+    [DataMember(Name="SttlmSsnIdr")]
+    [XmlElement(ElementName="SttlmSsnIdr")]
+    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_GJJnaS53EeKwTrPDLMbLxA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +83,8 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
 }
 
 /// <summary>
-/// Scope
-/// The ForeignExchangeTradeWithdrawalNotification message is sent by a central system to notify the withdrawal of a foreign exchange trade which was previously notified to the receiver as an alleged trade.
-/// Usage
-/// The ForeignExchangeTradeWithdrawalNotification message is used to confirm the cancellation of a previously notified trade.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeWithdrawalNotificationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeWithdrawalNotificationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

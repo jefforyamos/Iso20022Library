@@ -21,7 +21,24 @@ public partial record DTCCCARESD1V03 : IOuterRecord
     public const string XmlTag = "DTCCCARESD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action general information.
+    /// </summary>
+    [IsoId("_q_pK8w4zEeuIpNw_GxsBOw")]
+    [Description(@"Information to be extended as supplementary data to corporate action general information.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to underlying security details.
+    /// </summary>
+    [IsoId("_D4VDUQ-uEeuE0Pnt-OcNOA")]
+    [Description(@"Information to be extended as supplementary data to underlying security details.")]
+    [DataMember(Name="UndrlygScty")]
+    [XmlElement(ElementName="UndrlygScty")]
+    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +51,8 @@ public partial record DTCCCARESD1V03 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCARESD1 message extends ISO corporate action movement reversal advice message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCARESD1V03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCARESD1V03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

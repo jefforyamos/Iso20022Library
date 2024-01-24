@@ -30,7 +30,75 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
     public const string XmlTag = "MtgInstrSts";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the meeting instruction status message.
+    /// </summary>
+    [IsoId("_TqXTUdEwEd-BzquC8wXy7w_-693693241")]
+    [Description(@"Identifies the meeting instruction status message.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Type of instruction.
+    /// </summary>
+    [IsoId("_TqXTUtEwEd-BzquC8wXy7w_-28327531")]
+    [Description(@"Type of instruction.")]
+    [DataMember(Name="InstrTp")]
+    [XmlElement(ElementName="InstrTp")]
+    [Required]
+    public required SomeInstructionTypeRecord InstructionType { get; init; }
+    
+    /// <summary>
+    /// Series of elements which allow to identify a meeting.
+    /// </summary>
+    [IsoId("_TqXTU9EwEd-BzquC8wXy7w_-1403252543")]
+    [Description(@"Series of elements which allow to identify a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    [Required]
+    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Party reporting the status.
+    /// </summary>
+    [IsoId("_TqXTVNEwEd-BzquC8wXy7w_-2038284389")]
+    [Description(@"Party reporting the status.")]
+    [DataMember(Name="RptgPty")]
+    [XmlElement(ElementName="RptgPty")]
+    [Required]
+    public required SomeReportingPartyRecord ReportingParty { get; init; }
+    
+    /// <summary>
+    /// Identifies the securities for which the meeting is organised.
+    /// </summary>
+    [IsoId("_TqXTVdEwEd-BzquC8wXy7w_-363218248")]
+    [Description(@"Identifies the securities for which the meeting is organised.")]
+    [DataMember(Name="SctyId")]
+    [XmlElement(ElementName="SctyId")]
+    [Required]
+    public required SomeSecurityIdentificationRecord SecurityIdentification { get; init; }
+    
+    /// <summary>
+    /// Type of instruction status.
+    /// </summary>
+    [IsoId("_TqXTVtEwEd-BzquC8wXy7w_1595413206")]
+    [Description(@"Type of instruction status.")]
+    [DataMember(Name="InstrTpSts")]
+    [XmlElement(ElementName="InstrTpSts")]
+    [Required]
+    public required SomeInstructionTypeStatusRecord InstructionTypeStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_TqXTV9EwEd-BzquC8wXy7w_510788685")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +111,8 @@ public partial record MeetingInstructionStatusV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Receiver of the MeetingInstruction or MeetingInstructionCancellationRequest sends the MeetingInstructionStatus message to the Sender of these messages.
-/// The message gives the status of a complete message or of one or more specific instructions within the message.
-/// Usage
-/// The MeetingInstructionStatus message is used for four purposes.
-/// First, it provides the status on the processing of a MeetingInstructionCancellationRequest message, for example, whether the request message is rejected or accepted.
-/// Second, it is used to provide a global processing or rejection status of a MeetingInstruction message.
-/// Third, it is used to provide a detailed processing or rejection status of a MeetingInstruction message, for example, for each instruction in the MeetingInstruction message the processing or rejection status is individually reported by using the InstructionIdentification element. This identification allows the receiver of the status message to link the status confirmation to its original instruction.
-/// The blocking of securities should be confirmed via an MT 508 (Intra-Position Advice).
-/// Fourth, it is used as a reminder to request voting instructions. This is done by indicating NONREF in the Identification element of the InstructionIdentification component and by using the status code NotReceived in the ProcessingStatus.
-/// This is the outer document that contains <seealso cref="MeetingInstructionStatusV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionStatusV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

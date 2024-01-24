@@ -21,7 +21,35 @@ public partial record FraudReportingResponseV02 : IOuterRecord
     public const string XmlTag = "FrdRptgRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_Rt_mJ8r8EeuNe7RtB4qFHw")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the initiation of the fraud reporting.
+    /// </summary>
+    [IsoId("_Rt_mJsr8EeuNe7RtB4qFHw")]
+    [Description(@"Information related to the initiation of the fraud reporting.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_Rt_mJcr8EeuNe7RtB4qFHw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record FraudReportingResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// A FraudReportingResponse message is sent by an agent (processor, agent) to an issuer or acquirer in response to a FraudReportingInitiation message.|
-/// This is the outer document that contains <seealso cref="FraudReportingResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FraudReportingResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

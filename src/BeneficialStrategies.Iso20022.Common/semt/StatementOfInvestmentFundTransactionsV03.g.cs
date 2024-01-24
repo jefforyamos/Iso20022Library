@@ -26,7 +26,91 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord
     public const string XmlTag = "StmtOfInvstmtFndTxs";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_o3RH1Qf7EeSNB7vR9dc0nw")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_o3RH1wf7EeSNB7vR9dc0nw")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_o3RH2Qf7EeSNB7vR9dc0nw")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_o3RH2wf7EeSNB7vR9dc0nw")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// General information related to the investment fund statement of transactions.
+    /// </summary>
+    [IsoId("_o3RH3Qf7EeSNB7vR9dc0nw")]
+    [Description(@"General information related to the investment fund statement of transactions.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to an investment account.
+    /// </summary>
+    [IsoId("_o3RH3wf7EeSNB7vR9dc0nw")]
+    [Description(@"Information related to an investment account.")]
+    [DataMember(Name="InvstmtAcctDtls")]
+    [XmlElement(ElementName="InvstmtAcctDtls")]
+    [Required]
+    public required SomeInvestmentAccountDetailsRecord InvestmentAccountDetails { get; init; }
+    
+    /// <summary>
+    /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
+    /// </summary>
+    [IsoId("_o3RH4Qf7EeSNB7vR9dc0nw")]
+    [Description(@"Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.")]
+    [DataMember(Name="TxOnAcct")]
+    [XmlElement(ElementName="TxOnAcct")]
+    public SomeTransactionOnAccountRecord? TransactionOnAccount { get; init; }
+    
+    /// <summary>
+    /// The sub-account of the safekeeping or investment account.
+    /// </summary>
+    [IsoId("_o3RH4wf7EeSNB7vR9dc0nw")]
+    [Description(@"The sub-account of the safekeeping or investment account.")]
+    [DataMember(Name="SubAcctDtls")]
+    [XmlElement(ElementName="SubAcctDtls")]
+    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_o3RH5Qf7EeSNB7vR9dc0nw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +123,8 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer, for example, a transfer agent sends the StatementOfInvestmentFundTransactions message to the account owner, for example, an investment manager or its authorised representative to provide detailed transactions (increases and decreases) of holdings which occurred during a specified period of time.
-/// Usage
-/// The StatementOfInvestmentFundTransactions message is used to list the holdings transactions of a single (master) account or several sub-accounts.
-/// This message should be used at a frequency agreed bi-laterally between the account servicer and the account owner.
-/// This message must not be used in place of confirmation messages.
-/// This is the outer document that contains <seealso cref="StatementOfInvestmentFundTransactionsV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatementOfInvestmentFundTransactionsV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

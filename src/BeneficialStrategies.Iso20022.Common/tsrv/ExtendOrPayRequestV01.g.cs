@@ -21,7 +21,25 @@ public partial record ExtendOrPayRequestV01 : IOuterRecord
     public const string XmlTag = "XtndOrPayReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the extend or pay request.
+    /// </summary>
+    [IsoId("_9hNGQ3ltEeG7BsjMvd1mEw_-740598928")]
+    [Description(@"Details of the extend or pay request.")]
+    [DataMember(Name="XtndOrPayReqDtls")]
+    [XmlElement(ElementName="XtndOrPayReqDtls")]
+    [Required]
+    public required SomeExtendOrPayRequestDetailsRecord ExtendOrPayRequestDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the request.
+    /// </summary>
+    [IsoId("_9hNGRHltEeG7BsjMvd1mEw_1034955414")]
+    [Description(@"Digital signature of the request.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record ExtendOrPayRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ExtendOrPayRequest message is sent by the party that issued the undertaking to the party that requested issuance of the undertaking (applicant or obligor), to request the applicant's response to a beneficiary request to extend or pay.
-/// This is the outer document that contains <seealso cref="ExtendOrPayRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ExtendOrPayRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

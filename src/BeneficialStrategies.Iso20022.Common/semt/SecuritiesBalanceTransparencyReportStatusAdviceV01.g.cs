@@ -24,7 +24,73 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     public const string XmlTag = "SctiesBalTrnsprncyRptStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique and unambiguous identification of the status advice message.
+    /// </summary>
+    [IsoId("_mBk7IU1qEeSvz4A_x0ui8g")]
+    [Description(@"Unique and unambiguous identification of the status advice message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the party that is the sender of the status advice message.
+    /// </summary>
+    [IsoId("_pGGcEk1qEeSvz4A_x0ui8g")]
+    [Description(@"Identification of the party that is the sender of the status advice message.")]
+    [DataMember(Name="SndrId")]
+    [XmlElement(ElementName="SndrId")]
+    [Required]
+    public required SomeSenderIdentificationRecord SenderIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the party that is the receiver of the status advice message.
+    /// </summary>
+    [IsoId("_pGGcE01qEeSvz4A_x0ui8g")]
+    [Description(@"Identification of the party that is the receiver of the status advice message.")]
+    [DataMember(Name="RcvrId")]
+    [XmlElement(ElementName="RcvrId")]
+    public SomeReceiverIdentificationRecord? ReceiverIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference of the statement for which the status advice has been issued.
+    /// </summary>
+    [IsoId("_x8GCwk4iEeSGlfauTkCKIA")]
+    [Description(@"Reference of the statement for which the status advice has been issued.")]
+    [DataMember(Name="RltdStmt")]
+    [XmlElement(ElementName="RltdStmt")]
+    [Required]
+    public required SomeRelatedStatementRecord RelatedStatement { get; init; }
+    
+    /// <summary>
+    /// Status of the referenced statement.
+    /// </summary>
+    [IsoId("_SOA1Ir3PEeO2FLWuu_JIqg")]
+    [Description(@"Status of the referenced statement.")]
+    [DataMember(Name="Sts")]
+    [XmlElement(ElementName="Sts")]
+    [Required]
+    public required SomeStatusRecord Status { get; init; }
+    
+    /// <summary>
+    /// Number of items for each identical transaction status.
+    /// </summary>
+    [IsoId("_2EcUQUioEeSlHoYg_EudVQ")]
+    [Description(@"Number of items for each identical transaction status.")]
+    [DataMember(Name="NbOfItmsPerSts")]
+    [XmlElement(ElementName="NbOfItmsPerSts")]
+    public required IReadonlyCollection<SomeNumberOfItemsPerStatusRecord> NumberOfItemsPerStatus { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_SOA1I73PEeO2FLWuu_JIqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +103,8 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
 }
 
 /// <summary>
-/// SCOPE
-/// An account owner, such as a custodian, central securities depository, international securities depository or transfer agent, sends the SecuritiesBalanceTransparencyReportStatusAdvice message in response to a SecuritiesBalanceTransparencyReport, to accept or reject the statement of holdings as sent in a SecuritiesBalanceTransparencyReport.
-/// USAGE
-/// The SecuritiesBalanceTransparencyReportStatusAdvice is used to accept (Accepted), partially accept (Accepted With Exception) or reject (Rejected) a previously received SecuritiesBalanceTransparencyReport.
-/// This is the outer document that contains <seealso cref="SecuritiesBalanceTransparencyReportStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesBalanceTransparencyReportStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

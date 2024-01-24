@@ -21,7 +21,35 @@ public partial record ReturnStandingOrderV05 : IOuterRecord
     public const string XmlTag = "RtrStgOrdr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_ThWhxdb6Eeq_l4BJLVUF2Q")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Reports on standing orders.
+    /// </summary>
+    [IsoId("_ThWhx9b6Eeq_l4BJLVUF2Q")]
+    [Description(@"Reports on standing orders.")]
+    [DataMember(Name="RptOrErr")]
+    [XmlElement(ElementName="RptOrErr")]
+    [Required]
+    public required SomeReportOrErrorRecord ReportOrError { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_ThWhydb6Eeq_l4BJLVUF2Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ReturnStandingOrderV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope|The ReturnStandingOrder message is sent by a transaction administrator to a member.|It is used to provide information on the details of one or more standing orders, based on specific request and return criteria.|in response to a request a on information on standing and predefined orders.|Usage|The ReturnStandingOrder message lists the standing order based on the following possible return criteria: |- Generic standing order details,|- Details of a specific predefined or standing liquidity transfer orders,|- Details on the set to which the standing order belongs to,|- List of all predefined and standing liquidity transfer standing orders and/or per set,|- Total amount of predefined and standing liquidity transfer orders defined in the system.
-/// This is the outer document that contains <seealso cref="ReturnStandingOrderV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReturnStandingOrderV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

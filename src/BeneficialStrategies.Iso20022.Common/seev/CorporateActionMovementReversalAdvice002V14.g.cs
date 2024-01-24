@@ -27,7 +27,136 @@ public partial record CorporateActionMovementReversalAdvice002V14 : IOuterRecord
     public const string XmlTag = "CorpActnMvmntRvslAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of a previously sent movement confirmation document.
+    /// </summary>
+    [IsoId("_WfifIF99Ee262vCSVgjImg")]
+    [Description(@"Identification of a previously sent movement confirmation document.")]
+    [DataMember(Name="MvmntConfId")]
+    [XmlElement(ElementName="MvmntConfId")]
+    [Required]
+    public required SomeMovementConfirmationIdentificationRecord MovementConfirmationIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of other documents as well as the document number.
+    /// </summary>
+    [IsoId("_WfifIl99Ee262vCSVgjImg")]
+    [Description(@"Identification of other documents as well as the document number.")]
+    [DataMember(Name="OthrDocId")]
+    [XmlElement(ElementName="OthrDocId")]
+    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of another corporate action event that needs to be closely linked to the processing of the event notified in this document.
+    /// </summary>
+    [IsoId("_WfifJF99Ee262vCSVgjImg")]
+    [Description(@"Identification of another corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
+    [DataMember(Name="EvtsLkg")]
+    [XmlElement(ElementName="EvtsLkg")]
+    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    
+    /// <summary>
+    /// Reason for the reversal.
+    /// </summary>
+    [IsoId("_WfifJl99Ee262vCSVgjImg")]
+    [Description(@"Reason for the reversal.")]
+    [DataMember(Name="RvslRsn")]
+    [XmlElement(ElementName="RvslRsn")]
+    public SomeReversalReasonRecord? ReversalReason { get; init; }
+    
+    /// <summary>
+    /// Transaction type and identification information.
+    /// </summary>
+    [IsoId("_WfifKF99Ee262vCSVgjImg")]
+    [Description(@"Transaction type and identification information.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_WfifKl99Ee262vCSVgjImg")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account, owner and account balance.
+    /// </summary>
+    [IsoId("_WfifLF99Ee262vCSVgjImg")]
+    [Description(@"General information about the safekeeping account, owner and account balance.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action event.
+    /// </summary>
+    [IsoId("_WfifLl99Ee262vCSVgjImg")]
+    [Description(@"Information about the corporate action event.")]
+    [DataMember(Name="CorpActnDtls")]
+    [XmlElement(ElementName="CorpActnDtls")]
+    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action option.
+    /// </summary>
+    [IsoId("_WfifMF99Ee262vCSVgjImg")]
+    [Description(@"Information about the corporate action option.")]
+    [DataMember(Name="CorpActnConfDtls")]
+    [XmlElement(ElementName="CorpActnConfDtls")]
+    [Required]
+    public required SomeCorporateActionConfirmationDetailsRecord CorporateActionConfirmationDetails { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_WfifMl99Ee262vCSVgjImg")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
+    /// </summary>
+    [IsoId("_WfifNF99Ee262vCSVgjImg")]
+    [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
+    [DataMember(Name="IssrAgt")]
+    [XmlElement(ElementName="IssrAgt")]
+    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    
+    /// <summary>
+    /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
+    /// </summary>
+    [IsoId("_WfifNl99Ee262vCSVgjImg")]
+    [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
+    [DataMember(Name="PngAgt")]
+    [XmlElement(ElementName="PngAgt")]
+    public SomePayingAgentRecord? PayingAgent { get; init; }
+    
+    /// <summary>
+    /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
+    /// </summary>
+    [IsoId("_WfifOF99Ee262vCSVgjImg")]
+    [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
+    [DataMember(Name="SubPngAgt")]
+    [XmlElement(ElementName="SubPngAgt")]
+    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_WfifOl99Ee262vCSVgjImg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +169,8 @@ public partial record CorporateActionMovementReversalAdvice002V14 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CorporateActionMovementReversalAdvice message is sent by an account servicer to an account owner or its designated agent to reverse a previously confirmed posting of securities or cash.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).
-/// This is the outer document that contains <seealso cref="CorporateActionMovementReversalAdvice002V14"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionMovementReversalAdvice002V14"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

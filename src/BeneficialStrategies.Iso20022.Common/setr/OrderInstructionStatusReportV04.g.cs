@@ -52,7 +52,44 @@ public partial record OrderInstructionStatusReportV04 : IOuterRecord
     public const string XmlTag = "OrdrInstrStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies the message from a business application standpoint.
+    /// </summary>
+    [IsoId("_Aab7LzbLEead9bDRE_1DAQ")]
+    [Description(@"Reference that uniquely identifies the message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the message or communication that was previously received.
+    /// </summary>
+    [IsoId("_aAGPoUHOEeazV4RAqPV71g")]
+    [Description(@"Reference to the message or communication that was previously received.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    public SomeReferenceRecord? Reference { get; init; }
+    
+    /// <summary>
+    /// Status of the order.
+    /// </summary>
+    [IsoId("_iBEnAEHPEeazV4RAqPV71g")]
+    [Description(@"Status of the order.")]
+    [DataMember(Name="StsRpt")]
+    [XmlElement(ElementName="StsRpt")]
+    [Required]
+    public required SomeStatusReportRecord StatusReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Aab7OzbLEead9bDRE_1DAQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -65,39 +102,8 @@ public partial record OrderInstructionStatusReportV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The OrderInstructionStatusReport message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or its authorised representative, to report the status of an order from the time the executing party receives the order until the time the order is executed.
-/// Usage
-/// The OrderInstructionStatusReport message is used to report on the status of a subscription, redemption or a switch order.
-/// The OrderInstructionStatusReport message may be used to give the status of:
-/// - one order message by using OrderDetailsReport or,
-/// - one or more individual order instructions by using IndividualOrderDetailsReport, or
-/// - one or more switch orders by using SwitchOrderDetailsReport.
-/// If the OrderInstructionStatusReport message is used to report the status of an individual order, then IndividualOrderDetailsReport is used and the order reference of the individual order is quoted in OrderReference. The message identification of the message in which the individual order was conveyed may also be quoted in RelatedReference but this is not recommended.
-/// If the OrderInstructionStatusReport message is used to report the status of a switch order, then SwitchOrderDetailsReport is used and the order reference of the switch order is quoted in OrderReference. The message identification of the message in which the switch order was conveyed may also be quoted in RelatedReference but this is not recommended.
-/// If the OrderInstructionStatusReport message is used to report the status of an entire order message, for example, the SubscriptionBulkOrder, or a SubscriptionOrder containing several orders, then OrderDetailsReport is used and the message identification of the order message is quoted in RelatedReference. All the orders within the message must have the same status.
-/// One of the following statuses can be reported:
-/// - an accepted status, or,
-/// - an already executed status, or,
-/// - a sent to next party status, or,
-/// - a received status, or,
-/// - a settled status, or,
-/// - a communication problem with next party status, or,
-/// - a confirmation amendment status, or,
-/// - a done for the day status, or,
-/// - a partially done status, or,
-/// - an open status, or,
-/// - a cancelled status, or
-/// - a conditionally accepted status, or,
-/// - a rejected status, or,
-/// - a suspended status, or,
-/// - a partially settled status, or,
-/// - an in-repair status (only for an individual or switch order).
-/// For a switch order, the OrderInstructionStatusReport message provides the status of the whole switch order, that is, it is not possible to accept one leg and to reject the other leg: the entire switch order has to be rejected. In order to identify the legs within the switch that are causing the problem, the leg is identified in either the RedemptionLegIdentification or SubscriptionLegIdentification elements.
-/// When the OrderInstructionStatusReport is used to give the status of an individual or a switch order, the following can be specified:
-/// - repaired conditions (for a switch, this is at the level of a leg),
-/// - information related to the order, for example, settlement amount, number of units, expected trade date.
-/// This is the outer document that contains <seealso cref="OrderInstructionStatusReportV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderInstructionStatusReportV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

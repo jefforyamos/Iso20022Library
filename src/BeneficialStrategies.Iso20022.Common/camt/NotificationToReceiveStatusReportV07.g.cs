@@ -24,7 +24,35 @@ public partial record NotificationToReceiveStatusReportV07 : IOuterRecord
     public const string XmlTag = "NtfctnToRcvStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements used to provide further details on the message.
+    /// </summary>
+    [IsoId("_dvOm49cBEeq_l4BJLVUF2Q")]
+    [Description(@"Set of elements used to provide further details on the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to identify the original notification and to provide the status.
+    /// </summary>
+    [IsoId("_dvOm5dcBEeq_l4BJLVUF2Q")]
+    [Description(@"Set of elements used to identify the original notification and to provide the status.")]
+    [DataMember(Name="OrgnlNtfctnAndSts")]
+    [XmlElement(ElementName="OrgnlNtfctnAndSts")]
+    [Required]
+    public required SomeOriginalNotificationAndStatusRecord OriginalNotificationAndStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_dvOm59cBEeq_l4BJLVUF2Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +65,8 @@ public partial record NotificationToReceiveStatusReportV07 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The NotificationToReceiveStatusReport message is sent by an account servicing institution to an account owner or to a party acting on the account owner's behalf. It is used to notify the account owner about the status of one or more expected payments that were advised in a previous NotificationToReceive message.
-/// Usage
-/// The NotificationToReceiveStatusReport message is sent in response to a NotificationToReceive message and can be used in either a direct or a relay scenario. It is used to advise the account owner of receipt of the funds as expected. It is also used to notify the account owner of non-receipt of funds or of discrepancies in the funds received.
-/// This is the outer document that contains <seealso cref="NotificationToReceiveStatusReportV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationToReceiveStatusReportV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

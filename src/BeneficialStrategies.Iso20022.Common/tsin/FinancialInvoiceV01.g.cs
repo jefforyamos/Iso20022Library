@@ -26,7 +26,55 @@ public partial record FinancialInvoiceV01 : IOuterRecord
     public const string XmlTag = "FinInvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Collection of data that is exchanged between two or more parties in written, printed or electronic form. It contains general data relevant to the main body of the invoice such as date of issue, currency code and identification number.
+    /// </summary>
+    [IsoId("_BU_0I31LEeCF8NjrBemJWQ_-1198026434")]
+    [Description(@"Collection of data that is exchanged between two or more parties in written, printed or electronic form. It contains general data relevant to the main body of the invoice such as date of issue, currency code and identification number.")]
+    [DataMember(Name="InvcHdr")]
+    [XmlElement(ElementName="InvcHdr")]
+    [Required]
+    public required SomeInvoiceHeaderRecord InvoiceHeader { get; init; }
+    
+    /// <summary>
+    /// Commercial information such as terms of commerce, parties, and documentation, related to the trading agreement under which this invoice is issued.
+    /// </summary>
+    [IsoId("_BU_0JH1LEeCF8NjrBemJWQ_-1506571269")]
+    [Description(@"Commercial information such as terms of commerce, parties, and documentation, related to the trading agreement under which this invoice is issued.")]
+    [DataMember(Name="TradAgrmt")]
+    [XmlElement(ElementName="TradAgrmt")]
+    [Required]
+    public required SomeTradeAgreementRecord TradeAgreement { get; init; }
+    
+    /// <summary>
+    /// Supply chain shipping arrangements for delivery of invoiced products and/or services.
+    /// </summary>
+    [IsoId("_BU_0JX1LEeCF8NjrBemJWQ_-1892382855")]
+    [Description(@"Supply chain shipping arrangements for delivery of invoiced products and/or services.")]
+    [DataMember(Name="TradDlvry")]
+    [XmlElement(ElementName="TradDlvry")]
+    [Required]
+    public required SomeTradeDeliveryRecord TradeDelivery { get; init; }
+    
+    /// <summary>
+    /// Settlement information that enables the financial reconciliation and payment of this invoice.
+    /// </summary>
+    [IsoId("_BU_0Jn1LEeCF8NjrBemJWQ_1308887526")]
+    [Description(@"Settlement information that enables the financial reconciliation and payment of this invoice.|")]
+    [DataMember(Name="TradSttlm")]
+    [XmlElement(ElementName="TradSttlm")]
+    [Required]
+    public required SomeTradeSettlementRecord TradeSettlement { get; init; }
+    
+    /// <summary>
+    /// Unit of information in this invoice showning the related provision of products and/or services and monetary summations reported as a discrete line item.
+    /// </summary>
+    [IsoId("_BU_0J31LEeCF8NjrBemJWQ_-1744265877")]
+    [Description(@"Unit of information in this invoice showning the related provision of products and/or services and monetary summations reported as a discrete line item.|||")]
+    [DataMember(Name="LineItm")]
+    [XmlElement(ElementName="LineItm")]
+    public SomeLineItemRecord? LineItem { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +87,8 @@ public partial record FinancialInvoiceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The FinancialInvoice message is used to support the provision of financial and related services where there is a requirement to exchange invoice information.
-/// Usage
-/// While the prime function of the FinancialInvoice message is as a request from the seller to the buyer for payment, the FinancialInvoice message can also serve to evidence an invoice in support of a financial service such as invoice factoring, letters of credit, and bank payment obligations, to enable Web based services such as electronic bill payment and presentment, and as the basis to transfer invoice information via third parties such as e-invoicing service providers.
-/// A consequence of the receipt of an invoice by the buyer is that it acts as a trigger for the use of related messages that are already defined in ISO 20022, notably where the information contained in the Financial Invoice enables payment for the goods or services received, and/or is provided in support of a request for invoice financing. While certain of these related messages, such as the CreditTransfer and PaymentInitiation messages, are shown in the sequence diagram they are out of scope. They are shown only to illustrate a given scenario and to place the invoice in the context of the financial banking processes that might be conducted between different financial institutions.
-/// The use of self-billing by the buyer to the seller, where the buyer acts as the invoice issuer or the process of handling an incorrect invoice, is not in scope.
-/// This is the outer document that contains <seealso cref="FinancialInvoiceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInvoiceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

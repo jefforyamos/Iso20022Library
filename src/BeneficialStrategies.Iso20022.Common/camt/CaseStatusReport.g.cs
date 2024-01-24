@@ -21,7 +21,45 @@ public partial record CaseStatusReport : IOuterRecord
     public const string XmlTag = "camt.039.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Specifies generic information about an investigation report.
+    /// </summary>
+    [IsoId("_N4ghGdE-Ed-BzquC8wXy7w_1412424914")]
+    [Description(@"Specifies generic information about an investigation report.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Identifies the case.
+    /// </summary>
+    [IsoId("_N4ghGtE-Ed-BzquC8wXy7w_77721534")]
+    [Description(@"Identifies the case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    [Required]
+    public required SomeCaseRecord Case { get; init; }
+    
+    /// <summary>
+    /// Defines the status of the case.
+    /// </summary>
+    [IsoId("_N4ghG9E-Ed-BzquC8wXy7w_146061162")]
+    [Description(@"Defines the status of the case.")]
+    [DataMember(Name="Sts")]
+    [XmlElement(ElementName="Sts")]
+    [Required]
+    public required SomeStatusRecord Status { get; init; }
+    
+    /// <summary>
+    /// Identifies the last assignment performed.
+    /// </summary>
+    [IsoId("_N4prANE-Ed-BzquC8wXy7w_158065612")]
+    [Description(@"Identifies the last assignment performed.")]
+    [DataMember(Name="NewAssgnmt")]
+    [XmlElement(ElementName="NewAssgnmt")]
+    public SomeNewAssignmentRecord? NewAssignment { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +72,8 @@ public partial record CaseStatusReport : IOuterRecord
 }
 
 /// <summary>
-/// Scope|The Case Status Report message is sent by a case assignee to a case creator or case assigner.|This message is used to report on the status of a case.|Usage|A Case Status Report message is sent in reply to a Case Status Report Request message. This message|- covers one and only one case at a time. (If a case assignee needs to report on several cases, then multiple Case Status Report messages must be sent.)|- may be forwarded to subsequent case assigner(s) until it reaches the end point|- is able to indicate the fact that a case has been assigned to a party downstream in the payment processing chain|- may not be used in place of a Resolution Of Investigation (except for the condition given in the next bullet point) or Notification Of Case Assignment message|- may be skipped and replaced by a Resolution Of Investigation message if at the moment when the request for a investigation status arrives, the assignee has obtained a solution. (In this case a Resolution Of Investigation message can be sent in lieu of a Case Status Report and the case may be closed.).
-/// This is the outer document that contains <seealso cref="CaseStatusReport"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CaseStatusReport"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

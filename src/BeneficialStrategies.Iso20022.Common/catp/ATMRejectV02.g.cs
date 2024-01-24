@@ -21,7 +21,26 @@ public partial record ATMRejectV02 : IOuterRecord
     public const string XmlTag = "ATMRjct";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_EnCvc642EeWpsoxRhdX-8A")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reject of a message from an ATM or an ATM manager.
+    /// </summary>
+    [IsoId("_EnCvda42EeWpsoxRhdX-8A")]
+    [Description(@"Information related to the reject of a message from an ATM or an ATM manager.")]
+    [DataMember(Name="ATMRjct")]
+    [XmlElement(ElementName="ATMRjct")]
+    [Required]
+    public required SomeATMRejectRecord ATMReject { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +53,8 @@ public partial record ATMRejectV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMReject message is sent by any entity to reject a received message.
-/// This is the outer document that contains <seealso cref="ATMRejectV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMRejectV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

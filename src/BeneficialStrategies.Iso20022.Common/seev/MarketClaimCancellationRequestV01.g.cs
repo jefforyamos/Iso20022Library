@@ -24,7 +24,55 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord
     public const string XmlTag = "MktClmCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of the related market claim creation document for which the cancellation is requested.
+    /// </summary>
+    [IsoId("_AiUsoNxwEeqmdMJWobugpw")]
+    [Description(@"Identification of the related market claim creation document for which the cancellation is requested.")]
+    [DataMember(Name="MktClmCreId")]
+    [XmlElement(ElementName="MktClmCreId")]
+    [Required]
+    public required SomeMarketClaimCreationIdentificationRecord MarketClaimCreationIdentification { get; init; }
+    
+    /// <summary>
+    /// References of the market claim for which cancellation is requested.
+    /// </summary>
+    [IsoId("_Iu5sgtxwEeqmdMJWobugpw")]
+    [Description(@"References of the market claim for which cancellation is requested.")]
+    [DataMember(Name="TxRef")]
+    [XmlElement(ElementName="TxRef")]
+    [Required]
+    public required SomeTransactionReferenceRecord TransactionReference { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_zo9YEtxwEeqmdMJWobugpw")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account, owner and account balance.
+    /// </summary>
+    [IsoId("_zo9YE9xwEeqmdMJWobugpw")]
+    [Description(@"General information about the safekeeping account, owner and account balance.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_QtiwUSgaEeuYwc3diVMizA")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +85,8 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope and Usage
-/// The MarketClaimCancellationRequest message is sent by the account holder to the account servicer. 
-/// It is sent to request the cancellation of a market claim transaction.
-/// This message definition is intended for use with the Business Application Header (BAH).
-/// This is the outer document that contains <seealso cref="MarketClaimCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarketClaimCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

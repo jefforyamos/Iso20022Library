@@ -32,7 +32,36 @@ public partial record RejectCaseAssignment : IOuterRecord
     public const string XmlTag = "camt.031.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the assignment.
+    /// </summary>
+    [IsoId("_PxiCw9E_Ed-BzquC8wXy7w_2109597961")]
+    [Description(@"Identifies the assignment.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Identifies the case.
+    /// </summary>
+    [IsoId("_PxiCxNE_Ed-BzquC8wXy7w_2125297631")]
+    [Description(@"Identifies the case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    [Required]
+    public required SomeCaseRecord Case { get; init; }
+    
+    /// <summary>
+    /// Specifies the reason for not accepting a Case.
+    /// </summary>
+    [IsoId("_PxiCxdE_Ed-BzquC8wXy7w_-1282168665")]
+    [Description(@"Specifies the reason for not accepting a Case.")]
+    [DataMember(Name="Justfn")]
+    [XmlElement(ElementName="Justfn")]
+    [Required]
+    public required SomeJustificationRecord Justification { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +74,8 @@ public partial record RejectCaseAssignment : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Reject Case Assignment message is sent by a case assignee to a case creator or case assigner to reject a case given to him.
-/// Usage
-/// The Reject Case Assignment message is used to notify the case creator or case assigner the rejection of an assignment by the case assignee in a:
-/// - request to cancel payment case
-/// - request to modify payment case
-/// - unable to apply case
-/// - claim non receipt case
-/// Rejecting a case assignment occurs when the case assignee is unable to trace the original payment instruction or when the case assignee is unable, or does not have authority, to process the assigned case.
-/// The Reject Case Assignment message covers one and only one case at a time. If the case assignee needs to reject several case assignments, then multiple Reject Case Assignment messages must be sent.
-/// The Reject Case Assignment message must be forwarded by all subsequent case assignee(s) until it reaches the case assigner.
-/// The Reject Case Assignment message must not be used in place of a Resolution Of Investigation or Case Status Report message.
-/// This is the outer document that contains <seealso cref="RejectCaseAssignment"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RejectCaseAssignment"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

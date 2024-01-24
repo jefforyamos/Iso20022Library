@@ -25,7 +25,34 @@ public partial record PartyDeletionRequestV01 : IOuterRecord
     public const string XmlTag = "PtyDeltnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_Wa5ywVhGEeih3fUfzR38Ig")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Unique identification, as assigned by the executing system, to unambiguously identify the party to be deleted.
+    /// </summary>
+    [IsoId("_77TqhZeSEeen_cyMrluY4w")]
+    [Description(@"Unique identification, as assigned by the executing system, to unambiguously identify the party to be deleted.")]
+    [DataMember(Name="SysPtyId")]
+    [XmlElement(ElementName="SysPtyId")]
+    [Required]
+    public required SomeSystemPartyIdentificationRecord SystemPartyIdentification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_77Tqh5eSEeen_cyMrluY4w")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +65,8 @@ public partial record PartyDeletionRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:
-/// The PartyDeletionRequest message is sent by the instructing party to the executing party to request a deletion of a party defined in the executing system.
-/// Usage:
-/// It aims at instructing the deletion of an existing party by providing its identification.
-/// Processing of the party deletion request message is provided via a party status advice.
-/// This is the outer document that contains <seealso cref="PartyDeletionRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyDeletionRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

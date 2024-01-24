@@ -37,7 +37,61 @@ public partial record SecuritiesSettlementConditionsModificationRequest002V09 : 
     public const string XmlTag = "SctiesSttlmCondsModReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_djPcDzi8Eeydid5dcNPKvg")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_djPcETi8Eeydid5dcNPKvg")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
+    /// </summary>
+    [IsoId("_djPcEzi8Eeydid5dcNPKvg")]
+    [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
+    [DataMember(Name="BlckChainAdrOrWllt")]
+    [XmlElement(ElementName="BlckChainAdrOrWllt")]
+    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    
+    /// <summary>
+    /// Details of the request.
+    /// </summary>
+    [IsoId("_djPcFTi8Eeydid5dcNPKvg")]
+    [Description(@"Details of the request.")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    [Required]
+    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_djPcFzi8Eeydid5dcNPKvg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_djPcGTi8Eeydid5dcNPKvg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -50,24 +104,8 @@ public partial record SecuritiesSettlementConditionsModificationRequest002V09 : 
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends a SecuritiesSettlementConditionsModificationRequest to an account servicer to request the modification of a processing indicator or another non-matching information.
-/// The account owner/servicer relationship may be:
-/// - a central securities depository participant which has an account with a central securities depository.
-/// It could also be, if agreed in a service level agreement:
-/// - a global custodian which has an account with its local agent (sub-custodian), or
-/// - an investment management institution which manage a fund account opened at a custodian, or
-/// - a broker which has an account with a custodian, or
-/// - a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.
-/// In markets where this applies (for example, securities market infrastructures with no pre-settlement matching process), it is used by a party to approve, cancel or reject a transaction instructed by the counterparty.
-/// This message cannot be used to request the modification of trade or event details.
-/// The use of AdditionalInformation and its fields must be pre-agreed between account servicer and account owner. The fields in that sequence cannot be used to amend a trade or event detail unless authorised by country market practice.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementConditionsModificationRequest002V09"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementConditionsModificationRequest002V09"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

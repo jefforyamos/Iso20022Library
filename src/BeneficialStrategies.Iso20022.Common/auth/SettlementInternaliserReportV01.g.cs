@@ -23,7 +23,45 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
     public const string XmlTag = "SttlmIntlrRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Specifies parameters of the report.
+    /// </summary>
+    [IsoId("_jW2EcO3kEeaWjpoyrnG6Rw")]
+    [Description(@"Specifies parameters of the report.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Identifies the settlement internaliser for which data is reported.
+    /// </summary>
+    [IsoId("_lNkVgO3kEeaWjpoyrnG6Rw")]
+    [Description(@"Identifies the settlement internaliser for which data is reported.")]
+    [DataMember(Name="SttlmIntlr")]
+    [XmlElement(ElementName="SttlmIntlr")]
+    [Required]
+    public required SomeSettlementInternaliserRecord SettlementInternaliser { get; init; }
+    
+    /// <summary>
+    /// Identifies each issuer CSD (central securities depository) included in the report.
+    /// </summary>
+    [IsoId("_pgDeYO3kEeaWjpoyrnG6Rw")]
+    [Description(@"Identifies each issuer CSD (central securities depository) included in the report.")]
+    [DataMember(Name="IssrCSD")]
+    [XmlElement(ElementName="IssrCSD")]
+    [Required]
+    public required SomeIssuerCSDRecord IssuerCSD { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_D1rv0X9xEeiuTa5SlOUnYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +74,8 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SettlementInternaliserReport message is sent by the settlement internalisers to the relevant competent authority to report aggregated information on all securities transactions that they settle outside securities settlement systems, on a quarterly basis. The report contains aggregated information on the value and volume of all internalised settlement instructions (settled and failed) that have been performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
-/// Usage: 
-/// This report may be used by settlement internalisers to provide aggregated information (volume and value) on internalised settlement instructions (settled and failed) to their competent authorities.
-/// This is the outer document that contains <seealso cref="SettlementInternaliserReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementInternaliserReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

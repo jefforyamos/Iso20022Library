@@ -25,7 +25,103 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     public const string XmlTag = "FXTradConfStsAdvcAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of the advice acknowledgement.
+    /// </summary>
+    [IsoId("_BRy-cESAEeStEe_B2dcrqg")]
+    [Description(@"Identification of the advice acknowledgement.")]
+    [DataMember(Name="AdvcAckId")]
+    [XmlElement(ElementName="AdvcAckId")]
+    public SomeAdviceAcknowledgementIdentificationRecord? AdviceAcknowledgementIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the request.
+    /// </summary>
+    [IsoId("__tUJkESjEeS6cOLECtYLrA")]
+    [Description(@"Identification of the request.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the date on which the trade was executed.
+    /// </summary>
+    [IsoId("_TqsBUESAEeStEe_B2dcrqg")]
+    [Description(@"Specifies the date on which the trade was executed.")]
+    [DataMember(Name="TradDt")]
+    [XmlElement(ElementName="TradDt")]
+    [Required]
+    public required SomeTradeDateRecord TradeDate { get; init; }
+    
+    /// <summary>
+    /// Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.
+    /// </summary>
+    [IsoId("_qe6B0IsSEeS_1fMypAW06w")]
+    [Description(@"Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.")]
+    [DataMember(Name="TradId")]
+    [XmlElement(ElementName="TradId")]
+    [Required]
+    public required SomeTradeIdentificationRecord TradeIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the type of the trade mode.
+    /// </summary>
+    [IsoId("_wbqUIIsSEeS_1fMypAW06w")]
+    [Description(@"Identifies the type of the trade mode.")]
+    [DataMember(Name="TradgMd")]
+    [XmlElement(ElementName="TradgMd")]
+    [Required]
+    public required SomeTradingModeRecord TradingMode { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the confirmation acknowledgement.
+    /// </summary>
+    [IsoId("_viJsEESvEeSTS-T7FO4CUQ")]
+    [Description(@"Identifies the status of the confirmation acknowledgement.")]
+    [DataMember(Name="AffirmSts")]
+    [XmlElement(ElementName="AffirmSts")]
+    [Required]
+    public required SomeAffirmationStatusRecord AffirmationStatus { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the confirmation.
+    /// </summary>
+    [IsoId("_pYBHsIsREeS_1fMypAW06w")]
+    [Description(@"Identifies the status of the confirmation.")]
+    [DataMember(Name="ConfSts")]
+    [XmlElement(ElementName="ConfSts")]
+    [Required]
+    public required SomeConfirmationStatusRecord ConfirmationStatus { get; init; }
+    
+    /// <summary>
+    /// Market in which a trade transaction has been executed.
+    /// </summary>
+    [IsoId("_RD1T0ESAEeStEe_B2dcrqg")]
+    [Description(@"Market in which a trade transaction has been executed.")]
+    [DataMember(Name="MktId")]
+    [XmlElement(ElementName="MktId")]
+    [Required]
+    public required SomeMarketIdentificationRecord MarketIdentification { get; init; }
+    
+    /// <summary>
+    /// Free format text string.
+    /// </summary>
+    [IsoId("_aiEI0ESAEeStEe_B2dcrqg")]
+    [Description(@"Free format text string.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_1wlvYKHlEeS69KkQis5bYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +134,8 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
 }
 
 /// <summary>
-/// Scope
-/// The ForeignExchangeTradeConfirmationStatusAdviceAcknowledgement message is sent from a market participant to a Central matching utility (CMU) in response to the FXTradeConfirmationStatusAdvice previously sent by the CMU in the scenario of trades matched by both participants.
-/// Usage
-/// The acknowledgement is sent by the trading member to the CMU after they received the confirmation status advice. 
-/// Note that one confirmation status advice acknowledgement responds to one confirmation status advice.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

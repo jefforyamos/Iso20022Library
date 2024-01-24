@@ -26,7 +26,54 @@ public partial record PriceReportCancellationV03 : IOuterRecord
     public const string XmlTag = "PricRptCxlV03";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_Zstsy9EvEd-BzquC8wXy7w_1351026833")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_ZstszNEvEd-BzquC8wXy7w_980486135")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_ZstszdEvEd-BzquC8wXy7w_990644277")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_ZstsztEvEd-BzquC8wXy7w_-603797657")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// Common information related to all the price reports to be cancelled.
+    /// </summary>
+    [IsoId("_Zs3dwNEvEd-BzquC8wXy7w_675721186")]
+    [Description(@"Common information related to all the price reports to be cancelled.")]
+    [DataMember(Name="PricRptToBeCanc")]
+    [XmlElement(ElementName="PricRptToBeCanc")]
+    public SomePriceReportToBeCancelledRecord? PriceReportToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +86,8 @@ public partial record PriceReportCancellationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A report provider, eg, a transfer agent, fund accountant or market data provider, sends the PriceReportCancellation message to the report recipient, eg, a fund management company, transfer agent, market data provider, regulator or any other interested party to cancel a previously sent PriceReport message.
-/// Usage
-/// The PriceReportCancellation is used to cancel an entire PriceReport message that was previously sent.
-/// If only a part of the information needs to be cancelled and replaced, the PriceReportCorrection message must be used.
-/// This message must contain the reference of the message to be cancelled.This message may also contain details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="PriceReportCancellationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportCancellationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

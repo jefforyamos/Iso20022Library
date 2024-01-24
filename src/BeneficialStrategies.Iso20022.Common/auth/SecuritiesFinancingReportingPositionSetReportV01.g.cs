@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingPositionSetReportV01 : IOuterR
     public const string XmlTag = "SctiesFincgRptgPosSetRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Representation of exposures between a pair of counterparties that comprise positions sets, collateral position sets, currency positions sets and currency collateral position sets.
+    /// </summary>
+    [IsoId("_YpHNw8KvEeuzU9S_IANlog")]
+    [Description(@"Representation of exposures between a pair of counterparties that comprise positions sets, collateral position sets, currency positions sets and currency collateral position sets.")]
+    [DataMember(Name="AggtdPoss")]
+    [XmlElement(ElementName="AggtdPoss")]
+    [Required]
+    public required SomeAggregatedPositionsRecord AggregatedPositions { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_YpHNxcKvEeuzU9S_IANlog")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingPositionSetReportV01 : IOuterR
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingPositionSetReport message is sent by the trade repositories to the supervisory authority system, to report aggregated exposures between a pair of counterparties (except reuse report).
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingPositionSetReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingPositionSetReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

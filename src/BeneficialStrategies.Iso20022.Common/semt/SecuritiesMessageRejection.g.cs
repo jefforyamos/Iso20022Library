@@ -28,7 +28,26 @@ public partial record SecuritiesMessageRejection : IOuterRecord
     public const string XmlTag = "semt.001.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_MV4gptFSEd-BzquC8wXy7w_1002836384")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    [Required]
+    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Reason to reject the message.
+    /// </summary>
+    [IsoId("_MV4gp9FSEd-BzquC8wXy7w_1267886367")]
+    [Description(@"Reason to reject the message.")]
+    [DataMember(Name="Rsn")]
+    [XmlElement(ElementName="Rsn")]
+    [Required]
+    public required SomeReasonRecord Reason { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +60,8 @@ public partial record SecuritiesMessageRejection : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SecuritiesMessageRejection message is sent by an executing party to the instructing party. Typically, this message is sent by an account servicer to the account owner.
-/// This message is used to reject a previously received message on which action cannot be taken.
-/// Usage
-/// The SecuritiesMessageRejection message can be sent for the following reasons:
-/// - the executing party does not recognise the linked reference, so the executing party cannot process the message
-/// - the instructing party should not have sent the message. This could be because the Receiver does not expect the message, eg, there is no SLA in place between the Sender and the Receiver.
-/// The SecuritiesMessageRejection message must not be used to reject an instruction message that cannot be processed for business reasons, eg, if information is missing in an instruction message or because securities are not available for settlement.
-/// This is the outer document that contains <seealso cref="SecuritiesMessageRejection"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesMessageRejection"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

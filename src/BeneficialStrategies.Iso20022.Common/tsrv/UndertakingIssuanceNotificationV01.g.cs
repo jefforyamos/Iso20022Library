@@ -21,7 +21,25 @@ public partial record UndertakingIssuanceNotificationV01 : IOuterRecord
     public const string XmlTag = "UdrtkgIssncNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details related to the notification of the issued undertaking.
+    /// </summary>
+    [IsoId("_9ft4h3ltEeG7BsjMvd1mEw_725603216")]
+    [Description(@"Details related to the notification of the issued undertaking.")]
+    [DataMember(Name="UdrtkgIssncNtfctnDtls")]
+    [XmlElement(ElementName="UdrtkgIssncNtfctnDtls")]
+    [Required]
+    public required SomeUndertakingIssuanceNotificationDetailsRecord UndertakingIssuanceNotificationDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the undertaking notification.
+    /// </summary>
+    [IsoId("_9ft4iHltEeG7BsjMvd1mEw_-695540807")]
+    [Description(@"Digital signature of the undertaking notification.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record UndertakingIssuanceNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingIssuanceNotification message is sent by the party that issued the undertaking to the applicant to notify it of the contents of an undertaking issued electronically or on paper. The undertaking that is notified could be a demand guarantee, standby letter of credit, counter-undertaking (counter-guarantee or counter-standby), or suretyship undertaking. In addition to containing details on the applicable rules, expiry date, the amount, required documents, and terms and conditions of the undertaking, the message may provide information from the sender such as confirmation details.
-/// This is the outer document that contains <seealso cref="UndertakingIssuanceNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingIssuanceNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

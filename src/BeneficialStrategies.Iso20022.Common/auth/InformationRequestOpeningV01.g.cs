@@ -22,7 +22,74 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     public const string XmlTag = "InfReqOpng";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification for the specific investigation as known by the requesting party.
+    /// </summary>
+    [IsoId("_MvVY3zteEeGg8InIPRjKog")]
+    [Description(@"Unique identification for the specific investigation as known by the requesting party.")]
+    [DataMember(Name="InvstgtnId")]
+    [XmlElement(ElementName="InvstgtnId")]
+    [Required]
+    public required SomeInvestigationIdentificationRecord InvestigationIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides details on the legal basis of the request.
+    /// </summary>
+    [IsoId("_Gh6K-0J9EeGuetKibuqsKw")]
+    [Description(@"Provides details on the legal basis of the request.")]
+    [DataMember(Name="LglMndtBsis")]
+    [XmlElement(ElementName="LglMndtBsis")]
+    [Required]
+    public required SomeLegalMandateBasisRecord LegalMandateBasis { get; init; }
+    
+    /// <summary>
+    /// Specifies the confidentiality status of the investigation.
+    /// </summary>
+    [IsoId("_UdsRrz2NEeGG64_ngBNdUg")]
+    [Description(@"Specifies the confidentiality status of the investigation.")]
+    [DataMember(Name="CnfdtltySts")]
+    [XmlElement(ElementName="CnfdtltySts")]
+    [Required]
+    public required SomeConfidentialityStatusRecord ConfidentialityStatus { get; init; }
+    
+    /// <summary>
+    /// Specifies the date by when the financial institutiion needs to provide a response.
+    /// </summary>
+    [IsoId("_6Pv_70cVEeGlWcsEChp7QA")]
+    [Description(@"Specifies the date by when the financial institutiion needs to provide a response.")]
+    [DataMember(Name="DueDt")]
+    [XmlElement(ElementName="DueDt")]
+    public SomeDueDateRecord? DueDate { get; init; }
+    
+    /// <summary>
+    /// Specifies the dates between which period the authority requests that the financial institution provides a response to the information request.
+    /// </summary>
+    [IsoId("_VWAzXzwlEeGUCuI3g5RrVg")]
+    [Description(@"Specifies the dates between which period the authority requests that the financial institution provides a response to the information request.")]
+    [DataMember(Name="InvstgtnPrd")]
+    [XmlElement(ElementName="InvstgtnPrd")]
+    [Required]
+    public required SomeInvestigationPeriodRecord InvestigationPeriod { get; init; }
+    
+    /// <summary>
+    /// Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.
+    /// </summary>
+    [IsoId("_qpVADzthEeGg8InIPRjKog")]
+    [Description(@"Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.")]
+    [DataMember(Name="SchCrit")]
+    [XmlElement(ElementName="SchCrit")]
+    [Required]
+    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_O_AtrzwoEeGUCuI3g5RrVg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +102,8 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
 }
 
 /// <summary>
-/// This message is sent by the authorities (police, customs, tax authorities, enforcement authorities) to a financial institution to request account and other banking and financial information. Requested information can relate to accounts, their signatories and beneficiaries and co-owners as well as movements plus positions on these accounts.
-/// Requests are underpinned by specific legal texts.
-/// This is the outer document that contains <seealso cref="InformationRequestOpeningV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestOpeningV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

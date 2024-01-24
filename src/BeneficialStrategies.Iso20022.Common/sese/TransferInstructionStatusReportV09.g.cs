@@ -26,7 +26,62 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
     public const string XmlTag = "TrfInstrStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies the message from a business application standpoint.
+    /// </summary>
+    [IsoId("_NesJi9x9EeqKxsvOxFQHKA")]
+    [Description(@"Reference that uniquely identifies the message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Unambiguous identification of the transfer allocated by the counterparty.
+    /// </summary>
+    [IsoId("_NesJjdx9EeqKxsvOxFQHKA")]
+    [Description(@"Unambiguous identification of the transfer allocated by the counterparty.")]
+    [DataMember(Name="CtrPtyRef")]
+    [XmlElement(ElementName="CtrPtyRef")]
+    public SomeCounterpartyReferenceRecord? CounterpartyReference { get; init; }
+    
+    /// <summary>
+    /// Reference to the message or communication that was previously received.
+    /// </summary>
+    [IsoId("_NesJj9x9EeqKxsvOxFQHKA")]
+    [Description(@"Reference to the message or communication that was previously received.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    public SomeReferenceRecord? Reference { get; init; }
+    
+    /// <summary>
+    /// Status of the transfer instruction.
+    /// </summary>
+    [IsoId("_NesJkdx9EeqKxsvOxFQHKA")]
+    [Description(@"Status of the transfer instruction.")]
+    [DataMember(Name="StsRpt")]
+    [XmlElement(ElementName="StsRpt")]
+    [Required]
+    public required SomeStatusReportRecord StatusReport { get; init; }
+    
+    /// <summary>
+    /// Identifies the market practice to which the message conforms.
+    /// </summary>
+    [IsoId("_NesJk9x9EeqKxsvOxFQHKA")]
+    [Description(@"Identifies the market practice to which the message conforms.")]
+    [DataMember(Name="MktPrctcVrsn")]
+    [XmlElement(ElementName="MktPrctcVrsn")]
+    public SomeMarketPracticeVersionRecord? MarketPracticeVersion { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_NesJldx9EeqKxsvOxFQHKA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +94,8 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The TransferInstructionStatusReport message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or one of its authorised representatives to provide the status of a previously received request for holdings information, portfolio transfer or transfer instruction.
-///  It may also be used to report the status of an event related to the asset being transferred or provide additional information.
-/// The TransferInstructionStatusReport message may also be sent by any party in the transfer transaction to another party in the transfer transaction chain to provide information relevant for the settlement of a transfer transaction. 
-/// Usage
-/// The TransferInstructionStatusReport message is used to provide the status of a previously received request for holdings information, portfolio transfer or transfer instruction, or in response to a RequestForTransferStatus message. It may also be used to report the status of an event related to the asset being transferred or provide additional information.
-/// This is the outer document that contains <seealso cref="TransferInstructionStatusReportV09"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInstructionStatusReportV09"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

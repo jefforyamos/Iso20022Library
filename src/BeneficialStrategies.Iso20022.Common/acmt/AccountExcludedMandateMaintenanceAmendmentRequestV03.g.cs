@@ -23,7 +23,91 @@ public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03 : IOu
     public const string XmlTag = "AcctExcldMndtMntncAmdmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements for the identification of the message and related references.
+    /// </summary>
+    [IsoId("_bfzgr22PEei3KuUgpx7Xcw")]
+    [Description(@"Set of elements for the identification of the message and related references.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.
+    /// </summary>
+    [IsoId("_bfzgsW2PEei3KuUgpx7Xcw")]
+    [Description(@"Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.")]
+    [DataMember(Name="Fr")]
+    [XmlElement(ElementName="Fr")]
+    public SomeFromRecord? From { get; init; }
+    
+    /// <summary>
+    /// Specifies target dates.
+    /// </summary>
+    [IsoId("_bfzgs22PEei3KuUgpx7Xcw")]
+    [Description(@"Specifies target dates.")]
+    [DataMember(Name="CtrctDts")]
+    [XmlElement(ElementName="CtrctDts")]
+    public SomeContractDatesRecord? ContractDates { get; init; }
+    
+    /// <summary>
+    /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
+    /// </summary>
+    [IsoId("_bfzgtW2PEei3KuUgpx7Xcw")]
+    [Description(@"Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.")]
+    [DataMember(Name="UndrlygMstrAgrmt")]
+    [XmlElement(ElementName="UndrlygMstrAgrmt")]
+    public SomeUnderlyingMasterAgreementRecord? UnderlyingMasterAgreement { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account between the account owner and the account servicer.
+    /// </summary>
+    [IsoId("_bfzgt22PEei3KuUgpx7Xcw")]
+    [Description(@"Unique and unambiguous identification of the account between the account owner and the account servicer.")]
+    [DataMember(Name="Acct")]
+    [XmlElement(ElementName="Acct")]
+    [Required]
+    public required SomeAccountRecord Account { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
+    /// </summary>
+    [IsoId("_bfzguW2PEei3KuUgpx7Xcw")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
+    /// </summary>
+    [IsoId("_bfzgu22PEei3KuUgpx7Xcw")]
+    [Description(@"Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.")]
+    [DataMember(Name="Org")]
+    [XmlElement(ElementName="Org")]
+    [Required]
+    public required SomeOrganisationRecord Organisation { get; init; }
+    
+    /// <summary>
+    /// Contains the signature with its components, namely signed info, signature value, key info and the object.
+    /// </summary>
+    [IsoId("_bfzgvW2PEei3KuUgpx7Xcw")]
+    [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_bfzgv22PEei3KuUgpx7Xcw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +120,8 @@ public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03 : IOu
 }
 
 /// <summary>
-/// The AccountExcludedMandateMaintenanceAmendmentRequest message is sent from an organisation to a financial institution as part of the account maintenance process. It is sent in response to a request from the financial institution to send additional information. Usage: this update is about account details excluding any mandate information. 
-/// If modification codes are not used: the organisation will specify under the “Account” and “Organisation” tags the complete information as it should be in the financial institution’s records after processing the update request. 
-/// If modification codes are used (in that case, they must be used everywhere): the organisation will specify under the “Account” and “Organisation” tags which elements must be added, deleted, modified, or if they are unchanged.
-/// This is the outer document that contains <seealso cref="AccountExcludedMandateMaintenanceAmendmentRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountExcludedMandateMaintenanceAmendmentRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

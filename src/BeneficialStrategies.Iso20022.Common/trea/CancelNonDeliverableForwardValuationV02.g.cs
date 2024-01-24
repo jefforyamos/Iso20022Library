@@ -24,7 +24,61 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord
     public const string XmlTag = "CclNDFValtnV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides references and date of the valuation of the non deliverable trade which is cancelled.
+    /// </summary>
+    [IsoId("_MYoUo9E8Ed-BzquC8wXy7w_-745317673")]
+    [Description(@"Provides references and date of the valuation of the non deliverable trade which is cancelled.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the non deliverable trade which is cancelled.
+    /// </summary>
+    [IsoId("_MYoUpNE8Ed-BzquC8wXy7w_200370128")]
+    [Description(@"Specifies the trading side of the non deliverable trade which is cancelled.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    public SomeTradingSideIdentificationRecord? TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the non deliverable trade which is cancelled.
+    /// </summary>
+    [IsoId("_MYoUpdE8Ed-BzquC8wXy7w_67383181")]
+    [Description(@"Specifies the counterparty of the non deliverable trade which is cancelled.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    public SomeCounterpartySideIdentificationRecord? CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the amounts of the valuation of the non deliverable trade which is cancelled.
+    /// </summary>
+    [IsoId("_MYoUptE8Ed-BzquC8wXy7w_-761938752")]
+    [Description(@"Specifies the amounts of the valuation of the non deliverable trade which is cancelled.")]
+    [DataMember(Name="TradAmts")]
+    [XmlElement(ElementName="TradAmts")]
+    public SomeTradeAmountsRecord? TradeAmounts { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation rate of the valuation of the non deliverable trade which is cancelled.
+    /// </summary>
+    [IsoId("_MYoUp9E8Ed-BzquC8wXy7w_-748089195")]
+    [Description(@"Specifies the valuation rate of the valuation of the non deliverable trade which is cancelled.")]
+    [DataMember(Name="ValtnRate")]
+    [XmlElement(ElementName="ValtnRate")]
+    public SomeValuationRateRecord? ValuationRate { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation information of the valuation of the non deliverable trade which is cancelled.
+    /// </summary>
+    [IsoId("_MYoUqNE8Ed-BzquC8wXy7w_-750859823")]
+    [Description(@"Specifies the valuation information of the valuation of the non deliverable trade which is cancelled.")]
+    [DataMember(Name="ValtnInf")]
+    [XmlElement(ElementName="ValtnInf")]
+    public SomeValuationInformationRecord? ValuationInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +91,8 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CancelNonDeliverableForwardValuation message is sent by a participant to a central system or to a counterparty to notify the cancellation of the valuation of a non deliverable trade previously confirmed by the sender.
-/// Usage
-/// The message will contain a Related Reference to link it to the previously sent notification. It may contain a reason for cancellation.
-/// This is the outer document that contains <seealso cref="CancelNonDeliverableForwardValuationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CancelNonDeliverableForwardValuationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -25,7 +25,129 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     public const string XmlTag = "TrptyCollTxInstrPrcgStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides unambiguous transaction identification information.
+    /// </summary>
+    [IsoId("_2uaNEys7EeySlt9bF77XfA")]
+    [Description(@"Provides unambiguous transaction identification information.|")]
+    [DataMember(Name="TxInstrId")]
+    [XmlElement(ElementName="TxInstrId")]
+    [Required]
+    public required SomeTransactionInstructionIdentificationRecord TransactionInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the unambiguous identification of the cancellation request as per the account owner.
+    /// </summary>
+    [IsoId("_2uaNFSs7EeySlt9bF77XfA")]
+    [Description(@"Reference to the unambiguous identification of the cancellation request as per the account owner.")]
+    [DataMember(Name="CxlReqRef")]
+    [XmlElement(ElementName="CxlReqRef")]
+    public SomeCancellationRequestReferenceRecord? CancellationRequestReference { get; init; }
+    
+    /// <summary>
+    /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
+    /// </summary>
+    [IsoId("_2uaNFys7EeySlt9bF77XfA")]
+    [Description(@"Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides the status of an instruction.
+    /// </summary>
+    [IsoId("_2uaNGSs7EeySlt9bF77XfA")]
+    [Description(@"Provides the status of an instruction.")]
+    [DataMember(Name="InstrPrcgSts")]
+    [XmlElement(ElementName="InstrPrcgSts")]
+    public SomeInstructionProcessingStatusRecord? InstructionProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the matching status of the instruction.
+    /// </summary>
+    [IsoId("_2uaNGys7EeySlt9bF77XfA")]
+    [Description(@"Provides the matching status of the instruction.")]
+    [DataMember(Name="MtchgSts")]
+    [XmlElement(ElementName="MtchgSts")]
+    public SomeMatchingStatusRecord? MatchingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the status of a cancellation request or status query.
+    /// </summary>
+    [IsoId("_2uaNHSs7EeySlt9bF77XfA")]
+    [Description(@"Provides the status of a cancellation request or status query.|")]
+    [DataMember(Name="CxlPrcgSts")]
+    [XmlElement(ElementName="CxlPrcgSts")]
+    public SomeCancellationProcessingStatusRecord? CancellationProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// provides general information about the instruction and collateral transaction the message refers to.
+    /// </summary>
+    [IsoId("_2uaNHys7EeySlt9bF77XfA")]
+    [Description(@"provides general information about the instruction and collateral transaction the message refers to.|")]
+    [DataMember(Name="GnlParams")]
+    [XmlElement(ElementName="GnlParams")]
+    [Required]
+    public required SomeGeneralParametersRecord GeneralParameters { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of collateral parties.
+    /// </summary>
+    [IsoId("_2uaNISs7EeySlt9bF77XfA")]
+    [Description(@"Identifies the chain of collateral parties.|")]
+    [DataMember(Name="CollPties")]
+    [XmlElement(ElementName="CollPties")]
+    [Required]
+    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    
+    /// <summary>
+    /// Specifies the information related to the deal.
+    /// </summary>
+    [IsoId("_2uaNIys7EeySlt9bF77XfA")]
+    [Description(@"Specifies the information related to the deal.")]
+    [DataMember(Name="DealTxDtls")]
+    [XmlElement(ElementName="DealTxDtls")]
+    [Required]
+    public required SomeDealTransactionDetailsRecord DealTransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Identifies the dates related to the triparty collateral instruction or transactions.
+    /// </summary>
+    [IsoId("_2uaNJSs7EeySlt9bF77XfA")]
+    [Description(@"Identifies the dates related to the triparty collateral instruction or transactions.|")]
+    [DataMember(Name="DealTxDt")]
+    [XmlElement(ElementName="DealTxDt")]
+    [Required]
+    public required SomeDealTransactionDateRecord DealTransactionDate { get; init; }
+    
+    /// <summary>
+    /// Securities movements.
+    /// </summary>
+    [IsoId("_2uaNJys7EeySlt9bF77XfA")]
+    [Description(@"Securities movements.")]
+    [DataMember(Name="SctiesMvmnt")]
+    [XmlElement(ElementName="SctiesMvmnt")]
+    public SomeSecuritiesMovementRecord? SecuritiesMovement { get; init; }
+    
+    /// <summary>
+    ///  Cash movement
+    /// </summary>
+    [IsoId("_2uaNKSs7EeySlt9bF77XfA")]
+    [Description(@" Cash movement")]
+    [DataMember(Name="CshMvmnt")]
+    [XmlElement(ElementName="CshMvmnt")]
+    public SomeCashMovementRecord? CashMovement { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_2uaNKys7EeySlt9bF77XfA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +160,8 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
 }
 
 /// <summary>
-/// Scope: 
-/// This message is sent by a triparty agent after the receipt of a collateral instruction from its client.
-/// In this message, the Sender is the triparty agent and the Receiver is either the collateral taker or the collateral giver or their account servicer.
-/// Usage:
-/// This message provides the status of the Triparty collateral transaction or instruction.
-/// This is the outer document that contains <seealso cref="TripartyCollateralTransactionInstructionProcessingStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralTransactionInstructionProcessingStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

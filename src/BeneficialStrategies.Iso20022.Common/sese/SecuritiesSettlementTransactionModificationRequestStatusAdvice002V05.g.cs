@@ -31,7 +31,72 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     public const string XmlTag = "SctiesSttlmTxModReqStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to the unambiguous identification of the cancellation request as per the account owner.
+    /// </summary>
+    [IsoId("_Tf3INSAdEeuyDZ-ukt4YRg")]
+    [Description(@"Reference to the unambiguous identification of the cancellation request as per the account owner.")]
+    [DataMember(Name="ModReqRef")]
+    [XmlElement(ElementName="ModReqRef")]
+    [Required]
+    public required SomeModificationRequestReferenceRecord ModificationRequestReference { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_Tf3INyAdEeuyDZ-ukt4YRg")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_Tf3IOSAdEeuyDZ-ukt4YRg")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Provides unambiguous transaction identification information.
+    /// </summary>
+    [IsoId("_Tf3IOyAdEeuyDZ-ukt4YRg")]
+    [Description(@"Provides unambiguous transaction identification information.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the request.
+    /// </summary>
+    [IsoId("_Tf3IPSAdEeuyDZ-ukt4YRg")]
+    [Description(@"Provides details on the processing status of the request.")]
+    [DataMember(Name="ModPrcgSts")]
+    [XmlElement(ElementName="ModPrcgSts")]
+    [Required]
+    public required SomeModificationProcessingStatusRecord ModificationProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Identifies the details of the transaction.
+    /// </summary>
+    [IsoId("_Tf3IPyAdEeuyDZ-ukt4YRg")]
+    [Description(@"Identifies the details of the transaction.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Tf3IQSAdEeuyDZ-ukt4YRg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +109,8 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesSettlementTransactionModificationRequestStatusAdvice to an account owner to advise the status of a SecuritiesSettlementTransactionModificationRequest message previously sent by the account owner.
-/// The account servicer may be:
-/// - a central securities depository or another settlement market infrastructure managing securities settlement transactions on behalf of their participants
-/// - an custodian acting as an accounting and/or settlement agent.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message sent by the account owner to the account servicer,
-/// - provide a third party with a copy of a message being sent by the account owner for information,
-/// - re-send to a third party a copy of a message being sent by the account owner for information
-/// using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionModificationRequestStatusAdvice002V05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionModificationRequestStatusAdvice002V05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

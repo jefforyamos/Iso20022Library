@@ -21,7 +21,35 @@ public partial record FinancialInstrumentReportingNonWorkingDayReportV01 : IOute
     public const string XmlTag = "FinInstrmRptgNonWorkgDayRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Header information related to the global report.
+    /// </summary>
+    [IsoId("_4LUGI0RNEee7JdgA9zPESA")]
+    [Description(@"Header information related to the global report.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Provides details on the days a venue is not open.
+    /// </summary>
+    [IsoId("_4LUGJURNEee7JdgA9zPESA")]
+    [Description(@"Provides details on the days a venue is not open.")]
+    [DataMember(Name="NonWorkgDay")]
+    [XmlElement(ElementName="NonWorkgDay")]
+    [Required]
+    public required SomeNonWorkingDayRecord NonWorkingDay { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_4LUGJ0RNEee7JdgA9zPESA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record FinancialInstrumentReportingNonWorkingDayReportV01 : IOute
 }
 
 /// <summary>
-/// The FinancialInstrumentReportingNonWorkingDayReport message is sent by the reporting entity to the competent authority to report on non-working days.
-/// This is the outer document that contains <seealso cref="FinancialInstrumentReportingNonWorkingDayReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingNonWorkingDayReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -24,7 +24,66 @@ public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
     public const string XmlTag = "CretNDFValtnV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides identification and date of the valuation of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_PNYUOdE8Ed-BzquC8wXy7w_1867450436")]
+    [Description(@"Provides identification and date of the valuation of the non deliverable trade which is created.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the valuation of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_PNYUOtE8Ed-BzquC8wXy7w_1743430709")]
+    [Description(@"Specifies the trading side of the valuation of the non deliverable trade which is created.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the valuation of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_PNYUO9E8Ed-BzquC8wXy7w_2094371836")]
+    [Description(@"Specifies the counterparty of the valuation of the non deliverable trade which is created.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the amounts of the valuation of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_PNheINE8Ed-BzquC8wXy7w_1514664860")]
+    [Description(@"Specifies the amounts of the valuation of the non deliverable trade which is created.")]
+    [DataMember(Name="TradAmts")]
+    [XmlElement(ElementName="TradAmts")]
+    [Required]
+    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation information of the valuation of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_PNheIdE8Ed-BzquC8wXy7w_1542371945")]
+    [Description(@"Specifies the valuation information of the valuation of the non deliverable trade which is created.")]
+    [DataMember(Name="ValtnInf")]
+    [XmlElement(ElementName="ValtnInf")]
+    [Required]
+    public required SomeValuationInformationRecord ValuationInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation rate of the valuation of the non deliverable trade which is created.
+    /// </summary>
+    [IsoId("_PNheItE8Ed-BzquC8wXy7w_1810190650")]
+    [Description(@"Specifies the valuation rate of the valuation of the non deliverable trade which is created.")]
+    [DataMember(Name="ValtnRate")]
+    [XmlElement(ElementName="ValtnRate")]
+    [Required]
+    public required SomeValuationRateRecord ValuationRate { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +96,8 @@ public partial record CreateNonDeliverableForwardValuationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CreateNonDeliverableForwardValuation message is sent by a participant to a central system or to a counterparty to notify the valuation of a non deliverable trade.
-/// Usage
-/// The two trading parties will both send similar notifications to the central settlement system and the central settlement system will send notifications to both.
-/// This is the outer document that contains <seealso cref="CreateNonDeliverableForwardValuationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateNonDeliverableForwardValuationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,62 @@ public partial record PayInScheduleV03 : IOuterRecord
     public const string XmlTag = "PayInSchdl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Party for which the pay-in schedule is generated.
+    /// </summary>
+    [IsoId("_KfNctS43EeK7-OZOLIksSw")]
+    [Description(@"Party for which the pay-in schedule is generated.")]
+    [DataMember(Name="PtyId")]
+    [XmlElement(ElementName="PtyId")]
+    [Required]
+    public required SomePartyIdentificationRecord PartyIdentification { get; init; }
+    
+    /// <summary>
+    /// General information applicable to the report.
+    /// </summary>
+    [IsoId("_KfNcuS43EeK7-OZOLIksSw")]
+    [Description(@"General information applicable to the report.")]
+    [DataMember(Name="RptData")]
+    [XmlElement(ElementName="RptData")]
+    [Required]
+    public required SomeReportDataRecord ReportData { get; init; }
+    
+    /// <summary>
+    /// Projected net position for all currencies, projected long for the value date.
+    /// </summary>
+    [IsoId("_KfNcvS43EeK7-OZOLIksSw")]
+    [Description(@"Projected net position for all currencies, projected long for the value date.")]
+    [DataMember(Name="PayInSchdlLngBal")]
+    [XmlElement(ElementName="PayInSchdlLngBal")]
+    public SomePayInScheduleLongBalanceRecord? PayInScheduleLongBalance { get; init; }
+    
+    /// <summary>
+    /// Currency and total amount to be paid in by the corresponding deadline.
+    /// </summary>
+    [IsoId("_KfNcwS43EeK7-OZOLIksSw")]
+    [Description(@"Currency and total amount to be paid in by the corresponding deadline.")]
+    [DataMember(Name="PayInSchdlItm")]
+    [XmlElement(ElementName="PayInSchdlItm")]
+    public SomePayInScheduleItemRecord? PayInScheduleItem { get; init; }
+    
+    /// <summary>
+    /// Factors used in the calculation of the pay-in schedule.
+    /// </summary>
+    [IsoId("_KfNcxS43EeK7-OZOLIksSw")]
+    [Description(@"Factors used in the calculation of the pay-in schedule.")]
+    [DataMember(Name="PayInFctrs")]
+    [XmlElement(ElementName="PayInFctrs")]
+    public SomePayInFactorsRecord? PayInFactors { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_DTaJUS53EeKwTrPDLMbLxA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +89,8 @@ public partial record PayInScheduleV03 : IOuterRecord
 }
 
 /// <summary>
-/// The PayInSchedule message is sent by a central settlement system to the participant to provide notification of a series of timed payments scheduled for each currency at the time and date of the schedule generation. The central settlement system may send information about how the timed payments have been calculated.
-/// This is the outer document that contains <seealso cref="PayInScheduleV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PayInScheduleV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

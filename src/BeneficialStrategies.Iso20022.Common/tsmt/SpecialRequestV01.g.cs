@@ -24,7 +24,45 @@ public partial record SpecialRequestV01 : IOuterRecord
     public const string XmlTag = "SpclReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the acceptance message.
+    /// </summary>
+    [IsoId("_u_roOdE8Ed-BzquC8wXy7w_-951439426")]
+    [Description(@"Identifies the acceptance message.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_u_roOtE8Ed-BzquC8wXy7w_-951439751")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the identification of the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_u_1ZMNE8Ed-BzquC8wXy7w_-951439253")]
+    [Description(@"Reference to the identification of the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Type and details of the notification.
+    /// </summary>
+    [IsoId("_u_1ZMdE8Ed-BzquC8wXy7w_1653813874")]
+    [Description(@"Type and details of the notification.")]
+    [DataMember(Name="Ntfctn")]
+    [XmlElement(ElementName="Ntfctn")]
+    [Required]
+    public required SomeNotificationRecord Notification { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +75,8 @@ public partial record SpecialRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SpecialRequest message is sent by a party to the transaction to the matching application if special circumstances are such that it cannot take part any longer to a specific transaction or that it cannot fulfill its role in the transaction.
-/// Usage
-/// The SpecialRequest message can be sent at any time during the life time of a transaction as long as the transaction is established and not yet closed.
-/// This is the outer document that contains <seealso cref="SpecialRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SpecialRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

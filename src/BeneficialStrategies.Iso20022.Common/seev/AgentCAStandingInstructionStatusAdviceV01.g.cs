@@ -25,7 +25,66 @@ public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCAStgInstrStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the status advice.
+    /// </summary>
+    [IsoId("_TSEvKtEwEd-BzquC8wXy7w_4729651")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the status advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Standing Instruction Request for which a status is given.
+    /// </summary>
+    [IsoId("_TSEvK9EwEd-BzquC8wXy7w_45366871")]
+    [Description(@"Identification of the linked Agent CA Standing Instruction Request for which a status is given.")]
+    [DataMember(Name="AgtCAStgInstrReqId")]
+    [XmlElement(ElementName="AgtCAStgInstrReqId")]
+    [Required]
+    public required SomeAgentCAStandingInstructionRequestIdentificationRecord AgentCAStandingInstructionRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Standing Instruction Cancellation Request for which a status is given.|.
+    /// </summary>
+    [IsoId("_TSEvLNEwEd-BzquC8wXy7w_146031516")]
+    [Description(@"Identification of the linked Agent CA Standing Instruction Cancellation Request for which a status is given.|.")]
+    [DataMember(Name="AgtCAStgInstrCxlReqId")]
+    [XmlElement(ElementName="AgtCAStgInstrCxlReqId")]
+    [Required]
+    public required SomeAgentCAStandingInstructionCancellationRequestIdentificationRecord AgentCAStandingInstructionCancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the standing instruction.
+    /// </summary>
+    [IsoId("_TSN5ENEwEd-BzquC8wXy7w_-1087118100")]
+    [Description(@"General information about the standing instruction.")]
+    [DataMember(Name="StgInstrGnlInf")]
+    [XmlElement(ElementName="StgInstrGnlInf")]
+    [Required]
+    public required SomeStandingInstructionGeneralInformationRecord StandingInstructionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Status of the standing instruction request.
+    /// </summary>
+    [IsoId("_TSN5EdEwEd-BzquC8wXy7w_-1705435837")]
+    [Description(@"Status of the standing instruction request.")]
+    [DataMember(Name="StgInstrReqSts")]
+    [XmlElement(ElementName="StgInstrReqSts")]
+    [Required]
+    public required SomeStandingInstructionRequestStatusRecord StandingInstructionRequestStatus { get; init; }
+    
+    /// <summary>
+    /// Provides information about the status of a standing instruction cancellation request.
+    /// </summary>
+    [IsoId("_TSN5EtEwEd-BzquC8wXy7w_-1517034703")]
+    [Description(@"Provides information about the status of a standing instruction cancellation request.")]
+    [DataMember(Name="StgInstrCxlReqSts")]
+    [XmlElement(ElementName="StgInstrCxlReqSts")]
+    [Required]
+    public required SomeStandingInstructionCancellationRequestStatusRecord StandingInstructionCancellationRequestStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +97,8 @@ public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to the CSD to report the status, or a change in status, of a standing instruction request or the status of a standing instruction cancellation request.
-/// Usage
-/// When this message is used to report the status of a standing instruction request, the building block Standing Instruction Request Identification must be present.
-/// When this message is used to report the status of a standing instruction cancellation request, the building block Standing Instruction Cancellation Request Identification must be present.
-/// This is the outer document that contains <seealso cref="AgentCAStandingInstructionStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAStandingInstructionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

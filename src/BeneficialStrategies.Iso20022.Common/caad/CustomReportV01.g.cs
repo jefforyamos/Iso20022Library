@@ -22,7 +22,35 @@ public partial record CustomReportV01 : IOuterRecord
     public const string XmlTag = "CstmRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to protocol management.
+    /// </summary>
+    [IsoId("_gLegIMlLEeuJ35KoBRZFOg")]
+    [Description(@"Information related to protocol management.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the customer report.
+    /// </summary>
+    [IsoId("_rJnosMlLEeuJ35KoBRZFOg")]
+    [Description(@"Information related to the customer report.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_t0su4clLEeuJ35KoBRZFOg")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +63,8 @@ public partial record CustomReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The Custom Report message can be initiated by any party and received by any party (acquirer, agent, issuer or other party) connected to a network.
-/// This message provides the capability to convey customized reports that are defined by bi-lateral agreement.
-/// This is the outer document that contains <seealso cref="CustomReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

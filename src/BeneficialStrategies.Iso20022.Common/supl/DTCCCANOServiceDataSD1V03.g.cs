@@ -21,7 +21,96 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     public const string XmlTag = "DTCCCANOSvcDataSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as supplementary data to notification general information.
+    /// </summary>
+    [IsoId("_1PgAsTL3EeKU9IrkkToqcw_1324370913")]
+    [Description(@"Information to be extended as supplementary data to notification general information.")]
+    [DataMember(Name="NtfctnGnlInf")]
+    [XmlElement(ElementName="NtfctnGnlInf")]
+    public SomeNotificationGeneralInformationRecord? NotificationGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to events linkage.
+    /// </summary>
+    [IsoId("_1PgAsjL3EeKU9IrkkToqcw_1207093876")]
+    [Description(@"Information to be extended as supplementary data to events linkage.")]
+    [DataMember(Name="EvtsLkg")]
+    [XmlElement(ElementName="EvtsLkg")]
+    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action notification.
+    /// </summary>
+    [IsoId("_1PgAszL3EeKU9IrkkToqcw_-847715476")]
+    [Description(@"Information to be extended as supplementary data to corporate action notification.")]
+    [DataMember(Name="CorpActnNtfctn")]
+    [XmlElement(ElementName="CorpActnNtfctn")]
+    public SomeCorporateActionNotificationRecord? CorporateActionNotification { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to underlying security.
+    /// </summary>
+    [IsoId("_1PgAtDL3EeKU9IrkkToqcw_-195598292")]
+    [Description(@"Information to be extended as supplementary data to underlying security.")]
+    [DataMember(Name="UndrlygScty")]
+    [XmlElement(ElementName="UndrlygScty")]
+    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as corporate action details supplementary data.
+    /// </summary>
+    [IsoId("_1PgAtTL3EeKU9IrkkToqcw_1221991011")]
+    [Description(@"Information to be extended as corporate action details supplementary data.")]
+    [DataMember(Name="CorpActnDtls")]
+    [XmlElement(ElementName="CorpActnDtls")]
+    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as corporate action date details supplementary data.
+    /// </summary>
+    [IsoId("_1PgAtjL3EeKU9IrkkToqcw_-885992761")]
+    [Description(@"Information to be extended as corporate action date details supplementary data.")]
+    [DataMember(Name="CorpActnDtDtls")]
+    [XmlElement(ElementName="CorpActnDtDtls")]
+    public SomeCorporateActionDateDetailsRecord? CorporateActionDateDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to option details.
+    /// </summary>
+    [IsoId("_1PpKoDL3EeKU9IrkkToqcw_531596542")]
+    [Description(@"Information to be extended as supplementary data to option details.")]
+    [DataMember(Name="OptnDtls")]
+    [XmlElement(ElementName="OptnDtls")]
+    public SomeOptionDetailsRecord? OptionDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to securities movement details.
+    /// </summary>
+    [IsoId("_1PpKoTL3EeKU9IrkkToqcw_-1504539626")]
+    [Description(@"Information to be extended as supplementary data to securities movement details.")]
+    [DataMember(Name="SctiesMvmntDtls")]
+    [XmlElement(ElementName="SctiesMvmntDtls")]
+    public SomeSecuritiesMovementDetailsRecord? SecuritiesMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to securities movement security details.
+    /// </summary>
+    [IsoId("_1PpKojL3EeKU9IrkkToqcw_-86950323")]
+    [Description(@"Information to be extended as supplementary data to securities movement security details.")]
+    [DataMember(Name="SctiesMvmntSctyDtls")]
+    [XmlElement(ElementName="SctiesMvmntSctyDtls")]
+    public SomeSecuritiesMovementSecurityDetailsRecord? SecuritiesMovementSecurityDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as cash movement supplementary data.
+    /// </summary>
+    [IsoId("_1PpKozL3EeKU9IrkkToqcw_565166861")]
+    [Description(@"Information to be extended as cash movement supplementary data.")]
+    [DataMember(Name="CshMvmntDtls")]
+    [XmlElement(ElementName="CshMvmntDtls")]
+    public SomeCashMovementDetailsRecord? CashMovementDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +123,8 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCANOServiceDataSD1 message extends ISO corporate action notification (CANO) message with DTCC validation service specific data elements that are not covered by the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCANOServiceDataSD1V03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOServiceDataSD1V03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

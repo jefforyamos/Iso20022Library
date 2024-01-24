@@ -26,7 +26,44 @@ public partial record AccountingStatementOfHoldingsCancellation : IOuterRecord
     public const string XmlTag = "semt.005.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_MXhfa9FSEd-BzquC8wXy7w_-932031360")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_MXhfbNFSEd-BzquC8wXy7w_-930181927")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_MXrQYNFSEd-BzquC8wXy7w_1185839408")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// The Accounting Statement of Holdings message to cancel.
+    /// </summary>
+    [IsoId("_MXrQYdFSEd-BzquC8wXy7w_-814359740")]
+    [Description(@"The Accounting Statement of Holdings message to cancel.")]
+    [DataMember(Name="StmtToBeCanc")]
+    [XmlElement(ElementName="StmtToBeCanc")]
+    public SomeStatementToBeCancelledRecord? StatementToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +76,8 @@ public partial record AccountingStatementOfHoldingsCancellation : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AccountingStatementOfHoldingsCancellation message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a local agent (sub-custodian) acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar.
-/// This message is used to cancel a previously sent AccountingStatementOfHoldings message.
-/// Usage
-/// The AccountingStatementOfHoldingsCancellation message is sent by an account servicer to the account owner to cancel a previously sent AccountingStatementOfHoldings message.
-/// This message must contain the reference of the message to be cancelled. This message may also contain all the details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="AccountingStatementOfHoldingsCancellation"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountingStatementOfHoldingsCancellation"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

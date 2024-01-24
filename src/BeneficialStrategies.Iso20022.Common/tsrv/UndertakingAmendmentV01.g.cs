@@ -21,7 +21,34 @@ public partial record UndertakingAmendmentV01 : IOuterRecord
     public const string XmlTag = "UdrtkgAmdmnt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details related to the proposed undertaking amendment.
+    /// </summary>
+    [IsoId("_9gAzd3ltEeG7BsjMvd1mEw_-531936320")]
+    [Description(@"Details related to the proposed undertaking amendment.")]
+    [DataMember(Name="UdrtkgAmdmntDtls")]
+    [XmlElement(ElementName="UdrtkgAmdmntDtls")]
+    [Required]
+    public required SomeUndertakingAmendmentDetailsRecord UndertakingAmendmentDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information specific to the bank-to-bank communication.
+    /// </summary>
+    [IsoId("_825P83_6EeGOn4dfTT_QdQ")]
+    [Description(@"Additional information specific to the bank-to-bank communication.")]
+    [DataMember(Name="BkToBkInf")]
+    [XmlElement(ElementName="BkToBkInf")]
+    public required IReadonlyCollection<SomeBankToBankInformationRecord> BankToBankInformation { get; init; } // Min=0, Max=5
+    
+    /// <summary>
+    /// Digital signature of the proposed undertaking amendment.
+    /// </summary>
+    [IsoId("_9gAzeHltEeG7BsjMvd1mEw_1718202663")]
+    [Description(@"Digital signature of the proposed undertaking amendment.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record UndertakingAmendmentV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingAmendment message is sent (and is thus issued) by the party that issued the undertaking. The message may be sent either directly to the beneficiary or via an advising party. The proposed undertaking amendment could be to a demand guarantee, standby letter of credit, or counter-undertaking (counter-guarantee or counter-standby). The message provides details on proposed changes to the undertaking, for example, to the expiry date, the amount, and terms and conditions of the undertaking. It may also be used to propose the termination or cancellation of the undertaking. Under practice and law, this communication binds the party issuing it. The message constitutes an operative financial instrument.
-/// This is the outer document that contains <seealso cref="UndertakingAmendmentV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

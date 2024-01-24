@@ -21,7 +21,35 @@ public partial record AcceptorCancellationResponseV05 : IOuterRecord
     public const string XmlTag = "AccptrCxlRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Cancellation response message management information.
+    /// </summary>
+    [IsoId("_7WKrZY1DEeWsypzzYao74A")]
+    [Description(@"Cancellation response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the cancellation response.
+    /// </summary>
+    [IsoId("_7WKrZ41DEeWsypzzYao74A")]
+    [Description(@"Information related to the cancellation response.")]
+    [DataMember(Name="CxlRspn")]
+    [XmlElement(ElementName="CxlRspn")]
+    [Required]
+    public required SomeCancellationResponseRecord CancellationResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_7WKraY1DEeWsypzzYao74A")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorCancellationResponseV05 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorCancellationResponse message is sent by the acquirer (or its agent) to an acceptor (or its agent), to return the outcome of the cancellation request. If the response is positive, the acquirer has voided the financial data from the captured transaction.
-/// This is the outer document that contains <seealso cref="AcceptorCancellationResponseV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCancellationResponseV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -27,7 +27,55 @@ public partial record AmendmentAcceptanceV02 : IOuterRecord
     public const string XmlTag = "AmdmntAccptnc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the acceptance message.
+    /// </summary>
+    [IsoId("_j0IVw9E8Ed-BzquC8wXy7w_1561211944")]
+    [Description(@"Identifies the acceptance message.")]
+    [DataMember(Name="AccptncId")]
+    [XmlElement(ElementName="AccptncId")]
+    [Required]
+    public required SomeAcceptanceIdentificationRecord AcceptanceIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_j0IVxNE8Ed-BzquC8wXy7w_1561211914")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the identification of the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_j0IVxdE8Ed-BzquC8wXy7w_1561212005")]
+    [Description(@"Reference to the identification of the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Reference to the identification of the delta report that contained the amendment.
+    /// </summary>
+    [IsoId("_j0IVxtE8Ed-BzquC8wXy7w_1561211883")]
+    [Description(@"Reference to the identification of the delta report that contained the amendment.")]
+    [DataMember(Name="DltaRptRef")]
+    [XmlElement(ElementName="DltaRptRef")]
+    [Required]
+    public required SomeDeltaReportReferenceRecord DeltaReportReference { get; init; }
+    
+    /// <summary>
+    /// Sequence number of the accepted baseline amendment.
+    /// </summary>
+    [IsoId("_j0IVx9E8Ed-BzquC8wXy7w_1561211975")]
+    [Description(@"Sequence number of the accepted baseline amendment.")]
+    [DataMember(Name="AccptdAmdmntNb")]
+    [XmlElement(ElementName="AccptdAmdmntNb")]
+    [Required]
+    public required SomeAcceptedAmendmentNumberRecord AcceptedAmendmentNumber { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +88,8 @@ public partial record AmendmentAcceptanceV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AmendmentAcceptance message is sent by the party requested to accept or reject an amendment to the matching application.
-/// The message is used to accept an amendment request.
-/// Usage
-/// The AmendmentAcceptance message can be sent by the party requested to accept or reject an amendment to inform that it accepts the requested amendment.
-/// The message can be sent in response to a FullPushThroughReport and DeltaReport message conveying the details of a BaselineAmendmentRequest message.
-/// The rejection of an amendment request can be achieved by sending an AmendmentRejection message.
-/// This is the outer document that contains <seealso cref="AmendmentAcceptanceV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendmentAcceptanceV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

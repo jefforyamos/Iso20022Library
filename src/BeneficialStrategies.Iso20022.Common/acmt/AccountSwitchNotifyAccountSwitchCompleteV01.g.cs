@@ -21,7 +21,36 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
     public const string XmlTag = "AcctSwtchNtfyAcctSwtchCmplt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification for the message.
+    /// </summary>
+    [IsoId("_sQzJUa5jEee17eDA_q0a9g")]
+    [Description(@"Unique identification for the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains information about the account switch.
+    /// Usage: This element is used to communicate confirmation of the account switch.
+    /// </summary>
+    [IsoId("_vdOCAa5jEee17eDA_q0a9g")]
+    [Description(@"Contains information about the account switch.||Usage: This element is used to communicate confirmation of the account switch.")]
+    [DataMember(Name="AcctSwtchDtls")]
+    [XmlElement(ElementName="AcctSwtchDtls")]
+    [Required]
+    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_CksAMA8FEeeJ4ZumUkzG4Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +63,8 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
 }
 
 /// <summary>
-/// The AccountSwitchNotifyAccountSwitchComplete message is sent by the new account servicer to a central account switch servicer to signal that it has completed the account switch. 
-/// This is the outer document that contains <seealso cref="AccountSwitchNotifyAccountSwitchCompleteV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchNotifyAccountSwitchCompleteV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

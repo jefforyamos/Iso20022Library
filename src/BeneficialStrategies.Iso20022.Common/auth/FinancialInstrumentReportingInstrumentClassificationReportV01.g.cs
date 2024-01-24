@@ -21,7 +21,25 @@ public partial record FinancialInstrumentReportingInstrumentClassificationReport
     public const string XmlTag = "FinInstrmRptgInstrmClssfctnRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Report detailing all classification for financial instruments (CFI) code.
+    /// </summary>
+    [IsoId("_4LK8V0RNEee7JdgA9zPESA")]
+    [Description(@"Report detailing all classification for financial instruments (CFI) code.")]
+    [DataMember(Name="InstrmClssfctn")]
+    [XmlElement(ElementName="InstrmClssfctn")]
+    [Required]
+    public required SomeInstrumentClassificationRecord InstrumentClassification { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_4LK8WURNEee7JdgA9zPESA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record FinancialInstrumentReportingInstrumentClassificationReport
 }
 
 /// <summary>
-/// The FinancialInstrumentReportingInstrumentClassificationReport message is sent by ESMA to all national competent authorities and provides all valid combinations for classification of financial instruments (CFI) as per ISO 10962.
-/// This is the outer document that contains <seealso cref="FinancialInstrumentReportingInstrumentClassificationReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingInstrumentClassificationReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

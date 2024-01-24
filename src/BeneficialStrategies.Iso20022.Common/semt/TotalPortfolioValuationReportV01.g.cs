@@ -29,7 +29,64 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     public const string XmlTag = "TtlPrtflValtnRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message (within the report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
+    /// </summary>
+    [IsoId("_Fyx0C9HWEd-BzquC8wXy7w_822256636")]
+    [Description(@"Page number of the message (within the report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// General information related to the total portfolio valuation report.
+    /// </summary>
+    [IsoId("_Fyx0DNHWEd-BzquC8wXy7w_-958164327")]
+    [Description(@"General information related to the total portfolio valuation report.")]
+    [DataMember(Name="RptGnlDtls")]
+    [XmlElement(ElementName="RptGnlDtls")]
+    [Required]
+    public required SomeReportGeneralDetailsRecord ReportGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Details of the account. The account may represent an investment portfolio or a fund.
+    /// </summary>
+    [IsoId("_Fy7lANHWEd-BzquC8wXy7w_-1255643998")]
+    [Description(@"Details of the account. The account may represent an investment portfolio or a fund.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Valuation information of the portfolio. In some markets a fund of funds or an investment fund is regarded as a portfolio.
+    /// </summary>
+    [IsoId("_Fy7lAdHWEd-BzquC8wXy7w_-658833918")]
+    [Description(@"Valuation information of the portfolio. In some markets a fund of funds or an investment fund is regarded as a portfolio.")]
+    [DataMember(Name="TtlPrtflValtn")]
+    [XmlElement(ElementName="TtlPrtflValtn")]
+    [Required]
+    public required SomeTotalPortfolioValuationRecord TotalPortfolioValuation { get; init; }
+    
+    /// <summary>
+    /// Balance breakdown information.
+    /// </summary>
+    [IsoId("_Fy7lAtHWEd-BzquC8wXy7w_-1598852057")]
+    [Description(@"Balance breakdown information.")]
+    [DataMember(Name="Bal")]
+    [XmlElement(ElementName="Bal")]
+    public SomeBalanceRecord? Balance { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_s1GtwGtdEeCY4-KZ9JEyUQ_-1722914512")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +99,8 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a TotalPortfolioValuationReport to an account owner to provide detailed valuation information for a portfolio.
-/// Usage
-/// The TotalPortfolioValuationReport will be sent by the account servicer to the account owner on an agreed basis. The report may also be requested using a SecuritiesStatementQuery.
-/// The TotalPortfolioValuationReport is used to report on a portfolio without Investment Funds; or to report on a portfolio when an investment fund is regarded as a portfolio containing, only one or multiple investment funds
-/// The TotalPortfolioValuationReport may also be used to:
-/// - re-send a message previously sent (the CopyDuplicate value is DUPL),
-/// - provide a third party with a copy of a message for information (the CopyDuplicate value is COPY),
-/// - re-send to a third party a copy of a message for information (the CopyDuplicate value is CODU).
-/// This is the outer document that contains <seealso cref="TotalPortfolioValuationReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TotalPortfolioValuationReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -25,7 +25,43 @@ public partial record BuyInResponseV03 : IOuterRecord
     public const string XmlTag = "BuyInRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as known by the instructing party.
+    /// </summary>
+    [IsoId("_2_0twy0lEeSRe9rElPHBfg")]
+    [Description(@"Unambiguous identification of the transaction as known by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides response details such as a request for delay and the number of days associated to that request.
+    /// </summary>
+    [IsoId("_2_0txS0lEeSRe9rElPHBfg")]
+    [Description(@"Provides response details such as a request for delay and the number of days associated to that request.")]
+    [DataMember(Name="BuyInRspnDtls")]
+    [XmlElement(ElementName="BuyInRspnDtls")]
+    [Required]
+    public required SomeBuyInResponseDetailsRecord BuyInResponseDetails { get; init; }
+    
+    /// <summary>
+    /// Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.
+    /// </summary>
+    [IsoId("_2_0txy0lEeSRe9rElPHBfg")]
+    [Description(@"Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.")]
+    [DataMember(Name="OrgnlSttlmOblgtnDtls")]
+    [XmlElement(ElementName="OrgnlSttlmOblgtnDtls")]
+    public SomeOriginalSettlementObligationDetailsRecord? OriginalSettlementObligationDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2_0tyS0lEeSRe9rElPHBfg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +74,8 @@ public partial record BuyInResponseV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The BuyInResponse message is sent by the clearing member to the central counterparty as a response to the previous buy-in notification message.
-/// The message definition is intended for use with the ISO 20022 Business Application Header.
-/// Usage
-/// The BuyInResponse may be sent in response to the BuyInNotification message. However, the use of this message in the buy in process is optional and depends on the rules set by each central counterparty.
-/// This is the outer document that contains <seealso cref="BuyInResponseV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BuyInResponseV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

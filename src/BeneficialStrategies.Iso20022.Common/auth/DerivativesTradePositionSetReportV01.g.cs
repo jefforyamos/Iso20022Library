@@ -21,7 +21,25 @@ public partial record DerivativesTradePositionSetReportV01 : IOuterRecord
     public const string XmlTag = "DerivsTradPosSetRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Representation of exposures between a pair of counterparties that comprise positions sets, collateral position sets, currency positions sets and currency collateral position sets.
+    /// </summary>
+    [IsoId("_CClucw1MEeqV4s5SpzR1dQ")]
+    [Description(@"Representation of exposures between a pair of counterparties that comprise positions sets, collateral position sets, currency positions sets and currency collateral position sets.")]
+    [DataMember(Name="AggtdPos")]
+    [XmlElement(ElementName="AggtdPos")]
+    [Required]
+    public required SomeAggregatedPositionRecord AggregatedPosition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_CCludQ1MEeqV4s5SpzR1dQ")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record DerivativesTradePositionSetReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The DerivativesTradePositionSetReport message is sent by the trade repositories to the supervisory authority system, to report aggregated exposures between a pair of counterparties that comprise positions sets, collateral position sets, currency positions sets and currency collateral position sets.
-/// This is the outer document that contains <seealso cref="DerivativesTradePositionSetReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradePositionSetReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

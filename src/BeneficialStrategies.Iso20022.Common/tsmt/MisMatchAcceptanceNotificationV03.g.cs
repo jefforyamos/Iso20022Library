@@ -26,7 +26,74 @@ public partial record MisMatchAcceptanceNotificationV03 : IOuterRecord
     public const string XmlTag = "MisMtchAccptncNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification message.
+    /// </summary>
+    [IsoId("_rLKNsNE8Ed-BzquC8wXy7w_2021244988")]
+    [Description(@"Identifies the notification message.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    [Required]
+    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_rLKNsdE8Ed-BzquC8wXy7w_2021244957")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_rLKNstE8Ed-BzquC8wXy7w_2021244896")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    [Required]
+    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_rLKNs9E8Ed-BzquC8wXy7w_2021244927")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for each financial institution which is a party to the transaction.
+    /// </summary>
+    [IsoId("_rLKNtNE8Ed-BzquC8wXy7w_2021244587")]
+    [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Reference to the identification of the report that contained the difference.
+    /// </summary>
+    [IsoId("_rLKNtdE8Ed-BzquC8wXy7w_2021244566")]
+    [Description(@"Reference to the identification of the report that contained the difference.")]
+    [DataMember(Name="DataSetMtchRptRef")]
+    [XmlElement(ElementName="DataSetMtchRptRef")]
+    [Required]
+    public required SomeDataSetMatchReportReferenceRecord DataSetMatchReportReference { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_rLKNttE8Ed-BzquC8wXy7w_2021244865")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +106,8 @@ public partial record MisMatchAcceptanceNotificationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MisMatchAcceptanceNotification message is sent by the matching application to the parties involved in the transaction.
-/// This message is used to notify the acceptance of mis-matched data sets.
-/// Usage
-/// The MisMatchAcceptanceNotification message can be sent by the matching application to pass on information about the acceptance of mis-matched data sets that it has obtained through the receipt of an MisMatchAcceptance message.
-/// In order to pass on information about the rejection of mis-matched data sets the matching application sends a MisMatchRejectionNotification message.
-/// This is the outer document that contains <seealso cref="MisMatchAcceptanceNotificationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MisMatchAcceptanceNotificationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

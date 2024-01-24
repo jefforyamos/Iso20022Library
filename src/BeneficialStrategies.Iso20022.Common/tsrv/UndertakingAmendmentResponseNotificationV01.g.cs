@@ -21,7 +21,34 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
     public const string XmlTag = "UdrtkgAmdmntRspnNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details related to the proposed amendment response notification.
+    /// </summary>
+    [IsoId("_9iPoE3ltEeG7BsjMvd1mEw_-1088327263")]
+    [Description(@"Details related to the proposed amendment response notification.")]
+    [DataMember(Name="UdrtkgAmdmntRspnNtfctnDtls")]
+    [XmlElement(ElementName="UdrtkgAmdmntRspnNtfctnDtls")]
+    [Required]
+    public required SomeUndertakingAmendmentResponseNotificationDetailsRecord UndertakingAmendmentResponseNotificationDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information reported by the beneficiary.
+    /// </summary>
+    [IsoId("_Xldnk387EeGx884K2iQOLg")]
+    [Description(@"Additional information reported by the beneficiary.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the response notification.
+    /// </summary>
+    [IsoId("_9iPoFHltEeG7BsjMvd1mEw_1375957956")]
+    [Description(@"Digital signature of the response notification.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingAmendmentResponseNotification message is sent by the advising party to the party that issued the undertaking, either directly or via one or more other parties, to notify the recipient of the acceptance or rejection by the beneficiary of the amendment. On receipt of this message or the UndertakingAmendmentResponse message, the issuer may also send the UndertakingAmendmentResponseNotification to the applicant.
-/// This is the outer document that contains <seealso cref="UndertakingAmendmentResponseNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentResponseNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

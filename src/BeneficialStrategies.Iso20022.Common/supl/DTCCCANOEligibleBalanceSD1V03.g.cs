@@ -21,7 +21,42 @@ public partial record DTCCCANOEligibleBalanceSD1V03 : IOuterRecord
     public const string XmlTag = "DTCCCANOElgblBalSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as supplementary data to general information.
+    /// </summary>
+    [IsoId("_LFRBoWGJEeORiK3bBeBzGg")]
+    [Description(@"Information to be extended as supplementary data to general information.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to underlying security details.
+    /// </summary>
+    [IsoId("_AyMRgXoCEeO2o_OAyvnbZw")]
+    [Description(@"Information to be extended as supplementary data to underlying security details.")]
+    [DataMember(Name="UndrlygScty")]
+    [XmlElement(ElementName="UndrlygScty")]
+    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    
+    /// <summary>
+    /// Extension block for the information to be extended as account balance for distribution events.
+    /// </summary>
+    [IsoId("_eaasHV2lEeOb__BffbPEig")]
+    [Description(@"Extension block for the information to be extended as account balance for distribution events.")]
+    [DataMember(Name="DstrbtnsAcctBal")]
+    [XmlElement(ElementName="DstrbtnsAcctBal")]
+    public SomeDistributionsAccountBalanceRecord? DistributionsAccountBalance { get; init; }
+    
+    /// <summary>
+    /// Extension block for the information to be extended as account balance for redemptions events.
+    /// </summary>
+    [IsoId("_6Z_OwHoAEeO2o_OAyvnbZw")]
+    [Description(@"Extension block for the information to be extended as account balance for redemptions events.")]
+    [DataMember(Name="RedsAcctBal")]
+    [XmlElement(ElementName="RedsAcctBal")]
+    public SomeRedemptionsAccountBalanceRecord? RedemptionsAccountBalance { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +69,8 @@ public partial record DTCCCANOEligibleBalanceSD1V03 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCANOEligibleBalanceSD1 message extends ISO corporate action notification (Eligible Balance market practice) message with DTCC corporate action eligible balance elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCANOEligibleBalanceSD1V03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOEligibleBalanceSD1V03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

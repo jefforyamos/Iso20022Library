@@ -21,7 +21,35 @@ public partial record ResendRequestV01 : IOuterRecord
     public const string XmlTag = "RsndReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements to identify the resend message.
+    /// </summary>
+    [IsoId("_5xUio5b3Eee4htziCyV8eA")]
+    [Description(@"Set of elements to identify the resend message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Defines the criteria to unambiguously identify the information to be resent.
+    /// </summary>
+    [IsoId("_5xUipZb3Eee4htziCyV8eA")]
+    [Description(@"Defines the criteria to unambiguously identify the information to be resent.")]
+    [DataMember(Name="RsndSchCrit")]
+    [XmlElement(ElementName="RsndSchCrit")]
+    [Required]
+    public required SomeResendSearchCriteriaRecord ResendSearchCriteria { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_5xUip5b3Eee4htziCyV8eA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ResendRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// A system member or any parties authorised by them send a ResendRequest message to the Central System (such as the T2S platform). The purpose of this request is, that the requesting party wants to receive the “original” message once again. This might be caused through technical problems on the receiving side (message could not be received or processed or is missing in the message sequencing) or for archiving purposes.
-/// This is the outer document that contains <seealso cref="ResendRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ResendRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

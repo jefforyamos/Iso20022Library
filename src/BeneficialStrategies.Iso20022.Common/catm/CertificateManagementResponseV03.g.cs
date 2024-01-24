@@ -21,7 +21,35 @@ public partial record CertificateManagementResponseV03 : IOuterRecord
     public const string XmlTag = "CertMgmtRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management.
+    /// </summary>
+    [IsoId("_JWNVkQ0WEeqUVL7sB4m7NA")]
+    [Description(@"Information related to the protocol management.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the result of the certificate management request.
+    /// </summary>
+    [IsoId("_JWNVkw0WEeqUVL7sB4m7NA")]
+    [Description(@"Information related to the result of the certificate management request.")]
+    [DataMember(Name="CertMgmtRspn")]
+    [XmlElement(ElementName="CertMgmtRspn")]
+    [Required]
+    public required SomeCertificateManagementResponseRecord CertificateManagementResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_JWNVlQ0WEeqUVL7sB4m7NA")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record CertificateManagementResponseV03 : IOuterRecord
 }
 
 /// <summary>
-/// The CertificateManagementResponse is sent by a terminal manager in response to a CertificateManagementRequest to provide the outcome of the requested service.
-/// This is the outer document that contains <seealso cref="CertificateManagementResponseV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CertificateManagementResponseV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

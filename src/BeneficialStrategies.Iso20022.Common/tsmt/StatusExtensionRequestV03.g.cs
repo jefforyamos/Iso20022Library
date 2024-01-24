@@ -26,7 +26,45 @@ public partial record StatusExtensionRequestV03 : IOuterRecord
     public const string XmlTag = "StsXtnsnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the request message.
+    /// </summary>
+    [IsoId("_0MRo6dE8Ed-BzquC8wXy7w_2103710297")]
+    [Description(@"Identifies the request message.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_0MRo6tE8Ed-BzquC8wXy7w_2103710318")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_0MRo69E8Ed-BzquC8wXy7w_2103710380")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_0MRo7NE8Ed-BzquC8wXy7w_2103710350")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="StsToBeXtnded")]
+    [XmlElement(ElementName="StsToBeXtnded")]
+    [Required]
+    public required SomeStatusToBeExtendedRecord StatusToBeExtended { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +77,8 @@ public partial record StatusExtensionRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusExtensionRequest message is sent by either party involved in a transaction to the matching application.
-/// This message is used to request the extension of the status of a transaction.
-/// Usage
-/// The StatusExtensionRequest message can be sent by either party involved in a transaction to the matching application to request the extension of the status of a transaction.
-/// The matching application will pass on the request by sending a StatusExtensionRequestNotification message to the counterparty which can accept or reject the status extension request by sending a StatusExtensionAcceptance or StatusExtensionRejection message.
-/// This is the outer document that contains <seealso cref="StatusExtensionRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusExtensionRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

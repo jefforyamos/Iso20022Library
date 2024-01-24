@@ -31,7 +31,71 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV06 : IOuterRe
     public const string XmlTag = "SctiesStsOrStmtQryStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the query as per the account owner.
+    /// </summary>
+    [IsoId("_yoyk6SgSEeym1_Zp1BTvEw")]
+    [Description(@"Unambiguous identification of the query as per the account owner.")]
+    [DataMember(Name="QryDtls")]
+    [XmlElement(ElementName="QryDtls")]
+    [Required]
+    public required SomeQueryDetailsRecord QueryDetails { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_yoyk6ygSEeym1_Zp1BTvEw")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_yoyk7SgSEeym1_Zp1BTvEw")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
+    /// </summary>
+    [IsoId("_2EAcoyqFEeyR9JrVGfaMKw")]
+    [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
+    [DataMember(Name="BlckChainAdrOrWllt")]
+    [XmlElement(ElementName="BlckChainAdrOrWllt")]
+    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    
+    /// <summary>
+    /// Details of the request.
+    /// </summary>
+    [IsoId("_yoyk7ygSEeym1_Zp1BTvEw")]
+    [Description(@"Details of the request.")]
+    [DataMember(Name="StsOrStmtReqd")]
+    [XmlElement(ElementName="StsOrStmtReqd")]
+    public SomeStatusOrStatementRequestedRecord? StatusOrStatementRequested { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the request.
+    /// </summary>
+    [IsoId("_yoyk8SgSEeym1_Zp1BTvEw")]
+    [Description(@"Provides details on the processing status of the request.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    [Required]
+    public required SomeProcessingStatusRecord ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_yoyk8ygSEeym1_Zp1BTvEw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +108,8 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV06 : IOuterRe
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesStatusOrStatementQueryStatusAdvice to an account owner to advise the status of a status query or statement query previously sent by the account owner.
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesStatusOrStatementQueryStatusAdviceV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesStatusOrStatementQueryStatusAdviceV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

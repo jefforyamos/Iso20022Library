@@ -21,7 +21,35 @@ public partial record SaleToPOIEventNotificationV01 : IOuterRecord
     public const string XmlTag = "SaleToPOIEvtNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_ebPkw4YCEemxIqbaFEE8-w")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the notification of an event.
+    /// </summary>
+    [IsoId("_ebPkxYYCEemxIqbaFEE8-w")]
+    [Description(@"Information related to the notification of an event.")]
+    [DataMember(Name="EvtNtfctn")]
+    [XmlElement(ElementName="EvtNtfctn")]
+    [Required]
+    public required SomeEventNotificationRecord EventNotification { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_ebPkx4YCEemxIqbaFEE8-w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIEventNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// An Event Notification message is sent by the POI when an event occurs.
-/// This is the outer document that contains <seealso cref="SaleToPOIEventNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIEventNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

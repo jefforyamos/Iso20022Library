@@ -24,7 +24,83 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
     public const string XmlTag = "FXTradConfStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Advice message management information.
+    /// </summary>
+    [IsoId("_SxWkUKbSEeSnSIf9q_Ahng")]
+    [Description(@"Advice message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Identifies the advice message.
+    /// </summary>
+    [IsoId("_rREcwESAEeStEe_B2dcrqg")]
+    [Description(@"Identifies the advice message.")]
+    [DataMember(Name="AdvcId")]
+    [XmlElement(ElementName="AdvcId")]
+    public SomeAdviceIdentificationRecord? AdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the treasury trade which is captured.
+    /// </summary>
+    [IsoId("_vtpVwESAEeStEe_B2dcrqg")]
+    [Description(@"Specifies the trading side of the treasury trade which is captured.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty side of the treasury trade which is captured.
+    /// </summary>
+    [IsoId("_x6tqQESAEeStEe_B2dcrqg")]
+    [Description(@"Specifies the counterparty side of the treasury trade which is captured.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Details of the treasury trade confirmed.
+    /// </summary>
+    [IsoId("_2CJZsESAEeStEe_B2dcrqg")]
+    [Description(@"Details of the treasury trade confirmed.")]
+    [DataMember(Name="TradDtl")]
+    [XmlElement(ElementName="TradDtl")]
+    [Required]
+    public required SomeTradeDetailRecord TradeDetail { get; init; }
+    
+    /// <summary>
+    /// Details of the confirmation in the CMU.
+    /// </summary>
+    [IsoId("_4B8HMESAEeStEe_B2dcrqg")]
+    [Description(@"Details of the confirmation in the CMU.")]
+    [DataMember(Name="ConfInf")]
+    [XmlElement(ElementName="ConfInf")]
+    [Required]
+    public required SomeConfirmationInformationRecord ConfirmationInformation { get; init; }
+    
+    /// <summary>
+    /// Additional reference of this message.
+    /// </summary>
+    [IsoId("_70VawESAEeStEe_B2dcrqg")]
+    [Description(@"Additional reference of this message.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    public SomeReferenceRecord? Reference { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Ab9F4KHmEeS69KkQis5bYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +113,8 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceV01 : IOuterRe
 }
 
 /// <summary>
-/// Scope
-/// The ForeignExchageTradeConfirmationStatusAdvice message is sent from a Central matching utility (CMU) to a market participant to advise the matching status of the trade. 
-/// Usage
-/// The confirmation status advice is sent by the CMU to the market participants after they received the confirmation request.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeConfirmationStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeConfirmationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

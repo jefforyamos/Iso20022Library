@@ -21,7 +21,35 @@ public partial record SaleToPOIServiceRequestV01 : IOuterRecord
     public const string XmlTag = "SaleToPOISvcReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_dTGYU4X_EemxIqbaFEE8-w")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to a service request.
+    /// </summary>
+    [IsoId("_dTGYVYX_EemxIqbaFEE8-w")]
+    [Description(@"Information related to a service request.")]
+    [DataMember(Name="SvcReq")]
+    [XmlElement(ElementName="SvcReq")]
+    [Required]
+    public required SomeServiceRequestRecord ServiceRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_dTGYV4X_EemxIqbaFEE8-w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIServiceRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// This financial service is a request by the Sale system of a service to execute on POI system.
-/// This is the outer document that contains <seealso cref="SaleToPOIServiceRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIServiceRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

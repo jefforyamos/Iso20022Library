@@ -29,7 +29,52 @@ public partial record PriceReportV02 : IOuterRecord
     public const string XmlTag = "reda.001.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_ZtUJs9EvEd-BzquC8wXy7w_1513384046")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_ZtUJtNEvEd-BzquC8wXy7w_1511536226")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_ZtUJtdEvEd-BzquC8wXy7w_1502301030")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Information related to the price valuation of a financial instrument.
+    /// </summary>
+    [IsoId("_ZtUJttEvEd-BzquC8wXy7w_-158313846")]
+    [Description(@"Information related to the price valuation of a financial instrument.")]
+    [DataMember(Name="PricValtnDtls")]
+    [XmlElement(ElementName="PricValtnDtls")]
+    [Required]
+    public required SomePriceValuationDetailsRecord PriceValuationDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_ZtUJt9EvEd-BzquC8wXy7w_1630736372")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +87,8 @@ public partial record PriceReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The PriceReport message is sent by a report provider, eg, a fund accountant, transfer agent, market data provider, or any other interested party, to a report user, eg, a fund management company, a transfer agent, market data provider, regulator or any other interested party.
-/// This message is used to provide net asset value and price information for financial instruments on given trade dates and, optionally, to quote price variation information.
-/// Usage
-/// The PriceReport message can be used to:
-/// - report prices for one or several different financial instruments for one or several different trade dates,
-/// - report statistical information about the valuation of a financial instrument,
-/// - inform another party that the quotation of a financial instrument is suspended,
-/// - report prices that are used for other purposes than the execution of investment funds orders.
-/// This is the outer document that contains <seealso cref="PriceReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

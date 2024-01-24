@@ -27,7 +27,65 @@ public partial record AmendmentRejectionV02 : IOuterRecord
     public const string XmlTag = "AmdmntRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the rejection message.
+    /// </summary>
+    [IsoId("_krHoKdE8Ed-BzquC8wXy7w_-1775142819")]
+    [Description(@"Identifies the rejection message.")]
+    [DataMember(Name="RjctnId")]
+    [XmlElement(ElementName="RjctnId")]
+    [Required]
+    public required SomeRejectionIdentificationRecord RejectionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_krHoKtE8Ed-BzquC8wXy7w_-1775142850")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_krHoK9E8Ed-BzquC8wXy7w_-1775142970")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Reference to the identification of the delta report that contained the amendment.
+    /// </summary>
+    [IsoId("_krHoLNE8Ed-BzquC8wXy7w_-1775142881")]
+    [Description(@"Reference to the identification of the delta report that contained the amendment.")]
+    [DataMember(Name="DltaRptRef")]
+    [XmlElement(ElementName="DltaRptRef")]
+    [Required]
+    public required SomeDeltaReportReferenceRecord DeltaReportReference { get; init; }
+    
+    /// <summary>
+    /// Sequence number of the rejected baseline amendment.
+    /// </summary>
+    [IsoId("_krHoLdE8Ed-BzquC8wXy7w_-1775142942")]
+    [Description(@"Sequence number of the rejected baseline amendment.")]
+    [DataMember(Name="RjctdAmdmntNb")]
+    [XmlElement(ElementName="RjctdAmdmntNb")]
+    [Required]
+    public required SomeRejectedAmendmentNumberRecord RejectedAmendmentNumber { get; init; }
+    
+    /// <summary>
+    /// Specifies the reaons for rejecting the amendment.
+    /// </summary>
+    [IsoId("_krQyENE8Ed-BzquC8wXy7w_-1775142911")]
+    [Description(@"Specifies the reaons for rejecting the amendment.")]
+    [DataMember(Name="RjctnRsn")]
+    [XmlElement(ElementName="RjctnRsn")]
+    [Required]
+    public required SomeRejectionReasonRecord RejectionReason { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +98,8 @@ public partial record AmendmentRejectionV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AmendmentRejection message is sent by the party requested to accept or reject an amendment to the matching application.
-/// This message is used to reject an amendment request.
-/// Usage
-/// The AmendmentRejection message can be sent by the party requested to accept or reject an amendment to inform that it rejects the requested amendment.
-/// The message can be sent in response to a FullPushThroughReport and DeltaReport message conveying the details of a BaselineAmendmentRequest message.
-/// The acceptance of an amendment request can be achieved by sending an AmendmentAcceptance message.
-/// This is the outer document that contains <seealso cref="AmendmentRejectionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendmentRejectionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

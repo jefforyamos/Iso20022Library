@@ -26,7 +26,83 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     public const string XmlTag = "StsChngReqRjctnNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification message.
+    /// </summary>
+    [IsoId("_wtWq89E8Ed-BzquC8wXy7w_233635674")]
+    [Description(@"Identifies the notification message.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    [Required]
+    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_wtWq9NE8Ed-BzquC8wXy7w_233635705")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_wtWq9dE8Ed-BzquC8wXy7w_233635766")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_wtWq9tE8Ed-BzquC8wXy7w_233635828")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for each financial institution which is a party to the transaction.
+    /// </summary>
+    [IsoId("_wtWq99E8Ed-BzquC8wXy7w_233635858")]
+    [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Specifies the status that was rejected by the other party.
+    /// </summary>
+    [IsoId("_wtWq-NE8Ed-BzquC8wXy7w_233635621")]
+    [Description(@"Specifies the status that was rejected by the other party.")]
+    [DataMember(Name="RjctdStsChng")]
+    [XmlElement(ElementName="RjctdStsChng")]
+    [Required]
+    public required SomeRejectedStatusChangeRecord RejectedStatusChange { get; init; }
+    
+    /// <summary>
+    /// Reason why the user cannot accept the request.
+    /// </summary>
+    [IsoId("_wtgb8NE8Ed-BzquC8wXy7w_233635736")]
+    [Description(@"Reason why the user cannot accept the request.")]
+    [DataMember(Name="RjctnRsn")]
+    [XmlElement(ElementName="RjctnRsn")]
+    [Required]
+    public required SomeRejectionReasonRecord RejectionReason { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_wtgb8dE8Ed-BzquC8wXy7w_233635593")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +115,8 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusChangeRequestRejectionNotification message is sent by the matching application to the submitter of a request to change the status of a transaction.
-/// This message is used to inform about the rejection of a request to change the status of a transaction.
-/// Usage
-/// The StatusChangeRequestRejectionNotification message can be sent by the matching application to pass on information about the rejection of a request to change the status of a transaction that it has obtained through the receipt of a StatusChangeRequestRejection message.
-/// In order to pass on information about the acceptance of a request to change the status of a transaction the matching application sends a StatusChangeNotification message.
-/// This is the outer document that contains <seealso cref="StatusChangeRequestRejectionNotificationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusChangeRequestRejectionNotificationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

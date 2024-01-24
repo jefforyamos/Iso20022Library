@@ -31,7 +31,52 @@ public partial record SecurityQueryV01 : IOuterRecord
     public const string XmlTag = "SctyQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_Vmf7QZIxEeuAlLVx8pyt3w")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Defines the type of action to be performed in the request.
+    /// </summary>
+    [IsoId("_16GBoZI1EeuAlLVx8pyt3w")]
+    [Description(@"Defines the type of action to be performed in the request.")]
+    [DataMember(Name="ReqTp")]
+    [XmlElement(ElementName="ReqTp")]
+    public SomeRequestTypeRecord? RequestType { get; init; }
+    
+    /// <summary>
+    /// Defines the criteria to be used to query the securities reference data by the executing system.
+    /// </summary>
+    [IsoId("_jTv02x62Eeu31YsWNiv_cw")]
+    [Description(@"Defines the criteria to be used to query the securities reference data by the executing system.")]
+    [DataMember(Name="SchCrit")]
+    [XmlElement(ElementName="SchCrit")]
+    [Required]
+    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    
+    /// <summary>
+    /// Defines the expected securities reference data to be returned.
+    /// </summary>
+    [IsoId("_jTv03R62Eeu31YsWNiv_cw")]
+    [Description(@"Defines the expected securities reference data to be returned.")]
+    [DataMember(Name="SmlSetRtrCrit")]
+    [XmlElement(ElementName="SmlSetRtrCrit")]
+    public SomeSmallSetReturnCriteriaRecord? SmallSetReturnCriteria { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jTv04x62Eeu31YsWNiv_cw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +89,8 @@ public partial record SecurityQueryV01 : IOuterRecord
 }
 
 /// <summary>
-/// SCOPE
-/// An instructing party sends a SecurityQuery message to an executing/servicing party to request a report of financial instrument details in their system.
-/// The instructing party - executing/servicing party relationship may be:
-/// - Central Securities Depositories (CSD) who would like to publish security static data, or 
-/// - a Corporate, or
-/// - a Bank, or
-/// - a Market Infrastructure, or 
-/// - a Market Data Provider.
-/// USAGE
-/// The request is sent when the instructing party needs to see data of a security data within the executing/servicing party system.
-/// Initiator: instructing party.
-/// This is the outer document that contains <seealso cref="SecurityQueryV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityQueryV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

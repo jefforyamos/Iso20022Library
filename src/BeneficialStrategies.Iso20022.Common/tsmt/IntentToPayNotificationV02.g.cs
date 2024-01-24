@@ -26,7 +26,65 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     public const string XmlTag = "InttToPayNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification message.
+    /// </summary>
+    [IsoId("_YyxioxVaEeOCqpkCrPgk4g")]
+    [Description(@"Identifies the notification message.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    [Required]
+    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_YyxipRVaEeOCqpkCrPgk4g")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_YyxipxVaEeOCqpkCrPgk4g")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the buyer, uniquely identified by its BIC. |.
+    /// </summary>
+    [IsoId("_YyxiqRVaEeOCqpkCrPgk4g")]
+    [Description(@"The financial institution of the buyer, uniquely identified by its BIC. |.")]
+    [DataMember(Name="BuyrBk")]
+    [XmlElement(ElementName="BuyrBk")]
+    [Required]
+    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the seller, uniquely identified by its BIC. |.
+    /// </summary>
+    [IsoId("_YyxiqxVaEeOCqpkCrPgk4g")]
+    [Description(@"The financial institution of the seller, uniquely identified by its BIC. |.")]
+    [DataMember(Name="SellrBk")]
+    [XmlElement(ElementName="SellrBk")]
+    [Required]
+    public required SomeSellerBankRecord SellerBank { get; init; }
+    
+    /// <summary>
+    /// Provides the details of the intention to pay.
+    /// </summary>
+    [IsoId("_YyxirRVaEeOCqpkCrPgk4g")]
+    [Description(@"Provides the details of the intention to pay.")]
+    [DataMember(Name="InttToPay")]
+    [XmlElement(ElementName="InttToPay")]
+    [Required]
+    public required SomeIntentToPayRecord IntentToPay { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +97,8 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The IntentToPayNotification message is sent by a party to the matching application in order to provide details about a future payment.
-/// This message contains details about an intention to pay a certain amount, on a certain date, in relation to one or several transactions known to the matching application.
-/// Usage
-/// The IntentToPayNotification message can be sent by a party to the transaction at any time as long as the transaction is established and not yet closed.
-/// The message is unsolicited, that is, it is not sent in response to another message.
-/// This is the outer document that contains <seealso cref="IntentToPayNotificationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntentToPayNotificationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

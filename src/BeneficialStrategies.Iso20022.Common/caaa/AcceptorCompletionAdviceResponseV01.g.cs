@@ -24,7 +24,36 @@ public partial record AcceptorCompletionAdviceResponseV01 : IOuterRecord
     public const string XmlTag = "AccptrCmpltnAdvcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Completion advice response message management information.
+    /// </summary>
+    [IsoId("_X7-iNqMVEeCJ6YNENx4h-w_-827371409")]
+    [Description(@"Completion advice response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the completion advice response.
+    /// </summary>
+    [IsoId("_X7-iN6MVEeCJ6YNENx4h-w_-1291534155")]
+    [Description(@"Information related to the completion advice response.")]
+    [DataMember(Name="CmpltnAdvcRspn")]
+    [XmlElement(ElementName="CmpltnAdvcRspn")]
+    [Required]
+    public required SomeCompletionAdviceResponseRecord CompletionAdviceResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_X7-iOKMVEeCJ6YNENx4h-w_-2123909944")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +66,8 @@ public partial record AcceptorCompletionAdviceResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorCompletionAdviceResponse message is sent by the acquirer to acknowledge the proper receipt of an AcceptorCompletionAdvice. The message can be sent directly to the card acceptor or through an agent.
-/// Usage
-/// The AcceptorCompletionAdviceResponse message is used to acknowledge the data capture process performed by the acquirer based on the data required to carry out the financial clearing and settlement of the transaction.
-/// This is the outer document that contains <seealso cref="AcceptorCompletionAdviceResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCompletionAdviceResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

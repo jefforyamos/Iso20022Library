@@ -24,7 +24,54 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
     public const string XmlTag = "RgltryTxRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of the RegulatoryTransactionReport.
+    /// </summary>
+    [IsoId("_gKH7-MIFEeGllrOKQRUTYA_1289680640")]
+    [Description(@"Identification of the RegulatoryTransactionReport.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Provides details of the trade for which the transaction report is being sent.
+    /// </summary>
+    [IsoId("_gKRs8MIFEeGllrOKQRUTYA_1289680605")]
+    [Description(@"Provides details of the trade for which the transaction report is being sent.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    [Required]
+    public required SomeTransactionDetailsRecord TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Identification of the firm that is legally responsible for sending the transaction report.|.
+    /// </summary>
+    [IsoId("_gKRs8cIFEeGllrOKQRUTYA_1289680665")]
+    [Description(@"Identification of the firm that is legally responsible for sending the transaction report.|.")]
+    [DataMember(Name="RptgInstn")]
+    [XmlElement(ElementName="RptgInstn")]
+    [Required]
+    public required SomeReportingInstitutionRecord ReportingInstitution { get; init; }
+    
+    /// <summary>
+    /// Identifies the intermediary which is reporting on behalf on the ReportingInstitution. If there is a reporting chain, then the last party should override the previous one.
+    /// </summary>
+    [IsoId("_gKRs8sIFEeGllrOKQRUTYA_1289680990")]
+    [Description(@"Identifies the intermediary which is reporting on behalf on the ReportingInstitution. If there is a reporting chain, then the last party should override the previous one.")]
+    [DataMember(Name="RptgAgt")]
+    [XmlElement(ElementName="RptgAgt")]
+    public SomeReportingAgentRecord? ReportingAgent { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_gKRs88IFEeGllrOKQRUTYA_1289680973")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +84,8 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A reporting institution, eg, an investment bank, sends the RegulatoryTransactionReport to a regulator or an intermediary (eg a reporting agent), to report the transaction details of a trade that has been executed on or off-exchange.
-/// Usage
-/// The message definition can be used to report more than one transaction. The message definition can also be used to specify, on a trade by trade basis, to which authorities the transaction report(s) need to be sent using the TransactionReportMarker.
-/// This is the outer document that contains <seealso cref="RegulatoryTransactionReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RegulatoryTransactionReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

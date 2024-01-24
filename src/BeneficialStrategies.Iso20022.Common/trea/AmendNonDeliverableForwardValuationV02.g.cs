@@ -24,7 +24,66 @@ public partial record AmendNonDeliverableForwardValuationV02 : IOuterRecord
     public const string XmlTag = "AmdNDFValtnV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides references and date of the valuation of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JckzOdE8Ed-BzquC8wXy7w_-1108779628")]
+    [Description(@"Provides references and date of the valuation of the non deliverable trade which is amended.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the valuation of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JckzOtE8Ed-BzquC8wXy7w_-1401408196")]
+    [Description(@"Specifies the trading side of the valuation of the non deliverable trade which is amended.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the valuation of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JckzO9E8Ed-BzquC8wXy7w_-2032175429")]
+    [Description(@"Specifies the counterparty of the valuation of the non deliverable trade which is amended.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the amounts of the valuation of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JcukMNE8Ed-BzquC8wXy7w_-2028607038")]
+    [Description(@"Specifies the amounts of the valuation of the non deliverable trade which is amended.")]
+    [DataMember(Name="TradAmts")]
+    [XmlElement(ElementName="TradAmts")]
+    [Required]
+    public required SomeTradeAmountsRecord TradeAmounts { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation rate of the valuation of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JcukMdE8Ed-BzquC8wXy7w_-1317493499")]
+    [Description(@"Specifies the valuation rate of the valuation of the non deliverable trade which is amended.")]
+    [DataMember(Name="ValtnRate")]
+    [XmlElement(ElementName="ValtnRate")]
+    [Required]
+    public required SomeValuationRateRecord ValuationRate { get; init; }
+    
+    /// <summary>
+    /// Specifies the valuation information of the valuation of the non deliverable trade which is amended.
+    /// </summary>
+    [IsoId("_JcukMtE8Ed-BzquC8wXy7w_-1709991694")]
+    [Description(@"Specifies the valuation information of the valuation of the non deliverable trade which is amended.")]
+    [DataMember(Name="ValtnInf")]
+    [XmlElement(ElementName="ValtnInf")]
+    [Required]
+    public required SomeValuationInformationRecord ValuationInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +96,8 @@ public partial record AmendNonDeliverableForwardValuationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AmendNonDeliverableForwardValuation message is sent by a participant to a central system or to a counterparty to notify the amendment of the valuation of a non deliverable trade previously confirmed by the sender.
-/// Usage
-/// The message is sent from a participant to a central settlement system to advise of the update of a previously sent notification and it contains a "Related Reference" to link it to the previous notification.
-/// This is the outer document that contains <seealso cref="AmendNonDeliverableForwardValuationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendNonDeliverableForwardValuationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

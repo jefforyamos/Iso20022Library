@@ -29,7 +29,26 @@ public partial record RequestForDuplicateV03 : IOuterRecord
     public const string XmlTag = "ReqForDplct";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
+    /// </summary>
+    [IsoId("_SMNVedE_Ed-BzquC8wXy7w_-119051006")]
+    [Description(@"Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Identifies the investigation case.
+    /// </summary>
+    [IsoId("_SMWfYNE_Ed-BzquC8wXy7w_-119050945")]
+    [Description(@"Identifies the investigation case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    [Required]
+    public required SomeCaseRecord Case { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +61,8 @@ public partial record RequestForDuplicateV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Request For Duplicate message is sent by the case assignee to the case creator or case assigner.
-/// This message is used to request a copy of the original payment instruction considered in the case.
-/// Usage
-/// The Request For Duplicate message:
-/// - must be answered with a Duplicate message
-/// - must be used when a case assignee requests a copy of the original payment instruction. This occurs, for example, when the case assignee cannot trace the payment instruction based on the elements mentioned in the case assignment message
-/// - covers one and only one instruction at a time. If several payment instruction copies are needed by the case assignee, then multiple Request For Duplicate messages must be sent
-/// - must be used exclusively between the case assignee and its case creator/case assigner.
-/// This is the outer document that contains <seealso cref="RequestForDuplicateV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForDuplicateV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

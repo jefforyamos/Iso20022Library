@@ -26,7 +26,44 @@ public partial record CustomerPaymentReversalV05 : IOuterRecord
     public const string XmlTag = "CstmrPmtRvsl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_NasXURPeEeSVo-TFVwFHvA")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original group of transactions, to which the message refers.
+    /// </summary>
+    [IsoId("_NasXUxPeEeSVo-TFVwFHvA")]
+    [Description(@"Information concerning the original group of transactions, to which the message refers.")]
+    [DataMember(Name="OrgnlGrpInf")]
+    [XmlElement(ElementName="OrgnlGrpInf")]
+    [Required]
+    public required SomeOriginalGroupInformationRecord OriginalGroupInformation { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original payment information, to which the reversal message refers.
+    /// </summary>
+    [IsoId("_NasXVRPeEeSVo-TFVwFHvA")]
+    [Description(@"Information concerning the original payment information, to which the reversal message refers.")]
+    [DataMember(Name="OrgnlPmtInfAndRvsl")]
+    [XmlElement(ElementName="OrgnlPmtInfAndRvsl")]
+    public SomeOriginalPaymentInformationAndReversalRecord? OriginalPaymentInformationAndReversal { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_NasXVxPeEeSVo-TFVwFHvA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +76,8 @@ public partial record CustomerPaymentReversalV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CustomerPaymentReversal message is sent by the initiating party to the next party in the payment chain. It is used to reverse a payment previously executed.
-/// Usage
-/// The CustomerPaymentReversal message is exchanged between a non-financial institution customer and an agent to reverse a CustomerDirectDebitInitiation message that has been settled. The result will be a credit on the debtor account.
-/// The CustomerPaymentReversal message refers to the original CustomerDirectDebitInitiation message by means of references only or by means of references and a set of elements from the original instruction.
-/// The CustomerPaymentReversal message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="CustomerPaymentReversalV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerPaymentReversalV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

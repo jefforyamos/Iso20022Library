@@ -25,7 +25,82 @@ public partial record TradeLegNotificationV03 : IOuterRecord
     public const string XmlTag = "TradLegNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides the identification of the clearing member (individual clearing member or general clearing member).
+    /// </summary>
+    [IsoId("_BjjyRS0mEeSRe9rElPHBfg")]
+    [Description(@"Provides the identification of the clearing member (individual clearing member or general clearing member).")]
+    [DataMember(Name="ClrMmb")]
+    [XmlElement(ElementName="ClrMmb")]
+    [Required]
+    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    
+    /// <summary>
+    /// Identifies the clearing member account at the CCP through which the trade must be cleared (sometimes called position account).
+    /// </summary>
+    [IsoId("_BjjyRy0mEeSRe9rElPHBfg")]
+    [Description(@"Identifies the clearing member account at the CCP through which the trade must be cleared (sometimes called position account).")]
+    [DataMember(Name="ClrAcct")]
+    [XmlElement(ElementName="ClrAcct")]
+    [Required]
+    public required SomeClearingAccountRecord ClearingAccount { get; init; }
+    
+    /// <summary>
+    /// An account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
+    /// </summary>
+    [IsoId("_BjjySS0mEeSRe9rElPHBfg")]
+    [Description(@"An account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).")]
+    [DataMember(Name="DlvryAcct")]
+    [XmlElement(ElementName="DlvryAcct")]
+    public SomeDeliveryAccountRecord? DeliveryAccount { get; init; }
+    
+    /// <summary>
+    /// Provides details about the non clearing member identification and account.
+    /// </summary>
+    [IsoId("_BjjySy0mEeSRe9rElPHBfg")]
+    [Description(@"Provides details about the non clearing member identification and account.")]
+    [DataMember(Name="NonClrMmb")]
+    [XmlElement(ElementName="NonClrMmb")]
+    public SomeNonClearingMemberRecord? NonClearingMember { get; init; }
+    
+    /// <summary>
+    /// Provides clearing details such as the settlement netting (or not) eligibility code or the clearing segment.
+    /// </summary>
+    [IsoId("_BjjyTS0mEeSRe9rElPHBfg")]
+    [Description(@"Provides clearing details such as the settlement netting (or not) eligibility code or the clearing segment.")]
+    [DataMember(Name="ClrDtls")]
+    [XmlElement(ElementName="ClrDtls")]
+    public SomeClearingDetailsRecord? ClearingDetails { get; init; }
+    
+    /// <summary>
+    /// Provides details about the trade leg such as the trade date, the settlement date or the trading currency.
+    /// </summary>
+    [IsoId("_BjjyTy0mEeSRe9rElPHBfg")]
+    [Description(@"Provides details about the trade leg such as the trade date, the settlement date or the trading currency.")]
+    [DataMember(Name="TradLegDtls")]
+    [XmlElement(ElementName="TradLegDtls")]
+    [Required]
+    public required SomeTradeLegDetailsRecord TradeLegDetails { get; init; }
+    
+    /// <summary>
+    /// Provides details about the settlement details of the trade leg such the settlement amount or the place of settlement.
+    /// </summary>
+    [IsoId("_BjjyUS0mEeSRe9rElPHBfg")]
+    [Description(@"Provides details about the settlement details of the trade leg such the settlement amount or the place of settlement.")]
+    [DataMember(Name="SttlmDtls")]
+    [XmlElement(ElementName="SttlmDtls")]
+    [Required]
+    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_BjjyUy0mEeSRe9rElPHBfg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +113,8 @@ public partial record TradeLegNotificationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The TradeLegNotification message is sent by the central counterparty (CCP) to a clearing member to report the trade that has been executed by the trading platform.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The CCP reports both sides of the trade from the clearing member perspective. The CCP sends a message to the global clearing member of the seller and a message to the global clearing member of the buyer. Note: An individual clearing member only clear its own trades.
-/// This is the outer document that contains <seealso cref="TradeLegNotificationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TradeLegNotificationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

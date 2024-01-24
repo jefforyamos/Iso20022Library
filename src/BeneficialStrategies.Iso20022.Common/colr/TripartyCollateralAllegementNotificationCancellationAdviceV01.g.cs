@@ -24,7 +24,92 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     public const string XmlTag = "TrptyCollAllgmtNtfctnCxlAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_rvMtQys7EeySlt9bF77XfA")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.||")]
+    [DataMember(Name="TxInstrId")]
+    [XmlElement(ElementName="TxInstrId")]
+    [Required]
+    public required SomeTransactionInstructionIdentificationRecord TransactionInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the type of collateral instruction.
+    /// </summary>
+    [IsoId("_rvMtRSs7EeySlt9bF77XfA")]
+    [Description(@"Specifies the type of collateral instruction.")]
+    [DataMember(Name="CollTxTp")]
+    [XmlElement(ElementName="CollTxTp")]
+    [Required]
+    public required SomeCollateralTransactionTypeRecord CollateralTransactionType { get; init; }
+    
+    /// <summary>
+    /// Specifies the underlying business area/type of trade causing the exposure.
+    /// </summary>
+    [IsoId("_rvMtRys7EeySlt9bF77XfA")]
+    [Description(@"Specifies the underlying business area/type of trade causing the exposure.")]
+    [DataMember(Name="XpsrTp")]
+    [XmlElement(ElementName="XpsrTp")]
+    [Required]
+    public required SomeExposureTypeRecord ExposureType { get; init; }
+    
+    /// <summary>
+    /// Specifies whether the alleging side is the collateral taker or giver.
+    /// </summary>
+    [IsoId("_rvMtSSs7EeySlt9bF77XfA")]
+    [Description(@"Specifies whether the alleging side is the collateral taker or giver.|")]
+    [DataMember(Name="CollSd")]
+    [XmlElement(ElementName="CollSd")]
+    [Required]
+    public required SomeCollateralSideRecord CollateralSide { get; init; }
+    
+    /// <summary>
+    /// Number identifying the collateral eligibility set profile of the counterparty.
+    /// </summary>
+    [IsoId("_rvMtSys7EeySlt9bF77XfA")]
+    [Description(@"Number identifying the collateral eligibility set profile of the counterparty.")]
+    [DataMember(Name="ElgbltySetPrfl")]
+    [XmlElement(ElementName="ElgbltySetPrfl")]
+    public SomeEligibilitySetProfileRecord? EligibilitySetProfile { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of collateral parties. Party A and B will be the opposite  from that provided in the unmatched instruction.
+    /// </summary>
+    [IsoId("_rvMtTSs7EeySlt9bF77XfA")]
+    [Description(@"Identifies the chain of collateral parties. Party A and B will be the opposite  from that provided in the unmatched instruction.")]
+    [DataMember(Name="CollPties")]
+    [XmlElement(ElementName="CollPties")]
+    [Required]
+    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    
+    /// <summary>
+    /// Amount of the principal.
+    /// </summary>
+    [IsoId("_rvMtTys7EeySlt9bF77XfA")]
+    [Description(@"Amount of the principal.")]
+    [DataMember(Name="TxAmt")]
+    [XmlElement(ElementName="TxAmt")]
+    public SomeTransactionAmountRecord? TransactionAmount { get; init; }
+    
+    /// <summary>
+    /// Date/time at which the instructing party requests the instruction to be executed. 
+    /// </summary>
+    [IsoId("_rvMtUSs7EeySlt9bF77XfA")]
+    [Description(@"Date/time at which the instructing party requests the instruction to be executed. ")]
+    [DataMember(Name="ReqdExctnDt")]
+    [XmlElement(ElementName="ReqdExctnDt")]
+    public SomeRequestedExecutionDateRecord? RequestedExecutionDate { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rvMtUys7EeySlt9bF77XfA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +122,8 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
 }
 
 /// <summary>
-/// Scope:
-/// Triparty agent sends a TripartyCollateralAllegementNotificationCancellationAdvice to the collateral giver or the collateral taker to inform of the cancellation of an allegement notification message previously sent by the triparty agent. 
-/// The collateral giver and the collateral taker are participants of the triparty agents. In the frame of ECMS the collateral taker will be a central bank.
-/// The previously sent message is a TripartyCollateralAllegementNotification
-/// This is the outer document that contains <seealso cref="TripartyCollateralAllegementNotificationCancellationAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralAllegementNotificationCancellationAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

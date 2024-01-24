@@ -21,7 +21,35 @@ public partial record RemittanceLocationAdviceV01 : IOuterRecord
     public const string XmlTag = "RmtLctnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all remittance location information included in the message.
+    /// </summary>
+    [IsoId("_CPP6oKMEEeKl_NvHIICqIw")]
+    [Description(@"Set of characteristics shared by all remittance location information included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Provides information related to location and/or delivery of the remittance information. This information is used to enable the matching of an entry with the items that the associated payment is intended to settle.
+    /// </summary>
+    [IsoId("_EkZ0IKMEEeKl_NvHIICqIw")]
+    [Description(@"Provides information related to location and/or delivery of the remittance information. This information is used to enable the matching of an entry with the items that the associated payment is intended to settle.")]
+    [DataMember(Name="RmtLctn")]
+    [XmlElement(ElementName="RmtLctn")]
+    [Required]
+    public required SomeRemittanceLocationRecord RemittanceLocation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jk6zoId2EeOtHe_dAuWsBQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record RemittanceLocationAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The RemittanceLocationAdvice message allows the originator of the message to identify where the remittance advice is located for a related payment.
-/// This is the outer document that contains <seealso cref="RemittanceLocationAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RemittanceLocationAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

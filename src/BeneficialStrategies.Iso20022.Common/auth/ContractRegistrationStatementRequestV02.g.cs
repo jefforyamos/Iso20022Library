@@ -21,7 +21,35 @@ public partial record ContractRegistrationStatementRequestV02 : IOuterRecord
     public const string XmlTag = "CtrctRegnStmtReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Characteristics shared by all individual items included in the message.
+    /// </summary>
+    [IsoId("_bf9R5W2PEei3KuUgpx7Xcw")]
+    [Description(@"Characteristics shared by all individual items included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Details on the information requested for the contract registration statement.
+    /// </summary>
+    [IsoId("_bf9R522PEei3KuUgpx7Xcw")]
+    [Description(@"Details on the information requested for the contract registration statement.")]
+    [DataMember(Name="StmtReq")]
+    [XmlElement(ElementName="StmtReq")]
+    [Required]
+    public required SomeStatementRequestRecord StatementRequest { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_bf9R6W2PEei3KuUgpx7Xcw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ContractRegistrationStatementRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ContractRegistrationStatementRequest message is sent by the reporting party to the registration agent to request for a statement of the operations related to the registered contract subject to currency control.
-/// This is the outer document that contains <seealso cref="ContractRegistrationStatementRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ContractRegistrationStatementRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

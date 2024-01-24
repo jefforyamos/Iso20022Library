@@ -24,7 +24,64 @@ public partial record AccountReportRequestV01 : IOuterRecord
     public const string XmlTag = "AcctRptReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements for the identification of the message and related references.
+    /// </summary>
+    [IsoId("_vMh7-dE9Ed-BzquC8wXy7w_-2141826396")]
+    [Description(@"Set of elements for the identification of the message and related references.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account between the account owner and the account servicer.
+    /// </summary>
+    [IsoId("_vMh7-tE9Ed-BzquC8wXy7w_561216606")]
+    [Description(@"Unique and unambiguous identification of the account between the account owner and the account servicer.")]
+    [DataMember(Name="AcctId")]
+    [XmlElement(ElementName="AcctId")]
+    [Required]
+    public required SomeAccountIdentificationRecord AccountIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
+    /// </summary>
+    [IsoId("_vMh7-9E9Ed-BzquC8wXy7w_1090826957")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the organisation requesting the report.
+    /// </summary>
+    [IsoId("_vMh7_NE9Ed-BzquC8wXy7w_1166554158")]
+    [Description(@"Identification of the organisation requesting the report.")]
+    [DataMember(Name="OrgId")]
+    [XmlElement(ElementName="OrgId")]
+    [Required]
+    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies target and/or actual dates.
+    /// </summary>
+    [IsoId("_vMrs8NE9Ed-BzquC8wXy7w_-1862979378")]
+    [Description(@"Specifies target and/or actual dates.")]
+    [DataMember(Name="CtrctDts")]
+    [XmlElement(ElementName="CtrctDts")]
+    public SomeContractDatesRecord? ContractDates { get; init; }
+    
+    /// <summary>
+    /// Contains the signature with its components, namely signed info, signature value, key info and the object.
+    /// </summary>
+    [IsoId("_vMrs8dE9Ed-BzquC8wXy7w_1658266551")]
+    [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +94,8 @@ public partial record AccountReportRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AccountReportRequest message is sent from an organisation to a financial institution for reporting purposes. It is a request for an account report.
-/// Usage
-/// This message can be sent at any time outside of account opening, maintenance or closing processes.
-/// This is the outer document that contains <seealso cref="AccountReportRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountReportRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

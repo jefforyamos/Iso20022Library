@@ -24,7 +24,81 @@ public partial record RedemptionBulkOrderConfirmationCancellationInstructionV02 
     public const string XmlTag = "RedBlkOrdrConfCxlInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies the message from a business application standpoint.
+    /// </summary>
+    [IsoId("_Aab75TbLEead9bDRE_1DAQ")]
+    [Description(@"Reference that uniquely identifies the message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_Aab75zbLEead9bDRE_1DAQ")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_Aab76TbLEead9bDRE_1DAQ")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_Aab76zbLEead9bDRE_1DAQ")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.
+    /// </summary>
+    [IsoId("_pVgiw1AZEea5nPE5ezGuuw")]
+    [Description(@"Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.")]
+    [DataMember(Name="AmdmntInd")]
+    [XmlElement(ElementName="AmdmntInd")]
+    [Required]
+    public required SomeAmendmentIndicatorRecord AmendmentIndicator { get; init; }
+    
+    /// <summary>
+    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// </summary>
+    [IsoId("_pVgixFAZEea5nPE5ezGuuw")]
+    [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Identification of the individual order confirmation to be cancelled.
+    /// </summary>
+    [IsoId("_pVgixVAZEea5nPE5ezGuuw")]
+    [Description(@"Identification of the individual order confirmation to be cancelled.")]
+    [DataMember(Name="OrdrRefs")]
+    [XmlElement(ElementName="OrdrRefs")]
+    [Required]
+    public required SomeOrderReferencesRecord OrderReferences { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_Aab78TbLEead9bDRE_1DAQ")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +111,8 @@ public partial record RedemptionBulkOrderConfirmationCancellationInstructionV02 
 }
 
 /// <summary>
-/// Scope
-/// The RedemptionBulkOrderConfirmationCancellationInstruction message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or its authorised representative, to cancel a previously sent RedemptionBulkOrderConfirmation.
-/// Usage
-/// To request the cancellation of one or more individual order executions, the order reference and deal reference of each individual order execution in the original RedemptionBulkOrderConfirmation are specified in the order reference and deal reference elements respectively. The message identification of the RedemptionBulkOrderConfirmation message in which the individual order execution was conveyed may also be quoted in PreviousReference but this is not recommended. The AmendmentIndicator is used to specify whether the redemption order confirmation cancellation is to be followed by an amendment An amendment of a redemption order confirmation is carried out by sending a RedemptionBulkOrderConfirmation message in which the AmendmentIndicator contains the value ‘true’.
-/// This is the outer document that contains <seealso cref="RedemptionBulkOrderConfirmationCancellationInstructionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionBulkOrderConfirmationCancellationInstructionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

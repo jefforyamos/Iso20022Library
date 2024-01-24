@@ -24,7 +24,62 @@ public partial record InvoicePaymentReconciliationStatusV01 : IOuterRecord
     public const string XmlTag = "InvcPmtRcncltnSts";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Specifies a set of characteristics that unambiguously identify the status, common parameters, documents and identifications.
+    /// </summary>
+    [IsoId("_OTgzNTA2-AOSNFX-8224507")]
+    [Description(@"Specifies a set of characteristics that unambiguously identify the status, common parameters, documents and identifications.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// List of payment reconciliation information.
+    /// </summary>
+    [IsoId("_OTgzNTA3-AOSNFX-822450")]
+    [Description(@"List of payment reconciliation information.")]
+    [DataMember(Name="RcncltnList")]
+    [XmlElement(ElementName="RcncltnList")]
+    [Required]
+    public required SomeReconciliationListRecord ReconciliationList { get; init; }
+    
+    /// <summary>
+    /// Specifies the number of reconciliation lists.
+    /// </summary>
+    [IsoId("_OTgzNTA4-AOSNFX-8224507")]
+    [Description(@"Specifies the number of reconciliation lists.")]
+    [DataMember(Name="RcncltnCnt")]
+    [XmlElement(ElementName="RcncltnCnt")]
+    public SomeReconciliationCountRecord? ReconciliationCount { get; init; }
+    
+    /// <summary>
+    /// Total number of individual items in all lists.
+    /// </summary>
+    [IsoId("_OTgzNTA5-AOSNFX-8224507")]
+    [Description(@"Total number of individual items in all lists.")]
+    [DataMember(Name="ItmCnt")]
+    [XmlElement(ElementName="ItmCnt")]
+    public SomeItemCountRecord? ItemCount { get; init; }
+    
+    /// <summary>
+    /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
+    /// </summary>
+    [IsoId("_OTgzNTEw-AOSNFX-8224507")]
+    [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
+    [DataMember(Name="CtrlSum")]
+    [XmlElement(ElementName="CtrlSum")]
+    public SomeControlSumRecord? ControlSum { get; init; }
+    
+    /// <summary>
+    /// Referenced or related business message.
+    /// </summary>
+    [IsoId("_OTgzNTEx-AOSNFX-8224507")]
+    [Description(@"Referenced or related business message.")]
+    [DataMember(Name="AttchdMsg")]
+    [XmlElement(ElementName="AttchdMsg")]
+    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +92,8 @@ public partial record InvoicePaymentReconciliationStatusV01 : IOuterRecord
 }
 
 /// <summary>
-/// The message InvoicePaymentReconciliationStatus is sent from a payee to a payer to acknowledge attribution of payments.
-/// A payee that has received payment reconciliation information uses this message to confirm or to question common understanding of payments and instalments.
-/// The payee may include references to the corresponding items of an InvoicePaymentReconciliationAdvice message or to other messages and may include the referenced data.
-/// The message can carry digital signatures if required by context.
-/// This is the outer document that contains <seealso cref="InvoicePaymentReconciliationStatusV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoicePaymentReconciliationStatusV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

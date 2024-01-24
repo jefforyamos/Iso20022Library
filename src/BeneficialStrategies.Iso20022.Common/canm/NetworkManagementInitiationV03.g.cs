@@ -21,7 +21,35 @@ public partial record NetworkManagementInitiationV03 : IOuterRecord
     public const string XmlTag = "NtwkMgmtInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_OANFU4v8EeumSPwlS1PkxQ")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reversal of an authorisation or financial transaction.
+    /// </summary>
+    [IsoId("_OANFVYv8EeumSPwlS1PkxQ")]
+    [Description(@"Information related to the reversal of an authorisation or financial transaction.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC
+    /// </summary>
+    [IsoId("_OANFV4v8EeumSPwlS1PkxQ")]
+    [Description(@"Trailer of the message containing a MAC")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record NetworkManagementInitiationV03 : IOuterRecord
 }
 
 /// <summary>
-/// The NetworkManagementlInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer) connected to a network. It covers the range of activities that control the operating conditions of the network.|
-/// This is the outer document that contains <seealso cref="NetworkManagementInitiationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetworkManagementInitiationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

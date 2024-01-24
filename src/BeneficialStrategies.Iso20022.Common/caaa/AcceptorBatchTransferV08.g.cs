@@ -21,7 +21,35 @@ public partial record AcceptorBatchTransferV08 : IOuterRecord
     public const string XmlTag = "AccptrBtchTrf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Batch capture message management information.
+    /// </summary>
+    [IsoId("_hUUmNdekEeiJyp_aycJaTw")]
+    [Description(@"Batch capture message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Card payment transactions from one or several data set of transactions.
+    /// </summary>
+    [IsoId("_hUUmN9ekEeiJyp_aycJaTw")]
+    [Description(@"Card payment transactions from one or several data set of transactions.")]
+    [DataMember(Name="BtchTrf")]
+    [XmlElement(ElementName="BtchTrf")]
+    [Required]
+    public required SomeBatchTransferRecord BatchTransfer { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_hUUmOdekEeiJyp_aycJaTw")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorBatchTransferV08 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorBatchTransfer is sent by an acceptor (or its agent) to transfer the financial data of a collection of transactions to the acquirer (or its agent).
-/// This is the outer document that contains <seealso cref="AcceptorBatchTransferV08"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorBatchTransferV08"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

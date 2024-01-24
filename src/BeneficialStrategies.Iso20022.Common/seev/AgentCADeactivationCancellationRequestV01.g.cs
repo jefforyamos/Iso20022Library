@@ -26,7 +26,45 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
     public const string XmlTag = "AgtCADeactvtnCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the cancellation request.
+    /// </summary>
+    [IsoId("_TMHRENEwEd-BzquC8wXy7w_118262265")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the cancellation request.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the Agent CA Deactivation Instruction to be cancelled.
+    /// </summary>
+    [IsoId("_TMHREdEwEd-BzquC8wXy7w_-1093662480")]
+    [Description(@"Identification of the Agent CA Deactivation Instruction to be cancelled.")]
+    [DataMember(Name="AgtCADeactvtnInstrId")]
+    [XmlElement(ElementName="AgtCADeactvtnInstrId")]
+    [Required]
+    public required SomeAgentCADeactivationInstructionIdentificationRecord AgentCADeactivationInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TMHREtEwEd-BzquC8wXy7w_-541518720")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Details of the deactivation instruction to be cancelled.
+    /// </summary>
+    [IsoId("_TMHRE9EwEd-BzquC8wXy7w_-1594611016")]
+    [Description(@"Details of the deactivation instruction to be cancelled.")]
+    [DataMember(Name="DeactvtnInstrDtls")]
+    [XmlElement(ElementName="DeactvtnInstrDtls")]
+    public SomeDeactivationInstructionDetailsRecord? DeactivationInstructionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +77,8 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to the CSD to request the cancellation of a previously sent corporate action deactivation instruction.
-/// Usage
-/// This message is used to request the cancellation of a pending deactivation instruction. The cancellation must apply to exactly the same level as the original instruction, ie to the entire CA event or to an option as per the original instruction.
-/// This message must be sent before the deactivation execution date.
-/// In case a corporate action or option is already deactivated, this message can not be used to reactivate the corporate action entire event or option; the notification advice message must be used to reactivate a corporate action or option.
-/// This is the outer document that contains <seealso cref="AgentCADeactivationCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCADeactivationCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

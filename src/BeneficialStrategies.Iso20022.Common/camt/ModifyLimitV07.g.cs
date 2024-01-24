@@ -21,7 +21,34 @@ public partial record ModifyLimitV07 : IOuterRecord
     public const string XmlTag = "ModfyLmt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_jwlbwRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identifies one particular limit set by the member and managed by the transaction administrator.
+    /// </summary>
+    [IsoId("_jwlbwxbvEeiyVv5j1vf1VQ")]
+    [Description(@"Identifies one particular limit set by the member and managed by the transaction administrator.")]
+    [DataMember(Name="LmtDtls")]
+    [XmlElement(ElementName="LmtDtls")]
+    public SomeLimitDetailsRecord? LimitDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jwlbxRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record ModifyLimitV07 : IOuterRecord
 }
 
 /// <summary>
-/// Scope|The ModifyLimit message is sent by a member to the transaction administrator.|It is used to request modifications in the details of one particular, several or all limits set by the member and managed by the transaction administrator.|Each ModifyLimit message can alter only one type of limit (current or default).|Usage|At any time during the operating hours of the system, the member can request modifications in the limits it has set. For example, the reason may be to unlock the payments queue regarding a particular member, or following a risk management decision issued after an exceptional event has occurred.|The member will submit a message requesting modifications in one or more of the following criteria: |- type of limit (current/default)|- identification of the system|- identification of the counterparty|- value of the limit(s) (default and/or current limit(s))|- point in time when the limit becomes effective|Based on the criteria received within the ModifyLimit message, the transaction administrator will execute or reject the requested modification. The transaction administrator may send a Receipt message as a reply to the ModifyLimit request. To verify the outcome of the request, the member may submit a GetLimit message with the appropriate search criteria.
-/// This is the outer document that contains <seealso cref="ModifyLimitV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ModifyLimitV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

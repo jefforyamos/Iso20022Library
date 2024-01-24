@@ -21,7 +21,25 @@ public partial record TradeStatusReportV01 : IOuterRecord
     public const string XmlTag = "TradStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the trade status report.
+    /// </summary>
+    [IsoId("_9hy8JnltEeG7BsjMvd1mEw_-979867813")]
+    [Description(@"Details of the trade status report.")]
+    [DataMember(Name="TradStsAdvcDtls")]
+    [XmlElement(ElementName="TradStsAdvcDtls")]
+    [Required]
+    public required SomeTradeStatusAdviceDetailsRecord TradeStatusAdviceDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the report.
+    /// </summary>
+    [IsoId("_9hy8J3ltEeG7BsjMvd1mEw_-480119583")]
+    [Description(@"Digital signature of the report.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record TradeStatusReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The TradeStatusReport message is exchanged between parties involved in the trade finance domain to report the transaction level status of a transaction previously received. It informs the sender about the positive or negative status of the referenced transaction, such as acceptance or rejection resulting from technical validation performed by the parser and/or front-office applications. It can be used, for example, to acknowledge receipt of a transaction, to report a syntactical error, to report an unrecognised digital signature, to indicate that further processing is pending, and to indicate that a transaction has been technically accepted for processing by the back-office application. Multiple TradeStatusReport messages may be progressively sent in response to the incremental processing of a single transaction.
-/// This is the outer document that contains <seealso cref="TradeStatusReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TradeStatusReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

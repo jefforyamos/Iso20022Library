@@ -27,7 +27,81 @@ public partial record FundEstimatedCashForecastReportV03 : IOuterRecord
     public const string XmlTag = "FndEstmtdCshFcstRptV03";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_eao2rNE-Ed-BzquC8wXy7w_-483893780")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_eao2rdE-Ed-BzquC8wXy7w_164683431")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_eayAkNE-Ed-BzquC8wXy7w_175764938")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_eayAkdE-Ed-BzquC8wXy7w_178535315")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_eayAktE-Ed-BzquC8wXy7w_-130954619")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// Information related to the estimated cash-in and cash-out flows for a specific trade date as a result of investment fund transactions, for example, subscriptions, redemptions or switch to/from a specified investment fund.
+    /// </summary>
+    [IsoId("_eayAk9E-Ed-BzquC8wXy7w_-23057057")]
+    [Description(@"Information related to the estimated cash-in and cash-out flows for a specific trade date as a result of investment fund transactions, for example, subscriptions, redemptions or switch to/from a specified investment fund.")]
+    [DataMember(Name="EstmtdFndCshFcstDtls")]
+    [XmlElement(ElementName="EstmtdFndCshFcstDtls")]
+    [Required]
+    public required SomeEstimatedFundCashForecastDetailsRecord EstimatedFundCashForecastDetails { get; init; }
+    
+    /// <summary>
+    /// Estimated net cash as a result of the cash-in and cash-out flows.
+    /// </summary>
+    [IsoId("_eayAlNE-Ed-BzquC8wXy7w_263671934")]
+    [Description(@"Estimated net cash as a result of the cash-in and cash-out flows.")]
+    [DataMember(Name="CnsltdNetCshFcst")]
+    [XmlElement(ElementName="CnsltdNetCshFcst")]
+    public SomeConsolidatedNetCashForecastRecord? ConsolidatedNetCashForecast { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_eayAldE-Ed-BzquC8wXy7w_-753498487")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +114,8 @@ public partial record FundEstimatedCashForecastReportV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A report provider, such as a transfer agent, sends the FundEstimatedCashForecastReport message to the report user, such as an investment manager, to report the estimated cash incomings and outgoings of one or more investment funds on one or more trade dates.
-/// The cash movements may result from, for example, redemption, subscription, switch transactions or reinvestment of dividends.
-/// Usage
-/// The FundEstimatedCashForecastReport is used to report estimated cash movements, i.e., it is sent prior to the cut-off time and/or the price valuation of the fund.
-/// The FundEstimatedCashForecastReport contains incoming and outgoing cash flows that are estimated, i.e., the price has not been applied. If the price is definitive, then the FundConfirmedCashForecastReport message must be used.
-/// This message allows the report provider to report estimated cash movements in or out of a fund, but does not allow the Sender to categorise these movements, for example by country, or to give details of the underlying orders, commission or charges. If the report provider wishes to give detailed information related to estimated cash movements, then the FundDetailedEstimatedCashForecastReport message must be used.
-/// This is the outer document that contains <seealso cref="FundEstimatedCashForecastReportV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundEstimatedCashForecastReportV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

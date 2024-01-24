@@ -31,7 +31,55 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
     public const string XmlTag = "MtgInstrSts";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Type of instruction.
+    /// </summary>
+    [IsoId("_xDAORVtcEeSwKe7KuKvXhg")]
+    [Description(@"Type of instruction.")]
+    [DataMember(Name="InstrTp")]
+    [XmlElement(ElementName="InstrTp")]
+    [Required]
+    public required SomeInstructionTypeRecord InstructionType { get; init; }
+    
+    /// <summary>
+    /// Series of elements which allow to identify a meeting.
+    /// </summary>
+    [IsoId("_xDAOR1tcEeSwKe7KuKvXhg")]
+    [Description(@"Series of elements which allow to identify a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    [Required]
+    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Identifies the securities for which the meeting is organised.
+    /// </summary>
+    [IsoId("_xDAOS1tcEeSwKe7KuKvXhg")]
+    [Description(@"Identifies the securities for which the meeting is organised.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    [Required]
+    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Type of instruction status.
+    /// </summary>
+    [IsoId("_xDAOTVtcEeSwKe7KuKvXhg")]
+    [Description(@"Type of instruction status.")]
+    [DataMember(Name="InstrTpSts")]
+    [XmlElement(ElementName="InstrTpSts")]
+    [Required]
+    public required SomeInstructionTypeStatusRecord InstructionTypeStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_sMzdoVtoEeSwKe7KuKvXhg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +92,8 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Receiver of the MeetingInstruction or MeetingInstructionCancellationRequest sends the MeetingInstructionStatus message to the Sender of these messages.
-/// The message gives the status of a complete message or of one or more specific instructions within the message.
-/// Usage
-/// The MeetingInstructionStatus message is used for four purposes.
-/// First, it provides the status on the processing of a MeetingInstructionCancellationRequest message, for example, whether the request message is rejected or accepted.
-/// Second, it is used to provide a global processing or rejection status of a MeetingInstruction message.
-/// Third, it is used to provide a detailed processing or rejection status of a MeetingInstruction message, for example, for each instruction in the MeetingInstruction message the processing or rejection status is individually reported by using the InstructionIdentification element. This identification allows the receiver of the status message to link the status confirmation to its original instruction.
-/// The blocking of securities should be confirmed via an MT 508 (Intra-Position Advice).
-/// Fourth, it is used as a reminder to request voting instructions. This is done by indicating NONREF in the Identification element of the InstructionIdentification component and by using the status code NotReceived in the ProcessingStatus.
-/// This message definition is intended for use with the Business Application Header.
-/// This is the outer document that contains <seealso cref="MeetingInstructionStatusV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionStatusV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

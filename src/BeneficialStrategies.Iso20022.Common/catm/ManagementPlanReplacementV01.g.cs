@@ -24,7 +24,36 @@ public partial record ManagementPlanReplacementV01 : IOuterRecord
     public const string XmlTag = "MgmtPlanRplcmnt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the management plan.
+    /// </summary>
+    [IsoId("_-jWs8eQWEeCGktPI9k4Dlw_-968714404")]
+    [Description(@"Set of characteristics related to the transfer of the management plan.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Sequence of terminal maintenance actions to be performed by a point of interaction (POI).
+    /// </summary>
+    [IsoId("_-jWs8uQWEeCGktPI9k4Dlw_1841410176")]
+    [Description(@"Sequence of terminal maintenance actions to be performed by a point of interaction (POI).")]
+    [DataMember(Name="MgmtPlan")]
+    [XmlElement(ElementName="MgmtPlan")]
+    [Required]
+    public required SomeManagementPlanRecord ManagementPlan { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_-jgd8OQWEeCGktPI9k4Dlw_-1383726347")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +66,8 @@ public partial record ManagementPlanReplacementV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ManagementPlanReplacement message is sent by the master terminal manager or delegated terminal manager to the acceptor system to replace the TMS action list of the POI system.
-/// Usage
-/// The ManagementPlanReplacement message may embed the information required by the acceptor system for the planning of the TMS actions to be performed by the POI including the trigger, time conditions and TMS addresses.
-/// This is the outer document that contains <seealso cref="ManagementPlanReplacementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ManagementPlanReplacementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

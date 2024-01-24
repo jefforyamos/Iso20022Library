@@ -21,7 +21,35 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
     public const string XmlTag = "ReqToPayDbtrActvtnStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the mandate acceptance, but which are not part of the mandate.
+    /// </summary>
+    [IsoId("_rNNB2-HzEeqbls7Gk4-ckA")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the mandate acceptance, but which are not part of the mandate.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Status of the debtor activation instruction (that is request, amendment or cancellation).
+    /// </summary>
+    [IsoId("_rNNB3eHzEeqbls7Gk4-ckA")]
+    [Description(@"Status of the debtor activation instruction (that is request, amendment or cancellation).")]
+    [DataMember(Name="OrgnlActvtnAndSts")]
+    [XmlElement(ElementName="OrgnlActvtnAndSts")]
+    [Required]
+    public required SomeOriginalActivationAndStatusRecord OriginalActivationAndStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rNNB3-HzEeqbls7Gk4-ckA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The RequestToPayDebtorActivationStatusReport message is sent from the recipient of the debtor activation request message (initiation, amendment or cancellation), such as the creditor RTP provider or the creditor, to the initiator of the debtor activation request message (debtor, debtor RTP provider or any of the forwarding agent) to provide the status of the request. 
-/// This is the outer document that contains <seealso cref="RequestToPayDebtorActivationStatusReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayDebtorActivationStatusReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -32,7 +32,34 @@ public partial record SecurityDeletionRequestV01 : IOuterRecord
     public const string XmlTag = "SctyDeltnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_NYafgZIxEeuAlLVx8pyt3w")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identification of the financial instrument.
+    /// </summary>
+    [IsoId("_jTumvx62Eeu31YsWNiv_cw")]
+    [Description(@"Identification of the financial instrument.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    [Required]
+    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jTumxR62Eeu31YsWNiv_cw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +72,8 @@ public partial record SecurityDeletionRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// SCOPE
-/// An instructing party sends a SecurityDeletionRequest message to an executing/servicing party to advice the complete removal of a financial instrument entry from their system.
-/// The instructing party - executing/servicing party relationship may be:
-/// - Central Securities Depositories (CSD) who would like to publish security static data, or 
-/// - a Corporate, or
-/// - a Bank, or
-/// - a Market Infrastructure, or 
-/// - a Market Data Provider.
-/// USAGE
-/// The request is sent when the instructing party identified that a security is wrongly created in the securities coverage of the executing/servicing party. The instructing party needs this security to be removed from the executing /servicing party database. 
-/// This message can be used when a security identification code was issued too quickly or if a security identification code needs to be reused (for example, in case of money market instrument). The result of this message is a complete removal of the security identification from the executing/servicing party's database.
-/// Initiator: instructing party.
-/// This is the outer document that contains <seealso cref="SecurityDeletionRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityDeletionRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

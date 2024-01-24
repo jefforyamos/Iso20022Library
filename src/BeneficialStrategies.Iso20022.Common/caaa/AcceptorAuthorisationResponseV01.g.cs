@@ -27,7 +27,36 @@ public partial record AcceptorAuthorisationResponseV01 : IOuterRecord
     public const string XmlTag = "AccptrAuthstnRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Authorisation response message management information.
+    /// </summary>
+    [IsoId("_fvUitqMVEeCJ6YNENx4h-w_-1929213849")]
+    [Description(@"Authorisation response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of the authorisation.
+    /// </summary>
+    [IsoId("_fvUit6MVEeCJ6YNENx4h-w_-930350884")]
+    [Description(@"Information related to the response of the authorisation.")]
+    [DataMember(Name="AuthstnRspn")]
+    [XmlElement(ElementName="AuthstnRspn")]
+    [Required]
+    public required SomeAuthorisationResponseRecord AuthorisationResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_fvUiuKMVEeCJ6YNENx4h-w_112512761")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +69,8 @@ public partial record AcceptorAuthorisationResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorAuthorisationResponse message is sent by the acquirer to inform the card acceptor of the outcome of the authorisation process. The message can be sent directly to the acceptor or through an agent.
-/// Usage
-/// The AcceptorAuthorisationResponse message is used to indicate one of the possible outcomes of an authorisation process:
-/// - a successful authorisation;
-/// - a decline from the acquirer for financial reasons;
-/// - a decline from the acquirer for technical reasons (for instance, a timeout).
-/// This is the outer document that contains <seealso cref="AcceptorAuthorisationResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorAuthorisationResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

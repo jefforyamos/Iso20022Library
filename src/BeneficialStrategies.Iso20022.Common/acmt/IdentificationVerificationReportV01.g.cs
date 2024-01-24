@@ -27,7 +27,35 @@ public partial record IdentificationVerificationReportV01 : IOuterRecord
     public const string XmlTag = "IdVrfctnRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the identification assignment.
+    /// </summary>
+    [IsoId("_sSFgQGtdEeCY4-KZ9JEyUQ_1322063347")]
+    [Description(@"Identifies the identification assignment.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Provides for the reference to the original identification assignment.
+    /// </summary>
+    [IsoId("_sSFgQWtdEeCY4-KZ9JEyUQ_-2029313680")]
+    [Description(@"Provides for the reference to the original identification assignment.")]
+    [DataMember(Name="OrgnlAssgnmt")]
+    [XmlElement(ElementName="OrgnlAssgnmt")]
+    public SomeOriginalAssignmentRecord? OriginalAssignment { get; init; }
+    
+    /// <summary>
+    /// Information concerning the verification of the identification data for which verification was requested.
+    /// </summary>
+    [IsoId("_sSFgQmtdEeCY4-KZ9JEyUQ_-1601120034")]
+    [Description(@"Information concerning the verification of the identification data for which verification was requested.")]
+    [DataMember(Name="Rpt")]
+    [XmlElement(ElementName="Rpt")]
+    [Required]
+    public required SomeReportRecord Report { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +68,8 @@ public partial record IdentificationVerificationReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The IdentificationVerificationReport message is sent by an assigner to an assignee. It is used to confirm whether or not the presented party and/or account identification information is correct.
-/// Usage
-/// The IdentificationVerificationReport message is sent as a response to an IdentificationVerificationRequest message.
-/// The IdentificationVerificationReport message can contain one or more reports.
-/// The IdentificationVerificationReport message may include a reason if the presented party and/or account identification information is confirmed to be incorrect.
-/// The IdentificationVerificationReport message may include the correct party and/or account identification information.
-/// This is the outer document that contains <seealso cref="IdentificationVerificationReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IdentificationVerificationReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

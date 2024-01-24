@@ -49,7 +49,64 @@ public partial record RequestToModifyPaymentV07 : IOuterRecord
     public const string XmlTag = "ReqToModfyPmt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the assignment of an investigation case from an assigner to an assignee.
+    /// Usage: The assigner must be the sender of this confirmation and the assignee must be the receiver.
+    /// </summary>
+    [IsoId("_LwBa6cP_Eemsic1bQcEtLA")]
+    [Description(@"Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The assigner must be the sender of this confirmation and the assignee must be the receiver.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Identifies the investigation case.
+    /// </summary>
+    [IsoId("_LwBa68P_Eemsic1bQcEtLA")]
+    [Description(@"Identifies the investigation case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    public SomeCaseRecord? Case { get; init; }
+    
+    /// <summary>
+    /// Identifies the payment transaction to be modified.
+    /// </summary>
+    [IsoId("_LwBa7cP_Eemsic1bQcEtLA")]
+    [Description(@"Identifies the payment transaction to be modified.")]
+    [DataMember(Name="Undrlyg")]
+    [XmlElement(ElementName="Undrlyg")]
+    [Required]
+    public required SomeUnderlyingRecord Underlying { get; init; }
+    
+    /// <summary>
+    /// Identifies the list of modifications requested.
+    /// </summary>
+    [IsoId("_LwBa78P_Eemsic1bQcEtLA")]
+    [Description(@"Identifies the list of modifications requested.")]
+    [DataMember(Name="Mod")]
+    [XmlElement(ElementName="Mod")]
+    [Required]
+    public required SomeModificationRecord Modification { get; init; }
+    
+    /// <summary>
+    /// Further information related to the processing of the investigation that may need to be acted upon by the assignee.
+    /// </summary>
+    [IsoId("_LwBa8cP_Eemsic1bQcEtLA")]
+    [Description(@"Further information related to the processing of the investigation that may need to be acted upon by the assignee.")]
+    [DataMember(Name="InstrForAssgne")]
+    [XmlElement(ElementName="InstrForAssgne")]
+    public SomeInstructionForAssigneeRecord? InstructionForAssignee { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_LwBa88P_Eemsic1bQcEtLA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -62,36 +119,8 @@ public partial record RequestToModifyPaymentV07 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The RequestToModifyPayment message is sent by a case creator/case assigner to a case assignee.
-/// This message is used to request the modification of characteristics of an original payment instruction.
-/// Usage
-/// The RequestToModifyPayment message must be answered with a:
-/// - ResolutionOfInvestigation message with a positive final outcome when the case assignee can perform the requested modification;
-/// - ResolutionOfInvestigation message with a negative final outcome when the case assignee may perform the requested modification but fails to do so (too late, irrevocable instruction, one requested element cannot be modified);
-/// - RejectCaseAssignment message when the case assignee is unable or not authorised to perform the requested modification;
-/// - NotificationOfCaseAssignment message to indicate whether the case assignee will take on the case himself or reassign the case to a subsequent party in the payment processing chain.
-/// The RequestToModifyPayment message covers one and only one original instruction at a time. If several original payment instructions need to be modified, then multiple RequestToModifyPayment messages must be sent.
-/// The RequestToModifyPayment message can be sent to request the modification of one or several elements of the original payment instruction. If many elements need to be modified, it is recommended to cancel the original payment instruction and initiate a new one.
-/// The RequestToModifyPayment must be processed on an all or nothing basis. If one of the elements to be modified cannot be altered, the assignment must be rejected in full by means of a negative ResolutionOfInvestigation message. (See section on ResolutionOfInvestigation for more details).
-/// The RequestToModifyPayment message must never be sent to request the modification of the currency of the original payment instruction. If the currency is wrong, use a CustomerPaymentCancellationRequest or a FIToFIPaymentCancellationRequest message to cancel it and issue and a new payment instruction.
-/// The RequestToModifyPayment message may be forwarded to subsequent case assignee(s).
-/// When a RequestToModifyPayment message is used to decrease the amount of the original payment instruction, the modification will trigger a return of funds from the case assignee to the case creator. The assignee may indicate, within the ResolutionOfInvestigation message, the amount to be returned, the date it is or will be returned and the channel through which the return will be done.
-/// The RequestToModifyPayment message must never be sent to request the increase of the amount of the original payment instruction. To increase the amount in a payment, the debtor can do one of the following:
-/// - Cancel the first payment using a CustomerPaymentCancellationRequest or a FIToFIPaymentCancellationRequest message and make a new payment with a higher and correct amount;
-/// - Simply send a second payment with the supplementary amount.
-/// Depending on the requested modification(s) and the processing stage of the original payment instruction, the processing of a request to modify payment case may end with one of the following:
-/// - an AdditionalPaymentInformation message sent to the creditor of the original payment instruction;
-/// - a DebitAuthorisationRequest message sent to the creditor of the original payment instruction;
-/// - a CustomerPaymentCancellationRequest or a FIToFIPaymentCancellationRequest message sent to a subsequent case assignee.
-/// The RequestToModifyPayment message can be sent to correct characteristics of an original payment instruction following receipt of an UnableToApply message. In this scenario, the case identification will remain the same.
-/// The RequestToModifyPayment message has the following main characteristics:
-/// The case creator assigns a unique case identification. This information will be passed unchanged to all subsequent case assignee(s).
-/// Lowering the amount of an original payment instruction for which cover is provided by a separate instruction will systematically mean the modification of the whole transaction, including the cover. The case assignee performing the amount modification must initiate the return of funds in excess to the case creator.
-/// The modification of the agent's or agents' information on an original payment instruction for which cover is provided by a separate instruction will systematically mean the whole transaction is modified, that is the cover is executed through the agent(s) mentioned in the RequestToModifyPayment message. The cover payment must not be modified separately.
-/// The modification of a payment instruction can be initiated by either the debtor or any subsequent agent in the payment processing chain.
-/// The case creator provides the information to be modified in line with agreements made with the case assignee. If the case assignee needs in turn to assign the case to a subsequent case assignee, the requested modification(s) must be in line with the agreement made with the next case assignee and a NotificationOfCaseAssignment message must be sent to the case assigner. Otherwise, the request to modify payment case must be rejected (by means of a negative ResolutionOfInvestigation message).
-/// This is the outer document that contains <seealso cref="RequestToModifyPaymentV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToModifyPaymentV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

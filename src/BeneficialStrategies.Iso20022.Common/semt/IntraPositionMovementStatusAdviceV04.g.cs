@@ -32,7 +32,52 @@ public partial record IntraPositionMovementStatusAdviceV04 : IOuterRecord
     public const string XmlTag = "IntraPosMvmntStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of a transaction as per the account owner (or the instructing party managing the account).
+    /// </summary>
+    [IsoId("_XVkgeQCUEeW_3KiG8SEjHA")]
+    [Description(@"Unambiguous identification of a transaction as per the account owner (or the instructing party managing the account).")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the transaction.
+    /// </summary>
+    [IsoId("_XVkgewCUEeW_3KiG8SEjHA")]
+    [Description(@"Provides details on the processing status of the transaction.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    public SomeProcessingStatusRecord? ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the status of settlement of a transaction.
+    /// </summary>
+    [IsoId("_XVkgfQCUEeW_3KiG8SEjHA")]
+    [Description(@"Provides the status of settlement of a transaction.")]
+    [DataMember(Name="SttlmSts")]
+    [XmlElement(ElementName="SttlmSts")]
+    public SomeSettlementStatusRecord? SettlementStatus { get; init; }
+    
+    /// <summary>
+    /// Identifies the details of the transaction.
+    /// </summary>
+    [IsoId("_XVkgfwCUEeW_3KiG8SEjHA")]
+    [Description(@"Identifies the details of the transaction.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_XVkggQCUEeW_3KiG8SEjHA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +90,8 @@ public partial record IntraPositionMovementStatusAdviceV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a IntraPositionMovementStatusAdvice to an account owner to advise the status of a intra-position movement instruction previously sent by the account owner.
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information.
-/// using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="IntraPositionMovementStatusAdviceV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementStatusAdviceV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

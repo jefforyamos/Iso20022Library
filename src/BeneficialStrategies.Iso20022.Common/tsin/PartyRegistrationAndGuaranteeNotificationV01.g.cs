@@ -23,7 +23,62 @@ public partial record PartyRegistrationAndGuaranteeNotificationV01 : IOuterRecor
     public const string XmlTag = "PtyRegnAndGrntNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics that unambiguously identify the notification, common parameters, documents and identifications.
+    /// </summary>
+    [IsoId("_OTgzNDg1-AOSNFX-8224506")]
+    [Description(@"Set of characteristics that unambiguously identify the notification, common parameters, documents and identifications.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// List of otifications.
+    /// </summary>
+    [IsoId("_OTgzNDg2-AOSNFX-8224506")]
+    [Description(@"List of otifications.")]
+    [DataMember(Name="NtfctnList")]
+    [XmlElement(ElementName="NtfctnList")]
+    [Required]
+    public required SomeNotificationListRecord NotificationList { get; init; }
+    
+    /// <summary>
+    /// Number of notification lists as control value.
+    /// </summary>
+    [IsoId("_OTgzNDg3-AOSNFX-8224506")]
+    [Description(@"Number of notification lists as control value.")]
+    [DataMember(Name="NtfctnCnt")]
+    [XmlElement(ElementName="NtfctnCnt")]
+    public SomeNotificationCountRecord? NotificationCount { get; init; }
+    
+    /// <summary>
+    /// Total number of individual items in all lists.
+    /// </summary>
+    [IsoId("_OTgzNDg4-AOSNFX-8224506")]
+    [Description(@"Total number of individual items in all lists.")]
+    [DataMember(Name="ItmCnt")]
+    [XmlElement(ElementName="ItmCnt")]
+    public SomeItemCountRecord? ItemCount { get; init; }
+    
+    /// <summary>
+    /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
+    /// </summary>
+    [IsoId("_OTgzNDg5-AOSNFX-8224506")]
+    [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
+    [DataMember(Name="CtrlSum")]
+    [XmlElement(ElementName="CtrlSum")]
+    public SomeControlSumRecord? ControlSum { get; init; }
+    
+    /// <summary>
+    /// Referenced or related business message.
+    /// </summary>
+    [IsoId("_OTgzNDkw-AOSNFX-8224506")]
+    [Description(@"Referenced or related business message.")]
+    [DataMember(Name="AttchdMsg")]
+    [XmlElement(ElementName="AttchdMsg")]
+    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +91,8 @@ public partial record PartyRegistrationAndGuaranteeNotificationV01 : IOuterRecor
 }
 
 /// <summary>
-/// The PartyRegistrationAndGuaranteeNotification message is sent by a factoring client or a financial service to a trade partner and, optionally, to an interested party in order to notify the status of a requested financial service agreement. The trade partner is given information to explain the consequences of a financial service agreement, for instance, the trade partner must pay the financial institution and must use the electronic address to inform it and pay it using the bank account given.
-/// The message may reference related messages and may include referenced data.
-/// The message can carry digital signatures if required by context.
-/// This is the outer document that contains <seealso cref="PartyRegistrationAndGuaranteeNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyRegistrationAndGuaranteeNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

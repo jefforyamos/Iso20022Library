@@ -21,7 +21,34 @@ public partial record PartyCreationRequestV01 : IOuterRecord
     public const string XmlTag = "PtyCreReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_c7obABivEeiGdqyppFhcBA")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Specifies the details of the party to be created in the system.
+    /// </summary>
+    [IsoId("_H_lCYBiwEei5IMHVES5gUw")]
+    [Description(@"Specifies the details of the party to be created in the system.")]
+    [DataMember(Name="Pty")]
+    [XmlElement(ElementName="Pty")]
+    [Required]
+    public required SomePartyRecord Party { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_lfque5eTEeen_cyMrluY4w")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record PartyCreationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:|The PartyCreationRequest message is sent by an instructing party to the executing party to request for the creation of party reference data for a new party in the executing system.||Usage:|It aims at instructing the creation of a new party with corresponding details.|Processing and confirmation of the party creation request are provided via a party status advice.
-/// This is the outer document that contains <seealso cref="PartyCreationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyCreationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

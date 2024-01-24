@@ -21,7 +21,44 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord
     public const string XmlTag = "PayInEvtAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique and unambiguous identifier for the message, as assigned by the sender.
+    /// </summary>
+    [IsoId("_1VTQczp7EeKXK8qRvydwAw")]
+    [Description(@"Unique and unambiguous identifier for the message, as assigned by the sender.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// To indicate the requested CLS Settlement Session that the related trade is part of.
+    /// </summary>
+    [IsoId("_SY6S7R3bEeKXIbeXfdPzuw")]
+    [Description(@"To indicate the requested CLS Settlement Session that the related trade is part of.")]
+    [DataMember(Name="SttlmSsnIdr")]
+    [XmlElement(ElementName="SttlmSsnIdr")]
+    public SomeSettlementSessionIdentifierRecord? SettlementSessionIdentifier { get; init; }
+    
+    /// <summary>
+    /// Details of the pay in schedule or pay in call being acknowledged.
+    /// </summary>
+    [IsoId("_eii_VxnXEeKKXqHkeUjBbw")]
+    [Description(@"Details of the pay in schedule or pay in call being acknowledged.")]
+    [DataMember(Name="AckDtls")]
+    [XmlElement(ElementName="AckDtls")]
+    [Required]
+    public required SomeAcknowledgementDetailsRecord AcknowledgementDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Cu8KTy53EeKwTrPDLMbLxA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +71,8 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord
 }
 
 /// <summary>
-/// The PayInEventAcknowledgement message is sent by a participant of a central system to the central system to confirm a PayInSchedule or a PayInCall has been received.
-/// This is the outer document that contains <seealso cref="PayInEventAcknowledgementV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PayInEventAcknowledgementV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

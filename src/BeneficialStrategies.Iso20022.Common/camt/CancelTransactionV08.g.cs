@@ -31,7 +31,53 @@ public partial record CancelTransactionV08 : IOuterRecord
     public const string XmlTag = "CclTx";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_tLlRgcDOEeic67MXUoeXWA")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Reference to the instruction related to the payment for which information is requested.
+    /// </summary>
+    [IsoId("_tLlRg8DOEeic67MXUoeXWA")]
+    [Description(@"Reference to the instruction related to the payment for which information is requested.")]
+    [DataMember(Name="PmtId")]
+    [XmlElement(ElementName="PmtId")]
+    [Required]
+    public required SomePaymentIdentificationRecord PaymentIdentification { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a cash entry is made.
+    /// </summary>
+    [IsoId("_tLlRhcDOEeic67MXUoeXWA")]
+    [Description(@"Account to or from which a cash entry is made.")]
+    [DataMember(Name="CshAcct")]
+    [XmlElement(ElementName="CshAcct")]
+    public SomeCashAccountRecord? CashAccount { get; init; }
+    
+    /// <summary>
+    /// Provides detailed information on the cancellation reason.
+    /// </summary>
+    [IsoId("_tLlRh8DOEeic67MXUoeXWA")]
+    [Description(@"Provides detailed information on the cancellation reason.")]
+    [DataMember(Name="CxlRsn")]
+    [XmlElement(ElementName="CxlRsn")]
+    public SomeCancellationReasonRecord? CancellationReason { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_tLlRicDOEeic67MXUoeXWA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +90,8 @@ public partial record CancelTransactionV08 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CancelTransaction message is sent by a member to the transaction administrator.
-/// It is used to request the cancellation of one payment instruction held at the transaction administrator and sent by the member.
-/// Usage
-/// Following normal business flows, transactions registered by the transaction administrator may be queued for later settlement (because of insufficient funds available, because of risk or liquidity limits, etc.). A transaction may have a series of statuses. These can be transient (such as pending or related types), final (such as rejected, revoked and/or settled) or the status may even be defined as a proprietary status.
-/// Members of a system need to have information about the payments queue(s), and must have the ability to take action (that is, to cancel or modify the transaction(s) to be settled). Note, however, that actions by a member will always concern transactions in a transient status.
-/// For this reason, at any time during the operating hours of the system, the member can request the cancellation of a transaction that has not received a final status.
-/// The member will submit a CancelTransaction message containing the identification of the transaction to be cancelled.
-/// Based on the criteria received within the CancelTransaction message, the transaction administrator will execute or reject the requested cancellation.
-/// The transaction administrator may send a Receipt message as a reply to the CancelTransaction request.
-/// To verify the outcome of the request, the member may submit a GetTransaction message with the appropriate search criteria.
-/// This is the outer document that contains <seealso cref="CancelTransactionV08"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CancelTransactionV08"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,43 @@ public partial record ATMDepositCompletionAcknowledgementV01 : IOuterRecord
     public const string XmlTag = "ATMDpstCmpltnAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_ho578K4REeWZgJQOa6iKCQ")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_mHoKAK4REeWZgJQOa6iKCQ")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMDpstCmpltnAck")]
+    [XmlElement(ElementName="PrtctdATMDpstCmpltnAck")]
+    public SomeProtectedATMDepositCompletionAcknowledgementRecord? ProtectedATMDepositCompletionAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Information related to the acknowledgement of an ATM deposit transaction from the ATM manager.
+    /// </summary>
+    [IsoId("_qZQXQK4REeWZgJQOa6iKCQ")]
+    [Description(@"Information related to the acknowledgement of an ATM deposit transaction from the ATM manager.")]
+    [DataMember(Name="ATMDpstCmpltnAck")]
+    [XmlElement(ElementName="ATMDpstCmpltnAck")]
+    public SomeATMDepositCompletionAcknowledgementRecord? ATMDepositCompletionAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_DgzqgK4SEeWZgJQOa6iKCQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMDepositCompletionAcknowledgementV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMDepositCompletionAcknowledgement message is sent by an acquirer or its agent to an ATM to acknowledge the receipt of an ATMDepositCompletionAdvice message.
-/// This is the outer document that contains <seealso cref="ATMDepositCompletionAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDepositCompletionAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

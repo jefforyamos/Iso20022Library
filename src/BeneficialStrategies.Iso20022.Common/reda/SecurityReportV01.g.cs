@@ -30,7 +30,44 @@ public partial record SecurityReportV01 : IOuterRecord
     public const string XmlTag = "SctyRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.
+    /// </summary>
+    [IsoId("_Y1e_wZIxEeuAlLVx8pyt3w")]
+    [Description(@"Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Provides details on the page number of the message.
+    /// </summary>
+    [IsoId("_jTv0-R62Eeu31YsWNiv_cw")]
+    [Description(@"Provides details on the page number of the message.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides the financial instruments details or error raised during the generation of the report.
+    /// </summary>
+    [IsoId("_jTv0-x62Eeu31YsWNiv_cw")]
+    [Description(@"Provides the financial instruments details or error raised during the generation of the report.")]
+    [DataMember(Name="SctyRptOrErr")]
+    [XmlElement(ElementName="SctyRptOrErr")]
+    [Required]
+    public required SomeSecurityReportOrErrorRecord SecurityReportOrError { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jTv1AR62Eeu31YsWNiv_cw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +80,8 @@ public partial record SecurityReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// SCOPE
-/// An executing/servicing party sends a SecurityReport message to an instructing party to advise the last known image of securities data's.
-/// The report may be sent upon request (for example a query) of the instructing party or push by the executing/servicing party.
-/// The instructing party - executing/servicing party relationship may be:
-/// - Central Securities Depositories (CSD) who would like to publish security static data, or 
-/// - a Corporate, or
-/// - a Bank, or
-/// - a Market Infrastructure, or 
-/// - a Market Data Provider.
-/// Initiator: executing/servicing party.
-/// This is the outer document that contains <seealso cref="SecurityReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

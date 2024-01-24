@@ -24,7 +24,110 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     public const string XmlTag = "PricRptCxl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_M87dQxj3EeKxeog5DTmtgg")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_M87dRxj3EeKxeog5DTmtgg")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_M87dSxj3EeKxeog5DTmtgg")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_M87dTxj3EeKxeog5DTmtgg")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier for the price report, as assigned by the reporting party.
+    /// </summary>
+    [IsoId("_NPnKdRmAEeKxsrht2duUcg")]
+    [Description(@"Unique and unambiguous identifier for the price report, as assigned by the reporting party.")]
+    [DataMember(Name="PricRptId")]
+    [XmlElement(ElementName="PricRptId")]
+    [Required]
+    public required SomePriceReportIdentificationRecord PriceReportIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier for the cancellation of the previous price report, as assigned by the reporting party.
+    /// </summary>
+    [IsoId("_epzJZRmAEeKxsrht2duUcg")]
+    [Description(@"Unique and unambiguous identifier for the cancellation of the previous price report, as assigned by the reporting party.")]
+    [DataMember(Name="CxlId")]
+    [XmlElement(ElementName="CxlId")]
+    [Required]
+    public required SomeCancellationIdentificationRecord CancellationIdentification { get; init; }
+    
+    /// <summary>
+    /// Reason for the cancellation.
+    /// </summary>
+    [IsoId("_06rKcBmAEeKxsrht2duUcg")]
+    [Description(@"Reason for the cancellation.")]
+    [DataMember(Name="CxlRsn")]
+    [XmlElement(ElementName="CxlRsn")]
+    public SomeCancellationReasonRecord? CancellationReason { get; init; }
+    
+    /// <summary>
+    /// Date or date and time the price will be corrected.
+    /// </summary>
+    [IsoId("_RTTz8BmBEeKxsrht2duUcg")]
+    [Description(@"Date or date and time the price will be corrected.")]
+    [DataMember(Name="XpctdPricCrrctnDt")]
+    [XmlElement(ElementName="XpctdPricCrrctnDt")]
+    public SomeExpectedPriceCorrectionDateRecord? ExpectedPriceCorrectionDate { get; init; }
+    
+    /// <summary>
+    /// Indicates whether or not all the prices of the referenced price report are cancelled.
+    /// </summary>
+    [IsoId("_Cj3HgBmCEeKxsrht2duUcg")]
+    [Description(@"Indicates whether or not all the prices of the referenced price report are cancelled.")]
+    [DataMember(Name="CmpltPricCxl")]
+    [XmlElement(ElementName="CmpltPricCxl")]
+    [Required]
+    public required SomeCompletePriceCancellationRecord CompletePriceCancellation { get; init; }
+    
+    /// <summary>
+    /// Details of prices to be cancelled.
+    /// </summary>
+    [IsoId("_M87dUxj3EeKxeog5DTmtgg")]
+    [Description(@"Details of prices to be cancelled.")]
+    [DataMember(Name="CancPricValtnDtls")]
+    [XmlElement(ElementName="CancPricValtnDtls")]
+    public SomeCancelledPriceValuationDetailsRecord? CancelledPriceValuationDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_2sI2JRmCEeKxsrht2duUcg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +140,8 @@ public partial record PriceReportCancellationV04 : IOuterRecord
 }
 
 /// <summary>
-/// SCOPE
-/// A report provider, for example, a transfer agent, fund accountant or market data provider, sends the PriceReportCancellation message to the report recipient, for example, a fund management company, transfer agent, market data provider, regulator or any other interested party to cancel previously sent prices.|
-/// USAGE
-/// The PriceReportCancellation message is used to either: |- cancel an entire PriceReport that was previously sent (by quoting the business reference of the original price report in the PriceReportIdentification element), or,|- cancel one or more individual prices from a previously sent price report (by using the PriceDetailsToBeCancelled sequence).|Technically, it is possible to cancel all the prices individually by using the PriceDetailsToBeCancelled sequence, but this is not recommended.|The cancellation should not contain the cancellation of prices for more than one NAV date. 
-/// This is the outer document that contains <seealso cref="PriceReportCancellationV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportCancellationV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

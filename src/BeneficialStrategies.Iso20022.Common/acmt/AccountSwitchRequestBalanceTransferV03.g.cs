@@ -21,7 +21,64 @@ public partial record AccountSwitchRequestBalanceTransferV03 : IOuterRecord
     public const string XmlTag = "AcctSwtchReqBalTrf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification for the message.
+    /// </summary>
+    [IsoId("_Lv10u8P_Eemsic1bQcEtLA")]
+    [Description(@"Unique identification for the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains information about the details of the account switch.
+    /// </summary>
+    [IsoId("_Lv10vcP_Eemsic1bQcEtLA")]
+    [Description(@"Contains information about the details of the account switch.")]
+    [DataMember(Name="AcctSwtchDtls")]
+    [XmlElement(ElementName="AcctSwtchDtls")]
+    [Required]
+    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    
+    /// <summary>
+    /// Details of the new account set up with the new account servicer.
+    /// Usage: If an Alternate Credit Account is not specified and the closing balance of the old account was positive then the payment of the outstanding balance should be made to this account.
+    /// </summary>
+    [IsoId("_Lv10v8P_Eemsic1bQcEtLA")]
+    [Description(@"Details of the new account set up with the new account servicer.||Usage: If an Alternate Credit Account is not specified and the closing balance of the old account was positive then the payment of the outstanding balance should be made to this account.")]
+    [DataMember(Name="NewAcct")]
+    [XmlElement(ElementName="NewAcct")]
+    [Required]
+    public required SomeNewAccountRecord NewAccount { get; init; }
+    
+    /// <summary>
+    /// Alternate beneficiary account for a payment made from the old account servicer to the new account servicer in the case of a positive closing balance of the old bank.
+    /// </summary>
+    [IsoId("_Lv10wcP_Eemsic1bQcEtLA")]
+    [Description(@"Alternate beneficiary account for a payment made from the old account servicer to the new account servicer in the case of a positive closing balance of the old bank.")]
+    [DataMember(Name="NmntdAcct")]
+    [XmlElement(ElementName="NmntdAcct")]
+    public SomeNominatedAccountRecord? NominatedAccount { get; init; }
+    
+    /// <summary>
+    /// Information that enables the receiving bank to reconcile the payment with the request.
+    /// </summary>
+    [IsoId("_Lv10w8P_Eemsic1bQcEtLA")]
+    [Description(@"Information that enables the receiving bank to reconcile the payment with the request.")]
+    [DataMember(Name="BalTrf")]
+    [XmlElement(ElementName="BalTrf")]
+    public SomeBalanceTransferRecord? BalanceTransfer { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Lv10xcP_Eemsic1bQcEtLA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +91,8 @@ public partial record AccountSwitchRequestBalanceTransferV03 : IOuterRecord
 }
 
 /// <summary>
-/// The AccountSwitchRequestBalanceTransfer message is sent by the new account servicer to the account servicer which previously held the account to request the transfer of the closing balance. This may be addressed to the new account or an alternate account nominated by the new account servicer. 
-/// This is the outer document that contains <seealso cref="AccountSwitchRequestBalanceTransferV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchRequestBalanceTransferV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -26,7 +26,82 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     public const string XmlTag = "SttlmOblgtnRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides details about the report such as the report identification, the creation date and time.
+    /// </summary>
+    [IsoId("_suRVUy9dEeS94oXWDaBauA")]
+    [Description(@"Provides details about the report such as the report identification, the creation date and time.")]
+    [DataMember(Name="RptParams")]
+    [XmlElement(ElementName="RptParams")]
+    [Required]
+    public required SomeReportParametersRecord ReportParameters { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
+    /// </summary>
+    [IsoId("_suRVVS9dEeS94oXWDaBauA")]
+    [Description(@"Page number of the message (within a report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides the identification of the clearing member (individual clearing member or general clearing member).
+    /// </summary>
+    [IsoId("_suRVVy9dEeS94oXWDaBauA")]
+    [Description(@"Provides the identification of the clearing member (individual clearing member or general clearing member).")]
+    [DataMember(Name="ClrMmb")]
+    [XmlElement(ElementName="ClrMmb")]
+    public SomeClearingMemberRecord? ClearingMember { get; init; }
+    
+    /// <summary>
+    /// Clearing organisation that will clear the trade.
+    /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
+    /// </summary>
+    [IsoId("_suRVWS9dEeS94oXWDaBauA")]
+    [Description(@"Clearing organisation that will clear the trade.|Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.")]
+    [DataMember(Name="ClrSgmt")]
+    [XmlElement(ElementName="ClrSgmt")]
+    public SomeClearingSegmentRecord? ClearingSegment { get; init; }
+    
+    /// <summary>
+    /// Provides the identification of the account used for netting. This is an account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
+    /// </summary>
+    [IsoId("_suRVWy9dEeS94oXWDaBauA")]
+    [Description(@"Provides the identification of the account used for netting. This is an account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).")]
+    [DataMember(Name="DlvryAcct")]
+    [XmlElement(ElementName="DlvryAcct")]
+    public SomeDeliveryAccountRecord? DeliveryAccount { get; init; }
+    
+    /// <summary>
+    /// Provides details on the settlement obligation report.
+    /// </summary>
+    [IsoId("_suRVXS9dEeS94oXWDaBauA")]
+    [Description(@"Provides details on the settlement obligation report.")]
+    [DataMember(Name="RptDtls")]
+    [XmlElement(ElementName="RptDtls")]
+    [Required]
+    public required SomeReportDetailsRecord ReportDetails { get; init; }
+    
+    /// <summary>
+    /// Provides details about the receiving parties involved in the settlement chain.
+    /// </summary>
+    [IsoId("_suRVXy9dEeS94oXWDaBauA")]
+    [Description(@"Provides details about the receiving parties involved in the settlement chain.")]
+    [DataMember(Name="SttlmPties")]
+    [XmlElement(ElementName="SttlmPties")]
+    public SomeSettlementPartiesRecord? SettlementParties { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_suRVYS9dEeS94oXWDaBauA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +114,8 @@ public partial record SettlementObligationReportV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SettlementObligationReport message is sent by the central counterparty (CCP) to a clearing member to report on the settlement obligation that will be submitted for settlement.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The SettlementObligationReport message may also be sent to a third party processing the settlement obligation(s) on behalf of more than one clearing member.
-/// The Settlement Obligation Report message is provided per delivery account and per instrument. The report can be provided for one specific delivering party or one specific receiving party. It can also be generated per non clearing member.
-/// This is the outer document that contains <seealso cref="SettlementObligationReportV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementObligationReportV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

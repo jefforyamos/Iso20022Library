@@ -36,7 +36,74 @@ public partial record ActionReminderV03 : IOuterRecord
     public const string XmlTag = "ActnRmndr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the reminder message.
+    /// </summary>
+    [IsoId("_hnA9-dE8Ed-BzquC8wXy7w_-2083336503")]
+    [Description(@"Identifies the reminder message.")]
+    [DataMember(Name="RmndrId")]
+    [XmlElement(ElementName="RmndrId")]
+    [Required]
+    public required SomeReminderIdentificationRecord ReminderIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_hnA9-tE8Ed-BzquC8wXy7w_-2083336866")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_hnA9-9E8Ed-BzquC8wXy7w_-2083336924")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_hnA9_NE8Ed-BzquC8wXy7w_-2083336556")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for each financial institution which is a party to the transaction.
+    /// </summary>
+    [IsoId("_hnKu8NE8Ed-BzquC8wXy7w_-2083336587")]
+    [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Identifies the message for which an action is required.
+    /// </summary>
+    [IsoId("_hnKu8dE8Ed-BzquC8wXy7w_-2083336525")]
+    [Description(@"Identifies the message for which an action is required.")]
+    [DataMember(Name="MsgReqrngActn")]
+    [XmlElement(ElementName="MsgReqrngActn")]
+    [Required]
+    public required SomeMessageRequiringActionRecord MessageRequiringAction { get; init; }
+    
+    /// <summary>
+    /// Next processing step required.
+    /// </summary>
+    [IsoId("_hnKu8tE8Ed-BzquC8wXy7w_-2083336834")]
+    [Description(@"Next processing step required.")]
+    [DataMember(Name="PdgReqForActn")]
+    [XmlElement(ElementName="PdgReqForActn")]
+    [Required]
+    public required SomePendingRequestForActionRecord PendingRequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -49,23 +116,8 @@ public partial record ActionReminderV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ActionReminder message is sent by the matching application to a party involved in a transaction that it is expecting to take an action.
-/// This message is used to remind a party of an action that it is expected to take.
-/// Usage
-/// The ActionReminder message can be sent by the matching application to remind a party that it is waiting for
-/// - the submission of a transaction initiation message (BaselineReSubmission message),
-/// or
-/// - the acceptance or rejection of mis-matched data sets (MisMatchAcceptance or MisMatchRejection message),
-/// or
-/// - the acceptance or rejection of an amendment request (AmendmentAcceptance or AmendmentRejection message),
-/// or
-/// - the acceptance or rejection of a status change request (StatusChangeRequestAcceptance or StatusChangeRequestRejection message),
-/// or
-/// - the acceptance or rejection of a status extension request (StatusExtensionAcceptance or StatusExtensionRejection message).
-/// - or
-/// - the acceptance or rejection of a request to accept role and baseline (RoleAndBaselineAcceptance or RoleAndBaselineRejection message).
-/// This is the outer document that contains <seealso cref="ActionReminderV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ActionReminderV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

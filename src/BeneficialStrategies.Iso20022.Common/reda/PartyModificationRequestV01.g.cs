@@ -21,7 +21,44 @@ public partial record PartyModificationRequestV01 : IOuterRecord
     public const string XmlTag = "PtyModReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_AvsDgVhGEeih3fUfzR38Ig")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Unique identification, as assigned by the executing system, to unambiguously identify the party to be modified.
+    /// </summary>
+    [IsoId("_xJQSqZeREeen_cyMrluY4w")]
+    [Description(@"Unique identification, as assigned by the executing system, to unambiguously identify the party to be modified.")]
+    [DataMember(Name="SysPtyId")]
+    [XmlElement(ElementName="SysPtyId")]
+    [Required]
+    public required SomeSystemPartyIdentificationRecord SystemPartyIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the list of requested modifications to be executed by the system.
+    /// </summary>
+    [IsoId("_xJQSq5eREeen_cyMrluY4w")]
+    [Description(@"Identifies the list of requested modifications to be executed by the system.")]
+    [DataMember(Name="Mod")]
+    [XmlElement(ElementName="Mod")]
+    [Required]
+    public required SomeModificationRecord Modification { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_xJQSrZeREeen_cyMrluY4w")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +71,8 @@ public partial record PartyModificationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:|The PartyModificationRequest message is sent by the instructing party to the executing party to request for an update of the party reference data of a party defined in the executing system.||Usage:|It aims at instructing the update of an existing party by amending its existing details or by providing additional details.|Processing and confirmation of the party modification request message are provided via a party status advice.
-/// This is the outer document that contains <seealso cref="PartyModificationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyModificationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

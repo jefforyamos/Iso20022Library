@@ -33,7 +33,89 @@ public partial record FundConfirmedCashForecastReportV04 : IOuterRecord
     public const string XmlTag = "FndConfdCshFcstRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_GJQg5QasEeSrXeb3pHPmbg")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_GJQg5wasEeSrXeb3pHPmbg")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_GJQg6QasEeSrXeb3pHPmbg")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_GJQg6wasEeSrXeb3pHPmbg")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_GJQg7QasEeSrXeb3pHPmbg")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// Information about the fund/sub fund when the report either specifies cash flow for the fund/sub fund or for a share class of the fund/sub fund.
+    /// </summary>
+    [IsoId("_suf4IQc3EeSyIPzOZ6VzBQ")]
+    [Description(@"Information about the fund/sub fund when the report either specifies cash flow for the fund/sub fund or for a share class of the fund/sub fund.")]
+    [DataMember(Name="FndOrSubFndDtls")]
+    [XmlElement(ElementName="FndOrSubFndDtls")]
+    public SomeFundOrSubFundDetailsRecord? FundOrSubFundDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the cash-in and cash-out flows for a specific trade date as a result of transactions in shares in an investment fund, for example, subscriptions, redemptions or switches.
+    /// </summary>
+    [IsoId("_GJQg7wasEeSrXeb3pHPmbg")]
+    [Description(@"Information related to the cash-in and cash-out flows for a specific trade date as a result of transactions in shares in an investment fund, for example, subscriptions, redemptions or switches.")]
+    [DataMember(Name="FndCshFcstDtls")]
+    [XmlElement(ElementName="FndCshFcstDtls")]
+    public SomeFundCashForecastDetailsRecord? FundCashForecastDetails { get; init; }
+    
+    /// <summary>
+    /// Estimated net cash as a result of the cash-in and cash-out flows.
+    /// </summary>
+    [IsoId("_GJQg8QasEeSrXeb3pHPmbg")]
+    [Description(@"Estimated net cash as a result of the cash-in and cash-out flows.")]
+    [DataMember(Name="CnsltdNetCshFcst")]
+    [XmlElement(ElementName="CnsltdNetCshFcst")]
+    public SomeConsolidatedNetCashForecastRecord? ConsolidatedNetCashForecast { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_GJQg8wasEeSrXeb3pHPmbg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -46,20 +128,8 @@ public partial record FundConfirmedCashForecastReportV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A report provider, such as a transfer agent, sends the FundConfirmedCashForecastReport message to the report user, such as an investment manager or pricing agent, to report the confirmed cash incomings and outgoings of one or more share classes of an investment fund on one or more trade dates.
-/// The cash movements may result from, for example, redemption, subscription, switch transactions or reinvestment of dividends.
-/// Usage
-/// The FundConfirmedCashForecastReport is used to report definitive cash movements, that is it is sent after the cut-off time and/or the price valuation of the fund.
-/// This message contains incoming and outgoing cash flows that are confirmed, that is, the price has been applied. If the price is not yet definitive, then the FundEstimatedCashForecastReport message must be used.
-/// The message structure allows for the following uses:
-/// -	to provide cash in and cash out amounts for a fund/sub fund (a FundOrSubFundDetails sequence is used),
-/// -	to provide cash in and cash out amounts for a fund/sub fund and one or more share classes (FundOrSubFundDetails sequence and one or more FundCashForecastDetails sequences are used),
-/// -	to provide cash in and cash out amounts for one or more share classes (one or more FundCashForecastDetails sequences are used).
-/// -	to provide cash in and cash out amounts for more than one fund/sub fund, and more than one share classes (two or more FundOrSubFundDetails sequences and two or more FundCashForecastDetails sequences and used); however, it should be noted that, in this usage, there is no way to determine which share class belongs to which fund/sub fund from the message content itself, which may not be desirable and the use of this kind of combination should be bilaterally agreed.
-/// This message allows the report provider to report cash movements in or out of a fund, but does not allow the Sender to categorise these movements, for example by country, or to give details of the underlying orders, commission or charges.
-/// If the report provider wishes to give detailed information related to cash movements, then the FundDetailedConfirmedCashForecastReport message must be used.
-/// This is the outer document that contains <seealso cref="FundConfirmedCashForecastReportV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundConfirmedCashForecastReportV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

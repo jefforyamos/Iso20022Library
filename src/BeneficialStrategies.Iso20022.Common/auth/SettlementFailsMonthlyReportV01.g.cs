@@ -21,7 +21,45 @@ public partial record SettlementFailsMonthlyReportV01 : IOuterRecord
     public const string XmlTag = "SttlmFlsMnthlyRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Specifies parameters of the report.
+    /// </summary>
+    [IsoId("_pq7Tu0EXEeqXB_DgAcRqgw")]
+    [Description(@"Specifies parameters of the report.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Aggregated monthly volume and value of settled, failed, total of failed settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
+    /// </summary>
+    [IsoId("_pq7TvUEXEeqXB_DgAcRqgw")]
+    [Description(@"Aggregated monthly volume and value of settled, failed, total of failed settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.")]
+    [DataMember(Name="MnthlyAggt")]
+    [XmlElement(ElementName="MnthlyAggt")]
+    [Required]
+    public required SomeMonthlyAggregateRecord MonthlyAggregate { get; init; }
+    
+    /// <summary>
+    /// Daily data volume and value of settled, failed, total of failed settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
+    /// </summary>
+    [IsoId("_pq7Tv0EXEeqXB_DgAcRqgw")]
+    [Description(@"Daily data volume and value of settled, failed, total of failed settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.")]
+    [DataMember(Name="DalyData")]
+    [XmlElement(ElementName="DalyData")]
+    [Required]
+    public required SomeDailyDataRecord DailyData { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_pq7TwUEXEeqXB_DgAcRqgw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +72,8 @@ public partial record SettlementFailsMonthlyReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SettlementFailsMonthlyReport is sent by central securities depository or by a central bank operating a securities settlement system to the CSD competent authority in its jurisdiction, to provide monthly and daily aggregated data on the number and the nature of settlement instructions which failed to settle on their intended settlement day. The report contains monthly and daily statistical information on the number and value of overall settlement instructions, settled instructions, and settlement fails that occurred during a specified period and within a given securities settlement system.
-/// This is the outer document that contains <seealso cref="SettlementFailsMonthlyReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementFailsMonthlyReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

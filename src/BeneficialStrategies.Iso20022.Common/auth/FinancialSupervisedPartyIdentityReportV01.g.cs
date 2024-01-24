@@ -21,7 +21,25 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord
     public const string XmlTag = "FinSprvsdPtyIdntyRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides appropriate instructions to update or cancel information about a party in the scope of the local regulation.
+    /// </summary>
+    [IsoId("_DehT8fH1Eeaz_YGUGLjP6A")]
+    [Description(@"Provides appropriate instructions to update or cancel information about a party in the scope of the local regulation.")]
+    [DataMember(Name="PtyData")]
+    [XmlElement(ElementName="PtyData")]
+    [Required]
+    public required SomePartyDataRecord PartyData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_nAykQTbuEeeYhaZ6bvG1Xg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// This FinancialSupervisedPartyIdentityReport message is sent by the competent institution to report parties used for the purpose of the local regulation.
-/// This is the outer document that contains <seealso cref="FinancialSupervisedPartyIdentityReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialSupervisedPartyIdentityReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

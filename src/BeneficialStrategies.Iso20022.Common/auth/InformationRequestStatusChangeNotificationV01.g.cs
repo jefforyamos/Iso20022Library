@@ -21,7 +21,35 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     public const string XmlTag = "InfReqStsChngNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference of the information request opening message that this message is an update of.
+    /// </summary>
+    [IsoId("_tqPSWz2QEeGG64_ngBNdUg")]
+    [Description(@"Reference of the information request opening message that this message is an update of.")]
+    [DataMember(Name="OrgnlBizQry")]
+    [XmlElement(ElementName="OrgnlBizQry")]
+    [Required]
+    public required SomeOriginalBusinessQueryRecord OriginalBusinessQuery { get; init; }
+    
+    /// <summary>
+    /// Specifies the confidentiality status of the investigation.
+    /// </summary>
+    [IsoId("_0ikcBT2QEeGG64_ngBNdUg")]
+    [Description(@"Specifies the confidentiality status of the investigation.")]
+    [DataMember(Name="CnfdtltySts")]
+    [XmlElement(ElementName="CnfdtltySts")]
+    [Required]
+    public required SomeConfidentialityStatusRecord ConfidentialityStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2tmJOz2QEeGG64_ngBNdUg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
 }
 
 /// <summary>
-/// This message is sent by the authorities (police, customs, tax authorities, enforcement authorities) to a financial institution to inform the financial institution that the confidentiality status of the investigation has changed.
-/// This is the outer document that contains <seealso cref="InformationRequestStatusChangeNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestStatusChangeNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

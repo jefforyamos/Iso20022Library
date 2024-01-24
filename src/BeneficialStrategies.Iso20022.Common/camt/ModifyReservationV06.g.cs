@@ -21,7 +21,45 @@ public partial record ModifyReservationV06 : IOuterRecord
     public const string XmlTag = "ModfyRsvatn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_ThUsh9b6Eeq_l4BJLVUF2Q")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Identification of the default reservation.
+    /// </summary>
+    [IsoId("_ThUsidb6Eeq_l4BJLVUF2Q")]
+    [Description(@"Identification of the default reservation.")]
+    [DataMember(Name="RsvatnId")]
+    [XmlElement(ElementName="RsvatnId")]
+    [Required]
+    public required SomeReservationIdentificationRecord ReservationIdentification { get; init; }
+    
+    /// <summary>
+    /// New reservation values.
+    /// </summary>
+    [IsoId("_ThUsi9b6Eeq_l4BJLVUF2Q")]
+    [Description(@"New reservation values.")]
+    [DataMember(Name="NewRsvatnValSet")]
+    [XmlElement(ElementName="NewRsvatnValSet")]
+    [Required]
+    public required SomeNewReservationValueSetRecord NewReservationValueSet { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_ThUsjdb6Eeq_l4BJLVUF2Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +72,8 @@ public partial record ModifyReservationV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope|The ModifyReservation message is used to request modifications in the details of one particular reservation set by the member and managed by the transaction administrator.|Usage|After the receipt of a ModifyReservation message the transaction administrator checks whether the amount of liquidity on the member account is sufficient to set the reservation.|If there is enough liquidity available, the requested amount will be reserved. In case the requested amount exceeds the available liquidity, only the available liquidity will be reserved. The difference will not be blocked at a later point, even if the account balance of the member reaches the level of the initial reservation request.|The reservation can be effected directly by the member, who has the possibility to: |- reset the reserved liquidity to zero|- change the reservation amount during the day with immediate effect|- input a default reservation amount for the following day(s); valid until a new reservation amount is requested|After the receipt of a ModifyReservation message the transaction administrator checks whether the amount of liquidity on the member account is sufficient to set the reservation.
-/// This is the outer document that contains <seealso cref="ModifyReservationV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ModifyReservationV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,72 @@ public partial record AccountRequestAcknowledgementV02 : IOuterRecord
     public const string XmlTag = "AcctReqAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements for the identification of the message and related references.
+    /// </summary>
+    [IsoId("_gDPu8w1TEeKGXqvMN6jpiw")]
+    [Description(@"Set of elements for the identification of the message and related references.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.
+    /// </summary>
+    [IsoId("_wBNOMA1YEeKGXqvMN6jpiw")]
+    [Description(@"Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.")]
+    [DataMember(Name="Fr")]
+    [XmlElement(ElementName="Fr")]
+    public SomeFromRecord? From { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identification of the account between the account owner and the account servicer.
+    /// </summary>
+    [IsoId("_gDPu9w1TEeKGXqvMN6jpiw")]
+    [Description(@"Unique and unambiguous identification of the account between the account owner and the account servicer.")]
+    [DataMember(Name="AcctId")]
+    [XmlElement(ElementName="AcctId")]
+    public SomeAccountIdentificationRecord? AccountIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifier for an organisation.
+    /// </summary>
+    [IsoId("_gDPu-w1TEeKGXqvMN6jpiw")]
+    [Description(@"Identifier for an organisation.")]
+    [DataMember(Name="OrgId")]
+    [XmlElement(ElementName="OrgId")]
+    [Required]
+    public required SomeOrganisationIdentificationRecord OrganisationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
+    /// </summary>
+    [IsoId("_gDPu_w1TEeKGXqvMN6jpiw")]
+    [Description(@"Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains the signature with its components, namely signed info, signature value, key info and the object.
+    /// </summary>
+    [IsoId("_gDPvAw1TEeKGXqvMN6jpiw")]
+    [Description(@"Contains the signature with its components, namely signed info, signature value, key info and the object.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_KLrdIA4AEeKGXqvMN6jpiw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +99,8 @@ public partial record AccountRequestAcknowledgementV02 : IOuterRecord
 }
 
 /// <summary>
-/// The AccountRequestAcknowledgement message is sent from a financial institution to an organisation. This message is sent in response to a request message from the organisation. It is sent after the request has been validated from an authentication and authorization point of view. The business content has not yet been validated at this stage.
-/// This is the outer document that contains <seealso cref="AccountRequestAcknowledgementV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountRequestAcknowledgementV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

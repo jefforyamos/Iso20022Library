@@ -21,7 +21,87 @@ public partial record DTCCCACOSD1V05 : IOuterRecord
     public const string XmlTag = "DTCCCACOSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message and continuation indicator to indicate that the multi-parts confirmation is to continue or that the message is the last page of the multi-parts confirmation.
+    /// </summary>
+    [IsoId("_3HceIZE_EeanIpS4qvJ1tw")]
+    [Description(@"Page number of the message and continuation indicator to indicate that the multi-parts confirmation is to continue or that the message is the last page of the multi-parts confirmation.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    public SomePaginationRecord? Pagination { get; init; }
+    
+    /// <summary>
+    /// Extension block for the information to be extended as corporate action general information.
+    /// </summary>
+    [IsoId("_I7vsr5CEEeaSk9d1hvTrHg")]
+    [Description(@"Extension block for the information to be extended as corporate action general information.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to underlying security details.
+    /// </summary>
+    [IsoId("_I7wTsZCEEeaSk9d1hvTrHg")]
+    [Description(@"Information to be extended as supplementary data to underlying security details.")]
+    [DataMember(Name="UndrlygScty")]
+    [XmlElement(ElementName="UndrlygScty")]
+    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action details.
+    /// </summary>
+    [IsoId("_I7wTs5CEEeaSk9d1hvTrHg")]
+    [Description(@"Information to be extended as supplementary data to corporate action details.")]
+    [DataMember(Name="CorpActnDtls")]
+    [XmlElement(ElementName="CorpActnDtls")]
+    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    
+    /// <summary>
+    /// Extension block for the information to be extended as account balance.
+    /// </summary>
+    [IsoId("_I7wTtZCEEeaSk9d1hvTrHg")]
+    [Description(@"Extension block for the information to be extended as account balance.")]
+    [DataMember(Name="AcctBal")]
+    [XmlElement(ElementName="AcctBal")]
+    public SomeAccountBalanceRecord? AccountBalance { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as corporate action confirmation details.
+    /// </summary>
+    [IsoId("_4yXyEJFDEeanIpS4qvJ1tw")]
+    [Description(@"Information to be extended as corporate action confirmation details.")]
+    [DataMember(Name="CorpActnConfDtls")]
+    [XmlElement(ElementName="CorpActnConfDtls")]
+    public SomeCorporateActionConfirmationDetailsRecord? CorporateActionConfirmationDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as corporate action confirmation securities movement details.
+    /// </summary>
+    [IsoId("_I7wTt5CEEeaSk9d1hvTrHg")]
+    [Description(@"Information to be extended as corporate action confirmation securities movement details.")]
+    [DataMember(Name="CorpActnConfSctiesMvmntDtls")]
+    [XmlElement(ElementName="CorpActnConfSctiesMvmntDtls")]
+    public SomeCorporateActionConfirmationSecuritiesMovementDetailsRecord? CorporateActionConfirmationSecuritiesMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Extension block for the information to be extended as corporate action confirmation cash movement details.
+    /// </summary>
+    [IsoId("_I7wTv5CEEeaSk9d1hvTrHg")]
+    [Description(@"Extension block for the information to be extended as corporate action confirmation cash movement details.")]
+    [DataMember(Name="CorpActnConfCshMvmntDtls")]
+    [XmlElement(ElementName="CorpActnConfCshMvmntDtls")]
+    public SomeCorporateActionConfirmationCashMovementDetailsRecord? CorporateActionConfirmationCashMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action option details.
+    /// </summary>
+    [IsoId("_MrdVAZFHEeanIpS4qvJ1tw")]
+    [Description(@"Information to be extended as supplementary data to corporate action option details.")]
+    [DataMember(Name="OptnTxDtls")]
+    [XmlElement(ElementName="OptnTxDtls")]
+    public SomeOptionTransactionDetailsRecord? OptionTransactionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +114,8 @@ public partial record DTCCCACOSD1V05 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCACOSD1 message extends ISO corporate action movement confirmation message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCACOSD1V05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCACOSD1V05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

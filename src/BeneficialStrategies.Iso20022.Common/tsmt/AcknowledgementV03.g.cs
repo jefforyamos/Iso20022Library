@@ -25,7 +25,71 @@ public partial record AcknowledgementV03 : IOuterRecord
     public const string XmlTag = "Ack";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the acknowledgement message.
+    /// </summary>
+    [IsoId("_hJ9OidE8Ed-BzquC8wXy7w_-2019493414")]
+    [Description(@"Identifies the acknowledgement message.")]
+    [DataMember(Name="AckId")]
+    [XmlElement(ElementName="AckId")]
+    [Required]
+    public required SomeAcknowledgementIdentificationRecord AcknowledgementIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_hKG_gNE8Ed-BzquC8wXy7w_-2019492484")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_hKG_gdE8Ed-BzquC8wXy7w_-2019493025")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_hKG_gtE8Ed-BzquC8wXy7w_-2019492904")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    public SomeTransactionStatusRecord? TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the financial institution that is the sender of the acknowledged message.
+    /// </summary>
+    [IsoId("_hKG_g9E8Ed-BzquC8wXy7w_-2019492381")]
+    [Description(@"Reference to the transaction for the financial institution that is the sender of the acknowledged message.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Reference to the identification of the acknowledged message.
+    /// </summary>
+    [IsoId("_hKG_hNE8Ed-BzquC8wXy7w_-2019493336")]
+    [Description(@"Reference to the identification of the acknowledged message.")]
+    [DataMember(Name="AckdMsgRef")]
+    [XmlElement(ElementName="AckdMsgRef")]
+    [Required]
+    public required SomeAcknowledgedMessageReferenceRecord AcknowledgedMessageReference { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_hKG_hdE8Ed-BzquC8wXy7w_-2019492579")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +102,8 @@ public partial record AcknowledgementV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Acknowledgement message is sent by the matching application to the party from which it received a message.
-/// This message is used to acknowledge the receipt of a message by the matching application.
-/// Usage
-/// The Acknowledgement message can be sent to a party from which the matching application received a message to acknowledge the receipt of that message. The message is sent when the matching application does not send any other message in response to a received message.
-/// This is the outer document that contains <seealso cref="AcknowledgementV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcknowledgementV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

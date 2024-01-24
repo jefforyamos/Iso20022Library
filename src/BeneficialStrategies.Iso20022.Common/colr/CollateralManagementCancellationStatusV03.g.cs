@@ -28,7 +28,55 @@ public partial record CollateralManagementCancellationStatusV03 : IOuterRecord
     public const string XmlTag = "CollMgmtCxlSts";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_C_d_A19MEeSMgPeFpRHeJw")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides reference to the previous received message.
+    /// </summary>
+    [IsoId("_C_d_BV9MEeSMgPeFpRHeJw")]
+    [Description(@"Provides reference to the previous received message.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    [Required]
+    public required SomeReferenceRecord Reference { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_C_d_B19MEeSMgPeFpRHeJw")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Provides status details of the collateral cancellation message.
+    /// </summary>
+    [IsoId("_C_d_CV9MEeSMgPeFpRHeJw")]
+    [Description(@"Provides status details of the collateral cancellation message.")]
+    [DataMember(Name="CxlSts")]
+    [XmlElement(ElementName="CxlSts")]
+    [Required]
+    public required SomeCancellationStatusRecord CancellationStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_C_d_C19MEeSMgPeFpRHeJw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +89,8 @@ public partial record CollateralManagementCancellationStatusV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This CollateralManagementCancellationStatus message is sent by:
-/// - the collateral taker or its collateral manager to the collateral giver or its collateral manager, or
-/// - the collateral giver or its collateral manager to the collateral taker or its collateral manager.
-/// This message is used to provide the status of accepted or rejected for the CollateralManagementCancellationRequest message previously received.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The CollateralManagementCancellationStatus message can be sent to provide a status for a previously received CollateralManagementCancellationRequest message.
-/// This is the outer document that contains <seealso cref="CollateralManagementCancellationStatusV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralManagementCancellationStatusV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

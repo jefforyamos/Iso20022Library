@@ -25,7 +25,34 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
     public const string XmlTag = "IntraBalMvmntCxlQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the message as known by the account owner (or the instructing party acting on its behalf).
+    /// </summary>
+    [IsoId("_DLjZaTncEem7JZMuWtwtsg")]
+    [Description(@"Unambiguous identification of the message as known by the account owner (or the instructing party acting on its behalf).")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    public SomeIdentificationRecord? Identification { get; init; }
+    
+    /// <summary>
+    /// Defines the intra-balance movement cancellation query criteria.
+    /// </summary>
+    [IsoId("_DLjZazncEem7JZMuWtwtsg")]
+    [Description(@"Defines the intra-balance movement cancellation query criteria.")]
+    [DataMember(Name="QryDef")]
+    [XmlElement(ElementName="QryDef")]
+    [Required]
+    public required SomeQueryDefinitionRecord QueryDefinition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_DLjZbTncEem7JZMuWtwtsg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +65,8 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
 }
 
 /// <summary>
-/// The IntraBalanceMovementCancellationQuery message is sent from an account owner/requestor to a settlement infrastructure to query for the status of intra-balance movement cancellation instruction(s) based on a set of search criteria or business attributes.
-/// The message may also be used to: 
-/// - re-send a message sent by the account owner to the account servicer (the sub-function of the message is "Duplicate") 
-/// - provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy") 
-/// - re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy Duplicate").
-/// This is the outer document that contains <seealso cref="IntraBalanceMovementCancellationQueryV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementCancellationQueryV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

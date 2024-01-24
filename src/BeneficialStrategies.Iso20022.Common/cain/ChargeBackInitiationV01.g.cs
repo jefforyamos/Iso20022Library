@@ -21,7 +21,37 @@ public partial record ChargeBackInitiationV01 : IOuterRecord
     public const string XmlTag = "ChrgBckInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management.
+    /// </summary>
+    [IsoId("_1HbrRlZdEeen1vB4iz5SyA")]
+    [Description(@"Information related to the protocol management.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the initiation of a chargeback.
+    /// ISO 8583:93/2003 bit 25.
+    /// </summary>
+    [IsoId("_1HbrR1ZdEeen1vB4iz5SyA")]
+    [Description(@"Information related to the initiation of a chargeback.|ISO 8583:93/2003 bit 25.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.
+    /// </summary>
+    [IsoId("_1HbrRVZdEeen1vB4iz5SyA")]
+    [Description(@"Trailer of the message containing a MAC.|It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +64,8 @@ public partial record ChargeBackInitiationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ChargeBackInitiation message is sent by an issuer or agent to an acquirer to fully or partially nullify a previous financial transaction; namely when the issuer determines that a customer dispute exists or that an error or violation of rules has been committed. It is also used to nullify a previous chargeback. Chargebacks have a financial impact and should be computed within reconciliation totals.
-/// This is the outer document that contains <seealso cref="ChargeBackInitiationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChargeBackInitiationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

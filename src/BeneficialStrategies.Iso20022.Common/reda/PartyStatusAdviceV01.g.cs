@@ -25,7 +25,34 @@ public partial record PartyStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "PtyStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_eEidoVhGEeih3fUfzR38Ig")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Status of the party involved in the originating message.
+    /// </summary>
+    [IsoId("_5jHEG5eSEeen_cyMrluY4w")]
+    [Description(@"Status of the party involved in the originating message.")]
+    [DataMember(Name="PtySts")]
+    [XmlElement(ElementName="PtySts")]
+    [Required]
+    public required SomePartyStatusRecord PartyStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_5jHEHZeSEeen_cyMrluY4w")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +65,8 @@ public partial record PartyStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:
-/// The PartyStatusAdvice message is sent by the executing party to the instructing party to provide details about the processing of a request on party reference data (create or update).
-/// Usage:
-/// When processing information is negative - a failure occurred in applying the changes the message accordingly also delivers information about the reason why the creation or update could not be processed.
-/// When processing is successfully performed, the message includes the related party identification.
-/// This is the outer document that contains <seealso cref="PartyStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

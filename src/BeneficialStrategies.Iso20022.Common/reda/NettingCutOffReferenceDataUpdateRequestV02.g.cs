@@ -21,7 +21,35 @@ public partial record NettingCutOffReferenceDataUpdateRequestV02 : IOuterRecord
     public const string XmlTag = "NetgCutOffRefDataUpdReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Specifies the meta data for the netting cut off update request.
+    /// </summary>
+    [IsoId("_mJe8bwM-Ee2nqoJcXIhTdw")]
+    [Description(@"Specifies the meta data for the netting cut off update request.")]
+    [DataMember(Name="ReqData")]
+    [XmlElement(ElementName="ReqData")]
+    [Required]
+    public required SomeRequestDataRecord RequestData { get; init; }
+    
+    /// <summary>
+    /// Specifies the information regarding the changes to the netting cut off.
+    /// </summary>
+    [IsoId("_mJe8cQM-Ee2nqoJcXIhTdw")]
+    [Description(@"Specifies the information regarding the changes to the netting cut off.")]
+    [DataMember(Name="NetgCutOffReq")]
+    [XmlElement(ElementName="NetgCutOffReq")]
+    [Required]
+    public required SomeNettingCutOffRequestRecord NettingCutOffRequest { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_mJe8cwM-Ee2nqoJcXIhTdw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record NettingCutOffReferenceDataUpdateRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// The Netting Cut Off Reference Data Update Request message is sent to a central system by a participant to request an update to a participant's netting cut off held at the central system.
-/// This is the outer document that contains <seealso cref="NettingCutOffReferenceDataUpdateRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NettingCutOffReferenceDataUpdateRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

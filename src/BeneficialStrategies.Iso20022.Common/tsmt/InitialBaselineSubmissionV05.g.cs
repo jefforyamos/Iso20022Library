@@ -28,7 +28,83 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     public const string XmlTag = "InitlBaselnSubmissn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the submitted information.
+    /// </summary>
+    [IsoId("_a0GHBQgGEeSeS5xdjFfOTw")]
+    [Description(@"Identifies the submitted information.")]
+    [DataMember(Name="SubmissnId")]
+    [XmlElement(ElementName="SubmissnId")]
+    [Required]
+    public required SomeSubmissionIdentificationRecord SubmissionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_a0GHBwgGEeSeS5xdjFfOTw")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    [Required]
+    public required SomeSubmitterTransactionReferenceRecord SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Specifies the instruction requested by the submitter by means of a code.
+    /// </summary>
+    [IsoId("_a0GHCQgGEeSeS5xdjFfOTw")]
+    [Description(@"Specifies the instruction requested by the submitter by means of a code.")]
+    [DataMember(Name="Instr")]
+    [XmlElement(ElementName="Instr")]
+    [Required]
+    public required SomeInstructionRecord Instruction { get; init; }
+    
+    /// <summary>
+    /// Specifies the commercial details of the underlying transaction.
+    /// </summary>
+    [IsoId("_a0GHCwgGEeSeS5xdjFfOTw")]
+    [Description(@"Specifies the commercial details of the underlying transaction.")]
+    [DataMember(Name="Baseln")]
+    [XmlElement(ElementName="Baseln")]
+    [Required]
+    public required SomeBaselineRecord Baseline { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the organisation of the buyer.
+    /// </summary>
+    [IsoId("_a0GHDQgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the organisation of the buyer.")]
+    [DataMember(Name="BuyrCtctPrsn")]
+    [XmlElement(ElementName="BuyrCtctPrsn")]
+    public SomeBuyerContactPersonRecord? BuyerContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the organisation of the seller.
+    /// </summary>
+    [IsoId("_a0GHDwgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the organisation of the seller.")]
+    [DataMember(Name="SellrCtctPrsn")]
+    [XmlElement(ElementName="SellrCtctPrsn")]
+    public SomeSellerContactPersonRecord? SellerContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the seller's bank or buyer's bank.
+    /// </summary>
+    [IsoId("_a0GHEQgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in the seller's bank or buyer's bank.")]
+    [DataMember(Name="BkCtctPrsn")]
+    [XmlElement(ElementName="BkCtctPrsn")]
+    [Required]
+    public required SomeBankContactPersonRecord BankContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in another bank than seller or buyer's bank.
+    /// </summary>
+    [IsoId("_a0GHEwgGEeSeS5xdjFfOTw")]
+    [Description(@"Person to be contacted in another bank than seller or buyer's bank.")]
+    [DataMember(Name="OthrBkCtctPrsn")]
+    [XmlElement(ElementName="OthrBkCtctPrsn")]
+    public SomeOtherBankContactPersonRecord? OtherBankContactPerson { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +117,8 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The InitialBaselineSubmission message is sent by the initiator of a transaction to the matching application.
-/// This message is used to initiate a transaction.
-/// Usage
-/// The InitialBaselineSubmission message can be sent by a party to register a transaction in the matching application. The message can be submitted with either lodge or push-through instruction.
-/// When the push-through instruction is present, the matching application acknowledges the receipt of the message to the sender by sending an Acknowledgement message, stores the submitted information and informs the counterparty about the registration of the transaction by sending a FullPushThroughReport message. With the BaselineReSubmission message the counterparty responds with matching baseline information in order to establish the transaction (baseline).
-/// When the lodge instruction is present, the matching application acknowledges the receipt of the message to the sender by sending an Acknowledgement message and stores the submitted information. No matching of the submitted baseline data with other baseline information will take place. For example the submission of an InitialBaselineSubmission message containing a lodge instruction establishes the transaction (baseline) in the matching application.
-/// The InitialBaselineSubmission message consists of data which relates to the purchasing agreement covered by the transaction, for example line item details, shipping details.
-/// This is the outer document that contains <seealso cref="InitialBaselineSubmissionV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InitialBaselineSubmissionV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -22,7 +22,62 @@ public partial record PartyRegistrationAndGuaranteeRequestV01 : IOuterRecord
     public const string XmlTag = "PtyRegnAndGrntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics that unambiguously identify the request, common parameters, documents and identifications.
+    /// </summary>
+    [IsoId("_OTgzNDY0-AOSNFX-8224506")]
+    [Description(@"Set of characteristics that unambiguously identify the request, common parameters, documents and identifications.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// List of agreements.
+    /// </summary>
+    [IsoId("_OTgzNDY1-AOSNFX-8224506")]
+    [Description(@"List of agreements.")]
+    [DataMember(Name="AgrmtList")]
+    [XmlElement(ElementName="AgrmtList")]
+    [Required]
+    public required SomeAgreementListRecord AgreementList { get; init; }
+    
+    /// <summary>
+    /// Number of agreement lists as control value.
+    /// </summary>
+    [IsoId("_OTgzNDY2-AOSNFX-8224506")]
+    [Description(@"Number of agreement lists as control value.")]
+    [DataMember(Name="AgrmtCnt")]
+    [XmlElement(ElementName="AgrmtCnt")]
+    public SomeAgreementCountRecord? AgreementCount { get; init; }
+    
+    /// <summary>
+    /// Total number of individual items in all lists.
+    /// </summary>
+    [IsoId("_OTgzNDY3-AOSNFX-8224506")]
+    [Description(@"Total number of individual items in all lists.")]
+    [DataMember(Name="ItmCnt")]
+    [XmlElement(ElementName="ItmCnt")]
+    public SomeItemCountRecord? ItemCount { get; init; }
+    
+    /// <summary>
+    /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
+    /// </summary>
+    [IsoId("_OTgzNDY4-AOSNFX-8224506")]
+    [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
+    [DataMember(Name="CtrlSum")]
+    [XmlElement(ElementName="CtrlSum")]
+    public SomeControlSumRecord? ControlSum { get; init; }
+    
+    /// <summary>
+    /// Referenced or related business message.
+    /// </summary>
+    [IsoId("_OTgzNDY5-AOSNFX-8224506")]
+    [Description(@"Referenced or related business message.")]
+    [DataMember(Name="AttchdMsg")]
+    [XmlElement(ElementName="AttchdMsg")]
+    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +90,8 @@ public partial record PartyRegistrationAndGuaranteeRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The message PartyRegistrationAndGuaranteeRequest is sent by a factoring client either to a financial service or a guarantee issuer. The message can also be sent from a financial service to a guarantee issuer. Furthermore, the message can be sent to an interested party for example a fiscal authority. When the message is sent to a guarantee issuer, the factoring client or financial service provider requests a guarantee for the factoring agreement concerning the indicated trade party. When the message is sent to a financial service, the financial client requests an agreement to execute assignments of financial items. The financial client may request the guarantee amount to be obtained in case of insolvency of the trade partner for a corresponding account receivable directly from the financial service. Alternatively and depending on the contractual and product definition, the financial client may be required to include a copy of a guarantee status received from a guarantee issuer.
-/// The message can carry digital signatures if required by context.
-/// This is the outer document that contains <seealso cref="PartyRegistrationAndGuaranteeRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyRegistrationAndGuaranteeRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

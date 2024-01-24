@@ -21,7 +21,35 @@ public partial record ReconciliationInitiation : IOuterRecord
     public const string XmlTag = "RcncltnInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management.
+    /// </summary>
+    [IsoId("_vvDdIHu5EeSLmfFG0DG7zQ")]
+    [Description(@"Information related to the protocol management.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reconciliation.
+    /// </summary>
+    [IsoId("_35V-AHu5EeSLmfFG0DG7zQ")]
+    [Description(@"Information related to the reconciliation.")]
+    [DataMember(Name="RcncltnInitn")]
+    [XmlElement(ElementName="RcncltnInitn")]
+    [Required]
+    public required SomeReconciliationInitiationRecord ReconciliationInitiation { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_7qmk8HvAEeSLmfFG0DG7zQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ReconciliationInitiation : IOuterRecord
 }
 
 /// <summary>
-/// The ReconciliationInitiation message is sent by an acquirer or an agent to an issuer or an agent, to initiate an exchange of totals to be reconciled for debits, credits, chargebacks and other transactions.
-/// This is the outer document that contains <seealso cref="ReconciliationInitiation"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReconciliationInitiation"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

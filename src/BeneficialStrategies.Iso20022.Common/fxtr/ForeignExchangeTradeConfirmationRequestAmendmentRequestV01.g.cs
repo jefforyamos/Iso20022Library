@@ -24,7 +24,93 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
     public const string XmlTag = "FXTradConfReqAmdmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Message management information.
+    /// </summary>
+    [IsoId("_yesV4IHdEeSY3ulMDfpmvA")]
+    [Description(@"Message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Identifies the amendment request messge.
+    /// </summary>
+    [IsoId("_ywTqUIHdEeSY3ulMDfpmvA")]
+    [Description(@"Identifies the amendment request messge.")]
+    [DataMember(Name="AmdmntReqId")]
+    [XmlElement(ElementName="AmdmntReqId")]
+    [Required]
+    public required SomeAmendmentRequestIdentificationRecord AmendmentRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the treasury trade which is captured.
+    /// </summary>
+    [IsoId("_zF5f0IHdEeSY3ulMDfpmvA")]
+    [Description(@"Specifies the trading side of the treasury trade which is captured.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    public SomeTradingSideIdentificationRecord? TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty side of the treasury trade which is captured.
+    /// </summary>
+    [IsoId("_aVIqwIdVEeS8A78Q2OnhsA")]
+    [Description(@"Specifies the counterparty side of the treasury trade which is captured.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    public SomeCounterpartySideIdentificationRecord? CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Details of the treasury trade confirmed.
+    /// </summary>
+    [IsoId("_zpFFYIHdEeSY3ulMDfpmvA")]
+    [Description(@"Details of the treasury trade confirmed.")]
+    [DataMember(Name="TradDtl")]
+    [XmlElement(ElementName="TradDtl")]
+    [Required]
+    public required SomeTradeDetailRecord TradeDetail { get; init; }
+    
+    /// <summary>
+    /// Period of the inquiry.
+    /// </summary>
+    [IsoId("_1bgsUIHdEeSY3ulMDfpmvA")]
+    [Description(@"Period of the inquiry.")]
+    [DataMember(Name="QryPrd")]
+    [XmlElement(ElementName="QryPrd")]
+    [Required]
+    public required SomeQueryPeriodRecord QueryPeriod { get; init; }
+    
+    /// <summary>
+    /// Number which the query results will start from.
+    /// </summary>
+    [IsoId("_2S1V4IHdEeSY3ulMDfpmvA")]
+    [Description(@"Number which the query results will start from.")]
+    [DataMember(Name="QryStartNb")]
+    [XmlElement(ElementName="QryStartNb")]
+    [Required]
+    public required SomeQueryStartNumberRecord QueryStartNumber { get; init; }
+    
+    /// <summary>
+    /// Specifies the inquiry status of the trade.
+    /// </summary>
+    [IsoId("_ZbwkcKaeEeSR8qifggAitQ")]
+    [Description(@"Specifies the inquiry status of the trade.")]
+    [DataMember(Name="QryTradSts")]
+    [XmlElement(ElementName="QryTradSts")]
+    [Required]
+    public required SomeQueryTradeStatusRecord QueryTradeStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_gyxZAKHiEeS69KkQis5bYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +123,8 @@ public partial record ForeignExchangeTradeConfirmationRequestAmendmentRequestV01
 }
 
 /// <summary>
-/// Scope
-/// The ForeignExchangeTradeConfirmationRequestAmendmentRequest message is sent from a market participant to a Central matching utility (CMU) to amend the ForeignExchangeTradeConfirmationRequest previously sent.
-/// Usage
-/// The request is sent by the market participants to the CMU after the confirmation is requested.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeConfirmationRequestAmendmentRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeConfirmationRequestAmendmentRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

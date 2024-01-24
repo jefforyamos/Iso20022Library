@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingTransactionStatusAdviceV01 : I
     public const string XmlTag = "SctiesFincgRptgTxStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides the status and reason of the transaction report advice.
+    /// </summary>
+    [IsoId("_2zvMMQuAEeqVvtu9Ny8FDA")]
+    [Description(@"Provides the status and reason of the transaction report advice.")]
+    [DataMember(Name="TxRptStsAndRsn")]
+    [XmlElement(ElementName="TxRptStsAndRsn")]
+    [Required]
+    public required SomeTransactionReportStatusAndReasonRecord TransactionReportStatusAndReason { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2zvMMwuAEeqVvtu9Ny8FDA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingTransactionStatusAdviceV01 : I
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingTransactionStatusAdvice message is sent by the trade repository (TR) to the authority or made available to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, identifying the transactions rejected and the reasons for a rejection.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingTransactionStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingTransactionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

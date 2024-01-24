@@ -28,7 +28,43 @@ public partial record SubscriptionMultipleOrderCancellationInstructionV02 : IOut
     public const string XmlTag = "setr.011.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// </summary>
+    [IsoId("_0mBbGdE7Ed-BzquC8wXy7w_426834319")]
+    [Description(@"Reference assigned to a set of orders or trades in order to link them together.")]
+    [DataMember(Name="MstrRef")]
+    [XmlElement(ElementName="MstrRef")]
+    public SomeMasterReferenceRecord? MasterReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_0mLMENE7Ed-BzquC8wXy7w_429606274")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_0mLMEdE7Ed-BzquC8wXy7w_428679373")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Common information related to all the orders to be cancelled.
+    /// </summary>
+    [IsoId("_0mLMEtE7Ed-BzquC8wXy7w_-467539318")]
+    [Description(@"Common information related to all the orders to be cancelled.")]
+    [DataMember(Name="OrdrToBeCanc")]
+    [XmlElement(ElementName="OrdrToBeCanc")]
+    public SomeOrderToBeCancelledRecord? OrderToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +77,8 @@ public partial record SubscriptionMultipleOrderCancellationInstructionV02 : IOut
 }
 
 /// <summary>
-/// Scope
-/// The SubscriptionMultipleOrderCancellationInstruction message is sent by an instructing party, eg, an investment manager or its authorised representative, to an executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.
-/// This message is sent to cancel a previously sent SubscriptionMultipleOrder instruction.
-/// Usage
-/// The SubscriptionMultipleOrderCancellationInstruction message is used to cancel the entire previously sent SubscriptionMultipleOrder message and all the individual orders that it contained. There is no amendment, but a cancellation and re-instruct policy.
-/// This message must contain the reference of the message to be cancelled. This message may also contain all the details of the message to be cancelled, but this is not recommended.
-/// The deadline and acceptance of a cancellation instruction is subject to a service level agreement (SLA). This cancellation message is a cancellation instruction. There is no automatic acceptance of the cancellation instruction.
-/// The rejection or acceptance of a cancellation message instruction is made using an OrderCancellationStatusReport message.
-/// This is the outer document that contains <seealso cref="SubscriptionMultipleOrderCancellationInstructionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionMultipleOrderCancellationInstructionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

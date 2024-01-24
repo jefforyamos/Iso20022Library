@@ -25,7 +25,65 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     public const string XmlTag = "InfReqRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification for the specific investigation as know by the responding party.
+    /// </summary>
+    [IsoId("_DSEUezzjEeGl7N0Cd54dlw")]
+    [Description(@"Unique identification for the specific investigation as know by the responding party.")]
+    [DataMember(Name="RspnId")]
+    [XmlElement(ElementName="RspnId")]
+    [Required]
+    public required SomeResponseIdentificationRecord ResponseIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification for the specific investigation as known by the requesting party.
+    /// </summary>
+    [IsoId("_gF8WOzzoEeGl7N0Cd54dlw")]
+    [Description(@"Unique identification for the specific investigation as known by the requesting party.")]
+    [DataMember(Name="InvstgtnId")]
+    [XmlElement(ElementName="InvstgtnId")]
+    [Required]
+    public required SomeInvestigationIdentificationRecord InvestigationIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides the status of the response.
+    /// </summary>
+    [IsoId("_t0ETGzzoEeGl7N0Cd54dlw")]
+    [Description(@"Provides the status of the response.")]
+    [DataMember(Name="RspnSts")]
+    [XmlElement(ElementName="RspnSts")]
+    [Required]
+    public required SomeResponseStatusRecord ResponseStatus { get; init; }
+    
+    /// <summary>
+    /// Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.
+    /// </summary>
+    [IsoId("_U4B7wV0zEeGwFY7pvwHH-g")]
+    [Description(@"Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.")]
+    [DataMember(Name="SchCrit")]
+    [XmlElement(ElementName="SchCrit")]
+    [Required]
+    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    
+    /// <summary>
+    /// Provides the return indicators and the investigation result.
+    /// </summary>
+    [IsoId("_UbboITzuEeGl7N0Cd54dlw")]
+    [Description(@"Provides the return indicators and the investigation result.")]
+    [DataMember(Name="RtrInd")]
+    [XmlElement(ElementName="RtrInd")]
+    [Required]
+    public required SomeReturnIndicatorRecord ReturnIndicator { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_ICHsnzzvEeGl7N0Cd54dlw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +96,8 @@ public partial record InformationRequestResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// This message is sent by the financial institution to the authorities (police, customs, tax authorities, enforcement authorities) to provide a part or all of the requested information.
-/// The financial institution previously received a request for financial information in the scope of a financial investigation.
-/// Depending on whether the response can be provided STP within the authorities financial investigations messages, the requested information may be 
-/// •	provided in part or in full within the response message itself, or 
-/// •	only referred to in the response message.
-/// This is the outer document that contains <seealso cref="InformationRequestResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

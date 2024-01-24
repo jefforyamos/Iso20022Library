@@ -21,7 +21,43 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     public const string XmlTag = "ShrhldrsIdDsclsrReqCxlAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.
+    /// </summary>
+    [IsoId("_Yk74gbRAEem2T48lBgJbww")]
+    [Description(@"Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.")]
+    [DataMember(Name="IssrDsclsrReqRef")]
+    [XmlElement(ElementName="IssrDsclsrReqRef")]
+    [Required]
+    public required SomeIssuerDisclosureRequestReferenceRecord IssuerDisclosureRequestReference { get; init; }
+    
+    /// <summary>
+    /// Provides the reason for cancelling the request for shareholders identification disclosure.
+    /// </summary>
+    [IsoId("_L7L5YDqUEemL_ewJY9QP1g")]
+    [Description(@"Provides the reason for cancelling the request for shareholders identification disclosure.")]
+    [DataMember(Name="CxlRsn")]
+    [XmlElement(ElementName="CxlRsn")]
+    public SomeCancellationReasonRecord? CancellationReason { get; init; }
+    
+    /// <summary>
+    /// Issuer of the financial instrument.
+    /// </summary>
+    [IsoId("_OBOqxzqSEemL_ewJY9QP1g")]
+    [Description(@"Issuer of the financial instrument.")]
+    [DataMember(Name="Issr")]
+    [XmlElement(ElementName="Issr")]
+    public SomeIssuerRecord? Issuer { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_FGPFkT6LEemPvNTzinB5Vw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
 }
 
 /// <summary>
-/// The ShareholdersIdentificationDisclosureCancellationAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the first intermediaries in a custody chain or is sent by any intermediaries in  a custody chain to the next intermediary down the chain of intermediaries (towards the investor side of the chain) in order to withdraw/cancel the disclosure request of shareholders identity previously sent.
-/// This is the outer document that contains <seealso cref="ShareholdersIdentificationDisclosureRequestCancellationAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ShareholdersIdentificationDisclosureRequestCancellationAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

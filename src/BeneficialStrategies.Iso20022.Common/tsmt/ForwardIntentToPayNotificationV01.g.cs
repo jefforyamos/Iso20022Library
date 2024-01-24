@@ -25,7 +25,94 @@ public partial record ForwardIntentToPayNotificationV01 : IOuterRecord
     public const string XmlTag = "FwdInttToPayNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification message.
+    /// </summary>
+    [IsoId("_o9cY-dE8Ed-BzquC8wXy7w_-1911719018")]
+    [Description(@"Identifies the notification message.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    [Required]
+    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_o9cY-tE8Ed-BzquC8wXy7w_-1913566608")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_o9cY-9E8Ed-BzquC8wXy7w_-1903407456")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    [Required]
+    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_o9mJ8NE8Ed-BzquC8wXy7w_-1902481395")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the financial institutions involved in this transaction.
+    /// </summary>
+    [IsoId("_o9mJ8dE8Ed-BzquC8wXy7w_89089762")]
+    [Description(@"Reference to the transaction for the financial institutions involved in this transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// The financial institution of the buyer, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_o9mJ8tE8Ed-BzquC8wXy7w_97401247")]
+    [Description(@"The financial institution of the buyer, uniquely identified by its BIC.")]
+    [DataMember(Name="BuyrBk")]
+    [XmlElement(ElementName="BuyrBk")]
+    [Required]
+    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the seller, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_o9mJ89E8Ed-BzquC8wXy7w_99248879")]
+    [Description(@"The financial institution of the seller, uniquely identified by its BIC.")]
+    [DataMember(Name="SellrBk")]
+    [XmlElement(ElementName="SellrBk")]
+    [Required]
+    public required SomeSellerBankRecord SellerBank { get; init; }
+    
+    /// <summary>
+    /// Provides the details of the intention to pay.
+    /// </summary>
+    [IsoId("_o9mJ9NE8Ed-BzquC8wXy7w_2032766900")]
+    [Description(@"Provides the details of the intention to pay.")]
+    [DataMember(Name="InttToPay")]
+    [XmlElement(ElementName="InttToPay")]
+    [Required]
+    public required SomeIntentToPayRecord IntentToPay { get; init; }
+    
+    /// <summary>
+    /// Next processing step required.
+    /// </summary>
+    [IsoId("_o9mJ9dE8Ed-BzquC8wXy7w_112177835")]
+    [Description(@"Next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +125,8 @@ public partial record ForwardIntentToPayNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ForwardIntentToPayNotification message is forwarded by the matching application from one primary bank to the other primary bank in order to provide details about a future payment.
-/// This message contains details about an intention to pay a certain amount, on a certain date, in relation to one or several transactions known to the matching application.
-/// Usage
-/// The ForwardIntentToPayNotification message is a copy of the IntentToPayNotification message received by the matching application and forwarded to the other primary bank for information. No response is expected.
-/// This is the outer document that contains <seealso cref="ForwardIntentToPayNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForwardIntentToPayNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

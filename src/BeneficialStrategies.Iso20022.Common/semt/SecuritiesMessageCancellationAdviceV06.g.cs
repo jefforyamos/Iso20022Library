@@ -40,7 +40,44 @@ public partial record SecuritiesMessageCancellationAdviceV06 : IOuterRecord
     public const string XmlTag = "SctiesMsgCxlAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to the message advised to be cancelled by the account servicer.
+    /// </summary>
+    [IsoId("_d30QNwmEEeuQ1MenzX1l-g")]
+    [Description(@"Reference to the message advised to be cancelled by the account servicer.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    [Required]
+    public required SomeReferenceRecord Reference { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_d30QOQmEEeuQ1MenzX1l-g")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_d30QOwmEEeuQ1MenzX1l-g")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    [Required]
+    public required SomeSafekeepingAccountRecord SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_d30QPQmEEeuQ1MenzX1l-g")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -53,27 +90,8 @@ public partial record SecuritiesMessageCancellationAdviceV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesMessageCancellationAdvice to an account owner to inform of the cancellation of a securities message previously sent by an account servicer. 
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or 
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// The previously sent message may be:
-/// - a securities settlement transaction confirmation
-/// - a report (transactions, pending transactions, allegements, accounting and custody securities balance)
-/// - a allegement notification (when sent by mistake or because the counterparty cancelled its instruction)
-/// - a portfolio transfer notification 
-/// - an intra-position movement confirmation
-/// - a transaction generation notification
-/// The previously sent message cannot be a status advice message (any). If a status advice should not have been sent, a new status advice with the correct status should be sent, not a cancellation advice.
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information
-/// using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesMessageCancellationAdviceV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesMessageCancellationAdviceV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

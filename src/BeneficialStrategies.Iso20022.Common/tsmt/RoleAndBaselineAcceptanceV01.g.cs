@@ -24,7 +24,36 @@ public partial record RoleAndBaselineAcceptanceV01 : IOuterRecord
     public const string XmlTag = "RoleAndBaselnAccptnc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the acceptance message.
+    /// </summary>
+    [IsoId("_tSdRYNE8Ed-BzquC8wXy7w_1282098561")]
+    [Description(@"Identifies the acceptance message.")]
+    [DataMember(Name="AccptncId")]
+    [XmlElement(ElementName="AccptncId")]
+    [Required]
+    public required SomeAcceptanceIdentificationRecord AcceptanceIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the message that contained the baseline and is accepted.
+    /// </summary>
+    [IsoId("_tSdRYdE8Ed-BzquC8wXy7w_1662420594")]
+    [Description(@"Reference to the message that contained the baseline and is accepted.")]
+    [DataMember(Name="RltdMsgRef")]
+    [XmlElement(ElementName="RltdMsgRef")]
+    [Required]
+    public required SomeRelatedMessageReferenceRecord RelatedMessageReference { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_tSdRYtE8Ed-BzquC8wXy7w_1282098638")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +66,8 @@ public partial record RoleAndBaselineAcceptanceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The RoleAndBaselineAcceptance message is sent by a secondary bank to the matching application if it accepts to join the transaction based on the baseline and the role that it is expected to play.
-/// Usage
-/// The RoleAndBaselineAcceptance message is sent in response to a message that is a direct request to join a transaction.
-/// This is the outer document that contains <seealso cref="RoleAndBaselineAcceptanceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RoleAndBaselineAcceptanceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

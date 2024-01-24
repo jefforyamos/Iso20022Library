@@ -28,7 +28,73 @@ public partial record InterestPaymentResponseV05 : IOuterRecord
     public const string XmlTag = "IntrstPmtRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_J4Yk0ygrEeyB747fKu7_rw")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_J4Yk1SgrEeyB747fKu7_rw")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Agreement details for the over the counter market.
+    /// </summary>
+    [IsoId("_J4Yk1ygrEeyB747fKu7_rw")]
+    [Description(@"Agreement details for the over the counter market.")]
+    [DataMember(Name="Agrmt")]
+    [XmlElement(ElementName="Agrmt")]
+    [Required]
+    public required SomeAgreementRecord Agreement { get; init; }
+    
+    /// <summary>
+    /// Provides details on the interest amount due to party A.
+    /// </summary>
+    [IsoId("_J4Yk2SgrEeyB747fKu7_rw")]
+    [Description(@"Provides details on the interest amount due to party A.")]
+    [DataMember(Name="IntrstDueToA")]
+    [XmlElement(ElementName="IntrstDueToA")]
+    public SomeInterestDueToARecord? InterestDueToA { get; init; }
+    
+    /// <summary>
+    /// Provides details on the interest amount due to party B.
+    /// </summary>
+    [IsoId("_J4Yk2ygrEeyB747fKu7_rw")]
+    [Description(@"Provides details on the interest amount due to party B.")]
+    [DataMember(Name="IntrstDueToB")]
+    [XmlElement(ElementName="IntrstDueToB")]
+    public SomeInterestDueToBRecord? InterestDueToB { get; init; }
+    
+    /// <summary>
+    /// Provides details on the response to the interest payment request.
+    /// </summary>
+    [IsoId("_J4Yk3SgrEeyB747fKu7_rw")]
+    [Description(@"Provides details on the response to the interest payment request.")]
+    [DataMember(Name="IntrstRspn")]
+    [XmlElement(ElementName="IntrstRspn")]
+    [Required]
+    public required SomeInterestResponseRecord InterestResponse { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_J4Yk3ygrEeyB747fKu7_rw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +107,8 @@ public partial record InterestPaymentResponseV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The InterestPaymentResponse message is sent by either;
-/// - the collateral taker or its collateral manager to the collateral giver or its collateral manager, or
-/// - the collateral giver or its collateral manager to the collateral taker or its collateral manager
-/// This is a response to the InterestPaymentRequest message and the amount of interest requested or advised can be accepted or rejected.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The InterestPaymentResponse message is sent in response to the InterestPaymentRequest in order to accept or reject the amount of interest requested or advised. A rejection reason and information can be provide if the InterestPaymentRequest is being rejected.
-/// This is the outer document that contains <seealso cref="InterestPaymentResponseV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InterestPaymentResponseV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

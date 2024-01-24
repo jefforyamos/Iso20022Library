@@ -21,7 +21,15 @@ public partial record DTCCCAPSSD1V01 : IOuterRecord
     public const string XmlTag = "DTCCCAPSSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Extension block for the information to be extended as corporate action general information.
+    /// </summary>
+    [IsoId("_1NaWBTL3EeKU9IrkkToqcw_-1234558780")]
+    [Description(@"Extension block for the information to be extended as corporate action general information.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +42,8 @@ public partial record DTCCCAPSSD1V01 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAPSSD1 message extends ISO corporate action event processing status advice message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAPSSD1V01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAPSSD1V01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,35 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
     public const string XmlTag = "ReqToPayDbtrActvtnCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the cancellation of the mandate, but which are not part of the mandate.
+    /// </summary>
+    [IsoId("_rNNBx-HzEeqbls7Gk4-ckA")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the cancellation of the mandate, but which are not part of the mandate.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Provides details on the debtor activation cancellation request.
+    /// </summary>
+    [IsoId("_rNNByeHzEeqbls7Gk4-ckA")]
+    [Description(@"Provides details on the debtor activation cancellation request.")]
+    [DataMember(Name="CxlData")]
+    [XmlElement(ElementName="CxlData")]
+    [Required]
+    public required SomeCancellationDataRecord CancellationData { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rNNBy-HzEeqbls7Gk4-ckA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
 }
 
 /// <summary>
-/// The RequestToPayDebtorActivationCancellationRequest message is sent by the debtor RTP (Request To Pay) provider to the creditor RTP provider and optionally from the debtor to its RTP provider and from the creditor RTP provider to the creditor to request for the cancellation of the debtor activation of the RTP service with that specific creditor.
-/// This is the outer document that contains <seealso cref="RequestToPayDebtorActivationCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayDebtorActivationCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

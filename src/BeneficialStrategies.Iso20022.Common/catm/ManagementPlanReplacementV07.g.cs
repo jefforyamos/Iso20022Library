@@ -21,7 +21,35 @@ public partial record ManagementPlanReplacementV07 : IOuterRecord
     public const string XmlTag = "MgmtPlanRplcmnt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the management plan.
+    /// </summary>
+    [IsoId("_1Cj8RdqJEeearpaEPXv9UA")]
+    [Description(@"Set of characteristics related to the transfer of the management plan.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Sequence of terminal maintenance actions to be performed by a point of interaction (POI).
+    /// </summary>
+    [IsoId("_1Cj8R9qJEeearpaEPXv9UA")]
+    [Description(@"Sequence of terminal maintenance actions to be performed by a point of interaction (POI).")]
+    [DataMember(Name="MgmtPlan")]
+    [XmlElement(ElementName="MgmtPlan")]
+    [Required]
+    public required SomeManagementPlanRecord ManagementPlan { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_1Cj8SdqJEeearpaEPXv9UA")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ManagementPlanReplacementV07 : IOuterRecord
 }
 
 /// <summary>
-/// Terminal maintenance actions to be performed by a point of interaction (POI).
-/// This is the outer document that contains <seealso cref="ManagementPlanReplacementV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ManagementPlanReplacementV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

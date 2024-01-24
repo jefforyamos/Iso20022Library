@@ -21,7 +21,55 @@ public partial record AccountSwitchRequestPaymentV02 : IOuterRecord
     public const string XmlTag = "AcctSwtchReqPmt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique identification for the message.
+    /// </summary>
+    [IsoId("_7HT_eW42EeiU9cctagi5ow")]
+    [Description(@"Unique identification for the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Contains information about the details of the account switch and a response code to the original payment request.
+    /// </summary>
+    [IsoId("_7HT_e242EeiU9cctagi5ow")]
+    [Description(@"Contains information about the details of the account switch and a response code to the original payment request.")]
+    [DataMember(Name="AcctSwtchDtls")]
+    [XmlElement(ElementName="AcctSwtchDtls")]
+    [Required]
+    public required SomeAccountSwitchDetailsRecord AccountSwitchDetails { get; init; }
+    
+    /// <summary>
+    /// Account held at the old account servicer being switched to the new account servicer.
+    /// </summary>
+    [IsoId("_7HT_fW42EeiU9cctagi5ow")]
+    [Description(@"Account held at the old account servicer being switched to the new account servicer.")]
+    [DataMember(Name="OdAcct")]
+    [XmlElement(ElementName="OdAcct")]
+    [Required]
+    public required SomeOldAccountRecord OldAccount { get; init; }
+    
+    /// <summary>
+    /// Specific information relating to a request for payment, including details that enable the receiving account servicer to reconcile the payment to be received with the original payment request.
+    /// </summary>
+    [IsoId("_7HT_f242EeiU9cctagi5ow")]
+    [Description(@"Specific information relating to a request for payment, including details that enable the receiving account servicer to reconcile the payment to be received with the original payment request.")]
+    [DataMember(Name="CdtInstr")]
+    [XmlElement(ElementName="CdtInstr")]
+    [Required]
+    public required SomeCreditInstructionRecord CreditInstruction { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_7HT_gW42EeiU9cctagi5ow")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +82,8 @@ public partial record AccountSwitchRequestPaymentV02 : IOuterRecord
 }
 
 /// <summary>
-/// The AccountSwitchRequestPayment message is sent by the old account servicer to the new account servicer after the completion of the account switch to request the transfer of funds for a payment that the previous account servicer has had to make from the old account (for example: the settlement of a card transaction that was authorised offline).
-/// This is the outer document that contains <seealso cref="AccountSwitchRequestPaymentV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchRequestPaymentV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

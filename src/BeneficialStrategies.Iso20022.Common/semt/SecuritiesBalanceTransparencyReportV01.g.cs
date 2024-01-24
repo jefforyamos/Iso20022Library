@@ -28,7 +28,74 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     public const string XmlTag = "SctiesBalTrnsprncyRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unique and unambiguous identification of the message. When the report has multiple pages, one message equals one page. Therefore, the MessageIdentification uniquely identifies the page.
+    /// </summary>
+    [IsoId("_tOXzJYjUEeONZKAAW4pOaQ")]
+    [Description(@"Unique and unambiguous identification of the message. When the report has multiple pages, one message equals one page. Therefore, the MessageIdentification uniquely identifies the page.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the party that is the sender of the message.
+    /// </summary>
+    [IsoId("_tOXzJojUEeONZKAAW4pOaQ")]
+    [Description(@"Identification of the party that is the sender of the message.")]
+    [DataMember(Name="SndrId")]
+    [XmlElement(ElementName="SndrId")]
+    [Required]
+    public required SomeSenderIdentificationRecord SenderIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the party that is the receiver of the message.
+    /// </summary>
+    [IsoId("_tOXzJ4jUEeONZKAAW4pOaQ")]
+    [Description(@"Identification of the party that is the receiver of the message.")]
+    [DataMember(Name="RcvrId")]
+    [XmlElement(ElementName="RcvrId")]
+    public SomeReceiverIdentificationRecord? ReceiverIdentification { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_7HiiYIjUEeONZKAAW4pOaQ")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides general information on the statement.
+    /// </summary>
+    [IsoId("_tOXzKIjUEeONZKAAW4pOaQ")]
+    [Description(@"Provides general information on the statement.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Details of the account, account sub-levels and the holdings.
+    /// </summary>
+    [IsoId("_tOXzKYjUEeONZKAAW4pOaQ")]
+    [Description(@"Details of the account, account sub-levels and the holdings.")]
+    [DataMember(Name="SfkpgAcctAndHldgs")]
+    [XmlElement(ElementName="SfkpgAcctAndHldgs")]
+    [Required]
+    public required SomeSafekeepingAccountAndHoldingsRecord SafekeepingAccountAndHoldings { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_JnQCkVLbEeSGm-QRrvBvYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +108,8 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// SCOPE
-/// An account servicer, such as a custodian, central securities depository or international central securities depository, sends the SecuritiesBalanceTransparencyReport message to provide holdings information for the accounts that it services, to disclose underlying details of holdings on an omnibus account that the sender owns or operates at the receiver. The receiver may also be a custodian, central securities depository, international central securities depository, and the ultimate receiver may be a registrar, transfer agent, fund company, official agent of the reported instrument(s) and/or other parties.
-/// The SecuritiesBalanceTransparencyReport message provides transparency of holdings through layers of custody chains in a consolidated statement, to allow for an efficient gathering of investor data, which, in turn, may be used to measure marketing effectiveness, validation of compliance with prospectuses and regulatory requirements, and the calculation of trailer fees and other retrocessions.
-/// USAGE
-/// The SecuritiesBalanceTransparencyReport message is used to provide aggregated holdings information and a breakdown of holdings information.
-/// A sender of the SecuritiesBalanceTransparencyReport message will identify its own safekeeping account (for example, an omnibus account in the ledger of the receiver) and holdings information at the level of account(s) for which the sender is the account servicer (that is, in the ledger of the sender). When relevant, the sender will aggregate its holdings information with holdings information of one or more sub levels and sub-sub levels of accounts, that is, with holdings information the sender has received from the owner(s) of the account(s) for which the sender is the account servicer. 
-/// When the receiver of the SecuritiesBalanceTransparencyReport message is also an account servicer, it may, in turn, send a statement back to the sender of the first statement, enriched with data of its own.
-/// Ultimately, the statement reaches the relevant fund company, for example, the transfer agent, that may use it for obtaining information about the custodians, distributors and commercial agreement references associated with holdings on an omnibus account in the shareholder register.
-/// This is the outer document that contains <seealso cref="SecuritiesBalanceTransparencyReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesBalanceTransparencyReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

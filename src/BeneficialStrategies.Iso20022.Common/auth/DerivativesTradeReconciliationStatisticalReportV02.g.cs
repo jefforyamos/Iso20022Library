@@ -21,7 +21,25 @@ public partial record DerivativesTradeReconciliationStatisticalReportV02 : IOute
     public const string XmlTag = "DerivsTradRcncltnSttstclRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Detailed information on reconciliation process.
+    /// </summary>
+    [IsoId("_pVVvi2mFEe2DRvVJM2Qy-g")]
+    [Description(@"Detailed information on reconciliation process.")]
+    [DataMember(Name="RcncltnSttstcs")]
+    [XmlElement(ElementName="RcncltnSttstcs")]
+    [Required]
+    public required SomeReconciliationStatisticsRecord ReconciliationStatistics { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_pVVvjWmFEe2DRvVJM2Qy-g")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record DerivativesTradeReconciliationStatisticalReportV02 : IOute
 }
 
 /// <summary>
-/// The DerivativesTradeReportReconciliationStatisticalReport message is sent by the trade repositories to the reporting counterparty, to report cumulative information within the reference period for the reconciliation status of the reported and outstanding derivatives.
-/// This is the outer document that contains <seealso cref="DerivativesTradeReconciliationStatisticalReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeReconciliationStatisticalReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

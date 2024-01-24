@@ -24,7 +24,62 @@ public partial record MeetingInstructionCancellationRequestV02 : IOuterRecord
     public const string XmlTag = "MtgInstrCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Uniquely identifies the cancellation request.
+    /// </summary>
+    [IsoId("_TnFV29EwEd-BzquC8wXy7w_-50610266")]
+    [Description(@"Uniquely identifies the cancellation request.")]
+    [DataMember(Name="InstrCxlId")]
+    [XmlElement(ElementName="InstrCxlId")]
+    [Required]
+    public required SomeInstructionCancellationIdentificationRecord InstructionCancellationIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the instruction to be cancelled.
+    /// </summary>
+    [IsoId("_TnFV3NEwEd-BzquC8wXy7w_-50610509")]
+    [Description(@"Identifies the instruction to be cancelled.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Series of elements which allow to identify a meeting.
+    /// </summary>
+    [IsoId("_TnPG0NEwEd-BzquC8wXy7w_-50610526")]
+    [Description(@"Series of elements which allow to identify a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    public SomeMeetingReferenceRecord? MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Party requesting the cancellation.
+    /// </summary>
+    [IsoId("_TnPG0dEwEd-BzquC8wXy7w_-50610497")]
+    [Description(@"Party requesting the cancellation.")]
+    [DataMember(Name="RqstngPty")]
+    [XmlElement(ElementName="RqstngPty")]
+    public SomeRequestingPartyRecord? RequestingParty { get; init; }
+    
+    /// <summary>
+    /// Identifies the security for which the meeting is organised.
+    /// </summary>
+    [IsoId("_TnPG0tEwEd-BzquC8wXy7w_-1638529229")]
+    [Description(@"Identifies the security for which the meeting is organised.")]
+    [DataMember(Name="SctyId")]
+    [XmlElement(ElementName="SctyId")]
+    public SomeSecurityIdentificationRecord? SecurityIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the account and instructed positions for which the instruction cancellation request applies.
+    /// </summary>
+    [IsoId("_TnPG09EwEd-BzquC8wXy7w_-2011631186")]
+    [Description(@"Identifies the account and instructed positions for which the instruction cancellation request applies.")]
+    [DataMember(Name="InstdPos")]
+    [XmlElement(ElementName="InstdPos")]
+    public SomeInstructedPositionRecord? InstructedPosition { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +92,8 @@ public partial record MeetingInstructionCancellationRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MeetingInstructionCancellationRequest message is sent by the same party that sent the MeetingInstruction message. It is sent to request the cancellation of all instructions included in the original the MeetingInstruction message.
-/// Usage
-/// This message must be answered by a MeetingInstructionStatus message. Some instructions in the previously sent MeetingInstruction message may have already been executed and cannot be cancelled. This information should appear clearly in the status message.
-/// This is the outer document that contains <seealso cref="MeetingInstructionCancellationRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionCancellationRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

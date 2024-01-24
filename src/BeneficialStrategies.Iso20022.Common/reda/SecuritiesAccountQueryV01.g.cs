@@ -21,7 +21,43 @@ public partial record SecuritiesAccountQueryV01 : IOuterRecord
     public const string XmlTag = "SctiesAcctQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Point to point reference elements, as assigned by the instructing party, to unambiguously identify the query message.
+    /// </summary>
+    [IsoId("_KAu-yZ2fEem_Be8NuxvF7Q")]
+    [Description(@"Point to point reference elements, as assigned by the instructing party, to unambiguously identify the query message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Defines the criteria to be used to query the securities account reference data by the executing system.
+    /// </summary>
+    [IsoId("_KAu-z52fEem_Be8NuxvF7Q")]
+    [Description(@"Defines the criteria to be used to query the securities account reference data by the executing system.")]
+    [DataMember(Name="SchCrit")]
+    [XmlElement(ElementName="SchCrit")]
+    [Required]
+    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    
+    /// <summary>
+    /// Defines the expected securities account reference data to be returned.
+    /// </summary>
+    [IsoId("_KAu-0Z2fEem_Be8NuxvF7Q")]
+    [Description(@"Defines the expected securities account reference data to be returned.")]
+    [DataMember(Name="RtrCrit")]
+    [XmlElement(ElementName="RtrCrit")]
+    public SomeReturnCriteriaRecord? ReturnCriteria { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_KAu-052fEem_Be8NuxvF7Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record SecuritiesAccountQueryV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecuritiesAccountQuery message sent by an instructing party to the executing party to request the details related to the securities account.
-/// This is the outer document that contains <seealso cref="SecuritiesAccountQueryV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountQueryV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

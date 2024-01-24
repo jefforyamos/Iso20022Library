@@ -22,7 +22,35 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord
     public const string XmlTag = "MulSttlmReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual instructions included in the message.
+    /// </summary>
+    [IsoId("_vsvOgwcYEeyTDbUIoCmuCw")]
+    [Description(@"Set of characteristics shared by all individual instructions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements providing information specific to the individual settlement request(s).
+    /// </summary>
+    [IsoId("_vsvOhQcYEeyTDbUIoCmuCw")]
+    [Description(@"Set of elements providing information specific to the individual settlement request(s).")]
+    [DataMember(Name="SttlmReq")]
+    [XmlElement(ElementName="SttlmReq")]
+    [Required]
+    public required SomeSettlementRequestRecord SettlementRequest { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_vsvOhwcYEeyTDbUIoCmuCw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +63,8 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The MultilateralSettlementRequest message is sent from an instructing agent to a market infrastructure to settle obligations between their participants using accounts held in a settlement service.
-/// Usage: The MultilateralSettlementRequest message can contain one or more settlement instructions with multiple movements between accounts. By default, all movements present in an individual instruction shall be processed as a batch entry rather than a single entry per individual movement.
-/// This is the outer document that contains <seealso cref="MultilateralSettlementRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MultilateralSettlementRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

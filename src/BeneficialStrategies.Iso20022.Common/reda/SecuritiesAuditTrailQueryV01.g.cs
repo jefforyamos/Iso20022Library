@@ -21,7 +21,34 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord
     public const string XmlTag = "SctiesAudtTrlQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_4G_JQZIwEeuAlLVx8pyt3w")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Defines the criteria to be used to query the securities audit trail by the executing system.
+    /// </summary>
+    [IsoId("_jTsKgx62Eeu31YsWNiv_cw")]
+    [Description(@"Defines the criteria to be used to query the securities audit trail by the executing system.")]
+    [DataMember(Name="SchCrit")]
+    [XmlElement(ElementName="SchCrit")]
+    [Required]
+    public required SomeSearchCriteriaRecord SearchCriteria { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jTsxgR62Eeu31YsWNiv_cw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecuritiesAuditTrailQuery message is sent by an instructing party to the executing party to query for the securities audit trail recorded in the system.
-/// This is the outer document that contains <seealso cref="SecuritiesAuditTrailQueryV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAuditTrailQueryV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -25,7 +25,45 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
     public const string XmlTag = "AgtCAElctnCxlReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the cancellation request.
+    /// </summary>
+    [IsoId("_TNTj4dEwEd-BzquC8wXy7w_691501595")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the cancellation request.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the Agent CA Election Advice to be cancelled.
+    /// </summary>
+    [IsoId("_TNTj4tEwEd-BzquC8wXy7w_704429510")]
+    [Description(@"Identification of the Agent CA Election Advice to be cancelled.")]
+    [DataMember(Name="AgtCAElctnAdvcId")]
+    [XmlElement(ElementName="AgtCAElctnAdvcId")]
+    [Required]
+    public required SomeAgentCAElectionAdviceIdentificationRecord AgentCAElectionAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TNTj49EwEd-BzquC8wXy7w_-444231690")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides information about the election advice to be cancelled.
+    /// </summary>
+    [IsoId("_TNTj5NEwEd-BzquC8wXy7w_-178719566")]
+    [Description(@"Provides information about the election advice to be cancelled.")]
+    [DataMember(Name="ElctnDtls")]
+    [XmlElement(ElementName="ElctnDtls")]
+    public SomeElectionDetailsRecord? ElectionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +76,8 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to the issuer (or its agent) to request the cancellation of a previously sent Agent Corporate Action Election Advice message.
-/// Usage
-/// This message may only be used to cancel an entire Agent Corporate Action Election Advice message that was previously sent by the CSD. No partial cancellation is allowed.
-/// This message must contain the identification of the Agent Corporate Action Election Advice to be cancelled, the agent identification and the corporate action references. This message may also contain details of the election advice to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="AgentCAElectionCancellationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

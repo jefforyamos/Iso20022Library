@@ -33,7 +33,133 @@ public partial record BaselineReportV03 : IOuterRecord
     public const string XmlTag = "BaselnRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the report.
+    /// </summary>
+    [IsoId("_l8xdSdE8Ed-BzquC8wXy7w_1618741339")]
+    [Description(@"Identifies the report.")]
+    [DataMember(Name="RptId")]
+    [XmlElement(ElementName="RptId")]
+    [Required]
+    public required SomeReportIdentificationRecord ReportIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the related message at the origin of the report or sent at the same time than the report.
+    /// </summary>
+    [IsoId("_l9OJMNE8Ed-BzquC8wXy7w_1619662400")]
+    [Description(@"Reference to the related message at the origin of the report or sent at the same time than the report.")]
+    [DataMember(Name="RltdMsgRef")]
+    [XmlElement(ElementName="RltdMsgRef")]
+    public SomeRelatedMessageReferenceRecord? RelatedMessageReference { get; init; }
+    
+    /// <summary>
+    /// Type of baseline report.
+    /// </summary>
+    [IsoId("_l9X6MNE8Ed-BzquC8wXy7w_1619662305")]
+    [Description(@"Type of baseline report.")]
+    [DataMember(Name="RptTp")]
+    [XmlElement(ElementName="RptTp")]
+    [Required]
+    public required SomeReportTypeRecord ReportType { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_l9X6MdE8Ed-BzquC8wXy7w_1618741237")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_l9X6MtE8Ed-BzquC8wXy7w_1618741167")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    [Required]
+    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_l9X6M9E8Ed-BzquC8wXy7w_1619661993")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for each financial institution which is a party to the transaction.
+    /// </summary>
+    [IsoId("_l9X6NNE8Ed-BzquC8wXy7w_1618741729")]
+    [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Party that buys goods or services, or a financial instrument.
+    /// </summary>
+    [IsoId("_l9X6NdE8Ed-BzquC8wXy7w_1618740443")]
+    [Description(@"Party that buys goods or services, or a financial instrument.")]
+    [DataMember(Name="Buyr")]
+    [XmlElement(ElementName="Buyr")]
+    [Required]
+    public required SomeBuyerRecord Buyer { get; init; }
+    
+    /// <summary>
+    /// Party that sells goods or services, or a financial instrument.
+    /// </summary>
+    [IsoId("_l9X6NtE8Ed-BzquC8wXy7w_1618740739")]
+    [Description(@"Party that sells goods or services, or a financial instrument.")]
+    [DataMember(Name="Sellr")]
+    [XmlElement(ElementName="Sellr")]
+    [Required]
+    public required SomeSellerRecord Seller { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the buyer, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_l9X6N9E8Ed-BzquC8wXy7w_1619661898")]
+    [Description(@"The financial institution of the buyer, uniquely identified by its BIC.")]
+    [DataMember(Name="BuyrBk")]
+    [XmlElement(ElementName="BuyrBk")]
+    [Required]
+    public required SomeBuyerBankRecord BuyerBank { get; init; }
+    
+    /// <summary>
+    /// The financial institution of the seller, uniquely identified by its BIC.
+    /// </summary>
+    [IsoId("_l9X6ONE8Ed-BzquC8wXy7w_1619661795")]
+    [Description(@"The financial institution of the seller, uniquely identified by its BIC.")]
+    [DataMember(Name="SellrBk")]
+    [XmlElement(ElementName="SellrBk")]
+    [Required]
+    public required SomeSellerBankRecord SellerBank { get; init; }
+    
+    /// <summary>
+    /// Information on the goods.
+    /// </summary>
+    [IsoId("_l9hEINE8Ed-BzquC8wXy7w_1618741434")]
+    [Description(@"Information on the goods.")]
+    [DataMember(Name="RptdLineItm")]
+    [XmlElement(ElementName="RptdLineItm")]
+    [Required]
+    public required SomeReportedLineItemRecord ReportedLineItem { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_l9hEIdE8Ed-BzquC8wXy7w_1618740834")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -46,20 +172,8 @@ public partial record BaselineReportV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The BaselineReport message is sent by the matching application to the parties involved in an amendment request or to the parties involved in a data set match.
-/// The message is used to report either a pre-calculation or final calculation of the dynamic part of an established baseline.
-/// Usage
-/// The BaselineReport message can be sent by the matching application to the parties involved in an amendment request for a transaction established in the push-through mode. In the outlined scenario, the message is sent
-/// - to the party requested to accept or reject an amendment request after the matching application has received a BaselineAmendmentRequest message. The message informs about the provisional status of the dynamic part of the baseline.
-/// - to the requester and the accepter of an amendment request after the matching application has received an AmendmentAcceptance message conveying the acceptance of the amendment request. The message informs about the actual status of the dynamic part of the baseline.
-/// or
-/// The BaselineReport message can be sent by the matching application to the party which has sent an amendment request for a transaction established in the lodge mode. In the outlined scenario the message is used to inform about the actual status of the dynamic part of the baseline.
-/// or
-/// The BaselineReport message can be sent by the matching application to the parties involved in a data set match. In the outlined scenario, the message is sent
-/// - to the submitter of the data set(s) in the case of a data set match for a transaction established in the lodge mode.
-/// - to the submitter of the data set(s) and to the counterparty in case of a data set match for a transaction established in the push-through mode.The message can be sent after a successful data-set match or after the acceptance of mis-matched data sets to inform about the actual status of the dynamic part of the baseline.
-/// This is the outer document that contains <seealso cref="BaselineReportV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BaselineReportV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,65 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     public const string XmlTag = "CCPIncmStmtAndCptlAdqcyRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Income statement of the CCP.
+    /// </summary>
+    [IsoId("_DzbYeeUUEem3X-64-NKdqg")]
+    [Description(@"Income statement of the CCP.")]
+    [DataMember(Name="IncmStmt")]
+    [XmlElement(ElementName="IncmStmt")]
+    [Required]
+    public required SomeIncomeStatementRecord IncomeStatement { get; init; }
+    
+    /// <summary>
+    /// Report of the breakdown of the components for the capital requirement for central counterparty.
+    /// </summary>
+    [IsoId("_DzbYe-UUEem3X-64-NKdqg")]
+    [Description(@"Report of the breakdown of the components for the capital requirement for central counterparty.")]
+    [DataMember(Name="CptlRqrmnts")]
+    [XmlElement(ElementName="CptlRqrmnts")]
+    [Required]
+    public required SomeCapitalRequirementsRecord CapitalRequirements { get; init; }
+    
+    /// <summary>
+    /// Sum of the CCP's capital requirements for operational expenses; for winding down or restructuring its activities; for overall operational and legal risk; for uncovered credit, counterparty credit and market risks and business risks.
+    /// </summary>
+    [IsoId("_DzbYfeUUEem3X-64-NKdqg")]
+    [Description(@"Sum of the CCP's capital requirements for operational expenses; for winding down or restructuring its activities; for overall operational and legal risk; for uncovered credit, counterparty credit and market risks and business risks.|")]
+    [DataMember(Name="TtlCptl")]
+    [XmlElement(ElementName="TtlCptl")]
+    [Required]
+    public required SomeTotalCapitalRecord TotalCapital { get; init; }
+    
+    /// <summary>
+    /// Total capital resources invested in liquid financial resources.
+    /// </summary>
+    [IsoId("_DzbYf-UUEem3X-64-NKdqg")]
+    [Description(@"Total capital resources invested in liquid financial resources.|")]
+    [DataMember(Name="LqdFinRsrcs")]
+    [XmlElement(ElementName="LqdFinRsrcs")]
+    [Required]
+    public required SomeLiquidFinancialResourcesRecord LiquidFinancialResources { get; init; }
+    
+    /// <summary>
+    /// Hypothetical capital requirement due to counterparty credit risk exposures to all clearing members.
+    /// </summary>
+    [IsoId("_DzbYgeUUEem3X-64-NKdqg")]
+    [Description(@"Hypothetical capital requirement due to counterparty credit risk exposures to all clearing members.|")]
+    [DataMember(Name="HpthtclCptlMeasr")]
+    [XmlElement(ElementName="HpthtclCptlMeasr")]
+    [Required]
+    public required SomeHypotheticalCapitalMeasureRecord HypotheticalCapitalMeasure { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_DzbYg-UUEem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +92,8 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
 }
 
 /// <summary>
-/// The CCPIncomeStatementAndCapitalAdequacyReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the financial performance and regulatory capital holdings of the central counterparty.
-/// This is the outer document that contains <seealso cref="CCPIncomeStatementAndCapitalAdequacyReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPIncomeStatementAndCapitalAdequacyReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

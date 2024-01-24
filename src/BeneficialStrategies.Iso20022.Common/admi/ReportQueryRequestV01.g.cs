@@ -21,7 +21,34 @@ public partial record ReportQueryRequestV01 : IOuterRecord
     public const string XmlTag = "RptQryReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements to identify the report query request message.
+    /// </summary>
+    [IsoId("_5Ql0I5b3Eee4htziCyV8eA")]
+    [Description(@"Set of elements to identify the report query request message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Definition of the report query criteria.
+    /// </summary>
+    [IsoId("_5Ql0JZb3Eee4htziCyV8eA")]
+    [Description(@"Definition of the report query criteria.")]
+    [DataMember(Name="RptQryCrit")]
+    [XmlElement(ElementName="RptQryCrit")]
+    public SomeReportQueryCriteriaRecord? ReportQueryCriteria { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_5Ql0J5b3Eee4htziCyV8eA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record ReportQueryRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ReportQueryRequest message is exchanged between system member and system transaction administrator.|It aims at querying the latest available report data of a specific report type. A report is stored and available for query until the event occurs again report is replaced.
-/// This is the outer document that contains <seealso cref="ReportQueryRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReportQueryRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

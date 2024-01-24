@@ -25,7 +25,73 @@ public partial record StatusExtensionRequestNotificationV03 : IOuterRecord
     public const string XmlTag = "StsXtnsnReqNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification.
+    /// </summary>
+    [IsoId("_zU2Ro9E8Ed-BzquC8wXy7w_883782725")]
+    [Description(@"Identifies the notification.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    [Required]
+    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_zU2RpNE8Ed-BzquC8wXy7w_883782820")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_zU2RpdE8Ed-BzquC8wXy7w_883782976")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    public SomeEstablishedBaselineIdentificationRecord? EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for each financial institution which is a party to the transaction.
+    /// </summary>
+    [IsoId("_zU2RptE8Ed-BzquC8wXy7w_883783295")]
+    [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Identifies the status for which an extension of the validity period has been requested.
+    /// </summary>
+    [IsoId("_zU2Rp9E8Ed-BzquC8wXy7w_883782906")]
+    [Description(@"Identifies the status for which an extension of the validity period has been requested.")]
+    [DataMember(Name="StsToBeXtnded")]
+    [XmlElement(ElementName="StsToBeXtnded")]
+    [Required]
+    public required SomeStatusToBeExtendedRecord StatusToBeExtended { get; init; }
+    
+    /// <summary>
+    /// Party that has requested the status extension.
+    /// </summary>
+    [IsoId("_zU2RqNE8Ed-BzquC8wXy7w_-2036986967")]
+    [Description(@"Party that has requested the status extension.")]
+    [DataMember(Name="Initr")]
+    [XmlElement(ElementName="Initr")]
+    [Required]
+    public required SomeInitiatorRecord Initiator { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_zU_bkNE8Ed-BzquC8wXy7w_883783390")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +104,8 @@ public partial record StatusExtensionRequestNotificationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusExtensionRequestNotification message is sent by the matching application to the party requested to accept or reject a request to extend the status of a transaction.
-/// This message is used to notify the request to extend the status of a transaction.
-/// Usage
-/// The StatusExtensionRequestNotification message can be sent by the matching application to pass on information about the request to extend the status of a transaction that it has obtained through the receipt of a StatusExtensionRequest message.
-/// This is the outer document that contains <seealso cref="StatusExtensionRequestNotificationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusExtensionRequestNotificationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

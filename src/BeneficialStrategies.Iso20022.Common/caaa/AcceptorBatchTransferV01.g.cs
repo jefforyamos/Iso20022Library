@@ -24,7 +24,36 @@ public partial record AcceptorBatchTransferV01 : IOuterRecord
     public const string XmlTag = "AccptrBtchTrf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Batch capture message management information.
+    /// </summary>
+    [IsoId("_edEQpqMVEeCJ6YNENx4h-w_-1485321403")]
+    [Description(@"Batch capture message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the set of transaction.
+    /// </summary>
+    [IsoId("_edEQp6MVEeCJ6YNENx4h-w_1311812770")]
+    [Description(@"Information related to the set of transaction.")]
+    [DataMember(Name="DataSet")]
+    [XmlElement(ElementName="DataSet")]
+    [Required]
+    public required SomeDataSetRecord DataSet { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_edEQqKMVEeCJ6YNENx4h-w_-1725019093")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +66,8 @@ public partial record AcceptorBatchTransferV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorBatchTransfer message is sent by the card acceptor to the acquirer to capture a collection of previously completed card payment transactions.
-/// Usage
-/// The AcceptorBatchTransfer message embeds the information required for transferring to the acquirer the data needed to perform the financial settlement of these transactions (capture).
-/// This is the outer document that contains <seealso cref="AcceptorBatchTransferV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorBatchTransferV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -22,7 +22,43 @@ public partial record ATMWithdrawalCompletionAdviceV02 : IOuterRecord
     public const string XmlTag = "ATMWdrwlCmpltnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_zg0SU64JEeWZgJQOa6iKCQ")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_zg0SVa4JEeWZgJQOa6iKCQ")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMWdrwlCmpltnAdvc")]
+    [XmlElement(ElementName="PrtctdATMWdrwlCmpltnAdvc")]
+    public SomeProtectedATMWithdrawalCompletionAdviceRecord? ProtectedATMWithdrawalCompletionAdvice { get; init; }
+    
+    /// <summary>
+    /// Information related to the completion of a withdrawal transaction on the ATM.
+    /// </summary>
+    [IsoId("_zg0SV64JEeWZgJQOa6iKCQ")]
+    [Description(@"Information related to the completion of a withdrawal transaction on the ATM.")]
+    [DataMember(Name="ATMWdrwlCmpltnAdvc")]
+    [XmlElement(ElementName="ATMWdrwlCmpltnAdvc")]
+    public SomeATMWithdrawalCompletionAdviceRecord? ATMWithdrawalCompletionAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_zg0SWa4JEeWZgJQOa6iKCQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +71,8 @@ public partial record ATMWithdrawalCompletionAdviceV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMWithdrawalCompletionAdvice message is sent by an ATM to an acquirer or its agent to inform of the result of a withdrawal transaction at an ATM.
-/// If the ATM is configured to only send negative completion, a generic completion message should be used instead of ATMCompletionAdvice.
-/// This is the outer document that contains <seealso cref="ATMWithdrawalCompletionAdviceV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMWithdrawalCompletionAdviceV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -24,7 +24,16 @@ public partial record SystemEventNotificationV02 : IOuterRecord
     public const string XmlTag = "SysEvtNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Detailed information about a system event.
+    /// </summary>
+    [IsoId("_pgC-E07TEeSGH6dwL1uJcg")]
+    [Description(@"Detailed information about a system event.")]
+    [DataMember(Name="EvtInf")]
+    [XmlElement(ElementName="EvtInf")]
+    [Required]
+    public required SomeEventInformationRecord EventInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +46,8 @@ public partial record SystemEventNotificationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The SystemEventNotification message is sent by a central system to notify the occurrence of an event in a central system.
-/// Usage
-/// The message can be used by a central settlement system to inform its participants of an event that is going to occur in the system, for instance that the system will be down at a certain time, etc.
-/// This is the outer document that contains <seealso cref="SystemEventNotificationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SystemEventNotificationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

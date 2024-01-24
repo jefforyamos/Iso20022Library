@@ -21,7 +21,64 @@ public partial record ShareholdersIdentificationDisclosureResponseV01 : IOuterRe
     public const string XmlTag = "ShrhldrsIdDsclsrRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message and continuation indicator to indicate that the identification disclosure response, when split in several parts (messages), is to continue or that the message is the last page of the multi-part identification disclosure response.
+    /// </summary>
+    [IsoId("_73Q8AX09EemTjI54yVVOfw")]
+    [Description(@"Page number of the message and continuation indicator to indicate that the identification disclosure response, when split in several parts (messages), is to continue or that the message is the last page of the multi-part identification disclosure response.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    public SomePaginationRecord? Pagination { get; init; }
+    
+    /// <summary>
+    /// Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.
+    /// </summary>
+    [IsoId("_e-t-QDqgEemL_ewJY9QP1g")]
+    [Description(@"Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.")]
+    [DataMember(Name="IssrDsclsrReqRef")]
+    [XmlElement(ElementName="IssrDsclsrReqRef")]
+    [Required]
+    public required SomeIssuerDisclosureRequestReferenceRecord IssuerDisclosureRequestReference { get; init; }
+    
+    /// <summary>
+    /// Unique identification of the disclosure response. The same disclosure response identification number is to be used when the response is split in multiple (paginated) messages.
+    /// </summary>
+    [IsoId("_6rRNgH0-EemTjI54yVVOfw")]
+    [Description(@"Unique identification of the disclosure response. The same disclosure response identification number is to be used when the response is split in multiple (paginated) messages.")]
+    [DataMember(Name="DsclsrRspnId")]
+    [XmlElement(ElementName="DsclsrRspnId")]
+    [Required]
+    public required SomeDisclosureResponseIdentificationRecord DisclosureResponseIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification of the intermediary party responding to the shareholders identification disclosure request.
+    /// </summary>
+    [IsoId("_HKzZ8DqcEemL_ewJY9QP1g")]
+    [Description(@"Unique identification of the intermediary party responding to the shareholders identification disclosure request.")]
+    [DataMember(Name="RspndgIntrmy")]
+    [XmlElement(ElementName="RspndgIntrmy")]
+    [Required]
+    public required SomeRespondingIntermediaryRecord RespondingIntermediary { get; init; }
+    
+    /// <summary>
+    /// Provide detailed shareholding disclosure information or indicate that disclosure information is not provided.
+    /// </summary>
+    [IsoId("_spRhQMAMEembi_x1QDJfxw")]
+    [Description(@"Provide detailed shareholding disclosure information or indicate that disclosure information is not provided.")]
+    [DataMember(Name="DsclsrInf")]
+    [XmlElement(ElementName="DsclsrInf")]
+    [Required]
+    public required SomeDisclosureInformationRecord DisclosureInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_E5VtkTtgEemIf7eyjCwinw")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +91,8 @@ public partial record ShareholdersIdentificationDisclosureResponseV01 : IOuterRe
 }
 
 /// <summary>
-/// The ShareholdersIdentificationDisclosureResponse message is sent in response to a shareholder identification disclosure request message by any intermediaries to the recipient designated by the issuer (such as an issuer's agent) in the disclosure request message in order to provide the requested information on the identity of the shareholders and their accounts holdings serviced by the intermediary for the requested financial instrument.
-/// This is the outer document that contains <seealso cref="ShareholdersIdentificationDisclosureResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ShareholdersIdentificationDisclosureResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

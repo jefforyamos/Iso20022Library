@@ -21,7 +21,33 @@ public partial record DTCCCAINSD1V02 : IOuterRecord
     public const string XmlTag = "DTCCCAINSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Optional Dividend service election.
+    /// </summary>
+    [IsoId("_gCY7ZUlAEeK8UrXTVVBVxw")]
+    [Description(@"DTC (The Depository Trust Corporation) Optional Dividend service election.")]
+    [DataMember(Name="OptnlDvdd")]
+    [XmlElement(ElementName="OptnlDvdd")]
+    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Tax Exempt service election.
+    /// </summary>
+    [IsoId("_gCY7b0lAEeK8UrXTVVBVxw")]
+    [Description(@"DTC (The Depository Trust Corporation) Tax Exempt service election.")]
+    [DataMember(Name="TaxXmpt")]
+    [XmlElement(ElementName="TaxXmpt")]
+    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.
+    /// </summary>
+    [IsoId("_gCY7eUlAEeK8UrXTVVBVxw")]
+    [Description(@"DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.")]
+    [DataMember(Name="WireInstr")]
+    [XmlElement(ElementName="WireInstr")]
+    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +60,8 @@ public partial record DTCCCAINSD1V02 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAINSD1 message extends ISO corporate action instruction message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAINSD1V02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAINSD1V02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

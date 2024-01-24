@@ -21,7 +21,35 @@ public partial record CurrencyControlRequestOrLetterV03 : IOuterRecord
     public const string XmlTag = "CcyCtrlReqOrLttr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Characteristics shared by all individual items included in the message.
+    /// </summary>
+    [IsoId("_Nz8auR3pEeuiRvbpCaJe6A")]
+    [Description(@"Characteristics shared by all individual items included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Supporting document request or letter details.
+    /// </summary>
+    [IsoId("_Nz8aux3pEeuiRvbpCaJe6A")]
+    [Description(@"Supporting document request or letter details.")]
+    [DataMember(Name="ReqOrLttr")]
+    [XmlElement(ElementName="ReqOrLttr")]
+    [Required]
+    public required SomeRequestOrLetterRecord RequestOrLetter { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Nz8avR3pEeuiRvbpCaJe6A")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record CurrencyControlRequestOrLetterV03 : IOuterRecord
 }
 
 /// <summary>
-/// The CurrencyControlRequestOrLetter message is sent by the reporting party (respectively the registration agent) to the registration agent (respectively the reporting party) to send a currency control related letter or to request for supporting documents.
-/// This is the outer document that contains <seealso cref="CurrencyControlRequestOrLetterV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CurrencyControlRequestOrLetterV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -30,7 +30,16 @@ public partial record RequestForOrderStatusReportV02 : IOuterRecord
     public const string XmlTag = "setr.018.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to identify the order(s) for which the status is requested.
+    /// </summary>
+    [IsoId("_wWrFydE7Ed-BzquC8wXy7w_93958643")]
+    [Description(@"Information to identify the order(s) for which the status is requested.")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    [Required]
+    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +52,8 @@ public partial record RequestForOrderStatusReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The RequestForOrderStatusReport is sent by an instructing party, eg, an investment manager or its authorised representative, to the executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party.
-/// This message requests the status of one or several order instruction or order cancellation messages.
-/// Usage
-/// The RequestForOrderStatusReport message is used to request the status of:
-/// - one or several order messages,
-/// - one or several cancellation messages,
-/// - one or several individual orders within a bulk or multiple order message.
-/// If the RequestForOrderStatusReport message is used to request the status of several messages, then the instructing party will receive several reply messages from the executing party, ie, several OrderInstructionStatusReport messages and/or OrderCancellationStatusReport messages. The number of reply messages will match the number of references stated in the RequestForOrderStatusReport message.
-/// The RequestForOrderStatusReport message may not be used to request the status of an investment account, a transfer or the status of a financial instrument.
-/// This is the outer document that contains <seealso cref="RequestForOrderStatusReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForOrderStatusReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,44 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord
     public const string XmlTag = "SctyActvtyAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_Bv1S0ZIxEeuAlLVx8pyt3w")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_jTtYux62Eeu31YsWNiv_cw")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Activity report of changes occurred for a financial instrument defined in the system.
+    /// </summary>
+    [IsoId("_jTtYwR62Eeu31YsWNiv_cw")]
+    [Description(@"Activity report of changes occurred for a financial instrument defined in the system.")]
+    [DataMember(Name="SctyActvty")]
+    [XmlElement(ElementName="SctyActvty")]
+    [Required]
+    public required SomeSecurityActivityRecord SecurityActivity { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jTtYwx62Eeu31YsWNiv_cw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +71,8 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecurityActivityReport message is sent by the executing party to an instructing party containing information about changes on securities reference data.||Scope and usage: |It aims at informing about the changes occurred during a business date for securities reference data.
-/// This is the outer document that contains <seealso cref="SecurityActivityAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityActivityAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

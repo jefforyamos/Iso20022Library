@@ -21,7 +21,15 @@ public partial record DTCCCANODerivativeSD1V03 : IOuterRecord
     public const string XmlTag = "DTCCCANODerivSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Extension block for the information to be extended as corporate action notification details.
+    /// </summary>
+    [IsoId("_1OJ85TL3EeKU9IrkkToqcw_778471175")]
+    [Description(@"Extension block for the information to be extended as corporate action notification details.")]
+    [DataMember(Name="CorpActnNtfctn")]
+    [XmlElement(ElementName="CorpActnNtfctn")]
+    public SomeCorporateActionNotificationRecord? CorporateActionNotification { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +42,8 @@ public partial record DTCCCANODerivativeSD1V03 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCANODerivativeSD1 message extends ISO corporate action notification (CANO) message with DTCC corporate action derivative notice elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCANODerivativeSD1V03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANODerivativeSD1V03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,25 @@ public partial record CCPLiquidityStressTestingResultReportV01 : IOuterRecord
     public const string XmlTag = "CCPLqdtyStrssTstgRsltRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Results from a scenario used to stress the liquidity needs of the CCP.
+    /// </summary>
+    [IsoId("_FO6maeUREem3X-64-NKdqg")]
+    [Description(@"Results from a scenario used to stress the liquidity needs of the CCP.")]
+    [DataMember(Name="LqdtyStrssTstRslt")]
+    [XmlElement(ElementName="LqdtyStrssTstRslt")]
+    [Required]
+    public required SomeLiquidityStressTestResultRecord LiquidityStressTestResult { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_FO6ma-UREem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPLiquidityStressTestingResultReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CCPLiquidityStressTestingResultReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the results of the liquidity stress tests.
-/// This is the outer document that contains <seealso cref="CCPLiquidityStressTestingResultReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPLiquidityStressTestingResultReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

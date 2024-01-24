@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01
     public const string XmlTag = "SctiesFincgRptgTxMrgnDataRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Data concerning the reporting trade.
+    /// </summary>
+    [IsoId("_2zvMEQuAEeqVvtu9Ny8FDA")]
+    [Description(@"Data concerning the reporting trade.")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2zvMEwuAEeqVvtu9Ny8FDA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingTransactionMarginDataReport message is sent by the report submitting entity to the trade repository (TR) to report the margins exchanged in relation to the CCP-cleared securities financing transactions or sent by the trade repository (TR) to the authority or made available by the trade repository (TR) to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingTransactionMarginDataReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingTransactionMarginDataReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

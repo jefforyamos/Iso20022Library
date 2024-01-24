@@ -24,7 +24,16 @@ public partial record StatusNotificationV02 : IOuterRecord
     public const string XmlTag = "trea.008.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides information on the status of a trade in a system.
+    /// </summary>
+    [IsoId("_VgTq1NE8Ed-BzquC8wXy7w_-575229954")]
+    [Description(@"Provides information on the status of a trade in a system.")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +46,8 @@ public partial record StatusNotificationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusNotification message is sent by a central system to a participant to notify the current status of a trade in the system.|Usage
-/// This message will be sent at specific times agreed upon by the central settlement system and a participant in a central settlement system.
-/// This message is obsolete please use ForeignExchangeAndDerivativeTradeStatusNotificationV03 - fxtr.008.001.03
-/// This is the outer document that contains <seealso cref="StatusNotificationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusNotificationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

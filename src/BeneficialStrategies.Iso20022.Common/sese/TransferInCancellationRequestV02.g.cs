@@ -28,7 +28,70 @@ public partial record TransferInCancellationRequestV02 : IOuterRecord
     public const string XmlTag = "TrfInCxlReqV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_Iq5JidE6Ed-BzquC8wXy7w_-713613405")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_Iq5JitE6Ed-BzquC8wXy7w_-1614969527")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_Iq5Ji9E6Ed-BzquC8wXy7w_-1614049462")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_Iq5JjNE6Ed-BzquC8wXy7w_-1614049497")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Reference of the transfer to be cancelled.
+    /// </summary>
+    [IsoId("_IrCTcNE6Ed-BzquC8wXy7w_-2096566826")]
+    [Description(@"Reference of the transfer to be cancelled.")]
+    [DataMember(Name="CxlByRef")]
+    [XmlElement(ElementName="CxlByRef")]
+    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    
+    /// <summary>
+    /// The transfer in request message to cancel.
+    /// </summary>
+    [IsoId("_IrCTcdE6Ed-BzquC8wXy7w_-1614049514")]
+    [Description(@"The transfer in request message to cancel.")]
+    [DataMember(Name="CxlByTrfInDtls")]
+    [XmlElement(ElementName="CxlByTrfInDtls")]
+    public SomeCancellationByTransferInDetailsRecord? CancellationByTransferInDetails { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_IrCTctE6Ed-BzquC8wXy7w_319701879")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +104,8 @@ public partial record TransferInCancellationRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, eg, a transfer agent, sends the TransferInCancellationRequest message to the executing party, eg, a transfer agent, to request the cancellation of a previously sent TransferInInstruction.
-/// Usage
-/// The TransferInCancellationRequest message is used to request cancellation of a previously sent TransferInInstruction.
-/// There are two ways to specify the transfer cancellation request. Either:
-/// - the transfer reference of the original transfer is quoted, or,
-/// - all the details of the original transfer (this includes TransferReference) are quoted but this is not recommended.
-/// The message identification of the TransferInInstruction message in which the transfer was conveyed may also be quoted in PreviousReference. It is also possible to request the cancellation of a TransferInInstruction message by quoting its message identification in PreviousReference.
-/// This is the outer document that contains <seealso cref="TransferInCancellationRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInCancellationRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

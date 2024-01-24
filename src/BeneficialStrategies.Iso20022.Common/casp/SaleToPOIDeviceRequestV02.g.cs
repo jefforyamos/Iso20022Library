@@ -21,7 +21,35 @@ public partial record SaleToPOIDeviceRequestV02 : IOuterRecord
     public const string XmlTag = "SaleToPOIDvcReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_A_43Iw1TEeqjM-rxn3HuXQ")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to a device request.
+    /// </summary>
+    [IsoId("_A_43JQ1TEeqjM-rxn3HuXQ")]
+    [Description(@"Information related to a device request.")]
+    [DataMember(Name="DvcReq")]
+    [XmlElement(ElementName="DvcReq")]
+    [Required]
+    public required SomeDeviceRequestRecord DeviceRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_A_43Jw1TEeqjM-rxn3HuXQ")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIDeviceRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// The SaleTOPOIDeviceRequest message is sent by the sale system to POI system to request a device service.
-/// This is the outer document that contains <seealso cref="SaleToPOIDeviceRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIDeviceRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

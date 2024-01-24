@@ -25,7 +25,53 @@ public partial record BuyInConfirmationV03 : IOuterRecord
     public const string XmlTag = "BuyInConf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as known by the instructing party.
+    /// </summary>
+    [IsoId("_xpFSky0lEeSRe9rElPHBfg")]
+    [Description(@"Unambiguous identification of the transaction as known by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides the identification of the clearing member (individual clearing member or general clearing member).
+    /// </summary>
+    [IsoId("_xpFSlS0lEeSRe9rElPHBfg")]
+    [Description(@"Provides the identification of the clearing member (individual clearing member or general clearing member).")]
+    [DataMember(Name="ClrMmb")]
+    [XmlElement(ElementName="ClrMmb")]
+    [Required]
+    public required SomeClearingMemberRecord ClearingMember { get; init; }
+    
+    /// <summary>
+    /// Provides the buy-in details.
+    /// </summary>
+    [IsoId("_xpFSly0lEeSRe9rElPHBfg")]
+    [Description(@"Provides the buy-in details.")]
+    [DataMember(Name="BuyInDtls")]
+    [XmlElement(ElementName="BuyInDtls")]
+    [Required]
+    public required SomeBuyInDetailsRecord BuyInDetails { get; init; }
+    
+    /// <summary>
+    /// Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.
+    /// </summary>
+    [IsoId("_xpFSmS0lEeSRe9rElPHBfg")]
+    [Description(@"Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.")]
+    [DataMember(Name="OrgnlSttlmOblgtn")]
+    [XmlElement(ElementName="OrgnlSttlmOblgtn")]
+    public SomeOriginalSettlementObligationRecord? OriginalSettlementObligation { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_xpFSmy0lEeSRe9rElPHBfg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +84,8 @@ public partial record BuyInConfirmationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Buy In Confirmation message is sent by the central counterparty (CCP) to the clearing member to confirm the details of the transaction resulting from the buy in.
-/// The message definition is intended for use with the ISO 20022 Business Application Header.
-/// Usage
-/// The Buy In Confirmation message is sent by the central counterparty (CCP) to confirm the details of the buy in transaction.
-/// This is the outer document that contains <seealso cref="BuyInConfirmationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BuyInConfirmationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

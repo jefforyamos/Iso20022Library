@@ -28,7 +28,127 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
     public const string XmlTag = "CorpActnInstr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies a CorporateActionInstruction message as know by the account owner (or the instructing party acting on its behalf).
+    /// </summary>
+    [IsoId("_TYVIIdEwEd-BzquC8wXy7w_-1902144597")]
+    [Description(@"Information that unambiguously identifies a CorporateActionInstruction message as know by the account owner (or the instructing party acting on its behalf).")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of a previously sent cancelled instruction document.
+    /// </summary>
+    [IsoId("_TYVIItEwEd-BzquC8wXy7w_-574060090")]
+    [Description(@"Identification of a previously sent cancelled instruction document.")]
+    [DataMember(Name="CancInstrId")]
+    [XmlElement(ElementName="CancInstrId")]
+    public SomeCancelledInstructionIdentificationRecord? CancelledInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of a previously sent instruction cancellation request document.
+    /// </summary>
+    [IsoId("_TYVII9EwEd-BzquC8wXy7w_-476166358")]
+    [Description(@"Identification of a previously sent instruction cancellation request document.")]
+    [DataMember(Name="InstrCxlReqId")]
+    [XmlElement(ElementName="InstrCxlReqId")]
+    public SomeInstructionCancellationRequestIdentificationRecord? InstructionCancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of other documents as well as the document number.
+    /// </summary>
+    [IsoId("_TYVIJNEwEd-BzquC8wXy7w_-77203008")]
+    [Description(@"Identification of other documents as well as the document number.")]
+    [DataMember(Name="OthrDocId")]
+    [XmlElement(ElementName="OthrDocId")]
+    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.
+    /// </summary>
+    [IsoId("_TYVIJdEwEd-BzquC8wXy7w_729030996")]
+    [Description(@"Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
+    [DataMember(Name="EvtsLkg")]
+    [XmlElement(ElementName="EvtsLkg")]
+    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TYVIJtEwEd-BzquC8wXy7w_219052361")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account, owner and account balance.
+    /// </summary>
+    [IsoId("_TYVIJ9EwEd-BzquC8wXy7w_-1562825819")]
+    [Description(@"General information about the safekeeping account, owner and account balance.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Provides information about the beneficial owner of the securities.
+    /// </summary>
+    [IsoId("_TYe5INEwEd-BzquC8wXy7w_-261520910")]
+    [Description(@"Provides information about the beneficial owner of the securities.")]
+    [DataMember(Name="BnfclOwnrDtls")]
+    [XmlElement(ElementName="BnfclOwnrDtls")]
+    public SomeBeneficialOwnerDetailsRecord? BeneficialOwnerDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action instruction.
+    /// </summary>
+    [IsoId("_TYe5IdEwEd-BzquC8wXy7w_915867212")]
+    [Description(@"Information about the corporate action instruction.")]
+    [DataMember(Name="CorpActnInstr")]
+    [XmlElement(ElementName="CorpActnInstr")]
+    [Required]
+    public required SomeCorporateActionInstructionRecord CorporateActionInstruction { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_TYe5ItEwEd-BzquC8wXy7w_1528163142")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_TYe5I9EwEd-BzquC8wXy7w_1974221462")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_TYe5JNEwEd-BzquC8wXy7w_2033328262")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_TYe5JdEwEd-BzquC8wXy7w_-1991048843")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +161,8 @@ public partial record CorporateActionInstructionV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends the CorporateActionInstruction message to an account servicer to instruct election on a corporate action event.
-/// This message is used to provide the custodian with instructions on how the account owner wishes to proceed with a corporate action event. Instructions include investment decisions regarding the exercise of rights issues, the election of stock or cash when the option is available, and decisions on the conversion or tendering of securities.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="CorporateActionInstructionV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionInstructionV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

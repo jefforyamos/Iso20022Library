@@ -33,7 +33,63 @@ public partial record OrderCancellationStatusReportV03 : IOuterRecord
     public const string XmlTag = "OrdrCxlStsRptV03";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_g9jmutE7Ed-BzquC8wXy7w_-1666125057")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_g9jmu9E7Ed-BzquC8wXy7w_-1949489212")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Reference to a linked message sent in a proprietary way or reference of a system.
+    /// </summary>
+    [IsoId("_g9jmvNE7Ed-BzquC8wXy7w_-1949488875")]
+    [Description(@"Reference to a linked message sent in a proprietary way or reference of a system.")]
+    [DataMember(Name="OthrRef")]
+    [XmlElement(ElementName="OthrRef")]
+    public required IReadonlyCollection<SomeOtherReferenceRecord> OtherReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Status report details of a bulk or multiple or switch order cancellation message.
+    /// </summary>
+    [IsoId("_g9jmvdE7Ed-BzquC8wXy7w_-1949488917")]
+    [Description(@"Status report details of a bulk or multiple or switch order cancellation message.")]
+    [DataMember(Name="CxlStsRpt")]
+    [XmlElement(ElementName="CxlStsRpt")]
+    [Required]
+    public required SomeCancellationStatusReportRecord CancellationStatusReport { get; init; }
+    
+    /// <summary>
+    /// Status report details of one or more individual orders from a bulk or multiple or switch order cancellation request.
+    /// </summary>
+    [IsoId("_g9tXsNE7Ed-BzquC8wXy7w_-358353694")]
+    [Description(@"Status report details of one or more individual orders from a bulk or multiple or switch order cancellation request.")]
+    [DataMember(Name="IndvCxlStsRpt")]
+    [XmlElement(ElementName="IndvCxlStsRpt")]
+    [Required]
+    public required SomeIndividualCancellationStatusReportRecord IndividualCancellationStatusReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_g9tXsdE7Ed-BzquC8wXy7w_819197774")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -46,20 +102,8 @@ public partial record OrderCancellationStatusReportV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a transfer agent, sends the OrderCancellationStatusReport to the instructing party, for example, an investment manager or its authorised representative, to report the status of an order cancellation request that was previously received.
-/// Usage
-/// The OrderCancellationStatusReport message is used to provide the status of:
-/// - one or more individual order cancellation requests by using IndividualCancellationStatusReport, or,
-/// - an order cancellation request message by using CancellationStatusReport.
-/// If the OrderCancellationStatusReport message is used to report the status of an individual order cancellation request, then the repetitive IndividualCancellationStatusReport sequence is used and the order reference of the individual order is quoted in OrderReference. The message identification of the message in which the individual order was conveyed may also be quoted in RelatedReference.
-/// If the OrderCancellationStatusReport message is used to report the status of an entire order cancellation request message, for example, the SubscriptionBulkOrderCancellationRequest, or a SubscriptionOrderCancellationRequest containing several orders, then the CancellationStatusReport sequence. is used and the message identification of the order cancellation request message is quoted in RelatedReference. All the order cancellation requests within the message must have the same status.
-/// One of the following statuses can be reported:
-/// - the order cancellation is pending, or,
-/// - the order cancellation request is rejected, or,
-/// - the order is cancelled.
-/// When the cancellation is rejected, the reason for the rejection must be specified.
-/// This is the outer document that contains <seealso cref="OrderCancellationStatusReportV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderCancellationStatusReportV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

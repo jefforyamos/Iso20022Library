@@ -25,7 +25,83 @@ public partial record TransferInConfirmation : IOuterRecord
     public const string XmlTag = "sese.007.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_JMkTOdE6Ed-BzquC8wXy7w_-169153916")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    [Required]
+    public required SomeRelatedReferenceRecord RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_JMkTOtE6Ed-BzquC8wXy7w_1069651183")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_JMuEMNE6Ed-BzquC8wXy7w_1503454128")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// General information related to the transfer of a financial instrument.
+    /// </summary>
+    [IsoId("_JMuEMdE6Ed-BzquC8wXy7w_-2005768789")]
+    [Description(@"General information related to the transfer of a financial instrument.")]
+    [DataMember(Name="TrfDtls")]
+    [XmlElement(ElementName="TrfDtls")]
+    [Required]
+    public required SomeTransferDetailsRecord TransferDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the financial instrument received.
+    /// </summary>
+    [IsoId("_JMuEMtE6Ed-BzquC8wXy7w_-1652058290")]
+    [Description(@"Information related to the financial instrument received.")]
+    [DataMember(Name="FinInstrmDtls")]
+    [XmlElement(ElementName="FinInstrmDtls")]
+    [Required]
+    public required SomeFinancialInstrumentDetailsRecord FinancialInstrumentDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the account into which the financial instrument was received.
+    /// </summary>
+    [IsoId("_JMuEM9E6Ed-BzquC8wXy7w_1104644640")]
+    [Description(@"Information related to the account into which the financial instrument was received.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the delivering side of the transfer.
+    /// </summary>
+    [IsoId("_JMuENNE6Ed-BzquC8wXy7w_-1058954698")]
+    [Description(@"Information related to the delivering side of the transfer.")]
+    [DataMember(Name="SttlmDtls")]
+    [XmlElement(ElementName="SttlmDtls")]
+    [Required]
+    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_JMuENdE6Ed-BzquC8wXy7w_879395382")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +114,8 @@ public partial record TransferInConfirmation : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// TheTransferInConfirmation message is sent by an executing party to the instructing party or the instructing party's designated agent.
-/// This message is used to confirm the receipt of a financial instrument, free of payment, at a given date, from a specified party. This message can also be used to confirm the transfer a financial instrument from an own account or from a third party.
-/// Usage
-/// TheTransferInConfirmation message is used by an executing party to confirm to the instructing party receipt of a financial instrument, either from another account owned by the instructing party or from a third party.
-/// This is the outer document that contains <seealso cref="TransferInConfirmation"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInConfirmation"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

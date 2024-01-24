@@ -25,7 +25,72 @@ public partial record IntraBalanceMovementPendingReportV01 : IOuterRecord
     public const string XmlTag = "IntraBalMvmntPdgRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the message as known by the account servicer or settlement infrastructure.
+    /// </summary>
+    [IsoId("_DLtLJzncEem7JZMuWtwtsg")]
+    [Description(@"Unambiguous identification of the message as known by the account servicer or settlement infrastructure.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    public SomeIdentificationRecord? Identification { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_DLtLKTncEem7JZMuWtwtsg")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// General characteristics related to the report information.
+    /// </summary>
+    [IsoId("_DLtLKzncEem7JZMuWtwtsg")]
+    [Description(@"General characteristics related to the report information.")]
+    [DataMember(Name="RptGnlDtls")]
+    [XmlElement(ElementName="RptGnlDtls")]
+    [Required]
+    public required SomeReportGeneralDetailsRecord ReportGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a cash entry is made.
+    /// </summary>
+    [IsoId("_DLtLLzncEem7JZMuWtwtsg")]
+    [Description(@"Account to or from which a cash entry is made.")]
+    [DataMember(Name="CshAcct")]
+    [XmlElement(ElementName="CshAcct")]
+    [Required]
+    public required SomeCashAccountRecord CashAccount { get; init; }
+    
+    /// <summary>
+    /// Party that owns the account.
+    /// </summary>
+    [IsoId("_DLtLLTncEem7JZMuWtwtsg")]
+    [Description(@"Party that owns the account.")]
+    [DataMember(Name="CshAcctOwnr")]
+    [XmlElement(ElementName="CshAcctOwnr")]
+    public SomeCashAccountOwnerRecord? CashAccountOwner { get; init; }
+    
+    /// <summary>
+    /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
+    /// </summary>
+    [IsoId("_T4ON8Tp_EemwKdP955WBJQ")]
+    [Description(@"Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.")]
+    [DataMember(Name="CshAcctSvcr")]
+    [XmlElement(ElementName="CshAcctSvcr")]
+    public SomeCashAccountServicerRecord? CashAccountServicer { get; init; }
+    
+    /// <summary>
+    /// Further details on the intrabalance movement transactions.
+    /// </summary>
+    [IsoId("_DLtLMTncEem7JZMuWtwtsg")]
+    [Description(@"Further details on the intrabalance movement transactions.")]
+    [DataMember(Name="Mvmnts")]
+    [XmlElement(ElementName="Mvmnts")]
+    public SomeMovementsRecord? Movements { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +103,8 @@ public partial record IntraBalanceMovementPendingReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// This IntraBalanceMovementPendingReport message is sent from a settlement infrastructure to an account owner/request to report the intra-balance movement instructions, previously sent by the account owner, that have a pending status.
-/// The message may also be used to: 
-/// -	re-send a message sent by the account owner to the account servicer (the sub-function of the message is "Duplicate") 
-/// -	provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy") 
-/// -	- re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy Duplicate").
-/// This is the outer document that contains <seealso cref="IntraBalanceMovementPendingReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementPendingReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

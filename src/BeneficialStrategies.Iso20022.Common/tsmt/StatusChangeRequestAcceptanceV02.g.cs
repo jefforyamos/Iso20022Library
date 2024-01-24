@@ -27,7 +27,45 @@ public partial record StatusChangeRequestAcceptanceV02 : IOuterRecord
     public const string XmlTag = "StsChngReqAccptnc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the acceptance message.
+    /// </summary>
+    [IsoId("_v33NaNE8Ed-BzquC8wXy7w_-1262525650")]
+    [Description(@"Identifies the acceptance message.")]
+    [DataMember(Name="AccptncId")]
+    [XmlElement(ElementName="AccptncId")]
+    [Required]
+    public required SomeAcceptanceIdentificationRecord AcceptanceIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_v33NadE8Ed-BzquC8wXy7w_-1262525622")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_v33NatE8Ed-BzquC8wXy7w_-1262525591")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Specifies the status accepted.
+    /// </summary>
+    [IsoId("_v33Na9E8Ed-BzquC8wXy7w_-1262525560")]
+    [Description(@"Specifies the status accepted.")]
+    [DataMember(Name="AccptdSts")]
+    [XmlElement(ElementName="AccptdSts")]
+    [Required]
+    public required SomeAcceptedStatusRecord AcceptedStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +78,8 @@ public partial record StatusChangeRequestAcceptanceV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusChangeRequestAcceptance message is sent by the party requested to accept or reject the request of a change in the status of a transaction to the matching application.
-/// This message is used to inform about the acceptance of a request to change the status of a transaction.
-/// Usage
-/// The StatusChangeRequestAcceptance message can be sent by the party requested to accept or reject a request to change the status of a transaction to inform that it accepts the request.
-/// The message can be sent in response to a StatusChangeRequestNotification message.
-/// The rejection of a request to change the status of a transaction can be achieved by sending a StatusChangeRequestRejection message.
-/// This is the outer document that contains <seealso cref="StatusChangeRequestAcceptanceV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusChangeRequestAcceptanceV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

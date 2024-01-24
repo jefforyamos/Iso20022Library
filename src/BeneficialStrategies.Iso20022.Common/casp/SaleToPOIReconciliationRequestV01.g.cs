@@ -21,7 +21,35 @@ public partial record SaleToPOIReconciliationRequestV01 : IOuterRecord
     public const string XmlTag = "SaleToPOIRcncltnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_kvajc4YAEemxIqbaFEE8-w")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reconciliation request.
+    /// </summary>
+    [IsoId("_kvajdYYAEemxIqbaFEE8-w")]
+    [Description(@"Information related to the reconciliation request.")]
+    [DataMember(Name="RcncltnReq")]
+    [XmlElement(ElementName="RcncltnReq")]
+    [Required]
+    public required SomeReconciliationRequestRecord ReconciliationRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_kvajd4YAEemxIqbaFEE8-w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIReconciliationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// This message is a Financial request for reconciliation between Sale and POI Systems.
-/// This is the outer document that contains <seealso cref="SaleToPOIReconciliationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIReconciliationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

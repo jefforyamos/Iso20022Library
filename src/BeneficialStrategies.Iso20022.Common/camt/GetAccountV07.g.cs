@@ -37,7 +37,34 @@ public partial record GetAccountV07 : IOuterRecord
     public const string XmlTag = "GetAcct";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_jwlbaRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Defines the account query criteria.
+    /// </summary>
+    [IsoId("_jwlbaxbvEeiyVv5j1vf1VQ")]
+    [Description(@"Defines the account query criteria.")]
+    [DataMember(Name="AcctQryDef")]
+    [XmlElement(ElementName="AcctQryDef")]
+    public SomeAccountQueryDefinitionRecord? AccountQueryDefinition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jwlbbRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -50,24 +77,8 @@ public partial record GetAccountV07 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The GetAccount message is sent by a member to the transaction administrator.
-/// It is used to request information on the details of one or more accounts held at the transaction administrator, including information on the balances.
-/// Usage
-/// At any time during the operating hours of the system, the member can query the transaction administrator to get information about the account(s) that the transaction administrator maintains for the member.
-/// For example, this may be necessary in order to perform the appropriate liquidity management and the funds transfers between accounts.
-/// The member can request information about accounts through a series of criteria, corresponding to the known information stored at the transaction administrator.
-/// The query can concern one or more specific accounts, accounts of a particular identification, or a particular type. The purpose of the query may be to obtain one or more types of balance.
-/// The member can request information based on the following elements:
-/// - account identification
-/// - account type (this element can be used to refine the query when the account identification represents, for example, a group of accounts)
-/// - balance type (if not present, all balances are requested)
-/// - type of counterparty: bilateral or multilateral (note that, by default, a balance is multilateral unless a particular counterparty is specified)
-/// - identification of the counterparty when a bilateral balance is requested
-/// - balance value date (if not present in the GetAccount message, the ReturnAccount message will contain the latest available balance)
-/// This message will be answered by a ReturnAccount message.
-/// Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.
-/// This is the outer document that contains <seealso cref="GetAccountV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetAccountV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

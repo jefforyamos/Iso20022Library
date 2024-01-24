@@ -23,7 +23,43 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
     public const string XmlTag = "ATMDpstCmpltnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_Kc-vQK4OEeWZgJQOa6iKCQ")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_PzcdoK4OEeWZgJQOa6iKCQ")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMDpstCmpltnAdvc")]
+    [XmlElement(ElementName="PrtctdATMDpstCmpltnAdvc")]
+    public SomeProtectedATMDepositCompletionAdviceRecord? ProtectedATMDepositCompletionAdvice { get; init; }
+    
+    /// <summary>
+    /// Information related to the completion of a deposit transaction on the ATM.
+    /// </summary>
+    [IsoId("_SW544K4OEeWZgJQOa6iKCQ")]
+    [Description(@"Information related to the completion of a deposit transaction on the ATM.")]
+    [DataMember(Name="ATMDpstCmpltnAdvc")]
+    [XmlElement(ElementName="ATMDpstCmpltnAdvc")]
+    public SomeATMDepositCompletionAdviceRecord? ATMDepositCompletionAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_Vo7qUK4OEeWZgJQOa6iKCQ")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +72,8 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMDepositCompletionAdvice message is sent by an ATM to an acquirer or its agent to inform of the result of a deposit transaction at an ATM.
-/// If the ATM is configured to only send negative completion, a generic completion message should be used instead of ATMCompletionAdvice.
-/// This message can be used each time a bundle is put in the ATM safe and/or at the end of a multi bundle deposit.
-/// This is the outer document that contains <seealso cref="ATMDepositCompletionAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDepositCompletionAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

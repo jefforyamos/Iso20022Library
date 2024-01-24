@@ -21,7 +21,45 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord
     public const string XmlTag = "BizMsgEnvlp";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// ISO 20022 Business Application Header instance.
+    /// Rule: The external schema must be an official ISO 20022 Business Application Header.
+    /// </summary>
+    [IsoId("_vln_FAJ9Ee2o0-v8T2Svrw")]
+    [Description(@"ISO 20022 Business Application Header instance.|Rule: The external schema must be an official ISO 20022 Business Application Header.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    public SomeHeaderRecord? Header { get; init; }
+    
+    /// <summary>
+    /// ISO 20022 Message Definition instance.
+    /// Rule: The external schema must be an official ISO 20022 Message Definition.
+    /// </summary>
+    [IsoId("_vln_FQJ9Ee2o0-v8T2Svrw")]
+    [Description(@"ISO 20022 Message Definition instance.|Rule: The external schema must be an official ISO 20022 Message Definition.")]
+    [DataMember(Name="Doc")]
+    [XmlElement(ElementName="Doc")]
+    [Required]
+    public required SomeDocumentRecord Document { get; init; }
+    
+    /// <summary>
+    /// Reference related to the delivery of the business message whilst in transit from sending to receiving business application.
+    /// </summary>
+    [IsoId("_vln_FgJ9Ee2o0-v8T2Svrw")]
+    [Description(@"Reference related to the delivery of the business message whilst in transit from sending to receiving business application.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    public SomeReferenceRecord? Reference { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_vln_FwJ9Ee2o0-v8T2Svrw")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +72,8 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord
 }
 
 /// <summary>
-/// The BusinessMessageEnvelope is a technical message container used to bundle a business application header with a message definition, typically to support processing or transport. It may contain and define additional data elements that apply to the message instance container.
-/// This is the outer document that contains <seealso cref="BusinessMessageEnvelopeV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BusinessMessageEnvelopeV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

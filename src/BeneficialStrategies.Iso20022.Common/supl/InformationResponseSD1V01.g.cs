@@ -21,7 +21,46 @@ public partial record InformationResponseSD1V01 : IOuterRecord
     public const string XmlTag = "InfRspnSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information used to identify the request.
+    /// </summary>
+    [IsoId("_hWzaoJirEeO4o528ngEXuw")]
+    [Description(@"Information used to identify the request.")]
+    [DataMember(Name="InvstgtnId")]
+    [XmlElement(ElementName="InvstgtnId")]
+    [Required]
+    public required SomeInvestigationIdentificationRecord InvestigationIdentification { get; init; }
+    
+    /// <summary>
+    /// Date and time of creation of the extension.
+    /// </summary>
+    [IsoId("_pfuCgJirEeO4o528ngEXuw")]
+    [Description(@"Date and time of creation of the extension.")]
+    [DataMember(Name="CreDtTm")]
+    [XmlElement(ElementName="CreDtTm")]
+    [Required]
+    public required SomeCreationDateTimeRecord CreationDateTime { get; init; }
+    
+    /// <summary>
+    /// Identifies the account servicing institution.
+    /// </summary>
+    [IsoId("_oUIuoC_8EeOKib24wnHaFg")]
+    [Description(@"Identifies the account servicing institution.")]
+    [DataMember(Name="AcctSvcrId")]
+    [XmlElement(ElementName="AcctSvcrId")]
+    [Required]
+    public required SomeAccountServicerIdentificationRecord AccountServicerIdentification { get; init; }
+    
+    /// <summary>
+    /// Requested account and its owners.
+    /// </summary>
+    [IsoId("_jqrv4C__EeOKib24wnHaFg")]
+    [Description(@"Requested account and its owners.")]
+    [DataMember(Name="AcctAndPties")]
+    [XmlElement(ElementName="AcctAndPties")]
+    [Required]
+    public required SomeAccountAndPartiesRecord AccountAndParties { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +73,8 @@ public partial record InformationResponseSD1V01 : IOuterRecord
 }
 
 /// <summary>
-/// This extends the message InformationRequestResponse.
-/// This is the outer document that contains <seealso cref="InformationResponseSD1V01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationResponseSD1V01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

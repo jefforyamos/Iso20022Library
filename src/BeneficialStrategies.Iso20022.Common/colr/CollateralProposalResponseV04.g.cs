@@ -25,7 +25,45 @@ public partial record CollateralProposalResponseV04 : IOuterRecord
     public const string XmlTag = "CollPrpslRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_fkI0o4FrEeWtPe6Crjmeug")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
+    /// </summary>
+    [IsoId("_fkI0pYFrEeWtPe6Crjmeug")]
+    [Description(@"Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.")]
+    [DataMember(Name="Oblgtn")]
+    [XmlElement(ElementName="Oblgtn")]
+    [Required]
+    public required SomeObligationRecord Obligation { get; init; }
+    
+    /// <summary>
+    /// Details the response to the collateral which has been proposed for the margin call. The proposed collateral can be accepted or rejected.
+    /// </summary>
+    [IsoId("_fkI0p4FrEeWtPe6Crjmeug")]
+    [Description(@"Details the response to the collateral which has been proposed for the margin call. The proposed collateral can be accepted or rejected.|")]
+    [DataMember(Name="PrpslRspn")]
+    [XmlElement(ElementName="PrpslRspn")]
+    [Required]
+    public required SomeProposalResponseRecord ProposalResponse { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_fkI0qYFrEeWtPe6Crjmeug")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +76,8 @@ public partial record CollateralProposalResponseV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CollateralProposalResponse message is sent by the collateral taker or its collateral manager to the collateral giver or its collateral manager to either accept or reject the collateral which has been proposed for the margin call. This message applies to both initial and counter proposals. If the collateral proposal is rejected then a new collateral proposal must be made.
-/// The message definition is intended for use with the ISO20022 Business Application Header.
-/// Usage
-/// The CollateralProposalResponse message can be sent in response to a previously received CollateralProposal message in order to accept or reject the collateral that has been proposed to cover the margin call.
-/// This is the outer document that contains <seealso cref="CollateralProposalResponseV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralProposalResponseV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

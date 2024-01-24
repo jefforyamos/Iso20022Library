@@ -30,7 +30,86 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCAElctnStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the status advice.
+    /// </summary>
+    [IsoId("_TNct0dEwEd-BzquC8wXy7w_790316963")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the status advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Election Advice for which a status is given.
+    /// </summary>
+    [IsoId("_TNct0tEwEd-BzquC8wXy7w_530213864")]
+    [Description(@"Identification of the linked Agent CA Election Advice for which a status is given.")]
+    [DataMember(Name="AgtCAElctnAdvcId")]
+    [XmlElement(ElementName="AgtCAElctnAdvcId")]
+    [Required]
+    public required SomeAgentCAElectionAdviceIdentificationRecord AgentCAElectionAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Election Cancellation Request for which a status is given.
+    /// </summary>
+    [IsoId("_TNct09EwEd-BzquC8wXy7w_532984396")]
+    [Description(@"Identification of the linked Agent CA Election Cancellation Request for which a status is given.")]
+    [DataMember(Name="AgtCAElctnCxlReqId")]
+    [XmlElement(ElementName="AgtCAElctnCxlReqId")]
+    [Required]
+    public required SomeAgentCAElectionCancellationRequestIdentificationRecord AgentCAElectionCancellationRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the linked Agent CA Election Amendment Request for which a status is given.
+    /// </summary>
+    [IsoId("_TNct1NEwEd-BzquC8wXy7w_-2098719707")]
+    [Description(@"Identification of the linked Agent CA Election Amendment Request for which a status is given.")]
+    [DataMember(Name="AgtCAElctnAmdmntReqId")]
+    [XmlElement(ElementName="AgtCAElctnAmdmntReqId")]
+    [Required]
+    public required SomeAgentCAElectionAmendmentRequestIdentificationRecord AgentCAElectionAmendmentRequestIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TNct1dEwEd-BzquC8wXy7w_276354236")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Status of the election advice sent by the CSD.
+    /// </summary>
+    [IsoId("_TNct1tEwEd-BzquC8wXy7w_995320668")]
+    [Description(@"Status of the election advice sent by the CSD.")]
+    [DataMember(Name="ElctnAdvcSts")]
+    [XmlElement(ElementName="ElctnAdvcSts")]
+    [Required]
+    public required SomeElectionAdviceStatusRecord ElectionAdviceStatus { get; init; }
+    
+    /// <summary>
+    /// Status of the election cancellation request sent by the CSD.
+    /// </summary>
+    [IsoId("_TNct19EwEd-BzquC8wXy7w_1701814671")]
+    [Description(@"Status of the election cancellation request sent by the CSD.")]
+    [DataMember(Name="ElctnCxlReqSts")]
+    [XmlElement(ElementName="ElctnCxlReqSts")]
+    [Required]
+    public required SomeElectionCancellationRequestStatusRecord ElectionCancellationRequestStatus { get; init; }
+    
+    /// <summary>
+    /// Status of the amendment request sent by the CSD.
+    /// </summary>
+    [IsoId("_TNme0NEwEd-BzquC8wXy7w_-2039764418")]
+    [Description(@"Status of the amendment request sent by the CSD.")]
+    [DataMember(Name="ElctnAmdmntReqSts")]
+    [XmlElement(ElementName="ElctnAmdmntReqSts")]
+    [Required]
+    public required SomeElectionAmendmentRequestStatusRecord ElectionAmendmentRequestStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +122,8 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by an issuer (or its agent) to the CSD to report the status, or a change in status, of:
-/// - a corporate action election advice;
-/// - an election cancellation request; or
-/// - an election amendment request.
-/// Usage
-/// This message must be sent in response to an:
-/// - Agent Corporation Action Election Advice to provide the status of an election advice in the case of a rejection. However, it may also be used in all other situations, in which case, the building blocks Election Advice Identification and the Election Advice Status must be present.
-/// - Agent Corporation Action Election Cancellation Request to provide the status of the cancellation request, in which case, the building blocks Election Cancellation Request Identification and the Election Cancellation Request Status must be present.
-/// - Agent Corporation Action Election Amendment Request to provide the status of the amendment request, in which case, the building blocks Election Amendment Request Identification and the Election Amendment Request Status must be present.
-/// This is the outer document that contains <seealso cref="AgentCAElectionStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -30,7 +30,35 @@ public partial record MandateAmendmentRequestV03 : IOuterRecord
     public const string XmlTag = "MndtAmdmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the amendment of the mandate, but which are not part of the mandate.
+    /// </summary>
+    [IsoId("_8IsScyGmEeKjd4jizyIDGA")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the amendment of the mandate, but which are not part of the mandate.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to provide details on the amendment request.
+    /// </summary>
+    [IsoId("_8IsSdyGmEeKjd4jizyIDGA")]
+    [Description(@"Set of elements used to provide details on the amendment request.")]
+    [DataMember(Name="UndrlygAmdmntDtls")]
+    [XmlElement(ElementName="UndrlygAmdmntDtls")]
+    [Required]
+    public required SomeUnderlyingAmendmentDetailsRecord UnderlyingAmendmentDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_8IsSeyGmEeKjd4jizyIDGA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +71,8 @@ public partial record MandateAmendmentRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MandateAmendmentRequest message is sent by the initiator of the request to his agent and/or counterparty. The initiator can both be the debtor or the creditor (or where appropriate the debtor agent).
-/// The MandateAmendmentRequest message is forwarded by the agent of the initiator to the agent of the counterparty.
-/// A MandateAmendmentRequest message is used to request the amendment of specific information in an existing mandate. The MandateAmendmentRequest message must reflect the new data of the element(s) to be amended and at a minimum a unique reference to the existing mandate. If accepted, this MandateAmendmentRequest message together with the MandateAcceptanceReport message confirming the acceptance will be considered as a valid amendment on an existing mandate, agreed upon by all parties. The amended mandate will from then on be considered the valid mandate.
-/// Usage
-/// The MandateAmendmentRequest message can contain one or more request(s) to amend a specific mandate.
-/// The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.
-/// The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.
-/// The MandateAmendmentRequest message can be used in domestic and cross-border scenarios.
-/// If all elements in the existing Mandate need to be amended or the underlying contract is different, then the MandateAmendmentRequest message should not be used. The existing Mandate has to be cancelled and a new Mandate has to be initiated.
-/// This is the outer document that contains <seealso cref="MandateAmendmentRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateAmendmentRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

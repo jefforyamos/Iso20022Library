@@ -25,7 +25,36 @@ public partial record AgentCADistributionBreakdownAdviceV01 : IOuterRecord
     public const string XmlTag = "AgtCADstrbtnBrkdwnAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the advice.
+    /// </summary>
+    [IsoId("_TMj9D9EwEd-BzquC8wXy7w_-123045337")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the advice.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TMj9ENEwEd-BzquC8wXy7w_1139796912")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides information about the CA option and the entitlements.
+    /// </summary>
+    [IsoId("_TMtG8NEwEd-BzquC8wXy7w_1455640472")]
+    [Description(@"Provides information about the CA option and the entitlements.")]
+    [DataMember(Name="CorpActnDstrbtnDtls")]
+    [XmlElement(ElementName="CorpActnDstrbtnDtls")]
+    [Required]
+    public required SomeCorporateActionDistributionDetailsRecord CorporateActionDistributionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +67,8 @@ public partial record AgentCADistributionBreakdownAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to an issuer (or its agent) to provide distribution breakdown information for the proceeds that are to be delivered outside the CSD (e.g. when the proceeds are not eligible in the CSD).
-/// Usage
-/// This message is used to provide distribution breakdown information (securities and/or cash) per account for a specific corporate action option.
-/// Note: the delivery details are sent through the Agent Corporate Action Information Advice.
-/// This is the outer document that contains <seealso cref="AgentCADistributionBreakdownAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCADistributionBreakdownAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

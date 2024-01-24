@@ -25,7 +25,54 @@ public partial record PriceReportCorrectionV03 : IOuterRecord
     public const string XmlTag = "PricRptCrrctnV03";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_ZtBO0NEvEd-BzquC8wXy7w_1796163719")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_ZtKYsNEvEd-BzquC8wXy7w_133617453")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_ZtKYsdEvEd-BzquC8wXy7w_144699623")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_ZtKYstEvEd-BzquC8wXy7w_-1002757457")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// Information related to the correction of a price of a financial instrument.
+    /// </summary>
+    [IsoId("_ZtKYs9EvEd-BzquC8wXy7w_1468107589")]
+    [Description(@"Information related to the correction of a price of a financial instrument.")]
+    [DataMember(Name="PricCrrctnDtls")]
+    [XmlElement(ElementName="PricCrrctnDtls")]
+    [Required]
+    public required SomePriceCorrectionDetailsRecord PriceCorrectionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +85,8 @@ public partial record PriceReportCorrectionV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// A report provider, eg, a transfer agent, fund accountant or market data provider, sends the PriceReportCorrection message to the report recipient, eg, a fund management company, transfer agent, market data provider, regulator or any other interested party to correct at least one of the prices for a financial instrument that was reported in a previously sent PriceReport message.
-/// Usage
-/// The PriceReportCorrection message is used to correct information reported in a previously sent PriceReport.
-/// If an entire PriceReport message must be corrected, eg, due to an incorrect trade date, it is recommended that a PriceReportCancellation message is used to cancel the entire PriceReport message and a new PriceReport sent.
-/// This is the outer document that contains <seealso cref="PriceReportCorrectionV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportCorrectionV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

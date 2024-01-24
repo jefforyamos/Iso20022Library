@@ -21,7 +21,15 @@ public partial record DTCCCAISSD1V01 : IOuterRecord
     public const string XmlTag = "DTCCCAISSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as supplementary data to security quantity details. Provides information about securities quantity linked to a corporate action option.
+    /// </summary>
+    [IsoId("_fNpxwZYREeaME6y1kTGR7Q")]
+    [Description(@"Information to be extended as supplementary data to security quantity details. Provides information about securities quantity linked to a corporate action option.")]
+    [DataMember(Name="SctiesQtyDtls")]
+    [XmlElement(ElementName="SctiesQtyDtls")]
+    public SomeSecuritiesQuantityDetailsRecord? SecuritiesQuantityDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +42,8 @@ public partial record DTCCCAISSD1V01 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAISSD1 message extends ISO Corporate Action Instruction Status Advice message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAISSD1V01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAISSD1V01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

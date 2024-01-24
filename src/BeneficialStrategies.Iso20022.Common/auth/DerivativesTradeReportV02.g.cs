@@ -21,7 +21,35 @@ public partial record DerivativesTradeReportV02 : IOuterRecord
     public const string XmlTag = "DerivsTradRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Header information related to metadata of report message.
+    /// </summary>
+    [IsoId("_6ULEkng8Eeu3kecHd7QKUQ")]
+    [Description(@"Header information related to metadata of report message.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Data concerning the reporting trade.
+    /// </summary>
+    [IsoId("_6ULElHg8Eeu3kecHd7QKUQ")]
+    [Description(@"Data concerning the reporting trade.")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_6ULElng8Eeu3kecHd7QKUQ")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record DerivativesTradeReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// The DerivativesTradeReport is sent by the reporting entities to provide transaction data to the trade repositories (TRs) or by the trade repositories (TRs) to the competent authorities.
-/// This is the outer document that contains <seealso cref="DerivativesTradeReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

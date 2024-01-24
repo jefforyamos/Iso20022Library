@@ -22,7 +22,35 @@ public partial record InvoiceTaxReportStatusAdviceV01 : IOuterRecord
     public const string XmlTag = "InvcTaxRptStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides the status on the InvoiceTaxReport.
+    /// </summary>
+    [IsoId("_uitmYE53Eeaine-lsNAGsA")]
+    [Description(@"Provides the status on the InvoiceTaxReport.")]
+    [DataMember(Name="StsRptHdr")]
+    [XmlElement(ElementName="StsRptHdr")]
+    [Required]
+    public required SomeStatusReportHeaderRecord StatusReportHeader { get; init; }
+    
+    /// <summary>
+    /// Provides the status on an individual transaction and the related reason if required.
+    /// </summary>
+    [IsoId("_PM8n8E54Eeaine-lsNAGsA")]
+    [Description(@"Provides the status on an individual transaction and the related reason if required.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    public SomeTransactionStatusRecord? TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific
+    /// block.
+    /// </summary>
+    [IsoId("_XlusIE2ZEea-HpmqkM55Lg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific|block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +63,8 @@ public partial record InvoiceTaxReportStatusAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The InvoiceTaxReportStatusAdvice message is sent by the matching application to the party from which it received a message.
-/// This message is used to acknowledge the InvoiceTaxReport message.
-/// This is the outer document that contains <seealso cref="InvoiceTaxReportStatusAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceTaxReportStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

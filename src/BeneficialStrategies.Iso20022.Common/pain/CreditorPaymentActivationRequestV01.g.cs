@@ -23,7 +23,26 @@ public partial record CreditorPaymentActivationRequestV01 : IOuterRecord
     public const string XmlTag = "CdtrPmtActvtnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_GWSDltEvEd-BzquC8wXy7w_668976179")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of characteristics that applies to the debit side of the payment transactions included in the creditor payment initiation.
+    /// </summary>
+    [IsoId("_GWSDl9EvEd-BzquC8wXy7w_1980087289")]
+    [Description(@"Set of characteristics that applies to the debit side of the payment transactions included in the creditor payment initiation.")]
+    [DataMember(Name="PmtInf")]
+    [XmlElement(ElementName="PmtInf")]
+    [Required]
+    public required SomePaymentInformationRecord PaymentInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +55,8 @@ public partial record CreditorPaymentActivationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by the Creditor sending party to the Debtor receiving party, directly or through agents.
-/// It is used to initiate a creditor payment activation request.
-/// This is the outer document that contains <seealso cref="CreditorPaymentActivationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreditorPaymentActivationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

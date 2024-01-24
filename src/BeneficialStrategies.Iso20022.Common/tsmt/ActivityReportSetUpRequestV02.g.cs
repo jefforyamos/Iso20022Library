@@ -25,7 +25,26 @@ public partial record ActivityReportSetUpRequestV02 : IOuterRecord
     public const string XmlTag = "ActvtyRptSetUpReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the request message.
+    /// </summary>
+    [IsoId("_ihSN2dE8Ed-BzquC8wXy7w_-1378853229")]
+    [Description(@"Identifies the request message.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the parameters to calculate the local reporting time.
+    /// </summary>
+    [IsoId("_ihSN2tE8Ed-BzquC8wXy7w_-1378852898")]
+    [Description(@"Specifies the parameters to calculate the local reporting time.")]
+    [DataMember(Name="UTCOffset")]
+    [XmlElement(ElementName="UTCOffset")]
+    [Required]
+    public required SomeUTCOffsetRecord UTCOffset { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +57,8 @@ public partial record ActivityReportSetUpRequestV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ActivityReportSetUpRequest message is sent by any party involved in a transaction to the matching application.
-/// The ActivityReportSetUpRequest message can be sent to request the reset of the pre-determined time at which the daily production of the activity report should take place.
-/// Usage
-/// This message is sent to the matching application by a bank, in order to set the UTC offset specifying the hour when the matching application will generate every day an activity report covering the last 24 hours and send it. By default, this offset is equal to 0.
-/// This is the outer document that contains <seealso cref="ActivityReportSetUpRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ActivityReportSetUpRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,34 @@ public partial record CollateralValueQueryV01 : IOuterRecord
     public const string XmlTag = "CollValQry";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of elements to identify the collateral value query message.
+    /// </summary>
+    [IsoId("_5SjM-TooEemaN9GkhmGkfg")]
+    [Description(@"Set of elements to identify the collateral value query message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Definition of the collateral query.
+    /// </summary>
+    [IsoId("_5SjM-zooEemaN9GkhmGkfg")]
+    [Description(@"Definition of the collateral query.")]
+    [DataMember(Name="CollValQryDef")]
+    [XmlElement(ElementName="CollValQryDef")]
+    public SomeCollateralValueQueryDefinitionRecord? CollateralValueQueryDefinition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_5SjM_TooEemaN9GkhmGkfg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record CollateralValueQueryV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CollateralValueQuery message is sent by a system member (such as a directly connected party) to the system transaction administrator to query the current available value of securities for auto collateralisation for one specific or several cash accounts.
-/// This is the outer document that contains <seealso cref="CollateralValueQueryV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralValueQueryV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

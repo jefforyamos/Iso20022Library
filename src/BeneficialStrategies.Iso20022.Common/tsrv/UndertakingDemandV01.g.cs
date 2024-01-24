@@ -21,7 +21,34 @@ public partial record UndertakingDemandV01 : IOuterRecord
     public const string XmlTag = "UdrtkgDmnd";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the demand.
+    /// </summary>
+    [IsoId("_9hDVQ3ltEeG7BsjMvd1mEw_-612873100")]
+    [Description(@"Details of the demand.")]
+    [DataMember(Name="UdrtkgDmndDtls")]
+    [XmlElement(ElementName="UdrtkgDmndDtls")]
+    [Required]
+    public required SomeUndertakingDemandDetailsRecord UndertakingDemandDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information specific to the bank-to-bank communication.
+    /// </summary>
+    [IsoId("_AIs9UBVIEeKVqNjC36CBuQ")]
+    [Description(@"Additional information specific to the bank-to-bank communication.")]
+    [DataMember(Name="BkToBkInf")]
+    [XmlElement(ElementName="BkToBkInf")]
+    public required IReadonlyCollection<SomeBankToBankInformationRecord> BankToBankInformation { get; init; } // Min=0, Max=5
+    
+    /// <summary>
+    /// Digital signature of the demand.
+    /// </summary>
+    [IsoId("_9hDVRHltEeG7BsjMvd1mEw_-415271236")]
+    [Description(@"Digital signature of the demand.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record UndertakingDemandV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingDemand message and other required documents are sent by the beneficiary to the party that issued the undertaking, either directly or via a presenting or nominated party. It is a demand for payment and may include a request to extend the undertaking expiry date. The demand itself must be contained in an enclosed file within the message or must be specified as narrative text within the message. It may contain other required documents in addition to the demand.
-/// This is the outer document that contains <seealso cref="UndertakingDemandV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingDemandV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

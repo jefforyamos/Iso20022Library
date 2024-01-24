@@ -31,7 +31,90 @@ public partial record BaselineAmendmentRequestV03 : IOuterRecord
     public const string XmlTag = "BaselnAmdmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the request message.
+    /// </summary>
+    [IsoId("_lGO219E8Ed-BzquC8wXy7w_-1621087155")]
+    [Description(@"Identifies the request message.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
+    /// </summary>
+    [IsoId("_lGO22NE8Ed-BzquC8wXy7w_-1621087078")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_lGO22dE8Ed-BzquC8wXy7w_-1621087120")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Specifies the commercial details of the underlying transaction.
+    /// </summary>
+    [IsoId("_lGO22tE8Ed-BzquC8wXy7w_-1621087174")]
+    [Description(@"Specifies the commercial details of the underlying transaction.")]
+    [DataMember(Name="Baseln")]
+    [XmlElement(ElementName="Baseln")]
+    [Required]
+    public required SomeBaselineRecord Baseline { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the organisation of the buyer.
+    /// </summary>
+    [IsoId("_lGO229E8Ed-BzquC8wXy7w_-1724579248")]
+    [Description(@"Person to be contacted in the organisation of the buyer.")]
+    [DataMember(Name="BuyrCtctPrsn")]
+    [XmlElement(ElementName="BuyrCtctPrsn")]
+    public SomeBuyerContactPersonRecord? BuyerContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the organisation of the seller.
+    /// </summary>
+    [IsoId("_lGYn0NE8Ed-BzquC8wXy7w_-1282211094")]
+    [Description(@"Person to be contacted in the organisation of the seller.")]
+    [DataMember(Name="SellrCtctPrsn")]
+    [XmlElement(ElementName="SellrCtctPrsn")]
+    public SomeSellerContactPersonRecord? SellerContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the buyer's bank.
+    /// </summary>
+    [IsoId("_lGYn0dE8Ed-BzquC8wXy7w_-1166771083")]
+    [Description(@"Person to be contacted in the buyer's bank.")]
+    [DataMember(Name="BuyrBkCtctPrsn")]
+    [XmlElement(ElementName="BuyrBkCtctPrsn")]
+    public SomeBuyerBankContactPersonRecord? BuyerBankContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in the seller's bank.
+    /// </summary>
+    [IsoId("_lGYn0tE8Ed-BzquC8wXy7w_-825993983")]
+    [Description(@"Person to be contacted in the seller's bank.")]
+    [DataMember(Name="SellrBkCtctPrsn")]
+    [XmlElement(ElementName="SellrBkCtctPrsn")]
+    public SomeSellerBankContactPersonRecord? SellerBankContactPerson { get; init; }
+    
+    /// <summary>
+    /// Person to be contacted in another bank than the seller or buyer's bank.
+    /// </summary>
+    [IsoId("_lGYn09E8Ed-BzquC8wXy7w_-491678031")]
+    [Description(@"Person to be contacted in another bank than the seller or buyer's bank.")]
+    [DataMember(Name="OthrBkCtctPrsn")]
+    [XmlElement(ElementName="OthrBkCtctPrsn")]
+    public SomeOtherBankContactPersonRecord? OtherBankContactPerson { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +127,8 @@ public partial record BaselineAmendmentRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The BaselineAmendmentRequest message is sent by a primary party involved in a transaction to the matching application.
-/// The message is used to request the amendment of an established baseline.
-/// Usage
-/// The BaselineAmendmentRequest message may only be sent if the transaction is in the state Established or Active.
-/// The BaselineAmendmentRequest message can be sent to the matching application by one of the primary parties involved in a transaction established in the push-through mode to request the amendment of an established baseline.
-/// The matching application acknowledges the receipt of the amendment request by sending a DeltaReport message to the submitter of the BaselineAmendmentRequest message. It passes on the newly proposed baseline to the counterparty by sending a FullPushThroughReport message, a DeltaReport message and a pre-calculated BaselineReport message.
-/// The counterparty is expected to either accept or reject the amendment request by submitting an AmendmentAcceptance or AmendmentRejection message.
-/// or
-/// The BaselineAmendmentRequest message can be sent by the party involved in a transaction established in the lodge mode to the matching application to amend an established baseline.
-/// The matching application amends the baseline according to the BaselineAmendmentRequest message and confirms the execution of the request by sending a DeltaReport and calculated BaselineReport message to the requester of the amendment.
-/// This is the outer document that contains <seealso cref="BaselineAmendmentRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BaselineAmendmentRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

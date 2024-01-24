@@ -35,7 +35,90 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
     public const string XmlTag = "semt.003.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_MXEzftFSEd-BzquC8wXy7w_1496951408")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_MXOkcNFSEd-BzquC8wXy7w_1583764706")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Pagination of the message.
+    /// </summary>
+    [IsoId("_MXOkcdFSEd-BzquC8wXy7w_604083927")]
+    [Description(@"Pagination of the message.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    [Required]
+    public required SomeMessagePaginationRecord MessagePagination { get; init; }
+    
+    /// <summary>
+    /// General information related to the accounting statement of holdings.
+    /// </summary>
+    [IsoId("_MXOkctFSEd-BzquC8wXy7w_2129954320")]
+    [Description(@"General information related to the accounting statement of holdings.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// The safekeeping or investment account.
+    /// </summary>
+    [IsoId("_MXOkc9FSEd-BzquC8wXy7w_1943011592")]
+    [Description(@"The safekeeping or investment account.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
+    /// </summary>
+    [IsoId("_MXOkdNFSEd-BzquC8wXy7w_-1564192387")]
+    [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
+    [DataMember(Name="BalForAcct")]
+    [XmlElement(ElementName="BalForAcct")]
+    public SomeBalanceForAccountRecord? BalanceForAccount { get; init; }
+    
+    /// <summary>
+    /// The sub-account of the safekeeping or investment account.
+    /// </summary>
+    [IsoId("_MXOkddFSEd-BzquC8wXy7w_-1553108612")]
+    [Description(@"The sub-account of the safekeeping or investment account.")]
+    [DataMember(Name="SubAcctDtls")]
+    [XmlElement(ElementName="SubAcctDtls")]
+    public SomeSubAccountDetailsRecord? SubAccountDetails { get; init; }
+    
+    /// <summary>
+    /// Value of total holdings reported.
+    /// </summary>
+    [IsoId("_MXOkdtFSEd-BzquC8wXy7w_-2016983772")]
+    [Description(@"Value of total holdings reported.")]
+    [DataMember(Name="TtlVals")]
+    [XmlElement(ElementName="TtlVals")]
+    public SomeTotalValuesRecord? TotalValues { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_MXOkd9FSEd-BzquC8wXy7w_-34086064")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -48,22 +131,8 @@ public partial record AccountingStatementOfHoldings : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AccountingStatementOfHoldings message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a local agent acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.
-/// This message provides, at a specified moment in time, valuations of the portfolio together with details of each financial instrument holding.
-/// The information in the message can be audited or un-audited.
-/// Usage
-/// The AccountingStatementOfHoldings message can be sent:
-/// - At a frequency agreed bi-laterally between the Sender and the Receiver
-/// - As a response to a request for statement sent by the account owner. The request for statement message will be developed at a later stage.
-/// This message can only be used to list the holdings of a single (master) account. However, it is possible to break down these holdings into one or several sub-accounts. Therefore, the message can be used to either specify holdings at
-/// - the main account level, or
-/// - the sub-account level.
-/// This message can be used to report where the securities are safe-kept, physically or notionally. If a security is held in more than one safekeeping place, this can also be indicated.
-/// The AccountingStatementOfHoldings message must not be used to reconcile the books of the account owner and the account servicer. The CustodyStatementOfHoldings message is used for reconciliation purposes.
-/// The AccountingStatementOfHoldings message must not be used for trading purposes.
-/// Since a SWIFT message as sent is restricted to the maximum input message length, several messages may be needed to accommodate all the information.
-/// This is the outer document that contains <seealso cref="AccountingStatementOfHoldings"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountingStatementOfHoldings"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

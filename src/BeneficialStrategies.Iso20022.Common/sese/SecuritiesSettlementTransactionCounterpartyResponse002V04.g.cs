@@ -35,7 +35,44 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponse002V04 
     public const string XmlTag = "SctiesSttlmTxCtrPtyRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides unambiguous transaction identification information.
+    /// </summary>
+    [IsoId("_d-BTizi8Eeydid5dcNPKvg")]
+    [Description(@"Provides unambiguous transaction identification information.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides the response status related to an allegement or a counterparty's instruction.
+    /// </summary>
+    [IsoId("_d-BTjTi8Eeydid5dcNPKvg")]
+    [Description(@"Provides the response status related to an allegement or a counterparty's instruction.")]
+    [DataMember(Name="RspnSts")]
+    [XmlElement(ElementName="RspnSts")]
+    [Required]
+    public required SomeResponseStatusRecord ResponseStatus { get; init; }
+    
+    /// <summary>
+    /// Identifies the details of the transaction.
+    /// </summary>
+    [IsoId("_d-BTjzi8Eeydid5dcNPKvg")]
+    [Description(@"Identifies the details of the transaction.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_d-BTkTi8Eeydid5dcNPKvg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -48,22 +85,8 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponse002V04 
 }
 
 /// <summary>
-/// Scope
-/// An account owner sends a SecuritiesSettlementTransactionCounterpartyResponse to advise the account servicer that:
-/// - the allegement received is either rejected (that is counterparty's transaction is unknown) or accepted (i.e. either the allegement was passed to the client or the transaction is know with or without mismatches)
-/// - the modification or cancellation request sent by the counterparty for a matched transaction is affirmed or not. The account servicer will therefore proceed or not with the counterparty's request to modify or cancel the transaction.
-/// The account servicer may be a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// The account owner may be:
-/// - a central securities depository participant which has an account with a central securities depository or a market infrastructure
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message sent by the account owner to the account servicer,
-/// - provide a third party with a copy of a message being sent by the account owner for information,
-/// - re-send to a third party a copy of a message being sent by the account owner for information
-/// using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionCounterpartyResponse002V04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionCounterpartyResponse002V04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

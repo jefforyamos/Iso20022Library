@@ -30,7 +30,53 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord
     public const string XmlTag = "RvslOfTrfInConf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_9cSsvfpbEeCPwaG9zjUPNQ")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.
+    /// </summary>
+    [IsoId("_tbZjH_r3EeCJc7cZxzE2fg")]
+    [Description(@"Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Reference of the transfer in confirmation to be reversed.
+    /// </summary>
+    [IsoId("_9cSszfpbEeCPwaG9zjUPNQ")]
+    [Description(@"Reference of the transfer in confirmation to be reversed.")]
+    [DataMember(Name="RvslByRef")]
+    [XmlElement(ElementName="RvslByRef")]
+    public SomeReversalByReferenceRecord? ReversalByReference { get; init; }
+    
+    /// <summary>
+    /// Copy of the transfer in confirmation to reverse.
+    /// </summary>
+    [IsoId("_9cSs0fpbEeCPwaG9zjUPNQ")]
+    [Description(@"Copy of the transfer in confirmation to reverse.")]
+    [DataMember(Name="RvslByTrfInConfDtls")]
+    [XmlElement(ElementName="RvslByTrfInConfDtls")]
+    public SomeReversalByTransferInConfirmationDetailsRecord? ReversalByTransferInConfirmationDetails { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_9cSs1fpbEeCPwaG9zjUPNQ")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +89,8 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, for example, a transfer agent, sends the ReversalOfTransferInConfirmation message to the instructing party, for example, an investment manager or its authorised representative, to cancel a previously sent TransferInConfirmation message.
-/// Usage
-/// The ReversalOfTransferInConfirmation message is used to reverse a previously sent TransferInConfirmation.
-/// There are two ways to specify the reversal of the transfer in confirmation. Either:
-/// - the business references, for example, TransferReference, TransferConfirmationIdentification, of the transfer confirmation are quoted, or,
-/// - all the details of the transfer confirmation (this includes TransferReference and TransferConfirmationIdentification) are quoted but this is not recommended.
-/// The message identification of the TransferInConfirmation message in which the transfer confirmation was conveyed may also be quoted in PreviousReference.
-/// The message reference (MessageIdentification) of the TransferInInstruction message in which the transfer instruction was conveyed may also be quoted in RelatedReference.
-/// It is also possible to request a reversal of a TransferInConfirmation by quoting its message reference (MessageIdentification) in PreviousReference.
-/// This is the outer document that contains <seealso cref="ReversalOfTransferInConfirmationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalOfTransferInConfirmationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

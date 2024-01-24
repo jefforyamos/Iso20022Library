@@ -30,7 +30,84 @@ public partial record MeetingInstructionStatusV08 : IOuterRecord
     public const string XmlTag = "MtgInstrSts";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Type of instruction.
+    /// </summary>
+    [IsoId("_lKgScRrdEeyhRdHRjakS2w")]
+    [Description(@"Type of instruction.")]
+    [DataMember(Name="InstrTp")]
+    [XmlElement(ElementName="InstrTp")]
+    [Required]
+    public required SomeInstructionTypeRecord InstructionType { get; init; }
+    
+    /// <summary>
+    /// Set of elements to allow the unambiguous identification of a meeting.
+    /// </summary>
+    [IsoId("_lKgScxrdEeyhRdHRjakS2w")]
+    [Description(@"Set of elements to allow the unambiguous identification of a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    [Required]
+    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Security for which the meeting is organised.
+    /// </summary>
+    [IsoId("_lKgSdRrdEeyhRdHRjakS2w")]
+    [Description(@"Security for which the meeting is organised.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    [Required]
+    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Type of instruction status.
+    /// </summary>
+    [IsoId("_lKgSdxrdEeyhRdHRjakS2w")]
+    [Description(@"Type of instruction status.")]
+    [DataMember(Name="InstrTpSts")]
+    [XmlElement(ElementName="InstrTpSts")]
+    [Required]
+    public required SomeInstructionTypeStatusRecord InstructionTypeStatus { get; init; }
+    
+    /// <summary>
+    /// Party that confirms the receipt of the vote cast.
+    /// </summary>
+    [IsoId("_lKgSeRrdEeyhRdHRjakS2w")]
+    [Description(@"Party that confirms the receipt of the vote cast.")]
+    [DataMember(Name="CnfrmgPty")]
+    [XmlElement(ElementName="CnfrmgPty")]
+    [Required]
+    public required SomeConfirmingPartyRecord ConfirmingParty { get; init; }
+    
+    /// <summary>
+    /// Party that cast the voting ballot.
+    /// </summary>
+    [IsoId("_lKgSexrdEeyhRdHRjakS2w")]
+    [Description(@"Party that cast the voting ballot.")]
+    [DataMember(Name="VoteCstgPty")]
+    [XmlElement(ElementName="VoteCstgPty")]
+    [Required]
+    public required SomeVoteCastingPartyRecord VoteCastingParty { get; init; }
+    
+    /// <summary>
+    /// Owner of the voting rights.
+    /// </summary>
+    [IsoId("_lKgSfRrdEeyhRdHRjakS2w")]
+    [Description(@"Owner of the voting rights.")]
+    [DataMember(Name="RghtsHldr")]
+    [XmlElement(ElementName="RghtsHldr")]
+    public required IReadonlyCollection<SomeRightsHolderRecord> RightsHolder { get; init; } // Min=0, Max=250
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_lKgSfxrdEeyhRdHRjakS2w")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +120,8 @@ public partial record MeetingInstructionStatusV08 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MeetingInstructionStatus message is sent by an intermediary to the sender of an instruction to confirm the status of such an instruction. The message gives the status of a complete message or of one or more specific instructions within the message.
-/// The message may also be sent by the issuer or the intermediary to confirm that a vote has been cast.
-/// Usage
-/// The MeetingInstructionStatus message is used for four purposes.
-/// First, it is used to provide a global processing or rejection status of a MeetingInstruction message.
-/// Second, it provides the status on the processing of a MeetingInstructionCancellationRequest message, for example, whether the request message is rejected or accepted.
-/// Third, it is used to provide a detailed processing or rejection status of one or more instructions within the MeetingInstruction message, for example, for each instruction in the MeetingInstruction message the processing or rejection status is individually reported by using the SingleInstructionIdentification element. This identification allows the receiver of the status message to link the status confirmation to its original instruction.
-/// Fourth, it is used to confirm that the related vote instruction has been confirmed as cast by the issuer or its agent.
-/// This message definition is intended for use with the Business Application Header (BAH).
-/// This is the outer document that contains <seealso cref="MeetingInstructionStatusV08"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionStatusV08"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

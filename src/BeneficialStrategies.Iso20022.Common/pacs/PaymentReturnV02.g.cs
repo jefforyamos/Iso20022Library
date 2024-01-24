@@ -28,7 +28,34 @@ public partial record PaymentReturnV02 : IOuterRecord
     public const string XmlTag = "PmtRtr";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_eqhgANEuEd-BzquC8wXy7w_-993933711")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original group of transactions, to which the message refers.
+    /// </summary>
+    [IsoId("_eqhgAdEuEd-BzquC8wXy7w_-993933370")]
+    [Description(@"Information concerning the original group of transactions, to which the message refers.")]
+    [DataMember(Name="OrgnlGrpInf")]
+    [XmlElement(ElementName="OrgnlGrpInf")]
+    public SomeOriginalGroupInformationRecord? OriginalGroupInformation { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original transactions, to which the return message refers.
+    /// </summary>
+    [IsoId("_eqhgAtEuEd-BzquC8wXy7w_-993933649")]
+    [Description(@"Information concerning the original transactions, to which the return message refers.")]
+    [DataMember(Name="TxInf")]
+    [XmlElement(ElementName="TxInf")]
+    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +68,8 @@ public partial record PaymentReturnV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The PaymentReturn message is sent by an agent to the previous agent in the payment chain to undo a payment previously settled.
-/// Usage
-/// The PaymentReturn message is exchanged between agents to return funds after settlement of credit transfer instructions (i.e. FIToFICustomerCreditTransfer message and FinancialInstitutionCreditTransfer message) or direct debit instructions (FIToFICustomerDirectDebit message).
-/// The PaymentReturn message should not be used between agents and non-financial institution customers. Non-financial institution customers will be informed about a debit or a credit on their account(s) through a BankToCustomerDebitCreditNotification message ('notification') and/or BankToCustomerAccountReport/BankToCustomerStatement message ('statement').
-/// The PaymentReturn message can be used to return single instructions or multiple instructions from one or different files.
-/// The PaymentReturn message can be used in domestic and cross-border scenarios.
-/// The PaymentReturn message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.
-/// This is the outer document that contains <seealso cref="PaymentReturnV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentReturnV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

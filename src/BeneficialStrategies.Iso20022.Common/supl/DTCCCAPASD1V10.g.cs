@@ -21,7 +21,69 @@ public partial record DTCCCAPASD1V10 : IOuterRecord
     public const string XmlTag = "DTCCCAPASD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action general information.
+    /// </summary>
+    [IsoId("_Vk6qczDmEey2N-DB7H7A5A")]
+    [Description(@"Information to be extended as supplementary data to corporate action general information.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    public SomeCorporateActionGeneralInformationRecord? CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to underlying security details.
+    /// </summary>
+    [IsoId("_Vk6qezDmEey2N-DB7H7A5A")]
+    [Description(@"Information to be extended as supplementary data to underlying security details.")]
+    [DataMember(Name="UndrlygScty")]
+    [XmlElement(ElementName="UndrlygScty")]
+    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action balance details.
+    /// </summary>
+    [IsoId("_Vk6qfTDmEey2N-DB7H7A5A")]
+    [Description(@"Information to be extended as supplementary data to corporate action balance details.")]
+    [DataMember(Name="CorpActnBalDtls")]
+    [XmlElement(ElementName="CorpActnBalDtls")]
+    public SomeCorporateActionBalanceDetailsRecord? CorporateActionBalanceDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action details.
+    /// </summary>
+    [IsoId("_Vk6qfzDmEey2N-DB7H7A5A")]
+    [Description(@"Information to be extended as supplementary data to corporate action details.")]
+    [DataMember(Name="CorpActnDtls")]
+    [XmlElement(ElementName="CorpActnDtls")]
+    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action movement securities movement details.
+    /// </summary>
+    [IsoId("_Vk6qgTDmEey2N-DB7H7A5A")]
+    [Description(@"Information to be extended as supplementary data to corporate action movement securities movement details.")]
+    [DataMember(Name="CorpActnMvmntSctiesMvmntDtls")]
+    [XmlElement(ElementName="CorpActnMvmntSctiesMvmntDtls")]
+    public SomeCorporateActionMovementSecuritiesMovementDetailsRecord? CorporateActionMovementSecuritiesMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action movement cash movement details.
+    /// </summary>
+    [IsoId("_Vk6qiTDmEey2N-DB7H7A5A")]
+    [Description(@"Information to be extended as supplementary data to corporate action movement cash movement details.")]
+    [DataMember(Name="CorpActnMvmntCshMvmntDtls")]
+    [XmlElement(ElementName="CorpActnMvmntCshMvmntDtls")]
+    public SomeCorporateActionMovementCashMovementDetailsRecord? CorporateActionMovementCashMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action option details.
+    /// </summary>
+    [IsoId("_Vk6qkTDmEey2N-DB7H7A5A")]
+    [Description(@"Information to be extended as supplementary data to corporate action option details.")]
+    [DataMember(Name="OptnTxDtls")]
+    [XmlElement(ElementName="OptnTxDtls")]
+    public SomeOptionTransactionDetailsRecord? OptionTransactionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +96,8 @@ public partial record DTCCCAPASD1V10 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAPASD1 message extends ISO corporate action movement preliminary advice message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAPASD1V10"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAPASD1V10"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,35 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01 : IOut
     public const string XmlTag = "MnyMktFXSwpsSttstclRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides the elements specific to the report.
+    /// </summary>
+    [IsoId("_wXy2M52SEeW_58xcYxhewg")]
+    [Description(@"Provides the elements specific to the report.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Provides the reason why no activity is reported or the required list of transactions for the foreign exchange swaps segment.
+    /// </summary>
+    [IsoId("_wXy2NZ2SEeW_58xcYxhewg")]
+    [Description(@"Provides the reason why no activity is reported or the required list of transactions for the foreign exchange swaps segment.")]
+    [DataMember(Name="FXSwpsRpt")]
+    [XmlElement(ElementName="FXSwpsRpt")]
+    [Required]
+    public required SomeForeignExchangeSwapsReportRecord ForeignExchangeSwapsReport { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_wXy2N52SEeW_58xcYxhewg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01 : IOut
 }
 
 /// <summary>
-/// The MoneyMarketSecuredMarketStatisticalReport message is sent by the reporting agents to the relevant competent authority, to report all daily Foreign Exchange Swaps (FX Swaps) transactions.
-/// This is the outer document that contains <seealso cref="MoneyMarketForeignExchangeSwapsStatisticalReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketForeignExchangeSwapsStatisticalReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

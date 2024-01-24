@@ -21,7 +21,42 @@ public partial record DTCCCAINSD1V03 : IOuterRecord
     public const string XmlTag = "DTCCCAINSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Optional Dividend service election.
+    /// </summary>
+    [IsoId("_I7uejZCEEeaSk9d1hvTrHg")]
+    [Description(@"DTC (The Depository Trust Corporation) Optional Dividend service election.")]
+    [DataMember(Name="OptnlDvdd")]
+    [XmlElement(ElementName="OptnlDvdd")]
+    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Tax Exempt service election.
+    /// </summary>
+    [IsoId("_I7uelZCEEeaSk9d1hvTrHg")]
+    [Description(@"DTC (The Depository Trust Corporation) Tax Exempt service election.")]
+    [DataMember(Name="TaxXmpt")]
+    [XmlElement(ElementName="TaxXmpt")]
+    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.
+    /// </summary>
+    [IsoId("_I7uenZCEEeaSk9d1hvTrHg")]
+    [Description(@"DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.")]
+    [DataMember(Name="WireInstr")]
+    [XmlElement(ElementName="WireInstr")]
+    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to security quantity details. Provides information about securities quantity linked to a corporate action option.
+    /// </summary>
+    [IsoId("_tHrSEJYQEeaME6y1kTGR7Q")]
+    [Description(@"Information to be extended as supplementary data to security quantity details. Provides information about securities quantity linked to a corporate action option.")]
+    [DataMember(Name="SctiesQtyDtls")]
+    [XmlElement(ElementName="SctiesQtyDtls")]
+    public SomeSecuritiesQuantityDetailsRecord? SecuritiesQuantityDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +69,8 @@ public partial record DTCCCAINSD1V03 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAINSD1 message extends ISO corporate action instruction message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAINSD1V03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAINSD1V03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

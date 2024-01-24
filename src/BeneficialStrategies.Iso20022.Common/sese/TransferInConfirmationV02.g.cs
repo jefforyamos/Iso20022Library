@@ -26,7 +26,101 @@ public partial record TransferInConfirmationV02 : IOuterRecord
     public const string XmlTag = "TrfInConfV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_JuZN49E6Ed-BzquC8wXy7w_872070214")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_JuZN5NE6Ed-BzquC8wXy7w_13197035")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_JuZN5dE6Ed-BzquC8wXy7w_13197000")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_JuZN5tE6Ed-BzquC8wXy7w_13197077")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// General information related to the transfer of a financial instrument.
+    /// </summary>
+    [IsoId("_JuZN59E6Ed-BzquC8wXy7w_13196663")]
+    [Description(@"General information related to the transfer of a financial instrument.")]
+    [DataMember(Name="TrfDtls")]
+    [XmlElement(ElementName="TrfDtls")]
+    [Required]
+    public required SomeTransferDetailsRecord TransferDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the financial instrument received.
+    /// </summary>
+    [IsoId("_JuZN6NE6Ed-BzquC8wXy7w_13196688")]
+    [Description(@"Information related to the financial instrument received.")]
+    [DataMember(Name="FinInstrmDtls")]
+    [XmlElement(ElementName="FinInstrmDtls")]
+    [Required]
+    public required SomeFinancialInstrumentDetailsRecord FinancialInstrumentDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the account into which the financial instrument was received.
+    /// </summary>
+    [IsoId("_Jui-4NE6Ed-BzquC8wXy7w_13196940")]
+    [Description(@"Information related to the account into which the financial instrument was received.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Information related to the delivering side of the transfer.
+    /// </summary>
+    [IsoId("_Jui-4dE6Ed-BzquC8wXy7w_13196975")]
+    [Description(@"Information related to the delivering side of the transfer.")]
+    [DataMember(Name="SttlmDtls")]
+    [XmlElement(ElementName="SttlmDtls")]
+    [Required]
+    public required SomeSettlementDetailsRecord SettlementDetails { get; init; }
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_Jui-4tE6Ed-BzquC8wXy7w_104786759")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Jui-49E6Ed-BzquC8wXy7w_13197112")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +133,8 @@ public partial record TransferInConfirmationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, eg, a transfer agent, sends the TransferInConfirmation message to the instructing party, eg, an investment manager or its authorised representative, to confirm the receipt of a financial instrument, free of payment, on a given date, from a specified party.
-/// This message may also be used to confirm the receipt of a financial instrument, free of payment, from another of the instructing parties own accounts or from a third party.
-/// Usage
-/// The TransferInConfirmation message is used to confirm receipt of a financial instrument, either from another account owned by the instructing party or from a third party. The reference of the transfer confirmation is identified in TransferConfirmationReference.
-/// The reference of the original transfer instruction is specified in TransferReference. The message identification of the TransferInInstruction message in which the transfer instruction was conveyed may also be quoted in RelatedReference.
-/// This is the outer document that contains <seealso cref="TransferInConfirmationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInConfirmationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -22,7 +22,45 @@ public partial record RequestToPayCreditorEnrolmentRequestV01 : IOuterRecord
     public const string XmlTag = "ReqToPayCdtrEnrlmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the creditor enrolment request.
+    /// </summary>
+    [IsoId("_rNNBp-HzEeqbls7Gk4-ckA")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the creditor enrolment request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Specific attributes of the creditor and service enrolment provided by the creditor for its enrolment.
+    /// </summary>
+    [IsoId("_rNNBqeHzEeqbls7Gk4-ckA")]
+    [Description(@"Specific attributes of the creditor and service enrolment provided by the creditor for its enrolment.")]
+    [DataMember(Name="CdtrEnrlmnt")]
+    [XmlElement(ElementName="CdtrEnrlmnt")]
+    [Required]
+    public required SomeCreditorEnrolmentRecord CreditorEnrolment { get; init; }
+    
+    /// <summary>
+    /// Specific attributes requested from the debtor for its activation as specified by the creditor in the creditor enrolment request.
+    /// </summary>
+    [IsoId("_rNNBq-HzEeqbls7Gk4-ckA")]
+    [Description(@"Specific attributes requested from the debtor for its activation as specified by the creditor in the creditor enrolment request.")]
+    [DataMember(Name="ActvtnData")]
+    [XmlElement(ElementName="ActvtnData")]
+    [Required]
+    public required SomeActivationDataRecord ActivationData { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rNNBreHzEeqbls7Gk4-ckA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +73,8 @@ public partial record RequestToPayCreditorEnrolmentRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The RequestToPayCreditorEnrolmentRequest message is sent by the creditor RTP (Request To Pay) provider to an RTP directory provider and optionally by the creditor to a creditor RTP provider to request the creditor registration in the RTP directory. 
-/// The message may also be forwarded to any authorised third party, as defined in the local scheme.
-/// This is the outer document that contains <seealso cref="RequestToPayCreditorEnrolmentRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayCreditorEnrolmentRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

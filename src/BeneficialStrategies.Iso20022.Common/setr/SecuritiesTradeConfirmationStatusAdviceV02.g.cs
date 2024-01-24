@@ -27,7 +27,125 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
     public const string XmlTag = "SctiesTradConfStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies an SecuritiesTradeConfirmationStatusAdvice message as known by the account owner (or the instructing party acting on its behalf).
+    /// </summary>
+    [IsoId("_V_jSRTAjEeOUGqA1wUwNLA")]
+    [Description(@"Information that unambiguously identifies an SecuritiesTradeConfirmationStatusAdvice message as known by the account owner (or the instructing party acting on its behalf).")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Link to another transaction that must be processed after, before or at the same time.
+    /// </summary>
+    [IsoId("_V_jSRzAjEeOUGqA1wUwNLA")]
+    [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    [Required]
+    public required SomeReferencesRecord References { get; init; }
+    
+    /// <summary>
+    /// Provides details on the affitrmation status of a trade.
+    /// </summary>
+    [IsoId("_V_jSSTAjEeOUGqA1wUwNLA")]
+    [Description(@"Provides details on the affitrmation status of a trade.")]
+    [DataMember(Name="AffirmSts")]
+    [XmlElement(ElementName="AffirmSts")]
+    public SomeAffirmationStatusRecord? AffirmationStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the processing status of a trade.
+    /// </summary>
+    [IsoId("_V_jSSzAjEeOUGqA1wUwNLA")]
+    [Description(@"Provides the processing status of a trade.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    public SomeProcessingStatusRecord? ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides details on the matching status of a trade.
+    /// </summary>
+    [IsoId("_V_jSTTAjEeOUGqA1wUwNLA")]
+    [Description(@"Provides details on the matching status of a trade.")]
+    [DataMember(Name="MtchgSts")]
+    [XmlElement(ElementName="MtchgSts")]
+    public SomeMatchingStatusRecord? MatchingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the replacement processing status of a trade.
+    /// </summary>
+    [IsoId("_V_jSTzAjEeOUGqA1wUwNLA")]
+    [Description(@"Provides the replacement processing status of a trade.")]
+    [DataMember(Name="RplcmntPrcgSts")]
+    [XmlElement(ElementName="RplcmntPrcgSts")]
+    public SomeReplacementProcessingStatusRecord? ReplacementProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides details on the cancellation status of a trade.
+    /// </summary>
+    [IsoId("_V_jSUTAjEeOUGqA1wUwNLA")]
+    [Description(@"Provides details on the cancellation status of a trade.")]
+    [DataMember(Name="CxlPrcgSts")]
+    [XmlElement(ElementName="CxlPrcgSts")]
+    public SomeCancellationProcessingStatusRecord? CancellationProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Details of the trading party.
+    /// </summary>
+    [IsoId("_V_jSUzAjEeOUGqA1wUwNLA")]
+    [Description(@"Details of the trading party.")]
+    [DataMember(Name="PtyTradgDtls")]
+    [XmlElement(ElementName="PtyTradgDtls")]
+    public SomePartyTradingDetailsRecord? PartyTradingDetails { get; init; }
+    
+    /// <summary>
+    /// Details of the trading counterparty.
+    /// </summary>
+    [IsoId("_V_jSVTAjEeOUGqA1wUwNLA")]
+    [Description(@"Details of the trading counterparty.")]
+    [DataMember(Name="CtrPtyTradgDtls")]
+    [XmlElement(ElementName="CtrPtyTradgDtls")]
+    public SomeCounterpartyTradingDetailsRecord? CounterpartyTradingDetails { get; init; }
+    
+    /// <summary>
+    /// Parties used for acting parties that applies either to the whole message or to individual sides.
+    /// </summary>
+    [IsoId("_V_jSVzAjEeOUGqA1wUwNLA")]
+    [Description(@"Parties used for acting parties that applies either to the whole message or to individual sides.")]
+    [DataMember(Name="ConfPties")]
+    [XmlElement(ElementName="ConfPties")]
+    public SomeConfirmationPartiesRecord? ConfirmationParties { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of delivering settlement parties.
+    /// </summary>
+    [IsoId("_V_jSWTAjEeOUGqA1wUwNLA")]
+    [Description(@"Identifies the chain of delivering settlement parties.")]
+    [DataMember(Name="DlvrgSttlmPties")]
+    [XmlElement(ElementName="DlvrgSttlmPties")]
+    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of receiving settlement parties.
+    /// </summary>
+    [IsoId("_V_jSWzAjEeOUGqA1wUwNLA")]
+    [Description(@"Identifies the chain of receiving settlement parties.")]
+    [DataMember(Name="RcvgSttlmPties")]
+    [XmlElement(ElementName="RcvgSttlmPties")]
+    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_V_jSXTAjEeOUGqA1wUwNLA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +158,8 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent from Central Matching Utility (CMU) to an executing party or an instructing party to advise the status of the SecuritiesTradeConfirmation message previously sent by the party. The status may be a processing, pending processing, affirmed or disaffirmed, cancel or replacement by an instructing party, a custodian or an affirming party, internal matching, and/or matching status.
-/// The instructing party is typically the investment manager or an intermediary system/vendor communicating on behalf of the investment manager or of other categories of investors. The executing party is typically the broker/dealer or an intermediary system/vendor communicating on behalf of the broker/dealer.
-/// The ISO 20022 Business Application Header must be used
-/// Usage
-/// Initiator: In central matching the Initiator is the Central Matching Utility.
-/// Respondent: no response is needed by the recipient of the message.
-/// This is the outer document that contains <seealso cref="SecuritiesTradeConfirmationStatusAdviceV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTradeConfirmationStatusAdviceV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

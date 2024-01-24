@@ -32,7 +32,79 @@ public partial record SecuritiesSettlementTransactionStatusAdvice002V11 : IOuter
     public const string XmlTag = "SctiesSttlmTxStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides unambiguous transaction identification information.
+    /// </summary>
+    [IsoId("_qTGPgSAdEeuyDZ-ukt4YRg")]
+    [Description(@"Provides unambiguous transaction identification information.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Link to another transaction - provided for information only.
+    /// </summary>
+    [IsoId("_qTGPgyAdEeuyDZ-ukt4YRg")]
+    [Description(@"Link to another transaction - provided for information only.")]
+    [DataMember(Name="Lnkgs")]
+    [XmlElement(ElementName="Lnkgs")]
+    public SomeLinkagesRecord? Linkages { get; init; }
+    
+    /// <summary>
+    /// Provides details on the processing status of the transaction.
+    /// </summary>
+    [IsoId("_qTGPhSAdEeuyDZ-ukt4YRg")]
+    [Description(@"Provides details on the processing status of the transaction.")]
+    [DataMember(Name="PrcgSts")]
+    [XmlElement(ElementName="PrcgSts")]
+    public SomeProcessingStatusRecord? ProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
+    /// </summary>
+    [IsoId("_qTGPhyAdEeuyDZ-ukt4YRg")]
+    [Description(@"Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).")]
+    [DataMember(Name="IfrrdMtchgSts")]
+    [XmlElement(ElementName="IfrrdMtchgSts")]
+    public SomeInferredMatchingStatusRecord? InferredMatchingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the matching status of the instruction.
+    /// </summary>
+    [IsoId("_qTGPiSAdEeuyDZ-ukt4YRg")]
+    [Description(@"Provides the matching status of the instruction.")]
+    [DataMember(Name="MtchgSts")]
+    [XmlElement(ElementName="MtchgSts")]
+    public SomeMatchingStatusRecord? MatchingStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the status of settlement of a transaction.
+    /// </summary>
+    [IsoId("_qTGPiyAdEeuyDZ-ukt4YRg")]
+    [Description(@"Provides the status of settlement of a transaction.")]
+    [DataMember(Name="SttlmSts")]
+    [XmlElement(ElementName="SttlmSts")]
+    public SomeSettlementStatusRecord? SettlementStatus { get; init; }
+    
+    /// <summary>
+    /// Identifies the details of the transaction.
+    /// </summary>
+    [IsoId("_qTGPjSAdEeuyDZ-ukt4YRg")]
+    [Description(@"Identifies the details of the transaction.")]
+    [DataMember(Name="TxDtls")]
+    [XmlElement(ElementName="TxDtls")]
+    public SomeTransactionDetailsRecord? TransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_qTGPjyAdEeuyDZ-ukt4YRg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -45,19 +117,8 @@ public partial record SecuritiesSettlementTransactionStatusAdvice002V11 : IOuter
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends a SecuritiesSettlementTransactionStatusAdvice to an account owner to advise the status of a securities settlement transaction instruction previously sent by the account owner or the status of a settlement transaction existing in the books of the servicer for the account of the owner. The status may be a processing, pending processing, internal matching, matching and/or settlement status.
-/// The status advice may be sent as a response to the request of the account owner or not.
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent,
-/// - provide a third party with a copy of a message for information,
-/// - re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionStatusAdvice002V11"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionStatusAdvice002V11"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -26,7 +26,71 @@ public partial record SubscriptionBulkOrderV03 : IOuterRecord
     public const string XmlTag = "SbcptBlkOrdrV03";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_0KwbZtE7Ed-BzquC8wXy7w_-626209666")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_0KwbZ9E7Ed-BzquC8wXy7w_-744186367")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_0KwbaNE7Ed-BzquC8wXy7w_-742336956")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// General information related to the order.
+    /// </summary>
+    [IsoId("_0K6MYNE7Ed-BzquC8wXy7w_355525371")]
+    [Description(@"General information related to the order.")]
+    [DataMember(Name="BlkOrdrDtls")]
+    [XmlElement(ElementName="BlkOrdrDtls")]
+    [Required]
+    public required SomeBulkOrderDetailsRecord BulkOrderDetails { get; init; }
+    
+    /// <summary>
+    /// Information about parties related to the transaction.
+    /// </summary>
+    [IsoId("_0K6MYdE7Ed-BzquC8wXy7w_2033171159")]
+    [Description(@"Information about parties related to the transaction.")]
+    [DataMember(Name="RltdPtyDtls")]
+    [XmlElement(ElementName="RltdPtyDtls")]
+    public required IReadonlyCollection<SomeRelatedPartyDetailsRecord> RelatedPartyDetails { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information provided when the message is a copy of a previous message.
+    /// </summary>
+    [IsoId("_0K6MYtE7Ed-BzquC8wXy7w_2035019425")]
+    [Description(@"Information provided when the message is a copy of a previous message.")]
+    [DataMember(Name="CpyDtls")]
+    [XmlElement(ElementName="CpyDtls")]
+    public SomeCopyDetailsRecord? CopyDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_0K6MY9E7Ed-BzquC8wXy7w_2036865617")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +103,8 @@ public partial record SubscriptionBulkOrderV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, for example, an investment manager or its authorised representative sends the SubscriptionBulkOrder message to the executing party, for example, a transfer agent, to instruct a subscription to a financial instrument for two or more accounts.
-/// Usage
-/// The SubscriptionBulkOrder message is used to bulk several individual orders into one bulk order. The individual orders come from different instructing parties, that is, account owners, but are related to the same financial instrument. This message will typically be used by a party collecting orders and bulking these individual orders into one bulk order before sending it to another party.
-/// For a single subscription order, the SubscriptionOrder message, not the SubscriptionBulkOrder message, must be used.
-/// If there are subscription orders for different financial instruments but for the same account, then the SubscriptionOrder must be used.
-/// This is the outer document that contains <seealso cref="SubscriptionBulkOrderV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionBulkOrderV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

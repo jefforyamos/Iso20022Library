@@ -21,7 +21,15 @@ public partial record DTCCCAISSD1V03 : IOuterRecord
     public const string XmlTag = "DTCCCAISSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Supplementary data extending corporate action reorganisation instruction status message with corporate action elements not covered in the standard message.
+    /// </summary>
+    [IsoId("_b_h_YeaHEei5aPS232E3Mw")]
+    [Description(@"Supplementary data extending corporate action reorganisation instruction status message with corporate action elements not covered in the standard message.")]
+    [DataMember(Name="ReorgInstrDtls")]
+    [XmlElement(ElementName="ReorgInstrDtls")]
+    public SomeReorganisationInstructionDetailsRecord? ReorganisationInstructionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +42,8 @@ public partial record DTCCCAISSD1V03 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAISSD1 message extends ISO Corporate Action Instruction Status Advice message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAISSD1V03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAISSD1V03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

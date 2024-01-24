@@ -23,7 +23,44 @@ public partial record CurrencyControlStatusAdviceV03 : IOuterRecord
     public const string XmlTag = "CcyCtrlStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Characteristics shared by all individual items included in the message.
+    /// </summary>
+    [IsoId("_Nz8awR3pEeuiRvbpCaJe6A")]
+    [Description(@"Characteristics shared by all individual items included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Provides the group status for the global message.
+    /// </summary>
+    [IsoId("_Nz8awx3pEeuiRvbpCaJe6A")]
+    [Description(@"Provides the group status for the global message.")]
+    [DataMember(Name="GrpSts")]
+    [XmlElement(ElementName="GrpSts")]
+    [Required]
+    public required SomeGroupStatusRecord GroupStatus { get; init; }
+    
+    /// <summary>
+    /// Provides the status of the package in the message, which may contain the individual records.
+    /// </summary>
+    [IsoId("_Nz8axR3pEeuiRvbpCaJe6A")]
+    [Description(@"Provides the status of the package in the message, which may contain the individual records.")]
+    [DataMember(Name="PackgSts")]
+    [XmlElement(ElementName="PackgSts")]
+    public SomePackageStatusRecord? PackageStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Nz8axx3pEeuiRvbpCaJe6A")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +73,8 @@ public partial record CurrencyControlStatusAdviceV03 : IOuterRecord
 }
 
 /// <summary>
-/// The CurrencyControlStatusAdvice message is sent by either the reporting party (respectively the registration agent) or the registration agent (respectively the reporting party) to provide a status advice on a previously sent currency control message.
-/// Usage: 
-/// The message may be sent in response to requests on the registration of the currency control contract, supporting document or on the payment regulatory information notification.
-/// This is the outer document that contains <seealso cref="CurrencyControlStatusAdviceV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CurrencyControlStatusAdviceV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

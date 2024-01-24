@@ -21,7 +21,60 @@ public partial record DTCCCAINSD1V01 : IOuterRecord
     public const string XmlTag = "DTCCCAINSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Optional Dividend service election.
+    /// </summary>
+    [IsoId("_1Mz5ETL3EeKU9IrkkToqcw_-868730910")]
+    [Description(@"DTC (The Depository Trust Corporation) Optional Dividend service election.")]
+    [DataMember(Name="OptnlDvdd")]
+    [XmlElement(ElementName="OptnlDvdd")]
+    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Tax Exempt service election.
+    /// </summary>
+    [IsoId("_1Mz5EjL3EeKU9IrkkToqcw_1039926111")]
+    [Description(@"DTC (The Depository Trust Corporation) Tax Exempt service election.")]
+    [DataMember(Name="TaxXmpt")]
+    [XmlElement(ElementName="TaxXmpt")]
+    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.
+    /// </summary>
+    [IsoId("_1Mz5EzL3EeKU9IrkkToqcw_-2087888194")]
+    [Description(@"DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.")]
+    [DataMember(Name="WireInstr")]
+    [XmlElement(ElementName="WireInstr")]
+    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Tax Relief service election.
+    /// </summary>
+    [IsoId("_1Mz5FDL3EeKU9IrkkToqcw_-1885590787")]
+    [Description(@"DTC (The Depository Trust Corporation) Tax Relief service election.")]
+    [DataMember(Name="DTCTaxRlf")]
+    [XmlElement(ElementName="DTCTaxRlf")]
+    public SomeDTCTaxReliefRecord? DTCTaxRelief { get; init; }
+    
+    /// <summary>
+    /// U.S. Tax Withholding elections.
+    /// </summary>
+    [IsoId("_1Mz5FTL3EeKU9IrkkToqcw_-63987189")]
+    [Description(@"U.S. Tax Withholding elections.")]
+    [DataMember(Name="USTaxWhldg")]
+    [XmlElement(ElementName="USTaxWhldg")]
+    public SomeUSTaxWithholdingRecord? USTaxWithholding { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) Cash In Lieu service election.
+    /// </summary>
+    [IsoId("_1Mz5FjL3EeKU9IrkkToqcw_1321235420")]
+    [Description(@"DTC (The Depository Trust Corporation) Cash In Lieu service election.")]
+    [DataMember(Name="CshInLieu")]
+    [XmlElement(ElementName="CshInLieu")]
+    public SomeCashInLieuRecord? CashInLieu { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +87,8 @@ public partial record DTCCCAINSD1V01 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAINSD1 message extends ISO corporate action instruction message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAINSD1V01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAINSD1V01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

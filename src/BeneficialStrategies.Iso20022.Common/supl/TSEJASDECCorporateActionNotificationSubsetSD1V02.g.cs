@@ -21,7 +21,168 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     public const string XmlTag = "TSEJASDECCorpActnNtfctnSubsetSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Extension to an identification of a security by proprietary or domestic identification scheme.
+    /// </summary>
+    [IsoId("_oznsyV_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to an identification of a security by proprietary or domestic identification scheme.")]
+    [DataMember(Name="OthrId")]
+    [XmlElement(ElementName="OthrId")]
+    public SomeOtherIdentificationRecord? OtherIdentification { get; init; }
+    
+    /// <summary>
+    /// Extension to provide additional information about rates and amounts related to a corporate action option.
+    /// </summary>
+    [IsoId("_oznszV_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide additional information about rates and amounts related to a corporate action option.")]
+    [DataMember(Name="RateAndAmtDtls")]
+    [XmlElement(ElementName="RateAndAmtDtls")]
+    public SomeRateAndAmountDetailsRecord? RateAndAmountDetails { get; init; }
+    
+    /// <summary>
+    /// Extension to provide more information for the underlying security.
+    /// </summary>
+    [IsoId("_ozns0V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide more information for the underlying security.")]
+    [DataMember(Name="UndrlygScty")]
+    [XmlElement(ElementName="UndrlygScty")]
+    public SomeUnderlyingSecurityRecord? UnderlyingSecurity { get; init; }
+    
+    /// <summary>
+    /// Extension to provide information about the securities quantity linked to a corporate action.
+    /// </summary>
+    [IsoId("_ozns1V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide information about the securities quantity linked to a corporate action.")]
+    [DataMember(Name="SctiesQty")]
+    [XmlElement(ElementName="SctiesQty")]
+    public SomeSecuritiesQuantityRecord? SecuritiesQuantity { get; init; }
+    
+    /// <summary>
+    /// Extension to specify additional information related to the type of dividend.
+    /// </summary>
+    [IsoId("_ozns2V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to specify additional information related to the type of dividend.")]
+    [DataMember(Name="DvddTp")]
+    [XmlElement(ElementName="DvddTp")]
+    public SomeDividendTypeRecord? DividendType { get; init; }
+    
+    /// <summary>
+    /// Extension to provide additional corporate action details information.
+    /// </summary>
+    [IsoId("_ozns3V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide additional corporate action details information.")]
+    [DataMember(Name="CorpActnDtls")]
+    [XmlElement(ElementName="CorpActnDtls")]
+    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    
+    /// <summary>
+    /// Extension to provide information about the entity making the offer (when it is different from the issuing company).
+    /// </summary>
+    [IsoId("_6-_agGCTEeK8P92abE6HIA")]
+    [Description(@"Extension to provide information about the entity making the offer (when it is different from the issuing company).")]
+    [DataMember(Name="Offerr")]
+    [XmlElement(ElementName="Offerr")]
+    public SomeOfferorRecord? Offeror { get; init; }
+    
+    /// <summary>
+    /// Extension to capture the new to old ratio with higher precision.
+    /// </summary>
+    [IsoId("_ozns4V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to capture the new to old ratio with higher precision.")]
+    [DataMember(Name="RateDtls")]
+    [XmlElement(ElementName="RateDtls")]
+    public SomeRateDetailsRecord? RateDetails { get; init; }
+    
+    /// <summary>
+    /// Extension for the stage in the corporate action event life cycle.
+    /// </summary>
+    [IsoId("_ozns5V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension for the stage in the corporate action event life cycle.")]
+    [DataMember(Name="EvtStag")]
+    [XmlElement(ElementName="EvtStag")]
+    public SomeEventStageRecord? EventStage { get; init; }
+    
+    /// <summary>
+    /// Extension for the features that may apply to a corporate action option.
+    /// </summary>
+    [IsoId("_ozns6V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension for the features that may apply to a corporate action option.")]
+    [DataMember(Name="OptnFeatrs")]
+    [XmlElement(ElementName="OptnFeatrs")]
+    public SomeOptionFeaturesRecord? OptionFeatures { get; init; }
+    
+    /// <summary>
+    /// Extension to provide information on additional corporate action dates.
+    /// </summary>
+    [IsoId("_ozns7V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide information on additional corporate action dates.")]
+    [DataMember(Name="DtDtls")]
+    [XmlElement(ElementName="DtDtls")]
+    public SomeDateDetailsRecord? DateDetails { get; init; }
+    
+    /// <summary>
+    /// Extension to provide breakdown details as used by custody banks for tax processing and asset valuation.
+    /// </summary>
+    [IsoId("_ozns8V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide breakdown details as used by custody banks for tax processing and asset valuation.")]
+    [DataMember(Name="GrssDvddRate")]
+    [XmlElement(ElementName="GrssDvddRate")]
+    public SomeGrossDividendRateRecord? GrossDividendRate { get; init; }
+    
+    /// <summary>
+    /// Extension to provide information about the dates related to securities movement.
+    /// </summary>
+    [IsoId("_ozns9V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide information about the dates related to securities movement.")]
+    [DataMember(Name="SctiesMvmntDtDtls")]
+    [XmlElement(ElementName="SctiesMvmntDtDtls")]
+    public SomeSecuritiesMovementDateDetailsRecord? SecuritiesMovementDateDetails { get; init; }
+    
+    /// <summary>
+    /// Extension to provide extra parameters of the securities of the counterparties in a merger or exchange offer.
+    /// </summary>
+    [IsoId("_ozns-V_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide extra parameters of the securities of the counterparties in a merger or exchange offer.")]
+    [DataMember(Name="SctiesMvmntDtls")]
+    [XmlElement(ElementName="SctiesMvmntDtls")]
+    public SomeSecuritiesMovementDetailsRecord? SecuritiesMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Extension to provide the new name of a company following a name change.
+    /// </summary>
+    [IsoId("_ozntAV_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide the new name of a company following a name change.")]
+    [DataMember(Name="NewCpnyNm")]
+    [XmlElement(ElementName="NewCpnyNm")]
+    public SomeNewCompanyNameRecord? NewCompanyName { get; init; }
+    
+    /// <summary>
+    /// Extension for the name of the Issuer Agent.
+    /// </summary>
+    [IsoId("_ozntBV_DEeK92NuVSnCzFw")]
+    [Description(@"Extension for the name of the Issuer Agent.")]
+    [DataMember(Name="IssrAgt")]
+    [XmlElement(ElementName="IssrAgt")]
+    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    
+    /// <summary>
+    /// Extension to provide additional taxation information related to the corporate action event.
+    /// </summary>
+    [IsoId("_ozntCV_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide additional taxation information related to the corporate action event.")]
+    [DataMember(Name="TaxtnConds")]
+    [XmlElement(ElementName="TaxtnConds")]
+    public SomeTaxationConditionsRecord? TaxationConditions { get; init; }
+    
+    /// <summary>
+    /// Extension to provide additional narrative information in the local language.
+    /// </summary>
+    [IsoId("_ozntDV_DEeK92NuVSnCzFw")]
+    [Description(@"Extension to provide additional narrative information in the local language.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +195,8 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
 }
 
 /// <summary>
-/// This message is an extension used by TSE/JASDEC and its community to provide supplementary data to the CorporateActionNotification 002V04, which is the restricted version that supports the coexistence of ISO messages.
-/// This is the outer document that contains <seealso cref="TSEJASDECCorporateActionNotificationSubsetSD1V02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TSEJASDECCorporateActionNotificationSubsetSD1V02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

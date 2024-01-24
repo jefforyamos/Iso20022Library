@@ -26,7 +26,94 @@ public partial record AmendmentAcceptanceNotificationV03 : IOuterRecord
     public const string XmlTag = "AmdmntAccptncNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the notification message.
+    /// </summary>
+    [IsoId("_jX9-MdE8Ed-BzquC8wXy7w_-872944488")]
+    [Description(@"Identifies the notification message.")]
+    [DataMember(Name="NtfctnId")]
+    [XmlElement(ElementName="NtfctnId")]
+    [Required]
+    public required SomeNotificationIdentificationRecord NotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_jX9-MtE8Ed-BzquC8wXy7w_-872943498")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the baseline when it is established.
+    /// </summary>
+    [IsoId("_jX9-M9E8Ed-BzquC8wXy7w_-872943919")]
+    [Description(@"Unique identification assigned by the matching application to the baseline when it is established.")]
+    [DataMember(Name="EstblishdBaselnId")]
+    [XmlElement(ElementName="EstblishdBaselnId")]
+    [Required]
+    public required SomeEstablishedBaselineIdentificationRecord EstablishedBaselineIdentification { get; init; }
+    
+    /// <summary>
+    /// Identifies the status of the transaction by means of a code.
+    /// </summary>
+    [IsoId("_jX9-NNE8Ed-BzquC8wXy7w_-872944308")]
+    [Description(@"Identifies the status of the transaction by means of a code.")]
+    [DataMember(Name="TxSts")]
+    [XmlElement(ElementName="TxSts")]
+    [Required]
+    public required SomeTransactionStatusRecord TransactionStatus { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for each financial institution which is a party to the transaction.
+    /// </summary>
+    [IsoId("_jX9-NdE8Ed-BzquC8wXy7w_-872943841")]
+    [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
+    [DataMember(Name="UsrTxRef")]
+    [XmlElement(ElementName="UsrTxRef")]
+    public required IReadonlyCollection<SomeUserTransactionReferenceRecord> UserTransactionReference { get; init; } // Min=0, Max=2
+    
+    /// <summary>
+    /// Reference to the identification of the delta report that contained the amendment.
+    /// </summary>
+    [IsoId("_jX9-NtE8Ed-BzquC8wXy7w_-872944806")]
+    [Description(@"Reference to the identification of the delta report that contained the amendment.")]
+    [DataMember(Name="DltaRptRef")]
+    [XmlElement(ElementName="DltaRptRef")]
+    [Required]
+    public required SomeDeltaReportReferenceRecord DeltaReportReference { get; init; }
+    
+    /// <summary>
+    /// Sequence number of the accepted baseline amendment.
+    /// </summary>
+    [IsoId("_jX9-N9E8Ed-BzquC8wXy7w_-872944231")]
+    [Description(@"Sequence number of the accepted baseline amendment.")]
+    [DataMember(Name="AccptdAmdmntNb")]
+    [XmlElement(ElementName="AccptdAmdmntNb")]
+    [Required]
+    public required SomeAcceptedAmendmentNumberRecord AcceptedAmendmentNumber { get; init; }
+    
+    /// <summary>
+    /// Party that has accepted the amendment.
+    /// </summary>
+    [IsoId("_jYHvMNE8Ed-BzquC8wXy7w_-381632140")]
+    [Description(@"Party that has accepted the amendment.")]
+    [DataMember(Name="Initr")]
+    [XmlElement(ElementName="Initr")]
+    [Required]
+    public required SomeInitiatorRecord Initiator { get; init; }
+    
+    /// <summary>
+    /// Information on the next processing step required.
+    /// </summary>
+    [IsoId("_jYHvMdE8Ed-BzquC8wXy7w_-872944386")]
+    [Description(@"Information on the next processing step required.")]
+    [DataMember(Name="ReqForActn")]
+    [XmlElement(ElementName="ReqForActn")]
+    public SomeRequestForActionRecord? RequestForAction { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +126,8 @@ public partial record AmendmentAcceptanceNotificationV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AmendmentAcceptanceNotification message is sent by the matching application to the requester of an amendment.
-/// This message is used to notify the acceptance of an amendment request.
-/// Usage
-/// The AmendmentAcceptanceNotification message can be sent by the matching application to pass on information about the acceptance of an amendment request that it has obtained through the receipt of an AmendmentAcceptance message.
-/// In order to pass on information about the rejection of an amendment request the matching application sends an AmendmentRejectionNotification message.
-/// This is the outer document that contains <seealso cref="AmendmentAcceptanceNotificationV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendmentAcceptanceNotificationV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,25 @@ public partial record DemandWithdrawalNotificationV01 : IOuterRecord
     public const string XmlTag = "DmndWdrwlNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Details of the demand withdrawal notification.
+    /// </summary>
+    [IsoId("_9hWQM3ltEeG7BsjMvd1mEw_234628498")]
+    [Description(@"Details of the demand withdrawal notification.")]
+    [DataMember(Name="DmndWdrwlNtfctnDtls")]
+    [XmlElement(ElementName="DmndWdrwlNtfctnDtls")]
+    [Required]
+    public required SomeDemandWithdrawalNotificationDetailsRecord DemandWithdrawalNotificationDetails { get; init; }
+    
+    /// <summary>
+    /// Digital signature of the notification.
+    /// </summary>
+    [IsoId("_9hWQNHltEeG7BsjMvd1mEw_-1538509071")]
+    [Description(@"Digital signature of the notification.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record DemandWithdrawalNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// The DemandWithdrawalNotification message is sent by the beneficiary to the party that issued the undertaking, either directly or via a presenting or nominated party, to inform the issuer or nominated party that it has elected to withdraw its demand under the demand guarantee or standby letter of credit.
-/// This is the outer document that contains <seealso cref="DemandWithdrawalNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DemandWithdrawalNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

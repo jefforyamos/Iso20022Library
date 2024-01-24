@@ -28,7 +28,45 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord
     public const string XmlTag = "AgtCAStgInstrReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the request.
+    /// </summary>
+    [IsoId("_TR6-KtEwEd-BzquC8wXy7w_-325890589")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the request.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// General information about the standing instruction.
+    /// </summary>
+    [IsoId("_TR6-K9EwEd-BzquC8wXy7w_199276822")]
+    [Description(@"General information about the standing instruction.")]
+    [DataMember(Name="StgInstrGnlInf")]
+    [XmlElement(ElementName="StgInstrGnlInf")]
+    [Required]
+    public required SomeStandingInstructionGeneralInformationRecord StandingInstructionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Provides detailed information about the standing instruction.
+    /// </summary>
+    [IsoId("_TR6-LNEwEd-BzquC8wXy7w_1084668578")]
+    [Description(@"Provides detailed information about the standing instruction.")]
+    [DataMember(Name="StgInstrDtls")]
+    [XmlElement(ElementName="StgInstrDtls")]
+    [Required]
+    public required SomeStandingInstructionDetailsRecord StandingInstructionDetails { get; init; }
+    
+    /// <summary>
+    /// Contact responsible for the transaction identified in the message.
+    /// </summary>
+    [IsoId("_TR6-LdEwEd-BzquC8wXy7w_1089871682")]
+    [Description(@"Contact responsible for the transaction identified in the message.")]
+    [DataMember(Name="CtctDtls")]
+    [XmlElement(ElementName="CtctDtls")]
+    public SomeContactDetailsRecord? ContactDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +79,8 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to the issuer (or its agent) to provide the issuer (or its agent) with the CSD's client details for the distribution of the proceeds of a corporate action event:
-/// - Gross or net payments.
-/// - Delivery details for securities that have to be delivered outside of the CSD.
-/// - Delivery details for cash amounts that have to be delivered outside of the CSD.
-/// Usage
-/// This message is used to request the issuer (or its agent) to put a standing instruction in place for proceeds.
-/// The amendment of a standing instruction is done through a cancel-and-replace mechanism. First a standing instruction cancellation request is sent followed by a new standing instruction request.
-/// This is the outer document that contains <seealso cref="AgentCAStandingInstructionRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAStandingInstructionRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

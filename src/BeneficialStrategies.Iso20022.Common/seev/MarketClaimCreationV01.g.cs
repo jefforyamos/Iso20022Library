@@ -23,7 +23,102 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     public const string XmlTag = "MktClmCre";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// References of the transaction for which the securities settlement condition modification is requested.
+    /// </summary>
+    [IsoId("_0BRJstsYEeqmdMJWobugpw")]
+    [Description(@"References of the transaction for which the securities settlement condition modification is requested.")]
+    [DataMember(Name="TxRef")]
+    [XmlElement(ElementName="TxRef")]
+    [Required]
+    public required SomeTransactionReferenceRecord TransactionReference { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_BA078dsPEeqmdMJWobugpw")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information about the related settlement instruction for which the market claim has been created.
+    /// </summary>
+    [IsoId("_SOQsMC2sEeuVt5XRmyhHiA")]
+    [Description(@"Information about the related settlement instruction for which the market claim has been created.")]
+    [DataMember(Name="RltdSttlmInstrDtls")]
+    [XmlElement(ElementName="RltdSttlmInstrDtls")]
+    [Required]
+    public required SomeRelatedSettlementInstructionDetailsRecord RelatedSettlementInstructionDetails { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account, owner and account balance.
+    /// </summary>
+    [IsoId("_GfnaodvlEeqmdMJWobugpw")]
+    [Description(@"General information about the safekeeping account, owner and account balance.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action event.
+    /// </summary>
+    [IsoId("_uBOHsC2qEeuVt5XRmyhHiA")]
+    [Description(@"Information about the corporate action event.")]
+    [DataMember(Name="CorpActnDtls")]
+    [XmlElement(ElementName="CorpActnDtls")]
+    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    
+    /// <summary>
+    /// Type of market claim creation requested.
+    /// </summary>
+    [IsoId("_-UDPQC2lEeuVt5XRmyhHiA")]
+    [Description(@"Type of market claim creation requested.")]
+    [DataMember(Name="MktClmTp")]
+    [XmlElement(ElementName="MktClmTp")]
+    [Required]
+    public required SomeMarketClaimTypeRecord MarketClaimType { get; init; }
+    
+    /// <summary>
+    /// Detailed information about the related corporate action option and related movements to which the market claim is linked.
+    /// </summary>
+    [IsoId("_Lxm88NsaEeqmdMJWobugpw")]
+    [Description(@"Detailed information about the related corporate action option and related movements to which the market claim is linked.")]
+    [DataMember(Name="MktClmDtls")]
+    [XmlElement(ElementName="MktClmDtls")]
+    [Required]
+    public required SomeMarketClaimDetailsRecord MarketClaimDetails { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of delivering settlement parties.
+    /// </summary>
+    [IsoId("_otNmFNsZEeqmdMJWobugpw")]
+    [Description(@"Identifies the chain of delivering settlement parties.")]
+    [DataMember(Name="DlvrgSttlmPties")]
+    [XmlElement(ElementName="DlvrgSttlmPties")]
+    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of receiving settlement parties.
+    /// </summary>
+    [IsoId("_7yIv1NvaEeqmdMJWobugpw")]
+    [Description(@"Identifies the chain of receiving settlement parties.")]
+    [DataMember(Name="RcvgSttlmPties")]
+    [XmlElement(ElementName="RcvgSttlmPties")]
+    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_hhuxcdsGEeqmdMJWobugpw")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -36,10 +131,8 @@ public partial record MarketClaimCreationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope and Usage
-/// The MarketClaimCreation message is sent by an account servicer to an account holder to advise of the creation of a market claim transaction on a securities account, for example by a CSD that has automatically generated market claims on a mandatory distribution type of corporate action event. The MarketClaimCreation message may also be sent by an account holder to its account holder, to instruct settlement of a bilaterally agreed (as opposed to centrally generated) market claim for a corporate action event.
-/// This message definition is intended for use with the Business Application Header (BAH).
-/// This is the outer document that contains <seealso cref="MarketClaimCreationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarketClaimCreationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

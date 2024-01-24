@@ -27,7 +27,61 @@ public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02 : IOuter
     public const string XmlTag = "PEPOrISAOrPrtflTrfCxlReqV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_j93n8NE5Ed-BzquC8wXy7w_-331528290")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgRef")]
+    [XmlElement(ElementName="MsgRef")]
+    [Required]
+    public required SomeMessageReferenceRecord MessageReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_j93n8dE5Ed-BzquC8wXy7w_-104340078")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_j93n8tE5Ed-BzquC8wXy7w_614157736")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_j93n89E5Ed-BzquC8wXy7w_716668915")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Information related to the transfer instruction to be cancelled.
+    /// </summary>
+    [IsoId("_j93n9NE5Ed-BzquC8wXy7w_-1688908693")]
+    [Description(@"Information related to the transfer instruction to be cancelled.")]
+    [DataMember(Name="CxlByTrfInstrDtls")]
+    [XmlElement(ElementName="CxlByTrfInstrDtls")]
+    public SomeCancellationByTransferInstructionDetailsRecord? CancellationByTransferInstructionDetails { get; init; }
+    
+    /// <summary>
+    /// Reference of the transfer instruction to be cancelled.
+    /// </summary>
+    [IsoId("_j93n9dE5Ed-BzquC8wXy7w_600500394")]
+    [Description(@"Reference of the transfer instruction to be cancelled.")]
+    [DataMember(Name="CxlByRef")]
+    [XmlElement(ElementName="CxlByRef")]
+    public SomeCancellationByReferenceRecord? CancellationByReference { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +94,8 @@ public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02 : IOuter
 }
 
 /// <summary>
-/// Scope
-/// An instructing party, eg, a (new) plan manager, sends the PEPOrISAOrPortfolioTransferCancellationRequest message to the executing party, eg, a (old) plan manager, to request the cancellation of a previously sent PEPOrISAOrPortfolioTransferInstruction.
-/// Usage
-/// The PEPOrISAOrPortfolioTransferCancellationRequest message is used to request the cancellation of an entire PEPOrISAOrPortfolioTransferInstruction message, ie, all the product transfers that it contained. The cancellation request can be specified either by:
-/// - quoting the transfer references of all the product transfers listed in the PEPOrISAOrPortfolioTransferInstruction message, or,
-/// - quoting the details of all the product transfers (this includes TransferReference) listed in PEPOrISAOrPortfolioTransferInstruction message.
-/// The message identification of the PEPOrISAOrPortfolioTransferInstruction may also be quoted in PreviousReference. It is also possible to request the cancellation of PEPOrISAOrPortfolioTransferInstruction by just quoting its message identification in PreviousReference.
-/// This is the outer document that contains <seealso cref="PEPOrISAOrPortfolioTransferCancellationRequestV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PEPOrISAOrPortfolioTransferCancellationRequestV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

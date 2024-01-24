@@ -21,7 +21,26 @@ public partial record AcceptorRejectionV04 : IOuterRecord
     public const string XmlTag = "AccptrRjctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Rejection message management information.
+    /// </summary>
+    [IsoId("_Bu3ItWpCEeS4VPLpYyQgxQ")]
+    [Description(@"Rejection message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the reject.
+    /// </summary>
+    [IsoId("_Bu3It2pCEeS4VPLpYyQgxQ")]
+    [Description(@"Information related to the reject.")]
+    [DataMember(Name="Rjct")]
+    [XmlElement(ElementName="Rjct")]
+    [Required]
+    public required SomeRejectRecord Reject { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +53,8 @@ public partial record AcceptorRejectionV04 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorRejection message is sent by the acquirer (or its agent) to reject a message request or advice sent by an acceptor (or its agent), to indicate that the received message could not be processed.
-/// This is the outer document that contains <seealso cref="AcceptorRejectionV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorRejectionV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

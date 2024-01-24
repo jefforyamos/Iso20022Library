@@ -21,7 +21,35 @@ public partial record SaleToPOIAdministrativeResponseV05 : IOuterRecord
     public const string XmlTag = "SaleToPOIAdmstvRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the request.
+    /// </summary>
+    [IsoId("_ArzKE3PCEe2pK6udhxEaHA")]
+    [Description(@"Set of characteristics related to the transfer of the request.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of an administrative request.
+    /// </summary>
+    [IsoId("_ArzKFXPCEe2pK6udhxEaHA")]
+    [Description(@"Information related to the response of an administrative request.")]
+    [DataMember(Name="AdmstvRspn")]
+    [XmlElement(ElementName="AdmstvRspn")]
+    [Required]
+    public required SomeAdministrativeResponseRecord AdministrativeResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_ArzKF3PCEe2pK6udhxEaHA")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIAdministrativeResponseV05 : IOuterRecord
 }
 
 /// <summary>
-/// The SaleToPOIAdministrativeResponse message is sent by a POI System to a sale system to provide response to an administrative service.
-/// This is the outer document that contains <seealso cref="SaleToPOIAdministrativeResponseV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIAdministrativeResponseV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -27,7 +27,73 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
     public const string XmlTag = "CorpActnInstrStmtRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies a CorporateActionInstructionStatementReport message as know by the account servicer. When the report has multiple pages, one message equals one page. Therefore, Identification uniquely identifies the page.
+    /// </summary>
+    [IsoId("_TW16Y9EwEd-BzquC8wXy7w_-1204031802")]
+    [Description(@"Information that unambiguously identifies a CorporateActionInstructionStatementReport message as know by the account servicer. When the report has multiple pages, one message equals one page. Therefore, Identification uniquely identifies the page.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_TW16ZNEwEd-BzquC8wXy7w_1211303543")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// General characteristics related to a statement which reports information.
+    /// </summary>
+    [IsoId("_TW16ZdEwEd-BzquC8wXy7w_436859901")]
+    [Description(@"General characteristics related to a statement which reports information.")]
+    [DataMember(Name="StmtGnlDtls")]
+    [XmlElement(ElementName="StmtGnlDtls")]
+    [Required]
+    public required SomeStatementGeneralDetailsRecord StatementGeneralDetails { get; init; }
+    
+    /// <summary>
+    /// Account information and detailed account holdings information report for corporate action events.
+    /// </summary>
+    [IsoId("_TW16ZtEwEd-BzquC8wXy7w_-1280073177")]
+    [Description(@"Account information and detailed account holdings information report for corporate action events.")]
+    [DataMember(Name="AcctAndStmtDtls")]
+    [XmlElement(ElementName="AcctAndStmtDtls")]
+    [Required]
+    public required SomeAccountAndStatementDetailsRecord AccountAndStatementDetails { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_TW16Z9EwEd-BzquC8wXy7w_-570637514")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_TW16aNEwEd-BzquC8wXy7w_-529079840")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_TW_EUNEwEd-BzquC8wXy7w_-884634108")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +106,8 @@ public partial record CorporateActionInstructionStatementReportV01 : IOuterRecor
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends the CorporateActionInstructionStatementReport message to an account owner or its designated agent to report balances at the safekeeping account level for one or more corporate action events or at the corporate action event level for one or more safekeeping accounts.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="CorporateActionInstructionStatementReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionInstructionStatementReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

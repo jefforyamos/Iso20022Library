@@ -33,7 +33,46 @@ public partial record RequestToCancelPayment : IOuterRecord
     public const string XmlTag = "camt.008.002.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the assignment of a case from an assigner to an assignee.
+    /// </summary>
+    [IsoId("_SsPgadE_Ed-BzquC8wXy7w_402186084")]
+    [Description(@"Identifies the assignment of a case from an assigner to an assignee.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Identifies the case.
+    /// </summary>
+    [IsoId("_SsZRYNE_Ed-BzquC8wXy7w_70459884")]
+    [Description(@"Identifies the case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    [Required]
+    public required SomeCaseRecord Case { get; init; }
+    
+    /// <summary>
+    /// Identifies the payment instruction to be cancelled.
+    /// </summary>
+    [IsoId("_SsZRYdE_Ed-BzquC8wXy7w_74152854")]
+    [Description(@"Identifies the payment instruction to be cancelled.")]
+    [DataMember(Name="Undrlyg")]
+    [XmlElement(ElementName="Undrlyg")]
+    [Required]
+    public required SomeUnderlyingRecord Underlying { get; init; }
+    
+    /// <summary>
+    /// Defines the reason for requesting the cancellation.
+    /// </summary>
+    [IsoId("_SsZRYtE_Ed-BzquC8wXy7w_341710652")]
+    [Description(@"Defines the reason for requesting the cancellation.")]
+    [DataMember(Name="Justfn")]
+    [XmlElement(ElementName="Justfn")]
+    [Required]
+    public required SomeJustificationRecord Justification { get; init; }
+    
     */
     
     /// <summary>
@@ -46,20 +85,8 @@ public partial record RequestToCancelPayment : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Request To Cancel Payment message is sent by a case creator/case assigner to a case assignee.
-/// This message is used to request the cancellation of an original payment instruction.
-/// Usage
-/// The Request To Cancel Payment message must be answered with a:
-/// - Resolution Of Investigation message with a positive final outcome when the case assignee can perform the requested cancellation
-/// - Resolution Of Investigation message with a negative final outcome when the case assignee may perform the requested cancellation but fails to do so (too late, irrevocable instruction.)
-/// - Reject Case Assignment message when the case assignee is unable or not authorised to perform the requested cancellation
-/// - Notification Of Case Assignment message to indicate whether the case assignee will take on the case himself or reassign the case to a subsequent party in the payment processing chain.
-/// A Request To Cancel Payment message concerns one and only one original payment instruction at a time. If several original payment instructions need to be cancelled, then multiple Request To Cancel Payment messages must be sent.
-/// When a case assignee successfully performs a cancellation, it must return the corresponding funds to the case assigner. It may provide some details about the return in the Resolution Of Investigation message.
-/// The processing of a request to cancel payment case may end with a Debit Authorisation Request message sent to the creditor by its account servicing institution.
-/// The Request To Cancel Payment message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original Request To Modify Payment message and the element ReopenCaseIndication is set to 'Yes' or 'true'.
-/// This is the outer document that contains <seealso cref="RequestToCancelPayment"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToCancelPayment"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

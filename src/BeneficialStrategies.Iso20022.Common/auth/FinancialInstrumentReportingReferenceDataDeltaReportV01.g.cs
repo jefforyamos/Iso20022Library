@@ -21,7 +21,34 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
     public const string XmlTag = "FinInstrmRptgRefDataDltaRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Header information related to the global report.
+    /// </summary>
+    [IsoId("_4LUGK0RNEee7JdgA9zPESA")]
+    [Description(@"Header information related to the global report.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Provides the details of the reference data that have been updated (since the last report).
+    /// </summary>
+    [IsoId("_4LUGLURNEee7JdgA9zPESA")]
+    [Description(@"Provides the details of the reference data that have been updated (since the last report).")]
+    [DataMember(Name="FinInstrm")]
+    [XmlElement(ElementName="FinInstrm")]
+    public SomeFinancialInstrumentRecord? FinancialInstrument { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_4LUGL0RNEee7JdgA9zPESA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +61,8 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
 }
 
 /// <summary>
-/// The FinancialInstrumentReportingReferenceDataDeltaReport message is sent by the trading venues to the national competent authority to report on changes that have occurred in the base data between reference data file generation.
-/// This is the outer document that contains <seealso cref="FinancialInstrumentReportingReferenceDataDeltaReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingReferenceDataDeltaReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

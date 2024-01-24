@@ -24,7 +24,36 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord
     public const string XmlTag = "AccptrCxlAdvcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Cancellation advice response message management information.
+    /// </summary>
+    [IsoId("_dy5SQ6MVEeCJ6YNENx4h-w_-1226388965")]
+    [Description(@"Cancellation advice response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the cancellation advice response.
+    /// </summary>
+    [IsoId("_dy5SRKMVEeCJ6YNENx4h-w_-1962834050")]
+    [Description(@"Information related to the cancellation advice response.")]
+    [DataMember(Name="AccptrCxlAdvcRspn")]
+    [XmlElement(ElementName="AccptrCxlAdvcRspn")]
+    [Required]
+    public required SomeAcceptorCancellationAdviceResponseRecord AcceptorCancellationAdviceResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_dy5SRaMVEeCJ6YNENx4h-w_1091066003")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +66,8 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorCancellationAdviceResponse message is sent by the acquirer to acknowledge the proper reception of the AcceptorCancellationAdvice. The message can be sent directly to the card acceptor or through an agent.
-/// Usage
-/// The AcceptorCancellationAdviceResponse message should be accepted by the card acceptor unless the message received was invalid.
-/// This is the outer document that contains <seealso cref="AcceptorCancellationAdviceResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCancellationAdviceResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

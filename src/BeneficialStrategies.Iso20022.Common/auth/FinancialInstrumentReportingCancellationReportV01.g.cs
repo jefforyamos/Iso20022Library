@@ -21,7 +21,35 @@ public partial record FinancialInstrumentReportingCancellationReportV01 : IOuter
     public const string XmlTag = "FinInstrmRptgCxlRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Header information related to the global report.
+    /// </summary>
+    [IsoId("_SsqY0GOgEeqrzPlWMq8k6Q")]
+    [Description(@"Header information related to the global report.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Details of the financial instrument previously reported by mistake by the trading venue.
+    /// </summary>
+    [IsoId("_iu4fQGOgEeqrzPlWMq8k6Q")]
+    [Description(@"Details of the financial instrument previously reported by mistake by the trading venue.")]
+    [DataMember(Name="CxlData")]
+    [XmlElement(ElementName="CxlData")]
+    [Required]
+    public required SomeCancellationDataRecord CancellationData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_vRvi4GOgEeqrzPlWMq8k6Q")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record FinancialInstrumentReportingCancellationReportV01 : IOuter
 }
 
 /// <summary>
-/// This FinancialInstrumentReportingCancellationReport message is sent by the trading venue to the national competent authority to cancel reference data previously reported by mistake.
-/// This is the outer document that contains <seealso cref="FinancialInstrumentReportingCancellationReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingCancellationReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

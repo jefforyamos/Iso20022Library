@@ -27,7 +27,45 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord
     public const string XmlTag = "StsXtnsnReqAccptnc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the acceptance message.
+    /// </summary>
+    [IsoId("_y25KUdE8Ed-BzquC8wXy7w_844950227")]
+    [Description(@"Identifies the acceptance message.")]
+    [DataMember(Name="AccptncId")]
+    [XmlElement(ElementName="AccptncId")]
+    [Required]
+    public required SomeAcceptanceIdentificationRecord AcceptanceIdentification { get; init; }
+    
+    /// <summary>
+    /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
+    /// </summary>
+    [IsoId("_y25KUtE8Ed-BzquC8wXy7w_844950247")]
+    [Description(@"Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    [Required]
+    public required SomeTransactionIdentificationRecord TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to the transaction for the requesting financial institution.
+    /// </summary>
+    [IsoId("_y25KU9E8Ed-BzquC8wXy7w_844950309")]
+    [Description(@"Reference to the transaction for the requesting financial institution.")]
+    [DataMember(Name="SubmitrTxRef")]
+    [XmlElement(ElementName="SubmitrTxRef")]
+    public SomeSubmitterTransactionReferenceRecord? SubmitterTransactionReference { get; init; }
+    
+    /// <summary>
+    /// Identifies the status for which the user accepts an extension of the validity period.
+    /// </summary>
+    [IsoId("_y25KVNE8Ed-BzquC8wXy7w_844950278")]
+    [Description(@"Identifies the status for which the user accepts an extension of the validity period.")]
+    [DataMember(Name="XtndedSts")]
+    [XmlElement(ElementName="XtndedSts")]
+    [Required]
+    public required SomeExtendedStatusRecord ExtendedStatus { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +78,8 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusExtensionRequestAcceptance message is sent by the party requested to accept or reject a request to extend the status of a transaction to the matching application.
-/// This message is used to inform about the acceptance of a request to extend the status of a transaction.
-/// Usage
-/// The StatusExtensionRequestAcceptance message can be sent by the party requested to accept or reject the request to extend the status of a transaction to inform that it accepts the request.
-/// The message can be sent in response to a StatusExtensionRequestNotification message.
-/// The rejection of a request to extend the status of a transaction can be achieved by sending a StatusExtensionRequestRejection message.
-/// This is the outer document that contains <seealso cref="StatusExtensionRequestAcceptanceV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusExtensionRequestAcceptanceV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

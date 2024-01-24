@@ -21,7 +21,35 @@ public partial record FraudDispositionInitiationV02 : IOuterRecord
     public const string XmlTag = "FrdDspstnInitn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_hhgiN8r8EeuNe7RtB4qFHw")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the initiation of the fraud disposition.
+    /// </summary>
+    [IsoId("_hhgiNcr8EeuNe7RtB4qFHw")]
+    [Description(@"Information related to the initiation of the fraud disposition.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_hhgiNsr8EeuNe7RtB4qFHw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record FraudDispositionInitiationV02 : IOuterRecord
 }
 
 /// <summary>
-/// A FraudDispositionInitiation message is usually sent by an agent to a financial institution acting as an acquirer or as an issuer   to report about the disposition of a confirmed fraudulent transaction.
-/// This is the outer document that contains <seealso cref="FraudDispositionInitiationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FraudDispositionInitiationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

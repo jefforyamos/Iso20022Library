@@ -27,7 +27,44 @@ public partial record CustomerPaymentStatusReportV06 : IOuterRecord
     public const string XmlTag = "CstmrPmtStsRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the status report message.
+    /// </summary>
+    [IsoId("_NasXZRPeEeSVo-TFVwFHvA")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the status report message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Original group information concerning the group of transactions, to which the status report message refers to.
+    /// </summary>
+    [IsoId("_NasXZxPeEeSVo-TFVwFHvA")]
+    [Description(@"Original group information concerning the group of transactions, to which the status report message refers to.")]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
+    [XmlElement(ElementName="OrgnlGrpInfAndSts")]
+    [Required]
+    public required SomeOriginalGroupInformationAndStatusRecord OriginalGroupInformationAndStatus { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original payment information, to which the status report message refers.
+    /// </summary>
+    [IsoId("_NasXaRPeEeSVo-TFVwFHvA")]
+    [Description(@"Information concerning the original payment information, to which the status report message refers.")]
+    [DataMember(Name="OrgnlPmtInfAndSts")]
+    [XmlElement(ElementName="OrgnlPmtInfAndSts")]
+    public SomeOriginalPaymentInformationAndStatusRecord? OriginalPaymentInformationAndStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_NasXaxPeEeSVo-TFVwFHvA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +77,8 @@ public partial record CustomerPaymentStatusReportV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CustomerPaymentStatusReport message is sent by an instructed agent to the previous party in the payment chain. It is used to inform this party about the positive or negative status of an instruction (either single or file). It is also used to report on a pending instruction.
-/// Usage
-/// The CustomerPaymentStatusReport message is exchanged between an agent and a non-financial institution customer to provide status information on instructions previously sent. Its usage will always be governed by a bilateral agreement between the agent and the non-financial institution customer.
-/// The CustomerPaymentStatusReport message can be used to provide information about the status (e.g. rejection, acceptance) of the initiation of a credit transfer, a direct debit, as well as on the initiation of other customer instructions.
-/// The CustomerPaymentStatusReport message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.
-/// The CustomerPaymentStatusReport message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="CustomerPaymentStatusReportV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerPaymentStatusReportV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

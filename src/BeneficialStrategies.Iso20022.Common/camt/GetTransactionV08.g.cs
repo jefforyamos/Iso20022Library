@@ -45,7 +45,34 @@ public partial record GetTransactionV08 : IOuterRecord
     public const string XmlTag = "GetTx";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_jwlbqRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    [Required]
+    public required SomeMessageHeaderRecord MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Defines the transaction query criteria.
+    /// </summary>
+    [IsoId("_jwlbqxbvEeiyVv5j1vf1VQ")]
+    [Description(@"Defines the transaction query criteria.")]
+    [DataMember(Name="TxQryDef")]
+    [XmlElement(ElementName="TxQryDef")]
+    public SomeTransactionQueryDefinitionRecord? TransactionQueryDefinition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jwlbrRbvEeiyVv5j1vf1VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -58,32 +85,8 @@ public partial record GetTransactionV08 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The GetTransaction message is sent by a member to the transaction administrator.
-/// It is used to request information about payment instructions held at the transaction administrator. Payment instructions are either sent by the member, debiting or crediting its account at the transaction administrator or received by the transaction administrator, crediting or debiting the member's account.
-/// Usage
-/// Following normal business flows, transactions registered by the transaction administrator may be queued for later settlement (because of insufficient funds available, or because of risk or liquidity limits, etc.). A transaction may have a series of statuses. These can be transient (such as pending or related types) and final (such as rejected, revoked and/or settled).
-/// Members of a system need to have information about the payments queue(s) and must have the ability to take action (that is, to cancel or modify the transaction(s) to be settled). Note, however, that actions by a member will always concern transactions in a transient status.
-/// At any time during the operating hours of the system, the member can query the transaction administrator to get information about transactions, whatever their status.
-/// These requests will concern either all transactions, all transactions with a particular status or a specific transaction.
-/// The member can request information about transactions through a series of criteria, corresponding to the known information stored at the transaction administrator, based on the following elements:
-/// - provenance or destination of the payment (payment to/payment from)
-/// - transaction reference
-/// - transfer value date
-/// - payment instruction reference
-/// - payment instruction status, as registered at the transaction administrator
-/// - instructed amount and/or currency
-/// - interbank settlement amount and/or currency
-/// - credit/debit indicator of the payment instruction/transaction
-/// - SWIFT FIN payment message used for the payment instruction
-/// - priority of the payment transaction
-/// - period in which the payment instruction should be processed (processing validity time)
-/// - instructions given, related to the processing of the transaction
-/// - type of payment instructed
-/// - account identification (entries booked to a specific account)
-/// - entry amount and/or currency
-/// - entry debit/credit indicator (if absent, all entries should be reported).
-/// This is the outer document that contains <seealso cref="GetTransactionV08"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetTransactionV08"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

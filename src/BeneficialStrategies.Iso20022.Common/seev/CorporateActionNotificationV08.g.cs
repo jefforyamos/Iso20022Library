@@ -30,7 +30,207 @@ public partial record CorporateActionNotificationV08 : IOuterRecord
     public const string XmlTag = "CorpActnNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message and continuation indicator to indicate that the multi-part notification is to continue or that the message is the last page of the multi-part notification.
+    /// </summary>
+    [IsoId("_65NyZ5SbEeeh5JjedkaA_g")]
+    [Description(@"Page number of the message and continuation indicator to indicate that the multi-part notification is to continue or that the message is the last page of the multi-part notification.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    public SomePaginationRecord? Pagination { get; init; }
+    
+    /// <summary>
+    /// General information about the event notification type, status and contents.
+    /// </summary>
+    [IsoId("_65NyaZSbEeeh5JjedkaA_g")]
+    [Description(@"General information about the event notification type, status and contents.")]
+    [DataMember(Name="NtfctnGnlInf")]
+    [XmlElement(ElementName="NtfctnGnlInf")]
+    [Required]
+    public required SomeNotificationGeneralInformationRecord NotificationGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Identification of a previously sent notification document.
+    /// </summary>
+    [IsoId("_65Nya5SbEeeh5JjedkaA_g")]
+    [Description(@"Identification of a previously sent notification document.")]
+    [DataMember(Name="PrvsNtfctnId")]
+    [XmlElement(ElementName="PrvsNtfctnId")]
+    public SomePreviousNotificationIdentificationRecord? PreviousNotificationIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of a related instruction document.
+    /// </summary>
+    [IsoId("_65NybZSbEeeh5JjedkaA_g")]
+    [Description(@"Identification of a related instruction document.")]
+    [DataMember(Name="InstrId")]
+    [XmlElement(ElementName="InstrId")]
+    public SomeInstructionIdentificationRecord? InstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of other documents as well as the document number.
+    /// </summary>
+    [IsoId("_65Nyb5SbEeeh5JjedkaA_g")]
+    [Description(@"Identification of other documents as well as the document number.")]
+    [DataMember(Name="OthrDocId")]
+    [XmlElement(ElementName="OthrDocId")]
+    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of another corporate action event that needs to be closely linked to the processing of the event notified in this document.
+    /// </summary>
+    [IsoId("_65NycZSbEeeh5JjedkaA_g")]
+    [Description(@"Identification of another corporate action event that needs to be closely linked to the processing of the event notified in this document.")]
+    [DataMember(Name="EvtsLkg")]
+    [XmlElement(ElementName="EvtsLkg")]
+    public SomeEventsLinkageRecord? EventsLinkage { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_65Nyc5SbEeeh5JjedkaA_g")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account, owner and account balance.
+    /// </summary>
+    [IsoId("_65NydZSbEeeh5JjedkaA_g")]
+    [Description(@"General information about the safekeeping account, owner and account balance.")]
+    [DataMember(Name="AcctDtls")]
+    [XmlElement(ElementName="AcctDtls")]
+    [Required]
+    public required SomeAccountDetailsRecord AccountDetails { get; init; }
+    
+    /// <summary>
+    /// Details on rights credited to the account as for instance trading period, expiry date, renounceability.
+    /// </summary>
+    [IsoId("_65Nyd5SbEeeh5JjedkaA_g")]
+    [Description(@"Details on rights credited to the account as for instance trading period, expiry date, renounceability.")]
+    [DataMember(Name="IntrmdtScty")]
+    [XmlElement(ElementName="IntrmdtScty")]
+    public SomeIntermediateSecurityRecord? IntermediateSecurity { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action event.
+    /// </summary>
+    [IsoId("_65NyeZSbEeeh5JjedkaA_g")]
+    [Description(@"Information about the corporate action event.")]
+    [DataMember(Name="CorpActnDtls")]
+    [XmlElement(ElementName="CorpActnDtls")]
+    public SomeCorporateActionDetailsRecord? CorporateActionDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action option.
+    /// </summary>
+    [IsoId("_65Nye5SbEeeh5JjedkaA_g")]
+    [Description(@"Information about the corporate action option.")]
+    [DataMember(Name="CorpActnOptnDtls")]
+    [XmlElement(ElementName="CorpActnOptnDtls")]
+    public SomeCorporateActionOptionDetailsRecord? CorporateActionOptionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information on the event.
+    /// </summary>
+    [IsoId("_65NyfZSbEeeh5JjedkaA_g")]
+    [Description(@"Additional information on the event.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
+    /// </summary>
+    [IsoId("_65Nyf5SbEeeh5JjedkaA_g")]
+    [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
+    [DataMember(Name="IssrAgt")]
+    [XmlElement(ElementName="IssrAgt")]
+    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    
+    /// <summary>
+    /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
+    /// </summary>
+    [IsoId("_65NygZSbEeeh5JjedkaA_g")]
+    [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
+    [DataMember(Name="PngAgt")]
+    [XmlElement(ElementName="PngAgt")]
+    public SomePayingAgentRecord? PayingAgent { get; init; }
+    
+    /// <summary>
+    /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
+    /// </summary>
+    [IsoId("_65Nyg5SbEeeh5JjedkaA_g")]
+    [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
+    [DataMember(Name="SubPngAgt")]
+    [XmlElement(ElementName="SubPngAgt")]
+    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    
+    /// <summary>
+    /// Party/agent responsible for maintaining the register of the security.
+    /// </summary>
+    [IsoId("_65NyhZSbEeeh5JjedkaA_g")]
+    [Description(@"Party/agent responsible for maintaining the register of the security.")]
+    [DataMember(Name="Regar")]
+    [XmlElement(ElementName="Regar")]
+    public SomeRegistrarRecord? Registrar { get; init; }
+    
+    /// <summary>
+    /// Broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.
+    /// </summary>
+    [IsoId("_65Nyh5SbEeeh5JjedkaA_g")]
+    [Description(@"Broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.")]
+    [DataMember(Name="RsellngAgt")]
+    [XmlElement(ElementName="RsellngAgt")]
+    public SomeResellingAgentRecord? ResellingAgent { get; init; }
+    
+    /// <summary>
+    /// A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.
+    /// </summary>
+    [IsoId("_65NyiZSbEeeh5JjedkaA_g")]
+    [Description(@"A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.")]
+    [DataMember(Name="PhysSctiesAgt")]
+    [XmlElement(ElementName="PhysSctiesAgt")]
+    public SomePhysicalSecuritiesAgentRecord? PhysicalSecuritiesAgent { get; init; }
+    
+    /// <summary>
+    /// A trust company, bank or similar financial institution that acts on behalf of an out-of-town agent or event agent where securities can be delivered in person.
+    /// </summary>
+    [IsoId("_65Nyi5SbEeeh5JjedkaA_g")]
+    [Description(@"A trust company, bank or similar financial institution that acts on behalf of an out-of-town agent or event agent where securities can be delivered in person.")]
+    [DataMember(Name="DrpAgt")]
+    [XmlElement(ElementName="DrpAgt")]
+    public SomeDropAgentRecord? DropAgent { get; init; }
+    
+    /// <summary>
+    /// A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.
+    /// </summary>
+    [IsoId("_65NyjZSbEeeh5JjedkaA_g")]
+    [Description(@"A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.")]
+    [DataMember(Name="SlctnAgt")]
+    [XmlElement(ElementName="SlctnAgt")]
+    public SomeSolicitationAgentRecord? SolicitationAgent { get; init; }
+    
+    /// <summary>
+    /// A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.
+    /// </summary>
+    [IsoId("_65Nyj5SbEeeh5JjedkaA_g")]
+    [Description(@"A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.")]
+    [DataMember(Name="InfAgt")]
+    [XmlElement(ElementName="InfAgt")]
+    public SomeInformationAgentRecord? InformationAgent { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_65NykZSbEeeh5JjedkaA_g")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +243,8 @@ public partial record CorporateActionNotificationV08 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends the CorporateActionNotification message to an account owner or its designated agent to notify details of a corporate action event and optionally account information, eligible balance and entitlements.|
-/// It may also include possible elections or choices available to the account owner. The account servicer can initially send the CorporateActionNotification message as a preliminary advice, subsequently replaced by another CorporateActionNotification message with complete or confirmed information.|
-/// It may also be sent to an account owner or its designated agent, to remind of event details and/or of missing or incomplete instructions for a corporate action event.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate),
-/// using the relevant elements in the business application header (BAH).
-/// This is the outer document that contains <seealso cref="CorporateActionNotificationV08"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionNotificationV08"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

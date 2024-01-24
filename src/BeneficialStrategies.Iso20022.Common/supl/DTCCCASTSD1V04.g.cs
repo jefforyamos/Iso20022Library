@@ -21,7 +21,42 @@ public partial record DTCCCASTSD1V04 : IOuterRecord
     public const string XmlTag = "DTCCCASTSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action balance details at event level.
+    /// </summary>
+    [IsoId("_q_pK-w4zEeuIpNw_GxsBOw")]
+    [Description(@"Information to be extended as supplementary data to corporate action balance details at event level.")]
+    [DataMember(Name="EvtBalDtls")]
+    [XmlElement(ElementName="EvtBalDtls")]
+    public SomeEventBalanceDetailsRecord? EventBalanceDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action balance details at option level.
+    /// </summary>
+    [IsoId("_q_pK_Q4zEeuIpNw_GxsBOw")]
+    [Description(@"Information to be extended as supplementary data to corporate action balance details at option level.")]
+    [DataMember(Name="TtlInstdBalOptnBalDtls")]
+    [XmlElement(ElementName="TtlInstdBalOptnBalDtls")]
+    public SomeTotalInstructedBalanceOptionBalanceDetailsRecord? TotalInstructedBalanceOptionBalanceDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action balance details at option instruction details level. Option level instruction details are referenced by unique instruction identification, instruction date, quantity and status of instruction.
+    /// </summary>
+    [IsoId("_q_pK_w4zEeuIpNw_GxsBOw")]
+    [Description(@"Information to be extended as supplementary data to corporate action balance details at option instruction details level. Option level instruction details are referenced by unique instruction identification, instruction date, quantity and status of instruction.")]
+    [DataMember(Name="TtlInstdBalOptnInstrDtls")]
+    [XmlElement(ElementName="TtlInstdBalOptnInstrDtls")]
+    public SomeTotalInstructedBalanceOptionInstructionDetailsRecord? TotalInstructedBalanceOptionInstructionDetails { get; init; }
+    
+    /// <summary>
+    /// Information to be extended as supplementary data to corporate action balance details at option protect instruction details level.
+    /// </summary>
+    [IsoId("_q_pLAQ4zEeuIpNw_GxsBOw")]
+    [Description(@"Information to be extended as supplementary data to corporate action balance details at option protect instruction details level.")]
+    [DataMember(Name="TtlInstdBalOptnPrtctInstrDtls")]
+    [XmlElement(ElementName="TtlInstdBalOptnPrtctInstrDtls")]
+    public SomeTotalInstructedBalanceOptionProtectInstructionDetailsRecord? TotalInstructedBalanceOptionProtectInstructionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +69,8 @@ public partial record DTCCCASTSD1V04 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCASTSD1 message extends ISO corporate action instruction statement report message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCASTSD1V04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCASTSD1V04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

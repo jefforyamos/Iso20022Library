@@ -21,7 +21,35 @@ public partial record RequestToPayDebtorActivationAmendmentRequestV01 : IOuterRe
     public const string XmlTag = "ReqToPayDbtrActvtnAmdmntReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the amendment of the mandate, but which are not part of the mandate.
+    /// </summary>
+    [IsoId("_rNNBveHzEeqbls7Gk4-ckA")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the amendment of the mandate, but which are not part of the mandate.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Provides details on the amendment of a debtor activation request.
+    /// </summary>
+    [IsoId("_rNNBv-HzEeqbls7Gk4-ckA")]
+    [Description(@"Provides details on the amendment of a debtor activation request.")]
+    [DataMember(Name="AmdmntData")]
+    [XmlElement(ElementName="AmdmntData")]
+    [Required]
+    public required SomeAmendmentDataRecord AmendmentData { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_rNNBweHzEeqbls7Gk4-ckA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record RequestToPayDebtorActivationAmendmentRequestV01 : IOuterRe
 }
 
 /// <summary>
-/// The RequestToPayDebtorActivationAmendmentRequest message is sent by the debtor RTP (Request To Pay) provider to the creditor RTP provider and optionally from the debtor to its RTP provider and from the creditor RTP provider to the creditor to request for the amendment of the debtor activation of the RTP service with that specific creditor.
-/// This is the outer document that contains <seealso cref="RequestToPayDebtorActivationAmendmentRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayDebtorActivationAmendmentRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

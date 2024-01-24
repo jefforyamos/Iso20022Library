@@ -21,7 +21,51 @@ public partial record DTCCCAINSD1V05 : IOuterRecord
     public const string XmlTag = "DTCCCAINSD1";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) optional dividend service election.
+    /// </summary>
+    [IsoId("_b_h_EeaHEei5aPS232E3Mw")]
+    [Description(@"DTC (The Depository Trust Corporation) optional dividend service election.")]
+    [DataMember(Name="OptnlDvdd")]
+    [XmlElement(ElementName="OptnlDvdd")]
+    public SomeOptionalDividendRecord? OptionalDividend { get; init; }
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) tax exempt service election.
+    /// </summary>
+    [IsoId("_b_h_GeaHEei5aPS232E3Mw")]
+    [Description(@"DTC (The Depository Trust Corporation) tax exempt service election.")]
+    [DataMember(Name="TaxXmpt")]
+    [XmlElement(ElementName="TaxXmpt")]
+    public SomeTaxExemptRecord? TaxExempt { get; init; }
+    
+    /// <summary>
+    /// Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.
+    /// </summary>
+    [IsoId("_rsHT0OcjEei5aPS232E3Mw")]
+    [Description(@"Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.")]
+    [DataMember(Name="TaxCtgy")]
+    [XmlElement(ElementName="TaxCtgy")]
+    public required IReadonlyCollection<SomeTaxCategoryRecord> TaxCategory { get; init; } // Min=0, Max=99
+    
+    /// <summary>
+    /// DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.
+    /// </summary>
+    [IsoId("_b_h_IeaHEei5aPS232E3Mw")]
+    [Description(@"DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.")]
+    [DataMember(Name="WireInstr")]
+    [XmlElement(ElementName="WireInstr")]
+    public SomeWireInstructionRecord? WireInstruction { get; init; }
+    
+    /// <summary>
+    /// Supplementary data extending corporate action reorganisation instruction message with corporate action elements not covered in the standard message.
+    /// </summary>
+    [IsoId("_b_h_KeaHEei5aPS232E3Mw")]
+    [Description(@"Supplementary data extending corporate action reorganisation instruction message with corporate action elements not covered in the standard message.")]
+    [DataMember(Name="ReorgInstrDtls")]
+    [XmlElement(ElementName="ReorgInstrDtls")]
+    public SomeReorganisationInstructionDetailsRecord? ReorganisationInstructionDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +78,8 @@ public partial record DTCCCAINSD1V05 : IOuterRecord
 }
 
 /// <summary>
-/// The DTCCCAINSD1 message extends ISO corporate action instruction message with DTCC corporate action elements not covered in the standard message.
-/// This is the outer document that contains <seealso cref="DTCCCAINSD1V05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAINSD1V05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

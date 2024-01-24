@@ -21,7 +21,25 @@ public partial record DerivativesTradeRejectionStatisticalReportV03 : IOuterReco
     public const string XmlTag = "DerivsTradRjctnSttstclRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Detailed information on rejections of derivative transactions.
+    /// </summary>
+    [IsoId("_pVVvkWmFEe2DRvVJM2Qy-g")]
+    [Description(@"Detailed information on rejections of derivative transactions.")]
+    [DataMember(Name="RjctnSttstcs")]
+    [XmlElement(ElementName="RjctnSttstcs")]
+    [Required]
+    public required SomeRejectionStatisticsRecord RejectionStatistics { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_pVVvk2mFEe2DRvVJM2Qy-g")]
+    [Description(@"Additional information that cannot be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record DerivativesTradeRejectionStatisticalReportV03 : IOuterReco
 }
 
 /// <summary>
-/// The DerivativesTradeRejectionStatisticalReport message is sent by the trade repository (TR) to the report submitting entity, identifying the transactions rejected and the reasons for a rejection.
-/// This is the outer document that contains <seealso cref="DerivativesTradeRejectionStatisticalReportV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeRejectionStatisticalReportV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

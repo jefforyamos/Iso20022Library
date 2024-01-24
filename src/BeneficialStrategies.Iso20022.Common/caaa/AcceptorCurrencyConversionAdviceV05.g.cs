@@ -21,7 +21,35 @@ public partial record AcceptorCurrencyConversionAdviceV05 : IOuterRecord
     public const string XmlTag = "AccptrCcyConvsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Currency Conversion request message management information.
+    /// </summary>
+    [IsoId("_euojpS5IEeunNvJlR_vCbg")]
+    [Description(@"Currency Conversion request message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the outcome of the currency conversion.
+    /// </summary>
+    [IsoId("_euojpy5IEeunNvJlR_vCbg")]
+    [Description(@"Information related to the outcome of the currency conversion.")]
+    [DataMember(Name="AccptrCcyConvsAdvc")]
+    [XmlElement(ElementName="AccptrCcyConvsAdvc")]
+    [Required]
+    public required SomeAcceptorCurrencyConversionAdviceRecord AcceptorCurrencyConversionAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_euojqS5IEeunNvJlR_vCbg")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorCurrencyConversionAdviceV05 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorCurrencyConversionAdvice message is sent by the card acceptor to inform the currency conversion service provider of the outcome of the card currency conversion.
-/// This is the outer document that contains <seealso cref="AcceptorCurrencyConversionAdviceV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCurrencyConversionAdviceV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,35 @@ public partial record AcceptorConfigurationUpdateV09 : IOuterRecord
     public const string XmlTag = "AccptrCfgtnUpd";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the acceptor parameters.
+    /// </summary>
+    [IsoId("_EBc84wuhEeqw5uEXxQ9H4g")]
+    [Description(@"Set of characteristics related to the transfer of the acceptor parameters.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Acceptor configuration to be downloaded from the terminal management system.
+    /// </summary>
+    [IsoId("_EBc85QuhEeqw5uEXxQ9H4g")]
+    [Description(@"Acceptor configuration to be downloaded from the terminal management system.")]
+    [DataMember(Name="AccptrCfgtn")]
+    [XmlElement(ElementName="AccptrCfgtn")]
+    [Required]
+    public required SomeAcceptorConfigurationRecord AcceptorConfiguration { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_EBc85wuhEeqw5uEXxQ9H4g")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorConfigurationUpdateV09 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorConfigurationUpdate message is sent by a TM to a POI to update configurations.
-/// This is the outer document that contains <seealso cref="AcceptorConfigurationUpdateV09"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorConfigurationUpdateV09"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

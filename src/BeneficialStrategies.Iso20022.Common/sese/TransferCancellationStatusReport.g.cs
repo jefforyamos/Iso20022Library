@@ -28,7 +28,35 @@ public partial record TransferCancellationStatusReport : IOuterRecord
     public const string XmlTag = "sese.010.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_HFtUYdE6Ed-BzquC8wXy7w_1157267444")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public required IReadonlyCollection<SomeRelatedReferenceRecord> RelatedReference { get; init; } // Min=1, Max=2
+    
+    /// <summary>
+    /// Reference to the linked message sent in a proprietary way or the reference of a system.
+    /// </summary>
+    [IsoId("_HFtUYtE6Ed-BzquC8wXy7w_1159114780")]
+    [Description(@"Reference to the linked message sent in a proprietary way or the reference of a system.")]
+    [DataMember(Name="OthrRef")]
+    [XmlElement(ElementName="OthrRef")]
+    [Required]
+    public required SomeOtherReferenceRecord OtherReference { get; init; }
+    
+    /// <summary>
+    /// Status of the transfer cancellation instruction.
+    /// </summary>
+    [IsoId("_HFtUY9E6Ed-BzquC8wXy7w_-503487552")]
+    [Description(@"Status of the transfer cancellation instruction.")]
+    [DataMember(Name="StsRpt")]
+    [XmlElement(ElementName="StsRpt")]
+    [Required]
+    public required SomeStatusReportRecord StatusReport { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +69,8 @@ public partial record TransferCancellationStatusReport : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The TransferCancellationStatusReport message is sent by an executing party to the instructing party.
-/// The message gives the status of a transfer cancellation instruction that was previously sent by the instructing party.
-/// Usage
-/// The TransferCancellationStatusReport message is sent by an executing party to the instructing party. The message can be used to report that either
-/// - the cancellation has been acted upon or
-/// - the cancellation is rejected.
-/// In both cases, the reason must be specified using either a code or unstructured information.
-/// This is the outer document that contains <seealso cref="TransferCancellationStatusReport"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferCancellationStatusReport"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

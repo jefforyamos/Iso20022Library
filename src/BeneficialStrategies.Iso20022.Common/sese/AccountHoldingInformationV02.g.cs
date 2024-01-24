@@ -24,7 +24,154 @@ public partial record AccountHoldingInformationV02 : IOuterRecord
     public const string XmlTag = "AcctHldgInf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_QJo8vfpcEeCPwaG9zjUPNQ")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgRef")]
+    [XmlElement(ElementName="MsgRef")]
+    [Required]
+    public required SomeMessageReferenceRecord MessageReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_QJo8wfpcEeCPwaG9zjUPNQ")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_QJo8xfpcEeCPwaG9zjUPNQ")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_QJo8yfpcEeCPwaG9zjUPNQ")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// Identifies the business flow direction type (assets to be delivered or received).
+    /// </summary>
+    [IsoId("_egpsL_slEeCIi9ZETLBv8g")]
+    [Description(@"Identifies the business flow direction type (assets to be delivered or received).")]
+    [DataMember(Name="BizFlowDrctnTp")]
+    [XmlElement(ElementName="BizFlowDrctnTp")]
+    public SomeBusinessFlowDirectionTypeRecord? BusinessFlowDirectionType { get; init; }
+    
+    /// <summary>
+    /// Information identifying the primary individual investor, eg, name, address, social security number and date of birth.
+    /// </summary>
+    [IsoId("_QJo8zfpcEeCPwaG9zjUPNQ")]
+    [Description(@"Information identifying the primary individual investor, eg, name, address, social security number and date of birth.")]
+    [DataMember(Name="PmryIndvInvstr")]
+    [XmlElement(ElementName="PmryIndvInvstr")]
+    public SomePrimaryIndividualInvestorRecord? PrimaryIndividualInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the secondary individual investor, eg, name, address, social security number and date of birth.
+    /// </summary>
+    [IsoId("_QJo80fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Information identifying the secondary individual investor, eg, name, address, social security number and date of birth.")]
+    [DataMember(Name="ScndryIndvInvstr")]
+    [XmlElement(ElementName="ScndryIndvInvstr")]
+    public SomeSecondaryIndividualInvestorRecord? SecondaryIndividualInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying other individual investors, eg, name, address, social security number and date of birth.
+    /// </summary>
+    [IsoId("_QJo81fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Information identifying other individual investors, eg, name, address, social security number and date of birth.")]
+    [DataMember(Name="OthrIndvInvstr")]
+    [XmlElement(ElementName="OthrIndvInvstr")]
+    public SomeOtherIndividualInvestorRecord? OtherIndividualInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the primary corporate investor, eg, name and address.
+    /// </summary>
+    [IsoId("_QJo82fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Information identifying the primary corporate investor, eg, name and address.")]
+    [DataMember(Name="PmryCorpInvstr")]
+    [XmlElement(ElementName="PmryCorpInvstr")]
+    public SomePrimaryCorporateInvestorRecord? PrimaryCorporateInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the secondary corporate investor, eg, name and address.
+    /// </summary>
+    [IsoId("_QJo83fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Information identifying the secondary corporate investor, eg, name and address.")]
+    [DataMember(Name="ScndryCorpInvstr")]
+    [XmlElement(ElementName="ScndryCorpInvstr")]
+    public SomeSecondaryCorporateInvestorRecord? SecondaryCorporateInvestor { get; init; }
+    
+    /// <summary>
+    /// Information identifying the other corporate investors, eg, name and address.
+    /// </summary>
+    [IsoId("_QJo84fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Information identifying the other corporate investors, eg, name and address.")]
+    [DataMember(Name="OthrCorpInvstr")]
+    [XmlElement(ElementName="OthrCorpInvstr")]
+    public SomeOtherCorporateInvestorRecord? OtherCorporateInvestor { get; init; }
+    
+    /// <summary>
+    /// Identification of an account owned by the investor at the old plan manager (account servicer).
+    /// </summary>
+    [IsoId("_QJo85fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Identification of an account owned by the investor at the old plan manager (account servicer).")]
+    [DataMember(Name="TrfrAcct")]
+    [XmlElement(ElementName="TrfrAcct")]
+    [Required]
+    public required SomeTransferorAccountRecord TransferorAccount { get; init; }
+    
+    /// <summary>
+    /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
+    /// </summary>
+    [IsoId("_QJo86fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Account held in the name of a party that is not the name of the beneficial owner of the shares.")]
+    [DataMember(Name="NmneeAcct")]
+    [XmlElement(ElementName="NmneeAcct")]
+    public SomeNomineeAccountRecord? NomineeAccount { get; init; }
+    
+    /// <summary>
+    /// Information related to the institution to which the financial instrument is to be transferred.
+    /// </summary>
+    [IsoId("_QJo87fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Information related to the institution to which the financial instrument is to be transferred.")]
+    [DataMember(Name="Trfee")]
+    [XmlElement(ElementName="Trfee")]
+    [Required]
+    public required SomeTransfereeRecord Transferee { get; init; }
+    
+    /// <summary>
+    /// Provides information related to the asset(s) transferred.
+    /// </summary>
+    [IsoId("_QJo88fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Provides information related to the asset(s) transferred.")]
+    [DataMember(Name="PdctTrf")]
+    [XmlElement(ElementName="PdctTrf")]
+    [Required]
+    public required SomeProductTransferRecord ProductTransfer { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_QJo89fpcEeCPwaG9zjUPNQ")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +184,8 @@ public partial record AccountHoldingInformationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An executing party, eg, a (old) plan manager (Transferor), sends the AccountHoldingInformation message to the instructing party, eg, a (new) plan manager (Transferee), to provide information about financial instruments held on behalf of a client.
-/// Usage
-/// The AccountHoldingInformation message is used to provide information about one or more ISA or portfolio products held in a client's account.
-/// This is the outer document that contains <seealso cref="AccountHoldingInformationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountHoldingInformationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

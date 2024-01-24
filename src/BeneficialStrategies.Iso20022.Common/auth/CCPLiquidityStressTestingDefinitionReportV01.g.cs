@@ -21,7 +21,25 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01 : IOuterRecor
     public const string XmlTag = "CCPLqdtyStrssTstgDefRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Definition of scenario used to stress the liquidity needs of the CCP.
+    /// </summary>
+    [IsoId("_Q-Y96eUUEem3X-64-NKdqg")]
+    [Description(@"Definition of scenario used to stress the liquidity needs of the CCP.")]
+    [DataMember(Name="LqdtyStrssScnroDef")]
+    [XmlElement(ElementName="LqdtyStrssScnroDef")]
+    [Required]
+    public required SomeLiquidityStressScenarioDefinitionRecord LiquidityStressScenarioDefinition { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_Q-Y96-UUEem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01 : IOuterRecor
 }
 
 /// <summary>
-/// The CCPLiquidityStressTestingDefinitionReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about how the central counterparty defines liquidity stress scenarios used to stress the liquidity resources and requirements of the CCP.
-/// This is the outer document that contains <seealso cref="CCPLiquidityStressTestingDefinitionReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPLiquidityStressTestingDefinitionReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

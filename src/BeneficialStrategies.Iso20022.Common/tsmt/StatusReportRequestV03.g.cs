@@ -26,7 +26,25 @@ public partial record StatusReportRequestV03 : IOuterRecord
     public const string XmlTag = "StsRptReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the request message.
+    /// </summary>
+    [IsoId("_0n_7mdE8Ed-BzquC8wXy7w_-619721785")]
+    [Description(@"Identifies the request message.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the entities of the submitter for which the transactions have to be reported.
+    /// </summary>
+    [IsoId("_0n_7mtE8Ed-BzquC8wXy7w_-619721446")]
+    [Description(@"Specifies the entities of the submitter for which the transactions have to be reported.")]
+    [DataMember(Name="NttiesToBeRptd")]
+    [XmlElement(ElementName="NttiesToBeRptd")]
+    public SomeEntitiesToBeReportedRecord? EntitiesToBeReported { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +57,8 @@ public partial record StatusReportRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The StatusReportRequest message is sent by a party involved in a transaction to the matching application.
-/// This message is used to request a report on the status of transactions registered in the matching application.
-/// Usage
-/// The StatusReportRequest message can be sent by either party involved in a transaction to request a report on the status and sub-statuses of all transactions that the requester is involved in.
-/// The application will respond to the request by sending a StatusReport message.
-/// This is the outer document that contains <seealso cref="StatusReportRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusReportRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

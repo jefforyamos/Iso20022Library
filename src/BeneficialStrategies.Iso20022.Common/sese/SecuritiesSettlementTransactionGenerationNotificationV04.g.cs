@@ -21,7 +21,173 @@ public partial record SecuritiesSettlementTransactionGenerationNotificationV04 :
     public const string XmlTag = "SctiesSttlmTxGnrtnNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides transaction type and identification information.
+    /// </summary>
+    [IsoId("_uIR2WQxyEeKMmbvHOtE4SA")]
+    [Description(@"Provides transaction type and identification information.")]
+    [DataMember(Name="TxIdDtls")]
+    [XmlElement(ElementName="TxIdDtls")]
+    [Required]
+    public required SomeTransactionIdentificationDetailsRecord TransactionIdentificationDetails { get; init; }
+    
+    /// <summary>
+    /// Count of the number of transactions linked.
+    /// </summary>
+    [IsoId("_uIR2XQxyEeKMmbvHOtE4SA")]
+    [Description(@"Count of the number of transactions linked.")]
+    [DataMember(Name="NbCounts")]
+    [XmlElement(ElementName="NbCounts")]
+    public SomeNumberCountsRecord? NumberCounts { get; init; }
+    
+    /// <summary>
+    /// Link to another transaction that must be processed after, before or at the same time.
+    /// </summary>
+    [IsoId("_uIR2YQxyEeKMmbvHOtE4SA")]
+    [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
+    [DataMember(Name="Lnkgs")]
+    [XmlElement(ElementName="Lnkgs")]
+    public SomeLinkagesRecord? Linkages { get; init; }
+    
+    /// <summary>
+    /// Details of the trade.
+    /// </summary>
+    [IsoId("_uIR2ZQxyEeKMmbvHOtE4SA")]
+    [Description(@"Details of the trade.")]
+    [DataMember(Name="TradDtls")]
+    [XmlElement(ElementName="TradDtls")]
+    [Required]
+    public required SomeTradeDetailsRecord TradeDetails { get; init; }
+    
+    /// <summary>
+    /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
+    /// </summary>
+    [IsoId("_uIR2aQxyEeKMmbvHOtE4SA")]
+    [Description(@"Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.")]
+    [DataMember(Name="FinInstrmId")]
+    [XmlElement(ElementName="FinInstrmId")]
+    [Required]
+    public required SomeFinancialInstrumentIdentificationRecord FinancialInstrumentIdentification { get; init; }
+    
+    /// <summary>
+    /// Elements characterising a financial instrument.
+    /// </summary>
+    [IsoId("_uIR2bQxyEeKMmbvHOtE4SA")]
+    [Description(@"Elements characterising a financial instrument.")]
+    [DataMember(Name="FinInstrmAttrbts")]
+    [XmlElement(ElementName="FinInstrmAttrbts")]
+    public SomeFinancialInstrumentAttributesRecord? FinancialInstrumentAttributes { get; init; }
+    
+    /// <summary>
+    /// Details related to the account and quantity involved in the transaction.
+    /// </summary>
+    [IsoId("_uIR2cQxyEeKMmbvHOtE4SA")]
+    [Description(@"Details related to the account and quantity involved in the transaction.")]
+    [DataMember(Name="QtyAndAcctDtls")]
+    [XmlElement(ElementName="QtyAndAcctDtls")]
+    [Required]
+    public required SomeQuantityAndAccountDetailsRecord QuantityAndAccountDetails { get; init; }
+    
+    /// <summary>
+    /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
+    /// </summary>
+    [IsoId("_uIR2dQxyEeKMmbvHOtE4SA")]
+    [Description(@"Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.")]
+    [DataMember(Name="SttlmParams")]
+    [XmlElement(ElementName="SttlmParams")]
+    [Required]
+    public required SomeSettlementParametersRecord SettlementParameters { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of delivering settlement parties.
+    /// </summary>
+    [IsoId("_uIR2eQxyEeKMmbvHOtE4SA")]
+    [Description(@"Identifies the chain of delivering settlement parties.")]
+    [DataMember(Name="DlvrgSttlmPties")]
+    [XmlElement(ElementName="DlvrgSttlmPties")]
+    public SomeDeliveringSettlementPartiesRecord? DeliveringSettlementParties { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of receiving settlement parties.
+    /// </summary>
+    [IsoId("_uIR2fQxyEeKMmbvHOtE4SA")]
+    [Description(@"Identifies the chain of receiving settlement parties.")]
+    [DataMember(Name="RcvgSttlmPties")]
+    [XmlElement(ElementName="RcvgSttlmPties")]
+    public SomeReceivingSettlementPartiesRecord? ReceivingSettlementParties { get; init; }
+    
+    /// <summary>
+    /// Cash parties involved in the transaction if different for the securities settlement parties.
+    /// </summary>
+    [IsoId("_uIR2gQxyEeKMmbvHOtE4SA")]
+    [Description(@"Cash parties involved in the transaction if different for the securities settlement parties.")]
+    [DataMember(Name="CshPties")]
+    [XmlElement(ElementName="CshPties")]
+    public SomeCashPartiesRecord? CashParties { get; init; }
+    
+    /// <summary>
+    /// Total amount of money to be paid or received in exchange for the securities.
+    /// </summary>
+    [IsoId("_uIR2hQxyEeKMmbvHOtE4SA")]
+    [Description(@"Total amount of money to be paid or received in exchange for the securities.")]
+    [DataMember(Name="SttlmAmt")]
+    [XmlElement(ElementName="SttlmAmt")]
+    public SomeSettlementAmountRecord? SettlementAmount { get; init; }
+    
+    /// <summary>
+    /// Other amounts than the settlement amount.
+    /// </summary>
+    [IsoId("_uIR2iQxyEeKMmbvHOtE4SA")]
+    [Description(@"Other amounts than the settlement amount.")]
+    [DataMember(Name="OthrAmts")]
+    [XmlElement(ElementName="OthrAmts")]
+    public SomeOtherAmountsRecord? OtherAmounts { get; init; }
+    
+    /// <summary>
+    /// Other business parties relevant to the transaction.
+    /// </summary>
+    [IsoId("_uIR2jQxyEeKMmbvHOtE4SA")]
+    [Description(@"Other business parties relevant to the transaction.")]
+    [DataMember(Name="OthrBizPties")]
+    [XmlElement(ElementName="OthrBizPties")]
+    public SomeOtherBusinessPartiesRecord? OtherBusinessParties { get; init; }
+    
+    /// <summary>
+    /// Provides information required for the registration or physical settlement.
+    /// </summary>
+    [IsoId("_uIR2kQxyEeKMmbvHOtE4SA")]
+    [Description(@"Provides information required for the registration or physical settlement.")]
+    [DataMember(Name="AddtlPhysOrRegnDtls")]
+    [XmlElement(ElementName="AddtlPhysOrRegnDtls")]
+    public SomeAdditionalPhysicalOrRegistrationDetailsRecord? AdditionalPhysicalOrRegistrationDetails { get; init; }
+    
+    /// <summary>
+    /// Specifies the reason why the transaction was generated.
+    /// </summary>
+    [IsoId("_uIR2lQxyEeKMmbvHOtE4SA")]
+    [Description(@"Specifies the reason why the transaction was generated.")]
+    [DataMember(Name="GnrtdRsn")]
+    [XmlElement(ElementName="GnrtdRsn")]
+    public SomeGeneratedReasonRecord? GeneratedReason { get; init; }
+    
+    /// <summary>
+    /// Status and reason of the transaction.
+    /// </summary>
+    [IsoId("_uIR2mQxyEeKMmbvHOtE4SA")]
+    [Description(@"Status and reason of the transaction.")]
+    [DataMember(Name="StsAndRsn")]
+    [XmlElement(ElementName="StsAndRsn")]
+    public SomeStatusAndReasonRecord? StatusAndReason { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_uIR2nQxyEeKMmbvHOtE4SA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +200,8 @@ public partial record SecuritiesSettlementTransactionGenerationNotificationV04 :
 }
 
 /// <summary>
-/// Scope|An account servicer sends a SecuritiesSettlementTransactionGenerationNotification to an account owner to advise the account owner of a securities settlement transaction that has been generated/created by the account servicer for the account owner. The reason for creation can range from the automatic transformation of pending settlement instructions following a corporate event to the recovery of an account owner transactions' database initiated by its account servicer.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer|||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.||ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionGenerationNotificationV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionGenerationNotificationV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -27,7 +27,116 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     public const string XmlTag = "FXTradCaptrRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Capture report message management information.
+    /// </summary>
+    [IsoId("_ZlYv4ERZEeSWxNI5mwqKGQ")]
+    [Description(@"Capture report message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Identifies the capture report message.
+    /// </summary>
+    [IsoId("_gWVfQERZEeSWxNI5mwqKGQ")]
+    [Description(@"Identifies the capture report message.")]
+    [DataMember(Name="RptId")]
+    [XmlElement(ElementName="RptId")]
+    public SomeReportIdentificationRecord? ReportIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the treasury trade which is captured.
+    /// </summary>
+    [IsoId("_kvGPQERZEeSWxNI5mwqKGQ")]
+    [Description(@"Specifies the trading side of the treasury trade which is captured.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    public SomeTradingSideIdentificationRecord? TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty side of the treasury trade which is captured.
+    /// </summary>
+    [IsoId("_t_XgwERZEeSWxNI5mwqKGQ")]
+    [Description(@"Specifies the counterparty side of the treasury trade which is captured.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    public SomeCounterpartySideIdentificationRecord? CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Details of the treasury trade captured.
+    /// </summary>
+    [IsoId("_qakFwEU0EeS7YamWDFxbDA")]
+    [Description(@"Details of the treasury trade captured.")]
+    [DataMember(Name="TradDtl")]
+    [XmlElement(ElementName="TradDtl")]
+    public SomeTradeDetailRecord? TradeDetail { get; init; }
+    
+    /// <summary>
+    /// Reference of the report.
+    /// </summary>
+    [IsoId("_yvuZ4EU0EeS7YamWDFxbDA")]
+    [Description(@"Reference of the report.")]
+    [DataMember(Name="Ref")]
+    [XmlElement(ElementName="Ref")]
+    public SomeReferenceRecord? Reference { get; init; }
+    
+    /// <summary>
+    /// Indicates if this report is for responding to a capture request.
+    /// </summary>
+    [IsoId("__yMKoEU0EeS7YamWDFxbDA")]
+    [Description(@"Indicates if this report is for responding to a capture request.")]
+    [DataMember(Name="ReqRspndr")]
+    [XmlElement(ElementName="ReqRspndr")]
+    [Required]
+    public required SomeRequestResponderRecord RequestResponder { get; init; }
+    
+    /// <summary>
+    /// Indicates if this report is a rejection report for responding to a capture request.
+    /// </summary>
+    [IsoId("_E2SWoEU1EeS7YamWDFxbDA")]
+    [Description(@"Indicates if this report is a rejection report for responding to a capture request.")]
+    [DataMember(Name="ReqRjctd")]
+    [XmlElement(ElementName="ReqRjctd")]
+    public SomeRequestRejectedRecord? RequestRejected { get; init; }
+    
+    /// <summary>
+    /// Reason of rejection.
+    /// </summary>
+    [IsoId("_HyozAEU1EeS7YamWDFxbDA")]
+    [Description(@"Reason of rejection.")]
+    [DataMember(Name="QryRjctRsn")]
+    [XmlElement(ElementName="QryRjctRsn")]
+    public SomeQueryRejectReasonRecord? QueryRejectReason { get; init; }
+    
+    /// <summary>
+    /// Indicates the total number of trades.
+    /// </summary>
+    [IsoId("_4M2w8EU0EeS7YamWDFxbDA")]
+    [Description(@"Indicates the total number of trades.")]
+    [DataMember(Name="TtlNbTrds")]
+    [XmlElement(ElementName="TtlNbTrds")]
+    public SomeTotalNumberTradesRecord? TotalNumberTrades { get; init; }
+    
+    /// <summary>
+    /// Indicates if this report is the last report sent for responding to one capture request.
+    /// </summary>
+    [IsoId("_71d2YEU0EeS7YamWDFxbDA")]
+    [Description(@"Indicates if this report is the last report sent for responding to one capture request.")]
+    [DataMember(Name="LastRptReqd")]
+    [XmlElement(ElementName="LastRptReqd")]
+    public SomeLastReportRequestedRecord? LastReportRequested { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_IoQyQKHhEeS69KkQis5bYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +149,8 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The ForeignExchangeTradeCaptureReport message is sent by a trading system to a participant for notification and providing details of a treasury trade.
-/// Usage
-/// The report is sent by the trading system to the two trading parties after their trade has been executed. 
-/// The report can also be sent by the trading system to a trading parties to respond their inquiry (TradeCaptureRequest). 
-/// Note that multiple reports can be sent to respond one inquiry message.
-/// The message may contains trade details and trading parties' information.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeCaptureReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeCaptureReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

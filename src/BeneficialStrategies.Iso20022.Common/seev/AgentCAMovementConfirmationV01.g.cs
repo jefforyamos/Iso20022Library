@@ -28,7 +28,74 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     public const string XmlTag = "AgtCAMvmntConf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification assigned by the Sender to unambiguously identify the confirmation.
+    /// </summary>
+    [IsoId("_TOpAoNEwEd-BzquC8wXy7w_2121112833")]
+    [Description(@"Identification assigned by the Sender to unambiguously identify the confirmation.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Identification of the Agent CA Movement Instruction that triggered the movement(s).
+    /// </summary>
+    [IsoId("_TOpAodEwEd-BzquC8wXy7w_2124804747")]
+    [Description(@"Identification of the Agent CA Movement Instruction that triggered the movement(s).")]
+    [DataMember(Name="AgtCAMvmntInstrId")]
+    [XmlElement(ElementName="AgtCAMvmntInstrId")]
+    [Required]
+    public required SomeAgentCAMovementInstructionIdentificationRecord AgentCAMovementInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the Agent CA Election Status Advice that triggered the movement(s).
+    /// </summary>
+    [IsoId("_TOpAotEwEd-BzquC8wXy7w_-1143801782")]
+    [Description(@"Identification of the Agent CA Election Status Advice that triggered the movement(s).")]
+    [DataMember(Name="AgtCAElctnStsAdvcId")]
+    [XmlElement(ElementName="AgtCAElctnStsAdvcId")]
+    [Required]
+    public required SomeAgentCAElectionStatusAdviceIdentificationRecord AgentCAElectionStatusAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of the Agent CA Global Distribution Status Advice that triggered the movement(s).
+    /// </summary>
+    [IsoId("_TOpAo9EwEd-BzquC8wXy7w_1161636580")]
+    [Description(@"Identification of the Agent CA Global Distribution Status Advice that triggered the movement(s).")]
+    [DataMember(Name="AgtCAGblDstrbtnStsAdvcId")]
+    [XmlElement(ElementName="AgtCAGblDstrbtnStsAdvcId")]
+    [Required]
+    public required SomeAgentCAGlobalDistributionStatusAdviceIdentificationRecord AgentCAGlobalDistributionStatusAdviceIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TOpApNEwEd-BzquC8wXy7w_-279320255")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information about the securities movements.
+    /// </summary>
+    [IsoId("_TOpApdEwEd-BzquC8wXy7w_1725377056")]
+    [Description(@"Information about the securities movements.")]
+    [DataMember(Name="SctiesMvmntDtls")]
+    [XmlElement(ElementName="SctiesMvmntDtls")]
+    public SomeSecuritiesMovementDetailsRecord? SecuritiesMovementDetails { get; init; }
+    
+    /// <summary>
+    /// Information about the cash movement.
+    /// </summary>
+    [IsoId("_TQR_YNEwEd-BzquC8wXy7w_-1609125049")]
+    [Description(@"Information about the cash movement.")]
+    [DataMember(Name="CshMvmntDtls")]
+    [XmlElement(ElementName="CshMvmntDtls")]
+    public SomeCashMovementDetailsRecord? CashMovementDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +108,8 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by a CSD to an issuer (or its agent) to confirm the settlement of resource movements.
-/// Usage
-/// This message is used to confirm the settlement of the movements resulting from an:
-/// - Agent Corporate Action Movement Instruction message. It confirms the settlement of the exercised resources and/or proceeds movements in which case the building block Agent Corporate Action Movement Instruction Identification must be present. An Agent Corporate Action Movement Instruction message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.
-/// - Agent Corporate Action Global Distribution Status Advice authorising the global distribution. It confirms the settlement of the exercised resources and/or proceeds movements. The building block Agent Corporate Action Global Distribution Status Advice Identification must be present. An Agent Corporate Action Global Distribution Status Advice message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.
-/// - Agent Corporate Action Election Status Advice that rejects an election advice. It confirms the return of the exercised resources. The building block Agent Corporate Action Election Status Advice Identification must be present. An Agent Corporate Action Election Status Advice message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.
-/// - Agent Corporate Action Election Status Advice where an election cancellation request has been accepted. It confirms the return of the exercised resources. The building block Agent Corporate Action Election Status Advice Identification must be present. An Agent Corporate Action Election Status Advice message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.
-/// This is the outer document that contains <seealso cref="AgentCAMovementConfirmationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAMovementConfirmationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -24,7 +24,34 @@ public partial record ForeignExchangeTradeStatusNotificationV05 : IOuterRecord
     public const string XmlTag = "FXTradStsNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides information on the status of a trade in a system.
+    /// </summary>
+    [IsoId("_7QPkkzJzEeOd1OidA-8_VQ")]
+    [Description(@"Provides information on the status of a trade in a system.")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
+    /// <summary>
+    /// Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.
+    /// </summary>
+    [IsoId("_7QPklTJzEeOd1OidA-8_VQ")]
+    [Description(@"Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.")]
+    [DataMember(Name="RgltryRptg")]
+    [XmlElement(ElementName="RgltryRptg")]
+    public SomeRegulatoryReportingRecord? RegulatoryReporting { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_7QPklzJzEeOd1OidA-8_VQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +64,8 @@ public partial record ForeignExchangeTradeStatusNotificationV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope|
-/// The ForeignExchangeTradeStatusNotification message is sent by a central system to the participant to notify the current status of a foreign exchange trade in the system.|
-/// Usage|
-/// This ForeignExchangeTradeStatusNotification message will be sent at specific times agreed upon by the central settlement system and a participant in a central settlement system.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeStatusNotificationV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeStatusNotificationV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

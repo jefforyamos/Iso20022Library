@@ -21,7 +21,35 @@ public partial record FinancialInstrumentReportingEquityTradingActivityReportV01
     public const string XmlTag = "FinInstrmRptgEqtyTradgActvtyRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Header information related to the global report, common to all reference data.
+    /// </summary>
+    [IsoId("_4LK8P0RNEee7JdgA9zPESA")]
+    [Description(@"Header information related to the global report, common to all reference data.")]
+    [DataMember(Name="RptHdr")]
+    [XmlElement(ElementName="RptHdr")]
+    [Required]
+    public required SomeReportHeaderRecord ReportHeader { get; init; }
+    
+    /// <summary>
+    /// Details the transparency data reported by a trading venue.
+    /// </summary>
+    [IsoId("_4LK8QURNEee7JdgA9zPESA")]
+    [Description(@"Details the transparency data reported by a trading venue.")]
+    [DataMember(Name="EqtyTrnsprncyData")]
+    [XmlElement(ElementName="EqtyTrnsprncyData")]
+    [Required]
+    public required SomeEquityTransparencyDataRecord EquityTransparencyData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_4LK8Q0RNEee7JdgA9zPESA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record FinancialInstrumentReportingEquityTradingActivityReportV01
 }
 
 /// <summary>
-/// The FinancialInstrumentReportingEquityTradingActivityReport message is sent by the trading venue to the national competent authority to report on equity specific trading activity data, used for the transparency calculations.
-/// This is the outer document that contains <seealso cref="FinancialInstrumentReportingEquityTradingActivityReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingEquityTradingActivityReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -25,7 +25,46 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord
     public const string XmlTag = "AmdFXOptnV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Provides reference and date of the foreign exchange option trade which is amended.
+    /// </summary>
+    [IsoId("_HQD4WdE8Ed-BzquC8wXy7w_-277529666")]
+    [Description(@"Provides reference and date of the foreign exchange option trade which is amended.")]
+    [DataMember(Name="TradInf")]
+    [XmlElement(ElementName="TradInf")]
+    [Required]
+    public required SomeTradeInformationRecord TradeInformation { get; init; }
+    
+    /// <summary>
+    /// Specifies the trading side of the currency option trade which is amended.
+    /// </summary>
+    [IsoId("_HQD4WtE8Ed-BzquC8wXy7w_-515469288")]
+    [Description(@"Specifies the trading side of the currency option trade which is amended.")]
+    [DataMember(Name="TradgSdId")]
+    [XmlElement(ElementName="TradgSdId")]
+    [Required]
+    public required SomeTradingSideIdentificationRecord TradingSideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the counterparty of the currency option trade which is amended.
+    /// </summary>
+    [IsoId("_HQD4W9E8Ed-BzquC8wXy7w_296306803")]
+    [Description(@"Specifies the counterparty of the currency option trade which is amended.")]
+    [DataMember(Name="CtrPtySdId")]
+    [XmlElement(ElementName="CtrPtySdId")]
+    [Required]
+    public required SomeCounterpartySideIdentificationRecord CounterpartySideIdentification { get; init; }
+    
+    /// <summary>
+    /// Specifies the parameters of the currency option which is bought by the trading side.
+    /// </summary>
+    [IsoId("_HQNCQNE8Ed-BzquC8wXy7w_1463318138")]
+    [Description(@"Specifies the parameters of the currency option which is bought by the trading side.")]
+    [DataMember(Name="Optn")]
+    [XmlElement(ElementName="Optn")]
+    [Required]
+    public required SomeOptionRecord Option { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +77,8 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AmendForeignExchangeOption message is sent by a participant to a central system or to a counterparty to notify the amendment of a foreign currency option contract.
-/// Usage
-/// The message contains a Related Reference to link it to the previously sent notification and may contain an reason for amendment.
-/// This message is only suitable for Simple (i.e. not Barrier) Vanilla (i.e. not Binary, Digital, Notouch) Foreign Exchange Options.
-/// This is the outer document that contains <seealso cref="AmendForeignExchangeOptionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendForeignExchangeOptionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -31,7 +31,134 @@ public partial record AccountModificationInstructionV02 : IOuterRecord
     public const string XmlTag = "AcctModInstrV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the message.
+    /// </summary>
+    [IsoId("_sfFeRtE9Ed-BzquC8wXy7w_-1821354979")]
+    [Description(@"Identifies the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_sfFeR9E9Ed-BzquC8wXy7w_-1423178721")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    public SomePreviousReferenceRecord? PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Provide detailed information about the application modification instruction.
+    /// </summary>
+    [IsoId("_sfFeSNE9Ed-BzquC8wXy7w_-1423178686")]
+    [Description(@"Provide detailed information about the application modification instruction.")]
+    [DataMember(Name="InstrDtls")]
+    [XmlElement(ElementName="InstrDtls")]
+    public SomeInstructionDetailsRecord? InstructionDetails { get; init; }
+    
+    /// <summary>
+    /// Investment account selection information used to identify the account for which the information is modified.
+    /// </summary>
+    [IsoId("_sfFeSdE9Ed-BzquC8wXy7w_-1423178644")]
+    [Description(@"Investment account selection information used to identify the account for which the information is modified.")]
+    [DataMember(Name="InvstmtAcctSelctn")]
+    [XmlElement(ElementName="InvstmtAcctSelctn")]
+    [Required]
+    public required SomeInvestmentAccountSelectionRecord InvestmentAccountSelection { get; init; }
+    
+    /// <summary>
+    /// Information related to general characteristics of an investment account to be inserted, updated or deleted.
+    /// </summary>
+    [IsoId("_sfOoMNE9Ed-BzquC8wXy7w_-1423178591")]
+    [Description(@"Information related to general characteristics of an investment account to be inserted, updated or deleted.")]
+    [DataMember(Name="ModfdInvstmtAcct")]
+    [XmlElement(ElementName="ModfdInvstmtAcct")]
+    public SomeModifiedInvestmentAccountRecord? ModifiedInvestmentAccount { get; init; }
+    
+    /// <summary>
+    /// Information related to the account related parties (eg. account owner) to be inserted, updated or deleted.
+    /// </summary>
+    [IsoId("_sfOoMdE9Ed-BzquC8wXy7w_-1423178194")]
+    [Description(@"Information related to the account related parties (eg. account owner) to be inserted, updated or deleted.")]
+    [DataMember(Name="ModfdAcctPties")]
+    [XmlElement(ElementName="ModfdAcctPties")]
+    public required IReadonlyCollection<SomeModifiedAccountPartiesRecord> ModifiedAccountParties { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information related to intermediaries to be inserted, updated or deleted.
+    /// </summary>
+    [IsoId("_sfOoMtE9Ed-BzquC8wXy7w_-1423178454")]
+    [Description(@"Information related to intermediaries to be inserted, updated or deleted.")]
+    [DataMember(Name="ModfdIntrmies")]
+    [XmlElement(ElementName="ModfdIntrmies")]
+    public required IReadonlyCollection<SomeModifiedIntermediariesRecord> ModifiedIntermediaries { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Information related to referred placement agent in the hedge fund industry to be inserted, updated or deleted.
+    /// </summary>
+    [IsoId("_sfOoM9E9Ed-BzquC8wXy7w_-1423178159")]
+    [Description(@"Information related to referred placement agent in the hedge fund industry to be inserted, updated or deleted.")]
+    [DataMember(Name="ModfdPlcmnt")]
+    [XmlElement(ElementName="ModfdPlcmnt")]
+    public SomeModifiedPlacementRecord? ModifiedPlacement { get; init; }
+    
+    /// <summary>
+    /// Eligibility conditions information related to new issues allocation to be inserted, updated or deleted.
+    /// </summary>
+    [IsoId("_sfOoNNE9Ed-BzquC8wXy7w_-1252846017")]
+    [Description(@"Eligibility conditions information related to new issues allocation to be inserted, updated or deleted.")]
+    [DataMember(Name="ModfdIsseAllcn")]
+    [XmlElement(ElementName="ModfdIsseAllcn")]
+    public SomeModifiedIssueAllocationRecord? ModifiedIssueAllocation { get; init; }
+    
+    /// <summary>
+    /// Information related to a savings plan to be either inserted, updated or deleted.
+    /// </summary>
+    [IsoId("_sfOoNdE9Ed-BzquC8wXy7w_-1423178549")]
+    [Description(@"Information related to a savings plan to be either inserted, updated or deleted.")]
+    [DataMember(Name="ModfdSvgsInvstmtPlan")]
+    [XmlElement(ElementName="ModfdSvgsInvstmtPlan")]
+    public required IReadonlyCollection<SomeModifiedSavingsInvestmentPlanRecord> ModifiedSavingsInvestmentPlan { get; init; } // Min=0, Max=50
+    
+    /// <summary>
+    /// Information related to a withrawal plan to be either inserted, updated or deleted.
+    /// </summary>
+    [IsoId("_sfOoNtE9Ed-BzquC8wXy7w_-1423178506")]
+    [Description(@"Information related to a withrawal plan to be either inserted, updated or deleted.")]
+    [DataMember(Name="ModfdWdrwlInvstmtPlan")]
+    [XmlElement(ElementName="ModfdWdrwlInvstmtPlan")]
+    public required IReadonlyCollection<SomeModifiedWithdrawalInvestmentPlanRecord> ModifiedWithdrawalInvestmentPlan { get; init; } // Min=0, Max=10
+    
+    /// <summary>
+    /// Cash settlement standing instruction associated to the investment fund transaction and to be either inserted or deleted.
+    /// </summary>
+    [IsoId("_sfOoN9E9Ed-BzquC8wXy7w_-1423178117")]
+    [Description(@"Cash settlement standing instruction associated to the investment fund transaction and to be either inserted or deleted.")]
+    [DataMember(Name="ModfdCshSttlm")]
+    [XmlElement(ElementName="ModfdCshSttlm")]
+    public required IReadonlyCollection<SomeModifiedCashSettlementRecord> ModifiedCashSettlement { get; init; } // Min=0, Max=8
+    
+    /// <summary>
+    /// Information related to documents to be added, deleted or updated.|.
+    /// </summary>
+    [IsoId("_sfYZMNE9Ed-BzquC8wXy7w_-1423178082")]
+    [Description(@"Information related to documents to be added, deleted or updated.|.")]
+    [DataMember(Name="ModfdSvcLvlAgrmt")]
+    [XmlElement(ElementName="ModfdSvcLvlAgrmt")]
+    public required IReadonlyCollection<SomeModifiedServiceLevelAgreementRecord> ModifiedServiceLevelAgreement { get; init; } // Min=0, Max=30
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_sfYZMdE9Ed-BzquC8wXy7w_-1423177731")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +171,8 @@ public partial record AccountModificationInstructionV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner, eg, and investor or its designated agent, sends the AccountModificationInstruction message to an account servicer, eg, a registrar, transfer agent or custodian bank to modify, ie, create, update or delete specific details of an existing investment fund account.
-/// Usage
-/// The AccountModificationInstruction message is used to modify the details of an existing account.
-/// The AccountModificationInstruction message has three specific uses:
-/// - to maintain/update any of the existing account details, eg, to update the address of the beneficiary or modify the preference to income from distribution to capitalisation, or,
-/// - to add/create specific details to the existing account when these details were not yet recorded at the time of account creation, eg, to add a second address or to establish new cash settlement standing instructions, or,
-/// - to delete specific account details, eg, delete cash standing instructions.
-/// This message cannot be used to delete an entire account, as institution specific and regulatory rules pertaining to account deletion are diverse.
-/// The usage of this message may be subject to service level agreement (SLA) between the counterparties.
-/// Execution of the AccountModificationInstruction is confirmed via an AccountDetailsConfirmation message.
-/// This is the outer document that contains <seealso cref="AccountModificationInstructionV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountModificationInstructionV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

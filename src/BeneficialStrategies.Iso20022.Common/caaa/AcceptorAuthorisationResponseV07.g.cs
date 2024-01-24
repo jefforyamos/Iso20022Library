@@ -21,7 +21,35 @@ public partial record AcceptorAuthorisationResponseV07 : IOuterRecord
     public const string XmlTag = "AccptrAuthstnRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Authorisation response message management information.
+    /// </summary>
+    [IsoId("_8Kyt09nGEeeN3v2fup_Shw")]
+    [Description(@"Authorisation response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of the authorisation.
+    /// </summary>
+    [IsoId("_8Kyt1dnGEeeN3v2fup_Shw")]
+    [Description(@"Information related to the response of the authorisation.")]
+    [DataMember(Name="AuthstnRspn")]
+    [XmlElement(ElementName="AuthstnRspn")]
+    [Required]
+    public required SomeAuthorisationResponseRecord AuthorisationResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_8Kyt19nGEeeN3v2fup_Shw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AcceptorAuthorisationResponseV07 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorAuthorisationResponse message is sent by the acquirer (or its agent) to an acceptor (or its agent), to return the result of the validation made by issuer about the payment transaction.
-/// This is the outer document that contains <seealso cref="AcceptorAuthorisationResponseV07"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorAuthorisationResponseV07"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -22,7 +22,44 @@ public partial record ForeignExchangeTradeBulkStatusNotificationV05 : IOuterReco
     public const string XmlTag = "FXTradBlkStsNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information on the status of the trade in the central system.
+    /// </summary>
+    [IsoId("_mJe8ZQM-Ee2nqoJcXIhTdw")]
+    [Description(@"Information on the status of the trade in the central system.|")]
+    [DataMember(Name="StsDtls")]
+    [XmlElement(ElementName="StsDtls")]
+    [Required]
+    public required SomeStatusDetailsRecord StatusDetails { get; init; }
+    
+    /// <summary>
+    /// Identifies one or more trades for which the status notification is sent.
+    /// </summary>
+    [IsoId("_mJe8ZwM-Ee2nqoJcXIhTdw")]
+    [Description(@"Identifies one or more trades for which the status notification is sent.|")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
+    /// <summary>
+    /// Page number of the message (within the status report) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the report.
+    /// </summary>
+    [IsoId("_mJe8aQM-Ee2nqoJcXIhTdw")]
+    [Description(@"Page number of the message (within the status report) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the report.")]
+    [DataMember(Name="MsgPgntn")]
+    [XmlElement(ElementName="MsgPgntn")]
+    public SomeMessagePaginationRecord? MessagePagination { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_mJe8awM-Ee2nqoJcXIhTdw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +72,8 @@ public partial record ForeignExchangeTradeBulkStatusNotificationV05 : IOuterReco
 }
 
 /// <summary>
-/// Scope|
-/// The ForeignExchangeTradeBulkStatusNotification message is sent by a central system to the participant to provide notification of the current status of one or more foreign exchange trades.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeBulkStatusNotificationV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeBulkStatusNotificationV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

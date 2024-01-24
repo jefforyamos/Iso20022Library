@@ -27,7 +27,35 @@ public partial record MandateSuspensionRequestV01 : IOuterRecord
     public const string XmlTag = "MndtSspnsnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the mandate suspension request, but which are not part of the mandate.
+    /// </summary>
+    [IsoId("_SNAisH5nEea7cqFPsAF3tQ")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the mandate suspension request, but which are not part of the mandate.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to provide information on the suspension request of the mandate.
+    /// </summary>
+    [IsoId("_ka8SwH5nEea7cqFPsAF3tQ")]
+    [Description(@"Set of elements used to provide information on the suspension request of the mandate.")]
+    [DataMember(Name="UndrlygSspnsnDtls")]
+    [XmlElement(ElementName="UndrlygSspnsnDtls")]
+    [Required]
+    public required SomeUnderlyingSuspensionDetailsRecord UnderlyingSuspensionDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_yoO34H5nEea7cqFPsAF3tQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +68,8 @@ public partial record MandateSuspensionRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MandateSuspensionRequest message is sent by the initiator of the request to its agent. The initiator can either be the debtor, debtor agent, creditor or creditor agent.
-/// A MandateSuspensionRequest message is used to request the suspension of an existing mandate until the suspension is lifted. 
-/// Usage
-/// The MandateSuspensionRequest message can contain one or more suspension requests.
-/// The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.
-/// The MandateSuspensionRequest message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="MandateSuspensionRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateSuspensionRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

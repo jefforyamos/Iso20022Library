@@ -21,7 +21,35 @@ public partial record TransactionAdviceResponseV02 : IOuterRecord
     public const string XmlTag = "TxAdvcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Completion advice message management information.
+    /// </summary>
+    [IsoId("__d4GQy1yEeuZtpnZJ4v-5Q")]
+    [Description(@"Completion advice message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the transaction advice response.
+    /// </summary>
+    [IsoId("__d4GRS1yEeuZtpnZJ4v-5Q")]
+    [Description(@"Information related to the transaction advice response.")]
+    [DataMember(Name="TxAdvcRspn")]
+    [XmlElement(ElementName="TxAdvcRspn")]
+    [Required]
+    public required SomeTransactionAdviceResponseRecord TransactionAdviceResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("__d4GRy1yEeuZtpnZJ4v-5Q")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record TransactionAdviceResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The TransactionAdviceResponse message is sent by the POI to acknowledge the Acquirer (or its agent) about the notification of the transaction advice.
-/// This is the outer document that contains <seealso cref="TransactionAdviceResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransactionAdviceResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -30,7 +30,93 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     public const string XmlTag = "TrptyCollAllgmtNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Unambiguous identification of the transaction as know by the instructing party.
+    /// </summary>
+    [IsoId("_xMpNYys7EeySlt9bF77XfA")]
+    [Description(@"Unambiguous identification of the transaction as know by the instructing party.||")]
+    [DataMember(Name="TxInstrId")]
+    [XmlElement(ElementName="TxInstrId")]
+    [Required]
+    public required SomeTransactionInstructionIdentificationRecord TransactionInstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
+    /// </summary>
+    [IsoId("_xMpNZSs7EeySlt9bF77XfA")]
+    [Description(@"Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Specifies the different parameters of the collateral instruction or transaction.
+    /// </summary>
+    [IsoId("_xMpNZys7EeySlt9bF77XfA")]
+    [Description(@"Specifies the different parameters of the collateral instruction or transaction.|")]
+    [DataMember(Name="GnlParams")]
+    [XmlElement(ElementName="GnlParams")]
+    [Required]
+    public required SomeGeneralParametersRecord GeneralParameters { get; init; }
+    
+    /// <summary>
+    /// Identifies the chain of collateral parties. Party A and B will be the opposite  from that provided in the unmatched instruction.
+    /// </summary>
+    [IsoId("_xMpNaSs7EeySlt9bF77XfA")]
+    [Description(@"Identifies the chain of collateral parties. Party A and B will be the opposite  from that provided in the unmatched instruction.")]
+    [DataMember(Name="CollPties")]
+    [XmlElement(ElementName="CollPties")]
+    [Required]
+    public required SomeCollateralPartiesRecord CollateralParties { get; init; }
+    
+    /// <summary>
+    /// Specifies the information related to the deal.
+    /// </summary>
+    [IsoId("_xMpNays7EeySlt9bF77XfA")]
+    [Description(@"Specifies the information related to the deal.")]
+    [DataMember(Name="DealTxDtls")]
+    [XmlElement(ElementName="DealTxDtls")]
+    [Required]
+    public required SomeDealTransactionDetailsRecord DealTransactionDetails { get; init; }
+    
+    /// <summary>
+    /// Identifies the dates related to the triparty collateral instruction or transactions.
+    /// </summary>
+    [IsoId("_xMpNbSs7EeySlt9bF77XfA")]
+    [Description(@"Identifies the dates related to the triparty collateral instruction or transactions.|")]
+    [DataMember(Name="DealTxDt")]
+    [XmlElement(ElementName="DealTxDt")]
+    [Required]
+    public required SomeDealTransactionDateRecord DealTransactionDate { get; init; }
+    
+    /// <summary>
+    /// Securities movements.
+    /// </summary>
+    [IsoId("_xMpNbys7EeySlt9bF77XfA")]
+    [Description(@"Securities movements.|")]
+    [DataMember(Name="SctiesMvmnt")]
+    [XmlElement(ElementName="SctiesMvmnt")]
+    public SomeSecuritiesMovementRecord? SecuritiesMovement { get; init; }
+    
+    /// <summary>
+    /// Cash movements.
+    /// </summary>
+    [IsoId("_xMpNcSs7EeySlt9bF77XfA")]
+    [Description(@"Cash movements.|")]
+    [DataMember(Name="CshMvmnt")]
+    [XmlElement(ElementName="CshMvmnt")]
+    public SomeCashMovementRecord? CashMovement { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_xMpNcys7EeySlt9bF77XfA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -43,17 +129,8 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope:
-/// This message is sent by a triparty agent after the receipt of a collateral transaction or instruction from the collateral giver or taker to advise  that a counterparty has alleged an instruction or a transaction against the account owner's account at the TPA and that the TPA could not find the corresponding transaction or instruction of the account owner.
-/// The allegement is used for initiation, modification and termination.
-/// In this message, the Sender is the triparty agent and the Receiver is either the collateral taker or the collateral giver or their account servicer.
-/// Usage:
-/// An account servicer sends a SecuritiesSettlementTransactionAllegementNotification to an account owner to advise the account owner that a counterparty has alleged an instruction against the account owner's account at the account servicer and that the account servicer could not find the corresponding instruction of the account owner.
-/// The account servicer/owner relationship may be:
-/// - a central securities depository or another settlement market infrastructure acting on behalf of their participants
-/// - an agent (sub-custodian) acting on behalf of their global custodian customer, or
-/// - a custodian acting on behalf of an investment management institution or a broker/dealer.
-/// This is the outer document that contains <seealso cref="TripartyCollateralAllegementNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralAllegementNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -28,7 +28,80 @@ public partial record CorporateActionInstructionStatusAdvice002V12 : IOuterRecor
     public const string XmlTag = "CorpActnInstrStsAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identification of a related instruction document.
+    /// </summary>
+    [IsoId("_9E_-bB9QEeuFz_FaCzCLgQ")]
+    [Description(@"Identification of a related instruction document.")]
+    [DataMember(Name="InstrId")]
+    [XmlElement(ElementName="InstrId")]
+    public SomeInstructionIdentificationRecord? InstructionIdentification { get; init; }
+    
+    /// <summary>
+    /// Identification of other documents as well as the document number.
+    /// </summary>
+    [IsoId("_9E_-bh9QEeuFz_FaCzCLgQ")]
+    [Description(@"Identification of other documents as well as the document number.")]
+    [DataMember(Name="OthrDocId")]
+    [XmlElement(ElementName="OthrDocId")]
+    public SomeOtherDocumentIdentificationRecord? OtherDocumentIdentification { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_9E_-cB9QEeuFz_FaCzCLgQ")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// Information about the processing status of the instruction.
+    /// </summary>
+    [IsoId("_9E_-ch9QEeuFz_FaCzCLgQ")]
+    [Description(@"Information about the processing status of the instruction.")]
+    [DataMember(Name="InstrPrcgSts")]
+    [XmlElement(ElementName="InstrPrcgSts")]
+    [Required]
+    public required SomeInstructionProcessingStatusRecord InstructionProcessingStatus { get; init; }
+    
+    /// <summary>
+    /// Information about the corporate action instruction.
+    /// </summary>
+    [IsoId("_9E_-dB9QEeuFz_FaCzCLgQ")]
+    [Description(@"Information about the corporate action instruction.")]
+    [DataMember(Name="CorpActnInstr")]
+    [XmlElement(ElementName="CorpActnInstr")]
+    public SomeCorporateActionInstructionRecord? CorporateActionInstruction { get; init; }
+    
+    /// <summary>
+    /// Provides detailed information on protect and cover protect instructions.
+    /// </summary>
+    [IsoId("_9E_-dh9QEeuFz_FaCzCLgQ")]
+    [Description(@"Provides detailed information on protect and cover protect instructions.")]
+    [DataMember(Name="PrtctInstr")]
+    [XmlElement(ElementName="PrtctInstr")]
+    public SomeProtectInstructionRecord? ProtectInstruction { get; init; }
+    
+    /// <summary>
+    /// Provides additional information.
+    /// </summary>
+    [IsoId("_9E_-eB9QEeuFz_FaCzCLgQ")]
+    [Description(@"Provides additional information.")]
+    [DataMember(Name="AddtlInf")]
+    [XmlElement(ElementName="AddtlInf")]
+    public SomeAdditionalInformationRecord? AdditionalInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_9E_-eh9QEeuFz_FaCzCLgQ")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -41,15 +114,8 @@ public partial record CorporateActionInstructionStatusAdvice002V12 : IOuterRecor
 }
 
 /// <summary>
-/// Scope
-/// The CorporateActionInstructionStatusAdvice message is sent by an account servicer to an account owner or its designated agent, to report the status of a received corporate action election instruction.|
-/// This message is used to advise the status, or a change in status, of a corporate action-related transaction previously instructed by, or executed on behalf of, the account owner. This will include the acknowledgement/rejection of a corporate action instruction.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).
-/// This is the outer document that contains <seealso cref="CorporateActionInstructionStatusAdvice002V12"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionInstructionStatusAdvice002V12"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

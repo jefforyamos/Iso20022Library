@@ -24,7 +24,43 @@ public partial record ATMDeviceReportV02 : IOuterRecord
     public const string XmlTag = "ATMDvcRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_TCtnc645EeWRfYPBaeOY8w")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_TCtnda45EeWRfYPBaeOY8w")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMDvcRpt")]
+    [XmlElement(ElementName="PrtctdATMDvcRpt")]
+    public SomeProtectedATMDeviceReportRecord? ProtectedATMDeviceReport { get; init; }
+    
+    /// <summary>
+    /// Information related to the status report from an ATM device.
+    /// </summary>
+    [IsoId("_TCtnd645EeWRfYPBaeOY8w")]
+    [Description(@"Information related to the status report from an ATM device.")]
+    [DataMember(Name="ATMDvcRpt")]
+    [XmlElement(ElementName="ATMDvcRpt")]
+    public SomeATMDeviceReportRecord? ATMDeviceReport { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_TCtnea45EeWRfYPBaeOY8w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +73,8 @@ public partial record ATMDeviceReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMDeviceReport message is sent to an acquirer by an ATM, or forwarded by an agent, to report:
-/// - The result of maintenance commands performed by the ATM,
-/// - The components of the ATM,
-/// - The status of the ATM components.
-/// This is the outer document that contains <seealso cref="ATMDeviceReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDeviceReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

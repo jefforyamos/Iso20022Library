@@ -22,7 +22,43 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     public const string XmlTag = "UdrtkgIssnc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be collected on the presentation of documents that comply with its terms and conditions.
+    /// </summary>
+    [IsoId("_9faWg3ltEeG7BsjMvd1mEw_-1948679398")]
+    [Description(@"Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be collected on the presentation of documents that comply with its terms and conditions.")]
+    [DataMember(Name="UdrtkgIssncDtls")]
+    [XmlElement(ElementName="UdrtkgIssncDtls")]
+    [Required]
+    public required SomeUndertakingIssuanceDetailsRecord UndertakingIssuanceDetails { get; init; }
+    
+    /// <summary>
+    /// Additional information specific to the bank-to-beneficiary communication.
+    /// </summary>
+    [IsoId("_izALUBHpEeKdLJc0LFyn4w")]
+    [Description(@"Additional information specific to the bank-to-beneficiary communication.")]
+    [DataMember(Name="BkToBnfcryInf")]
+    [XmlElement(ElementName="BkToBnfcryInf")]
+    public required IReadonlyCollection<SomeBankToBeneficiaryInformationRecord> BankToBeneficiaryInformation { get; init; } // Min=0, Max=5
+    
+    /// <summary>
+    /// Additional information specific to the bank-to-bank communication.
+    /// </summary>
+    [IsoId("_yNRl43_6EeGOn4dfTT_QdQ")]
+    [Description(@"Additional information specific to the bank-to-bank communication.")]
+    [DataMember(Name="BkToBkInf")]
+    [XmlElement(ElementName="BkToBkInf")]
+    public required IReadonlyCollection<SomeBankToBankInformationRecord> BankToBankInformation { get; init; } // Min=0, Max=5
+    
+    /// <summary>
+    /// Digital signature of the undertaking.
+    /// </summary>
+    [IsoId("_9faWhHltEeG7BsjMvd1mEw_-2129518569")]
+    [Description(@"Digital signature of the undertaking.")]
+    [DataMember(Name="DgtlSgntr")]
+    [XmlElement(ElementName="DgtlSgntr")]
+    public SomeDigitalSignatureRecord? DigitalSignature { get; init; }
+    
     */
     
     /// <summary>
@@ -35,9 +71,8 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
 }
 
 /// <summary>
-/// The UndertakingIssuance message is sent (and is thus issued) by the party issuing the undertaking to the beneficiary. The message may be sent either to the beneficiary directly or via an advising party. The undertaking could be a demand guarantee, standby letter of credit, or counter-undertaking (counter-guarantee or counter-standby). It contains details on the applicable rules, expiry date, the amount, required documents, and terms and conditions of the undertaking. The message constitutes an operative financial instrument.
-/// Under the United Nations Convention on Independent Guarantees and Stand-by Letters of Credit (http://www.uncitral.org), 1996, Article 2, "an undertaking is an independent commitment, known in international practice as an independent guarantee or as a standby letter of credit, given by a bank or other institution or person ('guarantor/issuer') to pay to the beneficiary a certain or determinable amount upon simple demand or upon demand accompanied by other documents, in conformity with the terms and any documentary conditions of the undertaking, indicating, or from which it is to be inferred, that payment is due because of a default in the performance of an obligation, or because of another contingency, or for money borrowed or advanced, or on account of any mature indebtedness undertaken by the principal/applicant or another person".
-/// This is the outer document that contains <seealso cref="UndertakingIssuanceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingIssuanceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -31,7 +31,46 @@ public partial record DebitAuthorisationRequestV03 : IOuterRecord
     public const string XmlTag = "DbtAuthstnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
+    /// </summary>
+    [IsoId("_TLNJydE-Ed-BzquC8wXy7w_-1888158844")]
+    [Description(@"Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.")]
+    [DataMember(Name="Assgnmt")]
+    [XmlElement(ElementName="Assgnmt")]
+    [Required]
+    public required SomeAssignmentRecord Assignment { get; init; }
+    
+    /// <summary>
+    /// Identifies the investigation case.
+    /// </summary>
+    [IsoId("_TLW6wNE-Ed-BzquC8wXy7w_-1888158782")]
+    [Description(@"Identifies the investigation case.")]
+    [DataMember(Name="Case")]
+    [XmlElement(ElementName="Case")]
+    [Required]
+    public required SomeCaseRecord Case { get; init; }
+    
+    /// <summary>
+    /// Identifies the underlying payment instructrion.
+    /// </summary>
+    [IsoId("_TLW6wdE-Ed-BzquC8wXy7w_-1888158721")]
+    [Description(@"Identifies the underlying payment instructrion.")]
+    [DataMember(Name="Undrlyg")]
+    [XmlElement(ElementName="Undrlyg")]
+    [Required]
+    public required SomeUnderlyingRecord Underlying { get; init; }
+    
+    /// <summary>
+    /// Detailed information about the request.
+    /// </summary>
+    [IsoId("_TLW6wtE-Ed-BzquC8wXy7w_1330830980")]
+    [Description(@"Detailed information about the request.")]
+    [DataMember(Name="Dtl")]
+    [XmlElement(ElementName="Dtl")]
+    [Required]
+    public required SomeDetailRecord Detail { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +83,8 @@ public partial record DebitAuthorisationRequestV03 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The Debit Authorisation Request message is sent by an account servicing institution to an account owner. This message is used to request authorisation to debit an account.
-/// Usage
-/// The Debit Authorisation Request message must be answered with a Debit Authorisation Response message.
-/// The Debit Authorisation Request message can be used to request debit authorisation in a:
-/// - request to modify payment case (in the case of a lower final amount or change of creditor)
-/// - request to cancel payment case (full amount)
-/// - unable to apply case (the creditor whose account has been credited is not the intended beneficiary)
-/// - claim non receipt case (the creditor whose account has been credited is not the intended beneficiary)
-/// The Debit Authorisation Request message covers one and only one payment instruction at a time. If an account servicing institution needs to request debit authorisation for several instructions, then multiple Debit Authorisation Request messages must be sent.
-/// The Debit Authorisation Request must be used exclusively between the account servicing institution and the account owner. It must not be used in place of a Request To Modify Payment or Request To Cancel Payment message between subsequent agents.
-/// This is the outer document that contains <seealso cref="DebitAuthorisationRequestV03"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DebitAuthorisationRequestV03"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

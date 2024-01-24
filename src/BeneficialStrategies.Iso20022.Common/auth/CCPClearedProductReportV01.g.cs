@@ -21,7 +21,25 @@ public partial record CCPClearedProductReportV01 : IOuterRecord
     public const string XmlTag = "CCPClrdPdctRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Financial instrument cleared by a central counterparty.
+    /// </summary>
+    [IsoId("_sNWfCeUTEem3X-64-NKdqg")]
+    [Description(@"Financial instrument cleared by a central counterparty.")]
+    [DataMember(Name="ClrdPdct")]
+    [XmlElement(ElementName="ClrdPdct")]
+    [Required]
+    public required SomeClearedProductRecord ClearedProduct { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_sNWfC-UTEem3X-64-NKdqg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record CCPClearedProductReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The CCPClearedProductReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the financial instruments cleared by the central counterparty.
-/// This is the outer document that contains <seealso cref="CCPClearedProductReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPClearedProductReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,25 @@ public partial record SecuritiesFinancingReportingReusedCollateralDataTransactio
     public const string XmlTag = "SctiesFincgRptgReusdCollDataTxStatRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to reporting trade. 
+    /// </summary>
+    [IsoId("_2zvMCwuAEeqVvtu9Ny8FDA")]
+    [Description(@"Information related to reporting trade. ")]
+    [DataMember(Name="TradData")]
+    [XmlElement(ElementName="TradData")]
+    [Required]
+    public required SomeTradeDataRecord TradeData { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_2zvMDQuAEeqVvtu9Ny8FDA")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +52,8 @@ public partial record SecuritiesFinancingReportingReusedCollateralDataTransactio
 }
 
 /// <summary>
-/// The SecuritiesFinancingReportingReusedCollateralDataTransactionStateReport message is sent by the trade repository (TR) to the authority or made available to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, containing latest state of the collateral reuse.
-/// This is the outer document that contains <seealso cref="SecuritiesFinancingReportingReusedCollateralDataTransactionStateReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingReusedCollateralDataTransactionStateReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

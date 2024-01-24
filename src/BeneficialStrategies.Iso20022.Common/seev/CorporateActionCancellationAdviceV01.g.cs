@@ -27,7 +27,154 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
     public const string XmlTag = "CorpActnCxlAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies a CorporateActionCancellationAdvice message as know by the account servicer.
+    /// </summary>
+    [IsoId("_TSqlEdEwEd-BzquC8wXy7w_9989089")]
+    [Description(@"Information that unambiguously identifies a CorporateActionCancellationAdvice message as know by the account servicer.")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// General information about the event cancellation status and cancellation reason.
+    /// </summary>
+    [IsoId("_TS0WANEwEd-BzquC8wXy7w_792870321")]
+    [Description(@"General information about the event cancellation status and cancellation reason.")]
+    [DataMember(Name="CxlAdvcGnlInf")]
+    [XmlElement(ElementName="CxlAdvcGnlInf")]
+    [Required]
+    public required SomeCancellationAdviceGeneralInformationRecord CancellationAdviceGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the corporate action event.
+    /// </summary>
+    [IsoId("_TS0WAdEwEd-BzquC8wXy7w_-203609952")]
+    [Description(@"General information about the corporate action event.")]
+    [DataMember(Name="CorpActnGnlInf")]
+    [XmlElement(ElementName="CorpActnGnlInf")]
+    [Required]
+    public required SomeCorporateActionGeneralInformationRecord CorporateActionGeneralInformation { get; init; }
+    
+    /// <summary>
+    /// General information about the safekeeping account and the account owner.
+    /// </summary>
+    [IsoId("_TS0WAtEwEd-BzquC8wXy7w_-277720042")]
+    [Description(@"General information about the safekeeping account and the account owner.")]
+    [DataMember(Name="AcctsDtls")]
+    [XmlElement(ElementName="AcctsDtls")]
+    [Required]
+    public required SomeAccountsDetailsRecord AccountsDetails { get; init; }
+    
+    /// <summary>
+    /// Party that originated the message, if other than the sender.
+    /// </summary>
+    [IsoId("_TS0WA9EwEd-BzquC8wXy7w_-1882571662")]
+    [Description(@"Party that originated the message, if other than the sender.")]
+    [DataMember(Name="MsgOrgtr")]
+    [XmlElement(ElementName="MsgOrgtr")]
+    public SomeMessageOriginatorRecord? MessageOriginator { get; init; }
+    
+    /// <summary>
+    /// Party that is the final destination of the message, if other than the receiver.
+    /// </summary>
+    [IsoId("_TS0WBNEwEd-BzquC8wXy7w_-1841935668")]
+    [Description(@"Party that is the final destination of the message, if other than the receiver.")]
+    [DataMember(Name="MsgRcpt")]
+    [XmlElement(ElementName="MsgRcpt")]
+    public SomeMessageRecipientRecord? MessageRecipient { get; init; }
+    
+    /// <summary>
+    /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
+    /// </summary>
+    [IsoId("_TS0WBdEwEd-BzquC8wXy7w_-1577810223")]
+    [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
+    [DataMember(Name="IssrAgt")]
+    [XmlElement(ElementName="IssrAgt")]
+    public SomeIssuerAgentRecord? IssuerAgent { get; init; }
+    
+    /// <summary>
+    /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
+    /// </summary>
+    [IsoId("_TS0WBtEwEd-BzquC8wXy7w_-1527937239")]
+    [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
+    [DataMember(Name="PngAgt")]
+    [XmlElement(ElementName="PngAgt")]
+    public SomePayingAgentRecord? PayingAgent { get; init; }
+    
+    /// <summary>
+    /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
+    /// </summary>
+    [IsoId("_TS0WB9EwEd-BzquC8wXy7w_-1469758174")]
+    [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
+    [DataMember(Name="SubPngAgt")]
+    [XmlElement(ElementName="SubPngAgt")]
+    public SomeSubPayingAgentRecord? SubPayingAgent { get; init; }
+    
+    /// <summary>
+    /// Party/agent responsible for maintaining the register of a security.
+    /// </summary>
+    [IsoId("_TS-HANEwEd-BzquC8wXy7w_-1193624355")]
+    [Description(@"Party/agent responsible for maintaining the register of a security.")]
+    [DataMember(Name="Regar")]
+    [XmlElement(ElementName="Regar")]
+    public SomeRegistrarRecord? Registrar { get; init; }
+    
+    /// <summary>
+    /// A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.
+    /// </summary>
+    [IsoId("_TS-HAdEwEd-BzquC8wXy7w_827404384")]
+    [Description(@"A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.")]
+    [DataMember(Name="RsellngAgt")]
+    [XmlElement(ElementName="RsellngAgt")]
+    public SomeResellingAgentRecord? ResellingAgent { get; init; }
+    
+    /// <summary>
+    /// A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.
+    /// </summary>
+    [IsoId("_TS-HAtEwEd-BzquC8wXy7w_815399500")]
+    [Description(@"A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.")]
+    [DataMember(Name="PhysSctiesAgt")]
+    [XmlElement(ElementName="PhysSctiesAgt")]
+    public SomePhysicalSecuritiesAgentRecord? PhysicalSecuritiesAgent { get; init; }
+    
+    /// <summary>
+    /// A trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person.
+    /// </summary>
+    [IsoId("_TS-HA9EwEd-BzquC8wXy7w_812626549")]
+    [Description(@"A trust company, bank or similar financial institution who acts on behalf of an out of town agent or event agent where securities can be delivered in person.")]
+    [DataMember(Name="DrpAgt")]
+    [XmlElement(ElementName="DrpAgt")]
+    public SomeDropAgentRecord? DropAgent { get; init; }
+    
+    /// <summary>
+    /// A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.
+    /// </summary>
+    [IsoId("_TS-HBNEwEd-BzquC8wXy7w_838487177")]
+    [Description(@"A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.")]
+    [DataMember(Name="SlctnAgt")]
+    [XmlElement(ElementName="SlctnAgt")]
+    public SomeSolicitationAgentRecord? SolicitationAgent { get; init; }
+    
+    /// <summary>
+    /// A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.
+    /// </summary>
+    [IsoId("_TS-HBdEwEd-BzquC8wXy7w_842181136")]
+    [Description(@"A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.")]
+    [DataMember(Name="InfAgt")]
+    [XmlElement(ElementName="InfAgt")]
+    public SomeInformationAgentRecord? InformationAgent { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_TS-HBtEwEd-BzquC8wXy7w_-1922281510")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="Xtnsn")]
+    [XmlElement(ElementName="Xtnsn")]
+    public SomeExtensionRecord? Extension { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +187,8 @@ public partial record CorporateActionCancellationAdviceV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account servicer sends the CorporateActionCancellationAdvice message to an account owner or its designated agent to cancel a previously announced corporate action event in case of error from the account servicer or in case of withdrawal by the issuer.
-/// Usage
-/// The message may also be used to:
-/// - re-send a message previously sent (the sub-function of the message is Duplicate),
-/// - provide a third party with a copy of a message for information (the sub-function of the message is Copy),
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
-/// This is the outer document that contains <seealso cref="CorporateActionCancellationAdviceV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionCancellationAdviceV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

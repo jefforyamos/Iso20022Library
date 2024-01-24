@@ -26,7 +26,62 @@ public partial record InvoiceAssignmentNotificationV01 : IOuterRecord
     public const string XmlTag = "InvcAssgnmtNtfctn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics that unambiguously identify the assignment notification, common parameters, documents and identifications.
+    /// </summary>
+    [IsoId("_OTgzNDU3-AOSNFX-8224506")]
+    [Description(@"Set of characteristics that unambiguously identify the assignment notification, common parameters, documents and identifications.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// List of assignment notifications.
+    /// </summary>
+    [IsoId("_OTgzNDU4-AOSNFX-8224506")]
+    [Description(@"List of assignment notifications.")]
+    [DataMember(Name="NtfctnList")]
+    [XmlElement(ElementName="NtfctnList")]
+    [Required]
+    public required SomeNotificationListRecord NotificationList { get; init; }
+    
+    /// <summary>
+    /// Number of assignment notification lists.
+    /// </summary>
+    [IsoId("_OTgzNDU5-AOSNFX-8224506")]
+    [Description(@"Number of assignment notification lists.")]
+    [DataMember(Name="NtfctnCnt")]
+    [XmlElement(ElementName="NtfctnCnt")]
+    public SomeNotificationCountRecord? NotificationCount { get; init; }
+    
+    /// <summary>
+    /// Total number of individual items in all lists.
+    /// </summary>
+    [IsoId("_OTgzNDYw-AOSNFX-8224506")]
+    [Description(@"Total number of individual items in all lists.")]
+    [DataMember(Name="ItmCnt")]
+    [XmlElement(ElementName="ItmCnt")]
+    public SomeItemCountRecord? ItemCount { get; init; }
+    
+    /// <summary>
+    /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
+    /// </summary>
+    [IsoId("_OTgzNDYx-AOSNFX-8224506")]
+    [Description(@"Total of all individual amounts included in all lists, irrespective of currencies or direction.")]
+    [DataMember(Name="CtrlSum")]
+    [XmlElement(ElementName="CtrlSum")]
+    public SomeControlSumRecord? ControlSum { get; init; }
+    
+    /// <summary>
+    /// Referenced or related business message.
+    /// </summary>
+    [IsoId("_OTgzNDYy-AOSNFX-8224506")]
+    [Description(@"Referenced or related business message.")]
+    [DataMember(Name="AttchdMsg")]
+    [XmlElement(ElementName="AttchdMsg")]
+    public SomeAttachedMessageRecord? AttachedMessage { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +94,8 @@ public partial record InvoiceAssignmentNotificationV01 : IOuterRecord
 }
 
 /// <summary>
-/// This message is sent from a factoring service provider or a factoring client to a trade partner to inform about assignments of financing items and, optionally, to an interested party.
-/// The information given to the trade party indicates that property of the payment obligation has been or is being transferred to the financial institution and that payments have to be done between the trade partner and the factoring service provider.
-/// The message indicates whether the notified party is required to acknowledge the notified assignment and to which party an acknowledgement has to be sent.
-/// This message can also be used outside a factoring context directly between a payer and a payee for example as a reminder about a payment obligation or to make an adjustment.
-/// If applicable, the message may reference corresponding items of an InvoiceFinancingRequest or InvoiceFinancingStatus or other related messages and may contain referenced data.
-/// The message can carry digital signatures if required by context.
-/// This is the outer document that contains <seealso cref="InvoiceAssignmentNotificationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceAssignmentNotificationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

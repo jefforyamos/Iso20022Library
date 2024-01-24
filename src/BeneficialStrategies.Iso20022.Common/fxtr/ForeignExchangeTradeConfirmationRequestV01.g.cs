@@ -25,7 +25,85 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
     public const string XmlTag = "FXTradConfReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Message management information.
+    /// </summary>
+    [IsoId("_7SxT4ESCEeStEe_B2dcrqg")]
+    [Description(@"Message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Identifies the confirm request messge.
+    /// </summary>
+    [IsoId("_FSjWwESDEeStEe_B2dcrqg")]
+    [Description(@"Identifies the confirm request messge.")]
+    [DataMember(Name="ReqId")]
+    [XmlElement(ElementName="ReqId")]
+    [Required]
+    public required SomeRequestIdentificationRecord RequestIdentification { get; init; }
+    
+    /// <summary>
+    /// Details of the treasury trade confirmed.
+    /// </summary>
+    [IsoId("_IqUj0ESDEeStEe_B2dcrqg")]
+    [Description(@"Details of the treasury trade confirmed.")]
+    [DataMember(Name="TradDtl")]
+    [XmlElement(ElementName="TradDtl")]
+    [Required]
+    public required SomeTradeDetailRecord TradeDetail { get; init; }
+    
+    /// <summary>
+    /// Identifies the type of confirmation message being sent.
+    /// </summary>
+    [IsoId("_x4TUcIsWEeS_1fMypAW06w")]
+    [Description(@"Identifies the type of confirmation message being sent.")]
+    [DataMember(Name="ConfTp")]
+    [XmlElement(ElementName="ConfTp")]
+    [Required]
+    public required SomeConfirmationTypeRecord ConfirmationType { get; init; }
+    
+    /// <summary>
+    /// Period of the inquiry.
+    /// </summary>
+    [IsoId("_11BnEESpEeSTS-T7FO4CUQ")]
+    [Description(@"Period of the inquiry.")]
+    [DataMember(Name="QryPrd")]
+    [XmlElement(ElementName="QryPrd")]
+    [Required]
+    public required SomeQueryPeriodRecord QueryPeriod { get; init; }
+    
+    /// <summary>
+    /// Start number in request result.
+    /// </summary>
+    [IsoId("_WDuD4KaZEeSR8qifggAitQ")]
+    [Description(@"Start number in request result.")]
+    [DataMember(Name="QryStartNb")]
+    [XmlElement(ElementName="QryStartNb")]
+    [Required]
+    public required SomeQueryStartNumberRecord QueryStartNumber { get; init; }
+    
+    /// <summary>
+    /// Specifies the inquiry status of the trade.
+    /// </summary>
+    [IsoId("_15tBMKadEeSR8qifggAitQ")]
+    [Description(@"Specifies the inquiry status of the trade.")]
+    [DataMember(Name="QryTradSts")]
+    [XmlElement(ElementName="QryTradSts")]
+    [Required]
+    public required SomeQueryTradeStatusRecord QueryTradeStatus { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_upa4YKHlEeS69KkQis5bYg")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -38,12 +116,8 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-///  The ForeignExchangeTradeConfirmationRequest message is sent from a market participant to a Central matching utility (CMU) to request a foreign exchange(spot/forward/swap) trade confirmation.
-/// Usage
-/// The confirmation request is sent by the market participants to the CMU after they receiving the capture reports.
-/// Note that a confirmation request could be cancelled or amended.
-/// This is the outer document that contains <seealso cref="ForeignExchangeTradeConfirmationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeConfirmationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -21,7 +21,35 @@ public partial record TransactionAdviceV04 : IOuterRecord
     public const string XmlTag = "TxAdvc";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Completion advice message management information.
+    /// </summary>
+    [IsoId("_OY5-E3MkEe2vXY6MoVq19w")]
+    [Description(@"Completion advice message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the outcome of the transaction.
+    /// </summary>
+    [IsoId("_OY5-FXMkEe2vXY6MoVq19w")]
+    [Description(@"Information related to the outcome of the transaction.")]
+    [DataMember(Name="TxAdvc")]
+    [XmlElement(ElementName="TxAdvc")]
+    [Required]
+    public required SomeTransactionAdviceRecord TransactionAdvice { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_OY5-F3MkEe2vXY6MoVq19w")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record TransactionAdviceV04 : IOuterRecord
 }
 
 /// <summary>
-/// The TransactionAdvice message is sent by the Acquirer (or Agent) to provide to the POI the outcome of a transaction processed outside of this protocol. 
-/// This is the outer document that contains <seealso cref="TransactionAdviceV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransactionAdviceV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

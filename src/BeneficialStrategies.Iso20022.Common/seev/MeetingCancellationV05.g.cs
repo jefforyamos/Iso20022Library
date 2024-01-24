@@ -27,7 +27,44 @@ public partial record MeetingCancellationV05 : IOuterRecord
     public const string XmlTag = "MtgCxl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Series of elements which allow to identify a meeting.
+    /// </summary>
+    [IsoId("_xDAOD1tcEeSwKe7KuKvXhg")]
+    [Description(@"Series of elements which allow to identify a meeting.")]
+    [DataMember(Name="MtgRef")]
+    [XmlElement(ElementName="MtgRef")]
+    [Required]
+    public required SomeMeetingReferenceRecord MeetingReference { get; init; }
+    
+    /// <summary>
+    /// Identifies the security for which the meeting was organised.
+    /// </summary>
+    [IsoId("_xDAOE1tcEeSwKe7KuKvXhg")]
+    [Description(@"Identifies the security for which the meeting was organised.")]
+    [DataMember(Name="Scty")]
+    [XmlElement(ElementName="Scty")]
+    public required IReadonlyCollection<SomeSecurityRecord> Security { get; init; } // Min=0, Max=200
+    
+    /// <summary>
+    /// Defines the justification for the cancellation.
+    /// </summary>
+    [IsoId("_xDAOFVtcEeSwKe7KuKvXhg")]
+    [Description(@"Defines the justification for the cancellation.")]
+    [DataMember(Name="Rsn")]
+    [XmlElement(ElementName="Rsn")]
+    [Required]
+    public required SomeReasonRecord Reason { get; init; }
+    
+    /// <summary>
+    /// Additional information that can not be captured in the structured fields and/or any other specific block.
+    /// </summary>
+    [IsoId("_kohz4VtoEeSwKe7KuKvXhg")]
+    [Description(@"Additional information that can not be captured in the structured fields and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +77,8 @@ public partial record MeetingCancellationV05 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MeetingCancellation message is sent by the party that sent the MeetingNotification message to the original receiver. It is sent to cancel the previous MeetingNotification message or to advise the cancellation of a meeting.
-/// Usage
-/// The MeetingCancellation message is used in two different situations.
-/// First, it is used to cancel a previously sent MeetingNotification message. In this case, the MessageCancellation, the MeetingReference and the Reason building blocks need to be present.
-/// Second, it is used to advise that the meeting is cancelled. In this case, only the MeetingReference and Reason building blocks need to be present.
-/// This message definition is intended for use with the Business Application Header.
-/// This is the outer document that contains <seealso cref="MeetingCancellationV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingCancellationV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -29,7 +29,35 @@ public partial record MandateInitiationRequestV06 : IOuterRecord
     public const string XmlTag = "MndtInitnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics to identify the message and parties playing a role in the mandate initiation, but which are not part of the mandate.
+    /// </summary>
+    [IsoId("_bf9SF22PEei3KuUgpx7Xcw")]
+    [Description(@"Set of characteristics to identify the message and parties playing a role in the mandate initiation, but which are not part of the mandate.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements used to provide the details of the mandate signed between the (ultimate) creditor and the (ultimate) debtor.
+    /// </summary>
+    [IsoId("_bf9SGW2PEei3KuUgpx7Xcw")]
+    [Description(@"Set of elements used to provide the details of the mandate signed between the (ultimate) creditor and the (ultimate) debtor.")]
+    [DataMember(Name="Mndt")]
+    [XmlElement(ElementName="Mndt")]
+    [Required]
+    public required SomeMandateRecord Mandate { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_bf9SG22PEei3KuUgpx7Xcw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +70,8 @@ public partial record MandateInitiationRequestV06 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The MandateInitiationRequest message is sent by the initiator of the request to his agent. The initiator can either be the debtor or the creditor.
-/// The MandateInitiationRequest message is forwarded by the agent of the initiator to the agent of the counterparty.
-/// The MandateInitiationRequest message is used to setup the instruction that allows the debtor agent to accept instructions from the creditor, through the creditor agent, to debit the account of the debtor.
-/// Usage
-/// The MandateInitiationRequest message can contain one or more request(s) to setup a specific mandate.
-/// The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.
-/// The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.
-/// The MandateInitiationRequest message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="MandateInitiationRequestV06"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateInitiationRequestV06"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

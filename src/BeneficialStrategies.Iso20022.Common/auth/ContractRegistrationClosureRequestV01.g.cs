@@ -21,7 +21,35 @@ public partial record ContractRegistrationClosureRequestV01 : IOuterRecord
     public const string XmlTag = "CtrctRegnClsrReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Characteristics shared by all individual items included in the message.
+    /// </summary>
+    [IsoId("_DxKLsNL9EeSDLevdaFPXHw")]
+    [Description(@"Characteristics shared by all individual items included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Details on the closure of the registered contract.
+    /// </summary>
+    [IsoId("_HBJVwNL9EeSDLevdaFPXHw")]
+    [Description(@"Details on the closure of the registered contract.")]
+    [DataMember(Name="RegdCtrctClsr")]
+    [XmlElement(ElementName="RegdCtrctClsr")]
+    [Required]
+    public required SomeRegisteredContractClosureRecord RegisteredContractClosure { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_-phjQdObEeS75MhTUaTyUQ")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ContractRegistrationClosureRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ContractRegistrationClosureRequest message is sent by the reporting party to the registration agent to close the registered contract subject to currency control.
-/// This is the outer document that contains <seealso cref="ContractRegistrationClosureRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ContractRegistrationClosureRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

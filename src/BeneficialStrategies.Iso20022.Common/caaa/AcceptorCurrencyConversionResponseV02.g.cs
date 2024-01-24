@@ -21,7 +21,36 @@ public partial record AcceptorCurrencyConversionResponseV02 : IOuterRecord
     public const string XmlTag = "AccptrCcyConvsRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Currency conversion response message management information.
+    /// </summary>
+    [IsoId("_FjgiNWpGEeSesPRRJV9fGQ")]
+    [Description(@"Currency conversion response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the outcome of the currency conversion.
+    /// </summary>
+    [IsoId("_FjgiN2pGEeSesPRRJV9fGQ")]
+    [Description(@"Information related to the outcome of the currency conversion.")]
+    [DataMember(Name="CcyConvsRspn")]
+    [XmlElement(ElementName="CcyConvsRspn")]
+    [Required]
+    public required SomeCurrencyConversionResponseRecord CurrencyConversionResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC (message authentication code).
+    /// </summary>
+    [IsoId("_FjgiOWpGEeSesPRRJV9fGQ")]
+    [Description(@"Trailer of the message containing a MAC (message authentication code).")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +63,8 @@ public partial record AcceptorCurrencyConversionResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The AcceptorCurrencyConversionResponse message is sent by currency conversion service provider to the card acceptor to return the result of a potential currency conversion for the cardholder.
-/// This is the outer document that contains <seealso cref="AcceptorCurrencyConversionResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCurrencyConversionResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

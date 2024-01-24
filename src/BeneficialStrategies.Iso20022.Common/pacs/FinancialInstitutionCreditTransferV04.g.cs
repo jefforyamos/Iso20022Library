@@ -27,7 +27,35 @@ public partial record FinancialInstitutionCreditTransferV04 : IOuterRecord
     public const string XmlTag = "FICdtTrf";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_dv-LLyGnEeKjd4jizyIDGA")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Set of elements providing information specific to the individual credit transfer(s).
+    /// </summary>
+    [IsoId("_dv-LMyGnEeKjd4jizyIDGA")]
+    [Description(@"Set of elements providing information specific to the individual credit transfer(s).")]
+    [DataMember(Name="CdtTrfTxInf")]
+    [XmlElement(ElementName="CdtTrfTxInf")]
+    [Required]
+    public required SomeCreditTransferTransactionInformationRecord CreditTransferTransactionInformation { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_dv-LNyGnEeKjd4jizyIDGA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +68,8 @@ public partial record FinancialInstitutionCreditTransferV04 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The FinancialInstitutionCreditTransfer message is sent by a debtor financial institution to a creditor financial institution, directly or through other agents and/or a payment clearing and settlement system.
-/// It is used to move funds from a debtor account to a creditor, where both debtor and creditor are financial institutions.
-/// Usage
-/// The FinancialInstitutionCreditTransfer message is exchanged between agents and can contain one or more credit transfer instructions where debtor and creditor are both financial institutions.
-/// The FinancialInstitutionCreditTransfer message does not allow for grouping: a CreditTransferTransactionInformation block must be present for each credit transfer transaction.
-/// The FinancialInstitutionCreditTransfer message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="FinancialInstitutionCreditTransferV04"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstitutionCreditTransferV04"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

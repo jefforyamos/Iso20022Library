@@ -21,7 +21,43 @@ public partial record ATMReconciliationAcknowledgementV01 : IOuterRecord
     public const string XmlTag = "ATMRcncltnAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
+    /// </summary>
+    [IsoId("_RQzuIIt0EeSLQutgI1Ulfw")]
+    [Description(@"Information related to the protocol management on a segment of the path from the ATM to the acquirer.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Encrypted body of the message.
+    /// </summary>
+    [IsoId("_lztKcIt0EeSLQutgI1Ulfw")]
+    [Description(@"Encrypted body of the message.")]
+    [DataMember(Name="PrtctdATMRcncltnAck")]
+    [XmlElement(ElementName="PrtctdATMRcncltnAck")]
+    public SomeProtectedATMReconciliationAcknowledgementRecord? ProtectedATMReconciliationAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Information related to the acknowledgement of an ATM reconciliation from the ATM manager.
+    /// </summary>
+    [IsoId("_-Sh0UIt1EeSLQutgI1Ulfw")]
+    [Description(@"Information related to the acknowledgement of an ATM reconciliation from the ATM manager.")]
+    [DataMember(Name="ATMRcncltnAck")]
+    [XmlElement(ElementName="ATMRcncltnAck")]
+    public SomeATMReconciliationAcknowledgementRecord? ATMReconciliationAcknowledgement { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_CDVMcIt2EeSLQutgI1Ulfw")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +70,8 @@ public partial record ATMReconciliationAcknowledgementV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ATMReconciliationAcknowledgement message is sent by an acquirer or its agent to an ATM to acknowledge the receipt of an ATMReconciliationAdvice message.
-/// This is the outer document that contains <seealso cref="ATMReconciliationAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMReconciliationAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

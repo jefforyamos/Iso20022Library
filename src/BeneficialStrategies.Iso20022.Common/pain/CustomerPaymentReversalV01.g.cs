@@ -26,7 +26,35 @@ public partial record CustomerPaymentReversalV01 : IOuterRecord
     public const string XmlTag = "pain.007.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics shared by all individual transactions included in the message.
+    /// </summary>
+    [IsoId("_GXBqedEvEd-BzquC8wXy7w_1971893603")]
+    [Description(@"Set of characteristics shared by all individual transactions included in the message.")]
+    [DataMember(Name="GrpHdr")]
+    [XmlElement(ElementName="GrpHdr")]
+    [Required]
+    public required SomeGroupHeaderRecord GroupHeader { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original group of transactions, to which the message refers.
+    /// </summary>
+    [IsoId("_GXBqetEvEd-BzquC8wXy7w_-1325673423")]
+    [Description(@"Information concerning the original group of transactions, to which the message refers.")]
+    [DataMember(Name="OrgnlGrpInf")]
+    [XmlElement(ElementName="OrgnlGrpInf")]
+    [Required]
+    public required SomeOriginalGroupInformationRecord OriginalGroupInformation { get; init; }
+    
+    /// <summary>
+    /// Information concerning the original transactions, to which the reversal message refers.
+    /// </summary>
+    [IsoId("_GXBqe9EvEd-BzquC8wXy7w_-1906565683")]
+    [Description(@"Information concerning the original transactions, to which the reversal message refers.")]
+    [DataMember(Name="TxInf")]
+    [XmlElement(ElementName="TxInf")]
+    public SomeTransactionInformationRecord? TransactionInformation { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +67,8 @@ public partial record CustomerPaymentReversalV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The CustomerPaymentReversal message is sent by the initiating party to the next party in the payment chain. It is used to reverse a payment previously executed.
-/// Usage
-/// The CustomerPaymentReversal message is exchanged between a non-financial institution customer and an agent to reverse a CustomerDirectDebitInitiation message that has been settled. The result will be a credit on the debtor account.
-/// The CustomerPaymentReversal message refers to the original CustomerDirectDebitInitiation message by means of references only or by means of references and a set of elements from the original instruction.
-/// The CustomerPaymentReversal message can be used in domestic and cross-border scenarios.
-/// This is the outer document that contains <seealso cref="CustomerPaymentReversalV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerPaymentReversalV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

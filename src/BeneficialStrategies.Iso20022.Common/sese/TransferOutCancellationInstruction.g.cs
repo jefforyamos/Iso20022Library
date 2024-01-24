@@ -26,7 +26,42 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
     public const string XmlTag = "sese.002.001.01";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_K1LPz9E6Ed-BzquC8wXy7w_1122541530")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_K1LP0NE6Ed-BzquC8wXy7w_-627107887")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously received.
+    /// </summary>
+    [IsoId("_K1UZsNE6Ed-BzquC8wXy7w_-615102237")]
+    [Description(@"Reference to a linked message that was previously received.")]
+    [DataMember(Name="RltdRef")]
+    [XmlElement(ElementName="RltdRef")]
+    public SomeRelatedReferenceRecord? RelatedReference { get; init; }
+    
+    /// <summary>
+    /// </summary>
+    [IsoId("_K1UZsdE6Ed-BzquC8wXy7w_-1481678373")]
+    [Description(@"")]
+    [DataMember(Name="TrfOutToBeCanc")]
+    [XmlElement(ElementName="TrfOutToBeCanc")]
+    public SomeTransferOutToBeCancelledRecord? TransferOutToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +74,8 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The TransferOutCancellationInstruction message is sent by an instructing party or an instructing party's designated agent to the executing party.
-/// This message is used to request the cancellation of a TransferOutInstruction that was previously sent by the instructing party.
-/// Usage
-/// The TransferOutCancellationInstruction message is sent by an instructing party to request cancellation of a previously sent TransferOutInstruction.
-/// This message must contain the reference of the message to be cancelled. The message may also contain all the details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="TransferOutCancellationInstruction"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferOutCancellationInstruction"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

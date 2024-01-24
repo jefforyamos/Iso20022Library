@@ -21,7 +21,35 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord
     public const string XmlTag = "RctAck";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Specifies the identification the message.
+    /// </summary>
+    [IsoId("_4MJ7o5b3Eee4htziCyV8eA")]
+    [Description(@"Specifies the identification the message.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Provides report details on the request.
+    /// </summary>
+    [IsoId("_4MJ7pZb3Eee4htziCyV8eA")]
+    [Description(@"Provides report details on the request.")]
+    [DataMember(Name="Rpt")]
+    [XmlElement(ElementName="Rpt")]
+    [Required]
+    public required SomeReportRecord Report { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_4MJ7p5b3Eee4htziCyV8eA")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord
 }
 
 /// <summary>
-/// The ReceiptAcknowledgement message is sent by the transaction administrator to a member of the system and vice versa. It is sent to acknowledge the receipt of one or multiple messages sent previously. The Acknowledgement message is 1) an application receipt acknowledgement and 2) conveys information about the processing of the original message(s). In case of 2) the ReceiptAcknowledgement can be used as a Generic error message, which provides information about the status (e.g. rejection, acceptance) of an instruction.
-/// This is the outer document that contains <seealso cref="ReceiptAcknowledgementV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReceiptAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

@@ -26,7 +26,34 @@ public partial record PriceReportCancellationV02 : IOuterRecord
     public const string XmlTag = "reda.002.001.02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Collective reference identifying a set of messages.
+    /// </summary>
+    [IsoId("_Zski2dEvEd-BzquC8wXy7w_-1891280241")]
+    [Description(@"Collective reference identifying a set of messages.")]
+    [DataMember(Name="PoolRef")]
+    [XmlElement(ElementName="PoolRef")]
+    public SomePoolReferenceRecord? PoolReference { get; init; }
+    
+    /// <summary>
+    /// Reference to a linked message that was previously sent.
+    /// </summary>
+    [IsoId("_Zski2tEvEd-BzquC8wXy7w_-1948539540")]
+    [Description(@"Reference to a linked message that was previously sent.")]
+    [DataMember(Name="PrvsRef")]
+    [XmlElement(ElementName="PrvsRef")]
+    [Required]
+    public required SomePreviousReferenceRecord PreviousReference { get; init; }
+    
+    /// <summary>
+    /// Common information related to all the price reports to be cancelled.
+    /// </summary>
+    [IsoId("_Zski29EvEd-BzquC8wXy7w_-1321950502")]
+    [Description(@"Common information related to all the price reports to be cancelled.")]
+    [DataMember(Name="PricRptToBeCanc")]
+    [XmlElement(ElementName="PricRptToBeCanc")]
+    public SomePriceReportToBeCancelledRecord? PriceReportToBeCancelled { get; init; }
+    
     */
     
     /// <summary>
@@ -39,13 +66,8 @@ public partial record PriceReportCancellationV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The PriceReportCancellation message is sent by a report provider, eg, a fund accountant, transfer agent, market data provider, or any other interested party, to a report user, eg, a fund management company, a transfer agent, market data provider, regulator or any other interested party.
-/// The message is used to cancel a previously sent PriceReport message.
-/// Usage
-/// The PriceReportCancellation message is used to cancel an entire PriceReport message that was previously sent by the report provider. If only a part of the information needs to be cancelled and replaced, the PriceReportCorrection message must be used.
-/// This message must contain the reference of the message to be cancelled. This message may also contain details of the message to be cancelled, but this is not recommended.
-/// This is the outer document that contains <seealso cref="PriceReportCancellationV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportCancellationV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

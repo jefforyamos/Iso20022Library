@@ -24,7 +24,36 @@ public partial record AcceptorAuthorisationRequestV01 : IOuterRecord
     public const string XmlTag = "AccptrAuthstnReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Authorisation request message management information.
+    /// </summary>
+    [IsoId("_ghrzxqMVEeCJ6YNENx4h-w_1464733610")]
+    [Description(@"Authorisation request message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the authorisation request.
+    /// </summary>
+    [IsoId("_ghrzx6MVEeCJ6YNENx4h-w_-2042121614")]
+    [Description(@"Information related to the authorisation request.")]
+    [DataMember(Name="AuthstnReq")]
+    [XmlElement(ElementName="AuthstnReq")]
+    [Required]
+    public required SomeAuthorisationRequestRecord AuthorisationRequest { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_ghrzyKMVEeCJ6YNENx4h-w_-1655113788")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +66,8 @@ public partial record AcceptorAuthorisationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorAuthorisationRequest message is sent by the card acceptor to the acquirer or its agent when an online authorisation is required for the card payment transaction.
-/// Usage
-/// The AcceptorAuthorisationRequest message may embed the information required for transferring to the acquirer the data needed to perform the financial settlement of the transaction (capture). An intermediary agent may act on behalf of the card acceptor or of the acquirer in providing additional functionality such as: switching to different acquirers, loyalty processing or management of the acceptor system.
-/// This is the outer document that contains <seealso cref="AcceptorAuthorisationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorAuthorisationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

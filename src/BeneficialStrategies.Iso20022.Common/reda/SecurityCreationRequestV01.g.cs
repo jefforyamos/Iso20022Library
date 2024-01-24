@@ -31,7 +31,34 @@ public partial record SecurityCreationRequestV01 : IOuterRecord
     public const string XmlTag = "SctyCreReq";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Common business identification for the message.
+    /// </summary>
+    [IsoId("_C0kGQZIxEeuAlLVx8pyt3w")]
+    [Description(@"Common business identification for the message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Represents the financial instruments details.
+    /// </summary>
+    [IsoId("_jTt_rx62Eeu31YsWNiv_cw")]
+    [Description(@"Represents the financial instruments details.")]
+    [DataMember(Name="Scty")]
+    [XmlElement(ElementName="Scty")]
+    [Required]
+    public required SomeSecurityRecord Security { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_jTt_tR62Eeu31YsWNiv_cw")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -44,18 +71,8 @@ public partial record SecurityCreationRequestV01 : IOuterRecord
 }
 
 /// <summary>
-/// SCOPE
-/// An instructing party sends a SecurityCreationRequest message to an executing/servicing party to request the creation of financial instrument static details in their system.
-/// The instructing party - executing/servicing party relationship may be:
-/// - Central Securities Depositories (CSD) who would like to publish security static data, or 
-/// - a Corporate, or
-/// - a Bank, or
-/// - a Market Infrastructure, or 
-/// - a Market Data Provider.
-/// USAGE
-/// The request is sent when the instructing party identified a gap in the securities coverage of the executing/servicing party. The instructing party needs this security to be set-up at the executing /servicing party to perform its activities.
-/// Initiator: instructing party.
-/// This is the outer document that contains <seealso cref="SecurityCreationRequestV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityCreationRequestV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

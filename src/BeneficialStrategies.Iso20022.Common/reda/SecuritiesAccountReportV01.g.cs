@@ -21,7 +21,44 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord
     public const string XmlTag = "SctiesAcctRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.
+    /// </summary>
+    [IsoId("_KAu-352fEem_Be8NuxvF7Q")]
+    [Description(@"Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.")]
+    [DataMember(Name="MsgHdr")]
+    [XmlElement(ElementName="MsgHdr")]
+    public SomeMessageHeaderRecord? MessageHeader { get; init; }
+    
+    /// <summary>
+    /// Provides details on the page number of the message.
+    /// </summary>
+    [IsoId("_KAu-4Z2fEem_Be8NuxvF7Q")]
+    [Description(@"Provides details on the page number of the message.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Provides information on report or error resulting from the originating query message.
+    /// </summary>
+    [IsoId("_KAu-552fEem_Be8NuxvF7Q")]
+    [Description(@"Provides information on report or error resulting from the originating query message.")]
+    [DataMember(Name="RptOrErr")]
+    [XmlElement(ElementName="RptOrErr")]
+    [Required]
+    public required SomeReportOrErrorRecord ReportOrError { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_KAu-6Z2fEem_Be8NuxvF7Q")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +71,8 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord
 }
 
 /// <summary>
-/// The SecuritiesAccountReport message sent by the executing party to an instructing party to provide the details of the securities account details as requested in the query.
-/// This is the outer document that contains <seealso cref="SecuritiesAccountReportV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountReportV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

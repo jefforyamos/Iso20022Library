@@ -27,7 +27,70 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV05 : IOute
     public const string XmlTag = "SctiesSttlmTxAudtTrlRpt";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
+    /// </summary>
+    [IsoId("_gsUWGSp0EeyR9JrVGfaMKw")]
+    [Description(@"Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.")]
+    [DataMember(Name="Pgntn")]
+    [XmlElement(ElementName="Pgntn")]
+    [Required]
+    public required SomePaginationRecord Pagination { get; init; }
+    
+    /// <summary>
+    /// Identification of the SecuritiesStatusQuery message sent to request this report.
+    /// </summary>
+    [IsoId("_gsUWGyp0EeyR9JrVGfaMKw")]
+    [Description(@"Identification of the SecuritiesStatusQuery message sent to request this report.")]
+    [DataMember(Name="QryRef")]
+    [XmlElement(ElementName="QryRef")]
+    public SomeQueryReferenceRecord? QueryReference { get; init; }
+    
+    /// <summary>
+    /// Provides unambiguous transaction identification information.
+    /// </summary>
+    [IsoId("_gsUWHSp0EeyR9JrVGfaMKw")]
+    [Description(@"Provides unambiguous transaction identification information.")]
+    [DataMember(Name="TxId")]
+    [XmlElement(ElementName="TxId")]
+    public SomeTransactionIdentificationRecord? TransactionIdentification { get; init; }
+    
+    /// <summary>
+    /// Account to or from which a securities entry is made.
+    /// </summary>
+    [IsoId("_gsUWHyp0EeyR9JrVGfaMKw")]
+    [Description(@"Account to or from which a securities entry is made.")]
+    [DataMember(Name="SfkpgAcct")]
+    [XmlElement(ElementName="SfkpgAcct")]
+    public SomeSafekeepingAccountRecord? SafekeepingAccount { get; init; }
+    
+    /// <summary>
+    /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
+    /// </summary>
+    [IsoId("_y24OwyqEEeyR9JrVGfaMKw")]
+    [Description(@"Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.")]
+    [DataMember(Name="BlckChainAdrOrWllt")]
+    [XmlElement(ElementName="BlckChainAdrOrWllt")]
+    public SomeBlockChainAddressOrWalletRecord? BlockChainAddressOrWallet { get; init; }
+    
+    /// <summary>
+    /// Party that legally owns the account.
+    /// </summary>
+    [IsoId("_gsUWISp0EeyR9JrVGfaMKw")]
+    [Description(@"Party that legally owns the account.")]
+    [DataMember(Name="AcctOwnr")]
+    [XmlElement(ElementName="AcctOwnr")]
+    public SomeAccountOwnerRecord? AccountOwner { get; init; }
+    
+    /// <summary>
+    ///  Provides the history of status and reasons for a pending, posted or cancelled transaction.
+    /// </summary>
+    [IsoId("_gsUWIyp0EeyR9JrVGfaMKw")]
+    [Description(@" Provides the history of status and reasons for a pending, posted or cancelled transaction.")]
+    [DataMember(Name="StsTrl")]
+    [XmlElement(ElementName="StsTrl")]
+    public SomeStatusTrailRecord? StatusTrail { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +103,8 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV05 : IOute
 }
 
 /// <summary>
-/// Scope
-/// This message is sent by the Market Infrastructure to the CSD to advise of the history of all the statuses, modifications, replacement and cancellation of a specific transaction during its whole life cycle when the instructing party is a direct participant to the Settlement Infrastructure.
-/// Usage
-/// The message may also be used to: 
-/// - re-send a message sent by the market infrastructure to the direct participant,
-/// - provide a third party with a copy of a message being sent by the market infrastructure for information,
-/// - re-send to a third party a copy of a message being sent by the market infrastructure for information using the relevant elements in the Business Application Header.
-/// This is the outer document that contains <seealso cref="SecuritiesSettlementTransactionAuditTrailReportV05"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionAuditTrailReportV05"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

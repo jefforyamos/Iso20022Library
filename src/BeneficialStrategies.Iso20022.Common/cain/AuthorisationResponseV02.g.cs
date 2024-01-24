@@ -21,7 +21,35 @@ public partial record AuthorisationResponseV02 : IOuterRecord
     public const string XmlTag = "AuthstnRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information related to the management of the protocol.
+    /// </summary>
+    [IsoId("_El96h1KoEeeXvpI8ztnTow")]
+    [Description(@"Information related to the management of the protocol.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the authorisation response.
+    /// </summary>
+    [IsoId("_El96iFKoEeeXvpI8ztnTow")]
+    [Description(@"Information related to the authorisation response.")]
+    [DataMember(Name="Body")]
+    [XmlElement(ElementName="Body")]
+    [Required]
+    public required SomeBodyRecord Body { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC
+    /// </summary>
+    [IsoId("_El96iVKoEeeXvpI8ztnTow")]
+    [Description(@"Trailer of the message containing a MAC")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record AuthorisationResponseV02 : IOuterRecord
 }
 
 /// <summary>
-/// The AuthorisationResponse message is sent by an issuer or an agent to an acquirer in response to an AuthorisationInitiation message.
-/// This is the outer document that contains <seealso cref="AuthorisationResponseV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AuthorisationResponseV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

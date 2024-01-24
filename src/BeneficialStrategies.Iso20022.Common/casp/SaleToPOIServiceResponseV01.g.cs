@@ -21,7 +21,35 @@ public partial record SaleToPOIServiceResponseV01 : IOuterRecord
     public const string XmlTag = "SaleToPOISvcRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Set of characteristics related to the transfer of the response.
+    /// </summary>
+    [IsoId("_Qjrp84YAEemxIqbaFEE8-w")]
+    [Description(@"Set of characteristics related to the transfer of the response.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the response of a service request.
+    /// </summary>
+    [IsoId("_Qjrp9YYAEemxIqbaFEE8-w")]
+    [Description(@"Information related to the response of a service request.")]
+    [DataMember(Name="SvcRspn")]
+    [XmlElement(ElementName="SvcRspn")]
+    [Required]
+    public required SomeServiceResponseRecord ServiceResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC or a digital signature.
+    /// </summary>
+    [IsoId("_Qjrp94YAEemxIqbaFEE8-w")]
+    [Description(@"Trailer of the message containing a MAC or a digital signature.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    public SomeSecurityTrailerRecord? SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -34,8 +62,8 @@ public partial record SaleToPOIServiceResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// This financial service is a response of the POI system to the Sale System after a service request.
-/// This is the outer document that contains <seealso cref="SaleToPOIServiceResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIServiceResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

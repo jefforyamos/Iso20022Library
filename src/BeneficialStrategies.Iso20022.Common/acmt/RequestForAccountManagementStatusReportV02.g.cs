@@ -24,7 +24,26 @@ public partial record RequestForAccountManagementStatusReportV02 : IOuterRecord
     public const string XmlTag = "ReqForAcctMgmtStsRptV02";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Reference that uniquely identifies a message from a business application standpoint.
+    /// </summary>
+    [IsoId("_043MrNE9Ed-BzquC8wXy7w_-809277134")]
+    [Description(@"Reference that uniquely identifies a message from a business application standpoint.")]
+    [DataMember(Name="MsgId")]
+    [XmlElement(ElementName="MsgId")]
+    [Required]
+    public required SomeMessageIdentificationRecord MessageIdentification { get; init; }
+    
+    /// <summary>
+    /// Information to identify the account management instruction for which the status is requested.
+    /// </summary>
+    [IsoId("_043MrdE9Ed-BzquC8wXy7w_2127190736")]
+    [Description(@"Information to identify the account management instruction for which the status is requested.")]
+    [DataMember(Name="ReqDtls")]
+    [XmlElement(ElementName="ReqDtls")]
+    [Required]
+    public required SomeRequestDetailsRecord RequestDetails { get; init; }
+    
     */
     
     /// <summary>
@@ -37,11 +56,8 @@ public partial record RequestForAccountManagementStatusReportV02 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// An account owner, for example, an investor or its designated agent, sends the RequestForAccountManagementStatusReport message to the account servicer, for example, a registrar, transfer agent or custodian bank to request the status of an AccountOpeningInstruction or an AccountModificationInstruction.
-/// Usage
-/// The RequestForAccountManagementStatusReport message is used to request the processing status of a previously sent AccountOpeningInstruction message or AccountModificationInstruction message for which a AccountDetailsConfirmation message has not yet been received.
-/// This is the outer document that contains <seealso cref="RequestForAccountManagementStatusReportV02"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForAccountManagementStatusReportV02"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

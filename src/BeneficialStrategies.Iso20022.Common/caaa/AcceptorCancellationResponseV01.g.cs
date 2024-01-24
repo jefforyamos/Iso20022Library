@@ -27,7 +27,36 @@ public partial record AcceptorCancellationResponseV01 : IOuterRecord
     public const string XmlTag = "AccptrCxlRspn";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Cancellation response message management information.
+    /// </summary>
+    [IsoId("_bXUntqMVEeCJ6YNENx4h-w_1580455257")]
+    [Description(@"Cancellation response message management information.")]
+    [DataMember(Name="Hdr")]
+    [XmlElement(ElementName="Hdr")]
+    [Required]
+    public required SomeHeaderRecord Header { get; init; }
+    
+    /// <summary>
+    /// Information related to the cancellation response.
+    /// </summary>
+    [IsoId("_bXUnt6MVEeCJ6YNENx4h-w_-827095491")]
+    [Description(@"Information related to the cancellation response.")]
+    [DataMember(Name="CxlRspn")]
+    [XmlElement(ElementName="CxlRspn")]
+    [Required]
+    public required SomeCancellationResponseRecord CancellationResponse { get; init; }
+    
+    /// <summary>
+    /// Trailer of the message containing a MAC.
+    /// </summary>
+    [IsoId("_bXUnuKMVEeCJ6YNENx4h-w_1794760137")]
+    [Description(@"Trailer of the message containing a MAC.")]
+    [DataMember(Name="SctyTrlr")]
+    [XmlElement(ElementName="SctyTrlr")]
+    [Required]
+    public required SomeSecurityTrailerRecord SecurityTrailer { get; init; }
+    
     */
     
     /// <summary>
@@ -40,14 +69,8 @@ public partial record AcceptorCancellationResponseV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// The AcceptorCancellationResponse message is sent by the acquirer to inform the card acceptor of the outcome of the cancellation process. The message can be sent directly to the acceptor or through an agent.
-/// Usage
-/// The AcceptorCancellationResponse message is used to indicate one of the possible outcomes of a cancellation process:
-/// - a successful cancellation;
-/// - a rejection from the acquirer for financial reasons;
-/// - a rejection from the acquirer for technical reasons.
-/// This is the outer document that contains <seealso cref="AcceptorCancellationResponseV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCancellationResponseV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]

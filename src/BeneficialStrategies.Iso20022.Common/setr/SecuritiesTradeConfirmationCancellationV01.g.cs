@@ -29,7 +29,43 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
     public const string XmlTag = "SctiesTradConfCxl";
     
     /* ------------------------------------------ Underlying data types not ready yet
-    public required string SomeProperty { get; init; }
+    /// <summary>
+    /// Information that unambiguously identifies an SecuritiesTradeConfirmationCancellation message as known by the account owner (or the instructing party acting on its behalf).
+    /// </summary>
+    [IsoId("_RJ4jMeQXEeCGktPI9k4Dlw_-1509857852")]
+    [Description(@"Information that unambiguously identifies an SecuritiesTradeConfirmationCancellation message as known by the account owner (or the instructing party acting on its behalf).")]
+    [DataMember(Name="Id")]
+    [XmlElement(ElementName="Id")]
+    [Required]
+    public required SomeIdentificationRecord Identification { get; init; }
+    
+    /// <summary>
+    /// Link to another transaction that must be processed after, before or at the same time.
+    /// </summary>
+    [IsoId("_RJ4jMuQXEeCGktPI9k4Dlw_135409583")]
+    [Description(@"Link to another transaction that must be processed after, before or at the same time.")]
+    [DataMember(Name="Refs")]
+    [XmlElement(ElementName="Refs")]
+    public SomeReferencesRecord? References { get; init; }
+    
+    /// <summary>
+    /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
+    /// </summary>
+    [IsoId("_RJ4jM-QXEeCGktPI9k4Dlw_588788110")]
+    [Description(@"Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.")]
+    [DataMember(Name="OthrBizPties")]
+    [XmlElement(ElementName="OthrBizPties")]
+    public SomeOtherBusinessPartiesRecord? OtherBusinessParties { get; init; }
+    
+    /// <summary>
+    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+    /// </summary>
+    [IsoId("_RJ4jNOQXEeCGktPI9k4Dlw_-206107615")]
+    [Description(@"Additional information that cannot be captured in the structured elements and/or any other specific block.")]
+    [DataMember(Name="SplmtryData")]
+    [XmlElement(ElementName="SplmtryData")]
+    public SomeSupplementaryDataRecord? SupplementaryData { get; init; }
+    
     */
     
     /// <summary>
@@ -42,16 +78,8 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
 }
 
 /// <summary>
-/// Scope
-/// Sent by an executing party to an instructing party directly or through Central Matching Utility (CMU) to cancel the referenced SecuritiesTradeConfirmation message that was previously sent.
-/// The instructing party is typically the investment manager or an intermediary system/vendor communicating on behalf of the investment manager or of other categories of investors.
-/// The executing party is typically the broker/dealer or an intermediary system/vendor communicating on behalf of the broker/dealer.
-/// It may also be used to cancel the trade confirmation previously sent from an executing party or an instructing party to a custodian or an affirming party directly or through CMU.
-/// The ISO 20022 Business Application Header must be used
-/// Usage
-/// Initiator: Both in local and central matching, the Initiator may be either the Executing Party or Instructing Party.
-/// Respondent: Instructing party, a custodian or an affirming party optionally responds with SecuritiesTradeConfirmationResponse (accept or reject) message.
-/// This is the outer document that contains <seealso cref="SecuritiesTradeConfirmationCancellationV01"/>.
+/// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
+/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTradeConfirmationCancellationV01"/>.
 /// </summary>
 [Serializable]
 [DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
