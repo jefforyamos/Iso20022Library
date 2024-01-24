@@ -7,5 +7,5 @@ namespace BeneficialStrategies.Iso20022.Common.Framework;
 public interface IOuterDocument<TOuterRecord>
     where TOuterRecord: IOuterRecord
 {
-    TOuterRecord Message { get; }
+    public TOuterRecord Message { get; }
 }
